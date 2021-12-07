@@ -1,200 +1,200 @@
 ---
-title: Searching for content
+title: Suchen nach Inhalten
 ---
 
-You can use the search box on the toolbar to search for files, sites, and people.
+Sie können das Suchfeld in der Symbolleiste verwenden, um nach Dateien, Sites und Personen zu suchen.
 
-Type your search into the search box, and a list of matching files, sites, and people will be shown as you type.
+Geben Sie Ihre Suche in das Suchfeld ein. Daraufhin wird eine Liste der entsprechenden Dateien, Sites und Personen während der Eingabe angezeigt.
 
-If you're in a site you can click **Search all content** or **Search in [sitename]** to search all sites or just the site you're in. Private sites that you're not a member of, and their files, aren't shown.
+Wenn Sie sich in einer Site befinden, können Sie auf **Alle Inhalte durchsuchen** oder auf **Suchen in [Sitename]** klicken, um alle Sites oder nur die Site zu durchsuchen, in der Sie sich befinden.
 
-There are lots of [search tips](#search-tips) available, including:
+Es gibt viele [Tipps für die Suche](#search-tips), wie zum Beispiel die folgenden:
 
--   Type `*` to complete a word if you don't know the full word you're searching for. For example, both `**resco*` and `*alf**` will show results for *alfresco*.
--   To search for items that contain only one of several words, use `OR` and surround your search with brackets, for example, *(big OR red)*. If you don't use brackets, search results are returned containing both *big* and *red*.
+-   Geben Sie ein Sternchen (*) ein, um ein Wort zu vervollständigen, wenn Sie nicht das ganze Wort kennen, nach dem Sie suchen. Beispiel: Bei Eingabe des Begriffs **resco* oder *alf** wird als Ergebnis gleichermaßen *alfresco* angezeigt.
+-   Um nach Elementen zu suchen, die nur eines von mehreren Wörtern enthalten, verwenden Sie 'OR', und schließen Sie die Suche in Klammern ein, z. B. *(groß OR rot)*. Wenn Sie keine Klammern verwenden, werden Suchergebnisse zurückgegeben, die sowohl *groß* als auch *rot* enthalten.
 
-The five most relevant files, sites, and people are shown, but you can click **More** to see further results.
+Die fünf relevantesten Dateien, Sites und Personen werden angezeigt. Sie können jedoch auf **Mehr** klicken, um weitere Ergebnisse anzuzeigen.
 
-You can either:
+Sie haben die folgenden Möglichkeiten:
 
--   Click on one of the results to go straight to it, or
+-   Klicken Sie auf eines der Ergebnisse, um es direkt aufzurufen, oder
 
--   Press Enter (with the cursor in the search box) to view all the [search results](#search-results) for all files found by your search.
+-   Drücken Sie die EINGABETASTE (wobei sich der Cursor im Suchfeld befindet), um alle [Suchergebnisse](#search-results) für alle durch die Suche gefundenen Dateien anzuzeigen.
 
-> **Note:** Wiki pages and blog postings are shown under along with other files. Previews aren't shown for calendar events, site-related web links, discussion topics, or data lists and list items. You need to press Enter to search for them.
+> **Hinweis:** Wiki-Seiten und Blogbeiträge werden zusammen mit anderen Dateien angezeigt. Für Kalenderereignisse, standortbezogene Weblinks, Diskussionsthemen oder Datenlisten und Listenelemente wird keine Vorschau angezeigt. Sie müssen die EINGABETASTE drücken, um danach zu suchen.
 
-## Search results {#search-results}
+## Suchergebnisse {#search-results}
 
-If you press Enter in the Search box then all the files and folders found by your search are shown.
+Wenn Sie im Suchfeld auf die EINGABETASTE drücken, werden alle von der Suche gefundenen Dateien und Ordner angezeigt.
 
-You can now:
+Folgende Optionen sind nun verfügbar:
 
--   Click on a result thumbnail to preview it.
--   Click on a result name to open it.
+-   Klicken Sie auf die Miniaturansicht eines Ergebnisses, um eine Vorschau anzuzeigen.
+-   Klicken Sie auf einen Ergebnisnamen, um ihn zu öffnen.
 
--   Click on one or more of the filter options to switch them on and off and narrow down the search results.
+-   Klicken Sie auf eine oder mehrere Filteroptionen, um sie zu aktivieren bzw. zu deaktivieren und die Suchergebnisse einzugrenzen.
 
--   Hover over a result and click **Actions** and select an option from the menu.
+-   Führen Sie den Mauszeiger über ein Ergebnis. Klicken Sie anschließend auf **Aktionen** und wählen Sie eine Option aus dem Menü aus.
 
--   Select multiple results and click **Selected Items** to select an action option.
+-   Wählen Sie mehrere Ergebnisse aus, und klicken Sie auf **Ausgewählte Elemente**, um eine Aktionsoption auszuwählen.
 
-    >**Tip:** The main file actions are available here, but you may find more options available when you preview the file.
+    >**Tipp:** Hier sind die wichtigsten Aktionen für Dateien verfügbar. Wenn Sie die Datei als Vorschau anzeigen, sind möglicherweise weitere Optionen verfügbar.
 
-    You can delete a file this way but the search results won't be updated until you run a new search.
+    Sie können eine Datei auf diese Weise löschen. Die Suchergebnisse werden jedoch erst aktualisiert, wenn Sie eine neue Suche durchführen.
 
-> **Note:** Click the **Search in** menu to search in all sites or just in the site you're in.
+> **Hinweis:** Klicken Sie auf das Menü **Suchen in**, um in allen Sites oder nur in der Site zu suchen, in der Sie sich gerade befinden.
 
-If you're a [Search Manager]({% link content-services/5.2/admin/share-admin-tools.md %}#search-manager) super user then you'll have an additional **Search Manager** option you can click where you can create new search filters.
+Wenn Sie als Superuser [Search Manager]({% link content-services/5.2/admin/share-admin-tools.md %}#search-manager) sind, steht Ihnen zusätzlich die Option **Suchmanager** zur Verfügung, mit der Sie neue Suchfilter erstellen können.
 
-As well as the search box on the toolbar, there are also additional advanced search features for finding [people](#using-the-people-finder), [sites](#using-the-site-finder), and [content](#using-the-advanced-search).
+Neben dem Suchfeld in der Symbolleiste gibt es auch zusätzliche erweiterte Suchfunktionen zum Suchen nach [Personen](#using-the-people-finder), [Sites](#using-the-site-finder) und [Inhalt](#using-the-advanced-search).
 
->**Tip:** If a file is a Microsoft Office, PDF, or other text-based file type (not an image or video) then you can also click ![Advanced Search icon]({% link content-services/images/advanced-search-icon.png %}) on the file preview to search for text in the file.
+>**Tipp:** Wenn es sich bei einer Datei um einen Microsoft Office-, PDF- oder einen anderen textbasierten Dateityp handelt (nicht um ein Bild oder Video), können Sie in der Dateivorschau auch auf ![Advanced Search icon]({% link content-services/images/advanced-search-icon.png %}) klicken, um nach Text in der Datei zu suchen.
 
-## Search tips {#search-tips}
+## Tipps für die Suche {#search-tips}
 
-There are multiple options you can use to make your search more specific.
+Es gibt mehrere Möglichkeiten, wie Sie eine Suche genauer definieren können.
 
-> **Note:** File and folder names have additional search support for product names, product codes, camel case word extraction, general file naming conventions and more.
+> **Hinweis:** Datei- und Ordnernamen bieten zusätzliche Unterstützung bei der Suche anhand von Produktnamen, Produktcodes, Extraktion von Wörtern mit gemischter Groß-/Kleinschreibung, allgemeinen Dateinamenskonventionen und mehr.
 
-|To search for|Enter the search criteria|This searches|
+|Zum Suchen nach|Geben Sie Ihre Suchkriterien ein|Folgendes wird durchsucht|
 |-------------|-------------------------|-------------|
-|the word *banana* anywhere it exists|`banana`<br><br>or<br><br>`=banana`|names, titles, descriptions, and content.|
-|the exact phrase *banana peel* anywhere it exists|`banana peel`|names, titles, descriptions, and content.|
-|the words *banana*, *peel*, and *slippery* where they all appear together in any order or position|`banana AND peel AND slippery`|names, titles, descriptions, and content.|
-|content containing any of the words *banana*, *peel*, and *slippery*|`banana peel slippery` <br><br>or<br><br>`banana OR peel OR slippery`|names, titles, descriptions, and content.|
-|the word *banana* where it is used in a title|`title:banana`|titles.|
-|the word *banana* where it is used in a name|`name:banana`|names of folders and content items in the library; wiki page titles.|
-|the word *banana* where it is used in the description|`description:banana`|descriptions of folders and content items in the library; descriptions of data lists.|
-|the word *banana* where it is used in site content|`TEXT:banana`|wiki pages, blog postings, content items, and discussion items and replies.|
-|content created on September 26, 2011|`created:"2011-09-26"`|wiki pages, blog postings, library folders, content items, events, links, discussion topics, and data lists. You can search just by year, or go down to month and day level.|
-|content created between September 26 and September 30, 2011|`created:["2011-09-26" to "2011-09-30"]`|wiki pages, blog postings, library folders, content items, events, links, discussion topics, and data lists. You can search just by year, or go down to month and day level.|
-|any content modified on September 26, 2011|`modified:"2011-09-26"`|wiki pages, blog postings, library folders, content items, events, links, discussion topics, and data lists. You can search just by year, or go down to month and day level.|
-|any content modified between September 26 and September 30, 2011|`modified:["2011-09-26" to "2011-09-30"]`|wiki pages, blog postings, library folders, content items, events, links, discussion topics, and data lists. You can search just by year, or go down to month and day level.|
-|any content created by a specific user|`creator:<username>`|wiki pages, blog postings, library folders, content items, events, links, discussion topics, and data lists.|
-|any content modified by a specific user|`modifier:<username>`|wiki pages, blog postings, library folders, content items, events, links, discussion topics, and data lists.|
-|any content containing the letter sequence *use*. The results returned will include references to *use*, *user*, *reuse*, etc.|`TEXT:*use*`|wiki pages, blog postings, library folders, content items, and discussion topics.|
+|dem Wort Banane überall dort, wo es vorhanden ist|'Banane'<br><br>oder<br><br>'=Banane'|Namen, Titel, Beschreibungen und Inhalte.|
+|dem genauen Begriff *Bananenschale* überall dort, wo er vorhanden ist|'Bananenschale'|Namen, Titel, Beschreibungen und Inhalte.|
+|den Wörtern *Banane*, *Schale* und *glitschig* überall dort, wo diese Wörter zusammen in beliebiger Reihenfolge oder Position auftreten|'Banane AND Schale AND glitschig'|Namen, Titel, Beschreibungen und Inhalte.|
+|Inhalt, der eines der Wörter *Banane*, *Schale* und *glitschig* enthält|'Banane, Schale und glitschig' <br><br>oder<br><br>'Banane ODER Schale ODER glitschig'|Namen, Titel, Beschreibungen und Inhalte.|
+|dem Wort *Banane* überall dort, wo es in einem Titel verwendet wird|'title:Banane'|Titel.|
+|dem Wort *Banane* überall dort, wo es in einem Namen verwendet wird|'name:Banane'|Namen von Ordnern und Inhaltselementen in der Bibliothek; Wiki-Seitenüberschriften.|
+|dem Wort *Banane* überall dort, wo es in einer Beschreibung verwendet wird|'description:Banane'|Beschreibungen von Ordnern und Inhaltselementen in der Bibliothek; Beschreibungen von Datenlisten.|
+|dem Wort Banane überall dort, wo es im Site-Inhalt verwendet wird|'TEXT:Banane'|Wiki-Seiten, Blogbeiträge, Inhaltselemente, und Diskussionsthemen und Antworten.|
+|Inhalt, der am 26. September 2011 erstellt wurde|'created:"2011-09-26"'|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links, Diskussionsthemen und Datenlisten. Sie können nur nach dem Jahr suchen oder auch nach Monat und Tag.|
+|Inhalt, der zwischen dem 26. September und dem 30. September 2011 erstellt wurde|'created:["2011-09-26" to "2011-09-30"]'|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links, Diskussionsthemen und Datenlisten. Sie können nur nach dem Jahr suchen oder auch nach Monat und Tag.|
+|allen Inhalten, die am 26. September 2011 geändert wurden|'modified:"2011-09-26"'|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links, Diskussionsthemen und Datenlisten. Sie können nur nach dem Jahr suchen oder auch nach Monat und Tag.|
+|allen Inhalten, die zwischen dem 26. September und dem 30. September 2011 geändert wurden|'modified:["2011-09-26" to "2011-09-30"]'|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links, Diskussionsthemen und Datenlisten. Sie können nur nach dem Jahr suchen oder auch nach Monat und Tag.|
+|Inhalten, die von einem bestimmten Benutzer erstellt wurden|'creator:<username>'|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links, Diskussionsthemen und Datenlisten.|
+|Inhalten, die von einem bestimmten Benutzer geändert wurden|'modifier:<username>'|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links, Diskussionsthemen und Datenlisten.|
+|allen Inhalten, die die Buchstabenfolge *verwend* enthalten. Die zurückgegebenen Ergebnisse enthalten Verweise auf *verwenden*, *Verwendung*, *Wiederverwendung* usw.|'TEXT:*verwend*'|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links und Diskussionsthemen.|
 
-## Using the Site Finder {#using-the-site-finder}
+## Verwenden des Site-Finders {#using-the-site-finder}
 
-You can search for sites using the search box on the toolbar or you can use the Site Finder to get more detailed site information.
+Sie können über das Suchfeld in der Symbolleiste nach Sites suchen oder detailliertere Site-Informationen über den Site-Finder abrufen.
 
-From the search results you can navigate to a site, join or leave sites, and delete a site (managers only).
+Sie können über die Suchergebnisse zu einer Site navigieren, Sites beitreten bzw. verlassen oder eine Site löschen (nur Manager).
 
-1.  Open the **Sites** menu and click **Site Finder**.
+1.  Öffnen Sie das Menü **Sites** und klicken Sie auf **Site-Finder**.
 
-2.  Type a full or partial site name in the search box.
+2.  Geben Sie den vollständigen Namen oder einen Teil des Site-Namens in das Suchfeld ein.
 
-    >**Tip:** Leave the search box empty to display all sites you have permission to access.
+    >**Tipp:** Lassen Sie das Suchfeld leer, um alle Sites anzuzeigen, auf die Sie zugreifen können.
 
-    The search looks for sites starting with your search criteria, so entering the search criteria awe won't find the site *Project Awesome*. If you add `*`, so your search criteria is `*awe`, then you will find the site.
+    Im Rahmen des Suchvorgangs werden zunächst Sites gesucht, die Ihren Suchkriterien entsprechen – bei Eingabe des Suchkriteriums *awe* wird die Site *Project Awesome* jedoch nicht gefunden. Fügen Sie stattdessen das Zeichen * zu Ihren Suchkriterien hinzu (*awe), damit die Suche nach der Site erfolgreich ist.
 
-3.  Click **Search**.
+3.  Klicken Sie auf **Suchen**.
 
-    A list of sites matching your criteria is shown. This list includes public sites, moderated public sites, sites you created, and private sites that you belong to. To the right of a site, the actions **Join** and **Request to Join** indicate you are not a site member; the action **Leave** indicates you are a site member.
+    Eine Liste der Sites, die Ihren Kriterien entsprechen, wird angezeigt. Diese Liste enthält öffentliche Sites, moderierte öffentliche Sites, von Ihnen erstellte Sites und private Sites, den Sie zugeordnet sind. Die Aktionen **Beitreten** und **Beitritt beantragen** rechts neben einer Site zeigen an, dass Sie kein Site-Mitglied sind; die Aktion **Verlassen** zeigt an, dass Sie ein Site-Mitglied sind.
 
-## Using the People Finder {#using-the-people-finder}
+## Verwenden des Mitarbeiter-Finders {#using-the-people-finder}
 
-You can search for people using the search box on the toolbar or you can use the People Finder to get more detailed user information.
+Sie können über das Suchfeld in der Symbolleiste nach Personen suchen oder detailliertere Benutzerinformationen über den Mitarbeiter-Finder abrufen.
 
-When you find the user you are looking for you can use the Follow/Unfollow option. You can also view their user profile.
+Aktivieren Sie, nachdem Sie den gewünschten Benutzer gefunden haben, die Option **Folgen/Nicht mehr folgen** (optional). Außerdem haben Sie die Möglichkeit, das zugehörige Benutzerprofil anzuzeigen.
 
-1.  Click **People** on the toolbar.
+1.  Klicken Sie in der Symbolleiste auf **Mitarbeiter**.
 
-2.  Type a full or partial name in the search box.
+2.  Geben Sie den vollständigen Namen oder einen Teil des Namens in das Suchfeld ein.
 
-    You must enter at least one character. The search is not case sensitive.
+    Sie müssen mindestens ein Zeichen eingeben. Bei der Suche wird nicht zwischen Groß- und Kleinschreibung unterschieden.
 
-    The search looks for user names starting with your search criteria, so entering the search criteria 1 won't find the user User1. If you add `*`, so your search criteria is `*1`, then you will find the user.
+    Im Rahmen des Suchvorgangs werden zunächst Benutzernamen gesucht, die Ihren Suchkriterien entsprechen – bei Eingabe des Suchkriteriums 1 wird Benutzer1 jedoch nicht gefunden. Fügen Sie stattdessen das Zeichen * zu Ihren Suchkriterien hinzu (*1), damit die Suche nach dem Benutzer erfolgreich ist.
 
-    > **Note:** See the search tips provided on the People Finder page to perform more complex searches.
+    > **Hinweis:** Lesen Sie die Suchtipps auf der Seite **Mitarbeiter-Finder** für komplexere Suchvorgänge.
 
-3.  Click **Search**.
+3.  Klicken Sie auf **Suchen**.
 
-4.  In the results list, click a user name to display that user's profile.
+4.  Klicken Sie in der Ergebnisliste auf einen Benutzernamen, um das Profil dieses Benutzers anzuzeigen.
 
-## Reviewing a user profile {#reviewing-a-user-profile}
+## Überprüfen eines Benutzerprofils {#reviewing-a-user-profile}
 
-When you search for a user, you can view their profile details.
+Wenn Sie nach einem Benutzer suchen, können Sie dessen Profildetails einsehen.
 
-The profile details are organized across several pages:
+Die Profildetails sind über mehrere Seiten verteilt:
 
 -   **Info**
 
-    Displays the user's personal details, including contact information, company details, and a photo.
+    Zeigt die persönlichen Daten des Benutzers an, einschließlich Kontaktinformationen, Firmendaten und ein Foto.
 
 -   **Sites**
 
-    Lists the sites the user belongs to.
+    Listet die Sites auf, zu denen der Benutzer gehört.
 
--   **Content**
+-   **Inhalt**
 
-    Displays two lists detailing the user's recent site activities.
+    Zeigt zwei Listen mit den letzten Aktivitäten des Benutzers an.
 
-    The **Recently added** list displays the last three pieces of content that the user added to any site. This includes wiki pages, blog postings, library content, and discussion items. The **Recently modified** list displays the last three pieces of content the user edited.
+    Die Liste **Kürzlich hinzugefügt** zeigt die letzten drei Inhalte an, die der Benutzer zu einer beliebigen Site hinzugefügt hat. Dazu gehören Wiki-Seiten, Blogbeiträge, Bibliotheksinhalte und Diskussionsbeiträge. Die Liste **Kürzlich geändert** zeigt die letzten drei Inhalte an, die der Benutzer bearbeitet hat.
 
--   **Following (#)**
+-   **Folgen (#)**
 
-    Displays a list of people the user is following.
+    Zeigt eine Liste der Personen an, denen der Benutzer folgt.
 
-    The number to the right of the page label indicates how many people are currently being followed by this user. If the user has marked their list as private, this page will not appear in the profile.
+    Die Zahl rechts neben dem Seitenlabel gibt an, wie vielen Personen dieser Benutzer gerade folgt. Wenn der Benutzer seine Liste als privat markiert hat, wird diese Seite nicht im Profil angezeigt.
 
-> **Note:** When you view a user's profile, these pages display only the sites and content that you have permission to view.
+> **Hinweis:** Wenn Sie das Profil eines Benutzers anzeigen, werden auf diesen Seiten nur die Sites und Inhalte angezeigt, für die Sie die Berechtigung zum Anzeigen haben.
 
-## Using the Advanced Search {#using-the-advanced-search}
+## Verwenden der Option **Erweiterte Suche** {#using-the-advanced-search}
 
-Use the search box in the toolbar to access the advanced search.
+Verwenden Sie das Suchfeld in der Symbolleiste, um auf die erweiterte Suche zuzugreifen.
 
-1.  Click ![Advanced Search icon]({% link content-services/images/advanced-search-icon.png %}) in the search box then click **Advanced Search**.
+1.  Klicken Sie im Suchfeld auf ![Advanced Search icon]({% link content-services/images/advanced-search-icon.png %}) und anschließend auf **Erweiterte Suche**.
 
-    The Advanced Search screen displays.
+    Der Bildschirm **Erweiterte Suche** wird angezeigt.
 
-2.  Choose a search type:
+2.  Wählen Sie einen Suchtyp aus:
 
-    -   **Content**: Searches for all types of content
-    -   **Folders**: Searches for all folders and containers, such as library folders and data lists
+    -   **Inhalt**: Sucht nach allen Arten von Inhalten
+    -   **Ordner**: Sucht nach allen Ordnern und Containern, z. B. Bibliotheksordnern und Datenlisten
 
-3.  Enter your search criteria.
+3.  Geben Sie Ihre Suchkriterien ein.
 
-    To search by modification date, click the calendar icon to select a date from a calendar.
+    Klicken Sie bei der Suche nach dem Änderungsdatum auf das Kalendersymbol, um ein Datum aus einem Kalender auszuwählen.
 
-    To search by the user who last modified the content, enter the appropriate user name in the **Modifier** field.
+    Geben Sie bei der Suche nach dem Benutzer, der den Inhalt zuletzt geändert hat, den entsprechenden Benutzernamen in das Feld **Bearbeiter** ein.
 
-    >**Tip:** You can type `*` to complete a word if you don't know the full word you're searching for. For example, both `**resco*` and `*alf**` will show results for *alfresco*..
+    >**Tipp:** Sie können zur Vervollständigung eines Suchbegriffs ein Sternzeichen (*) eingeben, wenn Sie den vollständigen Begriff nicht kennen. Beispiel: Bei Eingabe des Begriffs **resco* oder *alf** wird als Ergebnis gleichermaßen *alfresco* angezeigt.
 
-4.  Click **Search**.
+4.  Klicken Sie auf **Suchen**.
 
-    All the files and folders found by your search are shown. You can now:
+    Es werden alle Dateien und Ordner angezeigt, die im Rahmen des Suchvorgangs gefunden wurden. Folgende Optionen sind nun verfügbar:
 
-    -   Click on a result to open it.
+    -   Klicken Sie auf ein Ergebnis, um es zu öffnen.
 
-    -   Click on one or more of the filter options to switch them on and off and narrow down the search results.
+    -   Klicken Sie auf eine oder mehrere Filteroptionen, um sie zu aktivieren bzw. zu deaktivieren und die Suchergebnisse einzugrenzen.
 
-    -   Hover over a result and click **Actions** and select an option from the menu.
+    -   Führen Sie den Mauszeiger über ein Ergebnis. Klicken Sie anschließend auf **Aktionen** und wählen Sie eine Option aus dem Menü aus.
 
-        >**Tip:** You can delete a file this way but the search results won't be updated until you run a new search.
+        >**Tipp:** Sie können eine Datei auf diese Weise löschen. Die Suchergebnisse werden jedoch erst aktualisiert, wenn Sie eine neue Suche durchführen.
 
-## Following users {#following-users}
+## Folgen von Benutzern {#following-users}
 
-There can be many users of a system, so it is likely that there will be some users whose activities will be of more importance to you. You can choose to follow these users so that you can easily keep track of what they've been doing.
+Es kann zahlreiche Benutzer für ein System geben, sodass es mit großer Wahrscheinlichkeit einige Benutzer gibt, deren Aktivitäten für Sie wichtiger sind als andere. Sie können diesen Benutzern folgen, um deren Aktivitäten einfach zu verfolgen.
 
-1.  Click **Site Dashboard**.
+1.  Klicken Sie auf **Site-Dashboard**.
 
-2.  Click the sorting menu on the Site Activities dashlet.
+2.  Klicken Sie auf dem Dashlet **Site-Aktivitäten** auf das Sortiermenü.
 
-    By default it shows **Everyone's activities**, but you can see that there are other options available including to only show activity from people **I'm following** and to show **My activites**.
+    Standardmäßig wird **Alle Aktivitäten** angezeigt, aber es sind hier auch andere Optionen verfügbar, einschließlich der Option, nur Aktivitäten von Personen anzuzeigen, für die Sie **Ich folge** gewählt haben, und der Option zur Anzeige von **Meine Aktivitäten**.
 
-    To follow another user you just need to visit their profile. You can do this by clicking on their name in the Site Activities dashlet or by searching for them in the **People** area of the site.
+    Um einem anderen Benutzer zu folgen, müssen Sie lediglich dessen Profil besuchen. Klicken Sie hierzu im Dashlet **Site-Aktivitäten** auf deren Namen oder suchen Sie sie im Bereich **Mitarbeiter** der Site.
 
-3.  Click **People** at the top of the site dashboard.
+3.  Klicken Sie oben im Site-Dashboard auf **Mitarbeiter**.
 
-    This opens the People Finder where you can search for other site members.
+    Hiermit wird der Mitarbeiter-Finder aufgerufen, in dem Sie nach anderen Site-Mitgliedern suchen können.
 
-4.  Type "a" in the search field and click **Search**.
+4.  Geben Sie **a** in das Suchfeld ein und klicken Sie auf **Suchen**.
 
-    All users containing the letter "a" in their name are displayed.
+    Es werden alle Benutzer angezeigt, deren Namen den Buchstaben **a** enthalten.
 
-5.  Click the **Follow** button next to a user and you are now following the user.
+5.  Klicken Sie neben einem Benutzer auf die Schaltfläche **Folgen**. Sie folgen nun diesem Benutzer.
 
-6.  Click your name at the top of the screen, then **My Profile**.
+6.  Klicken Sie oben im Bildschirm auf Ihren Namen und dann auf **Mein Profil**.
 
-You'll see that the top of the page shows how many people you're following.
+Oben in der Seite wird die Anzahl der Mitarbeiter angezeigt, denen Sie folgen.

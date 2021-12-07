@@ -1,345 +1,345 @@
 ---
-title: Applying rules to folders
+title: Anwenden von Regeln auf Ordner
 ---
 
-In the library you can define folder rules to manage your content automatically. You can come up with many creative solutions to make sure specific content processes are automated all without you having to do the work yourself.
+Sie können in der Bibliothek Ordnerregeln definieren, um Inhalte automatisch zu verwalten. Sie können viele kreative Lösungen entwickeln, um sicherzustellen, dass bestimmte Inhaltsprozesse automatisiert werden, ohne dass Sie die Arbeit selbst erledigen müssen.
 
-Rules dictate how content entering, leaving, or currently residing in a folder is managed.
+Regeln legen fest, wie Inhalte verwaltet werden, die in einen Ordner eingefügt oder daraus entnommen werden, oder die sich derzeit in einem Ordner befinden.
 
-There are three parts to a content rule:
+Eine Inhaltsregel besteht aus drei Teilen:
 
--   The event that triggers the rule
--   The conditions the content has to meet
--   The action performed on the content
+-   Das Ereignis, das die Regel auslöst.
+-   Die Bedingungen, die der Inhalt erfüllen muss.
+-   Die Aktion, die für den Inhalt durchgeführt wird.
 
-The events that can trigger a rule are:
+Die folgenden Ereignisse können eine Regel auslösen:
 
--   A content item arrives in the folder
--   A content item leaves the folder (it's moved or deleted)
--   A content item in the folder is modified
+-   Ein Inhaltselement wird in den Ordner eingefügt.
+-   Ein Inhaltselement wird aus dem Ordner entnommen (es wird verschoben oder gelöscht).
+-   Ein Inhaltselement im Ordner wird geändert.
 
-Here are some examples of how you can use rules to automate repetitive tasks:
+Nachfolgend finden Sie einige Beispiele, wie Sie Regeln zur Automatisierung sich wiederholender Aufgaben verwenden können:
 
--   All files placed in the *Drafts* folder are versioned
--   All files placed in the *Drafts* folder become part of a simple workflow
--   All files placed in the *Completed* folder that have the tag *final* will be moved to the folder *Archived*
--   All GIF files placed in the *Images* folder will be transformed to PNG files
--   All presentation documents placed in the *Published* folder will be transformed to Flash and copied to the *Assets* folder
+-   Alle Dateien, die sich im Ordner *Entwürfe* befinden, werden versioniert.
+-   Alle Dateien, die sich im Ordner *Entwürfe* befinden, werden Teil eines einfachen Workflows.
+-   Alle Dateien, die sich im Ordner *Abgeschlossen* befinden und das Tag *final* haben, werden in den Ordner *Archiviert* verschoben.
+-   Alle GIF-Dateien, die sich im Ordner *Bilder* befinden, werden in PNG-Dateien umgewandelt.
+-   Alle Präsentationsdokumente, die sich im Ordner *Publiziert* befinden, werden in Flash umgewandelt und in den Ordner *Assets* kopiert.
 
-## Defining rules for a folder {#defining-rules-for-a-folder}
+## Definieren von Regeln für einen Ordner {#defining-rules-for-a-folder}
 
-Use folder rules to manage your files automatically. There are two ways to define rules: create your own rules or link to rules already created for a different folder.
+Verwenden Sie Ordnerregeln zur automatischen Verwaltung Ihrer Dateien. Es gibt zwei Möglichkeiten, Regeln zu definieren: Erstellen eigener Regeln oder Herstellen eines Links zu bereits für einen anderen Ordner erstellten Regeln.
 
-When you define a rule, it only applies to new content added to the folder. Files that were in the folder before the rule was defined aren't affected by it. You can manually apply the folder rules with the **Run Rules** action.
+Wenn Sie eine Regel definieren, gilt sie nur für dem Ordner hinzugefügte neue Inhalte. Dateien, die bereits vor der Definition der Regel im Ordner enthalten waren, sind davon nicht betroffen. Sie können die Ordnerregeln mit der Aktion **Regeln ausführen** manuell anwenden.
 
-> **Note:** Even if the folder doesn't have its own rules, it could have inherited rules from a parent folder. A message on the Rules page lets you know if this is the case.
+> **Hinweis:** Selbst wenn der Ordner über keine eigenen Regeln verfügt, kann er Regeln von einem übergeordneten Ordner erben. In diesem Fall wird auf der Seite mit den Regeln eine entsprechende Meldung angezeigt.
 
-## Creating a rule {#creating-a-rule}
+## Erstellen von Regeln {#creating-a-rule}
 
-You can create rules for a folder, in much the same way that you might apply rules to your emails.
+Sie können Regeln für einen Ordner mehr oder weniger genauso erstellen, wie Sie Regeln für Ihre E-Mails erstellen.
 
-> **Note:** If a folder already has rules applied to it (indicated by the ![]({% link content-services/images/rules-icon.png %}) icon) you can add new rules to it by [adding a set of rules](#adding-to-a-set-of-rules).
+> **Hinweis:** Sind einem Ordner bereits Regeln zugewiesen (gekennzeichnet durch das Symbol []({% link content-services/images/rules-icon.png %}), können Sie ihm neue Regeln hinzufügen, indem Sie [einen Satz Regeln hinzufügen](#adding-to-a-set-of-rules).
 
-1.  Hover over a folder with no rules applied and click **More** then **Manage Rules**.
+1.  Verschieben Sie den Mauszeiger auf einen Ordner ohne Regeln und klicken Sie auf **Mehr** und dann auf **Regeln verwalten**.
 
-2.  Click **Create Rules**.
+2.  Klicken Sie auf **Regeln erstellen**.
 
-3.  Enter a name and a description (optional) for the rule.
+3.  Geben Sie einen Namen und eine Beschreibung (optional) für die Regel ein.
 
-4.  Select when the rule will be triggered:
+4.  Legen Sie fest, wann die Regel ausgelöst wird.
 
-    -   **Items are created or enter this folder**: The rule will be applied to content that gets added to this folder. This includes any item that is copied to, created in, or uploaded to the folder.
-    -   **Items are updated**: When an item in this folder is modified, the rule will be applied to it.
-    -   **Items are deleted or leave this folder**: The rule will be applied to content that is moved out of the folder or deleted.
-    > **Note:** A rule can have more than one event, condition, and action. Click the + or - to add or remove rows.
+    -   **Objekte werden hier erstellt oder hierhin verschoben**: Die Regel wird auf Inhalte angewendet, die diesem Ordner hinzugefügt werden. Dies umfasst alle Elemente, die in den Ordner kopiert oder hochgeladen beziehungsweise in diesem erstellt werden.
+    -   **Objekte werden aktualisiert**: Wenn ein Element in diesem Ordner geändert wird, wird die Regel darauf angewendet.
+    -   **Objekte werden gelöscht oder aus diesem Ordner verschoben**: Die Regel wird auf Inhalte angewendet, die aus dem Ordner verschoben oder gelöscht werden.
+    > **Hinweis:** Eine Regel kann über mehrere Ereignisse, Bedingungen und Aktionen verfügen. Klicken Sie auf **+** oder auf **-**, um Zeilen hinzuzufügen oder zu entfernen.
 
-5.  Select if the rule will be applied **If all criteria are met**, **Unless all criteria are met**, or both.
+5.  Wählen Sie aus, ob die Regel angewendet wird, **wenn alle Kriterien erfüllt sind**, **wenn nicht alle Kriterien erfüllt sind** oder in beiden Fällen.
 
-    Here are 3 examples of conditions that you could apply to trigger a rule:
+    Nachstehend sehen Sie drei Beispiele für Bedingungen, die zum Auslösen einer Regel angewendet werden könnten:
 
-    -   The rule is applied if the item title contains the word 'urgent' (**If all criteria are met**)
-    -   The rule is applied if the item title does not contain the word 'urgent' (**Unless all criteria are met**)
-    -   The rule is applied if the item title contains the word 'urgent', unless the item was created before a specified date (**If all criteria are met** and **Unless all criteria are met**)
-6.  Select criteria for which content the rule will apply to, and remember that you can use the + and - icons to add and remove extra criteria.
+    -   Die Regel wird angewendet, wenn der Elementtitel das Wort **dringend** enthält (**Wenn alle Kriterien erfüllt sind**).
+    -   Die Regel wird angewendet, wenn der Elementtitel nicht das Wort **dringend** enthält (**Wenn nicht alle Kriterien erfüllt sind**).
+    -   Die Regel wird angewendet, wenn der Elementtitel das Wort **dringend** enthält, es sei denn, das Element wurde vor einem bestimmten Datum erstellt (**Wenn alle Kriterien erfüllt sind** und **Wenn nicht alle Kriterien erfüllt sind**).
+6.  Wählen Sie Kriterien für den Inhalt aus, auf den die Regel angewendet wird, und bedenken Sie dabei, dass Sie mit den Symbolen **+** und **-** zusätzliche Kriterien hinzufügen und entfernen können.
 
-    > **Note:** Selecting **Show more** on the criteria menu gives you additional properties to choose from. Use the folders on the Select property page to search properties, then select a property on the right of the page. Selecting **Show in menu** shows the property in all condition lists for the current rule.
+    > **Hinweis:** Wenn Sie im Kriterienmenü die Option **Mehr anzeigen** wählen, stehen Ihnen zusätzliche Eigenschaften zur Auswahl. Verwenden Sie die Ordner auf der Seite **Eigenschaft auswählen**, um nach Eigenschaften zu suchen, und wählen Sie dann rechts auf der Seite eine Eigenschaft aus. Bei Auswahl von **In Menü anzeigen** wird die Eigenschaft in allen Bedingungslisten für die aktuelle Regel angezeigt.
 
-7.  Select the [rule action](#rule-actions) you want performed when the conditions are met.
+7.  Wählen Sie die [Regelaktion](#rule-actions) aus, die bei Erfüllung der Bedingungen ausgeführt werden soll.
 
-    When you've selected an action you then need to select further options, for example if you select to copy or move items click **Select** to specify where the content will be copied or moved to.
+    Wenn Sie eine Aktion ausgewählt haben, müssen Sie anschließend weitere Optionen auswählen, z. B. wenn Sie Elemente kopieren oder verschieben möchten, klicken Sie auf **Auswählen**, um festzulegen, wohin der Inhalt kopiert oder verschoben werden soll.
 
-    >**Tip:** The **Copy** option copies items in the folder only, not the contents of any sub-folders. Select the additional **Deep Copy** option if you want to also copy sub-folders and their contents.
+    >**Tipp:** Mit der Option **Kopieren** werden nur Elemente im Ordner und nicht der Inhalt von Unterordnern kopiert. Wählen Sie die zusätzliche Option **Deep Copy** aus, wenn Sie auch Unterordner und deren Inhalt kopieren möchten.
 
-    > **Note:** The ![]({% link content-services/images/im-missinginfo.png %}) icon indicates where any required information is missing from your condition or action.
+    > **Hinweis:** Das Symbol ![]({% link content-services/images/im-missinginfo.png %}) gibt an, wo in Ihrer Bedingung oder Aktion eine erforderliche Angabe fehlt.
 
-8.  Select additional options:
+8.  Wählen Sie zusätzliche Optionen aus:
 
-    -   **Disable rule**: Switch off the rule.
-    -   **Rule applies to subfolders**: Apply the rule to this folder and all its subfolders.
-    -   **Run rule in background** Lets you continue working while the rule is running. You can also select an action to run if an error occurs with the rule. These actions are set up by your Alfresco administrator.
-9.  Click **Create**, or **Create and Create Another** to save this rule and start creating another.
+    -   **Regel abschalten**: Schalten Sie die Regel aus.
+    -   **Regel trifft auf Unterordner zu**: Wenden Sie die Regel auf diesen Ordner und alle dazugehörigen Unterordner an.
+    -   **Regel im Hintergrund ausführen**: Ermöglicht es Ihnen, während der Ausführung der Regel weiterzuarbeiten. Sie können auch eine Aktion ausführen, wenn bei der Regel ein Fehler auftritt. Diese Aktionen werden von Ihrem Alfresco-Administrator eingerichtet.
+9.  Klicken Sie auf **Erstellen** oder **Erstellen und eine weitere erstellen**, um diese Regel zu speichern und mit der Erstellung einer weiteren Regel zu beginnen.
 
-## Rule actions {#rule-actions}
+## Aktionen für Regeln {#rule-actions}
 
-When you're setting up a rule in Alfresco Share there are lots of default actions available.
+Wenn Sie in Alfresco Share eine Regel einrichten, stehen Ihnen viele Standardaktionen zur Verfügung.
 
-Selected actions are performed on files that meet the criteria of the event and conditions that you've selected.
+Ausgewählte Aktionen werden für Dateien ausgeführt, die den Kriterien des Ereignisses und den von Ihnen ausgewählten Bedingungen entsprechen.
 
-Actions don't apply to files in subfolders, unless the **Rule applies to subfolders** option is selected before a rule is created.
+Aktionen werden nicht auf Dateien in Unterordnern angewendet, es sei denn, die Option **Regel trifft auf Unterordner zu** ist ausgewählt, bevor eine Regel erstellt wird.
 
-> **Note:** Additional rule actions are available with modules such as Alfresco Records Management, or if they've been set up by your Alfresco administrator.
+> **Hinweis:** Zusätzliche Regelaktionen sind mit Modulen wie Alfresco Records Management verfügbar, oder auch dann, wenn sie von Ihrem Alfresco-Administrator eingerichtet wurden.
 
-|Action|What the action does|
+|Aktion|Funktionsweise der Aktion|
 |------|--------------------|
-|**Execute script**|Runs a custom JavaScript script from the Data Dictionary/Scripts folder. There are a number of sample scripts available. The list can vary depending on how Alfresco Content Services is configured for your organization.|
-|**Copy**|Creates copies of files in the location of your choice. Select the additional **Deep Copy** option if you want to also copy sub-folders and their contents.|
-|**Move**|Moves all files and subfolders to the location of your choice.|
-|**Check in**|Files that are currently checked out will be checked in. For example, they will be checked in before being moved to another folder. Select **Options** to choose whether they will be checked in as minor or major versions.|
-|**Check out**|Checks out files automatically, with a working copy created in the location of your choice.|
-|**Link to category**|Links files or folders to a category of your choice, such as a region or classification. See [Tagging and categorizing content]({% link content-services/5.2-de/using/content/manage.md %}#tagging-and-categorizing-content) for more.|
-|**Add aspect**|Adds a property aspect to files, to give it additional behaviours or properties. See [About Aspects]({% link content-services/5.2/config/repository.md %}#about-aspects) for more.|
-|**Remove aspect**|Removes a property aspect from files, to remove functionality or properties. See [About Aspects]({% link content-services/5.2/config/repository.md %}#about-aspects) for more.|
-|**Add simple workflow**|Adds files to a workflow. By default there is an approval task. You can also click to add a reject task. > **Note:** You can click on **Approve** and **Reject** to rename the steps and to select a location to copy and move approved/rejected files to. See [Tasks and workflows](#creating-a-simple-workflow) for more.|
-|**Send email**|When files and subfolders are added you can select to send notifications by email. Click **Message** to select recipients and add the message of your choice.|
-|**Transform and copy content**|When applicable, add copies of files, in the format of your choice, to another location. For example you can generate a copy of a Word document in PDF format in a different folder.|
-|**Transform and copy image**|When applicable, add copies of image files, in the format of your choice, to another location. For example you can generate a copy of a GIF file in PNG format in a different folder.|
-|**Extract common metadata fields**|Embedded metadata is extracted from files and added to the file properties. Microsoft Office document properties, LibreOffice, and a number of other formats are supported.|
-|**Import**|ZIP and ACP files are automatically unpacked. Select a location where the unpacked files will be placed.|
-|**Specialise type**|When applicable, changes a file's content type. For example, changes a standard file into a policy document and adds the appropriate metadata for that content type. See [Changing the content type]({% link content-services/5.2-de/using/content/files-folders.md %}#changing-the-content-type) for more.|
-|**Increment Counter**|Automatically increments the value of a number (integer) property. This will generally only be used by Alfresco administrators.|
-|**Set property value**|Select a property and then enter a default value. Files with that property will have it changed to the entered value.|
-|**Embed properties as metadata in content**|Embeds file properties directly into the binary file as metadata. The information contained in those files can help in searching and workflows.|
+|**Skript ausführen**|Führt ein benutzerdefiniertes JavaScript-Skript aus dem Ordner **Datenverzeichnis/Skripte** aus. Es stehen eine Reihe von Beispielskripten zur Verfügung. Die Liste kann je nachdem, wie Alfresco Content Services für Ihre Organisation konfiguriert ist, unterschiedlich ausfallen.|
+|**Kopieren**|Erstellt Kopien von Dateien dem von Ihnen angegebenen Speicherort. Wählen Sie die zusätzliche Option **Deep Copy** aus, wenn Sie auch Unterordner und deren Inhalt kopieren möchten.|
+|**Verschieben**|Verschiebt alle Dateien und Unterordner an den gewünschten Speicherort.|
+|**Einchecken**|Aktuell ausgecheckte Dateien werden eingecheckt. Sie werden beispielsweise vor dem Verschieben in einen anderen Ordner eingecheckt. Wählen Sie **Optionen**, um auszuwählen, ob sie als Unter- oder Hauptversion eingecheckt werden sollen.
+|**Auschecken**|Checkt Dateien automatisch aus, wobei eine Arbeitskopie an dem von Ihnen angegebenen Speicherort erstellt wird.|
+|**Mit Kategorie verlinken**|Verlinkt Dateien oder Ordner mit einer von Ihnen angegebenen Kategorie, wie beispielsweise eine Region oder Klassifizierung. Weitere Informationen finden Sie unter [Markieren und Kategorisieren von Inhalten]({% link content-services/5.2/using/content/manage.md %}#tagging-and-categorizing-content).|
+|**Aspekt hinzufügen**|Fügt Dateien einen Eigenschaftsaspekt hinzu, um zusätzliche Verhaltensweisen oder Eigenschaften zuzuweisen. Weitere Informationen finden Sie unter [Info über Aspekte]({% link content-services/5.2/config/repository.md %}#about-aspects).|
+|**Aspekt entfernen**|Entfernt einen Eigenschaftsaspekt aus Dateien, um Funktionen oder Eigenschaften zu entfernen. Weitere Informationen finden Sie unter [Info über Aspekte]({% link content-services/5.2/config/repository.md %}#about-aspects).|
+|**Einfachen Workflow hinzufügen**|Fügt Dateien zu einem Workflow hinzu. Standardmäßig ist eine Genehmigungsaufgabe vorhanden. Sie können auch klicken, um eine abgelehnte Aufgabe hinzuzufügen. > **Hinweis:** Sie können auf **Genehmigen** und **Ablehnen** klicken, um die Schritte umzubenennen und einen Speicherort auszuwählen, an den genehmigte/abgelehnte Dateien kopieren verschoben werden sollen. Weitere Informationen finden Sie unter [Aufgaben und Workflows](#creating-a-simple-workflow).|
+|**E-Mail senden**|Werden Dateien und Unterordner hinzugefügt, können Sie auswählen, ob Benachrichtigungen per E-Mail gesendet werden sollen. Klicken Sie auf **Nachricht**, um Empfänger auszuwählen und die gewünschte Nachricht hinzuzufügen.|
+|**Inhalt umwandeln und kopieren**|Fügen Sie gegebenenfalls Kopien von Dateien im gewünschten Format zu einem anderen Speicherort hinzu. Sie können beispielsweise in einem anderen Ordner eine Kopie eines Word-Dokuments im PDF-Format erzeugen.|
+|**Bild umwandeln und kopieren**|Fügen Sie gegebenenfalls Kopien von Bilddateien im gewünschten Format zu einem anderen Speicherort hinzu. Sie können beispielsweise eine Kopie einer GIF-Datei im PNG-Format in einem anderen Ordner generieren.|
+|**Übliche Metadaten-Felder extrahieren**|Eingebettete Metadaten werden aus Dateien extrahiert und den Dateieigenschaften hinzugefügt. Es werden Microsoft Office-Dokumenteigenschaften, LibreOffice und eine Reihe anderer Formate unterstützt.|
+|**Importieren**|ZIP- und ACP-Dateien werden automatisch entpackt. Wählen Sie einen Speicherort für die Ablage der entpackten Dateien aus.|
+|**Typ spezialisieren**|Ändert gegebenenfalls den Inhaltstyp einer Datei. So wird beispielsweise eine Standarddatei in ein Richtliniendokument geändert und die entsprechenden Metadaten für diesen Inhaltstyp werden hinzugefügt. Weitere Informationen finden Sie unter [Ändern des Inhaltstyps]({% link content-services/5.2/using/content/files-folders.md %}#changing-the-content-type).|
+|**Zähler hochsetzen**| Erhöht automatisch den Wert einer numerischen (Ganzzahl) Eigenschaft. Diese Option wird in der Regel nur von Alfresco-Administratoren verwendet.|
+|**Wert einer Eigenschaft setzen**|Wählen Sie eine Eigenschaft aus und geben Sie einen Standardwert ein. Für Dateien mit dieser Eigenschaft wird der eingegebenen Wert verwendet.|
+|**Eigenschaften als Metadaten in Inhalt einbetten**|Dateieigenschaften werden direkt als Metadaten in die Binärdatei eingebettet. Anhand der in diesen Dateien enthaltenen Informationen kann gesucht und können Workflows erstellt werden.|
 
-## Linking to an existing rule set {#linking-to-an-existing-rule-set}
+## Verlinkung mit einem vorhandenen Regelsatz {#linking-to-an-existing-rule-set}
 
-The **Link to Rule Set** option lets you reuse an existing rule set that's already defined for another folder.
+Mit der Option **Mit Regelwerk verlinken** können Sie einen bereits für einen anderen Ordner definierten Regelsatz wiederverwenden.
 
-> **Note:** If a folder already has linked rules applied (rules are indicated by the ![]({% link content-services/images/rules-icon.png %}) icon) you can link to new rules by [linking to a different rule set](#linking-to-a-different-rule-set).
+> **Hinweis:** Wenn auf einen Ordner bereits verknüpfte Regeln angewendet wurden (Regeln sind durch das Symbol ![]({% link content-services/images/rules-icon.png %}) gekennzeichnet), können Sie mit neuen Regeln verlinken, indem Sie [mit einem anderen Regelsatz verlinken](#linking-to-a-different-rule-set).
 
-1.  Hover over a folder with no rules applied and click **More** then **Manage Rules**.
+1.  Verschieben Sie den Mauszeiger auf einen Ordner ohne Regeln und klicken Sie auf **Mehr** und dann auf **Regeln verwalten**.
 
-2.  Click **Link to Rule Set**.
+2.  Klicken Sie auf **Mit Regelwerk verlinken**.
 
-3.  Find the folder you want to use.
+3.  Suchen Sie den gewünschten Ordner.
 
-    Select the site then select a folder. Check the rules listed to make sure you're linking to the correct folder.
+    Wählen Sie die Site und dann einen Ordner aus. Prüfen Sie die aufgeführten Regeln, um sicherzustellen, dass Sie mit dem richtigen Ordner verlinken.
 
-    > **Note:** Locations that you don't have permission to access are disabled.
+    > **Hinweis:** Speicherorte, für die Sie keine Zugriffsberechtigung haben, sind deaktiviert.
 
-4.  Click **Link**.
+4.  Klicken Sie auf **Link**.
 
-    > **Note:** You can click **View Rule Set** to view the rule details or **Change** to select a different rule to link to.
+    > **Hinweis:** Sie können auf **Regelwerk anzeigen** klicken, um die Details der Regel anzuzeigen, oder auf **Ändern**, um eine andere Regel auszuwählen, mit der Sie verlinken möchten.
 
-5.  Click **Done**.
+5.  Klicken Sie auf **Fertig**.
 
-## Creating a simple workflow {#creating-a-simple-workflow}
+## Erstellen eines einfachen Workflows {#creating-a-simple-workflow}
 
-You can set up rules to trigger a simple workflow that's made up of review and approval steps. When an item enters a folder with this type of rule applied, it will have additional actions available.
+Sie können Regeln zum Auslösen eines einfachen Workflows einrichten, der aus Überprüfungs- und Genehmigungsschritten besteht. Wird ein Element einem Ordner hinzugefügt, dem eine Regel dieses Typs zugewiesen ist, stehen dafür zusätzliche Aktionen zur Verfügung.
 
-You configure the rule to specify the user actions and flow of the content between folders. You can also add complexity to a simple workflow by creating rules for other folders and passing content around from location to location.
+Sie können die Regel konfigurieren, um die Benutzeraktionen und den Inhaltsfluss zwischen Ordnern festzulegen. Sie können auch einen einfachen Workflow komplexer gestalten, indem Sie Regeln für andere Ordner erstellen und Inhalte von Speicherort zu Speicherort übergeben.
 
-For example, you could set up rules to create a simple workflow that manages content as follows:
+Sie könnten beispielsweise Regeln einrichten, mit denen Sie einen einfachen Workflow zur Verwaltung von Inhalten wie folgt erstellen:
 
--   Users can approve content added to the **Drafts** folder.
--   On approval, the content is moved to a **Pending Approval** folder.
--   Managers can approve the content in this folder.
--   On approval, the content is moved to the **Published** folder. If the content is rejected it's moved back to **Drafts**.
+-   Benutzer können dem Ordner **Entwürfe** hinzugefügten Inhalt genehmigen.
+-   Nach der Genehmigung wird der Inhalt in den Ordner **Zustimmung anhängig** verschoben.
+-   Manager können den Inhalt dieses Ordners genehmigen.
+-   Nach der Genehmigung wird der Inhalt in den Ordner **Publiziert** verschoben. Wird der Inhalt abgelehnt, wird er in den Ordner **Entwürfe** zurück verschoben.
 
-> **Note:** When you create a rule for a folder, it applies to all content items that are added to that folder after the creation of the rule. Content items residing in the folder before the rule is created are not affected by the rule. However, you can use the **Run Rules** actions to ensure the new rules apply to the existing content.
+> **Hinweis:** Wenn Sie eine Regel für einen Ordner erstellen, wird sie allen Inhaltselementen zugewiesen, die dem Ordner nach der Erstellung der Regel hinzugefügt werden. Auf Inhaltselemente, die sich vor der Erstellung der Regel bereits in dem Ordner befunden haben, hat die Regel keine Auswirkungen. Sie können jedoch mit den Aktionen **Regeln ausführen** sicherstellen, dass die neuen Regeln auf den vorhandenen Inhalt angewendet werden.
 
-1.  Hover over a folder with no rules applied and click **More** then **Manage Rules**.
+1.  Verschieben Sie den Mauszeiger auf einen Ordner ohne Regeln und klicken Sie auf **Mehr** und dann auf **Regeln verwalten**.
 
-2.  Click **Create Rules**.
+2.  Klicken Sie auf **Regeln erstellen**.
 
-3.  Enter a name and description (optional) for the rule.
+3.  Geben Sie einen Namen und eine Beschreibung (optional) für die Regel ein.
 
-4.  Select when the rule will be triggered:
+4.  Legen Sie fest, wann die Regel ausgelöst wird.
 
-    -   **Items are created or enter this folder**: The rule will be applied to content that gets added to this folder. This includes any item that is copied to, created in, or uploaded to the folder.
-    -   **Items are updated**: When an item in this folder is modified, the rule will be applied to it.
-    -   **Items are deleted or leave this folder**: The rule will be applied to content that is moved out of the folder or deleted.
-    > **Note:** A rule can have more than one event, condition, and action. Click the + or - to add or remove rows
+    -   **Objekte werden hier erstellt oder hierhin verschoben**: Die Regel wird auf Inhalte angewendet, die diesem Ordner hinzugefügt werden. Dies umfasst alle Elemente, die in den Ordner kopiert oder hochgeladen beziehungsweise in diesem erstellt werden.
+    -   **Objekte werden aktualisiert**: Wenn ein Element in diesem Ordner geändert wird, wird die Regel darauf angewendet.
+    -   **Objekte werden gelöscht oder aus diesem Ordner verschoben**: Die Regel wird auf Inhalte angewendet, die aus dem Ordner verschoben oder gelöscht werden.
+    > **Hinweis:** Eine Regel kann über mehrere Ereignisse, Bedingungen und Aktionen verfügen. Klicken Sie auf **+** oder auf **-**, um Zeilen hinzuzufügen oder zu entfernen.
 
-5.  Select if the rule will be applied **If all criteria are met**, **Unless all criteria are met**, or both.
+5.  Wählen Sie aus, ob die Regel angewendet wird, **wenn alle Kriterien erfüllt sind**, **wenn nicht alle Kriterien erfüllt sind** oder in beiden Fällen.
 
-    Here are 3 examples of conditions that you could apply to trigger a rule:
+    Nachstehend sehen Sie drei Beispiele für Bedingungen, die zum Auslösen einer Regel angewendet werden könnten:
 
-    -   The rule is applied if the item title contains the word 'urgent' (**If all criteria are met**)
-    -   The rule is applied if the item title does not contain the word 'urgent' (**Unless all criteria are met**)
-    -   The rule is applied if the item title contains the word 'urgent', unless the item was created before a specified date (**If all criteria are met** and **Unless all criteria are met**)
-6.  Select criteria for which content the rule will apply to, and remember that you can use the + and - icons to add and remove extra criteria.
+    -   Die Regel wird angewendet, wenn der Elementtitel das Wort **dringend** enthält (**Wenn alle Kriterien erfüllt sind**).
+    -   Die Regel wird angewendet, wenn der Elementtitel nicht das Wort **dringend** enthält (**Wenn nicht alle Kriterien erfüllt sind**).
+    -   Die Regel wird angewendet, wenn der Elementtitel das Wort **dringend** enthält, es sei denn, das Element wurde vor einem bestimmten Datum erstellt (**Wenn alle Kriterien erfüllt sind** und **Wenn nicht alle Kriterien erfüllt sind**).
+6.  Wählen Sie Kriterien für den Inhalt aus, auf den die Regel angewendet wird, und bedenken Sie dabei, dass Sie mit den Symbolen **+** und **-** zusätzliche Kriterien hinzufügen und entfernen können.
 
-    > **Note:** Selecting **Show more** on the criteria menu gives you additional properties to choose from. Use the folders on the Select property page to search properties, then select a property on the right of the page. Selecting **Show in menu** shows the property in all condition lists for the current rule.
+    > **Hinweis:** Wenn Sie im Kriterienmenü die Option **Mehr anzeigen** wählen, stehen Ihnen zusätzliche Eigenschaften zur Auswahl. Verwenden Sie die Ordner auf der Seite **Eigenschaft auswählen**, um nach Eigenschaften zu suchen, und wählen Sie dann rechts auf der Seite eine Eigenschaft aus. Bei Auswahl von **In Menü anzeigen** wird die Eigenschaft in allen Bedingungslisten für die aktuelle Regel angezeigt.
 
-7.  Select **Add simple workflow** as the action.
+7.  Wählen Sie für die Aktion **Einfachen Workflow hinzufügen**.
 
-8.  To include an approval step in the workflow click **Approve** and provide details.
+8.  Um einen Genehmigungsschritt in den Workflow aufzunehmen, klicken Sie auf **Genehmigen** und geben Sie Details an.
 
-    1.  Enter an Action Label.
+    1.  Geben Sie ein Aktionslabel ein.
 
-        This will be displayed as a new additional option available for relevant content. If you don't change the label then a new **Approve** option will be available for relevant items in this folder.
+        Dieses wird als neue zusätzliche Option angezeigt, die für relevante Inhalte verfügbar ist. Wenn Sie das Label nicht ändern, steht für relevante Elemente in diesem Ordner die neue Option **Genehmigen** zur Verfügung.
 
-    2.  Select to **copy** or **move** approved content and click **Select** to set where it will be copied or moved to.
+    2.  Wählen Sie diese Option, um genehmigte Inhalte zu **kopieren** oder zu **verschieben**, und klicken Sie auf **Auswählen**, um den Zielort für die Aktion festzulegen.
 
-    3.  Click **OK**.
+    3.  Klicken Sie auf **OK**.
 
-9.  To include a rejection step in the workflow select the check box and click **Reject**, then provide details.
+9.  Um einen Ablehnungsschritt in den Workflow aufzunehmen, aktivieren Sie das Kontrollkästchen, klicken auf **Ablehnen** und geben Details an.
 
-    1.  Enter an Action Label.
+    1.  Geben Sie ein Aktionslabel ein.
 
-        This will be displayed as a new additional option available for relevant content. If you don't change the label then a new **Reject** option will be available for relevant items in this folder.
+        Dieses wird als neue zusätzliche Option angezeigt, die für relevante Inhalte verfügbar ist. Wenn Sie das Label nicht ändern, steht für relevante Elemente in diesem Ordner eine neue Option **Ablehnen** zur Verfügung.
 
-    2.  Select to **copy** or **move** rejected content and click **Select** to set where it will be copied or moved to.
+    2.  Wählen Sie diese Option, um abgelehnte Inhalte zu **kopieren** oder zu **verschieben**, und klicken Sie auf **Auswählen**, um den Zielort für die Aktion festzulegen.
 
-    3.  Click **OK**.
+    3.  Klicken Sie auf **OK**.
 
-10. Select additional options:
+10. Wählen Sie zusätzliche Optionen aus:
 
-    -   **Disable rule**: Switch off the rule.
-    -   **Rule applies to subfolders**: Apply the rule to this folder and all its subfolders.
-    -   **Run rule in background** Lets you continue working while the rule is running. You can also select an action to run if an error occurs with the rule. These actions are set up by your Alfresco administrator.
-11. Click **Create**, or **Create and Create Another** to save this rule and start creating another.
+    -   **Regel abschalten**: Schalten Sie die Regel aus.
+    -   **Regel trifft auf Unterordner zu**: Wenden Sie die Regel auf diesen Ordner und alle dazugehörigen Unterordner an.
+    -   **Regel im Hintergrund ausführen**: Ermöglicht es Ihnen, während der Ausführung der Regel weiterzuarbeiten. Sie können auch eine Aktion ausführen, wenn bei der Regel ein Fehler auftritt. Diese Aktionen werden von Ihrem Alfresco-Administrator eingerichtet.
+11. Klicken Sie auf **Erstellen** oder **Erstellen und eine weitere erstellen**, um diese Regel zu speichern und mit der Erstellung einer weiteren Regel zu beginnen.
 
-In the **Document Library** the symbol ![]({% link content-services/images/im-rules-simpleworkflow.png %}) to the left of an item indicates that a simple workflow has been applied to it. The approve and reject actions (with their defined labels) appear in the action list for these items.
+In der **Dokumentenbibliothek** gibt das Symbol ![]({% link content-services/images/im-rules-simpleworkflow.png %}) links neben einem Element an, dass ihm ein einfacher Workflow zugewiesen wurde. Die genehmigten oder abgelehnten Aktionen (mit ihren definierten Labels) werden in der Aktionsliste für diese Elemente angezeigt.
 
-## Working with a set of rules {#working-with-a-set-of-rules}
+## Arbeiten mit einem Regelsatz {#working-with-a-set-of-rules}
 
-You can easily view and maintain the individual rules that makes up the rule set. You can add, edit, and delete rules, make a rule inactive, and change the run order. You can also manually run rules.
+Sie können die einzelnen Regeln, aus denen sich der Regelsatz zusammensetzt, auf einfache Weise anzeigen und pflegen. Sie können Regeln hinzufügen, bearbeiten und löschen, eine Regel deaktivieren und die Ausführungsreihenfolge ändern. Sie können Regeln auch manuell ausführen.
 
-You can create many rules to form a full set of rules, and then apply multiple rules to folders.
+Sie können viele Regeln erstellen, um einen vollständigen Regelsatz zu bilden, und dann mehrere Regeln auf Ordner anwenden.
 
-When you select the **Manage Rules** action for a folder with defined rules, the Rules page is split into two.
+Wenn Sie die Aktion **Regeln verwalten** für einen Ordner mit definierten Regeln auswählen, ist die Seite **Regeln** in zwei Bereiche geteilt.
 
-The left side of the page lists the rules that make up the rule set. If the folder inherits rules from a parent folder, those rules appear here too. The rules run in the order they're listed. Inherited rules are always run first.
+Auf der linken Seite werden die Regeln aufgelistet, aus denen sich der Regelsatz zusammensetzt. Wenn der Ordner Regeln von einem übergeordneten Ordner erbt, werden diese Regeln ebenfalls hier angezeigt. Die Regeln werden in der Reihenfolge ausgeführt, in der sie aufgelistet sind. Geerbte Regeln werden immer zuerst ausgeführt.
 
-A check mark to the left of the rule means it's active.
+Ein Häkchen, das links neben der Regel angezeigt wird, weist darauf hin, dass sie aktiviert ist.
 
-Selecting an individual rule in this list displays its details on the right side of the page.
+Wenn Sie in dieser Liste eine einzelne Regel auswählen, werden die Details auf der rechten Seite angezeigt.
 
-See [Troubleshooting rules and actions]({% link content-services/5.2/admin/troubleshoot.md %}#troubleshooting-rules-and-actions) for information about resolving problems with rules.
+Weitere Informationen über das Lösen von Problemen mit Regeln finden Sie unter [Fehlerbehebung bei Regeln und Aktionen]({% link content-services/5.2/admin/troubleshoot.md %}#troubleshooting-rules-and-actions).
 
-## Adding to a set of rules {#adding-to-a-set-of-rules}
+## Hinzufügen zu einem Regelsatz {#adding-to-a-set-of-rules}
 
-A set of rules can include any number of individual rules, and you can add new rules to a folder as you need.
+Ein Regelsatz kann beliebig viele einzelne Regeln enthalten, und Sie können einem Ordner nach Bedarf neue Regeln hinzufügen.
 
-1.  Hover over a folder with rules applied (indicated by the ![]({% link content-services/images/rules-icon.png %}) icon) and click **More** then **Manage Rules**.
+1.  Bewegen Sie den Mauszeiger auf einen Ordner mit Regeln (gekennzeichnet mit dem Symbol ![]({% link content-services/images/rules-icon.png %}) und klicken Sie auf **Mehr** und dann auf **Regeln verwalten**.
 
-2.  Click **New Rule**.
+2.  Klicken Sie auf **Neue Regel**.
 
-    On the New Rule page you can add a new rule to a set of rules in exactly the same way as the first time you created a rule, see [creating a rule](#creating-a-rule).
+    Auf der Seite **Neue Regel** können Sie eine neue Regel genauso zu einem Regelsatz hinzufügen wie bei der Erstellung der ersten Regel. Siehe [Erstellen von Regeln](#creating-a-rule).
 
-After creating the last rule you return to the Rules page. Any new rules created are added at the end of the rule set.
+Nach der Erstellung der letzten Regel kehren Sie zur Seite **Regeln** zurück. Alle neu erstellten Regeln werden am Ende des Regelsatzes hinzugefügt.
 
-## Editing a rule {#editing-a-rule}
+## Bearbeiten von Regeln {#editing-a-rule}
 
-You might need to revisit your rules from time to time and make some changes to keep them current. If you don’t want to use a specific rule anymore but think you might need it again in the future, you can just disable it.
+Sie müssen Ihre Regeln möglicherweise immer mal wieder überprüfen und einige Änderungen vornehmen, um sie zu aktualisieren. Soll eine bestimmte Regel nicht mehr verwendet werden, wird aber zu einem späteren Zeitpunkt eventuell noch einmal gebraucht, können Sie sie einfach deaktivieren.
 
-1.  Hover over a folder with rules applied (indicated by the ![]({% link content-services/images/rules-icon.png %}) icon) and click **More** then **Manage Rules**.
+1.  Bewegen Sie den Mauszeiger auf einen Ordner mit Regeln (gekennzeichnet mit dem Symbol ![]({% link content-services/images/rules-icon.png %}) und klicken Sie auf **Mehr** und dann auf **Regeln verwalten**.
 
-2.  On the left side of the page, click the rule you want to edit.
+2.  Klicken Sie links auf der Seite auf die zu bearbeitende Regel.
 
-    > **Note:** This will be shown in the rule summary on the right side of the page. You can't edit linked or inherited rules here; that has to be done in the folder where they were created.
+    > **Hinweis:** Diese wird in der Regelübersicht rechts auf der Seite angezeigt. Sie können hier keine verlinkten oder geerbten Regeln bearbeiten. Dies muss in den Ordnern erfolgen, in denen sie erstellt wurden.
 
-3.  Click **Edit**.
+3.  Klicken Sie auf **Bearbeiten**.
 
-4.  Make your changes. You can edit any of the rule details: name, description, rule definition, and options.
+4.  Nehmen Sie Ihre Änderungen vor. Sie können alle Details einer Regel bearbeiten: Name, Beschreibung, Regeldefinition und Optionen.
 
-5.  Click **Save**.
+5.  Klicken Sie auf **Speichern**.
 
-## Deleting a rule {#deleting-a-rule}
+## Löschen von Regeln {#deleting-a-rule}
 
-When a folder has a rule applied that you don't need anymore, you can delete the individual rule.
+Ist auf einen Ordner eine Regel angewendet, die Sie nicht mehr benötigen, können Sie diese einzelne Regel löschen.
 
-1.  Hover over a folder with rules applied (indicated by the ![]({% link content-services/images/rules-icon.png %}) icon) and click **More** then **Manage Rules**.
+1.  Bewegen Sie den Mauszeiger auf einen Ordner mit Regeln (gekennzeichnet mit dem Symbol ![]({% link content-services/images/rules-icon.png %}) und klicken Sie auf **Mehr** und dann auf **Regeln verwalten**.
 
-2.  On the left side of the page, click the rule you want to delete.
+2.  Klicken Sie links auf der Seite auf die zu löschende Regel.
 
-    If you might want to use the rule again, consider disabling it instead. Edit the rule to do that.
+    Wenn Sie die Regel möglicherweise wiederverwenden möchten, sollten Sie sie stattdessen deaktivieren. Bearbeiten Sie die Regel entsprechend.
 
-    > **Note:** You can't delete linked or inherited rules here; that has to be done in the folder where they were created.
+    > **Hinweis:** Sie können hier keine verlinkten oder geerbten Regeln löschen. Dies muss in den Ordnern erfolgen, in denen sie erstellt wurden.
 
-3.  Click **Delete**.
+3.  Klicken Sie auf **Löschen**.
 
-4.  When you're asked to confirm the deletion, click **Delete**.
+4.  Wenn Sie aufgefordert werden, den Löschvorgang zu bestätigen, klicken Sie auf **Löschen**.
 
-## Reordering the rules in the rule set {#reordering-the-rules-in-the-rule-set}
+## Neusortieren der Regeln im Regelsatz {#reordering-the-rules-in-the-rule-set}
 
-As part of managing your rule set you can pick the order in which the rules are run. If your folder has inherited rules, those are always run first in the order they're listed. Any rules marked as inactive are simply skipped.
+Im Rahmen der Verwaltung Ihres Regelsatzes können Sie die Reihenfolge auswählen, in der Regeln ausgeführt werden sollen. Hat Ihr Ordner Regeln geerbt, werden diese immer zuerst in der Reihenfolge ihrer Auflistung ausgeführt. Alle als inaktiv markierten Regeln werden einfach übersprungen.
 
-1.  Hover over a folder with rules applied (indicated by the ![]({% link content-services/images/rules-icon.png %}) icon) and click **More** then **Manage Rules**.
+1.  Bewegen Sie den Mauszeiger auf einen Ordner mit Regeln (gekennzeichnet mit dem Symbol ![]({% link content-services/images/rules-icon.png %}) und klicken Sie auf **Mehr** und dann auf **Regeln verwalten**.
 
-2.  On the left side of the page drag and drop rules to where you want them in the list.
+2.  Verschieben Sie Regeln links auf der Seite mit Drag&Drop an die gewünschte Stelle in der Liste.
 
-    > **Note:** You can't reorder linked or inherited rules here; that has to be done in the folder where they were created. Click **Reset** to return the rule set to its last saved order.
+    > **Hinweis:** Sie können hier keine verlinkten oder geerbten Regeln neu sortieren. Dies muss in den Ordnern erfolgen, in denen sie erstellt wurden. Klicken Sie auf **Zurücksetzen**, um den Regelsatz auf die letzte gespeicherte Reihenfolge zurückzusetzen.
 
-3.  Click **Save**.
+3.  Klicken Sie auf **Speichern**.
 
-## Switching off inherited rules {#switching-off-inherited-rules}
+## Abschalten vererbter Regeln {#switching-off-inherited-rules}
 
-If a folder is inheriting rules from a parent folder, you can easily switch them on and off as needed.
+Erbt ein Ordner Regeln von einem übergeordneten Ordner, können Sie diese ganz einfach ein- und ausschalten.
 
-Switching inherited rules on and off works at an individual folder level, and will not affect any other folders.
+Das Ein- und Ausschalten von geerbten Regeln funktioniert auf Ordnerebene und wirkt sich nicht auf weitere Ordner aus.
 
-1.  Hover over a folder with rules applied (indicated by the ![]({% link content-services/images/rules-icon.png %}) icon) and then **Manage Rules**.
+1.  Bewegen Sie den Mauszeiger auf einen Ordner mit Regeln (durch das Symbol ![]({% link content-services/images/rules-icon.png %}) angegeben) und klicken Sie auf **Regeln verwalten**.
 
-    If a folder has inherited rules these are displayed on the left side of the page.
+    Verfügt ein Ordner über geerbte Regeln, werden diese links in der Seite angezeigt.
 
-2.  Click **Inherit Rules**.
+2.  Klicken Sie auf **Regeln erben**.
 
-    Any inherited rules are switched off for the folder and **Don't Inherit Rules** is shown. You can click **Don't Inherit Rules** to switch inherited rules back on for the folder.
+    Alle geerbten Regeln werden für den Ordner ausgeschaltet und **Regeln nicht erben** wird angezeigt. Sie können auf **Regeln nicht erben** klicken, um die geerbten Regeln für den Ordner wieder einzuschalten.
 
-## Manually running rules {#manually-running-rules}
+## Manuelles Ausführen von Regeln {#manually-running-rules}
 
-When you create or edit a rule set, the rules aren't automatically applied to the existing folder items. You can manually run the rules at any time to apply them to all content. Only the items that meet the conditions will be affected.
+Wenn Sie einen Regelsatz erstellen oder bearbeiten, werden die Regeln nicht automatisch auf die bereits vorhandenen Ordnerelemente angewendet. Sie können die Regeln jederzeit manuell ausführen, um sie auf alle Inhalte anzuwenden. Dies wirkt sich nur auf die Elemente aus, die die Bedingungen erfüllen.
 
-1.  Hover over a folder with rules applied (indicated by the ![]({% link content-services/images/rules-icon.png %}) icon) and click **More** then **Manage Rules**.
+1.  Bewegen Sie den Mauszeiger auf einen Ordner mit Regeln (gekennzeichnet mit dem Symbol ![]({% link content-services/images/rules-icon.png %}) und klicken Sie auf **Mehr** und dann auf **Regeln verwalten**.
 
-2.  Click **Run Rules**.
+2.  Klicken Sie auf **Regeln ausführen**.
 
-3.  Choose how you want to run the rules:
+3.  Wählen Sie aus, wie Sie die Regeln ausführen möchten:
 
-    -   **Run rules for this folder**
-    -   **Run rules for this folder and its subfolders**
-    A message lets you know when the rules have run.
+    -   **Regeln für diesen Ordner ausführen**
+    -   **Regeln für diesen Ordner und seine Unterordner ausführen**
+    Eine Meldung erscheint, nachdem die Regeln ausgeführt wurden.
 
-## Working with linked rules {#working-with-linked-rules}
+## Arbeiten mit verknüpften Regeln {#working-with-linked-rules}
 
-When a folder has linked rules there are less editing options than when it has its own set of rules. You can either link to a different rule set or you can break the link completely.
+Wenn ein Ordner über verknüpfte Regeln verfügt, stehen weniger Bearbeitungsoptionen zur Verfügung, als wenn er über einen eigenen Regelsatz verfügt. Sie können entweder eine Verknüpfung zu einem anderen Regelsatz herstellen oder die Verknüpfung vollständig entfernen.
 
-When you select the **Manage Rules** action for a folder with linked rules, the Rules page shows the name and path of the folder whose rule set is being referenced.
+Wenn Sie die Aktion **Regeln verwalten** für einen Ordner mit verknüpften Regeln auswählen, zeigt die Seite **Regeln** den Namen und den Pfad des Ordners an, auf dessen Regelsatz verwiesen wird.
 
-> **Note:** The folder might also inherit rules from a parent folder. A message lets you know if this is the case.
+> **Hinweis:** Der Ordner kann auch Regeln von einem übergeordneten Ordner erben. Wenn dies der Fall ist, werden Sie in einer Meldung darüber informiert.
 
-Changes to the rule set have to be done in the folder where the rules were originally defined. It's easy to get to the Rules page for the source folder: just click **View Rule Set**.
+Änderungen am Regelsatz müssen in dem Ordner vorgenommen werden, in dem die Regeln ursprünglich definiert wurden. Sie gelangen ganz einfach zu der Seite **Regeln** für den Quellordner: Klicken Sie einfach auf **Regelwerk anzeigen**.
 
-## Linking to a different rule set {#linking-to-a-different-rule-set}
+## Verlinken mit einem anderen Regelsatz {#linking-to-a-different-rule-set}
 
-If you want to change the rules you're linked to, you can easily link to a different rule set.
+Möchten Sie die Regeln ändern, mit denen ein Link besteht, können Sie ganz einfach eine Verlinkung mit einem anderen Regelsatz herstellen.
 
-1.  Hover over a folder with rules applied (indicated by the ![]({% link content-services/images/rules-icon.png %}) icon) and click **More** then **Manage Rules**.
+1.  Bewegen Sie den Mauszeiger auf einen Ordner mit Regeln (gekennzeichnet mit dem Symbol ![]({% link content-services/images/rules-icon.png %}) und klicken Sie auf **Mehr** und dann auf **Regeln verwalten**.
 
-2.  Click **Change**.
+2.  Klicken Sie auf **Ändern**.
 
-    > **Note:** This option only shows if the folder has linked rules.
+    > **Hinweis:** Diese Option wird nur dann angezeigt, wenn Regeln mit dem Ordner verlinkt sind.
 
-3.  Select the site then select a folder.
+3.  Wählen Sie die Site und dann einen Ordner aus.
 
-    You can only select locations you have permission to access.
+    Sie können nur Speicherorte auswählen, auf die Sie Zugriff haben.
 
-4.  Click **Link**.
+4.  Klicken Sie auf **Link**.
 
-    This breaks the link to the original rule set and links you to the new one.
+    Damit wird der Link mit dem ursprünglichen Regelsatz aufgehoben und ein Link zum neuen Regelsatz hergestellt.
 
-5.  Click **Done**.
+5.  Klicken Sie auf **Fertig**.
 
-## Breaking the link to a rule set {#breaking-the-link-to-a-rule-set}
+## Aufheben des Links mit einem Regelsatz {#breaking-the-link-to-a-rule-set}
 
-If you don't need your rules anymore, breaking the link is just a single click away. This leaves the folder without any rules.
+Falls Sie Ihre Regeln nicht mehr benötigen, können Sie den Link mit einem einzigen Mausklick aufheben. Damit entfernen Sie alle Regeln für dem Ordner.
 
-1.  Hover over a folder with rules applied (indicated by the ![]({% link content-services/images/rules-icon.png %}) icon) and click **More** then **Manage Rules**.
+1.  Bewegen Sie den Mauszeiger auf einen Ordner mit Regeln (gekennzeichnet mit dem Symbol ![]({% link content-services/images/rules-icon.png %}) und klicken Sie auf **Mehr** und dann auf **Regeln verwalten**.
 
-2.  Click **Unlink**.
+2.  Klicken Sie auf **Verlinkung aufheben**.
 
-    > **Note:** This option only shows if the folder has linked rules.
+    > **Hinweis:** Diese Option wird nur dann angezeigt, wenn Regeln mit dem Ordner verlinkt sind.
 
-    The link between the current folder and the linked rules is now broken.
+    Der Link zwischen dem aktuellen Ordner und den verlinkten Regeln ist nun aufgehoben.

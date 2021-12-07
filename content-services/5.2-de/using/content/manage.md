@@ -1,382 +1,382 @@
 ---
-title: Adding content
+title: Hinzufügen von Inhalten
 ---
 
-First you'll look at adding content items such as documents, spreadsheets, presentations, and images to a site.
+Zuerst befassen wir uns mit dem Hinzufügen von Inhaltselementen wie Dokumente, Tabellenkalkulationen, Präsentationen und Bildern zu einer Site.
 
-You're going to add two documents that you created previously to your site.
+Sie werden zwei zuvor von Ihnen erstellte Dokumente zu Ihrer Site hinzufügen.
 
-> **Note:** To help you follow this example you'll need to have two documents available on your computer that you can add to the site.
+> **Hinweis:** Um diesem Beispiel besser folgen zu können, benötigen Sie zwei Dokument auf Ihrem Computer, die Sie der Site hinzufügen können.
 
-1.  Click **Document Library** to display the document library.
+1.  Klicken Sie auf **Dokumentenbibliothek**, um die Dokumentenbibliothek anzuzeigen.
 
-    Alfresco Share gives you lots of options for getting content into the library. You can upload files, create folders, drag and drop files and even create content directly from Alfresco Share.
+    Alfresco Share bietet Ihnen viele Möglichkeiten, in der Bibliothek Inhalte hinzuzufügen. Sie können Dateien hochladen, Ordner erstellen, Dateien per Drag & Drop verschieben und sogar Inhalte direkt aus Alfresco Share erstellen.
 
-2.  You're going to drag and drop the content in - go to the location where you saved your two files, select them, and drag and drop them directly to the drag and drop area on the Document Library.
+2.  Sie ziehen den Inhalt per Drag-and-Drop hinein: Navigieren Sie zu dem Speicherort, an dem Sie Ihre beiden Dateien gespeichert haben, wählen Sie sie aus und ziehen Sie sie per Drag & Drop direkt in den Drag & Drop-Bereich der Dokumentenbibliothek.
 
-    ![Drag and drop]({% link content-services/images/gs-dragdrop.png %})
+    ![Drag-and-Drop]({% link content-services/images/gs-dragdrop.png %})
 
-    It's as simple as that. Your documents are now uploaded to the site library.
+    So einfach ist das. Ihre Dokumente sind nun in die Site-Bibliothek hochgeladen.
 
-## Creating content {#creating-content}
+## Erstellen von Inhalten {#creating-content}
 
-As well as uploading content, you can also create content right in Alfresco Share.
+Neben dem Hochladen von Inhalten können Sie Inhalte auch direkt in Alfresco Share erstellen.
 
-1.  Select the folder in the site library where you want to add the content.
+1.  Wählen Sie den Ordner in der Site-Bibliothek aus, dem Sie den Inhalt hinzufügen möchten.
 
-2.  Click **Create**.
+2.  Klicken Sie auf **Erstellen**.
 
-    You can see a number of different types of file that you can create.
+    Es werden eine Reihe verschiedener Dateitypen angezeigt, die Sie erstellen können.
 
-3.  Select the type of Google Docs file you want to create.
+3.  Wählen Sie den zu erstellenden Typ der Google Docs-Datei aus.
 
-    > **Important:** The first time you access Google Docs you have to authorize Alfresco Share to use your account. After responding to the prompts a message lets you know that the authorization was successful.
+    > **Wichtig:** Wenn Sie zum ersten Mal auf Google Docs zugreifen, müssen Sie Alfresco Share für die Nutzung Ihres Kontos autorisieren. Nachdem Sie die erforderlichen Eingaben vorgenommen haben, werden Sie informiert, dass die Autorisierung erfolgreich war.
 
-    Alfresco Share stores your Google Docs account information. You will need to authorize this each session, but you won't have to re-enter your credentials each time.
+    Alfresco Share speichert Ihre Google Docs-Kontoinformationen. Sie müssen die Autorisierung in jeder Sitzung erneut vornehmen, aber Sie müssen nicht jedes Mal Ihre Anmeldedaten eingeben.
 
-    If your browser asks you to allow popups for Google Docs then go ahead and do so. If you're using Safari you won't be able to use Google Docs until you enable all popups in the Settings, so for security reasons you may prefer to use a different browser.
+    Wenn Ihr Browser Sie auffordert, Popups für Google Docs zuzulassen, stimmen Sie zu. Wenn Sie Safari verwenden, können Sie Google Docs erst dann verwenden, wenn Sie alle Popups in den Einstellungen aktiviert haben. Aus Sicherheitsgründen empfiehlt es sich daher, einen anderen Browser zu verwenden.
 
-    Google Docs opens with standard Google Docs functionality available, including the menu, the toolbar, and the features to add comments and share.
+    Google Docs wird mit den standardmäßigen Google Docs-Funktionen aufgerufen, wie das Menü, die Symbolleiste und die Funktionen zum Hinzufügen von Kommentaren und Teilen.
 
-4.  Enter some content in the text area.
+4.  Geben Sie Inhalt in das Textfeld ein.
 
-    > **Note:** The file is saved to Google Docs, and locked in Alfresco Share until you check it in.
+    > **Hinweis:** Die Datei wird in Google Docs gespeichert und in Alfresco Share gesperrt, bis Sie sie einchecken.
 
-5.  When you're done, close the Google Docs browser tab.
+5.  Schließen Sie abschließend die Google Docs-Browser-Registerkarte.
 
-    In Alfresco Share you'll see the file displays the ![Geolocation metadata icon]({% link content-services/images/ico-googledocs.png %}) icon to show that it's open in Google Docs.
+    In Alfresco Share wird mit der Datei das Symbol ![Geolocation metadata icon]({% link content-services/images/ico-googledocs.png %}) angezeigt, um anzugeben, dass sie in Google Docs geöffnet ist.
 
-6.  In Alfresco Share, click **More** then **Check In Google Doc**.
+6.  Klicken Sie in Alfresco Share auf **Mehr** und dann auf **Google Doc einchecken**.
 
-7.  Now hover over the new item, click ![Edit]({% link content-services/images/ico-configure.png %}), and type a new name for the item then press ENTER.
+7.  Zeigen Sie nun mit dem Mauszeiger auf das neue Element, klicken Sie auf ![Edit]({% link content-services/images/ico-configure.png %}), geben Sie für das Element einen neuen Namen ein und drücken Sie die EINGABETASTE.
 
-## Using social features {#using-social-features}
+## Verwenden von Social Features {#using-social-features}
 
-When you look at the site dashboard you can see site activity and details of content that has been added or edited.
+Auf dem Site-Dashboard sehen Sie Site-Aktivitäten und Details zum Inhalt, der hinzugefügt oder bearbeitet wurde.
 
-1.  If you aren't already on it, click **Site Dashboard**.
+1.  Falls das Dashboard noch nicht angezeigt wird, klicken Sie auf **Site-Dashboard**.
 
-    You can see on the Site Content and Site Activities dashlets details of activity on the site such as adding documents and creating calendar events.
+    Auf den Dashlets **Site-Inhalt** und **Site-Aktivitäten** werden Details zu Aktivitäten auf der Site, wie das Hinzufügen von Dokumenten und das Erstellen von Kalenderereignissen angezeigt.
 
-2.  On the Site Content dashlet click the sorting menu - by default it shows content **I've Recently Modified**.
+2.  Klicken Sie auf dem Dashlet **Site-Inhalt** auf das Sortiermenü. Standardmäßig wird der Inhalt für **Habe ich kürzlich geändert** angezeigt.
 
-3.  Select **My Favorites** from the sorting menu.
+3.  Wählen Sie im Sortiermenü **Meine Favoriten** aus.
 
-    You haven't marked any documents as favourites yet so the Site Content dashlet has nothing to display. Marking items as favorites is a great way to keep track of items you're really interested in, so you're now going to select an item as a favorite.
+    Sie haben noch keine Dokumente als Favoriten markiert, so dass das Dashlet **Site-Inhalt** keine Anzeige enthält. Das Markieren von Elementen als Favoriten ist eine großartige Möglichkeit, den Überblick über die für Sie wirklich interessanten Elemente zu behalten. Daher wählen Sie nun ein Element als Favoriten aus.
 
-4.  Click the sorting menu again and select **I've Recently Modified**, to display the modified content.
+4.  Klicken Sie erneut auf das Sortiermenü und wählen Sie **Habe ich kürzlich geändert**, um den geänderten Inhalt anzuzeigen.
 
-    Once that's done you can see there are **Favorite**, **Like** and **Comment** options.
+    Anschließend werden die Optionen **Favorit**,**Gefällt mir** und **Kommentar** angezeigt.
 
     ![Site content dashlet]({% link content-services/images/gs-site-content-dashlet.png %})
 
-5.  Now click the **Favorite** option for one of the documents.
+5.  Klicken Sie nun auf die Option **Favorit** für eines der Dokumente.
 
-    A gold star now indicates that this document is a favorite.
+    Ein goldener Stern zeigt nun an, dass dieses Dokument ein Favorit ist.
 
-6.  Click **Like** as well to show that you approve of the document.
+6.  Klicken Sie auch auf **Gefällt mir**, um anzuzeigen, dass Sie das Dokument genehmigt haben.
 
-7.  Next click Comment.
+7.  Klicken Sie anschließend auf **Kommentar**.
 
-    Alfresco Share switches to the Comments field in the document preview.
+    Alfresco Share zeigt das Feld **Kommentare** in der Dokumentenvorschau an.
 
-8.  Type "This is great!" and click **Add Comment**.
+8.  Geben Sie **Das ist toll!** ein und klicken Sie auf **Kommentar hinzufügen**.
 
-    Your comment is displayed under the document - you can use the comment feature to have discussions with other users about content items.
+    Ihr Kommentar wird unter dem Dokument angezeigt. Sie können mit der Kommentarfunktion mit anderen Benutzern Diskussionen über Inhaltselemente führen.
 
-9.  Now click **Site Dashboard** and on the Site Content dashlet select **My Favorites** from the view menu, and now only the document you made a favorite is displayed.
+9.  Klicken Sie nun auf **Site-Dashboard** und wählen Sie im Dashlet **Site-Inhalt** die Option **Meine Favoriten** aus dem Ansichtsmenü aus. Jetzt wird nur noch das als Favorit definierte Dokument angezeigt.
 
 
-## Adding content {#adding-content}
+## Hinzufügen von Inhalten {#adding-content}
 
-You build up site content by creating an organized folder structure then adding content to it.
+Sie bauen Seiteninhalte auf, indem Sie eine organisierte Ordnerstruktur erstellen und dann Inhalte hinzufügen.
 
-There are two ways to add content to Alfresco Share: create new content or upload existing content from your computer.
+Es gibt zwei Möglichkeiten, Inhalte in Alfresco Share hinzuzufügen: Erstellen Sie neue Inhalte, oder laden Sie vorhandene Inhalte von Ihrem Computer hoch.
 
-There are different options available depending on whether you're adding files or adding folders.
+Es stehen verschiedene Optionen zur Verfügung, je nachdem, ob Sie Dateien oder Ordner hinzufügen.
 
-## Adding folders {#adding-folders}
+## Hinzufügen von Ordnern {#adding-folders}
 
-You can add folders from outside Alfresco Share and create new folders within a site.
+Sie können Ordner, die außerhalb von Alfresco Share vorhanden sind, hinzufügen und auch neue Ordner innerhalb einer Site erstellen.
 
-There are three ways to add folders:
+Zum Hinzufügen von Ordnern gibt es drei Möglichkeiten:
 
--   Click Create in the Document Library - see [Creating folders](#creating-folders)
--   Drag and drop folders from your computer - see [Drag and drop folders](#drag-and-drop-folders)
--   Create folders from templates - see [Creating folders from a template](#creating-folders-from-a-template)
+-   Klicken Sie in der Dokumentenbibliothek auf **Erstellen** – siehe [Erstellen von Ordnern](#creating-folders).
+-   Ziehen Sie Ordner per Drag&Drop von Ihrem Computer – siehe [Verschieben von Ordnern mit Drag&Drop](#drag-and-drop-folders).
+-   Erstellen Sie Ordner mit Vorlagen – siehe [Erstellen von Ordnern mit einer Vorlage](#creating-folders-from-a-template)
 
-## Creating folders {#creating-folders}
+## Erstellen von Ordnern {#creating-folders}
 
-The **Library** section of the explorer panel shows the folder structure for the current site. A new site contains just one folder named Documents. Add new folders here.
+Der Abschnitt **Bibliothek** des Explorer-Anzeigefensters enthält die Ordnerstruktur für die aktuelle Site. Eine neue Site enthält nur einen Ordner mit dem Namen **Dokumente**. Fügen Sie hier neue Ordner hinzu.
 
-1.  Choose where you want to add a folder, either by using the explorer panel or by clicking through folders in the file list.
+1.  Geben Sie an, wo Sie einen Ordner hinzufügen möchten, indem Sie entweder das Explorer-Anzeigefenster verwenden oder in der Dateiliste durch Ordner klicken.
 
-2.  Click **Create** then **Folder**.
+2.  Klicken Sie auf **Erstellen** und dann auf **Ordner**.
 
-3.  Enter a name for the folder.
+3.  Geben Sie einen Namen für den Ordner ein.
 
-    The folder name does not support the following special characters: * " < > \ / . ? : and |. When the name contains a disallowed character the **Save** button is disabled.
+    Für den Ordnernamen werden die folgenden Sonderzeichen nicht unterstützt: * " < > \ / . ? : und |. Wenn der Name ein unzulässiges Zeichen enthält, ist die Schaltfläche **Speichern** deaktiviert.
 
-    > **Note:** The folder name *can* include a period as long as it is not the last character.
+    > **Hinweis:** Der Ordnername *kann* einen Punkt enthalten, solange er nicht das letzte Zeichen ist.
 
-4.  Add a title and description for the folder.
+4.  Fügen Sie einen Titel und eine Beschreibung für den Ordner hinzu.
 
-5.  Click **Save**.
+5.  Klicken Sie auf **Speichern**.
 
 
-You'll see the new folder in the explorer panel.
+Der neue Ordner wird im Explorer-Anzeigefenster angezeigt.
 
-## Drag and drop folders {#drag-and-drop-folders}
+## Verschieben von Ordnern mit Drag&Drop {#drag-and-drop-folders}
 
-You can drag and drop folders straight from your computer into Alfresco Share.
+Sie können Ordner per Drag&Drop direkt von Ihrem Computer nach Alfresco Share verschieben.
 
-> **Note:** Internet Explorer 11 and Microsoft Edge do not support drag and drop functionality. We recommend using with Google Chrome or Firefox.
+> **Hinweis:** Internet Explorer 11 und Microsoft Edge unterstützen keine Drag&Drop-Funktionalität. Wir empfehlen Google Chrome oder Firefox.
 
-When you drop a folder, subfolders, or files, the dropped folder will also be added. This means that you can add whole sets of files and folders and maintain their structure.
+Wenn Sie einen Ordner ablegen, werden auch die im angelegten Ordner enthaltenen Unterordner oder Dateien hinzugefügt. Das heißt, dass Sie ganze Datei- und Ordnergruppen hinzufügen und deren Struktur beibehalten können.
 
-If empty folders exist in the folder structure then they'll also be created when you upload.
+Sind in der Ordnerstruktur leere Ordner enthalten, werden diese ebenfalls beim Hochladen erstellt.
 
-> **Note:** Thumbs.db, desktop.ini, and DS_Store files aren't uploaded, even if they exist within a folder you drag and drop.
+> **Hinweis:** Thumbs.db-, desktop.ini- und DS_Store-Dateien werden nicht hochgeladen, auch wenn sie sich in einem mit Drag&Drop verschobenen Ordner befinden.
 
-1.  Choose where you want to add a folder, either by using the explorer panel or by clicking through folders in the file list.
+1.  Geben Sie an, wo Sie einen Ordner hinzufügen möchten, indem Sie entweder das Explorer-Anzeigefenster verwenden oder in der Dateiliste durch Ordner klicken.
 
-2.  Click on the folder in Windows Explorer, Apple Finder, or on your desktop. Hold down the mouse button while you drag the folder then let it go to drop the folder.
+2.  Klicken Sie im Windows Explorer, Apple Finder oder auf Ihrem Desktop auf den Ordner. Halten Sie die Maustaste gedrückt, während Sie den Ordner ziehen, und lassen Sie die Taste los, um den Ordner abzulegen.
 
-    >**Tip:** You can drag and drop folders into the current level or directly onto another folder. An arrow will be displayed when the files are correctly positioned over a folder to be dropped. You can't drag and drop content directly into folders in Table, Audio, or Media views.
+    >**Tipp:** Sie können Ordner mit Drag&Drop in die aktuelle Ebene oder direkt auf einen anderen Ordner ziehen. Wenn die Dateien richtig auf dem Ordner platziert sind, in dem sie abgelegt werden sollen, erscheint ein Pfeil. Sie können keine Inhalte mit Drag&Drop direkt in die Ordner in der Tabellen-, der Audio- oder der Medienansicht verschieben.
 
-    You can't upload folders whose names contain the following special characters: * " < > \ / . ? : and |.
+    Sie können keine Ordner hochladen, deren Namen die folgenden Sonderzeichen enthalten: * " < > \ / . ? : und |.
 
-    > **Note:** The folder name *can* include a period as long as it is not the last character.
+    > **Hinweis:** Der Ordnername *kann* einen Punkt enthalten, solange er nicht das letzte Zeichen ist.
 
-    If you drop files or folders into a location where there's already a file or folder with that name, then they'll be added as another file with "-1" added to their filename.
+    Wenn Sie Dateien oder Ordner an einem Ort ablegen, an dem bereits eine Datei oder einen Ordner mit diesem Namen vorhanden ist, werden sie als eine weitere Datei mit **-1** am Dateinamen hinzugefügt.
 
-## Creating folders from a template {#creating-folders-from-a-template}
+## Erstellen von Ordnern aus einer Mustervorlage {#creating-folders-from-a-template}
 
-As well as creating folders from scratch, you can also create folders from templates.
+Sie können Ordner neu oder aus Mustervorlagen erstellen.
 
-> **Note:** Templates are only available if your Alfresco administrator has set some up for you.
+> **Hinweis:** Mustervorlagen sind nur dann verfügbar, wenn Ihr Alfresco-Administrator Mustervorlagen für Sie eingerichtet hat.
 
-1.  Choose where you want to add the folder.
+1.  Wählen Sie aus, wo Sie den Ordner hinzufügen möchten.
 
-    The item list displays the current contents of the selected folder. The folder you create will be added here.
+    Die Elementliste enthält den aktuellen Inhalt des ausgewählten Ordners. Der von Ihnen erstellte Ordner wird hier hinzugefügt.
 
-2.  Click **Create** then **Create folder from template**.
+2.  Klicken Sie auf **Erstellen** und dann auf **Ordner aus Mustervorlage erstellen**.
 
-    A list of available templates will be displayed.
+    Eine Liste der verfügbaren Mustervorlagen wird angezeigt.
 
-3.  Select the template.
+3.  Wählen Sie die Mustervorlage aus.
 
-    A new folder based on the template is added to the document library. If the template contains content and subfolders these will also be replicated in the new folder.
+    Ein auf der Mustervorlage basierender neuer Ordner wird der Dokumentenbibliothek hinzugefügt. Enthält die Mustervorlage Inhalt und Unterordner, werden diese Komponenten ebenfalls in den neuen Ordner repliziert.
 
-## Adding files {#adding-files}
+## Hinzufügen von Dateien {#adding-files}
 
-You can add both existing files from outside Alfresco Share and create new files within a site.
+Sie können sowohl Dateien, die außerhalb von Alfresco Share vorhanden sind, als auch neue Dateien innerhalb einer Site erstellen.
 
-Use the **Upload** option to upload existing files from your computer into the library.
+Verwenden Sie die Option **Hochladen**, um vorhandene Dateien von Ihrem Computer in die Bibliothek hochzuladen.
 
-You can also drag and drop one or more files to the library view - even to a particular folder.
+Sie können auch eine oder mehrere Dateien per Drag-and-Drop in die Bibliotheksansicht ziehen, und hier sogar in einen bestimmten Ordner.
 
->**Tip:** In **Detailed View** you can drag and drop files into the current library level or directly onto a folder. An arrow will be displayed when the files are correctly positioned over the folder to be dropped. In all other views you can drop files into the current library level only. So if you want to drop them into a specific folder, that folder needs to be open in the library view.
+>**Tipp:** In **Detaillierte Ansicht** können Sie Dateien per Drag-and-Drop in die aktuelle Bibliotheksebene oder direkt in einen Ordner ziehen. Es wird ein Pfeil angezeigt, wenn die Dateien richtig über dem Ordner positioniert sind, in dem sie abgelegt werden sollen. In allen anderen Ansichten können Sie Dateien nur in die aktuelle Bibliotheksebene verschieben. Wenn Sie die Dateien also in einem bestimmten Ordner ablegen möchten, muss dieser Ordner in der Bibliotheksansicht geöffnet sein.
 
-The **Create** menu provides options for creating different kinds of content directly in the library: plain text, HTML, and XML documents, as well as three types of Google Docs content (documents, spreadsheets, presentations). You can also create content from a template.
+Das Menü **Erstellen** bietet Optionen zum Erstellen verschiedener Arten von Inhalten direkt in der Bibliothek: reine Text-, HTML- und XML-Dokumente sowie drei Arten von Google Docs-Inhalten (Dokumente, Tabellenkalkulationen, Präsentationen). Sie können Inhalte auch mit einer Vorlage erstellen.
 
-## Uploading files {#uploading-files}
+## Hochladen von Dateien {#uploading-files}
 
-Adding files from your computer to Alfresco Share is simple. You can upload a single file or several files at a time.
+Das Hinzufügen von Dateien von Ihrem Computer zu Alfresco Share ist einfach. Sie können eine einzelne Datei oder mehrere Dateien gleichzeitig hochladen.
 
-You can upload files in two ways: drag and drop files from your computer directly into the library, or click ![Upload icon]({% link content-services/images/upload-icon.png %}) **Upload**. When you drag and drop a blue outline highlights the selected drop point.
+Es gibt zwei Möglichkeiten zum Hochladen von Dateien: das Verschieben von Dateien mit Drag&Drop vom Computer direkt in die Bibliothek oder das Klicken auf **Hochladen** ![Upload icon]({% link content-services/images/upload-icon.png %}). Wenn Sie einen blauen Rahmen mit Drag-and-Drop verschieben, wird der ausgewählte Ablageort markiert.
 
->**Tip:** You can drag and drop files into the current library level or directly onto a folder. An arrow will be displayed when the files are correctly positioned over the folder to be dropped. You can't drag and drop content directly into folders in Table, Audio, or Media views.
+>**Tipp:** Sie können Dateien per Drag&Drop in die aktuelle Bibliotheksebene oder direkt in einen Ordner ziehen. Es wird ein Pfeil angezeigt, wenn die Dateien richtig über dem Ordner positioniert sind, in dem sie abgelegt werden sollen. Sie können keine Inhalte mit Drag&Drop direkt in die Ordner in der Tabellen-, der Audio- oder der Medienansicht verschieben.
 
-> **Note:** Internet Explorer 11 and Microsoft Edge do not support drag and drop functionality. If you are using one of these browsers, you need to click **Upload** to add content. Alternatively, use Google Chrome or Firefox instead.
+> **Hinweis:** Internet Explorer 11 und Microsoft Edge unterstützen keine Drag&Drop-Funktionalität. Wenn Sie einen dieser Browser verwenden, müssen Sie auf **Hochladen** klicken, um Inhalte hinzuzufügen. Verwenden Sie alternativ Google Chrome oder Firefox.
 
-1.  Select the folder in the document library where you want to add your content.
+1.  Wählen Sie den Ordner in der Dokumentenbibliothek aus, dem Sie Ihren Inhalt hinzufügen möchten.
 
-    When you select a folder in the explorer panel the item list displays the current contents of that folder. When using the **Upload** action the file(s) you select will be added here.
+    Wenn Sie einen Ordner im Explorer-Anzeigefenster auswählen, enthält die Elementliste den aktuellen Inhalt dieses Ordners. Wenn Sie die Aktion **Hochladen** verwenden, werden die ausgewählten Dateien hier hinzugefügt.
 
-2.  Click ![Upload icon]({% link content-services/images/upload-icon.png %}) **Upload**.
+2.  Klicken Sie auf **Hochladen** ![Upload icon]({% link content-services/images/upload-icon.png %}).
 
-3.  Click **Select files to upload** on the Upload Files dialog box.
+3.  Klicken Sie im Dialogfeld **Dateien hochladen** auf **Dateien zum Hochladen auswählen**.
 
-4.  Find and select the files that you want to upload from your computer.
+4.  Suchen Sie die aus Ihrem Computer hochzuladenden Dateien und wählen Sie sie aus.
 
 
-The document library displays the uploaded content.
+In der Dokumentenbibliothek wird der hochgeladene Inhalt angezeigt.
 
-This video show you how to add content.
+Dieses Video zeigt Ihnen, wie Sie Inhalte hinzufügen können.
 
   
 
 
 
-## Creating files {#creating-files}
+## Erstellen von Dateien {#creating-files}
 
-With the **Create** feature you can create plain text, HTML, and XML files directly in Alfresco Share.
+Mit der Funktion **Erstellen** können Sie reine Text-, HTML- und XML-Dateien direkt in Alfresco Share erstellen.
 
-You can also [create Google Docs content](#creating-google-docs-files) and [create content from templates](#creating-files-from-a-template).
+Sie können auch [Google Docs-Inhalte erstellen](#creating-google-docs-files) und [Inhalte aus Mustervorlagen erstellen](#creating-files-from-a-template).
 
-1.  Select the folder where you want to add the content.
+1.  Wählen Sie den Ordner aus, dem der Inhalt hinzugefügt werden soll.
 
-    The file list displays the current contents of the selected folder. The content you create will be added here.
+    In der Dateiliste wird der aktuelle Inhalt des ausgewählten Ordners angezeigt. Der erstellte Inhalt wird hier hinzugefügt.
 
-2.  Click **Create** and then select the type of file you want to create.
+2.  Klicken Sie auf **Erstellen** und wählen Sie dann den zu erstellenden Dateityp aus.
 
-    > **Note:** To create content from a template, click **Create document from template** and select from the list of templates made available by your administrator. A new file with the same name as the template is created. You can rename the new file and edit the default content. No other steps in this task are required.
+    > **Hinweis:** Um Inhalte aus einer Mustervorlage zu erstellen, klicken Sie auf **Dokument aus Mustervorlage erstellen** und wählen eine Mustervorlage aus den vom Administrator zur Verfügung gestellten Mustervorlagen aus. Es wird eine neue Datei mit dem gleichen Namen wie die Mustervorlage erstellt. Sie können die neue Datei umbenennen und den Standardinhalt bearbeiten. Es sind keine weiteren Schritte in dieser Aufgabe erforderlich.
 
-3.  Enter a **Name** for the content.
+3.  Geben Sie einen **Namen** für den Inhalt ein.
 
-    The **Name** does not support the following special characters: * " < > \ / . ? : and |. When the name contains a disallowed character the **Create** button is disabled.
+    Für **Name** werden die folgenden Sonderzeichen nicht unterstützt: * " < > \ / . ? : und |. Enthält der Name ein unzulässiges Zeichen, ist die Schaltfläche **Erstellen** deaktiviert.
 
-    > **Note:** The name *can* include a period as long as it is not the last character. This allows you to add an extension (for example, .txt, .html, or .xml) if you want, though it's not required.
+    > **Hinweis:** Der Name *kann* einen Punkt beinhalten, solange er nicht das letzte Zeichen ist. Somit können Sie gegebenenfalls eine Erweiterung (z. B. .txt , .html oder .xml) hinzufügen. Dies ist jedoch nicht obligatorisch.
 
-4.  Add a title and description for the file.
+4.  Fügen Sie einen Titel und eine Beschreibung für die Datei hinzu.
 
-5.  Add the file content in the **Content** box.
+5.  Fügen Sie den Dateiinhalt im Feld **Inhalt** hinzu.
 
-    For HTML documents you can use the additional formatting options, and for XML documents you can include any required XML tagging. For HTML documents you can also drag the bottom right corner to resize the text editor.
+    Für HTML-Dokumente können Sie die zusätzlichen Formatierungsoptionen verwenden, für XML-Dokumente können Sie jedes gewünschte XML-Tagging einfügen. Bei HTML-Dokumenten können Sie auch die untere rechte Ecke ziehen, um die Größe des Texteditors anzupassen.
 
-6.  Click **Create**.
-
-
-The file is saved to Alfresco Share and displayed in the file preview screen.
+6.  Klicken Sie auf **Erstellen**.
 
 
-
-## Creating Google Docs files {#creating-google-docs-files}
-
-You can easily create Google Docs documents, spreadsheets, and presentations from Alfresco Share.
-
-Files you edit are temporarily stored in Google Docs, then removed from Google Docs once they've been checked back in to Share.
-
-1.  Select the folder where you want to add the content.
-
-    The file list displays the current contents of the selected folder. The content you create will be added here. You can create new folders as necessary.
-
-2.  Click **Create** and select the type of Google Docs file you want to create.
-
-    > **Important:** The first time you access Google Docs you have to authorize Share to use your account. If you have a Google Username in your Alfresco Share profile then it will be used as the default account. After responding to the prompts a message lets you know that the authorization was successful.
-
-    Share stores your Google Docs account information. You will need to authorize Share each session, but you won't have to re-enter your credentials each time.
-
-    If your browser asks you to allow popups for Google Docs then go ahead and do so. If you're using Safari you won't be able to use Google Docs until you enable all popups in the settings, so for security reasons you may prefer to use a different browser.
-
-    Google Docs opens with standard Google Docs functionality available, including the menu, the toolbar, and the features to add comments and share.
-
-3.  Click the default title to rename the file. On the Rename Document dialog box, enter a name and click **OK**.
-
-    > **Note:** You can also rename the file in the Share.
-
-4.  Create your content.
-
-    The file is saved to Google Docs, and locked in Alfresco until you check it in.
-
-5.  When you're done, close the Google Docs browser tab.
-
-    In Share you'll see the file displays the ![Geolocation metadata icon]({% link content-services/images/ico-googledocs.png %}) icon to show that it's open in Google Docs.
-
-6.  In Share, click **More** then **Check In Google Doc**.
-
-## Creating files from a template {#creating-files-from-a-template}
-
-As well as creating files from scratch, you can also create files from templates.
-
-> **Note:** Templates are only available if your Alfresco administrator has [set some up for you]({% link content-services/5.2/admin/templates.md %}).
-
-1.  Select the folder where you want to add the content.
-
-    The file list displays the current contents of the selected folder. The files you create will be added here.
-
-2.  Click **Create** then **Create document from template**.
-
-    A list of available templates will be displayed.
-
-3.  Select the template.
-
-    A new file based on the template is added to the document library.
-
-## Viewing content {#viewing-content}
-
-To get a closer look at a file or folder without downloading it, you can view it on the file preview screen. This gives you more detail, a preview, and access to social features, actions, and version history.
-
-## Viewing folder details {#viewing-folder-details}
-
-View the details page for a folder to conveniently see all information and actions in one place.
-
-1.  Hover over a folder in the file list in the document library.
-
-    > **Important:** Make sure you haven't selected **Hide Folders** in the Options menu.
-
-2.  Click ![View Details icon]({% link content-services/images/view-folder-detail-icon.png %}) **View Details**.
-
-    The Folder Details page displays all folder information, including properties and permissions. This page includes social features and folder actions.
-
-Click the folder in the breadcrumb trail at the top of the screen to return to the item list for that folder.
+Die Datei wird in Alfresco Share gespeichert und in der Dateivorschau angezeigt.
 
 
 
-## Viewing a file {#viewing-a-file}
+## Erstellen von Google Docs-Dateien {#creating-google-docs-files}
 
-You can preview files by clicking on the thumbnail or name in the document library. All file details and actions are available on this one screen.
+Sie können ganz einfach Google Docs-Dokumente, Tabellenkalkulationen und Präsentationen aus Alfresco Share erstellen.
 
-The preview screen is split into four sections:
+Von Ihnen bearbeitete Dateien werden vorübergehend in Google Docs gespeichert und dann aus Google Docs entfernt, sobald sie wieder in Share eingecheckt wurden.
 
-**Info and options**
+1.  Wählen Sie den Ordner aus, dem der Inhalt hinzugefügt werden soll.
 
-The info includes the file location and name, version number, the user who last modified the file, and the date/time of the modification. An icon to the left of these shows the file type.
+    In der Dateiliste wird der aktuelle Inhalt des ausgewählten Ordners angezeigt. Der erstellte Inhalt wird hier hinzugefügt. Sie können gegebenenfalls neue Ordner erstellen.
 
-Above this info is a link to return to the document library.
+2.  Klicken Sie auf **Erstellen** und wählen Sie den zu erstellenden Google Docs-Dateityp aus.
 
-With the options you can:
+    > **Wichtig:** Wenn Sie zum ersten Mal auf Google Docs zugreifen, müssen Sie Share für die Nutzung Ihres Kontos autorisieren. Wenn Sie einen Google-Benutzernamen in Ihrem Alfresco Share-Profil angegeben haben, wird dieser als Standardkonto verwendet. Nachdem Sie die erforderlichen Eingaben vorgenommen haben, werden Sie informiert, dass die Autorisierung erfolgreich war.
 
--   Click ![Like icon]({% link content-services/images/ico-download.png %}) to download a file.
--   Click ![Like icon]({% link content-services/images/like-icon.png %}) to like a file. You can click it again to unlike it.
--   Click ![Favorite icon]({% link content-services/images/favorite-icon.png %}) to favorite a file. You can click it again to unfavorite it.
--   Click ![Comment icon]({% link content-services/images/comment-icon.png %}) to comment on a file. When you've entered your comment click **Add Comment**.
--   Click ![Share icon]({% link content-services/images/ico-share.png %}) to share a file. You can copy a link or share it directly on social media.
+    Share speichert Ihre Google Docs-Kontoinformationen. Sie müssen die Autorisierung in jeder Share-Sitzung erneut vornehmen, aber Sie müssen nicht jedes Mal Ihre Anmeldedaten eingeben.
+
+    Wenn Ihr Browser Sie auffordert, Popups für Google Docs zuzulassen, stimmen Sie zu. Wenn Sie Safari verwenden, können Sie Google Docs erst dann verwenden, wenn Sie alle Popups in den Einstellungen aktiviert haben. Aus Sicherheitsgründen empfiehlt es sich daher, einen anderen Browser zu verwenden.
+
+    Google Docs wird mit den standardmäßigen Google Docs-Funktionen aufgerufen, wie das Menü, die Symbolleiste und die Funktionen zum Hinzufügen von Kommentaren und Teilen.
+
+3.  Klicken Sie auf den Standardtitel, um die Datei umzubenennen. Geben Sie im Dialogfeld **Dokument umbenennen** einen Namen ein und klicken Sie auf **OK**.
+
+    > **Hinweis:** Sie können die Datei auch in Share umbenennen.
+
+4.  Erstellen Sie Ihre Inhalte.
+
+    Die Datei wird in Google Docs gespeichert und in Alfresco gesperrt, bis Sie sie einchecken.
+
+5.  Schließen Sie abschließend die Google Docs-Browser-Registerkarte.
+
+    In Share wird mit der Datei das Symbol ![Geolocation metadata icon]({% link content-services/images/ico-googledocs.png %}) angezeigt, um anzugeben, dass sie in Google Docs geöffnet ist.
+
+6.  Klicken Sie in Share auf **Mehr** und dann auf **Google Doc einchecken**.
+
+## Erstellen von Dateien aus einer Mustervorlage {#creating-files-from-a-template}
+
+Sie können Dateien neu oder aus Mustervorlagen erstellen.
+
+> **Hinweis:** Mustervorlagen sind nur dann verfügbar, wenn Ihr Alfresco-Administrator Mustervorlagen [für Sie eingerichtet hat]({% link content-services/5.2/admin/templates.md %}).
+
+1.  Wählen Sie den Ordner aus, dem der Inhalt hinzugefügt werden soll.
+
+    In der Dateiliste wird der aktuelle Inhalt des ausgewählten Ordners angezeigt. Die von Ihnen erstellten Dateien werden hier hinzugefügt.
+
+2.  Klicken Sie auf **Erstellen** und dann auf **Dokument aus Mustervorlage erstellen**.
+
+    Eine Liste der verfügbaren Mustervorlagen wird angezeigt.
+
+3.  Wählen Sie die Mustervorlage aus.
+
+    Der Dokumentenbibliothek wird eine neue Datei, die auf der Vorlage basiert.
+
+## Anzeigen von Inhalten {#viewing-content}
+
+Um eine Datei oder einen Ordner genauer zu betrachten, ohne sie oder ihn herunterzuladen, können Sie diese in der Dateivorschau ansehen. Hier erhalten Sie weitere Details, eine Vorschau und Zugriff auf Social Features, Aktionen und den Versionsverlauf.
+
+## Anzeigen von Ordnerdetails {#viewing-folder-details}
+
+Lassen Sie die Detailseite für einen Ordner anzeigen, um alle Informationen und Aktionen an einer Stelle zu sehen.
+
+1.  Bewegen Sie den Mauszeiger in der Dokumentenbibliothek auf einen Ordner in der Dateiliste der Dokumentenbibliothek.
+
+    > **Wichtig:** Vergewissern Sie sicher, dass Sie im Menü **Optionen** nicht die Option **Ordner ausblenden** ausgewählt haben.
+
+2.  Klicken Sie auf **Details anzeigen** ![View Details icon]({% link content-services/images/view-folder-detail-icon.png %}).
+
+    Auf der Seite **Ordnerdetails** werden alle Ordnerinformationen angezeigt, einschließlich Eigenschaften und Berechtigungen. Diese Seite enthält soziale Funktionen und Ordneraktionen.
+
+Klicken Sie im Navigationsverlauf oben im Bildschirm auf den Ordner, um zur Elementliste für diesen Ordner zurückzukehren.
+
+
+
+## Anzeigen von Dateien {#viewing-a-file}
+
+Sie können eine Vorschau von Dateien anzeigen lassen, indem Sie in der Dokumentenbibliothek auf das Miniaturbild oder den jeweiligen Namen klicken. In diesem einen Bildschirm sind alle Details und Aktionen für Dateien verfügbar.
+
+Die Vorschau ist in vier Abschnitte unterteilt:
+
+**Infos und Optionen**
+
+Die Informationen beinhalten den Speicherort und den Namen der Datei, die Versionsnummer, den Benutzer, der die Datei zuletzt geändert hat, sowie das Datum und die Uhrzeit der Änderung. Ein Symbol links daneben gibt den Dateityp an.
+
+Über dieser Information befindet sich ein Link, mit dem Sie zur Dokumentenbibliothek zurückkehren können.
+
+Mit den Optionen können Sie die folgenden Aktionen ausführen:
+
+-   Klicken Sie auf ![Like icon]({% link content-services/images/ico-download.png %}), um eine Datei herunterzuladen.
+-   Klicken Sie auf ![Like icon]({% link content-services/images/like-icon.png %}), um eine Datei zu mögen. Sie können erneut darauf klicken, um die **Gefällt mir**-Markierung wieder aufzuheben.
+-   Klicken Sie auf ![Favorite icon]({% link content-services/images/favorite-icon.png %}), um eine Datei zu den Favoriten hinzuzufügen. Sie können erneut darauf klicken, um die Favoritenmarkierung wieder aufzuheben.
+-   Klicken Sie ![Comment icon]({% link content-services/images/comment-icon.png %}), um eine Datei zu kommentieren. Wenn Sie Ihren Kommentar eingegeben haben, klicken Sie auf **Kommentar hinzufügen**.
+-   Klicken Sie auf ![Share icon]({% link content-services/images/ico-share.png %}), um eine Datei freizugeben. Sie können einen Link kopieren oder direkt in sozialen Medien teilen.
 
 ![]({% link content-services/images/hr.png %})
 
-**Preview**
+**Vorschau**
 
-The preview options depend on what kind of file you're previewing.
+Die Vorschauoptionen hängen jeweils davon ab, welche Art Datei in der Vorschau angezeigt wird.
 
-A video preview has standard video playback controls.
+Eine Videovorschau verfügt über Standardsteuerelemente für die Videowiedergabe.
 
-When you preview a Microsoft Office, PDF, or other text-based file type (not an image or video) then you can zoom in and out, click **Maximize** to view a larger preview, and scroll between pages of multi-page files.
+Wenn es sich bei einer Datei in der Vorschau um einen Microsoft Office-, PDF- oder einen anderen textbasierten Dateityp handelt (nicht um ein Bild oder Video), können Sie zoomen, auf **Maximieren** klicken, um die Vorschau zu vergrößern, und in einer Datei mit mehreren Seiten zwischen den Seiten blättern.
 
->**Tip:** The zoom level and current page number are saved for the next time you preview this item.
+>**Tipp:** Das Zoomniveau und die aktuelle Seitenzahl werden für die nächste Vorschau dieses Elements gespeichert.
 
-You can also:
+Außerdem können Sie:
 
--   **Download** ![Like icon]({% link content-services/images/ico-download.png %}) the file in its original format or as a PDF.
--   Click ![Advanced Search icon]({% link content-services/images/ico-link.png %}) to share a link to the file, and even select to **Link to current page**.
--   Click ![Advanced Search icon]({% link content-services/images/advanced-search-icon.png %}) to search for text within the file.
-
-![]({% link content-services/images/hr.png %})
-
-**Comments**
-
-Comments are beneath the preview. Here you can add a comment, as well as edit and delete comments you've added.
-
-> **Note:** You can't add a comment if you have Consumer permission levels for the site.
-
-The comment list displays the 10 most recent comments. Click previous (<<) and next (>>) to see more comments.
+-   die Datei mithilfe von **Herunterladen* ![Like icon]({% link content-services/images/ico-download.png %}) in ihrem Originalformat oder als PDF herunterladen.
+-   auf ![Advanced Search icon]({% link content-services/images/ico-link.png %}) klicken, um einen Link zur Datei zu teilen, oder wählen Sie die Option **Link für aktuelle Seite**.
+-   auf ![Advanced Search icon]({% link content-services/images/advanced-search-icon.png %}) klicken, um in der Datei nach Text zu suchen.
 
 ![]({% link content-services/images/hr.png %})
 
-**Actions and details list**
+**Kommentare**
 
-The actions and details are grouped in sections that you can expand and collapse.
+Kommentare werden unter der Vorschau angezeigt. Hier können Sie einen Kommentar hinzufügen und von Ihnen hinzugefügte Kommentare bearbeiten und löschen.
 
->**Tip:** The viewing options are saved for the next time you preview this file.
+> **Hinweis:** Sie können keinen Kommentar hinzufügen, wenn Sie über Verbraucher-Berechtigungsstufen für die Site verfügen.
 
--   **Document Actions** - All actions available for the file.
--   **Tags** - Tags associated with the item. Click ![Configure icon]({% link content-services/images/ico-configure.png %}) to display the Edit Properties page. On this page click **Select** beneath the **Tags** label to edit the tags. You can add and remove existing tags, and create new tags.
--   **Share** - Select and copy this link to share it with others.
--   **Properties** - Click ![Configure icon]({% link content-services/images/ico-configure.png %}) to edit the properties of the file.
--   **Permissions** - Click ![Permissions icon]({% link content-services/images/ico-manage-permissions.png %}) to edit the permissions for this file.
--   **Workflows** - Displays tasks that this file is included in. The profile picture of the user who started the task and the task type are shown. Click ![Tasks icon]({% link content-services/images/ico-workflow.png %}) to start a new task for this file, and click a task description to view the task.
--   **Version History** - Displays previous versions. Click ![Upload version icon]({% link content-services/images/ico-version-upload.png %}) to upload a new version, ![Replace version icon]({% link content-services/images/ico-version-revert.png %}) to replace the current version with a previous version, ![Download icon]({% link content-services/images/ico-version-download.png %}) to download a previous version, or ![Version properties icon]({% link content-services/images/ico-version-properties.png %}) to view previous version properties.
+In der Kommentarliste werden die letzten zehn hinzugefügten Kommentare angezeigt. Klicken Sie auf Zurück (<<) und Weiter (>>), um weitere Kommentare einzublenden.
+
+![]({% link content-services/images/hr.png %})
+
+**Liste mit Aktionen und Details**
+
+Die Aktionen und Details sind in Abschnitten zusammengefasst, die Sie erweitern und komprimieren können.
+
+>**Tipp:** Die Anzeigeoptionen werden für die nächste Vorschau dieser Datei gespeichert.
+
+-   **Dokumentenaktionen**: Alle für die Datei verfügbaren Aktionen.
+-   **Tags**: Dem Element zugewiesene Tags. Klicken Sie auf ![Configure icon]({% link content-services/images/ico-configure.png %}), um die Seite **Eigenschaften bearbeiten** anzuzeigen. Klicken Sie auf dieser Seite unter dem Label **Tags** auf **Auswählen**, um die Tags zu bearbeiten. Sie können vorhandene Tags hinzufügen und entfernen oder neue Tags erstellen.
+-   **Freigeben**: Wählen Sie diesen Link aus und kopieren Sie ihn, um ihn mit anderen zu teilen.
+-   **Eigenschaften**: Klicken Sie auf ![Configure icon]({% link content-services/images/ico-configure.png %}), um die Eigenschaften der Datei zu bearbeiten.
+-   **Berechtigungen**: Klicken Sie auf ![Permissions icon]({% link content-services/images/ico-manage-permissions.png %}), um die Berechtigungen für diese Datei zu bearbeiten.
+-   **Workflows**: Zeigt Aufgaben an, in denen diese Datei enthalten ist, sowie das Profilbild des Benutzers, der die Aufgabe gestartet hat, und den Aufgabentyp. Klicken Sie auf ![Tasks icon]({% link content-services/images/ico-workflow.png %}), um eine neue Aufgabe für diese Datei zu starten, und klicken Sie auf eine Aufgabenbeschreibung, um die Aufgabe anzuzeigen.
+-   **Versionsverlauf**: Zeigt frühere Versionen an. Klicken Sie auf ![Upload version icon]({% link content-services/images/ico-version-upload.png %}), um eine neue Version hochzuladen, auf ![Replace version icon]({% link content-services/images/ico-version-revert.png %}), um die aktuelle Version mit einer Vorgängerversion zu ersetzen, auf ![Download icon]({% link content-services/images/ico-version-download.png %}), um eine Vorgängerversion herunterzuladen, oder auf ![Version properties icon]({% link content-services/images/ico-version-properties.png %}), um die Eigenschaften der Vorgängerversion anzuzeigen.
 
 ![]({% link content-services/images/hr.png %})
 
@@ -386,455 +386,455 @@ The actions and details are grouped in sections that you can expand and collapse
 
 
 
-## Viewing a file in a browser {#viewing-a-file-in-a-browser}
+## Anzeigen einer Datei im Browser {#viewing-a-file-in-a-browser}
 
-While the preview feature lets you view a file in Alfresco Share, you also have the option of viewing it in your default browser.
+Mit der Vorschaufunktion können Sie eine Datei in Alfresco Share anzeigen lassen, Sie können sie jedoch auch in Ihrem Standard-Browser anschauen.
 
-1.  Hover over a file in the document library.
+1.  Bewegen Sie den Mauszeiger auf eine Datei in der Die Dokumentenbibliothek.
 
-2.  Click **View in Browser**.
+2.  Klicken Sie auf **In Browser anzeigen**.
 
-    A new browser window opens displaying the selected file. For some file types, such as Microsoft Office documents, Share launches the file in its associated program.
+    Es wird ein neues Browser-Fenster mit der ausgewählten Datei eingeblendet. Für einige Dateitypen, wie zum Beispiel Microsoft Office-Dokumente, ruft Share die Datei im dazugehörigen Programm auf.
 
 
-## View a file on Google Maps {#view-a-file-on-google-maps}
+## Anzeigen einer Datei in Google Maps {#view-a-file-on-google-maps}
 
-When a file has geolocation data attached to it you can view the file location on Google Maps directly from Alfresco Share.
+Wenn einer Datei Geolocation-Metadaten zugewiesen sind, können Sie den Speicherort der Datei in Google Maps direkt aus Alfresco Share anzeigen lassen.
 
-1.  Hover over a file that has the Geolocation Metadata available icon ![Geolocation metadata icon]({% link content-services/images/geographic-icon.png %}).
+1.  Zeigen Sie mit dem Mauszeiger auf eine Datei, für die das Symbol **Geolocation-Metadaten verfügbar** ![Geolocation metadata icon]({% link content-services/images/geographic-icon.png %}) angezeigt wird.
 
-2.  Click **More** then **View on Google Maps**.
+2.  Klicken Sie auf **Mehr** und dann auf **In Google Maps anzeigen**.
 
-    The location attached to the file is shown in Google Maps, together with a preview of the file and a summary of the geolocation data.
+    Der der Datei hinzugefügte Standort wird in Google Maps zusammen mit einer Vorschau der Datei und einer Übersicht über die Geolocation-Metadaten angezeigt.
 
-## Organizing content {#organizing-content}
+## Organisieren von Inhalten {#organizing-content}
 
-With different people creating folders and adding files, you want to keep on top of it. Alfresco Share has multiple features available to help you keep content labelled, organized, and filed correctly.
+Wenn verschiedene Personen Ordner erstellen und Dateien hinzufügen, sollte Sie stets den Überblick behalten. Alfresco Share verfügt über verschiedene Funktionen, die Ihnen dabei helfen, Inhalte ordnungsgemäß zu kennzeichnen, zu organisieren und zu archivieren.
 
-## Dragging and dropping content {#dragging-and-dropping-content}
+## Verschieben von Inhalten mit Drag&Drop {#dragging-and-dropping-content}
 
-The drag and drop functionality lets you easily move content around the library.
+Mit der Drag&Drop-Funktion können Sie Inhalte ganz einfach in der Bibliothek verschieben.
 
-> **Note:** You can't drag and drop content in Table, Audio, or Media views.
+> **Hinweis:** Sie können Inhalte nicht mit Drag&Drop in der Tabellen-, Audio- oder Medienansicht ziehen.
 
-1.  In the library click the thumbnail of the file or folder you want to move. Don't release the mouse button.
+1.  Klicken Sie in der Bibliothek auf das Miniaturbild der Datei oder des Ordners, die beziehungsweise den Sie verschieben möchten. Lassen Sie die Maustaste nicht los.
 
-    When you move a folder, all of its content moves with it.
+    Wenn Sie einen Ordner verschieben, wird auch der gesamte dazugehörige Inhalt verschoben.
 
-2.  Drag the content to its new location. This can be a folder in the explorer panel or breadcrumb path, or onto another folder in the library.
+2.  Ziehen Sie den Inhalt an die neue Position. Das kann ein Ordner im Explorer-Anzeigefenster oder ein Navigationsverlaufspfad sein, oder aber ein anderer Ordner in der Bibliothek.
 
-    > **Note:** The target folder must be visible before you do the move. When you are positioned over the folder it is highlighted.
+    > **Hinweis:** Der Zielordner muss angezeigt werden, bevor Sie die Verschiebung durchführen. Wenn Sie auf einen Ordner verschoben haben, wird dieser markiert.
 
-    The target folder appears highlighted in the tree or the breadcrumb path.
+    Der Zielordner wird in der Baumstruktur oder dem Navigationsverlaufspfad markiert.
 
-3.  Release the mouse button to move the content.
+3.  Lassen Sie die Maustaste los, um den Inhalt zu verschieben.
 
-    > **Important:** To move several files or folders at once, or to move content to another site library, use the **Move to** action.
+    > **Wichtig:** Möchten Sie mehrere Dateien oder Ordner gleichzeitig oder Inhalt in eine andere Site-Bibliothek verschieben, verwenden Sie die Aktion **Verschieben nach**.
 
-    To upload a new version of an existing file you need to use the **Upload New Version** option. If you drag and drop a file that has the same name as a file already in the drop location, it'll be added as a new file with "-1" appended to the file name.
+    Zum Hochladen einer neuen Version einer bereits vorhandenen Datei müssen Sie die Option **Neue Version hochladen** wählen. Wenn Sie eine Datei mit Drag&Drop verschieben, die denselben Namen aufweist wie eine bereits am Ablageort vorhandene Datei, wird diese als neue Datei hinzugefügt und **-1** wird an den Dateinamen angehängt.
 
 
 
-## Moving content {#moving-content}
+## Verschieben von Inhalten {#moving-content}
 
-You can move content to relocate it to another location within the current library or to a library in a different site.
+Sie können Inhalte verschieben, um sie innerhalb der aktuellen Bibliothek an eine andere Stelle oder in eine Bibliothek in einer anderen Site zu bewegen.
 
-1.  Hover over a file/folder in the library and click **More** then **Move to**.
+1.  Zeigen Sie mit dem Mauszeiger in der Bibliothek auf eine Datei/einen Ordner und klicken Sie auf **Mehr** und dann **Verschieben nach**.
 
-    When you move a folder, all of its content moves with it.
+    Wenn Sie einen Ordner verschieben, wird auch der gesamte dazugehörige Inhalt verschoben.
 
-2.  Hover over a file/folder and click **More** then **Move to**.
+2.  Zeigen Sie mit dem Mauszeiger auf eine Datei/einen Ordner und klicken Sie auf **Mehr** und dann auf **Verschieben nach**.
 
-    When you move a folder, all of its content moves with it.
+    Wenn Sie einen Ordner verschieben, wird auch der gesamte dazugehörige Inhalt verschoben.
 
-    >**Tip:** In some views you'll need to click the ![Information icon]({% link content-services/images/ico-information.png %}) information icon.
+    >**Tipp:** In einigen Ansichten müssen Sie auf das Symbol **Informationen** ![Information icon]({% link content-services/images/ico-information.png %}) klicken.
 
-3.  Choose the site and folder where you want to place the content.
+3.  Wählen Sie die Site und den Ordner für die Ablage des Inhalt aus.
 
-    > **Note:** You can only move content to sites that you have permission to access.
+    > **Hinweis:** Sie können Inhalte nur in Sites verschieben, für die Sie Zugriffsberechtigung haben.
 
-4.  Click **Move**.
+4.  Klicken Sie auf **Verschieben**.
 
 
-You can move multiple files/folders at once by selecting them and using the **Move to** option on the **Selected Items** menu.
+Sie können mehrere Dateien/Ordner auf einmal verschieben, indem Sie sie auswählen und die Option **Verschieben nach** im Menü **Ausgewählte Elemente** wählen.
 
 
 
-## Copying content {#copying-content}
+## Kopieren von Inhalten {#copying-content}
 
-You can copy content between locations, within a site or across different sites.
+Sie können Inhalte zwischen Speicherorten, innerhalb einer Site oder zwischen verschiedenen Sites kopieren.
 
-1.  Find the file or folder you want to copy.
+1.  Suchen Sie die zu kopierende Datei beziehungsweise den zu kopierenden Ordner.
 
-    When you copy a folder, you also copy its contents.
+    Wenn Sie einen Ordner kopieren, wird auch der dazugehörige Inhalt kopiert.
 
-2.  Hover over a file/folder and click **Copy to**.
+2.  Zeigen Sie mit dem Mauszeiger auf eine Datei/einen Ordner und klicken Sie auf **Kopieren nach**.
 
-    >**Tip:** In some views you'll need to click the ![Information icon]({% link content-services/images/ico-information.png %}) information icon.
+    >**Tipp:** In einigen Ansichten müssen Sie auf das Symbol **Informationen** ![Information icon]({% link content-services/images/ico-information.png %}) klicken.
 
-    > **Note:** You're copying only the current version. The version history and comments are not carried over with the content.
+    > **Hinweis:** Sie kopieren nur die aktuelle Version. Der Versionsverlauf und Kommentare werden nicht mit dem Inhalt übernommen.
 
-3.  Choose the site and folder where you want to place a copy of the content.
+3.  Wählen Sie die Site und den Ordner für die Ablage einer Kopie des Inhalts aus.
 
-    > **Note:** You can only copy content to sites that you have permission to access.
+    > **Hinweis:** Sie können Inhalte nur in Sites kopieren, für die Sie Zugriffsberechtigung haben.
 
-4.  Click **Copy**.
+4.  Klicken Sie auf **Kopieren**.
 
-    A copy of the content is created. This is considered a new file so appears as version 1.0, with you as the creator.
+    Es wird eine Kopie des Inhalts erstellt. Diese wird als neue Datei betrachtet und erhält die Version 1.0 mit Ihnen als Ersteller.
 
 
-You can move multiple items at once by selecting them and using the **Move to** option on the **Selected Items** menu.
+Sie können mehrere Elemente auf einmal verschieben, indem Sie sie auswählen und die Option **Verschieben nach** im Menü **Ausgewählte Elemente** wählen.
 
 
 
-## Creating links to content {#creating-links-to-content}
+## Erstellen von Links zu Inhalten {#creating-links-to-content}
 
-You can create links to content between Alfresco locations, within a site or across different sites. This is similar to copying content, but instead of creating a new copy, you create a link to the existing file.
+Sie können Links zu Inhalten zwischen verschiedenen Alfresco-Speicherorten, innerhalb einer Site oder zwischen verschiedenen Sites erstellen. Dies ist vergleichbar mit dem Kopieren von Inhalten, doch anstatt eine neue Kopie zu erstellen, erstellen Sie einen Link auf die bestehende Datei.
 
-1.  Find the file or folder you want to create a link to.
+1.  Suchen Sie die Datei oder den Ordner, zu der beziehungsweise dem ein Link erstellt werden soll.
 
-2.  Hover over a file/folder and click **Copy to**.
+2.  Zeigen Sie mit dem Mauszeiger auf eine Datei/einen Ordner und klicken Sie auf **Kopieren nach**.
 
-    >**Tip:** In some views you'll need to click the ![Information icon]({% link content-services/images/ico-information.png %}) information icon.
+    >**Tipp:** In einigen Ansichten müssen Sie auf das Symbol **Informationen** ![Information icon]({% link content-services/images/ico-information.png %}) klicken.
 
-3.  Choose the site and folder where you want to create a link to the content.
+3.  Wählen Sie die Site und den Ordner für die Erstellung eines Links zum Inhalt aus.
 
-    > **Note:** You can only create links in sites that you have permission to access.
+    > **Hinweis:** Sie können nur Links in Sites erstellen, für die Sie Zugriffsberechtigung haben.
 
-4.  Click **Create Link**.
+4.  Klicken Sie auf **Link erstellen**.
 
-    A link to the content is created. Links to other content have "Link to" added to their name and are represented by the ![Linked file]({% link content-services/images/ico-copied-file.png %}) and ![Linked Folder]({% link content-services/images/ico-copied-folder.png %}) icons.
+    Es wird ein Link zum Inhalt erstellt. Für Links zu anderen Inhalten wird dem Namen **Link zu** hinzugefügt und es werden die Symbole ![Linked file]({% link content-services/images/ico-copied-file.png %}) und ![Linked Folder]({% link content-services/images/ico-copied-folder.png %}) damit angezeigt.
 
 
-When you click on a linked file or folder, or select **Locate Linked Item**, the original file or folder will be shown in its original site.
+Wenn Sie auf eine verlinkte Datei oder einen verlinkten Ordner klicken oder aber **Verlinktes Element lokalisieren** auswählen, werden die Originaldatei oder der Originalordner in der entsprechenden Original-Site angezeigt.
 
-> **Note:** You can hover over a link and select **Delete Link** to remove it
+> **Hinweis:** Sie können mit dem Mauszeiger auf einen Link zeigen und **Link löschen** wählen, um ihn zu entfernen.
 
-CAUTION:
+ACHTUNG:
 
-If you're using something other than Alfresco Share to access content, for example Alfresco Desktop Sync, then linked files might not be visible.
+Wenn Sie mit einem anderen Tool als Alfresco Share auf Inhalt zugreifen (wie zum Beispiel Alfresco Desktop Sync), werden verlinkte Dateien möglicherweise nicht angezeigt.
 
 
 
-## Unzipping content {#unzipping-content}
+## Entzippen von Inhalten {#unzipping-content}
 
-You can unzip .zip and .acp files to add their contents to a folder in Alfresco Share.
+Sie können ZIP- und ACP-Dateien entzippen, um die zugehörigen Inhalte zu einem Ordner in Alfresco Share hinzuzufügen.
 
-This means that you don't need to download a zip file to see its contents. You can quickly upload multiple files at the same time in a zip file, and then unzip them to your preferred location.
+Das bedeutet, dass Sie eine ZIP-Datei nicht herunterladen müssen, um deren Inhalt anzuzeigen. Sie können schnell mehrere Dateien gleichzeitig in einer ZIP-Datei hochladen und anschließend an einem beliebigen Ort entzippen.
 
-1.  Click on a zip or acp file to open the file preview.
+1.  Klicken Sie auf eine ZIP- oder ACP-Datei, um die Dateivorschau zu starten.
 
-2.  Click **Unzip to**.
+2.  Klicken Sie auf **Entzippen nach**.
 
-3.  Choose the site and folder where you want to unzip the files to.
+3.  Wählen Sie eine Site und einen Ordner zum Entzippen der Dateien aus.
 
-    > **Note:** You can only unzip files to sites that you have permission to access.
+    > **Hinweis:** Sie können Dateien nur auf Sites entzippen, auf die Sie Zugriff haben.
 
-4.  Click **Unzip**.
+4.  Klicken Sie auf **Entzippen**.
 
-    The files are unzipped and you can access them in the folder you chose to put them in. The zip file is still available in its original location.
+    Die Dateien sind entzippt und Sie können im ausgewählten Ordner darauf zugreifen. Die ZIP-Datei ist weiterhin am ursprünglichen Speicherort verfügbar.
 
-    > **Note:** If you have a zip that contains several thousand files, it might take more than 10 seconds to complete. If this is the case, you might see a message saying that the unzip operation could not be completed. This message is issued because Share has not had confirmation that the unzip operation has completed within 10 seconds. Check the folder where you wanted to unzip the files, to see if the unzip operation completed successfully.
+    > **Hinweis:** Wenn Sie eine ZIP-Datei mit mehreren tausend Dateien haben, kann es mehr als 10 Sekunden dauern, bis der Vorgang abgeschlossen ist. In diesem Fall wird u. U. eine Meldung mit der Nachricht angezeigt, dass der Vorgang zum Entzippen nicht abgeschlossen werden konnte. Diese Meldung wird ausgegeben, da Share innerhalb von 10 Sekunden keine Bestätigung zum erfolgreichen Entzippen erhalten hat. Rufen Sie den Ordner auf, in dem die Dateien entzippt werden sollten, um zu prüfen, ob das Entzippen erfolgreich abgeschlossen wurde.
 
-    >**Tip:** Alfresco administrators can also use the [Bulk Import tool]({% link content-services/5.2/admin/import-transfer.md %}#using-the-bulk-import-tool) to import multiple files.
+    >**Tipp:** Alfresco-Administratoren können auch das [Tool für den Massenimport]({% link content-services/5.2/admin/import-transfer.md %}#using-the-bulk-import-tool) verwenden, um mehrere Dateien zu importieren.
 
 
-## Renaming content {#renaming-content}
+## Umbenennen von Inhalten {#renaming-content}
 
-You can quickly rename files and folders.
+Sie können Dateien und Ordner schnell umbenennen.
 
-1.  Find the file/folder you want to rename.
+1.  Suchen Sie die umzubenennende Datei/den umzubenennenden Ordner.
 
-2.  Hover your cursor over the content name to display the ![Configure icon]({% link content-services/images/ico-configure.png %}) edit icon.
+2.  Zeigen Sie mit dem Mauszeiger auf den Inhaltsnamen, um das Symbol **Bearbeiten** ![Configure icon]({% link content-services/images/ico-configure.png %}) anzuzeigen.
 
-    >**Tip:** In some views you'll need to click the ![Information icon]({% link content-services/images/ico-information.png %}) information icon.
+    >**Tipp:** In einigen Ansichten müssen Sie auf das Symbol **Informationen** ![Information icon]({% link content-services/images/ico-information.png %}) klicken.
 
-3.  Click this icon to enter editing mode.
+3.  Klicken Sie auf dieses Symbol, um in den Bearbeitungsmodus zu wechseln.
 
-4.  Change the name and click **Save** (or press ENTER).
+4.  Ändern Sie den Namen und klicken Sie auf **Speichern **(oder drücken Sie die EINGABETASTE).
 
-    > **Important:** Don't change or delete the filename extension.
+    > **Wichtig:** Ändern oder löschen Sie die Dateinamenerweiterung nicht.
 
-    The updated name is shown in the file list.
+    Der aktualisierte Name wird in der Dateiliste angezeigt.
 
-    > **Note:** You can also rename a file or folder by editing its properties.
+    > **Hinweis:** Sie können eine Datei oder einen Ordner auch umbenennen, indem Sie die dazugehörigen Eigenschaften bearbeiten.
 
 
-## Tagging and categorizing content {#tagging-and-categorizing-content}
+## Markieren und Kategorisieren von Inhalten {#tagging-and-categorizing-content}
 
-You can tag and categorize similar or related content making it easy to find the content again.
+Sie können ähnliche oder verwandte Inhalte markieren und kategorisieren, um eine spätere Suche nach diesen Inhalten zu vereinfachen.
 
-Clicking on a category or tag in the explorer panel displays all content associated with that tag or category.
+Wenn Sie im Explorer-Anzeigefenster auf eine Kategorie oder ein Tag klicken, werden alle Inhalte angezeigt, die mit diesem Tag oder dieser Kategorie verknüpft sind.
 
-Tags are unstructured and useful for searches, whereas categories actually help you to structure the organization of your content.
+Tags sind unstrukturiert und nützlich für Suchvorgänge, wohingegen Kategorien Ihnen dabei helfen, Ihre Inhalte zu strukturieren.
 
-Tags and categories are a form of social indexing, and when a tag and category is created it's then available across all your sites and can be reused by all users.
+Tags und Kategorien sind eine Form der sozialen Indizierung. Wenn ein Tag und eine Kategorie erstellt werden, sind diese auf all Ihren Sites verfügbar und können von allen Benutzern wiederverwendet werden.
 
 **Tags**
 
-Anyone can create tags and then tag content with them. You can tag:
+Jeder Benutzer kann Tags erstellen und diese anschließend zur Markierung von Inhalten nutzen. Folgende Elemente können markiert werden:
 
--   Files and folders
--   Wiki pages
--   Blog posts
--   Discussion topics
--   Calendar events
--   Site links
+-   Dateien und Ordner
+-   Wiki-Seiten
+-   Blog-Posts
+-   Diskussionsthemen
+-   Kalenderereignisse
+-   Site-Links
 
-Tagging can be done when you create content, or you can edit existing content to add or remove tags. You can create your own tags or select from a list of tags already used in the current site.
+Sie können Elemente beim Erstellen von Inhalten markieren. Alternativ können Sie bestehende Inhalte bearbeiten, um Tags hinzuzufügen oder zu entfernen. Sie können eigene Tags erstellen oder diese aus einer Liste mit Tags auswählen, die bereits auf der aktuellen Site verwendet werden.
 
-In the **Document Library** you can manage tags in the item list or by editing the content properties. In all the other site features such as wiki pages and blogs you manage tags in the Tags section when creating or editing content, as follows:
+In der **Dokumentenbibliothek** können Sie Tags innerhalb der Elementliste oder durch Bearbeiten der Inhaltseigenschaften verwalten. In allen anderen Site-Funktionen wie Wiki-Seiten und Blogs verwalten Sie Tags im Abschnitt **Tags** beim Erstellen oder Bearbeiten von Inhalten wie folgt:
 
--   **Add a new tag**
+-   **Neues Tag hinzufügen**
 
-    Type a tag in the field provided and then click **Add**. To create several tags at once, separate each tag with a space. To add a multi-word tag, place it in quotation marks (for example, "draft material").
+    Geben Sie ein Tag in das dafür vorgesehene Feld ein, und klicken Sie anschließend auf **Hinzufügen**. Wenn Sie mehrere Tags gleichzeitig erstellen möchten, trennen Sie die einzelnen Tags durch ein Leerzeichen. Wenn Sie ein Tag hinzuzufügen möchten, das aus mehreren Wörtern besteht, müssen Sie es in Anführungszeichen setzen (z. B. **Entwurfsmaterialien**).
 
--   **Add an existing tag**
+-   **Vorhandenes Tag hinzufügen**
 
-    Click **Choose from popular tags in this site** to display the tags already used in the current site, then click the tag you want to use.
+    Klicken Sie auf **Aus beliebten Tags dieser Site auswählen**, um die bereits auf der aktuellen Site verwendeten Tags anzuzeigen. Klicken Sie anschließend auf das gewünschte Tag.
 
--   **Remove a tag**
+-   **Tag entfernen**
 
-    In the list of associated tags, click ![Delete button]({% link content-services/images/ico-delete.png %}) to remove an existing tag.
+    Klicken Sie in der Liste der zugehörigen Tags auf ![Delete button]({% link content-services/images/ico-delete.png %}), um ein bestehendes Tag zu entfernen.
 
 
-> **Note:** Data lists don't support tagging.
+> **Hinweis:** Markierungen werden in Datenlisten nicht unterstützt.
 
-You can also search for content using tags as the search term.
+Sie können bei der Suche nach Inhalten Tags auch als Suchbegriff nutzen.
 
-**Categories**
+**Kategorien**
 
-Unlike tags, which are not in a hierarchy and can be created by anyone, categories must be managed by an administrator.
+Im Gegensatz zu Tags, die nicht hierarchisch angeordnet sind und von jedem Benutzer erstellt werden können, müssen Kategorien von einem Administrator verwaltet werden.
 
-An example of categories, would be to have Regions as a top level category, then sub-categories of Africa, Asia, Europe, Latin America, North America, and Oceania, then further sub-categories of each of their countries.
+Im Folgenden sehen Sie ein Beispiel für eine Kategorisierung: Regionen = Oberkategorie – Afrika, Asien, Europa, Lateinamerika, Nordamerika und Ozeanien = Unterkategorien – Einzelne Länder = weitere Unterkategorien.
 
-Categories can only be associated with library items and folders. Content needs to be enabled for categorizing before you can add it to a category, see [Managing Aspects]({% link content-services/5.2-de/using/content/files-folders.md %}#applying-aspects).
+Kategorien können nur mit Bibliothekselementen und Ordnern verknüpft werden. Inhalte müssen für die Kategorisierung aktiviert werden, bevor sie zu einer Kategorie hinzugefügt werden können (siehe [Verwalten von Aspekten]({% link content-services/5.2/using/content/files-folders.md %}#applying-aspects).
 
-## Tagging content {#tagging-content}
+## Tagging von Inhalten {#tagging-content}
 
-To make content easier to find you can create and manage tags for files and folders in the document library.
+Um die Suche nach Inhalten zu vereinfachen, können Sie für Dateien in der Dokumentenbibliothek Tags erstellen und verwalten.
 
-1.  In the library find the content you want to tag.
+1.  Suchen Sie in der Bibliothek nach den Inhalten, die Sie mit einem Tag versehen möchten.
 
-2.  Hover your cursor over a tag to display the ![Tag icon]({% link content-services/images/ico-configure.png %}) tag icon, or if the content has no tags hover your cursor over the label **No Tags**.
+2.  Zeigen Sie mit dem Mauszeiger auf ein Tag, um das Symbol **Tag** ![Tag icon]({% link content-services/images/ico-configure.png %}) anzuzeigen. Verfügt der Inhalt über keine Tags, zeigen Sie mit dem Mauszeiger auf das Label **Keine Tags**.
 
-    >**Tip:** In some views this option isn't available or you'll need to click the ![Information icon]({% link content-services/images/ico-information.png %}) information icon.
+    >**Tipp:** In einigen Ansichten ist diese Option nicht verfügbar, oder Sie müssen auf das Informationssymbol ![Information icon]({% link content-services/images/ico-information.png %}) klicken.
 
-3.  Click ![Tag icon]({% link content-services/images/ico-configure.png %}).
+3.  Klicken Sie auf ![Tag icon]({% link content-services/images/ico-configure.png %}).
 
-4.  Create and manage the tags:
+4.  Erstellen und verwalten Sie die Tags:
 
-    -   **Create a new tag:** Type the tag name; it can be one or more words. Press ENTER.
+    -   **Erstellen Sie ein neues Tag:** Geben Sie den Tag-Namen ein. Dieser kann ein oder mehrere Wörter umfassen. Drücken Sie die EINGABETASTE.
 
-        >**Tip:** A list of possible matches might appear as you type. These are tags already used in this site. You can select a tag from this list to add it.
+        >**Tipp:** Während der Eingabe erscheint eine Liste mit möglichen Übereinstimmungen. Dabei handelt es sich um bereits in dieser Site verwendete Tags. Sie können ein Tag aus dieser Liste auswählen, um es hinzuzufügen.
 
-    -   **Edit an existing tag:** Click a tag to enter editing mode. Change the tag name and press ENTER.
-    -   **Remove a tag:** Click the **X** to the right of a tag to remove it.
-5.  Click **Save**.
+    -   **Bearbeiten Sie ein vorhandenes Tag:** Klicken Sie auf ein Tag, um in den Bearbeitungsmodus zu wechseln. Ändern Sie den Tag-Namen drücken Sie die EINGABETASTE.
+    -   **Entfernen Sie ein Tag:** Klicken Sie rechts neben dem Tag auf das **X**, um es zu entfernen.
+5.  Klicken Sie auf **Speichern**.
 
 
-When you click on a tag, either next to content in the document library or in the explorer panel, all content with that tag is displayed in the Document Library.
+Wenn Sie entweder neben dem Inhalt in der Dokumentenbibliothek oder im Explorer-Anzeigefenster auf ein Tag klicken, werden alle Inhalte mit diesem Tag in der Dokumentenbibliothek angezeigt.
 
-You can also search for content using tags as the search term.
+Sie können bei der Suche nach Inhalten Tags auch als Suchbegriff nutzen.
 
 
 
-## Categorizing content {#categorizing-content}
+## Kategorisieren von Inhalten {#categorizing-content}
 
-You can categorize files and folders to group similar content into pre-defined categories.
+Sie können Dateien und Ordner kategorisieren, um ähnliche Inhalte in vordefinierte Kategorien zu gruppieren.
 
-1.  Hover over the content you want to categorize.
+1.  Bewegen Sie den Mauszeiger auf den zu kategorisierenden Inhalt.
 
-    > **Note:** You can only categorize content that has the **No Categories** label or displays existing categories. See [Managing Aspects]({% link content-services/5.2-de/using/content/files-folders.md %}#applying-aspects) for more details on enabling content to be categorizable with the classifiable aspect.
+    > **Hinweis:** Sie können nur Inhalte kategorisieren, die über das Label **Keine Kategorien** verfügen oder vorhandene Kategorien anzeigen. Weitere Informationen zur Aktivierung von Inhalten für die Kategorisierung mit dem klassifizierbaren Aspekt finden Sie unter [Verwalten von Aspekten]({% link content-services/5.2/using/content/files-folders.md %}#applying-aspects).
 
-2.  Click **Edit Properties**.
+2.  Klicken Sie auf **Eigenschaften bearbeiten**.
 
-3.  Click the Categories **Select** option.
+3.  Klicken Sie für Kategorien auf die Option **Auswählen**.
 
-    The available categories are displayed. You can click on a category to display any sub-categories. Categories are available for use across all sites and by all users.
+    Die verfügbaren Kategorien werden angezeigt. Sie können auf eine Kategorie klicken, um alle dazugehörigen Unterkategorien anzuzeigen. Kategorien stehen in allen Sites und für alle Benutzer zur Verfügung.
 
-4.  Click **+** next to each category you want to add. You can categorize files using parent categories and their sub-categories.
+4.  Klicken Sie neben allen hinzuzufügenden Kategorien auf **+**. Sie können Dateien mit übergeordneten Kategorien und den dazugehörigen Unterkategorien kategorisieren.
 
-5.  Click **OK** the click **Save**.
+5.  Klicken Sie auf **OK** und dann auf **Speichern**.
 
 
-When you click on a category, either next to content in the document library or in the explorer panel, all content in that category is displayed in the document library.
+Wenn Sie entweder neben dem Inhalt in der Dokumentenbibliothek oder im Explorer-Anzeigefenster auf eine Kategorie klicken, werden alle Inhalte dieser Kategorie in der Dokumentenbibliothek angezeigt.
 
 
 
-## Favoriting content {#favoriting-content}
+## Definieren von Inhalten als bevorzugt {#favoriting-content}
 
-Use the **Favorite** action to mark library content that you access often. This adds the file or folder to the My Favorites view in the explorer panel where you can easily find it.
+Markieren Sie mit der Aktion **Favorit** Bibliotheksinhalte, auf die Sie häufig zugreifen. Hiermit wird die Datei oder der Ordner zur Ansicht **Meine Favoriten** im Explorer-Anzeigefenster hinzugefügt, wo sie oder er einfach zu finden ist.
 
-You can favorite both file and folders.
+Sie können sowohl Dateien als auch Ordner als bevorzugt definieren.
 
->**Tip:** In some views this option isn't available or you'll need to click the ![Information icon]({% link content-services/images/ico-information.png %}) information icon.
+>**Tipp:** In einigen Ansichten ist diese Option nicht verfügbar, oder Sie müssen auf das Informationssymbol ![Information icon]({% link content-services/images/ico-information.png %}) klicken.
 
-1.  In the library find the content you want to favorite.
+1.  Suchen Sie in der Bibliothek nach den Inhalten, die Sie als bevorzugt definieren möchten.
 
-2.  Click ![Favorite icon]({% link content-services/images/favorite-icon.png %}) **Favorite**.
+2.  Klicken Sie auf **Favorit** ![Favorite icon]({% link content-services/images/favorite-icon.png %}).
 
-    You'll see the icon change.
+    Das Symbol ändert sich.
 
-    > **Note:** Click the **Favorite** icon again if you want to remove the content from your list of favorites.
+    > **Hinweis:** Klicken Sie erneut auf das Symbol **Favorit**, wenn Sie den Inhalt aus Ihrer Favoritenliste entfernen möchten.
 
 
-## Locate items and folders {#locate-items-and-folders}
+## Suchen von Elementen und Ordnern {#locate-items-and-folders}
 
-When you filter library content using one of the **Documents** or **Tags** explorer views, it is not possible to tell where a file or folder is within the library folder structure. The **Locate File** and **Locate Folder** actions reveal the actual location of a file or folder in the library.
+Wenn Sie Bibliotheksinhalte mithilfe einer der *Explorer-Ansichten für **Dokumente** oder **Tags** filtern, lässt sich nicht ermitteln, an welcher Stelle innerhalb der Bibliotheksordnerstruktur sich eine Datei oder ein Ordner befindet. Die Aktionen **Datei lokalisieren** und **Ordner lokalisieren** zeigen den tatsächlichen Speicherort einer Datei oder eines Ordners in der Bibliothek an.
 
-This option is only available if a **Documents** view (All Documents, I'm Editing, Others are Editing, Recently Modified, Recently Added, or My Favorites) or **Tag** view is selected in the explorer pane.
+Diese Option ist nur verfügbar, wenn die Ansicht **Dokumente** (Dokumente, die ich bearbeite; Dokumente, die andere bearbeiten; Kürzlich geänderte Dokumente; Kürzlich hinzugefügte Dokumente; Meine Favoriten) oder die Ansicht **Tag** im Explorer-Fenster ausgewählt ist.
 
-1.  Hover the cursor over a file or folder to display the available actions.
+1.  Bewegen Sie den Cursor über eine Datei oder einen Ordner, um die verfügbaren Aktionen anzuzeigen.
 
-    >**Tip:** In some views you'll need to click the ![Information icon]({% link content-services/images/ico-information.png %}) information icon.
+    >**Tipp:** In einigen Ansichten müssen Sie auf das Symbol **Informationen** ![Information icon]({% link content-services/images/ico-information.png %}) klicken.
 
-2.  Depending on the type of content you have selected, click **Locate File** or **Locate Folder**.
+2.  Je nachdem, welche Art von Inhalt Sie ausgewählt haben, klicken Sie auf **Datei lokalisieren** oder **Ordner lokalisieren**.
 
 
-The view updates to show the file/folder in its library location.
+Die Ansicht wird aktualisiert, um den Speicherort der Datei bzw. des Ordners in der Bibliothek anzuzeigen.
 
 
 
-## Multi-selecting content {#multi-selecting-content}
+## Mehrfachauswahl von Inhalten {#multi-selecting-content}
 
-You can perform a single action on several pieces of content at once. You can select any number of files and folders in the same view.
+Sie können eine Aktion für mehrere Inhaltskomponenten gleichzeitig ausführen. Sie können eine beliebige Anzahl an Dateien und Ordnern in derselben Ansicht auswählen.
 
-1.  Select content in the Document Library. You can do this in two ways:
+1.  Wählen Sie Inhalte in der Dokumentenbibliothek aus. Hierfür stehen zwei Methoden zur Auswahl:
 
-    -   Click the check box of each file and folder you want to select.
-    -   Open the **Select** menu and click an option: **Documents**, **Folders**, or **All**.
-    In the Select menu, click **None** to clear your selections; click **Invert Selection** to toggle the check boxes to their opposite state.
+    -   Klicken Sie auf das Kontrollkästchen jeder Datei und jedes Ordners, die beziehungsweise den Sie auswählen möchten.
+    -   Rufen Sie das Menü **Auswählen** auf und klicken Sie auf eine Option: **Dokumente**, **Ordner** oder **Alle**.
+    Klicken Sie im Menü **Auswählen** auf **Keine**, um Ihre Auswahl aufzuheben. Klicken Sie auf **Auswahl umkehren**, um die Kontrollkästchen in den umgekehrten Zustand zu versetzen.
 
-2.  Open the **Selected Items** menu and click the action you want to perform.
+2.  Öffnen Sie das Menü **Ausgewählte Elemente** und klicken Sie auf die gewünschte Aktion.
 
 
-## Deleting content {#deleting-content}
+## Löschen von Inhalten {#deleting-content}
 
-Delete content to remove it from a site library.
+Löschen Sie Inhalte, um sie aus einer Site-Bibliothek zu entfernen.
 
-1.  Hover over an file/folder in the library and click **More** then either **Delete Document** or **Delete Folder**.
+1.  Zeigen Sie mit dem Mauszeiger in der Bibliothek auf eine Datei/einen Ordner und klicken Sie auf **Mehr** und dann entweder auf **Dokument löschen** oder **Ordner löschen**.
 
-    When you delete a folder you also delete all of its contents. This includes any content created by others users, even if you don't have permissions to directly delete them.
+    Wenn Sie einen Ordner kopieren, wird auch der gesamte dazugehörige Inhalt gelöscht. Dies umfasst alle von anderen Benutzern erstellten Inhalte, auch wenn Sie nicht über die Berechtigungen verfügen, diese direkt zu löschen.
 
-    >**Tip:** In some views you'll need to click the ![Information icon]({% link content-services/images/ico-information.png %}) information icon.
+    >**Tipp:** In einigen Ansichten müssen Sie auf das Symbol **Informationen** ![Information icon]({% link content-services/images/ico-information.png %}) klicken.
 
-    A message prompts you to confirm the deletion.
+    Sie werden zur Bestätigung des Löschvorgangs aufgefordert.
 
-2.  Click **Delete**.
+2.  Klicken Sie auf **Löschen**.
 
 
-The content is moved to your trashcan. From there you can recover it or delete it permanently.
+Der Inhalt wird in Ihren Papierkorb verschoben. Von hier aus können Sie ihn wiederherstellen oder dauerhaft löschen.
 
-> **Note:** If the file has been [declared as a record](https://github.com/Alfresco/docs-alfresco/blob/master/_archive/governance-services/2.7/tasks/rm-create-record.md){:target="_blank"} then the record is still available in the [Records Management site](https://github.com/Alfresco/docs-alfresco/blob/master/_archive/governance-services/2.7/concepts/rm-intro.md){:target="_blank"}.
+> **Hinweis:** Falls die Datei [als Datensatz deklariert](https://github.com/Alfresco/docs-alfresco/blob/master/_archive/governance-services/2.7/tasks/rm-create-record.md){:target="_blank"} wurde, ist der Datensatz weiterhin auf der [Records Management-Site](https://github.com/Alfresco/docs-alfresco/blob/master/_archive/governance-services/2.7/concepts/rm-intro.md){:target="_blank"} verfügbar.
 
 
 
-## Recovering deleted content {#recovering-deleted-content}
+## Wiederherstellen gelöschter Inhalte {#recovering-deleted-content}
 
-If you need to recover content that you've deleted, then it's easy to get it back from your trashcan.
+Falls Sie gelöschte Inhalte wiederherstellen müssen, können Sie diese einfach aus Ihrem Papierkorb wiederherstellen.
 
-1.  Open the user menu on the toolbar and click **My Profile** then the **Trashcan** tab.
+1.  Öffnen Sie das Benutzermenü in der Symbolleiste und klicken Sie auf **Mein Profil** und dann auf die Registerkarte **Papierkorb**.
 
-    >**Tip:** All content that you've deleted is listed here. You can enter a content name in the search field and click **Search** to look for specific content.
+    >**Tipp:** Alle von Ihnen gelöschten Inhalte werden hier aufgeführt. Sie können den Namen eines Inhalts in das Suchfeld eingeben und auf **Suche** klicken, um einen bestimmten Inhalt zu suchen.
 
-2.  Click **Recover** next to an item to recover it.
+2.  Klicken Sie neben dem gewünschten Element auf **Wiederherstellen**, um es wiederherzustellen.
 
 
-The selected content is restored to the location that you deleted it from. You can also recover multiple items by selecting them and clicking **Selected Items** then **Recover**.
+Der ausgewählte Inhalt wird an der Stelle wiederhergestellt, an der Sie ihn gelöscht haben. Sie können auch mehrere Elemente wiederherstellen, indem Sie sie auswählen und auf **Ausgewählte Elemente** und dann auf **Wiederherstellen** klicken.
 
 
 
-## Emptying your trashcan {#emptying-your-trashcan}
+## Leeren Ihres Papierkorbs {#emptying-your-trashcan}
 
-When you delete content, it is moved to your trashcan. By emptying your trashcan you can permanently remove content.
+Wenn Sie Inhalte löschen, werden sie in Ihren Papierkorb verschoben. Durch die Leerung des Papierkorbs können Sie Inhalte dauerhaft entfernen.
 
-> **Important:** After you empty your trashcan or delete content from it, the content is permanently gone; you can't get it back again.
+> **Wichtig:** Nachdem Sie Ihren Papierkorb geleert oder Inhalte daraus gelöscht haben, ist der Inhalt dauerhaft gelöscht. Sie können ihn nicht mehr wiederherstellen.
 
-1.  Open the user menu on the toolbar and click **My Profile** then the **Trashcan** tab.
+1.  Öffnen Sie das Benutzermenü in der Symbolleiste und klicken Sie auf **Mein Profil** und dann auf die Registerkarte **Papierkorb**.
 
-    >**Tip:** All content that you've deleted is listed here. You can enter a content name in the search field and click **Search** to look for specific content.
+    >**Tipp:** Alle von Ihnen gelöschten Inhalte werden hier aufgeführt. Sie können den Namen eines Inhalts in das Suchfeld eingeben und auf **Suche** klicken, um einen bestimmten Inhalt zu suchen.
 
-2.  Click **Empty** then **OK**.
+2.  Klicken Sie auf **Leeren** und dann auf **OK**.
 
-    By default only 1000 items are deleted at a time.
+    Standardmäßig werden in einem Schritt nur 1000 Elemente auf einmal gelöscht.
 
 
-The content is permanently deleted. You can also permanently delete specific items by clicking **Delete** next to them, or delete multiple items by selecting them and clicking **Selected Items** then **Delete**.
+Der Inhalt wird dauerhaft gelöscht. Sie können auch bestimmte Elemente dauerhaft löschen, indem Sie neben den zu löschenden Elementen auf **Löschen** klicken. Zum Löschen mehrerer Elemente wählen Sie sie aus und klicken auf **Ausgewählte Elemente** und dann auf **Löschen**.
 
 
 
-## Using social features {#using-social-features}
+## Verwenden von Social Features {#using-social-features}
 
-In Alfresco you can use social features to like, favorite, and comment on files and folders.
+In Alfresco können Sie Social Features verwenden, um Dateien und Ordner mit **Gefällt mir** oder als Favoriten zu markieren und ihnen Kommentare hinzufügen.
 
-These social features are available in the file preview screen, in the Site Content dashlet, and in several of the Document Library views. You can select to view just favorite files in several of your user and site dashlets.
+Diese Social Features sind in der Dateivorschau, im Dashlet **Site-Inhalt** und in mehreren Ansichten der Dokumentenbibliothek verfügbar. Sie können in mehreren Ihrer Benutzer- und Site-Dashlets auswählen, nur Dateien anzuzeigen, die als Favorit markiert wurden.
 
--   Click ![Like icon]({% link content-services/images/like-icon.png %}) to like an file/folder. You can click it again to unlike it.
--   Click ![Favorite icon]({% link content-services/images/favorite-icon.png %}) to favorite an file/folder. You can click it again to unfavorite it.
--   Click ![Comment icon]({% link content-services/images/comment-icon.png %}) **Comment** to comment on an file/folder. When you've entered your comment click **Add**.
+-   Klicken Sie auf ![Like icon]({% link content-services/images/like-icon.png %}), um eine Datei/einen Ordner zu mögen. Sie können erneut darauf klicken, um die **Gefällt mir**-Markierung wieder aufzuheben.
+-   Klicken Sie auf ![Favorite icon]({% link content-services/images/favorite-icon.png %}), um eine Datei/einen Ordner den Favoriten hinzuzufügen. Sie können erneut darauf klicken, um die Favoritenmarkierung wieder aufzuheben.
+-   Klicken Sie auf **Kommentar** ![Comment icon]({% link content-services/images/comment-icon.png %}), um eine Datei/einen Ordner zu kommentieren. Wenn Sie Ihren Kommentar eingegeben haben, klicken Sie auf **Hinzufügen**.
 
-> **Note:** You can't add comments if your permission level on the site is set to Consumer. Speak to your Alfresco administrator if you need to change your permission level.
+> **Hinweis:** Sie können keine Kommentare hinzufügen, wenn Ihre Berechtigungsstufe für die Site auf **Verbraucher** festgelegt ist. Wenden Sie sich an den Alfresco Administrator, wenn Ihre Berechtigungsstufe geändert werden muss.
 
-## Managing your comments {#managing-your-comments}
+## Verwalten Ihrer Kommentare {#managing-your-comments}
 
-Adding comments to content is a convenient way of giving feedback. You can edit and delete any comments that you added.
+Indem Sie Kommentaren zu Inhalten hinzufügen, können Sie auf einfache Weise Feedback geben. Sie können alle Kommentare, die Sie hinzugefügt haben, bearbeiten und löschen.
 
-You can't add comments if your permission level on the site is set to Consumer. Speak to your Alfresco administrator if you need to change your permission level.
+Sie können keine Kommentare hinzufügen, wenn Ihre Berechtigungsstufe für die Site auf **Verbraucher** festgelegt ist. Wenden Sie sich an den Alfresco Administrator, wenn Ihre Berechtigungsstufe geändert werden muss.
 
-Only site managers can edit and delete another user's comments.
+Nur Site-Manager können die Kommentare eines anderen Benutzers bearbeiten und löschen.
 
-## Adding a comment {#adding-a-comment}
+## Hinzufügen von Kommentaren {#adding-a-comment}
 
-You can add comments to folders and individual files to give other users information or notes.
+Sie können Ordnern und einzelnen Dateien Kommentare hinzufügen, um anderen Benutzern Informationen oder Notizen bereitzustellen.
 
-You can comment on both files and folders. This feature is available in a file preview screen, in the Site Content dashlet, and in several of the Document Library views.
+Sie können sowohl Dateien als auch Ordner kommentieren. Diese Funktion ist in einer Dateivorschau im Dashlet **Site-Inhalt** und in verschiedenen Ansichten der Dokumentenbibliothek verfügbar.
 
-> **Note:** You can't add comments if your permission level on the site is set to Consumer. Speak to your administrator if you need to change your permission level.
+> **Hinweis:** Sie können keine Kommentare hinzufügen, wenn Ihre Berechtigungsstufe für die Site auf **Verbraucher** festgelegt ist. Wenden Sie sich an den Administrator, wenn Ihre Berechtigungsstufe geändert werden muss.
 
-1.  Find the content (file or folder) you want to comment on.
+1.  Suchen Sie den zu kommentierenden Inhalt (Datei oder Ordner).
 
-2.  Click **Comment**.
+2.  Klicken Sie auf **Kommentar**.
 
-    The comment box on the file preview screen opens.
+    Das Kommentarfeld wird in der Dateivorschau aufgerufen.
 
-3.  Enter your comment.
+3.  Geben Sie Ihren Kommentar ein.
 
-    The text box includes features to format the text; insert bulleted and numbered lists; change the font color; and help with editing.
+    Das Textfeld enthält Funktionen zum Formatieren des Textes, zum Einfügen von Listen mit Aufzählungszeichen und von nummerierten Listen, zum Ändern der Schriftfarbe und zum Aufrufen von Hilfe bei der Bearbeitung.
 
-4.  Click **Add Comment**.
+4.  Klicken Sie auf **Kommentar hinzufügen**.
 
-    Your comment appears at the top of the list. You have the option to edit comments you've made, and site managers can edit any comments.
+    Ihr Kommentar erscheint oben in der Liste. Sie können Ihre vorherigen Kommentare bearbeiten, Site-Manager können dagegen alle Kommentare bearbeiten.
 
 
-## Editing a comment {#editing-a-comment}
+## Bearbeiten eines Kommentars {#editing-a-comment}
 
-You can edit a comment to change what it says.
+Sie können einen Kommentar inhaltlich überarbeiten.
 
-1.  Find the content (file or folder) that you commented on and click on it to open it in the file preview screen.
+1.  Suchen Sie den Inhalt (Datei oder Ordner), den Sie kommentiert haben, und klicken Sie darauf, um ihn in der Dateivorschau anzeigen zu lassen.
 
-2.  Click the ![Edit Comment icon]({% link content-services/images/ico-configure.png %}) edit comment icon for the comment you want to edit.
+2.  Klicken Sie für den Kommentar, den Sie bearbeiten möchte, auf das Symbol **Kommentar bearbeiten** ![Edit Comment icon]({% link content-services/images/ico-configure.png %}).
 
-    This icon is available only to the user who created the comment and site managers. The comment list displays the last ten comments added.
+    Dieses Symbol steht nur dem Benutzer zur Verfügung, der den Kommentar erstellt hat, sowie allen Site-Managern. In der Kommentarliste werden die letzten zehn hinzugefügten Kommentare angezeigt.
 
-3.  Edit the comment.
+3.  Bearbeiten Sie den Kommentar.
 
-4.  Click **Save**.
+4.  Klicken Sie auf **Speichern**.
 
-    The user name and profile picture beside the comment indicate who added it. These details are not replaced with your own if you are editing another user's comment.
+    Der Benutzername und das Profilbild neben dem Kommentar geben an, wer ihn hinzugefügt hat. Diese Angaben werden nicht durch Ihre eigenen ersetzt, wenn Sie den Kommentar eines anderen Benutzers bearbeiten.
 
 
 
-## Deleting a comment {#deleting-a-comment}
+## Löschen eines Kommentars {#deleting-a-comment}
 
-You can delete a comment that you created, and site managers can delete any comment.
+Sie können einen zuvor erstellten Kommentar löschen. Site-Manager können dagegen alle Kommentare löschen.
 
-1.  Find the content (file or folder) that you commented on and click on it to open it in the file preview screen.
+1.  Suchen Sie den Inhalt (Datei oder Ordner), den Sie kommentiert haben, und klicken Sie darauf, um ihn in der Dateivorschau anzeigen zu lassen.
 
-2.  Click the ![Delete icon]({% link content-services/images/ico-delete.png %}) Delete Comment icon for the comment you want to delete.
+2.  Klicken Sie für den zu löschenden Kommentar auf das Symbol **Kommentar löschen** ![Delete icon]({% link content-services/images/ico-delete.png %}).
 
-    This icon is available only to the user who created the comment and site managers. The comment list displays the last ten comments added.
+    Dieses Symbol steht nur dem Benutzer zur Verfügung, der den Kommentar erstellt hat, sowie allen Site-Managern. In der Kommentarliste werden die letzten zehn hinzugefügten Kommentare angezeigt.
 
-    A message prompts you to confirm the deletion of the selected comment.
+    Sie werden aufgefordert, den Löschvorgang für den ausgewählten Kommentar zu bestätigen.
 
-3.  Click **Delete**.
+3.  Klicken Sie auf **Löschen**.

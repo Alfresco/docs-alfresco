@@ -1,117 +1,115 @@
 ---
-title: Overview of using Content Services
+title: Verwenden von Alfresco Content Services aus anderen Anwendungen heraus 
 ---
 
-The using sections cover the basics of using Content Services and the Alfresco Share user interface.
-
-There are also several ways to access and use content without being in Alfresco Share.
+Es gibt verschiedene Möglichkeiten, außerhalb von Alfresco Share auf Inhalte zuzugreifen und diese zu nutzen.
 
 **Microsoft Office**
 
-You can open, edit, and save files directly from Microsoft Office apps such as Word and Excel. This same functionality also lets you open files from Windows Explorer, as well as the option to map a network drive to Alfresco Content Services.
+Sie können Dateien direkt über Microsoft Office-Anwendungen wie Word und Excel öffnen, bearbeiten und speichern. Mit derselben Funktion können Sie auch Dateien über Windows Explorer öffnen. Außerdem haben Sie die Möglichkeit, ein Netzlaufwerk zu Alfresco Content Services zuzuordnen.
 
 **Microsoft Outlook**
 
-With Alfresco Outlook Integration you can save and file your emails to Alfresco Content Services from within Microsoft Outlook. You can drag and drop emails in and out of Alfresco Share, and add properties automatically when an email is filed. Other features full search, tagging, metadata support, and workflow capabilities.
+Dank der Outlook-Integration in Alfresco können Sie Ihre E-Mail-Nachrichten über Microsoft Outlook in Alfresco Content Services speichern und archivieren. Sie können E-Mail-Nachrichten per Drag-and-Drop in Alfresco Share ablegen und daraus entfernen sowie automatisch Eigenschaften hinzufügen, wenn eine E-Mail-Nachricht archiviert wird. Andere Optionen wie **Vollständige Suche**, **Tagging**, **Metadaten-Support** und **Workflow-Funktionen** sind ebenfalls verfügbar.
 
-**Windows Explorer shortcuts**
+**Verknüpfungen im Windows Explorer**
 
-There are also some shortcuts available that your Alfresco administrator can enable so you can work with files from Windows Explorer or from your desktop.
+Ihr Alfresco-Administrator kann verschiedene Verknüpfungen aktivieren, damit Sie Dateien über Windows Explorer oder Ihren Desktop bearbeiten können.
 
-## Using Alfresco Content Services from Microsoft Office
+## Verwenden von Alfresco Content Services aus Microsoft Office heraus
 
-With Alfresco Office Services (AOS) you can access content directly from your Microsoft Office applications.
+Mit Alfresco Office Services (AOS) können Sie direkt über Ihre Microsoft Office-Anwendungen auf Inhalte zugreifen.
 
-This means that you can browse, open, and save Microsoft Office files (Word, PowerPoint, and Excel) in Alfresco Content Services without the need to access Alfresco Share through Chrome, Firefox, or another web browser.
+Das bedeutet, dass Sie Microsoft Office-Dateien (Word, PowerPoint und Excel) in Alfresco Content Services durchsuchen, öffnen und speichern können, ohne über Chrome, Firefox oder einen anderen Webbrowser auf Alfresco Share zugreifen zu müssen.
 
-You can also browse content from Windows Explorer, or map a network drive.
+Sie können auch im Windows Explorer nach Inhalten suchen oder ein Netzlaufwerk zuordnen.
 
-For more information about Alfresco Office Services, see [Alfresco Office Services]({% link microsoft-office/1.1/using/index.md %}).
+Weitere Informationen zu Alfresco Office Services finden Sie unter [Alfresco Office Services]({% link microsoft-office/1.1/using/index.md %}).
 
-## Using Alfresco Content Services from Microsoft Outlook
+## Verwenden von Alfresco Content Services aus Microsoft Outlook heraus
 
-With Alfresco Outlook Integration you can use email and repository management without leaving Microsoft Outlook.
+Mit der Alfresco Outlook-Integration können Sie die E-Mail- und Repository-Verwaltung nutzen, ohne Microsoft Outlook verlassen zu müssen.
 
-You can directly archive emails into Alfresco Share, use the full metadata support, full search, tagging and workflow capabilities, and attach files and view archived emails in your inbox.
+Sie können E-Mails direkt in Alfresco Share archivieren, die vollständige Metadatenunterstützung, umfassende Such-, Tagging- und Workflow-Funktionen nutzen, Dateien anhängen und archivierte E-Mails in Ihrem Posteingang anzeigen.
 
-For more information about Alfresco Outlook Integration, see [Alfresco Outlook Integration]({% link microsoft-outlook/2.4/install/index.md %}).
+Weitere Informationen zur Alfresco Outlook-Integration finden Sie unter [Alfresco Outlook-Integration]({% link microsoft-outlook/2.4/install/index.md %}).
 
-## Using the Windows Explorer shortcuts
+## Verwenden der Tastenkombinationen im Windows Explorer
 
-You can work with files without actually being in the Alfresco Share interface.
+Sie können mit Dateien arbeiten, ohne dass Sie sich tatsächlich in der Alfresco Share-Oberfläche befinden.
 
-Your administrator can map the repository so that you can access your content using Windows Explorer or a desktop shortcut. If you are working in this way, then there will be up to three additional files shown on each level of the Alfresco Content Services file structure:
+Der Administrator kann das Repository so zuordnen, dass Sie über den Windows Explorer oder eine Desktop-Verknüpfung auf Ihre Inhalte zugreifen können. Wenn Sie auf diese Weise arbeiten, werden auf jeder Ebene der Alfresco Content Services-Dateistruktur bis zu drei zusätzliche Dateien angezeigt:
 
--   `__CheckInOut.exe`
--   `__ShowDetails.exe`
--   `__Share.url`
+-   __CheckInOut.exe
+-   __ShowDetails.exe
+-   __Share.url
 
-> **Note:** The Share.url is only available within site folders, rather than everywhere in the repository.
+> **Hinweis:** Die Datei **Share.url** ist nur innerhalb von Site-Ordnern verfügbar und nicht überall im Repository.
 
-You can use these files to add content to the repository, check documents in and out, view document details, and open Alfresco Share in a browser window.
+Mit diesen Dateien können Sie Inhalte zum Repository hinzufügen, Dokumente ein- und auschecken, Dokumentendetails anzeigen und Alfresco Share in einem Browserfenster öffnen.
 
-> **Note:** These options only function when you are working in a Windows environment.
+> **Hinweis:** Diese Optionen funktionieren nur, wenn Sie in einer Windows-Umgebung arbeiten.
 
-### Add a file from outside Alfresco Share {#add-a-file-from-outside-alfresco-share}
+### Hinzufügen einer Datei von außerhalb von Alfresco Share {#add-a-file-from-outside-alfresco-share}
 
-You can easily drag and drop content to the repository from outside Share.
+Sie können Inhalte einfach per Drag & Drop von außerhalb von Share in das Repository ziehen.
 
-> **Note:** This functionality is available in a Windows environment if the Alfresco Content Services repository has been mapped by your administrator, so that you can access it from Windows Explorer.
+> **Hinweis:** Diese Funktionalität ist in einer Windows-Umgebung verfügbar, wenn das Alfresco Content Services-Repository von Ihrem Administrator zugeordnet wurde, so dass Sie über den Windows Explorer darauf zugreifen können.
 
-1.  Select a file in Windows Explorer or your desktop.
+1.  Wählen Sie eine Datei im Windows Explorer oder auf Ihrem Desktop aus.
 
-2.  Drag the file onto the location in the repository that you want to add it to.
+2.  Ziehen Sie die Datei auf den Speicherort im Repository, dem Sie es hinzufügen möchten.
 
-    The file is added to the selected location in the repository.
+    Die Datei wird an der ausgewählten Stelle im Repository hinzugefügt.
 
-### Check out files from outside Alfresco Share {#check-out-files-from-outside-alfresco-share}
+### Auschecken von Dateien von außerhalb von Alfresco Share {#check-out-files-from-outside-alfresco-share}
 
-You can use the CheckInOut.exe to check content out so that you can work on it securely.
+Mithilfe von **CheckInOut.exe** können Sie Inhalt auschecken, damit Sie sicher daran arbeiten können.
 
-> **Note:** The CheckInOut.exe is available in a Windows environment if the Alfresco Content Services repository has been mapped by your administrator so that you can access it from Windows Explorer.
+> **Hinweis:** **CheckInOut.exe** ist in einer Windows-Umgebung verfügbar, wenn das Alfresco Content Services-Repository von Ihrem Administrator zugeordnet wurde, so dass Sie über den Windows Explorer darauf zugreifen können.
 
-1.  In Windows Explorer, drag a file from the mapped repository onto the CheckInOut.exe icon.
+1.  Ziehen Sie im Windows Explorer eine Datei aus dem zugeordneten Repository auf das Symbol **CheckInOut.exe**.
 
-    > **Note:** There is a copy of the CheckInOut.exe at each level of the repository.
+    > **Hinweis:** Auf jeder Ebene des Repositorys ist eine Kopie von **CheckInOut.exe** vorhanden.
 
-2.  Click **OK** when the Run check in/out action dialog box displays.
+2.  Klicken Sie auf **OK**, wenn das Dialogfeld zur Ausführung einer Eincheck-/Auscheck-Aktion angezeigt wird.
 
-3.  Click **OK** when a message displays that the file has been checked out.
+3.  Klicken Sie auf **OK**, wenn eine Meldung erscheint, dass die Datei ausgecheckt wurde.
 
-    A copy of your file is created in the same location as the original file with (Working Copy) appended to the title. The original file is now locked, so you can work on the (Working Copy) file and other users cannot edit it until you check it back in.
+    Eine Kopie Ihrer Datei wird an demselben Speicherort erstellt, an dem die Originaldatei abgelegt ist. Dem Titel wird (Arbeitskopie) angehängt. Die Originaldatei ist jetzt gesperrt, so dass Sie zwar an der Datei (Arbeitskopie) arbeiten können, andere Benutzer bis zum Einchecken jedoch keine Änderungen daran vornehmen können.
 
-4.  When you have finished working on the file and saved your changes, drag the (Working Copy) file onto the CheckInOut.exe icon.
+4.  Wenn die Arbeiten an der Datei abgeschlossen sind und Sie Ihre Änderungen gespeichert haben, ziehen Sie die Datei (Arbeitskopie) auf das Symbol **CheckInOut.exe**.
 
-5.  Click **OK** when the Run check in/out action dialog box displays.
+5.  Klicken Sie auf **OK**, wenn das Dialogfeld zur Ausführung einer Eincheck-/Auscheck-Aktion angezeigt wird.
 
-    The (Working Copy) file is removed and any updates made while it was checked out are applied to the original file.
+    Die Datei (Arbeitskopie) wird entfernt und alle im ausgecheckten Zustand vorgenommenen Aktualisierungen werden auf die Originaldatei angewendet.
 
-### View item details from a mapped drive {#view-item-details-from-a-mapped-drive}
+### Anzeigen von Elementdetails von einem zugeordneten Laufwerk aus {#view-item-details-from-a-mapped-drive}
 
-You can use the ShowDetails.exe to view item details and properties.
+Mithilfe von **ShowDetails.exe** können Sie Elementdetails und -eigenschaften anzeigen.
 
-> **Note:** The ShowDetails.exe is available in a Windows environment if the Alfresco Content Services repository has been mapped by your administrator so that you can access it from Windows Explorer.
+> **Hinweis:** **ShowDetails.exe** ist in einer Windows-Umgebung verfügbar, wenn das Alfresco Content Services-Repository von Ihrem Administrator zugeordnet wurde, so dass Sie über den Windows Explorer darauf zugreifen können.
 
-1.  Select a file in the mapped repository in Windows Explorer or your desktop.
+1.  Wählen Sie eine Datei im zugeordneten Repository im Windows Explorer oder auf Ihrem Desktop aus.
 
-2.  Drag the file from the mapped repository onto the ShowDetails.exe.
+2.  Ziehen Sie die Datei aus dem zugeordneten Repository auf **ShowDetails.exe**.
 
-    > **Note:** There is a copy of the ShowDetails.exe at each level of the repository.
+    > **Hinweis:** Auf jeder Ebene des Repositorys ist eine Kopie von **ShowDetails.exe** vorhanden.
 
-    A new browser window opens showing the Alfresco Share file preview, where you can see a preview of the file and its properties.
+    Es wird ein neues Browserfenster mit der Alfresco Share-Dateivorschau angezeigt. Es enthält eine Vorschau der Datei und ihrer Eigenschaften.
 
-### Open Alfresco Share in a browser window {#open-alfresco-share-in-a-browser-window}
+### Öffnen von Alfresco Share in einem Browserfenster {#open-alfresco-share-in-a-browser-window}
 
-You can use the Share.url to open the Share in a browser window.
+Mithilfe von **Share.url** können Sie Share in einem Browserfenster öffnen.
 
-The Share.url is a shortcut to Share. It's available in a Windows environment if the Alfresco Content Services repository has been mapped by your administrator so that you can access it from Windows Explorer.
+**Share.url** ist eine Tastenkombination für Share. Es ist in einer Windows-Umgebung verfügbar, wenn das Alfresco Content Services-Repository von Ihrem Administrator zugeordnet wurde, so dass Sie über den Windows Explorer darauf zugreifen können.
 
-1.  In Windows Explorer go to the location in the repository that you want to open.
+1.  Navigieren Sie im Windows Explorer zu dem Ort im Repository, den Sie öffnen möchten.
 
-    > **Note:** The Share.url is only available within site folders, rather than everywhere in the repository.
+    > **Hinweis:** Die Datei **Share.url** ist nur innerhalb von Site-Ordnern verfügbar und nicht überall im Repository.
 
-2.  Double-click the Share.url.
+2.  Doppelklicken Sie auf **Share.url**.
 
-    > **Note:** There is a copy of the Share.url at each level of the repository.
+    > **Hinweis:** Auf jeder Ebene des Repositorys ist eine Kopie von **Share.url** vorhanden.
 
-    Alfresco Share will open in a browser window, showing the location where you clicked on Share.url.
+    Alfresco Share wird in einem Browserfenster geöffnet und zeigt die Position an, auf der Sie auf **Share.url** geklickt haben.

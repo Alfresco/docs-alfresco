@@ -1,352 +1,352 @@
 ---
-title: User roles and permissions
+title: Benutzerrollen und Berechtigungen
 ---
 
-A user's role determines what they can and cannot do in a site. Each role has a default set of permissions.
+Mit der Rolle eines Benutzers wird festgelegt, welche Aktionen diese auf einer Site ausführen können. Jede Rolle verfügt über einen Standardsatz Berechtigungen.
 
-The following sections describe these permissions. In general:
+Die folgenden Abschnitte werden diese Berechtigungen beschrieben. Allgemein gilt:
 
--   Managers have full rights to all site content - what they have created themselves and what other site members have created.
--   Collaborators have full rights to the site content that they own; they have rights to edit but not delete content created by other site members.
--   Contributors have full rights to the site content that they own; they cannot edit or delete content created by other site members.
--   Consumers have view-only rights in a site: they cannot create their own content.
+-   Manager haben volle Rechte auf alle Inhalte einer Site (sowohl selbst als auch von anderen Site-Mitgliedern erstellte Inhalte).
+-   Mitarbeiter haben volle Rechte auf eigene Site-Inhalte. Von anderen Site-Mitgliedern erstellte Inhalte können sie bearbeiten aber löschen.
+-   Beitragende haben volle Rechte auf eigene Site-Inhalte. Von anderen Site-Mitgliedern erstellte Inhalte können sie weder bearbeiten noch löschen.
+-   Verbraucher haben nur Leserechte für eine Site, können aber keine eigenen Inhalte erstellen.
 
-> **Note:** As well as these four default roles you might also see additional roles in different places in Alfresco Share.
+> **Hinweis:** Neben diesen vier Standardrollen sind an verschiedenen Stellen in Alfresco Share möglicherweise auch andere Rollen verfügbar.
 
--   Coordinator - has full rights to all content - what they have created themselves and what others have created.
--   Editor - has rights to edit file properties and check files in and out; they cannot create their own content.
+-   Koordinator: Haben volle Rechte auf alle Inhalte (sowohl selbst erstellte als auch von anderen Site-Mitgliedern erstellte Inhalte).
+-   Editor: Haben Rechte zum Ändern von Dateieigenschaften und zum Ein- und Auschecken von Dateien, sie können aber keine eigenen Inhalte erstellen.
 
-Your Alfresco Administrator can also add additional roles.
+Ihr Alfresco-Administrator kann auch zusätzliche Rollen hinzufügen.
 
-Site managers can [change a site role]({% link content-services/5.2-de/using/sites/index.md %}#changing-a-site-role) for the site users.
+Site-Manager können eine [Site-Rolle für die Site-Benutzer ändern]({% link content-services/5.2/using/sites/index.md %}#changing-a-site-role).
 
-If you're a member of two user groups which have different permissions then you will get the sum total of all the permissions. For example, if Group 1 has permission to view a file and Group 2 has permission to view and edit a file, then you would have view and edit permission for the file.
+Wenn Sie Mitglied von zwei Benutzergruppen sind, die über unterschiedliche Berechtigungen verfügen, erhalten Sie die Summe aller Berechtigungen. Verfügt beispielsweise Gruppe 1 über die Berechtigung zum Anzeigen einer Datei und Gruppe 2 über die Berechtigung zum Anzeigen und Bearbeiten einer Datei, erhielten Sie die Berechtigung zum Anzeigen und Bearbeiten der Datei.
 
-> **Note:** Site content can be defined as any content created or added to a site. This includes, but is not limited to, wiki pages, blog postings, library folders and items, calendar events, discussion topics, and comments on any content.
+> **Hinweis:** Site-Inhalt kann definiert werden als jeder Inhalt, der für eine Site erstellt oder dieser hinzugefügt wird. Dies umfasst unter anderem Wiki-Seiten, Blog-Posts, Bibliotheksordner und -elemente, Kalenderereignisse, Diskussionsthemen und Kommentare zu jedem beliebigen Inhalt.
 
-## Dashboards permissions
+## Dashboard-Berechtigungen
 
-The following sections detail the user permissions for dashboards (personal and site) and dashlets.
+In den folgenden Abschnitten werden die Benutzerberechtigungen für Dashboards (persönliche und Site) und Dashlets detailliert beschrieben.
 
-Each user has full access to the toolbar and dashlet functionality available on the personal dashboard.
+Jeder Benutzer verfügt über vollen Zugriff auf die im persönlichen Dashboard verfügbaren Symbolleisten- und Dashlet-Funktionen, die im persönlichen Dashboard verfügbar sind.
 
-### Site dashboard
+### Site-Dashboard
 
-| Permission | Consumer | Contributor | Collaborator | Manager |
+| Berechtigung | Verbraucher | Beitragender | Mitarbeiter | Manager |
 | ---------- | :------: | :---------: | :----------: | :-----: |
-| Invite users to site | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Customize site dashboard| | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit site details | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Customize site (select components) | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Leave site | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Benutzer zu Site einladen | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Site-Dashboard anpassen| | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Site-Details bearbeiten | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Site anpassen (Komponenten auswählen) | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Site verlassen | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
 
-### Site dashlets
+### Site-Dashlets
 
-| Permission | Consumer | Contributor | Collaborator | Manager |
+| Berechtigung | Verbraucher | Beitragender | Mitarbeiter | Manager |
 | ---------- | :------: | :---------: | :----------: | :-----: |
-| RSS Feed - Configure RSS Feed URL | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Site Data Lists - Create data list | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Site Links - Create site links | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| WebView - Configure Web View | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Wiki - Configure Wiki dashlet | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Site file type breakdown dashlet - View details | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Site contributor breakdown dashlet - View details and change date range | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| RSS Feed – RSS-Feed-URL konfigurieren | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Datenlisten der Site – Datenliste erstellen | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Site-Links – Site-Links erstellen | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Web-Ansicht – Web-Ansicht konfigurieren | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Wiki – Wiki-Dashlet konfigurieren | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Dashlet **Übersicht Dateityp auf Site** – Details anzeigen | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Dashlet **Übersicht Beitragender auf Site** – Details anzeigen und Datumsbereich ändern | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
 
-## Content permissions
+## Inhaltsberechtigungen
 
-The following sections detail the user permissions for content.
+In den folgenden Abschnitten werden die Benutzerberechtigungen für Inhalte detailliert beschrieben.
 
-### Document Library
+### Dokumentenbibliothek
 
-Folders and files:
+Ordner und Dateien:
 
-| Permission | Consumer | Contributor | Collaborator | Manager |
+| Berechtigung | Verbraucher | Beitragender | Mitarbeiter | Manager |
 | ---------- | :------: | :---------: | :----------: | :-----: |
-| View folder / item details page | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Like / unlike | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Favorite / unfavorite | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Rename folder / item - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Rename folder / item - created by other user | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit basic details - created by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit basic details - created by other user | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit custom properties - created by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit custom properties - created by other user | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Copy | ![tick image]({% link assets/img/done_24px.svg %}) * | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Move - content created by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Move - content created by other user | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Delete - content created by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Delete - content created by other user | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Manage permissions - content created by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Manage permissions - content created by other user | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Manage aspects - content created by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Manage aspects - content created by other user | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Change type - content created by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Change type - content created by other user | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Copy page URL | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Add comment | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit comment - content created by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit comment - content created by other user | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Delete comment - content created by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Delete comment - content created by other user | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Seite mit Ordner-/Elementdetails anzeigen | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Gefällt mir/Gefällt mir nicht mehr | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Als Favorit markieren/Favoritenmarkierung aufheben | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Ordner/Element umbenennen – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Ordner/Element umbenennen – von anderem Benutzer erstellt | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Grundlegende Details bearbeiten – von Ihnen erstellt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Grundlegende Details bearbeiten – von anderem Benutzer erstellt | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Benutzerdefinierte Eigenschaften bearbeiten – von Ihnen erstellt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Benutzerdefinierte Eigenschaften bearbeiten – von anderem Benutzer erstellt | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Kopieren | ![tick image]({% link assets/img/done_24px.svg %}) * | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Verschieben – Inhalt von Ihnen erstellt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Verschieben – Inhalt von anderem Benutzer erstellt | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Löschen – Inhalt von Ihnen erstellt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Löschen – Inhalt von anderem Benutzer erstellt | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Berechtigungen verwalten – Inhalt von Ihnen erstellt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Berechtigungen verwalten – Inhalt von anderem Benutzer erstellt | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Aspekte verwalten – Inhalt von Ihnen erstellt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Aspekte verwalten – Inhalt von anderem Benutzer erstellt | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Typ ändern – Inhalt von Ihnen erstellt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Typ ändern – Inhalt von anderem Benutzer erstellt | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Seiten-URL kopieren | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Kommentar hinzufügen | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Kommentar bearbeiten – Inhalt von Ihnen erstellt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Kommentar bearbeiten – Inhalt von anderem Benutzer erstellt | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Kommentar löschen – Inhalt von Ihnen erstellt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Kommentar löschen – Inhalt von anderem Benutzer erstellt | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
 
-> **Note:** (1) A user with the role Consumer can copy a folder or file to another site if the user performing the action has the role of Manager, Collaborator, or Contributor in the target site.
+> **Hinweis:** (1) Ein Benutzer mit der Rolle **Verbraucher** kann einen Ordner oder eine Datei in eine andere Site kopieren, wenn der Benutzer, der die Aktion ausführt, in der Ziel-Site über die Rolle **Manager**, **Mitarbeiter** oder **Beitragender** verfügt.
 
->**Tip:** Consumers who previously held a site role where they were able to add content retain their previously held permissions for any content they have added.
+>**Tipp:** Verbraucher, die zuvor eine Site-Rolle innehatten, mit der Sie Inhalte hinzufügen konnten, behalten ihre vorherigen Berechtigungen für alle von Ihnen hinzugefügten Inhalte.
 
-Folders only:
+Nur Ordner:
 
-| Permission | Consumer | Contributor | Collaborator | Manager |
+| Berechtigung | Verbraucher | Beitragender | Mitarbeiter | Manager |
 | ---------- | :------: | :---------: | :----------: | :-----: |
-| Create folder | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Locate folder | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Manage rules in self-created folder | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Manage rules in folder created by other user | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Ordner erstellen | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Ordner lokalisieren | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Regeln im selbst erstellten Ordner verwalten | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Regeln in einem Ordner verwalten, der von einem anderen Benutzer erstellt wurde | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
 
-Files only:
+Nur Dateien:
 
-| Permission | Consumer | Contributor | Collaborator | Manager |
+| Berechtigung | Verbraucher | Beitragender | Mitarbeiter | Manager |
 | ---------- | :------: | :---------: | :----------: | :-----: |
-| Create content | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Upload content | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Download content | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| View in browser | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Upload new version - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Upload new version - created / added by other user | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Upload new version - locked by other user | | | | |
-| Edit online - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit online - created / added by other user | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit inline - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit inline - created / added by other user | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit offline - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit offline - created / added by other user | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Publish | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Unpublish | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Check out to Google Docs - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Check out to Google Docs - created / added by other user | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Check in from Google Docs - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Check in from Google Docs - created / added by other user | | | | |
-| Cancel editing - locked by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Cancel editing - locked by other user | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| View original version | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| View working copy | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| View in Google Docs | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Start workflow | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Locate file | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Download previous version | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Revert to previous version | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Inhalt erstellen | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Inhalt hochladen | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Inhalt herunterladen | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Im Browser anzeigen | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Neue Version hochladen – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Neue Version hochladen – von anderem Benutzer erstellt/hinzugefügt | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Neue Version hochladen – von anderem Benutzer gesperrt | | | | |
+| Online bearbeiten – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Online bearbeiten – von anderem Benutzer erstellt/hinzugefügt | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Inline bearbeiten – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Inline bearbeiten – von anderem Benutzer erstellt/hinzugefügt | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Offline bearbeiten – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Offline bearbeiten – von anderem Benutzer erstellt/hinzugefügt | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Veröffentlichen | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Veröffentlichung zurücknehmen | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Auschecken in Google Docs – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Auschecken in Google Docs – von anderem Benutzer erstellt/hinzugefügt | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Einchecken in Google Docs – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Einchecken in Google Docs – von anderem Benutzer erstellt/hinzugefügt | | | | |
+| Bearbeitung abbrechen – von Ihnen gesperrt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Bearbeitung abbrechen – von anderem Benutzer gesperrt | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Originalversion anzeigen | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Arbeitskopie anzeigen | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| In Google Docs anzeigen | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Workflow starten | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Datei lokalisieren | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Vorherige Version herunterladen | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Auf vorherige Version zurücksetzen | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
 
-### Calendar
+### Kalender
 
-| Permission | Consumer | Contributor | Collaborator | Manager |
+| Berechtigung | Verbraucher | Beitragender | Mitarbeiter | Manager |
 | ---------- | :------: | :---------: | :----------: | :-----: |
-| View event | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Create new event | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit event - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit event - created / added by other user | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Delete event - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Delete event - created / added by other user | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Ereignis anzeigen | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Neues Ereignis erstellen | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Ereignis bearbeiten – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Ereignis bearbeiten – von anderem Benutzer erstellt/hinzugefügt | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Ereignis löschen – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Ereignis löschen – von anderem Benutzer erstellt/hinzugefügt | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
 
 ### Wiki
 
-| Permission | Consumer | Contributor | Collaborator | Manager |
+| Berechtigung | Verbraucher | Beitragender | Mitarbeiter | Manager |
 | ---------- | :------: | :---------: | :----------: | :-----: |
-| Create new page | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit page - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit page - created / added by other user | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Rename page - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Rename page - created / added by other user | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Delete page - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Delete page - created / added by other user | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit main page | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Rename main page | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Delete main page | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| View page details | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| View previous version of page | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Neue Seite erstellen | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Seite bearbeiten – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Seite bearbeiten – von anderem Benutzer erstellt/hinzugefügt | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Seite umbenennen – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Seite umbenennen – von anderem Benutzer erstellt/hinzugefügt | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Seite löschen – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Seite löschen – von anderem Benutzer erstellt/hinzugefügt | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Hauptseite bearbeiten | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Hauptseite umbenennen | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Hauptseite löschen | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Seitendetails anzeigen | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Vorherige Seitenversion anzeigen | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
 
-### Discussions
+### Diskussionen
 
-| Permission | Consumer | Contributor | Collaborator | Manager |
+| Berechtigung | Verbraucher | Beitragender | Mitarbeiter | Manager |
 | ---------- | :------: | :---------: | :----------: | :-----: |
-| Create new topic | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit topic - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit topic - created / added by other user | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Delete topic - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Delete topic - created / added by other user | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| View discussions | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Add reply | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit reply - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit reply - created / added by other user | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Neues Thema erstellen | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Thema bearbeiten – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Thema bearbeiten – von anderem Benutzer erstellt/hinzugefügt | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Thema löschen – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Thema löschen – von anderem Benutzer erstellt/hinzugefügt | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Diskussionen anzeigen | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Antwort hinzufügen | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Antwort bearbeiten – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Antwort bearbeiten – von anderem Benutzer erstellt/hinzugefügt | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
 
 ### Blog
 
-| Permission | Consumer | Contributor | Collaborator | Manager |
+| Berechtigung | Verbraucher | Beitragender | Mitarbeiter | Manager |
 | ---------- | :------: | :---------: | :----------: | :-----: |
-| Create new post | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit post - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit post - created / added by other user | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| View blog post | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Publish post externally - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Publish post externally - created / added by other user | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Update external post - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Update external post - created / added by other user | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Remove external post - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Remove external post - created / added by other user | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Create comment | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit comment - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Neuen Post erstellen | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Post bearbeiten – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Post bearbeiten – von anderem Benutzer erstellt/hinzugefügt | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Blog-Post anzeigen | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Post extern veröffentlichen – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Post extern veröffentlichen – von anderem Benutzer erstellt/hinzugefügt | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Externen Post aktualisieren – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Externen Post aktualisieren – von anderem Benutzer erstellt/hinzugefügt | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Externen Post entfernen – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Externen Post entfernen – von anderem Benutzer erstellt/hinzugefügt | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Kommentar erstellen | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Kommentar bearbeiten – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
 
 ### Links
 
-| Permission | Consumer | Contributor | Collaborator | Manager |
+| Berechtigung | Verbraucher | Beitragender | Mitarbeiter | Manager |
 | ---------- | :------: | :---------: | :----------: | :-----: |
-| Create new link | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit link - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit link - created / added by other user | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Delete link - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Delete link - created / added by other user | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| View link details | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Create comment | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit comment - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit comment - created / added by other user | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Delete comment - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Delete comment - created / added by other user | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Neuen Link erstellen | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Link bearbeiten – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Link bearbeiten – von anderem Benutzer erstellt/hinzugefügt | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Link löschen – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Link bearbeiten – von anderem Benutzer erstellt/hinzugefügt | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Linkdetails anzeigen | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Kommentar erstellen | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Kommentar bearbeiten – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Kommentar bearbeiten – von anderem Benutzer erstellt/hinzugefügt | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Kommentar löschen – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Kommentar löschen – von anderem Benutzer erstellt/hinzugefügt | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
 
-### Data Lists
+### Datenlisten
 
-| Permission | Consumer | Contributor | Collaborator | Manager |
+| Berechtigung | Verbraucher | Beitragender | Mitarbeiter | Manager |
 | ---------- | :------: | :---------: | :----------: | :-----: |
-| Create list | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit list - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit list - created / added by other user | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Delete list - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Delete list - created / added by other user | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Add list item - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Add list item - created / added by other user | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit list item - created / added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Edit list item - created / added by other user | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Duplicate list item - created / added by other self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Duplicate list item -created / added by other user | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Delete list item - created /added by self | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Delete list item - created / added by other user | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Liste erstellen | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Liste bearbeiten – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Liste bearbeiten – von anderem Benutzer erstellt/hinzugefügt | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Liste löschen – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Liste löschen – von anderem Benutzer erstellt/hinzugefügt | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Listenelement hinzufügen – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Listenelement hinzufügen – von anderem Benutzer erstellt/hinzugefügt| | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Listenelement bearbeiten – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Listenelement bearbeiten – von anderem Benutzer erstellt/hinzugefügt | | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Listenelement duplizieren – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Listenelement duplizieren – von anderem Benutzer erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Listenelement löschen – von Ihnen erstellt/hinzugefügt | | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Listenelement löschen – von anderem Benutzer erstellt/hinzugefügt | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
 
-## Member permissions
+## Mitgliederberechtigungen
 
-The following section details the member permissions.
+Im folgenden Abschnitt werden die Mitglieder-Berechtigungen detailliert erläutert.
 
-| Permission | Consumer | Contributor | Collaborator | Manager |
+| Berechtigung | Verbraucher | Beitragender | Mitarbeiter | Manager |
 | ---------- | :------: | :---------: | :----------: | :-----: |
-| Change a user role | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Remove user from site | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
-| Cancel an invitation | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Benutzerrolle ändern | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Benutzer aus Site entfernen | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
+| Einladung stornieren | | | | ![tick image]({% link assets/img/done_24px.svg %}) |
 
-## Power users
+## Poweruser
 
 
-Alfresco Share power users have additional options that aren't available to standard users.
+Alfresco Share-Poweruser verfügen über zusätzliche Optionen, die für Standardbenutzer nicht verfügbar sind.
 
-These options are made available when your Alfresco administrator gives you advanced permissions by signing you up to a power user group.
+Diese Optionen werden zur Verfügung gestellt, wenn Ihr Alfresco-Administrator Ihnen erweiterte Berechtigungen erteilt, indem er Sie bei einer Poweruser-Gruppe anmeldet.
 
-The current additional options available are:
+Derzeit sind die folgenden zusätzlichen Optionen verfügbar:
 
--   Sites Manager
--   Search Manager
+-   Site-Manager
+-   Suchmanager
 
-If you have the following permissions you can access the Site Manager through an additional link on the toolbar, and the Search Manager from the Search Results screen.
+Wenn Sie über die folgenden Berechtigungen verfügen, können Sie über einen zusätzlichen Link in der Symbolleiste auf den Site-Manager und über Bildschirm mit den Suchergebnissen auf den Suchmanager zugreifen.
 
--   Sites Manager is available to users in the `ALFRESCO_ADMINISTRATORS` and `SITES_ADMINISTRATORS` permissions groups.
--   Search Manager is available to users in the `ALFRESCO_ADMINISTRATORS` and `ALFRESCO_SEARCH_ADMINISTRATORS` permissions groups.
+-   Der Site-Manager steht den Benutzern in den Berechtigungsgruppen ALFRESCO_ADMINISTRATORS und SITES_ADMINISTRATORS zur Verfügung.
+-   Der Suchmanager steht den Benutzern in den Berechtigungsgruppen ALFRESCO_ADMINISTRATORS und ALFRESCO_SEARCH_ADMINISTRATORS zur Verfügung.
 
-### Sites Manager
+### Site-Manager
 
-The Sites Manager is used for maintaining sites. You have control over the visibility of all sites as well as deleting sites or making yourself a site manager.
+Der Site-Manager wird für die Verwaltung von Sites verwendet. Sie haben die Kontrolle über die Sichtbarkeit aller Sites und können Sites löschen oder sich zum Site-Manager ernennen.
 
-> **Note:** Sites Manager is available to users in the `ALFRESCO_ADMINISTRATORS` and `SITES_ADMINISTRATORS` permissions groups. If you are in the `ALFRESCO_ADMINISTRATORS` group, you can access the Site Manager through the **Admin Tools** on the toolbar. If you are a member of `SITE_ADMINISTRATORS` group, you'll have an additional **Sites Manager** option on the toolbar.
+> **Hinweis:** Der Site-Manager steht den Benutzern in den Berechtigungsgruppen ALFRESCO_ADMINISTRATORS und SITES_ADMINISTRATORS zur Verfügung. Wenn Sie Mitglied der Gruppe ALFRESCO_ADMINISTRATORS sind, können Sie über die **Admin-Tools** in der Symbolleiste auf den Site-Manager zugreifen. Wenn Sie Mitglied der Gruppe SITE_ADMINISTRATORS sind, verfügen Sie in der Symbolleiste über die zusätzliche Option **Site-Manager**.
 
-The Sites Manager displays the names and status of created sites, regardless of their visibility setting. You can use the **Visibility** menu to change the visibility of any site, for example, change the site visibility to either **Public**, **Moderated**, or **Private**. Any visibility change you make to a site is made immediately.
+Der Site-Manager zeigt die Namen und den Status der erstellten Sites an, unabhängig von deren Sichtbarkeitseinstellung. Sie können das Menü **Sichtbarkeit** verwenden, um die Sichtbarkeit einer beliebigen Site zu ändern. Sie können die Sichtbarkeit einer Site z. B. auf **Öffentlich**, **Moderiert** oder **Privat** festlegen. Jede Änderung der Sichtbarkeit, die Sie an einer Site vornehmen, wird sofort übernommen.
 
-With the **Actions** menu, there are two options:
+Im Menü **Aktionen** sind zwei Möglichkeiten verfügbar:
 
--   **Delete Site**
--   **Become Site Manager**
+-   **Site löschen**
+-   **Site-Manager werden**
 
-You can delete any of the sites in the Site Manager list by selecting **Delete Site** from the **Actions** menu. This action deletes all site details and content.
+Sie können jede der Sites in der Site-Manager-Liste löschen, indem Sie im Menü **Aktionen** die Option **Site löschen** auswählen. Diese Aktion löscht alle Details und Inhalte der Site.
 
-The I'm a Site Manager column shows the sites where you have the Site Manager permission. If you aren't already a manager of a site, then select **Become Site Manager** from the **Actions** menu.
+Die Spalte **Ich bin ein Site-Manager** zeigt die Sites an, für die Sie die Berechtigung als Site-Manager haben. Wenn Sie noch kein Manager einer Site sind, wählen Sie im Menü **Aktionen** die Option **Site-Manager werden**.
 
-### Search Manager
+### Suchmanager
 
-With the Search Manager you can see details of existing search filters and create new filters.
+Mit dem Suchmanager können Sie Details zu vorhandenen Suchfiltern sehen und neue Filter erstellen.
 
-> **Note:** Search Manager is available to users in the `ALFRESCO_ADMINISTRATORS` and `ALFRESCO_SEARCH_ADMINISTRATORS` permissions groups.
+> **Hinweis:** Suchmanager steht den Benutzern in den Berechtigungsgruppen ALFRESCO_ADMINISTRATORS und ALFRESCO_SEARCH_ADMINISTRATORS zur Verfügung.
 
-The Search Manager is accessed from the search results screen. Just type a search in the search box and press Enter, then on the search results screen click **Search Manager**.
+Auf den Suchmanager greifen Sie vom Suchergebnis-Bildschirm aus zu. Geben Sie einfach eine ** Suche in das Suchfeld ein, und drücken Sie die EINGABETASTE. Klicken Sie dann auf dem Bildschirm mit den Suchergebnissen auf **Suchmanager**.
 
-> **Note:** Filtered search results can be bookmarked for quick and easy access.
+> **Hinweis:** Gefilterte Suchergebnisse können mit einem Lesezeichen versehen werden, um einen schnellen und einfachen Zugriff zu ermöglichen.
 
-All existing filters (including default filters) are shown along with their details, in the order that they are shown on the search results screen. You can change the order by using the ![]({% link content-services/images/arrows.png %}) buttons to move filters up or down the order.
+Alle vorhandenen Filter (einschließlich Standardfilter) werden zusammen mit ihren Details in der Reihenfolge angezeigt, in der sie auf dem Bildschirm der Suchergebnisse angezeigt werden. Sie können die Reihenfolge ändern, indem Sie mit den ![]({% link content-services/images/arrows.png %}-Schaltflächen die Filter in der Reihenfolge nach oben oder unten verschieben.
 
-Click **Create New Filter** to [create new search filters](#creating-new-search-filters).
+Klicken Sie auf **Neuen Filter erstellen**, um [neue Suchfilter zu erstellen](#creating-new-search-filters).
 
-Most of the filter details are can be edited by hovering over them and clicking the ![Configure icon]({% link content-services/images/ico-configure.png %}) icon that displays.
+Die meisten Filterdetails können bearbeitet werden, indem Sie den Mauszeiger darüber bewegen und auf das angezeigte Symbol ![Configure icon]({% link content-services/images/ico-configure.png %}) klicken.
 
--   **Filter ID**
+-   **Filter-ID**
 
-    The unique filter ID. Click on this to edit any details.
+    Die eindeutige ID des Filters. Klicken Sie darauf, um die Details zu bearbeiten.
 
--   **Filter Name**
+-   **Filtername**
 
-    The name of the filter shown in the search results screen. Default filters display the internationalized message key rather than the filter name that's shown on the search results screen.
+    Der Name des Filters, der im Suchergebnisbildschirm angezeigt wird. Standardfilter zeigen den internationalisierten Nachrichtenschlüssel und nicht den Filternamen an, der auf dem Bildschirm mit den Suchergebnissen angezeigt wird.
 
--   **Filter Property**
+-   **Filtern nach Eigenschaft**
 
-    The property or field that the filter is based on.
+    Die Eigenschaft oder das Feld, auf der bzw. dem der Filter basiert.
 
--   **Filter Type**
+-   **Filtertyp**
 
-    How the filter is displayed on the search results screen. The default option is **Simple Filter**.
+    Gibt an, wie der Filter im Suchergebnisbildschirm angezeigt wird. Die Standardoption ist **Einfacher Filter**.
 
--   **Show with Search Results**
+-   **Mit Suchergebnissen anzeigen**
 
-    Specifies if the filter is shown in the search results screen. Filters with this switched off aren't displayed. Default filters can't be deleted and must be switched off to hide them.
+    Gibt an, ob der Filter im Suchergebnisbildschirm angezeigt wird. Filter, für die diese Option deaktiviert ist, werden nicht angezeigt. Standardfilter können nicht gelöscht werden und müssen deaktiviert werden, um sie auszublenden.
 
--   **Default Filter**
+-   **Standardfilter**
 
-    Specifies if the filter is a default or custom filter. Default filters are predefined and can't be deleted. You can hide them by switching off **Show with Search Results**.
+    Gibt an, ob der Filter ein Standardfilter oder ein benutzerdefinierter Filter ist. Standardfilter sind vordefiniert und können nicht gelöscht werden. Sie können diese Filter ausblenden, indem Sie die Option **Mit Suchergebnissen anzeigen** deaktivieren.
 
--   **Filter Availability**
+-   **Filterverfügbarkeit**
 
-    The site(s) where the filter is available.
+    Die Sites, in denen der Filter verfügbar ist.
 
-### Creating new search filters
+### Erstellen neuer Suchfilter
 
-In the Search Manager you can quickly create your own custom filters with a wide range of options available.
+Im Suchmanager können Sie schnell Ihre eigenen angepassten Filter mit einer Vielzahl von Optionen erstellen.
 
-1.  In the **Search Manager**, accessed from the search results screen, click **Create New Filter**.
+1.  Greifen Sie auf den **Suchmanager** vom Suchergebnis-Bildschirm aus zu und klicken Sie dann auf **Neuen Filter erstellen**.
 
-    >**Tip:** You can also click on an existing Filter ID to edit it.
+    >**Tipp:** Sie können auch auf eine vorhandene Filter-ID klicken, um sie zu bearbeiten.
 
-2.  Enter a **Filter ID** unique identifier for the new search filter.
+2.  Geben Sie eine eindeutige Kennung für die **Filter-ID** für den neuen Suchfilter ein.
 
-3.  Enter a **Filter Name**. This is the name of the filter shown in the search results screen. For default filters what is shown here doesn't represent what's shown on the search results screen.
+3.  Geben Sie einen **Filternamen** ein. Dies ist der Name des Filters, der im Suchergebnisbildschirm angezeigt wird. Für Standardfilter geben die hier angezeigten Ergebnisse nicht die tatsächliche Anzeige im Suchergebnisbildschirm wieder.
 
-    > **Note:** You can't select a custom filter to be a **Default Filter.**
+    > **Hinweis:** Angepasste Filter können nicht als **Standardfilter** ausgewählt werden.
 
-4.  The **Show with Search Results** option is selected by default. Deselect it if you don't want the filter to be shown on the search results screen.
+4.  Die Option **Mit Suchergebnissen anzeigen** ist standardmäßig ausgewählt. Deaktivieren Sie sie, wenn der Filter nicht in im Suchergebnisbildschirm angezeigt werden soll.
 
-5.  Select a property to filter by from the **Filter Property** drop-down list.
+5.  Wählen Sie in der Dropdown-Liste **Filtern nach Eigenschaft** eine Eigenschaft aus, nach der gefiltert werden soll.
 
-6.  Select a **Filter Type**. This is how the filter is displayed on the search results screen. The default option is **Simple Filter** which is a check box.
+6.  Wählen Sie einen **Filtertyp** aus. So wird der Filter im Suchergebnisbildschirm angezeigt. Die Standardoption ist **Einfacher Filter** (ein Kontrollkästchen).
 
-7.  Select the **Sort By** order in which the filter results are displayed on the search results page.
+7.  Wählen Sie die Reihenfolge der **Sortieren nach**, in der die Filterergebnisse auf der Suchergebnisseite angezeigt werden sollen.
 
-8.  Select the **Number of Filters** that are shown by default on the search results screen.
+8.  Wählen Sie die **Anzahl der Filter**, die standardmäßig im Suchergebnisbildschirm angezeigt werden sollen.
 
-9.  Select the **Minimum Filter Length**. This helps you exclude short words such as "and" and "to" from filter results.
+9.  Wählen Sie die **Mindestlänge Filter**. Auf diese Weise können Sie kurze Wörter wie **und** und **bis** aus den Filterergebnissen ausschließen.
 
-10. Select the **Minimum Required Results** which is the minimum number of matches a filter result must have to be shown on the search results screen.
+10. Wählen Sie die **Mind. erforderliche Ergebnisse** aus. Dabei handelt es sich um die Mindestanzahl an Übereinstimmungen, die ein Filterergebnis aufweisen muss, um im Suchergebnisbildschirm angezeigt zu werden.
 
-11. Select the Filter Availability:
+11. Wählen Sie die Filterverfügbarkeit aus:
 
-    -   **Everywhere** - shown on all sites
-    -   **Selected sited** - only shown on selected sites. Click ![]({% link content-services/images/ico-add.png %}) to add a site then select it from the list and click ![]({% link content-services/images/ico-tick.png %}) to confirm. Click ![]({% link content-services/images/ico-add.png %}) to add more sites if required.
+    -   **Überall ** – in allen Sites sichtbar
+    -   **Ausgewählte Sites** – nur in ausgewählten Sites sichtbar Klicken Sie auf ![]({% link content-services/images/ico-add.png %}), um eine Site hinzuzufügen, wählen Sie sie dann aus der Liste aus und klicken Sie zur Bestätigung auf ![]({% link content-services/images/ico-tick.png %}). Klicken Sie auf ![]({% link content-services/images/ico-add.png %}), um bei Bedarf weitere Sites hinzuzufügen.
 
-12. Click **Save**.
+12. Klicken Sie auf **Speichern**.

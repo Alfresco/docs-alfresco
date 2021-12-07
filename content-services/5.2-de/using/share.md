@@ -1,414 +1,221 @@
 ---
-title: Using Alfresco Share
+title: Alfresco Share
 ---
 
-Use the Getting Started guide to quickly learn the basics, and find detailed info in Using Alfresco Share.
+Hier finden Sie alles, was Sie für die tägliche Nutzung von Alfresco Share wissen müssen.
 
-## Getting started with Alfresco Share
+Alfresco Share macht es einfach, Informationen auszutauschen, Projekte durchzuführen und effektiv zusammenzuarbeiten:
 
-For most of us, today's work environment means we spend much of our time working in teams that can extend beyond our workplace, and even our enterprise, to include partners, consultants, external agencies, and customers.
+* Passen Sie Alfresco Share mit Ihrem eigenen Dashboard und Benutzerprofil an.
+* Erstellen Sie eine Site für Ihr Team.
+* Arbeiten Sie mit Inhalten und fügen Sie sie Ihrer Site hinzu.
+* Fügen Sie Ihrer Site Benutzer hinzu, richten Sie Meetings ein, und nutzen Sie Social Media-Funktionen.
 
-With Alfresco Share it's simple to share information, run projects, and collaborate effectively.
+Es gibt eine Reihe von [Video-Tutorials]({% link content-services/5.2/tutorial/video/index.md %}) in Bezug auf Alfresco Share, einschließlich einer [Tour durch die verfügbaren Funktionen]({% link content-services/5.2/tutorial/video/index.md %}#tour-of-alfresco-share).
 
-This guide gives you an introduction to some of the features of Alfresco Share:
+Alfresco Share Inhalte werden in Sites gespeichert, und jede einzelne Site hat ihr eigenes Dashboard, das aus *Dashlets* besteht.
 
--   Personalize Alfresco Share with your own dashboard and user profile
--   Build a site for your team
--   Work with content and add it to your site
--   Be social! Add users to your site, set up meetings and use social media features
+## Anmelden
 
-You'll also be shown other little tricks and tips to help you get more out of Alfresco Share, so you can work and collaborate efficiently and effectively.
+Um mit Alfresco Share loslegen zu können, müssen Sie sich zunächst anmelden.
 
-There are a set of [video tutorials]({% link content-services/5.2-de/tutorial/video/index.md %}) related to Alfresco Share, including a [tour of the available features]({% link content-services/5.2-de/tutorial/video/index.md %}#tour-of-alfresco-share).
+1. Geben Sie Folgendes in den Anmeldebildschirm ein:
 
-> **Note:** Some videos may contains functionality that's no longer available in Alfresco Share, i.e. Sync to Cloud.
+    **Benutzername**: *Ihr Benutzername*
 
-### Signing in {#signing-in}
+    **Passwort**: *Ihr Passwort*
 
-To start the Getting Started guide you need to sign in to Alfresco Share.
+    > **Hinweis:** Sie können die Anmelde-URL bei Ihrem IT-Team erfragen. Wenn Sie Alfresco Share direkt auf Ihren Computer heruntergeladen haben, lautet die Standard-URL 127.0.0.1:8080/share.
 
-1.  Enter the following on the sign in screen:
+2. Klicken Sie auf **Anmelden**.
 
-    1.  **Username**: *your user name*
-
-    2.  **Password**: *your password*
-
-    > **Note:** You can get the sign in URL from your IT team. If you've downloaded Alfresco Share straight to your computer then the default url is *127.0.0.1:8080/share*.
-
-2.  Click **Sign In**.
-
-    This opens your personal dashboard. You can now configure the dashboard so that it shows the information most important to you.
+    Damit wird Ihr persönliches Dashboard aufgerufen. Sie können das Dashboard nun so konfigurieren, dass es die für Sie wichtigsten Informationen anzeigt.
 
     ![Your Personal Dashboard]({% link content-services/images/gs-firstlogin.png %})
 
-## Using Alfresco Share
+## Alfresco Share-Symbolleiste
 
-Find everything you need to know for using Alfresco Share on a daily basis.
+Die Symbolleiste ist dazu ausgelegt, Ihnen die Navigation in Alfresco Share zu erleichtern und Inhalte schnell zu finden, zu erstellen und zu teilen.
 
-### Finding your way around {#finding-your-way-around}
+Sie befindet sich immer oben auf der Seite, unabhängig davon, wo Sie sich in Share befinden:
 
-Alfresco Share content is stored in sites, and each individual site has its own dashboard made up of *dashlets*.
+* **Home**: Öffnet Ihr Benutzer-Dashboard (oder einen anderen Bildschirm, den Sie als Startseite ausgewählt haben).
+* **Meine Dateien**: Öffnet den Bereich **Meine Dateien**, in dem Sie Ihre eigenen persönlichen Inhalte speichern können.
+* **Freigegebene Dateien**: Öffnet den Bereich **Freigegebene Dateien**, in dem Sie Inhalte schnell mit anderen Benutzern teilen können, ohne sie einer Site hinzuzufügen.
+* **Sites**: Optionen zum Öffnen einer zuletzt verwendeten oder Favoriten-Site, zum Erstellen einer Site, zum Anzeigen aller Sites, bei denen Sie Mitglied sind, oder zum Öffnen der Seite **Site-Finder**, auf der Sie nach Sites suchen und Ihre Site-Mitgliedschaft verwalten können.
+* **Aufgaben**: Optionen zum Öffnen der Seite **Meine Aufgaben**, auf der Sie Ihre Aufgaben verwalten oder die von Ihnen gestarteten Workflows anzeigen können.
+* **Mitarbeiter**: Öffnet die Seite **Mitarbeiter-Finder**, auf der Sie nach anderen Benutzern suchen können.
+* **Repository**: Öffnet das Repository, das alle in Content Services gespeicherten Inhalte anzeigt.
+* **Admin-Tools**: Nur Systemadministratoren verfügen über diese Option, die die Admin-Tools öffnet.
+* **Site-Manager**: Nur Alfresco-Administratoren und Site-Administratoren verfügen über diese Option, die den Site-Manager öffnet. Wenn Sie ein Alfresco-Administrator sind, können Sie über die **Admin-Tools** in der Symbolleiste auf den Site-Manager zugreifen. Wenn Sie ein Site-Administrator sind, steht Ihnen die zusätzliche Option **Site-Manager** in der Symbolleiste zur Verfügung.
+* **Menü 'Benutzer'**: Klicken Sie auf Ihren Namen, um das Benutzermenü zu öffnen. Sie können auf Ihr Benutzerprofil zugreifen, Ihr Passwort ändern, die Benutzerhilfe öffnen und sich abmelden.
+* **Suche**: Verwenden Sie das Suchfeld, um Dateien, Sites und Personen zu finden.
 
-You also have your own user dashboard which gives you an overview of what's happening in Alfresco Share, and a user profile which you can use to let others know what you're doing.
+## Benutzer-Dashboard
 
-### Alfresco Share toolbar {#alfresco-share-toolbar}
+Unabhängig davon, wo Sie sich in Share befinden, können Sie im Benutzermenü auf **Home** oder **Benutzer-Dashboard** klicken, um zu Ihrem Dashboard zu gelangen.
 
-The toolbar is designed to help you to navigate Alfresco Share and to quickly find, create, and share content.
+Die Dashlets auf dieser Seite geben Ihnen einen einfachen und aktuellen Überblick darüber, was in den Sites, bei denen Sie Mitglied sind, passiert ist.
 
-It's always available at the top of the page, wherever you are in Share.
+> **Hinweis:** Wenn Sie [Ihre Startseite festgelegt]({% link content-services/5.2/using/dashboard.md %}#sethomepage) haben und auf Home klicken, wird diese Seite geöffnet.
 
--   **Home**
+Sie können Ihr Dashboard so anpassen, dass die Informationen angezeigt werden, die Sie interessieren. Jedes von Ihnen ausgewählte Dashlet wird auf dem Dashboard angezeigt.
 
-    Opens your user dashboard (or any screen that you have selected to be your home page).
+Die folgenden Dashlets sind verfügbar:
 
--   **My Files**
+* **Meine Sites**: Zeigt die Sites an, denen Sie angehören.
+* **Meine Aktivitäten**: Verfolgt die zuletzt durchgeführten Aktivitäten in Ihren Sites.
+* **Meine Aufgaben**: Zeigt Ihre Aufgaben an.
+* **Meine Dokumente**: Verfolgt Ihre Inhalte in allen Site-Bibliotheken.
+* **Mein Profil**: Zeigt eine Zusammenfassung Ihrer persönlichen Daten an.
+* **Mein Kalender**: Zeigt bevorstehende Ereignisse an, die für Ihre Sites geplant sind.
+* **Inhalt, den ich editiere**: Zeigt die letzten drei Bibliothekselemente, Blogbeiträge (Entwürfe, keine veröffentlichten Beiträge), Wiki-Seiten und Diskussionsforumsbeiträge an, die Sie bearbeitet haben.
+* **Web-Ansicht**: Zeigt eine Webseite an, die Sie auswählen, indem Sie den Mauszeiger über das Dashlet in Ihrem Dashboard führen.
+* **RSS-Feed**: Führen Sie den Mauszeiger über das Dashlet in Ihrem Dashboard, um einen RSS-Feed auszuwählen (zeigt standardmäßig den Alfresco-Website-Feed an).
+* ** RSS-Feed für Alfresco-Add-ons**: Zeigt standardmäßig die aktuellen Nachrichten der Alfresco Add-ons-Webseite an.
+* **Meine Diskussionen**: Zeigt die neuesten Themen an, die in den Diskussionsforen aller Sites, denen Sie angehören, erstellt wurden.
+* **Site-Suche**: Ermöglicht eine schnelle Suche in allen Sites, denen Sie angehören.
+* **Gespeicherte Suche**: Zeigt die Ergebnisse einer bestimmten von Ihnen konfigurieren Suche an.
+* **Meine Dokumenten-Arbeitsbereiche**: Zeigt alle Dokumenten-Arbeitsbereich-Sites an, denen Sie angehören (Dokument-Arbeitsbereiche werden in Microsoft Word erstellt).
+* **Meine Meeting-Arbeitsbereich**: Zeigt alle Meeting-Arbeitsbereich-Sites an, denen Sie angehören (Meeting-Arbeitsbereiche werden in Microsoft Outlook erstellt).
 
-    Opens the My Files area where you can store your own personal content.
+Sie können die Größe der meisten Dashlets ändern.
 
--   **Shared Files**
+Um die Größe eines Dashlets zu ändern, klicken Sie auf den unteren Rand des Dashlets, und ziehen Sie ihn, bis er die gewünschte Höhe erreicht hat. Diese Änderung wird zwischen den Sitzungen gespeichert.
 
-    Opens the Shared Files area where you can quickly share content with other users without adding it to a site.
+> **Hinweis:** Wenn Sie mit dem Mauszeiger auf eine Dashlet-Kopfzeile zeigen, wird das ![Add Event icon]({% link content-services/images/help-1.png %})-Symbol angezeigt. Klicken Sie auf das Symbol, um eine Erläuterung zur Funktion des Dashlets zu erhalten. Diese bleibt geöffnet, bis Sie sie schließen oder vom Dashboard weg navigieren.
 
--   **Sites**
+## Was kann ich mit meinen Dashlets machen? {#whatcanidowithmydashlets}
 
-    Options to open a recent or favorite site, create a site, view all the sites you're a member of, or open the Site Finder page where you can search for sites and manage your site membership.
+Die Dashlets bieten Ihnen nicht nur einen Überblick über die Aktivitäten und Informationen in Alfresco Share, sondern auch Links zu verschiedenen Bereichen in Share, und sie ermöglichen Ihnen, eine Reihe von Aktionen durchzuführen.
 
--   **Tasks**
+> **Hinweis:** Wenn ein Benutzername, Site-Name oder Element als Link angezeigt wird, können Sie darauf klicken, um zur entsprechenden Seite zu gelangen.
 
-    Options to open the My Tasks page where you can manage your tasks, or view workflows that you've started.
+Jedes Dashlet hat eine bestimmte Rolle:
 
--   **People**
+|Dashlet|Rolle/Funktion|
+|-------|-------------|
+|Meine Sites|Listet die Sites auf, denen Sie angehören.<br><br>Klicken Sie auf **Site erstellen**, um eine neue Site zu erstellen.<br><br>Klicken Sie auf einen Site-Namen, um zu dieser Site zu gelangen.<br><br>Verwenden Sie den Filter, um alle Sites, aktuelle Sites oder nur Ihre Favoriten-Sites anzuzeigen.<br><br>Markieren Sie eine Seite als Favorit, oder machen Sie die Markierung als Favoriten-Site rückgängig.<br><br>Klicken Sie auf das Symbol **Löschen**, um die Site und ihren Inhalt zu löschen. (nur Manager)|
+|Meine Aktivitäten|Verfolgt die zuletzt durchgeführten Aktivitäten in Ihren Sites.<br><br>Verwenden Sie die Filter, um festzulegen, welche Aktivitäten Sie sehen möchten und für welchen Zeitraum.<br><br>Abonnieren Sie den RSS-Feed, um automatisch Updates zu Aktivitäten zu erhalten.|
+|Meine Aufgaben|Zeigt Ihre Aufgaben an.<br><br>Klicken Sie auf **Workflow starten**, um einen Workflow für sich oder einen anderen Benutzer zu starten.<br><br>Klicken Sie auf **Aktive Aufgaben** oder **Abgeschlossene Aufgaben**, um diese Aufgaben anzuzeigen.<br><br>Klicken Sie auf das Symbol **Aufgabe anzeigen**, um die Details für eine bestimmte Aufgabe anzuzeigen.<br><br>Klicken Sie auf das Symbol **Aufgabe bearbeiten** oder den Aufgabennamen, um eine Aufgabe zu verwalten.|
+|Meine Dokumente|Verfolgt Ihre Inhalte in allen Site-Bibliotheken.<br><br>Verwenden Sie den Filter, um die Informationen auszuwählen, die Sie sehen möchten.<br><br>Wählen Sie eine Ansichtsoption aus: **Einfach** oder **Detailliert**.<br><br>Markieren Sie ein Element als Favorit, oder machen Sie die Markierung als Favoriten-Element rückgängig. (nur der detaillierten Ansicht)<br><br>Markieren Sie ein Element mit *Gefällt mir* oder *Gefällt nicht mehr*. (nur der detaillierten Ansicht)<br><br>Klicken Sie auf **Kommentar**, um Feedback abzugeben. (nur der detaillierten Ansicht)|
+|Mein Profil|Zeigt eine Zusammenfassung Ihrer persönlichen Informationen an.<br><br>Klicken Sie auf **Vollständiges Profil anzeigen** (oder Ihren Namen), um zu Ihrem Benutzerprofil zu gelangen.|
+|Web-Ansicht|Zeigt die von Ihnen ausgewählte Webseite an.<br><br>Klicken Sie auf das Symbol **Konfigurieren** ![]({% link content-services/images/ico-configure.png %}), um die Webseite anzugeben.<br><br>Klicken Sie auf den Titel des Dashlets, um die Webseite in einem separaten Fenster zu öffnen.|
+|RSS-Feed|Zeigt standardmäßig den Alfresco-Website-Feed an.<br><br>Klicken Sie auf das Symbol **Konfigurieren** ![]({% link content-services/images/ico-configure.png %}), um den RSS-Feed zu ändern.|
+|Alfresco Add-ons RSS Feed|Zeigt standardmäßig den Feed für die neuesten Add-ons von der Alfresco Add-ons-Webseite an.<br><br>Klicken Sie auf das Symbol **Konfigurieren** ![]({% link content-services/images/ico-configure.png %}), um den RSS-Feed zu ändern.|
+|Meine Diskussionen|Zeigt die neuesten Themen an, die in den Diskussionsforen Ihrer Sites erstellt wurden.<br><br>Verwenden Sie den Filter, um die Informationen auszuwählen, die Sie sehen möchten.
+|Site-Suche|Ermöglicht Ihnen, alle Sites zu durchsuchen, denen Sie angehören.<br><br>Geben Sie Suchkriterien ein, und klicken Sie auf **Suchen** (oder drücken Sie die EINGABETASTE).<br><br>Wählen Sie die maximale Anzahl von Ergebnissen aus, die Sie anzeigen möchten.|
+|Gespeicherte Suche|Zeigt die Ergebnisse einer vorkonfigurierten Suche an.<br><br>Klicken Sie auf das Symbol **Konfigurieren** ![]({% link content-services/images/ico-configure.png %}), um die Suche zu definieren.|
+|Meine Dokumenten-Arbeitsbereiche|Zeigt alle Dokumenten-Arbeitsbereich-Sites an, denen Sie angehören (Dokument-Arbeitsbereiche werden in Microsoft Word erstellt).<br><br>Löschen Sie einen Arbeitsbereich, wenn Sie über die entsprechenden Berechtigungen verfügen.|
+|Meine Meeting-Arbeitsbereiche|Zeigt alle Meeting-Arbeitsbereich-Sites an, denen Sie angehören (Meeting-Arbeitsbereiche werden in Microsoft Outlook erstellt).<br><br>Löschen Sie einen Arbeitsbereich, wenn Sie über die entsprechenden Berechtigungen verfügen.|
 
-    Opens the People Finder page where you search for other users.
+> **Hinweis:** Jedes Dashlet verfügt über Hilfetext. Positionieren Sie den Cursor in der Kopfzeile des Dashlets, um die Hilfeschaltfläche anzuzeigen, und klicken Sie dann, um den zugehörigen Text anzuzeigen. Die Hilfe bleibt geöffnet, bis Sie sie schließen oder vom Dashboard weg navigieren.
 
--   **Repository**
+### Konfigurieren von RSS-Feed-Dashlets
 
-    Opens the repository which shows all the content stored in Alfresco Content Services.
+Es gibt zwei RSS-Feed-Dashlets, die Sie Ihrem persönlichen Dashboard und Site-Dashboards hinzufügen können: RSS-Feed und Alfresco Add-ons RSS-Feed. Für beide Dashlets können Sie die Standard-URL bearbeiten, um beliebige RSS-Feeds anzuzeigen.
 
--   **Admin Tools**
+1. Klicken Sie im Dashlet-Titel auf das Symbol **Konfigurieren**.
 
-    System administrators only have this option which opens the Admin Tools.
+2. Geben Sie den Feed an, den Sie abonnieren möchten.
 
--   **Sites Manager**
+3. Wählen Sie die Anzahl der anzuzeigenden Feed-Elemente aus.
 
-    Only Alfresco administrators and Site administrators have this option which opens the Sites Manager. If you are an Alfresco administrator, you can access the Site Manager through the **Admin Tools** on the toolbar. If you are a Site administrator, you'll have an additional **Sites Manager** option on the toolbar.
+4. Wählen Sie **Links in neuem Fenster öffnen**, um die Zielstory in einem neuen Fenster anzuzeigen.
 
--   **User menu**
+5. Klicken Sie auf **OK**.
 
-    Click on your name to open the user menu. You can access your user profile, change your password, open the user help, and log out.
+### Einrichten des Web-Ansicht-Dashlets
 
--   **Search**
+Richten Sie das Web-Ansicht-Dashlet ein, um Websites anzuzeigen.
 
-    Use the search box to find files, sites, and people.
+> **Hinweis:** Einige Webseiten weisen Einschränkungen auf, die ein Anzeigen verhindern.
 
-### User dashboard {#user-dashboard}
+Das Dashboard muss angepasst werden, um das Web-Ansicht-Dashlet anzuzeigen.
 
-Wherever you are in Alfresco Share, you can click **Home** or **User Dashboard** on your user menu to go to your dashboard.
+1. Klicken Sie im Web-Ansicht-Dashlet auf das Symbol **Konfigurieren**.
 
-The dashlets on this page give you a simple and up-to-date overview of what's been going on in the sites you're a member of.
+2. Geben Sie im Feld **Link-Titel** den Text ein, der im Header des Dashlets erscheinen soll.
 
-> **Important:** If you've [set your home page]({% link content-services/5.2-de/using/dashboard.md %}#setting-your-home-page) then when you click **Home** that page will open.
+    Wenn Sie keinen Titel angeben, enthält der Dashlet-Header die URL der von Ihnen angegebenen Webseite.
 
-You can customize your dashboard to display the information that interests you. Each dashlet you select is displayed on the dashboard. The available dashlets are:
+3. Geben Sie im Feld **URL** die Adresse der Webseite ein.
 
--   **My Sites**
+    > **Hinweis:** Stellen Sie sicher, dass die angegebene URL nicht den JavaScript-Code 'if(self.parent.frames.length!= 0)self.parent.location=document.location;' enthält. Mit diesem oder einem ähnlichen Code wird die referenzierte Webseite direkt im Browser und nicht im Web-Ansicht-Dashlet aufgerufen. Dies führt zu Problemen bei der Anzeige des aktuellen Dashboards (persönlich oder Site).
 
-    Displays the sites that you belong to
+4. Klicken Sie auf **OK**.
 
--   **My Activities**
+### Konfigurieren des Dashlets **Gespeicherte Suche**
 
-    Tracks the most recent activities in your sites
+Konfigurieren Sie das Dashlet für gespeicherte Suche, um bei jedem Laden des Dashboards eine bestimmte Suche auszuführen.
 
--   **My Tasks**
+Im Site-Dashboard kann nur ein Site-Manager das Dashlet Gespeicherte Suche konfigurieren.
 
-    Displays your tasks
+1. Navigieren Sie zu Ihrem persönlichen Dashboard oder rufen Sie eine Site auf.
 
--   **My Documents**
+2. Klicken Sie im Dashlet **Gespeicherte Suche** auf das Symbol **Konfigurieren** ![Configure]({% link content-services/images/ico-configure.png %}).
 
-    Tracks your content in all site libraries
+    Das Dialogfeld **Suchbegriff eingeben** wird aufgerufen.
 
--   **My Profile**
+3. Geben Sie die Suchkriterien ein.
 
-    Displays a summary of your personal details
+    **Hinweis:** Mit der Eingabe von *ban* wird nur nach dem Wort *ban* gesucht. Es werden keine Ergebnisse für *Banane* ausgegeben. Verwenden Sie in Ihren Suchkriterien einen Platzhalter, um Übereinstimmungen für Wortteile zurückzugeben (Beispiel: ban*).
 
--   **My Calendar**
+4. Geben Sie einen Titel für das Dashlet ein, der die angezeigten Ergebnisse beschreibt.
 
-    Displays upcoming events scheduled for your sites
+5. Wählen Sie die Anzahl der anzuzeigenden Ergebnisse aus.
 
--   **Content I'm Editing**
+6. Klicken Sie auf **OK**.
 
-    Displays the last three library items, blog posts (drafts, not published posts), wiki pages, and discussion forum posts that you edited
+## Anzeigen Ihres Benutzerprofils
 
--   **Web View**
+Ihr Benutzerprofil enthält mehr Informationen als nur Ihre Kontaktdaten. In Ihrem Benutzerprofil können Sie einsehen, welchen Personen Sie folgen und umgekehrt, welchen Sites Sie zugeordnet sind und welche Inhalte Sie kürzlich hinzugefügt und geändert haben.
 
-    Display a website which you select by hovering over the dashlet on your dashboard
+1. Öffnen Sie das Benutzermenü über die Symbolleiste.
 
--   **RSS Feed**
+2. Klicken Sie auf **Mein Profil**.
 
-    Hover over the dashlet on your dashboard to select an RSS feed (displays the Alfresco website feed by default)
+    **Tipp:** Sie können auch über das Dashlet **Mein Profil** auf Ihr Benutzerprofil zugreifen: Klicken Sie dazu auf **Volles Profil anzeigen**.
 
--   **Alfresco Add-ons RSS Feed**
+3. Navigieren Sie durch die Profilseiten, um Ihre Informationen anzuzeigen und zu verwalten:
 
-    Displays the latest news from the Alfresco Add-ons website by default
+    * **Info**: Zeigt Ihre persönlichen Daten an – einschließlich Kontaktinformationen, Firmendaten und ein Foto.
+    * **Sites**: Listet die Sites auf, denen Sie zugeordnet sind und ermöglicht die Aktivierung und Deaktivierung der Aktivitätsfeeds von diesen Sites.
+    * **Inhalt**: Zeigt zwei Listen mit Informationen zu Ihren letzten Aktivitäten an: **Kürzlich hinzugefügt** (die letzten 5 Inhalte, die Sie hinzugefügt haben), **Kürzlich geändert** (die letzten 5 Inhalte, die Sie bearbeitet haben).
+    * **Ich folge**: Listet die Personen auf, denen Sie folgen.
+    * **Folgen mir**: Listet die Personen auf, die Ihnen folgen.
+    * **Passwort ändern**: Ermöglicht die Rücksetzung Ihres Passworts.
+    * **Benachrichtigungen**: Hier können Sie festlegen, ob Sie E-Mail-Benachrichtigungen erhalten möchten.
+    * **Papierkorb**: Ermöglicht die Suche und Wiederherstellung von gelöschten Inhalten.
 
--   **My Discussions**
+## Welche Version von Alfresco Share verwende ich?
 
-    Displays the most recent topics created in the discussion forums of all sites you belong to
+Sie können ganz einfach überprüfen, welche Version von Alfresco Share Sie verwenden.
 
--   **Site Search**
+Klicken Sie unten in Alfresco Share auf das Alfresco-Logo. Es erscheint ein Feld mit der aktuell verwendeten Version von Share.
 
-    Lets you quickly search all sites you belong to
+## Abonnieren von RSS-Feeds {#subtorssfeed}
 
--   **Saved Search**
+Sie können RSS-Feeds in Alfresco Share an mehreren Stellen abonnieren. Durch das Abonnieren von Feeds erhalten Sie automatisch regelmäßige Aktualisierungen zu verschiedenen Aktivitäten.
 
-    Displays the results of a specific search that you configure
+Sie können RSS-Feeds hier abonnieren:
 
--   **My Document Workspaces**
+* Wiki
+* Blog
+* Dokumentenbibliothek
+* Links
+* Diskussionsforum
+* Dashlet **Meine Aktivitäten** in Ihrem persönlichen Dashboard
+* Dashlet **Site-Aktivitäten** im Site-Dashboard
 
-    Displays all Document Workspace sites that you belong to (Document Workspaces are created in Microsoft Word)
+Die RSS-Feed-Schaltflächen bzw. RSS-Feed-Symbole zeigen an, an welchen Stellen die Feeds verfügbar sind.
 
--   **My Meeting Workspaces**
+1. Klicken Sie neben dem Feed, den Sie abonnieren möchten, auf die Schaltfläche oder das Symbol **RSS Feed** ![RSS Feed]({% link content-services/images/ico-rss.png %}).
 
-    Displays all Meeting Workspace sites that you belong to (Meeting Workspaces are created in Microsoft Outlook)
+    Dadurch wird der Abonnementprozess eingeleitet. Die daraufhin angezeigten Elemente hängen vom verwendeten Browser ab.
 
-You can resize most dashlets.
+2. Wählen Sie die Option zum Abonnieren des Feeds.
 
-To resize a dashlet click and drag on the bottom edge of the dashlet until it's the height you want. This is saved between sessions.
+3. Legen Sie den Speicherort für den Feed fest, und abonnieren Sie ihn anschließend.
 
->**Tip:** If you hover over a dashlet header then a ![Add Event icon]({% link content-services/images/help-1.png %}) icon appears. Click it for an explanation of what the dashlet does. This stays open until you close it or navigate away from the dashboard.
-
-#### What can I do with my dashlets?
-
-As well as giving you an overview of activity and information in Alfresco Share, the dashlets also give you links to various areas of Share and let you carry out a range of actions.
-
->**Tip:** When a user name, site name, or item appears as a link, you can click it to navigate to the related page.
-
-Each dashlet has a unique role:
-
--   **My Sites**
-
-    Lists the sites you belong to.
-
-    -   Click **Create Site** to start a new site.
-    -   Click a site name to go to that site.
-    -   Use the filter to display all sites, recent sites, or just your favorite sites.
-    -   Mark a site as a favorite or revoke its "favorite site" status.
-    -   Click the **Delete** icon to delete the site and its contents. (Managers only)
-
--   **My Activities**
-
-    Tracks the most recent activities in your sites.
-
-    -   Use the filters to specify the activities you want to see and for what time period.
-    -   Subscribe to the RSS feed to automatically receive activity updates.
-
--   **My Tasks**
-
-    Displays your tasks.
-
-    -   Click **Start Workflow** to start a workflow for yourself or another user.
-    -   Click **Active Tasks** or **Completed Tasks** to view those tasks.
-    -   Click the **View Task** icon to view the details for a specific task.
-    -   Click the **Edit Task** icon or the task name to manage a task.
-
--   **My Documents**
-
-    Tracks your content in all site libraries.
-
-    -   Use the filter to choose the information you want to see.
-    -   Select a view option: **Simple** or **Detailed**.
-    -   Mark an item as a favorite or revoke its "favorite" status. (Detailed view only)
-    -   *Like* an item or *unlike* an item. (Detailed view only)
-    -   Click **Comment** to provide feedback. (Detailed view only)
-
--   **My Profile**
-
-    Shows a summary of your personal details.
-
-    -   Click **View Full Profile** (or your name) to go to your user profile.
-
--   **Web View**
-
-    Displays the website of your choice.
-
-    -   Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to specify the website.
-    -   Click the dashlet title to open the website in a separate window.
-
--   **RSS Feed**
-
-    Displays the Alfresco website feed by default.
-
-    -   Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to change the RSS feed.
-
--   **Alfresco Add-ons RSS Feed**
-
-    Displays the Newest Add-ons feed from the Alfresco Add-ons website by default.
-
-    -   Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to change the RSS feed.
-
--   **My Discussions**
-
-    Shows the most recent topics created in the discussion forums of your sites.
-
-    -   Use the filter to choose the information you want to see.
-
--   **Site Search**
-
-    Lets you search all the sites you belong to.
-
-    -   Enter search criteria and click **Search** (or press ENTER).
-    -   Select the maximum number of results you want to display.
-
--   **Saved Search**
-
-    Displays the results of a pre-configured search.
-
-    -   Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to define the search.
-
--   **My Document Workspaces**
-
-    Displays all Document Workspace sites that you belong to (Document Workspaces are created in Microsoft Word)
-
-    -   Delete a workspace if you have the correct permissions.
-
--   **My Meeting Workspaces**
-
-    Displays all Meeting Workspace sites that you belong to (Meeting Workspaces are created in Microsoft Outlook)
-
-    -   Delete a workspace if you have the correct permissions.
-
->**Tip:** Each dashlet includes help text. Position your cursor in the dashlet header to reveal the help button, then click it to display the related text. The help stays open until you close it or navigate away from the dashboard.
-
-### Configuring the RSS feed dashlets
-
-There are two RSS feed dashlets that you can include on your personal and site dashboards: RSS Feed and Alfresco Add-ons RSS Feed. On both dashlets you can edit the default URL to display any RSS feed.
-
-1.  Click the **Configure** icon on the dashlet title.
-
-2.  Specify the feed you want to subscribe to.
-
-3.  Select the number of feed items you want to display.
-
-4.  Select **Open links in new window** to have the target story display in a new window.
-
-5.  Click **OK**.
-
-### Setting up the Web View dashlet
-
-Set up the Web View dashlet to display websites.
-
-> **Note:** Some websites have restrictions that stop you from displaying them.
-
-The dashboard must be customized to display the Web View dashlet.
-
-1.  On the Web View dashlet, click the **Configure** icon.
-
-2.  In the **Link Title** field, type the text you want to appear in the dashlet header.
-
-    If you don't specify a title the dashlet header displays the URL of the website you specify.
-
-3.  In the **URL** field, type the website address.
-
-    > **Important:** Ensure the URL entered does not contain the JavaScript code `if(self.parent.frames.length!=0)self.parent.location=document.location;`. This or similar code causes the referenced website to open directly in the browser rather than in the Web View dashlet. This will lead to problems viewing the current dashboard (personal or site).
-
-4.  Click **OK**.
-
-### Configuring the Saved Search dashlet
-
-Configure the Saved Search dashlet to run a specific search each time the dashboard is loaded.
-
-On the site dashboard, only a site manager can configure the Saved Search dashlet.
-
-1.  Navigate to your personal dashboard or enter a site.
-
-2.  On the Saved Search dashlet, click the ![Configure]({% link content-services/images/ico-configure.png %}) configure icon.
-
-    The Enter Search Term dialog box opens.
-
-3.  Type the search criteria.
-
-    > **Note:** Entering ban will search only for the word *ban*; it will not return results for *banana*. To return matches for a partial word, use a wildcard in your search criteria (example: ban*).
-
-4.  Enter a title for the dashlet that represents the results that will be returned.
-
-5.  Select the number of results you want to display.
-
-6.  Click **OK**.
-
-### Viewing your user profile {#viewing-your-user-profile}
-
-Your user profile includes more information than just your contact details. Here you can see at a glance who you are following, who is following you, the sites you belong to, and the content you have recently added and modified.
-
-1.  Open the user menu on the toolbar.
-
-2.  Click **My Profile**.
-
-    >**Tip:** You can also access your user profile from the My Profile dashlet: click **View Full Profile**.
-
-3.  Navigate your profile pages to view and manage your information:
-
-    -   **Info**
-
-        Displays your personal details, including contact information, company details, and a photo
-
-    -   **Sites**
-
-        Lists the sites you're a member of and lets you disable and enable activity feeds from those sites
-
-    -   **Content**
-
-        Displays two lists detailing your recent activities: **Recently added** (last 5 pieces of content you added), **Recently modified** (last 5 pieces of content you edited)
-
-    -   **I'm Following**
-
-        Lists the people you are following
-
-    -   **Following Me**
-
-        Lists the people who are following you
-
-    -   **Change Password**
-
-        Lets you change your password
-
-    -   **Notifications**
-
-        Lets you specify whether or not you want to receive email notifications
-
-    -   **Trashcan**
-
-        Lets you find and recover deleted content
-
-### What version of Alfresco Share am I using? {#what-version-of-alfresco-share-am-I-using}
-
-It's easy to check which version of Alfresco Share you're using.
-
-1.  Click the Alfresco logo at the bottom of Alfresco Share.
-
-    A box opens showing which version of Share you're working with.
-
-### Subscribing to an RSS feed {#subscribing-to-an-rss-feed}
-
-There are several places in Alfresco Share where you can subscribe to RSS feeds. These feeds let you automatically receive regular updates on various activities.
-
-You can subscribe to an RSS Feed in the following places:
-
--   Wiki
--   Blog
--   Document Library
--   Links
--   Discussions forum
--   My Activities dashlet on your personal dashboard
--   Site Activities dashlet on the site dashboard
-
-An RSS Feed button or icon shows you where the feeds are available.
-
-1.  Click the ![]({% link content-services/images/ico-rss.png %}) **RSS Feed** button or icon next to a feed you want to subscribe to.
-
-    This initiates the subscription process. What you see next depends on the browser you're using.
-
-2.  Choose to subscribe to the feed.
-
-3.  Select where you want to store the feed, then subscribe to it.
-
-    >**Tip:** RSS feeds credentials are stored by the browser you're using and not Share. As such it's recommended that you close your browser after logging out of Share and / or lock your computer while you're away from it.
+    > **Hinweis:** Die Anmeldeinformationen für RSS-Feeds werden im verwendeten Browser gespeichert, nicht in Share. Es wird daher empfohlen, den Browser nach der Abmeldung von Share zu schließen und/oder den Computer sperren, wenn Sie diesen nicht verwenden.

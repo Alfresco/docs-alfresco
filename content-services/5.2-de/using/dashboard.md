@@ -1,221 +1,221 @@
 ---
-title: Personalizing Alfresco Share
+title: Personalisieren von Alfresco Share
 ---
 
-Having installed Alfresco Share and signed in, the first thing you can do is to personalize Alfresco Share to your own tastes and needs.
+Nachdem Sie Alfresco Share installiert und sich angemeldet haben, können Sie Alfresco Share als Erstes Ihren eigenen Anforderungen entsprechend anpassen.
 
-You're going to update your dashboard and your profile.
+Sie aktualisieren Ihr Dashboard und Ihr Profil.
 
-Your dashboard is made up of dashlets - each dashlet displays summary information on different parts of Alfresco Share, such as your latest updates, your tasks, or your sites. There are two different sets of dashlets available - one set for your personal Alfresco Share dashboard and one set that is used to customize individual sites that you set up.
+Ihr Dashboard besteht aus Dashlets – jedes Dashlet zeigt zusammenfassende Informationen über verschiedene Teile von Alfresco Share, wie z. B. Ihre neuesten Updates, Ihre Aufgaben oder Ihre Sites. Es gibt zwei verschiedene Dashlet-Sets – eines für Ihr persönliches Alfresco Share-Dashboard und eines, mit dem Sie einzelne von Ihnen eingerichtete Sites anpassen können.
 
-As well as adding and removing dashlets you can also customize your dashboard layout.
+Neben dem Hinzufügen und Entfernen von Dashlets können Sie auch das Layout Ihres Dashboards anpassen.
 
-Managing your profile means that you can create a personality that's visible to other Alfresco Share users.
+Indem Sie Ihr Profil verwalten, können Sie eine Persönlichkeit erstellen, die für andere Alfresco Share-Benutzer sichtbar ist.
 
-## Setting up your dashboard {#setting-up-your-dashboard}
+## Einrichten Ihres Dashboards {#setting-up-your-dashboard}
 
-You can customize your dashboard so that you only see the information that you're interested in.
+Sie können Ihr Dashboard so anpassen, dass nur die für Sie interessanten Informationen angezeigt werden.
 
-**To customize your dashboard appearance and content:**
+**So passen Sie das Erscheinungsbild und den Inhalt Ihres Dashboards an:**
 
-1.  Click ![Customize Dashboard icon]({% link content-services/images/settings-icon.png %}) to show the Customize User Dashboard page.
+1.  Klicken Sie auf ![Customize Dashboard icon]({% link content-services/images/settings-icon.png %}), um die Seite **Benutzer-Dashboard anpassen** anzuzeigen.
 
-2.  Click **Change Layout** to display the available layouts.
+2.  Klicken Sie auf **Layout ändern**, um die verfügbaren Layouts anzuzeigen.
 
-3.  Click **Select** for the Three columns option.
+3.  Klicken Sie für die Option für drei Spalten auf **Auswählen**.
 
-4.  Click **Add Dashlets** to display all the available dashlets.
+4.  Klicken Sie auf **Dashlets hinzufügen**, um alle verfügbaren Dashlets anzuzeigen.
 
-5.  Drag and drop **My Profile** and then **My Calendar** to Column 3.
+5.  Verschieben Sie **Mein Profil** und dann **Mein Kalender** per Drag & Drop in Spalte 3.
 
     ![Customize User Dashboard: Add Dashlets]({% link content-services/images/gs-dashlets.png %})
 
-6.  Select **Hide from Dashboard** for the Get Started Panel.
+6.  Wählen Sie für das Fenster **Erste Schritte** die Option **Aus Dashboard ausblenden**.
 
-7.  Click **OK**.
+7.  Klicken Sie auf **OK**.
 
-    If you look at your dashboard now you can see that it's been updated with your dashlet choices.
+    Ihr Dashboard ist nun mit Ihrer Dashlet-Auswahl aktualisiert.
 
-    >**Tip:** You can also resize dashlets to line them up nicely - just click on the bottom of a dashlet then drag up and down to resize it.
+    >**Tipp:** Sie können auch die Größe von Dashlets anpassen, um die gleichmäßig auszurichten. Klicken Sie einfach unten auf ein Dashlet und ziehen Sie dann zur Größenanpassung nach oben oder unten.
 
 
-Your dashboard is now customized exactly as you want it - this isn't fixed though, you can change the dashboard whenever you like. You can click My Dashboard from anywhere in Alfresco Share to take a look at your dashboard.
+Ihr Dashboard ist nun Ihren Vorstellungen entsprechend angepasst. Es kann jedoch jederzeit erneut geändert werden. Sie können an jeder beliebigen Stelle in Alfresco Share auf **Mein Dashboard** klicken, um einen Blick auf Ihr Dashboard zu werfen.
 
 
   
 
 
-## Updating your profile {#updating-your-profile}
+## Aktualisieren Ihres Profils {#updating-your-profile}
 
-Alfresco Share user profiles help you to identify who a user is and what they do in your organization.
+Mit Alfresco Share-Benutzerprofilen können Sie identifizieren, wer ein Benutzer ist und welche Funktion er in der Organisation hat.
 
-Your name is displayed at the top of the screen. When you click on the name a menu opens where you can update profile details, change your password, search the help, and log out.
+Ihr Name wird oben im Bildschirm angezeigt. Wenn Sie auf den Namen klicken, wird ein Menü aufgerufen, in dem Sie Profildaten aktualisieren, Ihr Passwort ändern, die Hilfe durchsuchen und sich abmelden können.
 
-**To update your profile:**
+**So aktualisieren Sie Ihr Profil:**
 
-1.  Click your name and select **My Profile**, then click **Edit Profile**.
+1.  Klicken Sie auf Ihren Namen und wählen Sie **Mein Profil**. Klicken Sie dann auf **Profil bearbeiten**.
 
-    >**Tip:** You can also select **View My Profile** from the My Profile dashlet.
+    >**Tipp:** Alternativ können Sie die Option **Mein Profil anzeigen** im Dashlet **Mein Profil** auswählen.
 
-2.  Enter all the details that you want to show in your profile, including a picture if you like, then click **Save Changes**.
+2.  Geben Sie alle Details ein, die in Ihrem Profil angezeigt werden sollen, gegebenenfalls einschließlich eines Bildes. Klicken Sie dann auf **Änderungen speichern**.
 
-3.  Click **Home** and you can see the updated details in the My Profile dashlet.
+3.  Klicken Sie auf **Home**. Die aktualisierten Informationen werden im Dashlet **Mein Profil** angezeigt.
 
 
-When your colleagues view your profile they'll see all the details you've entered.
+Wenn Ihre Kollegen Ihr Profil sehen, sehen sie alle von Ihnen eingegebenen Details.
 
 ![My Profile]({% link content-services/images/gs-my-profile.png %})
 
 
 
 
-## Your profile and dashboard {#your-profile-and-dashboard}
+## Ihr Profil und Dashboard {#your-profile-and-dashboard}
 
-You can customize your user profile and dashboard however you like without affecting anyone else - you're the only person that sees your dashboard.
+Sie können Ihr Benutzerprofil und Dashboard nach Belieben anpassen, ohne dass sich dies auf andere Benutzer auswirkt – Sie sind die einzige Person, die Ihr Dashboard sieht.
 
-Some of your user profile details are visible to your colleagues so it's good to keep these details up to date.
+Einige Details Ihres Benutzerprofils sind für Ihre Kollegen sichtbar, daher ist es ratsam, diese Informationen auf dem neuesten Stand zu halten.
 
-## Customizing your dashboard {#customizing-your-dashboard}
+## Anpassen des Dashboards {#customizing-your-dashboard}
 
-You can change the layout of your dashboard and choose from a number of dashlets to show the information you want to see.
+Sie können Ihr Layout anpassen und aus einer Reihe von Dashlets auswählen, um die gewünschten Informationen anzeigen zu lassen.
 
-If you want, add multiple copies of each dashlet and then set the filters so that each one displays different information.
+Sie können mehrere Versionen jedes Dashlets hinzufügen und anschließen die Filter setzen damit jede Version unterschiedliche Informationen anzeigt.
 
-> **Note:** The Get Started panel links to the Alfresco Share Help where you can watch help videos. You can always **Hide** it and show it again later.
+> **Hinweis:** Das Fenster **Erste Schritte** ist mit der Alfresco Share-Hilfe verknüpft. Hier können Sie Hilfevideos anschauen. Sie können das Fenster jederzeit **ausblenden** und später wieder einblenden.
 
-1.  Click ![Customize Dashboard icon]({% link content-services/images/settings-icon.png %}) to start customizing your dashboard.
+1.  Klicken Sie auf ![Customize Dashboard icon]({% link content-services/images/settings-icon.png %}), um Ihr Dashboard anzupassen.
 
-2.  Change the dashboard layout:
+2.  Ändern Sie das Layout des Dashboards:
 
-    1.  Click **Change Layout**.
+    1.  Klicken Sie auf **Layout ändern**.
 
-    2.  **Select** a layout.
+    2.  Wählen Sie mithilfe von **Auswählen** ein Layout aus.
 
-3.  To select your dashlets:
+3.  So wählen Sie Ihre Dashlets aus:
 
-    1.  Click **Add Dashlets**.
+    1.  Klicken Sie auf **Dashlets hinzufügen**.
 
-    2.  Drag and drop dashlets from the Add Dashlets section onto the columns below.
+    2.  Ziehen Sie Dashlets aus dem Abschnitt **Dashlets hinzufügen** per Drag & Drop auf die folgenden Spalten.
 
-        > **Note:** You can drag and drop dashlets around the columns to change the display order, or to the trash can (or press DELETE) to remove them.
+        > **Hinweis:** Sie können Dashlets per Drag & Drop in den Spalten verschieben, um die Anzeigereihenfolge zu ändern, oder aber in den Papierkorb verschieben (oder ENTFERNEN drücken), um sie zu entfernen.
 
-        See [What can I do with my dashlets?]({% link content-services/5.2-de/using/share.md %}#what-can-I-do-with-my-dashlets?) for more.
+        Weitere Informationen finden Sie unter [Was kann ich mit meinen Dashlets machen?]({% link content-services/5.2/using/share.md %}#what-can-I-do-with-my-dashlets?).
 
-4.  Select whether to show or hide the Get Started Panel.
+4.  Wählen Sie aus, ob das Erste-Schritte-Fenster ein- oder ausgeblendet werden soll.
 
-5.  Click **OK** to save the dashboard configuration.
+5.  Klicken Sie auf **OK**, um die Dashboard-Konfiguration zu speichern.
 
-    >**Tip:** On your dashboard you can resize most dashlets - just click on the bottom of a dashlet then drag up and down to resize it.
+    >**Tipp:** In Ihrem Dashboard können Sie die Größe der meisten Dashlets ändern. Klicken Sie einfach unten in ein Dashlet und ziehen Sie es nach oben und unten, um die Größe zu ändern.
 
-## Setting your home page {#setting-your-home-page}
+## Einrichten Ihrer Homepage {#sethomepage}
 
-Your default Alfresco Share home page is your user dashboard, but you can set it to be any page in Share that you have access to.
+Ihre standardmäßige Alfresco Share-Homepage ist Ihr Benutzer-Dashboard. Sie können in Share als Homepage jedoch jede beliebige Seite festlegen, auf die Sie Zugriff haben.
 
-This can save you time if most of your work is done from a specific Share location, by taking you straight to that screen every time you sign in.
+Wenn Sie den Großteil Ihrer Aktivitäten an einem bestimmten Ort in Share durchführen, können Sie auf diese Weise viel Zeit sparen, da Sie bei jeder Anmeldung direkt zum betreffenden Bildschirm weitergeleitet werden.
 
-1.  Go to the page that you want to be your home page.
+1.  Rufen Sie die Seite auf, die Sie als Homepage festlegen möchten.
 
-2.  Click your user name and select **Use Current Page**.
+2.  Klicken Sie auf Ihren Benutzernamen und wählen Sie **Aktuelle Seite verwenden**.
 
-    That's it. Now, every time you sign in Share will open on this page. You can change this whenever you want to or select **Use My Dashboard** to set your home page back to your dashboard.
+    Das war‘s auch schon. Wenn Sie sich nun bei Share anmelden, wird fortan diese Seite geöffnet. Sie können diese Einstellung jederzeit ändern. Alternativ können Sie unter **Mein Dashboard verwenden** Ihre Homepage auf das Dashboard zurückzusetzen.
 
-    >**Tip:** The **Home** option on the toolbar will also take you to the page that you've set as your home page.
+    >**Tipp:** Bei Verwendung der Option **Home** in der Symbolleiste werden Sie ebenfalls zu der Seite weitergeleitet, die Sie als Homepage festgelegt haben.
 
-    You can still click your name then **User Dashboard** to go to your dashboard.
+    Sie können weiterhin Ihr Dashboard aufrufen, indem Sie einfach auf Ihren Namen und anschließend auf **Benutzer-Dashboard** klicken.
 
-    > **Note:** Sometimes the home page you've selected could become unavailable, for example, if you select a site dashboard as your home page and the site is then deleted. If this happens we'll notify you that you need to select a new home page.
+    > **Hinweis:** Es kann vorkommen, dass die von Ihnen ausgewählte Startseite nicht verfügbar ist. Dies ist beispielsweise der Fall, wenn Sie ein Site-Dashboard als Homepage ausgewählt haben und die Site später gelöscht wird. In diesem Fall werden wir Sie darüber informieren, dass Sie eine neue Homepage auswählen müssen.
 
 
-## Updating your profile {#updating-your-profile}
+## Aktualisieren Ihres Profils {#updating-your-profile}
 
-User profiles help you to identify a user's roles and responsibilities, or even find out who's who in your organization by checking profile pictures.
+Benutzerprofile ermöglichen es Ihnen, die Rollen und Verantwortlichkeiten eines Benutzers zu identifizieren. Darüber hinaus können Sie anhand von Profilbildern die verschiedenen Personen in Ihrem Unternehmen einordnen.
 
-When you click on your name at the top of the screen a menu opens where you can update profile details, change your password, search the help, and log out.
+Klicken Sie oben im Bildschirm auf Ihren Namen. Es wird ein Menü geöffnet, in dem Sie Ihre Profildaten aktualisieren, Ihr Passwort ändern, die Hilfe durchsuchen und sich abmelden können.
 
-1.  Click your user name and select **My Profile**, then **Edit Profile**.
+1.  Klicken Sie auf Ihren Benutzernamen. Wählen Sie **Mein Profil** und anschließend **Profil bearbeiten**.
 
-    > **Note:** You can also select **View My Profile** from the **My Profile** dashlet.
+    > **Hinweis:** Alternativ können Sie die Option **Mein Profil anzeigen** im Dashlet **Mein Profil** auswählen.
 
-2.  Enter all the details that you want to show in your profile, including a picture if you want, then click **Save Changes**.
+2.  Geben Sie alle Informationen ein, die in Ihrem Profil angezeigt werden sollen, sowie ein Profilbild (optional). Klicken Sie anschließend auf **Änderungen speichern**.
 
-    > **Note:** If you already had a profile photo, uploading a new one overwrites it.
+    > **Hinweis:** Wenn bereits ein Profilbild vorhanden ist, wird es beim Hochladen eines neuen Bilds überschrieben.
 
-    If you enter a Google Username it will be used as the default account when you edit or create Google Docs.
+    Bei Eingabe eines Google-Benutzernamens wird dieser Name als Standardkonto verwendet, wenn Sie Google-Dokumente bearbeiten oder erstellen.
 
-3.  Click **Home** and you can see the updated details in the **My Profile** dashlet.
+3.  Klicken Sie auf **Home**. Die aktualisierten Informationen werden im Dashlet **Mein Profil** angezeigt.
 
-When your colleagues view your profile they'll see all the details you've entered and know exactly what you're working on.
+Wenn Ihre Kollegen Ihr Profil aufrufen, werden ihnen alle Informationen angezeigt, die Sie eingegeben haben sowie alle Aufgaben, die Sie derzeit bearbeiten.
 
-This video show you how to edit your user profile.
+In diesem Video wird die Vorgehensweise zum Bearbeiten Ihres Benutzerprofils erläutert.
 
-## Following people {#following-people}
+## Verfolgung von Mitarbeitern {#following-people}
 
-You can follow users you're interested in so that you can easily keep track of what they've been working on.
+Sie haben die Möglichkeit, spezifischen Benutzern zu folgen, um Ihre Aktivitäten einfach identifizieren zu können.
 
-1.  Click **People** and search for a user.
+1.  Klicken Sie auf **Mitarbeiter** und suchen Sie nach einem Benutzer.
 
-    You can also follow users by clicking a user's name wherever you see it to display their profile page.
+    Sie können Benutzern auch folgen, indem Sie auf einen Benutzernamen klicken, wenn dieser angezeigt wird. Die Profilseite des entsprechenden Benutzers wird daraufhin angezeigt.
 
-2.  Click **Follow**.
+2.  Klicken Sie auf **Folgen**.
 
-    An email is sent telling the user that you're following them. You can't follow a user without them knowing.
+    Eine E-Mail wird gesendet, die den Benutzer darüber informiert, dass Sie ihm folgen. Sie können Benutzern nicht ohne ihr Wissen folgen.
 
-3.  Open the **I'm Following** page of your user profile.
+3.  Öffnen Sie die Seite **Ich folge** in Ihrem Benutzerprofil.
 
-    You see a list of the users you are following.
+    Es wird eine Liste der Benutzer angezeigt, denen Sie folgen.
 
-4.  You can select the **Private** check box to hide your I'm Following page from other users.
+4.  Sie können das Kontrollkästchen **Privat** aktivieren, wenn Sie die Seite **Ich folge** für andere Benutzer ausblenden möchten.
 
-    > **Note:** Even when your list is private, email notifications will be sent to people you choose to follow.
+    > **Hinweis:** Selbst wenn Ihre Liste auf **Privat** gesetzt ist, werden E-Mail-Benachrichtigungen an Personen gesendet, denen Sie folgen möchten.
 
-    When your list is private, the I'm Following page doesn't appear to people viewing your profile.
+    Wenn Ihre Liste auf **Privat** gesetzt ist, wird die Seite **Ich folge** anderen Benutzern bei der Ansicht Ihres Profils nicht angezeigt.
 
-5.  Click **Unfollow** to stop following someone.
+5.  Klicken Sie auf **Nicht mehr folgen**, um die Verfolgung von Personen einzustellen.
 
-## Controlling your email notifications {#controlling-your-email-notifications}
+## Steuern von E-Mail-Benachrichtigungen {#controlling-your-email-notifications}
 
-Choose whether or not you want to receive notifications by email. The emails keep you up to date on events such as recent site activities.
+Legen Sie fest, ob Sie Benachrichtigungen per E-Mail erhalten möchten. E-Mail-Benachrichtigungen informieren Sie über Ereignisse wie aktuelle Aktivitäten auf der Site.
 
-> **Note:** If you want to change the frequency of your email notifications, contact your Alfresco administrator.
+> **Hinweis:** Wenn Sie die Häufigkeit von E-Mail-Benachrichtigungen ändern möchten, wenden Sie sich an Ihren Alfresco-Administrator.
 
-1.  Click your user name on the toolbar and click **My Profile**.
+1.  Klicken Sie in der Symbolleiste auf Ihren Benutzernamen und anschließend auf **Mein Profil**.
 
-2.  Select the **Notifications** page.
+2.  Wählen Sie die Seite **Benachrichtigungen**.
 
-3.  Enable or disable the **Email Notification Feed** option.
+3.  Aktivieren oder deaktivieren Sie die Option **E-Mail-Benachrichtigungs-Feed**.
 
-4.  Click **OK**.
+4.  Klicken Sie auf **OK**.
 
-    > **Note:** You can also enable and disable the notifications for specific sites on the My Profile **Sites** page.
+    > **Hinweis:** Sie können die Benachrichtigungen für bestimmte Sites auch auf der Seite **Sites** unter **Mein Profil** aktivieren und deaktivieren.
 
-## Disabling site activity notifications {#disabling-site-activity-notifications}
+## Deaktivieren von Benachrichtigungen zu Site-Aktivitäten {#disabling-site-activity-notifications}
 
-You can disable site activity feeds so that updates from specific sites aren't included in your email notifications or the My Activities dashlet on your dashboard.
+Sie können die Feed-Option für Site-Aktivitäten deaktivieren, um zu verhindern, dass Aktualisierungen von bestimmten Sites zu Ihren E-Mail-Benachrichtigungen oder zum Dashlet **Meine Aktivitäten** in Ihrem Dashboard hinzugefügt werden.
 
-1.  Click your user name on the toolbar and click **My Profile**.
+1.  Klicken Sie in der Symbolleiste auf Ihren Benutzernamen und anschließend auf **Mein Profil**.
 
-2.  Select the **Sites** page.
+2.  Wählen Sie die Seite **Sites** aus.
 
-    >**Tip:** You can also access this page by clicking **Sites** then **My Sites** on the toolbar.
+    >**Tipp:** Sie können diese Seite auch aufrufen, indem Sie in der Symbolleiste auf **Sites** und anschließend auf **Meine Sites** klicken.
 
-3.  Click **Disable Activity Feeds** to disable updates for a site.
+3.  Klicken Sie auf **Aktivitäten-Feeds deaktivieren**, um Aktualisierungen für Sites zu deaktivieren.
 
-    You can do this for as many sites as you want, and you can click **Enable Activity Feeds** to switch feeds back on again.
+    Sie können diese Aktion für beliebig viele Sites ausführen. Klicken Sie auf **Aktivitäten-Feeds aktivieren**, wenn Sie die Feed-Option erneut aktivieren möchten.
 
-    > **Note:** The My Documents dashlet will still display details of content from the sites you've disabled feeds for.
+    > **Hinweis:** Im Dashlet **Meine Dokumente** werden weiterhin Details zu Inhalten aus Sites angezeigt, für die Sie die Feed-Option deaktiviert haben.
 
-## Changing your password {#changing-your-password}
+## Ändern Ihres Passworts {#changing-your-password}
 
-Change your password for increased security.
+Ändern Sie Ihr Passwort für mehr Sicherheit.
 
-1.  Click your user name on the toolbar and click **Change Password**.
+1.  Klicken Sie in der Symbolleiste auf Ihren Benutzernamen und anschließend auf **Passwort ändern**.
 
-    > **Note:** This option might not be available if your company passwords are kept in an external password management system.
+    > **Hinweis:** Diese Option ist möglicherweise nicht verfügbar, wenn Ihre Firmenpasswörter in einem externen Passwortverwaltungssystem gespeichert sind.
 
-2.  Type your current password in the **Enter Old Password** field.
+2.  Geben Sie Ihr aktuelles Passwort in das Feld **Altes Passwort eingeben** ein.
 
-3.  Type your new password in the **Enter New Password** and **Confirm New Password** fields.
+3.  Geben Sie Ihr neues Passwort in die Felder **Neues Passwort eingeben** und **Neues Passwort bestätigen** ein.
 
-    Your password must be at least ten characters long and use a combination of uppercase and lowercase letters, numbers, and symbols.
+    Ihr Passwort muss mindestens zehn Zeichen lang sein und eine Kombination aus Groß- und Kleinbuchstaben, Zahlen und Symbolen enthalten.
 
-4.  Click **OK**.
+4.  Klicken Sie auf **OK**.

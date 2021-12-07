@@ -1,755 +1,755 @@
 ---
-title: Building a site
+title: Erstellen einer Site
 ---
 
-Now that you've personalized your own dashboard and profile, you're ready to set up a site.
+Nachdem Sie nun Ihr eigenes Dashboard und Profil erstellt haben, sind Sie bereit, eine Site einzurichten.
 
-Collaboration in Alfresco Share is based around the concept of creating sites that teams can share content in, but an Alfresco Share site is more than just a place to share and manage content. You can schedule and manage meetings and calendars, publish blogs and set up forums where you can have team discussions, and even write content online and publish it to a wiki.
+Die Zusammenarbeit in Alfresco Share basiert auf dem Konzept der Erstellung von Sites, in denen Teams Inhalte gemeinsam nutzen können. Eine Alfresco Share-Site ist jedoch mehr als nur ein Ort zum Teilen und Verwalten von Inhalten. Sie können Meetings und Kalender planen und verwalten, Blogs veröffentlichen und Foren einrichten, in denen Sie Teamdiskussionen führen können, und Sie können Inhalte sogar online schreiben und in einem Wiki veröffentlichen.
 
-## Creating a new site {#creating-a-new-site}
+## Erstellen einer neuen Site {#creating-a-new-site}
 
-The first thing that you need to do is to create a site and choose its settings.
+Im ersten Schritt müssen Sie eine Site erstellen und die dazugehörigen Einstellungen wählen.
 
-1.  Click **Create Site** on the **My Sites** dashlet or click the **Sites** menu at the top of the screen and select **Create Site**.
+1.  Klicken Sie im Dashlet **Meine Sites** auf **Site erstellen** oder klicken Sie oben im Bildschirm auf das Menü **Sites** und wählen dann **Site erstellen**.
 
-    Whichever method you choose will open up the **Create Site** dialog box.
+    Unabhängig davon, welche Methode Sie wählen, wird das Dialogfeld **Site erstellen** aufgerufen.
 
-2.  Now enter site details as shown. You'll notice that the URL Name is automatically created.
+2.  Geben Sie nun Site-Details ein wie nachstehend beschrieben. Wie Sie sehen, wird der URL-Name automatisch erstellt.
 
-    -   Name: Marketing Content
-    -   Description: This site is for sharing and collaborating on marketing content.
-    -   Visibility: Public
+    -   Name: Marketinginhalt
+    -   Beschreibung: Diese Site ist für den Austausch von und die Zusammenarbeit an Marketinginhalt bestimmt.
+    -   Sichtbarkeit: Öffentlich
 
-        > **Note:** By setting the site to **Public** all users in your organization can see and join the site. Selecting **Moderated** means that everyone can see it but a site manager has to approve requests to join. If you set the site visibility to **Private**, only users that you, the Site Manager, add to a site will be able to see and join the site. The visibility setting you select is displayed next to the site name when a user is in the site. See [Alfresco Share sites](#sites) for more information on site visibility settings.
+        > **Hinweis:** Durch die Definition der Site als **Öffentlich** können alle Benutzer in Ihrer Organisation die Site anzeigen und ihr beitreten. Bei Auswahl von **Moderiert** kann jeder die Site anzeigen, Beitrittsanfragen müssen jedoch vom Site-Manager genehmigt werden. Wenn Sie die Sichtbarkeit der Site auf **Privat** setzen, können nur Benutzer, die von Ihnen, dem Site-Manager, zur einer Site hinzugefügt wurden, die Site anzeigen und ihr beitreten. Die von Ihnen gewählte Einstellung für die Sichtbarkeit wird neben dem Site-Namen angezeigt, wenn sich ein Benutzer auf der Site befindet. Weitere Informationen zu den Einstellungen für die Sichtbarkeit von Sites finden Sie unter [Alfresco Share-Sites](#sites).
 
     ![Create Site]({% link content-services/images/gs-create-site.png %})
 
-3.  If you have modules such as Records Management installed, then there will be an additional Type option. Select **Collaboration Site** to create a standard site.
+3.  Falls Sie Module wie Records Management installiert haben, steht eine zusätzliche Option für den Typ zur Verfügung. Wählen Sie **Collaboration-Site**, um eine Standard-Site zu erstellen.
 
-4.  Click **Create** and the dashboard for your new site is now shown.
+4.  Klicken Sie auf **Erstellen**. Das Dashboard für Ihre neue Site wird nun angezeigt.
 
-    Now that you've created a site, you can start to customize it, in much the same way as you did with your personal dashboard.
+    Nachdem Sie eine Site erstellt haben, können Sie sie anpassen. Gehen Sie ähnlich vor wie bei Ihrem persönlichen Dashboard.
 
-## Customizing the site dashboard {#customizing-the-site-dashboard}
+## Anpassen des Site-Dashboards {#customizing-the-site-dashboard}
 
-A site dashboard displays all information and activities associated with the site. You can customize the site dashboard just as you did with your personal dashboard.
+Ein Site-Dashboard enthält alle der Site zugewiesenen Informationen und Aktivitäten. Sie können das Site-Dashboard genauso anpassen wie Ihr persönliches Dashboard.
 
-1.  Click ![Customize Dashboard icon]({% link content-services/images/settings-icon.png %}) then Customize Dashboard.
+1.  Klicken Sie auf ![Customize Dashboard icon]({% link content-services/images/settings-icon.png %}) und dann auf **Dashboard anpassen**.
 
-2.  Leave the current layout as it is and click **Add Dashlets**.
+2.  Nehmen Sie am aktuellen Layout keine Änderungen vor und klicken Sie auf **Dashlets hinzufügen**.
 
-    > **Note:** Notice how the dashlets differ to those available for your personal dashboard. The personal dashlets help you to configure what you want to see such as activity on sites that you are a member of, whereas the site dashlets are designed to help with team collaboration.
+    > **Hinweis:** Beachten Sie, wie sich die Dashlets von denen für Ihr persönliches Dashboard unterscheiden. Die persönlichen Dashlets helfen Ihnen bei der Konfiguration dessen, was Sie sehen möchten, wie z.B. Aktivitäten auf Sites, bei denen Sie Mitglied sind, während die Site-Dashlets für die Zusammenarbeit im Team konzipiert sind.
 
-3.  Drag the **Wiki** dashlet onto Column 1 and click **OK**.
-
-
-You can resize the dashlets on the site dashboard as required. You are now nearly ready to add content to your site, just one more step first to customize the site further.
-
-## Adding features to a site {#adding-features-to-a-site}
-
-You can add features to your site such as a discussion forum, a wiki, or a blog.
-
-At the top of your site dashboard are tabs for areas of your site. By default you have Site Dashboard, Document Library, and Site Members. You can add additional features as needed for a site and [choose a site homepage](#choosing-a-site-homepage) . If you look at the Wiki dashlet that you added previously, you'll see that it says that no page is configured. You're now going to configure a wiki for the site.
-
-1.  Click ![Customize Dashboard icon]({% link content-services/images/settings-icon.png %}) and then **Customize Site**.
-
-2.  Drag the Wiki and Calendar icons down into the Current Site Pages area, and click **OK**.
-
-    > **Note:** Take a look at [(Alfresco site features)]({% link content-services/5.2-de/using/sites/features.md %}#site-features) for more details on these features.
+3.  Ziehen Sie das **Wiki-** Dashlet auf Spalte 1 und klicken Sie auf **OK**.
 
 
-Back on the site dashboard you can see that the wiki and calendar have been added. You now have a site set up! It's time to start adding some content...
+Sie können die Größe der Dashlets auf dem Site-Dashboard gegebenenfalls anpassen. Sie können nun schon fast Inhalt zu Ihrer Site hinzufügen. Es fehlt noch ein Schritt zur weiteren Anpassung der Site.
 
-## Adding users to your site {#adding-users-to-your-site}
+## Hinzufügen von Funktionen zu einer Site {#adding-features-to-a-site}
 
-Now that you've created a site and added content, the next step is to invite other Alfresco Share users to the site.
+Sie können Ihrer Site Funktionen hinzufügen, wie zum Beispiel ein Diskussionsforum, ein Wiki oder einen Blog.
 
-1.  Click the Add User icon (![Invite to Site]({% link content-services/images/invite-to-site-icon.png %}) ) at the top of the dashboard to open the Add Users page.
+Oben in Ihrem Site-Dashboard befinden sich Tabulatoren für die Bereiche Ihrer Site. Standardmäßig verfügen Sie über Site-Dashboard, Dokumentenbibliothek und Site-Mitglieder. Sie können gegebenenfalls zusätzliche Funktionen für eine Site hinzufügen und [eine Site-Homepage auswählen](#choosing-a-site-homepage). Wenn Sie sich das zuvor hinzugefügte Wiki-Dashlet ansehen, wird angegeben, dass keine Seite konfiguriert wurde. Sie konfigurieren nun ein Wiki für die Site.
 
-    >**Tip:** You don't need to be on your site dashboard to do this - the **Add Users** option is available from everywhere in your site.
+1.  Klicken Sie auf ![Customize Dashboard icon]({% link content-services/images/settings-icon.png %}) und dann auf **Site anpassen**.
 
-2.  Type the full or partial name of a user you want to invite and click **Search**.
+2.  Ziehen Sie die Wiki- und Kalender-Symbole in den Bereich **Aktuell verfügbare Seiten der Site** und klicken Sie auf **OK**.
 
-    > **Important:** An internal user is someone in your organization. This tutorial will add the test user, Alice Beecher, but if your Alfresco Content Services administrator has already set up users, then you can add real users if you prefer.
-
-3.  Click **Select** to add the user to the **Set User Role** list.
-
-4.  Click **Select Role** and select **Collaborator**.
-
-    > **Note:** You can set different roles for different users; take a look at the Alfresco Share [User roles and permissions]({% link content-services/5.2-de/using/permissions.md %}#user-roles-and-permissions) for more details on user roles.
-
-5.  Click Add Users.
+    > **Hinweis:** Weitere Informationen zu diesen Funktionen finden Sie unter [(Funktionen von Alfresco-Sites)]({% link content-services/5.2/using/sites/features.md %}#site-features).
 
 
-An email notification is sent to each person that you invited and they can start using the site immediately.
+Nachdem Sie zum Site-Dashboard zurückgekehrt sind, werden Wiki und Kalender angezeigt. Sie haben nun eine Site eingerichtet! Sie können nun Inhalt hinzufügen ...
+
+## Hinzufügen von Benutzern zu Ihrer Site {#adding-users-to-your-site}
+
+Nachdem Sie eine Site erstellt und Inhalt hinzugefügt haben, besteht der nächste Schritt darin, andere Alfresco Share-Benutzer zur Site einzuladen.
+
+1.  Klicken Sie oben im Dashboard auf das Symbol **Benutzer hinzufügen** (![Invite to Site]({% link content-services/images/invite-to-site-icon.png %}), um die Seite **Benutzer hinzufügen** aufzurufen.
+
+    >**Tipp:** Hierfür müsse Sie sich nicht auf Ihrem Site-Dashboard befinden. Die Option **Benutzer hinzufügen** ist von jeder Stelle Ihrer Site verfügbar.
+
+2.  Geben Sie den vollständigen oder teilweisen Namen eines Benutzers ein, den Sie einladen möchten, und klicken Sie auf **Suche**.
+
+    > **Wichtig:** Ein interner Benutzer ist eine Person innerhalb Ihrer Organisation. In diesem Tutorial wird die Testbenutzerin Alice Beecher hinzugefügt. Wenn Ihr Alfresco Content Services-Administrator jedoch bereits Benutzer eingerichtet hat, können Sie auch echte Benutzer hinzufügen.
+
+3.  Klicken Sie auf **Auswählen**, um den Benutzer zur Liste **Benutzerrolle einrichten** hinzuzufügen.
+
+4.  Klicken Sie auf **Rolle auswählen** und wählen Sie **Mitarbeiter**.
+
+    > **Hinweis:** Sie können verschiedene Rollen für verschiedene Benutzer festlegen. Weiter Einzelheiten zu Benutzerrollen finden Sie unter [Benutzerrollen und Berechtigungen]({% link content-services/5.2/using/permissions.md %}#user-roles-and-permissions) in Alfresco Share.
+
+5.  Klicken Sie auf **Benutzer hinzufügen**.
+
+
+Alle von Ihnen eingeladenen Personen erhalten eine E-Mail-Benachrichtigung und können die Site sofort nutzen.
 
 ## Sites {#sites}
 
-A site is a area where you can share content and collaborate with other site members.
+Eine Site ist ein Bereich, in dem Sie Inhalte teilen und mit anderen Mitgliedern der Site zusammenarbeiten können.
 
-Any user can create a site. The site creator becomes the Site Manager by default, though additional or alternate managers can be added after this.
+Jeder Benutzer kann eine Site erstellen. Der Ersteller der Site wird standardmäßig zum Site-Manager, obwohl danach weitere oder alternative Manager hinzugefügt werden können.
 
-Each site has a visibility setting that marks the site as public, moderated, or private. This setting controls who can see the site and how users become site members.
+Jede Site hat eine Sichtbarkeitseinstellung, die die Site als **Öffentlich**, **Moderiert** oder **Privat** markiert. Diese Einstellung steuert, wer die Site anzeigen kann und wie Benutzer Mitglieder der Site werden.
 
--   **Public site**
+-   **Öffentliche Site**
 
-    All users can view the content but only site members can work with the content.
+    Alle Benutzer können den Inhalt anzeigen, es können jedoch nur Mitglieder der Site mit dem Inhalt arbeiten.
 
-    Any user can join the site.
+    Jeder Benutzer kann der Site beitreten.
 
--   **Moderated site**
+-   **Moderierte Site**
 
-    All users can access the site but only site members can see and work with the content.
+    Alle Benutzer können auf die Site zugreifen, es können jedoch nur Mitglieder der Site den Inhalt sehen und damit arbeiten.
 
-    Users must ask to join the site.
+    Benutzer müssen nachfragen, der Site beitreten zu dürfen.
 
--   **Private site**
+-   **Private Site**
 
-    Only site members can access the site.
+    Nur Mitglieder der Site können auf die Site zugreifen.
 
-    Users must be added to the site by a site manager.
+    Benutzer müssen von einem Site-Manager zur Site hinzugefügt werden.
 
 
-The manager of any site—whether public or private—can add users.
+Der Manager jeder Site – ob öffentlich oder privat – kann Benutzer hinzufügen.
 
-> **Note:** The visibility setting of a site is displayed next to the site name when you're in the site.
+> **Hinweis:** Die Sichtbarkeitseinstellung einer Site wird neben dem Site-Namen angezeigt, wenn Sie sich auf der Site befinden.
 
-You can remove yourself from a site at any time by clicking ![]({% link content-services/images/settings-icon.png %}) in the site and selecting **Leave Site**.
+Sie können sich jederzeit selbst von einer Site entfernen, indem Sie in der Site auf ![]({% link content-services/images/settings-icon.png %}) klicken und die Option **Site verlassen** wählen.
 
-## Accessing existing sites {#accessing-existing-sites}
+## Zugreifen auf vorhandene Sites {#accessing-existing-sites}
 
-Accessing an existing site is easy.
+Der Zugriff auf eine vorhandene Site ist einfach.
 
-You can search for sites using the Site Finder, the search box on the toolbar, or you might receive an email notification that you've been added to a site.
+Sie können mit dem Site-Finder oder über das Suchfeld in der Symbolleiste nach Sites suchen, oder Sie erhalten möglicherweise eine E-Mail-Benachrichtigung, dass Sie einer Site hinzugefügt wurden.
 
-If you see a link to a site anywhere in Alfresco Share, just click the link to have a look.
+Wenn Sie in Alfresco Share einen Link zu einer Site sehen, klicken Sie einfach auf diesen Link, um sich die Site anzusehen.
 
-You can see all the sites you're a member of by clicking **Sites** then **My Sites** on the Alfresco toolbar.
+Sie können alle Sites anzeigen, bei denen Sie Mitglied sind, indem Sie in der Alfresco-Symbolleiste auf **Sites** und dann auf **Meine Sites** klicken.
 
-## Joining a site {#joining-a-site}
+## Beitritt zu einer Site {#joining-a-site}
 
-When you join sites you gain access to the content that's stored on them.
+Wenn Sie einer Site beitreten, erhalten Sie Zugriff auf die Inhalte, die in dieser Site gespeichert sind.
 
-> **Note:** You can see all the sites you're a member of on the **My Sites** dashlet or by clicking **Sites** then **My Sites** on the toolbar.
+> **Hinweis:** Sie können im Dashlet **Meine Sites** alle Sites anzeigen, denen Sie zugeordnet sind. Alternativ können Sie in der Symbolleiste auf **Sites** und anschließend auf **Meine Sites** klicken.
 
-1.  Click **Sites** to see your Recent Sites and the site tools available.
+1.  Klicken Sie auf **Sites**, um die kürzlich besuchten Sites und die verfügbaren Tools anzuzeigen.
 
-2.  Click **Site Finder**.
+2.  Klicken Sie auf **Site-Finder**.
 
-3.  Enter a search term and click **Search**.
+3.  Geben Sie einen Suchbegriff ein und klicken Sie auf **Suchen**.
 
-    > **Note:** You can leave the search field empty to search for all available sites.
+    > **Hinweis:** Sie können das Suchfeld leer lassen, um nach allen verfügbaren Sites zu suchen.
 
-    All sites meeting your search criteria are now displayed. You have options to:
+    Es werden alle Sites angezeigt, die Ihren Suchkriterien entsprechen. Sie haben nun folgende Möglichkeiten:
 
-    -   **Join** a public site
-    -   **Request to join** a moderated public site
-    -   **Leave** a site that you're a member of
-    -   **Delete** a site that you're a manager of
-4.  Click on a site to go straight to the site dashboard.
+    -   **Beitritt** zu einer öffentlichen Site
+    -   **Beantragen des Beitritts** zu einer moderierten Site
+    -   **Verlassen einer Site**, der Sie zugeordnet sind
+    -   **Löschen einer Site**, der Sie als Manager zugeordnet sind
+4.  Klicken Sie auf eine Site, um direkt zum Site-Dashboard zu gelangen.
 
-    >**Tip:** Click ![Customize Dashboard icon]({% link content-services/images/settings-icon.png %}) to leave or join a site, depending on whether you're already a member or not. If you request to join a moderated site then site managers are notified and you'll need to wait until they give you access.
+    >**Tipp:** Klicken Sie auf ![Customize Dashboard icon]({% link content-services/images/settings-icon.png %}), um eine Site zu verlassen oder der Site beizutreten (je nachdem, ob Sie bereits Mitglied sind oder nicht). Wenn Sie den Beitritt zu einer moderierten Site beantragen, werden die Site-Manager darüber informiert und Sie müssen warten, bis sie Ihnen den Zugang gewähren.
 
-5.  Click **Sites** and you can add or remove the current site from your favorite sites list.
+5.  Klicken Sie auf **Sites**, um die aktuelle Site zu Ihrer Favoritenliste hinzufügen oder daraus zu entfernen.
 
-    >**Tip:** When you favorite a site you can quickly access it from the **Sites** menu.
+    >**Tipp:** Wenn Sie eine Site als Favorit markieren, können Sie über das Menü **Sites** schnell auf die Site zugreifen.
 
 
-## Leaving a site {#leaving-a-site}
+## Verlassen einer Site {#leaving-a-site}
 
-It's quick and easy to leave a site when you no longer want to be a member.
+Sie können eine Site schnell und einfach verlassen, wenn Sie nicht mehr Mitglied dieser Site sein möchten.
 
-1.  On the dashboard of the site you want to leave, click ![]({% link content-services/images/settings-icon.png %}) then **Leave Site**.
+1.  Klicken Sie im Dashboard der Site, die Sie verlassen möchten, auf ![]({% link content-services/images/settings-icon.png %}) und anschließend auf **Site verlassen**.
 
-2.  Click **OK** to confirm that you want to leave the site.
+2.  Klicken Sie auf **OK**, um zu bestätigen, dass Sie die Site verlassen möchten.
 
-    **Restriction:** All sites require a site manager so if you're the only manager of a site you can't leave it.
+    **Einschränkung:** Alle Sites erfordern einen Site-Manager. Wenn Sie der einzige Site-Manager sind, können Sie daher die Site nicht verlassen.
 
-    >**Tip:** You can also leave a site by clicking **Leave** in the Site Finder.
+    >**Tipp:** Sie können eine Site auch verlassen, indem Sie im Site-Finder auf **Verlassen** klicken.
 
 
-## Entering a site {#entering-a-site}
+## Aufrufen einer Site {#entering-a-site}
 
-You can access a site from several places in Alfresco Share.
+Eine Site können Sie an mehreren Stellen in Alfresco Share aufrufen.
 
-It's easy to get to sites you're a member of from the My Sites dashlet or by clicking **Sites** then **My Sites** on the toolbar. If the site you want to access isn't there, you can search for it on the Site Finder page, or in the search box on the toolbar.
+Zu Sites, bei denen Sie Mitglied sind, können Sie einfach über das Meine Sites-Dashlet navigieren. Alternativ können Sie auf **Sites** und anschließend in der Symbolleiste auf **Meine Sites** klicken. Wir die aufzurufende Site nicht angezeigt, können Sie auf der Seite **Site-Finder** oder im Suchfeld auf der Symbolleiste danach suchen.
 
-1.  Click **Home**.
+1.  Klicken Sie auf **Home**.
 
-2.  On the My Sites dashlet click the name of the site you want to access.
+2.  Klicken Sie im Meine Sites-Dashlet auf den Namen der aufzurufenden Site.
 
-    >**Tip:** You can access your favorite sites or recent sites you've visited by selecting them from the Sites menu. There's no need to return to your dashboard.
+    >**Tipp:** Sie können auf ihre Favoriten-Sites oder auf Sites, die Sie kürzlich aufgerufen haben, zugreifen, indem Sie sie im Menü **Sites** auswählen. Sie müssen nicht zu Ihrem Dashboard zurückkehren.
 
 
-The dashboard for the selected site appears.
+Das Dashboard für die ausgewählte Site wird angezeigt.
 
 
-## Moving around a site {#moving-around-a-site}
+## Bewegen innerhalb einer Site {#moving-around-a-site}
 
-The default areas available in a site are the **Site Dashboard**, **Document Library**, and the **Site Members** areas. If a site has additional site features then you'll also see a **More** menu.
+Folgende Bereiche sind standardmäßig auf einer Site verfügbar: **Site-Dashboard**,**Dokumentenbibliothek** und **Site-Mitglieder**. Wenn eine Site über zusätzliche Funktionen verfügt, wird das Menü **Mehr** angezeigt.
 
-Additional features can be set up by a site manager when they're [customizing a site](#customizing-a-site).
+Zusätzliche Funktionen können vom Site-Manager während dem [Anpassen einer Site](#customizing-a-site) eingerichtet werden.
 
-1.  In a site click **Document Library**, **Site Members**, or **More** and select an option from the **More** menu.
+1.  Klicken Sie auf einer Site auf **Dokumentenbibliothek**,**Site-Mitglieder** oder **Mehr**, und wählen Sie eine Option aus dem Menü **Mehr** aus.
 
-    The site feature you've selected will open; see the links for further details on each of these.
+    Die von Ihnen ausgewählte Site-Funktion wird geöffnet. Weitere Details zu den einzelnen Funktionen erhalten Sie über die entsprechenden Links.
 
-    >**Tip:** You can click **Site Dashboard** at any point to return to the site dashboard.
+    >**Tipp:** Sie können jederzeit auf **Site-Dashboard** klicken, um zum Site-Dashboard zurückzukehren.
 
-## Site dashboard {#site-dashboard}
+## Site-Dashboard {#site-dashboard}
 
-The site dashboard contains information specific to the current site, and like your user dashboard, site information is organized and displayed in dashlets.
+Das Site-Dashboard enthält Informationen, die für die aktuelle Site spezifisch sind. Wie auf Ihrem Benutzer-Dashboard sind auch hier die Site-Informationen in Dashlets organisiert und werden dort angezeigt.
 
-The site name is displayed at the top of the screen. The site manager has additional options under the ![]({% link content-services/images/settings-icon.png %}) tools menu and an additional ![Invite to Site]({% link content-services/images/invite-to-site-icon.png %}) add users button to set up and manage the site and it's members.
+Der Name der Site wird oben auf dem Bildschirm angezeigt. Dem Site-Manager stehen im Tools-Menü ![]({% link content-services/images/settings-icon.png %}) zusätzliche Optionen zur Verfügung sowie die zusätzliche Schaltfläche **Benutzer hinzufügen** ![Invite to Site]({% link content-services/images/invite-to-site-icon.png %}), um die Site und ihre Mitglieder einzurichten und zu verwalten.
 
-Sites are made up of different features, or pages, which you can find under the **More** menu. Each new site includes only a library, but a site manager can customize the site to include any combination of pages, including a wiki, a blog, a calendar, a discussion forum, web links, and data lists.
+Sites bestehen aus verschiedenen Funktionen oder Seiten, die Sie im Menü **Mehr** finden. Jede neue Site enthält nur eine Bibliothek. Ein Site-Manager kann die Site jedoch so anpassen, dass sie eine beliebige Kombination von Seiten enthält, einschließlich Wiki, Blog, Kalender, Diskussionsforum, Weblinks und Datenlisten.
 
-> **Note:** Site managers can [choose a site homepage](#choosing-a-site-homepage) other than the dashboard, or remove the dashboard altogether.
+> **Hinweis:** Site-Manager können statt dem Dashboard eine andere [Site-Homepage auswählen](#choosing-a-site-homepage) oder das Dashboard ganz entfernen.
 
-There's a **Site Members** link for managing the site membership.
+Über den Link **Site-Mitglieder** kann er die Site-Mitgliedschaft verwalten.
 
-> **Note:** When more features are added to a site you can find this option on the **More** menu.
+> **Hinweis:** Wenn einer Site weitere Funktionen hinzugefügt werden, finden Sie diese Optionen im Menü **Mehr**.
 
-A site manager can resize most dashlets by clicking and dragging on the bottom edge of the dashlet until it's the height you want. This is saved between sessions.
+Ein Site-Manager kann die Größe der meisten Dashlets ändern, indem er auf den unteren Rand des Dashlets klickt und ihn zieht, bis es die gewünschte Höhe hat. Diese Änderung wird zwischen den Sitzungen gespeichert.
 
->**Tip:** If you hover over a dashlet header then a ![Add Event icon]({% link content-services/images/help-1.png %}) icon appears. Click it for an explanation of what the dashlet does. This stays open until you close it or navigate away from the dashboard.
+>**Tipp:** Wenn Sie mit dem Mauszeiger auf eine Dashlet-Kopfzeile zeigen, wird das ![Add Event icon]({% link content-services/images/help-1.png %})-Symbol angezeigt. Klicken Sie auf das Symbol, um eine Erläuterung zur Funktion des Dashlets zu erhalten. Diese bleibt geöffnet, bis Sie sie schließen oder vom Dashboard weg navigieren.
 
-## Choosing a site homepage {#choosing-a-site-homepage}
+## Auswahl der Site-Homepage {#choosing-a-site-homepage}
 
-Site dashboards are the default homepage on all Alfresco Share sites.
+Site-Dashboards werden auf allen Alfresco Share-Sites als Standard-Homepage verwendet.
 
-Site managers have the option to remove the site dashboard for individual sites. Whichever page comes first in the Current Site Pages will then become the default homepage for the site. You can also keep the dashboard, but reorder the pages to that a different page is the homepage.
+Site-Manager haben die Möglichkeit, das Site-Dashboard auf einzelnen Sites zu entfernen. Die Seite, die daraufhin unter **Aktuell verfügbare Seiten der Site** zuerst aufgeführt wird, wird als Standard-Homepage für die Site festgelegt. Sie können auch das Dashboard beibehalten und die Seiten neu anordnen, um eine andere Seite als Homepage festzulegen.
 
-1.  Enter a site.
+1.  Geben Sie eine Site ein.
 
-2.  Click ![]({% link content-services/images/settings-icon.png %}) then **Customize Site**.
+2.  Klicken Sie auf ![]({% link content-services/images/settings-icon.png %}) und anschließend auf **Site anpassen**.
 
-    The Site Dashboard is shown by default as one of your Current Site Pages.
+    Das Site-Dashboard wird standardmäßig unter **Aktuell verfügbare Seiten der Site** angezeigt.
 
-3.  Click **Remove** to remove it from the site.
+3.  Klicken Sie auf **Entfernen**, um das Dashboard von der Site zu entfernen.
 
-    Alternatively, change the order of the Current Site Pages so that a different page comes first (from left to right). This page will become the site homepage.
+    Alternativ können Sie die Reihenfolge unter **Aktuell verfügbare Seiten der Site** so ändern, dass eine andere Seite zuerst aufgelistet wird (von links nach rechts). Diese Seite wird dann als Site-Homepage festgelegt.
 
-4.  Click **OK** to save your changes.
+4.  Klicken Sie auf **OK**, um Ihre Änderungen zu speichern.
 
-The site displays with it's new homepage.
+Die Site wird mit zusammen mit der neuen Homepage angezeigt.
 
-You can always add the site dashboard back later.
+Sie können das Site-Dashboard zu einem späteren Zeitpunkt erneut hinzufügen.
 
-## What can I do with the site dashlets? {#what-can-I-do-with-the-site-dashlets}
+## Wozu dienen Site-Dashlets? {#what-can-I-do-with-the-site-dashlets}
 
-As well as giving you an overview of activity and information on Alfresco Share, the dashlets also give you links to various areas of Share and let you carry out a range of actions.
+Die Dashlets bieten Ihnen nicht nur einen Überblick über die Aktivitäten und Informationen in Alfresco Share, sondern auch Links zu verschiedenen Bereichen in Share, und sie ermöglichen Ihnen, eine Reihe von Aktionen durchzuführen.
 
->**Tip:** When a user name, site name, or item appears as a link, you can click it to navigate to the related page. When you hover over some dashlets additional options are displayed.
+>**Tipp:** Wenn ein Benutzername, Site-Name oder Element als Link angezeigt wird, können Sie darauf klicken, um zur entsprechenden Seite zu gelangen. Wenn Sie den Mauszeiger über ein Dashlet bewegen, werden bei einigen Dashlets zusätzliche Optionen angezeigt.
 
-> **Note:**
+> **Hinweis:**
 
-The RSS Feed, Alfresco Add-ons RSS Feed, and Web View site dashlets on the site dashboard are identical to those on your personal dashboard.
+Die Site-Dashlets **RSS Feed**, **RSS-Feed für Alfresco-Add-ons** und **Web-Ansicht** auf dem Site-Dashboard sind identisch mit denen auf Ihrem persönlichen Dashboard.
 
-The My Discussions, Site Search, and Saved Search dashlets are identical to those on your user dashboard, but on the site dashboard the results displayed are specific to the current site.
+Die Dashlets **Meine Diskussionen**, **Site-Suche** und **Gespeicherte Suche** sind mit denen auf Ihrem Benutzer-Dashboard identisch, die auf dem Site-Dashboard angezeigten Ergebnisse sind jedoch für die Site spezifisch.
 
-Any combination of the site dashlets can appear on the dashboard:
+Es kann eine beliebige Kombination der Site-Dashlets auf dem Dashboard angezeigt werden:
 
--   **Site Members**
+-   **Site-Mitglieder**
 
-    Displays the current members of this site (to a maximum of 100 members) and their assigned roles.
+    Zeigt die aktuellen Mitglieder dieser Site (maximal 100 Mitglieder) und die ihnen zugewiesenen Rollen an.
 
-    -   Click a member’s name to view their user profile.
-    -   Click **All Members** to display all site members.
-    -   Click **Add Users** to add users this site. This is available only if you are a site manager.
+    -   Klicken Sie auf den Namen eines Mitglieds, um sein Benutzerprofil anzuzeigen.
+    -   Klicken Sie auf **Alle Mitglieder**, um alle Mitglieder der Site anzuzeigen.
+    -   Klicken Sie auf **Benutzer hinzufügen**, um dieser Site Benutzer hinzuzufügen. Diese Option ist nur verfügbar, wenn Sie ein Site-Manager sind.
 
--   **Site Content**
+-   **Site-Inhalt**
 
-    Lists the library content that has been added or edited in the past seven days.
+    Listet die Bibliotheksinhalte auf, die in den letzten sieben Tagen hinzugefügt oder bearbeitet wurden.
 
-    -   Click a content item name or thumbnail to preview or work with that item in the library.
-    -   Select a view option: **Simple** or **Detailed**.
-    -   Mark an item as a favorite or remove it from the Favorites list (Detailed view only).
-    -   Like or unlike an item (Detailed view only).
-    -   Click the **Comment** link to add a comment on an item (Detailed view only).
+    -   Klicken Sie auf den Namen oder die Miniaturansicht eines Inhaltselements, um eine Vorschau anzuzeigen oder mit diesem Element in der Bibliothek zu arbeiten.
+    -   Wählen Sie eine Ansichtsoption aus: **Einfach** oder **Detailliert**.
+    -   Markieren Sie ein Element als Favorit, oder entfernen Sie es aus der Favoritenliste (nur in der detaillierten Ansicht).
+    -   Markieren Sie ein Element mit **Gefällt mir** oder **Gefällt nicht mehr** (nur in der detaillierten Ansicht).
+    -   Klicken Sie auf den Link **Kommentar**, um einen Kommentar zu einem Element hinzuzufügen (nur in der detaillierten Ansicht).
 
--   **Site Activities**
+-   **Site-Aktivitäten**
 
-    Tracks the most recent activities performed in this site such as content additions, edits, and deletions, as well as changes in site membership.
+    Verfolgt die neuesten Aktivitäten auf dieser Site, wie z. B. das Hinzufügen, Bearbeiten und Löschen von Inhalten sowie Änderungen der Site-Mitgliedschaft.
 
-    -   Use the filter to display the activities by ownership, type, and time period. You can display only your activities, only other users’ activities, or all activities. You can also view only a specific type of activity, such as changes in membership or status updates.
-    -   Click the RSS Feed icon to subscribe to the feed to automatically receive the activity updates.
+    -   Verwenden Sie den Filter, um die Aktivitäten nach Eigentum, Typ und Zeitraum anzuzeigen. Sie können auch nur Ihre Aktivitäten, nur die Aktivitäten anderer Benutzer oder alle Aktivitäten anzeigen. Sie können auch nur eine bestimmte Art von Aktivität anzeigen, wie z. B. Änderungen der Mitgliedschaft oder Statusaktualisierungen.
+    -   Klicken Sie auf das RSS-Feed-Symbol, um den Feed zu abonnieren und automatisch Aktualisierungen zu den Aktivitäten zu erhalten.
 
-    > **Note:** The only users notified of deletions are the user who made the deletion and the Alfresco Administrator.
+    > **Hinweis:** Die einzigen Benutzer, die über Löschungen informiert werden, sind der Benutzer, der die Löschung vorgenommen hat, und der Alfresco-Administrator.
 
--   **Site Profile**
+-   **Site-Profil**
 
-    Displays a summary of the site details.
+    Zeigt eine Zusammenfassung der Site-Details an.
 
--   **Site Calendar**
+-   **Site-Kalender**
 
-    Lists the upcoming events scheduled in this site's calendar.
+    Listet die bevorstehenden Ereignisse auf, die im Kalender dieser Site geplant sind.
 
 -   **Wiki**
 
-    Displays a selected page from the site wiki.
+    Zeigt eine ausgewählte Seite aus dem Site-Wiki an.
 
-    -   Click the name of the wiki page in the dashlet header to navigate to the wiki.
-    -   Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to select a different wiki page to display in the dashlet. This is available only if you are a site manager.
+    -   Klicken Sie auf den Namen der Wiki-Seite in der Dashlet-Kopfzeile, um zum Wiki zu gelangen.
+    -   Klicken Sie auf das Symbol **Konfigurieren** ![]({% link content-services/images/ico-configure.png %}), um eine andere Wiki-Seite auszuwählen, die im Dashlet angezeigt werden soll. Diese Option ist nur verfügbar, wenn Sie ein Site-Manager sind.
 
--   **Site Links**
+-   **Site-Links**
 
-    Displays the web links compiled by site users.
+    Zeigt die von den Benutzern der Site erstellten Weblinks an.
 
-    -   Click a link to open the related website.
-    -   Click the ![]({% link content-services/images/ico-link-details.png %}) link's details icon to view the full link and any related comments.
+    -   Klicken Sie auf einen Link, um die entsprechende Webseite zu öffnen.
+    -   Klicken Sie auf das Detailsymbol des Links ![]({% link content-services/images/ico-link-details.png %}), um den vollständigen Link und alle zugehörigen Kommentare anzuzeigen.
 
--   **Image Preview**
+-   **Bildvorschau**
 
-    Displays a thumbnail of all images stored in the site's library.
+    Zeigt eine Miniaturansicht aller in der Bibliothek der Site gespeicherten Bilder an.
 
-    -   Click a thumbnail to open the image in the current window.
-    -   Click the View Details icon to preview or work with the image in the library.
-    -   Click the Download icon to download a copy of the image to your computer.
-    -   Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to specify a folder. The dashlet will display the images in just that folder.
+    -   Klicken Sie auf eine Miniaturansicht, um das Bild im aktuellen Fenster zu öffnen.
+    -   Klicken Sie auf das Symbol **Details anzeigen**, um eine Vorschau zu erhalten oder mit dem Bild in der Bibliothek zu arbeiten.
+    -   Klicken Sie auf das Symbol **Herunterladen**, um eine Kopie des Bildes auf Ihren Computer herunterzuladen.
+    -   Klicken Sie auf das Symbol **Konfigurieren** ![]({% link content-services/images/ico-configure.png %}), um einen Ordner anzugeben. Das Dashlet zeigt nur die Bilder in diesem Ordner an.
 
--   **Site File Type Breakdown**
+-   **Übersicht Dateityp auf Site**
 
-    Displays a detailed breakdown of all files stored in the site's library.
+    Zeigt eine detaillierte Aufschlüsselung aller in der Bibliothek der Site gespeicherten Dateien an.
 
-    -   Hover over a section of the breakdown chart to see more details.
+    -   Bewegen Sie den Mauszeiger über einen Abschnitt des Diagramms, um weitere Details anzuzeigen.
 
--   **Site Contributor Breakdown**
+-   **Übersicht Site-Beitragender**
 
-    Displays a breakdown of all site members contributing content to the site's library.
+    Zeigt eine Aufschlüsselung aller Mitglieder der Site an, die Inhalte in die Bibliothek der Site einbringen.
 
-    -   Select a time period to view contributions for.
-    -   Hover over a section of the breakdown chart to see more details on a specific contributor.
-    -   Click on a section of the chart to open that users profile.
+    -   Wählen Sie einen Zeitraum aus, für den die Beiträge angezeigt werden sollen.
+    -   Bewegen Sie den Mauszeiger über einen Abschnitt des Diagramms, um weitere Details zu einem spezifischen Beitragenden anzuzeigen.
+    -   Klicken Sie auf einen Abschnitt des Diagramms, um das Benutzerprofil zu öffnen.
 
--   **Web View**
+-   **Web-Ansicht**
 
-    Displays a website configured by a site manager.
+    Zeigt eine Webseite an, die von einem Site-Manager konfiguriert wurde.
 
-    -   Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to select a website to display.
+    -   Klicken Sie auf das Symbol **Konfigurieren** ![]({% link content-services/images/ico-configure.png %}), um eine andere Webseite auszuwählen, die angezeigt werden soll.
 
--   **Site Notice**
+-   **Site-Hinweis**
 
-    Displays a custom message posted by a site manager
+    Zeigt eine benutzerdefinierte Meldung an, die von einem Site-Manager veröffentlicht wurde.
 
-    -   Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to edit or change the message. This is available only if you are a site manager.
+    -   Klicken Sie auf das Symbol **Konfigurieren** ![]({% link content-services/images/ico-configure.png %}), um die Meldung zu bearbeiten oder zu ändern. Diese Option ist nur verfügbar, wenn Sie ein Site-Manager sind.
 
-    >**Tip:** This dashlet title can be customized, so the dashlet will probably have a label other than **Site Notice**.
+    >**Tipp:** Dieser Dashlet-Titel kann angepasst werden, so dass das Dashlet wahrscheinlich eine andere Bezeichnung als **Site-Hinweis** hat.
 
--   **RSS Feed**
+-   **RSS-Feed**
 
-    Displays the Alfresco website feed by default.
+    Zeigt standardmäßig den Alfresco-Website-Feed an.
 
-    -   Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to change the RSS feed.
+    -   Klicken Sie auf das Symbol **Konfigurieren** ![]({% link content-services/images/ico-configure.png %}), um den RSS-Feed zu ändern.
 
 -   **Alfresco Add-ons RSS Feed**
 
-    Displays the Newest Add-ons feed from the Alfresco Add-ons website by default.
+    Zeigt standardmäßig den Feed für die neuesten Add-ons von der Alfresco Add-ons-Webseite an.
 
-    -   Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to change the RSS feed.
+    -   Klicken Sie auf das Symbol **Konfigurieren** ![]({% link content-services/images/ico-configure.png %}), um den RSS-Feed zu ändern.
 
--   **Site Data Lists**
+-   **Datenlisten der Site**
 
-    Lists this site's data lists.
+    Listet die Datenlisten der Site auf.
 
-    -   Click a list to open it.
-    -   Click Create Data List to create a new list for this site. This action is not available for users with the role Consumer.
+    -   Klicken Sie auf eine Liste, um sie zu öffnen.
+    -   Klicken Sie auf **Datenliste erstellen**, um eine neue Liste für diese Site zu erstellen. Diese Aktion ist für Benutzer mit der Rolle **Verbraucher** nicht verfügbar.
 
--   **My Discussions**
+-   **Meine Diskussionen**
 
-    Shows the most recent topics created in the site discussion forum.
+    Zeigt die neuesten Themen an, die im Diskussionsforum der Site erstellt wurden.
 
-    -   Use the filter to choose the information you want to see.
+    -   Verwenden Sie den Filter, um die Informationen auszuwählen, die Sie sehen möchten.
 
--   **Site Search**
+-   **Site-Site**
 
-    Lets you search in the current site.
+    Ermöglicht die Suche in der aktuellen Site.
 
-    -   Enter search criteria and click **Search** (or press ENTER).
-    -   Select the maximum number of results you want to display.
+    -   Geben Sie Suchkriterien ein, und klicken Sie auf **Suchen**(oder drücken Sie die EINGABETASTE).
+    -   Wählen Sie die maximale Anzahl von Ergebnissen aus, die Sie anzeigen möchten.
 
--   **Saved Search**
+-   **Gespeicherte Suche**
 
-    Displays the results of a pre-configured search.
+    Zeigt die Ergebnisse einer vorkonfigurierten Suche an.
 
-    -   Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to define the search.
+    -   Klicken Sie auf das Symbol **Konfigurieren** ![]({% link content-services/images/ico-configure.png %}), um die Suche zu definieren.
 
-## Configuring the RSS feed dashlets {#configuring-the-rss-feed-dashlets}
+## Konfigurieren von RSS-Feed-Dashlets {#configuring-the-rss-feed-dashlets}
 
-There are two RSS feed dashlets that you can include on your personal and site dashboards: RSS Feed and Alfresco Add-ons RSS Feed. On both dashlets you can edit the default URL to display any RSS feed.
+Es gibt zwei RSS-Feed-Dashlets, die Sie Ihrem persönlichen Dashboard und Site-Dashboards hinzufügen können: RSS-Feed und Alfresco Add-ons RSS-Feed. Für beide Dashlets können Sie die Standard-URL bearbeiten, um beliebige RSS-Feeds anzuzeigen.
 
-1.  Click the **Configure** icon on the dashlet title.
+1.  Klicken Sie im Dashlet-Titel auf das Symbol **Konfigurieren**.
 
-2.  Specify the feed you want to subscribe to.
+2.  Geben Sie den Feed an, den Sie abonnieren möchten.
 
-3.  Select the number of feed items you want to display.
+3.  Wählen Sie die Anzahl der anzuzeigenden Feed-Elemente aus.
 
-4.  Select **Open links in new window** to have the target story display in a new window.
+4.  Wählen Sie **Links in neuem Fenster öffnen**, um die Zielstory in einem neuen Fenster anzuzeigen.
 
-5.  Click **OK**.
+5.  Klicken Sie auf **OK**.
 
-## Configuring the Wiki dashlet {#configuring-the-wiki-dashlet}
+## Konfigurieren des Wiki-Dashlets {#configuring-the-wiki-dashlet}
 
-Configure the Wiki site dashlet to display the content of a specific wiki page.
+Konfigurieren Sie das Dashlet der Wiki-Site, um den Inhalt einer bestimmten Wiki-Seite anzuzeigen.
 
-To perform this task the wiki has to have at least one page. Only a site manager can configure this dashlet.
+Um diese Aufgabe durchführen zu können, muss das Wiki mindestens eine Seite enthalten. Nur Site-Manager können dieses Dashlet konfigurieren.
 
-1.  Enter a site.
+1.  Geben Sie eine Site ein.
 
-2.  On the Wiki dashlet, click **Configure**.
+2.  Klicken Sie im Wiki-Dashlet auf **Konfigurieren**.
 
-    The Select Wiki Page dialog box displays all pages in this site's wiki.
+    Im Dialogfeld **Wiki-Seite auswählen** werden alle Seiten dieses Site-Wikis angezeigt.
 
-3.  Select the page you want to display in the dashlet.
+3.  Wählen Sie die Seite aus, die Sie im Dashlet anzeigen möchten.
 
-4.  Click **OK**.
+4.  Klicken Sie auf **OK**.
 
-## Setting up the Site Notice dashlet {#setting-up-the-site-notice-dashlet}
+## Einrichten des Dashlets für Site-Hinweise {#setting-up-the-site-notice-dashlet}
 
-Setting up the Site Notice site dashlet to display a message for the site users.
+Richten Sie das Dashlet für Site-Hinweise ein, um eine Nachricht für die Benutzer der Site anzuzeigen.
 
-Only a site manager can set up this dashlet.
+Nur Site-Manager können dieses Dashlet einrichten.
 
-1.  Enter a site.
+1.  Geben Sie eine Site ein.
 
-2.  On the Site Notice dashlet, click the **Configure** icon.
+2.  Klicken Sie im Dashlet für Site-Hinweise auf das Symbol **Konfigurieren**.
 
-    > **Note:** If this dashlet has been edited before, it will probably have a title other than **Site Notice**.
+    > **Hinweis:** Wenn dieses Dashlet bereits bearbeitet wurde, wird es wahrscheinlich einen anderen Titel als **Site-Hinweis** haben.
 
-    The Configure Site Notice dialog box opens.
+    Das Dialogfeld **Site-Hinweis konfigurieren** wird geöffnet.
 
-3.  In the **Title** field, type the text you want to appear in the dashlet header.
+3.  Geben Sie im Feld **Titel** den Text ein, der im Header des Dashlets angezeigt werden soll.
 
-4.  In the **Text** box, edit the current message or type a new one.
+4.  Bearbeiten Sie im Feld **Text** die aktuelle Nachricht oder geben Sie eine neue Nachricht ein.
 
-    Use the features provided to format the text; insert bulleted and numbered lists; insert links and images; and help with editing.
+    Verwenden Sie die zur Verfügung stehenden Funktionen zum Formatieren des Textes, zum Einfügen von Listen mit Aufzählungszeichen und von nummerierten Listen, zum Hinzufügen von Links und Bildern und zum Aufrufen der Hilfe bei der Bearbeitung.
 
-5.  Click **OK**.
+5.  Klicken Sie auf **OK**.
 
-## Managing a site {#managing-a-site}
+## Verwalten einer Site {#managing-a-site}
 
-Creating a site is quick and simple. You can then customize it to build a fully functional project site.
+Die Erstellung einer Site ist schnell und einfach. Anschließend können Sie die Site anpassen, damit Sie eine voll funktionsfähige Projekt-Site haben.
 
-When you create a new site, you are automatically made the manager. This gives you full access to the site features.
+Wenn Sie eine neue Site erstellen, werden Sie automatisch der Manager dieser Site. Hierdurch haben Sie den vollen Zugriff auf die Funktionen der Site.
 
-## Creating a site {#creating-a-site}
+## Erstellen einer Site {#creating-a-site}
 
-You can create a site from anywhere in Alfresco Share, and are automatically made the manager of the site you create.
+Sie können eine Site innerhalb von Alfresco Share an jeder beliebigen Stelle erstellen. Sie werden für jede von Ihnen erstellte Site automatisch zum Manager ernannt.
 
->**Tip:** A site *can* have multiple managers.
+>**Tipp:** Eine Site *kann* mehrere Manager haben.
 
-1.  Open the **Sites** menu on the toolbar and click **Create Site**.
+1.  Rufen Sie in der Symbolleiste das Menü **Sites** auf und klicken Sie auf **Site erstellen**.
 
-    >**Tip:** You can also create a site from your My Sites dashlet: click **Create Site**.
+    >**Tipp:** Sie können eine Site auch im Dashlet **Meine Sites** erstellen: Klicken Sie dazu auf **Site erstellen**.
 
-2.  Enter the site details:
+2.  Geben Sie die Site-Details ein:
 
-    -   **Name**: The title of the site.
-    -   **URL Name**: You'll notice that the URL Name is automatically created but you can edit it if you want.
-    -   **Description**: Enter a description that will help users know what the site is for.
+    -   **Name**: Der Titel der Site.
+    -   **URL-Name**: Wie Sie sehen, wird der URL-Name automatisch erstellt. Sie können diesen jedoch bei Bedarf bearbeiten.
+    -   **Beschreibung**: Geben Sie eine Beschreibung zum Zweck der Site für die Benutzer ein.
 
-3.  If you have modules such as Records Management installed, then there will be an additional Type option. Select **Collaboration** to create a standard site.
+3.  Falls Sie Module wie Records Management installiert haben, steht eine zusätzliche Option für den Typ zur Verfügung. Wählen Sie **Collaboration**, um eine Standard-Site zu erstellen.
 
-4.  Select the site visibility:
+4.  Legen Sie die Site-Sichtbarkeit fest:
 
-    -   **Public**: All users can view a public site in their own organization, whether or not they have joined the site. Users who join the site are listed as site members and can work with the site content, depending on their assigned roles.
-    -   **Moderated**: The same as a **Public** site but the site manager must approve a users request to join.
-    -   **Private**: Only available to the site manager and any users added to the site.
+    -   **Öffentlich**: Alle Benutzer können innerhalb ihres Unternehmens eine öffentliche Site anzeigen, unabhängig davon, ob sie der Site beigetreten sind oder nicht. Benutzer, die der Site beitreten, werden als Site-Mitglieder aufgelistet und können die Site-Inhalte – abhängig von den ihnen zugewiesenen Rollen – bearbeiten.
+    -   **Moderiert**: Bei dieser Option gelten dieselben Regeln wie für **öffentliche** Sites; der Site-Manager muss jedoch die Anforderung des Benutzers zum Beitritt genehmigen.
+    -   **Privat**: Diese Option ist nur für den Site-Manager und alle Benutzer verfügbar, die zur Site hinzugefügt wurden.
 
-    > **Note:** The visibility setting you select is displayed next to the site name when a user is in the site. See [Alfresco Share sites](#sites) for more information on site visibility settings.
+    > **Hinweis:** Die von Ihnen gewählte Einstellung für die Sichtbarkeit wird neben dem Site-Namen angezeigt, wenn sich ein Benutzer auf der Site befindet. Weitere Informationen zu den Einstellungen für die Sichtbarkeit von Sites finden Sie unter [Alfresco Share-Sites](#sites).
 
-5.  Click **Save**.
+5.  Klicken Sie auf **Speichern**.
 
-You'll see the dashboard for the new site which you can now customize. Sites that you create are automatically added to your **Favorites** list.
+Das Dashboard für die neue Site wird angezeigt und Sie können das Dashboard nun anpassen. Von Ihnen erstellte Sites werden automatisch zu Ihrer Liste **Favoriten** hinzugefügt.
 
-## Customizing a site {#customizing-a-site}
+## Anpassen einer Site {#customizing-a-site}
 
-Once you've created a site you can customize it to add extra features.
+Nach Erstellung einer Site können Sie die Site anpassen, um zusätzliche Funktionen hinzuzufügen.
 
-Each new site contains a library, and the site manager can [add other features]({% link content-services/5.2-de/using/sites/features.md %}#site-features), such as a wiki, a blog, and a calendar. These features can be further customized by renaming, and creating a theme or color scheme. You can also [choose a site homepage](#choosing-a-site-homepage).
+Jede neue Site enthält eine Bibliothek. Der Site-Manager kann [weitere Funktionen hinzufügen]({% link content-services/5.2/using/sites/features.md %}#site-features) – z. B. ein Wiki, einen Blog oder einen Kalender. Diese Funktionen können mittels Umbenennung oder durch die Erstellung eines Designs oder Farbschemas weiter angepasst werden. Außerdem können eine [Hompage-Site auswählen](#choosing-a-site-homepage).
 
-1.  Enter a site.
+1.  Geben Sie eine Site ein.
 
-2.  Click ![]({% link content-services/images/settings-icon.png %}) then **Customize Site**.
+2.  Klicken Sie auf ![]({% link content-services/images/settings-icon.png %}) und anschließend auf **Site anpassen**.
 
-3.  Choose a site theme.
+3.  Wählen Sie ein Site-Thema.
 
-4.  Drag and drop pages from the **Available Site Pages** to the **Current Site Pages** to add them to the site.
+4.  Ziehen Sie Seiten aus dem Bereich **Verfügbare Seiten der Site** zum Bereich **Aktuell verfügbare Seiten der Site**, um sie zur Site hinzuzufügen.
 
-    You have to move the pages one at a time. You can drag the pages around to reorder them the way you want to see them in the site. The leftmost page will become the site homepage.
+    Sie müssen die Seiten einzeln verschieben. Sie können Seiten auch an eine andere Stelle verschieben, um sie auf der Site in der gewünschten Anordnung anzuzeigen. Die Seite ganz außen links wird als Site-Homepage festgelegt.
 
-    > **Note:** You can **Rename** pages or **Remove** them from a site - each of the Current Site Pages displays the option to do this.
+    > **Hinweis:** Sie können im Bereich **Aktuell verfügbare Seiten der Site** Seiten **umbenennen** oder von einer Site **entfernen**.
 
-5.  Click **OK** to save your changes.
+5.  Klicken Sie auf **OK**, um Ihre Änderungen zu speichern.
 
-The site dashboard displays the new theme, if one was selected. You can select the new pages by clicking **More** on the dashboard.
+Im Site-Dashboard wird das neue Thema angezeigt (falls ein Thema ausgewählt wurde). Sie können die neuen Seiten auswählen, indem Sie im Dashboard auf **Mehr** klicken.
 
-With the site customized you can now customize the site dashboard to display information that's relevant to the site.
+Auf der benutzerdefinierten Site können Sie nun das Site-Dashboard anpassen, um Informationen anzuzeigen, die für die Site relevant sind.
 
-## Customizing the site dashboard {#customizing-the-site-dashboard}
+## Anpassen des Site-Dashboards {#customizing-the-site-dashboard}
 
-Like your user dashboard, site information is organized and displayed in dashlets. As a site manager you can change the site layout, choose dashlets, and configure the display order.
+Ebenso wie Ihr Benutzer-Dashboard werden auch Site-Informationen organisiert und in Dashlets angezeigt. Als Site-Manager können Sie das Layout der Site ändern, Dashlets auswählen und die Anzeigereihenfolge konfigurieren.
 
->**Tip:** Filters on the Site Activities dashlet let you customize the activities it displays. You can add multiple copies of this dashlet and then set the filters so that each one displays different information.
+>**Tipp:** Mithilfe von Filtern können Sie im Dashlet **Site-Aktivitäten** die angezeigten Aktivitäten anpassen. Sie können mehrere Kopien dieses Dashlets hinzufügen und anschließend die Filter so einstellen, dass jeder Filter unterschiedliche Informationen anzeigt.
 
-1.  Enter a site.
+1.  Geben Sie eine Site ein.
 
-2.  Click ![]({% link content-services/images/settings-icon.png %}) then **Customize Dashboard**.
+2.  Klicken Sie auf ![]({% link content-services/images/settings-icon.png %}) und anschließend auf **Dashboard anpassen**.
 
-    The Customize Dashboard page displays the current layout and configuration of your dashboard.
+    Auf der Seite **Dashboard anpassen** werden das aktuelle Layout und die Konfiguration Ihres Dashboards angezeigt.
 
-3.  Change the site dashboard layout:
+3.  Layout des Site-Dashboards ändern:
 
-    1.  Click **Change Layout**.
+    1.  Klicken Sie auf **Layout ändern**.
 
-    2.  Click the layout you want to use. You can click the image or the **Select**button beside it.
+    2.  Klicken Sie auf das Layout, das Sie verwenden möchten. Sie können auf das Bild oder die daneben liegende Schaltfläche **Auswählen** klicken.
 
-4.  Select the site dashlets:
+4.  Site-Dashlets auswählen:
 
-    1.  Click **Add Dashlets**.
+    1.  Klicken Sie auf **Dashlets hinzufügen**.
 
-    2.  Drag and drop dashlets from the Add Dashlets section onto the columns below.
+    2.  Ziehen Sie Dashlets aus dem Abschnitt **Dashlets hinzufügen** per Drag & Drop auf die folgenden Spalten.
 
-        >**Tip:** Some dashlets are about specific site features, for example, the Wiki dashlet displays a page from the site wiki. If you haven't added a wiki to the site then the Wiki dashlet won't have anything to show.
+        >**Tipp:** Einige Dashlets beziehen sich auf bestimmte Site-Funktionen – so zeigt beispielsweise das Wiki-Dashlet eine Seite aus dem Site-Wiki an. Wenn Sie der Site kein Wiki hinzugefügt haben, ist das Wiki-Dashlet leer.
 
-    3.  Drag and drop a dashlet to the garbage can to remove it (or press DELETE).
+    3.  Ziehen Sie ein Dashlet per Drag-and-Drop in den Mülleimer, um es zu entfernen (oder drücken Sie LÖSCHEN).
 
-5.  Drag the dashlets within and across columns to organize the display order.
+5.  Ziehen Sie die Dashlets innerhalb und zwischen den Spalten, um die Anzeigereihenfolge zu organisieren.
 
-6.  Click **OK** to save the dashboard configuration.
+6.  Klicken Sie auf **OK**, um die Dashboard-Konfiguration zu speichern.
 
-    You can resize most dashlets. Drag the bottom edge of the dashlet until it is the height you want.
+    Sie können die Größe der meisten Dashlets ändern. Klicken Sie auf den unteren Rand des Dashlets, und ziehen Sie ihn, bis er die gewünschte Höhe erreicht hat.
 
-## Editing site details {#editing-site-details}
+## Bearbeiten von Site-Details {#editing-site-details}
 
-You can change the name, description, and visibility of a site after it is created.
+Sie können den Namen, die Beschreibung und die Sichtbarkeit einer Site nach deren Erstellung ändern.
 
-Only a site manager can edit the site details.
+Nur Site-Manager können die Site-Details bearbeiten.
 
-1.  Enter a site.
+1.  Geben Sie eine Site ein.
 
-2.  Click ![Settings icon]({% link content-services/images/settings-icon.png %}) then **Edit Site Details**.
+2.  Klicken Sie auf ![Settings icon]({% link content-services/images/settings-icon.png %}) und anschließend auf **Site-Details bearbeiten**.
 
-3.  Change the site details as necessary.
+3.  Ändern Sie die Site-Details nach Bedarf.
 
-    You cannot change the site's URL name.
+    Sie können den URL-Namen der Site nicht ändern.
 
-4.  Click **OK**.
+4.  Klicken Sie auf **OK**.
 
-## Favoriting a site {#favoriting-a-site}
+## Hinzufügen von Sites zu den Favoriten {#favoriting-a-site}
 
-You can mark a site as a favorite to add it to the Favorites list in the Sites menu. This lets you quickly access the site from anywhere in Alfresco Share. You can mark any number of sites this way.
+Sie können eine Site als Favorit markieren, um sie im Site-Menü zur Favoritenliste hinzuzufügen. Dies ermöglicht Ihnen, in Alfresco Share überall im Handumdrehen auf die Site zugreifen. Sie können auf diese Weise beliebig viele Sites markieren.
 
--   While in a site, open the **Sites** menu on the toolbar and click **Add Current Site to Favorites**.
+-   Rufen Sie innerhalb einer Site über die Symbolleiste das Menü **Sites** auf und klicken Sie auf **Aktuelle Site zu den Favoriten hinzufügen**.
 
-    > **Note:** If a site is already a favorite you instead have the option to **Remove Current Site from Favorites**.
+    > **Hinweis:** Wenn eine Site bereits als Favorit markiert wurde, können Sie stattdessen die Option **Site aus den Favoriten entfernen** wählen.
 
-    The current site now appears in the **Favorites** list in the Sites menu and the My Sites dashlet.
+    Die aktuelle Site wird nun im Menü **Sites** und im Dashlet **Meine Sites** innerhalb der Liste **Favoriten** angezeigt.
 
-## Deleting a site {#deleting-a-site}
+## Löschen einer Site {#deleting-a-site}
 
-Delete a site to move it and all of its content to your Trashcan.
+Löschen Sie eine Site, um die Site und deren Inhalte in den Papierkorb zu verschieben.
 
-Only a site manager can delete a site.
+Nur Site-Manager können eine Site löschen.
 
-1.  Enter a site.
+1.  Geben Sie eine Site ein.
 
-2.  Click ![Settings icon]({% link content-services/images/settings-icon.png %}) then **Delete Site**.
+2.  Klicken Sie auf ![Settings icon]({% link content-services/images/settings-icon.png %}) und anschließend auf **Site löschen**.
 
-3.  Click **OK** to confirm the deletion.
+3.  Klicken Sie auf **OK**, um den Löschvorgang zu bestätigen.
 
-    The selected site and all its content is deleted. The site member roles are stored in case you want to restore the site. When you empty your Trashcan all site details and content including site member roles are permanently deleted.
+    Die ausgewählte Site und alle zugehörigen Inhalte werden gelöscht. Die Rollen der Site-Mitglieder werden gespeichert, für den Fall, dass Sie die Site wiederherstellen möchten. Wenn Sie Ihren Papierkorb leeren, werden alle Site-Details und Site-Inhalte – einschließlich der Rollen der Site-Mitglieder – dauerhaft gelöscht.
 
-    > **Note:** You can also delete sites in the **Site Finder**.
+    > **Hinweis:** Sie können Sites auch über den **Site-Finder** löschen.
 
-## Managing site members {#managing-site-members}
+## Verwalten von Site-Mitgliedern {#managing-site-members}
 
-Site users can easily see who else is a member of the site, and site managers can edit user roles and remove a user from the site.
+Site-Benutzer können leicht erkennen, wer noch Mitglied der Site ist, und Site-Manager können Benutzerrollen bearbeiten und einen Benutzer von der Site entfernen.
 
-Enter a site and click **Site Members** to view or search for members of the site.
+Rufen Sie eine Site auf, und klicken Sie auf **Site-Mitglieder**, um Mitglieder der Site anzuzeigen oder zu suchen.
 
--   **Users**
+-   **Benutzer**
 
-    Use this page to search for a site member or view a list of all members. A site manager can add users, edit user roles, and remove site members from here.
+    Verwenden Sie diese Seite, um nach einem Mitglied der Site zu suchen oder eine Liste aller Mitglieder anzuzeigen. Ein Site-Manager kann hier Benutzer hinzufügen, Benutzerrollen bearbeiten und Site-Mitglieder entfernen.
 
--   **Groups**
+-   **Gruppen**
 
-    Use this page to search for a site group or view a list of all groups. A site manager can add groups to the site, change a group's role, and remove a site group from here.
+    Auf dieser Seite können Sie nach einer Site-Gruppe suchen oder eine Liste aller Gruppen anzeigen. Ein Site-Manager kann hier Gruppen zur Site hinzufügen, die Rolle einer Gruppe ändern und eine Site-Gruppe entfernen.
 
--   **Pending**
+-   **Ausstehend**
 
-    Use this page to view users who have been invited to, or requested to join the site. You can cancel invitations here. Only site managers see the Pending page.
+    Verwenden Sie diese Seite, um Benutzer anzuzeigen, die für die Site eingeladen wurden oder angefordert haben, der Site beitreten zu können. Hier können Sie Einladungen auch stornieren. Die Seite **Ausstehend** wird nur für Site-Manager angezeigt.
 
-    > **Note:** From Alfresco Share version 5.1 or later, invites are only sent if your Alfresco administrator has specifically configured this option. Unless they have then users can access a site as soon as they are added by a Site Manager.
+    > **Hinweis:** Ab Alfresco Share-Version 5.1 werden Einladungen nur dann versendet, wenn der Alfresco-Administrator diese Option speziell konfiguriert hat. Wenn dies nicht der Fall ist, können Benutzer auf eine Site zugreifen, sobald sie von einem Site-Manager hinzugefügt wurden.
 
-## Adding users to a site {#adding-users-to-a-site}
+## Hinzufügen von Benutzern zu einer Site {#adding-users-to-a-site}
 
-Site managers can quickly add users to a site.
+Site-Manager können Benutzer im Handumdrehen zu einer Site hinzufügen.
 
-You can add any user, either internal to your organization or an external user.
+Sie können jeden beliebigen Benutzer – intern oder extern – zu Ihrem Unternehmen hinzufügen.
 
-> **Note:** External users can only be added if your Alfresco administrator has [enabled the external users panel]({% link content-services/5.2/develop/share-ext-points/share-config.md %}#enabling-external-users-panel).
+> **Hinweis:** Externe Benutzer können nur hinzugefügt werden, wenn Ihr Alfresco-Administrator das [Feld für externe Benutzer aktiviert]({% link content-services/5.2/develop/share-ext-points/share-config.md %}#enabling-external-users-panel) hat.
 
-1.  Click ![Invite to Site]({% link content-services/images/invite-to-site-icon.png %}) in the site you want to add users to, or click **Add Users** in the Site Members dashlet.
+1.  Klicken Sie auf der Site, zu der Sie Benutzer hinzufügen möchten, auf ![Invite to Site]({% link content-services/images/invite-to-site-icon.png %}). Klicken Sie alternativ im Dashlet für Site-Mitglieder auf **Benutzer hinzufügen**.
 
-    >**Tip:** You can also open the Add Users page directly from the Site Members page.
+    >**Tipp:** Sie können die Seite **Benutzer hinzufügen** auch direkt über die Seite **Site-Mitglieder** öffnen.
 
-    > **Important:** You must be a site manager to add a user.
+    > **Wichtig:** Sie müssen ein Site-Manager sein, um Benutzer hinzufügen zu können.
 
-2.  Enter a search term such as a user name and click **Search**.
+2.  Geben Sie einen Suchbegriff ein (z. B. einen Benutzernamen) und klicken Sie auf **Suchen**.
 
-    >**Tip:** You need to enter at least one character. The search is not case sensitive.
+    >**Tipp:** Sie müssen mindestens ein Zeichen eingeben. Bei der Suche wird nicht zwischen Groß- und Kleinschreibung unterschieden.
 
-    > **Note:** If you don't see any users then try a different search term and check that your Alfresco administrator has [created users]({% link content-services/5.2/admin/users-groups.md %}#managing-users).
+    > **Hinweis:** Wenn keine Benutzer angezeigt werden, verwenden Sie einen anderen Suchbegriff und überprüfen Sie, ob Ihr Alfresco-Administrator [Benutzer erstellt]({% link content-services/5.2/admin/users-groups.md %}#managing-users) hat.
 
-3.  Click **Select** for each user you want to add.
+3.  Klicken Sie für jeden Benutzer, den Sie hinzufügen möchten, auf **Auswählen**.
 
-4.  Set the site role for each user, or use **Set all roles to** to assign the same role to all users. This controls what the user can do in the site.
+4.  Legen Sie die Site-Rolle für die einzelnen Benutzer fest oder verwenden Sie die Option **Alle Rollen setzen auf**, um allen Benutzern dieselbe Rolle zuzuweisen. Auf diese Weise wird festgelegt, welche Aktionen Benutzer auf der Site ausführen können.
 
-    >**Tip:** See [User roles and permissions]({% link content-services/5.2-de/using/permissions.md %}#user-roles-and-permissions) for more about site roles.
+    >**Tipp:** Weitere Informationen über Site-Rollen finden Sie unter [Benutzerrollen und Berechtigungen]({% link content-services/5.2/using/permissions.md %}#user-roles-and-permissions).
 
-    Once you've selected site roles for all the users you've selected, the **Add Users** button will be switched on.
+    Nachdem Sie die Site-Rollen für alle von Ihnen ausgewählten Benutzer festgelegt haben, wird die Schaltfläche **Benutzer hinzufügen** aktiviert.
 
-5.  Click **Add Users**.
+5.  Klicken Sie auf **Benutzer hinzufügen**.
 
-    A message displays showing the number of users you've added. All these users receive an email notification and can now use the site. You can continue to add more users as required.
+    Eine Meldung mit der Anzahl der von Ihnen hinzugefügten Benutzer wird angezeigt. All diese Benutzer erhalten eine E-Mail-Benachrichtigung und können nun die Site nutzen. Sie können bei Bedarf weitere Benutzer hinzufügen.
 
-    > **Note:** This feature is disabled if your installation doesn't support inviting new users. Talk to your system administrator about enabling this feature with the `notification.email.siteinvite` property. See [Outbound SMTP configuration properties]({% link content-services/5.2/config/email.md %}#outbound-smtp-configuration-properties) for more information.
+    > **Hinweis:** Diese Funktion ist deaktiviert, wenn Ihre Installation die Einladung neuer Benutzer nicht unterstützt. Besprechen Sie mit Ihrem Systemadministrator die Aktivierung dieser Funktion mithilfe der Eigenschaft 'notification.email.siteinvite'. Weitere Informationen finden Sie unter [Konfigurationseigenschaften für ausgehendes SMTP]({% link content-services/5.2/config/email.md %}#outbound-smtp-configuration-properties).
 
-## Approving users to join a moderated site {#approving-users-to-join-a-moderated-site}
+## Genehmigen von Benutzern für den Beitritt zu einer moderierten Site {#approving-users-to-join-a-moderated-site}
 
-When a user requests to join a moderated site, the request needs to be approved by a site manager.
+Wenn ein Benutzer den Beitritt zu einer moderierten Site anfordert, muss die Anfrage von einem Site-Manager genehmigt werden.
 
-All managers of a site will be receive an email and be given a new approval task when a request to join the site is made. Any of the managers can complete this task.
+Wenn der Beitritt zu einer Site angefordert wird, erhalten die Manager der Site eine E-Mail-Nachricht und ihnen wird eine neue Genehmigungsaufgabe zugewiesen. Jeder Manager kann diese Aufgabe durchführen.
 
-1.  Click **Site Members** then **Pending**.
+1.  Klicken Sie auf **Site-Mitglieder** und anschließend auf **Ausstehend**.
 
-    You'll see a list of pending requests to join the site.
+    Eine Liste der ausstehenden Anträge für den Site-Beitritt wird angezeigt.
 
-    >**Tip:** You can also click **Tasks** then **My Tasks** to get to the approval task, or access it direct from the notification email that was sent.
+    >**Tipp:** Sie können auch auf **Aufgaben** und anschließend auf **Meine Aufgaben** klicken, um zur Genehmigungsaufgabe zu gelangen, oder direkt über die gesendete Benachrichtigungs-E-Mail darauf zugreifen.
 
-    > **Note:** You'll also see any Pending Invites. From Alfresco One version 5.1 or later, users are added to sites and invites are only sent if your Alfresco Administrator has specifically configured this option.
+    > **Hinweis:** Alle ausstehenden Einladungen werden ebenfalls angezeigt. Ab Alfresco One, Version 5.1 oder höher, können Benutzer nur dann zu Sites hinzugefügt und Einladungen gesendet werden, wenn Ihr Alfresco-Administrator diese Option speziell konfiguriert hat.
 
-2.  Click **Approve**, or click **View** to view the approval task where you can approve, reject, and comment on the request to join.
+2.  Klicken Sie auf **Genehmigen** oder auf **Anzeigen**, um die Genehmigungsaufgabe anzuzeigen, in der Sie die Beitrittsanfrage genehmigen, ablehnen und kommentieren können.
 
-    The task is cleared from your task list and the user is added to the site.
+    Die Aufgabe wird aus Ihrer Aufgabenliste gelöscht und der Benutzer wird zur Site hinzugefügt.
 
-## Adding groups to a site {#adding-groups-to-a-site}
+## Hinzufügen von Gruppen zu einer Site {#adding-groups-to-a-site}
 
-Inviting users one at a time to join your site can be time consuming. To save time you can add entire user groups.
+Es kann sehr zeitaufwendig sein, Benutzer einzeln für den Beitritt zu Ihrer Site einzuladen. Um Zeit zu sparen, können Sie ganze Benutzergruppen hinzufügen.
 
-1.  Click ![Invite to Site]({% link content-services/images/invite-to-site-icon.png %}) in the site you want to add groups to, or click **Add Users** in the Site Members dashlet.
+1.  Klicken Sie auf der Site, zu der Sie Gruppen hinzufügen möchten, auf ![Invite to Site]({% link content-services/images/invite-to-site-icon.png %}). Klicken Sie alternativ im Dashlet für Site-Mitglieder auf **Benutzer hinzufügen**.
 
-    >**Tip:** You can open the Add Users page directly from the Site Members page.
+    >**Tipp:** Sie können die Seite **Benutzer hinzufügen** direkt über die Seite **Site-Mitglieder** öffnen.
 
-    > **Important:** You must be a site manager to add groups.
+    > **Wichtig:** Sie müssen ein Site-Manager sein, um Gruppen hinzufügen zu können.
 
-2.  Click **Groups** and then click **Add Groups**.
+2.  Klicken Sie auf **Gruppen** und anschließend auf **Gruppen hinzufügen**.
 
-3.  Enter a search term such as a group name and click **Search**.
+3.  Geben Sie einen Suchbegriff ein (z. B. einen Gruppennamen), und klicken Sie auf **Suchen**.
 
-    >**Tip:** You need to enter at least one character. The search is not case sensitive.
+    >**Tipp:** Sie müssen mindestens ein Zeichen eingeben. Bei der Suche wird nicht zwischen Groß- und Kleinschreibung unterschieden.
 
-4.  Click **Add** for each group you want to add.
+4.  Klicken Sie für jede Gruppe, die Sie hinzufügen möchten, auf **Hinzufügen**.
 
-5.  Set the site role for each group, or use **Set all roles to** to assign the same role to all groups. This controls what the groups users can do in the site.
+5.  Legen Sie die Site-Rolle für die einzelnen Gruppen fest oder verwenden Sie die Option **Alle Rollen setzen auf**, um allen Gruppen dieselbe Rolle zuzuweisen. Auf diese Weise wird festgelegt, welche Aktionen Gruppen auf der Site ausführen können.
 
-    >**Tip:** See [User roles and permissions]({% link content-services/5.2-de/using/permissions.md %}#user-roles-and-permissions) for more about site roles.
+    >**Tipp:** Weitere Informationen über Site-Rollen finden Sie unter [Benutzerrollen und Berechtigungen]({% link content-services/5.2/using/permissions.md %}#user-roles-and-permissions).
 
-    Once you've selected site roles for all the groups you've selected, the **Add Groups** button will be switched on.
+    Nachdem Sie die Site-Rollen für alle von Ihnen ausgewählten Gruppen festgelegt haben, wird die Schaltfläche **Gruppen hinzufügen** aktiviert.
 
-6.  Click **Add Groups** to add the groups listed.
+6.  Klicken Sie auf **Gruppen hinzufügen**, um die aufgeführten Gruppen hinzuzufügen.
 
-    A message displays showing the number of groups you've added. All these groups can now use the site. You can continue to add more groups as required.
+    Eine Meldung mit der Anzahl der von Ihnen hinzugefügten Gruppen wird angezeigt. Alle diese Gruppen können nun die Site nutzen. Sie können bei Bedarf weitere Gruppen hinzufügen.
 
-    > **Note:** You can click **back to Site Groups** to return to the Search for Site Groups page without adding any groups.
+    > **Hinweis:** Klicken Sie auf **Zurück zu Site-Gruppen**, wenn Sie zur Seite **Suche nach Gruppen in dieser Site** zurückzukehren möchten, ohne Gruppen hinzuzufügen.
 
-## Reviewing the site members {#reviewing-the-site-members}
+## Überprüfen von Site-Mitgliedern {#reviewing-the-site-members}
 
-Use the search feature to find a particular site member. You can also list all site members.
+Verwenden Sie die Suchfunktion, um ein bestimmtes Site-Mitglied zu finden. Sie haben auch die Möglichkeit, alle Site-Mitglieder aufzulisten.
 
-1.  In a site click **Site Members**, or **More** then **Site Members** if the site has additional features.
+1.  Klicken Sie auf einer Site auf **Site-Mitglieder** oder **Mehr** und anschließend auf **Site-Mitglieder**, wenn die Site über zusätzliche Funktionen verfügt.
 
-    >**Tip:** You can also click **Groups** to view groups that are members of the site.
+    >**Tipp:** Sie können auch auf **Gruppen** klicken, um Gruppen anzuzeigen, die Mitglieder der Site sind.
 
-2.  Type the full or partial name of a user.
+2.  Geben Sie den vollständigen Namen oder einen Teil eines Benutzernamens ein.
 
-    >**Tip:** Leave the search box empty to display all site members.
+    >**Tipp:** Lassen Sie das Suchfeld leer, um alle Site-Mitglieder anzuzeigen.
 
-3.  Click **Search**.
+3.  Klicken Sie auf **Suchen**.
 
-## Reviewing site groups {#reviewing-site-groups}
+## Überprüfen von Site-Gruppen {#reviewing-site-groups}
 
-Use the search feature to find a particular site member. You can also list all site members.
+Verwenden Sie die Suchfunktion, um ein bestimmtes Site-Mitglied zu finden. Sie haben auch die Möglichkeit, alle Site-Mitglieder aufzulisten.
 
-1.  In a site click **Site Members**, or **More** then **Site Members** if the site has additional features.
+1.  Klicken Sie auf einer Site auf **Site-Mitglieder** oder **Mehr** und anschließend auf **Site-Mitglieder**, wenn die Site über zusätzliche Funktionen verfügt.
 
-2.  Click **Groups**.
+2.  Klicken Sie auf **Gruppen**.
 
-3.  Type the full or partial name of a site group.
+3.  Geben Sie den vollständigen Namen oder einen Teil eines Site-Gruppennamens ein.
 
-    >**Tip:** Leave the search box empty to display all site members.
+    >**Tipp:** Lassen Sie das Suchfeld leer, um alle Site-Mitglieder anzuzeigen.
 
-4.  Click **Search**.
+4.  Klicken Sie auf **Suchen**.
 
-## Changing a site role {#changing-a-site-role}
+## Ändern von Site-Rollen {#changing-a-site-role}
 
-A site manager can amend a member or group role to change what they can do in a site.
+Site-Manager können die verfügbaren Site-Aktionen von Mitgliedern oder Gruppenrollen ändern.
 
-1.  In a site click **Site Members**, or **More** then **Site Members** if the site has additional features.
+1.  Klicken Sie auf einer Site auf **Site-Mitglieder** oder **Mehr** und anschließend auf **Site-Mitglieder**, wenn die Site über zusätzliche Funktionen verfügt.
 
-2.  Select **Users** or **Groups** in the Members component.
+2.  Wählen Sie in der Komponente **Mitglieder** die Option **Benutzer** oder **Gruppen**.
 
-3.  Search for the site member or group whose role you want to change.
+3.  Suchen Sie das Site-Mitglied bzw. die Site-Gruppe, dessen/deren Rolle Sie ändern möchten.
 
-    Type a full or partial name, or leave the search box empty to display all members or groups. The results list includes the assigned role.
+    Geben Sie den vollständigen Namen oder einen Teil des Namens ein oder lassen Sie das Suchfeld leer, um alle Mitglieder bzw. Gruppen anzuzeigen. Die Ergebnisliste enthält die zugeordnete Rolle.
 
-4.  Click the current role and select a new role from the list.
+4.  Klicken Sie auf die aktuelle Rolle und wählen Sie eine neue Rolle aus der Liste aus.
 
-## Becoming a site manager {#becoming-a-site-manager}
+## Site-Manager werden {#becoming-a-site-manager}
 
-If your account is an administrator account, then you can make yourself a site manager of any site that you're a member of.
+Wenn es sich bei Ihrem Konto um ein Administratorkonto handelt, können Sie sich selbst zum Site-Manager einer beliebigen Site ernennen, bei der Sie Mitglied sind.
 
-> **Note:** Users who aren't an Alfresco administrator don't have this option. They need to request a role change from an existing site manager.
+> **Hinweis:** Benutzer, die kein Alfresco-Administrator sind, verfügen nicht über diese Option. Sie müssen einen Rollenwechsel bei einem bestehenden Site-Manager beantragen.
 
-1.  In a site click ![]({% link content-services/images/settings-icon.png %}) then **Become Site Manager**.
+1.  Klicken Sie auf einer Site auf ![]({% link content-services/images/settings-icon.png %}) und anschließend auf **Site-Manager werden**.
 
-You are now a manager of the site. You'll see that you have additional options available when you click ![]({% link content-services/images/settings-icon.png %}).
+Sie sind jetzt ein Manager dieser Site. Sie werden bemerken, dass beim Klicken auf ![]({% link content-services/images/settings-icon.png %}) zusätzliche Optionen zur Verfügung stehen.
 
-## Removing a site member or site group {#removing-a-site-member-or-site-group}
+## Entfernen von Site-Mitgliedern oder Site-Gruppen {#removing-a-site-member-or-site-group}
 
-When you remove members or groups from a site they can no longer access it, but if the site is public they can rejoin it.
+Wenn Sie Mitglieder oder Gruppen von einer Site entfernen, können diese nicht mehr auf die Site zugreifen; sie können der Site jedoch erneut beitreten, wenn diese öffentlich ist.
 
-> **Note:** Only a site manager can remove members from a site.
+> **Hinweis:** Nur Site-Manager können Mitglieder von einer Site entfernen.
 
-1.  In a site click **Site Members**, or **More** then **Site Members** if the site has additional features.
+1.  Klicken Sie auf einer Site auf **Site-Mitglieder** oder **Mehr** und anschließend auf **Site-Mitglieder**, wenn die Site über zusätzliche Funktionen verfügt.
 
-2.  Select **Users** or **Groups**.
+2.  Wählen Sie **Benutzer** oder **Gruppen** aus.
 
-3.  Search for the site member or group you want to remove.
+3.  Suchen Sie das Site-Mitglied bzw. die Site-Gruppe, die Sie entfernen möchten.
 
-    Type a full or partial name, or leave the search box empty to display all members or groups.
+    Geben Sie den vollständigen Namen oder einen Teil des Namens ein oder lassen Sie das Suchfeld leer, um alle Mitglieder bzw. Gruppen anzuzeigen.
 
-4.  Click **Remove**.
+4.  Klicken Sie auf **Entfernen**.
 
 
-## Managing pending invitations {#managing-pending-invitations}
+## Verwalten ausstehender Einladungen {#managing-pending-invitations}
 
-A site manager can view the outstanding invitations. You can revoke an invitation until the recipient accepts or declines it.
+Site-Manager haben die Möglichkeit, ausstehende Einladungen anzuzeigen. Sie können eine Einladung widerrufen, bevor der Empfänger diese akzeptiert oder ablehnt.
 
-> **Note:** If you're using Alfresco Share version 5.1 or later, then when a user is added to a site they can use the site immediately and no invitation is sent. In earlier versions of Share users aren't added to a site until they've accepted the invitation that is sent when they're invited to join the site.
+> **Hinweis:** Wenn Sie die Alfresco Share-Version 5.1 oder höher verwenden, können Benutzer, die zu einer Site hinzugefügt werden, die Site sofort nutzen und es wird keine Einladung gesendet. In früheren Versionen von Share werden Benutzer erst dann zu einer Site hinzugefügt, nachdem sie die Einladung akzeptiert haben, die im Rahmen der Einladung zum Site-Beitritt gesendet wird.
 
-If you've recently upgraded to Alfresco Share 5.1 or later then you can still manage any pending invites sent before the upgrade.
+Wenn Sie kürzlich auf Alfresco Share 5.1 oder höher aktualisiert haben, können Sie weiterhin alle ausstehenden Einladungen verwalten, die vor dem Upgrade gesendet wurden.
 
-1.  In a site click **Site Members**, or **More** then **Site Members** if the site has additional features.
+1.  Klicken Sie auf einer Site auf **Site-Mitglieder** oder **Mehr** und anschließend auf **Site-Mitglieder**, wenn die Site über zusätzliche Funktionen verfügt.
 
-2.  Click **Pending**.
+2.  Klicken Sie auf **Ausstehend**.
 
-    This page lists the users who haven't responded to their site invitation, as well as any users who've requested to join the site.
+    Auf dieser Seite werden die Benutzer aufgeführt, die nicht auf die Site-Einladung reagiert haben, sowie alle Benutzer, die den Beitritt zur Site angefordert haben.
 
-3.  Use the search feature if you need to filter the list.
+3.  Verwenden Sie die Suchfunktion, wenn Sie die Liste filtern möchten.
 
-4.  Manage the site invitations using the buttons to the right of each user:
+4.  Verwalten Sie die Site-Einladungen mithilfe der Schaltflächen rechts neben den einzelnen Benutzern:
 
-    -   Click **Cancel** to revoke the user's invitation to this site.
-5.  You can click **Cancel** to revoke the user's invitation to this site.
+    -   Klicken Sie auf **Abbrechen**, um die Einladung des Benutzers zu dieser Site zu widerrufen.
+5.  Klicken Sie auf **Abbrechen**, wenn Sie die Einladung des Benutzers zu dieser Site widerrufen möchten.

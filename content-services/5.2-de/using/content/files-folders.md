@@ -1,459 +1,463 @@
 ---
-title: Working with files and folders
+title: Arbeiten mit Dateien und Ordnern
 ---
 
-Once files are added to a site, site members can access and work with them. In addition to adding more files, members can view, download, edit, and delete files.
+Nachdem Dateien einer Site hinzugefügt wurden, können die Mitglieder der Site darauf zugreifen und mit ihnen arbeiten. Mitglieder können nicht nur Dateien hinzufügen, sondern Dateien auch anzeigen, herunterladen, bearbeiten und löschen.
 
-## Editing files {#editing-files}
+## Bearbeiten von Dateien {#editing-files}
 
-There are multiple ways to edit content. These options are available whenever suitable for a file type.
+Es gibt mehrere Möglichkeiten, Inhalte zu bearbeiten. Diese Optionen sind verfügbar, wenn sie für einen Dateityp geeignet sind.
 
-The **Edit Offline** action lets you download a file to your computer so you can edit it there. This locks the file in the library to prevent others from editing it simultaneously. It's available for every file.
+Mit der Aktion **Offline bearbeiten** können Sie eine Datei auf Ihren Computer herunterladen, damit Sie sie dort bearbeiten können. Hierdurch wird die Datei in der Bibliothek gesperrt, damit andere Benutzer sie nicht gleichzeitig bearbeiten können. Diese Option ist für jede Datei verfügbar.
 
-The **Edit in Microsoft Office** action lets you edit a file in the appropriate MS Office program. The file is locked in Alfresco Share while it's being edited. It's available only for Microsoft Office 2003 or later files.
+Mit der Aktion **In Microsoft Office bearbeiten** können Sie eine Datei im entsprechenden MS Office-Programm bearbeiten. Die Datei ist in Alfresco Share gesperrt, während sie bearbeitet wird. Diese Option ist nur für Dateien mit der Version Microsoft Office 2003 oder höher verfügbar.
 
-The **Edit in Alfresco Share** action lets you edit plain text, HTML, or XML files directly in the document library. It's available for these file types, which can all be created with the **Create** feature in the library.
+Mit der Aktion **In Alfresco Share bearbeiten** können Sie reine Text-, HTML- oder XML-Dateien direkt in der Dokumentenbibliothek bearbeiten. Diese Option ist für diese Dateitypen verfügbar, die alle mit der Funktion **Erstellen** in der Bibliothek erstellt werden können.
 
-The **Edit in Google Docs** action lets you work with files in Google Docs. The file is locked in Alfresco Share while it's being edited. It's available for supported document, presentation, and spreadsheet formats.
+Mit der Aktion **In Google Docs bearbeiten** können Sie Dateien in Google Docs bearbeiten. Die Datei ist in Alfresco Share gesperrt, während sie bearbeitet wird. Diese Option ist für unterstützte Dokument-, Präsentations- und Tabellenkalkulationsformate verfügbar.
 
-You can also edit the properties of a file, or upload content as a new version of an existing file.
+Sie können auch die Eigenschaften einer Datei bearbeiten oder Inhalte als neue Version einer bestehenden Datei hochladen.
 
-### Editing content {#editing-content}
+### Bearbeiten von Inhalten {#editing-content}
 
-Updating your content in Alfresco Share is easy to do and you can even select whether to edit in Microsoft Office, offline, or in Google Docs.
+Die Aktualisierung Ihrer Inhalte in Alfresco Share ist ganz einfach. Sie können sogar wählen, ob Sie sie in Microsoft Office, offline oder in Google Docs bearbeiten möchten.
 
-1.  In the Document Library item list, hover your cursor over one of the files.
+1.  Bewegen Sie in der Elementliste der Dokumentenbibliothek den Mauszeiger auf eine der Dateien.
 
-    This highlights the item and displays the actions available for that item.
+    Hiermit wird das Element markiert und die für dieses Element verfügbaren Aktionen werden angezeigt.
 
-2.  Click **More** and then select **Edit Offline**.
+2.  Klicken Sie auf **Mehr** und wählen Sie dann **Offline bearbeiten**.
 
-    Alfresco Share now shows a notification that the document is locked. Depending on your browser the content will be either downloaded automatically, or you will need to choose a location to save it to.
+    Alfresco Share zeigt nun eine Benachrichtigung an, dass das Dokument gesperrt ist. Je nach Browser wird der Inhalt entweder automatisch heruntergeladen oder Sie müssen den gewünschten Speicherort auswählen.
 
-    The document is saved to this location with **(Working Copy)** added to the title.
+    Das Dokument wird an diesem Speicherort gespeichert, und dem Titel wird der Zusatz **(Arbeitskopie)** hinzugefügt.
 
-3.  Now open the document from this location using you're preferred software and make an edit it to it.
+3.  Öffnen Sie das Dokument nun an diesem Speicherort mit Ihrer bevorzugten Software und nehmen Sie eine Änderung vor.
 
-4.  When you've done that save and close it.
+4.  Speichern und schließen Sie es das Dokument anschließend.
 
-5.  Back in Alfresco Share, hover your curser over the document and click **Upload New Version**.
+5.  Bewegen Sie anschließend in Alfresco Share Ihren Mauszeiger auf das Dokument und klicken Sie auf **Neue Version hochladen**.
 
     ![Update File page]({% link content-services/images/UpdateFile.png %})
 
-6.  In the Update File page click the browse icon and find and select the "Working Copy" document.
+6.  Klicken Sie auf der **Datei aktualisieren** auf das Symbol zum Durchsuchen und wählen Sie das Dokument **Arbeitskopie** aus.
 
-    > **Note:** If you select a file with a different name or file type then this will be shown. You can continue as in the next step, cancel, or select a different file to upload. If you continue then the uploaded file name and/or file type will be used.
+    > **Hinweis:** Wenn Sie eine Datei mit einem anderen Namen oder Dateityp auswählen, wird diese angezeigt. Sie können wie im nächsten Schritt fortfahren, abbrechen oder eine andere Datei zum Hochladen auswählen. Wenn Sie fortfahren, wird der hochgeladene Dateiname und/oder Dateityp verwendet.
 
-7.  Leave the version on minor changes and click **Upload**.
+7.  Lassen Sie für die Version die Option für kleinere Änderungen ausgewählt und klicken Sie auf **Hochladen**.
 
-8.  When the upload is finished click **OK**, and a modification update is shown on-screen.
+8.  Klicken Sie nach dem Hochladen Sie auf **OK**. Im Bildschirm wird eine Änderungsaktualisierung angezeigt.
 
-9.  Click **Site Dashboard** and you'll see update notifications in the dashlets.
+9.  Klicken Sie auf **Site-Dashboard**. Es werden Aktualisierungsbenachrichtigungen in den Dashlets angezeigt.
 
 
 
 
 
-### Editing files offline {#editing-files-offline}
+### Bearbeiten von Dateien offline {#editing-files-offline}
 
-When you edit a file offline it's downloaded to your computer and locked in the library, so that other users can't overwrite it while you make changes offline.
+Wenn Sie eine Datei offline bearbeiten, wird sie auf Ihren Computer heruntergeladen und in der Bibliothek gesperrt, damit sie von anderen Benutzern nicht überschrieben werden kann, während Sie offline Änderungen vornehmen.
 
-1.  Hover over a file and click **More** then **Edit Offline**.
+1.  Bewegen Sie den Mauszeiger auf eine Datei und klicken Sie auf **Mehr** und dann auf **Offline bearbeiten**.
 
-    The prompts that follow vary between browsers.
+    Die anschließenden Eingabeaufforderungen sind je nach Browser unterschiedlich.
 
-2.  Follow the prompts. When asked to open or save the file, save it to your computer.
+2.  Nehmen Sie die entsprechenden Eingaben vor. Wenn Sie zum Öffnen oder Speichern der Datei aufgefordert werden, speichern Sie diese auf Ihrem Computer.
 
-    > **Note:** Depending on your browser settings, the file might be saved automatically to a default location on your computer.
+    > **Hinweis:** Abhängig von Ihren Browser-Einstellungen wird die Datei möglicherweise automatisch an einem Standardspeicherort auf Ihrem Computer gespeichert.
 
-    The file is added to the **I’m Editing** view (on the left side of the library). The original file is still in its original location in the library. An icon indicates to users that the file is locked by you for editing.
+    Die Datei wird der Ansicht mit den **von mir bearbeiteten** Dateien hinzugefügt (auf der linken Seite der Bibliothek). Die Originaldatei ist weiterhin an ihrem ursprünglichen Speicherort in der Bibliothek gespeichert. Ein Symbol weist Benutzer darauf hin, dass die Datei von Ihnen zur Bearbeitung gesperrt ist.
 
-3.  Now you can open and edit the version you've downloaded.
+3.  Sie können nun die heruntergeladene Version öffnen und bearbeiten.
 
-    When you're done, click **Upload New Version** to upload the edited version to Alfresco Share.
+    Klicken Sie abschließend auf **Neue Version hochladen**, um die bearbeitete Version in Alfresco Share hochzuladen.
 
-    You can click **Cancel Editing** to unlock the file without making changes.
+    Sie können auf **Bearbeitung abbrechen** klicken, um die Datei ohne Änderungen zu entsperren.
 
 
-### Editing files in Alfresco Share {#editing-files-in-alfresco-share}
+### Bearbeiten von Dateien in Alfresco Share {#editing-files-in-alfresco-share}
 
-You can edit plain text, HTML, and XML files directly in Alfresco Share.
+Sie können reine Textdateien sowie HTML- und XML-Dateien direkt in Alfresco Share bearbeiten.
 
-> **Note:** This action is also available for files configured with the *Inline Editable* aspect.
+> **Hinweis:** Diese Aktion ist auch für Dateien verfügbar, die mit dem Aspekt **Inline editierbar** konfiguriert sind.
 
-1.  Hover over a file and click **More** then **Edit in Alfresco Share**.
+1.  Bewegen Sie den Mauszeiger auf eine Datei und klicken Sie auf **Mehr** und dann auf **In Alfresco Share bearbeiten**.
 
-    The Edit Content page appears.
+    Die Seite **Inhalt bearbeiten** wird angezeigt.
 
-2.  Edit the file details and content as required.
+2.  Bearbeiten Sie die Dateidetails und den Inhalt nach Bedarf.
 
-    The **Name** does not support the following special characters: * " < > \ / . ? : and |. When the name contains a disallowed character the **Save** button is disabled.
+    Für **Name** werden die folgenden Sonderzeichen nicht unterstützt: * " < > \ / . ? : und |. Wenn der Name ein unzulässiges Zeichen enthält, ist die Schaltfläche **Speichern** deaktiviert.
 
-    > **Note:** The folder name *can* include a period as long as it is not the last character. This lets you add an extension (for example, .txt, .html, or .xml).
+    > **Hinweis:** Der Ordnername *kann* einen Punkt enthalten, solange er nicht das letzte Zeichen ist. Hiermit können Sie eine Erweiterung hinzufügen (z. B. .txt, .html oder .xml).
 
-3.  Click **Save**.
+3.  Klicken Sie auf **Speichern**.
 
 
-### Editing files in Microsoft Office {#editing-files-in-microsoft-office}
+### Bearbeiten von Dateien in Microsoft Office {#editing-files-in-microsoft-office}
 
-You can edit Microsoft Office files directly from Alfresco Share. When you're editing a file it's locked in Share until you finish editing it.
+Sie können Microsoft Office-Dateien direkt aus Alfresco Share bearbeiten. Wenn Sie eine Datei bearbeiten, ist sie in Share gesperrt, bis Sie die Bearbeitung abgeschlossen haben.
 
-> **Important:** If you're working on a Mac then make sure you've updated to the latest minor version number of Microsoft Office. If you have an older version installed then you might have problems opening documents.
+> **Wichtig:** Wenn Sie an einem Mac arbeiten, müssen Sie sicherstellen, dass Sie auf die neueste Unter-Versionsnummer von Microsoft Office aktualisiert haben. Wenn Sie eine ältere Version installiert haben, treten möglicherweise Probleme beim Öffnen von Dokumenten auf.
 
-1.  Hover over a file and click **More** then **Edit in Microsoft Office**.
+1.  Bewegen Sie den Mauszeiger auf eine Datei und klicken Sie auf **Mehr** und dann auf **In Microsoft Office bearbeiten**.
 
-    A message asks you to make sure you can trust the content.
+    Sie werden aufgefordert sicherzustellen, dass Sie dem Inhalt vertrauen können.
 
-    The file opens in a separate window. In Share the file will be shown as locked.
+    Die Datei wird in einem separaten Fenster geöffnet. In Share wird die Datei als gesperrt angezeigt.
 
-    > **Note:** You might get a further request to enter your Share login details and **Enable Editing**.
+    > **Hinweis:** Möglicherweise erhalten Sie eine weitere Aufforderung, Ihre Login-Daten für Share einzugeben und die **Bearbeitung zu aktivieren**.
 
-2.  You can now edit the file.
+2.  Sie können nun die Datei bearbeiten.
 
-    The minor version number in Share is updated each time you save the file. All standard Microsoft Office functionality is available.
+    Die Unter-Versionsnummer in Share wird bei jedem Speichern der Datei aktualisiert. Alle gängigen Microsoft Office-Funktionen sind verfügbar.
 
-3.  When you're done, save and close the file.
+3.  Speichern Sie abschließend die Datei und schließen Sie sie.
 
 
-If **Edit in Microsoft Office** isn't available then check that:
+Falls **In Microsoft Office bearbeiten** nicht verfügbar ist, prüfen Sie Folgendes:
 
-### Editing files in Google Docs {#editing-files-in-google-docs}
+-   Sie verfügen über die Site-Berechtigung zum Bearbeiten der Datei. Verbraucher können nur eine Datei anzeigen.
+-   Sie verwenden [unterstützte Plattformen]({% link content-services/5.2/support/index.md %})
 
-The **Edit in Google Docs** action is available for any file that can be edited in Google Docs. Common document, presentation, and spreadsheet formats are supported.
 
-Files you edit are temporarily stored in Google Docs, then removed from Google Docs once they've been checked back in to Alfresco Share.
+### Bearbeiten von Dateien in Google Docs {#editing-files-in-google-docs}
 
-1.  Hover over file and click **More** then **Edit in Google Docs**.
+Der Aktion **In Google Docs bearbeiten** ist für alle Dateien verfügbar, die in Google Docs bearbeitet werden können. Es werden alle gängigen Dokument-, Präsentations- und Tabellenkalkulationsformate unterstützt.
 
-    If prompted, authorize Share to access your Google Docs account. If you have a Google Username in your Alfresco Share profile then it will be used as the default account.
+Von Ihnen bearbeitete Dateien werden vorübergehend in Google Docs gespeichert und dann aus Google Docs entfernt, sobald sie wieder in Alfresco Share eingecheckt wurden.
 
-    > **Tip:** If your browser asks you to allow popups for Google Docs then go ahead and do so. If you're using Safari you won't be able to use Google Docs until you enable all popups in the settings, so for security reasons you may prefer to use a different browser.
+1.  Bewegen Sie den Mauszeiger auf eine Datei und klicken Sie auf **Mehr** und dann auf **In Google Docs bearbeiten**.
 
-    > **Note:** If you previously locked the file for editing and are returning to it, you'll have the action **Resume Editing in Google Docs**.
+    Autorisieren Sie Share für den Zugriff auf Ihr Google Docs-Konto bei entsprechender Aufforderung. Wenn Sie einen Google-Benutzernamen in Ihrem Alfresco Share-Profil angegeben haben, wird dieser als Standardkonto verwendet.
 
-    The file opens in Google Docs in a new browser tab. It's locked in Share so that other users can't edit it while you're working on it. The file stays locked until you either discard or save your changes.
+    >**Tipp:** Wenn Ihr Browser Sie auffordert, Popups für Google Docs zuzulassen, stimmen Sie zu. Wenn Sie Safari verwenden, können Sie Google Docs erst dann verwenden, wenn Sie alle Popups in den Einstellungen aktiviert haben. Aus Sicherheitsgründen empfiehlt es sich daher, einen anderen Browser zu verwenden.
 
-2.  Edit the content.
+    > **Hinweis:** Wenn Sie die Datei zuvor für die Bearbeitung gesperrt haben und nun zu ihr zurückkehren, steht die Aktion **Bearbeitung in Google Docs fortsetzen** zur Verfügung.
 
-3.  When you're done, close the Google Docs browser tab.
+    Die Datei wird in Google Docs in einer neuen Browser-Registerkarte geöffnet. Sie ist in Share gesperrt, damit andere Benutzer nicht bearbeiten können, solange Sie daran arbeiten. Die Datei bleibt gesperrt, bis Sie Ihre Änderungen verwerfen oder speichern.
 
-    In Alfresco Share you'll see the file displays the ![Geolocation metadata icon]({% link content-services/images/ico-googledocs.png %}) icon to show that it's open in Google Docs.
+2.  Bearbeiten Sie den Inhalt.
 
-4.  In Alfresco Share, click **More** then **Check In Google Doc**.
+3.  Schließen Sie abschließend die Google Docs-Browser-Registerkarte.
 
-    You can also select **Resume Editing in Google Docs** to carry on editing, and **Cancel Editing in Google Docs** to discard the editing session and any changes made.
+    In Alfresco Share wird mit der Datei das Symbol ![Geolocation metadata icon]({% link content-services/images/ico-googledocs.png %}) angezeigt, um anzugeben, dass sie in Google Docs geöffnet ist.
 
-5.  On the Version Information dialog box, indicate if the revision is major or minor, then add any information that might be relevant to the updates you made.
+4.  Klicken Sie in Alfresco Share auf **Mehr** und dann auf **Google Doc einchecken**.
 
-6.  Click **OK**.
+    Sie können auch **Bearbeitung in Google Docs fortsetzen** wählen, um die Bearbeitung fortzusetzen, oder **Bearbeitung in Google Docs abbrechen**, um die Bearbeitungssitzung und alle vorgenommenen Änderungen zu verwerfen.
 
-    This saves the file to Alfresco Share and unlocks the file.
+5.  Geben Sie im Dialogfeld **Versionsinformationen** an, ob die Revision größer oder geringer ist, und fügen Sie dann alle Informationen hinzu, die für die von Ihnen vorgenommenen Aktualisierungen relevant sein könnten.
 
-    >**Tip:** See [Google Docs FAQs](#google-docs-faqs) for more on working with Google Docs.
+6.  Klicken Sie auf **OK**.
 
+    Damit wird die Datei in Alfresco Share gespeichert und die Datei entsperrt.
 
+    >**Tipp:** Weitere Informationen zur Arbeit mit Google Docs finden Sie in den [Häufig gestellte Fragen zu Google Docs](#google-docs-faqs).
 
 
-### Sharing Google Docs files {#sharing-google-docs-files}
 
-You can share Google Docs files while you are editing them so multiple users can work with a document at the same time.
 
-1.  Hover over a file and click **More** then **Edit in Google Docs**, or select this option from the file preview screen.
+### Freigeben von Google Docs-Dateien {#sharing-google-docs-files}
 
-    If prompted, authorize Alfresco Share to access your Google Docs account.
+Sie können Google Docs-Dateien freigeben, während Sie sie bearbeiten, damit mehrere Benutzer gleichzeitig mit einem Dokument arbeiten können.
 
-    > **Note:** If you previously locked this file for editing and are returning to it, you'll be clicking the action **Resume Editing in Google Docs**.
+1.  Bewegen Sie den Mauszeiger auf eine Datei und klicken Sie auf **Mehr** und dann auf **In Google Docs bearbeiten**, oder wählen Sie diese Option in der Vorschau aus.
 
-    The file opens in Google Docs. It will be locked in Share so that other users can't edit it while you're working on it. The file stays locked until you either discard or save your changes.
+    Autorisieren Sie Alfresco Share für den Zugriff auf Ihr Google Docs-Konto bei entsprechender Aufforderung.
 
-2.  Click **Share**.
+    > **Hinweis:** Wenn Sie die Datei zuvor für die Bearbeitung gesperrt haben und nun zu ihr zurückkehren, klicken Sie auf die Aktion **Bearbeitung in Google Docs fortsetzen**.
 
-3.  Type the email addresses of the people you want to share with in the text box below "Add people." You can add a single person, a mailing list, or choose from your contacts.
+    Die Datei wird in Google Docs geöffnet. Sie wird in Share gesperrt, damit sie kein anderer Benutzer bearbeiten kann, während sie von Ihnen bearbeitet wird. Die Datei bleibt gesperrt, bis Sie Ihre Änderungen verwerfen oder speichern.
 
-4.  Choose the access level from the menu next to each collaborator: **Can view**, **Can comment**, or **Can edit**.
+2.  Klicken Sie auf **Freigeben**.
 
-5.  Click **Done**.
+3.  Geben Sie die E-Mail-Adressen der Personen, für die Sie freigeben möchten, in das Textfeld unter **Mitarbeiter hinzufügen** ein. Sie können einzelne Personen, eine Mailingliste oder eine Auswahl aus Ihren Kontakten hinzufügen.
 
-    All users you've shared the document with will receive an email with a link to the file. When they click the link they'll be able to view and edit the file while you're in your editing session. When you save the file back to Share or discard the changes they won't be able to edit it any further until you repeat the steps above.
+4.  Wählen Sie im Menü neben den einzelnen Mitarbeitern die Zugriffsebene aus. **Kann anzeigen**, **Kann kommentieren** oder **Kann bearbeiten**.
 
-6.  When you've finished your editing close the Google Drive tabs and in your Share editing session click **Save to Alfresco Share**.
+5.  Klicken Sie auf **Fertig**.
 
+    Alle Benutzer, für die Sie das Dokument freigegeben haben, erhalten eine E-Mail mit einem Link zu der Datei. Wenn diese auf den Link klicken, können sie die Datei während Ihrer Bearbeitungssitzung Datei ansehen und bearbeiten. Wenn Sie die Datei wieder in Share speichern oder die Änderungen verwerfen, können Sie sie nicht weiter bearbeiten, ohne die vorherigen Schritte zu wiederholen.
 
+6.  Wenn Sie Ihre Bearbeitung abgeschlossen haben, schließen Sie die Registerkarten von Google Drive und klicken in Ihrer Bearbeitungssitzung in Share auf **In Alfresco Share speichern**.
 
-### Google Docs FAQs {#google-docs-faqs}
 
-If you have any problems working with files in Google Docs, have a look through the list to see if there is a way to resolve your issue.
 
-**An error is shown when using Google Docs in Internet Explorer (IE)**
+### Häufig gestellte Fragen zu Google Docs {#google-docs-faqs}
 
-Google Drive/Google Editor only support the two most recent versions of IE (11 & 10). All other versions will see a message indicating that their browser is outdated. (The same applies to Safari (not supported on Windows), Firefox, and Google Chrome – only the last two versions are supported.)
+Wenn Sie Probleme bei der Arbeit mit Dateien in Google Docs haben, schauen Sie sich in der Liste nach, ob es eine Möglichkeit gibt, Ihr Problem zu lösen.
 
-**Is the Share button now available in Google Docs?**
+**Bei der Verwendung von Google Docs in Internet Explorer (IE) wird ein Fehler angezeigt.**
 
-The Share button is fully functional.
+Google Drive/Google Editor unterstützt nur die beiden neuesten Versionen von IE (11 und 10). Bei allen anderen Versionen wird die Meldung angezeigt, dass der Browser veraltet ist. (Das Gleiche gilt für Safari (nicht unter Windows unterstützt), Firefox und Google Chrome – nur die letzten beiden Versionen werden unterstützt.)
 
-**A blank screen or a warning that you need permission to access an item is displayed**
+**Ist die Schaltfläche **Freigeben** jetzt in Google Docs verfügbar?**
 
-There maybe a conflict between the Google OAuth credentials set on your Alfresco Share account and those you have attempted to open the document with or that you are currently signed into Google with. Sign out of your Google account and sign back into the original account used to edit the document.
+Die Schaltfläche **Freigeben** ist voll funktionsfähig.
 
-**Your document will be "downgraded"**
+**Ein leerer Bildschirm oder eine Warnung, dass Sie die Berechtigung zum Zugreifen auf ein Element benötigen, wird angezeigt.**
 
-When you try to edit a document that can be imported into Google Docs but Google does not allow you to export it in the same format, you see a message to indicate that your document will be downgraded. This should read "upgraded" rather than downgraded.
+Möglicherweise gibt es einen Konflikt zwischen den Google OAuth-Anmeldeinformationen, die in Ihrem Alfresco Share-Konto hinterlegt sind, und denen, mit denen Sie versucht haben, das Dokument zu öffnen, oder mit denen Sie derzeit bei Google angemeldet sind. Melden Sie sich von Ihrem Google-Konto ab, und melden Sie sich wieder bei dem ursprünglichen Konto an, mit dem das Dokument bearbeitet wurde.
 
-**Documents discarded or saved to Alfresco Share are still visible in Google Drive**
+**Ihr Dokument wird 'heruntergestuft'.**
 
-Improvements have been made by Google so that this should no longer be an issue.
+Wenn Sie versuchen, ein Dokument zu bearbeiten, das in Google Docs importiert werden kann, Google Ihnen jedoch nicht erlaubt, es im gleichen Format zu exportieren, wird eine Meldung angezeigt, die darauf hinweist, dass Ihr Dokument heruntergestuft wird. Dies sollte eher 'hochgestuft' als 'heruntergestuft' lauten.
 
-**The Edit in Google Docs option is not available**
+**Dokumente, die verworfen oder in Alfresco Share gespeichert wurden, sind in Google Drive weiterhin sichtbar.**
 
-In some circumstances, the **Edit in Google Docs** option is not available. For example, when trying to edit documents or spreadsheets larger than 2MB and presentations larger than 50MB, or the file type is not supported for editing. You will not see the option when you do not have write permission to the document. The **Edit in Google Docs** option is also not available when using IE8.
+Google hat Verbesserungen vorgenommen, so dass dies kein Problem mehr sein sollte.
 
-**Google Docs spreadsheets appear to be truncated**
+**Die Option **In Google Docs bearbeiten** ist nicht verfügbar.**
 
-When creating a spreadsheet in Google Docs, and then saving it to Alfresco Share, when editing it again in Google, the rows and columns may appear to be truncated. The spreadsheet is still fully functional and you can add new rows and columns in Google Docs. If you open the document in Excel, you will see that there are no truncation issues.
+Unter bestimmten Umständen ist die Option **In Google Docs bearbeiten** nicht verfügbar. Dies kann zum Beispiel der Fall sein, wenn Sie versuchen, Dokumente oder Tabellenkalkulationen mit einer Größe von mehr als 2 MB und Präsentationen mit einer Größe von mehr als 50 MB zu bearbeiten, oder wenn die Bearbeitung des Dateityps nicht unterstützt wird. Die Option wird nicht angezeigt, wenn Sie keine Schreibberechtigung für das Dokument haben. Die Option **In Google Docs bearbeiten** ist bei Verwendung von IE8 ebenfalls nicht verfügbar.
 
-The issue is caused by Google optimizing the file internals to a minimum so that it can be transferred as a smaller file size.
+**Google Docs-Tabellen scheinen abgeschnitten zu sein.**
 
-**Why wasn't the Document Title updated after I checked the document back in?**
+Wenn Sie eine Tabellenkalkulation in Google Docs erstellen, in Alfresco Share speichern und sie anschließend erneut in Google bearbeiten, können die Zeilen und Spalten abgeschnitten erscheinen. Die Tabellenkalkulation ist jedoch weiterhin voll funktionsfähig, und Sie können neue Zeilen und Spalten in Google Docs hinzufügen. Wenn Sie das Dokument in Excel öffnen, können Sie sehen, dass es nicht abgeschnitten ist.
 
-There is a lag between the save time of the title and when it is available through the Google API. So, if you quickly save the document after changing the title, this may result in the title not being updated in Alfresco Share when you check the document back in.
+Das Problem wird dadurch verursacht, dass Google den Datei-Inhalt auf ein Minimum optimiert, so dass sie mit einer kleineren Dateigröße übertragen werden kann.
 
-**Messages saying "something went wrong... please reload" and "sorry the file does not exist"**
+**Warum wurde der Dokumententitel nicht aktualisiert, nachdem ich das Dokument wieder eingecheckt habe?**
 
-When you edit or view a Google Doc from Alfresco Share, it's temporarily stored in Google Docs. If it's checked in or the editing is cancelled from in Share, then this temporary version is removed from Google Drive and is no longer available. The file can be accessed from Share.
+Es gibt eine Verzögerung zwischen der Speicherzeit des Titels und dem Zeitpunkt, zu dem er über die Google-API verfügbar ist. Wenn Sie das Dokument nach einer Titeländerung schnell speichern, kann dies dazu führen, dass der Titel nicht in Alfresco Share aktualisiert wird, wenn Sie das Dokument wieder einchecken.
 
+**Meldungen der Art **Es ist etwas schief gegangen... Bitte neu laden** und **Die Datei ist nicht vorhanden** werden angezeigt.**
 
-### Editing file and folder properties {#editing-file-and-folder-properties}
+Wenn Sie ein Google Docs-Formular in Alfresco Share bearbeiten oder anzeigen, wird es temporär in Google Docs gespeichert. Wenn es eingecheckt oder die Bearbeitung in Share abgebrochen wird, wird diese temporäre Version aus Google Drive entfernt und ist nicht mehr verfügbar. Sie können über Share auf die Datei zugreifen.
 
-Edit the basic details of a folder or file to change its name, description, and tags.
 
-> **Note:** If the selected folder or file has the *Classifiable* aspect applied, there will be an additional **Categories** option available.
+### Bearbeiten von Datei- und Ordnereigenschaften {#editing-file-and-folder-properties}
 
-1.  Hover over a file or folder and click **Edit Properties**.
+Bearbeiten Sie die grundlegenden Details eines Ordners oder eine Datei, um Namen, Beschreibung und Tags zu ändern.
 
-    The Edit Properties dialog box displays the basic metadata for the item. The **All Properties** link in the upper right corner will display the full set of properties available for the item.
+> **Hinweis:** Falls dem ausgewählten Ordner oder der ausgewählten Datei der Aspekt *Klassifizierbar* zugewiesen ist, ist eine weitere Option **Kategorien** verfügbar.
 
-2.  Edit the details.
+1.  Bewegen Sie den Mauszeiger auf eine Datei oder einen Ordner und klicken Sie auf **Eigenschaften bearbeiten**.
 
-    The **Name** doesn't support the following special characters: * " < > \ / ? : and |.
+    Im Dialogfeld **Eigenschaften bearbeiten** werden die grundlegenden Metadaten für das Element angezeigt. Mit dem Link **Alle Eigenschaften** in der oberen rechten Ecke können alle für das Element verfügbaren Eigenschaften angezeigt werden.
 
-    > **Note:** The name can include a period as long as it is not the last character.
+2.  Bearbeiten Sie die Details.
 
-3.  Click **Select** beneath the **Tags** label to edit the tag associations. You can add and remove existing tags, and create new tags.
+    Der **Name** unterstützt die folgenden Sonderzeichen nicht: * " < > \ / ? : und |.
 
-    On the Select page the left column lists the tags being used in this network. The right column displays the tags already associated with the folder or item.
+    > **Hinweis:** Der Name kann einen Punkt beinhalten, solange er nicht das letzte Zeichen ist.
 
-    1.  **Create a new tag:** Type the tag name and click the ![Create Tag icon]({% link content-services/images/ico-create-tag.png %}) Create new item icon (or press ENTER). Create one tag at a time. The tag can be a single word or a string of words.
+3.  Klicken Sie unter dem Label **Tags** auf **Auswählen*, um die Tag-Zuordnungen zu bearbeiten. Sie können vorhandene Tags hinzufügen und entfernen oder neue Tags erstellen.
 
-    2.  **Add an existing tag:** Find a tag in the left column and click the ![Add Tag icon]({% link content-services/images/ico-add-tag.png %}) Add icon to associate it with the current folder or item.
+    In der linken Spalte auf der Seite **Auswählen** werden die in diesem Netzwerk verwendeten Tags aufgeführt. In der rechten Spalte werden die bereits dem Ordner oder Element zugeordneten Tags angezeigt.
 
-    3.  **Remove an existing tag:** Find a tag in the right column and click the ![Remove Tag icon]({% link content-services/images/ico-remove-tag.png %}) Remove icon.
+    1.  **Erstellen Sie ein neues Tag:** Geben Sie den Tag-Namen ein und klicken Sie auf das Symbol **Neues Objekt erstellen** ![Create Tag icon]({% link content-services/images/ico-create-tag.png %}) (oder drücken Sie die EINGABETASTE). Erstellen Sie die Tags nacheinander. Das Tag kann ein einzelnes Wort oder auch eine Wortfolge sein.
 
-    4.  Click **OK** to save the changes.
+    2.  **Fügen Sie ein vorhandenes Tag hinzu:** Suchen Sie ein Tag in der linken Spalte und klicken Sie auf das Symbol **Hinzufügen** ![Add Tag icon]({% link content-services/images/ico-add-tag.png %}), um es dem aktuellen Ordner oder Element zuzuordnen.
 
-    >**Tip:** You can add, edit, and delete tags by hovering over existing tags or the **No Tags** description in the document library.
+    3.  **Entfernen Sie ein vorhandenes Tag:** Suchen Sie ein Tag in der rechten Spalte und klicken Sie auf das Symbol **Entfernen** ![Remove Tag icon]({% link content-services/images/ico-remove-tag.png %}).
 
-4.  Click **Save**.
+    4.  Klicken Sie auf **OK**, um die Änderungen zu speichern.
 
+    >**Tipp:** Sie können Tags hinzufügen, bearbeiten und löschen, indem Sie den Mauszeiger auf vorhandene Tags oder die Beschreibung **Keine Tags** in der Dokumentenbibliothek verschieben.
 
-### Uploading new versions {#uploading-new-versions}
+4.  Klicken Sie auf **Speichern**.
 
-You can upload content from your computer to update a file.
 
-Doing this to a file you've locked updates the content and removes the lock at the same time. You can also do this to an unlocked file to update it without first downloading it to your computer.
+### Hochladen neuer Versionen {#uploading-new-versions}
 
-1.  Find the file you want to update.
+Sie können Inhalte von Ihrem Computer hochladen, um eine Datei zu aktualisieren.
 
-    > **Note:** The **I'm Editing** view shows the files locked by you for editing.
+Führen Sie diese Aktion für eine von Ihnen gesperrte Datei aus, wird der Inhalt aktualisiert und die Sperre wird gleichzeitig entfernt. Diese Aktion ist auch für eine nicht gesperrte Datei möglich, um sie zu aktualisieren, ohne sie zuerst in den Computer herunterzuladen.
 
-2.  Hover over the file and click **More** then **Upload New Version**.
+1.  Suchen Sie die zu aktualisierende Datei.
 
-3.  Click **Select files to upload** on the Update File dialog box.
+    > **Hinweis:** In der Ansicht **Ich bearbeite** wird die von Ihnen zur Bearbeitung gesperrte Datei angezeigt.
 
-4.  Find and select the file that you want to upload from your computer.
+2.  Bewegen Sie den Mauszeiger auf die Datei und klicken Sie auf **Mehr** und dann auf **Neue Version hochladen**.
 
-    > **Note:** If you select a file with a different name or file type then this will be shown. You can continue as in the next step, cancel, or select a different file to upload. If you continue then the uploaded file name and/or file type will be used.
+3.  Klicken Sie im Dialogfeld **Datei aktualisieren** auf **Dateien zum Hochladen auswählen**.
 
-5.  Indicate if the revision is minor or major.
+4.  Suchen Sie die aus Ihrem Computer hochzuladenden Datei und wählen Sie sie aus.
 
-6.  In the **Comments** box, add any information that is relevant to the update.
+    > **Hinweis:** Wenn Sie eine Datei mit einem anderen Namen oder Dateityp auswählen, wird diese angezeigt. Sie können wie im nächsten Schritt fortfahren, abbrechen oder eine andere Datei zum Hochladen auswählen. Wenn Sie fortfahren, wird der hochgeladene Dateiname und/oder Dateityp verwendet.
 
-7.  Click **Upload**.
+5.  Geben Sie an, ob es sich um eine geringere oder größere Revision handelt.
 
-8.  When the progress bar shows that the upload is complete, click **OK**.
+6.  Fügen Sie im Feld **Kommentare** alle für die Aktualisierung relevanten Informationen hinzu.
 
-    Updating a locked file unlocks it and removes it from the **I'm Editing** view.
+7.  Klicken Sie auf **Hochladen**.
 
+8.  Gibt die Statusanzeige an, dass das Hochladen abgeschlossen ist, klicken Sie auf **OK**.
 
-## Downloading files {#downloading-files}
+    Mit der Aktualisierung einer gesperrten Datei wird diese entsperrt und aus der Ansicht **Ich bearbeite** entfernt.
 
-You can quickly download files from Alfresco Share so that you have a local copy.
 
-> **Important:** When you select a locked file you're actually downloading the last version that was added to Share, which might be out of date. The user who locked it for editing might have a more recent version of it outside Share.
+## Herunterladen von Dateien {#downloading-files}
 
-1.  Hover over a file/folder and click **Download** / **Download as Zip**.
+Sie können Dateien schnell aus Alfresco Share herunterladen, um eine lokale Kopie zu erstellen.
 
-    You are prompted to open or save the file. Depending on your browser settings, the file might be saved automatically to a default location on your computer.
+> **Wichtig:** Wenn Sie eine gesperrte Datei auswählen, laden Sie tatsächlich die letzte Version herunter, die Share hinzugefügt wurde. Diese ist möglicherweise veraltet. Der Benutzer, der sie zur Bearbeitung gesperrt hat, verfügt möglicherweise außerhalb von Share über eine neuere Version der Datei.
 
-2.  Save the file to your computer.
+1.  Bewegen Sie den Mauszeiger auf eine Datei/einen Ordner, und klicken Sie auf **Herunterladen**/**Als ZIP herunterladen**.
 
-    >**Tip:** You can also select multiple files and/or folders and **Download as Zip** from the **Selected Items** menu.
+    Sie werden aufgefordert, die Datei zu öffnen oder zu speichern. Abhängig von Ihren Browser-Einstellungen wird die Datei möglicherweise automatisch an einem Standardspeicherort auf Ihrem Computer gespeichert.
 
-    >**Tip:** If a file is a Microsoft Office, PDF, or other text-based file type (not an image or video) then you can also **Download** it in its original format or as a PDF on the file preview screen.
+2.  Speichern Sie die Datei auf Ihrem Computer.
 
+    >**Tipp:** Sie können auch mehrere Dateien und/oder Ordner auswählen und aus dem Menü **Ausgewählte Elemente** als **Zip herunterladen**.
 
-## Sharing files {#sharing-files}
+    >**Tipp:** Handelt es sich bei einer Datei um eine Microsoft Office-, PDF- oder andere textbasierte Datei (kein Bild oder Video), können Sie sie auch in ihrem Originalformat oder als PDF in die Dateivorschau **herunterladen**.
 
-You can easily share an file - even with people who don't have an Alfresco Share account. Clicking the **Share** action generates a URL that you can send by email or publish using social networking websites.
 
-People with access to the URL can view the file. Those with an Share account have the option of signing in; those without an account can create one.
+## Freigeben von Dateien {#sharing-files}
 
-This option is available in the Document Library Detailed view and on the file preview screen. In the Document Library graphical views click ![Information icon]({% link content-services/images/ico-information.png %}) to see the option.
+Sie können eine Datei problemlos freigeben, auch für Mitarbeiter, die kein Alfresco Share-Konto haben. Wenn Sie auf die Aktion **Freigeben** klicken, wird eine URL generiert, die Sie per E-Mail senden oder über soziale Netzwerke veröffentlichen können.
 
-1.  In the **Document Library** find the file you want to share.
+Mitarbeiter mit Zugriff auf die URL können die Datei anzeigen. Die Mitarbeiter mit einem Share-Konto können sich anmelden. Mitarbeiter ohne Konto können eines erstellen.
 
-    You can only share files, not folders.
+Diese Option ist in der detaillierten Ansicht der Dokumentenbibliothek und in der Dateivorschau verfügbar. Klicken Sie in den grafischen Ansichten der Dokumentenbibliothek auf ![Information icon]({% link content-services/images/ico-information.png %}), um die Option anzuzeigen.
 
-2.  Click ![Share icon]({% link content-services/images/ico-share.png %}) **Share**.
+1.  Suchen Sie in der **Dokumentenbibliothek** die freizugebende Datei.
 
-    A window appears displaying the URL for this file.
+    Sie können nur Dateien freigeben, keine Ordner.
 
-    >**Tip:** The **View** action lets you preview the file to ensure it is the content you want to share.
+2.  Klicken Sie auf **Freigeben** ![Share icon]({% link content-services/images/ico-share.png %}).
 
-3.  Click the icon that represents how you want to share the link.
+    Es wird ein Fenster mit der URL für diese Datei angezeigt.
 
-    > **Note:** You can also copy the link and paste it wherever you like, such as an email or document.
+    >**Tipp:** Mit der Aktion **Anzeigen** können Sie eine Vorschau der Datei anzeigen lassen, um sicherzustellen, dass es sich um den freizugebenden Inhalt handelt.
 
-    When you select a sharing option, a page relevant to your selection displays.
+3.  Klicken Sie auf das Symbol, das Ihre Freigabemethode widerspiegelt.
 
-4.  Complete the details on the page provided and share the link.
+    > **Hinweis:** Sie können den Link auf kopieren und an beliebiger Stelle einfügen, wie zum Beispiel in eine E-Mail oder ein Dokument.
 
-    -   Email: The email subject and body are pre-populated for you. Add a recipient and edit the message as necessary, then send.
-    -   Facebook: Write a comment to post with the link and select how you want to share it. Click **Share Link**.
-    -   Twitter: Edit the message as necessary and click **Tweet**.
-    -   Google+: Write a comment to post with the link and specify who you want to share it with. Click **Share**.
+    Wenn Sie eine Freigabeoption auswählen, wird eine Ihrer Auswahl entsprechende Seite angezeigt.
 
-    > **Tip:** If an file is a Microsoft Office, PDF, or other text-based file type (not an image or video) then you can also click ![Advanced Search icon]({% link content-services/images/ico-link.png %}) on the file preview to share a link to the item, and even select to **Link to current page**.
+4.  Geben Sie die Details in der angezeigten Seite ein und teilen Sie den Link.
 
-### Cancelling a shared link {#cancelling-a-shared-link}
+    -   E-Mail: Betreff und Text der E-Mail sind bereits für Sie ausgefüllt. Fügen Sie einen Empfänger hinzu und bearbeiten Sie gegebenenfalls die Nachricht und senden Sie sie dann.
+    -   Facebook: Schreiben Sie einen Kommentar, der mit dem Link gepostet werden soll, und geben Sie an, wie Sie ihn teilen möchten. Klicken Sie auf **Link teilen**.
+    -   Twitter: Bearbeiten Sie gegebenenfalls die Nachricht und klicken Sie auf **Tweet**.
+    -   Google+: Schreiben Sie einen Kommentar, der mit dem Link gepostet werden soll, und geben Sie an, mit wem Sie ihn teilen möchten. Klicken Sie auf **Freigeben**.
 
-When you don’t want your publicly shared file to be available anymore, you can break the link. Once you make the link invalid, anyone who tries to access it will be unable to reach the public page.
+    >**Tipp:** Wenn es sich bei einer Datei um einen Microsoft Office-, PDF- oder einen anderen textbasierten Dateityp handelt (nicht um ein Bild oder Video), können Sie auch in der Dateivorschau auf ![Advanced Search icon]({% link content-services/images/ico-link.png %}) klicken, um einen Link zum Element zu teilen, und sogar **Link für aktuelle Seite** auswählen.
 
-1.  Find the file you previously shared.
+### Abbrechen eines freigegebenen Links {#cancelling-a-shared-link}
 
-2.  Click **Shared**.
+Soll Ihr öffentlich freigegebener Link nicht mehr verfügbar sein, können Sie den Link aufheben. Nachdem Sie einen Link ungültig gemacht haben, kann niemand mehr auf die öffentliche Seite zugreifen.
 
-    The window displaying the item's URL appears.
+1.  Suchen Sie die zuvor freigegebene Datei.
 
-3.  Click **Unshare**.
+2.  Klicken Sie auf **Freigegeben**.
 
+    Das Fenster mit der URL des Elements wird angezeigt.
 
-## Applying aspects {#applying-aspects}
+3.  Klicken Sie auf **Freigabe aufheben**.
 
-You can use aspects to add extra functionality, properties, or options to files. Alfresco Share provides you with a list of default aspects.
 
-For a detailed list of aspects available and what they do, see [About aspects]({% link content-services/5.2/config/repository.md %}#about-aspects).
+## Anwenden von Aspekten {#applying-aspects}
 
-1.  Select a file to view it in the file preview screen.
+Mit Aspekten können Sie zusätzliche Funktionen, Eigenschaften oder Optionen zu Dateien hinzufügen. Alfresco Share stellt eine Liste der Standardaspekte bereit.
 
-2.  In the **Document Actions** list click **Manage Aspects**.
+Eine detaillierte Liste der verfügbaren Aspekte und ihrer Funktion finden Sie unter [Über Aspekte]({% link content-services/5.2/config/repository.md %}#about-aspects).
 
-    The Aspects page opens.
+1.  Wählen Sie eine Datei aus, um sie in der Dateivorschau zu öffnen.
 
-3.  In the **Available to Add** list click ![Add icon]({% link content-services/images/ico-add.png %}) next to the aspects you want to add to the file.
+2.  Klicken Sie in der Liste der Dokumentenaktionen auf **Aspekte verwalten**.
 
-    Click ![Delete icon]({% link content-services/images/ico-delete.png %}) to remove any existing aspects from the **Currently Selected** list.
+    Die Seite **Aspekte** wird geöffnet.
 
-4.  Click **Apply changes**.
+3.  Klicken Sie in der Liste **Verfügbar zum Hinzufügen** neben den Aspekten, die Sie der Datei hinzufügen möchten, auf ![Add icon]({% link content-services/images/ico-add.png %}).
 
-    The selected aspects are applied to the file. Additional properties added to the file are displayed on the file preview screen. You can edit these properties using **Edit Properties** under **Document Actions**. 
+    Klicken Sie auf ![Delete icon]({% link content-services/images/ico-delete.png %}), um alle vorhandenen Aspekte aus der Liste **Aktuell ausgewählt** zu entfernen.
 
+4.  Klicken Sie auf **Änderungen anwenden**.
 
-## Managing file and folder permissions {#managing-file-and-folder-permissions}
+    Die ausgewählten Aspekte werden auf die Datei angewendet. Der Datei hinzugefügte zusätzliche Eigenschaften werden in der Dateivorschau angezeigt. Sie können diese Eigenschaften mit **Eigenschaften bearbeiten** unter **Dokumentenaktionen** bearbeiten. 
 
-You can override the default site permissions for any content you add to the document library. This lets you control what site members can see and do with your content.
 
-Each user has an assigned role in the site - Manager, Collaborator, Contributor, or Consumer - and each role has a default set of permissions. This controls the actions site members can [perform in the site]({% link content-services/5.2-de/using/permissions.md %}#user-roles-and-permissions).
+## Verwalten von Datei- und Ordnerberechtigungen {#managing-file-and-folder-permissions}
 
-The Manage Permissions feature goes beyond the site permissions. It lets you override a user's site role for a particular content item or folder. This means you can give a site member either more or less access to specific content compared to what they can do with other content in the library.
+Sie können für alle Inhalte, die Sie der Dokumentenbibliothek hinzufügen, die standardmäßigen Site-Berechtigungen überschreiben. Hiermit können Sie steuern, was Site-Mitglieder sehen und welche Aktionen Sie für Ihren Inhalt ausführen können.
 
-This can be really useful to hide and restrict content to only a set group of site members.
+Jedem Benutzer ist in der Site eine Rolle zugewiesen: Manager, Mitarbeiter, Beitragender oder Verbraucher. Jede Rolle verfügt über einen Standardsatz Berechtigungen. Hiermit werden die Aktionen gesteuert, die Site-Mitglieder [auf der Site ausführen]({% link content-services/5.2/using/permissions.md %}#user-roles-and-permissions) können.
 
-> **Note:** Remember to keep your content secure. If you give someone access to a file or folder then they'll see the breadcrumb path to it, even when they don't have access to it's parent folder.
+Die Funktion **Berechtigungen verwalten** fällt nicht unter die Site-Berechtigungen. Hiermit können Sie die Site-Rolle eines Benutzers für ein bestimmtes Inhaltselement oder einen Ordner überschreiben. Das heißt, Sie können einem Site-Mitglied umfangreicheren oder weniger umfangreichen Zugriff auf bestimmten Inhalt geben als für andere Inhalte in der Bibliothek.
+
+Dies kann sehr hilfreich sein, um Inhalte auszublenden oder nur auf eine bestimmte Gruppe Site-Mitglieder zu beschränken.
+
+> **Hinweis:** Denken Sie daran, ihren Inhalt zu schützen. Falls Sie jemandem Zugriff auf eine Datei oder einen Ordner geben, sieht diese Person den Navigationsverlaufspfad dorthin, auch wenn sie keinen Zugriff auf den übergeordneten Ordner hat.
 
 ![Local permissions privacy]({% link content-services/images/local-permissions-privacy.png %})
 
-> **CAUTION:**
-> Don't give permissions to users who aren't a member of the site, as this can cause problems with the document library.
+> **ACHTUNG:**
+> Geben Sie Benutzern keine Berechtigungen, die keine Site-Mitglieder sind, da dies Probleme mit der Dokumentenbibliothek nach sich ziehen kann.
 
-1.  Hover over a file/folder in the library and click **More** then **Manage Permissions**.
+1.  Verschieben Sie den Mauszeiger auf eine Datei/einen Ordner in der Bibliothek und klicken Sie auf **Mehr** und dann auf **Berechtigungen verwalten**.
 
-2.  Manage the inherited permissions:
+2.  Verwalten Sie die geerbten Berechtigungen:
 
-    -   ![Inherit Permissions On]({% link content-services/images/ico-enabled-on.png %}) **Inherit Permissions** shows that permissions are being inherited from the parent folder. Click this button to ignore the inherited permissions.
-    -   ![Inherit Permissions Off]({% link content-services/images/ico-enabled-off.png %}) **Inherit Permissions** shows that permissions are not being inherited from the parent folder. Click this button to inherit the permissions.
-3.  Manage the local permissions:
+    -   **Berechtigungen erben Ein** ![Inherit Permissions On]({% link content-services/images/ico-enabled-on.png %}) gibt an, dass Berechtigungen vom übergeordneten Ordner geerbt werden. Klicken Sie auf diese Schaltfläche, um die vererbten Berechtigungen zu ignorieren.
+    -   **Berechtigungen erben Aus** ![Inherit Permissions Off]({% link content-services/images/ico-enabled-off.png %}) gibt an, dass keine Berechtigungen vom übergeordneten Ordner geerbt werden. Klicken Sie auf diese Schaltfläche, um die Berechtigungen zu erben.
+3.  Verwalten Sie die lokalen Berechtigungen:
 
-    1.  Click **Add User**.
+    1.  Klicken Sie auf **Benutzer hinzufügen**.
 
-    2.  Search for the user you want to define permissions for.
+    2.  Suchen Sie nach dem Benutzer, für den Sie Berechtigungen definieren möchten.
 
-    3.  Click **Search** or press ENTER.
+    3.  Klicken Sie auf **Suche** oder drücken Sie die EINGABETASTE.
 
-        The search returns a list of users.
+        Die Suche liefert eine Liste mit Benutzern.
 
-    4.  Click **Add** to place a user in the Locally Set Permissions table. The user is given the role Consumer.
+    4.  Klicken Sie auf **Hinzufügen**, um einen Benutzer der Tabelle **Lokal eingestellte Berechtigungen** hinzuzufügen. Dem Benutzer erhält die Rolle **Verbraucher**.
 
-    5.  Change the role as needed.
+    5.  Ändern Sie die Rolle nach Bedarf.
 
-    6.  Repeat this step to add more users and set their permissions for the same content.
+    6.  Wiederholen Sie diesen Schritt, um weitere Benutzer hinzuzufügen und ihre Berechtigungen für denselben Inhalt festzulegen.
 
-        > **Note:** To revoke the permissions for a user, click **Delete** in the Actions column.
+        > **Hinweis:** Möchten Sie die Berechtigungen für einen Benutzer rückgängig machen, klicken Sie in der Spalte **Aktionen** auf **Löschen**.
 
-4.  Click **Save**.
-
-
-## Becoming content owner {#becoming-content-owner}
-
-You can take ownership of files and folders from other users.
-
-You may need to do this if someone who owned a file or folder has left your company and you need to take responsibility for it.
-
-> **Note:** You need to be a Site Manager or have permission to delete a file or folder to become its owner, see [User roles and permissions]({% link content-services/5.2-de/using/permissions.md %}#user-roles-and-permissions).
-
-1.  Click on a file to open the file preview.
-
-    >**Tip:** If you're taking ownership of a folder you need to hover over it then select **View Details**.
-
-2.  Click **Become Owner** and select **OK**.
-
-    You now have full ownership rights of the file / folder.
+4.  Klicken Sie auf **Speichern**.
 
 
-## Changing the content type {#changing-the-content-type}
+## Inhaltseigentümer werden {#becoming-content-owner}
 
-You can change an file's content type from its default to a more specific value.
+Sie können das Eigentum an Dateien und Ordnern von anderen Benutzern übernehmen.
 
-You can only change the content type if your Alfresco administrator has configured content type properties so that you can enhance a file by giving it a type (for example, changing a standard document to a policy document).
+Dies kann notwendig werden, wenn jemand, der das Eigentum an einer Datei oder einem Ordner hatte, das Unternehmen verlassen hat und Sie die Verantwortung dafür übernehmen müssen.
 
-1.  Click on a file to view it in the file preview screen.
+> **Hinweis:** Sie müssen Site-Manager sein oder die Berechtigung zum Löschen einer Datei oder eines Ordners haben, um Eigentümer zu werden, siehe [Benutzerrollen und Berechtigungen]({% link content-services/5.2/using/permissions.md %}#user-roles-and-permissions).
 
-2.  In the **Document Actions** list click **Change Type**.
+1.  Klicken Sie auf eine Datei, um die Dateivorschau zu öffnen.
 
-    The Change Type dialog box appears.
+    >**Tipp:** Wenn Sie das Eigentum an einem Ordner übernehmen, müssen Sie den Mauszeiger darauf verschieben und **Details anzeigen** auswählen.
 
-3.  Select the required type.
+2.  Klicken Sie auf **Eigentümer werden** und wählen Sie **OK**.
 
-    > **Note:** The **New Type** list is empty until types are defined by an Alfresco administrator.
+    Sie haben nun die vollen Eigentumsrechte an der Datei/dem Ordner.
 
-4.  Click **OK**.
 
-    When you give a file a type property it is shown on both the file preview screen and the Edit Properties screen for the file.
+## Ändern des Inhaltstyps {#changing-the-content-type}
 
-### Working with replicated content {#working-with-replicated-content}
+Sie können den Inhaltstyp einer Datei von der Standardeinstellung in einen spezifischeren Wert ändern.
 
-Alfresco Content Services administrators can configure Alfresco Content Services systems so that content is replicated across multiple repositories. Files and folders created as the result of a replication job display the **Transferred from another Repository** icon in the file list.
+Sie können den Inhaltstyp nur ändern, wenn Ihr Alfresco-Administrator die Inhaltstyp-Eigenschaften so konfiguriert hat, dass Sie eine Datei durch die Angabe eines Typs optimieren können (z. B. Ändern eines Standarddokuments in ein Richtliniendokument).
 
-This icon indicates that this is replicated, not original, content. Depending on the transfer configuration, the content can be read-only.
+1.  Klicken Sie auf eine Datei, um sie in der Dateivorschau zu öffnen.
 
-Content marked with this icon also displays the action **View in Source Repository**. Select this action to display the file preview screen for the related *original* content file or folder.
+2.  Klicken Sie in der Liste **Dokumentaktionen** auf **Typ ändern**.
+
+    Das Dialogfeld **Typ ändern** wird aufgerufen.
+
+3.  Wählen Sie den gewünschten Typ aus.
+
+    > **Hinweis:** Die Liste **Neuer Typ** ist leer. Typen müssen zunächst von einem Alfresco-Administrator definiert werden.
+
+4.  Klicken Sie auf **OK**.
+
+    Wenn Sie einer Datei eine Typ-Eigenschaft zugewiesen haben, wird diese sowohl in der Dateivorschau als auch im Bildschirm **Eigenschaften bearbeiten** für die Datei angezeigt.
+
+### Arbeiten mit replizierten Inhalten {#working-with-replicated-content}
+
+Alfresco Content Services-Administratoren können Alfresco Content Services-Systeme so konfigurieren, dass Inhalte über mehrere Repositorys hinweg repliziert werden. Für Dateien und Ordner, die als Ergebnis eines Replikationsjobs erstellt wurden, wird das Symbol **Aus einem anderen Repository übertragen** in der Dateiliste angezeigt.
+
+Dieses Symbol zeigt an, dass es sich um replizierten und nicht den ursprünglichen Inhalt handelt. Je nach Übertragungskonfiguration kann der Inhalt schreibgeschützt sein.
+
+Inhalte, die mit diesem Symbol gekennzeichnet sind, zeigen auch die Aktion **In Quell-Repository anzeigen** an. Wählen Sie diese Aktion, um den Dateivorschaubildschirm für die zugehörige **ursprüngliche** Inhaltsdatei oder den zugehörigen Ordner anzuzeigen.

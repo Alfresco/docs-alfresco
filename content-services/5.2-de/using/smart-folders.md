@@ -1,102 +1,102 @@
 ---
-title: Using Smart Folders
+title: Verwenden von Smart-Folders
 ---
 
-A Smart Folder is a way of grouping files from different locations in Alfresco Share into a single folder, so that you can quickly find similar files.
+Ein Smart-Folder ist eine Möglichkeit, Dateien aus verschiedenen Speicherorten in Alfresco Share in einem einzelnen Ordner zu gruppieren, so dass Sie schnell ähnliche Dateien finden können.
 
-A search runs when you open the contents of the Smart Folder, and the results are displayed. It is “smart”, because there is no physical folder to represent it in the repository.
+Beim Öffnen des Smart-Folder-Inhalts wird eine Suche durchgeführt und die Ergebnisse werden angezeigt. Der Ordner ist smart, d. h. **intelligent**, da ihm kein physischer Ordner im Repository entspricht.
 
-For example, a Smart Folder called My video files might be created to contain all files that I created that have a video format. Every time I open the My video files folder, the search runs, and all my video files are available in that folder, wherever in the repository I have created them.
+Sie können beispielsweise einen Smart-Folder mit den Namen **Meine Videodateien** erstellen, der alle von Ihnen erstellten Dateien mit einem Videoformat enthält. Immer dann, wenn Sie den Ordner **Meine Videodateien** öffnen, wird eine Suche durchgeführt, und alle Videodateien sind in diesem Ordner verfügbar, unabhängig davon, wo sie im Repository erstellt wurden.
 
-You might not even know that you are using Smart Folders. If you see this icon, ![Folder with a magnifying glass representing a Smart Folder]({% link content-services/images/sf.png %}), then the folder is smart. Files are also automatically classified when they're uploaded into these folders.
+Sie sind sich möglicherweise noch nicht einmal bewusst, dass Sie Smart-s verwenden. Sobald Sie das Symbol ![Folder with a magnifying glass representing a Smart Folder]({% link content-services/images/sf.png %}) sehen, ist der Ordner ein smarter Ordner. Dateien werden darüber hinaus automatisch klassifiziert, wenn sie in diese Ordner hochgeladen werden.
 
-The diagram shows a physical file system, and how a Smart Folder structure is created to contain files relevant to a particular customer:![Physical repository shown on the left with folders and files that relate to a customer.  these are brought together into a new Smart Folder structure in Alfresco]({% link content-services/images/sf-mapping.png %})
+Das folgende Diagramm zeigt ein physisches Dateisystem und stellt dar, wie eine Smart-Folder-Struktur erstellt wird, die die für einen bestimmten Kunden relevanten Dateien enthält: ![Physical repository shown on the left with folders and files that relate to a customer.  these are brought together into a new Smart Folder structure in Alfresco]({% link content-services/images/sf-mapping.png %})
 
-Smart Folders have a limited set of actions:
+Smart-Folders verfügen über eine begrenzte Anzahl von Aktionen:
 
--   Add/Create: You can add files to a Smart Folder. The file is put into a physical folder, as specified by the filing rule.
--   Update: You can update files in a Smart Folder. Updating a property might result in a file being removed from the current Smart Folder (because it no longer meets the query criteria).
--   Delete, Edit Properties, Unzip To, Sync, Locate To, Move, and Copy actions for files are not supported.
+-   Hinzufügen/Erstellen: Sie können einem Smart-Folder Dateien hinzufügen. Die Datei wird gemäß der Definition in der Filing-Regel in einem physischen Ordner abgelegt.
+-   Aktualisieren: Sie können die Dateien in einem Smart-Folder aktualisieren. Das Aktualisieren einer Eigenschaft kann dazu führen, dass eine Datei aus dem aktuellen Smart-Folder entfernt wird (da sie nicht mehr den Suchkriterien entspricht).
+-   Aktionen zum Löschen, Bearbeiten von Eigenschaften, Entzippen, Synchronisieren, Suchen, Verschieben und Kopieren von Dateien werden nicht unterstützt.
 
-The Smart Folder itself can't be edited in Alfresco Content Services, except through the Smart Folder Template. For more information about Smart Folder Templates, see [Applying a Smart Folder Template](#applying-a-smart-folder-template).
+Der Smart-Folder selbst kann in Alfresco Content Services nicht bearbeitet werden, außer über die Vorlage für Smart-Folder. Weitere Informationen zu Vorlagen für Smart-Folder finden Sie unter [Anwenden von Vorlagen für Smart-Folder](#applying-a-smart-folder-template).
 
-Your system administrator creates templates that you can load for different purposes, for example; a structure for a claim, or to file PDF files separately from video or audio files, or just to personalise the folder structure by user.
+Ihr Systemadministrator erstellt Vorlagen, die Sie für verschiedene Zwecke laden können, z. B. eine Struktur für einen Anspruch oder zum Ablegen von PDF-Dateien getrennt von Video- oder Audiodateien, oder um die Ordnerstruktur einfach entsprechend den einzelnen Benutzern zu personalisieren.
 
-Take a look at the videos to learn more: [Smart Folders videos]({% link content-services/5.2-de/tutorial/video/content.md %}#smart-folders-videos)
+Werfen Sie einen Blick auf die Videos, um mehr zu erfahren: [Videos zu Smart-Folders]({% link content-services/5.2/tutorial/video/content.md %}#smart-folders-videos)
 
-System administrators and business analysts can find more information here: [Configuring Smart Folders]({% link content-services/5.2/config/smart-folders/index.md %}#configuring-smart-folders) and in the tutorial: [Smart Folders tutorial]({% link content-services/5.2-de/tutorial/smart.md %}#smart-folders-tutorial).
+Systemadministratoren und Business-Analysten erhalten hier weitere Informationen: [Konfigurieren von Smart-Folders]({% link content-services/5.2/config/smart-folders/index.md %}#configuring-smart-folders) und im Tutorial: [Tutorial für Smart-Folders]({% link content-services/5.2/tutorial/smart.md %}#smart-folders-tutorial).
 
-## Applying a Smart Folder Template
+## Anwenden von Vorlagen für Smart-Folders
 
-You can apply a Smart Folder structure to a physical folder by using aspects.
+Sie können eine Smart-Folder-Struktur auf einen physischen Ordner anwenden, indem Sie Aspekte verwenden.
 
-1.  In a site, select Document Library.
+1.  Wählen Sie in einer Site die Option **Dokumentenbibliothek**.
 
-2.  Click Create, then Folder to create a new folder. Enter the folder name and Save.
+2.  Klicken Sie auf **Erstellen** und anschließend auf **Ordner**, um einen neuen Ordner zu erstellen. Geben Sie den Ordnernamen ein und wählen Sie **Speichern**.
 
-    Alternatively, select an existing physical folder. A physical folder is one that you have created: ![Physical folder icon]({% link content-services/images/folder.png %})
+    Alternativ können Sie auch einen vorhandenen physischen Ordner auswählen. Ein physischer Ordner ist ein Ordner, den Sie angelegt haben: ![Physical folder icon]({% link content-services/images/folder.png %})
 
-3.  Hover over the folder and from the menu, select More, then Manage Aspects.
+3.  Führen Sie den Mauszeiger über den Ordner. Wählen Sie im Menü die Option **Mehr** und anschließend **Aspekte verwalten**.
 
-4.  In the Select Aspects window, add one or more of the predefined Smart Folder aspects (System Smart Folder or Custom Smart Folder depending on the templates added by your organization), and Save.
+4.  Fügen Sie im Fenster **Aspekte auswählen** einen oder mehrere vordefinierte Aspekte für Smart-Folder hinzu (System-Smart-Folder oder Parametrierter Smart-Folder – abhängig von den Vorlagen, die Ihr Unternehmen hinzugefügt hat), und wählen Sie **Speichern**.
 
-    Ask your business analyst or system administrator whether System or Custom Smart Folders are set up for your organization.
+    Fragen Sie Ihren Business Analyst oder Systemadministrator, ob für Ihr Unternehmen System-Smart-Folder oder parametrierte Smart-Folder eingerichtet wurden.
 
-5.  Hover again over the new folder and from the menu, select Edit Properties, and All Properties. Select the Smart Folder Template that you want, and Save.
+5.  Führen Sie den Mauszeiger erneut über den neuen Ordner. Wählen Sie im Menü die Option **Eigenschaften bearbeiten** und anschließend **Alle Eigenschaften**. Wählen Sie die gewünschte Vorlage für Smart-Folder aus und wählen Sie **Speichern**.
 
-    If your system administrator has created templates for your organization, you can find these by drilling down to Data Dictionary/Smart Folder Templates.
+    Wenn Ihr Systemadministrator Vorlagen für Ihr Unternehmen erstellt hat, können Sie diese über einen Drilldown in **Datenverzeichnis/Vorlage für Smart-Folder** suchen.
 
-    System administrators can find more information about the templates here: [Enabling Smart Folders]({% link content-services/5.2/config/smart-folders/index.md %}#enabling-smart-folders).
+    Systemadministratoren finden hier weitere Informationen zu den Vorlagen: [Aktivieren von Smart-Folders]({% link content-services/5.2/config/smart-folders/index.md %}#enabling-smart-folders).
 
-    The physical folder that you selected now has a Smart Folder structure under it, containing files that apply to the search criteria in the Smart Folders Template. For example, if you apply the standard smartFoldersExample.json template, you have a number of folders:
+    Der physische Ordner, den Sie ausgewählt haben, weist nun eine Smart-Folder-Struktur auf, die Dateien enthält, welche den Suchkriterien in der Smart-Folders-Vorlage entsprechen. Wenn Sie die Standardvorlage **smartFoldersExample.json** verwenden, sind mehrere Ordner verfügbar:
 
-    -   My Content: every file in the repository, containing:
-    -   All site content (Documents and Multimedia Files, filed according to type)
-    -   This folder's content (Documents and Multimedia Files, filed according to type)
-    -   Contributions
-    -   My content modified by other users
-    -   User home
-    -   Tagged 'Confidential'
+    -   Mein Inhalt – jede Datei im Repository, die folgende Elemente enthält:
+    -   Alle Site-Inhalte (Dokumente und Multimedia-Dateien, nach Typ archiviert)
+    -   Die Inhalte dieses Ordners (Dokumente und Multimedia-Dateien, nach Typ archiviert)
+    -   Beiträge
+    -   Mein Inhalt, von anderen Benutzern geändert
+    -   Benutzer-Home
+    -   Getagged mit **Vertraulich**
 
-    Folders contain files according to what files you have in your site. For example, if you have created audio files in the site, you will see these if you drill down to All site content/Multimedia Files/Audio content and any specific to this physical folder in This folder's content/Multimedia Files/Audio content. Any of your files that are marked as Confidential in the metadata appear in the Tagged 'Confidential' folder.
+    Die in den Ordnern enthaltenen Dateien hängen von den Dateien ab, die auf Ihrer Site verfügbar sind. Beispiel: Wenn Sie Audiodateien auf der Site erstellt haben, werden diese angezeigt, wenn Sie einen Drilldown in **Alle Site-Inhalte/Multimedia-Dateien/Audioinhalt** ausführen, sowie alle anderen Dateien, die diesem physischen Ordner in **Inhalt dieses Ordners/Multimedia-Dateien/Audioinhalt** zugeordnet sind. Alle Dateien, die in den Metadaten als vertraulich gekennzeichnet sind, werden im Ordner **Vertraulich** angezeigt.
 
-## Smart Folders FAQs
+## Häufig gestellte Fragen zu Smart-Folders
 
-If you have any problems with Smart Folders, try these suggestions to resolve your issue.
+Sollten Probleme mit Smart-Folders auftreten, lesen Sie die folgenden Ratschläge zur Lösung des Problems.
 
-**What are the main features of Smart Folders?**
+**Was sind die wichtigsten Funktionen von Smart-Folders?**
 
-With Smart Folders you can:
+Smart-Folders bieten die folgenden Möglichkeiten:
 
--   Find content by what it is, not where it is stored
--   Define stored searches in a template and display them in a hierarchical folder tree
--   Run a search when you open a folder and the results are displayed as the "folder's content"
--   Federate content that is distributed across the repository into a single view or Smart Folder
--   Provide one or more metadata-driven taxonomies to build a folder tree, so that any folder or file can be displayed in multiple folders, appropriate to the business context without the need for filing
--   Automatically classify new files and inherit or map metadata to the file itself
--   Easily replicate Smart Folder structures
--   Apply to existing content without the need to restart Alfresco Content Services
+-   Suchen von Inhalten anhand des Inhalts und nicht des Speicherorts
+-   Definieren von gespeicherten Inhalten in einer Mustervorlage und deren Anzeige in einer hierarchischen Ordnerstruktur
+-   Durchführen einer Suche beim Öffnen eines Ordners; die Ergebnisse werden als **Ordnerinhalt** angezeigt
+-   Zusammenführen von Inhalten, die im Repository verteilt sind, in einer einzigen Ansicht oder einen Smart-Folder
+-   Bereitstellen von einer oder mehreren metadatengesteuerte Taxonomien, um eine Ordnerstruktur zu erstellen, so dass jeder Ordner und jede Datei dem jeweiligen Geschäftskontext entsprechend und ohne Filing in mehreren Ordnern angezeigt werden kann
+-   Automatisches Klassifizieren neuer Dateien oder Vererben/Zuordnen von Metadaten an die Datei
+-   Einfaches Replizieren von Smart-Folder-Strukturen
+-   Anwenden auf vorhandene Inhalte, ohne Alfresco Content Services neu zu starten
 
-**Can I delete a file from a Smart Folder?**
+**Kann ich eine Datei aus einem Smart-Folder löschen?**
 
-No, you can't. This option is not available. You must delete the file from it's physical location, or edit the properties so that it does not meet the filing criteria for the Smart Folder.
+Nein, das ist nicht möglich. Diese Option ist nicht verfügbar. Sie müssen die Datei an ihrem physischen Speicherort löschen oder die Eigenschaften bearbeiten, damit sie nicht den Filing-Kriterien für den Smart-Folder entsprechen.
 
-**Can I create a new folder or file inside a Smart Folder?**
+**Kann ich einen neuen Ordner oder eine Datei innerhalb eines Smart-Folders erstellen?**
 
-You can create a new file, but not a folder. The file is put into a physical folder, as specified by the filing rule.
+Sie können eine neue Datei, aber keinen Ordner erstellen. Die Datei wird gemäß der Definition in der Filing-Regel in einem physischen Ordner abgelegt.
 
-**Can I update a file in a Smart Folder?**
+**Kann ich eine Datei in einem Smart-Folder aktualisieren?**
 
-Yes you can, but if you change the properties of the file, it might cause the file to move out of the Smart Folder.
+Ja, das ist möglich. Wenn Sie die Eigenschaften der Datei ändern, kann dies jedoch möglicherweise dazu führen, dass die Datei aus dem Smart-Folder verschoben wird.
 
-No, you can't. The file does not physically live in that folder so can't be moved or copied.
+Nein, das ist nicht möglich. Die Datei ist nicht physisch in diesem Ordner vorhanden. Daher kann sie auch nicht verschoben oder kopiert werden.
 
-**Why can't I like or favorite a Smart Folder?**
+**Warum kann ich einen Smart Folder nicht mit **Gefällt mir** oder als Favorit markieren?**
 
-You can't perform certain folder actions with Smart Folders; for example, Favorite, Like and Comment options are not available (because the folder does not physically exist).
+Bestimmte Ordneraktionen werden für Smart-Folders nicht unterstützt. So sind beispielsweise die Optionen **Favorit**, **Gefällt mir** und **Kommentar** nicht verfügbar (da der Ordner physische nicht existiert).
 
-Other actions that are not available include Delete, Move to, Copy to, Upload, and Create.
+Weitere nicht verfügbare Aktionen sind **Löschen**, **Verschieben nach**, **Kopieren nach**, **Hochladen** und **Erstellen**.
 
-**Why is a new file not showing in a Smart Folder?**
+**Warum wird eine neue Datei nicht in einem Smart-Folder angezeigt?**
 
-It can take a few seconds for a new file to appear in the Smart Folder. This often happens if the index is not up-to-date. Check with your system administrator if you are having problems.
+Es kann einige Sekunden dauern, bis eine neue Datei im Smart-Folder angezeigt wird. Dies ist häufig der Fall, wenn der Index veraltet ist. Wenden Sie sich bei Problemen an Ihren Systemadministrator.
