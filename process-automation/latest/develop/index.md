@@ -484,7 +484,7 @@ To activate the new columns edit the [process-list-cloud-ext.component](https://
 ### Add a column in the process list using a custom template
 
 To display a process list with a custom column template you first need to create a custom component.
-For example, to create custom templates for the process name, status properties, edit the `process-services-cloud.extension.json` file in the following way.
+For example, to create custom templates for the process name, and status properties, edit the `process-services-cloud.extension.json` file in the following way.
 
 ```typescript
 import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
