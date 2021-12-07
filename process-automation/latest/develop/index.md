@@ -92,7 +92,7 @@ Once the extended Digital Workspace has been fully customized and tested it can 
 
 The Digital Workspace provides a default group of columns for your task list. The columns can be changed and configured in the `process-services-cloud.extension.json` file of the [Process Services Cloud extension library](https://github.com/Alfresco/alfresco-apps/tree/develop/libs/content-ee/process-services-cloud-extension){:target="_blank"}.
 
-Task list with default columns preset.
+Here is an example of a task list with default columns preset:
 
 ```json
 {
