@@ -510,9 +510,7 @@ When you click on a linked file or folder, or select **Locate Linked Item**, the
 
 > **Note:** You can hover over a link and select **Delete Link** to remove it
 
-CAUTION:
-
-If you're using something other than Alfresco Share to access content, for example Alfresco Desktop Sync, then linked files might not be visible.
+> **CAUTION:** If you're using something other than Alfresco Share to access content, for example Alfresco Desktop Sync, then linked files might not be visible.
 
 
 

@@ -10,7 +10,7 @@ The second is content items such as documents, spreadsheets, or images that are 
 
 So now that you know the differences in content types, it's time to start adding content to your site.
 
-## Content
+## Content {#content}
 
 A site document library is where you store and manage content, such as documents, images, and videos.
 
@@ -30,7 +30,7 @@ Access the site Document Library to view and work with the content in the curren
 
     The item list takes up most of the library main page. You can filter the item list and navigate the library using the explorer panel on the left side of the page.
 
-2.  By default items are shown in the **Detailed View**. Click **Options** to select a different view, see [Library Options]({% link content-services/5.2/using/content/index.md %}#library-view-options) for more details.
+2.  By default items are shown in the **Detailed View**. Click **Options** to select a different view, see [Library Options](#library-view-options) for more details.
 
     > **Note:** In the **Options** menu you can also show and hide folders, switch to fullscreen view, and set up an RSS feed.
 
@@ -96,7 +96,7 @@ For each piece of content (folders and files) you view in the**Document Library*
 
 All files and folders have multiple options that are displayed when you hover over them.
 
-## Library view options
+## Library view options {#library-view-options}
 
 The **Options** menu in the **Document Library** lets you customize how you view content.
 
@@ -131,7 +131,7 @@ In the **Options** menu you can also show and hide folders or the breadcrumb tra
 
 You can even set up an **RSS Feed** for the folder, see [Subscribing to an RSS feed]({% link content-services/5.2/using/share.md %}#subscribing-to-an-rss-feed).
 
-## Working with files outside the library
+## Working with files outside the library {#working-with-files-outside-the-library}
 
 While the Document Library is the focal point for working with content in Alfresco Share, there are also a few other areas available to you.
 
@@ -151,7 +151,7 @@ So rather than saving content on your laptop or tablet, you can save it in Share
 
 You can access the **My Files** area from anywhere in Share by clicking **My Files** at the top of the screen.
 
-The functionality available in the **My Files** area is identical to what you find in the Document Library, see [Working with content in a library]({% link content-services/5.2/using/content/index.md %}#content) for details.
+The functionality available in the **My Files** area is identical to what you find in the Document Library, see [Working with content in a library](#content) for details.
 
 ## Shared Files
 
@@ -161,7 +161,7 @@ Any content that you create or add to **Shared Files** is visible to all other u
 
 You can access the **Shared Files** area from anywhere in Share by clicking **Shared Files** at the top of the screen.
 
-The functionality available in the **Shared Files** area is identical to what you find in the Document Library, see [Working with content in a library]({% link content-services/5.2/using/content/index.md %}#content) for details.
+The functionality available in the **Shared Files** area is identical to what you find in the Document Library, see [Working with content in a library](#content) for details.
 
 ## Repository
 
@@ -173,4 +173,4 @@ The **Repository** includes all of the usual document library functionality with
 
 Just as in a document library, the explorer panel includes navigation and filtering options. This lets you filter the repository contents by category or tag, or you can browse the repository file structure. You can also choose to view the content items currently checked out to you (**I'm Editing** view) or those that you've specifically flagged as favorites (**My Favorites** view).
 
-The functionality available within the Repository library is identical to what you find in a site library. See [Working with content in a library]({% link content-services/5.2/using/content/index.md %}#content) for details on performing specific actions within the **Repository**.
+The functionality available within the Repository library is identical to what you find in a site library. See [Working with content in a library](#content) for details on performing specific actions within the **Repository**.

@@ -143,7 +143,7 @@ Any site member can schedule an event in the site calendar. The event appears in
 
 8.  Optionally, select a folder to indicate to users where material related to the event is located:
 
-    > **Note:** The Related Content section is not visible by default. Contact your system administrator to update <configRootShare>/classes/alfresco/site-webscripts/org/alfresco/modules/create-event.get.properties and <configRootShare>/classes/alfresco/site-webscripts/org/alfresco/components/calendar/info.get.properties if you cannot see this feature.
+    > **Note:** The Related Content section is not visible by default. Contact your system administrator to update `<configRootShare>/classes/alfresco/site-webscripts/org/alfresco/modules/create-event.get.properties` and `<configRootShare>/classes/alfresco/site-webscripts/org/alfresco/components/calendar/info.get.properties` if you cannot see this feature.
 
     1.  In the Related Content section, click **Browse**.
 
@@ -176,7 +176,7 @@ Edit a scheduled event to change any of the details, including the location, dat
 
 4.  Add or change the library folder in the Related Content section to indicate where related event material is located.
 
-    > **Note:** The Related Content section is not visible by default. Contact your system administrator to update <configRootShare>/classes/alfresco/site-webscripts/org/alfresco/modules/create-event.get.properties and <configRootShare>/classes/alfresco/site-webscripts/org/alfresco/components/calendar/info.get.properties if you cannot see this feature.
+    > **Note:** The Related Content section is not visible by default. Contact your system administrator to update `<configRootShare>/classes/alfresco/site-webscripts/org/alfresco/modules/create-event.get.properties` and `<configRootShare>/classes/alfresco/site-webscripts/org/alfresco/components/calendar/info.get.properties` if you cannot see this feature.
 
 5.  Click **Save**.
 
@@ -339,7 +339,7 @@ You can create a new wiki page from both the wiki list and the page view.
 
 2.  Type a **Title** for the page.
 
-    The **Title** does not support the following special characters: \ / . ? # and |. When the title contains a disallowed character the **Save** button is disabled.
+    The **Title** does not support the following special characters: `\ / . ? #` and `|`. When the title contains a disallowed character the **Save** button is disabled.
 
     > **Note:** The title can include a period as long as it is not the last character.
 
@@ -417,7 +417,7 @@ You rename a wiki page in the page view.
 
 4.  Type the new name for the wiki page.
 
-    The wiki page title does not support the following special characters: \ / . ? # and |. When the title contains a disallowed character the **Save** button is disabled.
+    The wiki page title does not support the following special characters: `\ / . ? #` and `|`. When the title contains a disallowed character the **Save** button is disabled.
 
     > **Note:** The title can include a period as long as it is not the last character.
 

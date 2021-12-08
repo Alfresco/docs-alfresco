@@ -21,11 +21,11 @@ You can either:
 
 -   Press Enter (with the cursor in the search box) to view all the [search results](#search-results) for all files found by your search.
 
-> **Note:** Wiki pages and blog postings are shown under along with other files. Previews aren't shown for calendar events, site-related web links, discussion topics, or data lists and list items. You need to press Enter to search for them.
+> **Note:** Wiki pages and blog postings are shown under along with other files. Previews aren't shown for calendar events, site-related web links, discussion topics, or data lists and list items. You need to press **Enter** to search for them.
 
 ## Search results {#search-results}
 
-If you press Enter in the Search box then all the files and folders found by your search are shown.
+If you press **Enter** in the Search box then all the files and folders found by your search are shown.
 
 You can now:
 

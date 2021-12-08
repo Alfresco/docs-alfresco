@@ -55,7 +55,7 @@ At the top of your site dashboard are tabs for areas of your site. By default yo
 
 2.  Drag the Wiki and Calendar icons down into the Current Site Pages area, and click **OK**.
 
-    > **Note:** Take a look at [(Alfresco site features)]({% link content-services/5.2/using/sites/features.md %}#site-features) for more details on these features.
+    > **Note:** Take a look at [Alfresco site features]({% link content-services/5.2/using/sites/features.md %}#site-features) for more details on these features.
 
 
 Back on the site dashboard you can see that the wiki and calendar have been added. You now have a site set up! It's time to start adding some content...
@@ -76,9 +76,9 @@ Now that you've created a site and added content, the next step is to invite oth
 
 4.  Click **Select Role** and select **Collaborator**.
 
-    > **Note:** You can set different roles for different users; take a look at the Alfresco Share [User roles and permissions]({% link content-services/5.2/using/permissions.md %}#user-roles-and-permissions) for more details on user roles.
+    > **Note:** You can set different roles for different users; take a look at the Alfresco Share [User roles and permissions]({% link content-services/5.2/using/permissions.md %}) for more details on user roles.
 
-5.  Click Add Users.
+5.  Click **Add Users**.
 
 
 An email notification is sent to each person that you invited and they can start using the site immediately.
@@ -242,11 +242,7 @@ As well as giving you an overview of activity and information on Alfresco Share,
 
 >**Tip:** When a user name, site name, or item appears as a link, you can click it to navigate to the related page. When you hover over some dashlets additional options are displayed.
 
-> **Note:**
-
-The RSS Feed, Alfresco Add-ons RSS Feed, and Web View site dashlets on the site dashboard are identical to those on your personal dashboard.
-
-The My Discussions, Site Search, and Saved Search dashlets are identical to those on your user dashboard, but on the site dashboard the results displayed are specific to the current site.
+> **Note:** The RSS Feed, Alfresco Add-ons RSS Feed, and Web View site dashlets on the site dashboard are identical to those on your personal dashboard. The My Discussions, Site Search, and Saved Search dashlets are identical to those on your user dashboard, but on the site dashboard the results displayed are specific to the current site.
 
 Any combination of the site dashlets can appear on the dashboard:
 
@@ -606,7 +602,7 @@ You can add any user, either internal to your organization or an external user.
 
 4.  Set the site role for each user, or use **Set all roles to** to assign the same role to all users. This controls what the user can do in the site.
 
-    >**Tip:** See [User roles and permissions]({% link content-services/5.2/using/permissions.md %}#user-roles-and-permissions) for more about site roles.
+    >**Tip:** See [User roles and permissions]({% link content-services/5.2/using/permissions.md %}) for more about site roles.
 
     Once you've selected site roles for all the users you've selected, the **Add Users** button will be switched on.
 
@@ -654,7 +650,7 @@ Inviting users one at a time to join your site can be time consuming. To save ti
 
 5.  Set the site role for each group, or use **Set all roles to** to assign the same role to all groups. This controls what the groups users can do in the site.
 
-    >**Tip:** See [User roles and permissions]({% link content-services/5.2/using/permissions.md %}#user-roles-and-permissions) for more about site roles.
+    >**Tip:** See [User roles and permissions]({% link content-services/5.2/using/permissions.md %}) for more about site roles.
 
     Once you've selected site roles for all the groups you've selected, the **Add Groups** button will be switched on.
 

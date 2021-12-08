@@ -54,7 +54,7 @@ Your administrator can map the repository so that you can access your content us
 -   `__ShowDetails.exe`
 -   `__Share.url`
 
-> **Note:** The Share.url is only available within site folders, rather than everywhere in the repository.
+> **Note:** The `Share.url` is only available within site folders, rather than everywhere in the repository.
 
 You can use these files to add content to the repository, check documents in and out, view document details, and open Alfresco Share in a browser window.
 
@@ -74,13 +74,13 @@ You can easily drag and drop content to the repository from outside Share.
 
 ### Check out files from outside Alfresco Share {#check-out-files-from-outside-alfresco-share}
 
-You can use the CheckInOut.exe to check content out so that you can work on it securely.
+You can use the `CheckInOut.exe` to check content out so that you can work on it securely.
 
-> **Note:** The CheckInOut.exe is available in a Windows environment if the Alfresco Content Services repository has been mapped by your administrator so that you can access it from Windows Explorer.
+> **Note:** The `CheckInOut.exe` is available in a Windows environment if the Alfresco Content Services repository has been mapped by your administrator so that you can access it from Windows Explorer.
 
-1.  In Windows Explorer, drag a file from the mapped repository onto the CheckInOut.exe icon.
+1.  In Windows Explorer, drag a file from the mapped repository onto the `CheckInOut.exe` icon.
 
-    > **Note:** There is a copy of the CheckInOut.exe at each level of the repository.
+    > **Note:** There is a copy of the `CheckInOut.exe` at each level of the repository.
 
 2.  Click **OK** when the Run check in/out action dialog box displays.
 
@@ -88,7 +88,7 @@ You can use the CheckInOut.exe to check content out so that you can work on it s
 
     A copy of your file is created in the same location as the original file with (Working Copy) appended to the title. The original file is now locked, so you can work on the (Working Copy) file and other users cannot edit it until you check it back in.
 
-4.  When you have finished working on the file and saved your changes, drag the (Working Copy) file onto the CheckInOut.exe icon.
+4.  When you have finished working on the file and saved your changes, drag the (Working Copy) file onto the `CheckInOut.exe` icon.
 
 5.  Click **OK** when the Run check in/out action dialog box displays.
 
@@ -96,30 +96,30 @@ You can use the CheckInOut.exe to check content out so that you can work on it s
 
 ### View item details from a mapped drive {#view-item-details-from-a-mapped-drive}
 
-You can use the ShowDetails.exe to view item details and properties.
+You can use the `ShowDetails.exe` to view item details and properties.
 
-> **Note:** The ShowDetails.exe is available in a Windows environment if the Alfresco Content Services repository has been mapped by your administrator so that you can access it from Windows Explorer.
+> **Note:** The `ShowDetails.exe` is available in a Windows environment if the Alfresco Content Services repository has been mapped by your administrator so that you can access it from Windows Explorer.
 
 1.  Select a file in the mapped repository in Windows Explorer or your desktop.
 
-2.  Drag the file from the mapped repository onto the ShowDetails.exe.
+2.  Drag the file from the mapped repository onto the `ShowDetails.exe`.
 
-    > **Note:** There is a copy of the ShowDetails.exe at each level of the repository.
+    > **Note:** There is a copy of the `ShowDetails.exe` at each level of the repository.
 
     A new browser window opens showing the Alfresco Share file preview, where you can see a preview of the file and its properties.
 
 ### Open Alfresco Share in a browser window {#open-alfresco-share-in-a-browser-window}
 
-You can use the Share.url to open the Share in a browser window.
+You can use the `Share.url` to open the Share in a browser window.
 
-The Share.url is a shortcut to Share. It's available in a Windows environment if the Alfresco Content Services repository has been mapped by your administrator so that you can access it from Windows Explorer.
+The `Share.url` is a shortcut to Share. It's available in a Windows environment if the Alfresco Content Services repository has been mapped by your administrator so that you can access it from Windows Explorer.
 
 1.  In Windows Explorer go to the location in the repository that you want to open.
 
-    > **Note:** The Share.url is only available within site folders, rather than everywhere in the repository.
+    > **Note:** The `Share.url` is only available within site folders, rather than everywhere in the repository.
 
-2.  Double-click the Share.url.
+2.  Double-click the `Share.url`.
 
-    > **Note:** There is a copy of the Share.url at each level of the repository.
+    > **Note:** There is a copy of the `Share.url` at each level of the repository.
 
-    Alfresco Share will open in a browser window, showing the location where you clicked on Share.url.
+    Alfresco Share will open in a browser window, showing the location where you clicked on `Share.url`.

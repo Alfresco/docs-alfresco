@@ -278,7 +278,7 @@ With the Search Manager you can see details of existing search filters and creat
 
 > **Note:** Search Manager is available to users in the `ALFRESCO_ADMINISTRATORS` and `ALFRESCO_SEARCH_ADMINISTRATORS` permissions groups.
 
-The Search Manager is accessed from the search results screen. Just type a search in the search box and press Enter, then on the search results screen click **Search Manager**.
+The Search Manager is accessed from the search results screen. Just type a search in the search box and press **Enter**, then on the search results screen click **Search Manager**.
 
 > **Note:** Filtered search results can be bookmarked for quick and easy access.
 
@@ -316,7 +316,7 @@ Most of the filter details are can be edited by hovering over them and clicking 
 
     The site(s) where the filter is available.
 
-### Creating new search filters
+### Creating new search filters {#creating-new-search-filters}
 
 In the Search Manager you can quickly create your own custom filters with a wide range of options available.
 

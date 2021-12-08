@@ -87,7 +87,7 @@ You can edit plain text, HTML, and XML files directly in Alfresco Share.
 
 2.  Edit the file details and content as required.
 
-    The **Name** does not support the following special characters: * " < > \ / . ? : and |. When the name contains a disallowed character the **Save** button is disabled.
+    The **Name** does not support the following special characters: `* " < > \ / . ? :` and `|`. When the name contains a disallowed character the **Save** button is disabled.
 
     > **Note:** The folder name *can* include a period as long as it is not the last character. This lets you add an extension (for example, .txt, .html, or .xml).
 
@@ -239,7 +239,7 @@ Edit the basic details of a folder or file to change its name, description, and 
 
 2.  Edit the details.
 
-    The **Name** doesn't support the following special characters: * " < > \ / ? : and |.
+    The **Name** doesn't support the following special characters: `* " < > \ / ? :` and `|`.
 
     > **Note:** The name can include a period as long as it is not the last character.
 
@@ -377,7 +377,7 @@ For a detailed list of aspects available and what they do, see [About aspects]({
 
 You can override the default site permissions for any content you add to the document library. This lets you control what site members can see and do with your content.
 
-Each user has an assigned role in the site - Manager, Collaborator, Contributor, or Consumer - and each role has a default set of permissions. This controls the actions site members can [perform in the site]({% link content-services/5.2/using/permissions.md %}#user-roles-and-permissions).
+Each user has an assigned role in the site - Manager, Collaborator, Contributor, or Consumer - and each role has a default set of permissions. This controls the actions site members can [perform in the site]({% link content-services/5.2/using/permissions.md %}).
 
 The Manage Permissions feature goes beyond the site permissions. It lets you override a user's site role for a particular content item or folder. This means you can give a site member either more or less access to specific content compared to what they can do with other content in the library.
 
@@ -423,7 +423,7 @@ You can take ownership of files and folders from other users.
 
 You may need to do this if someone who owned a file or folder has left your company and you need to take responsibility for it.
 
-> **Note:** You need to be a Site Manager or have permission to delete a file or folder to become its owner, see [User roles and permissions]({% link content-services/5.2/using/permissions.md %}#user-roles-and-permissions).
+> **Note:** You need to be a Site Manager or have permission to delete a file or folder to become its owner, see [User roles and permissions]({% link content-services/5.2/using/permissions.md %}).
 
 1.  Click on a file to open the file preview.
 

@@ -18,15 +18,15 @@ Smart Folders have a limited set of actions:
 -   Update: You can update files in a Smart Folder. Updating a property might result in a file being removed from the current Smart Folder (because it no longer meets the query criteria).
 -   Delete, Edit Properties, Unzip To, Sync, Locate To, Move, and Copy actions for files are not supported.
 
-The Smart Folder itself can't be edited in Alfresco Content Services, except through the Smart Folder Template. For more information about Smart Folder Templates, see [Applying a Smart Folder Template](#applying-a-smart-folder-template).
+The Smart Folder itself can't be edited in Alfresco Content Services, except through the Smart Folder Template. For more information about Smart Folder Templates, see [Applying a Smart Folder Template](#apply-template).
 
 Your system administrator creates templates that you can load for different purposes, for example; a structure for a claim, or to file PDF files separately from video or audio files, or just to personalise the folder structure by user.
 
-Take a look at the videos to learn more: [Smart Folders videos]({% link content-services/5.2/tutorial/video/content.md %}#smart-folders-videos)
+Take a look at the videos to learn more: [Smart Folders videos]({% link content-services/5.2/tutorial/video/content.md %}#smart-folder-overview)
 
-System administrators and business analysts can find more information here: [Configuring Smart Folders]({% link content-services/5.2/config/smart-folders/index.md %}#configuring-smart-folders) and in the tutorial: [Smart Folders tutorial]({% link content-services/5.2/tutorial/smart.md %}#smart-folders-tutorial).
+System administrators and business analysts can find more information here: [Configuring Smart Folders]({% link content-services/5.2/config/smart-folders/index.md %}) and in the tutorial: [Smart Folders tutorial]({% link content-services/5.2/tutorial/smart.md %}).
 
-## Applying a Smart Folder Template
+## Applying a Smart Folder Template {#apply-template}
 
 You can apply a Smart Folder structure to a physical folder by using aspects.
 

@@ -327,7 +327,7 @@ On the site dashboard, only a site manager can configure the Saved Search dashle
 
 3.  Type the search criteria.
 
-    > **Note:** Entering ban will search only for the word *ban*; it will not return results for *banana*. To return matches for a partial word, use a wildcard in your search criteria (example: ban*).
+    > **Note:** Entering `ban` will search only for the word *ban*; it will not return results for *banana*. To return matches for a partial word, use a wildcard in your search criteria (example: `ban*`).
 
 4.  Enter a title for the dashlet that represents the results that will be returned.
 
