@@ -24,13 +24,13 @@ Operating System and libraries for the target server machine:
   >require slightly different commands with different Linux operating systems.
   
 ### Verify installation artifacts
-Policy and Procedure Accelerator: 
+Policy and Procedure Accelerator solution: 
 
 * If using Alfresco Content Services 6.0.x, use the amp file from the `OC_6.0` folder.
 * If using Alfresco Content Services 6.1.x-6.2.x, use the amp file from the `OC_6.1+` folder.
 * If using Alfresco Content Services 7.x, use the amp file from the `OC_7.0.1+` folder.
 
-Claims Management Accelerator:
+Claims Management Accelerator solution:
 
 * If using Alfresco Content Services 6.x, use the amp file from the `OC_6.x` folder.
 * If using Alfresco Content Services 7.x, use the amp file from the `OC_7.0.1+` folder.
@@ -57,7 +57,7 @@ A guide for proxying can be found [here](https://github.com/tsgrp/HPI/wiki/Front
 
 >**Note:** A proxy is recommended for Non-Development installations.
 
-## Installation
+## Install OpenContent AMPs
 >**IMPORTANT!** Backup the Alfresco Content Services database, `alfresco.war`, and `share.war`. These resources need to 
 >be backed up in case of a rollback being required.
 
@@ -135,7 +135,7 @@ Services.
    Navigate to the `ALFRESCO_HOME/amps` directory and copy the following amps there:
    * `oa-service-alfresco.amp`
 
-4. (OPTIONAL) This step is only required installing the Policy and Procedure Content Accelerator:
+4. (OPTIONAL) This step is only required if installing the Policy and Procedure Content Accelerator solution:
 
    Navigate to the `ALFRESCO_HOME/amps` directory and copy the following amps there:
    * `tsgrp-alfresco-chain-versioning.amp`
@@ -252,4 +252,223 @@ Services.
        Start Solr process.
 
 13. Start up Alfresco server.
+
+## Install webapps
+This sections walks through how to install the Alfresco Enterprise Viewer and Content Accelerator web applications 
+(including the WizardAdmin if installing the Policy and Procedure Content Accelerator solution).
+
+>**Note:** Choose to run either [Install Web Applications on Separate Tomcat](#install-webapps-separate-tomcat) or 
+>[Install Web Applications on Alfresco Tomcat](#install-webapps-alfresco-tomcat), but not both.
+
+### Install web applications on separate Tomcat {#install-webapps-separate-tomcat}
+This section walks through how to install the web applications on a separate Tomcat instance (this is recommended for 
+a production environment).
+
+1. Stop Tomcat
+
+2. Copy the `ocms.war` file into the `TOMCAT_HOME/webapps` directory.
+
+3. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer:
+   
+   Copy the `OpenAnnotate.war` file into the `TOMCAT_HOME/webapps` directory.
+
+4. (OPTIONAL) This step is only required if using the Alfresco Enterprise Video Viewer:
+
+   Copy the `OpenAnnotateVideo.war` file into the `TOMCAT_HOME/webapps` directory.
+
+5. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution:
+
+   Copy the `WizardAdmin.war` file into the `TOMCAT_HOME/webapps` directory.
+
+6. Configure Tomcat for shared classpath loader as well as encoded slashes:
+   
+   Edit the `TOMCAT_HOME/conf/catalina.properties` file and enable the `shared.loader` by adding the following line:
+
+   `shared.loader=${catalina.base}/shared/classes,${catalina.base}/shared/lib/*.jar`
+
+   Then add the following to the `CATALINA_OPTS`:
+
+   `org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true`
+
+6. Configure Tomcat ports:
+
+   Configure the connector, server, and redirect ports to not conflict with Alfresco Tomcat’s (example below):
+    
+   * Set Connector - `port="9080"`
+   * Set Connector - `redirectPort="9443"`
+   * Set Server - `port="9005"`
+
+7. Create a `classes` directory:
+   
+   Create a `classes` directory within the `TOMCAT_HOME/shared` directory, if it does not already exist.
+
+8. (OPTIONAL) Required if setting up SSO:
+
+   Follow steps [here](https://github.com/tsgrp/HPI/wiki/Single-Sign-On-(SSO)){:target"_blank"} to enable SSO.
+
+9. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer:
+
+   Update the provided `openannotate-override-placeholders.properties` file: 
+
+   Set the `ocRestEndpointAddress` property to point to the root REST endpoint URL for OpenContent within Alfresco:
+
+   `{Application Base URL}/alfresco/OpenContent`
+
+   >**Note:** if the Alfresco Enterprise Viewer and the Alfresco Repository are located on the same server, then the 
+   >URL can be: `http://localhost:<alfrescoPort>/alfresco/OpenContent`
+
+10. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer AND leveraging the “Collaboration Server” 
+    functionality for collaborative annotation functionality:
+    
+    Update the provided `openannotate-override-placeholders.properties` file:
+    
+    * `collaborationModeEnabled=true`
+    * `collaborationEndpoint=http://${server}:${port}`
+
+    Replace the `${server}` and `${port}` placeholders in the above URL with the correct server and port values for 
+    the environment being installed to. 
+
+11. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer:
+
+    Copy the `openannotate-override-placeholders.properties` file to the `TOMCAT_HOME/shared/classes` directory.
+
+12. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution AND 
+    if `TOMCAT_HOME` is NOT `/opt/ocms-policy/apache-tomcat`
+
+    Navigate to `TOMCAT_HOME/webapps` and extract the `WizardAdmin.war`.
+    
+    Navigate to `TOMCAT_HOME/webapps/WizardAdmin/WEB-INF/classes` and modify the following files to have the proper 
+    path to your `TOMCAT_HOME` on the line numbers listed:
+    
+    * `AbtApplication.properties`:
+        * Lines 26, 27, 28, 29, 34
+    * `ActiveWizard.properties`:
+        * Line 148
+    * `ImpactAnalysis.properties`:
+        * Lines 26, 29, 39, 40, 42, 48, 49
+
+13. Start Tomcat
+
+### Install web applications on Alfresco Tomcat {#install-webapps-alfresco-tomcat}
+This section walks through how to install the web applications on Alfresco Tomcat (recommended for easier 
+non-Production environment installation).
+
+1. Stop Alfresco Tomcat
+
+2. Copy the `ocms.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
+
+3. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer:
+
+   Copy the `OpenAnnotate.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
+
+4. (OPTIONAL) This step is only required if using the Alfresco Enterprise Video Viewer:
+
+   Copy the `OpenAnnotateVideo.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
+
+5. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution:
+
+   Copy the `WizardAdmin.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
+
+6. Configure Tomcat for shared classpath loader as well as encoded slashes:
+
+   Edit the `ALFRESCO_HOME/tomcat/conf/catalina.properties` file and enable the `shared.loader` by adding the following line:
+
+   `shared.loader=${catalina.base}/shared/classes,${catalina.base}/shared/lib/*.jar`
+
+   Then add the following to the `CATALINA_OPTS`:
+
+   `org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true`
+
+6. Create a `classes` directory:
+
+   Create a `classes` directory within the `ALFRESCO_HOME/tomcat/shared` directory, if it does not already exist.
+
+7. (OPTIONAL) Required if setting up SSO:
+
+   Follow steps [here](https://github.com/tsgrp/HPI/wiki/Single-Sign-On-(SSO)){:target"_blank"} to enable SSO.
+
+8. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer:
+
+   Update the provided `openannotate-override-placeholders.properties` file:
+
+   Set the `ocRestEndpointAddress` property to point to the root REST endpoint URL for OpenContent within Alfresco:
+
+   `{Application Base URL}/alfresco/OpenContent`
+
+   >**Note:** the URL can also be: `http://localhost:<alfrescoPort>/alfresco/OpenContent`
+
+9. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer AND leveraging the “Collaboration Server”
+   functionality for collaborative annotation functionality:
+
+   Update the provided `openannotate-override-placeholders.properties` file:
+
+   * `collaborationModeEnabled=true`
+   * `collaborationEndpoint=http://${server}:${port}`
+
+   Replace the `${server}` and `${port}` placeholders in the above URL with the correct server and port values for
+   the environment being installed to.
+
+10. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer:
+
+    Copy the `openannotate-override-placeholders.properties` file to the `ALFRESCO_HOME/tomcat/shared/classes` directory.
+
+11. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution: 
+
+    Navigate to `ALFRESCO_HOME/tomcat/webapps` and extract the `WizardAdmin.war`.
+
+    Navigate to `ALFRESCO_HOME/tomcat/webapps/WizardAdmin/WEB-INF/classes` and modify the following files to have the proper
+    path to your `ALFRESCO_HOME` on the line numbers listed:
+
+    * `AbtApplication.properties`:
+        * Lines 26, 27, 28, 29, 34
+    * `ActiveWizard.properties`:
+        * Line 148
+    * `ImpactAnalysis.properties`:
+        * Lines 26, 29, 39, 40, 42, 48, 49
+
+12. Start Alfresco Tomcat
+
+## Configure installation 
+The purpose of this test is to ensure that the application is set up correctly.
+
+1. Create groups and folders:
+
+   Open a browser window and navigate to the following URL: `{Alfresco Base URL}/alfresco/s/hpi/setup`
+
+2. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution:
+
+   Create groups and folders for Policy and Procedure solution:
+
+   Open a browser window and navigate to the following URL: `{Alfresco Base URL}/alfresco/s/wizard/awSetup`
+
+3. Import default configuration:
+
+   In a browser navigate to `{Application Base URL}/ocms/admin/ConfigArchiver` and login to the application as the 
+   Alfresco Administrator.
+
+   Use the *Import Config* function to import the `default.zip`.
+
+4. (OPTIONAL) This step is only required if **NOT** using the Alfresco Enterprise Viewer:
+
+   Navigate to the *Stage Config*. For each stage config:
+    1.	Navigate to the *docviewer*
+    2.	Turn off *Alfresco Enterprise Viewer* and *Alfresco Enterprise Video Viewer*
+    3.	Turn on `PDF.js` and `Video.js`
+    4.	Click **Save Config**
+    
+## Install collaboration features
+In this section the Alfresco Enterprise Viewer collaboration features Socket.IO server is installed.
+
+>**Note:** that this installation is only required if the collaboration features are desired.
+
+1. Stop Tomcat
+
+2. 
+
+
+
+
+
+12. Start Tomcat
+
 
