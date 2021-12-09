@@ -57,7 +57,7 @@ A guide for proxying can be found [here](https://github.com/tsgrp/HPI/wiki/Front
 
 >**Note:** A proxy is recommended for Non-Development installations.
 
-## Install OpenContent AMPs
+## Install libraries and AMPs
 >**IMPORTANT!** Backup the Alfresco Content Services database, `alfresco.war`, and `share.war`. These resources need to 
 >be backed up in case of a rollback being required.
 
@@ -463,12 +463,66 @@ In this section the Alfresco Enterprise Viewer collaboration features Socket.IO 
 
 1. Stop Tomcat
 
-2. 
+2. Install Socket Server
 
+   Use the following installation packages:
+   * Windows: Use `socket-servers-win.zip`
+   * Linux: Use `socket-server-linux.zip`
 
+   Place the socket-servers zip in the directory where the Collaboration server is to be installed, and unzip it. This 
+   will be known as `SOCKET_HOME`.
 
+   This directory will now contain `server.js`, `windows-service.js`, `package.json`, `uninstall-windows-service.js`, 
+   `node_modules` and a `config` directory.
 
+3. Test the Socket Server
 
-12. Start Tomcat
+   To start the collaboration server, navigate to `SOCKET_HOME/node` and run the following command: `node server.js`
+
+   A Node JavaScript server starts listening on port 3000 for connections, and the command prompt displays the message 
+   “listening on *:3000”.
+
+4. Stop Socket Server
+   
+   Press Ctrl+C to end the process.
+
+5. (OPTIONAL) Configure SSL
+
+   To configure SSL, navigate to the `/config` directory and edit the `collaborationConfig.js`. Change the following lines:
+
+   ```text 
+   config.httpsPort = <HTTPS_PORT>;
+   config.sslKeyPath = <SSL_KEYFILE_PATH>;
+   config.sslCertPath = <SSL_CERTFILE_PATH>;
+   ```
+
+   Where:
+
+   * `<HTTPS_PORT>` is the port the HTTPS collaboration connection will run on.
+   * `<SSL_KEYFILE_PATH>` is a file path to the SSL Key file on the server.
+   * `<SSL_CERTFILE_PATH>` is a file path to the SSL Cert file on the server.
+
+6. Install forever tool
+
+   Install forever by running the following command:
+
+   * Linux: `sudo npm install forever -g`
+   * Windows: `npm install forever -g`
+
+7. Start the Socket Server
+
+   Start the collaboration server using forever by running the following command:
+
+   `forever start server.js`
+
+8. Open a document using Alfresco Enterprise Viewer
+
+9. View participants
+
+   Open right-sidebar if it is not already, and click on the “Participants” tab in the right-sidebar.
+   
+   The “Participants” tab shows, and its chat window functions.
+   
+10. Start Tomcat
 
 
