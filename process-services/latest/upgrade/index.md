@@ -4,8 +4,6 @@ title: Upgrade Process Services
 
 You can upgrade from earlier versions of Process Services.
 
-> **Important** Before you upgrade from 1.x to 2.x you must set the `activiti.engine5.enabled` property to `true` in the `activiti-app.properties` file.
-
 > **Note:** Before upgrading, you should back up your database and properties files, such as `activiti-app.properties`.
 
 There are two methods for upgrading:
@@ -86,6 +84,10 @@ All methods from the `ActivityExecution` class are copied to the `DelegateExecut
 Activiti 5 had only 1 job table and this meant that a fairly complex query had to be executed to get the jobs that needed to be executed from the database.
 
 From Activiti 6, the jobs have been split up in a job `ACT_RU_JOB`, timer `ACT_RU_TIMER_JOB`, suspended `ACT_RU_SUSPENDED_JOB`, and `ACT_RU_DEADLETTER_JOB` dead letter table.
+
+> **Important** Before you upgrade from 1.x to 2.x you must set the `activiti.engine5.enabled` property to `true` in the `activiti-app.properties` file.
+
+Once you have upgraded from 1.x to 2.x you must set the `activiti.engine5.enabled` property to `true` in the `activiti-app.properties` file.
 
 #### Signaling an execution
 
