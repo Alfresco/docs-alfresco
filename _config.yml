@@ -961,10 +961,6 @@ highlighter: none
 
 alfresco: 
   langs:
-    ru: 
-        name: Русский
-        files: "ru/"
-        url: "/ru"
     en: 
         name: English
         files: ""
@@ -973,6 +969,22 @@ alfresco:
         name: Français
         files: "fr/"
         url: "/fr"
+    de: 
+        name: Deutsch
+        files: "de/"
+        url: "/de"
+    es: 
+        name: Español
+        files: "es/"
+        url: "/es"
+    it: 
+        name: Italiano
+        files: "it/"
+        url: "/it"
+    ru: 
+        name: Русский
+        files: "ru/"
+        url: "/ru"
 
 # Elasticsearch/Searchyll settings
 elasticsearch:
