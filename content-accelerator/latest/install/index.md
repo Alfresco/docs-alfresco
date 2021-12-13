@@ -53,7 +53,7 @@ Proxy layer for Production installations.
 Verify that the above routes are proxied and configured as specified *OR* that you are running all on the same Alfresco 
 Tomcat.
 
-A guide for proxying can be found [here](https://github.com/tsgrp/HPI/wiki/Front-Tomcat-with-Apache){:target"_blank"}.
+A guide for proxying can be found [here](https://github.com/tsgrp/HPI/wiki/Front-Tomcat-with-Apache){:target="_blank"}.
 
 >**Note:** A proxy is recommended for Non-Development installations.
 
@@ -81,7 +81,7 @@ A guide for proxying can be found [here](https://github.com/tsgrp/HPI/wiki/Front
 ### FFMPEG Installation (OPTIONAL)
 >**Note:** This step is only needed if using Alfresco Enterprise Viewer Video.
 
-1. Download and install an official FFMPEG Linux package from [here](https://ffmpeg.org/download.html){:target"_blank"}
+1. Download and install an official FFMPEG Linux package from [here](https://ffmpeg.org/download.html){:target="_blank"}
 
 2. Note the path where FFMPEG is being installed as `FFMPEG_HOME`.
 
@@ -98,10 +98,10 @@ A guide for proxying can be found [here](https://github.com/tsgrp/HPI/wiki/Front
 ### ImageMagick Installation (OPTIONAL)
 >**Note:** This step is only needed if using Document Combining.
 
-1. Download and install a portable version of ImageMagick  [here](https://ffmpeg.org/download.html){:target"_blank"}
+1. Download and install a portable version of ImageMagick:      
 
-   * [Windows](https://download.imagemagick.org/ImageMagick/download/binaries/ImageMagick-7.0.11-2-portable-Q16-HDRI-x64.zip){:target"_blank"}
-   * [Linux](https://download.imagemagick.org/ImageMagick/download/binaries/magick){:target"_blank"}
+   * [Windows](https://download.imagemagick.org/ImageMagick/download/binaries/ImageMagick-7.1.0-portable-Q16-HDRI-x64.zip){:target="_blank"}
+   * [Linux](https://download.imagemagick.org/ImageMagick/download/binaries/magick){:target="_blank"}
     
    If on Windows, unzip the file.
 
@@ -226,7 +226,7 @@ Services.
     * `relaxedQueryChars="{}[]|"`
     * `relaxedPathChars="{}[]|"`
     
-    Further information can be found [here](https://github.com/tsgrp/HPI/wiki/Installation-Requirements#encoded-path-and-query-characters){:target"_blank"}
+    Further information can be found [here](https://github.com/tsgrp/HPI/wiki/Installation-Requirements#encoded-path-and-query-characters){:target="_blank"}
    
     >**Note:** that in a typical Alfresco installation, the 8080 connector can be modified for HTTP communications and 
     >the 443 connector can be modified for HTTPS connections.
@@ -304,7 +304,7 @@ a production environment).
 
 8. (OPTIONAL) Required if setting up SSO:
 
-   Follow steps [here](https://github.com/tsgrp/HPI/wiki/Single-Sign-On-(SSO)){:target"_blank"} to enable SSO.
+   Follow steps [here](https://github.com/tsgrp/HPI/wiki/Single-Sign-On-(SSO)){:target="_blank"} to enable SSO.
 
 9. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer:
 
@@ -385,7 +385,7 @@ non-Production environment installation).
 
 7. (OPTIONAL) Required if setting up SSO:
 
-   Follow steps [here](https://github.com/tsgrp/HPI/wiki/Single-Sign-On-(SSO)){:target"_blank"} to enable SSO.
+   Follow steps [here](https://github.com/tsgrp/HPI/wiki/Single-Sign-On-(SSO)){:target="_blank"} to enable SSO.
 
 8. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer:
 
