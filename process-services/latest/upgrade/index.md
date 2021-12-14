@@ -2,16 +2,16 @@
 title: Upgrade Process Services
 ---
 
-You can upgrade from earlier versions to Process Services.
+You can upgrade from earlier versions of Process Services.
 
->**Note:** Before upgrading, you should back up your database and properties files, such as `activiti-app.properties`.
+> **Note:** Before upgrading, you should back up your database and properties files, such as `activiti-app.properties`.
 
 There are two methods for upgrading:
 
 * Using the Process Services setup wizard
 * Manually
 
->**Important:** If you integrate Process Services with Alfresco Content Services then be aware that from version 1.11 only repositories on version 5.2 and later are supported. Upgrade to a later version of Alfresco Content Services before updating Process Services to continue using this functionality.
+> **Important:** If you integrate Process Services with Alfresco Content Services then be aware that from version 1.11 only repositories on version 5.2 and later are supported. Upgrade to a later version of Alfresco Content Services before updating Process Services to continue using this functionality.
 
 ## Upgrade using a setup wizard
 
@@ -85,7 +85,9 @@ Activiti 5 had only 1 job table and this meant that a fairly complex query had t
 
 From Activiti 6, the jobs have been split up in a job `ACT_RU_JOB`, timer `ACT_RU_TIMER_JOB`, suspended `ACT_RU_SUSPENDED_JOB`, and `ACT_RU_DEADLETTER_JOB` dead letter table.
 
-> **Note:** It's important to complete all pending jobs before upgrading from APS 1.x to APS 2.
+> **Important** Before you upgrade from 1.x to 2.x you must set the `activiti.engine5.enabled` property to `true` in the `activiti-app.properties` file.
+
+Once you have upgraded from 1.x to 2.x you must set the `activiti.engine5.enabled` property to `true` in the `activiti-app.properties` file.
 
 #### Signaling an execution
 
