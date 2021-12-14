@@ -2,20 +2,20 @@
 title: Upgrade Process Services
 ---
 
-You can upgrade from earlier versions of Process Services.
+You can upgrade from earlier versions to Process Services.
 
-> **Note:** Before upgrading, you should back up your database and properties files, such as `activiti-app.properties`.
+>**Note:** Before upgrading, you should back up your database and properties files, such as `activiti-app.properties`.
 
 There are two methods for upgrading:
 
 * Using the Process Services setup wizard
 * Manually
 
-> **Important:** If you integrate Process Services with Alfresco Content Services then be aware that from version 1.11 only repositories on version 5.2 and later are supported. Upgrade to a later version of Alfresco Content Services before updating Process Services to continue using this functionality.
+>**Important:** If you integrate Process Services with Alfresco Content Services then be aware that from version 1.11 only repositories on version 5.2 and later are supported. Upgrade to a later version of Alfresco Content Services before updating Process Services to continue using this functionality.
 
 ## Upgrade using a setup wizard
 
-You can use the Process Services setup wizard to upgrade to the latest version. The process is similar to [installing for the first time]({% link process-services/latest/install/manual.md %}#install-using-setup-wizards).
+You can use the Process Services setup wizard to upgrade to the latest version. The process is similar to [installing for the first time]({% link process-services/2.0/install/manual.md %}#install-using-setup-wizards).
 
 Follow these steps to upgrade:
 
@@ -33,13 +33,13 @@ Alternatively, copy the license to your home directory using the terminal (OSX) 
 C:\.activiti\enterprise-license
 ```
 
->**Tip**: You can also upload a [license]({% link process-services/latest/install/manual.md %}#license) from the user interface.
+>**Tip**: You can also upload a [license]({% link process-services/2.0/install/manual.md %}#license) from the user interface.
 
 ## Upgrade manually
 
 You can upgrade using the WAR file in your application server distribution. These instructions use the WAR file from the Apache Tomcat based distribution, however you can choose from different distributions for various application servers.
 
-Review the [Supported Stacks]({% link process-services/latest/support/index.md %}) list to see what’s supported.
+Review the [Supported Stacks]({% link process-services/2.0/support/index.md %}) list to see what’s supported.
 
 Follow these steps to upgrade using the War file:
 
@@ -85,9 +85,7 @@ Activiti 5 had only 1 job table and this meant that a fairly complex query had t
 
 From Activiti 6, the jobs have been split up in a job `ACT_RU_JOB`, timer `ACT_RU_TIMER_JOB`, suspended `ACT_RU_SUSPENDED_JOB`, and `ACT_RU_DEADLETTER_JOB` dead letter table.
 
-> **Important** Before you upgrade from 1.x to 2.x you must set the `activiti.engine5.enabled` property to `true` in the `activiti-app.properties` file.
-
-Once you have upgraded from 1.x to 2.x you must set the `activiti.engine5.enabled` property to `true` in the `activiti-app.properties` file.
+> **Note:** It's important to complete all pending jobs before upgrading from APS 1.x to APS 2.
 
 #### Signaling an execution
 
