@@ -146,6 +146,9 @@ applications:
         url: /digital-workspace/latest/
       - title: "Mobile Workspace"
         url: /mobile-workspace/latest/
+  - title: "Enterprise Viewer"
+    text: "TODO."
+    url: /enterprise-viewer/latest/
   - title: "Application Development Framework"
     text: "Alfresco Application Development Framework makes it easy to build custom web applications to manage and view content in the repository."
     url: 'https://www.alfresco.com/abn/adf/docs/'

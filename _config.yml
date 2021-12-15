@@ -1047,6 +1047,21 @@ defaults:
       version: 1.0
       latest: true
 
+# Alfresco Enterprise Viewer (AEV)
+  - scope:
+      path: "enterprise-viewer"
+    values:
+      layout: "docs"
+      product: "Alfresco Enterprise Viewer"
+      location: "enterprise-viewer"
+      toc: "enterprise-viewer"
+      support: true
+  - scope:
+      path: "enterprise-viewer/latest"
+    values:
+      version: 3.3
+      latest: true
+
 sass:
   sass_dir: assets/include/scss
 permalink: pretty

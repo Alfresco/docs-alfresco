@@ -1,0 +1,9 @@
+# Alfresco Enterprise Viewer (AEV) 3.3
+- version: 3.3
+  pages:
+    - title: 'Introduction'
+      path: '/enterprise-viewer/latest/'
+    - title: "Install"
+      path: '/enterprise-viewer/latest/install/'
+    - title: 'Using'
+      path: '/enterprise-viewer/latest/using/'
