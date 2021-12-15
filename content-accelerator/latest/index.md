@@ -11,8 +11,6 @@ While ACA has been productized on Alfresco Content Services, it has the unique a
 repositories through services work product including, but not limited to, Documentum and Hyland Flex (NoSQL) to surface 
 content like documents, videos, and forms.
 
->**Note:** the name Alfresco Content Accelerator (ACA) has been choosen by Alfresco when productizing the OpenContent Management Suite. 
-
 There are pre-configured “accelerators” on top of ACA that act as default configurations, or a starting point that the 
 customer, or our services team can tweak to the customer’s unique needs through the no-code configurable administration 
 interface. 
@@ -20,7 +18,7 @@ interface.
 These accelerators are:
 
 * [Claims Management](#claims-management)
-* [Policy and Procedure Management](policy-management)
+* [Policy and Procedure Management](#policy-management)
 
 More information is included below for the available accelerators. ACA is available for on-premises customers as well as 
 customers in the Alfresco Cloud PaaS.
@@ -44,6 +42,8 @@ functionality.
 See the picture below for a visual representation of how these products fit together:
 
 ![Content Accelerator and Enterprise Viewer overview]({% link content-accelerator/images/aca-aev-overview.png %})
+
+>**Note:** the name Alfresco Content Accelerator (ACA) has been chosen by Alfresco when productizing the OpenContent Management Suite.
 
 ## Benefits
 Overall Alfresco Content Accelerator benefits:
@@ -85,7 +85,7 @@ can filter the document list to efficiently find the desired documents:
 
 Utilize Alfresco Enterprise Viewer to view, annotate, and redact documents without losing context with the claim:
 
-![ACA intro claims management2]({% link content-accelerator/images/aca-intro-claims-management-02.png %})
+![ACA intro claims management2]({% link content-accelerator/images/aca-intro-claims-management-2.png %})
 
 ## Policy and Procedure Management {#policy-management}
 The Policy and Procedure Management accelerator helps regulated companies such as life sciences, energy, and manufacturers 

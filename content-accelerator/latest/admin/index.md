@@ -52,8 +52,8 @@ repository security will prevent unauthorized users from making any changes.
 
 #### Header Actions
 This section provides the ability to configure global actions for the application. Actions configured here are available 
-to all users in the application's header. See the [Action Configuration](TODO) in the User Guide for more details on how to 
-configure specific actions.
+to all users in the application's header. See the [Action Configuration]({% link content-accelerator/latest/using/index.md %}#actions) 
+in the User Guide for more details on how to configure specific actions.
 
 #### OC Settings
 This section displays the `applicationId` for the Content Accelerator configurations and provides the ability to refresh 
@@ -132,7 +132,7 @@ the entire application or unique within a certain folder.
 ### Ad Hoc Forms
 Ad Hoc Forms have multiple uses across the Content Accelerator. First, they are used when configuring workflow. Several 
 Activiti based workflows are offered out of the box and an administrator can configure these Ad Hoc Forms to be 
-utilized by the workflows (see [Workflow Section](https://docs.google.com/document/d/1a_4gQkTr_OKVohxXTPqshtNfp_EEk5vJ0NUww-XDmEo/edit?ts=5eeb7e1b#heading=h.u75saibd9xm9){:target="_blank"}).
+utilized by the workflows.
 
 Ad Hoc Forms are very similar to regular forms with an additional feature to create new Attributes 
 (not being pulled from the Object Type Config) on the fly. Custom created attributes are generally used for more 
@@ -634,7 +634,7 @@ activated. A set may also be copied into a new set or deleted.
 Working with the Form Template can also be thought of as working with a collection of pages. You may create, modify, 
 and rearrange pages. Additionally, you may make certain pages required and others hidden until specific criteria are met. 
 For information on how to work with an individual page including creating and modifying pages, see 
-[Working with an individual Page and its Inputs](TODO).
+[Working with an individual Page and its Inputs](#working-individual-page).
 
 ##### Checking out a Form Template
 To check out a Form Template:
@@ -789,8 +789,8 @@ To make a page not required:
 * Click the down arrow located in the top left-hand corner of the Required Pages table
 
 Making a page not required makes it unavailable to users creating Form Templates instances off of the Form Template 
-unless certain criteria are met.  For more on how to use required pages to lead to sub-pages, see Working with an 
-individual Page and its Inputs.
+unless certain criteria are met.  For more on how to use required pages to lead to sub-pages, see [Working with an 
+individual Page and its Inputs](#working-individual-page).
 
 >**Note**: For users creating Forms to see changes made to the requirement of pages, the changed version of the 
 >Form Template must be published and activated.
@@ -816,7 +816,7 @@ To delete an Optional (non-required) Page:
 >showing the user which pages need to be modified before a delete operation will succeed. If the page contains certain 
 >actions, such as Mpower variable mappings, a warning will be displayed to the user.
 
-#### Working with an Individual Page
+#### Working with an Individual Page {#working-individual-page}
 This section covers creating and managing individual pages.
 
 ##### Creating a new Page
