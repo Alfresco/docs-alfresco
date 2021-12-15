@@ -127,3 +127,5 @@ To resolve this, The Canvas app is not correctly configured if you attempt to:
 ## How do I enable debug logs on both Share and the Repository?
 
 Go to **Log Settings** in the Alfresco Admin Console (`/alfresco/s/enterprise/admin/admin-log-settings`) and add the `org.alfresco.integrations.sfdc.webscripts` package with `DEBUG` level. These changes will persist until the server is shut down or restarted, at which point any changes will be lost.
+
+## When the syntax of JSON provided in the parameters section in Visual force page is incorrect we are receiving a blank page in Recommended content .Syntax of JSON in the parameters section should be validated to avoid blank page. Is there any validation to evaluate syntax of JSON? (For Reference please see ticket SFDCENG-840.)
