@@ -1,10 +1,10 @@
 ---
 title: RUSSIAN Alfresco Google Docs Integration
-menutile: Russian Integration
+menutile: RUSSIAN Integration
 ---
 
 
-Russion version of the content:
+**Russian content:**
 
 Google Docs Integration allows you to use Google Docs to edit document content stored in Alfresco Content Services, as an alternative to the online and offline editing capabilities in Alfresco Share.
 

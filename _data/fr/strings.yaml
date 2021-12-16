@@ -1,9 +1,4 @@
 Using: fr Using
-Content Stores: fr Content Stores
-Process: fr Process 
-
-Reference: fr Reference
-Tutorials: fr Tutorials
 
 # main menu
 Docs: fr Docs
@@ -11,12 +6,22 @@ Services: fr Services
 Integrations: fr Integrations
 Applications: fr Applications
 
-# index 
+Reference: FR Reference
+Tutorials: FR Tutorials
+Supported Platforms: FR Supported Platforms
+Whats New: FR Whats New
+
+# index
 Documentation: fr Documentation
 What can we help you find?: fr What can we help you find?
 Start typing to search...: fr Start typing to search...
-Services: fr Services
 
+Read documentation: FR Read documentation
 
 # footer
-Additional resources: fr Additional resources
+Hyland Software, Inc. and its affiliates. All rights reserved. All Hyland product names are registered or unregistered trademarks of Hyland Software, Inc. or its affiliates.: Hyland Software, Inc. et ses filiales. Tous droits réservés. Tous les noms de produits Hyland sont des marques de commerce ou des marques déposées de Hyland Software, Inc. ou de ses filiales.
+Legal: Légal
+Cookies: Cookies
+Privacy: Confidentialité
+CCPA: CCPA
+Terms: Conditions d'utilisation
