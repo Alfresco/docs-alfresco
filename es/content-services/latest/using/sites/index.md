@@ -1,5 +1,6 @@
 ---
 title: Overview of sites
+menutitle: 
 ---
 
 Un sitio es un área donde puede compartir contenidos y colaborar con otros miembros del sitio.
@@ -18,7 +19,7 @@ The manager of any site, whether public or private, can add users.
 
 > **Note:** El ajuste de visibilidad de un sitio aparece indicado junto al nombre del sitio cuando se está en él.
 
-You can remove yourself from a site at any time by clicking !\[settings]({% link content-services/images/settings-icon.png %}) in the site and selecting **Leave Site**.
+You can remove yourself from a site at any time by clicking ![settings]({% link content-services/images/settings-icon.png %}) in the site and selecting **Leave Site**.
 
 ## Acceder a sitios existentes
 
@@ -53,7 +54,7 @@ Al hacerse miembro de un sitio, tendrá acceso a los contenidos que están almac
 
 4. Haga clic en un sitio para ir directamente al panel de inicio del sitio.
    
-   > **Note:** Click !\[Customize Dashboard icon]({% link content-services/images/settings-icon.png %}) to leave or join a site, depending on whether you're already a member or not. Si solicita unirse a un sitio moderado, los administradores del sitio reciben una notificación, y tendrá que esperar hasta que le concedan acceso.
+   > **Note:** Click ![Customize Dashboard icon]({% link content-services/images/settings-icon.png %}) to leave or join a site, depending on whether you're already a member or not. Si solicita unirse a un sitio moderado, los administradores del sitio reciben una notificación, y tendrá que esperar hasta que le concedan acceso.
 
 5. Haga clic en **Sitios** y podrá añadir o eliminar el sitio actual de su lista de sitios favoritos.
    
@@ -63,7 +64,7 @@ Al hacerse miembro de un sitio, tendrá acceso a los contenidos que están almac
 
 Si ya no desea ser miembro de un sitio, es muy fácil y rápido abandonarlo.
 
-1. On the dashboard of the site you want to leave, click !\[settings]({% link content-services/images/settings-icon.png %}) then **Leave Site**.
+1. On the dashboard of the site you want to leave, click ![settings]({% link content-services/images/settings-icon.png %}) then **Leave Site**.
 
 2. Haga clic en **Aceptar** para confirmar que desea abandonar el sitio.
    
@@ -99,7 +100,7 @@ Un administrador del sitio puede configurar características adicionales al [per
 
 The site dashboard contains information specific to the current site, and like your user dashboard, site information is organized and displayed in dashlets.
 
-El nombre del sitio se muestra en la parte superior de la pantalla. The site manager has additional options under the !\[settings]({% link content-services/images/settings-icon.png %}) tools menu and an additional !\[Invite to Site]({% link content-services/images/invite-to-site-icon.png %}) add users button to set up and manage the site and it's members.
+El nombre del sitio se muestra en la parte superior de la pantalla. The site manager has additional options under the ![settings]({% link content-services/images/settings-icon.png %}) tools menu and an additional ![Invite to Site]({% link content-services/images/invite-to-site-icon.png %}) add users button to set up and manage the site and it's members.
 
 Los sitios están formados por distintas características o páginas que se encuentran en el menú **Más**. Los sitios nuevos se crean solo con una biblioteca, pero el administrador del sitio puede personalizarlos e incluir distintas combinaciones de páginas, como una wiki, un blog, un calendario, un foro de discusión, enlaces web y listas de datos.
 
@@ -111,7 +112,7 @@ El enlace **Miembros del sitio** permite gestionar la pertenencia a este.
 
 A site manager can resize most dashlets by clicking and dragging on the bottom edge of the dashlet until it's the height you want. Esta configuración se guarda entre sesiones.
 
-> **Note:** If you hover over a dashlet header then a !\[Add Event icon]({% link content-services/images/help-1.png %}) icon appears. Click it for an explanation of what the dashlet does. Esta se queda abierta hasta que la cierra o abandona el panel de inicio.
+> **Note:** If you hover over a dashlet header then a ![Add Event icon]({% link content-services/images/help-1.png %}) icon appears. Click it for an explanation of what the dashlet does. Esta se queda abierta hasta que la cierra o abandona el panel de inicio.
 
 ## Choosing a site homepage {#choosehomepage}
 
@@ -121,7 +122,7 @@ Los administradores del sitio tienen la opción de eliminar el panel de inicio d
 
 1. Entre en un sitio.
 
-2. Click !\[settings]({% link content-services/images/settings-icon.png %}) then **Customize Site**.
+2. Click ![settings]({% link content-services/images/settings-icon.png %}) then **Customize Site**.
    
    El panel de inicio del sitio aparece de forma predeterminada en Páginas del sitio actual.
 
@@ -152,19 +153,19 @@ Any combination of the site dashlets can appear on the dashboard:
 | Actividades del sitio| Tracks the most recent activities performed in this site such as content additions, edits, and deletions, as well as changes in site membership.<br><br>Use the filter to display the activities by ownership, type, and time period. Puede ver solo sus actividades, solo las de los demás usuarios o todas a la vez. You can also view only a specific type of activity, such as changes in membership or status updates.<br><br>Click the RSS Feed icon to subscribe to the feed to automatically receive the activity updates.<br><br>**Note:** The only users notified of deletions are the user who made the deletion and the Alfresco Administrator.
 | Perfil del sitio| Muestra un resumen de los detalles del sitio.
 | Calendario del sitio| Muestra los próximos eventos programados en el calendario de este sitio.
-| Wiki| Displays a selected page from the site wiki.<br><br>Click the name of the wiki page in the dashlet header to navigate to the wiki.<br><br>Click the !\[configure]({% link content-services/images/ico-configure.png %}) configure icon to select a different wiki page to display in the dashlet. Esta opción solo está disponible para los administradores del sitio.
-| Enlaces del sitio| Displays the web links compiled by site users.<br><br>Click a link to open the related website.<br><br>Click the !\[link details]({% link content-services/images/ico-link-details.png %}) link's details icon to view the full link and any related comments.
-| Vista previa de imágenes| Displays a thumbnail of all images stored in the site's library.<br><br>Click a thumbnail to open the image in the current window.<br><br>Click the View Details icon to preview or work with the image in the library.<br><br>Click the Download icon to download a copy of the image to your computer.<br><br>Click the !\[configure]({% link content-services/images/ico-configure.png %}) configure icon to specify a folder. The dashlet will display the images in just that folder.
+| Wiki| Displays a selected page from the site wiki.<br><br>Click the name of the wiki page in the dashlet header to navigate to the wiki.<br><br>Click the ![configure]({% link content-services/images/ico-configure.png %}) configure icon to select a different wiki page to display in the dashlet. Esta opción solo está disponible para los administradores del sitio.
+| Enlaces del sitio| Displays the web links compiled by site users.<br><br>Click a link to open the related website.<br><br>Click the ![link details]({% link content-services/images/ico-link-details.png %}) link's details icon to view the full link and any related comments.
+| Vista previa de imágenes| Displays a thumbnail of all images stored in the site's library.<br><br>Click a thumbnail to open the image in the current window.<br><br>Click the View Details icon to preview or work with the image in the library.<br><br>Click the Download icon to download a copy of the image to your computer.<br><br>Click the ![configure]({% link content-services/images/ico-configure.png %}) configure icon to specify a folder. The dashlet will display the images in just that folder.
 | Desglose del tipo de ficheros del sitio| Displays a detailed breakdown of all files stored in the site's library.<br><br>Hover over a section of the breakdown chart to see more details.
 | Desglose del contribuidor del sitio| Displays a breakdown of all site members contributing content to the site's library.<br><br>Select a time period to view contributions for.<br><br>Hover over a section of the breakdown chart to see more details on a specific contributor.<br><br>Click on a section of the chart to open that users profile.
-| Vista Web| Displays a website configured by a site manager.<br><br>Click the !\[]({% link content-services/images/ico-configure.png %}) configure icon to select a website to display.
-| Aviso del sitio| Displays a custom message posted by a site manager<br><br>Click the !\[configure]({% link content-services/images/ico-configure.png %}) configure icon to edit or change the message. This is available only if you are a site manager.<br><br>**Tip:** This dashlet title can be customized, so the dashlet will probably have a label other than **Site Notice**.
-| Fuente RSS| Displays the Alfresco website feed by default.<br><br>Click the !\[configure]({% link content-services/images/ico-configure.png %}) configure icon to change the RSS feed.
-| Fuente RSS de complementos de Alfresco| Displays the Newest Add-ons feed from the Alfresco Add-ons website by default.<br><br>Click the !\[configure]({% link content-services/images/ico-configure.png %}) configure icon to change the RSS feed.
+| Vista Web| Displays a website configured by a site manager.<br><br>Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to select a website to display.
+| Aviso del sitio| Displays a custom message posted by a site manager<br><br>Click the ![configure]({% link content-services/images/ico-configure.png %}) configure icon to edit or change the message. This is available only if you are a site manager.<br><br>**Tip:** This dashlet title can be customized, so the dashlet will probably have a label other than **Site Notice**.
+| Fuente RSS| Displays the Alfresco website feed by default.<br><br>Click the ![configure]({% link content-services/images/ico-configure.png %}) configure icon to change the RSS feed.
+| Fuente RSS de complementos de Alfresco| Displays the Newest Add-ons feed from the Alfresco Add-ons website by default.<br><br>Click the ![configure]({% link content-services/images/ico-configure.png %}) configure icon to change the RSS feed.
 | Listas de datos del sitio| Lists this site's data lists.<br><br>Click a list to open it.<br><br>Click Create Data List to create a new list for this site. Esta acción no está disponible para aquellos usuarios con el rol Consumidor.
 | Mis Discusiones| Shows the most recent topics created in the site discussion forum.<br><br>Use the filter to choose the information you want to see.
 | Búsquedas en el sitio| Lets you search in the current site.<br><br>Enter search criteria and click **Search** (or press ENTER).<br><br>Select the maximum number of results you want to display.
-| Búsqueda guardada| Displays the results of a pre-configured search.<br><br>Click the !\[configure]({% link content-services/images/ico-configure.png %}) configure icon to define the search.
+| Búsqueda guardada| Displays the results of a pre-configured search.<br><br>Click the ![configure]({% link content-services/images/ico-configure.png %}) configure icon to define the search.
 
 ### Configuring the RSS feed dashlets
 
@@ -262,7 +263,7 @@ Each new site contains a library, and the site manager can add other features, s
 
 1. Entre en un sitio.
 
-2. Click !\[settings]({% link content-services/images/settings-icon.png %}) then **Customize Site**.
+2. Click ![settings]({% link content-services/images/settings-icon.png %}) then **Customize Site**.
 
 3. Elija un tema para el sitio.
 
@@ -286,7 +287,7 @@ Like your user dashboard, site information is organized and displayed in dashlet
 
 1. Entre en un sitio.
 
-2. Click !\[Settings]({% link content-services/images/settings-icon.png %}) then **Customize Dashboard**.
+2. Click ![Settings]({% link content-services/images/settings-icon.png %}) then **Customize Dashboard**.
    
    The Customize Dashboard page displays the current layout and configuration of your dashboard.
 
@@ -320,7 +321,7 @@ Tan solo los administradores del sitio pueden editar los detalles del sitio.
 
 1. Entre en un sitio.
 
-2. Click !\[Settings icon]({% link content-services/images/settings-icon.png %}) then **Edit Site Details**.
+2. Click ![Settings icon]({% link content-services/images/settings-icon.png %}) then **Edit Site Details**.
 
 3. Cambie los detalles del sitio según sea necesario.
    
@@ -346,7 +347,7 @@ Tan solo los administradores del sitio pueden eliminar un sitio.
 
 1. Entre en un sitio.
 
-2. Click !\[Settings icon]({% link content-services/images/settings-icon.png %}) then **Delete Site**.
+2. Click ![Settings icon]({% link content-services/images/settings-icon.png %}) then **Delete Site**.
 
 3. Haga clic en **OK** para confirmar la eliminación.
    
@@ -382,7 +383,7 @@ Estos usuarios pueden ser usuarios tanto internos de la propia organización com
 
 > **Note:** External users can only be added if your Alfresco administrator has \[enabled the external users panel]({% link content-services/latest/develop/share-ext-points/share-config.md %}#enabling-external-users-panel).
 
-1. Click !\[Invite to Site]({% link content-services/images/invite-to-site-icon.png %}) in the site you want to add users to, or click **Add Users** in the Site Members dashlet.
+1. Click ![Invite to Site]({% link content-services/images/invite-to-site-icon.png %}) in the site you want to add users to, or click **Add Users** in the Site Members dashlet.
    
    También puede abrir la página Añadir usuarios directamente desde la página Miembros del sitio.
    
@@ -430,7 +431,7 @@ Todos los administradores del sitio reciben un correo electrónico y se les asig
 
 Invitar a usuarios a un sitio de forma individual puede llevar mucho tiempo. Una opción más práctica es añadirlos en grupo.
 
-1. Click !\[Invite to Site]({% link content-services/images/invite-to-site-icon.png %}) in the site you want to add groups to, or click **Add Users** in the Site Members dashlet.
+1. Click ![Invite to Site]({% link content-services/images/invite-to-site-icon.png %}) in the site you want to add groups to, or click **Add Users** in the Site Members dashlet.
    
    Puede abrir la página Añadir usuarios directamente desde la página Miembros del sitio.
    
@@ -504,9 +505,9 @@ Si su cuenta es de Administrador, puede convertirse en administrador de cualquie
 
 > **Note:** Users who aren't an Alfresco administrator don't have this option. Necesitarán solicitar un cambio de rol a un administrador actual.
 
-In a site click !\[Settings]({% link content-services/images/settings-icon.png %}) then **Become Site Manager**.
+In a site click ![Settings]({% link content-services/images/settings-icon.png %}) then **Become Site Manager**.
 
-Ya es usted administrador del sitio. You'll see that you have additional options available when you click !\[Settings]({% link content-services/images/settings-icon.png %}).
+Ya es usted administrador del sitio. You'll see that you have additional options available when you click ![Settings]({% link content-services/images/settings-icon.png %}).
 
 ### Eliminar un miembro o un grupo de un sitio
 

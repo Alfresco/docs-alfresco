@@ -1,6 +1,6 @@
 ---
-
 title: Folder rules
+menutitle: 
 ---
 
 En la biblioteca, puede definir reglas de carpetas para gestionar sus contenidos automáticamente. Puede poner en práctica distintas y originales soluciones para garantizar que ciertos procesos aplicables a los contenidos se realicen de forma automática, sin necesidad de intervención.
@@ -39,7 +39,7 @@ Cuando define una regla, solo se aplica a los nuevos contenidos añadidos a la c
 
 Puede crear reglas para una carpeta del mismo modo que las aplica a sus mensajes de correo electrónico.
 
-> **Note:** If a folder already has rules applied to it (indicated by the !\[rules\]({% link content-services/images/rules-icon.png %}) icon) you can add new rules to it by [adding a set of rules](#addtosetofrules).
+> **Note:** If a folder already has rules applied to it (indicated by the ![rules\]({% link content-services/images/rules-icon.png %}) icon) you can add new rules to it by [adding a set of rules](#addtosetofrules).
 
 1. Mantenga el cursor sobre una carpeta a la que no se le hayan aplicado reglas, haga clic en **Más** y, después, en **Gestionar reglas**.
 
@@ -71,7 +71,7 @@ Puede crear reglas para una carpeta del mismo modo que las aplica a sus mensajes
    
    Una vez que haya seleccionado una acción, debe elegir otras opciones; por ejemplo, si selecciona copiar o mover elementos, haga clic en **Seleccionar** para especificar dónde desea que se copie o se mueva el contenido.
    
-   > **Note:** La opción **Copiar** solo copia elementos de la carpeta, no el contenido de las subcarpetas. Seleccione la opción adicional **Copia profunda** si desea que se copien también las subcarpetas y su contenido. The !\[missing info]({% link content-services/images/im-missinginfo.png %}) icon indicates where any required information is missing from your condition or action.
+   > **Note:** La opción **Copiar** solo copia elementos de la carpeta, no el contenido de las subcarpetas. Seleccione la opción adicional **Copia profunda** si desea que se copien también las subcarpetas y su contenido. The ![missing info]({% link content-services/images/im-missinginfo.png %}) icon indicates where any required information is missing from your condition or action.
 
 8. Seleccione las opciones adicionales:
    
@@ -117,7 +117,7 @@ Las acciones no se aplican a los ficheros de las subcarpetas, a menos que se mar
 
 La opción **Enlace a un conjunto de reglas** le permite reutilizar un conjunto de reglas que ya se ha definido para una carpeta distinta.
 
-> **Note:** If a folder already has linked rules applied (rules are indicated by the !\[rules]({% link content-services/images/rules-icon.png %}) icon) you can link to new rules by [linking to a different rule set](#linktodifferentruleset).
+> **Note:** If a folder already has linked rules applied (rules are indicated by the ![rules]({% link content-services/images/rules-icon.png %}) icon) you can link to new rules by [linking to a different rule set](#linktodifferentruleset).
 
 1. Mantenga el cursor sobre una carpeta a la que no se le hayan aplicado reglas, haga clic en **Más** y, después, en **Gestionar reglas**.
 
@@ -206,13 +206,13 @@ Por ejemplo, puede configurar las reglas correspondientes para crear un flujo de
 
 11. Haga clic en **Crear** o en **Crear y crear otra** para guardar esta regla y empezar a crear una nueva.
 
-In the **Document Library** the symbol !\[simple workflow]({% link content-services/images/im-rules-simpleworkflow.png %}) to the left of an item indicates that a simple workflow has been applied to it. Las acciones de aprobar y rechazar (con sus etiquetas definidas) aparecen en la lista de acciones para estos elementos.
+In the **Document Library** the symbol ![simple workflow]({% link content-services/images/im-rules-simpleworkflow.png %}) to the left of an item indicates that a simple workflow has been applied to it. Las acciones de aprobar y rechazar (con sus etiquetas definidas) aparecen en la lista de acciones para estos elementos.
 
 ### Start Process action details {#startprocessactiondetails}
 
 The Start Process action allows you to create a folder rule in Alfresco Share that triggers an Alfresco Process Services process. To access the Perform Action section of the rule definition, select **Start Process** and then click the **Options** button.
 
-!\[Start Process Options fields]({% link content-services/images/aps-action.png %})
+![Start Process Options fields]({% link content-services/images/aps-action.png %})
 
 * **Process definition**: Select the process model from Process Services that you want to use from the drop down list. The drop down list will include the Process Services review processes and any other custom ones that have been created in the Process Services apps that you have access to.
 * **Process name**: Enter a custom name you want to give for the process instance when the rule triggers.

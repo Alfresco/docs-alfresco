@@ -1,6 +1,6 @@
 ---
-
 title: Tareas y flujos de trabajo
+menutitle: 
 ---
 
 Las tareas y los flujos de trabajo le ayudan a llevar cuenta de las actividades que tienen por hacer usted y otros usuarios. Puede crear una tarea o un flujo de trabajo independiente, o puede adjuntarle un fichero.
@@ -102,7 +102,7 @@ Puede ver los detalles completos de todos los flujos de trabajo que ha iniciado.
    
    En la página Detalles se muestra toda la información relacionada con el flujo de trabajo.
    
-   * En la parte superior de la página, haga clic en **Ver las tareas actuales** para saltar a la sección Tareas actuales, donde se muestran las tareas generadas por el flujo de trabajo seleccionado. From here you can view !\[view task]({% link content-services/images/ico-view-task.png %}) or edit !\[configure]({% link content-services/images/ico-configure.png %}) a task.
+   * En la parte superior de la página, haga clic en **Ver las tareas actuales** para saltar a la sección Tareas actuales, donde se muestran las tareas generadas por el flujo de trabajo seleccionado. From here you can view ![view task]({% link content-services/images/ico-view-task.png %}) or edit ![configure]({% link content-services/images/ico-configure.png %}) a task.
    * Haga clic en el enlace de la sección Tarea completada más recientemente para ver los detalles de la última tarea completada dentro de este flujo de trabajo. Esta tarea aparece también en la sección Histórico.
    * Puede ver las tareas completadas en la sección Histórico. Haga clic en una tarea para ver sus detalles.
    * Haga clic en un elemento de la lista Elementos para verlo en la pantalla de vista previa. Haga clic en el botón Atrás de su navegador para volver a la página Detalles del flujo de trabajo.
@@ -163,7 +163,7 @@ Puede ver los detalles de una tarea individual o del flujo de trabajo que la ini
    En la página Detalles de flujo de trabajo se muestra la información del flujo de trabajo que generó esta tarea.
    
    * Haga clic en **Ver diagrama de proceso** para obtener una representación gráfica del flujo de trabajo. Un borde rojo resalta el estado actual del flujo de trabajo. Haga clic en cualquier parte del gráfico para cerrarlo.
-   * En la parte superior de la página, haga clic en **Ver las tareas actuales** para saltar a la sección Tareas actuales, donde se muestran las tareas generadas por el flujo de trabajo seleccionado. From here you can view !\[view task]({% link content-services/images/ico-view-task.png %}) or edit !\[configure]({% link content-services/images/ico-configure.png %}) a task.
+   * En la parte superior de la página, haga clic en **Ver las tareas actuales** para saltar a la sección Tareas actuales, donde se muestran las tareas generadas por el flujo de trabajo seleccionado. From here you can view ![view task]({% link content-services/images/ico-view-task.png %}) or edit ![configure]({% link content-services/images/ico-configure.png %}) a task.
    * Haga clic en el enlace de la sección Tarea completada más recientemente para ver los detalles de la última tarea completada dentro de este flujo de trabajo. Esta tarea aparece también en la sección Histórico.
    * Puede ver las tareas completadas en la sección Histórico. Haga clic en una tarea para ver los detalles correspondientes.
    * Haga clic en un elemento de la lista Elementos para verlo en la pantalla de vista previa. Haga clic en el botón Atrás de su navegador para volver a la página Detalles del flujo de trabajo.

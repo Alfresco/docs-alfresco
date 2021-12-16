@@ -1,6 +1,6 @@
 ---
-
 title: Manage content
+menutitle: 
 ---
 
 Content can be added, viewed and organized easily in Alfresco Share.
@@ -102,7 +102,7 @@ El menú **Crear** proporciona opciones para crear distintos tipos de contenidos
 
 Adding files from your computer to Alfresco Share is simple. Puede cargar uno o varios ficheros al mismo tiempo.
 
-You can upload files in two ways: drag and drop files from your computer directly into the library, or click !\[Upload icon]({% link content-services/images/upload-icon.png %}){:height="18px" width="18px"} **Upload**. Cuando arrastra y suelta un fichero, el destino seleccionado aparece resaltado en azul.
+You can upload files in two ways: drag and drop files from your computer directly into the library, or click ![Upload icon]({% link content-services/images/upload-icon.png %}){:height="18px" width="18px"} **Upload**. Cuando arrastra y suelta un fichero, el destino seleccionado aparece resaltado en azul.
 
 > **Tip:** Puede arrastrar y soltar ficheros en el nivel de la biblioteca en el que se encuentra o directamente en una carpeta. Cuando los ficheros estén colocados correctamente sobre la carpeta donde los quiere soltar, aparecerá una flecha. No puede arrastrar y soltar contenido directamente en carpetas en las vistas de tabla, de audio o de elementos multimedia.
 
@@ -112,7 +112,7 @@ You can upload files in two ways: drag and drop files from your computer directl
    
    Al seleccionar una carpeta en el panel de exploración, en la lista de elementos se mostrará el contenido actual de la carpeta. Cuando use la acción **Cargar**, el fichero o ficheros que seleccione se añadirán aquí.
 
-2. Click !\[Upload icon]({% link content-services/images/upload-icon.png %}){:height="18px" width="18px"} **Upload**.
+2. Click ![Upload icon]({% link content-services/images/upload-icon.png %}){:height="18px" width="18px"} **Upload**.
 
 3. Click **Select files to upload** on the Upload Files dialog box.
 
@@ -182,7 +182,7 @@ Files you edit are temporarily stored in Google Docs, then removed from Google D
 
 5. Cuando haya terminado, cierre la pestaña del navegador de Google Docs.
    
-   In Share you'll see the file displays the !\[Geolocation metadata icon]({% link content-services/images/ico-googledocs.png %}){:height="18px" width="18px"} icon to show that it's open in Google Docs.
+   In Share you'll see the file displays the ![Geolocation metadata icon]({% link content-services/images/ico-googledocs.png %}){:height="18px" width="18px"} icon to show that it's open in Google Docs.
 
 6. In Share, click **More** then **Check In Google Doc**.
 
@@ -218,7 +218,7 @@ Abra la página de detalles de una carpeta para ver cómodamente toda la informa
    
    > **Note:** Asegúrese de no haber seleccionado **Ocultar carpetas** en el menú Opciones.
 
-2. Click !\[View Details icon]({% link content-services/images/view-folder-detail-icon.png %}) **View Details**.
+2. Click ![View Details icon]({% link content-services/images/view-folder-detail-icon.png %}) **View Details**.
    
    En la página Detalles de carpeta se muestra toda la información sobre la carpeta, incluidos los permisos y las propiedades. Esta página incluye características de redes sociales y acciones de carpetas.
 
@@ -236,11 +236,11 @@ La información incluye la ubicación y el nombre del fichero, el número de ver
 
 Con estas opciones, puede:
 
-* Click !\[Like icon]({% link content-services/images/ico-download.png %}) to download a file.
-* Click !\[Like icon]({% link content-services/images/like-icon.png %}) to like a file. vuelva a hacer clic para cancelar la acción.
-* Click !\[Favorite icon]({% link content-services/images/favorite-icon.png %}) to favorite a file. vuelva a hacer clic para eliminarlo de favoritos.
-* Click !\[Comment icon]({% link content-services/images/comment-icon.png %}) to comment on a file. Una vez que haya escrito el texto, haga clic en **Añadir un comentario**.
-* Click !\[Share icon]({% link content-services/images/ico-share.png %}) to share a file. Puede copiar el enlace o, si lo prefiere, compartirlo directamente en las redes sociales.
+* Click ![Like icon]({% link content-services/images/ico-download.png %}) to download a file.
+* Click ![Like icon]({% link content-services/images/like-icon.png %}) to like a file. vuelva a hacer clic para cancelar la acción.
+* Click ![Favorite icon]({% link content-services/images/favorite-icon.png %}) to favorite a file. vuelva a hacer clic para eliminarlo de favoritos.
+* Click ![Comment icon]({% link content-services/images/comment-icon.png %}) to comment on a file. Una vez que haya escrito el texto, haga clic en **Añadir un comentario**.
+* Click ![Share icon]({% link content-services/images/ico-share.png %}) to share a file. Puede copiar el enlace o, si lo prefiere, compartirlo directamente en las redes sociales.
 
 #### Vista previa
 
@@ -254,9 +254,9 @@ En el caso de un fichero de Microsoft Office, PDF o algún otro tipo de fichero 
 
 También puede:
 
-* **Download** !\[Like icon]({% link content-services/images/ico-download.png %}) the file in its original format or as a PDF.
-* Click !\[Advanced Search icon]({% link content-services/images/ico-link.png %}) to share a link to the file, and even select to **Link to current page**.
-* Click !\[Advanced Search icon]({% link content-services/images/advanced-search-icon.png %}) to search for text within the file.
+* **Download** ![Like icon]({% link content-services/images/ico-download.png %}) the file in its original format or as a PDF.
+* Click ![Advanced Search icon]({% link content-services/images/ico-link.png %}) to share a link to the file, and even select to **Link to current page**.
+* Click ![Advanced Search icon]({% link content-services/images/advanced-search-icon.png %}) to search for text within the file.
 
 #### Comentarios
 
@@ -273,12 +273,12 @@ Las acciones y los detalles se agrupan en secciones que puede expandir y contrae
 > **Note:** Las opciones de visualización se guardan para la próxima vez que previsualice el fichero.
 
 * **Acciones sobre el documento**: todas las acciones disponibles para el fichero.
-* **Etiquetas**: las etiquetas asociadas al elemento. Click !\[Configure icon]({% link content-services/images/ico-configure.png %}) to display the Edit Properties page. En esta página, haga clic en **Seleccionar** debajo de **Etiquetas** para editar las etiquetas. Puede añadir y eliminar etiquetas existentes, así como crear otras nuevas.
+* **Etiquetas**: las etiquetas asociadas al elemento. Click ![Configure icon]({% link content-services/images/ico-configure.png %}) to display the Edit Properties page. En esta página, haga clic en **Seleccionar** debajo de **Etiquetas** para editar las etiquetas. Puede añadir y eliminar etiquetas existentes, así como crear otras nuevas.
 * **Compartir**: seleccione y copie el enlace para compartirlo con otras personas.
-* **Properties** - Click !\[Configure icon]({% link content-services/images/ico-configure.png %}) to edit the properties of the file.
-* **Permissions** - Click !\[Permissions icon]({% link content-services/images/ico-manage-permissions.png %}) to edit the permissions for this file.
-* **Flujos de trabajo**: muestra las tareas en las que está incluido este fichero. Se muestran, además, el tipo de tarea y la foto de perfil del usuario que la inició. Click !\[Tasks icon]({% link content-services/images/ico-workflow.png %}) to start a new task for this file, and click a task description to view the task.
-* **Histórico de versiones**: muestra las versiones anteriores. Click !\[Upload version icon]({% link content-services/images/ico-version-upload.png %}) to upload a new version, !\[Replace version icon]({% link content-services/images/ico-version-revert.png %}) to replace the current version with a previous version, !\[Download icon]({% link content-services/images/ico-version-download.png %}) to download a previous version, or !\[Version properties icon]({% link content-services/images/ico-version-properties.png %}) to view previous version properties.
+* **Properties** - Click ![Configure icon]({% link content-services/images/ico-configure.png %}) to edit the properties of the file.
+* **Permissions** - Click ![Permissions icon]({% link content-services/images/ico-manage-permissions.png %}) to edit the permissions for this file.
+* **Flujos de trabajo**: muestra las tareas en las que está incluido este fichero. Se muestran, además, el tipo de tarea y la foto de perfil del usuario que la inició. Click ![Tasks icon]({% link content-services/images/ico-workflow.png %}) to start a new task for this file, and click a task description to view the task.
+* **Histórico de versiones**: muestra las versiones anteriores. Click ![Upload version icon]({% link content-services/images/ico-version-upload.png %}) to upload a new version, ![Replace version icon]({% link content-services/images/ico-version-revert.png %}) to replace the current version with a previous version, ![Download icon]({% link content-services/images/ico-version-download.png %}) to download a previous version, or ![Version properties icon]({% link content-services/images/ico-version-properties.png %}) to view previous version properties.
 
 ### View a file in a browser
 
@@ -294,7 +294,7 @@ While the preview feature lets you view a file in Alfresco Share, you also have 
 
 When a file has geolocation data attached to it you can view the file location on Google Maps directly from Alfresco Share.
 
-1. Hover over a file that has the Geolocation Metadata available icon !\[Geolocation metadata icon]({% link content-services/images/geographic-icon.png %}).
+1. Hover over a file that has the Geolocation Metadata available icon ![Geolocation metadata icon]({% link content-services/images/geographic-icon.png %}).
 
 2. Haga clic en **Más** y, seguidamente, en **Ver en Google Maps**.
    
@@ -338,7 +338,7 @@ Puede mover elementos de contenido y ponerlos en otra ubicación de la bibliotec
    
    Cuando mueve una carpeta, se mueve también todo su contenido.
    
-   > **Note:** In some views you'll need to click the !\[Information icon]({% link content-services/images/ico-information.png %}) information icon.
+   > **Note:** In some views you'll need to click the ![Information icon]({% link content-services/images/ico-information.png %}) information icon.
 
 3. Elija el sitio y la carpeta donde desea colocar el contenido.
    
@@ -358,7 +358,7 @@ Puede copiar contenido de una ubicación a otra, dentro de un mismo sitio o entr
 
 2. Sitúe el cursor sobre un fichero o carpeta, y haga clic en **Copiar a**.
    
-   > **Note:** In some views you'll need to click the !\[Information icon]({% link content-services/images/ico-information.png %}) information icon.
+   > **Note:** In some views you'll need to click the ![Information icon]({% link content-services/images/ico-information.png %}) information icon.
    
    > **Note:** Solo se copia la versión actual. El histórico de versiones y los comentarios no se copian junto con el contenido.
 
@@ -380,7 +380,7 @@ Puede crear enlaces entre los elementos de contenido de distintas ubicaciones de
 
 2. Sitúe el cursor sobre un fichero o carpeta, y haga clic en **Copiar a**.
    
-   > **Note:** In some views you'll need to click the !\[Information icon]({% link content-services/images/ico-information.png %}) information icon.
+   > **Note:** In some views you'll need to click the ![Information icon]({% link content-services/images/ico-information.png %}) information icon.
 
 3. Elija el sitio y la carpeta donde desea crear un enlace al contenido.
    
@@ -388,7 +388,7 @@ Puede crear enlaces entre los elementos de contenido de distintas ubicaciones de
 
 4. Haga clic en **Crear enlace**.
    
-   Se crea un enlace al contenido. Links to other content have "Link to" added to their name and are represented by the !\[Linked file]({% link content-services/images/ico-copied-file.png %}) and !\[Linked Folder]({% link content-services/images/ico-copied-folder.png %}) icons.
+   Se crea un enlace al contenido. Links to other content have "Link to" added to their name and are represented by the ![Linked file]({% link content-services/images/ico-copied-file.png %}) and ![Linked Folder]({% link content-services/images/ico-copied-folder.png %}) icons.
 
 Cuando haga clic en un fichero o carpeta enlazados, o seleccione **Localizar elemento enlazado**, el fichero o carpeta original se mostrará en su sitio original.
 
@@ -424,9 +424,9 @@ Puede cambiar rápidamente el nombre de los ficheros y las carpetas.
 
 1. Busque el fichero o la carpeta cuyo nombre desee cambiar.
 
-2. Hover your cursor over the content name to display the !\[Configure icon]({% link content-services/images/ico-configure.png %}) edit icon.
+2. Hover your cursor over the content name to display the ![Configure icon]({% link content-services/images/ico-configure.png %}) edit icon.
    
-   > **Note:** In some views you'll need to click the !\[Information icon]({% link content-services/images/ico-information.png %}) information icon.
+   > **Note:** In some views you'll need to click the ![Information icon]({% link content-services/images/ico-information.png %}) information icon.
 
 3. Haga clic en este icono para entrar al modo de edición.
 
@@ -465,7 +465,7 @@ En la sección **Biblioteca de documentos**, puede gestionar las etiquetas desde
 
 * **Add a new tag**: Escriba una etiqueta en el campo correspondiente y, después, haga clic en **Añadir**. Para crear varias etiquetas al mismo tiempo, separe cada etiqueta con un espacio. Si desea añadir una etiqueta de varias palabras, póngalas entre comillas (por ejemplo, "material en borrador").
 * **Add an existing tag**: Haga clic en **Elegir entre las etiquetas más frecuentes del sitio** para ver las etiquetas que ya están en uso en el sitio actual y haga clic en la que desee utilizar.
-* **Remove a tag**: In the list of associated tags, click !\[Delete button]({% link content-services/images/ico-delete.png %}) to remove an existing tag.
+* **Remove a tag**: In the list of associated tags, click ![Delete button]({% link content-services/images/ico-delete.png %}) to remove an existing tag.
 
 > **Note:** Las listas de datos no se pueden etiquetar.
 
@@ -485,11 +485,11 @@ Para encontrar el contenido con más facilidad, se pueden crear y gestionar etiq
 
 1. En la biblioteca, busque el contenido que desea etiquetar.
 
-2. Hover your cursor over a tag to display the !\[Tag icon]({% link content-services/images/ico-configure.png %}) tag icon, or if the content has no tags hover your cursor over the label **No Tags**.
+2. Hover your cursor over a tag to display the ![Tag icon]({% link content-services/images/ico-configure.png %}) tag icon, or if the content has no tags hover your cursor over the label **No Tags**.
    
-   > **Note:** In some views this option isn't available or you'll need to click the !\[Information icon]({% link content-services/images/ico-information.png %}) information icon.
+   > **Note:** In some views this option isn't available or you'll need to click the ![Information icon]({% link content-services/images/ico-information.png %}) information icon.
 
-3. Click !\[Tag icon]({% link content-services/images/ico-configure.png %}).
+3. Click ![Tag icon]({% link content-services/images/ico-configure.png %}).
 
 4. Cree y gestione las etiquetas:
    
@@ -528,11 +528,11 @@ Utilice la acción **Favorito** para señalar los elementos de contenido de la b
 
 Puede marcar como favoritos tanto ficheros como carpetas.
 
-> **Tip:** In some views this option isn't available or you'll need to click the !\[Information icon]({% link content-services/images/ico-information.png %}){:height="18px" width="18px"} information icon.
+> **Tip:** In some views this option isn't available or you'll need to click the ![Information icon]({% link content-services/images/ico-information.png %}){:height="18px" width="18px"} information icon.
 
 1. En la biblioteca, busque los elementos de contenido que desea marcar como favoritos.
 
-2. Click !\[Favorite icon]({% link content-services/images/favorite-icon.png %}){:height="18px" width="18px"} **Favorite**.
+2. Click ![Favorite icon]({% link content-services/images/favorite-icon.png %}){:height="18px" width="18px"} **Favorite**.
    
    Verá que cambia el icono.
    
@@ -546,7 +546,7 @@ Esta opción solo está disponible si en el panel de exploración se ha seleccio
 
 1. Sitúe el cursor sobre un fichero o carpeta para que se muestren las acciones disponibles.
    
-   > **Tip:** In some views you'll need to click the !\[Information icon]({% link content-services/images/ico-information.png %}){:height="18px" width="18px"} information icon.
+   > **Tip:** In some views you'll need to click the ![Information icon]({% link content-services/images/ico-information.png %}){:height="18px" width="18px"} information icon.
 
 2. Dependiendo del tipo de contenido que haya seleccionado, haga clic en **Localizar un fichero** o en **Localizar carpeta**.
 
@@ -573,7 +573,7 @@ Si desea borrar contenido de la biblioteca de un sitio, puede eliminar dicho con
    
    Al eliminar una carpeta, se eliminan también todos los elementos que contiene, incluidos los contenidos creados por otros usuarios, aunque el usuario que realice la eliminación no tenga permiso para eliminarlos directamente.
    
-   > **Tip:** In some views you'll need to click the !\[Information icon]({% link content-services/images/ico-information.png %}){:height="18px" width="18px"} information icon.
+   > **Tip:** In some views you'll need to click the ![Information icon]({% link content-services/images/ico-information.png %}){:height="18px" width="18px"} information icon.
    
    Aparecerá un mensaje donde se le pide que confirme que desea eliminar el comentario.
 
@@ -617,9 +617,9 @@ En Alfresco puede utilizar varias funciones similares a las de las redes sociale
 
 These social features are available in the file preview screen, in the Site Content dashlet, and in several of the Document Library views. You can select to view just favorite files in several of your user and site dashlets.
 
-* Click !\[Like icon]({% link content-services/images/like-icon.png %}) to like an file/folder. vuelva a hacer clic para cancelar la acción.
-* Click !\[Favorite icon]({% link content-services/images/favorite-icon.png %}) to favorite an file/folder. vuelva a hacer clic para eliminarlo de favoritos.
-* Click !\[Comment icon]({% link content-services/images/comment-icon.png %}) **Comment** to comment on an file/folder. Cuando haya escrito el comentario, haga clic en **Añadir**.
+* Click ![Like icon]({% link content-services/images/like-icon.png %}) to like an file/folder. vuelva a hacer clic para cancelar la acción.
+* Click ![Favorite icon]({% link content-services/images/favorite-icon.png %}) to favorite an file/folder. vuelva a hacer clic para eliminarlo de favoritos.
+* Click ![Comment icon]({% link content-services/images/comment-icon.png %}) **Comment** to comment on an file/folder. Cuando haya escrito el comentario, haga clic en **Añadir**.
 
 > **Note:** No podrá añadir comentarios si su nivel de permisos del sitio es Consumidor. Speak to your Alfresco administrator if you need to change your permission level.
 
@@ -659,7 +659,7 @@ Puede editar un comentario para cambiar su contenido.
 
 1. Busque el contenido (fichero o carpeta) en el que ha dejado un comentario, y haga clic para abrirlo en la pantalla de vista previa de ficheros.
 
-2. Click the !\[Edit Comment icon]({% link content-services/images/ico-configure.png %}) edit comment icon for the comment you want to edit.
+2. Click the ![Edit Comment icon]({% link content-services/images/ico-configure.png %}) edit comment icon for the comment you want to edit.
    
    Este icono solo está disponible para el usuario que creó el comentario y para los administradores del sitio. En la lista de comentarios aparecen los diez últimos comentarios que se han añadido.
 
@@ -675,7 +675,7 @@ Los usuarios pueden eliminar sus propios comentarios, y los administradores pued
 
 1. Busque el contenido (fichero o carpeta) en el que ha dejado un comentario, y haga clic para abrirlo en la pantalla de vista previa de ficheros.
 
-2. Click the !\[Delete icon]({% link content-services/images/ico-delete.png %}) Delete Comment icon for the comment you want to delete.
+2. Click the ![Delete icon]({% link content-services/images/ico-delete.png %}) Delete Comment icon for the comment you want to delete.
    
    Este icono solo está disponible para el usuario que creó el comentario y para los administradores del sitio. En la lista de comentarios aparecen los diez últimos comentarios que se han añadido.
    

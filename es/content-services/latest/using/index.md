@@ -1,6 +1,6 @@
 ---
-
 title: Overview of using Content Services
+menutitle: 
 ---
 
 The using sections covers the basics of using Content Services and the Alfresco Share user interface.

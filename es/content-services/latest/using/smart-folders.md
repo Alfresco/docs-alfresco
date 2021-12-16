@@ -1,6 +1,6 @@
 ---
-
 title: Smart Folders
+menutitle: 
 ---
 
 A Smart Folder is a way of grouping files from different locations in Alfresco Share into a single folder, so that you can quickly find similar files.
@@ -9,9 +9,9 @@ Al abrir el contenido de una carpeta inteligente, se ejecuta una búsqueda y se 
 
 For example, a Smart Folder called My video files might be created to contain all files that I created that have a video format. Every time I open the My video files folder, the search runs, and all my video files are available in that folder, wherever in the repository I have created them.
 
-Es posible que el usuario ni se dé cuenta de que está utilizando carpetas inteligentes. If you see this icon, !\[Folder with a magnifying glass representing a Smart Folder]({% link content-services/images/sf.png %}), then the folder is smart. Además, cada vez que se cargan ficheros en estas carpetas, estos se clasifican automáticamente.
+Es posible que el usuario ni se dé cuenta de que está utilizando carpetas inteligentes. If you see this icon, ![Folder with a magnifying glass representing a Smart Folder]({% link content-services/images/sf.png %}), then the folder is smart. Además, cada vez que se cargan ficheros en estas carpetas, estos se clasifican automáticamente.
 
-The diagram shows a physical file system, and how a Smart Folder structure is created to contain files relevant to a particular customer:!\[Smart folder mapping]({% link content-services/images/sf-mapping.png %})
+The diagram shows a physical file system, and how a Smart Folder structure is created to contain files relevant to a particular customer:![Smart folder mapping]({% link content-services/images/sf-mapping.png %})
 
 Las acciones que pueden realizarse con las carpetas inteligentes son limitadas:
 
@@ -37,7 +37,7 @@ Puede usar los aspectos para aplicar una estructura de carpetas inteligentes a u
 
 2. Click Create, then Folder to create a new folder. Enter the folder name and Save.
 
-   Alternativamente, seleccione una carpeta física existente. Una carpeta física es una carpeta creada por un usuario: !\[Physical folder icon]({% link content-services/images/folder.png %})
+   Alternativamente, seleccione una carpeta física existente. Una carpeta física es una carpeta creada por un usuario: ![Physical folder icon]({% link content-services/images/folder.png %})
 
 3. Hover over the folder and from the menu, select More, then Manage Aspects.
 

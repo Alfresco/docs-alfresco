@@ -1,6 +1,6 @@
 ---
-
 title: Búsqueda
+menutitle: Búsqueda
 ---
 
 Puede usar el cuadro de búsqueda de la barra de herramientas para buscar ficheros, sitios y personas.
@@ -45,11 +45,11 @@ Ahora podrá hacer lo siguiente:
 
 > **Note:** Haga clic en el menú **Buscar en** para ampliar la búsqueda a todos los sitios o limitarla al sitio donde se encuentra.
 
-If you're a \[Search Manager]({% link content-services/latest/using/permissions.md %}#searchmanager) super user then you'll have an additional **Search Manager** option you can click where you can create new search filters.
+If you're a [Search Manager]({% link content-services/latest/using/permissions.md %}#searchmanager) super user then you'll have an additional **Search Manager** option you can click where you can create new search filters.
 
 Además del cuadro de búsqueda de la barra de herramientas, hay funciones adicionales de búsqueda avanzada para buscar [personas](#peoplefinder), [sitios](#sitefinder) y [contenido](#advancedsearch).
 
-> **Tip:** If a file is a Microsoft Office, PDF, or other text-based file type (not an image or video) then you can also click !\[Advanced Search icon]({% link content-services/images/advanced-search-icon.png %}) on the file preview to search for text in the file.
+> **Tip:** If a file is a Microsoft Office, PDF, or other text-based file type (not an image or video) then you can also click ![Advanced Search icon]({% link content-services/images/advanced-search-icon.png %}) on the file preview to search for text in the file.
 
 ## Search tips {#searchtips}
 
@@ -128,7 +128,7 @@ Los detalles del perfil están organizados en varias páginas:
 
 Use el cuadro de búsqueda de la barra de herramientas para acceder a la búsqueda avanzada.
 
-1. Click !\[Advanced Search icon]({% link content-services/images/advanced-search-icon.png %}) in the search box then click **Advanced Search**.
+1. Click ![Advanced Search icon]({% link content-services/images/advanced-search-icon.png %}) in the search box then click **Advanced Search**.
    
    Se mostrará la pantalla Búsqueda avanzada.
 

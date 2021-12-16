@@ -1,6 +1,6 @@
 ---
-
 title: Características del sitio
+menutitle: Características del sitio
 ---
 
 Además de la biblioteca de documentos y el área de miembros del sitio, existen muchas otras características que pueden incluirse en un sitio.
@@ -33,7 +33,7 @@ De forma predeterminada, la vista principal muestra el mes actual en el calendar
    
    a. Use the **Day**, **Week**, and **Month** buttons to change the main display to a daily, weekly, or monthly view.
    
-   b. Use the Previous !\[Previous]({% link content-services/images/ico-cal-left.png %}) and Next !\[Next]({% link content-services/images/ico-cal-right.png %}) buttons to move forward and backward through the calendar, either a day, week, or month at a time, depending on the current view.
+   b. Use the Previous ![Previous]({% link content-services/images/ico-cal-left.png %}) and Next ![Next]({% link content-services/images/ico-cal-right.png %}) buttons to move forward and backward through the calendar, either a day, week, or month at a time, depending on the current view.
    
    c. Click **Agenda** to view a list of the upcoming events scheduled for this site.
    
@@ -43,9 +43,9 @@ De forma predeterminada, la vista principal muestra el mes actual en el calendar
 
 2. Use el calendario del panel de navegación para desplazarse por los meses sin modificar la vista principal.
    
-   a. Click !\[Previous]({% link content-services/images/ico-cal-arrowleft.png %}) to display the previous month.
+   a. Click ![Previous]({% link content-services/images/ico-cal-arrowleft.png %}) to display the previous month.
    
-   b. Click !\[Next]({% link content-services/images/ico-cal-arrowright.png %}) to display the next month.
+   b. Click ![Next]({% link content-services/images/ico-cal-arrowright.png %}) to display the next month.
    
    c. Click **This Month** beneath the calendar to reset it to the current month. La fecha actual y los días con eventos programados aparecen resaltados.
 
@@ -779,7 +779,7 @@ Solo podrán editar un comentario los administradores del sitio, los colaborador
    
    En la vista de entrada se muestra la entrada del blog seleccionada y los comentarios asociados.
 
-3. Position your cursor over the comment you want to edit to display the available actions and then click the !\[Edit]({% link content-services/images/ico-configure.png %}) Edit icon.
+3. Position your cursor over the comment you want to edit to display the available actions and then click the ![Edit]({% link content-services/images/ico-configure.png %}) Edit icon.
    
    Esta acción está disponible solamente cuando el usuario que ha iniciado sesión tiene permiso para editar el comentario.
    
@@ -807,7 +807,7 @@ Solo podrán eliminar un comentario los administradores del sitio, los colaborad
    
    En la vista de entrada se muestra la entrada del blog seleccionada y los comentarios asociados.
 
-3. Position your cursor over the comment you want to delete to display the available actions and then click the !\[Delete]({% link content-services/images/ico-delete.png %}) Delete option.
+3. Position your cursor over the comment you want to delete to display the available actions and then click the ![Delete]({% link content-services/images/ico-delete.png %}) Delete option.
    
    Esta acción está disponible solamente cuando el usuario que ha iniciado sesión tiene permiso para eliminar el comentario.
    
@@ -888,7 +888,7 @@ Solo podrán editar una lista los administradores del sitio, los colaboradores d
 
 1. En el panel del explorador Listas de datos, coloque el cursor sobre la lista que desee editar para que se muestren las acciones disponibles.
 
-2. Click the !\[Edit]({% link content-services/images/ico-configure.png %}) Edit icon.
+2. Click the ![Edit]({% link content-services/images/ico-configure.png %}) Edit icon.
    
    The Edit List Details dialog box appears displaying the current list details.
 
@@ -906,7 +906,7 @@ Solo podrán eliminar una lista el administrador del sitio y el usuario que la c
 
 1. En el panel de exploración Listas de datos, coloque el cursor sobre la lista que desee eliminar para que se muestren las acciones disponibles.
 
-2. Click the !\[Delete]({% link content-services/images/ico-delete.png %}) Delete option.
+2. Click the ![Delete]({% link content-services/images/ico-delete.png %}) Delete option.
    
    Aparecerá un mensaje parar pedirle que confirme que desea eliminar la lista seleccionada.
 
@@ -954,7 +954,7 @@ Solo podrán editar un elemento de lista los administradores del sitio, los cola
 
 2. Coloque el cursor sobre el elemento de lista que desee editar para que se muestren las acciones disponibles.
 
-3. Click the !\[Edit]({% link content-services/images/ico-configure.png %}) Edit icon.
+3. Click the ![Edit]({% link content-services/images/ico-configure.png %}) Edit icon.
    
    The Edit Data Item dialog box appears displaying the details for the selected item.
 
@@ -972,7 +972,7 @@ Puede crear rápida y fácilmente un nuevo elemento de lista con solo duplicar u
 
 2. Coloque el cursor sobre el elemento de lista que desee duplicar para que se muestren las acciones disponibles.
 
-3. Click the !\[Duplicate]({% link content-services/images/ico-datalist-duplicate.png %}) Edit icon.
+3. Click the ![Duplicate]({% link content-services/images/ico-datalist-duplicate.png %}) Edit icon.
    
    Se crea el nuevo elemento. Sus detalles son los mismos que los del elemento de lista seleccionado.
 
@@ -988,7 +988,7 @@ Solo podrán eliminar un elemento de lista el administrador del sitio y el usuar
 
 2. Coloque el cursor sobre el elemento de lista que desee eliminar para que se muestren las acciones disponibles.
 
-3. Click the !\[Delete]({% link content-services/images/ico-delete.png %}) Delete option.
+3. Click the ![Delete]({% link content-services/images/ico-delete.png %}) Delete option.
    
    Aparecerá un mensaje donde se le pide que confirme que desea eliminar el comentario.
 
@@ -1233,7 +1233,7 @@ Solo podrán editar un comentario los administradores y los colaboradores del si
    
    La vista detallada muestra el enlace seleccionado, junto con todos los comentarios relacionados con él.
 
-2. Position your cursor over the comment you want to edit to display the available actions and then click the !\[Edit]({% link content-services/images/ico-configure.png %}) Edit icon.
+2. Position your cursor over the comment you want to edit to display the available actions and then click the ![Edit]({% link content-services/images/ico-configure.png %}) Edit icon.
    
    Esta acción está disponible solamente cuando el usuario que ha iniciado sesión tiene permiso para editar el comentario.
    
@@ -1259,7 +1259,7 @@ Solo podrán eliminar un comentario el administrador del sitio y el usuario que 
    
    La vista detallada muestra el enlace seleccionado, junto con todos los comentarios relacionados con él.
 
-2. Position your cursor over the comment you want to delete to display the available actions and then click the !\[Delete]({% link content-services/images/ico-delete.png %}) Delete option.
+2. Position your cursor over the comment you want to delete to display the available actions and then click the ![Delete]({% link content-services/images/ico-delete.png %}) Delete option.
    
    Esta acción está disponible solamente cuando el usuario que ha iniciado sesión tiene permiso para eliminar el comentario.
    

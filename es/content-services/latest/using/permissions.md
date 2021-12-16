@@ -1,6 +1,6 @@
 ---
-
 title: Roles de usuario y permisos
+menutitle: Roles de usuario y permisos
 ---
 
 El rol de un usuario condiciona lo que puede y no puede hacer en un sitio. Cada rol viene con una serie de permisos predeterminados.
@@ -35,23 +35,23 @@ Each user has full access to the toolbar and dashlet functionality available on 
 
 | Permission| Consumidor| Contribuidor| Colaborador| Administrador
 |----------|:----------:|:----------:|:----------:|:----------:
-| Invitar a usuarios al sitio| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Personalizar el panel de inicio del sitio| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Modificar los detalles del sitio| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Configurar el sitio (seleccionar componentes)| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Abandonar el sitio| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
+| Invitar a usuarios al sitio| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Personalizar el panel de inicio del sitio| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Modificar los detalles del sitio| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Configurar el sitio (seleccionar componentes)| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Abandonar el sitio| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
 
 ### Site dashlets
 
 | Permission| Consumidor| Contribuidor| Colaborador| Administrador
 |----------|:----------:|:----------:|:----------:|:----------:
-| RSS Feed - Configure RSS Feed URL| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Site Data Lists - Create data list| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Site Links - Create site links| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| WebView - Configure Web View| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Wiki - Configure Wiki dashlet| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Site file type breakdown dashlet - View details| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Site contributor breakdown dashlet - View details and change date range| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
+| RSS Feed - Configure RSS Feed URL| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Site Data Lists - Create data list| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Site Links - Create site links| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| WebView - Configure Web View| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Wiki - Configure Wiki dashlet| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Site file type breakdown dashlet - View details| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Site contributor breakdown dashlet - View details and change date range| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
 
 ## Permisos con respecto al contenido
 
@@ -63,32 +63,32 @@ En las siguientes secciones se detallan los permisos que tienen los distintos us
 
 | Permission| Consumidor| Contribuidor| Colaborador| Administrador
 |----------|:----------:|:----------:|:----------:|:----------:
-| View folder / item details page| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Like / unlike| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Favorite / unfavorite| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Rename folder / item - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Rename folder / item - created by other user| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit basic details - created by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit basic details - created by other user| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit custom properties - created by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit custom properties - created by other user| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Copiar| !\[tick image]({% link assets/img/done_24px.svg %}) *| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Move - content created by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Move - content created by other user| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Delete - content created by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Delete - content created by other user| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Manage permissions - content created by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Manage permissions - content created by other user| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Manage aspects - content created by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Manage aspects - content created by other user| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Change type - content created by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Change type - content created by other user| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Copiar la dirección URL de la página| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Añadir un comentario| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit comment - content created by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit comment - content created by other user| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Delete comment - content created by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Delete comment - content created by other user| | | | !\[tick image]({% link assets/img/done_24px.svg %})
+| View folder / item details page| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Like / unlike| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Favorite / unfavorite| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Rename folder / item - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Rename folder / item - created by other user| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit basic details - created by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit basic details - created by other user| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit custom properties - created by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit custom properties - created by other user| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Copiar| ![tick image]({% link assets/img/done_24px.svg %}) *| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Move - content created by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Move - content created by other user| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Delete - content created by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Delete - content created by other user| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Manage permissions - content created by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Manage permissions - content created by other user| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Manage aspects - content created by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Manage aspects - content created by other user| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Change type - content created by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Change type - content created by other user| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Copiar la dirección URL de la página| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Añadir un comentario| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit comment - content created by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit comment - content created by other user| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Delete comment - content created by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Delete comment - content created by other user| | | | ![tick image]({% link assets/img/done_24px.svg %})
 
 (*) A user with the role Consumer can copy a folder or file to another site if the user performing the action has the role of Manager, Collaborator, or Contributor in the target site.
 
@@ -98,136 +98,136 @@ En las siguientes secciones se detallan los permisos que tienen los distintos us
 
 | Permission| Consumidor| Contribuidor| Colaborador| Administrador
 |----------|:----------:|:----------:|:----------:|:----------:
-| Crear una carpeta| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Localizar una carpeta| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Gestionar reglas en una carpeta creada por el propio usuario| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Gestionar reglas en una carpeta creada por otro usuario| | | | !\[tick image]({% link assets/img/done_24px.svg %})
+| Crear una carpeta| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Localizar una carpeta| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Gestionar reglas en una carpeta creada por el propio usuario| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Gestionar reglas en una carpeta creada por otro usuario| | | | ![tick image]({% link assets/img/done_24px.svg %})
 
 #### Files only
 
 | Permission| Consumidor| Contribuidor| Colaborador| Administrador
 |----------|:----------:|:----------:|:----------:|:----------:
-| Crear contenido| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Cargar contenido| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Descargar contenido| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Ver en el navegador| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Upload new version - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Upload new version - created / added by other user| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
+| Crear contenido| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Cargar contenido| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Descargar contenido| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Ver en el navegador| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Upload new version - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Upload new version - created / added by other user| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
 | Upload new version - locked by other user| | | | 
-| Edit online - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit online - created / added by other user| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit inline - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit inline - created / added by other user| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit offline - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit offline - created / added by other user| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Publicar| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| No publicar| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Check out to Google Docs - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Check out to Google Docs - created / added by other user| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Check in from Google Docs - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
+| Edit online - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit online - created / added by other user| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit inline - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit inline - created / added by other user| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit offline - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit offline - created / added by other user| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Publicar| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| No publicar| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Check out to Google Docs - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Check out to Google Docs - created / added by other user| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Check in from Google Docs - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
 | Check in from Google Docs - created / added by other user| | | | 
-| Cancel editing - locked by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Cancel editing - locked by other user| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Ver la versión original| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Ver una copia de trabajo| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Ver en Google Docs| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Iniciar flujo de trabajo| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Localizar un fichero| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Descargar la versión anterior| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Restablecer la versión anterior| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
+| Cancel editing - locked by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Cancel editing - locked by other user| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Ver la versión original| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Ver una copia de trabajo| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Ver en Google Docs| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Iniciar flujo de trabajo| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Localizar un fichero| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Descargar la versión anterior| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Restablecer la versión anterior| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
 
 ### Calendario
 
 | Permission| Consumidor| Contribuidor| Colaborador| Administrador
 |----------|:----------:|:----------:|:----------:|:----------:
-| Ver un evento| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Crear un nuevo evento| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit event - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit event - created / added by other user| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Delete event - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Delete event - created / added by other user| | | | !\[tick image]({% link assets/img/done_24px.svg %})
+| Ver un evento| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Crear un nuevo evento| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit event - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit event - created / added by other user| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Delete event - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Delete event - created / added by other user| | | | ![tick image]({% link assets/img/done_24px.svg %})
 
 ### Wiki
 
 | Permission| Consumidor| Contribuidor| Colaborador| Administrador
 |----------|:----------:|:----------:|:----------:|:----------:
-| Crear una nueva página| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit page - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit page - created / added by other user| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Rename page - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Rename page - created / added by other user| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Delete page - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Delete page - created / added by other user| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Editar la página principal| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Cambiar el nombre de la página principal| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Eliminar la página principal| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Ver detalles de la página| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Ver la versión anterior de la página| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
+| Crear una nueva página| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit page - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit page - created / added by other user| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Rename page - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Rename page - created / added by other user| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Delete page - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Delete page - created / added by other user| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Editar la página principal| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Cambiar el nombre de la página principal| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Eliminar la página principal| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Ver detalles de la página| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Ver la versión anterior de la página| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
 
 ### Foros
 
 | Permission| Consumidor| Contribuidor| Colaborador| Administrador
 |----------|:----------:|:----------:|:----------:|:----------:
-| Crear un nuevo tema| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit topic - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit topic - created / added by other user| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Delete topic - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Delete topic - created / added by other user| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Ver discusiones| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Añadir una respuesta| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit reply - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit reply - created / added by other user| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
+| Crear un nuevo tema| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit topic - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit topic - created / added by other user| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Delete topic - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Delete topic - created / added by other user| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Ver discusiones| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Añadir una respuesta| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit reply - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit reply - created / added by other user| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
 
 ### Blog
 
 | Permission| Consumidor| Contribuidor| Colaborador| Administrador
 |----------|:----------:|:----------:|:----------:|:----------:
-| Crear una nueva entrada| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit post - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit post - created / added by other user| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Ver una entrada del blog| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Publish post externally - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Publish post externally - created / added by other user| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Update external post - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Update external post - created / added by other user| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Remove external post - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Remove external post - created / added by other user| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Crear un comentario| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit comment - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
+| Crear una nueva entrada| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit post - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit post - created / added by other user| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Ver una entrada del blog| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Publish post externally - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Publish post externally - created / added by other user| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Update external post - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Update external post - created / added by other user| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Remove external post - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Remove external post - created / added by other user| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Crear un comentario| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit comment - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
 
 ### Enlaces
 
 | Permission| Consumidor| Contribuidor| Colaborador| Administrador
 |----------|:----------:|:----------:|:----------:|:----------:
-| Crear un nuevo enlace| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit link - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit link - created / added by other user| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Delete link - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Delete link - created / added by other user| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Ver detalles del enlace| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Crear un comentario| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit comment - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit comment - created / added by other user| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Delete comment - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Delete comment - created / added by other user| | | | !\[tick image]({% link assets/img/done_24px.svg %})
+| Crear un nuevo enlace| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit link - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit link - created / added by other user| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Delete link - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Delete link - created / added by other user| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Ver detalles del enlace| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Crear un comentario| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit comment - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit comment - created / added by other user| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Delete comment - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Delete comment - created / added by other user| | | | ![tick image]({% link assets/img/done_24px.svg %})
 
 ### Listas de datos
 
 | Permission| Consumidor| Contribuidor| Colaborador| Administrador
 |----------|:----------:|:----------:|:----------:|:----------:
-| Crear una lista| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit list - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit list - created / added by other user| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Delete list - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Delete list - created / added by other user| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Add list item - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Add list item - created / added by other user| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit list item - created / added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Edit list item - created / added by other user| | | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Duplicate list item - created / added by other self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Duplicate list item -created / added by other user| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Delete list item - created /added by self| | !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})| !\[tick image]({% link assets/img/done_24px.svg %})
-| Delete list item - created / added by other user| | | | !\[tick image]({% link assets/img/done_24px.svg %})
+| Crear una lista| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit list - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit list - created / added by other user| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Delete list - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Delete list - created / added by other user| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Add list item - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Add list item - created / added by other user| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit list item - created / added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Edit list item - created / added by other user| | | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Duplicate list item - created / added by other self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Duplicate list item -created / added by other user| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Delete list item - created /added by self| | ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})| ![tick image]({% link assets/img/done_24px.svg %})
+| Delete list item - created / added by other user| | | | ![tick image]({% link assets/img/done_24px.svg %})
 
 ## Permisos de miembros
 
@@ -235,9 +235,9 @@ En las siguientes secciones se detallan los permisos de los miembros del sitio.
 
 | Permission| Consumidor| Contribuidor| Colaborador| Administrador
 |----------|:----------:|:----------:|:----------:|:----------:
-| Cambiar el rol de un usuario| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Eliminar un usuario del sitio| | | | !\[tick image]({% link assets/img/done_24px.svg %})
-| Cancelar una invitación| | | | !\[tick image]({% link assets/img/done_24px.svg %})
+| Cambiar el rol de un usuario| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Eliminar un usuario del sitio| | | | ![tick image]({% link assets/img/done_24px.svg %})
+| Cancelar una invitación| | | | ![tick image]({% link assets/img/done_24px.svg %})
 
 ## Usuarios avanzados
 
@@ -278,11 +278,11 @@ Al Gestor de búsquedas se accede desde la pantalla de resultados de la búsqued
 
 **Note:** Los resultados de la búsqueda filtrados se pueden añadir a los marcadores para poder acceder a ellos rápida y fácilmente.
 
-Todos los filtros existentes (incluidos los predeterminados) se muestran junto con sus detalles en el mismo orden en que aparecen en la pantalla de resultados de la búsqueda. You can change the order by using the !\[arrows]({% link content-services/images/arrows.png %}) buttons to move filters up or down the order.
+Todos los filtros existentes (incluidos los predeterminados) se muestran junto con sus detalles en el mismo orden en que aparecen en la pantalla de resultados de la búsqueda. You can change the order by using the ![arrows]({% link content-services/images/arrows.png %}) buttons to move filters up or down the order.
 
 Haga clic en **Crear nuevo filtro** para [crear nuevos filtros de búsqueda](#createnewsearchfilter).
 
-Most of the filter details are can be edited by hovering over them and clicking the !\[Configure icon]({% link content-services/images/ico-configure.png %}) icon that displays:
+Most of the filter details are can be edited by hovering over them and clicking the ![Configure icon]({% link content-services/images/ico-configure.png %}) icon that displays:
 
 * **Filter ID**: Identificador de filtro único. Haga clic en él para editar los detalles.
 * **Filter Name**: El nombre del filtro que se muestra en la pantalla de resultados de la búsqueda. Los filtros predeterminados muestran la clave de mensaje internacionalizado en vez del nombre del filtro que aparece en la pantalla de resultados de la búsqueda.
@@ -323,6 +323,6 @@ En el Gestor de búsquedas encontrará una gran variedad de opciones para crear 
 11. Seleccione la disponibilidad del filtro:
     
     * **En todos los sitios**: se muestra en todos los sitios.
-    * **Sitios seleccionados**: solo se muestra en los sitios seleccionados. Click !\[add]({% link content-services/images/ico-add.png %}) to add a site then select it from the list and click !\[tick]({% link content-services/images/ico-tick.png %}) to confirm. Click !\[add]({% link content-services/images/ico-add.png %}) to add more sites if required.
+    * **Sitios seleccionados**: solo se muestra en los sitios seleccionados. Click ![add]({% link content-services/images/ico-add.png %}) to add a site then select it from the list and click ![tick]({% link content-services/images/ico-tick.png %}) to confirm. Click ![add]({% link content-services/images/ico-add.png %}) to add more sites if required.
 
 12. Haga clic en **Guardar**.

@@ -1,6 +1,6 @@
 ---
-
 title: Content overview
+menutitle: 
 ---
 
 La biblioteca de documentos de un sitio es la ubicación donde se almacenan y gestionan los distintos se almacenan y gestionan los distintos contenidos del sitio, por ejemplo, los documentos, las imágenes y los vídeos.
@@ -25,7 +25,7 @@ Abra la biblioteca de documentos del sitio para ver y editar el contenido del si
    
    > **Note:** En el menú **Opciones**, también puede mostrar y ocultar carpetas, cambiar a la vista Pantalla completa y configurar una fuente RSS.
 
-3. Use the sort menu at the top of the list to change the criteria used to sort the items and click the !\[Sort icon]({% link content-services/images/sort-icon.png %}) icon to toggle between ascending and descending sort order.
+3. Use the sort menu at the top of the list to change the criteria used to sort the items and click the ![Sort icon]({% link content-services/images/sort-icon.png %}) icon to toggle between ascending and descending sort order.
    
    > **Note:** Las opciones de vista que elija (biblioteca, orden de clasificación, ocultar/mostrar selección de carpetas) son específicas a su cuenta de usuario. Esta configuración se propaga desde el sitio actual a todos los otros sitios que vea. Se guarda entre sesiones y permanece como la vista preferida hasta que la cambie.
 
@@ -33,7 +33,7 @@ Abra la biblioteca de documentos del sitio para ver y editar el contenido del si
    
    > **Note:** Si es usuario de Mac, es posible que algunas opciones no estén disponibles. Esto es porque, a veces, en los equipos Mac las barras de desplazamiento están ocultas. To display the scrollbars go **System Preferences > General** and select to always show scroll bars.
    
-   In the other views, click the !\[Information icon]({% link content-services/images/ico-information.png %}) information button for an item to display the item details, version, actions, and social features.
+   In the other views, click the ![Information icon]({% link content-services/images/ico-information.png %}) information button for an item to display the item details, version, actions, and social features.
 
 ## Explorar la biblioteca
 
@@ -48,7 +48,7 @@ La lista **Documentos** del panel de exploración ofrece las siguientes vistas:
 * **Recently Added**: Muestra los ficheros añadidos a la biblioteca en los últimos siete días.
 * **My Favorites**: Muestra los ficheros que se han marcado como favoritos.
 
-La sección **Biblioteca** muestra la estructura de las carpetas en una vista en árbol. The symbol !\[Subfolders]({% link content-services/images/Subfolders.png %}) indicates a library folder contains subfolders. Haga clic en una carpeta para expandirla o contraerla.
+La sección **Biblioteca** muestra la estructura de las carpetas en una vista en árbol. The symbol ![Subfolders]({% link content-services/images/Subfolders.png %}) indicates a library folder contains subfolders. Haga clic en una carpeta para expandirla o contraerla.
 
 El árbol **Categorías** permite filtrar el contenido de la biblioteca por categoría. Haga clic en una categoría para expandir la rama y haga clic de nuevo para contraerla.
 
@@ -59,7 +59,7 @@ La lista **Etiquetas** muestra todas las etiquetas que actualmente se asocian a 
 The breadcrumb path above the file list displays your current position in the tree. Todos los elementos de la barra de navegación son enlaces, por lo que puede retroceder a cualquier punto de la ruta de navegación. Puede:
 
 * Hacer clic en un enlace para volver a la carpeta correspondiente.
-* Click !\[Navigate Up]({% link content-services/images/navigate-up-icon.png %}) to display the contents of the folder one level higher.
+* Click ![Navigate Up]({% link content-services/images/navigate-up-icon.png %}) to display the contents of the folder one level higher.
 * Hacer clic en **Opciones**, **Ocultar la barra de navegación** / **Mostrar la barra de navegación** para ocultar o mostrar la barra de navegación.
 
 For each piece of content (folders and files) you view in the**Document Library** you can:
@@ -85,13 +85,13 @@ Si selecciona una de las vistas más complejas visualmente, cambiará un poco el
 
 * **Redimensionar las miniaturas**
   
-  !\[Size slider]({% link content-services/images/GV-slider.png %})
+  ![Size slider]({% link content-services/images/GV-slider.png %})
   
   Use la barra de ajuste de tamaño para aumentar o reducir las miniaturas. Esta barra le permite seleccionar cuánta información se muestra en la vista principal; puede elegir ver muchas imágenes pequeñas de un vistazo o previsualizar imágenes más grandes que ofrecen más información sin tener que abrir la página de detalles.
 
 * **Mostrar el panel de información**
   
-  Click the !\[Information icon]({% link content-services/images/ico-information.png %}) Information icon to display content details and available actions.
+  Click the ![Information icon]({% link content-services/images/ico-information.png %}) Information icon to display content details and available actions.
 
 * **Seleccionar contenido**
   

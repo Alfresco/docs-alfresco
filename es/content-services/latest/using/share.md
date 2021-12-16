@@ -1,6 +1,6 @@
 ---
-
 title: Alfresco Share
+menutitle: 
 ---
 
 Find everything you need to know for using Alfresco Share on a daily basis.
@@ -32,7 +32,7 @@ To get started with Alfresco Share you first need to sign in.
    
    De este modo se abre su panel de inicio personal. Ahora puede configurar el panel de inicio de forma que muestre la información más importante para usted.
    
-   !\[Your Personal Dashboard]({% link content-services/images/gs-firstlogin.png %})
+   ![Your Personal Dashboard]({% link content-services/images/gs-firstlogin.png %})
 
 ## Alfresco Share toolbar
 
@@ -84,7 +84,7 @@ You can resize most dashlets.
 
 Para ello, haga clic en el borde inferior de cada uno de ellos y arrastre hasta que tenga el tamaño deseado. Esta configuración se guarda entre sesiones.
 
-> **Note:** If you hover over a dashlet header then a !\[Add Event icon]({% link content-services/images/help-1.png %}) icon appears. Click it for an explanation of what the dashlet does. Esta se queda abierta hasta que la cierra o abandona el panel de inicio.
+> **Note:** If you hover over a dashlet header then a ![Add Event icon]({% link content-services/images/help-1.png %}) icon appears. Click it for an explanation of what the dashlet does. Esta se queda abierta hasta que la cierra o abandona el panel de inicio.
 
 ## What can I do with my dashlets? {#whatcanidowithmydashlets}
 
@@ -101,12 +101,12 @@ Each dashlet has a unique role:
 | Mis Tareas| Displays your tasks.<br><br>Click **Start Workflow** to start a workflow for yourself or another user.<br><br>Click **Active Tasks** or **Completed Tasks** to view those tasks.<br><br>Click the **View Task** icon to view the details for a specific task.<br><br>Click the **Edit Task** icon or the task name to manage a task.
 | Mis Documentos| Tracks your content in all site libraries.<br><br>Use the filter to choose the information you want to see.<br><br>Select a view option: **Simple** or **Detailed**.<br><br>Mark an item as a favorite or revoke its "favorite" status. (Detailed view only)<br><br>*Like* an item or *unlike* an item. (Detailed view only)<br><br>Click **Comment** to provide feedback. (Solo en la vista detallada).
 | Mi Perfil| Shows a summary of your personal details.<br><br>Click **View Full Profile** (or your name) to go to your user profile.
-| Vista Web| Displays the website of your choice.<br><br>Click the !\[]({% link content-services/images/ico-configure.png %}) configure icon to specify the website.<br><br>Click the dashlet title to open the website in a separate window.
-| Fuente RSS| Displays the Alfresco website feed by default.<br><br>Click the !\[]({% link content-services/images/ico-configure.png %}) configure icon to change the RSS feed.
-| Fuente RSS de complementos de Alfresco| Displays the Newest Add-ons feed from the Alfresco Add-ons website by default.<br><br>Click the !\[]({% link content-services/images/ico-configure.png %}) configure icon to change the RSS feed.
+| Vista Web| Displays the website of your choice.<br><br>Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to specify the website.<br><br>Click the dashlet title to open the website in a separate window.
+| Fuente RSS| Displays the Alfresco website feed by default.<br><br>Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to change the RSS feed.
+| Fuente RSS de complementos de Alfresco| Displays the Newest Add-ons feed from the Alfresco Add-ons website by default.<br><br>Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to change the RSS feed.
 | Mis Discusiones| Shows the most recent topics created in the discussion forums of your sites.<br><br>Use the filter to choose the information you want to see.
 | Búsquedas en el sitio| Lets you search all the sites you belong to.<br><br>Enter search criteria and click **Search** (or press ENTER).<br><br>Select the maximum number of results you want to display.
-| Búsqueda guardada| Displays the results of a pre-configured search.<br><br>Click the !\[]({% link content-services/images/ico-configure.png %}) configure icon to define the search.
+| Búsqueda guardada| Displays the results of a pre-configured search.<br><br>Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to define the search.
 | Mis Espacios de Documentos| Displays all Document Workspace sites that you belong to (Document Workspaces are created in Microsoft Word)<br><br>Delete a workspace if you have the correct permissions.
 | Mis Espacios de Reunión| Displays all Meeting Workspace sites that you belong to (Meeting Workspaces are created in Microsoft Outlook)<br><br>Delete a workspace if you have the correct permissions.
 
@@ -154,7 +154,7 @@ On the site dashboard, only a site manager can configure the Saved Search dashle
 
 1. Navegue hasta su panel de inicio personal o entre a un sitio.
 
-2. On the Saved Search dashlet, click the !\[Configure]({% link content-services/images/ico-configure.png %}) configure icon.
+2. On the Saved Search dashlet, click the ![Configure]({% link content-services/images/ico-configure.png %}) configure icon.
    
    The Enter Search Term dialog box opens.
 
@@ -234,7 +234,7 @@ Puede suscribirse a una fuente RSS en las siguientes ubicaciones:
 
 El botón o icono Fuente RSS indica dónde están disponibles las fuentes.
 
-1. Click the !\[RSS Feed]({% link content-services/images/ico-rss.png %}) **RSS Feed** button or icon next to a feed you want to subscribe to.
+1. Click the ![RSS Feed]({% link content-services/images/ico-rss.png %}) **RSS Feed** button or icon next to a feed you want to subscribe to.
    
    Esta operación inicia el proceso de suscripción. Las opciones que aparecen después dependen del navegador que utilice.
 

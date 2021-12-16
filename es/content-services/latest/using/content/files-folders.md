@@ -1,6 +1,6 @@
 ---
-
 title: Ficheros y carpetas
+menutitle: Ficheros y carpetas
 ---
 
 Una vez añadidos los ficheros a un sitio, los miembros del sitio pueden verlos y trabajar con ellos. Además de añadir más ficheros, los miembros pueden ver, descargar, editar y eliminar ficheros.
@@ -95,7 +95,7 @@ Files you edit are temporarily stored in Google Docs, then removed from Google D
 
 3. Cuando haya terminado, cierre la pestaña del navegador de Google Docs.
    
-   In Alfresco Share you'll see the file displays the !\[Geolocation metadata icon]({% link content-services/images/ico-googledocs.png %}) icon to show that it's open in Google Docs.
+   In Alfresco Share you'll see the file displays the ![Geolocation metadata icon]({% link content-services/images/ico-googledocs.png %}) icon to show that it's open in Google Docs.
 
 4. In Alfresco Share, click **More** then **Check In Google Doc**.
    
@@ -169,11 +169,11 @@ Edite los detalles básicos de una carpeta o fichero para modificar el nombre, l
    
    On the Select page the left column lists the tags being used in this network. En la columna derecha se muestran las etiquetas ya asociadas a la carpeta o elemento.
    
-   1. **Crear una nueva etiqueta:** Type the tag name and click the !\[Create Tag icon]({% link content-services/images/ico-create-tag.png %}) Create new item icon (or press ENTER). Cree etiquetas de una en una. La etiqueta puede ser una sola palabra o una cadena de palabras.
+   1. **Crear una nueva etiqueta:** Type the tag name and click the ![Create Tag icon]({% link content-services/images/ico-create-tag.png %}) Create new item icon (or press ENTER). Cree etiquetas de una en una. La etiqueta puede ser una sola palabra o una cadena de palabras.
    
-   2. **Añadir una etiqueta existente:** Find a tag in the left column and click the !\[Add Tag icon]({% link content-services/images/ico-add-tag.png %}) Add icon to associate it with the current folder or item.
+   2. **Añadir una etiqueta existente:** Find a tag in the left column and click the ![Add Tag icon]({% link content-services/images/ico-add-tag.png %}) Add icon to associate it with the current folder or item.
    
-   3. **Eliminar una etiqueta existente:** Find a tag in the right column and click the !\[Remove Tag icon]({% link content-services/images/ico-remove-tag.png %}) Remove icon.
+   3. **Eliminar una etiqueta existente:** Find a tag in the right column and click the ![Remove Tag icon]({% link content-services/images/ico-remove-tag.png %}) Remove icon.
    
    4. Haga clic en **Aceptar** para guardar las modificaciones.
    
@@ -229,13 +229,13 @@ You can easily share an file - even with people who don't have an Alfresco Share
 
 Todas las personas con acceso a la URL pueden ver el fichero. Those with an Share account have the option of signing in; those without an account can create one.
 
-Esta opción está disponible en la vista detallada de la biblioteca de documentos y en la pantalla de vista previa del fichero. In the Document Library graphical views click !\[Information icon]({% link content-services/images/ico-information.png %}) to see the option.
+Esta opción está disponible en la vista detallada de la biblioteca de documentos y en la pantalla de vista previa del fichero. In the Document Library graphical views click ![Information icon]({% link content-services/images/ico-information.png %}) to see the option.
 
 1. En la sección **Biblioteca de documentos**, busque el fichero que quiere compartir.
    
    Solo puede compartir ficheros, no carpetas.
 
-2. Click !\[Share icon]({% link content-services/images/ico-share.png %}) **Share**.
+2. Click ![Share icon]({% link content-services/images/ico-share.png %}) **Share**.
    
    Aparecerá una ventana con la URL del fichero.
    
@@ -254,7 +254,7 @@ Esta opción está disponible en la vista detallada de la biblioteca de document
    * **Twitter**: edite el mensaje según dese y haga clic en **Compartir usando Twitter**.
    * **Google+**: escriba un comentario para publicar con el enlace y elija con quién desea compartirlo. Haga clic en **Compartir**.
    
-   > **Note:** If an file is a Microsoft Office, PDF, or other text-based file type (not an image or video) then you can also click !\[Advanced Search icon]({% link content-services/images/ico-link.png %}) on the file preview to share a link to the item, and even select to **Link to current page**.
+   > **Note:** If an file is a Microsoft Office, PDF, or other text-based file type (not an image or video) then you can also click ![Advanced Search icon]({% link content-services/images/ico-link.png %}) on the file preview to share a link to the item, and even select to **Link to current page**.
 
 Cuando ya no quiera que esté disponible un fichero compartido públicamente, puede invalidar el enlace. Una vez hecho esto, si alguien intenta acceder al fichero, ya no podrá ver la página pública.
 
@@ -274,9 +274,9 @@ For a detailed list of aspects available and what they do, see \[About aspects](
 
 2. En la lista **Acciones sobre el documento**, haga clic en **Gestionar los aspectos**.
 
-3. In the **Available to Add** list click !\[Add icon]({% link content-services/images/ico-add.png %}) next to the aspects you want to add to the file.
+3. In the **Available to Add** list click ![Add icon]({% link content-services/images/ico-add.png %}) next to the aspects you want to add to the file.
    
-   Click !\[Delete icon]({% link content-services/images/ico-delete.png %}) to remove any existing aspects from the **Currently Selected** list.
+   Click ![Delete icon]({% link content-services/images/ico-delete.png %}) to remove any existing aspects from the **Currently Selected** list.
 
 4. Haga clic en **Aplicar las modificaciones**.
    
@@ -296,7 +296,7 @@ Ello resulta muy práctico a la hora de ocultar y restringir contenido solo a un
 
 > **Note:** No olvide proteger su contenido; si permite que otra persona acceda a un fichero o carpeta, dicha persona verá la ruta de navegación completa, incluso si no tiene acceso a la carpeta primaria.
 
-!\[Local permissions privacy]({% link content-services/images/local-permissions-privacy.png %})
+![Local permissions privacy]({% link content-services/images/local-permissions-privacy.png %})
 
 > **Note:** No dé permisos a usuarios que no sean miembros del sitio; esto puede causar problemas con la biblioteca de documentos.
 
@@ -304,8 +304,8 @@ Ello resulta muy práctico a la hora de ocultar y restringir contenido solo a un
 
 2. Administre los permisos heredados:
    
-   * !\[Inherit Permissions On]({% link content-services/images/ico-enabled-on.png %}) **Inherit Permissions** shows that permissions are being inherited from the parent folder. Haga clic en este botón para ignorar los permisos heredados.
-   * !\[Inherit Permissions Off]({% link content-services/images/ico-enabled-off.png %}) **Inherit Permissions** shows that permissions are not being inherited from the parent folder.Click this button to inherit the permissions.
+   * ![Inherit Permissions On]({% link content-services/images/ico-enabled-on.png %}) **Inherit Permissions** shows that permissions are being inherited from the parent folder. Haga clic en este botón para ignorar los permisos heredados.
+   * ![Inherit Permissions Off]({% link content-services/images/ico-enabled-off.png %}) **Inherit Permissions** shows that permissions are not being inherited from the parent folder.Click this button to inherit the permissions.
 
 3. Administre los permisos locales:
    

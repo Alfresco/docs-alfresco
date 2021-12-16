@@ -1,6 +1,6 @@
 ---
-
 title: Profiles and dashboards
+menutitle: 
 ---
 
 Puede personalizar a su gusto su perfil de usuario y su panel de inicio sin que sus cambios afecten a ningún otro usuario, ya es que usted la única persona que ve su panel de inicio.
@@ -15,7 +15,7 @@ If you want, add multiple copies of each dashlet and then set the filters so tha
 
 > **Note:** The Get Started panel links to the Alfresco Share Help where you can watch help videos. Puede seleccionar **Ocultar** para no ver el panel y volver a mostrarlo más adelante.
 
-1. Click !\[Customize Dashboard icon]({% link content-services/images/settings-icon.png %}) to start customizing your dashboard.
+1. Click ![Customize Dashboard icon]({% link content-services/images/settings-icon.png %}) to start customizing your dashboard.
 
 2. Para cambiar el diseño del panel de inicio:
    
