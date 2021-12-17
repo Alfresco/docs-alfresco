@@ -3,6 +3,11 @@ Overview: DE Overview
 Content: DE Content
 Sites: DE Sites
 
+# test additional strings
+Introduction: DE Introduction
+Install: DE Install
+Configure: DE Configure
+
 # main menu
 Docs: DE Docs
 Services: DE Services

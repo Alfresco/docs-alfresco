@@ -1,10 +1,10 @@
 ---
-title: FRENCH Alfresco Google Docs Integration
-menutitle: FR Introduction
+title: GERMAN Alfresco Google Docs Integration
+menutitle: DE Introduction
 ---
 
 
-**French content:**
+**German content:**
 
 Google Docs Integration allows you to use Google Docs to edit document content stored in Alfresco Content Services, as an alternative to the online and offline editing capabilities in Alfresco Share.
 
