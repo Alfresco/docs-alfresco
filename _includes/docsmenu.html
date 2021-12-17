@@ -110,7 +110,7 @@
 {% if page.release == true %}
 {% capture href %}{{pagebase}}release/{%endcapture%}
 <li class="{%if href == page.ref_page.url %}is-active{%endif%}">
-  {%loc_safe_url no-transform-title {{href}} {{page.lang}}%}{%l Release Notes%}{%endloc_safe_url%}
+  {%loc_safe_url no-transform-title {{href}} {{page.lang}}%}{%l What's New%}{%endloc_safe_url%}
 </li>
 {% endif %}     
 
