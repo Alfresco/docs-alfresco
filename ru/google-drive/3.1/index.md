@@ -1,6 +1,6 @@
 ---
-title: RUSSIAN Alfresco Google Docs Integration
-menutitle: RUSSIAN Introduction
+title: RU Alfresco Google Docs Integration
+menutitle: RU Introduction
 ---
 
 
