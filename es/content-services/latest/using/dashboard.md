@@ -1,6 +1,6 @@
 ---
 title: Profiles and dashboards
-menutitle: 
+menutitle: ES Profiles and dashboards
 ---
 
 Puede personalizar a su gusto su perfil de usuario y su panel de inicio sin que sus cambios afecten a ningún otro usuario, ya es que usted la única persona que ve su panel de inicio.

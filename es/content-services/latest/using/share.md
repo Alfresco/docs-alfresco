@@ -1,6 +1,5 @@
 ---
 title: Alfresco Share
-menutitle: 
 ---
 
 Find everything you need to know for using Alfresco Share on a daily basis.

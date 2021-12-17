@@ -1,6 +1,6 @@
 ---
 title: Folder rules
-menutitle: 
+menutitle: ES Folder rules
 ---
 
 En la biblioteca, puede definir reglas de carpetas para gestionar sus contenidos automáticamente. Puede poner en práctica distintas y originales soluciones para garantizar que ciertos procesos aplicables a los contenidos se realicen de forma automática, sin necesidad de intervención.

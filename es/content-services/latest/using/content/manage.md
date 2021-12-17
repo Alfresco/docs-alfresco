@@ -1,6 +1,6 @@
 ---
 title: Manage content
-menutitle: 
+menutitle: ES Manage content
 ---
 
 Content can be added, viewed and organized easily in Alfresco Share.
