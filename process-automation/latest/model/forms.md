@@ -186,6 +186,36 @@ The advanced properties for a REST dropdown field are:
 | Path to array in JSON response | The path to the JSON response. Enter `.` to use the full path. |
 | ID property | The ID of the REST service. |
 | Label property | The name of the REST service. |
+| Conditional | Turn this option on if you would like to link your dropdown widget with another dropdown widget and to create a conditional relationship between them. For example, if you select a country from one dropdown widget, the second dropdown widget will only show cities from that country. |
+| Depends on | Select which other dropdown widget you would like to connect with. |
+| If equal | Select which child entry of the **Depends on** field you want to work with and add subordinate entries for it. |
+
+To create a conditional relationship between two dropdown fields using Country and City as an example:
+
+1. Add two dropdown widgets to your form.
+
+2. Name one of them Country and the other one City.
+
+3. Select the City dropdown widget and click the **Advanced** tab.
+
+4. Select **Manual** and turn on the **Conditional** field.
+
+    **Note:** You can only have the following relationships: manual parent and manual child, manual parent and REST child, REST parent and REST child.
+
+5. Select Country from the **Depends on** dropdown list.
+
+    **Note:** Once a dropdown widget is a child of another dropdown widget, you cannot make it the parent of another dropdown widget. A parent dropdown widget is able to be the parent of more than one child.
+
+6. Select the Country dropdown widget and click the **Advanced** tab.
+
+7. Add a name for the label and then add all the Countries using the **Add option** field.
+
+8. Select the City dropdown widget again and click the **Advanced** tab.
+
+9. From the **If equal** drop down list select the Country you want to work with and then add all the cities you would like available in the drop down list.
+
+When using **REST Service** you can use the ID of the linked widget in the REST URL. For example, if your URL is `https://mydomain.com/get-cities/country=${Country}` the value inside `${}` is the ID of the linked widget. If my widget had an ID called `my-dropdown` your URL would be `https://mydomain.com/get-cities/country=${my-dropdown}`.
+The `${my-dropdown-id}` can be used in any position of the URL, for example you can also use `https://mydomain.com/country=${Country}/get-cities`.
 
 ### File viewer fields
 
