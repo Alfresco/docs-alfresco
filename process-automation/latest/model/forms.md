@@ -200,7 +200,11 @@ To create a conditional relationship between two dropdown fields using Country a
 
 4. Select **Manual** and turn on the **Conditional** field.
 
+    **NOTE:** You can only have the following relationships: manual parent and manual child, manual parent and REST child, REST parent and REST child.
+
 5. Select Country from the **Depends on** dropdown list.
+
+    **NOTE:** Once a dropdown widget is a child of another dropdown widget, you cannot make it the parent of another dropdown widget. A parent dropdown widget is able to be the parent of more than one child.
 
 6. Select the Country dropdown widget and click the **Advanced** tab.
 
