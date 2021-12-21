@@ -1,6 +1,5 @@
 ---
-title: GERMAN Alfresco Google Docs Integration
-menutitle: DE Introduction
+title: Alfresco Google Docs Integration
 ---
 
 

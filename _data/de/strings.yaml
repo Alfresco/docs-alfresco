@@ -4,9 +4,9 @@ Content: DE Content
 Sites: DE Sites
 
 # test additional strings
-Introduction: DE Introduction
-Install: DE Install
-Configure: DE Configure
+# Introduction DE Introduction
+# Install: DE Install
+# Configure: DE Configure
 
 # main menu
 Docs: DE Docs

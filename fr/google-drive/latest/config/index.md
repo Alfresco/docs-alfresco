@@ -1,6 +1,5 @@
 ---
-title: FR Configure Google Docs Integration
-menutitle: FR Configure
+title: Configure Google Docs Integration
 ---
 
 

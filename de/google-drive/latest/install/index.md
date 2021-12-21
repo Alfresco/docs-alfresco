@@ -1,6 +1,5 @@
 ---
-title: DE Install Google Docs Integration
-menutitle: DE Install
+title: Install Google Docs Integration
 ---
 
 

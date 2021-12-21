@@ -1,5 +1,5 @@
 ---
-title: FRENCH Alfresco Google Docs Integration
+title: Alfresco Google Docs Integration
 menutitle: FR Introduction
 ---
 

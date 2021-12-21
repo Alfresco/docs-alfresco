@@ -4,9 +4,9 @@ Content: ES Content
 Sites: ES Sites
 
 # test additional strings
-Introduction: ES Introduction
-Install: ES Install
-Configure: ES Configure
+# Introduction: ES Introduction
+# Install: ES Install
+# Configure: ES Configure
 
 # main menu
 Docs: ES Docs

@@ -5,8 +5,8 @@ Sites: Sites
 
 # test additional strings
 Introduction: Introduction
-Install: Install
-Configure: Configure
+# Install: Install
+# Configure: Configure
 
 # main menu
 Docs: Docs

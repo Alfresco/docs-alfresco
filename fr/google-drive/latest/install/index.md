@@ -1,6 +1,5 @@
 ---
-title: FR Install Google Docs Integration
-menutitle: FR Install
+title: Install Google Docs Integration
 ---
 
 

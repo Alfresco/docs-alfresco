@@ -1,6 +1,5 @@
 ---
-title: DE Configure Google Docs Integration
-menutitle: DE Configure
+title: Configure Google Docs Integration
 ---
 
 
