@@ -138,7 +138,7 @@ being used.
 
 ## Do not user Log4J insecure network appenders
 
-Even if not configrued by default in any Alfreasco installation it is worth mentioning that Log4J v1 configuration must not deviate from provided examples. In particular, log4j SocketServer and derived appenders suffer from a known vulnerability (CVE-2019-17571) as well as JMSAppender (CVE-2021-4104).
+Even if not configured by default in any Alfresco installation it is worth mentioning that Log4J v1 configuration must not deviate from provided examples. In particular, log4j SocketServer and derived appenders suffer from a known vulnerability (CVE-2019-17571) as well as JMSAppender (CVE-2021-4104).
 
 ### Summary of ports used in a Content Services installation
 
