@@ -138,10 +138,10 @@ You will see a **Salesforce Community Member Access** message. The result of the
 
   Community Members can download and view documents linked to the case. They can also upload documents to the case that will get stored in Alfresco.
   
-## Community Visual Force Page Configuration and Setup
+## Community Visualforce Page Configuration and Setup
 
-To expose the connector in a Salesforce Community (Digital Workspace)we need to add a visual force page for the connector. 
-Visual Force Page must be added to your Salesforce organization using the following pattern:
+To expose the connector in a Salesforce Community (Digital Workspace) we need to add a visualforce page for the connector. 
+Visualforce Page must be added to your Salesforce organization using the following template:
 
 ```xml
 <apex:page docType="html-5.0" standardController="<Object API Name>">
@@ -161,7 +161,7 @@ The `width`, `height`, and `scrolling` attributes can be set to values that meet
 
 The most important attribute is the `parameters` attribute.  The value must be set to `{'community':'simple'}`.Without this value, the connector will surface the standard connector view. 
 
-The Visual force page will need to have the appropriate profiles added for it to be visible to the correct community users.
+The Visualforce page will need to have the appropriate profiles added for it to be visible to the correct community users.
 
 **Example 1:**
 
@@ -171,4 +171,4 @@ The Visual force page will need to have the appropriate profiles added for it to
 </apex:page>
 ```
 
-Add the Visual Force Page to Specific record in Salesforce Communities.
+Add the new Visualforce Page to the desired record detail in your Salesforce Community.
