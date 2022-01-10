@@ -262,185 +262,302 @@ Selection menu to change the color of the sticky note annotation:
 The **Sticky Note** button is located to the right of the **Selection Tool** button and to the left of the 
 **Add Attachment** button.
 
-##### 4.1.16.3 **Add Attachment**
+##### Add Attachment
+The **Add Attachment** button is used when a file needs to be attached to a page. Once the cursor is selected, the user can 
+click anywhere on the page to add an attachment annotation. The attachment will set its top left corner to where the 
+user clicked, and an annotation dialog will pop up to allow the user to edit the text. The user can also use the 
+Color Selection menu to change the color of the attachment annotation:
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})1255b06110fbf3f0.png) he add attachment button is used when a file needs to be attached to a page. Once the cursor is selected, the user can click anywhere on the page to add an attachment annotation. The attachment will set its top left corner to where the user clicked, and an annotation dialog will pop up to allow the user to edit the text. The user can also use the Color Selection menu to change the color of the attachment annotation.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar25.png %})
 
-The Add Attachment button is located to the right of the Sticky Note button and to the left of the Text Select dropdown.
+The **Add Attachment** button is located to the right of the **Sticky Note** button and to the left of the **Text Select** 
+dropdown.
 
-###### 4.1.16.3.1**D ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})8061450604500509.png) ownloading Attachment**
+###### Downloading Attachment
+Once an attachment annotation is added to the page, a user can download the file by simply clicking the 
+**Download Attachment** button in the dialog box of the annotation:
 
-Once an attachment annotation is added to the page, a user can download the file by simply clicking the Download Attachment button in the dialog box of the annotation.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar26.png %})
 
-#### 4.1.17T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})d46074e25075cc43.gif) ext Select Dropdown
+#### Text Select Dropdown
+The Text Select dropdown includes all the available text select annotations. These include Select Text, Highlight, 
+Strikeout, Insert Text, Underline, and Replace Text. The user can select one or more lines of text from any section to 
+make an annotation from this group. 
 
-The Text Select dropdown includes all of the available text select annotations. These include Select Text, Highlight, Strikeout, Insert Text, Underline, and Replace Text. The user can select one or more lines of text from any section to make an annotation from this group. The dialog box will appear from the top left corner of all the annotations in this group except for select text. The select text annotation allows a user to copy their selection of text in order to paste it into another application.
+The dialog box will appear from the top left corner of all the annotations in this group except for select text. The 
+select text annotation allows a user to copy their selection of text in order to paste it into another application:
 
-The Text Select dropdown is located to the right of the Add Attachment button and to the left of the Color selection box.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar27.png %})
 
-##### 4.1.17.1 **Select Text**
+The **Text Select** dropdown is located to the right of the **Add Attachment** button and to the left of the **Color** 
+selection box.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})51f1de2012f91c7e.png) he Select Text button is used when text on the page needs to be selected to copy it. Once the cursor is selected, the user can click on the text they wish to select. The user can then drag the mouse over the text to select it until the mouse is released.
+##### Select Text
+The **Select Text** button is used when text on the page needs to be selected to copy it. Once the cursor is selected, 
+the user can click on the text they wish to select. The user can then drag the mouse over the text to select it until 
+the mouse is released:
 
-The Select Text button is located in the Text Select dropdown above the Highlight button.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar28.png %})
 
-##### 4.1.17.2 **Highlight**
+The **Select Text** button is located in the **Text Select** dropdown above the **Highlight** button.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})b19bcf0891fa0b3c.png) he highlight button is used when text needs to be highlighted on the page. Once the cursor is selected, the user can click on the text they wish to highlight. The user then can drag the mouse over the text to highlight it until the mouse is released.
+##### Highlight
+The **Highlight** button is used when text needs to be highlighted on the page. Once the cursor is selected, the user 
+can click on the text they wish to highlight. The user then can drag the mouse over the text to highlight it until the 
+mouse is released:
 
-The Highlight button is located in the Text Select dropdown below the Select Text button and above the Strikeout button.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar29.png %})
 
-##### 4.1.17.3 **Strikeout**
+The **Highlight** button is located in the **Text Select** dropdown below the **Select Text** button and above the 
+**Strikeout** button.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})a66d06fab67a0124.png) he strikeout button is used to strikethrough text on the page. Once the cursor is selected, the user can click on the beginning point of the text they wish to strikeout. The user can then drag the mouse over the text striking it out until the mouse is released.
+##### Strikeout
+The **Strikeout** button is used to strikethrough text on the page. Once the cursor is selected, the user can click on 
+the beginning point of the text they wish to strikeout. The user can then drag the mouse over the text striking it out 
+until the mouse is released:
 
-The Strikeout button is located in the Text Select dropdown below the Highlight button and above the Insert Text button.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar30.png %})
 
-##### **4.1.17.4Insert Text**
+The **Strikeout** button is located in the **Text Select** dropdown below the **Highlight** button and above the 
+**Insert Text** button.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})cacaa32b58295b73.png) he insert text at placeholder button is used to add text to the document in an annotation dialog box. Once the cursor is selected, the user can click on any text to add a placeholder. The placeholder will set its top left corner to where the user clicked.
+##### Insert Text
+The **Insert Text** at placeholder button is used to add text to the document in an annotation dialog box. Once the 
+cursor is selected, the user can click on any text to add a placeholder. The placeholder will set its top left corner 
+to where the user clicked:
 
-The Insert Text button is located in the Text Select dropdown below the Strikeout button and above the Underline button.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar31.png %})
 
-##### 4.1.17.5 **Underline**
+The **Insert Text** button is located in the **Text Select** dropdown below the **Strikeout** button and above the 
+**Underline** button.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})33b50bb663bb710c.png) he underline button is used to underline text on the page. Once the cursor is selected, the user can click on the beginning point of the text they wish to underline. The user can then drag the mouse over the text underlining it until the mouse is released.
+##### Underline
+The **Underline** button is used to underline text on the page. Once the cursor is selected, the user can click on the 
+beginning point of the text they wish to underline. The user can then drag the mouse over the text underlining it until 
+the mouse is released:
 
-The Underline button is located in the Text Select dropdown below the Insert Text button and above the Replace Text button.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar32.png %})
 
-##### 4.1.17.6 **Replace Text**
+The **Underline** button is located in the **Text Select** dropdown below the **Insert Text** button and above the 
+**Replace Text** button.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})8ad352578933254c.png) he replace text button is used to replace text in the document in an annotation dialog box. Once the cursor is selected, the user can click on any text to add a placeholder. The placeholder will set its top left corner to where the user clicked.
+##### Replace Text
+The **Replace Text** button is used to replace text in the document in an annotation dialog box. Once the cursor is 
+selected, the user can click on any text to add a placeholder. The placeholder will set its top left corner to where 
+the user clicked:
 
-The Replace Text is located in the Text Select dropdown below the Underline button.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar33.png %})
 
-#### 4.1.18Color
+The **Replace Text** is located in the **Text Select** dropdown below the **Underline** button.
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})25211b46a963e60c.png) licking this button will open a box displaying the available colors the user can choose. The user can select a color to change the color of the annotation when using the line, arrow, ellipse, rectangle, free draw, highlight, strikeout, or insert text as placeholder buttons. Once the desired tool is selected, the user can then select a new color that will appear on the page when the tool is used. Only one color can be chosen at a time. The annotation tools each have their own default color, which will appear when the user selects a new tool and a color has not been chosen yet.
+#### Color
+Clicking this button will open a box displaying the available colors the user can choose. The user can select a color to 
+change the color of the annotation when using the line, arrow, ellipse, rectangle, free draw, highlight, strikeout, or 
+insert text as placeholder buttons. Once the desired tool is selected, the user can then select a new color that will 
+appear on the page when the tool is used. Only one color can be chosen at a time. 
 
-The Color selection box is located to the right of the Text Select dropdown and to the left of the Drawing Tools dropdown.
+The annotation tools each have their own default color, which will appear when the user selects a new tool and a color 
+has not been chosen yet:
 
-##### 4.1.18.1 **Set Default Color**
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar34.png %})
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})3f02b6b6fc5a4eb8.png) he user can set the default color by choosing a color, then clicking the Set Default button. The user will be prompted by a popup window asking whether they want to set the selected color as the default color. Setting the default color in the picker specifies the color that will be set on page load and used for all types of annotations. This value is saved in regards to the browser it was saved on.
+The **Color** selection box is located to the right of the **Text Select** dropdown and to the left of the 
+**Drawing Tools** dropdown.
 
-The Set Default button is located in the Color dropdown above the Reset button.
+##### Set Default Color
+The user can set the default color by choosing a color, then clicking the **Set Default** button. The user will be prompted 
+by a popup window asking whether they want to set the selected color as the default color. Setting the default color in 
+the picker specifies the color that will be set on page load and used for all types of annotations. This value is saved 
+in relation to the browser it was saved on:
 
-##### 4.1.18.2 **Reset Color**
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar35.png %})
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})73a11a6617530026.png) he user can reset the default color by clicking the Reset button. The user will be prompted by a popup window asking whether they want to reset the default color. Doing this will default the color back to red.
+The **Set Default** button is located in the **Color** dropdown above the **Reset** button.
 
-The Reset button is located in the Color dropdown below the Set Default button.
+##### Reset Color
+The user can reset the default color by clicking the **Reset** button. The user will be prompted by a popup window asking 
+whether they want to reset the default color. Doing this will default the color back to red.
 
-#### 4.1.19Drawing Tools Dropdown
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar36.png %})
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})cca013824c932dc4.png) he Drawing Tools dropdown includes all of the available drawing annotations. These include Line, Arrow, Ellipse, Rectangle, Text Box, and Free Draw. The drawing annotation tools are drawn from where the user clicks on the page to where the user's mouse is when unclicking. If the mouse has not been dragged far enough from the starting point, the annotation will not be drawn, and the selected annotation tool will not be changed. Additionally, all drawing annotations can be resized by clicking on them to highlight them and dragging them. An annotation dialog will pop up to allow the user to edit the text. Clicking on drawing objects will also open a dialog for notes.
+The **Reset** button is located in the **Color** dropdown below the **Set Default** button.
 
-The Drawing Tools dropdown is located to the right of the Color selection box and to the left of the Stamps dropdown.
+#### Drawing Tools Dropdown
+The **Drawing Tools** dropdown includes all the available drawing annotations. These include Line, Arrow, Ellipse, 
+Rectangle, Text Box, and Free Draw. The drawing annotation tools are drawn from where the user clicks on the page to 
+where the user's mouse is when unclicking:
 
-##### **4.1.19.1Line**
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar37.png %})
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})ab0ba9f7676b00a.png) he line button is used when a line needs to be added to a page. Once the cursor is selected, the user can click anywhere on the page to start the line. The user can then drag the mouse anywhere else on the page to put the other end point of the line. A line will be drawn from one point to the other.
+If the mouse has not been dragged far enough from the starting point, the annotation will not be drawn, and the 
+selected annotation tool will not be changed. Additionally, all drawing annotations can be resized by clicking on them 
+to highlight them and dragging them. 
 
-The Draw Line button is located in the Drawing Tools dropdown above the Draw Arrow button.
+An annotation dialog will pop up to allow the user to edit the text. Clicking on drawing objects will also open a dialog 
+for notes.
 
-##### 4.1.19.2 **Arrow**
+The **Drawing Tools** dropdown is located to the right of the **Color** selection box and to the left of the **Stamps** 
+dropdown.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})18d0b5681bd3069b.png) he arrow button is used when an arrow needs to be added to a page. Once the cursor is selected, the user can click anywhere on the page to start the arrow. The user can then drag the mouse anywhere else on the page to put the tip of the arrow. An arrow will be drawn from one point to the other. The arrow will point to the second point. Dialog boxes will be anchored at the beginning of the arrow.
+##### Draw Line
+The **Draw Line** button is used when a line needs to be added to a page. Once the cursor is selected, the user can 
+click anywhere on the page to start the line. The user can then drag the mouse anywhere else on the page to put the 
+other end point of the line. A line will be drawn from one point to the other:
 
-The Draw Arrow button is located in the Drawing Tools dropdown below the Draw Line button and above the Draw Ellipse button.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar38.png %})
 
-##### 4.1.19.3 **Ellipse**
+The **Draw Line** button is located in the **Drawing Tools** dropdown above the **Draw Arrow** button.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})fdeb67edb34ed788.png) he ellipse button is used when an ellipse needs to be added to a page. Once the cursor is selected, the user can click anywhere on the page to start the rectangle that will contain the ellipse. The user can then drag the mouse anywhere else on the page to put the other end point of the rectangle containing the ellipse. An ellipse will be drawn within the two points so that the top is the highest point in the rectangle containing it, the bottom is the lowest point, and the sides are the two widest points. Dialog boxes will be anchored in the center of the ellipse.
+##### Draw Arrow
+The **Draw Arrow** button is used when an arrow needs to be added to a page. Once the cursor is selected, the user can 
+click anywhere on the page to start the arrow. The user can then drag the mouse anywhere else on the page to put the tip 
+of the arrow. An arrow will be drawn from one point to the other. The arrow will point to the second point. Dialog boxes 
+will be anchored at the beginning of the arrow:
 
-The Draw Ellipse button is located in the Drawing Tools dropdown below the Draw Arrow button and above the Draw Rectangle button.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar39.png %})
 
-##### **4.1.19.4Rectangle**
+The **Draw Arrow** button is located in the **Drawing Tools** dropdown below the **Draw Line** button and above the 
+**Draw Ellipse** button.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})60e8c61e7452221f.png) he rectangle button is used when a rectangle needs to be added to a page. Once the cursor is selected, the user can click anywhere on the page to start the rectangle. The user can then drag the mouse anywhere else on the page to put the other corner of the rectangle. A rectangle will be drawn from one point to the other. Dialog boxes are anchored in the beginning of the rectangle.
+##### Draw Ellipse
+The **Draw Ellipse** button is used when an ellipse needs to be added to a page. Once the cursor is selected, the user 
+can click anywhere on the page to start the rectangle that will contain the ellipse. The user can then drag the mouse 
+anywhere else on the page to put the other end point of the rectangle containing the ellipse. An ellipse will be drawn 
+within the two points so that the top is the highest point in the rectangle containing it, the bottom is the lowest 
+point, and the sides are the two widest points. Dialog boxes will be anchored in the center of the ellipse:
 
-The Draw Rectangle button is located in the Drawing Tools dropdown below the Draw Ellipse button.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar40.png %})
 
-##### **4.1.19.5Text Box**
+The **Draw Ellipse** button is located in the **Drawing Tools** dropdown below the **Draw Arrow** button and above the 
+**Draw Rectangle** button.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})3afde382ff0c235f.png) he text box button is used to add a text box to the document. Once the cursor is selected, the user can click anywhere on the page to start the text box. The user can then drag the mouse anywhere else on the page to put the other corner of the text box. A text box will be drawn from one point to the other. The user can use the comments section in the dialog box to add their text.
+##### Draw Rectangle
+The **Draw Rectangle** button is used when a rectangle needs to be added to a page. Once the cursor is selected, the 
+user can click anywhere on the page to start the rectangle. The user can then drag the mouse anywhere else on the page 
+to put the other corner of the rectangle. A rectangle will be drawn from one point to the other. Dialog boxes are 
+anchored in the beginning of the rectangle:
 
-The Text Box button is located in the Drawing Tools dropdown below the Draw Rectangle button and above the Free Draw button.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar41.png %})
 
-##### 4.1.19.6 **Free Draw**
+The **Draw Rectangle** button is located in the **Drawing Tools** dropdown below the **Draw Ellipse** button.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})b4ac484040995fbf.png) he free draw button is used for free hand drawing on the document. Once the cursor is selected, the user can click anywhere on the page to start the free draw. The user can then drag the mouse anywhere else on the page until the drawing is complete. Dialog boxes are anchored to the top left corner of the drawing.
+##### Add Text Box
+The **Text Box** button is used to add a text box to the document. Once the cursor is selected, the user can click 
+anywhere on the page to start the text box. The user can then drag the mouse anywhere else on the page to put the other 
+corner of the text box. A text box will be drawn from one point to the other. The user can use the comments section in 
+the dialog box to add their text:
 
-The Free Draw button is located in the Drawing Tools dropdown below the Text Box button.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar42.png %})
 
-#### 4.1.20Stamp Tools Dropdown
+The **Text Box** button is located in the **Drawing Tools** dropdown below the **Draw Rectangle** button and above the 
+**Free Draw** button.
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})ca319f5b448fa8f8.gif)The Stamps dropdown includes all of the available stamp annotations. These include Approved, Reviewed, Accepted, Rejected, and Checkmark. When one of these stamps are selected, a preview will appear on the document that will allow the user to see how the stamp will look when it is placed on the document. The dialog box will appear from the top left corner of the stamp annotation and will appear every time the annotation is selected.
+##### Free Draw
+The **Free Draw** button is used for free hand drawing on the document. Once the cursor is selected, the user can 
+click anywhere on the page to start the free draw. The user can then drag the mouse anywhere else on the page until the 
+drawing is complete. Dialog boxes are anchored to the top left corner of the drawing:
 
-The Stamps dropdown is located to the right of the Drawing Tools dropdown and to the left of the Help button.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar43.png %})
 
-##### **4.1.20.1Approved Stamp**
+The **Free Draw** button is located in the **Drawing Tools** dropdown below the **Text Box** button.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})fb4fc1f4cd1656d5.png) he approved stamp is used when an approved stamp needs to be added to a page. Once the approved stamp button is clicked, a preview of the stamp will appear on the document to allow the user to see what the stamp annotation will look like before it is placed on the document.
+#### Stamp Tools Dropdown
+The **Stamps** dropdown includes all of the available stamp annotations. These include Approved, Reviewed, Accepted, 
+Rejected, and Checkmark. When one of these stamps are selected, a preview will appear on the document that will allow 
+the user to see how the stamp will look when it is placed on the document. The dialog box will appear from the top left 
+corner of the stamp annotation and will appear every time the annotation is selected:
 
-The Approved Stamp is located in the Stamps Dropdown menu above the Reviewed Stamp button.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar44.png %})
 
-##### 4.1.20.2 **Reviewed**
+The **Stamps** dropdown is located to the right of the **Drawing Tools** dropdown and to the left of the **Help** button.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})88f556bbf1f259ab.png) he reviewed stamp is used when a reviewed stamp needs to be added to a page. Once the reviewed stamp button is clicked, a preview of the stamp will appear on the document to allow the user to see what the
+##### Approved Stamp
+The **Approved Stamp** is used when an approved stamp needs to be added to a page. Once the approved stamp button is clicked, 
+a preview of the stamp will appear on the document to allow the user to see what the stamp annotation will look like 
+before it is placed on the document:
 
-stamp annotation will look like before it is placed on the document.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar45.png %})
 
-The Reviewed Stamp button is located in the Stamps dropdown below the Approved Stamp and the Accepted Stamp button.
+The **Approved Stamp** is located in the **Stamps** Dropdown menu above the **Reviewed Stamp** button.
 
-##### 4.1.20.3 **Accepted Stamp**
+##### Reviewed Stamp
+The **Reviewed Stamp** is used when a reviewed stamp needs to be added to a page. Once the reviewed stamp button is clicked, 
+a preview of the stamp will appear on the document to allow the user to see what the stamp annotation will look like 
+before it is placed on the document:
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})91939e7295238d6d.png) he accepted stamp is used when an accepted stamp needs to be added to a page. Once the accepted stamp button is clicked, a preview of the stamp will appear on the document to allow the user to see what the stamp annotation will look like before it is placed on the document.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar46.png %})
 
-The Accepted Stamp button is located in the Stamps Dropdown menu below the Reviewed Stamp button and above the Rejected Stamp button.
+The **Reviewed Stamp** button is located in the **Stamps** dropdown below the **Approved Stamp** and the 
+**Accepted Stamp** button.
 
-##### **4.1.20.4Rejected Stamp**
+##### Accepted Stamp
+The **Accepted Stamp** is used when an accepted stamp needs to be added to a page. Once the accepted stamp button is 
+clicked, a preview of the stamp will appear on the document to allow the user to see what the stamp annotation will 
+look like before it is placed on the document:
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})a602063380cebe70.png) he rejected stamp is used when a rejected stamp needs to be added to a page. Once the rejected stamp button is clicked, a preview of the stamp will appear on the document to allow the user to see what the stamp annotation will look like before it is placed on the document.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar47.png %})
 
-The Rejected Stamp button is located in the Stamps dropdown below the Accepted Stamp button and above the Checkmark stamp button.
+The **Accepted Stamp** button is located in the **Stamps** Dropdown menu below the **Reviewed Stamp** button and above 
+the **Rejected Stamp** button.
 
-##### 4.1.20.5 **Checkmark Stamp**
+##### Rejected Stamp
+The **Rejected Stamp** is used when a rejected stamp needs to be added to a page. Once the rejected stamp button is 
+clicked, a preview of the stamp will appear on the document to allow the user to see what the stamp annotation will look 
+like before it is placed on the document:
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})bd4ec6182eb5619c.png) he checkmark stamp is used when a checkmark stamp needs to be added to a page. Once the checkmark stamp button is clicked, a preview of the stamp will appear on the document to allow the user to see what the stamp annotation will look like before it is placed on the document.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar48.png %})
 
-The Checkmark Stamp button is located in the Stamps dropdown below the Rejected Stamp button.
+The **Rejected Stamp** button is located in the **Stamps** dropdown below the **Accepted Stamp** button and above the 
+**Checkmark stamp** button.
 
-#### 4.1.21Help
+##### Checkmark Stamp
+The **Checkmark Stamp** is used when a checkmark stamp needs to be added to a page. Once the checkmark stamp button is 
+clicked, a preview of the stamp will appear on the document to allow the user to see what the stamp annotation will 
+look like before it is placed on the document:
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})1b09fc8fbf563d74.png) he help button is used to give the user more information regarding Enterprise Viewer. When this button is clicked a new tab in the browser will open with Technology Services Group information regarding their services and description of Enterprise Viewer.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar49.png %})
 
-The Help button is located to the right of the Stamp Tools dropdown and to the left of the Active Users box.
+The **Checkmark Stamp** button is located in the **Stamps** dropdown below the **Rejected Stamp** button.
 
-#### 4.1.22Active Users
+#### Help
+The **Help** button is used to give the user more information regarding Enterprise Viewer. When this button is clicked a 
+new tab in the browser will open with Technology Services Group information regarding their services and description 
+of Enterprise Viewer:
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})49bf88ae7c887bc8.png) he active users box shows the user how many users are currently viewing the current document. Clicking this button will change the tab in the sidebar to the
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar50.png %})
 
-Participants tab.
+The **Help** button is located to the right of the **Stamp Tools** dropdown and to the left of the Active Users box.
 
-The Active Users box is located to the right of the Help button and to the left of the Load Time.
+#### Active Users
+The **Active Users** box shows the user how many users are currently viewing the current document. Clicking this button 
+will change the tab in the sidebar to the **Participants** tab:
+
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar51.png %})
+
+The **Active Users** box is located to the right of the **Help** button and to the left of the Load Time.
 
 >**Note:** The Active Users box is only displayed if "Collaboration Mode" is active.
 
-#### 4.1.23L ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})26834eaf0ef5a93b.png) ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})88a97498f63e41b1.png) oad Time
+#### Load Time
+The **Load Time** shows the user how many seconds it took to load the document. The user can see more details when clicking 
+on the text. The load time takes into consideration the time it took the user to login, the browser JavaScript load time, 
+the time it took to retrieve document information, the time it took to display the document, and the document's size. The 
+user can copy the load time information into their clipboard by clicking the Copy to **Clipboard** button found in the load 
+time information window:
 
-The load time shows the user how many seconds it took to load the document. The user can see more details when clicking on the text. The load time takes into consideration the time it took the user to login, the browser JavaScript load time, the time it took to retrieve document information, the time it took to display the document, and the document's size. The user can copy the load time information into their clipboard by clicking the Copy to Clipboard button found in the load time information window.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar52.png %})
 
-The Load Time text is located to the right of the Active Users box.
+The **Load Time** text is located to the right of the Active Users box.
 
-### 4.2Right Sidebar
-
+### Right Sidebar
 The sidebar displays the annotation summary and search tabs. It is to the right of the document and below the toolbar.
 
-#### 4.2.1Hide Sidebar
+#### Hide Sidebar
+The **Hide Sidebar** button allows the user to hide or show the sidebar depending upon the current state of the view. By 
+default, the sidebar is in view. When clicked the sidebar will be hidden from the display. When the sidebar is not in 
+view, the button can be clicked to show the sidebar and the sidebar will reappear in its default position:
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})30357ba6faa8b7c8.png) he hide sidebar button allows the user to hide or show the sidebar depending upon the current state of the view. By default, the sidebar is in view. When clicked the sidebar will be hidden from the display. When the sidebar is not in view, the button can be clicked to show the sidebar and the sidebar will reappear in its default position.
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar53.png %})
 
 This button is located in the upper right corner of the sidebar.
 
