@@ -104,9 +104,9 @@ custom transforms and renditions can now be added to Docker deployments without 
 even restarting the repository.
 
 ## Repository Configuration
+This section covers transform configuration on the Repository side.
 
 ### Configure a T-Engine as a Local Transform
-
 For the Repository to talk to a T-Engine, it must know the engine's URL. The URL can be added as an Alfresco global property,
 or more simply as a Java system property. `JAVA_OPTS` may be used to set this if starting the repository with Docker.
 
@@ -126,7 +126,6 @@ local.transform.service.initialAndOnError.cronExpression=0/10 * * * * ?
 ```
 
 ### Enabling and disabling Local or Transform Service transforms
-
 Local or Transform Service transforms can be enabled or disabled
 independently of each other. The Repository will try to transform
 content using the Transform Service if possible and fall back to a Local
@@ -137,7 +136,7 @@ disabled. The Transform service only supports asynchronous requests.
 
 The following sections will show how to create a Local transform pipeline, a Local
 transform failover or a Local transform override, but remember that they will not be
-used if the Transform Service (ATS) if it is able to do the transform and is enabled.
+used if the Transform Service (ATS) is able to do the transform and is enabled.
 
 ```text
 transform.service.enabled=true
@@ -147,16 +146,16 @@ local.transform.service.enabled=true
 Setting the enabled state to `false` will disable all of the transforms
 performed by that particular service. It is possible to disable individual
 Local Transforms by setting the corresponding T-Engine URL property
-`localTransform.&lt;engineName>.url` value to an empty string.
+`localTransform.<engineName>.url` value to an empty string.
 
 ```text
 localTransform.helloworld.url=
 ```
 
 ## Transformer Config
+This section covers transform configuration on the T-Engine side.
 
 ### Transformer selection strategy
-
 The Repository and ATS router use the [T-Engine configuration](https://github.com/Alfresco/acs-packaging/blob/master/docs/creating-a-t-engine.md#t-engine-configuration){:target="_blank"} 
 in combination with their own pipeline files 
 to choose which T-Engine will perform a transform. A transformer definition contains a supported list of source and target 
@@ -181,15 +180,14 @@ resources. The configuration may also specify a priority which will be used in T
 selection if there are a number of options. The highest priority is the one with the lowest number. 
 
 ### Transform pipelines
-
 Transforms may be combined in a pipeline to form a new transform, where the output from one becomes the 
 input to the next and so on. A pipeline definition (JSON) defines the sequence of transform steps and intermediate Media Types. 
 Like any other transformer, it specifies a list of supported source and target Media Types. If you don't supply any,
 all possible combinations are assumed to be available. The definition may reuse the `transformOptions` of transformers in the
 pipeline, but typically will define its own subset of these.  
 
-The following example begins with the `helloWorld` Transformer described in [Creating a T-Engine](creating-a-t-engine), 
-which takes a text file containing a name and produces an HTML file with a Hello &lt;name> message in the body. This is 
+The following example begins with the `helloWorld` Transformer described in [Creating a T-Engine](#creating-a-t-engine), 
+which takes a text file containing a name and produces an HTML file with a *Hello &lt;name>* message in the body. This is 
 then transformed back into a text file. This example contains just one pipeline transformer, but many may be defined in 
 the same file.
 
@@ -218,7 +216,7 @@ the same file.
 Media Types between transformers. There is no final `targetMediaType` as this comes from the `supportedSourceAndTargetList`.
 * `supportedSourceAndTargetList` - The supported source and target Media Types, which refer to the Media Types this 
 pipeline transformer can transform from and to, additionally you can set the priority and the
-maxSourceSizeBytes see [Supported Source and Target List](https://github.com/Alfresco/alfresco-transform-core/blob/master/docs/engine_config.md#supported-source-and-target-list){:target="_blank"}.
+`maxSourceSizeBytes` see [Supported Source and Target List](https://github.com/Alfresco/alfresco-transform-core/blob/master/docs/engine_config.md#supported-source-and-target-list){:target="_blank"}.
 If blank, this indicates that all possible combinations are supported. This is the cartesian product of all source types to the first
 intermediate type and all target types from the last intermediate type. Any combinations supported by the first transformer are excluded. They
 will also have the priority from the first transform.
@@ -267,10 +265,9 @@ or when the repository pods are restarted.
 > From Kubernetes documentation: Caution: If there are some files in the mountPath location, they will be deleted.
 
 ### Failover transforms
-
-A failover transform, simply provides a list of transforms to be
-attempted one after another until one succeeds. For example, you may have a fast transform that is able to handle a
-limited set of transforms and another that is slower but handles all cases.
+A failover transform simply provides a list of transforms to be attempted one after another until one succeeds. For 
+example, you may have a fast transform that is able to handle a limited set of transforms and another that is slower 
+but handles all cases.
 
 ```json
 {
@@ -293,14 +290,13 @@ limited set of transforms and another that is slower but handles all cases.
 * `supportedSourceAndTargetList` - The supported source and target
 Media Types, which refer to the Media Types this failover transformer
 can transform from and to, additionally you can set the priority and the
-maxSourceSizeBytes see [Supported Source and Target List](https://github.com/Alfresco/alfresco-transform-core/blob/master/docs/engine_config.md#supported-source-and-target-list){:target="_blank"}.
+`maxSourceSizeBytes` see [Supported Source and Target List](https://github.com/Alfresco/alfresco-transform-core/blob/master/docs/engine_config.md#supported-source-and-target-list){:target="_blank"}.
 Unlike pipelines, it must not be blank.
 * `transformOptions` - A list of references to options required by
 the pipeline transformer.
 
 ### Adding pipelines and failover transforms to a T-Engine
-
-Since Content Services version 7.2 and ATS 1.5
+>**Note:** Since Content Services version 7.2 and ATS 1.5.
 
 So far we have talked about defining pipelines and failover transforms in the Repository or
 ATS router pipeline files. It is also possible to add them to a T-Engine's configuration, even
@@ -312,14 +308,14 @@ Generally it is better to add them to T-Engines to avoid having to add an identi
 the Repository and ATS Router pipeline files.
 
 ### Modifying existing configuration
-
-Since Content Services version 7.2 and ATS 1.5
+>**Note:** Since Content Services version 7.2 and ATS 1.5.
 
 The Repository and ATS router read the configuration from T-Engines and then their own pipeline
 files. The T-Engine order is based on the `<engineName>` and the pipeline file order is based on
 the filenames. As sorting is alphanumeric, you may wish to consider using a fixed length numeric prefix.
 
 For example:
+
 ```text
 localTransform.imagemagick.url=http://localhost:8091/
 localTransform.libreoffice.url=http://localhost:8092/
@@ -335,9 +331,8 @@ The following sections describe ways to modify the configuration that has alread
 T-Engine or pipeline files.
 
 #### Overriding transforms
-
 It is possible to override a previously defined transform definition. The following example
-removes most of the supported source to target media types from the standard _"libreoffice"_
+removes most of the supported source to target media types from the standard `libreoffice`
 transform. It also changes the max size and priority of others. This is not something you would normally want to do. 
 
 ```json
@@ -359,8 +354,7 @@ transform. It also changes the max size and priority of others. This is not some
 ```
 
 #### Removing a transformer
-
-Since Content Services version 7.2 and ATS 1.5
+>**Note:** Since Content Services version 7.2 and ATS 1.5.
 
 To discard a previous transformer definition include its name in the optional
 `"removeTransformers"` list. You might want to do this if you have a replacement and wish keep
@@ -379,17 +373,17 @@ in the same T-Engine or pipeline file.
 ```
 
 #### Overriding the supportedSourceAndTargetList
-
-Since Content Services version 7.2 and ATS 1.5
+>**Note:** Since Content Services version 7.2 and ATS 1.5.
 
 Rather than totally override an existing transform definition from another T-Engine or pipeline file,
 it is generally simpler to modify the `"supportedSourceAndTargetList"` by adding
 elements to the optional `"addSupported"`, `"removeSupported"` and `"overrideSupported"` lists.
 You will need to specify the `"transformerName"` but you will not need to repeat all the other
 `"supportedSourceAndTargetList"` values, which means if there are changes in the original, the
-same change is not needed in a second place. The following example adds one transform, removes
-two others and changes the `"priority"` and `"maxSourceSizeBytes"` of another. This is done before
-processing any other configuration in the same T-Engine or pipeline file.
+same change is not needed in a second place. 
+
+The following example adds one transform, removes two others and changes the `"priority"` and `"maxSourceSizeBytes"` of 
+another. This is done before processing any other configuration in the same T-Engine or pipeline file:
 
 ```json
 {
@@ -428,13 +422,13 @@ processing any other configuration in the same T-Engine or pipeline file.
 ```
 
 #### Default maxSourceSizeBytes and priority values
-
-Since Content Services version 7.2 and ATS 1.5
+>**Note:** Since Content Services version 7.2 and ATS 1.5.
 
 When defining `"supportedSourceAndTargetList"` elements the `"priority"` and `"maxSourceSizeBytes"` are optional
 and normally have the default values of `50` and `-1` (no limit). It is possible to
 change those defaults. In precedence order from most specific to most general these are defined by combinations of
 `"transformerName"` and `"sourceMediaType"`.
+
 * `transformer and source media type default` - both specified
 * `transformer default` - only the transformer name is specified
 * `source media type default` - only the source media type is specified
@@ -477,7 +471,6 @@ Defaults values are only applied after T-Engine and pipeline files have been rea
 }
 ```
 ## Configure a custom rendition {#configure-a-custom-rendition}
-
 Renditions are a representation of source content in another form. A
 Rendition Definition (JSON) defines the transform option (parameter)
 values that will be passed to a transformer and the target Media Type.
@@ -498,11 +491,9 @@ values that will be passed to a transformer and the target Media Type.
 
 * `renditionName` - A unique rendition name.
 * `targetMediaType` - The target Media Type for the rendition.
-* `options` - The list of transform option names and values
-corresponding to the transform options defined in
+* `options` - The list of transform option names and values corresponding to the transform options defined in
 [T-Engine configuration](https://github.com/Alfresco/acs-packaging/blob/master/docs/creating-a-t-engine.md#t-engine-configuration){:target="_blank"}.
-If you specify `sourceNodeRef` without a value,
-the system will automatically add the values at run time. 
+If you specify `sourceNodeRef` without a value, the system will automatically add the values at run time. 
 
 Just like Pipeline Definitions, custom Rendition Definitions need to be placed
 in a directory of the Repository. There are similar properties that
@@ -531,7 +522,6 @@ Again, the files will be picked up the next time the location is read,
 or when the repository pods are restarted.
 
 ### Disabling an existing rendition
-
 Just like transforms, it is possible to override renditions. The following example effectively
 disables the `doclib` rendition, used to create the thumbnail images in Share's Document Library
 page and other client applications. A good name for this file might be
