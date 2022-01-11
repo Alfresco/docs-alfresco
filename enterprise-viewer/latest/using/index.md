@@ -539,49 +539,75 @@ The **Active Users** box is located to the right of the **Help** button and to t
 >**Note:** The Active Users box is only displayed if "Collaboration Mode" is active.
 
 #### Load Time
-The **Load Time** shows the user how many seconds it took to load the document. The user can see more details when clicking 
-on the text. The load time takes into consideration the time it took the user to login, the browser JavaScript load time, 
+The **Load Time** shows the user how many seconds it took to load the document:
+
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar52.png %})
+
+The user can see more details when clicking on the text:
+
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar53.png %})
+
+The load time takes into consideration the time it took the user to login, the browser JavaScript load time, 
 the time it took to retrieve document information, the time it took to display the document, and the document's size. The 
 user can copy the load time information into their clipboard by clicking the Copy to **Clipboard** button found in the load 
 time information window:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar52.png %})
-
-The **Load Time** text is located to the right of the Active Users box.
+The **Load Time** text is located to the right of the **Active Users** box.
 
 ### Right Sidebar
-The sidebar displays the annotation summary and search tabs. It is to the right of the document and below the toolbar.
+The right sidebar displays the annotation summary and search tabs. It is to the right of the document and below the 
+toolbar.
 
 #### Hide Sidebar
 The **Hide Sidebar** button allows the user to hide or show the sidebar depending upon the current state of the view. By 
-default, the sidebar is in view. When clicked the sidebar will be hidden from the display. When the sidebar is not in 
-view, the button can be clicked to show the sidebar and the sidebar will reappear in its default position:
+default, the sidebar is in view. When clicked, the sidebar will be hidden from the display. When the sidebar is not in 
+view, the button can be clicked to show the sidebar, and the sidebar will reappear in its default position:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar53.png %})
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar1.png %})
 
 This button is located in the upper right corner of the sidebar.
 
-#### 4.2.2Annotation Summary
+#### Annotation Summary
+The annotation summary tab is used to show the summaries of the annotations that have been made in the document:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})f28c524be8e7c160.png) ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})b6fab7e3eb1da78a.png)
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar3.png %})
 
-The annotation summary tab is used to show the summaries of the annotations that have been made in the document. The user can export the summary to excel, print the summary, filter through the annotations, and view the summaries in this tab.
+The user can export the summary to excel, print the summary, filter through the annotations, and view the summaries 
+in this tab:
 
-##### 4.2.2.1 **Export Summary to Excel**
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar2.png %})
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})622b80583368f2d1.png) his button is used to export the summaries to excel. When clicked a message will appear stating that the excel sheet is being downloaded and the user can continue to annotate the document. The excel sheet will display the annotation summaries in a table format. It will include but is not limited to the title of the document, creation date, page, author, type, status, and comments.
+##### Export Summary to Excel
+This **Export Summary to Excel** button is used to export the summaries to excel:
 
-This button is located near the top of the Annotation Summary tab, to the right of the Annotation Summary title, and to the left of the Printable Summary button.
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar4.png %})
 
-##### 4.2.2.2 **Printable Summary**
+When clicked a message will appear stating that the Excel sheet is being downloaded, and the user can continue to 
+annotate the document. The Excel sheet will display the annotation summaries in a table format. It will include but is 
+not limited to the title of the document, creation date, page, author, type, status, and comments.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})e01d1ce417b90336.png) his button is used to print the annotation summaries. When clicked a new window will open displaying all of the annotation summaries in a table format. It will display the object name, title, creation date, page, author, type, comment, status, and replies if any. The user can print the page by selecting the window and clicking Ctrl + P or in a form of the user's choosing.
+The **Export Summary to Excel** button is located near the top of the Annotation **Summary** tab, to the right of the 
+**Annotation Summary** title, and to the left of the **Printable Summary** button.
 
-This button is located near the top right corner of the Annotation Summary tab and to the right of the Export Summary to Excel button.
+##### Printable Summary
+The **Printable Summary** button is used to print the annotation summaries:
 
-##### 4.2.2.3 **Filter Text Box**
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar5.png %})
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})f19eae6e66d36699.png) he filter text box allows the user to sort through the annotation summaries efficiently. When the user types in the text box, the annotation summary boxes will be sorted. The annotation summary boxes with text matching the user's input will appear below the filter search box. The filter field will filter on the:
+When clicked, a new window will open displaying all the annotation summaries in a table format. It will display the 
+object name, title, creation date, page, author, type, comment, status, and replies if any. The user can print the page 
+by selecting the window and clicking `Ctrl + P` or in a form of the user's choosing.
+
+This **Printable Summary** button is located near the top right corner of the Annotation **Summary** tab and to the 
+right of the **Export Summary to Excel** button.
+
+##### Filter Text Box
+The filter text box allows the user to sort through the annotation summaries efficiently:
+
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar6.png %})
+
+When the user types in the text box, the annotation summary boxes will be sorted. The annotation summary boxes with 
+text matching the user's input will appear below the filter search box. The filter field will filter on the:
 
 - Username of the annotation creator
 - Contents of the annotation comment
@@ -589,150 +615,240 @@ T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.
 - Page Number
 - Annotation type (ex: Highlight, Cross-Out, Sticky Note)
 
-This text box is located at the top of the Annotation Summary tab below the Export Summary to Excel and Printable Summary buttons.
+This text box is located at the top of the Annotation **Summary** tab below the **Export Summary to Excel** and 
+**Printable Summary** buttons.
 
-##### **4.2.2.4Filters**
+##### Filters
+The **Filters** button allows the user to filter through the annotation summary boxes based upon the status and author:
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})d67780d5188e8760.png) he filters button allows the user to filter through the annotation summary boxes based upon the status and author. When clicked, a checkbox list will appear displaying status, author(s), and type options for user to select. Multiple statuses, authors and/or types can be selected. The filters box can be used with the filter text box.
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar7.png %})
 
-This button is located on the immediate right of the filter text box.
+When clicked, a checkbox list will appear displaying status, author(s), and type options for user to select. Multiple 
+statuses, authors and/or types can be selected. The filters box can be used with the filter text box.
 
-##### 4.2.2.5 **Clear Filters**
+The **Filters** button is located on the immediate right of the **Filter Text Box**.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})df1a1ca084686bde.png) he clear filters button is used to clear all filters from the filter text box and the filters button. When clicked, the text in the filters text box will be cleared as well as the selections made in the filters list. The clear filters button will appear to the right of the filter text box when there is text in the filter text box or when a selection is made in the filters list.
+##### Clear Filters
+The **Clear Filters** button is used to clear all filters from the filter text box and the filters button:
 
-##### 4.2.2.6 **Annotation Summary Boxes**
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar8.png %})
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})e1083ae684f1b35d.png) he annotation summary boxes appear in the sidebar below the filter text box. They are used to display information regarding each annotation. Each annotation will have one corresponding annotation summary box. An annotation summary box will display the author of the annotation, the date the annotation was created, the page the annotation was made on, the type of annotation, and the status of the annotation. If the status is set to none the status will not be displayed on the annotation summary boxes. The left side of the box will display a color corresponding to the color of the annotation. When an annotation summary box is clicked the user will be taken to that annotation in the document and the annotation dialogue box will appear. The user can delete and edit their annotations through the annotation summary or in the dialogue box. The user can also reply to theirs' and others' annotations.
+When clicked, the text in the filters text box will be cleared as well as the selections made in the filters list. 
 
-###### **4.2.2.6.1Delete**
+The **Clear Filters** button will appear to the right of the **Filter Text Box** when there is text in the filter text 
+box or when a selection is made in the filters list.
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})d63148083475cc66.png) licking this button will delete the annotation. This button will not appear if the user is trying to delete another user's annotation.
+##### Annotation Summary Boxes
+The annotation summary boxes appear in the sidebar below the filter text box:
 
-The Delete button is located in the top right corner of the annotation summary box and above the Edit button.
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar9.png %})
 
-###### **4.2.2.6.2Edit**
+They are used to display information regarding each annotation. Each annotation will have one corresponding annotation 
+summary box. An annotation summary box will display the author of the annotation, the date the annotation was created, 
+the page the annotation was made on, the type of annotation, and the status of the annotation. 
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})2bd4cdcf4d88b8d.png) licking this button will open the text area of the annotation summary box and allow the user to edit their annotation comment. This button will not appear if the user is trying to edit another user's annotation.
+If the status is set to none the status will not be displayed on the annotation summary boxes. The left side of the 
+box will display a color corresponding to the color of the annotation. When an annotation summary box is clicked the 
+user will be taken to that annotation in the document and the annotation dialogue box will appear. 
 
-The Edit button is located in the annotation summary box below the Delete button and above the Reply button.
+The user can delete and edit their annotations through the annotation summary or in the dialogue box. The user can also 
+reply to theirs' and others' annotations.
 
-###### **4.2.2.6.3Reply**
+###### Delete
+Clicking this button will delete the annotation:
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})54e0574d6b8c0ebf.png) licking this button allows the user to reply to an annotation. A user can reply to their annotation as well as other's annotations. If an annotation with a reply is deleted, the reply will be orphaned.
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar10.png %})
 
-The Reply button is located in the annotation summary box below the Edit button.
+This button will not appear if the user is trying to delete another user's annotation.
 
-#### 4.2.3Search
+The **Delete** button is located in the top right corner of the annotation summary box and above the **Edit** button.
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})3ae184d53c9021c8.png)
+###### Edit
+Clicking this button will open the text area of the annotation summary box and allow the user to edit their annotation 
+comment:
 
-Clicking on the search tab will display the search tab which includes a search text box and arrows to move through the search matches.
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar11.png %})
 
-##### 4.2.3.1 **Text Search**
+This button will not appear if the user is trying to edit another user's annotation.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})8abc72815a47773e.png) he text search box allows the user to search for text in the document. It does not search through annotation summary boxes or annotation dialogue boxes. When a user inputs text into the search box, matching results will appear below the text search box. The results will be highlighted on the document. The result the user is currently viewing will be highlighted a different color than the other results. The matching result box that is in view has a corresponding color to the result text on the document. The text search box is not case sensitive.
+The **Edit** button is located in the annotation summary box below the Delete button and above the **Reply** button.
 
-##### 4.2.3.2 **Match Whole Words Only**
+###### Reply
+Clicking this button allows the user to reply to an annotation:
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})627e1649f4d9e52c.png) licking this button will only display the results which match the whole word searched for in the text search box. For example, if the user searches for the word "the" with the Match Whole Words Only button activated, words such as "them" or "there" will not appear in the search results.
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar12.png %})
 
-The button is located to the right of the text search box and to the left of the Previous Result button.
+A user can reply to their annotation as well as other's annotations. If an annotation with a reply is deleted, the reply 
+will be orphaned.
 
-##### 4.2.3.3 **Previous Result**
+The **Reply** button is located in the annotation summary box below the **Edit** button.
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})cab7a795391a64e2.png) licking this button will display the previous matching result from the text search. If there are no results previous to the result currently in view the button will not be in use.
+#### Search
+Clicking on the search tab will display the search tab which includes a search text box and arrows to move through the 
+search matches:
 
-This button is located to the right of the Match Whole Words Only button and to the left of the Next Result button..
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar13.png %})
 
-##### 4.2.3.4 **Next Result**
+##### Text Search
+The text search box allows the user to search for text in the document:
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})4ec99640dff8485e.png) licking this button will display the next matching result from the text search. If there are no results after the result currently in view the button will not be in use.
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar14.png %})
 
-This button is located to the right of the Previous Result button.
+It does not search through annotation summary boxes or annotation dialogue boxes. When a user inputs text into the 
+search box, matching results will appear below the text search box. The results will be highlighted on the document. 
+The result the user is currently viewing will be highlighted a different color than the other results. 
 
-#### 4.2.4Participants
+The matching result box that is in view has a corresponding color to the result text on the document. The text search 
+box is not case-sensitive.
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})6d8984207b0ef148.png)
+##### Match Whole Words Only
+Clicking this button will only display the results which match the whole word searched for in the text search box:
 
-Clicking on the Participants tab will display the participants tab which includes a list of the current users and a chat box that allows the user to chat with the other users viewing the document.
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar15.png %})
+
+For example, if the user searches for the word `the` with the **Match Whole Words Only** button activated, words such as 
+`them` or `there` will not appear in the search results.
+
+The button is located to the right of the text search box and to the left of the **Previous Result** button.
+
+##### Previous Result
+Clicking this button will display the previous matching result from the text search:
+
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar16.png %})
+
+If there are no results previous to the result currently in view the button will not be in use.
+
+This button is located to the right of the **Match Whole Words Only** button and to the left of the **Next Result** button.
+
+##### Next Result
+Clicking this button will display the next matching result from the text search:
+
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar17.png %})
+
+If there are no results after the result currently in view the button will not be in use.
+
+This button is located to the right of the **Previous Result** button.
+
+#### Participants
+Clicking on the **Participants** tab will display the participants tab which includes a list of the current users and 
+a chat box that allows the user to chat with the other users viewing the document:
+
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar18.png %})
 
 >**Note:** The Participants tab only appears when "Collaboration Mode" is active, and the user is connected to the Collaboration Server.
 
-##### 4.2.4.1 **Participants List**
+##### Participants List
+This section of the **Participants** tab shows the list of the current users viewing the document:
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})e5759492e627fbe5.png) his section of the Participants tab shows the list of the current users viewing the document. When a new user starts viewing the document, their name will be added to the bottom of the list. When a user stops viewing the document, their name will be removed from the list.
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar19.png %})
 
-##### **4.2.4.2Following**
+When a new user starts viewing the document, their name will be added to the bottom of the list. When a user stops 
+viewing the document, their name will be removed from the list.
 
+##### Following
 This section of the Participants tab allows the user to follow another user when they are scrolling.
 
-###### 4.2.4.2.1 **Follower**
+###### Follower
+A user can follow another user by clicking on the other user's name:
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})c417773951bf033c.png) he user can follow another user by clicking on the other user's name. The user will jump to the page of the user they are following. The zoom level will also change to match that of the followee. A icon will be displayed next to the name of the user they are following, and a notification will pop up at the bottom of the page that says which user is being followed. The user can unfollow the user by clicking on the other user's name.
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar20.png %})
 
-###### 4.2.4.2.2 **Followee**
+The user will jump to the page of the user they are following. The zoom level will also change to match that of the 
+followee. A icon will be displayed next to the name of the user they are following, and a notification will pop up at 
+the bottom of the page that says which user is being followed. The user can unfollow the user by clicking on the other 
+user's name.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})1e1f770c5b54b1ec.png) he user will be notified that they are being followed by another user. A icon will be displayed next to the name of the user that is following them, and a notification will pop up at the bottom of the page that says the user is being followed. The user can stop others from following them by clicking on the other user's name or clicking the Stop All button in the notification.
+###### Followee
+A user will be notified that they are being followed by another user. An icon will be displayed next to the name of the 
+user that is following them, and a notification will pop up at the bottom of the page that says the user is being followed:
+
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar21.png %})
+
+The user can stop others from following them by clicking on the other user's name or clicking the **Stop All** button 
+in the notification.
 
 >**Note:** The followee cannot follow another user while they are being followed.
 
-##### 4.2.4.3 **Activate Chat**
+##### Activate Chat
+This section of the **Participants** tab allows the user to activate the chat box:
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})eeeaec721da19adf.png) his section of the Participants tab allows the user to activate the chat box. The chat box is activated if the button is blue. The user can disable the chat box by clicking the Activate Chat button. The button will turn grey and disable the text input box.
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar22.png %})
 
-This button is located below the Participants List, to the right of the Start Zoom Call button, and above the Chat Box.
+The chat box is activated if the button is blue. The user can disable the chat box by clicking the **Activate Chat** button. 
+The button will turn grey and disable the text input box.
 
-##### 4.2.4.4 **Start Zoom Call**
+This button is located below the **Participants** List, to the right of the **Start Zoom Call** button, and above the Chat Box.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})3e8af21b49526de7.png) he zoom integration feature allows a user to start a Zoom call within the Enterprise Viewer window between everyone that is viewing the same document. The Zoom call can be recorded and saved back to the user's repository.
+##### Start Zoom Call
+The zoom integration feature allows a user to start a Zoom call within the Enterprise Viewer window between everyone 
+that is viewing the same document:
 
-The Start Zoom Call button is located to the right of the Activate Chat button and to the left of the Start Microsoft Teams Call button.
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar23.png %})
 
-##### 4.2.4.5 **Start Microsoft Teams Call**
+The Zoom call can be recorded and saved back to the user's repository.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})3e8af21b49526de7.png) he team integration feature allows a user to start a Microsoft Teams call within the Enterprise Viewer window between everyone that is viewing the same document. The Microsoft Teams call can be recorded and saved back to the user's repository.
+The **Start Zoom Call** button is located to the right of the **Activate Chat** button and to the left of the 
+**Start Microsoft Teams Call** button.
 
-The Start Microsoft Teams Call button is located to the right of the Start Zoom Call button.
+##### Start Microsoft Teams Call
+The team integration feature allows a user to start a Microsoft Teams call within the Enterprise Viewer window between 
+everyone that is viewing the same document:
 
-##### **4.2.4.6Chat Box**
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar24.png %})
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})badf4d6fa46525cb.png) his section of the Participants tab allows the user to view the conversation with the other users who are also currently viewing the document. Each new message that a user sends contains the user's name, the time at which they sent the message, and the content of the message itself.
+The Microsoft Teams call can be recorded and saved back to the user's repository.
 
-#### **4.2.4.7Send**
+The **Start Microsoft Teams Call** button is located to the right of the **Start Zoom Call** button.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})4f1ea733ba1a502d.png) he Send button allows the user to send a message of their own composition to the other participants of the conversation.
+##### Chat Box
+This section of the **Participants** tab allows the user to view the conversation with the other users who are also 
+currently viewing the document:
 
-This button is located at the bottom right corner of the Participants tab below the chat box.
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar25.png %})
 
+Each new message that a user sends contains the user's name, the time at which they sent the message, and the content 
+of the message itself.
 
-NEED TO CHANGE HEADERS FROM HERE
+#### Send
+The **Send** button allows the user to send a message of their own composition to the other participants of the 
+conversation:
 
-## 4.3Left Sidebar
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar26.png %})
 
-### 4.3.1Hide Sidebar
+This button is located at the bottom right corner of the **Participants** tab, below the chat box.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})2596e1f3406e360f.png) he Hide Sidebar button allows the user to hide the sidebar containing the list of bookmarks. When the button is clicked, the sidebar will collapse into the left side of the Enterprise Viewer window. When the button is clicked again, the sidebar will expand back into view.
+### Left Sidebar
+The left sidebar displays the thumbnails, bookmarks, and the attachments. It is lcoated to the left of the document 
+and below the toolbar.
 
-This button is located in the top right corner of the sidebar.
+#### Hide Sidebar
+The **Hide Sidebar** button allows the user to hide the sidebar containing the list of bookmarks. When the button is 
+clicked, the sidebar will collapse into the left side of the Enterprise Viewer window. When the button is clicked again, 
+the sidebar will expand back into view:
 
-### 4.3.2Thumbnails
+![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar1.png %})
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})d597836a40b8b64.png)
+This button is located in the upper right corner of the sidebar.
 
-The thumbnails sidebar displays all of the thumbnails of the document, if available. Clicking on an entry in the list will take the user to the page the user selected. Thumbnails are unavailable for large documents.
+#### Thumbnails
+The thumbnails sidebar displays all the thumbnails of the document, if available:
+
+![Img Txt]({% link enterprise-viewer/images/aev-left-sidebar1.png %})
+
+Clicking on an entry in the list will take the user to the page the user selected. Thumbnails are unavailable for 
+large documents.
 
 It is located on the left side of the Enterprise Viewer window.
 
-#### 4.3.2.1 **Annotation Indicator**
+##### 4.3.2.1 **Annotation Indicator**
 
 A ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})e832ece931578986.png) ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})491bf0aa6fc37c1d.png) n annotation indicator will appear on the page's thumbnail if an annotation was made on that page. If no annotations have been made on the page, then an annotation indicator will not be displayed on the thumbnail.
 
-#### **4.3.2.2User Icon**
+##### **4.3.2.2User Icon**
 
 A ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})b2cf158297b2494.png) user icon will appear on the thumbnail of the page a collaborator is on. The icon will have the initials of the collaborator and will display the full name when the user hovers over the icon. Multiple icons will appear as users view the same page.
 
-### 4.3.3Bookmarks
+#### 4.3.3Bookmarks
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})2a4e64554cfbfe78.png)
 
@@ -740,25 +856,25 @@ The bookmarks sidebar displays all of the bookmarks that the document has, if av
 
 It is located on the left side of the Enterprise Viewer window.
 
-#### 4.3.3.1 **Expand All Bookmarks**
+##### 4.3.3.1 **Expand All Bookmarks**
 
 T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})507a4902cb63d927.png) he Expand All Bookmarks button allows the user to expand all of the sub-lists in the bookmarks list in order for the user to see all bookmarks in all categories.
 
 This button is located in the top right corner of the Bookmarks sidebar and to the left of the Collapse All Bookmarks button.
 
-#### 4.3.3.2 **Collapse All Bookmarks**
+##### 4.3.3.2 **Collapse All Bookmarks**
 
 T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})507a4902cb63d927.png) he Collapse All Bookmarks button allows the user to collapse all of the sub-lists in the bookmarks list in order for the user to see only the categories of bookmarks.
 
 This button is located in the top right corner of the Bookmarks sidebar, to the right of the Expand All Bookmarks button, and below the Hide Sidebar button.
 
-### 4.3.4Internal Links
+#### 4.3.4Internal Links
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})50b400e690e62c82.png)
 
 Internal Links allow the user to jump to different places within the document. An internal link will be highlighted light blue when a user hovers over it.
 
-### 4.3.5Attachments
+#### 4.3.5Attachments
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})e68656bdb598e331.png)
 
@@ -766,7 +882,7 @@ The attachments sidebar displays the attached documents that the document has, i
 
 The Attachments sidebar is located on the left side of the Enterprise Viewer window.
 
-### 4.3.6Document List
+#### 4.3.6Document List
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})a95b5944d6c3ecb.png)
 
@@ -775,6 +891,8 @@ The document list sidebar displays documents that have been added to the documen
 The Document List sidebar is located on the left side of the Enterprise Viewer window.
 
 >**Note:** The user will not be able to see the previous document in the document list unless it is added.
+
+HEADER HIERARCHY CHANGE NEEDED FROM HERE
 
 # 5Redact Content Interface
 
