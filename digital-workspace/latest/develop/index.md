@@ -4,7 +4,7 @@ title: Develop Digital Workspace
 
 # Getting started
 
-Prerequisites and requirements
+# Prerequisites and requirements
 
 The first thing to do is to check the prerequisites and the requirements to run the front-end application directly into a development environment.
 
@@ -150,5 +150,4 @@ Of course in this case all the development effort and maintenance will be on you
 Conclusion
 In this section you learned some best practices to take into consideration for your technical decisions in developing a front-end application on top of the Alfresco Backend Services. After the introduction of some principles to support your choice, for each of the most relevant options has been provided some details for your consideration. 
 
-LikeBe the first to like this
-No labels
+

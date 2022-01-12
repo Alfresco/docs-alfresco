@@ -10,14 +10,13 @@ In this section you will learn how to create and manage ADW from a development p
 
 ## How to run ADW from the source code
 
-Created by Francesco Corti (Deactivated)
-Last updated: Jan 08, 20212 min read17 people viewed17 people viewed
 In this tutorial you are going to learn how to launch Alfresco Digital Workspace (alias ADW) on your development environment, starting from the source code, with the purpose to have a first experience with the development principles.
 
 Prerequisites and the requirements
 Cloning and launching the front-end application
 Troubleshooting and support
 Conclusion
+
 Prerequisites and the requirements
 The first thing to do is to check the prerequisites and the requirements to run the front-end application directly into a development environment.
 
@@ -68,8 +67,6 @@ In this tutorial you are going to learn how to debug, test, build and promote th
 
 Being a standard Angular application, the lifecycle and the tasks described for ADW are following the same principles, tooling and best practices of any other standard Angular application. We are not going to detail here what is widely described for Angular based applications (for example for what concern the debugging) but we are going to point on third party content and best practices.
 
- 
-
 Installing
 Applications and distributions
 Starting
@@ -81,7 +78,6 @@ Promoting in a different environment
 Conclusions
 Installing
 The command to be used is the same of any Angular application
-
 
 npm install
 Applications and distributions
@@ -156,4 +152,4 @@ Once built, the compiled ADF-based application is available as a collection of f
 Also in this case, nothing differs from a standard Angular application and the same tips and best practices can be followed.
 
 Conclusions
-In this content you learned the most common and basic tasks for ADW and any ADF-based application. 
+In this content you learned the most common and basic tasks for ADW and any ADF-based application.
