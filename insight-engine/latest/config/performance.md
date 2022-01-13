@@ -41,7 +41,7 @@ When applying these flags to an existing SOLR Core, **no** re-indexing operation
 ## Optimize SOLR Index
 
 During indexing, whenever a document is deleted or updated, the document is *marked as deleted* in its original segment. This generates some percentage of *waste* storage because the index will contain around 15% to 20% of deleted documents. Merging the Lucene Segment process will control this ratio with time, in order to maintain it as low as possible.
-However, in some situations, especially after a bulk ingestion, the percentage of deleted documents can be up to 50%. This percentage is determined by the ratio of `numDocs` to `maxDocs` which can be set in the Solr Admin interface.
+However, in some situations, especially after a bulk ingestion, the percentage of deleted documents can be up to 50%. This percentage is determined by the ratio of `numDocs` to `maxDocs`, which is shown in the Solr Admin interface.
 
 > **Note:** The greater the ratio of deleted documents the Solr Index contains, the slower Search and Insight Engine will be at searching and indexing.
 > **Note:** The *optimizing action* has been available by default since Search and Insight Engine 1.0.
