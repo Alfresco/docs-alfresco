@@ -49,7 +49,7 @@ Use the following steps to proceed with the technical upgrade of the software mo
 3. Back up the current exploded web application folders for the repository and Alfresco Share.
 4. Back up the database used for the repository.
 5. Remove the former *connexas* modules from the `amps` and `amps_share` folders.
-6. Download the new SAP Connector {% include tooltip.html word="AMP" text="AMP" %} files from the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}.
+6. Download the new SAP Connector {% include tooltip.html word="AMP" text="AMP" %} files from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
     Follow the instructions in the [Install SAP Connector]({% link sap/5.0/install/index.md %}#installsapconnamps) page. After applying the {% include tooltip.html word="AMP" text="AMP" %} files, verify the new SAP Connector version:
 

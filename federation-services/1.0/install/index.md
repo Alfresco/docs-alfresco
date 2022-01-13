@@ -29,7 +29,7 @@ See the [Simflofy documentation](https://simflofy.helpdocsonline.com/iandc/archi
 
 These steps describe how to install Federation Services to an instance of Alfresco Content Services.
 
-1. Go to the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"} and download the files provided for the Federation Services release.
+1. Go to [Hyland Community](https://community.hyland.com/){:target="_blank"} and download the files provided for the Federation Services release.
 
     This should include the following:
 

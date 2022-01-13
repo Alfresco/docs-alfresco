@@ -4,7 +4,7 @@ title: What's new
 
 Alfresco Content Services (ACS) 7.1 is our latest software release with improvements to Content Services to accelerate use and development for customer solutions for PaaS, Cloud, or on-premises deployment. With this release, Alfresco continues to enable open-source communities, customers, and partners to deliver a highly scalable Content Store with numerous applications, connectivity, and solutions.
 
-> **Note:** Alfresco customers can view more detailed Release Notes in the [Support Portal](https://support.alfresco.com/){:target="_blank"}.
+> **Note:** Alfresco customers can view more detailed Release Notes in [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 Here's a quick summary of what's new in the Alfresco Content Services 7.1 release.
 
@@ -31,7 +31,7 @@ See the [Alfresco Search Enterprise]({% link search-enterprise/latest/index.md %
 
 ### Direct Access URLs
 
-Direct access URLs enable the acceleration of the local download of content to aid distributed content repositories in customer environments, and cloud deployments. The new endpoints are highlighted in the Release Notes that you'll find in the [Support Portal](https://support.alfresco.com/){:target="_blank"}.
+Direct access URLs enable the acceleration of the local download of content to aid distributed content repositories in customer environments, and cloud deployments. The new endpoints are highlighted in the Release Notes that you'll find in [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 See the Alfresco Content Connector for AWS S3 documentation on [Direct Access URLs]({% link aws-s3/latest/config/direct-access.md %}) for more details.
 

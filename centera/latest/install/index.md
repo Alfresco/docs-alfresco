@@ -225,7 +225,7 @@ lrwxrwxrwx. 1 root root      48 Dec 19 22:51 libPAI_module.so -> /usr/local/Cent
 
 The Centera Connector is packaged as an Alfresco Module Package (AMP) file.
 
-1. Browse to the [Alfresco Support Portal](https://support.alfresco.com).
+1. Browse to [Hyland Community](https://community.hyland.com/).
 
 2. Download the `alfresco-centera-connector-2.2.x.amp` file.
 

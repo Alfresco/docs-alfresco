@@ -1844,7 +1844,7 @@ The very first task to complete is about installing an enterprise license, other
 only if you used the All-In-One archetype or the Platform JAR archetype to generate your project. If you used the Share JAR archetype to generate your project, 
 feel free to ignore this task and move on the next one.
 
-If you are an Alfresco Partner or Customer, you can request an enterprise license by you opening a ticket on the [Support Portal](https://support.alfresco.com/){:target="_blank"}. 
+If you are an Alfresco Partner or Customer, you can request an enterprise license by you opening a ticket in [Hyland Community](https://community.hyland.com/){:target="_blank"}. 
 The Enterprise license is nothing more and nothing less than a file with `lic` extension. The Enterprise license file goes into `src/main/docker/license` 
 folder (this folder will be located under the platform JAR submodule if you're using the All-In-One archetype). The license will be copied into the ACS Docker 
 container before it is started. The license file name doesn't matter, but make sure that you keep it simple and maintain the `lic` extension.
@@ -1902,7 +1902,7 @@ If you're using Windows, you'll need to use the `run.bat` script instead of `run
 
 The first matter to consider is to ensure that you have credentials for the Alfresco Private Repository 
 ([artifacts.alfresco.com](https://artifacts.alfresco.com/nexus/#welcome){:target="_blank"}), where the Alfresco artifacts are stored. Enterprise customers and partners can 
-request these credentials by opening a ticket on the [Support Portal](https://support.alfresco.com/){:target="_blank"}. 
+request these credentials by opening a ticket in [Hyland Community](https://community.hyland.com/){:target="_blank"}. 
 
 Once you have suitable credentials, you need to add support for Alfresco private Maven repository to your configuration. This would typically be done by 
 adding your access credentials to the `settings.xml` contained in your `~/.m2` directory (for Linux and OS X). On Windows this resolves to 
@@ -1932,7 +1932,7 @@ In order to download the Docker images needed to work with Content Services Ente
 hosted at [Quay.io](https://quay.io/){:target="_blank"}. 
 
 The first matter to consider is to ensure that you have credentials for the Alfresco private Docker registry, where the Alfresco images are stored. Customers and partners can 
-request these credentials by opening a ticket on the [Support Portal](https://support.alfresco.com/){:target="_blank"}. 
+request these credentials by opening a ticket in [Hyland Community](https://community.hyland.com/){:target="_blank"}. 
 
 Once you have suitable credentials, you only need to login your docker installation to the Quay.io Docker registry:
 

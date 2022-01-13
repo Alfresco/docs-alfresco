@@ -37,7 +37,7 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
 
 > **Note:** Ensure that you don't start Content Services before installing the Azure Connector AMP.
 
-1. Go to the [Support Portal](https://support.alfresco.com){:target="_blank"}.
+1. Go to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 2. Download the `alfresco-azure-connector-2.1.x.amp` file.
 
@@ -61,7 +61,7 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
 
 > **Note:** Ensure that you don't start Content Services before installing the Azure Connector AMP.
 
-1. Go to the [Support Portal](https://support.alfresco.com){:target="_blank"}.
+1. Go to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 2. Download the `alfresco-azure-connector-2.1.x.amp` file.
 
