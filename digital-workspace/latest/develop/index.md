@@ -2,17 +2,15 @@
 title: Develop Digital Workspace
 ---
 
-# Getting started
-
 # Prerequisites and requirements
 
 The first thing to do is to check the prerequisites and the requirements to run the front-end application directly into a development environment.
 
 More in particular check that you have:
 
--   Alfresco Content Services (alias ACS) Community or Enterprise edition up and running (identify the URL that will be required as configuration).
--   The latest lts version of NodeJs.
--   A recent (and supported) version of a browser (see here for further details).
+* Alfresco Content Services (alias ACS) Community or Enterprise edition up and running (identify the URL that will be required as configuration).
+* The latest lts version of NodeJs.
+* A recent (and supported) version of a browser (see here for further details).
 
 # Cloning and launching the front-end application
 
@@ -28,20 +26,21 @@ Run `npm install` and then `npm start` to get the application up and running. Th
 
 Congratulations! You now have the Alfresco Content App running in development mode into your development environment.
 
-# Troubleshooting and support
+## Troubleshooting and support
 
 If you have any issue, don’t worry! There is an entire community available to help you.
 
 In case of problems raise a question into the [Alfresco Forum](https://hub.alfresco.com/ "https://hub.alfresco.com/") (Application Development Framework section) or connect with the developers into the [Alfresco Gitter channel](https://alfresco.atlassian.net/wiki/spaces/PM/overview "https://alfresco.atlassian.net/wiki/spaces/PM/overview").
 
-# Bonus: Use the Enterprise stack instead of the Open Source
+## Use the Enterprise stack instead of the Open Source
 
 If you are an Alfresco Customer or an Official Partner, you might be interested in using the Enterprise stack instead of the Open Source introduced above. The changes to the tasks are not too many and you can try to do the same exercise with the following changes.
 
--   Use ACS Enterprise Edition instead of the Community Edition.
--   Use the `alfresco-digital-workspace-app` GitHub repository (this is a private repository so you may require to get a local copy of the project raising a request into the Alfresco Support Portal).
--   Use the following `.env` file.
+* Use ACS Enterprise Edition instead of the Community Edition.
+* Use the `alfresco-digital-workspace-app` GitHub repository (this is a private repository so you may require to get a local copy of the project raising a request into the Alfresco Support Portal).
+* Use the following `.env` file.
 
+```text
     AUTH_TYPE="BASIC"
     PROVIDER="ECM"
     API_CONTENT_HOST="<https://...>"
@@ -53,10 +52,11 @@ If you are an Alfresco Customer or an Official Partner, you might be interested 
     ADF_PATH="../alfresco-ng2-components"
     ACA_BRANCH="develop"
     MAXINSTANCES=3
+```
 
--   Run the application using `npm start content-ee`.
+* Run the application using `npm start content-ee`.
 
-# Conclusion
+## Conclusion
 
 In this tutorial you learned how to launch a fully-featured ADF-based application on your development environment, starting from the source code, with the purpose to have a first experience with the development principles and the best practices suggested to create front-end applications working on top of the Alfresco backend services. This is only the first success that you can do with the Alfresco technology. Continue to learn on how to develop front-end applications using Alfresco, in the following sections of the official documentation.
 
@@ -100,7 +100,7 @@ When developing customizations, the development, maintenance and work required t
 
 Native mobile frameworks and applications are provided by Alfresco as standard and worth considering if mobile support is a requirement. Further details on the [Alfresco developer experience for mobile is available](LINK).
 
-# Best Practices
+## Best Practices
 
 As you learned in the previous sections, as a developer you have several options in developing front-end applications on top of the Alfresco Backend Services. In this section we would like to discuss some best practices to take into consideration for your technical decisions.
 
@@ -113,7 +113,6 @@ As already shared: there isn’t a right or wrong approach. The decision really 
 In the picture below you can see drawn the decision process described above.
 
 ![Development options]({% link digital-workspace/images/develop-arch.png %})
-
 
 In case of projects adopting Community Editions or Open Source components, you can consider ACA as an alternative to ADW. Of course, if you will decide to follow this path, it will be done at your own risk considering that ACA is defined as an example of content application and it is not officially supported by Alfresco (but contributions to the project are welcome).
 
@@ -148,6 +147,4 @@ If ADF does not fit into your requirements (for example because you want to use 
 Of course in this case all the development effort and maintenance will be on your side.
 
 Conclusion
-In this section you learned some best practices to take into consideration for your technical decisions in developing a front-end application on top of the Alfresco Backend Services. After the introduction of some principles to support your choice, for each of the most relevant options has been provided some details for your consideration. 
-
-
+In this section you learned some best practices to take into consideration for your technical decisions in developing a front-end application on top of the Alfresco Backend Services. After the introduction of some principles to support your choice, for each of the most relevant options has been provided some details for your consideration.

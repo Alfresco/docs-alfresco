@@ -2,7 +2,7 @@
 title: Developing ADF based applications
 ---
 
-In this section you are going to learn the development of a custom ADF based application. The idea behind this approach is to provide the developer with a very basic (and almost “empty”) ADF based application that she/he can start enriching with features, behaviours and customisations in general. The creation of this basic ADF-based application is possible through a scaffolding tool called Yeoman, which makes this task very straightforward.
+In this section you are going to learn the development of a custom ADF based application. The idea behind this approach is to provide the developer with a very basic (and almost “empty”) ADF based application that she/he can start enriching with features, behaviours and customizations in general. The creation of this basic ADF-based application is possible through a scaffolding tool called Yeoman, which makes this task very straightforward.
 
 The promise is that in minutes you can create from scratch a working (but very basic) ADF based application in your development environment.
 
@@ -10,10 +10,8 @@ You may consider adopting an ADF-based application in case you want to benefit f
 
 Below you can find the available tutorials on the most common and requested tasks about developing ADF based applications.
 
-# How to create an ADF based application using the Yeoman Generator
+## How to create an ADF based application using the Yeoman Generator
 
-Created by Francesco Corti (Deactivated)
-Last updated: Jan 04, 20214 min read7 people viewed7 people viewed
 Note: This tutorial is going to replace the content here.
 
 In this tutorial you are going to learn how to create a very basic (and almost “empty”) ADF-based application that you can start enriching with features, behaviors and customizations. The creation of this basic ADF-based application is possible through a scaffolding tool called Yeoman, which makes this task very straightforward.
@@ -44,17 +42,14 @@ Note: If you're on Linux or MacOS, you might need to run the following commands 
 
 You need to ensure you have Yeoman installed by running yo --version. If this is not already installed, run the following command.
 
-
 npm install -g yo
 Now install the latest version of the generator-alfresco-adf-app.
-
 
 npm install -g generator-alfresco-adf-app@latest
 Feel free to check the generator-alfresco-adf-app repository for further details. The project is Open Source and free.
 
 Installing the Angular CLI
 To take full advantage of Angular, we suggest you install the latest version of Angular CLI.
-
 
 npm install -g @angular/cli
 This will make it easy to create components, libraries, and much more.
@@ -63,7 +58,6 @@ To test the installed version Angular CLI, launch the ng v command directly in t
 
 Create your first ADF application
 Now that the system is properly configured, it's time to generate the application running the following command.
-
 
 yo alfresco-adf-app
 Enter a name and choose Content Services as the application blueprint, then enter Y to install the dependencies (the following questions are optional and easy to understand).
@@ -79,7 +73,6 @@ Modify "target": "http://localhost:8080", so that it matches your URL and save t
 
 Please note that you do not need /alfresco at the end of the target URL. Let's say you've launched Alfresco Content Services 6.1 using Docker Compose. Your Alfresco Content Services repository might be available at http://localhost:8080/alfresco. In this case, you will want the proxy.conf.json file to look like this:
 
-
 module.exports = {
   "/alfresco": {
     "target": "http://localhost:8080",
@@ -89,7 +82,6 @@ module.exports = {
 };
 
 If you're running an online trial, consult your emails for the correct URL. The proxy.conf.json should look like this:
-
 
 module.exports = {
   "/alfresco": {
@@ -101,10 +93,8 @@ module.exports = {
 Start the application
 To run the project, open a terminal and run:
 
-
 npm start
 A browser will automatically open up at http://localhost:4200.
-
 
 Click the key icon in the side navigation, and you can now log in!
 
