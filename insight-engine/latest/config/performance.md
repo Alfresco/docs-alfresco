@@ -24,7 +24,8 @@ The [Document Fingerprints]({% link insight-engine/latest/admin/index.md %}#docu
 
 ## Disable SOLR Document Cache
 
-SOLR uses several [Caches](https://solr.apache.org/guide/6_6/query-settings-in-solrconfig.html#QuerySettingsinSolrConfig-Caches) in order to retain some result information in memory. Since version 2.0 this this feature can be disabled in order to decrease the use of RAM memory.
+SOLR uses several [Caches](https://solr.apache.org/guide/6_6/query-settings-in-solrconfig.html#QuerySettingsinSolrConfig-Caches) in order to retain some result information in memory. Since version 2.0 this feature can be disabled in order to decrease the use of RAM memory.
+
 
 From version 2.0.2, the SOLR Document Caches feature is disabled by default, including the following properties in the `solrcore.properties` file.
 
@@ -44,13 +45,14 @@ During indexing, whenever a document is deleted or updated, the document is *mar
 However, in some situations, especially after a bulk ingestion, the percentage of deleted documents can be up to 50%. This percentage is determined by the ratio of `numDocs` to `maxDocs`, which is shown in the Solr Admin interface.
 
 > **Note:** The greater the ratio of deleted documents the Solr Index contains, the slower Search and Insight Engine will be at searching and indexing.
+
 > **Note:** The *optimizing action* has been available by default since Search and Insight Engine 1.0.
 
 Since optimizing the index is not a recommended operation in many use cases, this option will remove the deleted documents from your index. However, it will create segments which are much larger than the maximum considered for future merges. If you are optimizing your index periodically and can afford the time to optimize every time you rebuild your index, then optimizing is reasonable and it will increase the searching performance.
 
 > **Note:** Ensure after the initial optimization, that a periodic execution of the optimization process is carried out in order to preserve the performance benefits.
 
-This operation can be performed using the SOLR REST API by default available it is available at `http://127.0.0.1:8983/solr/alfresco/update?optimize=true` or by clicking the `Optimize now` button in the **Core > Overview** section of the Solr Admin interface.
+This operation can be performed using the SOLR REST API (available at `http://127.0.0.1:8983/solr/alfresco/update?optimize=true` by default) or by clicking the `Optimize now` button in the **Core > Overview** section of the Solr Admin interface.
 
 You can optimize the index by reducing it to `N` segments with `N` >= 1.
 
@@ -63,17 +65,17 @@ This can be useful for reducing the impact of the force merge operation. The adv
 * The force merge execution takes less resources.
 * Avoids the production of a single large segment.
 
-The value of `N` must be chosen carefully. `N` should be smaller than the current number of segments. Moreover, it is possible that some segments are not selected for merging. Consequentially, not all the deleted documents maybe removed from the index.
+The value of `N` must be chosen carefully. `N` should be smaller than the current number of segments. Moreover, it is possible that some segments are not selected for merging. Consequentially, not all the deleted documents may be removed from the index.
 
 ## Merging parameters
 
-From version 2.0.2 following parameters has been exposed to be used from `solrcore.properties` file.
+From version 2.0.2, the following parameters have been exposed to be used from `solrcore.properties` file.
 
 | Property | Description |
-| ------------- |----------- |
-| merge.policy.maxMergedSegmentMB | This number shoud be increased for large deployments. For instance, when using a 40+ million indexed nodes with content on a SOLR Shard. You may use `10240` instead of `5120`. The default is `5120`. |
-| merge.policy.maxMergeAtOnce | The numbers should be decreased in order to reduce the number of segments. This also improves searching performance when using 40+ million indexed nodes with content on a SOLR Shard. You may use `5` instead of `10`. The default value is `10`, **Note:** The value used must be the same as for `merge.policy.segmentsPerTier`. |
-| merge.policy.segmentsPerTier | The numbers should be decreased in order to reduce the number of segments. This also improves searching performance when using 40+ million indexed nodes with content on a SOLR Shard. You may use `5` instead of `10`. The default value is `10`, **Note:** The value used must be the same as for `merge.policy.maxMergeAtOnce`. |
+| -------- | ----------- |
+| merge.policy.maxMergedSegmentMB | This number should be increased for large deployments. For instance, when using 40+ million indexed nodes with content on a SOLR Shard. You may use `10240` instead of `5120`. The default is `5120`. |
+| merge.policy.maxMergeAtOnce | The numbers should be decreased in order to reduce the number of segments. This also improves searching performance when using 40+ million indexed nodes with content on a SOLR Shard. You may use `5` instead of `10`. The default value is `10`. **Note:** The value used must be the same as for `merge.policy.segmentsPerTier`. |
+| merge.policy.segmentsPerTier | The numbers should be decreased in order to reduce the number of segments. This also improves searching performance when using 40+ million indexed nodes with content on a SOLR Shard. You may use `5` instead of `10`. The default value is `10`. **Note:** The value used must be the same as for `merge.policy.maxMergeAtOnce`. |
 | merger.maxMergeCount | Increment this number for large deployments, so more merge operations can be executed simultaneously. The default value is `6`. |
 | merger.maxThreadCount | This number should always be lower than the amount of dedicated CPUs and also lower than `mergermaxMergeCount`. Increment this number for large deployments in order to use all your available CPU threads. The default value is `3`. |
 
