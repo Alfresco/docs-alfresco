@@ -65,7 +65,7 @@ The SAP Connector is packaged as Alfresco Module Package (AMP) files. There are 
 
 Use the following steps to download the files required to install the SAP Connector.
 
-1. Go to [Hyland Community](https://community.hyland.com/){:target="_blank"}, and then download the SAP Connector distribution zip, which contains the following files:
+1. Go to [Hyland Community](https://community.hyland.com/){:target="_blank"}, click **Product downloads**, and then download the SAP Connector distribution zip, which contains the following files:
 
     * `sap-content-connector-repo-5.1.x.amp` for Content Services.
     * `sap-content-connector-share-5.1.x.amp` for Alfresco Share.
