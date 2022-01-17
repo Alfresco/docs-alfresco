@@ -56,7 +56,7 @@ There are a number of different installation files available to you, each of whi
 
 For new installations or upgrades, use the distribution zip. Use the Alfresco WAR file to install Content Services within an existing Tomcat. The WAR file is included in the distribution zip. In addition, you must install all the required additional components manually.
 
-All files are available from the [Support Portal](https://support.alfresco.com){:target="_blank"}. Sign in and search for the version of the product you require.
+All files are available from [Hyland Community](https://community.hyland.com/products/alfresco){:target="_blank"}. Sign in, select **Product downloads**, and search for the version of the product you require.
 
 See the [Supported platforms]({% link content-services/latest/support/index.md %}) for more.
 

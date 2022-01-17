@@ -149,7 +149,7 @@ To install Process Services and the administrator application manually, download
 
 It is recommended that you install the administrator application in a separate container to Process Services in a production environment. It is possible to install the two applications in the same web container, however separate containers allows them to be managed in isolation from one another.
 
-The download files are available from the [support portal](https://support.alfresco.com){:target="_blank"}.
+The download files are available from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 ### Install Process Services
 
@@ -309,7 +309,7 @@ After installing you will need to [apply a valid license file](#install-license)
 
 You can install Process Workspace using a Web Application Archive (WAR) file or by deploying the files manually into your web container.
 
-To install Process Workspace from a WAR file, visit the [support portal](https://support.alfresco.com){:target="_blank"} and download the latest version of `process-workspace.war`.
+To install Process Workspace from a WAR file, visit [Hyland Community](https://community.hyland.com/){:target="_blank"} and download the latest version of `process-workspace.war`.
 
 Move the `process-workspace.war` file into your web container and restart the server.
 

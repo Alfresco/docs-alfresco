@@ -2,7 +2,6 @@
 title: Documentation Terms
 layout: release
 date: 'Updated: 22 October 2020'
-intro: Copyright 2021 by Alfresco (or its applicable affiliate or licensor)
 github: false
 ---
 
@@ -31,6 +30,6 @@ The trademarks, service marks, logos, or other intellectual property rights of A
 * Microsoft Office® is the registered trademark of Microsoft Corporation in the United States and/or other countries.
 * Microsoft Outlook® is the registered trademark of Microsoft Corporation in the United States and/or other countries.
 
-If you need technical support for any Alfresco product or service and are a current Alfresco customer, contact Customer Support by email at <a href= "mailto:support@alfresco.com">support@alfresco.com</a>
+If you need technical support for any Alfresco product or service and are a current Alfresco customer, submit a case via [Hyland Community]({% link support/latest/contact/index.md %}).
 
-If you have any other questions or inquiries, including comments or suggestions about our documentation, contact us at <a href= "mailto:documentation@alfresco.com">documentation@alfresco.com</a>
+If you have any other questions or inquiries, including comments or suggestions about our documentation, contact us at <a href= "mailto:documentation@alfresco.com">documentation@alfresco.com</a>.

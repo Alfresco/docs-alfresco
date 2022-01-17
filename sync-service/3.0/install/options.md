@@ -19,7 +19,7 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-3.0.x.zip`, includes
 
 > **Note:** Make sure you're running the correct versions of operating system and software before you install the AMP file. See [Prerequisites]({% link sync-service/3.0/install/index.md %}) for more information.
 
-1. Download `AlfrescoSyncServer-3.0.x.zip` from the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}.
+1. Download `AlfrescoSyncServer-3.0.x.zip` from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 2. Extract the `AlfrescoSyncServer-3.0.x.zip` file into a system directory; for example, `<installLocation>/`.
 

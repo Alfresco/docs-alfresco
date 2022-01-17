@@ -194,7 +194,7 @@ and configure the OAuth connection to the Alfresco Digital Workspace (ADW) follo
 
 The Collaboration Connector for Teams zip file includes all the files required to install the connector.
 
-1. Browse to the [Support Portal](https://support.alfresco.com/){:target="_blank"}, download `alfresco-ms-teams-integration-distribution-1.x.x.zip` and extract the contents:
+1. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"}, download `alfresco-ms-teams-integration-distribution-1.x.x.zip` and extract the contents:
 
    * `alfresco-ms-teams-integration-distribution-1.x.x.jar`
    * `teamsManifest/manifest.json` - needed in the next [step](#create-teams-integ-app-manifest)
