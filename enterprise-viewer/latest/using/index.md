@@ -840,187 +840,295 @@ large documents.
 
 It is located on the left side of the Enterprise Viewer window.
 
-##### 4.3.2.1 **Annotation Indicator**
+##### Annotation Indicator
+An annotation indicator will appear on the page's thumbnail if an annotation was made on that page:
 
-A ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})e832ece931578986.png) ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})491bf0aa6fc37c1d.png) n annotation indicator will appear on the page's thumbnail if an annotation was made on that page. If no annotations have been made on the page, then an annotation indicator will not be displayed on the thumbnail.
+![Img Txt]({% link enterprise-viewer/images/aev-left-sidebar2.png %})
 
-##### **4.3.2.2User Icon**
+If no annotations have been made on the page, then an annotation indicator will not be displayed on the thumbnail:
 
-A ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})b2cf158297b2494.png) user icon will appear on the thumbnail of the page a collaborator is on. The icon will have the initials of the collaborator and will display the full name when the user hovers over the icon. Multiple icons will appear as users view the same page.
+![Img Txt]({% link enterprise-viewer/images/aev-left-sidebar3.png %})
 
-#### 4.3.3Bookmarks
+##### User Icon
+A user icon will appear on the thumbnail of the page a collaborator is on:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})2a4e64554cfbfe78.png)
+![Img Txt]({% link enterprise-viewer/images/aev-left-sidebar4.png %})
 
-The bookmarks sidebar displays all of the bookmarks that the document has, if available. Clicking on an entry in the list will take the user to the section of the document where the bookmark begins.
+The icon will have the initials of the collaborator and will display the full name when the user hovers over the icon. 
+Multiple icons will appear as users view the same page.
 
-It is located on the left side of the Enterprise Viewer window.
+#### Bookmarks
+The bookmarks sidebar displays all the bookmarks that the document has, if available:
 
-##### 4.3.3.1 **Expand All Bookmarks**
+![Img Txt]({% link enterprise-viewer/images/aev-left-sidebar5.png %})
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})507a4902cb63d927.png) he Expand All Bookmarks button allows the user to expand all of the sub-lists in the bookmarks list in order for the user to see all bookmarks in all categories.
+Clicking on an entry in the list will take the user to the section of the document where the bookmark begins.
 
-This button is located in the top right corner of the Bookmarks sidebar and to the left of the Collapse All Bookmarks button.
+It is located on the left side of the **Enterprise Viewer** window.
 
-##### 4.3.3.2 **Collapse All Bookmarks**
+##### Expand All Bookmarks
+The **Expand All Bookmarks** button allows the user to expand all the sub-lists in the bookmarks list in order for the 
+user to see all bookmarks in all categories:
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})507a4902cb63d927.png) he Collapse All Bookmarks button allows the user to collapse all of the sub-lists in the bookmarks list in order for the user to see only the categories of bookmarks.
+![Img Txt]({% link enterprise-viewer/images/aev-left-sidebar6.png %})
 
-This button is located in the top right corner of the Bookmarks sidebar, to the right of the Expand All Bookmarks button, and below the Hide Sidebar button.
+This button is located in the top right corner of the **Bookmarks** sidebar and to the left of the 
+**Collapse All Bookmarks** button.
 
-#### 4.3.4Internal Links
+##### Collapse All Bookmarks
+The **Collapse All Bookmarks** button allows the user to collapse all the sub-lists in the bookmarks list in order for 
+the user to see only the categories of bookmarks:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})50b400e690e62c82.png)
+![Img Txt]({% link enterprise-viewer/images/aev-left-sidebar7.png %})
 
-Internal Links allow the user to jump to different places within the document. An internal link will be highlighted light blue when a user hovers over it.
+This button is located in the top right corner of the **Bookmarks** sidebar, to the right of the **Expand All Bookmarks** 
+button, and below the **Hide Sidebar** button.
 
-#### 4.3.5Attachments
+#### Internal Links
+Internal Links allow the user to jump to different places within the document:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})e68656bdb598e331.png)
+![Img Txt]({% link enterprise-viewer/images/aev-left-sidebar8.png %})
 
-The attachments sidebar displays the attached documents that the document has, if any. If there are no attached documents, the attachments sidebar tab will not be displayed. Clicking on an entry in the list will automatically download the attached document.
+An internal link will be highlighted light blue when a user hovers over it.
 
-The Attachments sidebar is located on the left side of the Enterprise Viewer window.
+#### Attachments
+The **Attachments** sidebar displays the attached documents that the document has, if any:
 
-#### 4.3.6Document List
+![Img Txt]({% link enterprise-viewer/images/aev-left-sidebar9.png %})
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})a95b5944d6c3ecb.png)
+If there are no attached documents, the **Attachments** sidebar tab will not be displayed. Clicking on an entry in the 
+list will automatically download the attached document.
 
-The document list sidebar displays documents that have been added to the document list, if any. If no documents were added to the list, the document list sidebar will not be displayed. The document list allows you to easily switch between documents in Enterprise Viewer. To switch to a new document in Enterprise Viewer, click on a document in the list.
+The **Attachments** sidebar is located on the left side of the **Enterprise Viewer** window.
 
-The Document List sidebar is located on the left side of the Enterprise Viewer window.
+#### Document List
+The **Document List** sidebar displays documents that have been added to the document list, if any:
+
+![Img Txt]({% link enterprise-viewer/images/aev-left-sidebar10.png %})
+
+If no documents were added to the list, the **Document List** sidebar will not be displayed. The document list allows 
+you to easily switch between documents in Enterprise Viewer. To switch to a new document in Enterprise Viewer, click on 
+a document in the list.
+
+The **Document List** sidebar is located on the left side of the **Enterprise Viewer** window.
 
 >**Note:** The user will not be able to see the previous document in the document list unless it is added.
 
-HEADER HIERARCHY CHANGE NEEDED FROM HERE
+## Redact Content Interface
+This is where document navigation and zooming occur, and where redactions can be created, saved, and more information 
+on Enterprise Viewer is found.
 
-# 5Redact Content Interface
+### 5.1Toolbar
+The toolbar contains all the core functionality to Enterprise Viewer in **Redact Content** mode:
 
-## 5.1Toolbar
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar1.png %})
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})617a3d0056e9f127.png)
-
-The toolbar (displayed above) contains all of the core functionality to Enterprise Viewer in Redact Content mode. This is where document navigation and zooming occur, and where redactions can be created, saved, and more information on Enterprise Viewer is found.
-
-It is located at the top of the Enterprise Viewer window.
+It is located at the top of the **Enterprise Viewer** window.
 
 Dark grey buttons cannot be used until certain actions are made. A button that is in use will have a blue interior.
 
-### 5.1.1Manual Page Navigation
+#### Manual Page Navigation
+Manually entering a value into this text field and then hitting the **Enter** key will navigate to the new page number:
 
-M ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})12b0d850b9c2d563.png) anually entering a value into this text field and then hitting the Enter key will navigate to the new page number.
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar2.png %})
 
-If the page number entered is not a number, this value gets reset to the current page. If the page number entered is lower than the first page, the user is navigated to the first page. If the page number entered is higher than the last page, the user is navigated to the last page.
+If the page number entered is not a number, this value gets reset to the current page. If the page number entered is 
+lower than the first page, the user is navigated to the first page. If the page number entered is higher than the last 
+page, the user is navigated to the last page.
 
-This text field is located to the right of the Enterprise Viewer logo and to the left of the Fit to Height button.
+This text field is located to the right of the Enterprise Viewer logo and to the left of the **Fit to Height** button.
 
-### 5.1.2Total Number of Pages
-
+#### Total Number of Pages
 This is a non-editable field denoting the total number of pages for the document.
 
-### 5.1.3Fit to Height
+#### Fit to Height
+Clicking the **Fit to Height** button automatically calculates the zoom level to make the window show the entire height 
+of the document:
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})a465caf35bcafc46.png) licking this button automatically calculates the zoom level to make the window show the entire height of the document. This does not take into account the width of the document, and thus scroll bars may appear horizontally depending on the page's aspect ratio against the size of the window.
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar3.png %})
 
-The Fit to Height button is located to the right of the Manual Page Navigation text field and to the left of the Fit to Width button.
+This does not take into account the width of the document, and thus scroll bars may appear horizontally depending on 
+the page's aspect ratio against the size of the window.
 
-### 5.1.4Fit to Width
+The **Fit to Height** button is located to the right of the **Manual Page Navigation** text field and to the left of 
+the **Fit to Width** button.
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})e901f91fb6ffa990.png) licking this button automatically calculates the zoom level to make the window show the entire width of the document. This does not take into account the height of the document, and thus scroll bars may appear vertically depending on the page's aspect ratio against the size of the window.
+#### Fit to Width
+Clicking the **Fit to Width** button automatically calculates the zoom level to make the window show the entire width 
+of the document:
 
-The Fit to Width button is located to the right of the Fit to Height button and to the left of the Next Page button. The Fit to Width button is to the left of the Zoom In button if the Next Page button is not displayed in the toolbar.
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar4.png %})
 
-### 5.1.5Next Page
+This does not take into account the height of the document, and thus scroll bars may appear vertically depending on the 
+page's aspect ratio against the size of the window.
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})ae0115b570b8061c.png) licking this button takes the user to the next page of the document. The button will become disabled once the user reaches the end of the document.
+The **Fit to Width** button is located to the right of the **Fit to Height** button and to the left of the **Next Page** 
+button. The **Fit to Width** button is to the left of the **Zoom In** button if the **Next Page** button is not 
+displayed in the toolbar.
 
-The Next Page button is located to the right of the Fit to Width button and to the left of the Previous Page button.
+#### Next Page
+Clicking the **Next Page** button takes the user to the next page of the document:
+
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar5.png %})
+
+The button will become disabled once the user reaches the end of the document.
+
+The **Next Page** button is located to the right of the **Fit to Width** button and to the left of the **Previous Page** 
+button.
 
 >**Note:** This feature is unavailable if the document does not have more than one page.
 
-### 5.1.6Previous Page
+#### Previous Page
+Clicking the **Previous Page** button takes the user to the previous page of the document:
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})b273af53178e550f.png) licking this button takes the user to the previous page of the document. The button will become disabled once the user reaches the beginning of the document.
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar6.png %})
 
-The Previous Page button is located to the right of the Next Page button and to the left of the Zoom In button.
+The button will become disabled once the user reaches the beginning of the document.
+
+The **Previous Page** button is located to the right of the **Next Page** button and to the left of the **Zoom In** 
+button.
 
 >**Note:** This feature is unavailable if the document does not have more than one page.
 
-### 5.1.7Zoom In
+#### Zoom In
+Clicking the **Zoom In** button zooms in using increments of ten:
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})7f91d8b0141a5ee9.png) licking this button zooms in in increments of ten. While zooming in, the current middle of the page will remain in the middle.
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar7.png %})
 
-If the target zoom level is above the maximum zoom level, the zoom is set to the maximum zoom level. This is set for performance and usability reasons.
+While zooming in, the current middle of the page will remain in the middle.
 
-The Zoom In button is located to the right of the Previous Page button and to the left of the Zoom Out button. The Zoom In button is to the right of the Fit to Width button if the Previous Page button is not displayed in the toolbar.
+If the target zoom level is above the maximum zoom level, the zoom is set to the maximum zoom level. This is set for 
+performance and usability reasons.
 
-### 5.1.8Zoom Out
+The **Zoom In** button is located to the right of the **Previous Page** button and to the left of the **Zoom Out** 
+button. The **Zoom In** button is to the right of the **Fit to Width** button if the **Previous Page** button is not 
+displayed in the toolbar.
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})15fd3ebdc367cba0.png) licking this button zooms out in increments of ten. While zooming out, if possible, the current middle of the page will remain in the middle (unless zooming out reveals an image that does not need to be scrolled).
+#### Zoom Out
+Clicking the **Zoom Out** button zooms out using increments of ten:
 
-If the target zoom level is below the minimum zoom level, the zoom is set to the minimum zoom level. This is set for performance and usability reasons.
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar8.png %})
 
-The Zoom Out is located to the right of the Zoom In button and to the left of the Save button.
+While zooming out, if possible, the current middle of the page will remain in the middle (unless zooming out reveals an 
+image that does not need to be scrolled).
 
-### 5.1.9Save
+If the target zoom level is below the minimum zoom level, the zoom is set to the minimum zoom level. This is set for 
+performance and usability reasons.
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})99aa3f0408511ea.png) licking this button will save any new or modified redactions to the server, as well as refresh any unmodified redactions from other users that have been updated.
+The **Zoom Out** is located to the right of the **Zoom In** button and to the left of the **Save** button.
 
-The Save button is located to the right of the Zoom In button and to the left of the Undo button.
+#### Save
+Clicking the **Save** button will save any new or modified redactions to the server, as well as refresh any unmodified 
+redactions from other users that have been updated:
 
-### 5.1.10Selection Tool
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar9.png %})
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})90f44dea782bf749.png) he selection tool button is the default cursor when opening Enterprise Viewer and signifies that the mouse does not do anything out of the ordinary.
+The **Save** button is located to the right of the **Zoom In** button and to the left of the **Undo** button.
 
-The Selection Tool button is located to the right of the Save button and to the left of the Draw Redaction button.
+#### Selection Tool
+The **Selection Tool** button is the default cursor when opening Enterprise Viewer and signifies that the mouse does 
+not do anything out of the ordinary:
 
-### 5.1.11Draw Redaction
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar10.png %})
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})cef8afaf00d74133.png) licking this button allows the user to draw a redaction in a specific area of the page. Redactions are drawn in the form of rectangles. Once the cursor is selected, the user can click anywhere on the page to start the redaction. The user can then drag the mouse to anywhere else on the page to put the other corner of the redaction. A dim gray rectangle will be drawn from one point to the other as a preview of what the redaction will look like. Dialog boxes are anchored in the beginning of the redaction.
+The **Selection Tool** button is located to the right of the **Save** button and to the left of the **Draw Redaction** 
+button.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})cb5eb7a76b718443.png) he annotation comment from the dialog box will appear on the redacted area once the redaction is saved. The redacted area will become dark grey with white text if there is an annotation comment, otherwise it will turn black.
+#### Draw Redaction
+Clicking the **Draw Redaction** button allows the user to draw a redaction in a specific area of the page:
 
-The Draw Redaction button is located to the right of the Save button and to the left of the Text Redaction button.
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar11.png %})
 
-### 5.1.12Text Redaction
+Redactions are drawn in the form of rectangles. Once the cursor is selected, the user can click anywhere on the page to 
+start the redaction. The user can then drag the mouse to anywhere else on the page to put the other corner of the 
+redaction. 
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})95c82e5b0ea6931c.png) licking this button allows the user to redact text in a document. Once the cursor is selected, the user can click on the text they wish to redact. The user can then drag the mouse over the text to redact it until the mouse is released. The user may redact multiple lines. Certain text such as Social Security numbers will be redacted automatically.
+A dim gray rectangle will be drawn from one point to the other as a preview of what the redaction will look like. 
+Dialog boxes are anchored in the beginning of the redaction.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})10752bad78a90c1b.png) he annotation comment from the dialog box will appear on the redacted area once the redaction is saved. The redacted area will become dark grey with white text if there is an annotation comment, otherwise it will turn black.
+The annotation comment from the dialog box will appear on the redacted area once the redaction is saved:
 
-The Text Redaction button is located to the right of the Draw Redaction button and to the left of the Help button.
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar12.png %})
 
-### 5.1.13Help
+The redacted area will become dark grey with white text if there is an annotation comment, otherwise it will turn black.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})1b09fc8fbf563d74.png) he help button is used to give the user more information regarding Enterprise Viewer. When this button is clicked a new tab in the browser will open with Technology Services Group information regarding their services and description of Enterprise Viewer.
+The **Draw Redaction** button is located to the right of the **Save** button and to the left of the **Text Redaction** 
+button.
 
-The Help button is located to the right of the Text Redaction button and to the left of the Load Time.
+#### Text Redaction
+Clicking the **Text Redaction** button allows the user to redact text in a document:
 
-### 5.1.14L ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})88a97498f63e41b1.png) oad Time
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar13.png %})
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})26834eaf0ef5a93b.png) he load time shows the user how many seconds it took to load the document. The user can see more details when clicking on the text. The load time takes into consideration the time it took the user to login, the browser JavaScript load time, the time it took to retrieve document information, the time it took to display the document, and the document's size. The user can copy the load time information into their clipboard by clicking the Copy to Clipboard button found in the load time information window.
+Once the cursor is selected, the user can click on the text they wish to redact. The user can then drag the mouse over 
+the text to redact it until the mouse is released. The user may redact multiple lines. Certain text such as Social 
+Security numbers will be redacted automatically.
 
-The Load Time text is located to the right of the Help button.
+The annotation comment from the dialog box will appear on the redacted area once the redaction is saved:
 
-## 5.2Right Sidebar
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar15.png %})
 
-The sidebar displays the annotation summary and search tabs. It is to the right of the document and below the toolbar.
+The redacted area will become dark grey with white text if there is an annotation comment, otherwise it will turn black.
 
-### 5.2.1Hide Sidebar
+The **Text Redaction** button is located to the right of the **Draw Redaction** button and to the left of the **Help** 
+button.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})30357ba6faa8b7c8.png) he hide sidebar button allows the user to hide or show the sidebar depending upon the current state of the view. By default, the sidebar is in view. When clicked the sidebar will be hidden from the display. When the sidebar is not in view, the button can be clicked to show the sidebar and the sidebar will reappear in its default position.
+#### Help
+The **Help** button is used to give the user more information regarding Enterprise Viewer:
 
-This button is located in the upper right corner of the sidebar.
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar16.png %})
 
-### 5.2.2Annotation Summary
+When this button is clicked a new tab in the browser will open with Alfresco information regarding services and 
+description of the Enterprise Viewer.
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})c4e1644bb8fe86e5.png) ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})a2dc5893b5755710.png)
+The **Help** button is located to the right of the **Text Redaction** button and to the left of the **Load Time**.
 
-The annotation summary tab is used to show the summaries of the redactions that have been made in the document. The user can filter through the redactions and view the summaries in this tab.
+#### Load Time
+The **Load Time** shows the user how many seconds it took to load the document:
 
-#### 5.2.2.1 **Filter Text Box**
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar17.png %})
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})f19eae6e66d36699.png) he filter text box allows the user to sort through the annotation summaries efficiently. When the user types in the text box, the annotation summary boxes will be sorted. The annotation summary boxes with text matching the user's input will appear below the filter search box. The filter field will filter on the:
+The user can see more details when clicking on the text:
+
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar18.png %})
+
+The load time takes into consideration the time it took the user to login, the browser JavaScript load time, the time it 
+took to retrieve document information, the time it took to display the document, and the document's size. The user can 
+copy the load time information into their clipboard by clicking the **Copy to Clipboard** button found in the load time 
+information window.
+
+The **Load Time** text is located to the right of the **Help** button.
+
+### Right Sidebar
+The right sidebar displays the annotation summary and search tabs. It is to the right of the document and below the 
+toolbar.
+
+#### Hide Sidebar
+The **Hide Sidebar** button allows the user to hide or show the sidebar depending upon the current state of the view:
+
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar19.png %})
+
+By default, the sidebar is in view. When clicked the sidebar will be hidden from the display. When the sidebar is not 
+in view, the button can be clicked to show the sidebar, and it will then reappear in its default position.
+
+The **Hide Sidebar** button is located in the upper right corner of the sidebar.
+
+#### Annotation Summary
+The annotation summary tab is used to show the summaries of the redactions that have been made in the document:
+
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar21.png %})
+
+The user can filter through the redactions and view the summaries in this tab:
+
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar20.png %})
+
+##### Filter Text Box
+The **Filter** text box allows the user to sort through the annotation summaries efficiently:
+
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar29.png %})
+
+When the user types in the text box, the annotation summary boxes will be sorted. The annotation summary boxes with 
+text matching the user's input will appear below the filter search box. The filter field will filter on the:
 
 - Username of the annotation creator
 - Contents of the annotation comment
@@ -1028,79 +1136,123 @@ T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.
 - Page Number
 - Redaction type (ex: Redaction, Text Redaction)
 
-This text box is located at the top of the Annotation Summary above the summaries.
+This **Filter** text box is located at the top of the **Annotation Summary** above the summaries.
 
-#### **5.2.2.2Filters**
+##### Filters
+The **Filters** button allows the user to filter through the annotation summary boxes based upon the status and author:
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})d67780d5188e8760.png) he filters button allows the user to filter through the annotation summary boxes based upon the status and author. When clicked, a checkbox list will appear displaying status, author(s), and type options for user to select. Multiple statuses, authors and/or types can be selected. The filters box can be used with the filter text box.
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar30.png %})
 
-This button is located on the immediate right of the filter text box.
+When clicked, a checkbox list will appear displaying status, author(s), and type options for user to select. Multiple 
+statuses, authors and/or types can be selected. The filters box can be used with the filter text box.
 
-#### **5.2.2.3Clear Filters**
+The **Filters** button is located on the immediate right of the **Filter** text box.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})df1a1ca084686bde.png) he clear filters button is used to clear all filters from the filter text box and the filters button. When clicked the text in the filters text box will be cleared as well as the selections made in the filters list. The clear filters button will appear to the right of the filter text box when there is text in the filter text box or when a selection is made in the filters list.
+##### Clear Filters
+The **Clear Filters** button is used to clear all filters from the filter text box and the filters button:
 
-#### 5.2.2.4 **Annotation Summary Boxes**
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar31.png %})
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})32bce3427e591bf3.png) he annotation summary boxes appear in the sidebar below the filter text box. They are used to display information regarding each redaction. Each redaction will have one corresponding annotation summary box. An annotation summary box will display the author of the redaction, the date the redaction was created, the page the redaction was made on, the type of redaction, and the status of the redaction. If the status is set to none the status will not be displayed on the annotation summary boxes. The left side of the box will display a color corresponding to the color of the annotation. When an annotation summary box is clicked the user will be taken to that redaction in the document and the redaction dialogue box will appear.
+When clicked the text in the filters text box will be cleared as well as the selections made in the filters list. 
+The clear filters button will appear to the right of the filter text box when there is text in the filter text box or 
+when a selection is made in the filters list.
 
-### 5.2.3Search
+##### Annotation Summary Boxes
+The **Annotation Summary** boxes appear in the sidebar below the filter text box:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})cc269ae797b6d693.png)
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar32.png %})
 
-Clicking on the search tab will display the search tab which includes a search text box, arrows to move through the search matches, and a redact search result option.
+The **Annotation Summary** boxes are used to display information regarding each redaction. Each redaction will have one 
+corresponding annotation summary box. An annotation summary box will display the author of the redaction, the date the 
+redaction was created, the page the redaction was made on, the type of redaction, and the status of the redaction. 
 
-#### 5.2.3.1 **Bulk Redaction**
+If the status is set to none the status will not be displayed on the annotation summary boxes. The left side of the box 
+will display a color corresponding to the color of the annotation. When an annotation summary box is clicked the user 
+will be taken to that redaction in the document and the redaction dialogue box will appear.
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})12def047f4d6f028.png) he reason for redaction box and redact results button allows the user to redact all of the search results. The user can type their reason for redacting the search results in the reason for redaction box. This reason will be applied to each search result redaction. The redactions will be displayed in the annotation summary. A preview of the redactions can be seen in the document.
+#### Search
+Clicking on the **Search** tab will display the search tab which includes a search text box, arrows to move through 
+the search matches, and a redact search result option:
 
-The Bulk Redaction feature is located below the Text Search box and above the search results.
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar22.png %})
 
-#### 5.2.3.2 **Text Search**
+##### Bulk Redaction
+The reason for redaction box and redact results button allows the user to redact all the search results:
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})8abc72815a47773e.png) he text search box allows the user to search for text in the document. It does not search through annotation summary boxes or annotation dialogue boxes. When a user inputs text into the search box, matching results will appear below the text search box. The results will be highlighted on the document. The result the user is currently viewing will be highlighted a different color than the other results. The matching result box that is in view has a corresponding color to the result text on the document. The text search box is not case sensitive.
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar23.png %})
 
-#### 5.2.3.3 **Match Whole Words Only**
+The user can type their reason for redacting the search results in the reason for redaction box. This reason will be 
+applied to each search result redaction. The redactions will be displayed in the annotation summary. A preview of the 
+redactions can be seen in the document.
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})627e1649f4d9e52c.png) licking this button will only display the results which match the whole word searched for in the text search box.
+The **Bulk Redaction** feature is located below the **Text Search** box and above the search results.
 
-The button is located to the right of the text search box and to the left of the Previous Result button.
+##### Text Search
+The **Text Search** box allows the user to search for text in the document:
 
-#### 5.2.3.4 **Previous Result**
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar24.png %})
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})cab7a795391a64e2.png) licking this button will display the previous matching result from the text search. If there are no results previous to the result currently in view the button will not be in use.
+It does not search through annotation summary boxes or annotation dialogue boxes. When a user inputs text into the 
+search box, matching results will appear below the text search box. The results will be highlighted on the document. 
+The result the user is currently viewing will be highlighted a different color than the other results. The matching 
+result box that is in view has a corresponding color to the result text on the document. The text search box is 
+not case-sensitive.
 
-This button is located to the right of the text search box and to the left of the Match Whole Words Only button.
+##### Match Whole Words Only
+Clicking the **Match Whole Words Only** button will only display the results which match the whole word searched for 
+in the text search box:
 
-#### 5.2.3.5 **Next Result**
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar25.png %})
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})4ec99640dff8485e.png) licking this button will display the next matching result from the text search. If there are no results after the result currently in view the button will not be in use.
+The button is located to the right of the **Text Search** box and to the left of the **Previous Result** button.
 
-This button is located to the right of the Previous Result button.
+##### Previous Result
+Clicking the **Previous Result** button will display the previous matching result from the text search:
 
-## 5.3Left Sidebar
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar26.png %})
 
-### 5.3.1Bookmarks
+If there are no results previous to the result currently in view, then the button will not be in use.
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})c9159c467e44a8bc.png)
+The **Previous Result** button is located to the right of the **Text Search** box and to the left of the 
+**Match Whole Words Only** button.
 
-The bookmarks sidebar displays all of the bookmarks that the document has, if available. Clicking on an entry in the list will take the user to the section of the document where the bookmark begins.
+##### Next Result
+Clicking the **Next Result** button will display the next matching result from the text search:
 
-It is located on the left side of the Enterprise Viewer window.
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar27.png %})
 
-# 6Edit Pages Interface
+If there are no results after the result currently in view the button will not be in use.
 
-## 6.1Toolbar
+The **Next Result** button is located to the right of the **Previous Result** button.
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})6be2c8c2c7a6f95d.png)
+### Left Sidebar
+This sidebar contains the bookmarks.
 
-The toolbar (displayed above) contains all of the core functionality to Enterprise Viewer in Edit Pages mode. This is where document navigation and zooming occur, where the user can split the PDF, delete pages, rotate pages, and section the document, and where more information on Enterprise Viewer is found.
+#### Bookmarks
+The bookmarks sidebar displays all the bookmarks that the document has, if available:
+
+![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar28.png %})
+
+Clicking on an entry in the list will take the user to the section of the document where the bookmark begins.
+
+It is located on the left side of the **Enterprise Viewer** window.
+
+NEED TO UPDATE HEADERS HERE
+
+## Edit Pages Interface
+This is where document navigation and zooming occur, where the user can split the PDF, delete pages, rotate pages,
+and section the document, and where more information on Enterprise Viewer is found.
+
+### Toolbar
+The toolbar contains all the core functionality to Enterprise Viewer in **Edit Pages** mode. 
+
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar1.png %})
 
 It is located at the top of the Enterprise Viewer window.
 
 Dark grey buttons cannot be used until certain actions are made. A button that is in use will have a blue interior.
 
-### 6.1.1Manual Page Navigation
+#### 6.1.1Manual Page Navigation
 
 M ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})e8b3a44bca8f0bdb.png) anually entering a value into this text field and then hitting the Enter key will navigate to the new page number.
 
@@ -1108,23 +1260,23 @@ If the page number entered is not a number, this value gets reset to the current
 
 This text field is located to the right of the Enterprise Viewer logo and to the left of the Fit to Width button.
 
-### 6.1.2Total Number of Pages
+#### 6.1.2Total Number of Pages
 
 This is a non-editable field denoting the total number of pages for the document.
 
-### 6.1.3Fit to Width
+#### 6.1.3Fit to Width
 
 C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})e901f91fb6ffa990.png) licking this button automatically calculates the zoom level to make the window show the entire width of the document. This does not take into account the height of the document, and thus scroll bars may appear vertically depending on the page's aspect ratio against the size of the window.
 
 The Fit to Width button is located to the right of the Manual Page Navigation text field and to the left of the Fit to Height button.
 
-### 6.1.4Fit to Height
+#### 6.1.4Fit to Height
 
 C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})a465caf35bcafc46.png) licking this button automatically calculates the zoom level to make the window show the entire height of the document. This does not take into account the width of the document, and thus scroll bars may appear horizontally depending on the page's aspect ratio against the size of the window.
 
 The Fit to Height button is located to the right of the Fit to Width button and to the left of the Next Page button. The Fit to Height button is to the left of the Zoom Out button if the Next Page button is not displayed in the toolbar.
 
-### 6.1.5Next Page
+#### 6.1.5Next Page
 
 C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})20e98db25c528185.png) licking this button takes the user to the next page of the document. The button will become disabled once the user reaches the end of the document.
 
@@ -1132,7 +1284,7 @@ The Next Page button is located to the right of the Fit to Height button and to 
 
 >**Note:** This feature is unavailable if the document does not have more than one page.
 
-### 6.1.6Previous Page
+#### 6.1.6Previous Page
 
 C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})b273af53178e550f.png) licking this button takes the user to the previous page of the document. The button will become disabled once the user reaches the beginning of the document.
 
@@ -1140,7 +1292,7 @@ The Previous Page button is located to the right of the Next Page button and to 
 
 >**Note:** This feature is unavailable if the document does not have more than one page.
 
-### 6.1.7Zoom Out
+#### 6.1.7Zoom Out
 
 C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})15fd3ebdc367cba0.png) licking this button zooms out in increments of ten. While zooming out, if possible, the current middle of the page will remain in the middle (unless zooming out reveals an image that does not need to be scrolled).
 
@@ -1148,7 +1300,7 @@ If the target zoom level is below the minimum zoom level, the zoom is set to the
 
 The Zoom out button is located to the right of the Previous Page button and to the left of the Zoom In button. The Zoom Out button is to the right of the Fit to Height button if the Previous Page button is not displayed in the toolbar.
 
-### 6.1.8Zoom In
+#### 6.1.8Zoom In
 
 C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})7f91d8b0141a5ee9.png) licking this button zooms in in increments of ten. While zooming in, the current middle of the page will remain in the middle.
 
@@ -1156,49 +1308,49 @@ If the target zoom level is above the maximum zoom level, the zoom is set to the
 
 The Zoom In button is located to the right of the Zoom Out button and to the left of the Save button.
 
-### 6.1.9Save
+#### 6.1.9Save
 
 C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})b3c6bfca7db38560.png) licking this button will save any changes to the server, as well as refresh any unmodified annotations from other users that have been updated.
 
 The Save button is located to the right of the Zoom In button and to the left of the Split PDF button.
 
-### 6.1.10Split PDF
+#### 6.1.10Split PDF
 
 C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})8688290bfbe556f6.png) licking the Split PDF button will prompt the user to select the pages for the split. The user can select the pages by clicking on the box in the upper left corner of the page or by typing the pages in the blue notification located at the button of the screen. The selected pages will become green. The user then must click the Split PDF button which is located in the notification. Doing so will create a new document with the selected pages which has the same metadata and can be found in the same folder as the original document.
 
 The Split PDF button is located to the right of the Save button and to the left of the Delete Pages button.
 
-### 6.1.11Delete Pages
+#### 6.1.11Delete Pages
 
 C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})4035fd261f0e3f5f.png) licking the Delete Pages button will prompt the user to select the pages they wish to delete. The user can select the pages by clicking on the box in the upper left corner of the page or by typing the pages in the blue notification located at the bottom of the screen. The selected pages will become red. The user then has to click the Delete Pages button which is located in the notification.
 
 The Delete Pages button is located to the right of the Split PDF button and to the left of the Rotate Page Counter-Clockwise button.
 
-### 6.1.12Rotate Page Counter-Clockwise
+#### 6.1.12Rotate Page Counter-Clockwise
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})dbd6ad46ed334153.png) licking this button will rotate all of the pages counter-clockwise. If the user wants specific pages to rotate, the user must select them by clicking the box in the top left corner of the page or by writing it in the range section of the notification in the bottom right corner.
+C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})dbd6ad46ed334153.png) licking this button will rotate all the pages counter-clockwise. If the user wants specific pages to rotate, the user must select them by clicking the box in the top left corner of the page or by writing it in the range section of the notification in the bottom right corner.
 
 The Rotate-Page Counter-Clockwise button is located to the right of the Delete Pages button and to the left of the Rotate Page Clockwise button.
 
-### 6.1.13Rotate Page Clockwise
+#### 6.1.13Rotate Page Clockwise
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})f78df8c6d8bcd6c4.png) licking this button will rotate all of the pages clockwise. If the user wants specific pages to rotate, the user must select them by clicking the box in the top left corner of the page or by writing it in the range section of the notification in the bottom right corner.
+C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})f78df8c6d8bcd6c4.png) licking this button will rotate all the pages clockwise. If the user wants specific pages to rotate, the user must select them by clicking the box in the top left corner of the page or by writing it in the range section of the notification in the bottom right corner.
 
 The Rotate Page Clockwise button is located to the right of the Rotate Page Counter-Clockwise button and to the left of the Section Document button.
 
-### 6.1.14Section Document
+#### 6.1.14Section Document
 
 C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})c4b3b40d0f514730.png) licking this button will allow the user to split the document into different sections.Sectioning is an efficient way to reorder large documents. A blue notification will appear in the bottom right corner where the user can name the section and select the range of pages for the section. The user must then select the create section button. The new section will appear in the left sidebar. For more information on how to section a document, reference [Section 6.2.2](#SectionDocument).
 
 The Section Document button is located to the right of the Rotate Page Clockwise button and to the left of the Help button.
 
-### 6.1.15Help
+#### 6.1.15Help
 
 T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})1b09fc8fbf563d74.png) he help button is used to give the user more information regarding Enterprise Viewer. When this button is clicked a new tab in the browser will open with Technology Services Group information regarding their services and description of Enterprise Viewer.
 
 The Help button is located to the right of the Section Document dropdown and to the left of the Load Time.
 
-### 6.1.16L ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})88a97498f63e41b1.png) oad Time
+#### 6.1.16L ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})88a97498f63e41b1.png) oad Time
 
 T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})26834eaf0ef5a93b.png) he load time shows the user how many seconds it took to load the document.
 
@@ -1206,33 +1358,33 @@ The user can see more details when clicking on the text. The load time takes int
 
 The Load Time text is located to the right of the Help button.
 
-## 6.2Left Sidebar
+### 6.2Left Sidebar
 
-### 6.2.1Hide Sidebar
+#### 6.2.1Hide Sidebar
 
 T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})2596e1f3406e360f.png) he Hide Sidebar button allows the user to hide the sidebar containing the list of sections. When the button is clicked, the sidebar will collapse into the left side of the Enterprise Viewer window. When the button is clicked again, the sidebar will expand back into view.
 
 This button is located in the top right corner of the Sections sidebar.
 
-### 6.2.2Sections
+#### 6.2.2Sections
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})7432761cd8fcfbff.png)
 
-The sections sidebar displays all of the sections of the document, if available. Sectioning is an efficient way to reorder large documents. Unsectioned pages will be listed under Unsectioned. The pages belonging to each section are listed under the section's name. Clicking on an entry in the list in Add Annotations mode will take the user to the first page of the section. For more information on how to activate the Section Document feature, reference [Section 6.1.14](#ActivateSectionDocument).
+The sections sidebar displays all the sections of the document, if available. Sectioning is an efficient way to reorder large documents. Unsectioned pages will be listed under Unsectioned. The pages belonging to each section are listed under the section's name. Clicking on an entry in the list in Add Annotations mode will take the user to the first page of the section. For more information on how to activate the Section Document feature, reference [Section 6.1.14](#ActivateSectionDocument).
 
 It is located on the left side of the Enterprise Viewer window.
 
-#### 6.2.2.1**C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})2f770813b10f9e03.png) reating a Section**
+##### 6.2.2.1**C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})2f770813b10f9e03.png) reating a Section**
 
 The user can create a new section through the blue notification that appears in the bottom right corner. The user can name the section and type the range of pages for the section. The user must then select the Create Section button in the notification. The new section will appear in the left sidebar.
 
-#### 6.2.2.2 **Renaming a Section**
+##### 6.2.2.2 **Renaming a Section**
 
 C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})a4e2ac8ae69b1086.png) licking this button allows the user to rename the section. A text box will appear under the section's name prompting the user to enter a new section name.
 
 This button is located to the right of the section's name.
 
-#### 6.2.2.3 **Edit Section**
+##### 6.2.2.3 **Edit Section**
 
 C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})d63b3a4f83f9e06f.png) licking this button displays the thumbnails of the section. The user can reorder the section by dragging the thumbnails to their desired positions. The user must click the button again to exit thumbnail view. Below are photos of the reordering pages process.
 
@@ -1250,23 +1402,25 @@ This button is located to the left of the Deleting a Section button and below th
 
 **Figure 3: Thumbnail is in new position. The pages have been reordered.**
 
-#### 6.2.2.4 **Deleting a Section**
+##### 6.2.2.4 **Deleting a Section**
 
 C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})47f16bd78b035d7e.png) licking this button allows the user to delete the section. The pages from the deleted section will then be listed under Unsectioned.
 
 This button is located to the right of the Edit Section button and below the Clear All button.
 
-#### 6.2.2.5 **Reordering Sections**
+##### 6.2.2.5 **Reordering Sections**
 
 The user can reorder the sections by clicking on a section and dragging it to a new spot.
 
 >**Note:** The user cannot reorder the sections if there are unsectioned pages.
 
-#### 6.2.2.6 **Clear All**
+##### 6.2.2.6 **Clear All**
 
 C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})c6f787d1944e9939.png) licking this button will clear all document sections and list the pages under Unsectioned. The user will be prompted by a question asking whether they are sure they want to clear all sections.
 
 The Clear All button is located in the top right corner of the Sections sidebar below the Hide Sidebar button.
+
+FIX HEADERS
 
 # 7Add Signatures Interface
 
@@ -1274,7 +1428,7 @@ The Clear All button is located in the top right corner of the Sections sidebar 
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})e7336159929c3481.png)
 
-The toolbar (displayed above) contains all of the core functionality to Enterprise Viewer in Signature mode. This is where document navigation and zooming occur, and signatures can be added, saved, and more information on Enterprise Viewer is found.
+The toolbar (displayed above) contains all the core functionality to Enterprise Viewer in Signature mode. This is where document navigation and zooming occur, and signatures can be added, saved, and more information on Enterprise Viewer is found.
 
 It is located at the top of the Enterprise Viewer window.
 
