@@ -2,30 +2,15 @@
 title: Developing ADF based applications
 ---
 
-In this section you are going to learn the development of a custom ADF based application. The idea behind this approach is to provide the developer with a very basic (and almost “empty”) ADF based application that she/he can start enriching with features, behaviours and customizations in general. The creation of this basic ADF-based application is possible through a scaffolding tool called Yeoman, which makes this task very straightforward.
+In this section you are going to learn how to develop a custom ADF based application. Once made you can can start adding features, and customizing it. The creation of this basic ADF-based application is possible through the scaffolding tool called Yeoman. This means in a small amount of time you can create a working ADF based application in your development environment.
 
-The promise is that in minutes you can create from scratch a working (but very basic) ADF based application in your development environment.
-
-You may consider adopting an ADF-based application in case you want to benefit from the ADF services and visual components provided by the framework. The Alfresco Yeoman Generator used for this purpose is available for free as an Open Source project on GitHub.
+<This should go somewhere in the beginning> You may consider adopting an ADF-based application in case you want to benefit from the ADF services and visual components provided by the framework. The Alfresco Yeoman Generator used for this purpose is available for free as an Open Source project on GitHub.
 
 Below you can find the available tutorials on the most common and requested tasks about developing ADF based applications.
 
-## How to create an ADF based application using the Yeoman Generator
+## Create an ADF based application using the Yeoman Generator
 
-Note: This tutorial is going to replace the content here.
-
-In this tutorial you are going to learn how to create a very basic (and almost “empty”) ADF-based application that you can start enriching with features, behaviors and customizations. The creation of this basic ADF-based application is possible through a scaffolding tool called Yeoman, which makes this task very straightforward.
-
-Prerequisites and the requirements
-Installing the ADF Yeoman Generator
-Installing the Angular CLI
-Create your first ADF application
-Configure the application to work with Alfresco Content Services
-Start the application
-Troubleshooting and support
-Other types of ADF based applications
-Prerequisites and the requirements
-The first thing to do is to check the prerequisites and the requirements to run the front-end application directly into a development environment.
+This tutorial explains how to create a simple ADF-based application that you can start enriching with features, behaviors and customizations. The creation of this basic ADF-based application is possible through a scaffolding tool called Yeoman, which makes this task very straightforward.
 
 More in particular check that you have:
 
@@ -42,25 +27,35 @@ Note: If you're on Linux or MacOS, you might need to run the following commands 
 
 You need to ensure you have Yeoman installed by running yo --version. If this is not already installed, run the following command.
 
+```text
 npm install -g yo
-Now install the latest version of the generator-alfresco-adf-app.
+```
 
+Now install the latest version of the ``generator-alfresco-adf-app`.
+
+```text
 npm install -g generator-alfresco-adf-app@latest
-Feel free to check the generator-alfresco-adf-app repository for further details. The project is Open Source and free.
+```
 
-Installing the Angular CLI
-To take full advantage of Angular, we suggest you install the latest version of Angular CLI.
+> **Note:** For more details on the `generator-alfresco-adf-app` see its repository <LINK>. The project is open Source.
 
+Install the Angular CLI
+
+```text
 npm install -g @angular/cli
-This will make it easy to create components, libraries, and much more.
+```
 
-To test the installed version Angular CLI, launch the ng v command directly in the terminal.
+Angular makes it easy to create components, libraries, and more. You can check what version of the installed version Angular CLI you have installed by using the `ng v` command in the terminal.
 
-Create your first ADF application
-Now that the system is properly configured, it's time to generate the application running the following command.
+### Create your first ADF application
 
+Now that the system is properly configured you can generate the application running the following command.
+
+```text
 yo alfresco-adf-app
-Enter a name and choose Content Services as the application blueprint, then enter Y to install the dependencies (the following questions are optional and easy to understand).
+```
+
+Enter a name and choose Content Services as the application blueprint, then enter Y to install the dependencies (the following questions are optional and e).
 
 The Yeoman generator will create a new project and install all dependencies required for your application.
 
@@ -73,6 +68,7 @@ Modify "target": "http://localhost:8080", so that it matches your URL and save t
 
 Please note that you do not need /alfresco at the end of the target URL. Let's say you've launched Alfresco Content Services 6.1 using Docker Compose. Your Alfresco Content Services repository might be available at http://localhost:8080/alfresco. In this case, you will want the proxy.conf.json file to look like this:
 
+```java
 module.exports = {
   "/alfresco": {
     "target": "http://localhost:8080",
@@ -80,6 +76,7 @@ module.exports = {
     "changeOrigin": true
   }
 };
+```
 
 If you're running an online trial, consult your emails for the correct URL. The proxy.conf.json should look like this:
 

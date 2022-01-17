@@ -61,8 +61,6 @@ In this tutorial you learned how to launch Alfresco Digital Workspace (alias ADW
 
 ## How to debug, test, build and promote ADW (and ADF-based applications)
 
-Created by Francesco Corti (Deactivated)
-Last updated: Feb 23, 2021 by Adina Parpalita (Deactivated)3 min read14 people viewed14 people viewed
 In this tutorial you are going to learn how to debug, test, build and promote the Alfresco Digital Workspace (aka ADW). Being an application built using the Alfresco Development Framework (aka ADF), what is described here for ADW is mostly valid also for any other ADF-based application. Differences and common commands will be described as part of this tutorial.
 
 Being a standard Angular application, the lifecycle and the tasks described for ADW are following the same principles, tooling and best practices of any other standard Angular application. We are not going to detail here what is widely described for Angular based applications (for example for what concern the debugging) but we are going to point on third party content and best practices.
