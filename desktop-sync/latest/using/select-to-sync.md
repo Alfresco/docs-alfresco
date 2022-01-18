@@ -12,6 +12,18 @@ Use the *Choose files and folders to sync* screen to select the content to sync 
 
 > **Note:** The screen provides an estimate of how much disk space will be occupied, so only select the content you need. The more content you select, the more space will be taken on your local machine and the more time it will take to perform the initial sync.
 
+<!--Direct Folder Sync -->
+
+If you work with content that has deep folder structures, you may wish to enable the **Direct Folder Sync** checkbox. This allows you to only sync selected folders deep in your hierarchy, without syncing the intermediate folders, and prevent creating lengthy folder paths.
+
+By default, this feature is disabled so the checkbox is not selected, and folders are synced using the full folder structure from Alfresco Content Services. When you select the **Direct Folder Sync** checkbox, only the selected folders are synced to a folder structure below their respective root paths, such as:
+
+* `My Files` > `Sync Folders`
+* `Sites` > `<Site Name>` > `Sync Folders`
+* `Shared Files` > `Sync Folders`
+
+> **Note:** In the above example, any content in the root of **My Files**, **Sites**, and **Shared Files** is not synced.
+
 1. Synchronize your content from **My Files** and **Shared Files**.
 
     ![]({% link desktop-sync/images/setup-sf.png %}){:height="562px" width="346px"}
