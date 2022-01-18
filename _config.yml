@@ -918,6 +918,7 @@ defaults:
       toc: "sync-service"
       support: true
       versions:
+        - 3.5
         - 3.4
         - 3.3
         - 3.2
@@ -926,8 +927,12 @@ defaults:
   - scope:
       path: "sync-service/latest"
     values:
-      version: 3.4
+      version: 3.5
       latest: true
+  - scope:
+      path: "sync-service/3.4"
+    values:
+      version: 3.4
   - scope:
       path: "sync-service/3.3"
     values:
