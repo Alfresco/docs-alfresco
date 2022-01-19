@@ -107,7 +107,6 @@ import { MyExtensionModule } from '@alfresco-dbp/my-extension';
 export class AppExtensionsModule {}
 ```
 
-
 Last but not least, let's instruct the configuration file for the extension to be visible from the ADW app through a public URL. To complete the task, edit the angular.json file as described below.
 
 // Add to 'projects/content-ee/architect/build/options/assets' array.

@@ -115,7 +115,7 @@ As already shared: there isn’t a right or wrong approach. The decision really 
 
 In the picture below you can see drawn the decision process described above.
 
-![Development options]({% link digital-workspace/images/develop-arch.png %})
+![Develop front end]({% link digital-workspace/images/develop-front-end.png %})
 
 In case of projects adopting Community Editions or Open Source components, you can consider ACA as an alternative to ADW. Of course, if you will decide to follow this path, it will be done at your own risk considering that ACA is defined as an example of content application and it is not officially supported by Alfresco (but contributions to the project are welcome).
 

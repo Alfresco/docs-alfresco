@@ -93,7 +93,7 @@ To run the project, open a terminal and run:
 npm start
 A browser will automatically open up at http://localhost:4200.
 
-Click the key icon in the side navigation, and you can now log in!
+Click the key icon in the side navigation to log in.
 
 Note: If you're running an online trial, you can find your login credentials in the welcome email.
 
