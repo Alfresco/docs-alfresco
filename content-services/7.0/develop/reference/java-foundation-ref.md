@@ -2200,29 +2200,6 @@ final Map<String, Object> model = createEmailTemplateModel(nodeRef);
 text = serviceRegistry.getTemplateService().processTemplate("freemarker", templateRef.toString(), model);
 ```
 
-## TenantService
-Provides APIs for the multi-tenancy capability. The service is applicable in both Single Tenancy and Multi Tenancy 
-arrangements.
-
-Multi-tenancy is supported by the Alfresco repository. Read more about it [here]({% link content-services/7.0/admin/multi-tenancy.md %}). 
-The `TenantService` is used by Alfresco repository code to rewrite `NodeRef`s, `StoreRef`s etc so they include a tenant 
-domain when running in a multi tenant environment, which makes it possible to handle multiple tenants in parallel. 
-
-When you use the `TenantService` in a single tenant environment the methods are either NOOP, return what you pass in, 
-or return empty domain for domain related methods.
-
-The following code shows an example of how a `NodeRef` and a `StoreRef` can be rewritten to be multi-tenant aware:
-
-```java
-NodeRef nodeRef = "some node reference that needs to be rewritten for a specific tenant domain";
-NodeRef tenantNodeRef = serviceRegistry.getTenantService().getName(nodeRef);
-
-String store = "some repository store that needs to be rewritten for a specific tenant domain";
-StoreRef storeRef = serviceRegistry.getTenantService().getName(new StoreRef(store));
-```
-
-In a single tenant environment these `getName` operations would have no effect.
-
 ## VersionService
 Provides an API for managing file versions (i.e. content of type, or subtype, `cm:content`). Note that folders are not 
 versionable.

@@ -101,8 +101,6 @@
           pages:
           - title: 'Clustering'
             path: '/content-services/latest/admin/cluster/'
-          - title: 'Multi-tenancy'
-            path: '/content-services/latest/admin/multi-tenancy/'
           - title: 'Content replication'
             path: '/content-services/latest/admin/replication/'
         - title: 'Licenses'
@@ -703,8 +701,6 @@
           pages:
           - title: 'Clustering'
             path: '/content-services/7.0/admin/cluster/'
-          - title: 'Multi-tenancy'
-            path: '/content-services/7.0/admin/multi-tenancy/'
           - title: 'Content replication'
             path: '/content-services/7.0/admin/replication/'
         - title: 'Licenses'
@@ -1013,8 +1009,6 @@
           pages:
             - title: 'Clustering'
               path: '/content-services/6.2/admin/cluster/'
-            - title: 'Multi-tenancy'
-              path: '/content-services/6.2/admin/multi-tenancy/'
             - title: 'Content replication'
               path: '/content-services/6.2/admin/replication/'
         - title: 'Licenses'
@@ -1301,8 +1295,6 @@
           pages:
           - title: 'Clustering'
             path: '/content-services/6.1/admin/cluster/'
-          - title: 'Multi-tenancy'
-            path: '/content-services/6.1/admin/multi-tenancy/'
           - title: 'Content replication'
             path: '/content-services/6.1/admin/replication/'
         - title: 'Licenses'
@@ -1587,8 +1579,6 @@
           pages:
           - title: 'Clustering'
             path: '/content-services/6.0/admin/cluster/'
-          - title: 'Multi-tenancy'
-            path: '/content-services/6.0/admin/multi-tenancy/'
           - title: 'Content replication'
             path: '/content-services/6.0/admin/replication/'
         - title: 'Licenses'
