@@ -137,7 +137,7 @@ Log into Alfresco Share as a user that is a member of the `ALFRESCO_MODEL_ADMINI
 
 Now that we have created a new model with its custom type and aspect, let's see how we can use it to capture a file's metadata in Alfresco Share.
 
-## Step 10: Apply custom type and to a file in Alfresco Share
+## Step 10: Apply custom type and aspect to a file in Alfresco Share
 
 1. In your site, click **Document Library** to access the library.
 2. Click on a file in the library to view it in the file preview screen.
