@@ -12,23 +12,10 @@ In this section you will learn how to create and manage ADW from a development p
 
 In this tutorial you are going to learn how to launch Alfresco Digital Workspace (alias ADW) on your development environment, starting from the source code, with the purpose to have a first experience with the development principles.
 
-Prerequisites and the requirements
-Cloning and launching the front-end application
-Troubleshooting and support
-Conclusion
+Check you have the required prerequisites, for more see <Link to pre reqs section>.
 
-Prerequisites and the requirements
-The first thing to do is to check the prerequisites and the requirements to run the front-end application directly into a development environment.
+## Cloning and launching the front-end application
 
-More in particular check that you have:
-
-Alfresco Content Services (alias ACS) Enterprise edition up and running (identify the URL that will be required as configuration). 
-
-The latest lts version of NodeJs.
-
-A recent (and supported) version of a browser (see here for further details).
-
-Cloning and launching the front-end application
 Once the environment is properly configured, the next step is to have available the source code of the project, locally into your development environment. If you are an Alfresco customer or partner, you can get a local copy of the project by raising a request into the Alfresco Support Portal.
 
 Once done, enter the alfresco-digital-workspace folder and create a file named .env with the following content (put the ACS URL as value).

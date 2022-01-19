@@ -2,6 +2,8 @@
 title: The ADF/ADW extension mechanism
 ---
 
+
+
 The ADF extension mechanism is a powerful way to customize and ADF based application structured as required by the Nx Workspace dev tools for monorepos. The ADF extension mechanism is the suggested way to add, remove, change the behavior of an ADF based application. The ADF extension mechanism is fully applicable to ADW it is suggested to be used as best practice instead of direct changes to the source code of the application.
 
 Customizations implemented through the ADF extension mechanism are more maintainable (modular and isolated from the core of the application) and allow an easier upgrade of the application.
@@ -14,20 +16,7 @@ In this section you will learn how to create and manage an ADF/ADW extension fro
 
 The purpose of this tutorial is to describe how to develop a “hello word” extension for the Alfresco Digital Workspace (aka ADW). The ADW extension mechanism is the suggested way to customize the supported front-end application, and this tutorial is supposed to be the foundation for a content to share with customers and partners.
 
-Prerequisites
-Creating the ADW extension
-Developing the basics of the ADW extension
-Making the extension as part of the ADW application
-Running ADW with the extension included
-Conclusions
-Prerequisites
-The starting point for this tutorial is the availability of the full repository of the Alfresco Digital Workspace on your development environment. This tutorial has been written with the following versions of the software:
-
-ADW version 2.0.0
-
-ACS 7.0.0-M3 Enterprise Edition
-
-NodeJs version 14.15.2
+Check you have the required prerequisites, for more see <Link to pre reqs section>.
 
 Creating the ADW extension
 The creation of an ADW extension is straightforward following the Nx Workspace dev tools for monorepos.
@@ -448,14 +437,19 @@ Once done, edit the my-extension.json file in the libs/my-extension/assets folde
         }
     ]
 }
+```
 
 To declare the component identifier directly into the extension’s module. For that purpose edit the libs/my-extension/src/lib/my-extension.module.ts updating the following content.
 
 // Add the following imports.
+```json
 import { ExtensionService } from '@alfresco/adf-extensions';
 import { MyFirstPageComponent } from './my-first-page/my-first-page.component';
+```
 
 // Change the NgModule as follows.
+
+```java
 @NgModule({
   ...,
   declarations: [MyFirstPageComponent]
@@ -467,11 +461,14 @@ export class MyExtensionModule {
     });
   }
 }
+```
+
 This is all that you have to do if you want to add a new route (URI related to a page layout) to the application through the extension. To test that everything is working properly, you can launch the npm start content-ee command and point the browser to http://localhost:4200/#my-first-page.
 
 Creating the menu item as part of the extension
-To add a new menu item pointing to the page above, edit the my-extension.json file in the libs/my-extension/assets folder and add the following JSON to the features element.
+To add a new menu item pointing to the page above, edit the `my-extension.json` file in the libs/my-extension/assets folder and add the following JSON to the features element.
 
+```json
 {
   ...
   "features": {
@@ -498,4 +495,8 @@ To add a new menu item pointing to the page above, edit the my-extension.json fi
   },
   ...
 }
+```
+
 Below you can see what the layout looks like.
+
+<Add appropriate image>

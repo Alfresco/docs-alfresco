@@ -2,6 +2,10 @@
 title: Develop Digital Workspace
 ---
 
+This development section uses the following prerequisites: 
+
+<What are they>
+
 # Prerequisites and requirements
 
 The first thing to do is to check the prerequisites and the requirements to run the front-end application directly into a development environment.
@@ -10,7 +14,6 @@ More in particular check that you have:
 
 * Alfresco Content Services (alias ACS) Community or Enterprise edition up and running (identify the URL that will be required as configuration).
 * The latest lts version of NodeJs.
-* A recent (and supported) version of a browser (see here for further details).
 
 # Cloning and launching the front-end application
 
