@@ -6,6 +6,7 @@ The following are the supported platforms for Desktop Sync 1.8:
 
 | Version | Notes |
 | ------- | ----- |
+| Content Services 7.1.x | |
 | Content Services 7.0.x | |
 | Content Services 6.2.0 - 6.2.1 | |
 | Content Services 6.1.0 - 6.1.1 | |
