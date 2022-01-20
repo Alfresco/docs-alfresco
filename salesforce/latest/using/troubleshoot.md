@@ -127,3 +127,7 @@ To resolve this, The Canvas app is not correctly configured if you attempt to:
 ## How do I enable debug logs on both Share and the Repository?
 
 Go to **Log Settings** in the Alfresco Admin Console (`/alfresco/s/enterprise/admin/admin-log-settings`) and add the `org.alfresco.integrations.sfdc.webscripts` package with `DEBUG` level. These changes will persist until the server is shut down or restarted, at which point any changes will be lost.
+
+## Receiving a blank page in Recommended Content Panel.
+
+This can occur when the syntax of the JSON provided in the `parameters` attribute of the `apex:canvasApp` tag in the Visualforce page is incorrect. Review the JSON you are providing in the `parameters` attribute.
