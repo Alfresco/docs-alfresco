@@ -99,10 +99,6 @@ Smart Folders have a limited set of actions:
 
 The Smart Folder itself can't be edited in Alfresco Content Services, except through the Smart Folder Template. For more information about Smart Folder Templates, see [Apply a Smart Folder Template]({% link content-services/6.2/using/smart-folders.md %}).
 
-## Are Smart Folders supported in a multi-tenant production environment?
-
-No, Smart Folders are not supported in a multi-tenant production environment.
-
 ## Can I use multi-value properties with Smart Folders?
 
 Properties that can have multiple values are supported in a query. However, you can't upload new content and set a value for a multi-value property.
