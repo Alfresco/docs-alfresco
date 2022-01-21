@@ -462,7 +462,7 @@ using Spring’s declarative Dependency Injection:
 ![subsystem interface]({% link content-services/images/2-5.png %})
 
 A service interface is defined as a Java interface. For services that form the internal embedded API for extensions,
-cross-cutting concerns such as transaction demarcation, access control, auditing, logging, and multi-tenancy are plugged
+cross-cutting concerns such as transaction demarcation, access control, auditing, and logging are plugged
 in through Spring AOP behind the service interface. This means that service implementations are not polluted with these concerns.
 It also means the cross-cutting concerns can be configured independently or even switched off across the server if, for example,
 performance is the top-most requirement and the feature is not necessary.
