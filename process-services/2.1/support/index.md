@@ -25,7 +25,6 @@ our Support team - submit a case via [Hyland Community]({% link support/latest/c
 |--------|----|------|
 |MariaDB 10.5|✓|2.7.3|
 |MariaDB 10.4|✓|2.7.3|
-|MySQL 8.0|✓|`mysql-connector-java-8.0.25.jar`|
 |MySQL 5.7|✓|`mysql-connector-java-8.0.25.jar`|
 |MS SQL Server 2019|✓|`mssql-jdbc-9.2.1.jre8.jar`|
 |MS SQL Server 2017|✓|`mssql-jdbc-9.2.1.jre8.jar`|
