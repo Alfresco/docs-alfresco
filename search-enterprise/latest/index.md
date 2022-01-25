@@ -23,3 +23,5 @@ Alfresco Search Enterprise consists of the following components:
 The services required for Alfresco Search Enterprise are included in the following diagram.
 
 ![architecture]({% link search-enterprise/images/elasticsearch_connector_architecture.png %})
+
+**Note:** Currently, Alfresco Search Enterprise is only supported with the Postgres database and supports only English language queries. For a full list of features supported by Alfresco Search Services, but not yet for Alfresco Search Enterprise, see https://docs.alfresco.com/search-enterprise/latest/using/unsupported/.
