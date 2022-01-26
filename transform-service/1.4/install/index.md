@@ -24,7 +24,7 @@ There are a number of software requirements for installing Transform Service.
 
 The Transform Service is only deployed as part of Content Services for containerized deployments.
 
-However, this is not the case if you're installing Content Services using the distribution zip. See [Supported platforms]({% link transform-service/latest/support/index.md %}) for more information.
+However, this is not the case if you're installing Content Services using the distribution zip. See [Supported platforms]({% link transform-service/1.4/support/index.md %}) for more information.
 
 ### Containerized deployments
 
@@ -48,7 +48,7 @@ To use the Content Services deployment (including the Transform Service), you ne
 * [Helm](https://github.com/helm/helm#install){:target="_blank"} - the tool for installing and managing Kubernetes applications.
   * There are Helm charts that allow you to deploy Content Services with Transform Service in a Kubernetes cluster, for example, on AWS.
 
-See [Install with Helm charts]({% link transform-service/latest/install/index.md %}#install-with-helm-charts) for more details.
+See [Install with Helm charts]({% link transform-service/1.4/install/index.md %}#install-with-helm-charts) for more details.
 
 #### Software requirements (Docker)
 
@@ -61,7 +61,7 @@ This is recommended for evaluations only (i.e. test and development environments
 
 > **Note:** Check the prerequisites for your operating system, both for Docker and Docker Compose.
 
-See [Install with Docker Compose]({% link transform-service/latest/install/index.md %}#install-with-docker-compose) for more details.
+See [Install with Docker Compose]({% link transform-service/1.4/install/index.md %}#install-with-docker-compose) for more details.
 
 ### Non-containerized deployment {#prereq-non-containerized-deploy}
 
@@ -469,7 +469,7 @@ The Transform Service distribution zip file includes all the files required to p
 metadata extraction capabilities. Ensure that you've installed the [prerequisites](#prereq-non-containerized-deploy) 
 before continuing.
 
-1. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"} and download `alfresco-transform-service-distribution-1.5.x.zip`.
+1. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"} and download `alfresco-transform-service-distribution-1.4.x.zip`.
 
 2. Extract the zip file into a system directory; for example, `<installLocation>/`.
 
@@ -477,9 +477,9 @@ before continuing.
 
     * `alfresco-shared-file-store-controller-x.y.z.jar`
     * `alfresco-transform-core-aio-boot-x.y.z.jar`
-    * `alfresco-transform-router-1.5.x.jar`
+    * `alfresco-transform-router-1.4.x.jar`
     * `README.md`
-    * IPTC Content Model (needs to be bootstrapped into Alfresco Content Services for IPTC Metadata extraction to work, unless you are using Alfresco Content Services version 7.1.0+. See [Supported platforms]({% link transform-service/latest/support/index.md %}) for more information.
+    * IPTC Content Model (needs to be bootstrapped into Alfresco Content Services for IPTC Metadata extraction to work, unless you are using Alfresco Content Services version 7.1.0+. See [Supported platforms]({% link transform-service/1.4/support/index.md %}) for more information.
 
 3. Start Active MQ.
 
@@ -536,7 +536,7 @@ before continuing.
      -DCORE_AIO_QUEUE=org.alfresco.transform.engine.aio.acs
      -DACTIVEMQ_URL=failover:(tcp://server:61616)?timeout=3000
      -DFILE_STORE_URL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file
-     -jar alfresco-transform-router-1.5.x.jar
+     -jar alfresco-transform-router-1.4.x.jar
     ```
 
     Check the output to ensure that it starts successfully.
@@ -567,7 +567,7 @@ before continuing.
 
     > **Note:** Any changes to `alfresco-global.properties` require you to restart Alfresco Content Services to apply the updates. See the Content Services documentation [Using alfresco-global.properties]({% link content-services/latest/config/index.md%}#using-alfresco-globalproperties) for more information.
 
-8. Check that the [configuration]({% link transform-service/latest/config/index.md %}) is set up correctly for your environment.
+8. Check that the [configuration]({% link transform-service/1.4/config/index.md %}) is set up correctly for your environment.
 
 9. Restart Alfresco Content Services.
 
