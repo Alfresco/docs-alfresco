@@ -16,3 +16,4 @@ Gemfile.lock
 .idea/
 *.iml
 *.iws
+docker-compose.yml
