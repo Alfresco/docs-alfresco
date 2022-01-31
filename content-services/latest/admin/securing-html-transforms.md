@@ -101,7 +101,7 @@ You have two options for this, either deploy directly to the Alfresco Repository
         - activemq
     ```
 
-For more information see this [page]({% link transform-service/latest/config/extend.md %})
+For more information see this [page]({% link transform-service/latest/config/index.md %})
 
 ## Restore HTML pipelines that use LibreOffice
 
@@ -213,4 +213,4 @@ You have two options for this, either deploy directly to the Alfresco Repository
         - activemq
     ```
 
-For more information see the [Transform Service documentation]({% link transform-service/latest/config/extend.md %})
+For more information see the [Transform Service documentation]({% link transform-service/latest/config/index.md %})
