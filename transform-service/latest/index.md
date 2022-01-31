@@ -5,10 +5,10 @@ title: Alfresco Transform Service
 The Alfresco Transform Service provides a secure, scalable, reliable, and extensible mechanism for converting files from 
 their current format into other formats.
 
-The Transform Service provides a single all-in-one Transform Core Engine (T-Engine) that performs all the core 
-(single-step) transformations. The Transform Service also provides a Transform Router that sits in front of the
-T-Engine(s) to provide move complex (multi-step) transformations that combine single steps into pipelines or
-alternatives where there may be more than one choice. 
+The Transform Service provides a number of Transform Engines (T-Engines) that perform single-step transformations. The
+Transform Service also provides a Transform Router that sits in front of the T-Engine(s) to provide move complex
+multi-step transformations that combine the single steps into pipelines or alternatives where there may be more than
+one choice. 
 
 The Transform Router, and the T-Engine(s), runs as independently scalable Docker containers. The Transform Router is 
 connected to the Alfresco Content Services repository and T-Engines via ActiveMQ, a message broker, which is used to
