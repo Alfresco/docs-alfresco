@@ -35,15 +35,17 @@ defined through configuration files in the T-Router. This is described in the la
 
 A T-Engine is intended to be run as a Docker image, but may also be run as a standalone process.
 
-For an overview of Transform Service, Router, Local transforms, Legacy transforms etc see [overview]({% link transform-service/latest/index.md %}).
+For an overview of the Transform Service, including the T-Router, T-Engines, Local transforms, Legacy transforms etc see [overview]({% link transform-service/latest/index.md %}).
 
-## Repository configuration
-This section covers transform configuration on the Alfresco Content Services Repository side.
+## Repository specific configuration
+This section covers transform configuration on the Alfresco Content Services Repository side. As it is possible to 
+configure transformations on both the Repository side, and the T-Router side, we will cover both. Repository configuration
+is also used when the Alfresco Content Services Community Edition is used.
 
 ### Configure a T-Engine as a Local Transform
 For the Repository to talk to a T-Engine directly, it must know the engine's URL. The URL can be added as an Alfresco 
-global property, or more simply as a Java system property. `JAVA_OPTS` may be used to set this if starting the repository 
-with Docker:
+global property (i.e. in `alfresco-global.properties`), or more simply as a Java system property. `JAVA_OPTS` may be 
+used to set this if starting the repository with Docker:
 
 ```text
 localTransform.<engineName>.url=
@@ -59,6 +61,17 @@ occurred, and less frequently otherwise:
 local.transform.service.cronExpression=4 30 0/1 * * ?
 local.transform.service.initialAndOnError.cronExpression=0/10 * * * * ?
 ```
+### Configure the Repository to use the Transform Service
+The Transform service, including the T-Router, is disabled by default, but Docker Compose and Kubernetes Helm Charts
+enable it again by setting `transform.service.enabled=true`. The Transform Service handles communication with all its
+own T-Engines via the T-Router and builds up its own combined configuration JSON which is requested by the
+Repository periodically.
+
+```text
+transform.service.enabled=true
+transform.service.cronExpression=4 30 0/1 * * ?
+transform.service.initialAndOnError.cronExpression=0/10 * * * * ?
+```
 
 ### Enabling and disabling transforms
 Local transforms or Transform Service transforms can be enabled or disabled independently of each other. The Repository 
@@ -69,7 +82,7 @@ The Transform service only supports asynchronous requests.
 
 The following sections will show how to create a direct Local transform pipeline, a Local transform failover or a Local
 transform override, but remember that they will not be used if the Transform Service (ATS) with the T-Router is able to 
-do the transform and is enabled:
+do the transform and is enabled (i.e. in `alfresco-global.properties`):
 
 ```text
 transform.service.enabled=true
@@ -84,10 +97,128 @@ possible to disable individual Local Transforms by setting the corresponding T-E
 localTransform.helloworld.url=
 ```
 
-## T-Engine configuration
-This section covers transform configuration on the T-Engine side.
+### Deploying configurations
+This section walks through where to deploy configurations for transform pipelines, renditions, and mimetypes.
 
-### Transformer selection strategy
+#### Transform definition deployments
+To deploy a configuration on the Repository side copy the JSON file, for example `custom_pipelines.json` into the 
+`tomcat/shared/classes/alfresco/extension/transform/pipelines` directory. Then make sure `alfresco-global.properties` is 
+configured with the default location for transform pipelines: 
+
+```text
+local.transform.pipeline.config.dir=shared/classes/alfresco/extension/transform/pipelines
+```
+
+On startup this location is checked every 10 seconds, but then switches to once an hour if successful. After a problem,
+it tries every 10 seconds again. These are the same properties used to decide when to read T-Engine configurations,
+because pipelines combine transformers in the T-Engines.
+
+```text
+local.transform.service.cronExpression=4 30 0/1 * * ?
+local.transform.service.initialAndOnError.cronExpression=0/10 * * * * ?
+```
+
+If you are using Docker Compose in development, you will need to copy your pipeline definition into your running
+Repository container. One way is to use the following command, and it will be picked up the next time the location is
+read, which is dependent on the cron values.
+
+```bash
+docker cp custom_pipelines.json <alfresco container>:/usr/local/tomcat/shared/classes/alfresco/extension/transform/pipelines/
+```
+
+In a Kubernetes environment, [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/){:target="_blank"}
+can be used to add pipeline definitions. You will need to create a `ConfigMap` from the JSON file and mount the ConfigMap
+through a volume to the Repository pods.
+
+```bash
+kubectl create configmap custom-pipeline-config --from-file=custom_pipelines.json
+```
+
+The necessary volumes are already provided out of the box and the files in ConfigMap `custom-pipeline-config` will be mounted to
+`/usr/local/tomcat/shared/classes/alfresco/extension/transform/pipelines/`. Again, the files will be picked up the next
+time the location is read, or when the repository pods are restarted.
+
+>**Note**: From Kubernetes documentation: Caution: If there are some files in the `mountPath` location, they will be deleted.
+
+#### Rendition definition deployments
+Just like Pipeline Definitions, custom Rendition Definitions need to be placed in a directory of the Repository. There are
+similar properties that control where and when these definitions are read, and the same approach may be taken to get them
+into Docker Compose and Kubernetes environments.
+
+```text
+rendition.config.dir=shared/classes/alfresco/extension/transform/renditions/
+```
+
+```text
+rendition.config.cronExpression=2 30 0/1 * * ?
+rendition.config.initialAndOnError.cronExpression=0/10 * * * * ?
+```
+
+In a Kubernetes environment:
+
+```bash
+kubectl create configmap custom-rendition-config --from-file=custom-renditions.json
+```
+
+#### Mimetype definition deployments
+Just like Pipeline and Rendition Definitions, custom Mimetype Definitions need to be placed in a directory of the 
+Repository. There are similar properties that control where and when these definitions are read, and the same approach 
+may be taken to get them into Docker Compose and Kubernetes environments.
+
+```text
+mimetype.config.dir=shared/classes/alfresco/extension/mimetypes
+```
+```text
+mimetype.config.cronExpression=0 30 0/1 * * ?
+mimetype.config.initialAndOnError.cronExpression=0/10 * * * * ?
+```
+
+In a Kubernetes environment:
+
+```bash
+kubectl create configmap custom-mimetype-config --from-file=custom-mimetypes.json
+```
+
+The necessary volumes are already provided out of the box and the files in ConfigMap `custom-mimetype-config` will be
+mounted to `/usr/local/tomcat/shared/classes/alfresco/extension/mimetypes`. Again, the files will be picked up the next
+time the location is read, or when the repository pods are restarted.
+
+## Deploying configurations to a T-Engine
+To deploy configurations on the T-Engine side copy the JSON file, for example `custom_pipelines.json` into the T-Router 
+container. This is usually done by creating a custom image via a `Dockerfile`. Then Export an environment variable 
+pointing to the file location inside the container. 
+
+The variable name should have this pattern: 
+
+```text
+TRANSFORMER_ROUTES_ADDITIONAL_<name>
+```
+
+The variable can be defined inside the container: 
+
+```text
+export TRANSFORMER_ROUTES_ADDITIONAL_HTML_VIA_TXT="/custom_pipelines.json"
+```
+
+Or by changing the Docker Compose file as shown below:
+
+```text
+transform-router:
+  mem_limit: 512m
+  image: quay.io/alfresco/alfresco-transform-router:1.5.0
+  environment:
+    JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
+    ACTIVEMQ_URL: "nio://activemq:61616"
+    TRANSFORMER_ROUTES_ADDITIONAL_HTML_VIA_TXT: "/custom_pipelines.json"
+    CORE_AIO_URL : "http://transform-core-aio:8090"
+    FILE_STORE_URL: "http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file"
+  ports:
+    - 8095:8095
+  links:
+    - activemq
+```
+
+## Transformer selection strategy
 The Repository and the Transform Service T-Router uses the [T-Engine configuration](https://github.com/Alfresco/acs-packaging/blob/master/docs/creating-a-t-engine.md#t-engine-configuration){:target="_blank"}
 in combination with their own pipeline files to choose which T-Engine will perform a transform. A transformer definition
 contains a supported list of source and target Media Types. This is used for the most basic selection. This is further
@@ -111,6 +242,10 @@ are normally added to avoid the transforms consuming too many resources. The con
 which will be used in Transformer selection if there are a number of options. The highest priority is the one with the
 lowest number.
 
+## Configuring T-Engines
+This section covers general JSON format for transform, rendition, and mimetype configurations applicable to the Repository 
+and the T-Engines.
+
 ### Transform pipelines
 Transformations may be combined in a pipeline to form a new transform, where the output from one becomes the
 input to the next and so on. A pipeline definition (JSON) defines the sequence of transform steps and intermediate Media Types.
@@ -122,7 +257,8 @@ The following example begins with the `helloWorld` Transformer described in [Cre
 which takes a text file containing a name and produces an HTML file with a `*`Hello <name>` message in the body. This is
 then transformed back into a text file.
 
-This example contains just one pipeline transformer, but many may be defined in the same file, such as `custom_pipelines.json`:
+This example contains just one pipeline transformer, but many may be defined in the same file, such as 
+`custom_pipelines.json`:
 
 ```json
 {
@@ -155,45 +291,7 @@ This example contains just one pipeline transformer, but many may be defined in 
   will also have the priority from the first transform.
 * `transformOptions` - A list of references to options required by the pipeline transformer.
 
-Custom Pipeline definitions need to be placed in a directory of the Repository. The default location (below) may be
-changed by resetting the following Alfresco global property. The ATS Router has similar pipeline files.
-
-```text
-local.transform.pipeline.config.dir=shared/classes/alfresco/extension/transform/pipelines
-```
-
-On startup this location is checked every 10 seconds, but then switches to once an hour if successful. After a problem,
-it tries every 10 seconds again. These are the same properties used to decide when to read T-Engine configurations,
-because pipelines combine transformers in the T-Engines.
-
-```text
-local.transform.service.cronExpression=4 30 0/1 * * ?
-local.transform.service.initialAndOnError.cronExpression=0/10 * * * * ?
-```
-
-If you are using Docker Compose in development, you will need to copy your pipeline definition into your running 
-Repository container. One way is to use the following command, and it will be picked up the next time the location is 
-read, which is dependent on the cron values.
-
-```bash
-docker cp custom_pipelines.json <alfresco container>:/usr/local/tomcat/shared/classes/alfresco/extension/transform/pipelines/
-```
-
-In a Kubernetes environment, [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/){:target="_blank"}
-can be used to add pipeline definitions. You will need to create a `ConfigMap` from the JSON file and mount the ConfigMap 
-through a volume to the Repository pods.
-
-```bash
-kubectl create configmap custom-pipeline-config --from-file=name_of_a_file.json
-```
-
-The necessary volumes are already provided out of the box and the files in ConfigMap `custom-pipeline-config` will be mounted to
-`/usr/local/tomcat/shared/classes/alfresco/extension/transform/pipelines/`. Again, the files will be picked up the next 
-time the location is read, or when the repository pods are restarted.
-
->**Note**: From Kubernetes documentation: Caution: If there are some files in the mountPath location, they will be deleted.
-
-### Failover transforms
+### Failover transform pipelines
 A failover transform simply provides a list of transforms to be attempted one after another until one succeeds. For
 example, you may have a fast transform that is able to handle a limited set of transforms and another that is slower
 but handles all cases.
@@ -231,7 +329,7 @@ available. Warning messages will be issued if step transforms do not exist.
 Generally it is better to add them to T-Engines to avoid having to add an identical entry to both the Repository and 
 Transfrom Service T-Router pipeline files.
 
-### Modifying existing configurations
+### Modifying existing pipeline configurations
 The Repository and the Transfrom Service T-Router reads the configuration from T-Engines and then their own pipeline
 files. The T-Engine order is based on the `<engineName>` and the pipeline file order is based on the filenames. As 
 sorting is alphanumeric, you may wish to consider using a fixed length numeric prefix.
@@ -252,7 +350,7 @@ shared/classes/alfresco/extension/transform/pipelines/0200-a-cutdown-libreoffice
 The following sections describe ways to modify the configuration that has already been read. This may be added to
 T-Engine or pipeline files.
 
-#### Overriding transforms
+#### Overriding transform pipelines
 It is possible to override a previously defined transform definition. The following example
 removes most of the supported source to target media types from the standard `libreoffice`
 transform. It also changes the max size and priority of others. This is not something you would normally want to do.
@@ -384,7 +482,7 @@ Defaults values are only applied after T-Engine and pipeline files have been rea
   ...
 }
 ```
-## Configure a custom rendition {#configure-a-custom-rendition}
+### Configure a custom rendition {#configure-a-custom-rendition}
 Renditions are a representation of source content in another form. A Rendition Definition (JSON) defines the transform 
 option (parameter) values that will be passed to a transformer and the target Media Type:
 
@@ -407,31 +505,8 @@ option (parameter) values that will be passed to a transformer and the target Me
 * `options` - The list of transform option names and values corresponding to the transform options defined in
   [T-Engine configuration](https://github.com/Alfresco/acs-packaging/blob/master/docs/creating-a-t-engine.md#t-engine-configuration){:target="_blank"}.
   If you specify `sourceNodeRef` without a value, the system will automatically add the values at run time.
-
-Just like Pipeline Definitions, custom Rendition Definitions need to be placed in a directory of the Repository. There are 
-similar properties that control where and when these definitions are read, and the same approach may be taken to get them 
-into Docker Compose and Kubernetes environments.
-
-```text
-rendition.config.dir=shared/classes/alfresco/extension/transform/renditions/
-```
-
-```text
-rendition.config.cronExpression=2 30 0/1 * * ?
-rendition.config.initialAndOnError.cronExpression=0/10 * * * * ?
-```
-
-In a Kubernetes environment:
-
-```bash
-kubectl create configmap custom-rendition-config --from-file=name_of_a_file.json
-```
-
-The necessary volumes are already provided out of the box and the files in ConfigMap `custom-rendition-config` will be 
-mounted to `/usr/local/tomcat/shared/classes/alfresco/extension/transform/renditions/`. Again, the files will be picked 
-up the next time the location is read, or when the repository pods are restarted.
-
-### Disabling an existing rendition
+  
+#### Disabling an existing rendition
 Just like transforms, it is possible to override renditions. The following example effectively disables the `doclib` 
 rendition, used to create the thumbnail images in Share's Document Library page and other client applications. A good 
 name for this file might be `0200-disableDoclib.json`.
@@ -454,7 +529,7 @@ Because there is not a transformer with a transform option called `unsupported`,
 Having turned on `TransformerDebug` logging you normally would see a transform taking place for `-- doclib --` when 
 you upload a file in Share. With this override the doclib transform does not appear.
 
-### Overriding an existing rendition
+#### Overriding an existing rendition
 It is possible to change a rendition by overriding it. The following `0300-biggerThumbnails.json` file changes the size 
 of the `doclib` image from `100x100` to be `123x123` and introduces another rendition called `biggerThumbnail` that is 
 `200x200`:
@@ -490,7 +565,7 @@ of the `doclib` image from `100x100` to be `123x123` and introduces another rend
 }
 ```
 
-## Configure a custom MIME type
+### Configure a custom MIME type
 Quite often the reason a custom transform is created is to convert to or from a MIME type (or Media type) that is not 
 known to Alfresco Content Services by default. Another reason is to introduce an application specific MIME type that
 indicates a specific use of a more general format such as XML or JSON.
@@ -530,31 +605,4 @@ Renditions. The JSON format and properties are as follows:
 * `extension` the file extension.
 * `default` indicates the extension is the default one if there is more than one.
 
-```text
-mimetype.config.dir=shared/classes/alfresco/extension/mimetypes
-```
-```text
-mimetype.config.cronExpression=0 30 0/1 * * ?
-mimetype.config.initialAndOnError.cronExpression=0/10 * * * * ?
-```
 
-In a Kubernetes environment:
-
-```bash
-kubectl create configmap custom-mimetype-config --from-file=name_of_a_file.json
-```
-
-The necessary volumes are already provided out of the box and the files in ConfigMap `custom-mimetype-config` will be 
-mounted to `/usr/local/tomcat/shared/classes/alfresco/extension/mimetypes`. Again, the files will be picked up the next 
-time the location is read, or when the repository pods are restarted.
-
-## Configure the Repository to use the Transform Service
-The Transform service, including the T-Router, is disabled by default, but Docker Compose and Kubernetes Helm Charts 
-enable it again by setting `transform.service.enabled=true`. The Transform Service handles communication with all its 
-own T-Engines via the T-Router and builds up its own combined configuration JSON which is requested by the 
-Repository periodically.
-
-```text
-transform.service.cronExpression=4 30 0/1 * * ?
-transform.service.initialAndOnError.cronExpression=0/10 * * * * ?
-```
