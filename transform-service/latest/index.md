@@ -7,8 +7,8 @@ their current format into other formats.
 
 The Transform Service provides a number of Transform Engines (T-Engines) that perform single-step transformations. The
 Transform Service also provides a Transform Router that sits in front of the T-Engine(s) to provide move complex
-multi-step transformations that combine the single steps into pipelines or alternatives where there may be more than
-one choice. 
+multi-step transformations that combine the single steps into pipelines and a failover mechanism where alternatives are
+tried until one of them succeeds.
 
 The Transform Router, and the T-Engine(s), runs as independently scalable Docker containers. The Transform Router is 
 connected to the Alfresco Content Services repository and T-Engines via ActiveMQ, a message broker, which is used to
@@ -19,14 +19,14 @@ send transformation requests and responses:
 The message broker by its nature is asynchronous, making these request-responses asynchronous. However, there are
 currently some situations in the Alfresco Share user interface and for text extraction to Solr where a synchronous
 request-response is required. In these cases, the Alfresco Content Services repository will communicate directly with
-the T-Engines via HTTP. It also provides the same pipeline or alternative transforms as the T-Router. This synchronous
+the T-Engines via HTTP. It also provides the same pipeline or failover transforms as the T-Router. This synchronous
 usage of the T-Engine(s) is referred to as *Local Transforms*. You might also come across something called *Legacy 
 Transformers*, which were transformers embedded in the Repository code. In Alfresco Content Services 7, the
 out-of-the-box Legacy transformers and framework have been removed. The Community Edition only has access
 to the *Local Transforms* framework which is used both for synchronous and asynchronous requests.
 
 Files that to be transformed or returned to the Alfresco Content Services repository or Elastic Search are generally
-stored in the Shared File Store. If configured direct access URLs may also be used to avoid some file transfer steps.
+stored in the Shared File Store.
 
 Multiple T-Engines may be deployed, but for simplicity there is an all-in-one T-Engine that provides the same
 Core transformations as five separate T-Engines for use in all but the largest deployments, where it's still  
