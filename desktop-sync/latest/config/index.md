@@ -41,7 +41,7 @@ Here are examples of how you can set the URL to access a file:
 >The URL must also use an `http` or `https` protocol. If the property is left blank or not set correctly, 
 >the file sharing feature won't be available in Desktop Sync.
 
-For more info see [Sharing files]({% link desktop-sync/latest/using/sharing.md %}).
+For more information, see [Sharing files]({% link desktop-sync/latest/using/sharing.md %}).
 
 ## User interface
 
