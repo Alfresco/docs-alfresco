@@ -47,6 +47,8 @@
             path: '/process-services/latest/using/process/form/'
           - title: 'Business rules'
             path: '/process-services/latest/using/process/rules/'
+          - title: 'Data persistence'
+            path: '/process-services/latest/using/process/persistence/'
           - title: 'Data Models'
             path: '/process-services/latest/using/process/models/'
         - title: 'Process Workspace'
