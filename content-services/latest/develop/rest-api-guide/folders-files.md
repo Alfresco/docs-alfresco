@@ -4714,6 +4714,72 @@ This doesn’t actually delete the node permanently, but instead it ends up in w
 only soft deleted and can be restored if needed. If you want the file to be permanently deleted, then you can append a 
 parameter called `permanent` and set it to `true`. This only works if you are the owner of the file or an administrator.
 
+## Delete file rendition
+>**Note:** this endpoint is available in Content Services 7.1.1 and newer versions.
+
+Deleting a file node rendition is easy. Here is how to do it.
+
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/renditions/deleteRendition](http://localhost:8080/api-explorer/#!/renditions/deleteRendition){:target="_blank"}
+
+**See also:**
+
+* [List file renditions](#listfilerenditions)
+* [How to restore a deleted file](#restorefile)
+
+To remove a file rendition, such as `doclib`, `pdf`, `avatar`, `imgpreview`, `medium` etc use the following 
+HTTP DELETE call:
+
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/{id}/renditions/{renditionId}`
+
+The Node Identifier for the file node whose rendition is to be deleted is specified with the `{id}` parameter. The
+rendition identifier is specified with the `{renditionId}` parameter.
+
+The following call will delete a thumbnail rendition with id `doclib` for the text file identified with the 
+`d8f561cc-e208-4c63-a316-1ea3d3a4e10e` Node Identifier:
+
+```bash
+$ curl -X DELETE -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/d8f561cc-e208-4c63-a316-1ea3d3a4e10e/renditions/doclib'  
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:-*   0
+```
+
+If the rendition is successfully deleted then the content for that rendition node will be cleared.
+
+## Delete file version rendition
+>**Note:** this endpoint is available in Content Services 7.1.1 and newer versions.
+
+Deleting a rendition for a specific version of a file node is easy. Here is how to do it.
+
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/versions/deleteVersionRendition](http://localhost:8080/api-explorer/#!/versions/deleteVersionRendition){:target="_blank"}
+
+**See also:** 
+
+* [Get file version history](#getfileversionhistory)
+* [List file renditions](#listfilerenditions)
+* [How to restore a deleted file](#restorefile)
+
+To remove a rendition, such as `doclib`, `pdf`, `avatar`, `imgpreview`, `medium` etc for a specific version of a file, 
+use the following HTTP DELETE call:
+
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/{id}/versions/{versionId}/renditions/{renditionId}`
+
+The Node Identifier for the file node whose rendition is to be deleted is specified with the `{id}` parameter. The 
+file version is specified with the `{versionId}` parameter, wich is the version label. The rendition identifier is 
+specified with the `{renditionId}` parameter.
+
+The following call will delete a rendition with id `doclib` for the text file version  identified with the
+`d8f561cc-e208-4c63-a316-1ea3d3a4e10e` Node Identifier and the `2.0` version label:
+
+```bash
+$ curl -X DELETE -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/d8f561cc-e208-4c63-a316-1ea3d3a4e10e/versions/2.0/renditions/doclib/'  
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:-*   0
+```
+
+If the rendition is successfully deleted then the content for that rendition node will be cleared.
+
 ## List deleted folders and files (Trashcan) {#listdeletedfiles}
 
 Listing the content of the so called trashcan is useful if you want to restore soft deleted nodes.
