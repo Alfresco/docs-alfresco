@@ -7,7 +7,7 @@ Alfresco Sync Service is an add-on module that synchronizes files between the de
 Here is a summary of the key capabilities:
 
 * Clustering for scalability support
-* Added support for more databases: PostgreSQL, Oracle, MySQL, and AWS Aurora MySQL
+* Support for various databases: PostgreSQL, Oracle, MySQL, and AWS Aurora MySQL
 * Support for AWS deployment
 * Events monitoring for content, Governance Services, and permission changes
 
