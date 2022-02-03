@@ -4,6 +4,8 @@ title: Alfresco Sync Service
 
 Alfresco Sync Service is an add-on module that synchronizes files between the desktop and repository using web services. It's part of the Desktop Sync solution that consists of three components: Sync Service, Desktop Sync for Windows, and Desktop Sync for Mac. This documentation describes how to install, configure, and administer the Sync Service.
 
+This release of Sync Service is a compatibility release to support Alfresco Content Services 7.1.
+
 Here is a summary of the key capabilities:
 
 * Clustering for scalability support

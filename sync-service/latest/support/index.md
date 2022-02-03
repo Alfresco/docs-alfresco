@@ -6,6 +6,7 @@ The following are the supported platforms for Alfresco Sync Service 3.5:
 
 | Version | Notes |
 | ------- | ----- |
+| Alfresco Content Services 7.1 | Optionally with Alfresco Governance Services 7.1 |
 | Alfresco Content Services 7.0 | Optionally with Alfresco Governance Services 3.5 |
 | Identity Service 1.1 or later | Required for SAML authentication |
 | Alfresco Desktop Sync for Windows 1.4 or later | |
