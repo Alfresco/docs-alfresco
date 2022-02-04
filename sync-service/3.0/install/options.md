@@ -172,8 +172,6 @@ See instructions to [install and configure databases]({% link sync-service/3.0/i
 
 To remove the Sync Service, uninstall the Sync Service AMP file, remove the Sync Service installation, and then remove the ActiveMQ topic.
 
-These instructions apply to both Alfresco Content Services and Alfresco One.
-
 1. Stop the Alfresco server.
 
 2. Uninstall the Sync Service, AMP file in the repository, for example using the Module Management Tool (MMT):
