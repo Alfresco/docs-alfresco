@@ -7,6 +7,9 @@ With Desktop Sync, desktop users can securely and automatically sync content bet
 The new feature introduced in v1.8 is:
 
 * Admins can centrally configure the content to hide from users
+* Admins can configure what users have to sync by pre-selecting the sync folders
+* Admins can disable the content selection dialog via the `syncui.enableManageContent` property
+* Admins can change the default timezone used in the log file to a local timezone instead of `UTC`
 
 This complements features added in the previous release:
 
