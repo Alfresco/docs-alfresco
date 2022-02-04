@@ -4765,10 +4765,10 @@ use the following HTTP DELETE call:
 `http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/{id}/versions/{versionId}/renditions/{renditionId}`
 
 The Node Identifier for the file node whose rendition is to be deleted is specified with the `{id}` parameter. The 
-file version is specified with the `{versionId}` parameter, wich is the version label. The rendition identifier is 
+file version is specified with the `{versionId}` parameter, which is the version label. The rendition identifier is 
 specified with the `{renditionId}` parameter.
 
-The following call will delete a rendition with id `doclib` for the text file version  identified with the
+The following call will delete a rendition with id `doclib` for the text file version identified with the
 `d8f561cc-e208-4c63-a316-1ea3d3a4e10e` Node Identifier and the `2.0` version label:
 
 ```bash
