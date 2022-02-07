@@ -13,7 +13,7 @@ This allows you to update the configuration file for all your Desktop Sync users
 
 1. Create a **Desktop Sync** folder in the Alfresco Content Services repository path: `/Data Dictionary/`
 
-2. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"} and download the configuration file: `AlfrescoSync.conf`.
+2. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download the configuration file: `AlfrescoSync.conf`.
 
 3. Save the file in the new **Desktop Sync** folder.
 
@@ -27,7 +27,7 @@ This allows you to update the configuration file for all your Desktop Sync users
     When a new configuration file is found, it's downloaded and retained in the appropriate folder. For example:
 
     * Windows: `<userHome>\AppData\Local\Alfresco`
-    * Mac: `~/Library/Application Support/Alfresco`
+    * Mac:`~/Library/Application Support/Alfresco`
 
     The existing configuration file is kept as a backup (i.e. `AlfrescoSync-backup.conf`).
 
@@ -35,7 +35,7 @@ This allows you to update the configuration file for all your Desktop Sync users
 
     >**Note:** If you're a Windows user, you'll see a message stating:
     >
-    >```text
+    >```
     >C:\Users\Program Files\AppData\Local\Alfresco\AlfrescoSync.conf
     >This file has been modified by another program. Do you want to reload it?
     >```
@@ -59,7 +59,7 @@ This ensures users with Desktop Sync clients are always up to date with minimal 
 
     Users will have to restart Desktop Sync to apply the new installation file.
 
-    See [Updating Desktop Sync]({% link desktop-sync/latest/upgrade/index.md %}) for more information about how an update is applied.
+    See [Updating Desktop Sync]({% link desktop-sync/1.7/upgrade/index.md %}) for more information about how an update is applied.
 
 ## SAML authentication
 
@@ -76,37 +76,7 @@ Alfresco Content Services repository is configured to use the Identity Service.
 
 See the Alfresco Sync Service documentation for [SAML configuration]({% link sync-service/latest/config/index.md %}#saml-configuration) details.
 
-Once users have entered the repository URL (shown in step 2 of [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#setting-up-desktop-sync-on-windows) for Windows and [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#faq/mac) for Mac), they will be asked to enter their username and password into the SAML provider login page via their default browser.
-
-## Manage sync configuration
-
-As an IT administrator, you can manage the configuration of your Desktop Sync client apps via the Desktop Sync UI and a configuration file. You can choose to enable or disable the content selection dialog from the UI for all your Desktop Sync clients, while setting enforced paths to sync from the configuration file.
-
-The content selection dialog is displayed by default. The property that controls if this dialog appears is `syncui.enableManageContent` which is `true` by default. If you want to hide the whole dialog, change the value of the property to `false`, so that the user is only prompted to set the sync target location. Next, define enforced sync paths as described in [Manage enforced sync](#manage-enforced-sync).
-
-The property to *enable/disable the content selection dialog* is specified as:
-
-```text
-syncui.enableManageContent = <true/false>
-```
-
-* The property defaults to `true`, even if it's not specified.
-
-* If there are enforced sync paths in the configuration file and the content selection dialog is enabled, those path are always marked as checked/unchecked in the UI as specified in the configuration file.
-
-* If there are no valid enforced sync paths from the configuration file (i.e. paths that exist and that the user can access), the value for this property is automatically set to `true`. So the value from the configuration file isn't taken into account, and the content selection dialog is enabled.
-
-> **Note:** A special case that's worth highlighting from the last comment is where you can't add a folder as a constraint that's already covered by an enforced sync path. For example, setting the following values results in the content selection dialog being displayed, even though the `syncui.enableManageContent` property is set to `false`, since it would result in there being no valid paths to sync:
->
-> ```text
-> syncui.enableManageContent = false
->
-> # Enforced sync path
-> test.path.1 = /User Homes/username/folder1
->
-> # Incorrect sync path to exclude - results in no valid paths to sync
-> test.excludePath.1 = /User Homes/username
-> ```
+Once users have entered the repository URL (shown in step 2 of [Setting up Desktop Sync]({% link desktop-sync/1.7/install/index.md %}#setting-up-desktop-sync-on-windows) for Windows and [Setting up Desktop Sync]({% link desktop-sync/1.7/install/index.md %}#faq/mac) for Mac), they will be asked to enter their username and password into the SAML provider login page via their default browser.
 
 ## Manage enforced sync
 
@@ -146,22 +116,3 @@ test.subFolderFilter./User Homes/username=folder7
 > * If all enforced sync paths are specified incorrectly, then the content selection dialog is enabled.
 > * If, for example, one of two paths is invalid and one is valid, the content selection dialog is disabled and only the valid path is synced.
 > * If an excluded folder is renamed, then that folder will be synced after a restart.
-
-## Manage hidden sync
-
-If you're an IT administrator, you can configure Desktop Sync client apps to hide specific paths or Sites. This allows you to restrict what your Desktop Sync clients can sync by hiding those locations from view in the content selection dialog.
-
-The properties to *hide content from sync* are specified as:
-
-```bash
-test.excludePath.<n>=<full-path-to-folder-or-site>
-test.excludeSite.<n>=<siteId>
-```
-
-where `<n>` is an ascending index number starting at `1`.
-
-Adding this configuration ensures that users aren't able to sync the defined content. In addition:
-
-* The folder/site will not be shown in the content selection dialog.
-* If the excluded folder is inside a synced path, the excluded folder will be skipped when syncing.
-* The sync folder selection is checked every time the Desktop Sync client restarts. If a sync location is hidden by the administrator, then that content is removed from the client.

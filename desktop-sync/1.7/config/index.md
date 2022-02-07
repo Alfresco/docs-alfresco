@@ -16,7 +16,6 @@ Using the configuration file, you can update:
 * user interface defaults and customization (including localization)
 * network access configuration
 * debug logging
-* [timezone](#change-timezone) used in `AlfrescoDesktopSync.log` file
 
 The configuration properties values are case sensitive and use the format `name.subname=value`, 
 for example, `syncmanager.deferFileSyncTimer=15`.
@@ -41,7 +40,7 @@ Here are examples of how you can set the URL to access a file:
 >The URL must also use an `http` or `https` protocol. If the property is left blank or not set correctly, 
 >the file sharing feature won't be available in Desktop Sync.
 
-For more information, see [Sharing files]({% link desktop-sync/latest/using/sharing.md %}).
+For more info see [Sharing files]({% link desktop-sync/1.7/using/sharing.md %}).
 
 ## User interface
 
@@ -87,7 +86,7 @@ Here are some examples of the information that's collected:
 As an IT administrator, you can control the parts of the Desktop Sync UI that users can access, 
 so that they can't sync content from specific areas in Alfresco Content Services. 
 
-By default, the content selection dialog (see [selecting content to sync]({% link desktop-sync/latest/using/select-to-sync.md %})) 
+By default, the Content selection screen (see [selecting content to sync]({% link desktop-sync/1.7/using/select-to-sync.md %})) 
 displays **My Files**, **Shared Files**, **Sites**, and **Company Home**. 
 If you want to hide any of these areas, change the value of the relevant `syncui.show*` property to `false`.
 
@@ -403,20 +402,6 @@ logging.loggers.l6.level = error
 
 For more details on the logging configuration, see the [PocoProject](https://pocoproject.org/){:target="_blank"} documentation.
 
-## Change timezone {#change-timezone}
-
-The default timezone used in the `AlfrescoDesktopSync.log` file is `UTC`. As an IT administrator, if you want to change this so that the log file uses your local timezone, edit the configuration file:
-
-1. Remove the line `logging.formatters.f1.times = UTC`.
-2. Add the following lines:
-
-    ```bash
-    logging.channels.c1.formatter.times = local
-    logging.formatters.f1.times = local
-    ```
-
-3. Restart the Desktop Sync client, and open the log file to see the changes.
-
 ## Localization
 
 Desktop Sync supports 16 languages across the user interface, notifications and right-click context menu. 
@@ -456,7 +441,7 @@ You can manage the installation of your Desktop Sync client apps by uploading an
 central location in Alfresco Content Services. This allows you to update the installed version of all your 
 Desktop Sync clients without any manual intervention.
 
-See [Managing automatic installation updates]({% link desktop-sync/latest/admin/index.md %}#manage-automatic-installation-updates) for more.
+See [Managing automatic installation updates]({% link desktop-sync/1.7/admin/index.md %}#manage-automatic-installation-updates) for more.
 
 ## Automatic configuration updates
 
@@ -464,22 +449,10 @@ You can manage the configuration of your Desktop Sync client apps by uploading a
 central location in Alfresco Content Services. This allows you to update the configuration settings for all your 
 Desktop Sync clients without any manual intervention.
 
-See [Managing automatic configuration updates]({% link desktop-sync/latest/admin/index.md %}#manage-automatic-configuration-updates) for more.
-
-## Manage sync configuration methods
-
-As an IT administrator, you can manage the configuration of your Desktop Sync client apps via the Desktop Sync UI and a configuration file. You can choose to enable or disable the content selection dialog from the UI for all your Desktop Sync clients, while setting enforced paths to sync from the configuration file.
-
-See [Manage sync configuration]({% link desktop-sync/latest/admin/index.md %}#manage-sync-configuration) for more.
+See [Managing automatic configuration updates]({% link desktop-sync/1.7/admin/index.md %}#manage-automatic-configuration-updates) for more.
 
 ## Force users to sync specific paths {#force-user-sync}
 
 You can configure your Desktop Sync client apps to enforce the sync and exclusion of specific paths or Sites that are added to the configuration file. This allows you to restrict what your Desktop Sync clients sync by pre-selecting the sync folders.
 
-See [Manage enforced sync]({% link desktop-sync/latest/admin/index.md %}#manage-enforced-sync) for more.
-
-## Hide specific paths from users {#hide-from-sync}
-
-You can configure your Desktop Sync client apps to hide specific paths or Sites that are added to the configuration file. This allows you to restrict what your Desktop Sync clients sync by hiding those locations from view in the content selection dialog.
-
-See [Manage hidden sync]({% link desktop-sync/latest/admin/index.md %}#manage-hidden-sync) for more.
+See [Manage enforced sync]({% link desktop-sync/1.7/admin/index.md %}#manage-enforced-sync) for more.

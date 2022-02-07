@@ -4,17 +4,11 @@ title: Alfresco Desktop Sync
 
 With Desktop Sync, desktop users can securely and automatically sync content between their desktop and Alfresco Content Services.
 
-The new feature introduced in v1.8 is:
-
-* Admins can centrally configure the content to hide from users
-* Admins can configure what users have to sync by pre-selecting the sync folders
-* Admins can disable the content selection dialog via the `syncui.enableManageContent` property
-* Admins can change the default timezone used in the log file to a local timezone instead of `UTC`
-
-This complements features added in the previous release:
+New features introduced in v1.7 are:
 
 * Admins can centrally configure the folders that a user can sync
 * Admins can control the amount of data (total file size) that a user can select to sync
+* A confirmation dialog appears when deleting a version in the version history
 
 You can easily connect to Alfresco Content Services and select folders and sites to view and work with on the desktop, even when working offline.
 
