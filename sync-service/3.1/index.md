@@ -7,11 +7,11 @@ Alfresco Sync Service is an add-on module that synchronizes files between the de
 Here is a summary of the key capabilities:
 
 * Clustering for scalability support
-* Added support for more databases: PostgreSQL, Oracle, MySQL, and AWS Aurora MySQL
+* Support for various databases: PostgreSQL, Oracle, MySQL, and AWS Aurora MySQL
 * Support for AWS deployment
 * Events monitoring for content, Governance Services, and permission changes
 
-> **Note:** The Sync Service module can be applied to Alfresco One, and previous versions of Alfresco Content Services. See [prerequisites]({% link sync-service/3.1/install/index.md %}) for more.
+> **Note:** The Sync Service module can be applied to Alfresco Content Services. See [prerequisites]({% link sync-service/3.1/install/index.md %}) and [Supported platforms]({% link sync-service/3.1/support/index.md %}) for more.
 
 The following diagram shows a simple representation of how Alfresco Content Services and the Sync Service interact with the Desktop Sync clients. See [Sync Service architecture]({% link sync-service/3.1/admin/index.md %}) for more.
 

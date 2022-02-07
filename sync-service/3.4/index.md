@@ -11,8 +11,8 @@ Here is a summary of the key capabilities:
 * Support for AWS deployment
 * Events monitoring for content, Governance Services, and permission changes
 
-> **Note:** The Sync Service module can be applied to Alfresco Content Services. See [prerequisites]({% link sync-service/3.0/install/index.md %}) and [Supported platforms]({% link sync-service/3.0/support/index.md %}) for more.
+> **Note:** The Sync Service module can be applied to Alfresco Content Services. See [prerequisites]({% link sync-service/3.4/install/index.md %}) and [Supported platforms]({% link sync-service/3.4/support/index.md %}) for more.
 
-The following diagram shows a simple representation of how Alfresco Content Services and the Sync Service interact with the Desktop Sync clients. See [Sync Service architecture]({% link sync-service/3.0/admin/index.md %}) for more.
+The following diagram shows a simple representation of how Alfresco Content Services and the Sync Service interact with the Desktop Sync clients. See [Sync Service architecture]({% link sync-service/3.4/admin/index.md %}) for more.
 
 ![Simple architecture for Sync Service]({% link sync-service/images/sync-simple-arch.png %})

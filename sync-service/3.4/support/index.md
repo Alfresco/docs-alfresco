@@ -2,20 +2,21 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for Alfresco Sync Service 3.1:
+The following are the supported platforms for Alfresco Sync Service 3.4:
 
 | Version | Notes |
 | ------- | ----- |
-| Alfresco Content Services 6.1 | Optionally with Alfresco Governance Services 3.0 |
-| Alfresco Desktop Sync for Windows 1.1 or later | |
-| Alfresco Desktop Sync for Mac 1.1 or later | |
+| Alfresco Content Services 7.0 | Optionally with Alfresco Governance Services 3.5 |
+| Identity Service 1.1 or later | Required for SAML authentication |
+| Alfresco Desktop Sync for Windows 1.4 or later | |
+| Alfresco Desktop Sync for Mac 1.4 or later | |
 | | |
 | **Java** |
 | OpenJDK 11 (64-bit) | |
 | Oracle Java 8 onwards | |
 | | |
 | **Message brokers** |
-| Apache ActiveMQ 5.15.6 or later | |
+| Apache ActiveMQ 5.15.8 or later | |
 | Amazon MQ | |
 | | |
 | **Operating systems** |
