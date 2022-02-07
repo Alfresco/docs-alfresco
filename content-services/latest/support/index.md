@@ -69,7 +69,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
 | Alfresco Sync Service 3.5 | |
 | Alfresco Desktop Sync 1.8 | |
-| Alfresco Transform Service 1.4.1 | |
+| Alfresco Transform Service 1.5.1 | |
 | Alfresco Document Transformation Engine 2.3 | |
 | Alfresco Search Enterprise 3.0 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.0 upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
 | Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
@@ -102,7 +102,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Mobile Workspace 1.1 | |
 | | |
 | **Components** | |
-| ImageMagick v7.0.10 | |
+| ImageMagick v7.1.0-16 | |
 | LibreOffice v7.0.6 | |
 
 {% endcapture %}
@@ -169,6 +169,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
 | Alfresco Sync Service 3.5 | |
 | Alfresco Desktop Sync 1.8 | |
+| Alfresco Transform Service 1.5.1 | |
 | Alfresco Transform Service 1.4.1 | |
 | Alfresco Document Transformation Engine 2.3 | |
 | Alfresco Search Enterprise 3.0 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.0 upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
