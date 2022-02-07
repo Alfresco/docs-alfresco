@@ -45,6 +45,7 @@ A full listing of the properties and their values is shown in this table:
 |audit.rm.viewLog.maxSize=100|The log can be viewed from Share or directly via the Audit log web script. By default the log does not exceed 100 entries. If the maximum size of the log is not configured in the alfresco-global-properties file then it will default to 100. If you include the size parameter in the request it will only be applied if it is less than or equal to the maximum size allowed, or it will be ignored.|
 |cache.writersSharedCache.cluster.type|Extended permission service cache: type of cluster used. Default is `fully-distributed`.|
 |cache.writersSharedCache.maxItems|Extended permission service cache: maximum number of items (node references) that are stored in the writer caches. Default is `10000`.|
+|dm.classified.content.cleansing.trashcan.enabled|Use this setting to override the trashcan functionality of Content Services. The default value is `false`.|
 |imap.server.attachments.extraction.enabled|Enable/disable IMAP server attachments. Default is `false`.|
 |rm.autocompletesuggestion.maxsuggestions.date|Auto-complete suggestions: maximum number of date suggestions to provide. Default is `5`.|
 |rm.autocompletesuggestion.maxsuggestions.node|Auto-complete suggestions: maximum number of node suggestions to provide. Default is `5`.|
