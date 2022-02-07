@@ -6,13 +6,15 @@ Use this information to quickly start up Content Services using Docker Compose.
 
 > **Note:** While Docker Compose is often used for production deployments, the Docker Compose file provided is recommended for development and test environments only. Customers are expected to adapt this file to their own requirements, if they intend to use Docker Compose to deploy a production environment.
 
-To deploy Content Services using Docker Compose`, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites]({% link content-services/latest/install/containers/index.md %}#prerequisites) before continuing.
+To deploy Content Services using Docker Compose, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites]({% link content-services/latest/install/containers/index.md %}#prerequisites) before continuing.
 
 1. Download the `docker-compose.yml` file by accessing the Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"} page, which will give you a 30-day license.
 
     If you already have a valid license file for Content Services 7.1, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/latest/admin/license.md %}) for more details.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
+
+    > **Note:** The Download Trial is usually updated for *major.minor* versions of Content Services. The latest published version on our website is labelled *Version 7.1 - October 2021)*.
 
 2. Save the `docker-compose.yml` file in a local folder.
 
@@ -63,8 +65,8 @@ To deploy Content Services using Docker Compose`, download and install [Docker](
 
     ```bash
     ...
-    alfresco_1 | 2021-10-04 13:44:21,010  INFO  ... Starting 'Transformers' subsystem, ID: [Transformers, default]
-    alfresco_1 | 2021-10-04 13:44:21,294  INFO  ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+    alfresco_1 | 2022-02-07 11:51:21,010  INFO  ... Starting 'Transformers' subsystem, ID: [Transformers, default]
+    alfresco_1 | 2022-02-07 11:51:21,294  INFO  ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
     ...
     ```
 
@@ -106,22 +108,22 @@ Use this information to verify that the system started correctly, and to clean u
         docker-compose images
         ```
 
-        You should see a list of the services defined in your `docker-compose.yaml` file:
+        You should see a list of the services defined in your `docker-compose.yml` file (below are the tags used in the latest 7.1.1 release):
 
         ```text
         Container                        Repository                                     Tag                 Image Id            Size
         ------------------------------------------------------------------------------------------------------------------------------
-        acs-trial_activemq_1             alfresco/alfresco-activemq                     5.16.1              e9dd27ce1a5d        706MB
-        acs-trial_alfresco_1             quay.io/alfresco/alfresco-content-repository   7.1.0               b399ea1a5765        1.72GB
-        acs-trial_digital-workspace_1    quay.io/alfresco/alfresco-digital-workspace    2.3.0-adw           8019d54c175b        37.8MB
-        acs-trial_postgres_1             postgres                                       13.1                407cece1abff        314MB
-        acs-trial_proxy_1                alfresco/alfresco-acs-nginx                    3.1.1               3a00a45550a3        21.9MB
-        acs-trial_share_1                quay.io/alfresco/alfresco-share                7.1.0               8f1faa352e88        983MB
-        acs-trial_shared-file-store_1    quay.io/alfresco/alfresco-shared-file-store    0.16.0              e34dfac7a7d0        649MB
-        acs-trial_solr6_1                alfresco/alfresco-search-services              2.0.2               9b48bb3c76cb        1.11GB
-        acs-trial_sync-service_1         quay.io/alfresco/service-sync                  3.4.1               a062a3c347fb        945MB
-        acs-trial_transform-core-aio_1   alfresco/alfresco-transform-core-aio           2.5.3               74d4859db3e3        1.94GB
-        acs-trial_transform-router_1     quay.io/alfresco/alfresco-transform-router     1.4.1               622a37e3f3fc        645MB
+        acs-trial_activemq-1             alfresco/alfresco-activemq                     5.16.1              e9dd27ce1a5d        706MB
+        acs-trial_alfresco-1             quay.io/alfresco/alfresco-content-repository   7.1.1               945933739097        1.47GB
+        acs-trial_digital-workspace-1    quay.io/alfresco/alfresco-digital-workspace    2.6.0               1a2eaa5bf7a9        573MB
+        acs-trial_postgres-1             postgres                                       13.3                b2fcd079c1d4        315MB
+        acs-trial_proxy-1                alfresco/alfresco-acs-nginx                    3.2.0               da6d34dd9386        21.9MB
+        acs-trial_share-1                quay.io/alfresco/alfresco-share                7.1.1               837b363e02af        735MB
+        acs-trial_shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    0.16.1              dee75e9ffa5b        651MB
+        acs-trial_solr6-1                alfresco/alfresco-search-services              2.0.2               9b48bb3c76cb        1.11GB
+        acs-trial_sync-service-1         quay.io/alfresco/service-sync                  3.4.0               7c0cee15f516        800MB
+        acs-trial_transform-core-aio-1   alfresco/alfresco-transform-core-aio           2.5.6               39e6c1e8a6ad        1.67GB
+        acs-trial_transform-router-1     quay.io/alfresco/alfresco-transform-router     1.5.1               ca6d0a1cb691        646MB
         ```
 
     2. List the running containers:
@@ -130,7 +132,7 @@ Use this information to verify that the system started correctly, and to clean u
         docker-compose ps
         ```
 
-        You should see a list of the services defined in the `docker-compose.yaml` file.
+        You should see a list of the services defined in the `docker-compose.yml` file.
 
     3. View the log files for each service `<service-name>`, or container `<container-name>`:
 
@@ -241,18 +243,18 @@ Use this information to verify that the system started correctly, and to clean u
         ⠿ Container acs-trial_share_1                                  Removed                                                        15.1s
         ⠿ Container acs-trial_digital-workspace_1                      Removed                                                         3.6s
         ⠿ Container acs-trial_alfresco_1                               Removed                                                        15.2s
-        ⠴ Image postgres:13.1                                          Removing                                                      153.3s
+        ⠴ Image postgres:13.3                                          Removing                                                      153.3s
         ⠴ Image alfresco/alfresco-activemq:5.16.1                      Removing                                                      153.3s
-        ⠿ Image quay.io/alfresco/alfresco-shared-file-store:0.16.0     Removed                                                       125.1s
+        ⠿ Image quay.io/alfresco/alfresco-shared-file-store:0.16.1     Removed                                                       125.1s
         ⠿ Network acs-trial_default                                    Removed                                                         0.3s
         ⠿ Image alfresco/alfresco-search-services:2.0.2                Removed                                                       152.1s
-        ⠿ Image quay.io/alfresco/alfresco-content-repository:7.1.0     Removed                                                        79.3s
-        ⠿ Image quay.io/alfresco/alfresco-transform-router:1.4.1       Removed                                                       125.7s
-        ⠴ Image alfresco/alfresco-acs-nginx:3.1.1                      Removing                                                      153.3s
-        ⠿ Image alfresco/alfresco-transform-core-aio:2.5.3             Removed                                                       124.8s
-        ⠿ Image quay.io/alfresco/alfresco-digital-workspace:2.3.0-adw  Removed                                                       153.3s
-        ⠿ Image quay.io/alfresco/service-sync:3.4.1                    Removed                                                       150.8s
-        ⠿ Image quay.io/alfresco/alfresco-share:7.1.0                  Removed                                                         0.3s
+        ⠿ Image quay.io/alfresco/alfresco-content-repository:7.1.1     Removed                                                        79.3s
+        ⠿ Image quay.io/alfresco/alfresco-transform-router:1.5.1       Removed                                                       125.7s
+        ⠴ Image alfresco/alfresco-acs-nginx:3.2.0                      Removing                                                      153.3s
+        ⠿ Image alfresco/alfresco-transform-core-aio:2.5.6             Removed                                                       124.8s
+        ⠿ Image quay.io/alfresco/alfresco-digital-workspace:2.6.0      Removed                                                       153.3s
+        ⠿ Image quay.io/alfresco/service-sync:3.4.0                    Removed                                                       150.8s
+        ⠿ Image quay.io/alfresco/alfresco-share:7.1.1                  Removed                                                         0.3s
         ```
 
 See the [Docker documentation](https://docs.docker.com/){:target="_blank"} for more on using Docker.
