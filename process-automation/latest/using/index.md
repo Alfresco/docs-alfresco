@@ -46,13 +46,16 @@ To start a process instance:
 
 1. Sign into the Digital Workspace.
 
-2. Click the **NEW** dropdown.
+2. Click **Start Process**.
 
-3. Select **Start Process**.
+3. Select the process you would like to start from the Model window. 
 
-4. Choose the process definition to use from the dropdown and give the process instance a name.
+If you defined categories when you created your processes, they will be organized within those categories.
 
-5. Click **Start Process**.
+4. Click **START PROCESS**.
+
+**Note:** Once you have selected the process you would like to work with from the Model window you can copy and share the URL with another user, so they can start the process. This user must have credentials to log into the Digital Workspace.  
+ 
 
 ### Start a process instance from a file
 
