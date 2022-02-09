@@ -918,7 +918,7 @@ The **Document List** sidebar is located on the left side of the **Enterprise Vi
 This is where document navigation and zooming occur, and where redactions can be created, saved, and more information 
 on Enterprise Viewer is found.
 
-### 5.1Toolbar
+### Toolbar
 The toolbar contains all the core functionality to Enterprise Viewer in **Redact Content** mode:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar1.png %})
@@ -1252,270 +1252,427 @@ It is located at the top of the Enterprise Viewer window.
 
 Dark grey buttons cannot be used until certain actions are made. A button that is in use will have a blue interior.
 
-#### 6.1.1Manual Page Navigation
+#### Manual Page Navigation
+Manually entering a value into this text field and then hitting the **Enter** key will navigate to the new page number:
 
-M ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})e8b3a44bca8f0bdb.png) anually entering a value into this text field and then hitting the Enter key will navigate to the new page number.
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar2.png %})
 
-If the page number entered is not a number, this value gets reset to the current page. If the page number entered is lower than the first page, the user is navigated to the first page. If the page number entered is higher than the last page, the user is navigated to the last page.
+If the page number entered is not a number, this value gets reset to the current page. If the page number entered is 
+lower than the first page, the user is navigated to the first page. If the page number entered is higher than the last 
+page, the user is navigated to the last page.
 
-This text field is located to the right of the Enterprise Viewer logo and to the left of the Fit to Width button.
+This text field is located to the right of the Enterprise Viewer logo and to the left of the **Fit to Width** button.
 
-#### 6.1.2Total Number of Pages
-
+#### Total Number of Pages
 This is a non-editable field denoting the total number of pages for the document.
 
-#### 6.1.3Fit to Width
+#### Fit to Width
+Clicking this button automatically calculates the zoom level to make the window show the entire width of the document:
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})e901f91fb6ffa990.png) licking this button automatically calculates the zoom level to make the window show the entire width of the document. This does not take into account the height of the document, and thus scroll bars may appear vertically depending on the page's aspect ratio against the size of the window.
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar3.png %})
 
-The Fit to Width button is located to the right of the Manual Page Navigation text field and to the left of the Fit to Height button.
+This does not take into account the height of the document, and thus scroll bars may appear vertically depending on the 
+page's aspect ratio against the size of the window.
 
-#### 6.1.4Fit to Height
+The **Fit to Width button** is located to the right of the *Manual Page Navigation* text field and to the left of the 
+**Fit to Height** button.
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})a465caf35bcafc46.png) licking this button automatically calculates the zoom level to make the window show the entire height of the document. This does not take into account the width of the document, and thus scroll bars may appear horizontally depending on the page's aspect ratio against the size of the window.
+#### Fit to Height
+Clicking this button automatically calculates the zoom level to make the window show the entire height of the document:
 
-The Fit to Height button is located to the right of the Fit to Width button and to the left of the Next Page button. The Fit to Height button is to the left of the Zoom Out button if the Next Page button is not displayed in the toolbar.
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar4.png %})
 
-#### 6.1.5Next Page
+This does not take into account the width of the document, and thus scroll bars may appear horizontally depending on the 
+page's aspect ratio against the size of the window.
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})20e98db25c528185.png) licking this button takes the user to the next page of the document. The button will become disabled once the user reaches the end of the document.
+The **Fit to Height** button is located to the right of the **Fit to Width** button and to the left of the **Next Page** 
+button. The **Fit to Height** button is to the left of the **Zoom Out** button if the **Next Page** button is not 
+displayed in the toolbar.
 
-The Next Page button is located to the right of the Fit to Height button and to the left of the Previous Page button.
+#### Next Page
+Clicking this button takes the user to the next page of the document:
+
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar5.png %})
+
+The button will become disabled once the user reaches the end of the document.
+
+The **Next Page** button is located to the right of the **Fit to Height** button and to the left of the 
+**Previous Page** button.
 
 >**Note:** This feature is unavailable if the document does not have more than one page.
 
-#### 6.1.6Previous Page
+#### Previous Page
+Clicking this button takes the user to the previous page of the document:
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})b273af53178e550f.png) licking this button takes the user to the previous page of the document. The button will become disabled once the user reaches the beginning of the document.
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar6.png %})
 
-The Previous Page button is located to the right of the Next Page button and to the left of the Zoom Out button.
+The button will become disabled once the user reaches the beginning of the document.
+
+The **Previous Page** button is located to the right of the **Next Page** button and to the left of the **Zoom Out** 
+button.
 
 >**Note:** This feature is unavailable if the document does not have more than one page.
 
-#### 6.1.7Zoom Out
+#### Zoom Out
+Clicking this button zooms out in increments of ten:
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})15fd3ebdc367cba0.png) licking this button zooms out in increments of ten. While zooming out, if possible, the current middle of the page will remain in the middle (unless zooming out reveals an image that does not need to be scrolled).
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar7.png %})
 
-If the target zoom level is below the minimum zoom level, the zoom is set to the minimum zoom level. This is set for performance and usability reasons.
+While zooming out, if possible, the current middle of the page will remain in the middle (unless zooming out reveals an 
+image that does not need to be scrolled).
 
-The Zoom out button is located to the right of the Previous Page button and to the left of the Zoom In button. The Zoom Out button is to the right of the Fit to Height button if the Previous Page button is not displayed in the toolbar.
+If the target zoom level is below the minimum zoom level, the zoom is set to the minimum zoom level. This is set for 
+performance and usability reasons.
 
-#### 6.1.8Zoom In
+The **Zoom out** button is located to the right of the **Previous Page** button and to the left of the **Zoom In** 
+button. The **Zoom Out** button is to the right of the **Fit to Height** button if the **Previous Page** button is not 
+displayed in the toolbar.
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})7f91d8b0141a5ee9.png) licking this button zooms in in increments of ten. While zooming in, the current middle of the page will remain in the middle.
+#### Zoom In
+Clicking this button zooms in using increments of ten:
 
-If the target zoom level is above the maximum zoom level, the zoom is set to the maximum zoom level. This is set for performance and usability reasons.
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar8.png %})
 
-The Zoom In button is located to the right of the Zoom Out button and to the left of the Save button.
+While zooming in, the current middle of the page will remain in the middle.
 
-#### 6.1.9Save
+If the target zoom level is above the maximum zoom level, the zoom is set to the maximum zoom level. This is set for 
+performance and usability reasons.
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})b3c6bfca7db38560.png) licking this button will save any changes to the server, as well as refresh any unmodified annotations from other users that have been updated.
+The **Zoom In** button is located to the right of the **Zoom Out** button and to the left of the **Save** button.
 
-The Save button is located to the right of the Zoom In button and to the left of the Split PDF button.
+#### Save
+Clicking this button will save any changes to the server, as well as refresh any unmodified annotations from other users 
+that have been updated:
 
-#### 6.1.10Split PDF
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar9.png %})
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})8688290bfbe556f6.png) licking the Split PDF button will prompt the user to select the pages for the split. The user can select the pages by clicking on the box in the upper left corner of the page or by typing the pages in the blue notification located at the button of the screen. The selected pages will become green. The user then must click the Split PDF button which is located in the notification. Doing so will create a new document with the selected pages which has the same metadata and can be found in the same folder as the original document.
+The **Save** button is located to the right of the **Zoom In** button and to the left of the **Split PDF** button.
 
-The Split PDF button is located to the right of the Save button and to the left of the Delete Pages button.
+#### Split PDF
+Clicking the **Split PDF** button will prompt the user to select the pages for the split:
 
-#### 6.1.11Delete Pages
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar10.png %})
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})4035fd261f0e3f5f.png) licking the Delete Pages button will prompt the user to select the pages they wish to delete. The user can select the pages by clicking on the box in the upper left corner of the page or by typing the pages in the blue notification located at the bottom of the screen. The selected pages will become red. The user then has to click the Delete Pages button which is located in the notification.
+The user can select the pages by clicking on the box in the upper left corner of the page or by typing the pages in the 
+blue notification located at the button of the screen. The selected pages will become green. The user then must click 
+the **Split PDF** button which is located in the notification. Doing so will create a new document with the selected 
+pages which has the same metadata and can be found in the same folder as the original document.
 
-The Delete Pages button is located to the right of the Split PDF button and to the left of the Rotate Page Counter-Clockwise button.
+The **Split PDF** button is located to the right of the **Save** button and to the left of the **Delete Pages** button.
 
-#### 6.1.12Rotate Page Counter-Clockwise
+#### Delete Pages
+Clicking the **Delete Pages** button will prompt the user to select the pages they wish to delete:
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})dbd6ad46ed334153.png) licking this button will rotate all the pages counter-clockwise. If the user wants specific pages to rotate, the user must select them by clicking the box in the top left corner of the page or by writing it in the range section of the notification in the bottom right corner.
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar11.png %})
 
-The Rotate-Page Counter-Clockwise button is located to the right of the Delete Pages button and to the left of the Rotate Page Clockwise button.
+The user can select the pages by clicking on the box in the upper left corner of the page or by typing the pages in the 
+blue notification located at the bottom of the screen. The selected pages will become red. The user then has to click the 
+**Delete Pages** button which is located in the notification.
 
-#### 6.1.13Rotate Page Clockwise
+The **Delete Pages** button is located to the right of the **Split PDF** button and to the left of the 
+**Rotate Page Counter-Clockwise** button.
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})f78df8c6d8bcd6c4.png) licking this button will rotate all the pages clockwise. If the user wants specific pages to rotate, the user must select them by clicking the box in the top left corner of the page or by writing it in the range section of the notification in the bottom right corner.
+#### Rotate Page Counter-Clockwise
+Clicking this button will rotate all the pages counter-clockwise:
 
-The Rotate Page Clockwise button is located to the right of the Rotate Page Counter-Clockwise button and to the left of the Section Document button.
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar12.png %})
 
-#### 6.1.14Section Document
+If the user wants specific pages to rotate, the user must select them by clicking the box in the top left corner of the 
+page or by writing it in the range section of the notification in the bottom right corner.
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})c4b3b40d0f514730.png) licking this button will allow the user to split the document into different sections.Sectioning is an efficient way to reorder large documents. A blue notification will appear in the bottom right corner where the user can name the section and select the range of pages for the section. The user must then select the create section button. The new section will appear in the left sidebar. For more information on how to section a document, reference [Section 6.2.2](#SectionDocument).
+The **Rotate-Page Counter-Clockwise** button is located to the right of the **Delete Pages** button and to the left of 
+the **Rotate Page Clockwise** button.
 
-The Section Document button is located to the right of the Rotate Page Clockwise button and to the left of the Help button.
+#### Rotate Page Clockwise
+Clicking this button will rotate all the pages clockwise:
 
-#### 6.1.15Help
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar13.png %})
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})1b09fc8fbf563d74.png) he help button is used to give the user more information regarding Enterprise Viewer. When this button is clicked a new tab in the browser will open with Technology Services Group information regarding their services and description of Enterprise Viewer.
+If the user wants specific pages to rotate, the user must select them by clicking the box in the top left corner of the 
+page or by writing it in the range section of the notification in the bottom right corner.
 
-The Help button is located to the right of the Section Document dropdown and to the left of the Load Time.
+The **Rotate Page Clockwise** button is located to the right of the **Rotate Page Counter-Clockwise** button and to the 
+left of the **Section Document** button.
 
-#### 6.1.16L ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})88a97498f63e41b1.png) oad Time
+#### Section Document {#section-doc-activate}
+Clicking this button will allow the user to split the document into different sections:
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})26834eaf0ef5a93b.png) he load time shows the user how many seconds it took to load the document.
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar14.png %})
 
-The user can see more details when clicking on the text. The load time takes into consideration the time it took the user to login, the browser JavaScript load time, the time it took to retrieve document information, the time it took to display the document, and the document's size. The user can copy the load time information into their clipboard by clicking the Copy to Clipboard button found in the load time information window.
+Sectioning is an efficient way to reorder large documents. A blue notification will appear in the bottom right corner 
+where the user can name the section and select the range of pages for the section. The user must then select the create 
+section button. The new section will appear in the left sidebar. For more information on how to section a document, 
+see this [section](#section-docs).
 
-The Load Time text is located to the right of the Help button.
+The **Section Document** button is located to the right of the **Rotate Page Clockwise** button and to the left of the 
+**Help** button.
 
-### 6.2Left Sidebar
+#### Help
+The **Help** button is used to give the user more information regarding Enterprise Viewer:
 
-#### 6.2.1Hide Sidebar
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar15.png %})
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})2596e1f3406e360f.png) he Hide Sidebar button allows the user to hide the sidebar containing the list of sections. When the button is clicked, the sidebar will collapse into the left side of the Enterprise Viewer window. When the button is clicked again, the sidebar will expand back into view.
+When this button is clicked a new tab in the browser will open with Alfresco information regarding services and 
+description of Enterprise Viewer.
+
+The **Help** button is located to the right of the **Section Document** dropdown and to the left of the **Load Time**.
+
+#### Load Time
+The load time shows the user how many seconds it took to load the document:
+
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar16.png %})
+
+The user can see more details when clicking on the text:
+
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar17.png %})
+
+The load time takes into consideration the time it took the user to login, the browser JavaScript load time, the time 
+it took to retrieve document information, the time it took to display the document, and the document's size. The user 
+can copy the load time information into their clipboard by clicking the **Copy to Clipboard** button found in the load 
+time information window.
+
+The *Load Time* text is located to the right of the **Help** button.
+
+### Left Sidebar
+This section covers the left side navigation bar in the Enterprise viewer.
+
+#### Hide Sidebar
+The **Hide Sidebar** button allows the user to hide the sidebar containing the list of sections:
+
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar18.png %})
+
+When the button is clicked, the sidebar will collapse into the left side of the Enterprise Viewer window. When the 
+button is clicked again, the sidebar will expand back into view.
 
 This button is located in the top right corner of the Sections sidebar.
 
-#### 6.2.2Sections
+#### Sections {#section-docs}
+The *Sections* sidebar displays all the sections of the document, if available:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})7432761cd8fcfbff.png)
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar19.png %})
 
-The sections sidebar displays all the sections of the document, if available. Sectioning is an efficient way to reorder large documents. Unsectioned pages will be listed under Unsectioned. The pages belonging to each section are listed under the section's name. Clicking on an entry in the list in Add Annotations mode will take the user to the first page of the section. For more information on how to activate the Section Document feature, reference [Section 6.1.14](#ActivateSectionDocument).
+Sectioning is an efficient way to reorder large documents. Unsectioned pages will be listed under *Unsectioned*. The pages 
+belonging to each section are listed under the section's name. Clicking on an entry in the list in *Add Annotations* mode 
+will take the user to the first page of the section. For more information on how to activate the *Section Document* 
+feature, see [here](#section-doc-activate).
 
 It is located on the left side of the Enterprise Viewer window.
 
-##### 6.2.2.1**C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})2f770813b10f9e03.png) reating a Section**
+##### Creating a Section
+The user can create a new section through the blue notification that appears in the bottom right corner:
 
-The user can create a new section through the blue notification that appears in the bottom right corner. The user can name the section and type the range of pages for the section. The user must then select the Create Section button in the notification. The new section will appear in the left sidebar.
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar20.png %})
 
-##### 6.2.2.2 **Renaming a Section**
+The user can name the section and type the range of pages for the section. The user must then select the 
+**Create Section** button in the notification. The new section will appear in the left sidebar.
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})a4e2ac8ae69b1086.png) licking this button allows the user to rename the section. A text box will appear under the section's name prompting the user to enter a new section name.
+##### Renaming a Section
+Clicking this button allows the user to rename the section:
+
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar21.png %})
+
+A text box will appear under the section's name prompting the user to enter a new section name.
 
 This button is located to the right of the section's name.
 
-##### 6.2.2.3 **Edit Section**
+##### Edit Section
+Clicking this button displays the thumbnails of the section:
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})d63b3a4f83f9e06f.png) licking this button displays the thumbnails of the section. The user can reorder the section by dragging the thumbnails to their desired positions. The user must click the button again to exit thumbnail view. Below are photos of the reordering pages process.
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar22.png %})
 
-This button is located to the left of the Deleting a Section button and below the Clear All button.
+Thumbnails before reordering pages:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})5833e2b8536242e5.png)
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar23.png %})
 
-**Figure 1: Thumbnails before reordering pages**
+The user can reorder the section by dragging the thumbnails to their desired positions:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})e4b7038df7e3f216.png)
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar24.png %})
 
-**Figure 2: Thumbnail is being dragged into new position**
+Thumbnails in new position with the pages reordered:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})a25024c70cffbd17.png)
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar25.png %})
 
-**Figure 3: Thumbnail is in new position. The pages have been reordered.**
+The user must click the button again to exit thumbnail view. 
 
-##### 6.2.2.4 **Deleting a Section**
+This button is located to the left of the **Deleting a Section**& button and below the **Clear All** button.
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})47f16bd78b035d7e.png) licking this button allows the user to delete the section. The pages from the deleted section will then be listed under Unsectioned.
+##### Deleting a Section
+Clicking this button allows the user to delete the section:
 
-This button is located to the right of the Edit Section button and below the Clear All button.
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar26.png %})
 
-##### 6.2.2.5 **Reordering Sections**
+The pages from the deleted section will then be listed under *Unsectioned*.
 
-The user can reorder the sections by clicking on a section and dragging it to a new spot.
+This button is located to the right of the **Edit Section** button and below the **Clear All** button.
+
+##### Reordering Sections
+The user can reorder the sections by clicking on a section and dragging it to a new spot:
 
 >**Note:** The user cannot reorder the sections if there are unsectioned pages.
 
-##### 6.2.2.6 **Clear All**
+##### Clear All
+Clicking this button will clear all document sections and list the pages under *Unsectioned*:
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})c6f787d1944e9939.png) licking this button will clear all document sections and list the pages under Unsectioned. The user will be prompted by a question asking whether they are sure they want to clear all sections.
+![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar27.png %})
 
-The Clear All button is located in the top right corner of the Sections sidebar below the Hide Sidebar button.
+The user will be prompted by a question asking whether they are sure they want to clear all sections.
 
-FIX HEADERS
+The **Clear All** button is located in the top right corner of the *Sections* sidebar below the **Hide Sidebar** button.
 
-# 7Add Signatures Interface
+## Add Signatures Interface
+This section covers the *Add Signatures* feature of the Enterprise Viewer.
 
-## 7.1Toolbar
+### Toolbar
+The toolbar contains all the core functionality to Enterprise Viewer in Signature mode:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})e7336159929c3481.png)
+![Img Txt]({% link enterprise-viewer/images/aev-add-sign-interface-toolbar1.png %})
 
-The toolbar (displayed above) contains all the core functionality to Enterprise Viewer in Signature mode. This is where document navigation and zooming occur, and signatures can be added, saved, and more information on Enterprise Viewer is found.
+This is where document navigation and zooming occur, and signatures can be added, saved, and more information on 
+Enterprise Viewer is found.
 
 It is located at the top of the Enterprise Viewer window.
 
 Dark grey buttons cannot be used until certain actions are made. A button that is in use will have a blue interior.
 
-### 7.1.1Manual Page Navigation
+#### Manual Page Navigation
+Manually entering a value into this text field and then hitting the **Enter** key will navigate to the new page number:
 
-M ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})e8b3a44bca8f0bdb.png) anually entering a value into this text field and then hitting the Enter key will navigate to the new page number.
+![Img Txt]({% link enterprise-viewer/images/aev-add-sign-interface-toolbar2.png %})
 
-If the page number entered is not a number, this value gets reset to the current page. If the page number entered is lower than the first page, the user is navigated to the first page. If the page number entered is higher than the last page, the user is navigated to the last page.
+If the page number entered is not a number, this value gets reset to the current page. If the page number entered is 
+lower than the first page, the user is navigated to the first page. If the page number entered is higher than the last 
+page, the user is navigated to the last page.
 
-This text field is located to the right of the Enterprise Viewer logo and to the left of the Fit to Width button.
+This text field is located to the right of the Enterprise Viewer logo and to the left of the **Fit to Width** button.
 
-### 7.1.2Total Number of Pages
-
+#### Total Number of Pages
 This is a non-editable field denoting the total number of pages for the document.
 
-### 7.1.3Fit to Width
+#### Fit to Width
+Clicking this button automatically calculates the zoom level to make the window show the entire width of the document:
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})e901f91fb6ffa990.png) licking this button automatically calculates the zoom level to make the window show the entire width of the document. This does not take into account the height of the document, and thus scroll bars may appear vertically depending on the page's aspect ratio against the size of the window.
+![Img Txt]({% link enterprise-viewer/images/aev-add-sign-interface-toolbar3.png %})
 
-The Fit to Width button is located to the right of the Manual Page Navigation text field and to the left of the Fit to Height button.
+This does not take into account the height of the document, and thus scroll bars may appear vertically depending on 
+the page's aspect ratio against the size of the window.
 
-### 7.1.4Fit to Height
+The **Fit to Width** button is located to the right of the *Manual Page Navigation* text field and to the left of the 
+**Fit to Height** button.
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})a465caf35bcafc46.png) licking this button automatically calculates the zoom level to make the window show the entire height of the document. This does not take into account the width of the document, and thus scroll bars may appear horizontally depending on the page's aspect ratio against the size of the window.
+#### Fit to Height
+Clicking this button automatically calculates the zoom level to make the window show the entire height of the document:
 
-The Fit to Height button is located to the right of the Fit to Width button and to the left of the Previous Page button. The Fit to Height button is to the left of the Zoom Out button if the Previous Page button is not displayed in the toolbar.
+![Img Txt]({% link enterprise-viewer/images/aev-add-sign-interface-toolbar4.png %})
 
-### 7.1.5Previous Page
+This does not take into account the width of the document, and thus scroll bars may appear horizontally depending on 
+the page's aspect ratio against the size of the window.
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})b273af53178e550f.png) licking this button takes the user to the previous page of the document. The button will become disabled once the user reaches the beginning of the document.
+The **Fit to Height** button is located to the right of the **Fit to Width** button and to the left of the 
+**Previous Page** button. The **Fit to Height** button is to the left of the **Zoom Out** button if the **Previous Page** 
+button is not displayed in the toolbar.
 
-The Previous Page button is located to the right of the Fit to Height button and to the left of the Next Page button.
+#### Previous Page
+Clicking this button takes the user to the previous page of the document:
+
+![Img Txt]({% link enterprise-viewer/images/aev-add-sign-interface-toolbar5.png %})
+
+The button will become disabled once the user reaches the beginning of the document.
+
+The **Previous Page** button is located to the right of the **Fit to Height** button and to the left of the 
+**Next Page** button.
 
 >**Note:** This feature is unavailable if the document does not have more than one page.
 
-### 7.1.6Next Page
+#### Next Page
+Clicking this button takes the user to the next page of the document:
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})20e98db25c528185.png) licking this button takes the user to the next page of the document. The button will become disabled once the user reaches the end of the document.
+![Img Txt]({% link enterprise-viewer/images/aev-add-sign-interface-toolbar6.png %})
 
-The Next Page button is located to the right of the Previous Page button and to the left of the Zoom Out button.
+The button will become disabled once the user reaches the end of the document.
+
+The **Next Page** button is located to the right of the **Previous Page** button and to the left of the 
+**Zoom Out** button.
 
 >**Note:** This feature is unavailable if the document does not have more than one page.
 
-### 7.1.7Zoom Out
+#### Zoom Out
+Clicking this button zooms out in increments of ten:
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})15fd3ebdc367cba0.png) licking this button zooms out in increments of ten. While zooming out, if possible, the current middle of the page will remain in the middle (unless zooming out reveals an image that does not need to be scrolled).
+![Img Txt]({% link enterprise-viewer/images/aev-add-sign-interface-toolbar7.png %})
 
-If the target zoom level is below the minimum zoom level, the zoom is set to the minimum zoom level. This is set for performance and usability reasons.
+While zooming out, if possible, the current middle of the page will remain in the middle (unless zooming out reveals 
+an image that does not need to be scrolled).
 
-The Zoom out button is located to the right of the Next Page button and to the left of the Zoom In button. The Zoom Out button is to the right of the Fit to Height button if the Next Page button is not displayed in the toolbar.
+If the target zoom level is below the minimum zoom level, the zoom is set to the minimum zoom level. This is set for 
+performance and usability reasons.
 
-### 7.1.8Zoom In
+The **Zoom out** button is located to the right of the **Next Page** button and to the left of the **Zoom In** button. 
+The **Zoom Out** button is to the right of the **Fit to Height** button if the **Next Page** button is not displayed in 
+the toolbar.
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})7f91d8b0141a5ee9.png) licking this button zooms in in increments of ten. While zooming in, the current middle of the page will remain in the middle.
+#### Zoom In
+Clicking this button zooms in using increments of ten:
 
-If the target zoom level is above the maximum zoom level, the zoom is set to the maximum zoom level. This is set for performance and usability reasons.
+![Img Txt]({% link enterprise-viewer/images/aev-add-sign-interface-toolbar8.png %})
 
-The Zoom In button is located to the right of the Zoom Out button and to the left of the Save button.
+While zooming in, the current middle of the page will remain in the middle.
 
-### 7.1.9Save
+If the target zoom level is above the maximum zoom level, the zoom is set to the maximum zoom level. This is set for 
+performance and usability reasons.
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})1fb8ccb3e5540cbc.png) licking this button will save any new or modified annotations to the server, as well as refresh any unmodified annotations from other users that have been updated.
+The **Zoom In** button is located to the right of the **Zoom Out** button and to the left of the **Save** button.
 
-The Save button is located to the right of the Zoom In button and to the left of the Selection Tool button.
+#### Save
+Clicking this button will save any new or modified annotations to the server, as well as refresh any unmodified 
+annotations from other users that have been updated:
 
-### 7.1.10Selection Tool
+![Img Txt]({% link enterprise-viewer/images/aev-add-sign-interface-toolbar9.png %})
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})90f44dea782bf749.png) he selection tool button is the default cursor when opening Enterprise Viewer and signifies that the mouse does not do anything out of the ordinary.
+The **Save** button is located to the right of the **Zoom In** button and to the left of the **Selection Tool** button.
 
-The Selection Tool button is located to the right of the Save button and to the left of the Draw Signature button.
+#### Selection Tool
+The **Selection Tool** button is the default cursor when opening Enterprise Viewer and signifies that the mouse does 
+not do anything out of the ordinary:
 
-### 7.1.11Draw Signature
+![Img Txt]({% link enterprise-viewer/images/aev-add-sign-interface-toolbar10.png %})
 
-C ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})953f04412b81d074.gif) licking this button allows the user to add a signature to the page. Once the cursor is selected, the user can click anywhere on the page to add a signature. The user will be prompted by a popup window asking them to sign below. The user can clear the signature if needed. The user must click the insert button of the popup window to insert the signature.
+The **Selection Tool** button is located to the right of the **Save** button and to the left of the **Draw Signature** 
+button.
 
-The Draw Signature button is located to the right of the Selection Tool button and to the left of the Help button.
+#### Draw Signature
+Clicking this button allows the user to add a signature to the page:
 
-### 7.1.12Help
+![Img Txt]({% link enterprise-viewer/images/aev-add-sign-interface-toolbar11.png %})
 
-T ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})1b09fc8fbf563d74.png) he help button is used to give the user more information regarding Enterprise Viewer. When this button is clicked a new tab in the browser will open with Technology Services Group information regarding their services and description of Enterprise Viewer.
+Once the cursor is selected, the user can click anywhere on the page to add a signature. The user will be prompted by a 
+popup window asking them to sign below. The user can clear the signature if needed. The user must click the insert 
+button of the popup window to insert the signature.
 
-The Help button is located to the right of the Draw Signature button and to the left of the Load Time.
+The **Draw Signature** button is located to the right of the **Selection Tool** button and to the left of the **Help** 
+button.
 
-### 7.1.13L ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})26834eaf0ef5a93b.png) ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar.png %})88a97498f63e41b1.png) oad Time
+#### Help
+The **Help** button is used to give the user more information regarding Enterprise Viewer:
 
-The load time shows the user how many seconds it took to load the document. The user can see more details when clicking on the text. The load time takes into consideration the time it took the user to login, the browser JavaScript load time, the time it took to retrieve document information, the time it took to display the document, and the document's size. The user can copy the load time information into their clipboard by clicking the Copy to Clipboard button found in the load time information window.
+![Img Txt]({% link enterprise-viewer/images/aev-add-sign-interface-toolbar12.png %})
 
-The Load Time text is located to the right of the Help button.
+When this button is clicked a new tab in the browser will open with Alfresco information regarding services and 
+description of Enterprise Viewer.
+
+The **Help** button is located to the right of the **Draw Signature** button and to the left of the *Load Time*.
+
+#### Load Time
+The load time shows the user how many seconds it took to load the document:
+
+![Img Txt]({% link enterprise-viewer/images/aev-add-sign-interface-toolbar13.png %})
+
+The user can see more details when clicking on the text:
+
+![Img Txt]({% link enterprise-viewer/images/aev-add-sign-interface-toolbar14.png %})
+
+The load time takes into consideration the time it took the user to login, the browser JavaScript load time, the time 
+it took to retrieve document information, the time it took to display the document, and the document's size. The user 
+can copy the load time information into their clipboard by clicking the Copy to Clipboard button found in the load time 
+information window.
+
+The *Load Time* text is located to the right of the **Help** button.
