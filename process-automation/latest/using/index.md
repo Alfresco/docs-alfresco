@@ -54,7 +54,7 @@ If you defined categories when you created your processes, they will be organize
 
 4. Click **START PROCESS**.
 
-**Note:** Once you have selected the process you would like to work with from the modal window you can copy and share the URL with another user, so they can start the process. This user must have credentials to log into the Digital Workspace.  
+**Note:** Once you have selected the process you would like to work with from the modal window you can copy and share the URL with another user, so they can start the process. This user must have credentials to sign into the Digital Workspace.  
  
 
 ### Start a process instance from a file
