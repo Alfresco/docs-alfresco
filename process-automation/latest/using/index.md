@@ -48,7 +48,7 @@ To start a process instance:
 
 2. Click **Start Process**.
 
-3. Select the process you would like to start from the Model window. 
+3. Select the process you would like to start from the modal window. 
 
 If you defined categories when you created your processes, they will be organized within those categories.
 
