@@ -515,7 +515,7 @@ Set these properties in the `alfresco-global.properties` file.
 
     Specifies the key size to use for the symmetric keys that are used to encrypt/decrypt document content.
 
-    > **Note:** The default symmetric key size is 128 bits. Users who want better key strength should download and install the [Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files](http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html) for the JRE.
+    > **Note:** The default symmetric key size is 128 bits. Users who want better key strength should download and install the [Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files](https://www.oracle.com/java/technologies/javase-jce7-downloads.html){:target="_blank"} for the JRE.
 
 -   **cryptodoc.jce.keygen.defaultSymmetricAlgorithm**
 

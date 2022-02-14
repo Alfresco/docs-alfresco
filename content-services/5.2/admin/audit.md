@@ -191,7 +191,7 @@ Map:
 
 ### Audit Service
 
-The Audit Service provides a public Java API for interacting with the Audit Component. The Audit Service is described in more detail in the [Public Java API Services documentation]({% link content-services/5.2/develop/java-api-guide.md %}#auditservice). The JavaDoc (generated from the Java source code) for the AuditService API can be found [here](http://dev.alfresco.com/resource/docs/java/org/alfresco/service/cmr/audit/AuditService.html).
+The Audit Service provides a public Java API for interacting with the Audit Component. The Audit Service is described in more detail in the [Public Java API Services documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}#auditservice). The JavaDoc (generated from the Java source code) for the AuditService API can be found [here](http://dev.alfresco.com/resource/docs/java/org/alfresco/service/cmr/audit/AuditService.html).
 
 The AuditService is also exposed via a REST API. This is documented in more detail in the [Using the auditing REST API documentation](#how-to-use-the-auditing-sample-files).
 

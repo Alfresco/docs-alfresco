@@ -3,6 +3,7 @@ _site
 .jekyll-cache
 .jekyll-metadata
 Gemfile.lock
+vendor
 
 # Mac
 .DS_Store
@@ -16,3 +17,4 @@ Gemfile.lock
 .idea/
 *.iml
 *.iws
+docker-compose-o.yml

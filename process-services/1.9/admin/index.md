@@ -2,8 +2,6 @@
 title: Administration of Process Services
 ---
 
-{{page.version}}
-
 This section goes through the high level architecture of Process Services and using the Process Services Administrator application.
 
 ## Architecture

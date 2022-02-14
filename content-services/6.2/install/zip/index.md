@@ -19,9 +19,16 @@ To install Content Services using the distribution zip (which also contains the 
 
 For a list of supported components and versions, refer to the `VERSIONS.md` file in the distribution zip.
 
->**Note:** If you are using Alfresco Transform Service 1.4 or newer, and you want to do IPTC metadata extraction,
+### IPTC Content Model bootstrapping (OPTIONAL)
+
+If you are using Alfresco Transform Service 1.4 or newer, and you want to do IPTC metadata extraction,
 then you need to [bootstrap the IPTC Content Model]({% link content-services/6.2/install/containers/index.md %}#iptc-model-bootstrap) manually
 into Content Services. If you follow the link you will find the necessary content model files.
+
+### Securing HTML transformations
+
+HTML pipelines that use LibreOffice are vulnerable to [Blind Server-Side Request Forgery (BSSRF)](https://en.wikipedia.org/wiki/Server-side_request_forgery){:target="_blank"}
+attacks. These can be disabled by following these [instructions]({% link content-services/6.2/admin/securing-html-transforms.md %}).
 
 ## Install overview
 
@@ -58,7 +65,7 @@ There are a number of different installation files available to you, each of whi
 
 For new installations or upgrades, use the distribution zip. Use the Alfresco WAR file to install Content Services within an existing Tomcat. The WAR file is included in the distribution zip. In addition, you must install all the required additional components manually.
 
-All files are available from the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}. Click **Product Downloads**, and then select the version of the product you require.
+All files are available from [Hyland Community](https://community.hyland.com/products/alfresco){:target="_blank"}. Sign in, select **Product downloads**, and search for the version of the product you require.
 
 See the [Supported platforms]({% link content-services/6.2/support/index.md %}) for more.
 

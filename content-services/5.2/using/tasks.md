@@ -16,22 +16,6 @@ You can start workflows from a number of places:
 -   Click **Tasks** on the toolbar, select any option, then click **Start Workflow**
 -   Click **Start Workflow** on the My Tasks dashlet
 
-
-
--   **[Starting a workflow](#starting-a-workflow)**  
-You can attach a workflow directly to one or more files. Starting a workflow generates a workflow task such as a review.
--   **[Viewing workflows you started](#viewing-workflows-you-started)**  
-You can view the full details of all workflows that you have started.
--   **[Cancelling an active workflow](#cancelling-an-active-workflow)**  
-You can cancel an active workflow if you find you don't need it anymore. This deletes all tasks related to the workflow.
--   **[Deleting a completed workflow](#deleting-a-completed-workflow)**  
-Once you're finished with a workflow, you can delete it to clear it from the workflow list. This also deletes all tasks associated with the workflow.
--   **[Viewing tasks and workflows](#viewing-tasks-and-workflows)**  
-You can view the details for an individual task or for the workflow that initiated a task.
--   **[Managing tasks](#managing-tasks)**  
-Tasks assigned to you appear in two places: the My Tasks personal dashlet and the My Tasks page. Each task stays assigned to you until you complete or reassign it.
-
-
 ## Starting a workflow {#starting-a-workflow}
 
 You can attach a workflow directly to one or more files. Starting a workflow generates a workflow task such as a review.
@@ -113,6 +97,7 @@ You can attach a workflow directly to one or more files. Starting a workflow gen
         -   **View More Actions** to the right of an file in this list to display it on the file preview screen. This will cancel the task and you'll need to start again.
         -   **Remove** to delete an file from the task.
         -   **Remove All** to delete all files from the task.
+
 6.  You can select the **Send Email Notifications** check box to automatically send an email to users each time a task is assigned to them.
 
     Tasks will still appear in the users My Tasks dashlet. The email is sent to the email address listed in the user's profile. If an address is not provided, no email will be sent.
@@ -122,7 +107,6 @@ You can attach a workflow directly to one or more files. Starting a workflow gen
 7.  Click **Start Workflow**.
 
     The workflow task is created. In the file list an icon to the left of the files selected indicates that they are part of an active workflow.
-
 
 ## Viewing workflows you started {#viewing-workflows-you-started}
 
@@ -143,8 +127,8 @@ You can view the full details of all workflows that you have started.
     -   Look at completed tasks in the History section. Click a task to view its details.
     -   Click an item in the Items list to see it in the file preview screen. Click your browser’s Back button to return to the Workflow Details page.
     -   If you started the workflow you can click to **Cancel Workflow** to cancel an active workflow **Delete Workflow** to delete a completed workflow.
-3.  Click **Workflows I’ve Started** to return to the workflow list.
 
+3.  Click **Workflows I’ve Started** to return to the workflow list.
 
 ## Cancelling an active workflow {#cancelling-an-active-workflow}
 
@@ -160,7 +144,6 @@ You can cancel an active workflow if you find you don't need it anymore. This de
 
     The selected workflow is cancelled and removed from the workflow list. All tasks related to the workflow are deleted, which removes them from the Active view on the My Tasks page. They are also removed from the My Tasks dashlet.
 
-
 ## Deleting a completed workflow {#deleting-a-completed-workflow}
 
 Once you're finished with a workflow, you can delete it to clear it from the workflow list. This also deletes all tasks associated with the workflow.
@@ -175,7 +158,6 @@ Once you're finished with a workflow, you can delete it to clear it from the wor
 
     The workflow is deleted and removed from the workflow list. The tasks related to the workflow are deleted, which removes them from the Completed view on the My Tasks page. They are also removed from the My Tasks dashlet.
 
-
 ## Viewing tasks and workflows {#viewing-tasks-and-workflows}
 
 You can view the details for an individual task or for the workflow that initiated a task.
@@ -188,6 +170,7 @@ You can view the details for an individual task or for the workflow that initiat
 
     -   **View Task**: Displays the task details
     -   **View Workflow**: Displays the workflow details
+
     > **Note:** An icon (![]({% link content-services/images/im-pooled.png %})) indicates a pooled task. Pooled tasks that can be claimed are marked as **Unassigned**.
 
 3.  Click the **Task Details** and **Workflow Details** options to move between the two page views.
@@ -196,6 +179,7 @@ You can view the details for an individual task or for the workflow that initiat
 
     -   In the Items list, click an item to preview it in the library. Click your browser’s Back button to return to the Task Details page.
     -   Click **Edit** to edit the task.
+
     The Workflow Details page displays the information for the workflow that generated this task.
 
     -   Click **View Process Diagram** to display a graphical representation of the workflow. A red border highlights the current stage of the workflow. Click anywhere on the graphic to close it.
@@ -204,7 +188,6 @@ You can view the details for an individual task or for the workflow that initiat
     -   Look at completed tasks in the History section. Click a task to view it's details.
     -   Click an item in the Items list to see it in the file preview screen. Click your browser’s Back button to return to the Workflow Details page.
     -   If you started the workflow you can click to **Cancel Workflow** to cancel an active workflow.
-
 
 ## Managing tasks {#managing-tasks}
 

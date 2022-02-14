@@ -145,12 +145,14 @@ Before continuing, make sure that you've already completed the steps in [Generat
         # ssl encryption
         encryption.ssl.keystore.location=${dir.keystore}/ssl.keystore
         encryption.ssl.keystore.type=JCEKS
-        encryption.ssl.keystore.keyMetaData.location=encryption.ssl.truststore.location=${dir.keystore}/ssl.truststore
+        encryption.ssl.keystore.keyMetaData.location=
+        encryption.ssl.truststore.location=${dir.keystore}/ssl.truststore
         encryption.ssl.truststore.type=JCEKS
         encryption.ssl.truststore.keyMetaData.location=
         # secret key keystore configuration
         encryption.keystore.location=${dir.keystore}/keystore
-        encryption.keystore.keyMetaData.location=encryption.keystore.type=JCEKS
+        encryption.keystore.keyMetaData.location=
+        encryption.keystore.type=JCEKS
         solr.host=localhost
         solr.port=8983
         solr.port.ssl=8983
@@ -161,7 +163,7 @@ Before continuing, make sure that you've already completed the steps in [Generat
     2. For the Tomcat SSL Connector in `<TOMCAT_HOME>/conf/server.xml` update the following:
 
         ```bash
-        <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol"
+        <Connector port="8443" protocol="HTTP/1.1"
             SSLEnabled="true" maxThreads="150" scheme="https"
             keystoreFile="/usr/local/tomcat/alf_data/keystore/ssl.keystore"
             keystorePass="password" keystoreType="JCEKS"

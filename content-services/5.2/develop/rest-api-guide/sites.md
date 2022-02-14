@@ -4,30 +4,20 @@ title: Managing Sites
 
 This section walks through how to manage Alfresco Share sites via the ReST API.
 
-Being able to manage sites remotely is useful as they are widely used when you want to collaborate on content in the Repository. The ReST API has a full set of calls to do most things around sites.
+Being able to manage sites remotely is useful as they are widely used when you want to collaborate on content in the
+Repository. The ReST API has a full set of calls to do most things around sites.
 
--   **[Create a site](#create-a-site)**  
-Creating an Alfresco Share site.
--   **[Update a site](#update-a-site)**  
-Updating the metadata for an Alfresco Share site.
--   **[Add content to a site](#add-content-to-a-site)**  
-Creating folders and adding files to an Alfresco Share site's Document Library.
--   **[Adding members to a site](#adding-members-to-a-site)**  
-Adding members to an Alfresco Share site.
-
-## Create a site
+## Create a site {#createsite}
 
 Creating an Alfresco Share site.
 
-|API Call|POST sites|
-|--------|----------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/sites/createSite](http://localhost:8080/api-explorer/#!/sites/createSite)|
-|See also|[How to update site metadata]({% link content-services/5.2/develop/rest-api-guide/sites.md %}#update-a-site)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/sites/createSite](http://localhost:8080/api-explorer/#!/sites/createSite){:target="_blank"}
+
+**See also:** [How to update site metadata](#updatesite)
 
 Creating a site is done with the following POST call:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/sites**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/sites`
 
 The body for a site create call looks like this:
 
@@ -41,17 +31,17 @@ The body for a site create call looks like this:
 
 The `visibility` property is important to know more about as it determines how users can join and view the site:
 
--   `PUBLIC` - the site and its content is viewable by all users, even if they are not members of the site. Users can search for the site and join themselves.
--   `PRIVATE` - the site and its content is NOT viewable by any user that is not a member of the site. You have to be invited to the site by by a site manager.
--   `MODERATED` - the site can be found by all users and they can join themselves. However, the joining process is moderated by site managers. Site content is only viewable by users that are members of the site.
+* `PUBLIC` - the site and its content is viewable by all users, even if they are not members of the site. Users can search for the site and join themselves.
+* `PRIVATE` - the site and its content is NOT viewable by any user that is not a member of the site. You have to be invited to the site by by a site manager.
+* `MODERATED` - the site can be found by all users and they can join themselves. However, the joining process i#updatesites moderated by site managers. Site content is only viewable by users that are members of the site.
 
-To create a site called ‘My Stuff’ that is readable by anybody use the following call:
+To create a site called **My Stuff** that is readable by anybody use the following call:
 
 ```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "title": "My stuff", "visibility": "PUBLIC"}' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/sites' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   215  100   163  100    52    337    107 --:--:-- --:--:-- --:--:--   444
+100   215  100   163  100    52    337    107 --:--:-- --:--:-- --:--:-* 444
 {
   "entry": {
     "role": "SiteManager",
@@ -64,21 +54,22 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-The response contains some useful information about the new site, such as site `id` (i.e. my-stuff), which is used in other calls. By default a new site is set as favorite, if you don’t want that you can control this with the `skipAddToFavorites` parameter.
+The response contains some useful information about the new site, such as site `id` (i.e. `my-stuff`), which is used in
+other calls. By default a new site is set as favorite, if you don’t want that you can control this with the
+`skipAddToFavorites` parameter.
 
-## Update a site
+## Update a site {#updatesite}
 
 Updating the metadata for an Alfresco Share site.
 
-|API Call|PUT sites/{id}|
-|--------|----------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/sites/updateSite](http://localhost:8080/api-explorer/#!/sites/updateSite)|
-|See also|[How to create a site]({% link content-services/5.2/develop/rest-api-guide/sites.md %}#create-a-site)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/sites/updateSite](http://localhost:8080/api-explorer/#!/sites/updateSite){:target="_blank"}
 
-It’s also possible to update the site metadata after the site has been created. We can for example change the description and title, and it is even possible to change the visibility of the site. Use the following PUT call:
+**See also:** [How to create a site](#createsite)
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/sites/{id}**
+It’s also possible to update the site metadata after the site has been created. We can for example change the
+description and title, and it is even possible to change the visibility of the site. Use the following PUT call:
+
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/sites/{id}`
 
 The identifier for the site to be updated is specified with the `{id}` parameter.
 
@@ -92,7 +83,7 @@ The body for a site update call looks like this:
 }
 ```
 
-To update a site with the 'my-stuff' `id` make the following call:
+To update a site with the `my-stuff` `id` make the following call:
 
 ```bash
 $ curl -X PUT -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "title": "My stuff UPDATED", "description": "My stuff Desc UPDATED", "visibility": "PRIVATE"}' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/sites/my-stuff' | jq
@@ -118,15 +109,18 @@ The updated site metadata is returned so you can make sure it's correct.
 
 Creating folders and adding files to an Alfresco Share site's Document Library.
 
-|API Call|POST nodes/{id}/children|
-|--------|--------------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/nodes/createNode](http://localhost:8080/api-explorer/#!/nodes/createNode)|
-|See also|[How to create a folder]({% link content-services/5.2/develop/rest-api-guide/folders-files.md %}#create-a-folder) and [How to upload a file]({% link content-services/5.2/develop/rest-api-guide/folders-files.md %}#upload-a-file)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/nodes/createNode](http://localhost:8080/api-explorer/#!/nodes/createNode){:target="_blank"}
 
-When you have a site, the next step is most likely to add some content to the Document Library. Each site "page" has a container in which it stores its data. The Document Library is no different, we can use the following endpoint to GET the details of a Document Library in a site with `{id}`:
+**See also:**
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/sites/{id}/containers/documentLibrary**
+* [How to create a folder]({% link content-services/5.2/develop/rest-api-guide/folders-files.md %}#createfolder)
+* [How to upload a file]({% link content-services/5.2/develop/rest-api-guide/folders-files.md %}#uploadfile)
+
+When you have a site, the next step is most likely to add some content to the Document Library. Each site "page" has a
+container in which it stores its data. The Document Library is no different, we can use the following endpoint to GET
+the details of a Document Library in a site with `{id}`:
+
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/sites/{id}/containers/documentLibrary`
 
 The identifier for the site we want information about is specified with the `{id}` parameter.
 
@@ -143,9 +137,10 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-The `id` property provides the node identifier of the 'documentLibrary' folder that we can then use in other APIs. Let’s create one new folder in the Document library and then upload a text file to it.
+The `id` property provides the node identifier of the **documentLibrary** folder that we can then use in other APIs.
+Let’s create one new folder in the Document library and then upload a text file to it.
 
-Create a folder called 'My Stuff'. To do this we POST to the **/nodes/{id}/children** URL as follows:
+Create a folder called **My Stuff**. To do this we POST to the `/nodes/{id}/children` URL as follows:
 
 ```bash
 $ curl -H "Content-Type: application/json" -d '{"name":"My Stuff","nodeType":"cm:folder"}' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/896ec5b1-e348-4ddd-8262-c42b80eb0ce2/children | jq
@@ -177,7 +172,7 @@ $ curl -H "Content-Type: application/json" -d '{"name":"My Stuff","nodeType":"cm
 
 Note that the 896ec5b1-e348-4ddd-8262-c42b80eb0ce2 id corresponds to the Document Library node of the site.
 
-We can now use the `id` of the 'My Stuff' folder and upload a file to it (assuming you have a text file locally to upload):
+We can now use the `id` of the **My Stuff** folder and upload a file to it (assuming you have a text file locally to upload):
 
 ```bash
 $ curl -X POST -F filedata=@some-stuff.txt -F "name=some-stuff.txt" -F "nodeType=cm:content" -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/532d47c1-a8dc-4c00-8d82-a0623db85e06/children | jq
@@ -226,15 +221,14 @@ $ curl -X POST -F filedata=@some-stuff.txt -F "name=some-stuff.txt" -F "nodeType
 
 Adding members to an Alfresco Share site.
 
-|API Call|POST people/{id}/site-membership-requests POST /sites/{id}/members
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/sites/createSiteMembershipRequestForPerson](http://localhost:8080/api-explorer/#!/sites/createSiteMembershipRequestForPerson) and [http://localhost:8080/api-explorer/#!/sites/createSiteMembership](http://localhost:8080/api-explorer/#!/sites/createSiteMembership){:target="_blank"}
 
-|
-|--------|------------------------------------------------------------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/sites/createSiteMembershipRequestForPerson](http://localhost:8080/api-explorer/#!/sites/createSiteMembershipRequestForPerson) and [http://localhost:8080/api-explorer/#!/sites/createSiteMembership](http://localhost:8080/api-explorer/#!/sites/createSiteMembership)|
-|See also|[How to create a site]({% link content-services/5.2/develop/rest-api-guide/sites.md %}#create-a-site)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**See also:** [How to create a site](#createsite)
 
-When you have a site and some content, the next step is most likely to invite people to it so they can work with its content. There are two different ways to do this. You can start with the person you want to invite as a member to the site, or you can start with the site and then think about what people you want to invite to it. You can add a person directly to a site or create a membership request for them that they have to approve before they are officially a member:
+When you have a site and some content, the next step is most likely to invite people to it so they can work with its
+content. There are two different ways to do this. You can start with the person you want to invite as a member to the
+site, or you can start with the site and then think about what people you want to invite to it. You can add a person
+directly to a site or create a membership request for them that they have to approve before they are officially a member.
 
 To prepare for the examples let’s create a public and a moderated site as follows:
 
@@ -242,7 +236,7 @@ To prepare for the examples let’s create a public and a moderated site as foll
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "title": "My public stuff", "visibility": "PUBLIC"}' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/sites' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   228    0   175  100    53    308     93 --:--:-- --:--:-- --:--:--   402
+100   228    0   175  100    53    308     93 --:--:-- --:--:-- --:--:-* 402
 {
   "entry": {
     "role": "SiteManager",
@@ -257,7 +251,7 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "title": "My moderated stuff", "visibility": "MODERATED"}' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/sites' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   243    0   184  100    59    346    111 --:--:-- --:--:-- --:--:--   456
+100   243    0   184  100    59    346    111 --:--:-- --:--:-- --:--:-* 456
 {
   "entry": {
     "role": "SiteManager",
@@ -270,7 +264,8 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-Then create a test user by POSTing the following body (normally you don't have to create users as they are usually imported from LDAP/AD, this is just a demo):
+Then create a test user by POSTing the following body (normally you don't have to create users as they are usually imported
+from LDAP/AD, this is just a demo):
 
 ```json
 {
@@ -284,7 +279,7 @@ Then create a test user by POSTing the following body (normally you don't have t
 
 to:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people`
 
 The call looks like this:
 
@@ -292,7 +287,7 @@ The call looks like this:
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "id": "test", "firstName": "Test", "lastName": "User", "password": "test", "email": "test@alfresco.com"}' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   321    0   215  100   106    576    284 --:--:-- --:--:-- --:--:--   860
+100   321    0   215  100   106    576    284 --:--:-- --:--:-- --:--:-* 860
 {
   "entry": {
     "firstName": "Test",
@@ -311,9 +306,10 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-We'll now use this new user to join the public site and the moderated site we just created. The same endpoint is used to do both these actions via a POST:
+We'll now use this new user to join the public site and the moderated site we just created. The same endpoint is used
+to do both these actions via a POST:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/{userId}/site-membership-requests**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/{userId}/site-membership-requests`
 
 Join the public site by POSTing the body below:
 

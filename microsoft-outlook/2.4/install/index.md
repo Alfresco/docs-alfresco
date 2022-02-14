@@ -28,7 +28,7 @@ The software you need to install Outlook Integration is as follows:
 
 If you plan to use SAML Module for Alfresco Content Services authentication, you need to install and configure the SAML Module for Alfresco Content Services.
 
-You can download the Outlook Integration software from the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}.
+You can download the Outlook Integration software from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 ## Prerequisites
 
@@ -70,7 +70,7 @@ Make sure you are running the correct versions of operating system and software 
 
 1. Stop the Alfresco server.
 
-2. Browse to the [Support Portal](https://support.alfresco.com){:target="_blank"} and download and unzip the the Outlook Integration zip package:
+2. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"}, download and unzip the Outlook Integration zip package:
 
     `alfresco-outlook-integration-2.4.x.zip`
 

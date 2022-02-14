@@ -24,15 +24,11 @@ There are two types of installations - local and remote:
 
 ## Prerequisites
 
-If you're using the Content Services (Enterprise), then you need credentials to access the necessary artifacts from [Nexus](https://artifacts.alfresco.com){:target="_blank"}. Customers can request these through [Hyland Community](https://community.hyland.com/){:target="_blank"}.
-
->**Note:** If you are using Alfresco Transform Service 1.4 or newer, and you want to do IPTC metadata extraction,
-then you need to [bootstrap the IPTC Content Model]({% link content-services/latest/install/containers/index.md %}#iptc-model-bootstrap) manually
-into Content Services. If you follow the link you will find the necessary content model files.
+If you're using the Content Services (Enterprise), then you need credentials to access the necessary artifacts from [Nexus](https://artifacts.alfresco.com/nexus/){:target="_blank"}. Customers can request these through [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 ## Target O/S
 
-The playbooks have been tested using Ansible 2.9.16 (or later) on target hosts with the following operating systems:
+The playbooks have been tested using Ansible 2.9.21 (or later) on target hosts with the following operating systems:
 
 * CentOS 7 and 8
 * Red Hat Enterprise Linux 7 and 8
@@ -53,7 +49,7 @@ In the interest of keeping this guide simple, we'll use an AWS EC2 instance as t
 
     ![centos-ami]({% link content-services/images/centos-ami.png %})
 
-2. Download the Ansible playbook [zip file](https://nexus.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/alfresco-ansible-deployment/1.0/alfresco-ansible-deployment-1.0.zip){:target="_blank"}.
+2. Download the Ansible playbook [zip file](https://nexus.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/alfresco-ansible-deployment/1.1.1/alfresco-ansible-deployment-1.1.1.zip){:target="_blank"}.
 
 3. Transfer the ZIP file to the control node and SSH into the machine:
 
@@ -65,11 +61,11 @@ In the interest of keeping this guide simple, we'll use an AWS EC2 instance as t
     For example:
 
     ```bash
-    -rw-r--r--@ 1 mbergljung  staff  119559 16 Mar 08:18 alfresco-ansible-deployment-1.0.zip
+    -rw-r--r--@ 1 mbergljung  staff  119559 16 Mar 08:18 alfresco-ansible-deployment-1.1.1.zip
     -rw-r--r--@ 1 mbergljung  staff    1700 16 Mar 08:18 ansible-test.pem
     $ chmod 400 ansible-test.pem
-    $ scp -i ansible-test.pem alfresco-ansible-deployment-1.0.zip centos@3.86.89.7:/home/centos/
-    alfresco-ansible-deployment-1.0.zip                                                    100%  117KB 308.1KB/s   00:00
+    $ scp -i ansible-test.pem alfresco-ansible-deployment-1.1.1.zip centos@3.86.89.7:/home/centos/
+    alfresco-ansible-deployment-1.1.1.zip                                                    100%  117KB 308.1KB/s   00:00
     $ ssh -i ansible-test.pem centos@3.86.89.7
     [centos@ip-172-31-83-57 ~]$
     ```
@@ -111,14 +107,21 @@ The diagram below shows the result of a local installation.
 
 ![acs-localhost]({% link content-services/images/acs-localhost.png %})
 
-To install Content Services 7 (Enterprise) on your local machine, navigate to the folder where you extracted the ZIP, and run the playbook as the current user (the playbook will escalate privileges when required):
+To install Content Services 7.1 (Enterprise) on your local machine, navigate to the folder where you extracted the ZIP, 
+and run the playbook as the current user (the playbook will escalate privileges when required):
 
 ```bash
 cd alfresco-ansible-deployment-<version>
 ansible-playbook playbooks/acs.yml -i inventory_local.yml
 ```
 
-Alternatively, to install an earlier version of Content Services (e.g. 6.2.2):
+Alternatively, to deploy a Content Services 7.0 system use the following command:
+
+```bash
+ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@7.0.N-extra-vars.yml"
+```
+
+Alternatively, to deploy a Content Services 6.2.x system use the following command:
 
 ```bash
 ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@6.2.N-extra-vars.yml"
@@ -175,19 +178,26 @@ The diagram below shows the result of a single machine installation.
 
 Once you've prepared the target host and configured the `inventory_ssh.yaml` file as described above, you're ready to run the playbook.
 
-To check that your inventory file is configured correctly and the control node is able to connect to the target host, navigate to the folder where you extracted the ZIP to and run:
+To check that your inventory file is configured correctly and the control node is able to connect to the target host, 
+navigate to the folder where you extracted the ZIP to and run:
 
 ```bash
 ansible all -m ping -i inventory_ssh.yml
 ```
 
-To install Content Services 7 on the target host, run the playbook as the current user:
+To install Content Services 7.1 on the target host, run the playbook as the current user:
 
 ```bash
 ansible-playbook playbooks/acs.yml -i inventory_ssh.yml
 ```
 
-Alternatively, to install an Content Services 6.2.N Enterprise system:
+Alternatively, to deploy a Content Services 7.0 system use the following command:
+
+```bash
+ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.0.N-extra-vars.yml"
+```
+
+Alternatively, to deploy a Content Services 6.2.x system use the following command:
 
 ```bash
 ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@6.2.N-extra-vars.yml"
@@ -221,23 +231,32 @@ The diagram below shows the result of a multi-machine installation.
 
 ![acs-multi-machine]({% link content-services/images/acs-multi-machine.png %})
 
-Once you've prepared the target hosts (ensuring the [relevant ports](#tcp-port-configuration) are accessible) and configured the `inventory_ssh.yaml` file as described above, you're ready to run the playbook.
+Once you've prepared the target hosts (ensuring the [relevant ports](#tcp-port-configuration) are accessible) and 
+configured the `inventory_ssh.yaml` file as described above, you're ready to run the playbook.
 
-> **Note:** Currently, Alfresco Digital Workspace (ADW) must be deployed on the same host (`adw_1`) as the NGINX reverse proxy (`nginx_1`). We'll address this issue in a future release.
+>**Note:** Currently, Alfresco Digital Workspace (ADW) must be deployed on the same host (`adw_1`) as the 
+>NGINX reverse proxy (`nginx_1`). We'll address this issue in a future release.
 
-To check that your inventory file is configured correctly, and that the control node is able to connect to the target hosts, run:
+To check that your inventory file is configured correctly, and that the control node is able to connect to the 
+target hosts, run:
 
 ```bash
 ansible all -m ping -i inventory_ssh.yml
 ```
 
-To install Content Services 7 on the target hosts, run the playbook as the current user:
+To install Content Services 7.1 on the target hosts, run the playbook as the current user:
 
 ```bash
 ansible-playbook playbooks/acs.yml -i inventory_ssh.yml
 ```
 
-Alternatively, to install an Content Services 6.2.N system:
+Alternatively, to deploy a Content Services 7.0 system use the following command:
+
+```bash
+ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.0.N-extra-vars.yml"
+```
+
+Alternatively, to deploy a Content Services 6.2.x system use the following command:
 
 ```bash
 ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@6.2.N-extra-vars.yml"
@@ -275,8 +294,8 @@ Before accessing any of the webapps make sure that the deployment has started up
 as follows:
 
 ```bash
-alfresco-ansible-deployment-1.0]$ sudo su
-[root@ip-172-31-31-172 alfresco-ansible-deployment-1.0]# cd /var/log/alfresco/
+alfresco-ansible-deployment-1.1.1]$ sudo su
+[root@ip-172-31-31-172 alfresco-ansible-deployment-1.1.1]# cd /var/log/alfresco/
 [root@ip-172-31-31-172 alfresco]# tail -f alfresco.log
 2021-03-16 09:44:38,147 INFO  [org.springframework.extensions.webscripts.DeclarativeRegistry] [main] Registered 0 Schema Description Documents (+0 failed)
 2021-03-16 09:44:38,149 INFO  [org.springframework.extensions.webscripts.AbstractRuntimeContainer] [main] Initialised Public Api Web Script Container (in 1743.6327ms)
@@ -479,7 +498,7 @@ The following error during installation indicates Nexus login issues:
 .....
 Error was a <class 'ansible.errors.AnsibleError'>, original message: An unhandled exception occurred while running the lookup plugin 'url'.
 Error was a <class 'ansible.errors.AnsibleError'>, original message: Received HTTP error for
-https://artifacts.alfresco.com/nexus/service/local/repositories/enterprise-releases/content/org/alfresco/alfresco-content-services-distribution/7.0.0/alfresco-content-services-distribution-7.0.0.zip.sha1
+https://artifacts.alfresco.com/nexus/service/local/repositories/enterprise-releases/content/org/alfresco/alfresco-content-services-distribution/7.0.0/alfresco-content-services-distribution-7.1.0.zip.sha1
  : HTTP Error 401: basic auth failed"
 }*
 ```

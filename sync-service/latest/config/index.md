@@ -83,7 +83,7 @@ The following prerequisites are required:
 * Identity Service 1.1 or later
 * Alfresco Desktop Sync for Mac or Windows 1.4 or later
 
-Alfresco Sync Service 3.4 supplies the default configuration set in the `alfresco.global.properties` file directly to the Desktop Sync clients as users start the initial login.
+Alfresco Sync Service 3.5 supplies the default configuration set in the `alfresco.global.properties` file directly to the Desktop Sync clients as users start the initial login.
 
 See [Setting up Desktop Sync (Windows)]({% link desktop-sync/latest/install/index.md %}#faq/windows/setting-up-desktop-sync-on-windows) and [Setting up Desktop Sync (Mac)]({% link desktop-sync/latest/install/index.md %}#faq/windows/setting-up-desktop-sync-on-mac) for further details.
 

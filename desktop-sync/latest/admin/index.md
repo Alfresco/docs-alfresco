@@ -13,7 +13,7 @@ This allows you to update the configuration file for all your Desktop Sync users
 
 1. Create a **Desktop Sync** folder in the Alfresco Content Services repository path: `/Data Dictionary/`
 
-2. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download the configuration file: `AlfrescoSync.conf`.
+2. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"} and download the configuration file: `AlfrescoSync.conf`.
 
 3. Save the file in the new **Desktop Sync** folder.
 

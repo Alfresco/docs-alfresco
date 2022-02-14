@@ -62,15 +62,11 @@ The following Docker images relate to Community Edition:
 * `alfresco/alfresco-share` - the Share web interface (i.e. `share.war`) running on Apache Tomcat
 * `alfresco/alfresco-search-services` - the Solr 6 based search service running on Jetty
 * `alfresco/alfresco-activemq` - the Alfresco ActiveMQ image
-* `alfresco/acs-community-ngnix`
+* `alfresco/acs-community-ngnix` - web proxy
 
 There are also other supporting features available, such as Docker images for image and document transformation:
 
-* `alfresco/alfresco-imagemagick`
-* `alfresco/alfresco-libreoffice`
-* `alfresco/alfresco-pdf-renderer`
-* `alfresco/alfresco-tika`
-* `alfresco/alfresco-transform-misc`
+* `alfresco/alfresco-transform-core-aio`
 
 Community Edition provides a number of content transforms, but also allows custom transforms to be added. It's possible to create custom transforms that run in separate processes from the repository, known as Transform Engines (i.e. T-Engines). The same engines may be used in the Community and Enterprise Editions of Community Edition. They may be directly connected to the repository as Local Transforms. Note that in the Enterprise Edition, the default option is to use them as part of Alfresco Transform Service, which provides more balanced throughput and scalability improvements.
 
@@ -133,7 +129,7 @@ You can review the requirements for your chosen deployment method below.
 To deploy Community Edition using Helm charts, you need to install the following software:
 
 * [AWS CLI](https://github.com/aws/aws-cli#installation){:target="_blank"} - the command line interface for Amazon Web Services.
-* [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/){:target="_blank"} - the command line tool for Kubernetes.
+* [Kubectl](https://kubernetes.io/docs/tasks/tools/){:target="_blank"} - the command line tool for Kubernetes.
 * [Helm](https://github.com/helm/helm#install){:target="_blank"} - the tool for installing and managing Kubernetes applications.
   * There are Helm charts that allow you to deploy Community Edition in a Kubernetes cluster, for example, on AWS.
 

@@ -28,7 +28,7 @@ To use the S3 Connector and Glacier Connector you need an AWS account. See [AWS]
 
 These steps describe how to install the Glacier Connector to an instance of Alfresco Content Services when you installed it using a distribution zip. The Glacier Connector is packaged as an Alfresco Module Package (AMP) file and is installed using the Module Management Tool (MMT).
 
-When you purchase the Glacier Connector, a support case is created with the AMP file attached. If you no longer have access to the AMP file, or you didn't receive a case notification, raise a new case through the [Support Portal](https://support.alfresco.com){:target="_blank"}.
+When you purchase the Glacier Connector, a support case is created with the AMP file attached. If you no longer have access to the AMP file, or you didn't receive a case notification, raise a new case through [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 1. Stop Alfresco Content Services.
 

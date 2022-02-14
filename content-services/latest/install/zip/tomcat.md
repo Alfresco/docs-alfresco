@@ -75,7 +75,7 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
     2. Add the following Connector:
 
         ```xml
-        <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol"
+        <Connector port="8443" protocol="HTTP/1.1"
             SSLEnabled="true" maxThreads="150" scheme="https"
             keystoreFile="xxxxx"
             keystorePass="password" keystoreType="JCEKS"
@@ -89,6 +89,8 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
 
         > **Note:** If you're using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file.
 
+        > **Note:** In Tomcat versions prior to 9 it was possible to use `org.apache.coyote.http11.Http11Protocol` as the protocol value, but now it has been removed. If you are using configuration from an old instance using a Tomcat version before 9, you need to update the connector protocol value.
+
 8. Save the `server.xml` file.
 
 > **Important:** Remember to review and update the Connector details in `server.xml`, including the keystore and truststore file locations, after installing and configuring Alfresco Search Services.
@@ -101,9 +103,9 @@ Use this method of installing if you've already installed a JRE, a supported dat
 
 The Content Services distribution file is a zip containing the required WAR files, in addition to the additional commands, and configuration files for a manual installation.
 
-1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}.
+1. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
-2. Download the file: `alfresco-content-services-distribution-7.0.x.zip`
+2. Download the file: `alfresco-content-services-distribution-7.1.x.zip`
 
 3. Specify a location for the download and extract the file to a system directory; for example `<installLocation>`.
 

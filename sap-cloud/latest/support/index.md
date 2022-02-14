@@ -6,9 +6,12 @@ The following are the supported platforms for Alfresco Content Connector for SAP
 
 | Version | Notes |
 | ------- | ----- |
-| **Alfresco requirements** | |
+| **Alfresco** | |
+| Content Services 7.1.x | |
 | Content Services 7.0.x | |
 | Content Services 6.2.x | |
 | | |
-| **SAP requirements** | |
-| SAP version that supports CMIS | Minimum version: SAP S4/HANA 1909 |
+| **SAP S/4HANA Cloud Essentials** | |
+| CE2105 (and up) | |
+| **SAP S/4HANA on-premises** | |
+| S4/HANA 1909 (and up) | Version must support CMIS |

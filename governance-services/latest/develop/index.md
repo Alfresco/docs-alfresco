@@ -4,17 +4,17 @@ title: Governance Services APIs
 
 Governance Services provides two APIs, the GS Core API and the GS Security Marks API.
 
->**Note:** The GS Security Marks API isn't available in Governance Services Community Edition.
+> **Note:** The GS Security Marks API isn't available in Governance Services Community Edition.
 
-The APIs are designed for you to create remote clients to manage the {% include tooltip.html word="fileplan" text="File Plan" %}. You can easily explore and test 
-the endpoints using the Governance Services API Explorer. 
+The APIs are designed for you to create remote clients to manage the {% include tooltip.html word="fileplan" text="File Plan" %}. You can easily explore and test the endpoints using the Governance Services API Explorer. 
 
 You can download the API Explorer from:
 
-* [Alfresco Nexus](https://nexus.alfresco.com/nexus/#welcome){:target="_blank"}
+* [Alfresco Nexus repository](https://nexus.alfresco.com/nexus/#welcome){:target="_blank"}
 
-    >**Note:** Contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"} for log in credentials. Once you're logged in search for `alfresco-governance-services-enterprise-rest-api-explorer-3.5.x.war`.
+The Governance Services distribution zip contains the `alfresco-governance-services-enterprise-rest-api-explorer-11.153.war` file.
 
+> **Note:** Contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"} for log in credentials.
 
 Deploy it on the same port as Governance Services and test the APIs with your server directly from the API Explorer.
 

@@ -180,37 +180,14 @@ Your user profile includes more information than just your contact details. Here
 
 3. Navigate your profile pages to view and manage your information:
 
-    * **Info**
-
-        Displays your personal details, including contact information, company details, and a photo
-
-    * **Sites**
-
-        Lists the sites you're a member of and lets you disable and enable activity feeds from those sites
-
-    * **Content**
-
-        Displays two lists detailing your recent activities: **Recently added** (last 5 pieces of content you added), **Recently modified** (last 5 pieces of content you edited)
-
-    * **I'm Following**
-
-        Lists the people you are following
-
-    * **Following Me**
-
-        Lists the people who are following you
-
-    * **Change Password**
-
-        Lets you change your password
-
-    * **Notifications**
-
-        Lets you specify whether or not you want to receive email notifications
-
-    * **Trashcan**
-
-        Lets you find and recover deleted content
+    * **Info**: Displays your personal details, including contact information, company details, and a photo.
+    * **Sites**: Lists the sites you're a member of and lets you disable and enable activity feeds from those sites.
+    * **Content**: Displays two lists detailing your recent activities: **Recently added** (last 5 pieces of content you added), **Recently modified** (last 5 pieces of content you edited).
+    * **I'm Following**: Lists the people you are following.
+    * **Following Me**: Lists the people who are following you.
+    * **Change Password**: Lets you change your password.
+    * **Notifications**: Lets you specify whether or not you want to receive email notifications.
+    * **Trashcan**: Lets you find and recover deleted content.
 
 ## What version of Alfresco Share am I using?
 
@@ -243,4 +220,3 @@ An RSS Feed button or icon shows you where the feeds are available.
 3. Select where you want to store the feed, then subscribe to it.
 
     > **Note:** RSS feeds credentials are stored by the browser you're using and not Share. As such it's recommended that you close your browser after logging out of Share and / or lock your computer while you're away from it.
-    

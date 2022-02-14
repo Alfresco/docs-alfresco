@@ -46,13 +46,16 @@ To start a process instance:
 
 1. Sign into the Digital Workspace.
 
-2. Click the **NEW** dropdown.
+2. Click **Start Process**.
 
-3. Select **Start Process**.
+3. Select the process you would like to start from the modal window. 
 
-4. Choose the process definition to use from the dropdown and give the process instance a name.
+If you defined categories when you created your processes, they will be organized within those categories.
 
-5. Click **Start Process**.
+4. Click **START PROCESS**.
+
+**Note:** Once you have selected the process you would like to work with from the modal window you can copy and share the URL with another user, so they can start the process. This user must have credentials to sign into the Digital Workspace.  
+ 
 
 ### Start a process instance from a file
 
@@ -174,3 +177,91 @@ Once you have customized a filter, there are two options:
 * **Save filter as**: Selecting this will give you the option to provide a name for a new view for your filter and add it under the **Tasks** section.
 
 You can use the **Delete filter** option at any time to remove a view.
+
+## Condition builder {#condition-builder}
+
+The condition builder is a tool that helps you build a JUEL expression for a condition. The condition is composed of a set of boolean statement(s) that are linked by an operator. This means the condition to be created is a statement evaluated as a boolean value. The following is an example.
+
+![Condition builder]({% link process-automation/images/condition-builder.png %})
+
+* Click the **$** button to switch the condition builder to an expression editor where you can display and edit the JUEL expression.
+
+* Click the **+** button to add a new statement editor.
+
+* The available operators are:
+  * **Every**: All statements must be true for the condition to be evaluated as true.
+  * **At least one**: The condition will be evaluated to be true when one or more of the statements are true.
+  * **None**: If all the statements are false, then the condition will be evaluated to be true.
+  
+  > **Note:** The operator between statements is the same for all the statements.
+
+* Click the **-** button to remove the statement.
+
+### Statement editor
+
+The statement editor manages boolean statements. A boolean statement normally consists of two statements and an operator between them, for example `<left-statement> <operator> <right-statement>`.
+
+The statement editor reproduces the structure, the following is an example.
+
+![Statement editor]({% link process-automation/images/statement-editor.png %})
+
+#### Left statement
+
+The left-statement can be one of the available variables or a JUEL expression. Switching between variable and JUEL expression can be done using the tabs at the top of the left side.
+The available operators between statements are:
+
+* Equals
+* Not equals
+* Greater than
+* Greater or equals than
+* Less than
+* Less or equals than
+* Not set
+
+> **Note:** The `Not set` operator means that the expression is a single statement expression which means no right-statement is needed.
+
+#### Right statement
+
+The right-statement can be one of the available variables, a JUEL expression, or a value if the left-statement is a variable value.
+
+## Expression editor
+
+The expression editor is a code editor that provides autocompletion and hints when writing an expression that may contain a JUEL expression.
+The expression editor appears in the following places:
+
+* Task mapping dialog: when selecting an expression as a variable value
+* Variable dropdown selector: when using the dollar button
+* User task assignment dialog
+* Called element dialog: when using an expression to resolve the called element
+* In the email template dialog: when setting the template for the email used in user tasks
+* In the condition builder
+* When setting the value of a JSON variable
+
+Click the green button to expand the modal dialog to be full size, the following is an example.
+
+> **Note:** The green button only displays if the expression editor has been configured for it to show.
+
+![Expression editor]({% link process-automation/images/expression-editor.png %})
+
+### Autocompletion
+
+The autocompletion function is based on the context of the project and depends on where the expression is going to be used. It lets the user know which variables in that context are available. The autocompletion is displayed as the user types but can also be triggered by using the following keyboard shortcuts:
+
+* In Windows or Linux: `Ctrl + Space`
+* In MacOS: `Cmd + Space`
+
+The following is an example.
+
+![Auto completion]({% link process-automation/images/auto-completion.png %})
+
+Autocompletion displays suggestions for operators, in the example `empty` and `eq`, and for variables `event` in the screenshot.
+
+Autocompletion can also show method suggestions and attributes when using the ‘dot’ accessor, in the example below `equals` and `hashcode` are methods while `data` and `datacontenttype` are attributes of the `event` object.
+
+![Event]({% link process-automation/images/event.png %})
+
+### Hints
+
+The expression editor provides helpful information when you place the cursor over an element of it. For example, in the image the cursor has been placed over the word `event` and a hint is displayed that provides a description of the `event` variable.
+
+![Hints]({% link process-automation/images/hints.png %})

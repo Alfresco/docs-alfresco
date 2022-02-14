@@ -12,13 +12,6 @@ As well as adding and removing dashlets you can also customize your dashboard la
 
 Managing your profile means that you can create a personality that's visible to other Alfresco Share users.
 
--   **[Setting up your dashboard](#setting-up-your-dashboard)**  
-You can customize your dashboard so that you only see the information that you're interested in.
--   **[Updating your profile](#updating-your-profile)**  
-Alfresco Share user profiles help you to identify who a user is and what they do in your organization.
-
-
-
 ## Setting up your dashboard {#setting-up-your-dashboard}
 
 You can customize your dashboard so that you only see the information that you're interested in.
@@ -48,7 +41,6 @@ You can customize your dashboard so that you only see the information that you'r
 
 Your dashboard is now customized exactly as you want it - this isn't fixed though, you can change the dashboard whenever you like. You can click My Dashboard from anywhere in Alfresco Share to take a look at your dashboard.
 
-This video shows the steps in the tutorial.
 
   
 
@@ -74,9 +66,7 @@ When your colleagues view your profile they'll see all the details you've entere
 
 ![My Profile]({% link content-services/images/gs-my-profile.png %})
 
-This video shows the steps in the tutorial.
 
-  
 
 
 ## Your profile and dashboard {#your-profile-and-dashboard}
@@ -84,23 +74,6 @@ This video shows the steps in the tutorial.
 You can customize your user profile and dashboard however you like without affecting anyone else - you're the only person that sees your dashboard.
 
 Some of your user profile details are visible to your colleagues so it's good to keep these details up to date.
-
--   **[Customizing your dashboard](#customizing-your-dashboard)**  
-You can change the layout of your dashboard and choose from a number of dashlets to show the information you want to see.
--   **[Setting your home page](#setting-your-home-page)**  
-Your default Alfresco Share home page is your user dashboard, but you can set it to be any page in Share that you have access to.
--   **[Updating your profile](#updating-your-profile)**  
- User profiles help you to identify a user's roles and responsibilities, or even find out who's who in your organization by checking profile pictures.
--   **[Following people](#following-people)**  
-You can follow users you're interested in so that you can easily keep track of what they've been working on.
--   **[Controlling your email notifications](#controlling-your-email-notifications)**  
-Choose whether or not you want to receive notifications by email. The emails keep you up to date on events such as recent site activities.
--   **[Disabling site activity notifications](#disabling-site-activity-notifications)**  
-You can disable site activity feeds so that updates from specific sites aren't included in your email notifications or the My Activities dashlet on your dashboard.
--   **[Changing your password](#changing-your-password)**  
-Change your password for increased security.
-
-
 
 ## Customizing your dashboard {#customizing-your-dashboard}
 
@@ -134,13 +107,7 @@ If you want, add multiple copies of each dashlet and then set the filters so tha
 
     >**Tip:** On your dashboard you can resize most dashlets - just click on the bottom of a dashlet then drag up and down to resize it.
 
-
-This video shows you how to customize your dashboard.
-
-  
-
-
-## Setting your home page {#setting-your-home-page}
+## Setting your home page {#sethomepage}
 
 Your default Alfresco Share home page is your user dashboard, but you can set it to be any page in Share that you have access to.
 
@@ -157,11 +124,6 @@ This can save you time if most of your work is done from a specific Share locati
     You can still click your name then **User Dashboard** to go to your dashboard.
 
     > **Note:** Sometimes the home page you've selected could become unavailable, for example, if you select a site dashboard as your home page and the site is then deleted. If this happens we'll notify you that you need to select a new home page.
-
-
-This video shows you how to set your homepage.
-
-  
 
 
 ## Updating your profile {#updating-your-profile}
@@ -182,13 +144,9 @@ When you click on your name at the top of the screen a menu opens where you can 
 
 3.  Click **Home** and you can see the updated details in the **My Profile** dashlet.
 
-
 When your colleagues view your profile they'll see all the details you've entered and know exactly what you're working on.
 
 This video show you how to edit your user profile.
-
-  
-
 
 ## Following people {#following-people}
 
@@ -214,7 +172,6 @@ You can follow users you're interested in so that you can easily keep track of w
 
 5.  Click **Unfollow** to stop following someone.
 
-
 ## Controlling your email notifications {#controlling-your-email-notifications}
 
 Choose whether or not you want to receive notifications by email. The emails keep you up to date on events such as recent site activities.
@@ -230,7 +187,6 @@ Choose whether or not you want to receive notifications by email. The emails kee
 4.  Click **OK**.
 
     > **Note:** You can also enable and disable the notifications for specific sites on the My Profile **Sites** page.
-
 
 ## Disabling site activity notifications {#disabling-site-activity-notifications}
 
@@ -248,8 +204,6 @@ You can disable site activity feeds so that updates from specific sites aren't i
 
     > **Note:** The My Documents dashlet will still display details of content from the sites you've disabled feeds for.
 
-
-
 ## Changing your password {#changing-your-password}
 
 Change your password for increased security.
@@ -265,5 +219,3 @@ Change your password for increased security.
     Your password must be at least ten characters long and use a combination of uppercase and lowercase letters, numbers, and symbols.
 
 4.  Click **OK**.
-
-

@@ -44,7 +44,7 @@ The Process Service element types that are supported for import are:
 | --------------------- | ----------------------- | ----- |
 | Script task | [Script task]({% link process-automation/latest/model/processes/bpmn.md %}#script-task) | A script and a script task will be created for each script. {::nomarkdown}<ul><li>Only Javascript is supported.</li><li>Multi-instance is not supported.</li><li>Execution listeners removed.</li><li> Asynchronous option removed.</li><li>Exclusive option removed.</li><li>Is for compensation option removed.</li><li>A script task is created as a service task in Process Automation.</ul>{:/} |
 | User task | [User task]({% link process-automation/latest/model/processes/bpmn.md %}#user-task) | A user task will be created for each user task. {::nomarkdown}<ul><li>Forms are not supported.</li><li>Date format is a fixed date.</li><li>Due date is not supported.</li><li><code>Initiator</code> is set as the assignee in Process Automation.</li><li>Category option removed.</li><li>Exclusive option removed.</li><li>Allow email notifications option removed.</li><li>Email template option removed.</li><li>Task and execution listeners removed.</li><li>Asynchronous option removed.</li></ul>{:/} |
-| Mail task | [Email connector]({% link process-automation/latest/model/connectors/email.md %}) | An instance of the email connector is created and an email connector task is created for each mail task. {::nomarkdown}<ul><li>A single email connector instance is created for all mail tasks that are imported.</li><li>Some connector parameters are imported from Process Services, whilst others need to be set.</li><li>All parameters will need to be mapped between process variables.</li><li>Connector needs to be configured.</li><li>Multi-instance is not supported.</li><li>Execution listeners removed.</li><li> Asynchronous option removed.</li><li>Exclusive option removed.</li><li>Is for compensation option removed.</li><li>Any JSON templates will not be imported.</li></ul>{:/} |
+| Mail task | [Email service]({% link process-automation/latest/model/connectors/email.md %}) | An instance of the email service is created and an email service task is created for each mail task. {::nomarkdown}<ul><li>A single email service instance is created for all mail tasks that are imported.</li><li>Some connector parameters are imported from Process Services, whilst others need to be set.</li><li>All parameters will need to be mapped between process variables.</li><li>Connector needs to be configured.</li><li>Multi-instance is not supported.</li><li>Execution listeners removed.</li><li> Asynchronous option removed.</li><li>Exclusive option removed.</li><li>Is for compensation option removed.</li><li>Any JSON templates will not be imported.</li></ul>{:/} |
 | REST call task | [REST connector]({% link process-automation/latest/model/connectors/rest.md %}) | An instance of the REST connector is created and a REST connector task is created for each REST call task. {::nomarkdown}<ul><li>A single REST connector instance is created for all REST call tasks that are imported.</li><li>Some connector parameters are imported from Process Services, whilst others need to be set.</li><li>All parameters will need to be mapped between process variables.</li><li>Connector needs to be configured.</li><li>Multi-instance is not supported.</li><li>Execution listeners removed.</li><li> Asynchronous option removed.</li><li>Exclusive option removed.</li><li>Is for compensation option removed.</li></ul>{:/} |
 
 ## Diagrams
@@ -81,9 +81,10 @@ The properties for a process definition are:
 | Property | Description |
 | -------- | ----------- |
 | Process ID | *Required.* The unique identifier for a process definition. This is system generated and cannot be altered, for example `Process_1w18m9x`. |
-| Process definition name | *Required.* The name of the process definition. Process definition names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically, for example `request-process` |
+| Process definition name | *Required.* The name of the process definition. Process definition names must be between 1 and 26 characters in length, they can also contain spaces, numbers, and consist of lower and upper case letters, for example `Request Process`. |
 | Executable | *Required.* If set as `false` then the process definition will be deployed at runtime but it will not be possible to create any process instances using it. The default value is `true`. |
 | Documentation | *Optional.* A free text description of what the process definition does, for example `A process to request stock orders`. |
+| Process Category | *Optional.* Enter a free text description of your process categories. When creating a process you can either create a new process category or select one you have already created that appears in the dropdown list. When you use the **Diagram Editor** you can see the process category a process is assigned to under the Category property heading.  |
 
 ### Process definition XML
 
@@ -149,15 +150,15 @@ The data types that a process variable can be set as are:
 
 | Type | Description |
 | ---- | ----------- |
-| String | A sequence of characters, for example `#Mint-Ice-Cream-4!` |
-| Integer | A positive whole number, for example `642` |
-| Boolean | A value of either `true` or `false` |
-| Date | A specific date in the format `YYYY-MM-DD`, for example `2020-04-22` |
-| Datetime | A specific date and time in the format `YYYY-MM-DD HH:mm:ss`, for example `2020-09-10 22:30:00` |
-| File | A [file]({% link process-automation/latest/model/files.md %}) uploaded into a process definition or as part of a process instance or task |
-| JSON | A JSON object, for example `{"flavor" : "caramel"}` |
-| Folder | A folder object described as JSON, for example `"name": "mint-folder"` |
-| Array | A comma separated list of entries, for example `mint, strawberry, vanilla` that will be formatted to `["mint","strawberry","vanilla"]` |
+| String | A sequence of characters, for example `#Mint-Ice-Cream-4!`. |
+| Integer | A positive whole number, for example `642`. |
+| Boolean | A value of either `true` or `false`. |
+| Date | A specific date in the format `YYYY-MM-DD`, for example `2020-04-22`. You can also select `Today` from the Value column, which will take the form `${now()}` in the Expression column. |
+| Datetime | A specific date and time in the format `YYYY-MM-DD HH:mm:ss`, for example `2020-09-10 22:30:00`. |
+| File | A [file]({% link process-automation/latest/model/files.md %}) uploaded into a process definition or as part of a process instance or task. |
+| JSON | A JSON object, for example `{"flavor" : "caramel"}`. |
+| Folder | A folder object described as JSON, for example `"name": "mint-folder"`. |
+| Array | A comma separated list of entries, for example `mint, strawberry, vanilla` that will be formatted to `["mint","strawberry","vanilla"]`. |
 
 ### Create a process variable
 
@@ -239,7 +240,7 @@ At runtime, the value for the process variable `Total` will be sent as the input
 
 **Map all input variables** will automatically map the values of process variables to values or variables within a model if their names are identical. Outputs are not mapped at all, so there will be no transfer of data from the model, back to process variables.
 
-For example, if **Map all input variables** is selected for an instance of the email connector, process variables named `to`, `subject` and `text` can be used to automatically set the values for the recipient, subject and message in the connector. No output variables are required to be sent back to the process as the execution of the email connector is always treated as successful.
+For example, if **Map all input variables** is selected for an instance of the email service, process variables named `to`, `subject` and `text` can be used to automatically set the values for the recipient, subject and message in the connector. No output variables are required to be sent back to the process as the execution of the email service is always treated as successful.
 
 {% endcapture %}
 {% capture outputs %}

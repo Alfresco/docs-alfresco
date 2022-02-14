@@ -139,6 +139,13 @@ nav.navbar .navbar-lang {
   font-weight: 500;
 }
 
+.navbar-item .icon-logo {
+    display: block;
+    width: 345px;
+    height: 66px;
+    padding: 0;
+}
+
 .navbar-dropdown .column h1,
 .navbar-dropdown .column .navbar-item {
   padding: 0px;

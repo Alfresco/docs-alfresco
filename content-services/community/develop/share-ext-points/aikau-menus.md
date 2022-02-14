@@ -79,7 +79,7 @@ widget. Once we have it, we simply push a widget into it.
 * [Customizing the Admin Tools Menu]({% link content-services/community/tutorial/share/header.md %}#customizeadmintoolsmenu)
 * [Customizing the Sites Menu]({% link content-services/community/tutorial/share/header.md %}#customsitesmenu)
 * [Removing Menu Items]({% link content-services/community/tutorial/share/header.md %}#removemenuitem)
-* [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters){:target="_blank"}
+* [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/tree/master/tutorial/chapters){:target="_blank"}
 
 ## Developer Blogs
 

@@ -11,6 +11,7 @@ defaults:
       tutorial: true
       support: true
       versions:
+        - 7.1
         - 7.0
         - 6.2
         - 6.1
@@ -19,10 +20,19 @@ defaults:
   - scope:
       path: "content-services/latest"
     values:
-      version: 7.0
+      version: 7.1
       latest: true
+      release: true
   - scope:
       path: "content-services/latest/tutorial"
+    values:
+      toc: "content-services-tutorial"
+  - scope:
+      path: "content-services/7.0"
+    values:
+      version: 7.0
+  - scope:
+      path: "content-services/7.0/tutorial"
     values:
       toc: "content-services-tutorial"
   - scope:
@@ -77,6 +87,10 @@ defaults:
       toc: "digital-workspace"
       support: true
       versions:
+        - 2.6
+        - 2.5
+        - 2.4
+        - 2.3
         - 2.2
         - 2.1
         - 2.0
@@ -85,8 +99,24 @@ defaults:
   - scope:
       path: "digital-workspace/latest"
     values:
-      version: 2.2
+      version: 2.6
       latest: true
+  - scope:
+      path: "digital-workspace/2.5"
+    values:
+      version: 2.5   
+  - scope:
+      path: "digital-workspace/2.4"
+    values:
+      version: 2.4   
+  - scope:
+      path: "digital-workspace/2.3"
+    values:
+      version: 2.3    
+  - scope:
+      path: "digital-workspace/2.2"
+    values:
+      version: 2.2    
   - scope:
       path: "digital-workspace/2.1"
     values:
@@ -151,14 +181,19 @@ defaults:
       toc: "aws-glacier"
       support: true
       versions:
+        - 2.2
         - 2.1
         - 2.0
         - 1.0
   - scope:
       path: "aws-glacier/latest"
     values:
-      version: 2.1
+      version: 2.2
       latest: true
+  - scope:
+      path: "aws-glacier/2.1"
+    values:
+      version: 2.1
   - scope:
       path: "aws-glacier/2.0"
     values:
@@ -178,6 +213,7 @@ defaults:
       toc: "microsoft-azure"
       support: true
       versions:
+        - 2.1
         - 2.0
         - 1.2
         - 1.1
@@ -185,8 +221,12 @@ defaults:
   - scope:
       path: "microsoft-azure/latest"
     values:
-      version: 2.0
+      version: 2.1
       latest: true
+  - scope:
+      path: "microsoft-azure/2.0"
+    values:
+      version: 2.0
   - scope:
       path: "microsoft-azure/1.2"
     values:
@@ -227,17 +267,19 @@ defaults:
     values:
       version: 2.1
 
-# Alfresco Identity Service
+# Identity Service
   - scope:
       path: "identity-service"
     values:
       layout: "docs"
-      product: "Alfresco Identity Service"
+      product: "Identity Service"
       location: "identity-service"
       toc: "identity-service"
       support: true
       tutorial: true
       versions:
+        - 1.6
+        - 1.5
         - 1.4
         - 1.3
         - 1.2
@@ -246,10 +288,26 @@ defaults:
   - scope:
       path: "identity-service/latest"
     values:
-      version: 1.4
+      version: 1.6
       latest: true
   - scope:
       path: "identity-service/latest/tutorial"
+    values:
+      toc: "identity-service-tutorial"
+  - scope:
+      path: "identity-service/1.5"
+    values:
+      version: 1.5
+  - scope:
+      path: "identity-service/1.5/tutorial"
+    values:
+      toc: "identity-service-tutorial"
+  - scope:
+      path: "identity-service/1.5"
+    values:
+      version: 1.4
+  - scope:
+      path: "identity-service/1.4/tutorial"
     values:
       toc: "identity-service-tutorial"
   - scope:
@@ -281,7 +339,7 @@ defaults:
     values:
       version: 1.0
       tutorial: false
-
+      
 # Alfresco Desktop Sync
   - scope:
       path: "desktop-sync"
@@ -325,6 +383,7 @@ defaults:
       tutorial: true
       support: true
       versions:
+        - 7.1
         - 3.5
         - 3.4
         - 3.3
@@ -334,10 +393,18 @@ defaults:
   - scope:
       path: "governance-services/latest"
     values:
-      version: 3.5
+      version: 7.1
       latest: true
   - scope:
       path: "governance-services/latest/tutorial"
+    values:
+      toc: "governance-services-tutorial"
+  - scope:
+      path: "governance-services/3.5"
+    values:
+      version: 3.5
+  - scope:
+      path: "governance-services/3.5/tutorial"
     values:
       toc: "governance-services-tutorial"
   - scope:
@@ -400,14 +467,29 @@ defaults:
       toc: "process-services"
       support: true
       versions:
+        - 2.2
+        - 2.1
+        - 2.0 
         - 1.11
         - "1.10"
         - 1.9
   - scope:
       path: "process-services/latest"
     values:
-      version: 1.11
+      version: 2.2
       latest: true
+  - scope:
+      path: "process-services/2.1"
+    values:
+      version: 2.1
+  - scope:
+      path: "process-services/2.0"
+    values:
+      version: 2.0
+  - scope:
+      path: "process-services/1.11"
+    values:
+      version: 1.11
   - scope:
       path: "process-services/1.10"
     values:
@@ -427,9 +509,15 @@ defaults:
       toc: "transformation-engine"
       support: true
       versions:
+        - 2.3
         - 2.2
   - scope:
       path: "transformation-engine/latest"
+    values:
+      version: 2.3
+      latest: true
+  - scope:
+      path: "transformation-engine/2.2"
     values:
       version: 2.2
       latest: true
@@ -444,6 +532,7 @@ defaults:
       toc: "aws-s3"
       support: true
       versions:
+        - 4.1
         - 4.0
         - 3.1
         - 3.0
@@ -452,8 +541,12 @@ defaults:
   - scope:
       path: "aws-s3/latest"
     values:
-      version: 4.0
+      version: 4.1
       latest: true
+  - scope:
+      path: "aws-s3/4.0"
+    values:
+      version: 4.0
   - scope:
       path: "aws-s3/3.1"
     values:
@@ -493,6 +586,23 @@ defaults:
     values:
       version: 1.0
       
+  # Alfresco Collaboration Connector for Teams
+  - scope:
+      path: "microsoft-teams"
+    values:
+      layout: "docs"
+      product: "Alfresco Collaboration Connector for Teams"
+      location: "microsoft-teams"
+      toc: "microsoft-teams"
+      support: true
+      versions:
+        - 1.0
+  - scope:
+      path: "microsoft-teams/latest"
+    values:
+      version: 1.0
+      latest: true
+
 # Alfresco Office Services
   - scope:
       path: "microsoft-office"
@@ -535,6 +645,7 @@ defaults:
       toc: "transform-service"
       support: true
       versions:
+        - 1.5
         - 1.4
         - 1.3
         - 1.2
@@ -543,8 +654,12 @@ defaults:
   - scope:
       path: "transform-service/latest"
     values:
-      version: 1.4
+      version: 1.5
       latest: true
+  - scope:
+      path: "transform-service/1.4"
+    values:
+      version: 1.4
   - scope:
       path: "transform-service/1.3"
     values:
@@ -634,13 +749,18 @@ defaults:
       toc: "sap"
       support: true
       versions:
+        - 5.2
         - 5.1
         - 5.0
   - scope:
       path: "sap/latest"
     values:
-      version: 5.1
+      version: 5.2
       latest: true
+  - scope:
+      path: "sap/5.1"
+    values:
+      version: 5.1
   - scope:
       path: "sap/5.0"
     values:
@@ -656,12 +776,22 @@ defaults:
       toc: "sap-cloud"
       support: true
       versions:
+        - 1.2
+        - 1.1
         - 1.0
   - scope:
       path: "sap-cloud/latest"
     values:
-      version: 1.0
+      version: 1.2
       latest: true
+  - scope:
+      path: "sap-cloud/1.1"
+    values:
+      version: 1.1
+  - scope:
+      path: "sap-cloud/1.0"
+    values:
+      version: 1.0
 
 # Alfresco ECM Centera
   - scope:
@@ -705,17 +835,66 @@ defaults:
       toc: "federation-services"
       support: true
       versions:
+        - 2.0
         - 1.1
         - 1.0
   - scope:
       path: "federation-services/latest"
     values:
-      version: 1.1
+      version: 2.0
       latest: true
+  - scope:
+      path: "federation-services/1.1"
+    values:
+      version: 1.1
   - scope:
       path: "federation-services/1.0"
     values:
       version: 1.0
+
+# Alfresco Search Enterprise
+  - scope:
+      path: "search-enterprise"
+    values:
+      layout: "docs"
+      product: "Alfresco Search Enterprise"
+      location: "search-enterprise"
+      toc: "search-enterprise"
+      support: true
+      versions:
+        - 3.0
+  - scope:
+      path: "search-enterprise/latest"
+    values:
+      version: 3.0
+      latest: true
+
+# Alfresco Search Services
+  - scope:
+      path: "search-services"
+    values:
+      layout: "docs"
+      product: "Alfresco Search Services"
+      location: "search-services"
+      toc: "search-services"
+      support: true
+      versions:
+        - 2.0
+        - 1.4
+        - 1.3
+  - scope:
+      path: "search-services/latest"
+    values:
+      version: 2.0
+      latest: true
+  - scope:
+      path: "search-services/1.4"
+    values:
+      version: 1.4
+  - scope:
+      path: "search-services/1.3"
+    values:
+      version: 1.3
 
 # Alfresco Search and Insight Engine
   - scope:
@@ -749,33 +928,6 @@ defaults:
     values:
       version: 1.0
 
-# Alfresco Search Services
-  - scope:
-      path: "search-services"
-    values:
-      layout: "docs"
-      product: "Alfresco Search Services"
-      location: "search-services"
-      toc: "search-services"
-      support: true
-      versions:
-        - 2.0
-        - 1.4
-        - 1.3
-  - scope:
-      path: "search-services/latest"
-    values:
-      version: 2.0
-      latest: true
-  - scope:
-      path: "search-services/1.4"
-    values:
-      version: 1.4
-  - scope:
-      path: "search-services/1.3"
-    values:
-      version: 1.3
-
 # Alfresco Sync Service
   - scope:
       path: "sync-service"
@@ -786,6 +938,7 @@ defaults:
       toc: "sync-service"
       support: true
       versions:
+        - 3.5
         - 3.4
         - 3.3
         - 3.2
@@ -794,8 +947,12 @@ defaults:
   - scope:
       path: "sync-service/latest"
     values:
-      version: 3.4
+      version: 3.5
       latest: true
+  - scope:
+      path: "sync-service/3.4"
+    values:
+      version: 3.4
   - scope:
       path: "sync-service/3.3"
     values:
@@ -823,6 +980,7 @@ defaults:
       toc: "intelligence-services"
       support: true
       versions:
+        - 1.4
         - 1.3
         - 1.2
         - 1.1
@@ -830,8 +988,12 @@ defaults:
   - scope:
       path: "intelligence-services/latest"
     values:
-      version: 1.3
+      version: 1.4
       latest: true
+  - scope:
+      path: "intelligence-services/1.3"
+    values:
+      version: 1.3
   - scope:
       path: "intelligence-services/1.2"
     values:
@@ -956,13 +1118,15 @@ elasticsearch:
 exclude:
   - redirects/
   - .github/
+  - .idea/
+  - .jekyll-cache/
+  - _site/
   - README.md
   - README.markdown
   - Dockerfile
   - docker-compose.yml
   - .gitignore
   # - .sass-cache/
-  - .jekyll-cache/
   # - gemfiles/
   - Gemfile
   - Gemfile.lock

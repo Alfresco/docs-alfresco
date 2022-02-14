@@ -5,9 +5,11 @@
       path: '/support/latest/'
     - title: 'Support Packages'
       path: '/support/latest/packages/'
+    - title: "Premier Services"
+      path: '/support/latest/premier/'
     - title: 'Roles and Responsibilities'
       path: '/support/latest/roles/'
-    - title: 'Contact Alfresco Support'
+    - title: 'Contact Hyland Support'
       path: '/support/latest/contact/'
       pages:
         - title: 'Support Issue Resources and Case Logging'
@@ -43,8 +45,6 @@
           path: '/support/latest/policies/enhancement/'
         - title: 'Extensions and Integrations Support'
           path: '/support/latest/policies/amp/'
-        - title: 'Premier Support Policy'
-          path: '/support/latest/policies/premier/'
     - title: 'Resources'
       path: '/support/latest/resources/'
       pages:
