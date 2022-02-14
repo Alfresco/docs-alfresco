@@ -13,7 +13,7 @@ The basic properties of creating authentication are:
 | Authentication name | *Required.* The name used to identify the authentication. The name must be in lowercase and be between one and 26 characters in length, for example `token1auth`. |
 | Authentication description | *Optional.* A description of the authentication. This can be your identity provider, for example 'Keycloak authentication used'. |
 | Authentication type | *Required.* Select the type of authentication, for example `basic`. |
-| Secured | *Optional.* You can secure the authentication by entering a username and password. These credentials must be used when contacting the external API.`|
+| Secured | Optional. When selected credentials are defined during deployment time, or de-select the checkbox to provide them during modeling time. These credentials are used when contacting the external API. **Note:** All the configuration parameters can be overridden at deployment time. |
 
 ## Create authentication
 
