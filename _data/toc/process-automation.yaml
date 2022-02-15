@@ -48,7 +48,7 @@
             - title: 'Microsoft Teams'
               path: '/process-automation/latest/model/connectors/teams/'
         - title: 'Authentication'
-          path: '/process-automation/latest/model/Authentication/'
+          path: '/process-automation/latest/model/authentication/'
         - title: 'Decision tables'
           path: '/process-automation/latest/model/decisions/'
         - title: 'User interfaces'
