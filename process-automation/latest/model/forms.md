@@ -204,8 +204,6 @@ To create a conditional relationship between two dropdown fields using Country a
 
 5. Select Country from the **Depends on** dropdown list.
 
-    **Note:** Once a dropdown widget is a child of another dropdown widget, you cannot make it the parent of another dropdown widget. A parent dropdown widget is able to be the parent of more than one child.
-
 6. Select the Country dropdown widget and click the **Advanced** tab.
 
 7. Add a name for the label and then add all the Countries using the **Add option** field.
@@ -213,6 +211,8 @@ To create a conditional relationship between two dropdown fields using Country a
 8. Select the City dropdown widget again and click the **Advanced** tab.
 
 9. From the **If equal** drop down list select the Country you want to work with and then add all the cities you would like available in the drop down list.
+
+**Note:** You can link as many dropdowns as you want.
 
 When using **REST Service** you can use the ID of the linked widget in the REST URL. For example, if your URL is `https://mydomain.com/get-cities/country=${Country}` the value inside `${}` is the ID of the linked widget. If my widget had an ID called `my-dropdown` your URL would be `https://mydomain.com/get-cities/country=${my-dropdown}`.
 The `${my-dropdown-id}` can be used in any position of the URL, for example you can also use `https://mydomain.com/country=${Country}/get-cities`.
