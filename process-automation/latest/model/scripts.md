@@ -98,20 +98,146 @@ variables.totalCost = costOfItem * numberOfOrders;
 
 The value of the script variable `totalCost` can finally be sent back to the process by [mapping it to a process variable]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping).
 
-## Process scripts
+## Binding Providers
 
-Scripts can be used to start a process instance by building a payload.
+A binding provider allows applications to bind Java beans into the script runtime which means they can be accessible from the script code. The following bindings are supported:
 
-For example, use the process definition ID and set the process variables using:
+### Input/Output Variables
+
+To access inbound variables use the binding provider called `variables`. The binding provider creates a link between it and the property in the script.
+
+For example:
 
 ```javascript
-let startProcessInstanceCmd = processPayloadBuilder.start()
-	.withProcessDefinitionKey("Process_GyW7Ekkw")
-	.withVariable("orderNumber": variables.orderNumber)
-	.withVariable("quantity": variables.quantity)
-	.build();
+let cost = variables.cost;
+let taxes = variables.taxes;
+```
+
+The binging provider for outbound variables works in the same way as inbound variables.
+
+For example:
+
+```jAvascript
+ variables.totalCost = cost * (1 + taxes);
+```
+
+### Content APIs
+
+The following content APIs are supported:
+
+* `ActionService`
+* `GroupService`
+* `NodeService`
+* `PeopleService`
+* `QueryService`
+* `SearchService`
+* `SiteService`
+* `TagService`
+
+You can create the object by accessing the API which then allows you to make use of all its methods.
+
+For example:
+
+```javascript
+const nodeBodyCreate = { name: variables.name, nodeType: "cm:folder" };
+const nodeService = new NodeService();
+nodeService.createNode(variables.parentNodeId, nodeBodyCreate);
+```
+
+### Runtime Commands
+
+You can send messages from the script using the  `ProcessPayloadBuilder`,  `TaskPayloadBuilder` and `CommandProducer` binding providers.
+
+For example:
+
+```javascript
+let startProcessInstanceCmd = processPayloadBuilder.start().withProcessDefinitionKey("1af40357-b122-4de1-a031-a71630cbdf33").build();
+
 commandProducer.send(startProcessInstanceCmd);
 ```
+
+### Runtime APIs
+
+The following APIs are supported:
+
+* `ProcessInstanceAdminControllerImplApi`
+* `ProcessInstanceControllerImplApi`
+* `ProcessInstanceTasksControllerImplApi`
+* `ProcessInstanceVariableAdminControllerImplApi`
+* `ProcessInstanceVariableControllerImpl`
+* `TaskAdminControllerImplApi`
+* `TaskControllerImplApi`
+* `TaskVariableAdminControllerImplApi`
+* `TaskVariableControllerImplApi`
+
+Using the following names you can perform all the actions related to the APIs mentioned above:
+
+* `RuntimeProcessInstanceAdminService`: APA Runtime Process Instance Admin Rest API (it includes `ProcessInstanceAdminControllerImplApi`, and `ProcessInstanceVariableAdminControllerImplApi`)
+* `RuntimeProcessInstanceService`: APA Runtime Process Instance Rest API (it includes `ProcessInstanceControllerImplApi`, `ProcessInstanceTasksControllerImplApi`, and `ProcessInstanceVariableControllerImpl`)
+* `RuntimeTaskAdminService`: APA Runtime Task Admin API (it includes `TaskControllerImplApi`, and `TaskVariableAdminControllerImplApi`)
+* `RuntimeTaskService`: APA Runtime Task API (it includes `TaskControllerImplApi`, and `TaskVariableControllerImplApi`)
+
+For example:
+
+```javascript
+const startProcessPayload = { businessKey: variables.businessKey, payloadType: 'StartProcessPayload', processDefinitionKey: variables.processKey, variables: { fileArray: variables.fileArray } };
+const runtimeProcessInstanceService = new RuntimeProcessInstanceService();
+runtimeProcessInstanceService.startProcess(startProcessPayload);
+```
+
+### Query APIs
+
+The following APIs are currently supported:
+
+* `ProcessInstanceAdminControllerApi`
+* `ProcessInstanceControllerApi`
+* `ProcessInstanceDeleteControllerApi`
+* `ProcessInstanceDiagramAdminControllerApi`
+* `ProcessInstanceDiagramControllerApi`
+* `ProcessInstanceServiceTasksAdminControllerApi`
+* `ProcessInstanceTasksControllerApi`
+* `ProcessInstanceVariableAdminControllerApi`
+* `ProcessInstanceVariableControllerApi`
+* `TaskAdminControllerApi`
+* `TaskControllerApi`
+* `TaskVariableAdminControllerApi`
+* `TaskVariableControllerApi`
+
+You can use the following names to perform all the actions related to the APIs indicated above:
+
+* `QueryProcessInstanceAdminService`: APA Query Process Instance Admin Rest API (it includes `ProcessInstanceAdminControllerApi`, `ProcessInstanceDiagramAdminControllerApi`, `ProcessInstanceServiceTasksAdminControllerApi`, and `ProcessInstanceVariableAdminControllerApi`)
+* `QueryProcessInstanceService`: APA Query Process Instance Rest API (it includes `ProcessInstanceControllerApi`, `ProcessInstanceDeleteControllerApi`, `ProcessInstanceDiagramControllerApi`, `ProcessInstanceTasksControllerApi`, and `ProcessInstanceVariableControllerApi`)
+* `QueryTaskAdminService`: APA Query Task Admin API (it includes `TaskAdminControllerApi`, and `TaskVariableAdminControllerApi`)
+* `QueryTaskService`: APA Query Task API (it includes `TaskControllerApi`, and `TaskVariableControllerApi`)
+
+For example:
+
+```javascript
+const queryProcessInstanceAdminService = new QueryProcessInstanceAdminService();
+queryProcessInstanceAdminService.findById('idProcess');
+```
+
+### Form API
+
+The following API is currently supported:
+
+* `FormApi`
+
+You can use the following name to perform all the actions related to the API indicated above:
+
+* `FormService`: APA Form API (it includes `FormApi`)
+
+For example:
+
+```javascript
+const formId = variables.formId;
+const formService = new FormService();
+const form = formService.getFormDefinition(formId);
+```
+
+You can access a demo project found in the [script-tests](./doc/script-tests.zip) documentation. You can test the scripts capabilities by importing it into the `Modeling-app`.
+
+**Note:** The examples in the documentation that use `groupsApi` and `nodesApi` require the script client to be in the `ALFRESCO_ADMINISTRATORS` group to work.
 
 ## Actions
 
