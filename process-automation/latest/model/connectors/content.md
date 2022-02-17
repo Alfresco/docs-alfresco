@@ -1,14 +1,14 @@
 ---
-title: Content connector 
+title: Content service 
 ---
 
-The content connector is used to execute actions against the Content Services repository. The actions available involve creating, selecting, updating and managing content throughout a process. The content can be uploaded as part of the process, retrieved from the repository or stored in the repository.
+The Content service is used to execute actions against the Content Services repository. The actions available involve creating, selecting, updating and managing content throughout a process. The content can be uploaded as part of the process, retrieved from the repository or stored in the repository.
 
-All content connector actions are displayed on the process diagram with the Alfresco logo.
+All Content service actions are displayed on the process diagram with the Alfresco logo.
 
-## Create a content connector task
+## Create a Content service task
 
-Content connectors are stored separately in the palette from other connectors. To create a content connector:
+Content services are stored separately in the palette from other connectors. To create a Content service:
 
 1. Sign into the Modeling Application and open a project and process.
 
@@ -16,29 +16,29 @@ Content connectors are stored separately in the palette from other connectors. T
 
 3. The option to use an existing instance of the connector or create a new one will display.
 
-    * **Create a new instance** if it is the first time using the content connector within the project and give it a name.
+    * **Create a new instance** if it is the first time using the Content service within the project and give it a name.
 
-    * Select an existing instance if the content connector has already been used within the project.
+    * Select an existing instance if the Content service has already been used within the project.
 
 4. Drag the action onto the diagram canvas and fill in the properties.
 
-> **Note**: The content connector does not have any [configuration parameters]({% link process-automation/latest/model/connectors/index.md %}#configuration-parameters) as it connects directly to the Content Services repository. This means that only a single instance of the connector is required per project.
+> **Note**: The Content service does not have any [configuration parameters]({% link process-automation/latest/model/connectors/index.md %}#configuration-parameters) as it connects directly to the Content Services repository. This means that only a single instance of the connector is required per project.
 
 ## Properties
 
-The content connector is implemented as a [service task]({% link process-automation/latest/model/processes/bpmn.md %}#service-task). All the properties available to a service task are those required by the content connector. The three most important ones to understand for the content connector are:
+The Content service is implemented as a [service task]({% link process-automation/latest/model/processes/bpmn.md %}#service-task). All the properties available to a service task are those required by the Content service. The three most important ones to understand for the Content service are:
 
 | Property | Description |
 | -------- | ----------- |
 | Implementation | *Required.* Displays the name of the connector the task is using. This will be the name chosen when creating a connector instance. |
-| Action | *Required.* Selects which action the content connector task should execute, for example `SELECT_FILE`. |
+| Action | *Required.* Selects which action the Content service task should execute, for example `SELECT_FILE`. |
 | Mapping type | *Required.* Sets how data should be passed between the connector and the process by mapping the [input and output parameters]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping). For example, setting the details of the file to select and which process variable will store it. |
 
 ### Parameter precedence
 
 When using actions to manage content within a process it is important to understand the precedence of their parameters.
 
-Files and folders can all be selected in multiple ways for each action. The following order dictates which parameter will be used if multiple parameters are passed to the content connector:
+Files and folders can all be selected in multiple ways for each action. The following order dictates which parameter will be used if multiple parameters are passed to the Content service:
 
 **nodeId / fileId / folderId** > **file / folder** > **path / filePath / folderPath** > **searchQuery**
 
@@ -686,7 +686,7 @@ The output parameters from deleting a folder are:
 
 ## Errors
 
-The possible [errors]({% link process-automation/latest/model/connectors/index.md %}#errors) that can be handled by the content connector are:
+The possible [errors]({% link process-automation/latest/model/connectors/index.md %}#errors) that can be handled by the Content service are:
 
 | Error | Description |
 | ----- | ----------- |
