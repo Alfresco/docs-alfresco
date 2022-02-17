@@ -176,7 +176,7 @@ Display value fields do not have the `Read-only`, `Placeholder`, and `Required?`
 
 Dropdown fields allow the form designer to define a set of options a form filler must choose from a list. This list can be a manually entered set of options or it can read from a REST service.
 
-The advanced properties for a manual dropdown field allow for a set of options to be entered with a `name` and `id` for each option set. Selecting the radio button next to an option will set it as the `empty value`. An empty value` is taken to mean the field is empty if this option is selected when the form is filled in.
+The advanced properties for a manual dropdown field allow for a set of options to be entered with a `name` and `id` for each option set. Selecting the radio button next to an option will set it as the `empty value`. An empty value is taken to mean the field is empty if this option is selected when the form is filled in.
 
 The advanced properties for a REST dropdown field are:
 
