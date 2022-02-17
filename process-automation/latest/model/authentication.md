@@ -27,9 +27,11 @@ To create authentication:
 
    Optionally, enter a description for the authentication.
 
-4. Select an authentication type from the drop list.
+4. Select an authentication type from the dropdown list.
 
-   Optionally, deselect **Secured** so you can enter a username and password that is used when contacting the API. 
+   **Note:** Basic authentication is the only authentication type currently supported.
+
+   Optionally, deselect **Secured** so you can enter a username and password that is used when contacting the API.
 
 ## Authentication
 
