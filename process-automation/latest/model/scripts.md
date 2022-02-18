@@ -152,8 +152,8 @@ The following APIs are supported:
 
 Using the following names you can perform all the actions related to the APIs mentioned above:
 
-* `RuntimeProcessInstanceAdminService`: APA Runtime Process Instance Admin Rest API (it includes `ProcessInstanceAdminControllerImplApi`, and `ProcessInstanceVariableAdminControllerImplApi`)
-* `RuntimeProcessInstanceService`: APA Runtime Process Instance Rest API (it includes `ProcessInstanceControllerImplApi`, `ProcessInstanceTasksControllerImplApi`, and `ProcessInstanceVariableControllerImpl`)
+* `RuntimeProcessInstanceAdminService`: APA Runtime Process Instance Admin REST API (it includes `ProcessInstanceAdminControllerImplApi`, and `ProcessInstanceVariableAdminControllerImplApi`)
+* `RuntimeProcessInstanceService`: APA Runtime Process Instance REST API (it includes `ProcessInstanceControllerImplApi`, `ProcessInstanceTasksControllerImplApi`, and `ProcessInstanceVariableControllerImpl`)
 * `RuntimeTaskAdminService`: APA Runtime Task Admin API (it includes `TaskControllerImplApi`, and `TaskVariableAdminControllerImplApi`)
 * `RuntimeTaskService`: APA Runtime Task API (it includes `TaskControllerImplApi`, and `TaskVariableControllerImplApi`)
 
@@ -185,8 +185,8 @@ The following APIs are currently supported:
 
 You can use the following names to perform all the actions related to the APIs indicated above:
 
-* `QueryProcessInstanceAdminService`: APA Query Process Instance Admin Rest API (it includes `ProcessInstanceAdminControllerApi`, `ProcessInstanceDiagramAdminControllerApi`, `ProcessInstanceServiceTasksAdminControllerApi`, and `ProcessInstanceVariableAdminControllerApi`)
-* `QueryProcessInstanceService`: APA Query Process Instance Rest API (it includes `ProcessInstanceControllerApi`, `ProcessInstanceDeleteControllerApi`, `ProcessInstanceDiagramControllerApi`, `ProcessInstanceTasksControllerApi`, and `ProcessInstanceVariableControllerApi`)
+* `QueryProcessInstanceAdminService`: APA Query Process Instance Admin REST API (it includes `ProcessInstanceAdminControllerApi`, `ProcessInstanceDiagramAdminControllerApi`, `ProcessInstanceServiceTasksAdminControllerApi`, and `ProcessInstanceVariableAdminControllerApi`)
+* `QueryProcessInstanceService`: APA Query Process Instance REST API (it includes `ProcessInstanceControllerApi`, `ProcessInstanceDeleteControllerApi`, `ProcessInstanceDiagramControllerApi`, `ProcessInstanceTasksControllerApi`, and `ProcessInstanceVariableControllerApi`)
 * `QueryTaskAdminService`: APA Query Task Admin API (it includes `TaskAdminControllerApi`, and `TaskVariableAdminControllerApi`)
 * `QueryTaskService`: APA Query Task API (it includes `TaskControllerApi`, and `TaskVariableControllerApi`)
 
