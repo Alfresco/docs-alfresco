@@ -8,21 +8,15 @@ All Content service actions are displayed on the process diagram with the Alfres
 
 ## Create a Content service task
 
-Content services are stored separately in the palette from other connectors. To create a Content service:
+Content services are stored separately in the palette from other services. To create a Content service:
 
 1. Sign into the Modeling Application and open a project and process.
 
 2. Click the Alfresco logo in the tool palette and select the content action.
 
-3. The option to use an existing instance of the connector or create a new one will display.
+3. Drag the action onto the diagram canvas and fill in the properties.
 
-    * **Create a new instance** if it is the first time using the Content service within the project and give it a name.
-
-    * Select an existing instance if the Content service has already been used within the project.
-
-4. Drag the action onto the diagram canvas and fill in the properties.
-
-> **Note**: The Content service does not have any [configuration parameters]({% link process-automation/latest/model/connectors/index.md %}#configuration-parameters) as it connects directly to the Content Services repository. This means that only a single instance of the connector is required per project.
+> **Note**: The Content service does not have any [configuration parameters]({% link process-automation/latest/model/connectors/index.md %}#configuration-parameters) as it connects directly to the Content Services repository. This means that only a single instance of the service is required per project.
 
 ## Properties
 
@@ -30,9 +24,9 @@ The Content service is implemented as a [service task]({% link process-automatio
 
 | Property | Description |
 | -------- | ----------- |
-| Implementation | *Required.* Displays the name of the connector the task is using. This will be the name chosen when creating a connector instance. |
+| Implementation | *Required.* Displays the name of the service the task is using. This will be the name chosen when creating a service instance. |
 | Action | *Required.* Selects which action the Content service task should execute, for example `SELECT_FILE`. |
-| Mapping type | *Required.* Sets how data should be passed between the connector and the process by mapping the [input and output parameters]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping). For example, setting the details of the file to select and which process variable will store it. |
+| Mapping type | *Required.* Sets how data should be passed between the service and the process by mapping the [input and output parameters]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping). For example, setting the details of the file to select and which process variable will store it. |
 
 ### Parameter precedence
 
@@ -70,7 +64,7 @@ The input parameters to create a file are:
 | targetFileMetadata | Content-Metadata | *Optional.* Metadata to store with the new file. This is a JSON object of key value pairs. See below for an example. |
 | underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `targetFileMetadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. The output `response` will also have its prefixes replaced. This allows the JSON to be used in an expression, for example `${metadata.cm_title}`, whereas `${metadata.cm:title}` is not valid. |
 
-> **Note**: `underscoreMetadata` can be set to `true` and the `targetFileMetadata` input can still use `:` with the connector successfully executing the action. If `underscoreMetadata` is set to `false` and `targetFileMetadata` uses `_` then the connector will fail to execute the action.
+> **Note**: `underscoreMetadata` can be set to `true` and the `targetFileMetadata` input can still use `:` with the service successfully executing the action. If `underscoreMetadata` is set to `false` and `targetFileMetadata` uses `_` then the service will fail to execute the action.
 
 An example of the `targetFileMetadata` that can be sent with the file is:
 
@@ -106,7 +100,7 @@ The input parameters to create a folder are:
 | targetFolderMetadata | Content-Metadata | *Optional.* Metadata to store with the new folder. This is a JSON object of key value pairs. See below for an example. |
 | underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `targetFolderMetadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. The output `response` will also have its prefixes replaced. This allows the JSON to be used in an expression, for example `${metadata.cm_title}`, whereas `${metadata.cm:title}` is not valid. |
 
-> **Note**: `underscoreMetadata` can be set to `true` and the `targetFolderMetadata` input can still use `:` with the connector successfully executing the action. If `underscoreMetadata` is set to `false` and `targetFolderMetadata` uses `_` then the connector will fail to execute the action.
+> **Note**: `underscoreMetadata` can be set to `true` and the `targetFolderMetadata` input can still use `:` with the service successfully executing the action. If `underscoreMetadata` is set to `false` and `targetFolderMetadata` uses `_` then the service will fail to execute the action.
 
 An example of the `targetFolderMetadata` that can be sent with the folder is:
 
@@ -377,7 +371,7 @@ The input parameters to update the metadata of a file or folder are:
 | metadata | Content-Metadata | *Required.* Metadata to update the file or folder with. This is a JSON object of key value pairs. See below for an example. |
 | underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `metadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. The output `response` will also have its prefixes replaced. This allows the JSON to be used in an expression, for example `${metadata.cm_title}`, whereas `${metadata.cm:title}` is not valid. |
 
-> **Note**: `underscoreMetadata` can be set to `true` and the `metadata` input can still use `:` with the connector successfully executing the action. If `underscoreMetadata` is set to `false` and `metadata` uses `_` then the connector will fail to execute the action.
+> **Note**: `underscoreMetadata` can be set to `true` and the `metadata` input can still use `:` with the service successfully executing the action. If `underscoreMetadata` is set to `false` and `metadata` uses `_` then the service will fail to execute the action.
 
 An example of the `metadata` that can be sent with the file or folder is:
 
@@ -473,7 +467,7 @@ The input parameters to add an aspect are:
 | nodeMetadata | Content-Metadata | *Optional.* Metadata to store with the file or folder. This is a JSON object of key value pairs. See below for an example. |
 | underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `nodeMetadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. The output `response` will also have its prefixes replaced. This allows the JSON to be used in an expression, for example `${metadata.cm_title}`, whereas `${metadata.cm:title}` is not valid. |
 
-> **Note**: `underscoreMetadata` can be set to `true` and the `nodeMetadata` input can still use `:` with the connector successfully executing the action. If `underscoreMetadata` is set to `false` and `nodeMetadata` uses `_` then the connector will fail to execute the action.
+> **Note**: `underscoreMetadata` can be set to `true` and the `nodeMetadata` input can still use `:` with the service successfully executing the action. If `underscoreMetadata` is set to `false` and `nodeMetadata` uses `_` then the service will fail to execute the action.
 
 An example of the `nodeMetadata` that can be sent with the file or folder is:
 
@@ -547,7 +541,7 @@ The input parameters to set the type of a file or folder are:
 | nodeMetadata | Content-Metadata | *Optional.* Metadata to store with the file or folder. This is a JSON object of key value pairs. See below for an example. |
 | underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `nodeMetadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. The output `response` will also have its prefixes replaced. This allows the JSON to be used in an expression, for example `${metadata.cm_title}`, whereas `${metadata.cm:title}` is not valid. |
 
-> **Note**: `underscoreMetadata` can be set to `true` and the `nodeMetadata` input can still use `:` with the connector successfully executing the action. If `underscoreMetadata` is set to `false` and `nodeMetadata` uses `_` then the connector will fail to execute the action.
+> **Note**: `underscoreMetadata` can be set to `true` and the `nodeMetadata` input can still use `:` with the service successfully executing the action. If `underscoreMetadata` is set to `false` and `nodeMetadata` uses `_` then the service will fail to execute the action.
 
 An example of the `nodeMetadata` that can be sent with the file or folder is:
 
