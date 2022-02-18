@@ -215,10 +215,6 @@ const formService = new FormService();
 const form = formService.getFormDefinition(formId);
 ```
 
-You can access a demo project found in the [script-tests](./doc/script-tests.zip) documentation. You can test the scripts capabilities by importing it into the `Modeling-app`.
-
-**Note:** The examples in the documentation that use `groupsApi` and `nodesApi` require the script client to be in the `ALFRESCO_ADMINISTRATORS` group to work.
-
 ## Actions
 
 The actions that can be run against a script are:
