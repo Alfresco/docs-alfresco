@@ -98,27 +98,19 @@ variables.totalCost = costOfItem * numberOfOrders;
 
 The value of the script variable `totalCost` can finally be sent back to the process by [mapping it to a process variable]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping).
 
-## Binding Providers
+## Process scripts
 
-A binding provider allows applications to bind Java beans into the script runtime which means they can be accessible from the script code. The following bindings are supported:
+Scripts can be used to start a process instance by building a payload.
 
-### Input/Output Variables
-
-To access inbound variables use the binding provider called `variables`. The binding provider creates a link between it and the property in the script.
-
-For example:
+For example, use the process definition ID and set the process variables using:
 
 ```javascript
-let cost = variables.cost;
-let taxes = variables.taxes;
-```
-
-The binging provider for outbound variables works in the same way as inbound variables.
-
-For example:
-
-```jAvascript
- variables.totalCost = cost * (1 + taxes);
+let startProcessInstanceCmd = processPayloadBuilder.start()
+	.withProcessDefinitionKey("Process_GyW7Ekkw")
+	.withVariable("orderNumber": variables.orderNumber)
+	.withVariable("quantity": variables.quantity)
+	.build();
+commandProducer.send(startProcessInstanceCmd);
 ```
 
 ### Content APIs
@@ -142,18 +134,6 @@ For example:
 const nodeBodyCreate = { name: variables.name, nodeType: "cm:folder" };
 const nodeService = new NodeService();
 nodeService.createNode(variables.parentNodeId, nodeBodyCreate);
-```
-
-### Runtime Commands
-
-You can send messages from the script using the  `ProcessPayloadBuilder`,  `TaskPayloadBuilder` and `CommandProducer` binding providers.
-
-For example:
-
-```javascript
-let startProcessInstanceCmd = processPayloadBuilder.start().withProcessDefinitionKey("1af40357-b122-4de1-a031-a71630cbdf33").build();
-
-commandProducer.send(startProcessInstanceCmd);
 ```
 
 ### Runtime APIs
