@@ -32,7 +32,7 @@ The Content service is implemented as a [service task]({% link process-automatio
 | -------- | ----------- |
 | Implementation | *Required.* Displays the name of the service the task is using. This will be **_content-service_**. |
 | Action | *Required.* Selects which action the Content service task should execute, for example `SELECT_FILE`. |
-| Mapping type | *Required.* Sets how data should be passed between the connector and the process by mapping the [input and output parameters]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping). For example, setting the details of the file to select and which process variable will store it. |
+| Mapping type | *Required.* Sets how data should be passed between the service and the process by mapping the [input and output parameters]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping). For example, setting the details of the file to select and which process variable will store it. |
 
 ### Parameter precedence
 
