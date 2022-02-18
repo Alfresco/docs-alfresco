@@ -113,6 +113,108 @@ let startProcessInstanceCmd = processPayloadBuilder.start()
 commandProducer.send(startProcessInstanceCmd);
 ```
 
+### Content APIs
+
+The following content APIs are supported:
+
+* `ActionService`
+* `GroupService`
+* `NodeService`
+* `PeopleService`
+* `QueryService`
+* `SearchService`
+* `SiteService`
+* `TagService`
+
+You can create the object by accessing the API which then allows you to make use of all its methods.
+
+For example:
+
+```javascript
+const nodeBodyCreate = { name: variables.name, nodeType: "cm:folder" };
+const nodeService = new NodeService();
+nodeService.createNode(variables.parentNodeId, nodeBodyCreate);
+```
+
+### Runtime APIs
+
+The following APIs are supported:
+
+* `ProcessInstanceAdminControllerImplApi`
+* `ProcessInstanceControllerImplApi`
+* `ProcessInstanceTasksControllerImplApi`
+* `ProcessInstanceVariableAdminControllerImplApi`
+* `ProcessInstanceVariableControllerImpl`
+* `TaskAdminControllerImplApi`
+* `TaskControllerImplApi`
+* `TaskVariableAdminControllerImplApi`
+* `TaskVariableControllerImplApi`
+
+Using the following names you can perform all the actions related to the APIs mentioned above:
+
+* `RuntimeProcessInstanceAdminService`: APA Runtime Process Instance Admin REST API (it includes `ProcessInstanceAdminControllerImplApi`, and `ProcessInstanceVariableAdminControllerImplApi`)
+* `RuntimeProcessInstanceService`: APA Runtime Process Instance REST API (it includes `ProcessInstanceControllerImplApi`, `ProcessInstanceTasksControllerImplApi`, and `ProcessInstanceVariableControllerImpl`)
+* `RuntimeTaskAdminService`: APA Runtime Task Admin API (it includes `TaskControllerImplApi`, and `TaskVariableAdminControllerImplApi`)
+* `RuntimeTaskService`: APA Runtime Task API (it includes `TaskControllerImplApi`, and `TaskVariableControllerImplApi`)
+
+For example:
+
+```javascript
+const startProcessPayload = { businessKey: variables.businessKey, payloadType: 'StartProcessPayload', processDefinitionKey: variables.processKey, variables: { fileArray: variables.fileArray } };
+const runtimeProcessInstanceService = new RuntimeProcessInstanceService();
+runtimeProcessInstanceService.startProcess(startProcessPayload);
+```
+
+### Query APIs
+
+The following APIs are currently supported:
+
+* `ProcessInstanceAdminControllerApi`
+* `ProcessInstanceControllerApi`
+* `ProcessInstanceDeleteControllerApi`
+* `ProcessInstanceDiagramAdminControllerApi`
+* `ProcessInstanceDiagramControllerApi`
+* `ProcessInstanceServiceTasksAdminControllerApi`
+* `ProcessInstanceTasksControllerApi`
+* `ProcessInstanceVariableAdminControllerApi`
+* `ProcessInstanceVariableControllerApi`
+* `TaskAdminControllerApi`
+* `TaskControllerApi`
+* `TaskVariableAdminControllerApi`
+* `TaskVariableControllerApi`
+
+You can use the following names to perform all the actions related to the APIs indicated above:
+
+* `QueryProcessInstanceAdminService`: APA Query Process Instance Admin REST API (it includes `ProcessInstanceAdminControllerApi`, `ProcessInstanceDiagramAdminControllerApi`, `ProcessInstanceServiceTasksAdminControllerApi`, and `ProcessInstanceVariableAdminControllerApi`)
+* `QueryProcessInstanceService`: APA Query Process Instance REST API (it includes `ProcessInstanceControllerApi`, `ProcessInstanceDeleteControllerApi`, `ProcessInstanceDiagramControllerApi`, `ProcessInstanceTasksControllerApi`, and `ProcessInstanceVariableControllerApi`)
+* `QueryTaskAdminService`: APA Query Task Admin API (it includes `TaskAdminControllerApi`, and `TaskVariableAdminControllerApi`)
+* `QueryTaskService`: APA Query Task API (it includes `TaskControllerApi`, and `TaskVariableControllerApi`)
+
+For example:
+
+```javascript
+const queryProcessInstanceAdminService = new QueryProcessInstanceAdminService();
+queryProcessInstanceAdminService.findById('idProcess');
+```
+
+### Form API
+
+The following API is currently supported:
+
+* `FormApi`
+
+You can use the following name to perform all the actions related to the API indicated above:
+
+* `FormService`: APA Form API (it includes `FormApi`)
+
+For example:
+
+```javascript
+const formId = variables.formId;
+const formService = new FormService();
+const form = formService.getFormDefinition(formId);
+```
+
 ## Actions
 
 The actions that can be run against a script are:
