@@ -301,6 +301,7 @@ The advanced properties for a people field are:
 | Property | Description |
 | -------- | ----------- |
 | Mode | Sets whether only a single, or multiple users can be selected. |
+| Select the logged user as default user | Select when you want the logged in user to be pre-populated in the people widget. |
 
 ### Radio buttons
 
