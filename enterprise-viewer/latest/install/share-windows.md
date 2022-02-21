@@ -68,7 +68,7 @@ Ensure that OpenContent is properly installed:
    Create an `opencontent-override-placeholders.properties` file within this directory.
 
 5. Open the `opencontent-override-placeholders.properties` file and set the `FFMPEG.path` property to
-   `FFMPEG.path=FFMPEGHome/bin`.
+   `FFMPEG.path={FFMPEG_HOME}/bin`.
 
 6. In the `opencontent-override-placeholders.properties` file, set the necessary license warning email properties.
 
@@ -132,7 +132,7 @@ Ensure OpenAnnotate is properly installed:
 9. Test: Try to open an Alfresco PDF document via OpenAnnotate, and attempt to make an annotation on the document.
    Document should be successfully rendered within OpenAnnotate, and the annotation is successfully saved.
 
-## Installing the OpenAnnotate Service AMPs
+## Installing the OpenAnnotate Service AMPs into Share
 Ensure that the OpenAnnotate Alfresco integration is properly installed:
 
 1. Navigate to the server with the Tomcat running Alfresco with the OpenAnnotate customizations. If Tomcat is running,
@@ -194,7 +194,8 @@ Ensure that OpenAnnotate’s collaboration features Socket.IO are installed prop
    `uninstall-windows-service.js`, and a `config` directory is created.
 
 4. Navigate to the unzipped directory containing `server.js`, open a command prompt in that directory, run the command
-   `node server.js`.
+   `node server.js`. A Node server starts listening on port `3000` for connections, and the command prompt displays the
+   message *listening on *:3000*
 
 5. To configure SSL, optionally, navigate to the `/config` directory and edit the `collaborationConfig.js`. Change the 
    following lines:
@@ -210,10 +211,10 @@ Ensure that OpenAnnotate’s collaboration features Socket.IO are installed prop
     * `<SSL_KEYFILE_PATH>` is a file path to the SSL Key file on the server.
     * `<SSL_CERTFILE_PATH>` is a file path to the SSL Cert file on the server.
 
-6. In the same console and directory as Step 3, press `Ctrl-C`  then run the command: `node windows-service.js`.
-   A Windows Service named “OpenAnnotate Collaboration Server Service” is installed and started. Node server starts 
-   listening on port 3000 for connections, and the command prompt displays the message 
-   “OpenAnnotate Collaboration Server Service started!”
+6. In the same console and directory as Step 4, press `Ctrl-C`  then run the command: `node windows-service.js`.
+   A Windows Service named *OpenAnnotate Collaboration Server Service* is installed and started. Node server starts 
+   listening on port `3000` for connections, and the command prompt displays the message 
+   *OpenAnnotate Collaboration Server Service started!*
 
 7. Make sure the Tomcat is configured to use the shared folder.
    Open `TOMCAT_HOME/conf/catalina.properties`.

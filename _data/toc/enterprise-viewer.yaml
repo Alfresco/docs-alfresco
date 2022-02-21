@@ -15,5 +15,7 @@
           path: '/enterprise-viewer/latest/install/adf-windows/'
         - title: 'Install into ADF on Linux'
           path: '/enterprise-viewer/latest/install/adf-linux/'
+        - title: 'Install AEV Transformer'
+          path: '/enterprise-viewer/latest/install/aev-transformer/'
     - title: 'Using'
       path: '/enterprise-viewer/latest/using/'
