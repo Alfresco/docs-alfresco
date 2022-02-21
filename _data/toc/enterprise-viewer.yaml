@@ -3,7 +3,17 @@
   pages:
     - title: 'Introduction'
       path: '/enterprise-viewer/latest/'
-    - title: "Install"
-      path: '/enterprise-viewer/latest/install/'
+    - title: 'Install'
+      pages:
+        - title: 'Overview'
+          path: '/enterprise-viewer/latest/install/'
+        - title: 'Install into Share on Windows'
+          path: '/enterprise-viewer/latest/install/share-windows/'
+        - title: 'Install into Share on Linux'
+          path: '/enterprise-viewer/latest/install/share-linux/'
+        - title: 'Install into ADF on Windows'
+          path: '/enterprise-viewer/latest/install/adf-windows/'
+        - title: 'Install into ADF on Linux'
+          path: '/enterprise-viewer/latest/install/adf-linux/'
     - title: 'Using'
       path: '/enterprise-viewer/latest/using/'
