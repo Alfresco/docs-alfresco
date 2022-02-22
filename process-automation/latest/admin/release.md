@@ -202,7 +202,7 @@ To update the runtime version.
 
 ### Logs
 
-You can view Deployment Service Logs, Runtime Bundle Logs, and Process Storage Logs to help understand any issues you may be having with your installation.
+You can view Deployment Service Logs, Runtime Bundle Logs, and Process Storage Logs to help understand any errors you may be having with your installation.
 
 To view the logs.
 
