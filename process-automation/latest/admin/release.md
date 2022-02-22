@@ -212,6 +212,6 @@ To view the logs.
 
 3. Click the three dots next to the application you want review.
 
-4. Select the logs you want to view.
+4. Select **Logs** and then the logs you want to view.
 
 The log text is colour coded. White indicates no issue. Yellow indicates a warning, and Red indicates an error.
