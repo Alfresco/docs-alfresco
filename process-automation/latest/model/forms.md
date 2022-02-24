@@ -214,6 +214,8 @@ To create a conditional relationship between two dropdown fields using Country a
 
 **Note:** You can link as many dropdowns as you want.
 
+When you use dropdown menus in Process Automation you can select multiple entries in one dropdown menu to limit the amount of results in another checkbox.  
+
 When using **REST Service** you can use the ID of the linked widget in the REST URL. For example, if your URL is `https://mydomain.com/get-cities/country=${Country}` the value inside `${}` is the ID of the linked widget. If my widget had an ID called `my-dropdown` your URL would be `https://mydomain.com/get-cities/country=${my-dropdown}`.
 The `${my-dropdown-id}` can be used in any position of the URL, for example you can also use `https://mydomain.com/country=${Country}/get-cities`.
 
