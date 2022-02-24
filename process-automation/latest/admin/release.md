@@ -204,7 +204,7 @@ To update the runtime version.
 
 You can view Deployment Service Logs, Runtime Bundle Logs, and Process Storage Logs to help understand any errors you may be having with your installation. The Deployment Service Logs are always available because they belong to a shared service. The logs use different blue highlighting to indicate the app being viewed. The Runtime Bundle Logs and the Storage Logs are unavailable if the app is not deployed correctly.
 
-To view the logs.
+To view the logs:
 
 1. Log into the Alfresco Admin App.
 
