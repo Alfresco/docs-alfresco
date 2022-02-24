@@ -147,6 +147,20 @@ The **Undeploy** action removes a deployed application.
 
 The **Manage Permissions** option allows for additional users to be granted user or administrator access to an application without having to upgrade it.
 
+### Monitoring
+
+You can monitor the health of your installation by using the Monitoring dashboard. There is a dashboard for each deployed application.
+
+To access the dashboard.
+
+1. Log into the Alfresco Admin App.
+
+2. Expand **Devops** from the left pane and select **Application Instances**.
+
+3. Click the three dots next to the application you want to monitor and select **Monitoring**.
+
+You will see the Monitoring dashboard for the application. Services that are operational have a green dot. Services that are operational but may have some problems have a yellow dot **Note:** Generally these problems fix automatically. Services that are not operating and require assistance have a red dot. Services that have an unknown state have a grey dot.
+
 ### Upgrade
 
 Upgrading an application allows for a new version of a released project to be deployed to an existing application. Tasks and process instances that are in progress and based on a previous application version can still be completed, however any new ones started will use the new model definitions.
