@@ -196,7 +196,7 @@ To update the runtime version.
 
 5. Select the runtime version you want to upgrade to and click **Update runtime version**.
 
-> **Note:** You can also update the runtime version of an application when you upgrade. For more see [Upgrade](#upgrade)
+> **Note:** You can also update the runtime version of an application when you upgrade. For more see [Upgrade](#upgrade).
 
 ![update runtime]({% link process-automation/images/update-runtime.png %})
 
