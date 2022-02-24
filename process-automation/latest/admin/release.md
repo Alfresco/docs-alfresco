@@ -123,7 +123,7 @@ A previously exported deployment descriptor can be imported using the **Import**
 
 The **Application Instances** section displays a list of all deployed applications, and applications currently in the process of being deployed. Applications can have their permissions updated.
 
-> **Reminder**: Projects are referred to as applications when they are deployed.
+> **Reminder:** Projects are referred to as applications when they are deployed.
 
 ### Properties {#application-properties}
 
@@ -196,6 +196,22 @@ To update the runtime version.
 
 5. Select the runtime version you want to upgrade to and click **Update runtime version**.
 
-> **Note:** You can also update the runtime version of an application when you upgrade. For more see [Upgrade](#upgrade)
+> **Note:** You can also update the runtime version of an application when you upgrade. For more see [Upgrade](#upgrade).
 
 ![update runtime]({% link process-automation/images/update-runtime.png %})
+
+### Logs
+
+You can view Deployment Service Logs, Runtime Bundle Logs, and Process Storage Logs to help understand any errors you may be having with your installation. The Deployment Service Logs are always available because they belong to a shared service. The logs use different blue highlighting to indicate the app being viewed. The Runtime Bundle Logs and the Storage Logs are unavailable if the app is not deployed correctly.
+
+To view the logs:
+
+1. Log into the Alfresco Admin App.
+
+2. Expand **Devops** from the left pane and select **Application Instances**.
+
+3. Click the three dots next to the application you want review.
+
+4. Select **Logs** and then the logs you want to view.
+
+The log text is colour coded. White indicates no issue. Yellow indicates a warning, and Red indicates an error.
