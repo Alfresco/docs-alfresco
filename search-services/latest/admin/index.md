@@ -70,7 +70,7 @@ If you have installed the Oracle Java SE Development Kit (JDK), you can use the 
   * `location` specifies the path where the backup will be created. If the path is not absolute then the backup path will be relative to Solr's instance directory.
   * `numberToKeep` specifies the number of backups to keep.
 
-### Solr logging
+## Solr logging
 
 You can set different debug logging levels for Solr components using the Solr log4j properties.
 
@@ -88,7 +88,7 @@ You can set different debug logging levels for Solr components using the Solr lo
     https://<solrHostName>:<solrPort>/solr/admin/cores?action=LOG4J&resource=log4j-solr.properties
     ```
 
-### Document fingerprints
+## Document fingerprints
 
 Alfresco Content Services 6.2 and above provides support for Document Fingerprints to find related documents. Document Fingerprinting is performed by algorithms that map data, such as documents and files to shorter text strings, also known as fingerprints. This feature is exposed as a part of the Alfresco Full Text Search Query Language.
 
