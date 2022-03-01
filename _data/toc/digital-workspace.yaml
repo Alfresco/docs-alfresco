@@ -1,5 +1,5 @@
 # Digital Workspace
-- version: 2.6
+- version: 2.7
   pages:
     - title: 'Introduction'
       path: '/digital-workspace/latest/'
@@ -41,6 +41,48 @@
       path: '/digital-workspace/latest/extensions/'
     - title: 'Troubleshooting'
       path: '/digital-workspace/latest/troubleshooting/'
+- version: 2.6
+  pages:
+    - title: 'Introduction'
+      path: '/digital-workspace/2.6/'
+    - title: 'Install'
+      pages: 
+        - title: 'Overview'
+          path: '/digital-workspace/2.6/install/'
+        - title: 'Install into Tomcat'
+          path: '/digital-workspace/2.6/install/tomcat/'
+        - title: 'Install into other webserver'
+          path: '/digital-workspace/2.6/install/other-webserver/'
+        - title: 'Install with Docker Compose'
+          path: '/digital-workspace/2.6/install/containerized/'
+    - title: 'Configure'
+      path: '/digital-workspace/2.6/config/'
+    - title: 'Governance Services'
+      pages: 
+        - title: 'Governance Services overview'
+          path: '/digital-workspace/2.6/governance/'
+        - title: 'Working with records'
+          path: '/digital-workspace/2.6/governance/records/'
+        - title: 'Archiving Files'
+          path: '/digital-workspace/2.6/governance/archiving/'
+    - title: 'Process Services'
+      pages: 
+        - title: 'Process Services overview'
+          path: '/digital-workspace/2.6/process/'
+        - title: 'Starting processes'
+          path: '/digital-workspace/2.6/process/starting/'
+        - title: 'Managing processes'
+          path: '/digital-workspace/2.6/process/managing/'
+        - title: 'Managing Tasks'
+          path: '/digital-workspace/2.6/process/tasks/'
+        - title: 'Configuring Process Services'
+          path: '/digital-workspace/2.6/process/config/'
+    - title: 'Image Management'
+      path: '/digital-workspace/2.6/media/'
+    - title: 'Developing Extensions'
+      path: '/digital-workspace/2.6/extensions/'
+    - title: 'Troubleshooting'
+      path: '/digital-workspace/2.6/troubleshooting/'
 - version: 2.5
   pages:
     - title: 'Introduction'
