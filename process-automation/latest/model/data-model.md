@@ -2,73 +2,78 @@
 title: Data Models
 ---
 
-Mention you can upload a data model
+A data model allows you to represent complex objects your application is handling. A data model allows you to define the standard data structure you will use in your application using JSON schema. The data model editor allows you to visually create the JSON schema and the JSON editor allows you to see the JSON output. When you use a data model it provides auto-completion in your scripts and expressions. You can also map a data model with your process variables and connector properties. You can use the Upload button to upload a previously defined JSON schema.
 
-Content models describe how data should be stored in the repository and the metadata that can be associated to the content and folders within that model.
+Mention download 
+Mention go global, how do you turn that off. What does this mean? 
 
-Each model is identified by a unique namespace, prefix and name, and made up of custom types, aspects, properties and constraints.
 
-![Content model diagram]({% link process-automation/images/content-model.png %})
+How to create a data model (add, edit, delete its elements).
+
+How to use a data model in the app.
+
+![Data model]({% link process-automation/images/data-model.png %})
 
 ## Properties
 
-The properties of a content model are:
+The properties of a data model are:
 
 | Property | Description |
 | -------- | ----------- |
 | Data model name | *Required.* The name of the data model. Must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically, for example `finance`. |
-| Namespace | *Required.* A namespace unique within the repository for the content model to sit under. This ensures that all custom types, aspects and properties are also unique within the repository. The default value will append the `Name` of the model, for example `http://finance.com/model/finance`. |
-| Prefix | *Required.* An abbreviation of the `namespace` of a content model to refer to types and aspects without needing to use the full namespace. The default value will be the `Name` of the model, for example `finance`. |
-| Creator | *Optional.* The author of the model. The default value is the currently signed in user, for example `modeler`. |
-| Content model description | *Optional.* A free text description of what the content model is for, for example `A content model for recording financial accounts records.` |
+| Type | *Required.* Use the Type field to select the JSON schema type you want to use, for example. You can select more than one JSON schema, but only one of the others. |
+| Upload | *Optional.* You can upload a predefined  . |
+| Data model description | *Optional.* A free text description of what the data model is for, for example `A data model for recording financial accounts records.` |
 
-## Create a data model
+## Create a Data Model
 
-Data models can be global in scope, so they are available to import into multiple projects or they can be created at an individual project level.
+The following example creates a data model that represents
 
-### Create a global content model
+What’s the purpose of this data model, what needs does this data model meet or what problems does it solve.
 
-To create a global content model:
+### Create a global data model
+
+To create a global data model:
 
 1. Sign into the Modeling Application and click on **Data Models**.
 
 2. Click the **NEW** dropdown.
 
-3. Select **Content Model** and enter a name and optional description.
+3. Select **Data Model** and enter a name and optional description.
 
-To use a global content model within a specific project:
-
-1. Sign into the Modeling Application and open a project.
-
-2. Click the **NEW** dropdown.
-
-3. Select **Import > Content Model** and choose the model to import.
-
-### Create a content model in a project
-
-To create a content model in a project:
+To use a global data model within a specific project:
 
 1. Sign into the Modeling Application and open a project.
 
 2. Click the **NEW** dropdown.
 
-3. Select how to create the content model:
+3. Select **Import > Data Model** and choose the model to import.
 
-    * **Create > Content Model** creates a new, empty form.
+### Create a data model in a project
 
-    * **Upload > Content Model** allows for uploading an existing content model `.xml` file into the Modeling Application.
+To create a data model in a project:
 
-    Alternatively use the **+** or **Upload** buttons next to **Content Models** in the left-hand menu.
+1. Sign into the Modeling Application and open a project.
+
+2. Click the **NEW** dropdown.
+
+3. Select how to create the data model:
+
+    * **Create > Data Model** creates a new, empty form.
+
+    * **Upload > Data Model** allows for uploading an existing data model `.xml` file into the Modeling Application.
+
+    Alternatively use the **+** or **Upload** buttons next to **Data Models** in the left-hand menu.
 
 4. Enter a name and optional description.
 
-## Content model modeling
+## Data model modeling
 
-Content models are created within a project and are exclusive to that project unless the content model scope is changed to global. Once a content model is global it will appear at the same level as projects in the modeling application and can be imported into other projects.
+Data models are created within a project and are exclusive to that project unless the data model scope is changed to global. Once a data model is global it will appear at the same level as projects in the modeling application and can be imported into other projects.
 
-Use the **Turn global** option under [actions](#actions) when a content model is selected to change the scope to global.
+Use the **Turn global** option under [actions](#actions) when a data model is selected to change the scope to global.
 
-> **Note**: It is not possible to change the scope back to a single project once the **Turn global** option has been used. The content model will need to be removed from the project and either recreated, or reimported.
+> **Note**: It is not possible to change the scope back to a single project once the **Turn global** option has been used. The data model will need to be removed from the project and either recreated, or reimported.
 
 ### Custom types
 
@@ -194,13 +199,13 @@ Properties are stored as JSON, for example:
 
 ## Actions
 
-The actions that can be run against a content model are:
+The actions that can be run against a data model are:
 
 | Action | Description |
 | ------ | ----------- |
-| Download content model | Download the XML for the content model. |
-| Validate | Run validation against the content model. Any errors can be seen in the log history at the bottom of the Modeling Application and are flagged in a pop-up box. |
-| Save | Save any changes made to the content model. |
-| Turn global | Changes the content model to have a global scope, so it can be imported into multiple projects. This action is only available if the content model is not already of global scope. |
-| Remove from project | Removes the content model from the project. This action is only available if the content model is already set to global scope. |
-| Delete | Delete the content model. |
+| Download data model | Download the XML for the data model. |
+| Validate | Run validation against the data model. Any errors can be seen in the log history at the bottom of the Modeling Application and are flagged in a pop-up box. |
+| Save | Save any changes made to the data model. |
+| Turn global | Changes the data model to have a global scope, so it can be imported into multiple projects. This action is only available if the data model is not already of global scope. |
+| Remove from project | Removes the data model from the project. This action is only available if the data model is already set to global scope. |
+| Delete | Delete the data model. |
