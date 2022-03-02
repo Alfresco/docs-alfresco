@@ -34,7 +34,7 @@ You can download the Outlook Integration software from [Hyland Community](https:
 
 ## Prerequisites
 
-There are a number of software requirements for installing Outlook Integration. See [Supported Platforms]({% link microsoft-outlook/latest/support/index.md %}) for more information.
+There are a number of software requirements for installing Outlook Integration. See [Supported Platforms]({% link microsoft-outlook/2.8/support/index.md %}) for more information.
 
 You need one of each of the following components:
 
@@ -112,17 +112,17 @@ Make sure you are running the correct versions of operating system and software 
 
 2. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"}, download and unzip the Outlook Integration zip package:
 
-    `alfresco-outlook-integration-2.9.x.zip`
+    `alfresco-outlook-integration-2.8.x.zip`
 
 3. Copy the provided AMP files to the Alfresco `amps` and `amps_share` directories.
 
     Copy this file to the `amps` directory:
 
-    `alfresco-outlook-repository-2.9.x.amp`
+    `alfresco-outlook-repository-2.8.x.amp`
 
     and this file to the `amps_share` directory:
 
-    `alfresco-outlook-share-2.9.x.amp`
+    `alfresco-outlook-share-2.8.x.amp`
 
 4. To install the AMP files, run the `apply_amps.bat` file from the Alfresco `bin` directory.
 
@@ -259,7 +259,7 @@ You might need local administrator rights to install .NET 4.5 and Microsoft VS T
 
 >**Note:** If you are distributing Alfresco Outlook Client across an organization, see [Install the Alfresco Outlook Client in unattended mode](#installunattendedmode) for guidance on installing in unattended mode.
 
-1. Extract the contents of the `alfresco-outlook-client-2.9.x.zip` file using a standard unzip tool.
+1. Extract the contents of the `alfresco-outlook-client-2.8.x.zip` file using a standard unzip tool.
 
 2. Navigate to the directory containing the unzipped content and double click the `install.bat` file.
 
@@ -293,26 +293,26 @@ You might need local administrator rights to install .NET 4.5 and Microsoft VS T
 
 >**Note:** If you plan to use SAML Module for Alfresco Content Services authentication, ensure you have already installed and configured the Alfresco SAML module. See [Install with zip]({% link saml-module/latest/install/index.md %}) and [Configure SAML SSO]({% link saml-module/latest/config/index.md %}) for more information.
 
-1. Extract the contents of the `alfresco-outlook-client-2.9.x.zip` file using a standard unzip tool.
+1. Extract the contents of the `alfresco-outlook-client-2.8.x.zip` file using a standard unzip tool.
 
-2. Locate `x64/AlfrescoOutlookClient_x64_2.9.x.msi` or `x86/AlfrescoOutlookClient_x86_2.9.x.msi`, depending on whether you are running a 64-bit or 32-bit version of Windows.
+2. Locate `x64/AlfrescoOutlookClient_x64_2.8.x.msi` or `x86/AlfrescoOutlookClient_x86_2.8.x.msi`, depending on whether you are running a 64-bit or 32-bit version of Windows.
 
 3. From a command line, navigate to the `x64` or `x86` directory, and run the `msiexec` command. For example:
 
     ```bash
-    msiexec /i AlfrescoOutlookClient_x86_2.9.x.msi HOST=127.0.0.1:8080 AUTH=basic
+    msiexec /i AlfrescoOutlookClient_x86_2.8.x.msi HOST=127.0.0.1:8080 AUTH=basic
     ```
 
     for an interactive installation:
 
     ```bash
-    msiexec /i AlfrescoOutlookClient_x86_2.9.x.msi HOST=127.0.0.1:8080 AUTH=basic /quiet
+    msiexec /i AlfrescoOutlookClient_x86_2.8.x.msi HOST=127.0.0.1:8080 AUTH=basic /quiet
     ```
 
     for an installation with no interaction, or:
 
     ```bash
-    msiexec /i AlfrescoOutlookClient_x86_2.9.x.msi HOST=127.0.0.1:8080 AUTH=saml /quiet
+    msiexec /i AlfrescoOutlookClient_x86_2.8.x.msi HOST=127.0.0.1:8080 AUTH=saml /quiet
     ```
 
     for a non-interactive installation with SAML authentication enabled.

@@ -756,7 +756,7 @@ These settings define global controls across your enterprise and are applied imm
 
     3. **Site**: emails with same messageID are not allowed across a site.
 
-    >**Note:** If an email is dropped into a folder, where the same email document already exists, the version detection feature will recognize it, and the **Versioning** dialog is displayed. See [Managing file versions in Outlook]({% link microsoft-outlook/latest/using/index.md %}#managing-file-versions-in-outlook) for more details.
+    >**Note:** If an email is dropped into a folder, where the same email document already exists, the version detection feature will recognize it, and the **Versioning** dialog is displayed. See [Managing file versions in Outlook]({% link microsoft-outlook/2.8/using/index.md %}#managing-file-versions-in-outlook) for more details.
 
 5. If you have an Alfresco Application Development Framework (ADF) application installed, such as the Digital Workspace, you can configure your Outlook clients to use links to it instead of Alfresco Share. For example, if you want to view the document details page, this configuration will open the relevant page in Digital Workspace instead of Share.
 
@@ -857,7 +857,7 @@ These settings define global controls across your enterprise.
 
 4. Select Licenses from the Tools menu and click **Edit** to add new licenses.
 
-    See [Installing server and client licenses in Alfresco Share]({% link microsoft-outlook/latest/install/index.md %}#installserverclientlicenses) for more information about installing licenses.
+    See [Installing server and client licenses in Alfresco Share]({% link microsoft-outlook/2.8/install/index.md %}#installserverclientlicenses) for more information about installing licenses.
 
 5. Select **System Info** from the Tools menu to view system information.
 
@@ -895,7 +895,7 @@ Configure Microsoft Outlook to find and connect to the correct Alfresco server.
 
     If you select standard authentication, enter your Alfresco user name and password. If you select Windows authentication, the `passthru` authentication is used. For more information about authentication subsystem types, see [Authentication subsystem types]({% link content-services/latest/admin/auth-sync.md %}#Authentication subsystem types).
 
-    >**Note:** By default, SAML authentication is enabled. Use the Client Settings XML file to disable SAML authentication, and remove the SAML authentication radio button in this panel. See [Setting SAML in AlfrescoClientSettings]({% link microsoft-outlook/latest/config/index.md %}#configure-connection-settings) for more information.
+    >**Note:** By default, SAML authentication is enabled. Use the Client Settings XML file to disable SAML authentication, and remove the SAML authentication radio button in this panel. See [Setting SAML in AlfrescoClientSettings]({% link microsoft-outlook/2.8/config/index.md %}#configure-connection-settings) for more information.
 
 6. Click **Check connection** to test the connection to the Alfresco server.
 
@@ -1043,10 +1043,10 @@ Set the configuration template to import when the configuration dialog is called
 
 Use the Alfresco Client Settings XML file for advanced configuration of Alfresco Microsoft Outlook client.
 
-The `AlfrescoClientSettings-2.9.x.xml` file contains advanced configuration properties.
+The `AlfrescoClientSettings-2.8.x.xml` file contains advanced configuration properties.
 Use this file to set up attributes and metadata settings.
 
-1. Locate and open `AlfrescoClientSettings-2.9.x.xml` in the `C:\Users\<username>` directory, where `<username>` is your Windows user name.
+1. Locate and open `AlfrescoClientSettings-2.8.x.xml` in the `C:\Users\<username>` directory, where `<username>` is your Windows user name.
 
     The `<outlook>` section contains elements that you can configure to customize the Alfresco Outlook Client, and also additional `<storage>`, `<connection>`, `<logging>`, `<restrictions>`, and `<tabs>` sections:
 
