@@ -71,6 +71,8 @@
               path: '/content-services/latest/admin/admin-console/'
             - title: 'Share Admin Tools'
               path: '/content-services/latest/admin/share-admin-tools/'
+            - title: 'Control Center'
+              path: '/content-services/latest/admin/control-center/'
             - title: 'Support Tools'
               path: '/content-services/latest/admin/support-tools/'
             - title: 'Import and transfer tools'
