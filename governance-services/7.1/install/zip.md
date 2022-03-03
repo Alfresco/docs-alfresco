@@ -11,7 +11,7 @@ The Governance Services distribution zip file contains the following files:
 
 > **Note:** Install the AMPs manually using the Module Management Tool (MMT), rather than using the `apply_amps` tool.
 
-1. Browse to the [Alfresco Nexus repository](https://nexus.alfresco.com/nexus/#nexus-search;gav~org.alfresco~alfresco-governance*~7.2.0~~) and download `alfresco-governance-services-enterprise-distribution-7.2.0.zip`, which contains the following files:
+1. Browse to the [Alfresco Nexus repository](https://nexus.alfresco.com/nexus/#nexus-search;gav~org.alfresco~alfresco-governance*~7.1.0~~) and download `alfresco-governance-services-enterprise-distribution-7.1.0.zip`, which contains the following files:
 
 2. Stop the Alfresco Content Services server.
 
@@ -58,4 +58,4 @@ The Governance Services distribution zip file contains the following files:
 
     > **Note:** When you install Governance Services the Security Controls features are installed at the same time.
 
-Final step before you can start with Records Management is to [create the Records Management site]({% link governance-services/latest/install/create-rm-site.md %}).
+Final step before you can start with Records Management is to [create the Records Management site]({% link governance-services/7.1/install/create-rm-site.md %}).
