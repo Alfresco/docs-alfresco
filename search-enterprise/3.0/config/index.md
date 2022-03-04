@@ -13,7 +13,7 @@ To use Search Enterprise with the Alfresco Content Services platform the followi
 
 ## Alfresco Repository
 
-Alfresco Repository provides configuration properties for the Elasticsearch Search subystem that defines the connection to the external Elasticsearch server, for more see [Subsystem]({% link search-enterprise/latest/install/index.md %}#configure-subsystem-in-repository).
+Alfresco Repository provides configuration properties for the Elasticsearch Search subystem that defines the connection to the external Elasticsearch server, for more see [Subsystem]({% link search-enterprise/3.0/install/index.md %}#configure-subsystem-in-repository).
 
 Additional property values can be included in the global configuration file `alfresco-global.properties`
 
@@ -113,7 +113,7 @@ There are two strategies to fill the gaps in the Elasticsearch server when provo
 Sample invocation for Fetch by IDS.
 
 ```java
-java -jar target/alfresco-elasticsearch-reindexing-3.1.0-app.jar \
+java -jar target/alfresco-elasticsearch-reindexing-3.0.0-app.jar \
   --alfresco.reindex.jobName=reindexByIds \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
@@ -125,7 +125,7 @@ java -jar target/alfresco-elasticsearch-reindexing-3.1.0-app.jar \
 Sample invocation for Fetch by DATE.
 
 ```java
- java -jar target/alfresco-elasticsearch-reindexing-3.1.0-app.jar \
+ java -jar target/alfresco-elasticsearch-reindexing-3.0.0-app.jar \
   --alfresco.reindex.jobName=reindexByDate \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
