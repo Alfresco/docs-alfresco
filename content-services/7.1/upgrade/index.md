@@ -255,8 +255,13 @@ The `dir.root` directory is defined in the `alfresco-global.properties` file. By
     Remember to specify the relevant JDBC driver into your application server's classpath.
 
 ## Apply recommended database patch
+>**Note.** This is only applicable if upgrading from 6.2 or earlier versions. If upgrading from version 7.0, then the
+>patch should already be applied.
 
-Alfresco Content Services 7.1 contains a recommended database patch, which adds two indexes to the `alf_node` table and three to `alf_transaction`. This patch is optional, but recommended for larger implementations as it can have a big positive performance impact. These indexes are not automatically applied during upgrade, as the amount of time needed to create them might be considerable. They should be run manually after the upgrade process completes.
+Content Services 7.0 contains a recommended database patch, which adds two indexes to the `alf_node` table and three to 
+`alf_transaction`. This patch is optional, but recommended for larger implementations as it can have a big positive 
+performance impact. These indexes are not automatically applied during upgrade, as the amount of time needed to create 
+them might be considerable. They should be run manually after the upgrade process completes.
 
 To apply the patch, an admin should set the following Alfresco global property to `true`:
 
