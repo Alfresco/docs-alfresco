@@ -256,7 +256,7 @@ The `dir.root` directory is defined in the `alfresco-global.properties` file. By
 
     Remember to specify the relevant JDBC driver into your application server's classpath.
 
-## Apply recommended database patch
+## Apply recommended 7.0 database patch
 >**Note.** This is only applicable if upgrading from 6.2 or earlier versions. If upgrading from version 7.0 or newer, 
 >then the patch should already be applied.
 
