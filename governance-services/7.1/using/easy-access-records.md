@@ -16,8 +16,10 @@ file as a record, and the rest is handled by the Records Administrator and any r
 
 When a record is created from a file it's added to the {% include tooltip.html word="unfiledrecords" text="Unfiled Records" %} 
 area of the Records Management site. 
+
 A Records Manager then has numerous options for [Filing an unfiled record]({% link governance-services/7.1/using/file-records.md %}#filing-an-unfiled-record) and 
 [Managing unfiled records]({% link governance-services/7.1/using/manage-fileplan.md %}#managing-unfiled-records)
+
 
 There are three options available for declaring files as records:
 
