@@ -6072,8 +6072,6 @@ Use this information to install the Document Transformation Engine SDK.
         -   OCR
         -   Resizing an image, which is necessary to produce thumbnails
         -   PDF/A as a target format
-    > **Note:** The Document Transformation Engine SDK source code is available on request. Contact [Customer Support](https://support.alfresco.com){:target="_blank"} for the SDK source code.
-
 
 
 ##### Installing GhostScript and pdf2swf {#installing-ghostscript-and-pdf2swf}
