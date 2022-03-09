@@ -1094,7 +1094,7 @@ Use this file to set up attributes and metadata settings.
     |`panelViewMode`|Controls the appearance of the Outlook sidebar|`list`: sidebar is shown as a list. This is the default setting.<br><br>`tree`: sidebar is shown as a tree structure.|
     |`searchMode`|Controls the search behavior|`standard`: standard search is used. This is the default setting.<br><br>`advanced`: Advanced search is used.|
     |`showMySites`|Controls the appearance of My Sites site selector|`true`: My Sites site selector is shown. This is the default setting.<br><br>`false`: My Sites site selector is not shown.|
-    |`theme`|Sets the theme of the Outlook plugin|`classic`: Classic plugin theme is used. This is the default setting.<br><br>`dark`: Dark theme is used.|
+    |`theme`|Sets the theme of the Outlook plugin.<br><br>Added in Outlook Integration 2.9.|`classic`: Classic plugin theme is used. This is the default setting.<br><br>`dark`: Dark theme is used.|
 
 3. Configure the attributes that you need for the `<storage>` element:
 
