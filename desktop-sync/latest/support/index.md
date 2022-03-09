@@ -2,10 +2,11 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for Desktop Sync 1.8:
+The following are the supported platforms for Desktop Sync 1.9:
 
 | Version | Notes |
 | ------- | ----- |
+| Content Services 7.2.x | |
 | Content Services 7.1.x | |
 | Content Services 7.0.x | |
 | Content Services 6.2.0 - 6.2.1 | |
