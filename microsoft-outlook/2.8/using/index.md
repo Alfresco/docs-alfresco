@@ -71,9 +71,9 @@ This button is available in the **Alfresco Client** tab when you’re composing 
 
 ![This image shows the Send and Archive button in the Alfresco Client tab]({% link microsoft-outlook/images/2-8-ribbon.png %}){:width="600px"}
 
-**Note:** The standard **Send** button inside your email is not affected.
+> **Note:** The standard **Send** button inside your email is not affected.
 
-**Note:** This functionality is only supported for Microsoft Exchange accounts.
+> **Note:** This functionality is only supported for Microsoft Exchange accounts.
 
 ## Archiving folders in Outlook
 
