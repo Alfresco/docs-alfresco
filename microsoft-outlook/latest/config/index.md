@@ -971,24 +971,28 @@ You can configure Outlook extended settings; for example, change the display lan
 
     >**Note:** You can also change the display language by selecting **Language** from the **Alfresco Outlook** toolbar tab.
 
-3. **Show Alfresco Outlook Client**: Show or hide the **Alfresco Outlook Client** panel (the Alfresco sidebar).
+3. **Theme**: Choose the theme for the Outlook plugin.
+
+    >**Note:** Restart Microsoft Outlook to apply the new theme.
+
+4. **Show Alfresco Outlook Client**: Show or hide the **Alfresco Outlook Client** panel (the Alfresco sidebar).
 
     >**Note:** This box is checked automatically if you have selected **Show Sidebar** from the **Alfresco Client** tab in Outlook.
 
-4. **Show sidebar for new emails**: Show or hide the Alfresco sidebar in emails that are open in a current window.
+5. **Show sidebar for new emails**: Show or hide the Alfresco sidebar in emails that are open in a current window.
 
-5. **Repository root**: Select whether the Alfresco sidebar and **Archive Directly** right click option allow you to see certain sites (**Sites only**) or all of Alfresco (**Full repository**).
+6. **Repository root**: Select whether the Alfresco sidebar and **Archive Directly** right click option allow you to see certain sites (**Sites only**) or all of Alfresco (**Full repository**).
 
-6. **Browse Sites**: Specify the default selection for the **Sites** list that is displayed in the **Explore** tab of the Alfresco sidebar.
+7. **Browse Sites**: Specify the default selection for the **Sites** list that is displayed in the **Explore** tab of the Alfresco sidebar.
 
-7. **Drag and drop priority**: Defines the priority for drag and drop from Alfresco:
+8. **Drag and drop priority**: Defines the priority for drag and drop from Alfresco:
 
     * **File**: Use drag and drop to attach a file from Alfresco into an email as a binary attachment. Hold down the Control (Ctrl) key to link files from Alfresco to the email as HTTP links.
     * **Link**: Use drag and drop to add files from Alfresco to the email as HTTP links. Hold down the Control (Ctrl) key to add files from Alfresco to the email as binary attachments.
     * **PDF**: Use drag and drop to convert Office files to PDF format and attach them to email.
     * **Link to PDF**: Use drag and drop to convert Office files to PDF format and add to the email as an HTTP link.
 
-8. **Use web URIs for**: Controls the target application for calling a browser directly from Outlook.
+9. **Use web URIs for**: Controls the target application for calling a browser directly from Outlook.
 
     Options are:
 
@@ -997,15 +1001,15 @@ You can configure Outlook extended settings; for example, change the display lan
 
     The location of the ADF client application must be configured in Share Admin Tools by your IT team.
 
-9. **Show tooltip on email hover**: Select to see a tool tip when you hover over an email.
+10. **Show tooltip on email hover**: Select to see a tool tip when you hover over an email.
 
-10. **Use default web browser**: Select whether the default browser should be used to open files.
+11. **Use default web browser**: Select whether the default browser should be used to open files.
 
-11. **Enable debug logging**: Check to enable logging for debug purposes. Check the log file by clicking **Open Log**.
+12. **Enable debug logging**: Check to enable logging for debug purposes. Check the log file by clicking **Open Log**.
 
-12. **Folder sort order**: Select the order you want for your Alfresco folders. Choose from **Name and subject (ascending)**, **Name and subject (descending)**, **Date modified (ascending)**, or **Date modified (descending)**.
+13. **Folder sort order**: Select the order you want for your Alfresco folders. Choose from **Name and subject (ascending)**, **Name and subject (descending)**, **Date modified (ascending)**, or **Date modified (descending)**.
 
-13. **Date sort display options**: If you select **Date modified (ascending)** or **Date modified (descending)** you can choose the display format from **Subject or name**, **Date and subject**, or **Date/time and subject**.
+14. **Date sort display options**: If you select **Date modified (ascending)** or **Date modified (descending)** you can choose the display format from **Subject or name**, **Date and subject**, or **Date/time and subject**.
 
 ### Configure views
 
@@ -1079,8 +1083,8 @@ Use this file to set up attributes and metadata settings.
     |`hoverPreview`|Controls the behavior of the Preview window in the Search tab of the Alfresco sidebar|`true`: preview window is shown when hovering over the found item. This is the default setting.<br><br>`false`: preview window is not shown when hovering over the found item.|
     |`isSitesRoot`|Sets a root folder to show in the Explore tab of the Alfresco sidebar|`true`: root is the Sites folder. This is the default setting.<br><br>`false`: root is the Company Home folder.|
     |`mailNameDisplayPattern=" #subject (#from)"`|Modifies the email appearance in the Explore tab tree view of the Alfresco sidebar|Use these variables to modify the email fields displayed: `#subject`, `#from`, `#to`, `#sent`|
-    |`culture`|Sets the language used in Alfresco Outlook Client|Possible settings:`en`: English<br><br>`de`: German<br><br>`es`: Spanish<br><br>`it`: Italian<br><br>`fr`: French<br><br>`ja`: Japanelse<br><br>`ru`: Russian<br><br>`zh-cn`: Chinese (Simplified)<br><br>`pt-br`: Brazilian Portuguese<br><br>`nl`: Dutch<br><br>`nb-no`: Norwegian (Bokmal)<br><br>`cs`: Czech<br><br>`da`: Danish<br><br>`sv`: Swedish<br><br>`fi`: Finnish<br><br>`pl`: Polish<br><br>|
-    |`customAppTitle`|Renames Alfresco Outlook Client sidebar|Enter your chosen title as a text string.|
+    |`culture`|Sets the language used in Alfresco Outlook Client|Possible settings:`en`: English<br><br>`de`: German<br><br>`es`: Spanish<br><br>`it`: Italian<br><br>`fr`: French<br><br>`ja`: Japanese<br><br>`ru`: Russian<br><br>`zh-cn`: Chinese (Simplified)<br><br>`pt-br`: Brazilian Portuguese<br><br>`nl`: Dutch<br><br>`nb-no`: Norwegian (Bokmal)<br><br>`cs`: Czech<br><br>`da`: Danish<br><br>`sv`: Swedish<br><br>`fi`: Finnish<br><br>`pl`: Polish<br><br>|
+    |`customAppTitle`|Renames the Alfresco Outlook Client sidebar|Enter your chosen title as a text string.|
     |`customRibbonTitle`|Renames the Alfresco Client tab|Enter your chosen title as a text string.|
     |`customMenuTitle`|Renames the Alfresco Client option when right clicking a file|Enter your chosen title as a text string.**Note:** If you set this option, the same value is applied to `customRibbonTitle` if `customRibbonTitle` is blank.|
     |`sendLinkUrl`|Controls the behavior of links to files in Alfresco|`details`: link to the Document Details page is created. This is the default setting.<br><br>`download`: link to the Document Download page is created (only applies for Share URLs)|
@@ -1090,6 +1094,7 @@ Use this file to set up attributes and metadata settings.
     |`panelViewMode`|Controls the appearance of the Outlook sidebar|`list`: sidebar is shown as a list. This is the default setting.<br><br>`tree`: sidebar is shown as a tree structure.|
     |`searchMode`|Controls the search behavior|`standard`: standard search is used. This is the default setting.<br><br>`advanced`: Advanced search is used.|
     |`showMySites`|Controls the appearance of My Sites site selector|`true`: My Sites site selector is shown. This is the default setting.<br><br>`false`: My Sites site selector is not shown.|
+    |`theme`|Sets the theme of the Outlook plugin|`classic`: Classic plugin theme is used. This is the default setting.<br><br>`dark`: Dark theme is used.|
 
 3. Configure the attributes that you need for the `<storage>` element:
 
