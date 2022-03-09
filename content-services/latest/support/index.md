@@ -79,6 +79,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | SAML Module for Alfresco Content Services 1.2.2 | |
 | Alfresco Intelligence Services 1.4.2 | |
 | Alfresco Content Connector for AWS S3 5.0 | |
+| Alfresco Content Connector for AWS Glacier |Now part of Alfresco Content Connector for AWS S3 5.0|
 | Alfresco Content Connector for Azure 3.0 | |
 | Alfresco Content Connector for Salesforce 2.3.4 | |
 | Alfresco Content Connector for SAP applications 5.2 | |
