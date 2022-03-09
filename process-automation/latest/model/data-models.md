@@ -17,46 +17,44 @@ The properties of a data model are:
 | -------- | ----------- |
 | Data model name | *Required.* The name of the data model. Must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically, for example 'Person'. |
 | Type | *Required.* Use the Type field to select the JSON schema type you want to use, for example `object`. You can't select more than one JSON schema type from the dropdown list. You can select more than one type from the Modelling app, Enumeration, and Composition sections. |
-| Upload | *Optional.* You can upload a predefined data model. It must be in JSON schema format, for more see [JSON schema](https://json-schema.org/). |
-| Data model description | *Optional.* A free text description of what the data model is, for example 'This data model represents a person in the organization'. |
+| Upload | *Optional.* You can upload a predefined data model. It must be in JSON schema format, for more see [JSON schema](https://json-schema.org/){:target="_blank"}. |
+| Data model description | *Optional.* A free text description of what the data model is, for example 'This data model represents a person in an organization'. |
 
-## Create a Data Model
+## Create a data model
 
 The following example creates a data model that represents a person, including their name, date of birth, and gender.
 
-**Note:** Data models are specific to your installation and configuration. The example described here creates a data model called Person. The model ensures that the any service that uses the Person object understands its structure. This example is simple but it allows you to see how the process works but your data models could be more involved. Mention why person is an object, because it contains different  fields.
+**Note:** Data models are specific to your installation and configuration. The example described here creates a data model called Person. The model ensures that any service that uses the Person object understands its structure. This example is simple but it allows you to see how the process works but your data models could be more involved.
 
-### Create a global data model
+### Create a data model for a specific process
 
 To create a data model:
 
-1. Sign into the Modeling Application and open a Project, and click the **+** icon next to **Data Models**.
+1. Sign into the Modeling Application and open a Project, and then click the **+** icon next to **Data Models**.
 
-    **Note:** You care able to upload already defined data models by using the **Upload button** next to Data models. Any data model you upload must be written in the JSON format.
+    **Note:** You are able to upload already defined data models by using the **Upload** button next to Data models. Any data model you upload must be written in the JSON format.
 
-2. Enter a name for the data model, for example person.
+2. Enter a name for the data model, for example 'person'.
 
 3. Enter a description for the data model, for example 'This model provides the data structure for the object Person'.
 
-  You are presented with the Data Model Editor.
+    You are presented with the Data Model Editor.
 
-4. From the **Type** dropdown list select **object** and then enter a meaningful title.
+4. From the **Type** dropdown list select **object** from the JSON schema types section.
 
-   You need to select object because the Person data model will contain different fields.
+     You select object because the person data model will contain different fields.
 
-     **Note:** The title entered will be seen by a user when using a form with this data model.
+    **Note:** You can only select one JSON schema type from the **Type** dropdown list because of the rules that govern how JSON schema works. You can however select multiple other elements of the dropdown list such as aspects from the Modelling app and Composition sections. The Modelling app aspects are already predefined by the application which means you do not need to configure any fields or properties if you select them. From the Composition section you might select **anyOf** which would ensure the request contains any of the elements of Person. You can click the cog icon to access the advanced settings which are standard JSON schema configuration settings, for more see [JSON schema](https://json-schema.org/).
 
-     Using the modelling App means you don't need to set the fields of the file.
+5. Enter a meaningful title.
 
-    **Note:** You can only select one **JSON schema type** from the **Type** dropdown list because of the rules that govern how JSON schema works. You can however select multiple other elements of the dropdown list such as aspects from the Modelling app and Composition. The Modelling app aspects are already predefined by the application which means you do not need to configure any fields or properties if you select them. From the Composition section you might select **anyOf** which would ensure the request contains any of the elements of Person. For more on JSON schema see.
+    The title entered will be seen by a user when using a form with this data model.
 
-    You can click the cog icon to access the advanced settings. The settings are standard JSON schema configuration settings, for more see [JSON schema](https://json-schema.org/).
+6. Click the **+** icon to add a property to the Person object.
 
-5. Click the **+** icon to add a property to the Person object.
+    A new row is created.
 
-  A new row is created.
-
-6. Enter 'Name' for the new row and then select the **Required** check box.
+6. Enter `Name` for the new row and then select the **Required** check box.
 
     Selecting the required check box ensures when a new person is added, the entry must include a Name.
 
@@ -64,13 +62,13 @@ To create a data model:
 
 8. Click the **+** icon to add another property to the Person object.
 
-9. Enter 'Birthday' for the new row.
+9. Enter `DateOfBirth` for the new row.
 
-10. From the **Type** dropdown list select **date** from the Modelling app section and then enter a meaningful title.
+10. From the **Type** dropdown list select **date** from the Modelling app section.
 
 11. Click the **+** icon to add another property to the Person object.
 
-12. Enter 'Gender' for the new row and then select the **Required** check box.
+12. Enter `Gender` for the new row and then select the **Required** check box.
 
 13. From the **Type** dropdown list select **enum** from the Enumeration section and then enter a meaningful title.
 
@@ -78,34 +76,33 @@ To create a data model:
 
     You can see the JSON definition of the enumerated values in the preview section.
 
-15. Click the **Save** icon to save the data model and then click the **JSON Editor** button to see the JSON file created of the data model.
+15. Click the **Save** icon to save the data model and then to see the JSON file created of the data model, click the **JSON Editor** button .
 
-  **Note:** You can also use references in your data model, for more see 
+  **Note:** You can also use references in your data model, for more see [Using Ref in a data model](#using-ref-in-a-data-model).
 
 ```JSON
 {
-    "description": "This model describes the structure of the person object.",
+    "description": "This model provides the data structure for the object Person.",
     "type": "object",
     "properties": {
         "Name": {
             "type": "string",
             "title": "Name of person"
         },
-        "Birthday": {
+        "DateOfBirth": {
             "$ref": "#/$defs/primitive/date"
         },
         "Gender": {
             "enum": [
-                "Female",
-                "Male"
+                "male",
+                "female"
             ],
-            "title": "Gender of person"
+            "title": "Gender"
         }
     },
-    "title": "Add person",
+    "title": "Person",
     "required": [
-        "Name",
-        "Gender"
+        "Name"
     ]
 }
 ```
@@ -118,74 +115,80 @@ You have created a data model called Person that can be used in Process Automati
 
 To use the data model you created in a project:
 
-1. In the Modelling Application click the **+** icon next to processes and create a new process called person-process.
+1. In the Modelling Application click the **+** icon next to processes and create a new process called 'person-process'.
 
 2. Select **Create REST connector** from the **Connectors** menu.
 
-3. Select **Create new instance** from the **Connector Editor Settings** window and enter **rest-connector-person** for the Connector name.
+3. Select **Create new instance** from the **Connector Editor Settings** window and enter 'rest-connector-person' for the connector name and then click **Apply**.
 
-4. Use an arrow to connect the Rest connector object.
+4. Use an arrow to connect to the Rest connector object.
 
 5. Select the Rest connector object and then click the **Append task** icon.
 
 6. Select the second object and click the **Change type** icon and then select **User Task**.
 
-7. Ensure the second object is still selected and then click **Assignment** in the properties pane.
+7. Ensure the User task is still selected and then click **Assignment** in the properties pane.
 
-8. Select Identity and assign the task to the appropriate user and then click **Assign**.
+8. Select **Identity** and find the user you want to assign the task to and then click **Assign**.
 
-7. Click **Append EndEvent** from the user task.
+7. Select the User task and click **Append EndEvent**.
 
-8. Click anywhere in the whitespace to de-select from the tasks and then click **Edit Process Variables**.
+8. Click anywhere in the whitespace to de-select the tasks and then click **Edit Process Variables** in the properties pane.
 
-9. Click the **+** symbol and enter a name for the variable called 'person'.
+9. Click the **+** symbol and enter a name for the variable called 'Person'.
 
-10. Click the **Type** dropdown menu and select Data Models and then select the person data model. Click **Update**.
+10. Click the **Type** dropdown list and select Data Models and then select the person data model. Click **Update**.
 
     You can see the properties of your data model in the Process variables window.
 
-11. Select the Rest connector object and then from the **Action** dropdown list select **Get**.
+11. Select the REST connector object and then from the **Action** dropdown list select **Get**.
 
-     In this example you are calling a service using the Rest connector. You can see in the Output mapping section that the output of the `restResult` is a person. This means your person variable will be populated with the result which means you can use the data within your person task.
+     You are calling a service using the REST connector.
 
-12. Create a new form from the menu on the right and call it 'person' and then add a textbox to it.
+12. In the Output mapping section select the Process variable for the `restResult` field to be `person`.
+
+     This means your person variable will be populated with the result which means you can use the data within your person task.
+
+12. Select the User task again and create a new form from the properties menu and call it 'person' and then add a textbox to it.
 
 13. In the **Field Editor** of the textbox add a label called 'Name' and then click **Save**.
 
-    **Note:** You must do this for all the fields you want on your form.
+    **Note:** You must add a text box for each of the fields you created when you made the data model and you must label them accordingly.
 
-    You now have a user task that is using the person form that contains a checkbox called 'Name'.
+    You now have a user task that is using a form called person and that form contains a checkbox called 'Name'.
   
 14. Go back to the process and select the user task and then edit the **Process variable/Value** field of the parameter called 'Name' that is under input mapping.
 
      **Note:** You must do this for all the fields you want on your form.
 
-15. On the **Edit variable mapping** window select Expression and add `${person.Name}` and then click **Update**.
+15. On the **Edit variable mapping** window select **Expression** and add `${person.Name}` and then click **Update**.
 
-    You have added the value that the Name field will use on the form. You must do this for all the fields you want on your phone.
+    You have added the value that the Name field will use on the form. You can use the auto-completion functionality to enter the expression.
 
-    **Note:** You can use the auto-completion functionality to enter the expression.
+    **Note:** You must do this for all the fields you want on your form.
 
 You now have a data model that is being used by a process that is processing complex objects.
 
 ### Using Ref in a data model
 
-You can also use references when constructing your data model. Using the person data model you created earlier as an example, you can use references within that data model of objects you may want to re-use. For example a reference called ID (which is used company wide as the ID of an exmployee), which might be constructed of a username, and position.
+You can also use references when constructing your data model. Using the person data model you created earlier as an example, you can use references in that data model of objects you may want to re-use. For example a reference called ID (which is used company wide as the ID of an employee), and might be constructed of a username, and position could be used in numerous data models.
 
 To use references in a data model:
 
-1. In the person data model, click `Add definition` next to the references field.
+1. In the person data model, click the **+** icon next to the references field to add a definition.
 
-2. Enter 'ID' for the name of the roq, and From the **Type** dropdown list select **object** and then enter a meaningful title.
+2. Enter 'ID' for the name of the reference, and From the **Type** dropdown list select **object** and then enter a meaningful title.
 
-3. Click the **+** icon again to add row.
+3. Click the **+** icon again to add another row.
 
-4. Enter 'Username' for the name of the row, and From the **Type** dropdown list select **object** and then enter a meaningful title.
+4. Enter 'Username' for the name of the row and From the **Type** dropdown list select **object** and then enter a meaningful title.
 
-5. Click the **+** icon again to add another row in the main person data model.
+5. In the main section of the person data model click the **+** icon again to add another property row.
 
-6. Enter a name for the row, for example company and then select required.
+6. Enter a name for the new row and then select the **Required** check box.
 
 7. From the **Type** dropdown list select **ref** under the composition heading.
 
-8. From the second **Type** dropdown list that appears select the references block you want to use.  
+8. From the second **Type** dropdown list that appears select the references block you want to use and then click **Save**.
+
+You now have a reference being used within your person data model. The reference can be used throughout your system and is available when you create other data models.
