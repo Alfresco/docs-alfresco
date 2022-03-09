@@ -60,7 +60,7 @@ You can use one of the following Outlook releases:
 
 #### Alfresco Search Services 2.0 and above
 
-If you're using Alfresco Search Services or Alfresco Search and Insight Engine 2.0 and above in combination with Outlook Integration 2.8.1 and above, you must add the `messageId` property to the `shared.properties` file for SOLR. See the [Alfresco indexing recommendations]({% link search-services/latest/config/indexing.md %}#cross-locale) to locate this file.
+If you're using Alfresco Search Services or Alfresco Search and Insight Engine 2.0 and above in combination with Outlook Integration 2.9 and above, you must add the `messageId` property to the `shared.properties` file for SOLR. See the [Alfresco indexing recommendations]({% link search-services/latest/config/indexing.md %}#cross-locale) to locate this file.
 
 Add the following lines to the configuration:
 
@@ -89,7 +89,7 @@ transform-outlook
 
 > **Note:** Alfresco customers can request Quay.io credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/){:target="_blank"}. These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
 
-> **Note:** Make sure that you request credentials for Alfresco Content Services and Alfresco Outlook Integration, so that you can use the additional `transform-outlook-1.0.x` Docker image. Version 1.0.0 of the Outlook T-Engine can also be used for the latest Outlook Integration release (version 2.8.1).
+> **Note:** Make sure that you request credentials for Alfresco Content Services and Alfresco Outlook Integration, so that you can use the additional `transform-outlook-1.1.x` Docker image. Version 1.1.0 of the Outlook T-Engine can also be used for the previous Outlook Integration releases (version 2.8.x).
 
 > **Note:** It is recommended that you familiarize yourself with the concepts of [containerized deployment]({% link content-services/latest/install/containers/index.md %}) before working with Docker.
 
