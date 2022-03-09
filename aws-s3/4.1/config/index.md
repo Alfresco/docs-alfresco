@@ -19,15 +19,15 @@ filecontentstore.subsystem.name=S3OnPrem
 ```
 
 If you need to override them for your environment, check the available settings in the configuration guides or 
-[properties reference]({% link aws-s3/latest/config/index.md %}#properties-reference).
+[properties reference]({% link aws-s3/4.1/config/index.md %}#properties-reference).
 
 **Basic configuration properties**
 
 1.  Open the `<classpathRoot>/alfresco-global.properties` file.
 
-    If you plan to use IAM roles instead of AWS access and secret keys, ensure you have [configured AWS Identity and Access Management]({% link aws-s3/latest/config/index.md %}#configiam) correctly before continuing from step [4]({% link aws-s3/latest/config/index.md %}#bucketName).
+    If you plan to use IAM roles instead of AWS access and secret keys, ensure you have [configured AWS Identity and Access Management]({% link aws-s3/4.1/config/index.md %}#configiam) correctly before continuing from step [4]({% link aws-s3/4.1/config/index.md %}#bucketName).
 
-    If you have existing content in a local contentstore (i.e. where Alfresco Content Services is deployed on-premises) and you'd like to transition to using AWS S3 as the only content store, ensure you include the property described in [Configuring S3 Connector on-premises]({% link aws-s3/latest/config/index.md %}#onpremconfig) before continuing.
+    If you have existing content in a local contentstore (i.e. where Alfresco Content Services is deployed on-premises) and you'd like to transition to using AWS S3 as the only content store, ensure you include the property described in [Configuring S3 Connector on-premises]({% link aws-s3/4.1/config/index.md %}#onpremconfig) before continuing.
 
 2.  Add the `connector.s3.accessKey` property, for example:
 
@@ -77,7 +77,7 @@ If you need to override them for your environment, check the available settings 
 
 7.  If you plan to use the AWS KMS service to manage encryption, you'll need to change the default `s3.encryption` setting.
 
-    See [Configuring AWS Key Management Service]({% link aws-s3/latest/config/index.md %}#configkeymgmt) for more encryption options.
+    See [Configuring AWS Key Management Service]({% link aws-s3/4.1/config/index.md %}#configkeymgmt) for more encryption options.
 
 8.  Set where the cached content is stored, and how much cache size you need.
 
@@ -110,7 +110,7 @@ If you need to override them for your environment, check the available settings 
 
 10. If you want to apply a tag to your content when it's written into the S3 bucket, you can add the `connector.s3.tagName` and `connector.s3.tagValue` properties.
 
-    See [Properties reference]({% link aws-s3/latest/config/index.md %}#properties-reference) for more details.
+    See [Properties reference]({% link aws-s3/4.1/config/index.md %}#properties-reference) for more details.
 
     >**Note:** Use the AWS documentation [Object key and metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingMetadata.html) for naming guidelines, as the properties must respect the same restrictions as if they were added via the AWS Management Console.
 
@@ -209,8 +209,8 @@ using the S3 Connector can interact with AWS S3.
 **Installation and configuration**
 
 You can install and configure Alfresco Content Services and the S3 Connector on-premises using the default configuration. 
-Follow the steps in [Installing the S3 Connector]({% link aws-s3/latest/install/index.md %}), and the basic 
-configuration steps in [Configuring the S3 Connector]({% link aws-s3/latest/config/index.md %}).
+Follow the steps in [Installing the S3 Connector]({% link aws-s3/4.1/install/index.md %}), and the basic 
+configuration steps in [Configuring the S3 Connector]({% link aws-s3/4.1/config/index.md %}).
 
 >**Note:** If you have existing content in a local content store, and you'd like to take advantage of the features provided by the S3 Connector, add the following property to `alfresco-global.properties`:
 
@@ -275,6 +275,8 @@ Before transitioning objects to Standard-IA, consider the following limitations:
 
 >**Note:** When using the S3 Connector, new versions of a document are stored using the Standard storage class by default.
 
+>**Important:** The S3 Connector doesn't support transitioning to the Glacier storage class.
+
 Here are some example scenarios to help you consider if using storage classes is right for your environment:
 
 1.  Collaboration: On an S3 bucket with frequently used content as part of any current work.
@@ -332,7 +334,7 @@ place for S3 access, a new policy must be created.
             "s3:GetLifecycleConfiguration"
             ```
 
-        3.  If lifecycle configuration on the bucket is not required, then see step (8) in [Configuring the S3 Connector]({% link aws-s3/latest/config/index.md %}).
+        3.  If lifecycle configuration on the bucket is not required, then see step (8) in [Configuring the S3 Connector]({% link aws-s3/4.1/config/index.md %}).
 
     Follow the steps from the AWS site to [Create a New Policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) for additional guidance.
 
@@ -571,7 +573,7 @@ For example, the common bean `s3ClientConfiguration`, used to set AWS SDK client
     </bean>
 ```
 
->**Important:** In Alfresco Content Services 7.1 or  newer and S3 Connector 4.1 or newer, changing the current content store subsystem using the JMX client isn't supported. There's a limitation in Alfresco Content Services which only allows switching between the embedded content stores.
+>**Important:** In Alfresco Content Services 7.1 and S3 Connector 4.1, changing the current content store subsystem using the JMX client isn't supported. There's a limitation in Alfresco Content Services which only allows switching between the embedded content stores.
 
 See next section about enabling deleted content store.
 
@@ -593,7 +595,7 @@ such as `enable-deleted-content-store-context.xml`, in the `extension` directory
 $CATALINA_HOME/shared/classes/alfresco/extension
 ```
 
-You can find a sample file in `alfresco-s3-connector-5.0.x.amp':
+You can find a sample file in `alfresco-s3-connector-4.1.x.amp':
 
 * `enable-deleted-content-store-context.xml.sample` in `config/alfresco/extension`
 
@@ -635,7 +637,7 @@ The Store selector has two stores (instances of the S3 content store):
 * `store1.s3ContentStore` as the default
 * `store2.s3ContentStore` as the second one
 
-The sample files are found in `alfresco-s3-connector-5.0.x.amp`:
+The sample files are found in `alfresco-s3-connector-4.1.x.amp`:
 
 * `s3-multiple-buckets-context.xml.sample` in `config/alfresco/extension`
 * `s3-mb-contentstore-context.xml.sample` and `s3-mb-contentstore.properties.sample` are in `config/alfresco/extension/subsystems/ContentStore/S3MultipleBuckets/S3MultipleBuckets`
