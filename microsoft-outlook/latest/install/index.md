@@ -43,7 +43,6 @@ You need one of each of the following components:
 You can use one of the following operating systems:
 
 * Microsoft Windows 10 with latest updates
-* Microsoft Windows 8.1 with latest updates
 
 ### Software requirements
 
@@ -52,13 +51,12 @@ You can use one of the following Outlook releases:
 * Microsoft Outlook for Office 365 (x86/x64) with latest updates
 * Microsoft Outlook 2019 (x86/x64)
 * Microsoft Outlook 2016 (x86/x64)
-* Microsoft Office 2013 (x86/x64)
 * [Visual Studio Tools for Office 4.0 Runtime](https://msdn.microsoft.com/en-us/library/ms178739.aspx){:target="_blank"}
 * Microsoft .NET Framework 4.5 or above
 
 ### Alfresco requirements
 
-* Alfresco Content Services 6.2.2 or later.
+* Alfresco Content Services 7.0 or later.
 
 #### Alfresco Search Services 2.0 and above
 
