@@ -10,13 +10,15 @@ Once you've set up Desktop Sync, all your Alfresco Content Services folders are 
 
 Use the *Choose files and folders to sync* screen to select the content to sync between Alfresco Content Services and your desktop. The content is synced at `C:\Users\<username>\Alfresco`.
 
-If you work with content that has deep folder structures, you may wish to enable the **Include all files and sub-folders** checkbox. This allows you to only sync selected folders deep in your hierarchy, without syncing the intermediate folders, and prevent lengthy folder paths being created in your local sync paths.
+If you work with content that has deep folder structures, you may wish to keep the **Include all files and sub-folders** checkbox enabled. This allows you to only sync selected folders deep in your hierarchy, without syncing the intermediate folders, and prevent lengthy folder paths being created. By default, this feature is enabled so the checkbox is selected. In this case, only the files in the selected folders are synced using a folder structure starting from their respective root paths in Content Services (such as My Files, Shared Files, and your Sites). 
 
-By default, this feature is disabled so the checkbox is not selected, and folders are synced using the hierarchy from Content Services. When you select the checkbox, only the files in the selected folders are synced to a folder structure below their respective root paths, such as:
+Here’s an example that shows how the folder paths may be shortened:
 
-* `My Files` > `Selected Sync Folders`
-* `Sites` > `<Site Name>` > `Selected Sync Folders`
-* `Shared Files` > `Selected Sync Folders`
+* `My Files` > `<selected-sync-folder>`
+* `Sites` > `<Site Name>` > `<selected-sync-folder>`
+* `Shared Files` > `<selected-sync-folder>`
+
+If you clear the checkbox, folders are synced using the hierarchy in Content Services. This replicates the behavior from previous releases of Desktop Sync.
 
 > **Note:** The screen provides an estimate of how much disk space will be occupied, so only select the content you need. The more content you select, the more space will be taken on your local machine and the more time it will take to perform the initial sync.
 
