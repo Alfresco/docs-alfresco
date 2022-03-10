@@ -10,10 +10,19 @@ Once you've set up Desktop Sync, all your Alfresco Content Services folders are 
 
 Use the *Choose files and folders to sync* screen to select the content to sync between Alfresco Content Services and your desktop. The content is synced at `C:\Users\<username>\Alfresco`.
 
+If you work with content that has deep folder structures, you may wish to enable the **Include all files and sub-folders** checkbox. This allows you to only sync selected folders deep in your hierarchy, without syncing the intermediate folders, and prevent lengthy folder paths being created in your local sync paths.
+
+By default, this feature is disabled so the checkbox is not selected, and folders are synced using the hierarchy from Content Services. When you select the checkbox, only the files in the selected folders are synced to a folder structure below their respective root paths, such as:
+
+* `My Files` > `Selected Sync Folders`
+* `Sites` > `<Site Name>` > `Selected Sync Folders`
+* `Shared Files` > `Selected Sync Folders`
+
 > **Note:** The screen provides an estimate of how much disk space will be occupied, so only select the content you need. The more content you select, the more space will be taken on your local machine and the more time it will take to perform the initial sync.
 
 1. Synchronize your content from **My Files** and **Shared Files**.
 
+    <!-- TODO replace screenshot for 1.9 -->
     ![]({% link desktop-sync/images/setup-sf.png %}){:height="562px" width="346px"}
 
     1. Select **My Files** to expand the folder list in your **My Files** area of Alfresco Content Services.
@@ -88,10 +97,13 @@ To save your work in Alfresco, just work on your files in the `C:\Users\<usernam
 
 Use the *Select sites and folders to sync* dialog to select the content to sync between Alfresco Content Services and your desktop. The content is synced to your `/<userHome>/Alfresco` folder, located in Finder under **Go > Home**.
 
+<!-- TODO add new feature -->
+
 > **Note:** The screen provides an estimate of how much disk space will be occupied, so only select the content you need. The more content you select, the more space will be taken on your computer and the more time it'll take to perform the initial sync.
 
 1. Synchronize your content from **My Files** and **Shared Files**.
 
+    <!-- TODO replace screenshot for 1.9 -->
     ![]({% link desktop-sync/images/setup-mac.png %}){:height="327px" width="640px"}
 
     1. Select **My Files** to expand the folder list in your **My Files** area of Alfresco Content Services.
