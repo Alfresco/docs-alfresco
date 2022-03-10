@@ -71,11 +71,11 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.9 | |
 | Alfresco Transform Service 1.5.2 | |
 | Alfresco Document Transformation Engine 2.3 | |
-| Alfresco Search Enterprise 3.1 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.0 upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
+| Alfresco Search Enterprise 3.1 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.x upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
 | Alfresco Search and Insight Engine 2.0.3 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0.2 | |
 | Alfresco Federation Services 1.1 | |
-| Identity Service 1.7 | |
+| Alfresco Identity Service 1.7 | |
 | SAML Module for Alfresco Content Services 1.2.2 | |
 | Alfresco Intelligence Services 1.4.2 | |
 | Alfresco Content Connector for AWS S3 5.0 | |
@@ -90,15 +90,16 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Outlook Integration 2.9 | |
 | Alfresco Office Services 1.4.1 | |
 | Alfresco Google Docs Integration 3.2.1 | |
-| Alfresco Enterprise Viewer 3.3.5 | |
-| Alfresco Content Accelerator 3.4.4 | |
 | Alfresco Content Services SDK 5.1 | |
 | Alfresco Content Services SDK 4.4 | |
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 2.7 | |
+| Alfresco Control Center 7.2 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Mobile Workspace 1.2 | |
+| Alfresco Content Accelerator (ACA) 3.4.5 | |
+| Alfresco Enterprise Viewer (AEV) 3.3.6 | |
 | | |
 | **Components** | |
 | ImageMagick v7.1.0-16 | |
