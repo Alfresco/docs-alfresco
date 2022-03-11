@@ -111,7 +111,7 @@ You have created a data model called Person that can be used in Process Automati
 
 ![Data model]({% link process-automation/images/data-model.png %})
 
-### Using a data model in a project
+### Using a data model in a process
 
 To use the data model you created in a project:
 
