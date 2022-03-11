@@ -3,7 +3,7 @@ title: Data Models
 ---
 
 A data model allows you to represent complex objects your application is handling. It allows you to define the standard data structure you will use in your application using JSON schema. A data model is useful when you want to query an internal or external service that has a specific structure.
-The data model editor allows you to visually create the JSON schema and the JSON editor allows you to see the JSON code of the schema. When you use a data model it provides auto-completion in your scripts and expressions. You can also map a data model with your process variables and connector properties. You can use the Upload button to upload a previously defined JSON schema that you have downloaded from Process Automation.
+The data model editor allows you to visually create the JSON schema and the JSON editor allows you to see the JSON code of the schema. When you use a data model it provides auto-completion in your scripts and expressions. You can also map a data model with your variables and connector properties. You can use the Upload button to upload a previously defined JSON schema that you have downloaded from Process Automation.
 
 These instructions describe how to make a data model for a specific process but you can create a data model for use at a global level where the same data model properties can be used across multiple processes. To create a global data model Click **New** > **Data model** from the home screen. Alternatively you can transform your data model into a global one by selecting the three dots on the right hand side of your open data model and selecting **Turn global**.  
 
