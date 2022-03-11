@@ -237,10 +237,9 @@ Date range queries can be more powerful when applying date math functions. AFTS 
 | AFTS query | Description |
 | ---------- | ----------- |
 | `acme:projectStartDate:[NOW TO NOW+1DAY>` | Documents that have a project start date in the next twenty four hours. |
-| `acme:projectStartDate:[NOW/DAY TO NOW/DAY+1DAY>` | Documents that have a project start date today and between midnight and midnight (UTC), **Note:** The minor difference between this query and the one above. |
-| `acme:projectStartDate:[NOW-1MONTH/YEAR TO NOW-1MONTH/YEAR+1DAY>` | Documents with a project start date in the first day of the year that last month fell in
-documents with a project start date in (a day). **Note:** It's possible to chain date math functions at the same time. |
-| `cm:created:[2020-11-01T12:34:00/YEAR TO NOW>` | Documents that were created from the the start of 2020. **Note:** It's also possible to apply date math to absolute points in time. |
+| `acme:projectStartDate:[NOW/DAY TO NOW/DAY+1DAY>` | Documents that have a project start date from the current day. The current day is defined as from midnight to midnight (UTC), **Note:** The minor difference between this query and the one above. |
+| `acme:projectStartDate:[NOW-1MONTH/YEAR TO NOW-1MONTH/YEAR+1DAY>` | Documents with a project start date in the first day of the current year, or in the first day of last year if it is currently January. **Note:** It's possible to chain date math functions together. |
+| `cm:created:[2020-11-01T12:34:00/YEAR TO NOW>` | Documents that were created since the the start of 2020. **Note:** It's also possible to apply date math to absolute points in time. |
 
 All of these examples have used an inclusive lower bound and an exclusive upper bound. Other bounds can be used but Search Enterprise performs rounding based on the type of bound being used:
 
