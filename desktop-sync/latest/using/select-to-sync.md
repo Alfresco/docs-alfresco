@@ -10,7 +10,7 @@ Once you've set up Desktop Sync, all your Alfresco Content Services folders are 
 
 Use the *Choose files and folders to sync* screen to select the content to sync between Alfresco Content Services and your desktop. The content is synced at `C:\Users\<username>\Alfresco`.
 
-If you work with content that has deep folder structures, you may wish to deselect the **Include all files and sub-folders** checkbox. This allows you to only sync selected folders deep in your hierarchy, without syncing the intermediate folders, and prevent lengthy folder paths being created. By default, this feature is enabled, and if you want to sync only particular folders then the checkbox has to be deselected. In this case, only the files in the selected folders are synced using a folder structure starting from their respective root paths in Content Services (such as My Files, Shared Files, and your Sites). 
+If you work with content that has deep folder structures, you may wish to deselect the **Include all files and sub-folders** checkbox. This allows you to only sync selected folders deep in your hierarchy, without syncing the intermediate folders, and prevent lengthy folder paths being created. By default, this feature is enabled, and if you want to sync only particular folders then the checkbox has to be deselected. In this case, only the files in the selected folders are synced using a folder structure starting from their respective root paths in Content Services (such as My Files, Shared Files, and your Sites).
 
 Here’s an example that shows how the folder paths may be shortened:
 
@@ -99,7 +99,15 @@ To save your work in Alfresco, just work on your files in the `C:\Users\<usernam
 
 Use the *Select sites and folders to sync* dialog to select the content to sync between Alfresco Content Services and your desktop. The content is synced to your `/<userHome>/Alfresco` folder, located in Finder under **Go > Home**.
 
-<!-- TODO add new feature -->
+If you work with content that has deep folder structures, you may wish to deselect the **Include all files and sub-folders** checkbox. This allows you to only sync selected folders deep in your hierarchy, without syncing the intermediate folders, and prevent lengthy folder paths being created. By default, this feature is enabled, and if you want to sync only particular folders then the checkbox has to be deselected. In this case, only the files in the selected folders are synced using a folder structure starting from their respective root paths in Content Services (such as My Files, Shared Files, and your Sites).
+
+Here’s an example that shows how the folder paths may be shortened:
+
+* `My Files` > `<selected-sync-folder>`
+* `Sites` > `<Site Name>` > `<selected-sync-folder>`
+* `Shared Files` > `<selected-sync-folder>`
+
+When the checkbox is selected (since it's enabled by default), the folders are synced using the hierarchy in Content Services. This replicates the behavior from previous releases of Desktop Sync.
 
 > **Note:** The screen provides an estimate of how much disk space will be occupied, so only select the content you need. The more content you select, the more space will be taken on your computer and the more time it'll take to perform the initial sync.
 
