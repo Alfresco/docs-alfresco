@@ -25,7 +25,6 @@ The following features, which were supported with Search and Insight Engine 2.x 
 ### Search Syntax
 
 * Fuzzy matching
-* Proximity search
 * Search for spans and positions
 * Search using date math
 * Search for boosts
