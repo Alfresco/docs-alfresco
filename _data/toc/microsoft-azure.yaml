@@ -1,5 +1,5 @@
 # Microsoft Azure
-- version: 2.1
+- version: 3.0
   pages:
     - title: 'Introduction'
       path: '/microsoft-azure/latest/'
@@ -9,6 +9,16 @@
       path: '/microsoft-azure/latest/config/'
     - title: 'Administer'
       path: '/microsoft-azure/latest/admin/'
+- version: 2.1
+  pages:
+    - title: 'Introduction'
+      path: '/microsoft-azure/2.1/'
+    - title: 'Install'
+      path: '/microsoft-azure/2.1/install/'
+    - title: 'Configure'
+      path: '/microsoft-azure/2.1/config/'
+    - title: 'Administer'
+      path: '/microsoft-azure/2.1/admin/'
 - version: 2.0
   pages:
     - title: 'Introduction'
