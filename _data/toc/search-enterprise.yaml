@@ -19,6 +19,8 @@
           path: '/search-enterprise/latest/using/filtering/'
         - title: 'Field queries'
           path: '/search-enterprise/latest/using/field/'
+        - title: 'Path queries'
+          path: '/search-enterprise/latest/using/path/'
         - title: 'Query languages'
           path: '/search-enterprise/latest/using/languages/'
         - title: 'Unsupported features'
