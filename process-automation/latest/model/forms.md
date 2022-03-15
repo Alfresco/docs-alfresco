@@ -176,9 +176,9 @@ Display value fields do not have the `Read-only`, `Placeholder`, and `Required?`
 
 Dropdown fields allow the form designer to define a set of options a form filler must choose from a list. This list can be a manually entered set of options or it can read from a REST service.
 
-The advanced properties for a manual dropdown field allow for a set of options to be entered with a `name` and `id` for each option set. Selecting the radio button next to an option will set it as the `empty value`. An empty value is taken to mean the field is empty if this option is selected when the form is filled in.
+The advanced properties for a manual dropdown list allow for a set of options to be entered with a `name` and `id` for each option set. Selecting the radio button next to an option will set it as the `empty value`. An empty value is taken to mean the field is empty if this option is selected when the form is filled in.
 
-The advanced properties for a REST dropdown field are:
+The advanced properties for a REST dropdown list are:
 
 | Property | Description |
 | -------- | ----------- |
@@ -190,7 +190,7 @@ The advanced properties for a REST dropdown field are:
 | Depends on | Select which other dropdown widget you would like to connect with. |
 | If equal | Select which child entry of the **Depends on** field you want to work with and add subordinate entries for it. |
 
-To create a conditional relationship between two dropdown fields using Country and City as an example:
+To create a conditional relationship between two dropdown lists using Country and City as an example:
 
 1. Add two dropdown widgets to your form.
 
@@ -212,9 +212,11 @@ To create a conditional relationship between two dropdown fields using Country a
 
 9. From the **If equal** drop down list select the Country you want to work with and then add all the cities you would like available in the drop down list.
 
-**Note:** You can link as many dropdowns as you want.
+**Note:** You can link as many dropdown lists as you want.
 
-When you use dropdown lists in Process Automation you can enter the first character of the item you are searching for to limit the amount of returned entries. This feature works when there are more than five entries and is useful when your lists are large. You can also select multiple entries in the dropdown list which is useful when you want to limit the returned entries of another dropdown list, that has a conditional relationship with it.
+When you use dropdown lists in Process Automation you can enter any character of the item you are searching for to limit the amount of returned entries, this includes any part of a sentence. This feature works when there are more than five entries and is useful when your lists are large.
+
+You can select single or multiple entries from a dropdown list to use them further in your process.
 
 When using **REST Service** you can use the ID of the linked widget in the REST URL. For example, if your URL is `https://mydomain.com/get-cities/country=${Country}` the value inside `${}` is the ID of the linked widget. If my widget had an ID called `my-dropdown` your URL would be `https://mydomain.com/get-cities/country=${my-dropdown}`.
 The `${my-dropdown-id}` can be used in any position of the URL, for example you can also use `https://mydomain.com/country=${Country}/get-cities`.
