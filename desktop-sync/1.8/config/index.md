@@ -134,13 +134,13 @@ syncui.fileCustomTypes=My custom type (model-1:custom_type_name)
 
 |Property|Default value|Description|
 |--------|-------------|-----------|
-|alfrescosync.initialPollInterval|15 seconds|Sets the number of seconds before the first server polling after application startup.|
-|alfrescosync.pollingInterval|300 seconds|Sets the number of seconds between polling of the sync server for server-side file change events. This does not affect the processing of desktop file change events; they are always processed immediately.|
-|syncmanager.deferFileSyncTimer|15 seconds|Sets the number of seconds between retries of a deferred update for a file, such as when an application still has the file open.|
-|syncmanager.deferDelayRetryTimer|3600 seconds|Sets the number of seconds to retry syncing a deferred update for a file. If you wish to override the default setting, add this property in the configuration file. Maximum allowed value is 10 hours.|
-|syncmanager.deferOnlineCheckTimer|60 seconds|Sets the number of seconds between retries when a server connection is offline. This may be due to server being down, no network connection, or no route to the server.|
-|syncmanager.consistencyCheckRetryInterval|120 seconds|Sets the number of seconds between consistency check retry attempts. A consistency check may be aborted when too many file system changes are received during the consistency check scan.|
-|syncmanager.freeSpaceCheckTimer|120 seconds|Sets the number of seconds between free space checks when syncing has been paused due to the local free disk space threshold being reached.|
+|alfrescosync.initialPollInterval|15 seconds|Sets the number of seconds before the first server polling after application startup:{::nomarkdown}<ul><li>Minimum value: 0 seconds</li><li>Maximum allowed value: 18000 seconds (5 hours)</li></ul>{:/}|
+|alfrescosync.pollingInterval|300 seconds|Sets the number of seconds between polling of the sync server for server-side file change events. This does not affect the processing of desktop file change events; they are always processed immediately:{::nomarkdown}<ul><li>Minimum value: 10 seconds</li><li>Maximum allowed value: 18000 seconds (5 hours)</li></ul>{:/}|
+|syncmanager.deferFileSyncTimer|15 seconds|Sets the number of seconds between retries of a deferred update for a file, such as when an application still has the file open:{::nomarkdown}<ul><li>Minimum value: 10 seconds</li><li>Maximum allowed value: 60 seconds</li></ul>{:/}|
+|syncmanager.deferDelayRetryTimer|3600 seconds|Sets the number of seconds to retry syncing a deferred update for a file. If you wish to override the default setting, add this property in the configuration file:{::nomarkdown}<ul><li>Minimum value: 10 seconds</li><li>Maximum allowed value: 36000 seconds (10 hours)</li></ul>{:/}|
+|syncmanager.deferOnlineCheckTimer|60 seconds|Sets the number of seconds between retries when a server connection is offline. This may be due to server being down, no network connection, or no route to the server:{::nomarkdown}<ul><li>Minimum value: 15 seconds</li><li>Maximum allowed value: 600 seconds</li></ul>{:/}|
+|syncmanager.consistencyCheckRetryInterval|120 seconds|Sets the number of seconds between consistency check retry attempts. A consistency check may be aborted when too many file system changes are received during the consistency check scan:{::nomarkdown}<ul><li>Minimum value: 30 seconds</li><li>Maximum allowed value: 3600 seconds</li></ul>{:/}|
+|syncmanager.freeSpaceCheckTimer|120 seconds|Sets the number of seconds between free space checks when syncing has been paused due to the local free disk space threshold being reached:{::nomarkdown}<ul><li>Minimum value: 15 seconds</li><li>Maximum allowed value: 1800 seconds</li></ul>{:/}|
 
 ## Sync manager constraints
 
@@ -249,7 +249,7 @@ downloading or uploading content to/from the Alfresco Content Services CMIS serv
 
 |Property|Default value|Description|
 |--------|-------------|-----------|
-|cmis.lowSpeedTime|15 seconds|Specifies the number of seconds of low speed transfer that are required for a data transfer to be aborted.|
+|cmis.lowSpeedTime|30 seconds|Specifies the number of seconds of low speed transfer that are required for a data transfer to be aborted.|
 |cmis.lowSpeedLimit|1 bytes per second|Specifies the number of bytes per second that is considered to be a slow data transfer.|
 |syncmanager.resumeDownloadFileSize|500K|Specifies the size limit above which a download will resume. Default value is 500KB.|
 
