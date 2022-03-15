@@ -7,7 +7,7 @@ The data model editor allows you to visually create the JSON schema and the JSON
 
 These instructions describe how to make a data model for a specific process but you can create a data model for use at a global level where the same data model properties can be used across multiple processes. To create a global data model Click **New** > **Data model** from the home screen. Alternatively you can transform your data model into a global one by selecting the three dots on the right hand side of your open data model and selecting **Turn global**.  
 
-**Note:** If you transform your data model into a global one you are unable to revert it.
+> **Note:** If you transform your data model into a global one you are unable to revert it.
 
 ## Properties
 
