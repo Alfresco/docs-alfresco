@@ -24,8 +24,7 @@ When the checkbox is selected (since it's enabled by default), the folders are s
 
 1. Synchronize your content from **My Files** and **Shared Files**.
 
-    <!-- TODO replace screenshot for 1.9 -->
-    ![]({% link desktop-sync/images/setup-sf.png %}){:height="562px" width="346px"}
+    ![Initial sync selection screen]({% link desktop-sync/images/setup-1.9.png %}){:height="555px" width="346px"}
 
     1. Select **My Files** to expand the folder list in your **My Files** area of Alfresco Content Services.
 
@@ -113,8 +112,7 @@ When the checkbox is selected (since it's enabled by default), the folders are s
 
 1. Synchronize your content from **My Files** and **Shared Files**.
 
-    <!-- TODO replace screenshot for 1.9 -->
-    ![]({% link desktop-sync/images/setup-mac.png %}){:height="327px" width="640px"}
+    ![Initial sync selection screen]({% link desktop-sync/images/setup-mac-1.9.png %}){:height="382px" width="640px"}
 
     1. Select **My Files** to expand the folder list in your **My Files** area of Alfresco Content Services.
 
