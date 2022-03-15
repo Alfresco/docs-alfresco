@@ -15,7 +15,7 @@ The properties of a data model are:
 
 | Property | Description |
 | -------- | ----------- |
-| Data model name | *Required.* The name of the data model. Must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically, for example 'Person'. |
+| Data model name | *Required.* The name of the data model. Must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically, for example 'person'. |
 | Type | *Required.* Use the Type field to select the JSON schema type you want to use, for example `object`. You can select more than one JSON schema type from the dropdown list, except you cannot select more than one type from the Modelling app section. |
 | Upload | *Optional.* You can upload a predefined data model. It must be in JSON schema format, for more see [JSON schema](https://json-schema.org/){:target="_blank"}. |
 | Data model description | *Optional.* A free text description of what the data model is, for example 'This data model represents a person in an organization'. |
