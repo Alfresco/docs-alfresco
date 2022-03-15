@@ -67,6 +67,7 @@ Fields fall into three types, property fields, special fields, and fields for da
 |Property|DENIED, for example `DENIED:'GROUP_EVERYONE'`.|
 |Special|TYPE, for example `TYPE:"qname"`.|
 |Special|ASPECT, for example `ASPECT:"qname"`.|
+|Special|SITE, for example `SITE:"shortname of the site"`.|
 |Special|TAG, for example `TAG:"name of the tag"`.|
 |Special|ALL, for example `ALL:'admin'`.|
 |Special|EXISTS, for example `EXISTS cm:name:'Sample-Document.docx'`.|
