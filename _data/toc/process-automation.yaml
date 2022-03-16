@@ -61,6 +61,8 @@
           path: '/process-automation/latest/model/triggers/'
         - title: 'Content models'
           path: '/process-automation/latest/model/content-models/'
+        - title: 'Data models'
+          path: '/process-automation/latest/model/data-models/'
     - title: 'Administer'
       pages:
         - title: 'Overview'

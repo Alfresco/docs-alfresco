@@ -24,3 +24,4 @@ Models are the components that make up a [project]({% link process-automation/la
 * [Scripts]({% link process-automation/latest/model/scripts.md %}) are used to execute a custom script as part of a process
 * [Triggers]({% link process-automation/latest/model/triggers.md %}) are used to define a set of event criteria. When the event criteria specified in the trigger is met, the event is published and an action containing a payload is kicked off.
 * [Content models]({% link process-automation/latest/model/content-models.md %}) describe how data should be stored in the repository and the metadata that can be associated to the content and folders within that model.
+* [Data models]({% link process-automation/latest/model/data-models.md %}) allow you to describe objects your application is handling. You can define the standard data structure you will use in your application using JSON schema.
