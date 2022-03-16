@@ -160,7 +160,7 @@ The following properties needs to be set up specifically for your environment an
 
     You are now ready to start Alfresco Content Services.
 
-## Cloud Storage Properties configuration
+## Cloud Storage Properties configuration {#cloud-storage-properties}
 Cloud Storage Properties are represented as a key-value pair (String-String) collection. Mentioned pairs are either directly 
 retrieved from Cloud Storage Provider APIs object headers or derived from their values.
 

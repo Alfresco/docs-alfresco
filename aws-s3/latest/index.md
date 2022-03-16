@@ -7,7 +7,8 @@ It uses Amazon's Simple Storage Service (S3) as the storage mechanism for Alfres
 allowing for virtually unlimited and inexpensive storage.
 
 This release of the S3 Connector is a compatibility release to support Alfresco Content Services 7.2, and adds support 
-for AWS Glacier storage type. The Alfresco Content Connector for AWS Glacier is no longer supported.
+for AWS Glacier storage type. The Alfresco Content Connector for AWS Glacier is no longer supported. It also introduces 
+[Cloud Storage Properties]({% link aws-s3/latest/config/index.md %}#cloud-storage-properties).
 
 Other features introduced in previous versions include:
 
