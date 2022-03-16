@@ -8,7 +8,7 @@ and inexpensive storage.
 
 This release of the Azure Connector is a compatibility release to support Alfresco Content Services 7.2, and adds the 
 ability to accelerate the local download of content. See [Direct Access URLs]({% link microsoft-azure/latest/config/direct-access.md %}) 
-for more details.
+for more details. It also introduces [Cloud Storage Properties]({% link microsoft-azure/latest/config/index.md %}#cloud-storage-properties).
 
 Other features introduced in previous versions include:
 
