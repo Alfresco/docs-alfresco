@@ -161,7 +161,7 @@
           path: '/content-services/latest/develop/software-architecture/'
         - title: 'Software Development Kits (SDK)'
           pages:
-          - title: 'In-Process SDK (4.3)'
+          - title: 'In-Process SDK (4.4)'
             path: '/content-services/latest/develop/sdk/'
           - title: 'Out-of-Process SDK (5.1)'
             path: '/content-services/latest/develop/oop-sdk/'
@@ -281,6 +281,8 @@
             path: '/content-services/latest/develop/rest-api-guide/get-repo-info/'
           - title: 'Managing Folders and Files'
             path: '/content-services/latest/develop/rest-api-guide/folders-files/'
+          - title: 'Cloud Storage Properties'
+            path: '/content-services/latest/develop/rest-api-guide/cloud-storage-props/'
           - title: 'Managing Sites'
             path: '/content-services/latest/develop/rest-api-guide/sites/'
           - title: 'Managing People and Groups'
