@@ -7,7 +7,7 @@ The data model editor allows you to visually create the JSON schema and the JSON
 
 These instructions describe how to make a data model for a specific process but you can create a data model for use at a global level where the same data model properties can be used across multiple processes. To create a global data model Click **New** > **Data model** from the home screen. Alternatively you can transform your data model into a global one by selecting the three dots on the right hand side of your open data model and selecting **Turn global**.  
 
-> **Note:** If you transform your data model into a global one you are unable to revert it.
+> > **Note:** If you transform your data model into a global one you are unable to revert it.
 
 ## Properties
 
@@ -24,7 +24,7 @@ The properties of a data model are:
 
 The following example creates a data model that represents a person, including their name, date of birth, and gender.
 
-**Note:** Data models are specific to your installation and configuration. The example described here creates a data model called Person. The model ensures that any service that uses the Person object understands its structure. This example is simple but it allows you to see how the process works but your data models could be more involved.
+> **Note:** Data models are specific to your installation and configuration. The example described here creates a data model called Person. The model ensures that any service that uses the Person object understands its structure. This example is simple but it allows you to see how the process works but your data models could be more involved.
 
 ### Create a data model for a specific process
 
@@ -32,7 +32,7 @@ To create a data model:
 
 1. Sign into the Modeling Application and open a Project, and then click the **+** icon next to **Data Models**.
 
-    **Note:** You are able to upload already defined data models by using the **Upload** button next to Data models. Any data model you upload must be written in the JSON format.
+    > **Note:** You are able to upload already defined data models by using the **Upload** button next to Data models. Any data model you upload must be written in the JSON format.
 
 2. Enter a name for the data model, for example 'person'.
 
@@ -80,7 +80,7 @@ To create a data model:
 
 17. Click the **Save** icon to save the data model and then to see the JSON file created of the data model, click the **JSON Editor** button .
 
-  **Note:** You can also use references in your data model, for more see [Using Ref in a data model](#using-ref-in-a-data-model).
+  > **Note:** You can also use references in your data model, for more see [Using Ref in a data model](#using-ref-in-a-data-model).
 
 ```JSON
 {
@@ -155,19 +155,19 @@ To use the data model you created in a project:
 
 16. In the **Field Editor** of the textbox add a label called 'Name' and then click **Save**.
 
-    **Note:** You must add a text box for each of the fields you created when you made the data model and you must label them accordingly.
+    > **Note:** You must add a text box for each of the fields you created when you made the data model and you must label them accordingly.
 
     You now have a user task that is using a form called person and that form contains a checkbox called 'Name'.
   
 17. Go back to the process and select the user task and then edit the **Process variable/Value** field of the parameter called 'Name' that is under input mapping.
 
-     **Note:** You must do this for all the fields you want on your form.
+     > **Note:** You must do this for all the fields you want on your form.
 
 18. On the **Edit variable mapping** window select **Expression** and add `${person.Name}` and then click **Update**.
 
     You have added the value that the Name field will use on the form. You can use the auto-completion functionality to enter the expression.
 
-    **Note:** You must do this for all the fields you want on your form.
+    > **Note:** You must do this for all the fields you want on your form.
 
 You now have a data model that is being used by a process that is processing complex objects.
 
