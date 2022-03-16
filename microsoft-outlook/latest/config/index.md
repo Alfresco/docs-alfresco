@@ -1102,6 +1102,7 @@ Use this file to set up attributes and metadata settings.
     |---------|-----------|-----|
     |`archiveOption`|Controls email archive settings|`0` or `1`: default archive settings are used. This is the default setting.<br><br>`2`: archiving options are shown before the email is uploaded.|
     |`storeFiles`|Controls the Extract email attachment archive option|`true`: email attachments are extracted on upload to Alfresco. This is the default setting.<br><br>`false`: email attachments are not extracted on upload to Alfresco.|
+    |`storeFilesFromDesktop`|Controls the Extract attachments from files archive option.<br><br>Added in Outlook Integration 2.9.|`true`: email attachments from desktop files are extracted on upload to Alfresco.<br><br>`false`: email attachments are not extracted on upload to Alfresco. This is the default setting.|
     |`storeLink`|Controls the Archive as link email option|`true`: email is replaced with a link to email stored in Alfresco<br><br>`false`: email is not replaced with a link to the email stored in Alfresco. This is the default setting.|
     |`storeMsg`|Controls the Store original Outlook .MSG file archive option|`true`: original Outlook . MSG file is stored on upload to Alfresco<br><br>`false`: original Outlook . MSG file is not stored on upload to Alfresco. This is the default setting.|
     |`compress`|Controls the Compress message while uploading setting|`true`: message is compressed while uploading to Alfresco. This is the default setting.<br><br>`false`: message is not compressed while uploading to Alfresco|
