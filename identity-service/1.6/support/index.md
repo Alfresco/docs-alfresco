@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for the Identity Service version 1.5:
+The following are the supported platforms for the Identity Service version 1.6:
 
 | Version | Notes |
 | ------- | ----- |
