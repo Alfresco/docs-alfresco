@@ -41,9 +41,7 @@ performance testing on Alfresco Search Enterprise and made a number of improveme
 performance benefiting those customers using Elasticsearch.
 
 ## Deprecated software
-* AWS S3 Connector 4.n (Replaced with AWS S3 Connector 5.n)
-* AWS Glacier Connector 2.2.n (Replaced with AWS S3 Connector 5.n)
-* Azure Connector 2.n (Replaced with Azure Connector 3.0)
+* AWS Glacier Connector (Replaced with AWS S3 Connector 5.n)
 * Alfresco Content Services Mobile Application
 
 ## Install
