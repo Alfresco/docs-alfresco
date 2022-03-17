@@ -1708,6 +1708,10 @@ This is a text file
 
 The `versionId` is the same as the version label.
 
+>**Note:** HTTP 412 status is returned when requested content is in Cloud Storage and is offline (not immediately accessible).
+> In such case, to retrieve content, a [request to restore content]({% link content-services/latest/develop/rest-api-guide/cloud-storage-props.md %}#restorefile)
+> from offline state needs to be submitted.
+
 To revert to a previous version of the file we have to POST the following:
 
 ```json
@@ -1751,6 +1755,10 @@ You can also just make this call (i.e. `http://localhost:8080/alfresco/api/-defa
 in a Web Browser and the file will be downloaded. If you want to preview the file in the Web Browser you would need to 
 add an extra query parameter called `attachment` and set it to `false` (i.e. 
 `http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/c4980e44-92ac-41a5-91dc-2b2183c61de8/content?attachment=false`).
+
+>**Note:** HTTP 412 status is returned when requested content is in Cloud Storage and is offline (not immediately accessible). 
+> In such case, to retrieve content, a [request to restore content]({% link content-services/latest/develop/rest-api-guide/cloud-storage-props.md %}#restorefile) 
+> from offline state needs to be submitted.
 
 ## Download multiple files {#downloadmultiplefiles}
 
@@ -1860,6 +1868,63 @@ It's better to try the download from a browser.
 
 By default, if the download node is not deleted it will be picked up by a cleaner job which removes download nodes older 
 than a configurable amount of time (default is 1 hour).
+
+## Get Direct Download URL for a file {#getdauforfile}
+Generate a direct access/download content URL for the given file. This will enable downloading the file directly from 
+Cloud storage such as AWS S3.
+
+**API Explorer URL:** [http://localhost:8080/api-explorer/#/nodes/requestNodeDirectAccessUrl](http://localhost:8080/api-explorer/#/nodes/requestNodeDirectAccessUrl){:target="_blank"}
+
+**See also**: [AWS S3 Direct Access URLs]({% link aws-s3/latest/config/direct-access.md %}})
+
+The following HTTP POST call is used to download a file:
+
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/{nodeId}/request-direct-access-url`
+
+It is up to the actual `ContentStore` implementation if it can fulfil this request or not.
+
+The POST body contains an `attachment` flag, which controls the download method of the generated URL. It defaults to `true`, 
+meaning the value for the `Content-Disposition` response header will be `attachment`. `true` enables a web browser to 
+download the file as an attachment. `false` means a web browser may preview the file in a new tab or window.
+
+You can only set this parameter to `false` if the content type of the file is in the supported list; for example, 
+certain image files and PDF files. If the content type is not supported for preview, then a value of `false` is ignored, 
+and the attachment will be returned in the response.
+
+```json
+{
+  "attachment": true
+}
+```
+
+The following example gets a direct access URL for a text file with the d8f561cc-e208-4c63-a316-1ea3d3a4e10e Node Identifier:
+
+```bash
+$ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{  "attachment": true}' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/d8f561cc-e208-4c63-a316-1ea3d3a4e10e/request-direct-access-url' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+{
+  "entry": {
+    "contentUrl": "https://<bucket_name>.s3.<region_name>.amazonaws.com/<binary_name>.bin?response-content-disposition=attachment%3B%20filename%20%3D%22graph.JPG%22&response-content-type=image%2Fjpeg&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEMv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMiJGMEQCIDmc%2Fb1e55l4sQjKGG3%2Fr1CU0gtzOOqFnr0Q%2BuXoNa%2BXAiB5oSPGJI1%2FZORobOtV%2BUmiim6GMQJxoKT9I%2Fn6t9ANvir6AwgUEAMaDDE3NTEyNTQyOTQ0MiIMA1qC5mzeuQyHnfd%2BKtcDgAHmPq1MEq5lrb2ggn7Ev%2FSJ%2FQgMVB33Y7NyfsD4BTB3Cn7e1uH17uIH8SkHX6tA9cjBOKx6Sym3gzzP2kTdKSPimQ1UOXMw4uhtaI0f%2FkqnI%2BhMh6GZXT6lOfqDE%2Fkz9nM3QuBxaNI2b8Nb71lP0KPmq7bzBagJOIccf2%2BK3VW3en5gS%2FVAoU2Wx8j1HEQJuk%2FS1whspl970hPFXKIFGIbedO5H8P66wOYdb9LKiHVxvNK7cAJfrVT6jnmqf1L6GyRJa01xgOqgUw1LvsqGsf8kkw%2FkWwJz25StcmJLtpLcWsmZ0x8aHmDNi8SHixteB5XXKJ9Bv8Ex0iIMH3%2Bs8uWmBFssu9il6u8GyV%2FlaIhKYcZLLpIFSTtVudWe60UpQhFPqyHZ6gqqi4e%2BZZfGqqhUNbZucqMvc31V76NbvwdHxI%2F0H0I8fVqCtIatO655qtq6sy%2B29qYymE7RLI9Vnrotkz%2FJafHt4LDIOjX3aDcHS0%2FTxr4QmyJbh%2B%2F0JKsSlqyoosUgzi0mqzw0B8zsTlrkfR9dPkQTNntxZoARaddEIA4Q8QRryQLFe8FITeHSFhUpdPXei3ZEmguSUpkqUQroUdQm8W3C2aoV%2F0A%2BS80IaffqNUY6MPawjpAGOqYBSMI0t5Xt7oW8QqGQrDSMllhX18T0UoxNEvYBii6vFzjuKKasQV5WaGtOMhcg8B5Ee7AxXTCl06FSPhmrQ3f%2FtFTqYtbd8FR8QTK0ZJekBMoM5thzFJ4EztnCYrkAnDo1oDUDOuBQxVho8w5llTEaKLo1SgomysnvpRFshJdBl%2BKXuFVM6Q2tmqSCY%2Bmm%2BVVte%2Bt8Yc4Ulg5eZpkkt3g2HOBaI0cnOw%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220209T115428Z&X-Amz-SignedHeaders=host&X-Amz-Expires=30&X-Amz-Credential=ASIASRRSJ7TBNPZVGWOY%2F20220209%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Signature=6b240b52024eca8a07e47dfad6970f84a75de049a1ae7af5855ed8c655f76cda",
+    "attachment": true,
+    "expiryTime": "2022-02-09T11:54:58.700+0000"
+  }
+}           
+
+Sample response for Azure Connector:
+
+{
+    "entry": {
+        "contentUrl": "https://<storage_account_name>.blob.core.windows.net/<container_name>/<blob_name>?sv=2020-10-02&spr=https&se=2022-02-09T04%3A09%3A40Z&sr=b&sp=r&sig=LkznZiG6u2BUDprdKyk0Hm9XkURG%2BZZp0qy0Ls3kgVY%3D&rscd=attachment%3B%20filename%20%3D%22graph.JPG%22&rsct=image%2Fjpeg",
+        "attachment": true,
+        "expiryTime": "2022-02-09T04:09:40.638+0000"
+    }
+}                      
+```
+
+>**Note:** HTTP 412 status is returned when requested content is in Cloud Storage and is offline (not immediately accessible).
+> In such case, to retrieve content, a [request to restore content]({% link content-services/latest/develop/rest-api-guide/cloud-storage-props.md %}#restorefile)
+> from offline state needs to be submitted.
 
 ## List file renditions {#listfilerenditions}
 
@@ -1986,6 +2051,22 @@ $ curl -X GET --output somerendition.png -H 'Accept: image/png' -H 'Authorizatio
                                  Dload  Upload   Total   Spent    Left  Speed
 100   432  100   432    0     0  19636      0 --:--:-- --:--:-- --:--:-- 19636
 ```
+
+>**Note:** HTTP 412 status is returned when requested content is in Cloud Storage and is offline (not immediately accessible).
+> In such case, to retrieve content, a [request to restore content]({% link content-services/latest/develop/rest-api-guide/cloud-storage-props.md %}#restorefile)
+> from offline state needs to be submitted.
+
+## Get Direct Download URL for a file rendition
+Generate a direct access/download content URL for the given file rendition. This will enable downloading the file rendition 
+directly from Cloud storage such as AWS S3.
+
+**API Explorer URL:** [http://localhost:8080/api-explorer/#/renditions/requestRenditionDirectAccessUrl](http://localhost:8080/api-explorer/#/renditions/requestRenditionDirectAccessUrl){:target="_blank"}
+
+The following HTTP POST call is used:
+
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/{nodeId}/renditions/{renditionId}/request-direct-access-url`
+
+For info on how to execute this request see [Get Direct Download URL for a file](#getdauforfile) and use above URL.
 
 ## Update metadata for a folder or file {#updatemetadatanode}
 
