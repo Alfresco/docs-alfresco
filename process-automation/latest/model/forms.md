@@ -176,9 +176,9 @@ Display value fields do not have the `Read-only`, `Placeholder`, and `Required?`
 
 Dropdown fields allow the form designer to define a set of options a form filler must choose from a list. This list can be a manually entered set of options or it can read from a REST service.
 
-The advanced properties for a manual dropdown list allow for a set of options to be entered with a `name` and `id` for each option set. Selecting the radio button next to an option will set it as the `empty value`. An empty value is taken to mean the field is empty if this option is selected when the form is filled in.
+The advanced properties for a manual dropdown field allow for a set of options to be entered with a `name` and `id` for each option set. Selecting the radio button next to an option will set it as the `empty value`. An empty value is taken to mean the field is empty if this option is selected when the form is filled in.
 
-The advanced properties for a REST dropdown list are:
+The advanced properties for a REST dropdown field are:
 
 | Property | Description |
 | -------- | ----------- |
@@ -210,11 +210,11 @@ To create a conditional relationship between two dropdown lists using Country an
 
 8. Select the City dropdown widget again and click the **Advanced** tab.
 
-9. From the **If equal** drop down list select the Country you want to work with and then add all the cities you would like available in the drop down list.
+9. From the **If equal** dropdown list select the Country you want to work with and then add all the cities you would like available in the dropdown list.
 
-**Note:** You can link as many dropdown lists as you want.
+**Note:** You can link as many dropdown fields as you want.
 
-When you use dropdown lists in Process Automation you can enter any character of the item you are searching for to limit the amount of returned entries, this includes any part of a sentence. This feature works when there are more than five entries and is useful when your lists are large.
+When you use dropdown fields in Process Automation you can enter any character of the item you are searching for to limit the amount of returned entries, this includes any part of a sentence. This feature works when there are more than five entries and is useful when your lists are large.
 
 You can select single or multiple entries from a dropdown list to use them further in your process.
 
@@ -351,7 +351,7 @@ To create a form that contains the Metadata viewer:
 
 4. Select the **Advanced** tab of the Metadata viewer widget on the **Field Editor** pane.
 
-5. From the **Linked attach file widget** drop down menu select the Attach file widget you want to link with the Metadata viewer.
+5. From the **Linked attach file widget** dropdown menu select the Attach file widget you want to link with the Metadata viewer.
 
    You can add more than one Attach file widget and Metadata viewer widgets to a single form.
 
