@@ -1,5 +1,5 @@
 # Identity Service
-- version: 1.6
+- version: 1.7
   pages:
     - title: 'Introduction'
       path: '/identity-service/latest/'
@@ -15,6 +15,22 @@
       path: '/identity-service/latest/upgrade/'
     - title: 'Configure'
       path: '/identity-service/latest/config/'
+- version: 1.6
+  pages:
+    - title: 'Introduction'
+      path: '/identity-service/1.6/'
+    - title: 'Install'
+      pages:
+        - title: 'Overview'
+          path: '/identity-service/1.6/install/'
+        - title: 'Install to Kubernetes cluster'
+          path: '/identity-service/1.6/install/k8s/'
+        - title: 'Install from ZIP file'
+          path: '/identity-service/1.6/install/zip/'
+    - title: 'Upgrade'
+      path: '/identity-service/1.6/upgrade/'
+    - title: 'Configure'
+      path: '/identity-service/1.6/config/'
 - version: 1.5
   pages:
     - title: 'Introduction'
