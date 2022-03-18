@@ -826,7 +826,7 @@ Metadata extraction automatically extracts metadata information from inbound and
 
 Metadata extractors offer server-side extraction of values from added or updated content.
 
-For more information see [metadata extraction extension point]({% link content-services/community/develop/repo-ext-points/metadata-extractors.md %}). 
+For more information see [metadata extraction extension point]({% link content-services/latest/develop/repo-ext-points/metadata-extractors.md %}). 
 
 ## About aspects
 

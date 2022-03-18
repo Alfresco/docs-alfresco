@@ -22,7 +22,7 @@ The Smart Folder itself can't be edited in Community Edition, except through the
 
 Your system administrator creates templates that you can load for different purposes, for example; a structure for a claim, or to file PDF files separately from video or audio files, or just to personalise the folder structure by user.
 
-Take a look at the videos to learn more: [Smart Folders videos]({% link content-services/community/tutorial/video/content.md%}#smart-folder-overview)
+Take a look at the videos to learn more: [Smart Folders videos]({% link content-services/latest/tutorial/video/content.md%}#smart-folder-overview)
 
 System administrators and business analysts can find more information here: [Configuring Smart Folders]({% link content-services/community/config/smart-folders/index.md %}).
 

@@ -215,8 +215,8 @@ Use this information to verify that the system started correctly, and to clean u
         ⠹ Image postgres:13.1                                          Removing                                                       79.7s
         ⠿ Image quay.io/alfresco/service-sync:3.4.1                    Warning: No resource found to remove                            0.2s
         ⠿ Image quay.io/alfresco/alfresco-shared-file-store:0.16.0     Warning: No resource found to remove                            0.4s
-        ⠿ Image quay.io/alfresco/alfresco-share:7.1.0                  Warning: No resource found to remove                            0.3s
-        ⠿ Image quay.io/alfresco/alfresco-content-repository:7.1.0     Warning: No resource found to remove                            0.3s
+        ⠿ Image quay.io/alfresco/alfresco-share:7.2.0                  Warning: No resource found to remove                            0.3s
+        ⠿ Image quay.io/alfresco/alfresco-content-repository:7.2.0     Warning: No resource found to remove                            0.3s
         ⠿ Image quay.io/alfresco/alfresco-transform-router:1.4.1       Warning: No resource found to remove                            0.2s
         ⠿ Image quay.io/alfresco/alfresco-digital-workspace:2.3.0-adw  Warning: No resource found to remove                            0.3s
         ```

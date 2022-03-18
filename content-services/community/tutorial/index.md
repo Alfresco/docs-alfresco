@@ -2,4 +2,6 @@
 title: Tutorials
 ---
 
-This section contains different types of tutorials, such as video tutorials.
+Tutorials for **Alfresco Content Services - Community Edition** is the same as for **Alfresco Content Services -
+Enterprise Edition**. For access to the tutorial documentation, see [this section]({% link content-services/latest/tutorial/index.md %})
+of the Enterprise documentation.
