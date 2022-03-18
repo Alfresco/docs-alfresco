@@ -11,7 +11,6 @@ The following features, which were supported with Search and Insight Engine 2.x 
 ## Search features
 
 * Site queries
-* Path queries (partially)
 * Aspect queries (it works only using exact aspect name)
 * Tag queries
 * Highlighting
@@ -35,7 +34,6 @@ The following features, which were supported with Search and Insight Engine 2.x 
 
 ### Field Queries
 
-* PATH
 * PATHWITHREPEATS
 * PNAME
 * NPATH

@@ -10,7 +10,7 @@ The PATH field is the Elasticsearch field which contains the `primaryHierarchy` 
 
 The live indexing component populates the PATH field on Elasticsearch documents starting from the `primaryHierarchy` attribute found in the node event. The `primaryHierarchy` attribute captures the primary hierarchy of ancestors of the resource affected, which means the folder path of the content. The first element is the immediate parent. For example this is a node event which contains that information:
 
-```JOSN
+```JSON
 {
   "specversion": "1.0",
   "type": "org.alfresco.event.node.Created",
