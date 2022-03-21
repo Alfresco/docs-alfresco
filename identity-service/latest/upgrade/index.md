@@ -13,7 +13,7 @@ Use the following information to upgrade the Identity Service to version 1.7.
 * [Upgrade ZIP installation](#upgrade-zip-installation)  
 * [Upgrade Kubernetes deployment with PostgreSQL database](#upgrade-kubernetes-deployment-with-postgresql-database)  
 
-> **Note:** For Keycloak's upgrade documentation see [upgrade procedure](https://www.keycloak.org/docs/latest/upgrading/).
+> **Note:** For Keycloak's upgrade documentation see [upgrade procedure](https://www.keycloak.org/docs/16.1/upgrading/){:target="_blank"}.
 
 ## Upgrade from version 1.2 {#upgrade-v12}
 
@@ -31,7 +31,7 @@ If you are currently using the Identity Service 1.2 you must first modify the **
 
 ## Remove SmallRye references
 
-> **Important:** You must manually remove all the **_SmallRye_** modules in the `standalone.xml` file before upgrading to version 1.7. From Keycloak 13.0.0 the modules called **_SmallRye_** have been removed from the [WildFly](#https://www.wildfly.org/){:target="_blank"} application. The server will not start if your configuration references them. For more information see [Migrating to 13.0.0](https://www.keycloak.org/docs/latest/upgrading/#migrating-to-13-0-0){:target="_blank"}.
+> **Important:** You must manually remove all the **_SmallRye_** modules in the `standalone.xml` file before upgrading to version 1.7. From Keycloak 13.0.0 the modules called **_SmallRye_** have been removed from the [WildFly](https://www.wildfly.org/){:target="_blank"} application. The server will not start if your configuration references them. For more information see [Migrating to 13.0.0](https://www.keycloak.org/docs/16.1/upgrading/#migrating-to-13-0-0){:target="_blank"}.
 
 ## Upgrade ZIP installation
 
@@ -39,7 +39,7 @@ Use the following information to upgrade your ZIP installation:
 
 1. Download the `alfresco-identity-service-1.7.0.zip` file from [Hyland Community](https://community.hyland.com/en/products/alfresco/release-notes/release-notes/alfresco-identity-service-version-170){:target="_blank"}.
 
-2. Unzip the ZIP file and configure your installation using the Keycloak documentation. [Upgrading Keycloak](https://www.keycloak.org/docs/15.0/upgrading/#_upgrading){:target="_blank"}.
+2. Unzip the ZIP file and configure your installation using the Keycloak documentation: [Upgrading Keycloak](https://www.keycloak.org/docs/16.1/upgrading/#_upgrading){:target="_blank"}.
 
 ### Upgrade Kubernetes deployment with PostgreSQL database
 
