@@ -61,7 +61,7 @@ Here's a list of the files to download and install.
 | File | Description |
 | ---- | ----------- |
 | alfresco-content-services-community-distribution-7.2.x.zip | Community Edition distribution zip for new installations or upgrades. Alfresco WAR files (in distribution zip) for a manual install into an existing Tomcat application server. This distribution zip also contains the Module Management Tool (MMT) and the sample extension files, such as `alfresco-global.properties`. |
-|alfresco-search-services-1.4.x.zip | Alfresco Search Services distribution zip.<br><br>See [Install Alfresco Search Services]({% link search-services/latest/install/index.md %}) for more information. |
+|alfresco-search-services-2.0.x.zip | Alfresco Search Services distribution zip.<br><br>See [Install Alfresco Search Services]({% link search-services/latest/install/index.md %}) for more information. |
 
 ## Preparing the filesystem and database
 
