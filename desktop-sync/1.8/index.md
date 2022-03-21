@@ -4,7 +4,7 @@ title: Alfresco Desktop Sync
 
 With Desktop Sync, desktop users can securely and automatically sync content between their desktop and Alfresco Content Services.
 
-The new feature introduced in v1.8 is:
+New features introduced in v1.8 are:
 
 * Admins can centrally configure the content to hide from users
 * Admins can configure what users have to sync by pre-selecting the sync folders
