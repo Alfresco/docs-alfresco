@@ -54,11 +54,11 @@ You can share single or multiple files from a different file system with the Mob
 1. On your mobile device, select the files you want to share with the Mobile Workspace.
     Open Google Drive, for example.
 
-2. Press the share icon within the different file system and select Workspace.
+2. Use the share function within the different file system (e.g. 'Send a Copy' with Google Drive) and select Workspace.
 
 3. Select the location in the Mobile Workspace to share and store your files, and then click **Upload**.
 
-    This will upload files to the Personal files area. If you want to upload to a specific folder, create a new folder first and then upload from inside that folder. This will open your file repository on your mobile device (e.g. Files for iPhone users) where you can select files to upload. Files can also be shared this way using the gallery with the Mobile Workspace.
+    This will open your file repository on your mobile device (e.g. Files for iPhone users) where you can select files to upload. This will upload files to the Personal files area. If you want to upload to a specific folder, create a new folder first and then upload from inside that folder. Files can also be shared this way using the gallery with the Mobile Workspace.
     
  You can open the Mobile Workspace to view your files.
  
