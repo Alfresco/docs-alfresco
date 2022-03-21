@@ -54,7 +54,6 @@ The `solrcore.properties` configuration file is the property configuration file 
 |enable.alfresco.tracking|This property instructs Solr if it should index Alfresco Content Services content in the associated repository store or not, for example `true`.|
 |max.field.length|This property specifies the maximum number of tokens to include for each field. By default, all tokens are added, for example `2147483647`.|
 |maxScheduledTransactions|This optional parameter controls the maximum transactions to schedule for reindexing in the admin fix tool. If the admin fix action specifies a value for `maxScheduledTransactions` then the request parameter that is used in the solrcore.properties configuration file is ignored.|
-|search.solrShardRegistry.dbidRangeRefreshTimeoutInSeconds|This property controls the frequency of synchronisation of the shard information between multiple ACS instances for `DBID_Range` sharding, for example `30`. **Note:** This property is only used when you are using `DBID_Range` sharding with multiple ACS instances.|
 |solr.authorityCache.autowarmCount|This property configures the Solr result cache, for example `0`.|
 |solr.authorityCache.initialSize|This property configures the caches used in authority filter generation, for example `64`.|
 |solr.authorityCache.size|This property configures the caches used in authority filter generation, for example `64`.|
