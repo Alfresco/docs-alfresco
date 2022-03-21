@@ -49,21 +49,19 @@ You can upload single or multiple files within the Mobile Workspace.
 
 ## Share files from another file system
 
-You can share single or multiple files from a different file system into the Mobile Workspace.
+You can share single or multiple files from a different file system with the Mobile Workspace.
 
 1. On your mobile device, select the files you want to share with the Mobile Workspace.
     <!-- I will add Lilian's or Lovekesh's instructions. -->
     Open Google Drive, for example.
 
-2. Press share and select Workspace.
+2. Press the share icon within the different file system and select Workspace.
 
-3. Select the location to share the files into the Mobile Workspace and then click **Upload**.
+3. Select the location in the Mobile Workspace to share and store your files, and then click **Upload**.
 
-    This will upload files to the Personal files area. If you want to upload to a specific folder, create a new folder first and upload from inside that folder.
-
-4. Open Mobile Workspace to view your files.
-
-* On the **Recent Files** view, a banner displays the sync progress for all files as a percentage complete.
-* Clicking on the sync status banner opens a Transfers screen with all the files selected to be shared with the Mobile Workspace.
-* The Transfers page has a **Sync All** button at the bottom, to force the files to upload. **Sync All** is useful to complete the transfer when files were shared without an internet connection or if the internet connection is lost.
-* Files can also be shared this way using the gallery into the Mobile Workspace.
+    This will upload files to the Personal files area. If you want to upload to a specific folder, create a new folder first and then upload from inside that folder. Files can also be shared this way using the gallery with the Mobile Workspace.
+    
+ You can open the Mobile Workspace to view your files.
+ 
+ * On the Recent Files view, a banner displays the sync progress for all files as a percentage complete. Pressing the sync status banner opens a Transfers view with all the files selected to be shared with the Mobile Workspace. 
+ * On the Transfers view, use the **Sync All** button to force the files to upload. This is used to complete the transfer when files were shared without an internet connection or if the internet connection is lost.
