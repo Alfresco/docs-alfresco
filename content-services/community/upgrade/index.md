@@ -91,16 +91,6 @@ These steps assume that you've got an existing Community Edition installation (`
 
 5. If you're happy with the upgraded system, remove the old installation and repository.
 
-6. (Optional) Perform this additional step only if you've configured multi-tenancy and are upgrading.
-
-    If upgrading to the latest version, your existing multi-tenancy (MT) sample extension files are no longer relevant and must be deleted. It's also recommended that you backup your existing MT files.
-
-    1. Take a backup of the following three existing MT extension files and delete them from the existing MT extension directory:
-
-        * `alfresco/extension/mt/mt-context.xml` to `alfresco/extension/mt/mt-context.xml`
-        * `alfresco/extension/mt/mt-admin-context.xml` to `alfresco/extension/mt/mt-admin-context.xml`
-        * `alfresco/extension/mt/mt-contentstore-context.xml` to `alfresco/extension/mt/mt-contentstore-context.xml`
-
 ## Validate upgrade
 
 Once you've upgraded, follow these steps to validate the new installation.
@@ -123,9 +113,13 @@ Once you've upgraded, follow these steps to validate the new installation.
 
 8. When you are certain the new installation is thoroughly validated, remove the old installation and repository.
 
-## Apply recommended database patch
+## Apply optional performance database patch
+>**Note.** This patch can take hours to run on larger systems.
 
-Alfresco Content Services 7.0 contains a recommended database patch, which adds two indexes to the `alf_node` table and three to `alf_transaction`. This patch is optional, but recommended for larger implementations as it can have a big positive performance impact. These indexes are not automatically applied during upgrade, as the amount of time needed to create them might be considerable. They should be run manually after the upgrade process completes.
+Content Services 7.0 contains a recommended database patch, which adds two indexes to the `alf_node` table and
+three to `alf_transaction`. This patch is optional, but recommended for larger implementations as it can have a big
+positive performance impact. These indexes are not automatically applied during upgrade, as the amount of time needed to
+create them might be considerable. They should be run manually after the upgrade process completes.
 
 To apply the patch, an admin should set the following Alfresco global property to `true`:
 
