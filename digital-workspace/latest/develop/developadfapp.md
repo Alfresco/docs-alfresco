@@ -16,24 +16,24 @@ More in particular check that you have:
 
 Alfresco Content Services (alias ACS) Enterprise edition up and running (identify the URL that will be required as configuration). 
 
-The latest lts version of NodeJs.
-
+The latest Long-Time Support (LTS) version of NodeJs.
+<!-- here seems to be missing a url / link -->
 A recent (and supported) version of a browser (see here for further details).
 
-All the Angular development is done using the Typescript language. With this in mind, it is highly suggested to adopt a good text editor to help you in this task. We recommend Visual Studio Code a free, lightweight, and very powerful tool from Microsoft that works well with Angular development and has a big ecosystem of plugins to make the developer experience even better.
+All the Angular development is done using the Typescript language. With this in mind, it is highly suggested to adopt a good text editor to help you in this task. We recommend [Visual Studio Code](https://code.visualstudio.com/) a free, lightweight, and very powerful tool from Microsoft that works well with Angular development and has a big ecosystem of plugins to make the developer experience even better.
 
 Installing the ADF Yeoman Generator
 Note: If you're on Linux or MacOS, you might need to run the following commands using sudo.
 
-You need to ensure you have Yeoman installed by running yo --version. If this is not already installed, run the following command.
+You need to ensure you have Yeoman installed by running `yo --version`. If this is not already installed, run the following command.
 
-```text
+```sh
 npm install -g yo
 ```
 
-Now install the latest version of the ``generator-alfresco-adf-app`.
+Now install the latest version of the `generator-alfresco-adf-app`.
 
-```text
+```sh
 npm install -g generator-alfresco-adf-app@latest
 ```
 
@@ -41,7 +41,7 @@ npm install -g generator-alfresco-adf-app@latest
 
 Install the Angular CLI
 
-```text
+```sh
 npm install -g @angular/cli
 ```
 
@@ -51,7 +51,7 @@ Angular makes it easy to create components, libraries, and more. You can check w
 
 Now that the system is properly configured you can generate the application running the following command.
 
-```text
+```sh
 yo alfresco-adf-app
 ```
 
@@ -68,7 +68,7 @@ Modify "target": "http://localhost:8080", so that it matches your URL and save t
 
 Please note that you do not need /alfresco at the end of the target URL. Let's say you've launched Alfresco Content Services 6.1 using Docker Compose. Your Alfresco Content Services repository might be available at http://localhost:8080/alfresco. In this case, you will want the proxy.conf.json file to look like this:
 
-```java
+```JSON
 module.exports = {
   "/alfresco": {
     "target": "http://localhost:8080",
@@ -80,6 +80,7 @@ module.exports = {
 
 If you're running an online trial, consult your emails for the correct URL. The proxy.conf.json should look like this:
 
+```JSON
 module.exports = {
   "/alfresco": {
     "target": "https://xyz.trials.alfresco.com",
@@ -87,10 +88,11 @@ module.exports = {
     "changeOrigin": true
   }
 };
+```
 Start the application
 To run the project, open a terminal and run:
 
-npm start
+`npm start`
 A browser will automatically open up at http://localhost:4200.
 
 Click the key icon in the side navigation to log in.
@@ -101,7 +103,7 @@ Take a few minutes to explore your application. You have the essential features:
 
 Troubleshooting and support
 If you have any issue, don’t worry! There is an entire community available to help you.
-
+<!-- insert links? -->
 In case of problems raise a question into the Alfresco Forum (Application Development Framework section) or connect with the developers into the Alfresco Gitter channel. Being an Alfresco customer or partner you can also raise a request for support into the Alfresco Support Portal.
 
 Other types of ADF based applications
