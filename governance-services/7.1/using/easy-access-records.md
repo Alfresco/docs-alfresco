@@ -16,8 +16,8 @@ file as a record, and the rest is handled by the Records Administrator and any r
 
 When a record is created from a file it's added to the {% include tooltip.html word="unfiledrecords" text="Unfiled Records" %} 
 area of the Records Management site. 
-A Records Manager then has numerous options for [Filing an unfiled record]({% link governance-services/latest/using/file-records.md %}#filing-an-unfiled-record) and 
-[Managing unfiled records]({% link governance-services/latest/using/manage-fileplan.md %}#managing-unfiled-records)
+A Records Manager then has numerous options for [Filing an unfiled record]({% link governance-services/7.1/using/file-records.md %}#filing-an-unfiled-record) and 
+[Managing unfiled records]({% link governance-services/7.1/using/manage-fileplan.md %}#managing-unfiled-records)
 
 There are three options available for declaring files as records:
 
@@ -57,9 +57,9 @@ have the required {% include tooltip.html word="securityclassification" text="se
 
 There are four security classification levels you can assign. {% include tooltip.html word="securitygroups" text="Security groups" %} provide additional classification options.
 
-> **Note:** You can also [classify records]({% link governance-services/latest/using/smc.md %}#classifyrecordsfolderscategories) in the File Plan.
+> **Note:** You can also [classify records]({% link governance-services/7.1/using/smc.md %}#classifyrecordsfolderscategories) in the File Plan.
 
-See [Classification rules and tips]({% link governance-services/latest/using/smc.md %}#classification-rules-and-tips) for more on classifying content.
+See [Classification rules and tips]({% link governance-services/7.1/using/smc.md %}#classification-rules-and-tips) for more on classifying content.
 
 You can autoclassify by by adding instructions, manually apply classifications and security marks, or both.
 
@@ -130,7 +130,7 @@ You can autoclassify by by adding instructions, manually apply classifications a
 
     You cannot use security marks you do not posses when classifying content, unless you also use a security mark you do posses from the same group. If you have a security mark from a security group 'any' then you can view and assign all other marks from that group. When using marks (either when Classifying Content or creating Instructions) that you don't posses, you must include a mark from the same group to avoid losing access to the content. An error will appear if you attempt to create an instruction using only a mark you don't have, or have not included a mark from the same group.
 
-    See [How security controls work]({% link governance-services/latest/using/smc.md %}#how-security-controls-work) for more details.
+    See [How security controls work]({% link governance-services/7.1/using/smc.md %}#how-security-controls-work) for more details.
 
 19. Click **Classify**.
 

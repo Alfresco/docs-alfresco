@@ -85,7 +85,7 @@ You can create rules for a category or folder, in much the same way that you mig
 
     If you select **Execute script** then scripts are only available if they've been set up by your Alfresco administrator in **Repository > Data Dictionary > Records Management > Records Management Scripts**.
 
-    If you select **Worm Lock** you must have configured Amazon S3. For more information on WORM Lock see [Working with Amazon S3 WORM]({% link governance-services/latest/using/worm.md %})
+    If you select **Worm Lock** you must have configured Amazon S3. For more information on WORM Lock see [Working with Amazon S3 WORM]({% link governance-services/7.1/using/worm.md %})
 
 8. Select additional options:
 
