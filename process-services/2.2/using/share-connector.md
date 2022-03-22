@@ -184,7 +184,7 @@ webapps/activiti-app/WEB-INF/classes/META-INF/activiti-app/activiti-ldap.propert
 
 The default configuration works with the sample LDAP settings provided with the installation bundle, however you can easily override them by creating a new file called `<InstallLocation>/lib/activiti-ldap.properties`, and override the properties that requires changing.
 
-For further details about configuring LDAP for Process Services, see [External Identity Management (LDAP/Active Directory)]({% link process-services/latest/config/authenticate.md %}#ldap-and-active-directory).
+For further details about configuring LDAP for Process Services, see [External Identity Management (LDAP/Active Directory)]({% link process-services/2.2/config/authenticate.md %}#ldap-and-active-directory).
 
 #### Alfresco Content Services settings
 
@@ -304,11 +304,11 @@ Follow these steps to install the Share Connector:
 1. Install Process Services using the installer.
 
 2. Verify the database configuration. By default, the demo H2 database is used, therefore you might want to configure Process Services to use the same database as your Alfresco Content Services installation.
-    * Typically, you should create a new database schema for Process Services to use, and then configure it as described in [Database configuration]({% link process-services/latest/config/database.md %}).
+    * Typically, you should create a new database schema for Process Services to use, and then configure it as described in [Database configuration]({% link process-services/2.2/config/database.md %}).
 
 3. Make sure your Process Services app has a license installed. You can add a license file manually to the `tomcat/lib` directory, or load it through the user interface.
 
-    To load a license file from the UI, see [uploading_a_license_from_the_user_interface]({% link process-services/latest/install/manual.md %}#license) Make sure you sign out from Process Services and stop the server.
+    To load a license file from the UI, see [uploading_a_license_from_the_user_interface]({% link process-services/2.2/install/manual.md %}#license) Make sure you sign out from Process Services and stop the server.
 
 4. To use the same demo LDAP server, copy the following file from `activiti-share-connector.zip` into its corresponding folder in the Process Services installation directory:
 
@@ -438,7 +438,7 @@ You have successfully started an process on the selected files in an site.
 
 This tutorial walks you through the steps required to run your first process as a workflow from Alfresco Share using the **My Activiti Tasks** dashlet.
 
-All process definitions that you deploy to Apps in Process Services are available to you in Alfresco Share. This section assumes that you have deployed the first process workflow using the app-creating-process tutorial described in [Getting Started]({% link process-services/latest/using/getting-started.md %}). If not, follow the tutorial to deploy the workflow.
+All process definitions that you deploy to Apps in Process Services are available to you in Alfresco Share. This section assumes that you have deployed the first process workflow using the app-creating-process tutorial described in [Getting Started]({% link process-services/2.2/using/getting-started.md %}). If not, follow the tutorial to deploy the workflow.
 
 1. Go to the Alfresco Share dashboard, `http://localhost:8090/share`.
 
