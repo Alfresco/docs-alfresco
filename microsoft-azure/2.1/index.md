@@ -2,18 +2,14 @@
 title: Alfresco Content Connector for Azure
 ---
 
-The Alfresco Content Connector for Azure is an add-on module that provides an alternative content store. It uses 
-Microsoft's Azure Blob Storage as the storage mechanism for Alfresco Content Services, allowing for virtually unlimited 
-and inexpensive storage.
+The Alfresco Content Connector for Azure is an add-on module that provides an alternative content store. It uses Microsoft's Azure Blob Storage as the storage mechanism for Alfresco Content Services, allowing for virtually unlimited and inexpensive storage.
 
-This release of the Azure Connector is a compatibility release to support Alfresco Content Services 7.2, and adds the 
-ability to accelerate the local download of content. See [Direct Access URLs]({% link microsoft-azure/latest/config/direct-access.md %}) 
-for more details. It also introduces [Cloud Storage Properties]({% link microsoft-azure/latest/config/index.md %}#cloud-storage-properties).
+This release of the Azure Connector is a compatibility release to support Alfresco Content Services 7.1.  
 
 Other features introduced in previous versions include:
 
-* [Azure content store subsystems]({% link microsoft-azure/latest/config/index.md %}#azure-subsystems)
-* [Multiple Azure storage container configuration]({% link microsoft-azure/latest/config/index.md %}#configuring-multiple-storage-containers)
+* [Azure content store subsystems]({% link microsoft-azure/2.1/config/index.md %}#azure-subsystems)
+* [Multiple Azure storage container configuration]({% link microsoft-azure/2.1/config/index.md %}#configuring-multiple-storage-containers)
 * Support for [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction#blob-storage){:target="_blank"} for on-premises or Azure Cloud installation of Content Services
 * Support for hot and cool access tiers (based on storage account)
 * Based on the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java){:target="_blank"} (v12.6.1)
