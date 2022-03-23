@@ -74,8 +74,6 @@ We provide example inventories
 
 If you're using the Content Services (Enterprise), then you need credentials to access the necessary artifacts from [Nexus](https://artifacts.alfresco.com/nexus/){:target="_blank"}. Customers can request these through [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
-## Target O/S
-
 ### Control Node
 
 In addition to the requirements mentioned earlier for control nodes in general, the playbook requires using Ansible 2.12+ which in turn requires python 3.8+
