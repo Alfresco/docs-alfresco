@@ -6,7 +6,7 @@ Use this information to install and configure the Content Connector for AWS S3 a
 
 Using an Alfresco Module Package (AMP), the connector supplies a new content store which replaces the default file 
 system-based implementation for the standard and (optionally) the deleted content stores. 
-The content store implementation is responsible for reading and writing content streams using the S3 API, 
+The content store implementation is responsible for reading and writing content streams (i.e. files) using the S3 API, 
 however, in order to improve performance a local Caching Content Store is used which uses the local disk to 
 cache recently-used content items.
 
