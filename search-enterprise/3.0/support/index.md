@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for Search Services Search Enterprise 3.0.0:
+The following are the supported platforms for Search Enterprise 3.0.0:
 
 ## Alfresco Content Services
 
