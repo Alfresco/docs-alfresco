@@ -45,7 +45,7 @@ You can upload single or multiple files within the Mobile Workspace.
 
 4. Press **Upload Files**.
 
-    This will open your file repository on your mobile device (e.g. Files for iPhone users) where you can select files to upload. This will upload files to the Personal files area. If you want to upload to a specific folder, create a new folder first and upload from inside that folder.
+This will open your file repository on your mobile device (e.g. Files for iPhone users) where you can select files to upload. This will upload files to the Personal files area. If you want to upload to a specific folder, create a new folder first and upload from inside that folder.
 
 ## Share files from another file system
 
