@@ -58,7 +58,7 @@ You can share single or multiple files from a different file system with the Mob
 
 3. Select the location in the Mobile Workspace to share and store your files, and then click **Upload**.
 
-    This will upload files to the Personal files area. If you want to upload to a specific folder, create a new folder first and then upload from inside that folder. Files can also be shared this way using the gallery with the Mobile Workspace.
+This will upload files to the Personal files area. If you want to upload to a specific folder, create a new folder first and then upload from inside that folder. Files can also be shared this way using the gallery with the Mobile Workspace.
     
 Open the Mobile Workspace to view your files.
  
