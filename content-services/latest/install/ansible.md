@@ -13,6 +13,11 @@ On windows please see the provided `Vagrantfile` in order to kick start a local 
 
 More info on [control node](https://docs.ansible.com/ansible/latest/user_guide/basic_concepts.html#control-node)
 
+## The target nodes
+
+The target nodes are the machine where the Alfresco platform and all its related components will be prepared, installed, configured, etc... 
+In minimal environments the target node and the control node can be the same machine, though usually deployment is done from the one contrl node to many target nodes.
+
 ## Understanding the inventory file
 
 An inventory file is used to describe the architecture or environment where you want to deploy the ACS platform. Each machine taking part in the environment needs to be described with at least:
