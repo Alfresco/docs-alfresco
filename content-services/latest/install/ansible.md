@@ -4,15 +4,61 @@ title: Install with Ansible
 
 This page describes how to install Content Services using an [Ansible](https://www.ansible.com){:target="_blank"} playbook. Ansible is an open-source software provisioning, configuration management, and application installation tool that enables infrastructure as code. Alfresco provides an Ansible playbook capable of installing Content Services (Enterprise Edition) version 7.x or 6.2.N.
 
-Before continuing you need to be familiar with some [Ansible concepts](https://docs.ansible.com/ansible/latest/user_guide/basic_concepts.html){:target="_blank"}:
+Before continuing you need to be familiar with some [Ansible concepts](https://docs.ansible.com/ansible/latest/user_guide/basic_concepts.html){:target="_blank"}: and the notion of [idempotency](https://docs.ansible.com/ansible/latest/reference_appendices/glossary.html#term-Idempotency){:target="_blank"}:.
 
-* [control node](https://docs.ansible.com/ansible/latest/user_guide/basic_concepts.html#control-node){:target="_blank"}: the machine the playbook is run from is known as the **control node**.
+## The control node
 
-* [connection type](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#connecting-to-hosts-behavioral-inventory-parameters){:target="_blank"}: the type of connection to the host.
+The machine the playbook is run from is known as the control node. Ansible has some prerequisites for this control node. The main one is that it needs to run on a POSIX compliant system ; meaning Linux or others Unix (Including MacOSX), but not windows.
+On windows please make see the provided `Vagrantfile` in order to kick start a local Linux VM where to deploy the playbook.
 
-* [inventory file](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#intro-inventory){:target="_blank"}: defines the hosts and groups of hosts upon which commands, modules, and tasks in a playbook operate. The inventory file lists individual hosts or user-defined groups of hosts.
+More info on [control node](https://docs.ansible.com/ansible/latest/user_guide/basic_concepts.html#control-node)
 
-There are two types of installations - local and remote:
+## Understanding the inventory file
+
+An inventory file is used to describe the architecture or environment where you want to deploy the ACS platform. Each machine taking part in the environment needs to be described with at least:
+
+* an `inventory_name`: a name which, in most cases can be anything (It is though a good practice to use a name or address which all target machines can resolve and reach from their local network).
+
+And optionally:
+
+* an `ansible_user` variable: if the host requires a unique and specific user to login to.
+* an `ansible_host` variable; if the host needs to be reached through an address that's different from the `inventory_hostname` (e.g. machine is only reachable through a bastion host or some sort of NAT).
+* an `ansible_private_key_file` in case your hosts needs a specific SSH key in order to login to it.
+
+An ACS inventory file has the following groups a host can belong to:
+
+* `repository`: the list of one or more hosts which will get an Alfresco repo deployed on (see [the deployment guide](./deployment-guide.md) for details on repository clustering).
+* `database`: a host on which the playbook will deploy PostgreSQL. See  [the deployment guide](./deployment-guide.md) for details on how to use another external RDBMS.
+* `activemq`: the host on which the playbook will deploy the message queue component required by ACS.
+* `external_activemq`: an alternative group to `activemq` in case you don't want to deploy ActiveMQ using our basic activemq role but instead use an ActiveMQ instance of yours which matched your hosting standards.
+* `search`: a single host on which to deploy Alfresco Search services.
+* `nginx`: a single host on which the playbook will deploy an NGINX reverse proxy configured for the numerous http based service in the platform.
+* `adw`: a single host where you want the Alfresco Digital Workspace UI to be installed
+* `transformers`: a single host where the playbook will deploy the Alfresco Transformation Services components
+* `syncservice`: a single host where the Alfresco Device Sync service will be deployed
+
+> Ansible also ships a default group called `all` which all hosts always belongs to
+
+Inventory files provided as example in this playbook are all YAML written. Groups are always children items of the `all` group it self or of other groups. Hosts are mentioned after a `hosts` key under any group (including the `all` group).
+So a generic example would be:
+
+```yaml
+---
+all:
+  children:
+    group_name1:
+      hosts:
+        inventory_nameA:
+```
+
+An inventory file can also be used to set variable within a specific scope. Variables can be specified at the host, groups or all levels, thus affecting the scope in which that variable is available.
+So if one variable (like `ansible_user` for example) is valid for all hosts, you'd better set it once under the `all` group.
+
+See [Ansible variable precedence documentation](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#understanding-variable-precedence) to better understand how precedence works.
+
+In most cases we recommend you use your inventory to place the configuration variables you may need to tweak the playbook to your needs.
+
+We provide example inventories
 
 * **Local** where all the components are installed on the control node machine:
 
@@ -22,80 +68,67 @@ There are two types of installations - local and remote:
 
 ![deployment-type-ssh]({% link content-services/images/deployment-type-ssh.png %})
 
+* **HA** (also known as `ha`) which is very similar to the previous one but also provides s skeleton for repository clustering.
+
 ## Prerequisites
 
 If you're using the Content Services (Enterprise), then you need credentials to access the necessary artifacts from [Nexus](https://artifacts.alfresco.com/nexus/){:target="_blank"}. Customers can request these through [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 ## Target O/S
 
-The playbooks have been tested using Ansible 2.9.21 (or later) on target hosts with the following operating systems:
+### Control Node
 
+In addition to the requirements mentioned earlier for control nodes in general, the playbook requires using Ansible 2.12+ which in turn requires python 3.8+
+
+### Target Nodes
+
+Supported OS are:
 * CentOS 7 and 8
 * Red Hat Enterprise Linux 7 and 8
+* Ubuntu 18.04 an 20.04
 
 Additional target environments will be added in future releases.
 
 ## Set up Ansible
 
-A control node is required to run the playbook. You can use any computer as a control node that has Python installed. Usually, laptops, desktops, and servers can all run Ansible.
+Not all distributions of Linux may match the version requirements for Ansible and its dependencies. Below we describe how to configure a control node  with one of the many ways to set a python virtual environment. With python virtualenvs you can install the exact same versions of Ansible we use when testing without impacting your system installtion of python. Doing so you're ensuring best chances of success.
 
-In the interest of keeping this guide simple, we'll use an AWS EC2 instance as the control node. The required steps are:
-
-1. Launch an EC2 instance using the CentOS 7 or 8 (x86_64) AMI from the Marketplace:
-
-    > **Note:** If you plan to install Content Services on this host too, referred to as a [local installation](#local-installation), then you need at least a `t2.xlarge` instance with 16GB RAM
-    > (*Warning: This instance type is not free*).
-    > This might be the case when you just want to try it out for the first time. If you're just using this node as an Ansible control node, then a free `t2.micro` should be sufficient.
-
-    ![centos-ami]({% link content-services/images/centos-ami.png %})
-
-2. Download the Ansible playbook [zip file](https://nexus.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/alfresco-ansible-deployment/1.1.1/alfresco-ansible-deployment-1.1.1.zip){:target="_blank"}.
-
-3. Transfer the ZIP file to the control node and SSH into the machine:
+1. If you're not working directly working on the control node, transfer the ZIP file to the control node together with the SSH private key required to login to the target machines, and SSH into the machine
 
     ```bash
-    scp -i <yourpem-file> <local-path>/alfresco-ansible-deployment-<version>.zip centos@<control-node-ip>:/home/centos/
-    ssh -i <yourpem-file> centos@<control-node-ip>
+    scp  alfresco-ansible-deployment-<version>.zip user@controlnode:
+    scp  ~/.ssh/ansible_rsa user@controlnode:.ssh
+    ssh  user@controlnode
     ```
 
-    For example:
+    > You may want to generate an SSH key pair locally and use it later for deployment. Wether you generate one or you use one you copied over to the control node, it is your responsability to deploy it to the target machines so Ansible can use it.
+    > Using SSH keys is recommanded but not mandatory. If using password instead make sure to add the `-k`switch to the ansible command so it prompts you for a password.
+
+2. Check prerequisites and install resuired tools
 
     ```bash
-    -rw-r--r--@ 1 mbergljung  staff  119559 16 Mar 08:18 alfresco-ansible-deployment-1.1.1.zip
-    -rw-r--r--@ 1 mbergljung  staff    1700 16 Mar 08:18 ansible-test.pem
-    $ chmod 400 ansible-test.pem
-    $ scp -i ansible-test.pem alfresco-ansible-deployment-1.1.1.zip centos@3.86.89.7:/home/centos/
-    alfresco-ansible-deployment-1.1.1.zip                                                    100%  117KB 308.1KB/s   00:00
-    $ ssh -i ansible-test.pem centos@3.86.89.7
-    [centos@ip-172-31-83-57 ~]$
+    python --version # must be at least 3.8 in order to use Ansible 2.12
+    sudo apt install virtualenvwrapper unzip # Use your distro's package manager instead of apt if it's not Debian based
     ```
 
-4. Install the required dependencies for Ansible (replace the `7` with `8` in the URL if you're using CentOS 8):
-
-    ```bash
-    sudo yum install -y unzip https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-    ```
-
-5. Install Ansible:
-
-    ```bash
-    sudo yum install -y ansible
-    ```
-
-6. Extract the ZIP file:
+3. Install Ansible and required dependencies in python virtualenv
 
     ```bash
     unzip alfresco-ansible-deployment-<version>.zip
+    cd alfresco-ansible-deployment
+    mkvirtualenv alfresco-ansible
+    pip install -r requirements.txt
+    ansible-galaxy install -r requirements.yml
     ```
 
-7. Create environment variables to hold your Nexus credentials as shown below (replacing the values appropriately):
+4. If you intend to deploy an Enterprise system, create environment variables to hold your Nexus credentials as shown below (replacing the values appropriately):
 
     ```bash
-    export NEXUS_USERNAME=<your-username>
-    export NEXUS_PASSWORD=<your-password>
+     export NEXUS_USERNAME="<your-username>"
+     export NEXUS_PASSWORD="<your-password>"
     ```
 
-    > **Note:** If your password contains `!`, then you need to escape it with `\`, as it's a special character to `bash`, and it's used to refer to previous commands.
+    > **Note:** If your password contains `!`, then you need to escape it with `\`, as it's a special character to `bash`, and it's used to refer to previous commands. Same escape method apply for other specials characters
 
 Without any additional configuration applied, the playbook installs the default Content Services components. See the [configuration](#configure-your-installation) section below to adjust some of the configurable installation options.
 
@@ -155,19 +188,14 @@ To install to hosts other than the control node, an SSH connection is required. 
 
 > **Note:** The inventory file (`inventory_ssh.yml`) is used to specify the target IP addresses and the SSH connection details. You can specify one IP address for all the hosts to obtain a single-machine installation, or different IP addresses for a multi-machine installation.
 
-The example snippet below demonstrates how to install the repository to a host with an IP address of `50.6.51.7` using an SSH key located at `/path/to/ssh_key.pem`.
+The example snippet below demonstrates how to install the repository to a host with an IP address of `50.6.51.7` using an SSH key located at `/path/to/id_rsa`.
 
 ```yaml
 repository:
   hosts:
-    repository_1:
-    connection: shh
-    ansible_host: 50.6.51.7
-    ansible_private_key_file: "/path/to/ssh_key.pem"
-    ansible_user: centos
-    ansible_ssh_common_args: "-o UserKnownHostsFile=/dev/null -o ControlMaster=auto
-      -o ControlPersist=60s -o ForwardX11=no -o LogLevel=ERROR
-      -o IdentitiesOnly=yes -o StrictHostKeyChecking=no"
+    repository.acme.local:
+      ansible_host: 50.6.51.7
+      ansible_private_key_file: "/path/to/id_rsa"
 ```
 
 ### Single machine installation
@@ -185,10 +213,16 @@ navigate to the folder where you extracted the ZIP to and run:
 ansible all -m ping -i inventory_ssh.yml
 ```
 
-To install Content Services 7.1 on the target host, run the playbook as the current user:
+To install Content Services 7.2 on the target host, run the playbook as the current user:
 
 ```bash
 ansible-playbook playbooks/acs.yml -i inventory_ssh.yml
+```
+
+Alternatively, to deploy a Content Services 7.1 system use the following command:
+
+```bash
+ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.1.N-extra-vars.yml"
 ```
 
 Alternatively, to deploy a Content Services 7.0 system use the following command:
@@ -205,7 +239,7 @@ ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@6.2.N-extra-vars.ym
 
 If you see an error message during installation, then check for [possible causes](#errormsg).
 
-> **Note:** The playbook takes around 30 minutes to complete.
+> **Note:** Depending on the number of hosts in the target environment and the network performances the playbook takes around 30 minutes to complete.
 
 Once the playbook is complete, Ansible displays a play recap to let you know that everything is done, similar to the following:
 
@@ -234,9 +268,6 @@ The diagram below shows the result of a multi-machine installation.
 Once you've prepared the target hosts (ensuring the [relevant ports](#tcp-port-configuration) are accessible) and 
 configured the `inventory_ssh.yaml` file as described above, you're ready to run the playbook.
 
->**Note:** Currently, Alfresco Digital Workspace (ADW) must be deployed on the same host (`adw_1`) as the 
->NGINX reverse proxy (`nginx_1`). We'll address this issue in a future release.
-
 To check that your inventory file is configured correctly, and that the control node is able to connect to the 
 target hosts, run:
 
@@ -248,6 +279,12 @@ To install Content Services 7.1 on the target hosts, run the playbook as the cur
 
 ```bash
 ansible-playbook playbooks/acs.yml -i inventory_ssh.yml
+```
+
+Alternatively, to deploy a Content Services 7.1 system use the following command:
+
+```bash
+ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.1.N-extra-vars.yml"
 ```
 
 Alternatively, to deploy a Content Services 7.0 system use the following command:
@@ -283,6 +320,48 @@ transformers_1             : ok=81   changed=10   unreachable=0    failed=0    s
 For details about the webapp URLs, location of logs, configuration etc., see [useful information](#usefulinfo).
 
 If you're deploying a production system, ensure that you review the additional information provided in [Securing your installation]({% link content-services/latest/admin/securing-install.md %}).
+
+### Additionnal command switches for ansible-playbook
+
+There are some useful argument you can use with `ansible-playbook` command in many circumstances. Some are highlighted bellow but take a look at [The ansible-playbook documentation](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html) for complete list of options.
+
+* `-k` : Prompt for SSH password. Usefull when no SSH keys have been deployed but needs to be th same on all hosts (prefer SSH whenever possible)
+* `-K` : Prompt for sudo password. Usefull when the user used to connect to the machine is not root
+* `-e` : Pass an extra variable or override an existing one.
+* `-l` : Limit the play to a subset of hosts (either groups or individuals hosts or a mix of both)
+* `-u user` : specify the username to use to cnnect to all targets (Prefer adding the ànsible_ssh_user` to the inventory file in the right scope, e.g. under the `all`group)
+
+## ACS cluster 
+
+Due to load or high availability needs, you might want to deploy a cluster of several repository nodes. This can be achieved rather simply by:
+
+* Giving the playbook the location of the shared storage used for the ACS contentstore (See [Shared storage documentation](shared-contentstore.md) for details).
+* Specifying several hosts within the repository hosts group
+
+> :warning: as mention in the [Alfresco official documentation](https://docs.alfresco.com/content-services/latest/admin/cluster/#scenarioredundancycluster), "All the servers in a cluster should have static IP addresses assigned to them".
+> Not meeting this pre-requisite won't prevent the playbook from working but the cluster might will most likely stop working in case one of the server in the architecture changes IP address.
+
+For example:
+
+```yaml
+...
+  repository:
+    vars:
+      cs_storage:
+        type: nfs
+        device: nas.infra.local:/exports/contentstore
+        options: _netdev,noatime,nodiratime
+    hosts:
+      ecm1.infra.local:
+      ecm2.infra.local:
+      ingester.infra.local:
+        cluster_keepoff: true
+...                                                                                                                                                     ```                                                                                                                                                     
+
+In some circumstances, you may want to have a repo node that's dedicated to a scheduled task (such as ingesting massive amount of documents). Depending on the nature of the task and the requirements of your organisation, it may be preferable to not make this node part of the ACS cluster.
+In that case, you can add the `cluster_keepoff` variable to one of the `repository` group nodes'. It will provision the node with the repository and share services but make sure it not taking part in neither the share, nor the repository cluster realm.
+
+> A typical use case is to have a dedicated Solr tracking node. The playbook will then prefer to use that dedicated node - if it finds one - for solr tracking and only use the other as backup server (no load balancing)
 
 ## Useful information {#usefulinfo}
 
@@ -386,51 +465,58 @@ If you have a valid license, place your `*.lic` file in the `configuration_files
 
 > **Note:** You can also [upload a license]({% link content-services/latest/admin/license.md %}) via the Admin Console once the system is running.
 
+### Alfresco/Solr authentication
+
+As of ACS 7.2 and/or Search services 2.0.3, the repository <--> solr communication requires to be authenticated. The playbook will set up that authentication scheme using the new `secret` method.
+This methods needs to be paased a shared secret. In orderto do so use the varaible below:
+
+```yaml
+reposearch_shared_secret: dummy
+```
+
+> Of course do not use dummy as shown above, but use a stronger secret
+
+This secret should be placed in the inventory file, either under the `all` group scope.
+
+:warning: Should you forget to provide that shared secret, the playbook will generate a random one. While that may sound convenient keep in mind that doing so will break the idempotency of the playbook and the shared secret will be updated everytime you run the playbook.
+
 ### Alfresco global properties
 
 You can provide your [repository configuration](https://github.com/Alfresco/acs-deployment/blob/master/docs/properties-reference.md){:target="_blank"} by editing the `configuration_files/alfresco-global.properties` file.
 
 The properties defined in this file are appended to the generated `alfresco-global.properties` located in `/etc/opt/alfresco/content-services/classpath`.
 
-### Override playbook variables
+### Apply your own modules (AMP)
 
-Ansible provides a mechanism to [override variables](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#defining-variables-at-runtime){:target="_blank"} when you run the playbook.
+Several AMP files are downloaded and applied during playbook execution, these are defined in a variable which is either in the `group_vars/all.yml` file or an extra-var file (in case of older ACS version).
+For that reason there is common way to override that variable. If you want to change the list of AMPs you'll need to directly change the variable from the file where it is defined.
 
-Whilst it's possible to override any variable defined by the playbook, we've only tested changing the variables defined in `group_vars/all.yml`.
+1. Open `group_vars/all.yml` or the `x.y.N-extra-vars.yml` file  and amend `amp_downloads` variable definition
+2. In the `group_vars/all.yml` file, Add any additional AMP you want to apply to the `amp_downloads` variable as well, paying close attention to the `dest` property. If it's a repository AMP use the `amps_repo` folder, if it's a Share AMP use the `amps_share` folder    
+3. Save the file and run the playbook as normal.
 
-When running the playbook, you can override variables by using either the `--extra-vars` or `-e` command line option.
-
-If you have more than one variable to override, we recommend using a separate file. The file name must be prefixed with `@`, for example:
-
-```bash
-ansible-playbook ... --extra-vars "@my-vars.yml"
-```
-
-### Apply your own modules (AMP or JAR)
-
-Several Alfresco Module Packages (AMP files) are downloaded and applied when you run the playbook **execution**. These are defined in a variable that you can override using the mechanism described in the previous section. Follow the steps below to apply your own AMPs:
-
-1. Open `group_vars/all.yml` and copy the whole `amp_downloads` variable definition.
-2. Create a new file and paste the `amp_downloads` variable.
-3. Add any additional AMPs you want to apply, paying close attention to the `dest` property. If it's a repository AMP use the `amps_repo` folder; if it's a Share AMP use the `amps_share` folder.
-4. Save the file and reference it via the `--extra-vars` option when running the playbook.
-
-> **Note:** This mechanism will be improved in a future release.
+> NOTE: This mechanism will be improved in a future release.
 
 ### JVM options
 
-Each Java based service installed by the playbook is configured with some default settings, including memory settings.
-
-The defaults are defined in `group_vars/all.yml` so they can be overridden using the mechanism described [above](#override-playbook-variables).
-
-For example, to override the `JAVA_OPTS` environment variable for the AIO Transform Core Engine place the following in your extra vars file:
+Each Java based service deployed by the playbook is configured with some default settings, including memory settings.
+The defaults are defined in the roles' specific default variables (see the [Ansible Overview paragraph in the README file](./README.md)) so they can be overridden in the inventory_file using the right scope.
+For example, to override the JAVA_OPTS environment variable for the All-In-One Transform Engine place the following in inventory file:
 
 ```yaml
-tengine_environment:
-  JAVA_OPTS: "$JAVA_OPTS -Xms512m -Xmx1g"
-```
+---
+all:
+  children:
+    transformers:
+      tengine_environment:
+        JAVA_OPTS:
+          - -Xms512m
+          - -Xmx1g
+          - $JAVA_OPTS
+```                                                                                                                                                     
 
-The `*_environment` variable is defined as a dictionary, all keys are added to the relevant components start script, thus allowing you to define any number of environment variables.
+All the `_environment` variables defined in roles are dictionaries, and all their keys are added to the relevant components start script thus allowing you to define any number of environment variables. Key values are a list of strings to allow for easier manipulation.
+When overriding the default env vars you should make sure you're not retiring important ones so always take a look at the ``roles/ROLE_NAME/defauls/main.yml` file first.
 
 ### External databases
 
@@ -448,6 +534,27 @@ Along with the URL, the database driver binaries need to be provided for one or 
 The default database username (`repo_db_username` and/or `sync_db_username`) and password (`repo_db_password` and/or `sync_db_password`) in the configuration file `group_vars/all.yml` can also be overidden with your custom values.
 
 See [Configuring databases]({% link content-services/latest/config/databases.md %}) for more details.
+
+### External ActiveMQ
+
+This playbook provides support for a single host declared inside the `activemq` group that will deploy and configure an ActiveMQ instance that is suitable for testing/evaluation only (no failover and default credentials).
+It's strongly suggested that you provide your own ActiveMQ instance by defining in the inventory file, exactly one host as a member of the `external_activemq` group (nested inside the `external` group) as follows:
+
+```yaml
+all:
+  children:
+    external_activemq:
+      hosts:
+        whatever.mq.eu-west-1.amazonaws.com:
+        activemq_username: alfresco
+        activemq_password: alfresco
+        activemq_port: 61617
+    external:
+      children:
+        external_activemq:
+```
+
+Every hosts under the `external` group is not directly managed by the acs playbook and is required in the inventory just for the sake of architecture description.
 
 ### Custom keystore
 
