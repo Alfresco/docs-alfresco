@@ -6,7 +6,11 @@
     - title: 'Install'
       path: '/microsoft-azure/latest/install/'
     - title: 'Configure'
-      path: '/microsoft-azure/latest/config/'
+      pages:
+        - title: 'Overview'
+          path: '/microsoft-azure/latest/config/'
+        - title: 'Direct access URLs'
+          path: '/microsoft-azure/latest/config/direct-access/'
     - title: 'Administer'
       path: '/microsoft-azure/latest/admin/'
 - version: 2.1
