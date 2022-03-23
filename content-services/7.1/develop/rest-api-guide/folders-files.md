@@ -1867,7 +1867,7 @@ Cloud storage such as AWS S3.
 
 **API Explorer URL:** [http://localhost:8080/api-explorer/#/nodes/requestNodeDirectAccessUrl](http://localhost:8080/api-explorer/#/nodes/requestNodeDirectAccessUrl){:target="_blank"}
 
-**See also**: [AWS S3 Direct Access URLs]({% link aws-s3/latest/config/direct-access.md %}})
+**See also**: [AWS S3 Direct Access URLs]({% link aws-s3/latest/config/direct-access.md %})
 
 The following HTTP POST call is used to download a file:
 
