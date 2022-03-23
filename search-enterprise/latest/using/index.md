@@ -278,6 +278,19 @@ becomes
 stopword1_quick quick fox_stopword2 fox stopword2_brown brown
 ```
 
+## Search for proximity
+
+Google-style proximity is supported.
+
+To specify proximity for fields, use grouping.
+
+```sql
+big * apple
+TEXT:(big * apple)
+big *(3) apple
+TEXT:(big *(3) apple)
+```
+
 ## Requesting optional item information
 
 We have taken what we're calling a "performance first" approach with the API. This means that each endpoint, by default, only returns the item information that is efficient to retrieve.
