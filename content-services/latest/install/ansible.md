@@ -9,7 +9,7 @@ Before continuing you need to be familiar with some [Ansible concepts](https://d
 ## The control node
 
 The machine the playbook is run from is known as the control node. Ansible has some prerequisites for this control node. The main one is that it needs to run on a POSIX compliant system ; meaning Linux or others Unix (Including MacOSX), but not windows.
-On windows please make see the provided `Vagrantfile` in order to kick start a local Linux VM where to deploy the playbook.
+On windows please see the provided `Vagrantfile` in order to kick start a local Linux VM where to deploy the playbook.
 
 More info on [control node](https://docs.ansible.com/ansible/latest/user_guide/basic_concepts.html#control-node)
 
