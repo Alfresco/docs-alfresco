@@ -73,13 +73,12 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Document Transformation Engine 2.3 | |
 | Alfresco Search Enterprise 3.1 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.x upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
 | Alfresco Search and Insight Engine 2.0.3 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
-| Alfresco Search Services 2.0.2 | |
+| Alfresco Search Services 2.0.3 | |
 | Alfresco Federation Services 1.1 | |
 | Alfresco Identity Service 1.7 | |
 | SAML Module for Alfresco Content Services 1.2.2 | |
 | Alfresco Intelligence Services 1.4.2 | |
-| Alfresco Content Connector for AWS S3 5.0 | |
-| Alfresco Content Connector for AWS Glacier |Now part of Alfresco Content Connector for AWS S3 5.0|
+| Alfresco Content Connector for AWS S3 5.0 | Adds support for AWS Glacier using Cloud storage layer. |
 | Alfresco Content Connector for Azure 3.0 | |
 | Alfresco Content Connector for Salesforce 2.3.4 | |
 | Alfresco Content Connector for SAP applications 5.2 | |
@@ -95,7 +94,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 2.7 | |
-| Alfresco Control Center 7.2 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Mobile Workspace 1.2 | |
 | Alfresco Content Accelerator (ACA) 3.4.5 | |
