@@ -28,10 +28,10 @@ for more details.
 ### New storage capabilities for Cloud integrations
 Alfresco has built a new Cloud storage layer to make managing content easier for AWS and Azure customers:
 
-* This allows content to easily be located in AWS by adding support for AWS Glacier natively in the S3 connector to
+* This allows content to easily be located in AWS by adding support for AWS Glacier natively in the S3 Connector to
   allow storage admins to configure their storage and retention policies as needed by their business.
 * This allows content to easily be located in Azure by adding support for Azure Cool and Cold storage Blobs natively
-  in the Azure connector to allow storage admins to configure their storage and retention policies as needed by their
+  in the Azure Connector to allow storage admins to configure their storage and retention policies as needed by their
   business.
 * Additionally, should customers use both AWS and Azure, they can store content on both.
 
@@ -41,7 +41,7 @@ performance testing on Alfresco Search Enterprise and made a number of improveme
 performance benefiting those customers using Elasticsearch.
 
 ## Deprecated software
-* AWS Glacier Connector (Replaced with AWS S3 Connector 5.n)
+* AWS Glacier Connector (replaced with AWS S3 Connector 5.n)
 * Alfresco Content Services Mobile Application
 
 ## Install
