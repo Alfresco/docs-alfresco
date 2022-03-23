@@ -51,7 +51,7 @@ This will open your file repository on your mobile device (e.g. Files for iPhone
 
 You can share single or multiple files from a different file system with the Mobile Workspace.
 
-1. On your mobile device, select the files you want to share with the Mobile Workspace.
+1. On your mobile device, select the files you want to share with the Mobile Workspace. For example, in Google Drive.
     Open Google Drive, for example.
 
 2. Use the share function within the different file system (e.g. 'Send a Copy' with Google Drive) and select Workspace.
