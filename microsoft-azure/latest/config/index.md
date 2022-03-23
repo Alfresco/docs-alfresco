@@ -13,7 +13,7 @@ These are the configuration properties that are applied when you install the Azu
 # Configuration option for the store protocol
 connector.az.storeProtocol=azb
 
-# A number of retries in case of if error occurs
+# A number of retries in case an error occurs
 connector.az.maxErrorRetries=3
 
 # Indicates the maximum time (in seconds) allowed for any single try of an HTTP request.
