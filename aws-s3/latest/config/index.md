@@ -15,7 +15,7 @@ connector.s3.bucketRegion=us-east-1
 # Encryption to be requested for items stored in S3. Used to set the header x-amz-server-side-encryption when the content is added.
 connector.s3.encryption=AES256
 
-# A number of retries in case of if error occurs
+# A number of retries in case an error occurs
 connector.s3.maxErrorRetries=3
 
 # The minimum days to wait before aborting an incomplete multipart upload. If the value is 0 then the abort is disabled.
