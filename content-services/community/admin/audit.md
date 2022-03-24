@@ -551,13 +551,13 @@ It is useful to check the current audit status of a Community Edition installati
 
 You can check the status of auditing conveniently from the command line by using a tool such as `curl` to access the Audit Applications ReST endpoint.
 
-For more information about `curl` and where to find it see this [page]({% link content-services/community/develop/rest-api-guide/install.md %}#http).
+For more information about `curl` and where to find it see this [page]({% link content-services/latest/develop/rest-api-guide/install.md %}#http).
 
-To check the global status of auditing, such as what audit applications that are enabled, see this [page]({% link content-services/community/develop/rest-api-guide/audit-apps.md %}#listauditapps).
+To check the global status of auditing, such as what audit applications that are enabled, see this [page]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#listauditapps).
 
 While this does return the global status of the auditing framework, audit data will only be generated if the `audit.alfresco-access.enabled` property is `true`.
 
-Auditing can also be globally enabled or disabled for Audit applications, see this [page]({% link content-services/community/develop/rest-api-guide/audit-apps.md %}#enabledisableapp) for more info.
+Auditing can also be globally enabled or disabled for Audit applications, see this [page]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#enabledisableapp) for more info.
 
 ## How to use the auditing sample files {#how2useauditsamplefiles}
 
@@ -570,7 +570,7 @@ There are two sample files in `./tomcat/shared/classes/alfresco/extension/audit`
 
 In order to use a sample file, remove the `.sample` extension. It is also assumed you've [enabled auditing](#enableauditing). You will also need to restart the server so the examples are loaded.
 
-Once the sample files are enabled you can check that the new example audit applications are enabled via the ReST API, see this [page]({% link content-services/community/develop/rest-api-guide/audit-apps.md %}#listauditapps) for more information.
+Once the sample files are enabled you can check that the new example audit applications are enabled via the ReST API, see this [page]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#listauditapps) for more information.
 
 You should see that the *AuditExampleExtractors* and *AuditExample Login* applications have been enabled.
 
@@ -578,7 +578,7 @@ You should see that the *AuditExampleExtractors* and *AuditExample Login* applic
 
 You can use the ReST API to control auditing and also run queries against the audit data for specific audit applications. It is also possible to clear auditing data using the API.
 
-The Audit ReST API covers most of the audit functionality, check it out here in the [user guide]({% link content-services/community/develop/rest-api-guide/audit-apps.md %}).
+The Audit ReST API covers most of the audit functionality, check it out here in the [user guide]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}).
 
 ## Default auditing global properties {#auditconfigdefaults}
 
@@ -1035,7 +1035,7 @@ The data extractors sample is provided in `alfresco-audit-example-extractors.xml
 
 ## Audit Tutorials
 
-The [Audit ReST API User Guide]({% link content-services/community/develop/rest-api-guide/audit-apps.md %}) contains a lot of example tutorials.
+The [Audit ReST API User Guide]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}) contains a lot of example tutorials.
 
 ### Understanding PathMappings
 
