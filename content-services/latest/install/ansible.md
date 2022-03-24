@@ -479,7 +479,7 @@ reposearch_shared_secret: dummy
 
 > Of course do not use dummy as shown above, but use a stronger secret
 
-This secret should be placed in the inventory file, either under the `all` group scope.
+This secret should be placed either in the inventory file under the `all` group scope, or passed as an extra variable (it needs to be available to the localhost's hostvars array of variables)
 
 :warning: Should you forget to provide that shared secret, the playbook will generate a random one. While that may sound convenient keep in mind that doing so will break the idempotency of the playbook and the shared secret will be updated everytime you run the playbook.
 
