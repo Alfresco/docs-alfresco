@@ -31,7 +31,7 @@ If you are currently using the Identity Service 1.2 you must first modify the **
 
 ## Remove SmallRye references
 
-> **Important:** You must manually remove all the **_SmallRye_** modules in the `standalone.xml` file before upgrading to version 1.6. From Keycloak 13.0.0 the modules called **_SmallRye_** have been removed from the [WildFly](#https://www.wildfly.org/){:target="_blank"} application. The server will not start if your configuration references them. For more information see [Migrating to 13.0.0](https://www.keycloak.org/docs/latest/upgrading/#migrating-to-13-0-0){:target="_blank"}.
+> **Important:** You must manually remove all the **_SmallRye_** modules in the `standalone.xml` file before upgrading to version 1.6. From Keycloak 13.0.0 the modules called **_SmallRye_** have been removed from the [WildFly](https://www.wildfly.org/){:target="_blank"} application. The server will not start if your configuration references them. For more information see [Migrating to 13.0.0](https://www.keycloak.org/docs/latest/upgrading/#migrating-to-13-0-0){:target="_blank"}.
 
 ## Upgrade ZIP installation
 
