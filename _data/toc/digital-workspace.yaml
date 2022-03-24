@@ -21,8 +21,6 @@
           path: '/digital-workspace/latest/governance/'
         - title: 'Working with records'
           path: '/digital-workspace/latest/governance/records/'
-        - title: 'Archiving Files'
-          path: '/digital-workspace/latest/governance/archiving/'
     - title: 'Process Services'
       pages: 
         - title: 'Process Services overview'

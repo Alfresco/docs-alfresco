@@ -711,8 +711,6 @@ about it when the subsystem is started.
 Starting from version 3.1, the S3 Connector contains an S3 multiple buckets sample. If enabled, this adds 
 `S3MultipleBuckets` as a third alternative for the S3 content store subsystems.
 
->**Note:** If you intend on configuring multiple buckets using the S3 Connector you will be unable to also use the Glacier Connector because it does not support using multiple buckets.
-
 Review the prerequisites in [S3 Connector content store subsystems](#content-store-subsystems) which introduces 
 the S3 content store subsystems. The out-of-the-box S3 subsystems have two possible types: 
 `S3` and `S3OnPrem`.

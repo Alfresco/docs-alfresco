@@ -47,4 +47,4 @@ You don't need to do anything. Any existing content is still encrypted as it was
 
 ## Does the S3 Connector support Amazon S3 Glacier?
 
-Yes, Amazon S3 Glacier is supported from Connector version 5.0.
+The S3 Connector version 5.0 includes support for Amazon S3 Glacier via REST APIs.
