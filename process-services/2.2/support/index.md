@@ -10,7 +10,7 @@ our Support team - submit a case via [Hyland Community]({% link support/latest/c
 
 **Operating systems**
 
-|Server|2.3|Comment|
+|Server|2.2|Comment|
 |------|----|-------|
 |Red Hat Enterprise Linux 7.7|✓| |
 |Red Hat Enterprise Linux 7.6|✓| |
@@ -21,7 +21,7 @@ our Support team - submit a case via [Hyland Community]({% link support/latest/c
 
 **Databases**
 
-|Database|2.3|Driver|
+|Database|2.2|Driver|
 |--------|----|------|
 |MariaDB 10.5|✓|2.7.3|
 |MariaDB 10.4|✓|2.7.3|
@@ -39,20 +39,20 @@ our Support team - submit a case via [Hyland Community]({% link support/latest/c
 
 **Application servers**
 
-|Application server|2.3|Comment|
+|Application server|2.2|Comment|
 |------------------|----|-------|
 |Tomcat 9.0|✓| |
 |Jetty 9.4|✓| |
 
 **JDKs**
 
-|JDK|2.3|Comment|
+|JDK|2.2|Comment|
 |---|----|-------|
 |OpenJDK 11.0.1|✓| |
 
 **Browsers**
 
-|Browser|2.3|Comment|
+|Browser|2.2|Comment|
 |-------|----|-------|
 |Mozilla Firefox|✓| |
 |Microsoft Edge|✓|Versions based on Chromium only|
@@ -61,13 +61,13 @@ our Support team - submit a case via [Hyland Community]({% link support/latest/c
 
 **Third party integrations**
 
-|Integration|2.3|Comment|
+|Integration|2.2|Comment|
 |-----------|----|-------|
 |Elasitcsearch 7.13.2|✓| |
 
 **Integrated services**
 
-|Service|2.3|Comment|
+|Service|2.2|Comment|
 |-------|----|-------|
 |Identity Service 1.2|✓|For use with LDAP and SAML|
 |Identity Service 1.1|✓|For use with LDAP and SAML|
@@ -75,6 +75,6 @@ our Support team - submit a case via [Hyland Community]({% link support/latest/c
 
 **Related components**
 
-|Component|2.3|Comment|
+|Component|2.2|Comment|
 |---------|----|-------|
 |VMWare ESXi 5.1.0|✓|For supported guest operating systems|
