@@ -25,6 +25,8 @@
           path: '/search-enterprise/latest/using/languages/'
         - title: 'Unsupported features'
           path: '/search-enterprise/latest/using/unsupported/'
+        - title: 'Troubleshooting'
+          path: '/search-enterprise/latest/using/troubleshooting/'
 
 - version: 3.0
   pages:
