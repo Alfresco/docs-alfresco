@@ -2,6 +2,14 @@
 title: Develop Digital Workspace
 ---
 
+<!--
+Purpose/Introduction
+
+Learn how to launch a fully-featured front-end application on your development environment, starting from the source code, with the purpose to have a first experience with the development principles and the best practices suggested to create front-end applications working on top of the Alfresco backend services.
+
+The stack chosen for this initial task is the Open Source version of the front-end application. In the bonus section you can try the same exercise with the Enterprise version (available for Alfresco customers and partners only).
+-->
+
 This development section uses the following prerequisites: 
 
 <What are they>
@@ -10,10 +18,9 @@ This development section uses the following prerequisites:
 
 The first thing to do is to check the prerequisites and the requirements to run the front-end application directly into a development environment.
 
-More in particular check that you have:
-
-* Alfresco Content Services (alias ACS) Community or Enterprise edition up and running (identify the URL that will be required as configuration).
-* The latest lts version of NodeJs.
+* Alfresco Content Services (ACS) Enterprise edition up and running (identify the URL that will be required as configuration). 
+* The latest Long-Time Support (LTS) version of [NodeJs](https://nodejs.org/en/).
+* A recent (and supported) version of a browser (see [here](https://github.com/Alfresco/alfresco-ng2-components#browser-support) for further details).
 
 # Cloning and launching the front-end application
 
@@ -21,9 +28,12 @@ Once the environment is properly configured, open a terminal and clone the follo
 
 `git clone https://github.com/Alfresco/alfresco-content-app.git`
 
-Once done, enter the alfresco-content-app folder and create a file named .env with the following content (put the ACS URL as value).
+Once done, enter the `alfresco-content-app` folder and create a file named `.env` with the following content (put the ACS URL as value).
 
-`API_CONTENT_HOST="https://..."`
+```text
+APP_CONFIG_ECM_HOST="https://..."
+APP_CONFIG_PLUGIN_AOS=false
+```
 
 Run `npm install` and then `npm start` to get the application up and running. The application will be available at the URL <http://localhost:4200> and the credentials are the ones required by ACS.
 
