@@ -380,7 +380,7 @@ Site managers can quickly add users to a site.
 
 You can add any user, either internal to your organization or an external user.
 
-> **Note:** External users can only be added if your Alfresco administrator has [enabled the external users panel]({% link content-services/community/develop/share-ext-points/share-config.md %}#enabling-external-users-panel).
+> **Note:** External users can only be added if your Alfresco administrator has [enabled the external users panel]({% link content-services/latest/develop/share-ext-points/share-config.md %}#enabling-external-users-panel).
 
 1. Click ![Invite to Site]({% link content-services/images/invite-to-site-icon.png %}) in the site you want to add users to, or click **Add Users** in the Site Members dashlet.
 

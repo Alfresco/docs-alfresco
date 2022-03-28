@@ -77,23 +77,51 @@ We provide example inventories
 
 ## Prerequisites
 
-If you're using the Content Services (Enterprise), then you need credentials to access the necessary artifacts from [Nexus](https://artifacts.alfresco.com/nexus/){:target="_blank"}. Customers can request these through [Hyland Community](https://community.hyland.com/){:target="_blank"}.
+If you're using the Content Services (Enterprise), then you need credentials to access the necessary artifacts from 
+[Nexus](https://artifacts.alfresco.com/nexus/){:target="_blank"}. Customers can request these through 
+[Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 ### Control Node
+In addition to the requirements mentioned earlier for control nodes in general, the playbook requires using Ansible 2.12+, 
+which in turn requires python 3.8+.
 
-In addition to the requirements mentioned earlier for control nodes in general, the playbook requires using Ansible 2.12+ which in turn requires python 3.8+
+### Target O/S
+While Content Services supports a wide range of OS, the playbook is only supported for a subset of them. The table below 
+gives detailed information on the status of supported OS (Additional target environments will be added in future releases):
 
-### Target Nodes
+| OS Flavor / version | 7.x Enterprise | 6.2.2 Enterprise | Community |
+|-|-|-|-|
+| RHEL 8.2 | [x] | - | [x] |
+| RHEL 7.7 | [x] | - | [x] |
+| RHEL 7.6 | [x] | [x] | [x] |
+| CentOS 8 x64 | [x] | - | [x] |
+| CentOS 7 x64 | [x] | [x] | [x] |
+| Ubuntu 20.04 | [x] | - | [x] |
+| Ubuntu 18.04 | [x] | [x] | [x] |
 
-Supported OS are:
-* CentOS 7 and 8
-* Red Hat Enterprise Linux 7 and 8
-* Ubuntu 18.04 an 20.04
+>**Note:** Ansible version 2.12.x is used for testing this playbook.
 
-Additional target environments will be added in future releases.
+### Component versions
+The table below shows the version of the components deployed by the playbook for ACS 7.x and 6.2.N.
+
+| Component | 7.1 Enterprise | 7.0.N Enterprise | 6.2.N Enterprise | Community |
+|-|-|-|-|-|
+| OpenJDK | 11.0.13 | 11.0.13 | 11.0.13 | 11.0.13 |
+| Apache Tomcat | 9.0.54 | 9.0.54 | 8.5.72 | 9.0.54 |
+| PostgreSQL | 13.x | 13.x | 11.x | 13.x |
+| Apache ActiveMQ | 5.16.1 | 5.16.1 | 5.15.14 | 5.16.1 |
+| Repository | 7.1.1 | 7.0.1.4 | 6.2.2 | 7.1.1.2 |
+| Share | 7.1.1 | 7.0.1.4 | 6.2.2 | 7.1.1.2 |
+| Search Services | 2.0.2 | 2.0.1.1 | 1.4.3 | 2.0.2 |
+| All-In-One Transformation Engine | 2.5.6 | 2.3.10 | 2.5.6 | 2.5.6 |
+| AOS | 1.4.0 | 1.4.0 | 1.3.1 |  |
+| GoogleDocs | 3.2.1 | 3.2.1 | 3.2.0 |  |
+| Digital Workspace | 2.6.0 | 2.1.0 | 2.6.0 | N/A |
+| Transform Router | 1.5.1 | 1.3.2 | 1.5.1 | N/A |
+| Shared File Store | 0.16.1 | 0.13.0 | 0.16.1 | N/A |
+| Sync Service | 3.5.0 | 3.4.0 | 3.3.3.1 | N/A |
 
 ## Set up Ansible
-
 Not all distributions of Linux may match the version requirements for Ansible and its dependencies. Below we describe how to configure a control node  with one of the many ways to set a python virtual environment. With python virtualenvs you can install the exact same versions of Ansible we use when testing without impacting your system installtion of python. Doing so you're ensuring best chances of success.
 
 1. If you're not working directly working on the control node, transfer the ZIP file to the control node together with the SSH private key required to login to the target machines, and SSH into the machine

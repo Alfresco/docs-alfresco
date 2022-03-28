@@ -47,4 +47,4 @@ You don't need to do anything. Any existing content is still encrypted as it was
 
 ## Does the S3 Connector support Amazon S3 Glacier?
 
-The S3 Connector supports Amazon S3 Glacier. See [Alfresco Content Connector for AWS Glacier]({% link aws-glacier/latest/index.md %}) for more information.
+The S3 Connector version 5.0 includes support for Amazon S3 Glacier via REST APIs.

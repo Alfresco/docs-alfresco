@@ -10,10 +10,7 @@ The following features, which were supported with Search and Insight Engine 2.x 
 
 ## Search features
 
-* Site queries
-* Path queries (partially)
 * Aspect queries (it works only using exact aspect name)
-* Tag queries
 * Highlighting
 * Fingerprinting
 * Multi-lingual support (documents will be accepted and searchable with multiple languages, but only English grammar rules will be applied)
@@ -25,9 +22,7 @@ The following features, which were supported with Search and Insight Engine 2.x 
 ### Search Syntax
 
 * Fuzzy matching
-* Proximity search
 * Search for spans and positions
-* Search using date math
 * Search for boosts
 * Wildcards in phrase queries
 * Field Facets Pagination
@@ -35,15 +30,12 @@ The following features, which were supported with Search and Insight Engine 2.x 
 
 ### Field Queries
 
-* PATH
 * PATHWITHREPEATS
 * PNAME
 * NPATH
 * PARENT
 * PRIMARYPARENT
 * QNAME
-* TAG
-* SITE
 * ANCESTOR
 * PRIMARYASSOCQNAME
 * PRIMARYASSOCTYPEQNAME
@@ -106,7 +98,7 @@ In the examples above, filter queries must be executed using the REST API and no
 
 ## Unsupported data types and properties
 
-Data types and properties supported in Search and Insight Engine 2.x and Search Services 2.x that are not currently supported for Search Enterprise 3.0.
+Data types and properties supported in Search and Insight Engine 2.x and Search Services 2.x that are not currently supported for Search Enterprise 3.1.
 
 * http&#65279;://www.alfresco.org/model/cmis/1.0/cs01}id
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}any

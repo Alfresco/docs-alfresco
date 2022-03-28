@@ -334,7 +334,7 @@ from the left column that corresponds to the required Content Services version y
     | Administration and REST APIs | `http://localhost:8080/alfresco` |
     | Share | `http://localhost:8080/share` |
     | Digital Workspace | `http://localhost:8080/workspace` |
-    | Search Services administration | `http://localhost:8083/solr` |
+    | Search Services administration (see [this page]({% link content-services/latest/install/containers/docker-compose.md %}) for info on how to login)| `http://localhost:8083/solr` |
     | Transform Router configuration | `http://localhost:8095/transform/config` |
     | ActiveMQ Admin Web Console | `http://localhost:8161/admin` |
 
