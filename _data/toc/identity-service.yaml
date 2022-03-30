@@ -63,7 +63,7 @@
       path: '/identity-service/1.4/upgrade/'
     - title: 'Configure'
       path: '/identity-service/1.4/config/'
-    - version: 1.3
+- version: 1.3
   pages:
     - title: 'Introduction'
       path: '/identity-service/1.3/'
