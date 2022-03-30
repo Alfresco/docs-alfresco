@@ -298,6 +298,7 @@ defaults:
       support: true
       tutorial: true
       versions:
+        - 1.7
         - 1.6
         - 1.5
         - 1.4
@@ -308,12 +309,20 @@ defaults:
   - scope:
       path: "identity-service/latest"
     values:
-      version: 1.6
+      version: 1.7
       latest: true
   - scope:
       path: "identity-service/latest/tutorial"
     values:
       toc: "identity-service-tutorial"
+  - scope:
+      path: "identity-service/1.6"
+    values:
+      version: 1.6
+  - scope:
+      path: "identity-service/1.6/tutorial"
+    values:
+      toc: "identity-service-tutorial"  
   - scope:
       path: "identity-service/1.5"
     values:
@@ -323,7 +332,7 @@ defaults:
     values:
       toc: "identity-service-tutorial"
   - scope:
-      path: "identity-service/1.5"
+      path: "identity-service/1.4"
     values:
       version: 1.4
   - scope:
