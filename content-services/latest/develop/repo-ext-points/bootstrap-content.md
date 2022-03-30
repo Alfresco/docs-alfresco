@@ -191,6 +191,8 @@ org.alfresco.tutorial.bootstrap.patch.userProfilesLoader.description=Bootstraps 
 
 ```
 
+> **Important:** The `id` value in the bean definition should be limited to 64 characters or less.  Using a value greater than 64 characters will cause the patch to be redeployed on every  restart.
+
 ### Bootstrapping groups
  
 This is also done via XML files:
