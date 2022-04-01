@@ -2,23 +2,17 @@
 title: Developing ADF based applications
 ---
 
-In this section, you are going to learn how to develop a custom ADF based application. Once made you can can start adding features, behaviors, and customizations. The creation of this basic ADF-based application is possible through the scaffolding tool called Yeoman. This means in a small amount of time you can create a working ADF based application in your development environment.
+Create a simple Application Development Framework (ADF) based application using the Yeoman scaffolding tool. In the extention mechanism section, continue development by adding features, behaviors, and customizations.
 
 ## Create an ADF based application using the Yeoman Generator
 
 You may consider adopting an ADF-based application in case you want to benefit from the ADF services and visual components provided by the framework. The [Alfresco Yeoman ADF Generator App](https://github.com/Alfresco/generator-alfresco-adf-app) used for this purpose is available for free as an Open Source project on GitHub.
 
-Below you can find the available tutorials on the most common and requested tasks about developing ADF based applications. To debug, test, or troubleshoot, visit the link in the [Resources](#resources) section.
+Below you can find the available tutorials on the most common and requested tasks about developing ADF based applications. To debug, test, or troubleshoot, visit the [introduction documentation](https://docs.alfresco.com/digital-workspace/latest/develop/introduction).
 
 ### Prerequisites and the requirements
 
-The first thing to do is to check the prerequisites and the requirements to run the front-end application directly into a development environment.
-
-* Alfresco Content Services (ACS) Enterprise edition up and running (identify the URL that will be required as configuration). 
-
-* The latest Long-Time Support (LTS) version of NodeJs.
-
-* A recent (and supported) version of a browser.
+The first thing to do is to [check the prerequisites and the requirements](digital-workspace\latest\develop\index.md) to run the front-end application directly into a development environment.
 
 All the Angular development is done using the Typescript language. With this in mind, it is highly suggested to adopt a good text editor to help you in this task. We recommend Visual Studio Code, a free, lightweight, and powerful tool from Microsoft that works well with Angular development.
 
@@ -44,7 +38,7 @@ npm install -g generator-alfresco-adf-app@latest
 npm install -g @angular/cli
 ```
 
-[Angular CLI](https://cli.angular.io/) makes it easy to create components, libraries, and more. You can check what version of the installed version Angular CLI you have installed by using the `ng v` command in the terminal.
+Angular CLI makes it easy to create components, libraries, and more. For more information on Angular CLI, see **CLI Overview and Command Reference** on the Angular site. You can check what version of the installed version Angular CLI you have installed by using the `ng v` command in the terminal.
 
 ### Create your first ADF application 
 
@@ -99,16 +93,16 @@ Click the key icon in the side navigation to log in.
 
 **Note:** If you're running an online trial, you can find your login credentials in the welcome email.
 
-Take a few minutes to explore your application. You have the essential features: Browsing the repository, uploading, and previewing documents.
+Take a few minutes to explore your application. You have the essential features: browsing the repository, uploading, and previewing documents.
 
 ### Troubleshooting and support 
 If you have any issue, there is an entire community available to help you.
 
-In case of problems raise a question into the Alfresco Forum (Application Development Framework section) or connect with the developers into the Alfresco Gitter channel. Being an Alfresco customer or partner you can also raise a request for support into the Alfresco Support Portal.
+In case of problems raise a question into the [Alfresco Forum (Application Development Framework section)](https://hub.alfresco.com/t5/application-development/ct-p/developing) or connect with the developers in Gitter Discussions available in the [Alfresco Builder Network](https://www.alfresco.com/abn/adf/). Being an Alfresco customer or partner you can also request support into the [Alfresco Support Portal](https://myalfresco.force.com/support/SiteLogin).
 
 ### Other types of ADF based applications 
 In this tutorial, you learned how to create an ADF based application from scratch and run it against an existing instance of Alfresco Content Services. Using the ADF Yeoman Generator, during the creation of the ADF based application, you can decide to use a different application blueprint (content only, content and process, and process only). The tasks described above don’t really change except for the fact that you have to update the URLs of the backend services accordingly.
-
+<!--
 ## Resources
 
 * [Yeoman](https://yeoman.io/)
@@ -121,5 +115,6 @@ In this tutorial, you learned how to create an ADF based application from scratc
 * [VS Code plugins](https://marketplace.visualstudio.com/VSCode)
 * [Angular CLI](https://cli.angular.io/)
 * [Alfresco Forum (Application Development Framework section)](https://hub.alfresco.com/t5/application-development/ct-p/developing)
-* [Alfresco Gitter channel](https://alfresco.atlassian.net/wiki/spaces/PM/overview)
+* Gitter Discussions available in the [Alfresco Builder Network](https://www.alfresco.com/abn/adf/)
 * [Alfresco Support Portal](https://myalfresco.force.com/support/SiteLogin)
+-->
