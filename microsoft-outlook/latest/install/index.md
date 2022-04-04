@@ -166,6 +166,9 @@ Ensure that you have applied the Alfresco Outlook Server AMP files ([see Install
 
     >**Note:** If you added a client license, the license key is displayed, with a message to check the **Alfresco Client > Configure > License** tab in Microsoft Outlook (do this check after you have installed Alfresco Outlook Client).
 
+    >**Note:** The server and client licenses are stored in a system folder in Alfresco, and will persist after a restart in containerized environments. The folder location is:
+    > `/sys:system/cm:wps_alfresco_mail_integration/cm:license/cm:mail`.
+
 ## Install Transform Engine
 
 The Outlook Integration Transform Engine (or T-Engine) enables transformation of MSG and EML files into PDF format when used with the Transform Service. The Outlook Integration T-Engine is available both as a Docker image and as a Web Archive (WAR) file.
