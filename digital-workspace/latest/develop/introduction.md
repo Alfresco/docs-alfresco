@@ -2,23 +2,21 @@
 title: Introducing ADW
 ---
 
-The Alfresco Digital Workspace (alias ADW) is the general-purpose application developed and provided by Alfresco to all the customers and partners. ADW is supported and enhanced through regular releases and it supports content use cases as well as content-centric process use cases.
+The Alfresco Digital Workspace (ADW) is the general-purpose application developed and provided by Alfresco to all the customers and partners. ADW is supported and enhanced through regular releases and utilizes content and content-centric process use cases.
 
-You may consider adopting ADW if you are facing use cases closed to a generic usage and needs. In this section you will learn how to run it locally and manage it from a development perspective.
-
-In this section you will learn how to create and manage ADW from a development perspective and below you can find the available tutorials on the most common and requested tasks.
+You may consider adopting ADW if you are implementing use cases closed to a generic usage and needs. In this section, you will learn how to run ADW locally and manage it from a development perspective. Below you can find the available tutorials on the most common and requested tasks.
 
 ## How to run ADW from the source code
 
-In this tutorial you are going to learn how to launch Alfresco Digital Workspace (alias ADW) on your development environment, starting from the source code, with the purpose to have a first experience with the development principles.
+In this tutorial, you are going to learn how to launch Alfresco Digital Workspace (ADW) on your development environment, start from the source code, and gain your first experience with ADW development principles.
 
-Check you have the required prerequisites, for more see <Link to pre reqs section>.
+Check you have the [required prerequisites](https://docs.alfresco.com/digital-workspace/latest/develop/developedapp).
 
 ## Cloning and launching the front-end application
 
-Once the environment is properly configured, the next step is to have available the source code of the project, locally into your development environment. If you are an Alfresco customer or partner, you can get a local copy of the project by raising a request into the Alfresco Support Portal.
+Once the environment is properly configured, the next step is to have available the source code of the project, locally into your development environment. If you are an Alfresco customer or partner, you can get a local copy of the project by opening a request in the [Alfresco Support Portal](https://myalfresco.force.com/support/SiteLogin).
 
-Once done, enter the alfresco-digital-workspace folder and create a file named .env with the following content (put the ACS URL as value).
+Once done, enter the `alfresco-digital-workspace` folder and create a file named `.env` with the following content (put the ACS URL as value).
 
 ```text
 AUTH_TYPE="BASIC"
@@ -34,86 +32,83 @@ ACA_BRANCH="develop"
 MAXINSTANCES=3
 ```
 
-Run npm install and then npm start content-ee to get the application up and running. The application will be available at the URL http://localhost:4200 and the credentials are the ones required by ACS.
+Run `npm install` and then `npm start content-ee` to get the application up and running. The application will be available at the URL `http://localhost:4200` and the credentials are the ones required by ACS.
 
-Congratulations! You now have the Alfresco Digital Workspace running in development mode into your development environment.
+The Alfresco Digital Workspace should be running in development mode in the development environment.
 
-Troubleshooting and support
-If you have any issue, don’t worry! There is an entire community available to help you.
+### Troubleshooting and support
 
-In case of problems raise a question into the Alfresco Forum (Application Development Framework section) or connect with the developers into the Alfresco Gitter channel. Being an Alfresco customer or partner you can also raise a request for support into the Alfresco Support Portal.
-
-Conclusion
-In this tutorial you learned how to launch Alfresco Digital Workspace (alias ADW) on your development environment, starting from the source code, with the purpose to have a first experience with the development principles.
+Search and post questions in the [Alfresco Forum (Application Development Framework section)](https://hub.alfresco.com/t5/application-development/ct-p/developing) or connect with the developers into the connect with the developers in Gitter Discussions available in the [Alfresco Builder Network](https://www.alfresco.com/abn/adf/). Being an Alfresco customer or partner you can also request support into the [Alfresco Support Portal](https://myalfresco.force.com/support/SiteLogin).
 
 ## How to debug, test, build and promote ADW (and ADF-based applications)
 
-In this tutorial you are going to learn how to debug, test, build and promote the Alfresco Digital Workspace (aka ADW). Being an application built using the Alfresco Development Framework (aka ADF), what is described here for ADW is mostly valid also for any other ADF-based application. Differences and common commands will be described as part of this tutorial.
+In this tutorial, you are going to learn how to debug, test, build and promote the Alfresco Digital Workspace (ADW). As an application built using the Alfresco Development Framework (ADF), the process for ADW is similar for other ADF-based application. Differences and common commands will be described as part of this tutorial.
 
-Being a standard Angular application, the lifecycle and the tasks described for ADW are following the same principles, tooling and best practices of any other standard Angular application. We are not going to detail here what is widely described for Angular based applications (for example for what concern the debugging) but we are going to point on third party content and best practices.
+Being a standard Angular application, the lifecycle and the tasks described for ADW are following the same principles, tooling, and best practices of any other standard Angular application.
 
-Installing
-Applications and distributions
-Starting
-Testing
-Debugging
-Building
-Building without one or more extensions
-Promoting in a different environment
-Conclusions
-Installing
-The command to be used is the same of any Angular application
+## Installing 
 
-npm install
-Applications and distributions
+The command `npm install` is the same of any Angular application.
+
+### Applications and distributions 
+
 As part of the ADW distribution there are three different distributions to be run:
 
-content-ce (Open Source Alfresco Content Application)
+* `content-ce` (Open Source Alfresco Content Application)
 
-content-ee (Alfresco Digital Workspace with Alfresco Process Services extension)
+* `content-ee` (Alfresco Digital Workspace with Alfresco Process Services extension)
 
-content-ee-cloud (Alfresco Digital Workspace with Alfresco Process Automation extension)
+* `content-ee-cloud` (Alfresco Digital Workspace with Alfresco Process Automation extension)
 
-The default distribution for ADW is set to be content-ee.
+The default distribution for ADW is set as `content-ee`.
 
-For the Alfresco Content Application (aka ACA) or any other ADF-based application, the is always one distribution and no need to specify it at build level.
+For any ADF-based application, such as the Alfresco Content Application (ACA), there is always one distribution and no need to specify it at build level.
 
-Starting
+### Starting 
+
 The following command is valid for ADW.
 
-npm start <content-ce|content-ee|content-ee-cloud> [prod]
-For ACA or any other ADF-based application the command is simply npm start.
+`npm start <content-ce|content-ee|content-ee-cloud> [prod]`
 
-Testing
+For ACA or any other ADF-based application the command is `npm start`.
+
+### Testing 
+
 The following command is valid for ADW.
 
-npm run build <content-ce|content-ee|content-ee-cloud> [prod]
-For ACA or any other ADF-based application the command is simply npm run build.
+`npm run build <content-ce|content-ee|content-ee-cloud> [prod]`
 
-Unit tests on ACA and ADW are developed and executed using Karma. If you want to learn more about the available unit tests and maybe develop one (or some), you can check directly in the source code as an example.
+For ADF-based applications, such as ACA, the command is `npm run build`.
 
-Unit tests are developed in files with extension specs.ts. Almost every component has a relatedspecs.ts file stored directly in the same folder where the component lives. A unit test lloks like the following piece of source code.
+Unit tests on ACA and ADW are developed and executed using Karma. For information on configuring your system to use Karma, see the **Index** page on the Karma site or their GitHub project. Check the source code or refer to the Karma documentation and tutorials for further details on how to develop tests.
 
-it('...descrioption...', () => {
+Unit tests are developed in files with extension `specs.ts`. Almost every component has a related `specs.ts` file stored directly in the same folder as the component. A unit test looks like the following piece of source code.
+
+```java
+it('...description...', () => {
     // Source code.
 });
-You can refer to the  Karma documentation and tutorials for further details on how to develop your own tests.
+```
 
-Debugging
-The debugging strategy for ADW, ACA or any other ADF-based application does not differ from what is recommended for any standard Angular application. Please refer to the dedicated content or documentation for further details.
+### Debugging 
 
-Building
+The debugging strategy for ADW, ACA, or any other ADF-based application does not differ from recommended standard Angular applications. Refer to the dedicated content or documentation for further details.
+
+### Building 
+
 The following command is valid for ADW.
 
-npm run build <content-ce|content-ee|content-ee-cloud> [prod]
-For ACA or any other ADF-based application the command is simply npm run build.
+`npm run build <content-ce|content-ee|content-ee-cloud> [prod]`
 
-Once the build succeeds, a new folder named dist is created inside the project root. Inside of it, you will find a collection of files representing the distribution of your application.
+For ACA or any other ADF-based application the command is `npm run build`.
 
-Building without one or more extensions
-To exclude any of the bundled extensions from the distribution, you simply need to remove the imported module representing the extension, from the imports.
+Once the build succeeds, a new folder named `dist` is created inside the project root. Inside the `dist` folder, is a collection of files representing the distribution of your application.
 
-In case of ADW, update the apps/content-ee/src/app/extensions.module.ts file and remove one or more modules from the imports, as shown below.
+### Building without one or more extensions 
+
+To exclude any of the bundled extensions from the distribution, remove the imported module representing the extension from the imports.
+
+In case of ADW, update the `apps/content-ee/src/app/extensions.module.ts` file and remove one or more modules from the imports, as shown below.
 
 ```java
 @NgModule({
@@ -131,10 +126,8 @@ In case of ADW, update the apps/content-ee/src/app/extensions.module.ts file and
 export class AppExtensionsModule {}
 ```
 
-Promoting in a different environment
-Once built, the compiled ADF-based application is available as a collection of files directly in the dist folder. The promotion of the distribution of the application in a different environment can be done simply by copying the files in the target server.
+### Promoting in a different environment
 
-Also in this case, nothing differs from a standard Angular application and the same tips and best practices can be followed.
+Once built, the compiled ADF-based application is available as a collection of files directly in the `dist` folder. The promotion of the distribution of the application in a different environment can be done by copying the files in the target server.
 
-Conclusions
-In this content you learned the most common and basic tasks for ADW and any ADF-based application.
+Also in this case, nothing differs from a standard Angular application, and the same tips and best practices can be followed.
