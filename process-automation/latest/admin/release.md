@@ -13,6 +13,8 @@ The **Project Releases** section displays a list of all [released projects]({% l
 > 2. Find or search for your project in the list of projects.
 > 3. Select the **Release** action from the **Options** column for the project.
 
+You can restore your system to a previous release by selecting the three dots to the right of the release you want to restore, and then selecting **Restore this Release**.
+
 ### Properties {#project-properties}
 
 The properties for a released project are:
