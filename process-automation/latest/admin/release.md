@@ -8,10 +8,13 @@ The **DevOps** section of the Admin Application is used to deploy projects and m
 
 The **Project Releases** section displays a list of all [released projects]({% link process-automation/latest/model/projects.md %}#release-a-project) created in the Modeling Application.
 
-> **Note**: If you can't find your project in the list, make sure it has been released. To release a project:
-> 1. Sign into the Modeling Application.
-> 2. Find or search for your project in the list of projects.
-> 3. Select the **Release** action from the **Options** column for the project.
+ **Note**: If you can't find your project in the list, make sure it has been released. To release a project:
+
+1. Sign into the Modeling Application.
+
+2. Find or search for your project in the list of projects.
+
+3. Select the **Release** action from the **Options** column for the project.
 
 ### Properties {#project-properties}
 
@@ -93,6 +96,24 @@ After clicking **Create** the deployment descriptor will be created and the appl
 ### Delete
 
 You can delete a released project from the Admin App by selecting the three dots next to the project you want to delete and select **Delete**.
+
+### Upload a release to another environment
+
+You can download a release and then upload it to another environment. This is useful because you can test a new release on a staging environment and then upload it to a production environment.
+
+To upload a release to a another environment:
+
+1. On the Releases window click the three dots next to the release you want to upload to another environment and then click **Download**.
+
+    A zip file of the release is created and downloads to your machine.
+
+2. Navigate to the environment where you want to upload the release.
+
+3. Go to the Releases window and click the **Upload** icon.
+
+4. Select the release you created earlier.
+
+Once you have uploaded the release it will appear in the list of releases you have on the Releases window.
 
 ## Deployment descriptors
 
