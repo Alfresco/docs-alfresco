@@ -2,8 +2,6 @@
 title: The ADF/ADW extension mechanism
 ---
 
-
-
 The ADF extension mechanism is a powerful way to customize and ADF based application structured as required by the Nx Workspace dev tools for monorepos. The ADF extension mechanism is the suggested way to add, remove, change the behavior of an ADF based application. The ADF extension mechanism is fully applicable to ADW it is suggested to be used as best practice instead of direct changes to the source code of the application.
 
 Customizations implemented through the ADF extension mechanism are more maintainable (modular and isolated from the core of the application) and allow an easier upgrade of the application.
@@ -12,39 +10,41 @@ You may consider adopting ADW and developing an extension if your use case is ma
 
 In this section you will learn how to create and manage an ADF/ADW extension from a development perspective and below you can find the available tutorials on the most common and requested tasks
 
-## How to create your first extension for the Alfresco Digital Workspace (aka ADW)
+## How to create your first extension for the Alfresco Digital Workspace (ADW)
 
-The purpose of this tutorial is to describe how to develop a “hello word” extension for the Alfresco Digital Workspace (aka ADW). The ADW extension mechanism is the suggested way to customize the supported front-end application, and this tutorial is supposed to be the foundation for a content to share with customers and partners.
+The purpose of this tutorial is to describe how to develop a “hello word” extension for the Alfresco Digital Workspace (ADW). The ADW extension mechanism is the suggested way to customize the supported front-end application, and this tutorial is supposed to be the foundation for a content to share with customers and partners.
 
-Check you have the required prerequisites, for more see <Link to pre reqs section>.
+Check you have the [required prerequisites](https://docs.alfresco.com/digital-workspace/latest/develop/developedapp).
 
-Creating the ADW extension
+### Creating the ADW extension
+
 The creation of an ADW extension is straightforward following the Nx Workspace dev tools for monorepos.
 
 From the root folder of the ADW project, use the following command to create a new extension called `my-extension`.
 
 `nx g @nrwl/angular:lib my-extension`
 
-You can have a look at the Nx Tutorial / Create Libs for further details about this angular command and feature. During the execution of the command above, you will be asked to choose some options. If it is your first time or you are not sure, feel free to leave the default values as an answer.
+Look at the Nx Tutorial / Create Libraries for further details about this Angular command and feature. During the execution of the command above leave the default values for the options, if you are not sure.
 
-Once done, in the libs/my-extension path you will find the following structure:
+In the `libs/my-extension` path you will find the following structure:
 
-src folder containing all the typescript source code. Very important is the index.ts file defining all the inclusions of the extension and the `lib/my-extension.module.ts` file defining the module class for the extension.
+* The `src folder` contains all the typescript source code
+* The `index.ts` file defines all the inclusions of the extension
+* The `lib/my-extension.module.ts` file defines the module class for the extension
+* The `README.md` file contains documentation
+* Other files for testing and configuration
 
-README.md file for documentation purposes as well as other files used for testing and configuration.
+### Developing the basics of the ADW extension
 
-Developing the basics of the ADW extension
-Now that the `my-extension` is created, let's add the proper configuration to the extension module. For this purpose, edit the `./libs/my-extension/src/lib/my-extension.module.ts` file changing what is described below.
+After `my-extension` is created, add the proper configuration to the extension module. For this purpose, edit the `./libs/my-extension/src/lib/my-extension.module.ts` file changing what is described below.
 
+```java
 // Add the following import to the page.
 
-```text
 import { provideExtensionConfig } from '@alfresco/adf-extensions';
-```
 
 // Add providers as described below.
 
-```text
 NgModule({
   imports: [CommonModule],
   providers: [
@@ -54,14 +54,15 @@ NgModule({
 export class MyExtensionModule {}
 ```
 
-It's now time for the configuration of the brand new extension. For this purpose, you are going instruct the extension to add an item to the "new" button that you can see on the top left of the landing page of ADW.
+For configuration, program the extension to add an item to the "new" button on the top left of the landing page of ADW.
 
 To create the proper configuration, create the folder below in the described path.
 
-libs/my-extension/assets
-Once done, create the file libs/my-extension/assets/my-extension.json with the following content.
+`libs/my-extension/assets`
 
-```java
+Once done, create the file `libs/my-extension/assets/my-extension.json` with the following content.
+
+```json
 {
   "$version": "1.0.0",
   "$id": "my.extension",
@@ -86,16 +87,16 @@ Once done, create the file libs/my-extension/assets/my-extension.json with the f
 }
 ```
 
-This is a very basic example, adding a “bye bye world!” option to the existing “new” button, implementing the logout from the session of the ADW application. From here, you can enrich the capabilities of your extension following the documentation at https://alfresco-content-app.netlify.app/#/extending/.
+This example adds a “BYE BYE WORLD!” option to the existing “new” button, implementing the logout from the session of the ADW application. To learn more about customizing the Content Application, see the [documentation](https://alfresco-content-app.netlify.app/#/extending/). To learn more about ADF, visit [ADF Tutorials](https://www.alfresco.com/abn/adf/).
 
-Making the extension as part of the ADW application
-Now that the ADW extension is developed in its initial version, let's check that the tsconfig.base.json file includes the link to the libs/my-extension/src/index.ts file as part of the paths item. Everything should be properly set up during the creation of the extension, but it worth a double-check if something went wrong.
+### Making the extension as part of the ADW application
+Now that the ADW extension is developed in its initial version, check that the `tsconfig.base.json` file includes the link to the `libs/my-extension/src/index.ts` file as part of the paths item. These are default paths set during the creation of the extension, but verify the paths during troubleshooting.
 
-Once done, let's add the extension module to the list of the ones used by the application. To complete the task, edit the apps/content-ee/src/app/extensions.module.ts file as described below.
+Next, add the extension module to the list of the ones used by the application by editing the `apps/content-ee/src/app/extensions.module.ts` file as described below.
 
+```java
 // Add the following import to the page.
 
-```text
 import { MyExtensionModule } from '@alfresco-dbp/my-extension';
 
 @NgModule({
@@ -107,8 +108,9 @@ import { MyExtensionModule } from '@alfresco-dbp/my-extension';
 export class AppExtensionsModule {}
 ```
 
-Last but not least, let's instruct the configuration file for the extension to be visible from the ADW app through a public URL. To complete the task, edit the angular.json file as described below.
+Edit the configuration file `angular.json` so the extension is visible from the ADW app through a public URL as described below.
 
+```json
 // Add to 'projects/content-ee/architect/build/options/assets' array.
 ...
 {
@@ -117,45 +119,35 @@ Last but not least, let's instruct the configuration file for the extension to b
   "glob": "my-extension.json"
 },
 ...
+```
 
 ## Running ADW with the extension included
 
-Now that everything is properly developed, it’s time to launch ADW and see the result. To launch ADW, run the following command from a terminal.
+To launch ADW, run the following command from a terminal.
 
-```text
+```shell
 npm start content-ee
 ```
+What you should see is a new item in “new” button on the top left of the landing page for ADW, implementing the logout from the current session. Below the screenshot describing what it should look like. <!-- Where is the screenshot mentioned in the text? -->
 
-What you should see is a new item in “new” button on the top left of the landing page for ADW, implementing the logout from the current session. Below the screenshot describing what it should look like.
 
-Conclusions
-In this tutorial you learnt how to create your first ADW extension starting from the ADW source code stored in the GitHub repository. The purpose of this content is not to be exhaustive of all the possibilities provided by the ADW extension mechanism, but enable the developers in creating their own extensions as best practice for the customization of ADW.
+<!-- this section seems to be ACA not ADF -->
+<!-- 
+# How to create your first extension for the Alfresco Content Application (ACA)
 
-## How to create your first extension for the Alfresco Content Application (aka ACS)
+The purpose of this tutorial is to describe how to develop a “hello word” extension for the Alfresco Content Application (ACA). The ACA extension mechanism is the suggested way to customise the supported front-end application, and this tutorial is supposed to be the foundation for a content to share with customers and partners.
 
-How to create your first extension for the Alfresco Content Application (aka ACA)
-Created by Francesco Corti (Deactivated)
-Last updated: Jan 11, 20214 min read6 people viewed6 people viewed
-The purpose of this tutorial is to describe how to develop a “hello word” extension for the Alfresco Content Application (aka ACA). The ACA extension mechanism is the suggested way to customise the supported front-end application, and this tutorial is supposed to be the foundation for a content to share with customers and partners.
+## Prerequisites
 
-Prerequisites
-Creating the ACA extension
-Developing the basics of the ACA extension
-Making the extension as part of the ACA application
-Running ACA with the extension included
-Conclusions
-Prerequisites
 The starting point for this tutorial is the availability of the full repository of the Alfresco Content Application (aka ACA) on your development environment (your laptop as an example). This tutorial has been written with the following versions of the software:
 
 ACA version 2.2.0,
-
 ACS 7.0.0-M3,
-
 NodeJs version 14.15.2,
-
 Chrome Version 87.0.4280.88.
 
-Creating the ACA extension
+## Creating the ACA extension
+
 As described here, the creation of an ADW extension is straightforward following the Nx Workspace dev tools for monorepos.
 
 From the root folder of the ACA project, launch the command below from a terminal. As you can see, with the command below you are going to create a new extension named my-extension.
@@ -172,10 +164,13 @@ README.md file for documentation purposes as well as other files used for testin
 
 To complete the creation, build the extension launching the following command.
 
-ng build my-extension
-Developing the basics of the ACA extension
-Now that the my-extension is created, let's add the proper configuration to the extension module. For this purpose, edit the projects/my-extension/src/lib/my-extension.module.ts file changing what is described below.
+`ng build my-extension`
 
+### Developing the basics of the ACA extension
+
+Now that the my-extension is created, let's add the proper configuration to the extension module. For this purpose, edit the `projects/my-extension/src/lib/my-extension.module.ts` file changing what is described below.
+
+```text
 // Add the import as described below.
 import { ExtensionService } from '@alfresco/adf-extensions';
 
@@ -188,6 +183,7 @@ export class MyExtensionModule {
     });
   }
 }
+```
 
 It's now time for the configuration of the brand new extension. For this purpose, you are going instruct the extension to add a link that you can see on the left menu of the landing page of ACA.
 
@@ -234,7 +230,8 @@ Once done, create the file projects/my-extension/assets/my-extension.json file w
 
 This is a very basic example, adding a “My Extension” item to the existing left menu, implementing a blank page containing “my-extension works!“ text appearing in the ACA landing page. From here, you can enrich the capabilities of your extension following the documentation at https://alfresco-content-app.netlify.app/#/extending/.
 
-Making the extension as part of the ACA application
+## Making the extension as part of the ACA application
+
 Now that the ACA extension is developed in its initial version, let's add the extension module to the list of the ones used by the application. To complete the task, edit the src/app/extensions.module.ts file as described below.
 
 // Add the following import to the page.
@@ -281,7 +278,8 @@ Once done, create the build of the extension running the following command.
 npm install my-extension
 ```
 
-Running ACA with the extension included
+## Running ACA with the extension included
+
 Now that everything is properly developed, it’s time to launch ADW and see the result. To launch ADW, run the following command from a terminal.
 
 ```text
@@ -290,32 +288,32 @@ npm start
 
 What you should see is a new item in left menu of the landing page for ACA, implementing the route to a new page with the following content. Below the screenshot describing what it should look like.
 
-Conclusions
+## Conclusions
+
 In this tutorial you learnt how to create your first ACA extension starting from the ACA source code stored in the GitHub repository. The purpose of this content is not to be exhaustive of all the possibilities provided by the ACA extension mechanism, but enable the developers in creating their own extensions as best practice for the customization of ACA.
 
-# How to install an existing extension for the Alfresco Content Application (aka ACA)
+-->
 
-How to install an existing extension for the Alfresco Content Application (aka ACA)
-The purpose of this tutorial is to describe how to install an existing extension for the Alfresco Content Application (aka ACA). The ACA extension mechanism is the suggested way to customise the ADF-based front-end applications and this tutorial should help in this relevant task to manage extensions.
+<!-- This is another tutorial start 
 
-Prerequisites
-Installing the ACA extension
-Making the extension as part of the ACA application
-Running ACA with the extension included
-Prerequisites
+# How to install an existing extension for the Alfresco Content Application (ACA)
+
+How to install an existing extension for the Alfresco Content Application (ACA)
+The purpose of this tutorial is to describe how to install an existing extension for the Alfresco Content Application (ACA). The ACA extension mechanism is the suggested way to customise the ADF-based front-end applications and this tutorial should help in this relevant task to manage extensions.
+
+## Prerequisites
+
 The starting point for this tutorial is the availability of a tested and working ACA extension as well as the full repository of the Alfresco Content Application (aka ACA). This tutorial has been written with the following versions of the software:
 
 ACA version 2.2.0,
-
 ACS 7.0.0-M3,
-
 NodeJs version 14.15.2,
-
 Chrome Version 87.0.4280.88.
 
 In this tutorial it is assumed that the existing ACA extension is named my-extension and its structure is compliant with the content and structure of the projects/my-extension path described in the tutorial here.
 
-Installing the ACA extension
+## Installing the ACA extension
+
 The idea behind this task is to create a brand new ACA extension with the same name of the existing one, and replace its content to reach the described goal.
 
 From the root folder of the ACA project, launch the command below from a terminal. Please be sure that you are going to use the same name as the existing extension (in this case my-extension).
@@ -339,76 +337,78 @@ In case of errors, add the following configuration to the `tsconfig.json` file.
 
 `"compilerOptions": { ..., "allowSyntheticDefaultImports":true }`
 
-Making the extension as part of the ACA application
+## Making the extension as part of the ACA application
+
 Now that the ACA extension is developed in its initial version, let's add the extension module to the list of the ones used by the application. To complete the task you can follow the same task described for the tutorial named How to create your first extension for the Alfresco Content Application (aka ACA) (paragraph “Making the extension as part of the ACA application“). Once the extension is installed with success (npm install my-extension), the task can be considered as completed.
 
-Running ACA with the extension included
+## Running ACA with the extension included
+
 Now that everything is properly developed, it’s time to launch ACA and see the result. To launch ADW, run the following command from a terminal.
 
 npm start
 What you should see is a new item in left menu of the landing page for ACA, implementing the route to a new page with the following content. Below the screenshot describing what it should look like.
 
-## To install an existing extension for the Alfresco Digital Workplace (aka ACA)
+-->
 
-How to install an existing extension for the Alfresco Digital Workplace (aka ADW)
-The purpose of this tutorial is to describe how to install an existing extension for the Alfresco Digital Workspace (aka ADW). The ADW extension mechanism is the suggested way to customise the ADF-based front-end applications and this tutorial should help in this relevant task to manage extensions.
+# To install an existing extension for the Alfresco Digital Workplace (ADW)
 
-Prerequisites
-Installing the ADW extension
-Making the extension as part of the ADW application
-Running ADW with the extension included
-Prerequisites
-The starting point for this tutorial is the availability of a tested and working ADW extension as well as the full repository of the Alfresco Digital Workspace (aka ADW). This tutorial has been written with the following versions of the software:
+The ADW extension mechanism is the suggested way to customise the ADF-based front-end applications and this tutorial should help in this relevant task to manage extensions.
 
-ADW version 2.0.0,
+## Prerequisites
 
-ACS 7.0.0-M3 Enterprise Edition,
+The starting point for this tutorial is the availability of a tested and working ADW extension as well as the full repository of the Alfresco Digital Workspace (ADW). This tutorial has been written with the following versions of the software:
 
-NodeJs version 14.15.2,
+* ADW version 2.0.0
+* ACS 7.0.0-M3 Enterprise Edition
+* NodeJs version 14.15.2
+* Chrome Version 87.0.4280.88
 
-Chrome Version 87.0.4280.88.
+It is assumed that the existing ADW extension is named `my-extension` and its structure is compliant with the content and structure of the `projects/my-extension` path described in the tutorial here.
 
-In this tutorial it is assumed that the existing ADW extension is named my-extension and its structure is compliant with the content and structure of the projects/my-extension path described in the tutorial here.
+## Installing the ADW extension
 
-Installing the ADW extension
 The idea behind this task is to create a brand new ADW extension with the same name of the existing one, and replace its content to reach the described goal.
 
-From the root folder of the ADW project, launch the command below from a terminal. Please be sure that you are going to use the same name as the existing extension (in this case my-extension).
+From the root folder of the ADW project, launch the command below from a terminal. Please be sure that you are going to use the same name as the existing extension (in this case `my-extension`).
 
-nx g @nrwl/angular:lib my-extension
-Once done, delete the full content of the libs/my-extension folder and replace it with the source code of the existing ADW extension.
+`nx g @nrwl/angular:lib my-extension`
 
-Making the extension as part of the ADW application
-Now that the ADW extension is developed in its initial version, let's add the extension module to the list of the ones used by the application. To complete the task you can follow the same task described for the tutorial named How to create your first extension for the Alfresco Digital Workspace (aka ADW)  (paragraph “Making the extension as part of the ADW application“).
+Once done, delete the full content of the `libs/my-extension` folder and replace it with the source code of the existing ADW extension.
 
-Running ADW with the extension included
-Now that everything is properly developed, it’s time to launch ADW and see the result. To launch ADW, run the following command from a terminal.
+## Making the extension as part of the ADW application
 
-npm start content-ee
-What you should see is a new item in “new” button on the top left of the landing page for ADW, implementing the logout from the current session. Below the screenshot describing what it should look like.
+Now that the ADW extension is developed in its initial version, let's add the extension module to the list of the ones used by the application. To complete the task you can follow the same task described for the tutorial named **How to create your first extension for the Alfresco Digital Workspace (ADW)**  ([“Making the extension as part of the ADW application“](#making-the-extension-as-part-of-the-adw-application)).
 
-## How to add a page view and a menu item in ADW using an extension
+## Running ADW with the extension included
 
-In this tutorial you are going to learn how to create an extension for the Alfresco Digital Workspace (aka ADW), developing a new page and a new menu item linking to it. This is an example of the various thing that you could do as a developer, to customise ADW and any extendible ADF-based application.
+Launch ADW and see the result. To launch ADW, run the following command from a terminal.
 
-Prerequisites
+`npm start content-ee`
+
+What you should see is a new item in “new” button on the top left of the landing page for ADW, implementing the logout from the current session. Below the screenshot describing what it should look like. <!-- insert the referenced screen shot -->
+
+# How to add a page view and a menu item in ADW using an extension
+
+In this tutorial you are going to learn how to create an extension for the Alfresco Digital Workspace (ADW), developing a new page and a new menu item linking to it. This is an example of the various thing that you could do as a developer, to customise ADW and any extendible ADF-based application.
+
+## Prerequisites
+
 The starting point for this tutorial is the availability of a tested and working ADW extension as well as the full repository of the Alfresco Digital Workspace (aka ADW). This tutorial has been written with the following versions of the software:
 
-ADW version 2.0.0,
+* ADW version 2.0.0
+* ACS 7.0.0-M3 Enterprise Edition
+* NodeJs version 14.15.2
+* Chrome Version 87.0.4280.88
 
-ACS 7.0.0-M3 Enterprise Edition,
+The existing ADW extension is named `my-extension` and its structure is compliant with the content and structure of the `projects/my-extension` path described in the tutorial here.
 
-NodeJs version 14.15.2,
+## Creating a new page as part of the extension
 
-Chrome Version 87.0.4280.88.
-
-In this tutorial it is assumed that the existing ADW extension is named my-extension and its structure is compliant with the content and structure of the projects/my-extension path described in the tutorial here.
-
-Creating a new page as part of the extension
 Before any configuration of the extension and the application, let’s create a new component showing a “hello world” message as part of a layout. For that purpose, the component will be created with the name MyFirstPageComponent and it will be stored as part of the extension.
 
-To develop the component, create the libs/my-extension/src/lib/my-first-page folder and the my-first-page.component.ts file into it, with the following content.
+To develop the component, create the `libs/my-extension/src/lib/my-first-page` folder and the `my-first-page.component.ts` file into it, with the following content.
 
+```java
 import { Component, } from '@angular/core';
 
 @Component({
@@ -416,9 +416,11 @@ import { Component, } from '@angular/core';
     template: "<h1>HELLO WORLD!</h1>"
     })
 export class MyFirstPageComponent {}
+```
+
 This is one of the most simpler components that you can develop, as an example.
 
-Once done, edit the my-extension.json file in the libs/my-extension/assets folder and add the following JSON to the route array.
+Once done, edit the `my-extension.json` file in the `libs/my-extension/assets` folder and add the following JSON to the route array.
 
 ```java
 {
@@ -438,10 +440,11 @@ Once done, edit the my-extension.json file in the libs/my-extension/assets folde
 }
 ```
 
-To declare the component identifier directly into the extension’s module. For that purpose edit the libs/my-extension/src/lib/my-extension.module.ts updating the following content.
+To declare the component identifier directly into the extension’s module. For that purpose edit the `libs/my-extension/src/lib/my-extension.module.ts` updating the following content.
 
-// Add the following imports.
+
 ```json
+// Add the following imports.
 import { ExtensionService } from '@alfresco/adf-extensions';
 import { MyFirstPageComponent } from './my-first-page/my-first-page.component';
 ```
@@ -462,10 +465,11 @@ export class MyExtensionModule {
 }
 ```
 
-This is all that you have to do if you want to add a new route (URI related to a page layout) to the application through the extension. To test that everything is working properly, you can launch the npm start content-ee command and point the browser to http://localhost:4200/#my-first-page.
+This is all that you have to do if you want to add a new route (URI related to a page layout) to the application through the extension. To test that everything is working properly, you can launch the `npm start content-ee` command and point the browser to http://localhost:4200/#my-first-page.
 
-Creating the menu item as part of the extension
-To add a new menu item pointing to the page above, edit the `my-extension.json` file in the libs/my-extension/assets folder and add the following JSON to the features element.
+## Creating the menu item as part of the extension
+
+To add a new menu item pointing to the page above, edit the `my-extension.json` file in the `libs/my-extension/assets` folder and add the following JSON to the features element.
 
 ```json
 {
@@ -498,4 +502,4 @@ To add a new menu item pointing to the page above, edit the `my-extension.json` 
 
 Below you can see what the layout looks like.
 
-<Add appropriate image>
+<!-- Add appropriate image -->
