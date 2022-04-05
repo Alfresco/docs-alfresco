@@ -32,7 +32,9 @@ To create a process:
 
     Alternatively use the **+** or **Upload** buttons next to **Processes** in the left-hand menu.
 
-4. Enter a name and optional description. By default the name will be shared between the diagram and process definition and the description will apply to the process definition.
+4. Enter a name, optional description, and optional process category.
+
+	By default the name will be shared between the diagram and process definition and the description will apply to the process definition. If you enter a process category the process will be added under the process category heading in the left pane, and if the process category does not already exist it will be created. If you do not enter a process category name it will appear under the un-categorized heading.
 
 ### Import a process from Process Services
 
