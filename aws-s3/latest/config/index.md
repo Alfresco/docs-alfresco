@@ -4,30 +4,52 @@ title: Configure Content Connector for AWS S3
 
 The Content Connector for AWS S3 is configured using properties set in the `alfresco-global.properties` file.
 
-**Default settings**
-
+## Default configuration properties
 These are the configuration properties that are applied when you install the S3 Connector:
 
 ```text
+# Location where new buckets should be created if they do not exist. The default Region is US East (N. Virginia).
+# For a list of available AWS Regions, see Regions and Endpoints in the AWS General Reference.
 connector.s3.bucketRegion=us-east-1
+
+# Encryption to be requested for items stored in S3. Used to set the header x-amz-server-side-encryption when the content is added.
 connector.s3.encryption=AES256
-system.content.caching.maxUsageMB=51200
-system.content.caching.minFileAgeMillis=0
+
+# A number of retries in case an error occurs
 connector.s3.maxErrorRetries=3
+
+# The minimum days to wait before aborting an incomplete multipart upload. If the value is 0 then the abort is disabled.
+connector.s3.abortIncompleteMultipartUploadDays=1
+
+# Cloud Storage Properties configuration
+connector.s3.nativeStorageProperties=x-amz-archive-status,x-amz-restore,x-amz-storage-class
+connector.s3.restoreExpiryDaysDefault=7
+connector.s3.restoreTierDefault=Standard
+connector.s3.archiveClassDefault=Glacier
+
 # Default S3 content store subsystem
 filecontentstore.subsystem.name=S3OnPrem
+
+# Repository Content cashing
+system.content.caching.maxUsageMB=51200
+system.content.caching.minFileAgeMillis=0
 ```
 
 If you need to override them for your environment, check the available settings in the configuration guides or 
 [properties reference]({% link aws-s3/latest/config/index.md %}#properties-reference).
 
-**Basic configuration properties**
+## Basic configuration properties
+The following properties needs to be set up specifically for your environment and access to AWS S3.
 
 1.  Open the `<classpathRoot>/alfresco-global.properties` file.
 
-    If you plan to use IAM roles instead of AWS access and secret keys, ensure you have [configured AWS Identity and Access Management]({% link aws-s3/latest/config/index.md %}#configiam) correctly before continuing from step [4]({% link aws-s3/latest/config/index.md %}#bucketName).
+    If you plan to use IAM roles instead of AWS access and secret keys, ensure you have 
+    [configured AWS Identity and Access Management]({% link aws-s3/latest/config/index.md %}#configiam) correctly 
+    before continuing from step [4]({% link aws-s3/latest/config/index.md %}#bucketName).
 
-    If you have existing content in a local contentstore (i.e. where Alfresco Content Services is deployed on-premises) and you'd like to transition to using AWS S3 as the only content store, ensure you include the property described in [Configuring S3 Connector on-premises]({% link aws-s3/latest/config/index.md %}#onpremconfig) before continuing.
+    If you have existing content in a local contentstore (i.e. where Alfresco Content Services is deployed on-premises) 
+    and you'd like to transition to using AWS S3 as the only content store, ensure you include the property described in 
+    [Configuring S3 Connector on-premises]({% link aws-s3/latest/config/index.md %}#onpremconfig) before continuing.
 
 2.  Add the `connector.s3.accessKey` property, for example:
 
@@ -35,7 +57,9 @@ If you need to override them for your environment, check the available settings 
     connector.s3.accessKey=AKIAIOSFODNN7EXAMPLE
     ```
 
-    The access key is required to identify the AWS account and can be obtained from the AWS Management Console. See [AWS Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) for access details.
+    The access key is required to identify the AWS account and can be obtained from the AWS Management Console. 
+    See [AWS Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) 
+    for access details.
 
 3.  Add the `connector.s3.secretKey` property, for example:
 
@@ -43,7 +67,9 @@ If you need to override them for your environment, check the available settings 
     connector.s3.secretKey=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
     ```
 
-    The secret key is required to identify the AWS account and can be obtained from the AWS Management Console. See [AWS Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) for access details.
+    The secret key is required to identify the AWS account and can be obtained from the AWS Management Console. 
+    See [AWS Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) 
+    for access details.
 
 4.  Add the `connector.s3.bucketName` property, for example:
 
@@ -51,7 +77,10 @@ If you need to override them for your environment, check the available settings 
     connector.s3.bucketName=myawsbucket
     ```
 
-    The bucket name must be unique among all AWS users globally. If the bucket does not already exist, it will be created, but the name must not have already been taken by another user. If the bucket has an error, it will be reported in the alfresco.log file. See [S3 bucket restrictions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html) for more information on bucket naming.
+    The bucket name must be unique among all AWS users globally. If the bucket does not already exist, it will be created, 
+    but the name must not have already been taken by another user. If the bucket has an error, it will be reported in 
+    the alfresco.log file. See [S3 bucket restrictions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html) 
+    for more information on bucket naming.
 
 5.  Add the `connector.s3.bucketRegion` property as specified in the [AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) page.
 
@@ -61,7 +90,9 @@ If you need to override them for your environment, check the available settings 
     connector.s3.bucketRegion=eu-central-1
     ```
 
-    >**Note:** If you use a region other than the US East (N. Virginia) endpoint (previously named US Standard) to create a bucket, `connector.s3.bucketRegion` is a mandatory field. Use the [AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for guidance on the correct value.
+    >**Note:** If you use a region other than the US East (N. Virginia) endpoint (previously named US Standard) to 
+    > create a bucket, `connector.s3.bucketRegion` is a mandatory field. Use the [AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) 
+    > for guidance on the correct value.
 
 6.  Set the type of content store subsystem, for example:
 
@@ -69,7 +100,8 @@ If you need to override them for your environment, check the available settings 
     filecontentstore.subsystem.name=S3
     ```
 
-    This sets the active content store subsystem to S3 only, as opposed to the default subsystem, `S3OnPrem`, which sets an aggregating content store: S3 and file system.
+    This sets the active content store subsystem to S3 only, as opposed to the default subsystem, `S3OnPrem`, which sets 
+    an aggregating content store: S3 and file system.
 
     >**Note:** This setup is recommended for a new clean installation of Alfresco Content Services and the S3 Connector.
 
@@ -81,48 +113,95 @@ If you need to override them for your environment, check the available settings 
 
 8.  Set where the cached content is stored, and how much cache size you need.
 
-    The cached content location (and default value) is `dir.cachedcontent=${dir.root}/cachedcontent`. See [CachingContentStore properties]({% link content-services/latest/admin/content-stores.md %}#caching-content-store-ccs) for more information on the caching content store.
+    The cached content location (and default value) is `dir.cachedcontent=${dir.root}/cachedcontent`. See 
+    [CachingContentStore properties]({% link content-services/latest/admin/content-stores.md %}#caching-content-store-ccs) 
+    for more information on the caching content store.
 
-    >**Note:** The size of the local caching content store can be configured as necessary to limit its use to a maximum overall size or by files with a maximum file size. For example:
+    >**Note:** The size of the local caching content store can be configured as necessary to limit its use to a maximum 
+    > overall size or by files with a maximum file size. For example:
+    > ```text
+    > # Maximum disk usage for the cache in MB 
+    > system.content.caching.maxUsageMB=51200
+    > # Maximum size of files which can be stored in the cache in MB (zero implies no limit) 
+    > system.content.caching.maxFileSizeMB=0
+    > ```
 
-    ```text
-    # Maximum disk usage for the cache in MB 
-    system.content.caching.maxUsageMB=51200
-    # Maximum size of files which can be stored in the cache in MB (zero implies no limit) 
-    system.content.caching.maxFileSizeMB=0
-    ```
+    The S3 Connector supports multipart uploads where files larger than 20MB are split. The file upload is attempted and 
+    retried, in case there are issues, up to a specific limit.
 
-    The S3 Connector supports multipart uploads where files larger than 20MB are split. The file upload is attempted and retried, in case there are issues, up to a specific limit.
-
-9.  Set the number of days that Amazon S3 should keep the files which are incomplete or aborted uploads, before marking them for deletion:
+9.  Set the number of days that Amazon S3 should keep the files which are incomplete or aborted uploads, before marking 
+    them for deletion:
 
     ```text
     connector.s3.abortIncompleteMultipartUploadDays=1
     ```
 
     >**Note:** If lifecycle configuration on the bucket is not required, then set the value to `0`:
-
-    ```text
-    connector.s3.abortIncompleteMultipartUploadDays=0
-    ```
+    > ```text
+    > connector.s3.abortIncompleteMultipartUploadDays=0
+    > ```
 
     See [Multipart upload overview](#multipart-upload-overview) for more details.
 
-10. If you want to apply a tag to your content when it's written into the S3 bucket, you can add the `connector.s3.tagName` and `connector.s3.tagValue` properties.
+10. If you want to apply a tag to your content when it's written into the S3 bucket, you can add the 
+    `connector.s3.tagName` and `connector.s3.tagValue` properties.
 
     See [Properties reference]({% link aws-s3/latest/config/index.md %}#properties-reference) for more details.
 
-    >**Note:** Use the AWS documentation [Object key and metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingMetadata.html) for naming guidelines, as the properties must respect the same restrictions as if they were added via the AWS Management Console.
+    >**Note:** Use the AWS documentation [Object key and metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingMetadata.html) 
+    > for naming guidelines, as the properties must respect the same restrictions as if they were added via the 
+    > AWS Management Console.
 
-11. Starting from version 3.1, the S3 Connector has the deleted content store disabled by default, since this feature is already present in Amazon's S3 service. For details on how to re-enable it, see [S3 Connector deleted content store](#enabledeletedcontentstore).
+11. Starting from version 3.1, the S3 Connector has the deleted content store disabled by default, since this feature is 
+    already present in Amazon's S3 service. For details on how to re-enable it, see 
+    [S3 Connector deleted content store](#enabledeletedcontentstore).
 
 12. Save the `alfresco-global.properties` file.
 
     You are now ready to start Alfresco Content Services.
 
-## Properties for backwards compatibility
+## Cloud Storage Properties configuration {#cloud-storage-properties}
+Cloud Storage Properties are represented as a key-value pair (String-String) collection. Mentioned pairs are either directly 
+retrieved from Cloud Storage Provider APIs object headers or derived from their values.
 
-You may need to configure a number of optional properties for the S3 Connector to ensure backwards compatibility with S3 Connector 1.x and behavior.
+Storage Properties are reflected at the content level and content may (especially when in Cloud Storage) or 
+may not have at least one such property. **Storage Properties are not persisted as part of the metadata** (or any other way), 
+so we rely on the `ContentStore` and `ServiceAdapter` implementations to provide the means to retrieve/derive the 
+storage properties information.
+
+When cloud connectors do not provide functionality to retrieve storage properties, none will be returned.
+
+Configuration properties applicable to AWS Cloud Storage Properties functionality:
+
+|Property name |Property value|Description|  
+|---|---|---|
+|`connector.s3.nativeStorageProperties`|`x-amz-archive-status,x-amz-restore,x-amz-storage-class`|Limits the list of S3 specific storage properties to be retrived|
+|`connector.s3.archiveStorageClass`|`GLACIER` / `DEEP_ARCHIVE`|Archive storage class set for content archive request.|
+|`connector.s3.restoreExpiryDays`|7|Default number of expiration days for archive-restore|
+|`connector.s3.restoreTierDefault`|`Standard` / `Expedited`|Default archive-restore tier (restore priority). Used when no respective value passed in archive-restore request.|
+
+The following headers are currently (by default) returned from AWS S3 Storage:
+
+|Name |Possible values|  
+|---|---|  
+|`x-amz-storage-class`| `REDUCED_REDUNDANCY` / `STANDARD_IA` / `ONEZONE_IA` / `INTELLIGENT_TIERING` / `GLACIER_IR` / `GLACIER` / `DEEP_ARCHIVE` / `OUTPOSTS`|  
+|`x-amz-archive-status`| `ARCHIVE_ACCESS` / `DEEP_ARCHIVE_ACCESS`|  
+|`x-amz-restore`| Complex, e.g.  `ongoing-request="false", expiry-date="Fri, 21 Dec 2012 00:00:00 GMT"`|
+
+>**Note**: 'STANDARD' AWS S3 storage class is not returned by AWS S3 API (hence, nor by the S3 Connector), however it appears in AWS docs
+
+Derived Storage Properties are Alfresco specific and currently reflecting information whether content is archived 
+(offline) and whether it is being restored from offline state (and for how long):
+
+|Name |Possible values|Description|  
+|---|---|---|
+|`x-alf-archived`|`true`, `false`|Indicates whether content is archived (offline) and not immediately accessible|
+|`x-alf-archive-restore-in-progress`|`true`, `false`|Indicates whether a request to restore content from archive is progress.|
+|`x-alf-archive-restore-expiry`|YYYYMMDDThhmmssZ (ISO-8601) datetime|Indicates expiry time for content restored from archive, applicable to AWS S3|
+
+## Backwards compatibility configuration properties
+You may need to configure a number of optional properties for the S3 Connector to ensure backwards compatibility with 
+S3 Connector 1.x and behavior.
 
 * `dir.contentstore`
 
@@ -130,7 +209,9 @@ You may need to configure a number of optional properties for the S3 Connector t
 
     **S3 Connector 1.x**
 
-    S3 Connector 1.x doesn't create S3 object IDs (or paths) that are ideal for high-scale S3 read and write request rates. To help achieve this, `dir.contentstore` should be ignored except for backwards compatibility reads of existing content stored in Alfresco Content Services.
+    S3 Connector 1.x doesn't create S3 object IDs (or paths) that are ideal for high-scale S3 read and write request 
+    rates. To help achieve this, `dir.contentstore` should be ignored except for backwards compatibility reads of 
+    existing content stored in Alfresco Content Services.
 
     When using S3 Connector 1.x the format of the S3 path is:
 
@@ -160,11 +241,16 @@ You may need to configure a number of optional properties for the S3 Connector t
     /{tenant}/{datepath}/{guid.bin}
     ```
 
-    >**Note:** The behavior of existing properties `s3.flatRoot` and `dir.contentstore.deleted` is maintained. You can apply the S3 Connector v2.0 to an existing installation where S3 Connector v1.x was previously used without affecting the running of the system. This means existing paths remain as they are, and new paths are generated based on your configuration.
+    >**Note:** The behavior of existing properties `s3.flatRoot` and `dir.contentstore.deleted` is maintained. You can 
+    > apply the S3 Connector v2.0 to an existing installation where S3 Connector v1.x was previously used without 
+    > affecting the running of the system. This means existing paths remain as they are, and new paths are generated 
+    > based on your configuration.
 
 * `s3.useTenantDomainInPath`
 
-    Added in S3 Connector v2.0. When the property value is set to `true` the tenant domain is added to the S3 path. This was the default behavior in S3 Connector v1.x. The change in the default property value is required to achieve an optimal path for high throughput reads and writes where:
+    Added in S3 Connector v2.0. When the property value is set to `true` the tenant domain is added to the S3 path. 
+    This was the default behavior in S3 Connector v1.x. The change in the default property value is required to achieve 
+    an optimal path for high throughput reads and writes where:
 
     ```text
     s3.useTenantDomainInPath=false
@@ -172,7 +258,9 @@ You may need to configure a number of optional properties for the S3 Connector t
     s3.flatRoot=true
     ```
 
-    You can apply S3 Connector 2.0 to an existing installation where S3 Connector 1.x was previously used without affect to the running of the system. This means that existing paths remain as they are, and new paths are generated based on your configuration.
+    You can apply S3 Connector 2.0 to an existing installation where S3 Connector 1.x was previously used without affect 
+    to the running of the system. This means that existing paths remain as they are, and new paths are generated based 
+    on your configuration.
 
     **Example 1:**
 
@@ -191,7 +279,6 @@ You may need to configure a number of optional properties for the S3 Connector t
     ```
 
 ## On-premises configuration {#onpremconfig}
-
 Use this information to configure the S3 Connector for an on-premises installation of Alfresco Content Services.
 
 For on-premises customers, AWS S3 is often a more cost effective method to store your content, paying just for what you 
@@ -212,20 +299,23 @@ You can install and configure Alfresco Content Services and the S3 Connector on-
 Follow the steps in [Installing the S3 Connector]({% link aws-s3/latest/install/index.md %}), and the basic 
 configuration steps in [Configuring the S3 Connector]({% link aws-s3/latest/config/index.md %}).
 
->**Note:** If you have existing content in a local content store, and you'd like to take advantage of the features provided by the S3 Connector, add the following property to `alfresco-global.properties`:
+>**Note:** If you have existing content in a local content store, and you'd like to take advantage of the features 
+> provided by the S3 Connector, add the following property to `alfresco-global.properties`:
+> ```text
+> dir.contentstore=${dir.root}/contentstore
+> ```
 
-```text
-dir.contentstore=${dir.root}/contentstore
-```
-
-As an existing customer using the default [Encrypted content store]({% link content-services/latest/admin/content-stores.md %}#encrypted-content-store) configuration, the environment uses:
+As an existing customer using the default [Encrypted content store]({% link content-services/latest/admin/content-stores.md %}#encrypted-content-store) 
+configuration, the environment uses:
 
 * AES256 encryption for new content
 * Content decryption on reads from the existing on-premises files
 
 **Best practice**
 
-In order to connect an on-premises instance of Alfresco Content Services to AWS S3, it's recommended that you use the default credentials file (`~/.aws/credentials`). This ensures that the `secretKey` and `accessKey` aren't exposed beyond what's absolutely necessary. Here's an example credentials file:
+In order to connect an on-premises instance of Alfresco Content Services to AWS S3, it's recommended that you use the 
+default credentials file (`~/.aws/credentials`). This ensures that the `secretKey` and `accessKey` aren't exposed beyond 
+what's absolutely necessary. Here's an example credentials file:
 
 ```text
 aws_access_key_id=AKIAIOSFODNN7EXAMPLE
@@ -256,7 +346,10 @@ Standard and Standard - Infrequent Access (Standard-IA).
 
 * **Standard-IA**
 
-    Content should be changed to Standard-IA, or S3 IA, when it's less frequently used. For example, this may be useful for archiving or storing old data that is less likely to be accessed, as this may reduce storage costs. See [Amazon S3 Storage Classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html) and [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/) for more.
+    Content should be changed to Standard-IA, or S3 IA, when it's less frequently used. For example, this may be useful 
+    for archiving or storing old data that is less likely to be accessed, as this may reduce storage costs. 
+    See [Amazon S3 Storage Classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html) and 
+    [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/) for more.
 
 The transition of content from S3 to S3 IA is configured through the AWS console. You can change an object's 
 storage class either manually or by adding a lifecycle policy for an S3 bucket. 
@@ -275,8 +368,6 @@ Before transitioning objects to Standard-IA, consider the following limitations:
 
 >**Note:** When using the S3 Connector, new versions of a document are stored using the Standard storage class by default.
 
->**Important:** The S3 Connector doesn't support transitioning to the Glacier storage class.
-
 Here are some example scenarios to help you consider if using storage classes is right for your environment:
 
 1.  Collaboration: On an S3 bucket with frequently used content as part of any current work.
@@ -290,7 +381,6 @@ interact with AWS S3, when using the default Standard storage class and transiti
 ![s3-ia-architecture]({% link aws-s3/images/s3-ia-architecture.png %})
 
 ## Configuring AWS Identity and Access Management {#configiam}
-
 AWS Identity and Access Management (IAM) enables you to securely control access to AWS services and resources for 
 your users. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their 
 access to AWS resources. The S3 Connector uses AWS IAM's roles to ensure fine-grained control over access to 
@@ -396,7 +486,6 @@ place for S3 access, a new policy must be created.
     You are now ready to start Alfresco Content Services.
 
 ## Configuring AWS Key Management Service {#configkeymgmt}
-
 AWS Key Management Service (KMS) is a managed service that makes it easy for you to create and control the encryption 
 keys used to encrypt your content.
 
@@ -445,7 +534,6 @@ You can configure AWS KMS by adding the relevant properties to the global proper
 4.  You are now ready to start Alfresco Content Services.
 
 ### Encryption overview
-
 Alfresco supports server-side encryption for content stored in AWS S3. There are several encryption types that you can 
 configure to use with S3 Connector. These include AWS Managed Encryption, and AWS Key Management Service (KMS) Encryption.
 
@@ -573,7 +661,7 @@ For example, the common bean `s3ClientConfiguration`, used to set AWS SDK client
     </bean>
 ```
 
->**Important:** In Alfresco Content Services 7.1 and S3 Connector 4.1, changing the current content store subsystem using the JMX client isn't supported. There's a limitation in Alfresco Content Services which only allows switching between the embedded content stores.
+>**Important:** In Alfresco Content Services 7.1 or  newer and S3 Connector 4.1 or newer, changing the current content store subsystem using the JMX client isn't supported. There's a limitation in Alfresco Content Services which only allows switching between the embedded content stores.
 
 See next section about enabling deleted content store.
 
@@ -595,7 +683,7 @@ such as `enable-deleted-content-store-context.xml`, in the `extension` directory
 $CATALINA_HOME/shared/classes/alfresco/extension
 ```
 
-You can find a sample file in `alfresco-s3-connector-4.1.x.amp':
+You can find a sample file in `alfresco-s3-connector-5.0.x.amp':
 
 * `enable-deleted-content-store-context.xml.sample` in `config/alfresco/extension`
 
@@ -623,8 +711,6 @@ about it when the subsystem is started.
 Starting from version 3.1, the S3 Connector contains an S3 multiple buckets sample. If enabled, this adds 
 `S3MultipleBuckets` as a third alternative for the S3 content store subsystems.
 
->**Note:** If you intend on configuring multiple buckets using the S3 Connector you will be unable to also use the Glacier Connector because it does not support using multiple buckets.
-
 Review the prerequisites in [S3 Connector content store subsystems](#content-store-subsystems) which introduces 
 the S3 content store subsystems. The out-of-the-box S3 subsystems have two possible types: 
 `S3` and `S3OnPrem`.
@@ -637,7 +723,7 @@ The Store selector has two stores (instances of the S3 content store):
 * `store1.s3ContentStore` as the default
 * `store2.s3ContentStore` as the second one
 
-The sample files are found in `alfresco-s3-connector-4.1.x.amp`:
+The sample files are found in `alfresco-s3-connector-5.0.x.amp`:
 
 * `s3-multiple-buckets-context.xml.sample` in `config/alfresco/extension`
 * `s3-mb-contentstore-context.xml.sample` and `s3-mb-contentstore.properties.sample` are in `config/alfresco/extension/subsystems/ContentStore/S3MultipleBuckets/S3MultipleBuckets`

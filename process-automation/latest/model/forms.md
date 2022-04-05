@@ -190,7 +190,7 @@ The advanced properties for a REST dropdown field are:
 | Depends on | Select which other dropdown widget you would like to connect with. |
 | If equal | Select which child entry of the **Depends on** field you want to work with and add subordinate entries for it. |
 
-To create a conditional relationship between two dropdown fields using Country and City as an example:
+To create a conditional relationship between two dropdown lists using Country and City as an example:
 
 1. Add two dropdown widgets to your form.
 
@@ -210,9 +210,13 @@ To create a conditional relationship between two dropdown fields using Country a
 
 8. Select the City dropdown widget again and click the **Advanced** tab.
 
-9. From the **If equal** drop down list select the Country you want to work with and then add all the cities you would like available in the drop down list.
+9. From the **If equal** dropdown list select the Country you want to work with and then add all the cities you would like available in the dropdown list.
 
-**Note:** You can link as many dropdowns as you want.
+**Note:** You can link as many dropdown fields as you want.
+
+When you use dropdown fields in Process Automation you can enter any character of the item you are searching for to limit the amount of returned entries, this includes any part of a sentence. This feature works when there are more than five entries and is useful when your lists are large.
+
+You can select single or multiple entries from a dropdown list to use them further in your process.
 
 When using **REST Service** you can use the ID of the linked widget in the REST URL. For example, if your URL is `https://mydomain.com/get-cities/country=${Country}` the value inside `${}` is the ID of the linked widget. If my widget had an ID called `my-dropdown` your URL would be `https://mydomain.com/get-cities/country=${my-dropdown}`.
 The `${my-dropdown-id}` can be used in any position of the URL, for example you can also use `https://mydomain.com/country=${Country}/get-cities`.
@@ -347,7 +351,7 @@ To create a form that contains the Metadata viewer:
 
 4. Select the **Advanced** tab of the Metadata viewer widget on the **Field Editor** pane.
 
-5. From the **Linked attach file widget** drop down menu select the Attach file widget you want to link with the Metadata viewer.
+5. From the **Linked attach file widget** dropdown menu select the Attach file widget you want to link with the Metadata viewer.
 
    You can add more than one Attach file widget and Metadata viewer widgets to a single form.
 

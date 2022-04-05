@@ -2,11 +2,11 @@
 title: Upgrade to Search Enterprise
 ---
 
-Use this information to upgrade from Search Services 2.x to Search Enterprise 3.0.
+Use this information to upgrade from Search Services 2.x to Search Enterprise 3.1.
 
-> **Note:** A full re-index is required when you upgrade from Search Services 2.x to Search Enterprise 3.0 because the search engine is switching from Solr to Elasticsearch. If it is necessary for you to have a backup of the old SOLR index, then it must be copied elsewhere before you re-index.
+> **Note:** A full re-index is required when you upgrade from Search Services 2.x to Search Enterprise 3.1 because the search engine is switching from Solr to Elasticsearch. If it is necessary for you to have a backup of the old SOLR index, then it must be copied elsewhere before you re-index.
 
-Search Enterprise 3.0 is compatible with Alfresco Content Services 7.1 and above, which means you need to upgrade to this version before applying the following steps.
+Search Enterprise 3.1 is compatible with Alfresco Content Services 7.1 and above, which means you need to upgrade to this version before applying the following steps.
 
 ## Configure Subsystem in Repository
 
