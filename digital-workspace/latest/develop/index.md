@@ -8,7 +8,7 @@ The stack chosen for this initial task is the Open Source version of the front-e
 
 # Prerequisites and requirements
 
-The first thing to do is to check the prerequisites and the requirements to run the front-end application directly into a development environment.
+Check the prerequisites and the requirements to run the front-end application directly into a development environment.
 
 * Alfresco Content Services (ACS) Community edition up and running (identify the URL that will be required as configuration). 
 * The latest Long Time Support (LTS) version of Node.js available on their site Home or Downloads section.
@@ -33,7 +33,7 @@ The Alfresco Content App should be running in development mode in your developme
 
 ## Troubleshooting and support
 
-Ask questions in the Application Development Framework section of the [Alfresco Forum](https://hub.alfresco.com/t5/application-development/ct-p/developing) or in Gitter Discussions available in the [Alfresco Builder Network](https://www.alfresco.com/abn/adf/).
+Ask questions in the Application Development Framework section of the [Alfresco Forum](https://hub.alfresco.com/t5/application-development/ct-p/developing) or in the Alfresco [Gitter Discussions](https://gitter.im/Alfresco/alfresco-ng2-components).
 
 ## Use the Enterprise stack instead of the Open Source
 
@@ -76,10 +76,10 @@ The Application Development Framework defines a set of services and visual compo
 Alfresco provides the end user application created using the Application Development Framework:
 
 * [Digital Workspace](https://www.alfresco.com/ecm-software/alfresco-digital-workspace) is a fully supported application available to customers and partners working with Enterprise editions of Alfresco products and services.
-<!-- I can't find this Content Application link, we also want to remove ACA 
-* [Content Application](LINK) is a free, open source example of an application created using the Application Development Framework. -->
+<!-- I can't find this Content Application link, we also want to remove ACA -->
+<!-- * [Content Application](LINK) is a free, open source example of an application created using the Application Development Framework. -->
 
-The following image explains the relation between the front end applications and backend Alfresco services. <!-- Digital Workspace (ADW), Content Application (ACA) and Application Development Framework (ADF). -->
+The following image explains the relationship between the front end applications and backend Alfresco services. <!-- Digital Workspace (ADW), Content Application (ACA) and Application Development Framework (ADF). -->
 
 ![Development options]({% link digital-workspace/images/develop-arch.png %})
 
@@ -99,8 +99,8 @@ When developing customizations, the development, maintenance, and work required 
 
 Native mobile frameworks and applications are provided by Alfresco as standard and worth considering if mobile support is a requirement. <!-- Cannot find mobile link. Further details on the [Alfresco developer experience for mobile is available](LINK). -->
 
-## Introducing ADW (developer perspective)
-The Alfresco Digital Workspace (ADW) is the general-purpose application developed and provided by Alfresco to all customers and partners. ADW is supported and enhanced through regular releases and it supports content use cases as well as content-centric process use cases.
+## Introducing Alfresco Digital Workspace
+The Alfresco Digital Workspace is the general-purpose application developed and provided by Alfresco to all customers and partners. ADW is supported and enhanced through regular releases and it supports content use cases as well as content-centric process use cases.
 
 ### Best Practices
 
