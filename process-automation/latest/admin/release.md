@@ -97,23 +97,27 @@ After clicking **Create** the deployment descriptor will be created and the appl
 
 You can delete a released project from the Admin App by selecting the three dots next to the project you want to delete and select **Delete**.
 
-### Upload a release to another environment
+### Promote a project release from one environment to another
 
-You can download a release and then upload it to another environment. This is useful because you can test a new release on a staging environment and then upload it to a production environment.
+You can download a project release and then upload it to another environment. This is useful because you can test a new project release on a staging environment and then upload it to a production environment.
 
-To upload a release to a another environment:
+To upload a project release to another environment:
 
-1. On the Releases window click the three dots next to the release you want to upload to another environment and then click **Download**.
+1. Navigate to the project where you want to download the project release.  
 
-    A zip file of the release is created and downloads to your machine.
+2. On the Releases window click the three dots next to the release you want to upload to another environment and then click **Download**.
 
-2. Navigate to the environment where you want to upload the release.
+    A zip file of the project release is created and downloads to your machine.
 
-3. Go to the Releases window and click the **Upload** icon.
+3. Navigate to the environment where you want to upload the project release.
 
-4. Select the release you created earlier.
+4. Navigate to the project where you want to upload the project release.
 
-Once you have uploaded the release it will appear in the list of releases you have on the Releases window.
+5. Go to the Releases window and click the **Upload** icon.
+
+6. Select the project release you created earlier.
+
+Once you have uploaded the project release it will appear in the list of project releases you have on the Releases window.
 
 ## Deployment descriptors
 
