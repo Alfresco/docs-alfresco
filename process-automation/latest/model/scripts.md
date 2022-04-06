@@ -42,6 +42,8 @@ The Modeling Application contains two tabs for creating and managing scripts.
 
 The **Script Editor** is the GUI for modeling scripts by typing in the declared language. The editor has autocomplete functionality for APIs and script variables. The **Metadata** contains the properties related to the script.
 
+![auto complete]({% link process-automation/images/auto-complete.png %})
+
 ### Simulation
 
 Once a script has been written, it can be simulated by entering potential inputs and viewing their output.
