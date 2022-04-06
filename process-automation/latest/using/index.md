@@ -226,7 +226,7 @@ The right-statement can be one of the available variables, a JUEL expression, or
 
 ## Expression editor
 
-The expression editor is a code editor that provides autocompletion and hints when writing an expression that may contain a JUEL expression.
+The expression editor is a code editor that provides autocompletion and hints when writing an expression that may contain a JUEL expression. In the expression editor you can test JUEL expressions by first setting the values of variables and then once the expression has been created it can be tested by clicking the **Test** button. The result is displayed in the gray area above the variables.
 The expression editor appears in the following places:
 
 * Task mapping dialog: when selecting an expression as a variable value
