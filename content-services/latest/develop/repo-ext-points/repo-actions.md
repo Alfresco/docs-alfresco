@@ -202,6 +202,26 @@ So you can see that Repository Actions are useful in many different situations, 
 
 >**Important:** There is already an out-of-the-box `mail` action, which can be used to send an email. However, it does not support sending an attachment.
 
+## Exposing private actions
+
+When an Action Spring bean is defined it is possible to choose if action is public or private by using the `publicAction` as shown below:
+
+```xml
+<property name="publicAction">
+    <value>false</value>
+</property>
+```
+
+>**Important:** If `publicAction` property is not specified the default behavior is to treat an action as **public**.
+
+Private actions can be used from the java code without any limitations but they are not exposed in external integration points like REST API or UI. If there is a need to trigger a private action from such endpoint the action can be exposed using the following configuration property:
+
+```properties
+org.alfresco.repo.action.action-id.exposed=true
+```
+
+>**Important:** Exposing a private action is not the same as making it public, i.e. it won't be available in the UI. It just allows you to trigger a private action.
+
 ## Deployment - App Server
 
 A Repository Action is usually implemented in Java, which is not suitable for manual installation into an 
