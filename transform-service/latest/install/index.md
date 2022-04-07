@@ -196,31 +196,31 @@ The steps to install are:
 
 Example installation based on a downloaded `image-exiftool-12.25.tgz` file:
 
-Create a new directory named `exiftool` under your Alfresco installation, such as `/usr/local/acs71` directory.
+Create a new directory named `exiftool` under your Alfresco installation, such as `/usr/local/acs72` directory.
 
 ```bash
-$ sudo mkdir /usr/local/acs71/exiftool
+$ sudo mkdir /usr/local/acs72/exiftool
 ```
 
 Extract `~/Downloads/image-exiftool-12.25.tgz` and copy the contents of `~/Downloads/Image-ExifTool-12.25` into the 
-`/usr/local/acs71/exiftool/` directory:
+`/usr/local/acs72/exiftool/` directory:
 
 ```bash
 $ sudo tar -xvf ~/Downloads/image-exiftool-12.25.tgz --directory ~/Downloads/
-$ sudo cp -R ~/Downloads/Image-ExifTool-12.25/* /usr/local/acs71/exiftool/
+$ sudo cp -R ~/Downloads/Image-ExifTool-12.25/* /usr/local/acs72/exiftool/
 ```
 
 Export the `exiftool` directory to the `PATH` variable:
 
 ```bash
-export PATH=$PATH:/usr/local/acs71/exiftool
+export PATH=$PATH:/usr/local/acs72/exiftool
 ```
 
-Update the file permissions for `/usr/local/acs71/exiftool` directory:
+Update the file permissions for `/usr/local/acs72/exiftool` directory:
 
 ```bash
-$ sudo chgrp -R Alfresco /usr/local/acs71/exiftool
-$ sudo chmod -R 755 /usr/local/acs71/exiftool
+$ sudo chgrp -R Alfresco /usr/local/acs72/exiftool
+$ sudo chmod -R 755 /usr/local/acs72/exiftool
 ```
 
 ## Install with Helm charts
@@ -269,7 +269,7 @@ from the left column that corresponds to the required Content Services version y
     ```
 
     > **Note:** Replace the version number `x.y.z` with the tag that matches the Content Services version you want to 
-    > deploy. For example, if you want Content Services 7.1.0, then select tag `5.1.1`.
+    > deploy. For example, if you want Content Services 7.2.0, then select tag `5.2.0`.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to 
     > determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 
@@ -365,17 +365,17 @@ Use this information to verify that the system started correctly, and to clean u
         ```bash
         Container                               Repository                       Tag        Image Id       Size
         --------------------------------------------------------------------------------------------------------------------
-        enterprise_activemq_1             alfresco/alfresco-activemq                     5.16.1      76a6bf63e939   716.3 MB
-        enterprise_alfresco_1             quay.io/alfresco/alfresco-content-repository   7.1.1       536bfb2e8dda   1.469 GB
-        enterprise_digital-workspace_1    quay.io/alfresco/alfresco-digital-workspace    2.5.0       2e12597a429d   40.82 MB
-        enterprise_postgres_1             postgres                                       13.3        b2fcd079c1d4   314.7 MB
-        enterprise_proxy_1                alfresco/alfresco-acs-nginx                    3.2.0       da6d34dd9386   21.86 MB
-        enterprise_share_1                quay.io/alfresco/alfresco-share                7.1.1       ae072949820f   734.4 MB
-        enterprise_shared-file-store_1    quay.io/alfresco/alfresco-shared-file-store    0.16.1      7b2760464a5b   651.2 MB
-        enterprise_solr6_1                alfresco/alfresco-search-services              2.0.2       9b48bb3c76cb   1.107 GB
-        enterprise_sync-service_1         quay.io/alfresco/service-sync                  3.4.0       7c0cee15f516   800 MB  
-        enterprise_transform-core-aio_1   alfresco/alfresco-transform-core-aio           2.5.6       39e6c1e8a6ad   1.667 GB
-        enterprise_transform-router_1     quay.io/alfresco/alfresco-transform-router     1.5.1       ca6d0a1cb691   646.2 MB       
+        acs-trial_activemq-1             alfresco/alfresco-activemq                     5.16.4              e9dd27ce1a5d        716.3 MB
+        acs-trial_alfresco-1             quay.io/alfresco/alfresco-content-repository   7.2.0               945933739097        1.437 GB
+        acs-trial_digital-workspace-1    quay.io/alfresco/alfresco-digital-workspace    2.6.0               1a2eaa5bf7a9        572.9 MB
+        acs-trial_postgres-1             postgres                                       13.3                b2fcd079c1d4        314.7 MB
+        acs-trial_proxy-1                alfresco/alfresco-acs-nginx                    3.3.0               da6d34dd9386        21.86 MB
+        acs-trial_share-1                quay.io/alfresco/alfresco-share                7.2.0               837b363e02af        758.7 MB
+        acs-trial_shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    0.16.1              dee75e9ffa5b        651.2 MB
+        acs-trial_solr6-1                quay.io/alfresco/search-services               2.0.3               5800e8a31bdd        890.8 MB
+        acs-trial_sync-service-1         quay.io/alfresco/service-sync                  3.6.0               7c0cee15f516        703.2 MB
+        acs-trial_transform-core-aio-1   alfresco/alfresco-transform-core-aio           2.5.7               39e6c1e8a6ad        1.667 GB
+        acs-trial_transform-router-1     quay.io/alfresco/alfresco-transform-router     1.5.2               ca6d0a1cb691        646.2 MB
         ```
 
     2. List the running containers:
@@ -551,15 +551,15 @@ before continuing.
     ```
 
     > **Note:** You may need to change the paths depending on your operating system. For example:
-    > java -DPDFRENDERER_EXE="/usr/local/acs71/alfresco-pdf-renderer/alfresco-pdf-renderer" \
-       -DLIBREOFFICE_HOME="/usr/local/acs71/libreoffice" \
-       -DIMAGEMAGICK_ROOT="/usr/local/acs71/imagemagick" \
-       -DIMAGEMAGICK_DYN="/usr/local/acs71/imagemagick" \
-       -DIMAGEMAGICK_EXE="/usr/local/acs71/imagemagick/convert" \
-       -DIMAGEMAGICK_CODERS="/usr/local/acs71/imagemagick/modules-Q16HDRI/coders" \
-       -DIMAGEMAGICK_CONFIG="/usr/local/acs71/imagemagick/config-Q16HDRI" \
+    > java -DPDFRENDERER_EXE="/usr/local/acs72/alfresco-pdf-renderer/alfresco-pdf-renderer" \
+       -DLIBREOFFICE_HOME="/usr/local/acs72/libreoffice" \
+       -DIMAGEMAGICK_ROOT="/usr/local/acs72/imagemagick" \
+       -DIMAGEMAGICK_DYN="/usr/local/acs72/imagemagick" \
+       -DIMAGEMAGICK_EXE="/usr/local/acs72/imagemagick/convert" \
+       -DIMAGEMAGICK_CODERS="/usr/local/acs72/imagemagick/modules-Q16HDRI/coders" \
+       -DIMAGEMAGICK_CONFIG="/usr/local/acs72/imagemagick/config-Q16HDRI" \
        -DACTIVEMQ_URL=failover:(tcp://localhost:61616)?timeout=3000 \
-       -jar /usr/local/acs71/bin/alfresco-transform-core-aio-boot-2.5.6.jar
+       -jar /usr/local/acs72/bin/alfresco-transform-core-aio-boot-2.5.7.jar
 
     Check the output to ensure that it starts successfully.
 
