@@ -32,13 +32,13 @@
                   <span class="icon is-small">
                     <img src="/assets/img/clear_24px.svg">
                   </span>
-                  <span>Table of contents</span>
+                  <span>{%l Table of contents%}</span>
                 </button>
                 {% include toc.html %}
             </div>
           </div>
           <div class="column column-content">
-            <button class="button is-rounded" id="table-of-contents" onclick="tocToggler()">Table of contents</button>
+            <button class="button is-rounded" id="table-of-contents" onclick="tocToggler()">{%l Table of contents%}</button>
             <div class="content">
               <!-- For each landing page, print out the selected version for the product (unless it's a Community version). -->
               <!-- A landing page has a path with format: <product-name>/<product-version>/index.md -->

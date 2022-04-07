@@ -1,11 +1,11 @@
 {%for p in include.pages%}
-<li class="{% if page.url == p.path %}is-selected{% endif %}">
-  {% if p.path != nil %}{%loc_safe_url {{p.path}} {{page.lang}} class="menuitem-title"%}{{p.title}}{%endloc_safe_url%}{% else %}<span class="menuitem-title">{%l {{p.title}}%}</span>{% endif %}
+<li class="{% if page.ref_page.url == p.path %}is-selected{% endif %}" data="{{page.ref_page.url}} {{p.path}}">
+  {% if p.path != nil %}{%loc_safe_url get-toc-title {{p.path}} {{page.lang}} class="menuitem-title"%}{{p.title}}{%endloc_safe_url%}{% else %}<span class="menuitem-title">{%l {{p.title}}%}</span>{% endif %}
   {% if p.pages != nil %} <span class="expand-button"></span>
 <ul>
     {%include toc_part.html pages=p.pages %}
 </ul>
-  {% elsif page.url == p.path and page.nav != false %}
+  {% elsif page.ref_page.url == p.path and page.nav != false %}
 <ul id="tocspy">
   <li><a class="menuitem-title" href="#">title</a></li>
 </ul>

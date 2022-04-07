@@ -29,7 +29,6 @@
 
 
         <div class="navbar-dropdown is-boxed navbar-lang">
-
         {%for l in langs %}
         <a href="{{l.lang_config.url}}{{page.ref_page.url}}" class="navbar-item">
           {{l.lang_config.name}}
@@ -41,12 +40,13 @@
     
 
 
+
     </div>
 
     <div class="navbar-menu" id="navbaralfresco">
       <div class="navbar-start">
         <div class="navbar-item">
-          <a class="navbar-link is-arrowless" href="{{page.lang_config.url}}">
+          <a class="navbar-link is-arrowless" href="{{page.lang_config.url}}/">
             {%l Docs%}
           </a>
         </div>

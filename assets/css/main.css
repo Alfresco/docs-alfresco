@@ -2104,10 +2104,17 @@ footer .copyright img {
   }
 }
 
+
 a[localisation_redirect]::before {
   content: "🇬🇧 ";
-  position: absolute;
-  transform: translate(-1.2em, 0);
-
-  opacity: 0.5;
+  position: relative;
+  margin-right: 0.3em;
+  opacity: 0.8;
+  white-space: nowrap;
 }
+
+.section-landing a[localisation_redirect]::before {
+  position: absolute;
+  transform: translate(-1.5em, 0px);
+}
+

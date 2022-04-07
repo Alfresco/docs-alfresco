@@ -55,7 +55,7 @@
             <ul>
               {% for ss in s.sub %}
               <li>
-                {%loc_safe_url {{ss.url}} {{page.lang}}%}{{ss.title}}{%endloc_safe_url%}
+                {%loc_safe_url no-transform-title {{ss.url}} {{page.lang}}%}{%l {{ss.title}}%}{%endloc_safe_url%}
               </li>
               {% endfor %}
             </ul>  

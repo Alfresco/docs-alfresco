@@ -105,6 +105,7 @@ module Jekyll
       end
 
       IF_FLAG_NO_TRANSFORM_CONTENT = /no-transform-title/
+      IF_FLAG_GET_TOC_TITLE = /get-toc-title/
 
       def render(context)
         content = super
@@ -128,7 +129,8 @@ module Jekyll
         if existed_page 
           # raise ScriptError.new("loc_safe_url: can't resolve url '#{@url}'")
           resolved_url = existed_page.url
-          content = existed_page.data['menutitle'] if existed_page.data['menutitle'] && !@protect_content
+          titlesource = @get_toc_title ? 'tocmenutitle' : 'menutitle'
+          content = existed_page.data[titlesource] if existed_page.data[titlesource] && !@protect_content
         end 
         
         
@@ -142,6 +144,9 @@ module Jekyll
 
         @protect_content = (parameters =~ IF_FLAG_NO_TRANSFORM_CONTENT) != nil
         parameters = parameters.gsub(IF_FLAG_NO_TRANSFORM_CONTENT, "") if @protect_content
+
+        @get_toc_title = (parameters =~ IF_FLAG_GET_TOC_TITLE) != nil
+        parameters = parameters.gsub(IF_FLAG_GET_TOC_TITLE, "") if @get_toc_title
 
         parameters.strip!
   
