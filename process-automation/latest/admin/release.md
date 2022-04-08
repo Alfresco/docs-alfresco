@@ -8,7 +8,9 @@ The **DevOps** section of the Admin Application is used to deploy projects and m
 
 The **Project Releases** section displays a list of all [released projects]({% link process-automation/latest/model/projects.md %}#release-a-project) created in the Modeling Application.
 
- **Note**: If you can't find your project in the list, make sure it has been released. To release a project:
+ > **Note**: If you can't find your project in the list, make sure it has been released.
+
+To release a project:
 
 1. Sign into the Modeling Application.
 
