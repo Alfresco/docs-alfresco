@@ -20,7 +20,7 @@ The basic properties of creating authentication are:
 | Scope | *Required.* When using Client credentials authentication, enter one or more scope values that make up part of the API account you want to access, for example `api.account.one`. |
 | Token | *Required.* When using Bearer token authentication, enter the bearer token for the API, for example `bearer-token`. |
 
-   **Note:** All the configuration parameters can be overridden at deployment time.
+ > **Note:** All the configuration parameters can be overridden at deployment time.
 
 ## Create authentication
 
