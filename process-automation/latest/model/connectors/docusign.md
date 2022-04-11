@@ -2,25 +2,21 @@
 title: DocuSign connector
 ---
 
-## Overview
-
-The DocuSign connector is designed to provide a standard mechanism in APS to send documents for digital signing in
+The DocuSign connector provides a standard mechanism in Alfresco Process Automation to send documents for digital signing in
 [DocuSign](https://www.docusign.com).
 
 ## Installation
 
-The APS connector is a Spring Boot application which is expected to be included as a separate service as part of an APS deployment.
+The DocuSign connector is a Spring boot application that is included as a separate service to the Process Automation deployment.
 
 ## Configuration
 
-The connector has to be configured in the `application.properties` file of the Spring Boot application. By default, these properties are set to environment variables.
+The connector is configured in the `application.properties` file of the Spring boot application using environment variables.
+The connector requires a DocuSign account and the application to be configured. For a demonstration of the DocuSign environment see [(Developer Centre)](https://appdemo.docusign.com).
 
-The connector also requires a DocuSign account and App to be configured. The DocuSign demo environment [(Developer Centre)](https://appdemo.docusign.com) can be used for that.
+The following properties are needed to set up the Alfresco Content Services connection:
 
-
-The following properties are needed to set up content service (Alfresco) connection:
-
-```
+```typescript
 alfresco.identity.service.grant-type=${CONTENT_GRANT_TYPE:client_credentials}
 alfresco.identity.service.resource=${CONTENT_CLIENT_ID:}
 alfresco.identity.service.credentials-secret=${CONTENT_CLIENT_SECRET:}
@@ -29,57 +25,46 @@ alfresco.service.process.storage.url=${PROCESS_STORAGE_GATEWAY:https://gateway.a
 alfresco.service.process.storage.path=${PROCESS_STORAGE_PATH:/docgen/process-storage}
 ```
 
-The following properties are needed to configure the DocuSign REST API:
+The following properties are used to configure the DocuSign REST API:
 
-```
-# The DocuSign REST API location
-docusign.apilocation=${DOCUSIGN_APILOCATION:https://demo.docusign.net/restapi}
-# The DocuSign account ID under which the app operates
-docusign.accountId=${DOCUSIGN_ACCOUNT_ID:}
-# The App Integration Key from DocuSign (Admin > API & Keys)
-docusign.clientId=${DOCUSIGN_CLIENT_ID:}
-# The DocuSign User GUID whom the app impersonates (Admin > Users)
-docusign.impersonatedUserGuid=${DOCUSIGN_IMPERSONATED_USER_ID:}
-# The DocuSign OAuth server location
-docusign.authServer=${DOCUSIGN_AUTH_SERVER:account-d.docusign.com}
-# DocuSign JWT token lifetime
-docusign.jwtTokenExpirationInSeconds=${DOCUSIGN_JWT_LIFETIME:3600}
-# Private RSA key of the DocuSign App for JWT authentication
-docusign.privateKey=${DOCUSIGN_RSA_KEY:}
+* The DocuSign REST API location - `docusign.apilocation=${DOCUSIGN_APILOCATION:https://demo.docusign.net/restapi}`
+* The DocuSign account ID under which the app operates - `docusign.accountId=${DOCUSIGN_ACCOUNT_ID:}`
+* The App integration key from DocuSign (**Admin** > **API & Keys**) - `docusign.clientId=${DOCUSIGN_CLIENT_ID:}`
+* The DocuSign User GUID whom the app impersonates (**Admin** > **Users**) - `docusign.impersonatedUserGuid=${DOCUSIGN_IMPERSONATED_USER_ID:}`
+* The DocuSign OAuth server location - `docusign.authServer=${DOCUSIGN_AUTH_SERVER:account-d.docusign.com}`
+* The DocuSign JWT token lifetime - `docusign.jwtTokenExpirationInSeconds=${DOCUSIGN_JWT_LIFETIME:3600}`
+* The private RSA key of the DocuSign App for JWT authentication - `docusign.privateKey=${DOCUSIGN_RSA_KEY:}`
 
-# DocuSign defaults
-# Default email subject (of email that DocuSign sends to signer)
-docusign.email.subject=${DOCUSIGN_DEFAULT_EMAIL_SUBJECT:Please sign this document}
-# DocuSign "Sign Here" box - an invisible tab label
-docusign.signhere.label=${DOCUSIGN_DEFAULT_SIGNHERE_LABEL:SignHereTab}
-# Default page in document where DocuSign "Sign Here" box should go
-docusign.signhere.page=${DOCUSIGN_DEFAULT_SIGNHERE_PAGE:1}
-# Default X position in page for "Sign Here"
-docusign.signhere.posx=${DOCUSIGN_DEFAULT_SIGNHERE_POSX:1}
-# Default Y position in page for "Sign Here"
-docusign.signhere.posy=${DOCUSIGN_DEFAULT_SIGNHERE_POSY:1}
-```
+The DocuSign defaults settings:
 
-As the connector uses a stream mechanism to send/receive information between APS and the connector, the following properties are used to identify the connector actions:
+* Default email subject (of email that DocuSign sends to signer) - `docusign.email.subject=${DOCUSIGN_DEFAULT_EMAIL_SUBJECT:Please sign this document}`
+* DocuSign "Sign Here" box - an invisible tab label - `docusign.signhere.label=${DOCUSIGN_DEFAULT_SIGNHERE_LABEL:SignHereTab}`
+* Default page in document where DocuSign "Sign Here" box should go - `docusign.signhere.page=${DOCUSIGN_DEFAULT_SIGNHERE_PAGE:1}`
+* Default X position in page for "Sign Here" - `docusign.signhere.posx=${DOCUSIGN_DEFAULT_SIGNHERE_POSX:1}`
+* Default Y position in page for "Sign Here" - `docusign.signhere.posy=${DOCUSIGN_DEFAULT_SIGNHERE_POSY:1}`
 
-```
+The connector uses a stream mechanism to send and receive information between itself and Process Services. The following properties are used to identify the connector actions:
+
+```typescript
 spring.cloud.stream.bindings.sendForSignatureConsumer.destination=docusignconnector.SEND_FOR_SIGNATURE
 spring.cloud.stream.bindings.downloadDocumentConsumer.destination=${docusign.connector.name}.DOWNLOAD_DOCUMENT
 ```
 
-The name of the channel requires to match the implementation value defined in the Service Task as part of the BPMN definition.
+The name of the channel must match the implementation value defined in the service task which is formed as part of the BPMN definition.
 
 ### BPMN Tasks Configuration
 
-The following [process definition](docuSignProcess.bpmn20.xml) was created to show an example of how to set up the connector in APS:
+This [process definition](docuSignProcess.bpmn20.xml) was created and shows an example of how to set up the connector in Process Services:
 
 ![BPMN](docuSignProcess.png)
 
-As part of BPMN definition process, any Service Task responsible for sending the document needs to set **_docusignconnector.SEND_FOR_SIGNATURE_** or **_docusignconnector.DOWNLOAD_DOCUMENT_** as the value for its implementation attribute.
+As part of BPMN definition process, any service task responsible for sending the document needs to set `docusignconnector.SEND_FOR_SIGNATURE` or `docusignconnector.DOWNLOAD_DOCUMENT` as the value for its implementation attribute.
 
 In addition to the above, these input variables must be provided for DocuSign API in the Service Task depending on the implementation:
 
 ### SEND_FOR_SIGNATURE
+
+The input parameters for `SEND_FOR_SIGNATURE` are:
 
 #### Inbound Variables
 
@@ -107,7 +92,7 @@ In addition to the above, these input variables must be provided for DocuSign AP
 | allowMarkup | Boolean | *Optional.* Allow recipients to make changes to your documents by covering up existing text and replacing it with new text (i.e. markup). Recipients can decide to use a special markup text field which they can place anywhere on the document. It can be scaled and optionally filled in. All changes must be reviewed and approved by all signers. |
 | file | File | *Required* File to be signed. If multiple files are received, only the first one will be processed. |
 
-#### Outbound Variables
+The output parameters from `SEND_FOR_SIGNATURE` are:
 
 | Parameter | Type | Description |
 |--- | --- | --- |
@@ -118,7 +103,7 @@ In addition to the above, these input variables must be provided for DocuSign AP
 
 ### DOWNLOAD_DOCUMENT
 
-#### Inbound Variables
+The input parameters for `DOWNLOAD_DOCUMENT` are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
@@ -131,7 +116,7 @@ In addition to the above, these input variables must be provided for DocuSign AP
 | targetFileMetadata | content-metadata | *Optional.* Metadata assigned to the signed document in Content Services. |
 | underscoreMetadata | boolean | *Optional.* If set to `true` the received prefixed properties names contain underscores (_) instead of colons (:), for separating the namespace prefix from the property name. |
 
-#### Outbound Variables
+The output parameters from `DOWNLOAD_DOCUMENT` are:
 
 | Property | Type | Description |
 |--- | --- |
@@ -139,7 +124,7 @@ In addition to the above, these input variables must be provided for DocuSign AP
 
 The following is an example of the POST body for the Activiti REST API `http://{{domain}}/{{applicationName}}-rb/v1/process-instances` endpoint:
 
-```json
+```JSON
 {
   "processDefinitionKey": "DocuSignProcessTest",
   "processInstanceName": "processDocuSignTest_Simple",
@@ -166,7 +151,8 @@ The following is an example of the POST body for the Activiti REST API `http://{
 ```
 
 In the business process definition, the service task called **docuSignTask** has the implementation attribute configured to use the connector.
-```
+
+```typescript
 <bpmn2:serviceTask id="ServiceTask_1cheezm" name="docuSignTask" implementation="docuSignConnector.SIGNDOCUMENT">
       <bpmn2:incoming>SequenceFlow_1siaofh</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_0nmtcso</bpmn2:outgoing>
@@ -177,34 +163,36 @@ No exceptions or errors shall be thrown by the connector. All exceptions are cau
 
 ### Events
 
-The DocuSign connector produces events when DocuSign envelope change its status:
+The DocuSign connector produces events when the DocuSign envelope change its status, the events are:
 
-- ENVELOPE_VOIDED
-- ENVELOPE_DECLINED
-- ENVELOPE_COMPLETED
-- ENVELOPE_DELIVERED
-- ENVELOPE_SENT
+* `ENVELOPE_VOIDED`
+* `ENVELOPE_DECLINED`
+* `ENVELOPE_COMPLETED`
+* `ENVELOPE_DELIVERED`
+* `ENVELOPE_SENT`
 
-When an APS process is instantiated this way, the following variables are populated:
+When a Process Automation process is instantiated this way, the following variables are populated:
 
 | Property | Type | Description |
-|--- | --- |
+|--- | --- | --- |
 | envelopeId | string | Envelope ID of the document. |
 | documents | array | Documents related to the envelope and data related to them like uri, id, etc. |
 
 ### DocuSign Environment Configuration
-The connector uses DocuSign client library that relies on DocuSign REST API. For authentication, the
-[OAuth JWT](https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-jsonwebtoken) is used.
-See the above page for detailed instructions how to configure an app in the DocuSign environment.
 
-**Configuration steps on a high level**
+The connector uses the DocuSign client library that relies on the DocuSign REST API and uses OAuth JWT for authentication, for more see [OAuth JWT](https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-jsonwebtoken).
+
+The basic steps:
+
 1. Create a DocuSign account. Register for a free developer sandbox account.
-2. [Configure an app for JWT](https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-jsonwebtoken) in DocuSign. You will need the private RSA key for connector configuration.
-3. [Grant consent](https://developers.docusign.com/esign-rest-api/guides/authentication/obtaining-consent) to the app. The
-same user account can be used that was created in step 1 (or a new one can be created).
 
-Configuration for production is similar. See DocuSign documentation for details.
+2. Configure an app fpr JWT in DocuSign, for more see [How to get an access token with JWT Grant authentication
+](https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-jsonwebtoken) in DocuSign. You need the private RSA key for the connector configuration.
 
+3. Grant consent to the app, for more see [How to obtain individual consent
+](https://developers.docusign.com/esign-rest-api/guides/authentication/obtaining-consent).
+
+  The same user account from step 1 can be used, or a new one can be created.
 
 ## Testing
 
@@ -220,4 +208,3 @@ the UUID of previously uploaded node for `nodeId`.
 - The service task will now automatically complete.
 - The result will be UUID of the node in Alfresco that now contains the signed document
 - The `getVarsTask` will be created if no error ocurred
-
