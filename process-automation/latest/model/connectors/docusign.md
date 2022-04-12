@@ -3,7 +3,7 @@ title: DocuSign connector
 ---
 
 The DocuSign connector provides a standard mechanism in Alfresco Process Automation to send documents for digital signing in
-[DocuSign](https://www.docusign.com).
+[DocuSign](https://www.docusign.com){:target="_blank"}.
 
 ## Installation
 
@@ -11,10 +11,10 @@ The DocuSign connector is a Spring boot application that is included as a separa
 
 ## Configuration
 
-The connector is configured in the `application.properties` file of the Spring boot application using environment variables.
-The connector requires a DocuSign account and the application to be configured. For a demonstration of the DocuSign environment see [(Developer Centre)](https://appdemo.docusign.com).
+Using environment variables the connector is configured in the `application.properties` file of the Spring boot application.
+The connector requires a DocuSign account. For a demonstration of the DocuSign environment see [Developer Centre](https://appdemo.docusign.com){:target="_blank"}.
 
-The following properties are needed to set up the Alfresco Content Services connection:
+You must set the following properties to set up the Alfresco Content Services connection:
 
 ```typescript
 alfresco.identity.service.grant-type=${CONTENT_GRANT_TYPE:client_credentials}
@@ -35,15 +35,15 @@ The following properties are used to configure the DocuSign REST API:
 * The DocuSign JWT token lifetime - `docusign.jwtTokenExpirationInSeconds=${DOCUSIGN_JWT_LIFETIME:3600}`
 * The private RSA key of the DocuSign App for JWT authentication - `docusign.privateKey=${DOCUSIGN_RSA_KEY:}`
 
-The DocuSign defaults settings:
+The DocuSign default settings are:
 
-* Default email subject (of email that DocuSign sends to signer) - `docusign.email.subject=${DOCUSIGN_DEFAULT_EMAIL_SUBJECT:Please sign this document}`
-* DocuSign "Sign Here" box - an invisible tab label - `docusign.signhere.label=${DOCUSIGN_DEFAULT_SIGNHERE_LABEL:SignHereTab}`
-* Default page in document where DocuSign "Sign Here" box should go - `docusign.signhere.page=${DOCUSIGN_DEFAULT_SIGNHERE_PAGE:1}`
-* Default X position in page for "Sign Here" - `docusign.signhere.posx=${DOCUSIGN_DEFAULT_SIGNHERE_POSX:1}`
-* Default Y position in page for "Sign Here" - `docusign.signhere.posy=${DOCUSIGN_DEFAULT_SIGNHERE_POSY:1}`
+* Default email subject, of the email that DocuSign sends to the signer - `docusign.email.subject=${DOCUSIGN_DEFAULT_EMAIL_SUBJECT:Please sign this document}`
+* DocuSign **Sign Here** box, which is an invisible tab label - `docusign.signhere.label=${DOCUSIGN_DEFAULT_SIGNHERE_LABEL:SignHereTab}`
+* Default page in the document where the DocuSign **Sign Here** box should go - `docusign.signhere.page=${DOCUSIGN_DEFAULT_SIGNHERE_PAGE:1}`
+* Default X position in the page for the **Sign Here** box - `docusign.signhere.posx=${DOCUSIGN_DEFAULT_SIGNHERE_POSX:1}`
+* Default Y position in the page for the **Sign Here** box - `docusign.signhere.posy=${DOCUSIGN_DEFAULT_SIGNHERE_POSY:1}`
 
-The connector uses a stream mechanism to send and receive information between itself and Process Services. The following properties are used to identify the connector actions:
+The connector uses a stream mechanism to send and receive information between itself and Process Automation. The following properties are used to identify the connector actions:
 
 ```typescript
 spring.cloud.stream.bindings.sendForSignatureConsumer.destination=docusignconnector.SEND_FOR_SIGNATURE
@@ -52,21 +52,15 @@ spring.cloud.stream.bindings.downloadDocumentConsumer.destination=${docusign.con
 
 The name of the channel must match the implementation value defined in the service task which is formed as part of the BPMN definition.
 
-### BPMN Tasks Configuration
+### BPMN tasks configuration
 
-This [process definition](docuSignProcess.bpmn20.xml) was created and shows an example of how to set up the connector in Process Services:
+This [process definition](https://github.com/Alfresco/alfresco-process-connector-services/blob/develop/alfresco-process-docusign-connector-spring-boot-starter/docuSignProcess.bpmn20.xml){:target="_blank"} example shows how to set up the connector in Process Automation.
 
-![BPMN](docuSignProcess.png)
+As part of the BPMN definition process, any service task that is responsible for sending the document needs to set the `docusignconnector.SEND_FOR_SIGNATURE` or `docusignconnector.DOWNLOAD_DOCUMENT` properties as the value for its implementation attribute.
 
-As part of BPMN definition process, any service task responsible for sending the document needs to set `docusignconnector.SEND_FOR_SIGNATURE` or `docusignconnector.DOWNLOAD_DOCUMENT` as the value for its implementation attribute.
-
-In addition to the above, these input variables must be provided for DocuSign API in the Service Task depending on the implementation:
-
-### SEND_FOR_SIGNATURE
+The following input parameters must be provided for DocuSign API in the Service task depending on the implementation:
 
 The input parameters for `SEND_FOR_SIGNATURE` are:
-
-#### Inbound Variables
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
@@ -78,9 +72,9 @@ The input parameters for `SEND_FOR_SIGNATURE` are:
 | recipientName | String | *Optional.* The name of the signer i.e. the email recipient, when the document is going to be signed by only one signer. |
 | emailSubject | String | *Optional.* The subject line of the email sent with the document to sign. |
 | signHerePage | String | *Optional.* The page number in the document the `Sign Here` box will appear on, when the document is going to be signed by only one signer, for example `3`. |
-| signHereX | String | *Optional.* The X position of the `Sign Here` box in the document, when the document is going to be signed only by one signer, for example `100`. |
-| signHereY | String | *Optional.* The Y position of the `Sign Here` box in the document, when the document is going to be signed only by one signer for example `50`. |
-| targetFileMetadata | Content-Metadata | *Optional.* Metadata to store the file with. This is a JSON object of key value pairs. See below for an example. |
+| signHereX | String | *Optional.* The X position of the `Sign Here` box in the document, when the document is going to be signed by only one signer, for example `100`. |
+| signHereY | String | *Optional.* The Y position of the `Sign Here` box in the document, when the document is going to be signed by only one signer for example `50`. |
+| targetFileMetadata | Content-Metadata | *Optional.* Metadata to store the file with. This is a JSON object of key value pairs. |
 | underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `targetFileMetadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. This allows the JSON to be used in an expression, for example `${metadata.cm_title}`, whereas `${metadata.cm:title}` is not valid. |
 | targetFileType | Content-Type | *Optional.* The type to set for the signed file, for example `fin:invoice`. |
 | targetFile | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file that should be updated with the signed version of the document. |
@@ -100,8 +94,6 @@ The output parameters from `SEND_FOR_SIGNATURE` are:
 | status | String | Status of the envelope. |
 | URI | String | URI related to the envelope. |
 | docusignOutput | JSON | DocuSign output after sending the document for signature. |
-
-### DOWNLOAD_DOCUMENT
 
 The input parameters for `DOWNLOAD_DOCUMENT` are:
 
@@ -159,11 +151,11 @@ In the business process definition, the service task called **docuSignTask** has
 </bpmn2:serviceTask>
 ```
 
-No exceptions or errors shall be thrown by the connector. All exceptions are caught and logged. The task execution is always successful. Errors will be returned in an error event.
+No exceptions or errors are thrown by the connector, however all exceptions are caught and logged. The task execution is always successful, and errors will be returned in an error event.
 
 ### Events
 
-The DocuSign connector produces events when the DocuSign envelope change its status, the events are:
+The DocuSign connector produces events when the DocuSign envelope changes its status, the events are:
 
 * `ENVELOPE_VOIDED`
 * `ENVELOPE_DECLINED`
@@ -176,35 +168,48 @@ When a Process Automation process is instantiated this way, the following variab
 | Property | Type | Description |
 |--- | --- | --- |
 | envelopeId | string | Envelope ID of the document. |
-| documents | array | Documents related to the envelope and data related to them like uri, id, etc. |
+| documents | array | Documents related to the envelope and data related to them like uri, and id. |
 
 ### DocuSign Environment Configuration
 
-The connector uses the DocuSign client library that relies on the DocuSign REST API and uses OAuth JWT for authentication, for more see [OAuth JWT](https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-jsonwebtoken).
+The connector uses the DocuSign client library that relies on the DocuSign REST API and uses OAuth JWT for authentication, for more see [OAuth JWT](https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-jsonwebtoken){:target="_blank"}.
 
-The basic steps:
+The basic steps to achieve are:
 
-1. Create a DocuSign account. Register for a free developer sandbox account.
+1. Create a DocuSign account.
 
-2. Configure an app fpr JWT in DocuSign, for more see [How to get an access token with JWT Grant authentication
-](https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-jsonwebtoken) in DocuSign. You need the private RSA key for the connector configuration.
+    Register for a free developer sandbox account.
+
+2. Configure an app for JWT in DocuSign, for more see [How to get an access token with JWT Grant authentication
+](https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-jsonwebtoken){:target="_blank"}.
+
+    You need the private RSA key for the connector configuration.
 
 3. Grant consent to the app, for more see [How to obtain individual consent
-](https://developers.docusign.com/esign-rest-api/guides/authentication/obtaining-consent).
+](https://developers.docusign.com/esign-rest-api/guides/authentication/obtaining-consent){:target="_blank"}.
 
-  The same user account from step 1 can be used, or a new one can be created.
+    The same user account from step 1. can be used, or a new one can be created.
 
-## Testing
+## Basic testing steps
 
-- Deploy the Activiti and the connector following the documentation in https://activiti.gitbook.io/activiti-7-developers-guide/
-- Add the example process definition to an Activiti runtime bundle
-- Upload content to the Alfresco instance used by the connector. This can be of any type supported by DocuSign (e.g. PDF, Word etc).
-See [DocuSign documentation for details](https://support.docusign.com/en/guides/ndse-user-guide-supported-file-formats)
-- Using an API client like Postman, set the function and payload variables as described above. Use your email for the `recipientEmail` and
-the UUID of previously uploaded node for `nodeId`.
-- Start the process with the Activiti REST API `v1/process-instances` endpoint with `StartProcessPayload`
-- The service task will execute automatically
-- An email will be sent by DocuSign with a link to the document to be signed. Open it and sign it in DocuSign.
-- The service task will now automatically complete.
-- The result will be UUID of the node in Alfresco that now contains the signed document
-- The `getVarsTask` will be created if no error ocurred
+1. Deploy Activiti and the connector using the documentation in [Introduction](https://activiti.gitbook.io/activiti-7-developers-guide){:target="_blank"}.
+
+2. Add the example process definition to an Activiti runtime bundle.
+
+3. Upload content to the Alfresco instance used by the connector. This can be of any type supported by DocuSign i.e. Adobe PDF or Microsoft Word.
+See [Supported File Formats](https://support.docusign.com/en/guides/ndse-user-guide-supported-file-formats){:target="_blank"}.
+
+4. Use an API client, like Postman, to set the functional and payload variables as described above. Use your email for the `recipientEmail` and
+the UUID of a previously uploaded node for `nodeId`.
+
+5. Start the process with the Activiti REST API `v1/process-instances` endpoint using `StartProcessPayload`.
+
+6. The service task will execute automatically.
+
+7. An email will be sent by DocuSign with a link to the document to be signed. Open it and sign it in DocuSign.
+
+8. The service task will now automatically complete.
+
+9. The result will be the UUID of the node in Alfresco Content Services that contains the signed document.
+
+10. The `getVarsTask` will be created if an error does not occur.
