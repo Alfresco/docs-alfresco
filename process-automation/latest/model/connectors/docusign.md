@@ -41,7 +41,7 @@ The input parameters for SEND_FOR_SIGNATURE are:
 | allowMarkup | Boolean | *Optional.* Allow recipients to make changes to your documents by covering up existing text and replacing it with new text (i.e. markup). Recipients can decide to use a special markup text field which they can place anywhere on the document. It can be scaled and optionally filled in. All changes must be reviewed and approved by all signers. |
 | metadata | JSON | *Optional.* Metadata for the document. |
 
-**Note:** The connector can only receive either **signers** or **recipientEmail** but not both at the same time.
+> **Note:** The connector can only receive either **signers** or **recipientEmail** but not both at the same time.
 
 The output parameters from SEND_FOR_SIGNATURE are:
 
