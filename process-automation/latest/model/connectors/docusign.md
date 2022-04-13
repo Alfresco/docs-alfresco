@@ -136,4 +136,4 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 | ENVELOPE_NOT_CREATED | Could not create envelope in DocuSign. |
 | ERROR_WRITING_FILE | Could not create or write result node. |
 | ERROR_RETRIEVING_FILE | Could not retrieve document from DocuSign. |
-| MISSING_ENVELOPE | The envelopId is missing. |
+| MISSING_ENVELOPE | The envelopeId is missing. |
