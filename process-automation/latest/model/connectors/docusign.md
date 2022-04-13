@@ -99,7 +99,7 @@ When a Process Automation process is instantiated this way, the following variab
 
 The connector uses the DocuSign client library that relies on the DocuSign REST API and uses OAuth JWT for authentication, for more see [OAuth JWT](https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-jsonwebtoken){:target="_blank"}.
 
-The basic steps to achieve are:
+The basic steps to achieve this are:
 
 1. Create a DocuSign account.
 
