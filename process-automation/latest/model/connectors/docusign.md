@@ -60,7 +60,7 @@ The input parameters for DOWNLOAD_DOCUMENT are:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | outputFileName | String | *Optional.* The name of the file that will be created, for example `invoice.pdf`. |
-| envelopeId | yes | *Required* UUID related to the envelope from the DocuSign API. |
+| envelopeId | yes | *Required.* UUID related to the envelope from the DocuSign API. |
 | targetFolder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to store the signed document in. |
 | targetFolderId | String | *Optional.* The target folder ID to save the document in Content Services. |
 | targetFolderPath | String | *Requires one.* The location path or relative path of the folder to store the signed document in Content Services. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` or a relative path: `/User Homes/hruser`.  |
