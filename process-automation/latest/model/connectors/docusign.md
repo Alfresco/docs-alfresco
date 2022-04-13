@@ -65,7 +65,7 @@ The input parameters for DOWNLOAD_DOCUMENT are:
 | targetFolderId | String | *Optional.* The target folder ID to save the document in Content Services. |
 | targetFolderPath | String | *Requires one.* The location path or relative path of the folder to store the signed document in Content Services. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` or a relative path: `/User Homes/hruser`.  |
 | targetFileType | String | *Optional.* The type to set for the signed file, for example `fin:invoice`. |
-| targetFileMetadata | content-metadata | *Optional.* Metadata assigned to the signed document in Content Services. |
+| targetFileMetadata | Content-Metadata | *Optional.* Metadata assigned to the signed document in Content Services. |
 | underscoreMetadata | boolean | *Optional.* If set to `true` the received prefixed properties names contain underscores (_) instead of colons (:), for separating the namespace prefix from the property name. |
 
 The output parameters from DOWNLOAD_DOCUMENT are:
