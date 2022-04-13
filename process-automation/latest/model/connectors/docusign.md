@@ -14,7 +14,7 @@ The actions that can be executed using the DocuSign connector are:
 * [SEND_FOR_SIGNATURE](#send_for_signature)
 * [DOWNLOAD_DOCUMENT](#download_document)
 
-As part of the BPMN definition process, any service task that is responsible for sending the document needs to set the `docusignconnector.SEND_FOR_SIGNATURE` or `docusignconnector.DOWNLOAD_DOCUMENT` properties as the value for its implementation attribute.
+As part of the BPMN definition process, any service task that is responsible for sending or downloading the document needs to set the `docusignconnector.SEND_FOR_SIGNATURE` or `docusignconnector.DOWNLOAD_DOCUMENT` properties as the value for its implementation attribute.
 
 The following input parameters must also be provided for the DocuSign API in the Service task depending on the implementation.
 
@@ -37,7 +37,7 @@ The input parameters for SEND_FOR_SIGNATURE are:
 | signHereX | String | *Optional.* The X position of the `Sign Here` box in the document, when the document is going to be signed by only one signer, for example `100`. |
 | signHereY | String | *Optional.* The Y position of the `Sign Here` box in the document, when the document is going to be signed by only one signer for example `50`. |
 | timeout | Integer | *Optional.* The timeout period to wait for the document to be signed in milliseconds, for example `910000`. |
-| signers | JSON | *Optional.* The list of signers (including email, name, sign here page, sign here tab label, position X and position Y) when the document is going to be signed by more than one signer.. |
+| signers | JSON | *Optional.* The list of signers (including email, name, sign here page, sign here tab label, position X and position Y) when the document is going to be signed by more than one signer. |
 | allowMarkup | Boolean | *Optional.* Allow recipients to make changes to your documents by covering up existing text and replacing it with new text (i.e. markup). Recipients can decide to use a special markup text field which they can place anywhere on the document. It can be scaled and optionally filled in. All changes must be reviewed and approved by all signers. |
 | metadata | JSON | *Optional.* Metadata for the document. |
 
@@ -61,13 +61,13 @@ The input parameters for DOWNLOAD_DOCUMENT are:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | outputFileName | String | *Optional.* The name of the file that will be created, for example `invoice.pdf`. |
-| envelopeId | yes | *Required* UUID related to the envelope from the DocuSign API. |
+| envelopeId | yes | *Required.* UUID related to the envelope from the DocuSign API. |
 | targetFolder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to store the signed document in. |
 | targetFolderId | String | *Optional.* The target folder ID to save the document in Content Services. |
 | targetFolderPath | String | *Requires one.* The location path or relative path of the folder to store the signed document in Content Services. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` or a relative path: `/User Homes/hruser`.  |
 | targetFileType | String | *Optional.* The type to set for the signed file, for example `fin:invoice`. |
-| targetFileMetadata | content-metadata | *Optional.* Metadata assigned to the signed document in Content Services. |
-| underscoreMetadata | boolean | *Optional.* If set to `true` the received prefixed properties names contain underscores (_) instead of colons (:), for separating the namespace prefix from the property name. |
+| targetFileMetadata | Content-Metadata | *Optional.* Metadata assigned to the signed document in Content Services. |
+| underscoreMetadata | boolean | *Optional.* If set to `true` the received prefixed property names contain underscores (_) instead of colons (:) for separating the namespace prefix from the property name. |
 
 The output parameters from DOWNLOAD_DOCUMENT are:
 
@@ -89,7 +89,7 @@ The DocuSign connector produces events when the DocuSign envelope changes its st
 * `ENVELOPE_DELIVERED` - This event is sent when all recipients have opened the envelope through the DocuSign signing website. This does not signify an email delivery of an envelope.
 * `ENVELOPE_SENT` - This event is sent when the email notification, with a link to the envelope, is sent to at least one recipient or when it is a recipient's turn to sign during embedded signing. The envelope remains in this state until all recipients have viewed the envelope.
 
-For more on events see [Webhook event triggers](https://developers.docusign.com/platform/webhooks/connect/event-triggers/)
+For more on events see [Webhook event triggers](https://developers.docusign.com/platform/webhooks/connect/event-triggers/){:target="_blank"}.
 
 When a Process Automation process is instantiated this way, the following variables are populated:
 
@@ -102,7 +102,7 @@ When a Process Automation process is instantiated this way, the following variab
 
 The connector uses the DocuSign client library that relies on the DocuSign REST API and uses OAuth JWT for authentication, for more see [OAuth JWT](https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-jsonwebtoken){:target="_blank"}.
 
-The basic steps to achieve are:
+The basic steps to achieve this are:
 
 1. Create a DocuSign account, for more see [Sign documents for free](https://www.docusign.co.uk/esignature/sign-documents-free).
 
