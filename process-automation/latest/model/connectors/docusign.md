@@ -41,7 +41,7 @@ The input parameters for SEND_FOR_SIGNATURE are:
 | allowMarkup | Boolean | *Optional.* Allow recipients to make changes to your documents by covering up existing text and replacing it with new text (i.e. markup). Recipients can decide to use a special markup text field which they can place anywhere on the document. It can be scaled and optionally filled in. All changes must be reviewed and approved by all signers. |
 | metadata | JSON | *Optional.* Metadata for the document. |
 
-**Note:** The connector can only receive either **signers** or **recipientEmail** but not both at the same time.
+> **Note:** The connector can only receive either **signers** or **recipientEmail** but not both at the same time.
 
 The output parameters from SEND_FOR_SIGNATURE are:
 
@@ -81,7 +81,7 @@ No exceptions or errors are thrown by the connector, however all exceptions are 
 
 The DocuSign connector produces events when the DocuSign envelope changes its status, the events are:
 
-**Note:** These events can be consumed by the process using Triggers. For example, a BPMN catch message event inside a process can be waiting for a trigger event that is set to ENVELOPE_DECLINED, and a trigger action set to throw a BPMN message.
+> **Note:** These events can be consumed by the process using Triggers. For example, a BPMN catch message event inside a process can be waiting for a trigger event that is set to ENVELOPE_DECLINED, and a trigger action set to throw a BPMN message.
 
 * `ENVELOPE_VOIDED` -  The envelope has been voided by the sender or has expired. The void reason indicates whether the envelope was manually voided or expired.
 * `ENVELOPE_DECLINED` - The envelope has been declined by one of the recipients.
@@ -104,7 +104,7 @@ The connector uses the DocuSign client library that relies on the DocuSign REST 
 
 The basic steps to achieve this are:
 
-1. Create a DocuSign account, for more see [Sign documents for free](https://www.docusign.co.uk/esignature/sign-documents-free).
+1. Create a DocuSign account, for more see [Sign documents for free](https://www.docusign.co.uk/esignature/sign-documents-free){:target="_blank"}.
 
     Register for a free developer sandbox account.
 
