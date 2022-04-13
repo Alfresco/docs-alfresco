@@ -24,7 +24,7 @@ The **SEND_FOR_SIGNATURE** action is used by the DocuSign connector to request a
 
 The input parameters for SEND_FOR_SIGNATURE are:
 
-**Note:** The connector can only receive either **signers** or **recipientEmail** but not both at the same time.
+> **Note:** The connector can only receive either **signers** or **recipientEmail** but not both at the same time.
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
