@@ -86,7 +86,7 @@ The DocuSign connector produces events when the DocuSign envelope changes its st
 * `ENVELOPE_DELIVERED` - This event is sent when all recipients have opened the envelope through the DocuSign signing website. This does not signify an email delivery of an envelope.
 * `ENVELOPE_SENT` - This event is sent when the email notification, with a link to the envelope, is sent to at least one recipient or when it is a recipient's turn to sign during embedded signing. The envelope remains in this state until all recipients have viewed the envelope.
 
-For more on events see [Webhook event triggers](https://developers.docusign.com/platform/webhooks/connect/event-triggers/)
+For more on events see [Webhook event triggers](https://developers.docusign.com/platform/webhooks/connect/event-triggers/){:target="_blank"}.
 
 When a Process Automation process is instantiated this way, the following variables are populated:
 
