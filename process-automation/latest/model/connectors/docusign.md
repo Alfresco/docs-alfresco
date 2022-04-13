@@ -5,16 +5,14 @@ title: DocuSign connector
 The DocuSign connector provides a standard mechanism in Alfresco Process Automation to send documents for digital signing in
 [DocuSign](https://www.docusign.com){:target="_blank"}.
 
-> **Important**: The DocuSign connector requires a [DocuSign](https://www.docusign.com/){:target="_blank"} account to handle document signing. This account is separate to the Alfresco hosted environment and should be created and managed by customers.
-
 The DocuSign connector is displayed on the process diagram as a pen.
+
+> **Important**: The DocuSign connector requires a [DocuSign](https://www.docusign.com/){:target="_blank"} account to handle document signing. This account is separate to the Alfresco hosted environment and should be created and managed by customers.
 
 The actions that can be executed using the DocuSign connector are:
 
-* [SEND_FOR_SIGNATURE](#SEND_FOR_SIGNATURE)
-* [DOWNLOAD_DOCUMENT](#DOWNLOAD_DOCUMENT)
-
-## BPMN tasks configuration
+* [SEND_FOR_SIGNATURE](#send_for_signature)
+* [DOWNLOAD_DOCUMENT](#download_document)
 
 As part of the BPMN definition process, any service task that is responsible for sending the document needs to set the `docusignconnector.SEND_FOR_SIGNATURE` or `docusignconnector.DOWNLOAD_DOCUMENT` properties as the value for its implementation attribute.
 
@@ -22,7 +20,9 @@ The following input parameters must also be provided for the DocuSign API in the
 
 ## SEND_FOR_SIGNATURE
 
-The input parameters for `SEND_FOR_SIGNATURE` are:
+The **SEND_FOR_SIGNATURE** action is used by the DocuSign connector to request a digital signature on a document.
+
+The input parameters for SEND_FOR_SIGNATURE are:
 
 **Note:** The connector can only receive either **signers** or **recipientEmail** but not both at the same time.
 
@@ -49,7 +49,7 @@ The input parameters for `SEND_FOR_SIGNATURE` are:
 | signers | JSON | *Optional.* The list of signers (including email, name, sign here page, sign here tab label, position X and position Y) when the document is going to be signed by more than one signer.. |
 | allowMarkup | Boolean | *Optional.* Allow recipients to make changes to your documents by covering up existing text and replacing it with new text (i.e. markup). Recipients can decide to use a special markup text field which they can place anywhere on the document. It can be scaled and optionally filled in. All changes must be reviewed and approved by all signers. |
 
-The output parameters from `SEND_FOR_SIGNATURE` are:
+The output parameters from SEND_FOR_SIGNATURE are:
 
 | Parameter | Type | Description |
 |--- | --- | --- |
@@ -58,9 +58,11 @@ The output parameters from `SEND_FOR_SIGNATURE` are:
 | URI | String | URI related to the envelope. |
 | docusignOutput | JSON | DocuSign output after sending the document for signature. |
 
-## DOWNLOAD_DOCUMENT
+## DOWNLOAD DOCUMENT
 
-The input parameters for `DOWNLOAD_DOCUMENT` are:
+The **DOWNLOAD_DOCUMENT** action is used by the DocuSign connector to request a digital signature on a document.
+
+The input parameters for DOWNLOAD_DOCUMENT are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
@@ -73,10 +75,10 @@ The input parameters for `DOWNLOAD_DOCUMENT` are:
 | targetFileMetadata | content-metadata | *Optional.* Metadata assigned to the signed document in Content Services. |
 | underscoreMetadata | boolean | *Optional.* If set to `true` the received prefixed properties names contain underscores (_) instead of colons (:), for separating the namespace prefix from the property name. |
 
-The output parameters from `DOWNLOAD_DOCUMENT` are:
+The output parameters from DOWNLOAD_DOCUMENT are:
 
 | Property | Type | Description |
-|--- | --- |
+|--- | --- | --- |
 | file | file | The file stored in Content Services of the document. |
 
 No exceptions or errors are thrown by the connector, however all exceptions are caught and logged. The task execution is always successful, and errors will be returned in an error event.
@@ -117,3 +119,22 @@ The basic steps to achieve are:
 ](https://developers.docusign.com/esign-rest-api/guides/authentication/obtaining-consent){:target="_blank"}.
 
     The same user account from step 1. can be used, or a new one can be created.
+
+## Errors
+
+The possible [errors]({% link process-automation/latest/model/connectors/index.md %}#errors) that can be handled by the DocuSign connector are:
+
+| Error | Description |
+| ----- | ----------- |
+| MISSING_INPUT | A mandatory input variable was not provided. |
+| INVALID_INPUT | The input variable has an invalid type. |
+| UNKNOWN_ERROR | Unexpected runtime error. |
+| MISSING_SOURCE_FILE | Input file not found. |
+| MISSING_TARGET_FILE | Target file and folder not found. |
+| SIGNING_TIMEOUT | Signing document timeout. |
+| STATUS_NOT_FOUND | Error polling DocuSign for status. |
+| MISSING_TOKEN | Could not update or obtain token. |
+| ERROR_READING_FILE | Error reading input file. |
+| ENVELOPE_NOT_CREATED | Could not create envelope in DocuSign. |
+| ERROR_WRITING_FILE | Could not create or write result node. |
+| ERROR_RETRIEVING_FILE | Could not retrieve document from DocuSign. |
