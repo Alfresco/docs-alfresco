@@ -14,7 +14,7 @@ The actions that can be executed using the DocuSign connector are:
 * [SEND_FOR_SIGNATURE](#send_for_signature)
 * [DOWNLOAD_DOCUMENT](#download_document)
 
-As part of the BPMN definition process, any service task that is responsible for sending the document needs to set the `docusignconnector.SEND_FOR_SIGNATURE` or `docusignconnector.DOWNLOAD_DOCUMENT` properties as the value for its implementation attribute.
+As part of the BPMN definition process, any service task that is responsible for sending or downloading the document needs to set the `docusignconnector.SEND_FOR_SIGNATURE` or `docusignconnector.DOWNLOAD_DOCUMENT` properties as the value for its implementation attribute.
 
 The following input parameters must also be provided for the DocuSign API in the Service task depending on the implementation.
 
