@@ -104,7 +104,7 @@ The connector uses the DocuSign client library that relies on the DocuSign REST 
 
 The basic steps to achieve this are:
 
-1. Create a DocuSign account, for more see [Sign documents for free](https://www.docusign.co.uk/esignature/sign-documents-free).
+1. Create a DocuSign account, for more see [Sign documents for free](https://www.docusign.co.uk/esignature/sign-documents-free){:target="_blank"}.
 
     Register for a free developer sandbox account.
 
