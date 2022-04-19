@@ -361,7 +361,7 @@ Sometimes it is convenient to be able to have the action implemented as a server
                 <key>
                     <value>script-ref</value>
                 </key>
-                <value>\${selectSingleNode('workspace://SpacesStore', 'lucene', 'PATH:"/app:company_home/app:dictionary/app:scripts/cm:exampleScript.js"' )}</value>
+                <value>\$\{selectSingleNode('workspace://SpacesStore', 'lucene', 'PATH:"/app:company_home/app:dictionary/app:scripts/cm:exampleScript.js"' )\}</value>
             </entry>
         </map>
     </property>
