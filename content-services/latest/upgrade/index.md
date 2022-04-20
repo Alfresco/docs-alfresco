@@ -257,7 +257,8 @@ The `dir.root` directory is defined in the `alfresco-global.properties` file. By
     Remember to specify the relevant JDBC driver into your application server's classpath.
 
 ## Apply optional performance database patch
->**Note.** This patch can take hours to run on larger systems.
+
+>**Note:** This patch can take hours to run on larger systems.
 
 Content Services 7.0 contains a recommended database patch, which adds two indexes to the `alf_node` table and 
 three to `alf_transaction`. This patch is optional, but recommended for larger implementations as it can have a big 
