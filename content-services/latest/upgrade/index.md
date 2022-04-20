@@ -264,7 +264,7 @@ three to `alf_transaction`. This patch is optional, but recommended for larger i
 positive performance impact. These indexes are not automatically applied during upgrade, as the amount of time needed to 
 create them might be considerable. They should be run manually after the upgrade process completes.
 
-To apply the patch, an admin should set the following Alfresco global property to `true`:
+To apply the patch, an admin should set the following Alfresco global property to `false`:
 
 ```text
 system.new-node-transaction-indexes.ignored=false
