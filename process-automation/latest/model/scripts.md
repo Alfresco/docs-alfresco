@@ -128,6 +128,8 @@ The following content APIs are supported:
 * `SiteService`
 * `TagService`
 
+> **Note:** The API scripts can be tested in the simulator on the scripts window.
+
 You can create the object by accessing the API which then allows you to make use of all its methods.
 
 For example:
