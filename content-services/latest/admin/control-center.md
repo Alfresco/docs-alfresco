@@ -91,11 +91,7 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
 
     If Docker is running on your local machine, the IP address will be just `localhost`.
 
-    If you're using the [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/){:target="_blank"}, run the following command to find the IP address:
-
-    ```bash
-    docker-machine ip
-    ```
+    If you're still using the [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/){:target="_blank"}, you'll need to switch to [Docker Desktop](https://docs.docker.com/install/){:target="_blank"} as Docker Toolbox is deprecated.
 
 7. Log in to the Control Center as the `admin` user. Enter the default administrator password `admin`.
 
@@ -111,8 +107,7 @@ The properties for users are:
 
 | Property | Description |
 | -------- | ----------- |
-| ID | A unique identifier for the user. This is system generated and cannot be changed. |
-| Username | A username for the user. |
+| Id / Username | A unique identifier (username) for the user. <br><br>**Note:** A `Username` cannot be changed once a user has been created. |
 | Email | An email address associated to the user. |
 | First Name | The first name of the user. |
 | Last Name | The last name of the user. |
@@ -134,12 +129,13 @@ To add a user:
 
     All fields marked with an asterisk (*) are required.
 
-Once the user has been created, click the vertical ellipsis (**&vellip;**) at end of the row to access more options:
+    > **Note:** The create button isn't available until you complete all the required fields. If you didn't type in matching passwords, you'll see a message to say that the password fields do not match.
+
+Once the user has been created, click the vertical ellipsis (**&vellip;**) at end of the row to access more options, or use the search field on the toolbar to search for users:
 
 * **View** the user to assign them to one or more groups.
 * **Edit** the user details, including resetting their password.
-
-> **Note:** A `Username` cannot be changed once a user has been created.
+* **Search** for any user and view that user's account information. In the search box, enter the full or partial name of the user (at least 3 characters).
 
 ## Manage groups
 
@@ -153,7 +149,7 @@ The properties for groups are:
 
 | Property | Description |
 | -------- | ----------- |
-| Group ID | Enter a unique identifier for the group. |
+| Group ID | Enter a unique identifier for the group. <br><br>**Note:** The `Group ID` cannot be changed once a group has been created. |
 | Name | A name to identify the group. |
 
 ### Add a group
@@ -168,13 +164,14 @@ To add a group:
 
 4. Give a name to the group and click **Create**.
 
-Once the group has been created, click the vertical ellipsis (**&vellip;**) at end of the row to access more options:
+Once the group has been created, click the vertical ellipsis (**&vellip;**) at end of the row to access more options, or use the search field on the toolbar to search for groups:
 
 * **Create subgroup** to create subgroups from the parent group.
 * **Edit group details** to change the group name.
 * **Delete group** to remove the group from your system.
+* **Search** for a group. In the search box, enter the full or partial name (at least 3 characters).
 
-> **Note:** You can only modify the group `Name` once a group has been created. The `Group ID` cannot be changed.
+> **Note:** You can only modify the group `Name` once a group has been created.
 
 ## Troubleshooting
 
@@ -208,4 +205,4 @@ Once the group has been created, click the vertical ellipsis (**&vellip;**) at e
 
     Go back to step 4 in the initial Docker Compose instructions to start the deployment again.
 
-> **Note:** You'll need a machine with at least 13GB of memory to distribute among the Docker containers.
+> **Note:** You'll need a machine with at least 13 GB of memory to distribute among the Docker containers.
