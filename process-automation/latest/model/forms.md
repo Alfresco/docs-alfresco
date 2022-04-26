@@ -182,6 +182,7 @@ The advanced properties for a REST dropdown field are:
 
 | Property | Description |
 | -------- | ----------- |
+| Authentication | The authentication type. |
 | REST URL | The URL of the REST service. |
 | Path to array in JSON response | The path to the JSON response. Enter `.` to use the full path. |
 | ID property | The ID of the REST service. |
@@ -219,7 +220,7 @@ When you use dropdown fields in Process Automation you can enter any character o
 You can select single or multiple entries from a dropdown list to use them further in your process.
 
 When using **REST Service** you can use the ID of the linked widget in the REST URL. For example, if your URL is `https://mydomain.com/get-cities/country=${Country}` the value inside `${}` is the ID of the linked widget. If my widget had an ID called `my-dropdown` your URL would be `https://mydomain.com/get-cities/country=${my-dropdown}`.
-The `${my-dropdown-id}` can be used in any position of the URL, for example you can also use `https://mydomain.com/country=${Country}/get-cities`.
+The `${my-dropdown-id}` can be used in any position of the URL, for example you can also use `https://mydomain.com/country=${Country}/get-cities`. When authentication is required for the REST service you can select the authentication type from the Authentication dropdown list. For how to create authentication types see, [Authentication]({% link process-automation/latest/model/authentication.md %}).
 
 ### File viewer fields
 
@@ -317,10 +318,13 @@ The advanced properties for a REST radio button field are:
 
 | Property | Description |
 | -------- | ----------- |
+| Authentication | The authentication type. |
 | REST URL | The URL of the REST service. |
 | Path to array in JSON response | The path to the JSON response. Enter `.` to use the full path. |
 | ID property | The ID of the REST service. |
 | Label property | The name of the REST service. |
+
+When authentication is required for the REST service you can select the authentication type from the Authentication dropdown list. For how to create authentication types see, [Authentication]({% link process-automation/latest/model/authentication.md %}).
 
 ### Text fields
 
