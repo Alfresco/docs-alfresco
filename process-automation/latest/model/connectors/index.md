@@ -229,4 +229,4 @@ When a project is [deployed]({% link process-automation/latest/admin/release.md 
 
 Read and write access is granted to each service account on the [default storage location]({% link process-automation/latest/admin/release.md %}#deploy-steps/storage). If the connector reads or writes to files and folders held elsewhere in the repository, the service account will need to be manually given explicit permission to those directories otherwise the connector action will fail.
 
-> **Note**: The service accounts for an application are all added to a group named `<application-name>-service-group` so that permissions can be manually assigned for an entire application if required.
+> **Note**: The service accounts for an application are all added to a group named `<application-name>-service-group` so that permissions can be manually assigned for an entire application if required. This also makes it easier when adding permissions because users can be found by that name. This approach is useful when granting permissions to a content folder in the Digital Workspace, when using the copy, move, or update actions, for example `MOVE_FILE`.
