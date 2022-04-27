@@ -2,7 +2,7 @@
 title: Scripts
 ---
 
-Scripts are used to execute a script as part of a process. Process variables can be passed to the script and the results of a script can be sent back to a process instance as process variables. Any Javascript that is created by the modelling application has the same permissions assigned to it as the logged in user. This is helpful because it allows the logged in user to test their own scripts with their own files.
+Scripts are used to execute a script as part of a process. Process variables can be passed to the script and the results of a script can be sent back to a process instance as process variables. Any JavaScript that is created by the modeling application has the same permissions assigned to it as the logged in user. This is helpful because it allows the logged in user to test their own scripts with their own files.
 
 Script design uses the functionality of [Monaco](https://github.com/Microsoft/monaco-editor){:target="_blank"} and uses the [Graal javascript engine](https://github.com/graalvm/graaljs){:target="_blank"} for execution.
 
