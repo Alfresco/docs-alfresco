@@ -2036,7 +2036,7 @@ An example of the XML of a multi-instance element is:
 
 User tasks represent a stage in the process where human action is required.
 
-Human action is handled by a task being assigned to specific users or groups. The task that is assigned can be modeled using a [form]({% link process-automation/latest/model/forms.md %}). Once a task is completed, the process flow continues on to the next element in the process.
+Human action is handled by a task being assigned to specific users or groups. The task that is assigned can be modeled using a [form]({% link process-automation/latest/model/forms.md %}). Once a task is completed, the process flow continues on to the next element in the process. When a new user task is added to a process diagram, it is automatically assigned to the process initiator.
 
 {% capture user-prop %}
 
