@@ -54,9 +54,9 @@ To start a process instance:
 
 4. Click **START PROCESS**.
 
-    **Note:** Once you have selected the process you would like to work with from the modal window you can copy and share the URL with another user, so they can start the process. This user must have credentials to sign into the Digital Workspace.
+    > **Note:** Once you have selected the process you would like to work with from the modal window you can copy and share the URL with another user, so they can start the process. This user must have credentials to sign into the Digital Workspace.
 
-All Alfresco Digital Workspace users who have initiated a process or participated in one can see all the tasks from the process, including the tasks assigned to other users. To see the list of tasks navigate to `Process Management` > `Processes` > `Running` > `Process details`.
+All Alfresco Digital Workspace users who have initiated a process or participated in one can see all the tasks from the process, including the tasks assigned to other users. To see the list of tasks navigate to **Process Management** > **Processes** > **Running** > **Process details**.
 
 ### Start a process instance from a file
 
