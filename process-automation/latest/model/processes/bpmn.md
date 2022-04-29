@@ -2074,6 +2074,8 @@ The assignments for user tasks are stored in the `assignments` property of the *
 
 An optional date and time for a user task to be completed by in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601){:target="_blank"} format. A date picker can be used to choose the time and date.
 
+
+
 Checking the **Use process variable** box for due date allows a [process variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) to be used to generate the date. The process variable must be of type `datetime`.
 
 #### Multi-instance type
