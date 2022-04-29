@@ -23,4 +23,4 @@ You can start a process in Alfresco Digital Workspace.
 
     Once the process starts you can view the running process by clicking **View running process** at the bottom of the window.
 
-   > **Note:** You can also start a process by clicking **New** in the main Alfresco Digital Workspace window or by right clicking a file in your search results and selecting **Start Process**.
+   > **Note:** You can also start a process by right clicking a file in your search results and selecting **Start Process**.
