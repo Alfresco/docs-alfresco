@@ -4,16 +4,16 @@ title: Surfacing recommended content
 
 You can configure a Visualforce Page for one or more Salesforce objects, for example Opportunity or Account, to display a **Recommended Content** panel. The configuration consists of one or more named sections. Each section executes an Alfresco Search Query which can return many results of content items per query. The queries can also be informed by Salesforce field values that can be matched with Alfresco metadata values (content model properties).
 
-A Sales Rep can view the **Recommended Content** panel when creating, viewing, and editing Salesforce objects. The panel will run each of the pre-configured Alfresco Search Queries and display a list of content item results for each named section. Each content item result will initially show the name of the document or file with a clickable link to open the Salesforce Connector preview page.
+A Salesforce user can view the **Recommended Content** panel when creating, viewing, and editing Salesforce objects. The panel will run each of the pre-configured Alfresco Search Queries and display a list of content item results for each named section. Each content item result will initially show the name of the document or file with a clickable link to open the Share document details page.
 
-Starting from version 2.3.4, the Sales Admin can optionally apply the aspect `Recommended Content Link` (`sfdc:recommendedContentLink`) in the **Document Details** page, and then edit the **Properties** to configure where the link should send the Sales Rep. Only one type of link is allowed per document.
+Starting from version 2.3.4, the Sales Admin can optionally apply the aspect `Recommended Content Link` (`sfdc:recommendedContentLink`) in the **Document Details** page, and then edit the **Properties** to configure where the link should send the Salesforce user. Only one type of link is allowed per document.
 
 The properties for the type of link are:
 
 | Property | Description |
 | -------- | ----------- |
-| Details | Opens the **Document Details** page new tab/window. This is the default behavior if the aspect isn't applied (i.e. the same behavior as in previous releases of the Salesforce Connector). |
-| Parent | Opens the parent folder view in a new tab/window. |
+| Details | Opens the **Document Details** page in a new tab/window. This is the default behavior if the aspect isn't applied (i.e. the same behavior as in previous releases of the Salesforce Connector). |
+| Parent | Opens the parent folder view of the document/folder in a new tab/window. |
 | Download | Downloads the content. |
 | External | Opens the link provided in the `External link` field in a new tab/window. |
 | Record | Opens the Salesforce record provided in the `Record link` field in a new tab/window. |
