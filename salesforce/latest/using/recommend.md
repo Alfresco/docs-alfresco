@@ -2,9 +2,30 @@
 title: Surfacing recommended content
 ---
 
-You can configure a Visualforce Page for one or more Salesforce objects, for example Opportunity or Account, to display a Recommended Content panel. The configuration consists of one or more named sections. Each section executes an Alfresco Search Query which can return many results of content items per query. The queries can also be informed by Salesforce field values that can be matched with Alfresco metadata values (content model properties).
+You can configure a Visualforce Page for one or more Salesforce objects, for example Opportunity or Account, to display a **Recommended Content** panel. The configuration consists of one or more named sections. Each section executes an Alfresco Search Query which can return many results of content items per query. The queries can also be informed by Salesforce field values that can be matched with Alfresco metadata values (content model properties).
 
-A sales rep can view the Recommended Content panel when creating, viewing, and editing Salesforce objects. The panel will run each of the pre-configured Alfresco Search Queries and display a list of content item results for each named section. Each content item result will initially show the name of the document or file with a clickable link to open the Salesforce Connector preview page.
+A Salesforce user can view the **Recommended Content** panel when creating, viewing, and editing Salesforce objects. The panel will run each of the pre-configured Alfresco Search Queries and display a list of content item results for each named section. Each content item result will initially show the name of the document or file with a clickable link to open the Share document details page.
+
+Starting from version 2.3.4, the Sales Admin can optionally apply the aspect `Recommended Content Link` (`sfdc:recommendedContentLink`) in the **Document Details** page, and then edit the **Properties** to configure where the link should send the Salesforce user. Only one type of link is allowed per document.
+
+The properties for the type of link are:
+
+| Property | Description |
+| -------- | ----------- |
+| Details | Opens the **Document Details** page in a new tab/window. This is the default behavior if the aspect isn't applied (i.e. the same behavior as in previous releases of the Salesforce Connector). |
+| Parent | Opens the parent folder view of the document/folder in a new tab/window. |
+| Download | Downloads the content. |
+| External | Opens the link provided in the `External link` field in a new tab/window. |
+| Record | Opens the Salesforce record provided in the `Record link` field in a new tab/window. |
+
+You must provide additional settings when you select a link type of either `External` or `Record`:
+
+| Property | Description |
+| -------- | ----------- |
+| External | *Mandatory.* Enter either a relative link (to the parent window) or an absolute link in the `External link` field. If an absolute link is provided, the link must use the `https` protocol. |
+| Record | *Mandatory.* Enter the 15 or 18 character Salesforce record Id (alphanumeric) in the `Record link` field. |
+
+> **Note:** Both fields are validated when you click **Save**. You'll get an error message if you enter invalid characters for the URL in the`External link` field, or not enough characters for the Salesforce record Id in the `Record link` field.
 
 ## Configuration and setup (Sales Admin)
 
@@ -146,7 +167,7 @@ Exact match for values in Salesforce and/or Alfresco drop-downs (list of values)
   * custom Alfresco properties: `TS:ProductName` and `TS:Region`
   * custom Opportunity fields: `AlfProductName` and `AlfRegion` (the labels of custom fields in Salesforce are suffixed by `__c`)
 
-  * Opportunity with the Recommended Content panel configured with the following queries:
+  * Opportunity with the **Recommended Content** panel configured with the following queries:
 
     ```json
     {[
@@ -159,7 +180,7 @@ Exact match for values in Salesforce and/or Alfresco drop-downs (list of values)
 
         ![edit-demo-opportunity]({% link salesforce/images/edit-demo-opportunity.png %})
 
-        Queries results are displayed in the Recommended Content panel:
+        Queries results are displayed in the **Recommended Content** panel:
 
         ![demo-opportunity]({% link salesforce/images/demo-opportunity.png %})
 
@@ -167,7 +188,7 @@ Exact match for values in Salesforce and/or Alfresco drop-downs (list of values)
 
         ![editting-demo-opportunity]({% link salesforce/images/editting-demo-opportunity.png %})
 
-        Recommended Content panel is dynamically updated:
+        **Recommended Content** panel is dynamically updated:
 
         ![demo-opportunity2]({% link salesforce/images/demo-opportunity2.png %})
 
@@ -179,7 +200,7 @@ A Sales Rep creates, views and/or edits a Salesforce object, such as a new Oppor
 
 ### UI Interfaces
 
-As per the current Salesforce connector its necessary to login to Alfresco Content Services. This is done either in the Salesforce component or in a separate Share tab.
+As per the current Salesforce Connector its necessary to login to Alfresco Content Services. This is done either in the Salesforce component or in a separate Share tab.
 
 ### Viewing recommended content
 
@@ -191,9 +212,17 @@ Classic UI:
 
 ![]({% link salesforce/images/sf-poc-layout-classic.png %})
 
-Once you click on a file in the recommended content panel, the existing Salesforce Connector Doc Details tab will open:
+Once you click on a file in the **Recommended Content** panel, the existing Salesforce Connector Document Details tab will open (by default):
 
 ![]({% link salesforce/images/sf-preview-sfdc-document.png %})
+
+Starting from version 2.3.4, once you click on a file in the **Recommended Content** panel, one of the following actions may occur (if configured by the sales administrator):
+
+* Open the **Document Details** page in a new tab/window (this is the default behavior).
+* Open the **Document Details** parent folder.
+* Download the content.
+* Link to an external resource.
+* Link to a Salesforce record.
 
 ## Lightning configuration and setup
 
