@@ -1,7 +1,7 @@
 ---
 title: Starting processes
 ---
-You can start a process in Alfresco Digital Workspace. You can start a process without a file attached to it or with a file already attached to it.
+You can start a process in Alfresco Digital Workspace, with or without a file attached to it.
 
 1. Log in to Alfresco Digital Workspace.
 
