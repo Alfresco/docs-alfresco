@@ -118,6 +118,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 |Alfresco Records Management 2.5.1|✓|✓|✓|✓|✓|✓|✓|✓| |
 |Alfresco Sync Service 2.2 \*| | |✓|✓|✓|✓|✓|✓| |
 |Alfresco Sync Service 2.1 \*|✓|✓|✓|✓|✓|✓|✓|✓| |
+|Alfresco Desktop Sync 1.10 \*| | |✓|✓|✓|✓|✓|✓| |
 |Alfresco Desktop Sync 1.9 \*| | |✓|✓|✓|✓|✓|✓| |
 |Alfresco Desktop Sync 1.8 \*| | |✓|✓|✓|✓|✓|✓| |
 |Alfresco Desktop Sync 1.7 \*| | |✓|✓|✓|✓|✓|✓| |
