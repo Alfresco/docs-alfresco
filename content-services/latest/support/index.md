@@ -67,7 +67,9 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Process Services 2.3 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 3.7 | |
 | Alfresco Sync Service 3.6 | |
+| Alfresco Desktop Sync 1.10 | |
 | Alfresco Desktop Sync 1.9 | |
 | Alfresco Transform Service 1.5.2 | |
 | Alfresco Document Transformation Engine 2.3 | |
@@ -93,6 +95,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.4 | |
 | | |
 | **Applications** | |
+| Alfresco Digital Workspace 2.8 | |
 | Alfresco Digital Workspace 2.7 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Mobile Workspace 1.2 | |
