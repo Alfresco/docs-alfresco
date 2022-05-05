@@ -26,7 +26,7 @@ out-of-the-box Legacy transformers and framework have been removed. The Communit
 to the *Local Transforms* framework which is used both for synchronous and asynchronous requests.
 
 Files that to be transformed or returned to the Alfresco Content Services repository or Elastic Search are generally
-stored in the Shared File Store.
+stored in the Shared File Store. If configured, direct access URLs may also be used to avoid some file transfer steps.
 
 Multiple T-Engines may be deployed, but for simplicity there is an all-in-one T-Engine that provides the same
 Core transformations as five separate T-Engines for use in all but the largest deployments, where it's still  

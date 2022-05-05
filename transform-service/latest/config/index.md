@@ -205,7 +205,7 @@ Or by changing the Docker Compose file as shown below:
 ```text
 transform-router:
   mem_limit: 512m
-  image: quay.io/alfresco/alfresco-transform-router:1.5.1
+  image: quay.io/alfresco/alfresco-transform-router:1.5.2
   environment:
     JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
     ACTIVEMQ_URL: "nio://activemq:61616"
