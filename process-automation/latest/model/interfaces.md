@@ -2,7 +2,7 @@
 title: User interfaces
 ---
 
-The user interfaces (UI) section sets an end user interface for users to interact with content, tasks and processes for the project using the [Alfresco Digital Workspace]({% link process-automation/latest/using/index.md %}).
+The user interfaces (UI) section sets an end user interface for users to interact with content, tasks, and processes for the project using the [Alfresco Digital Workspace]({% link process-automation/latest/using/index.md %}).
 
 ## Properties
 
@@ -35,6 +35,87 @@ To create a user interface:
     Alternatively use the **+** or **Upload** buttons next to **UI** in the left-hand menu.
 
 4. Enter a name and optional description.
+
+## Theme
+
+You can add a theme to the user interface of the modelling application. There are several different ways of doing this and which way depends on the type of user you are.
+
+### Use the modelling application to change the theme
+
+To access the UI 
+
+1. Sign into the Modeling Application.
+
+2. Select the UI that you want to configure.
+
+| Property | Description |
+| ----------- |----------- |
+| Primary color | it is the most important colour in your app, it is used for meaningful items in the page. |
+| Accent color | it is used to provide more ways to accent and distinguish your UI. It is used for. * Floating action buttons* Selection controls, like sliders and switches* Highlighting selected text* Progress bars* Links and headlines |
+| Text color | The color of the text. |
+| Background color | The color of the background. |
+| Font size | The color of the background. |
+| Font family | This event is sent from the [Process runtime]({% link process-automation/latest/admin/architecture.md %}#process-runtime) and provides information about the process definition and the process instance created. |
+| Web font URL | . |
+
+### Generate theme using Modeling app and Admin app
+
+If you are deploying your application using APA or the Docker image we have just to provide the right application configuration and the theme will be generated at startup. For instance, using Modeling app:
+
+After updating any property for custom theme in Modelling app, new entries for UI Json representation are added:
+
+"customCssPath": "./assets/theme/custom.css" (i.e. /[app-name]/ui/[ui-name]/assets/theme/custom.css)
+
+theme properties e.g. 
+
+"theme": {
+	        "primaryColor": "#d92ea8",
+	        "accentColor": "#2eb7d9",
+	        "textColor": "#672ed9",
+	        "backgroundColor": "#c7b4ed",
+	        "baseFontSize": "19px",
+	        "fontFamily": "cursive"
+        }
+
+After deploying application, using Admin App, values from 'theme' are used for generating 'custom.css' (generation of the css file is done during the Docker startup process, see pt. '3. Generate theme manually')
+
+Generated css is fetched and used for altering application theme (new theme can be found under 'customCssPath' value)
+
+### Generate theme manually
+
+If you are not deploying using APA or the Docker image, you can generate a theme running a Docker container locally or a bash script.The locally generated theme can be included in any application distribution (e.g. Tomcat) just setting the URL in the app.config.json file or including the CSS manually, e.g.:
+
+{"application":{"name":"my-app"}, "customCssPath": "./assets/theme/custom.css"}
+
+#### Generation of the CSS file on Docker startup process
+
+Run Docker with a specific theme environment e.g.
+
+docker run -e APP_CONFIG_CUSTOM_MODELED_EXTENSION='{"$id":"ui-f6bbda13-093a-47c6-b222-4feaa1cf1465","$name":"test","$description":"","$version":"0.0.2","$vendor":"","$license":"","appConfig":{"theme":{"accentColor": "#e7752e", "primaryColor":"#00ffbb", "backgroundColor":"#a3f0db", "baseFontSize":"20px", "fontFamily":"SyneTactile"},"application":{"name":"test"}},"features":{}}' -p 8080:8080 quay.io/alfresco/alfresco-digital-workspace:latest
+
+ After Docker is up, you should be able to get the theme using the following url http://localhost:8080/assets/theme/custom.css
+
+Or the 'custom.css' file can be found accessing Docker container in the following folder '/usr/share/nginx/html/assets/'
+
+#### Generate theme locally
+
+If you would like to generate the theme locally without using Docker you can checkout the project   
+
+ Add environment variable using the following command:
+
+ export APP_CONFIG_CUSTOM_MODELED_EXTENSION='{"$id":"ui-f6bbda13-093a-47c6-b222-4feaa1cf1465","$name":"my-app","$description":"","$version":"0.0.2","$vendor":"","$license":"","appConfig":{"theme":{"primaryColor":"#00ffbb", "base-font-size":"20px", "font-family": "Cursive"}, "customCssPath": "./assets/theme/custom.css", "application":{"name":"my-app"}},"features":{}}'
+
+ Then run 
+
+npm install -D sass-math-pow
+
+And to generate the theme, just move to docker/custom-theme folder and run
+
+create-custom-theme.sh
+
+The custom.css will be generated in the same folder and it could use setting it using the app.config.json file, e.g.
+
+{"application":{"name":"my-app"}, "customCssPath": "./assets/theme/custom.css"}
 
 ## User interface modeling
 
