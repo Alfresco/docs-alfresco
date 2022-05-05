@@ -2080,6 +2080,8 @@ An optional date and time for a user task to be completed by in [ISO 8601](https
 
 * Select **Use process variable** then choose a process variable from the dropdown list. This option uses a process variable that must use the type `datetime`.
 
+
+
 Checking the **Use process variable** box for due date allows a [process variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) to be used to generate the date. The process variable must be of type `datetime`.
 
 #### Multi-instance type
