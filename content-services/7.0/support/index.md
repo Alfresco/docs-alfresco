@@ -68,7 +68,12 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Process Services 2.0 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 3.7 | |
+| Alfresco Sync Service 3.6 | |
+| Alfresco Sync Service 3.5 | |
 | Alfresco Sync Service 3.4 | |
+| Alfresco Desktop Sync 1.10 | |
+| Alfresco Desktop Sync 1.9 | |
 | Alfresco Desktop Sync 1.8 | |
 | Alfresco Desktop Sync 1.7 | |
 | Alfresco Transform Service 1.4 | |
@@ -92,6 +97,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for SAP Cloud 1.1 | |
 | Alfresco Content Connector for SAP Cloud 1.0 | |
 | Alfresco Collaboration Connector for Microsoft 365 1.1 | |
+| Alfresco Outlook Integration 2.9 | |
 | Alfresco Outlook Integration 2.8 | |
 | Alfresco Office Services 1.4 | |
 | Alfresco Google Docs Integration 3.2.1 | |
@@ -101,6 +107,9 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.2 | |
 | | |
 | **Applications** | |
+| Alfresco Digital Workspace 2.8 | |
+| Alfresco Digital Workspace 2.7 | |
+| Alfresco Digital Workspace 2.6 | |
 | Alfresco Digital Workspace 2.5 | |
 | Alfresco Digital Workspace 2.4 | |
 | Alfresco Digital Workspace 2.3 | |
@@ -175,7 +184,12 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Governance Services 3.5 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 3.7 | |
+| Alfresco Sync Service 3.6 | |
+| Alfresco Sync Service 3.5 | |
 | Alfresco Sync Service 3.4 | |
+| Alfresco Desktop Sync 1.10 | |
+| Alfresco Desktop Sync 1.9 | |
 | Alfresco Desktop Sync 1.8 | |
 | Alfresco Desktop Sync 1.7 | |
 | Alfresco Transform Service 1.4 | |
@@ -197,6 +211,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for SAP Cloud 1.1 | |
 | Alfresco Content Connector for SAP Cloud 1.0 | |
 | Alfresco Collaboration Connector for Microsoft 365 1.1 | |
+| Alfresco Outlook Integration 2.9 | |
 | Alfresco Outlook Integration 2.8 | |
 | Alfresco Office Services 1.4 | |
 | Alfresco Google Docs Integration 3.2.1 | |
