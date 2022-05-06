@@ -98,6 +98,65 @@ When a Process Automation process is instantiated this way, the following variab
 | envelopeId | string | Envelope ID of the document. |
 | documents | array | Documents related to the envelope and data related to them like uri, and id. |
 
+#### Configuration
+
+1. Log into the DocuSign eSignature console and click Settings on the top right.
+
+![Status Active]({% link process-automation/images/status-active.png %})
+
+2. Click the **ADD CONFIGURATION** dropdown list and select **Custom**.
+
+![Custom Configuration]({% link process-automation/images/custom-configurtion.png %})
+
+3. Under Listener Settings select **Active Connection** from the Status dropdown list.
+
+4. Under Listener Settings enter your **URL to Publish** URL.
+
+  The pattern of the URL must follow: `{domain-name}/{application-name}/connector/{connector_name}/listener`.
+
+5. Under **Event settings > Trigger events > Envelope Events**, ensure the following are selected:
+
+    * **Envelope Sent**
+    * **Envelope Delivered**
+    * **Envelope Signed/Completed**
+    * **Envelope Declined**
+    * **Envelope Voided**
+
+6. Under **Event settings > Trigger events > Recipient Events**, ensure the following are selected:
+
+    * **Recipient Sent**
+    * **Recipient Auto Responded**
+    * **Recipient Delivered**
+    * **Recipient Signed/Completed**
+    * **Recipient Declined**
+    * **Recipient Authentication Failure**
+
+6. Click **SAVE CONFIGURATION**.
+
+  ![Custom Configuration](screenshots/custom-configuration.png)
+
+![Status Active]({% link process-automation/images/.png %})
+
+#### Logs and failures
+
+Once the listener has been created and is working you can see the logs and the failures from the same menu.
+![Logs and failures](screenshots/logs-failures.png)
+
+You can click on one of the logs or failures, a popup with information is displayed.
+
+#### Triggers for DocuSign events
+
+1. From Modeling App, create a new trigger with one of the event source that we mentioned before:
+
+- ENVELOPE_VOIDED
+- ENVELOPE_DECLINED
+- ENVELOPE_COMPLETED
+- ENVELOPE_DELIVERED
+- ENVELOPE_SENT
+
+2. You can filter it with the condition field, which is an expression that must be true in order to trigger an action.
+![Trigger](screenshots/trigger.png)
+
 ### DocuSign Environment Configuration
 
 The connector uses the DocuSign client library that relies on the DocuSign REST API and uses OAuth JWT for authentication, for more see [OAuth JWT](https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-jsonwebtoken){:target="_blank"}.
