@@ -40,7 +40,7 @@ To create a user interface:
 
 You can add a theme to the user interface of the modelling application. There are several different ways of doing this and which way depends on the type of user you are.
 
-### Use the modelling application to change the theme
+### Use the modelling application to change the Digital Workspace theme
 
 To access the UI 
 
@@ -62,60 +62,58 @@ To access the UI
 
 If you are deploying your application using APA or the Docker image we have just to provide the right application configuration and the theme will be generated at startup. For instance, using Modeling app:
 
-After updating any property for custom theme in Modelling app, new entries for UI Json representation are added:
+After updating any property for custom theme in Modelling app, new entries for UI JSON representation are added:
 
-"customCssPath": "./assets/theme/custom.css" (i.e. /[app-name]/ui/[ui-name]/assets/theme/custom.css)
+`"customCssPath": "./assets/theme/custom.css" (i.e. /[app-name]/ui/[ui-name]/assets/theme/custom.css)`
 
-theme properties e.g. 
+Properties e.g. 
 
+```javascript
 "theme": {
-	        "primaryColor": "#d92ea8",
-	        "accentColor": "#2eb7d9",
-	        "textColor": "#672ed9",
-	        "backgroundColor": "#c7b4ed",
-	        "baseFontSize": "19px",
-	        "fontFamily": "cursive"
-        }
+           "primaryColor": "#d92ea8",
+	       "accentColor": "#2eb7d9",
+	       "textColor": "#672ed9",
+	       "backgroundColor": "#c7b4ed",
+	       "baseFontSize": "19px",
+	       "fontFamily": "cursive"
+         }
+```
 
-After deploying application, using Admin App, values from 'theme' are used for generating 'custom.css' (generation of the css file is done during the Docker startup process, see pt. '3. Generate theme manually')
+After deploying the application using the Admin Application, the values from the the `theme` javascript are used for generating `custom.css`.
+
+(generation of the css file is done during the Docker startup process, see pt. '3. Generate theme manually')
 
 Generated css is fetched and used for altering application theme (new theme can be found under 'customCssPath' value)
 
 ### Generate theme manually
 
-If you are not deploying using APA or the Docker image, you can generate a theme running a Docker container locally or a bash script.The locally generated theme can be included in any application distribution (e.g. Tomcat) just setting the URL in the app.config.json file or including the CSS manually, e.g.:
+If you are not deploying using APA or the Docker image, you can generate a theme running a Docker container locally or a bash script.The locally generated theme can be included in any application distribution (e.g. Tomcat) just setting the URL in the `app.config.json` file or including the CSS manually, for example:
 
-{"application":{"name":"my-app"}, "customCssPath": "./assets/theme/custom.css"}
+`{"application":{"name":"my-app"}, "customCssPath": "./assets/theme/custom.css"}`
 
 #### Generation of the CSS file on Docker startup process
 
-Run Docker with a specific theme environment e.g.
+Run Docker compose with your theme environment, for example:
 
-docker run -e APP_CONFIG_CUSTOM_MODELED_EXTENSION='{"$id":"ui-f6bbda13-093a-47c6-b222-4feaa1cf1465","$name":"test","$description":"","$version":"0.0.2","$vendor":"","$license":"","appConfig":{"theme":{"accentColor": "#e7752e", "primaryColor":"#00ffbb", "backgroundColor":"#a3f0db", "baseFontSize":"20px", "fontFamily":"SyneTactile"},"application":{"name":"test"}},"features":{}}' -p 8080:8080 quay.io/alfresco/alfresco-digital-workspace:latest
+`docker run -e APP_CONFIG_CUSTOM_MODELED_EXTENSION='{"$id":"ui-f6bbda13-093a-47c6-b222-4feaa1cf1465","$name":"test","$description":"","$version":"0.0.2","$vendor":"","$license":"","appConfig":{"theme":{"accentColor": "#e7752e", "primaryColor":"#00ffbb", "backgroundColor":"#a3f0db", "baseFontSize":"20px", "fontFamily":"SyneTactile"},"application":{"name":"test"}},"features":{}}' -p 8080:8080 quay.io/alfresco/alfresco-digital-workspace:latest`
 
- After Docker is up, you should be able to get the theme using the following url http://localhost:8080/assets/theme/custom.css
-
-Or the 'custom.css' file can be found accessing Docker container in the following folder '/usr/share/nginx/html/assets/'
+Once Docker is up and running, you can access the theme by navigating to `http://localhost:8080/assets/theme/custom.css`. Or the `custom.css` file can be found by accessing the Docker container in the following folder `/usr/share/nginx/html/assets/`.
 
 #### Generate theme locally
 
-If you would like to generate the theme locally without using Docker you can checkout the project   
+If you would like to generate the theme locally without using Docker you can checkout the project
 
- Add environment variable using the following command:
+Add environment variable using the following command:
 
- export APP_CONFIG_CUSTOM_MODELED_EXTENSION='{"$id":"ui-f6bbda13-093a-47c6-b222-4feaa1cf1465","$name":"my-app","$description":"","$version":"0.0.2","$vendor":"","$license":"","appConfig":{"theme":{"primaryColor":"#00ffbb", "base-font-size":"20px", "font-family": "Cursive"}, "customCssPath": "./assets/theme/custom.css", "application":{"name":"my-app"}},"features":{}}'
+`export APP_CONFIG_CUSTOM_MODELED_EXTENSION='{"$id":"ui-f6bbda13-093a-47c6-b222-4feaa1cf1465","$name":"my-app","$description":"","$version":"0.0.2","$vendor":"","$license":"","appConfig":{"theme":{"primaryColor":"#00ffbb", "base-font-size":"20px", "font-family": "Cursive"}, "customCssPath": "./assets/theme/custom.css", "application":{"name":"my-app"}},"features":{}}'`
 
- Then run 
+Then run `npm install -D sass-math-pow`.
 
-npm install -D sass-math-pow
+To generate the theme, move to docker/custom-theme folder and run `create-custom-theme.sh`
 
-And to generate the theme, just move to docker/custom-theme folder and run
+The `custom.css` will be generated in the same folder and it could use setting it using the `app.config.json` file for example
 
-create-custom-theme.sh
-
-The custom.css will be generated in the same folder and it could use setting it using the app.config.json file, e.g.
-
-{"application":{"name":"my-app"}, "customCssPath": "./assets/theme/custom.css"}
+`{"application":{"name":"my-app"}, "customCssPath": "./assets/theme/custom.css"}`
 
 ## User interface modeling
 
