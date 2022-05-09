@@ -88,17 +88,17 @@ If you are not deploying your application using Process Automation or a Docker i
 
 `{"application":{"name":"my-app"}, "customCssPath": "./assets/theme/custom.css"}`
 
-#### Generation of the CSS file on Docker startup process
+#### Generate CSS file during Docker startup
 
 Run Docker compose with your theme environment, for example:
 
 `docker run -e APP_CONFIG_CUSTOM_MODELED_EXTENSION='{"$id":"ui-f6bbda13-093a-47c6-b222-4feaa1cf1465","$name":"test","$description":"","$version":"0.0.2","$vendor":"","$license":"","appConfig":{"theme":{"accentColor": "#e7752e", "primaryColor":"#00ffbb", "backgroundColor":"#a3f0db", "baseFontSize":"20px", "fontFamily":"SyneTactile"},"application":{"name":"test"}},"features":{}}' -p 8080:8080 quay.io/alfresco/alfresco-digital-workspace:latest`
 
-Once Docker is up and running, you can access the theme by navigating to `http://localhost:8080/assets/theme/custom.css`. Or the `custom.css` file can be found by accessing the Docker container in the following folder `/usr/share/nginx/html/assets/`.
+Once Docker is up and running, you can access the theme by navigating to `http://localhost:8080/assets/theme/custom.css`. Alternatively the `custom.css` file can be found by accessing the Docker container in the following directory `/usr/share/nginx/html/assets/`.
 
 #### Generate theme locally
 
-If you would like to generate the theme locally without using Docker you can checkout the project
+If you want to generate the theme locally without using Docker you can checkout the project
 
 Add environment variable using the following command:
 
