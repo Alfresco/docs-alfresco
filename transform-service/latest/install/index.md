@@ -283,6 +283,35 @@ from the left column that corresponds to the required Content Services version y
 
     You'll need your [Quay.io](https://quay.io){:target="_blank"} account credentials to access the Docker images. If 
     you don't already have these credentials, contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"}.
+   
+3. Update Docker Compose file to use version 1.5.3 of Transform Service and version 2.6.0 of Transform Core T-Engine:
+
+   ```yaml
+   transform-router:
+     mem_limit: 512m
+     image: quay.io/alfresco/alfresco-transform-router:1.5.3
+     environment:
+       JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
+       ACTIVEMQ_URL: "nio://activemq:61616"
+       CORE_AIO_URL: "http://transform-core-aio:8090"
+       FILE_STORE_URL: "http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file"
+     ports:
+       - "8095:8095"
+     links:
+       - activemq
+
+   transform-core-aio:
+     image: alfresco/alfresco-transform-core-aio:2.6.0
+     mem_limit: 1536m
+     environment:
+       JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
+       ACTIVEMQ_URL: "nio://activemq:61616"
+       FILE_STORE_URL: "http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file"
+     ports:
+       - "8090:8090"
+     links:
+       - activemq
+   ```
 
 3. Deploy Content Services, including the repository, Share, Postgres database, Search Services, and Transform Service:
 
@@ -374,8 +403,8 @@ Use this information to verify that the system started correctly, and to clean u
         acs-trial_shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    0.16.1              dee75e9ffa5b        651.2 MB
         acs-trial_solr6-1                quay.io/alfresco/search-services               2.0.3               5800e8a31bdd        890.8 MB
         acs-trial_sync-service-1         quay.io/alfresco/service-sync                  3.6.0               7c0cee15f516        703.2 MB
-        acs-trial_transform-core-aio-1   alfresco/alfresco-transform-core-aio           2.5.7               39e6c1e8a6ad        1.667 GB
-        acs-trial_transform-router-1     quay.io/alfresco/alfresco-transform-router     1.5.2               ca6d0a1cb691        646.2 MB
+        acs-trial_transform-core-aio-1   alfresco/alfresco-transform-core-aio           2.6.0               39e6c1e8a6ad        1.667 GB
+        acs-trial_transform-router-1     quay.io/alfresco/alfresco-transform-router     1.5.3               ca6d0a1cb691        646.2 MB
         ```
 
     2. List the running containers:
@@ -559,7 +588,7 @@ before continuing.
        -DIMAGEMAGICK_CODERS="/usr/local/acs72/imagemagick/modules-Q16HDRI/coders" \
        -DIMAGEMAGICK_CONFIG="/usr/local/acs72/imagemagick/config-Q16HDRI" \
        -DACTIVEMQ_URL=failover:(tcp://localhost:61616)?timeout=3000 \
-       -jar /usr/local/acs72/bin/alfresco-transform-core-aio-boot-2.5.7.jar
+       -jar /usr/local/acs72/bin/alfresco-transform-core-aio-boot-2.6.0.jar
 
     Check the output to ensure that it starts successfully.
 
