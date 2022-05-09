@@ -52,7 +52,7 @@ The output parameters from SEND_FOR_SIGNATURE are:
 | URI | String | URI related to the envelope. |
 | docusignOutput | JSON | DocuSign output after sending the document for signature. |
 
-## DOWNLOAD DOCUMENT
+## DOWNLOAD_DOCUMENT
 
 The **DOWNLOAD_DOCUMENT** action is used by the DocuSign connector to download the envelope from DocuSign. It takes into account the envelopeId that is the UUID that relates to the envelope.
 
@@ -97,6 +97,47 @@ When a Process Automation process is instantiated this way, the following variab
 |--- | --- | --- |
 | envelopeId | string | Envelope ID of the document. |
 | documents | array | Documents related to the envelope and data related to them like uri, and id. |
+
+#### Configuration
+
+1. Log into the DocuSign eSignature console and click Settings on the top right.
+
+2. Click the **ADD CONFIGURATION** dropdown list and select **Custom**.
+
+3. Under Listener Settings select **Active Connection** from the Status dropdown list.
+
+4. Under Listener Settings enter your **URL to Publish** URL.
+
+    The pattern of the URL must follow: `{domain-name}/{application-name}/connector/{connector_name}/listener`.
+
+5. Under **Event settings > Trigger events > Envelope Events**, ensure the following are selected:
+
+    * **Envelope Sent**
+    * **Envelope Delivered**
+    * **Envelope Signed/Completed**
+    * **Envelope Declined**
+    * **Envelope Voided**
+
+6. Under **Event settings > Trigger events > Recipient Events**, ensure the following are selected:
+
+    * **Recipient Sent**
+    * **Recipient Auto Responded**
+    * **Recipient Delivered**
+    * **Recipient Signed/Completed**
+    * **Recipient Declined**
+    * **Recipient Authentication Failure**
+
+7. Click **SAVE CONFIGURATION**.
+
+#### Logs and failures
+
+Once the listener has been created and is working you can see the logs and the failures from the same menu. You can click on one of the logs or failures and a popup with information is displayed.
+
+#### Triggers for DocuSign events
+
+1. From the Modeling Application, create a new trigger with one of the [events](#events).
+
+2. You can filter the trigger using the condition field, which is an expression that must be true in order to trigger an action.
 
 ### DocuSign Environment Configuration
 

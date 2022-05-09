@@ -29,7 +29,7 @@ teams.connector.password=${TEAMS_PASSWORD}
 teams.connector.tenant=${TEAMS_TENANT}
 ```
 
-The connector uses a stream mechanism to send and recieve information between Process Services and the connector. For this to occur you need to configure the following properties so the connector can be identified:
+The connector uses a stream mechanism to send and receive information between Process Services and the connector. For this to occur you need to configure the following properties so the connector can be identified:
 
 ```bash
 spring.cloud.stream.bindings.createTeamsChannel.destination=${teams.connector.name}${spring.application.name}.CREATE_CHANNEL
