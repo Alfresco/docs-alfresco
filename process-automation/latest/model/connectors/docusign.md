@@ -52,7 +52,7 @@ The output parameters from SEND_FOR_SIGNATURE are:
 | URI | String | URI related to the envelope. |
 | docusignOutput | JSON | DocuSign output after sending the document for signature. |
 
-## DOWNLOAD DOCUMENT
+## DOWNLOAD_DOCUMENT
 
 The **DOWNLOAD_DOCUMENT** action is used by the DocuSign connector to download the envelope from DocuSign. It takes into account the envelopeId that is the UUID that relates to the envelope.
 
@@ -102,11 +102,7 @@ When a Process Automation process is instantiated this way, the following variab
 
 1. Log into the DocuSign eSignature console and click Settings on the top right.
 
-    ![Status Active]({% link process-automation/images/status-active.png %})
-
 2. Click the **ADD CONFIGURATION** dropdown list and select **Custom**.
-
-    ![Custom Configuration]({% link process-automation/images/custom-configuration.png %})
 
 3. Under Listener Settings select **Active Connection** from the Status dropdown list.
 
@@ -131,23 +127,17 @@ When a Process Automation process is instantiated this way, the following variab
     * **Recipient Declined**
     * **Recipient Authentication Failure**
 
-        ![Custom Configuration]({% link process-automation/images/settings.png %})
-
-6. Click **SAVE CONFIGURATION**.
+7. Click **SAVE CONFIGURATION**.
 
 #### Logs and failures
 
 Once the listener has been created and is working you can see the logs and the failures from the same menu. You can click on one of the logs or failures and a popup with information is displayed.
-
-![Logs and failures]({% link process-automation/images/logs-failures.png %})
 
 #### Triggers for DocuSign events
 
 1. From the Modeling Application, create a new trigger with one of the [events](#events).
 
 2. You can filter the trigger using the condition field, which is an expression that must be true in order to trigger an action.
-
-    ![Trigger]({% link process-automation/images/trigger.png %})
 
 ### DocuSign Environment Configuration
 
