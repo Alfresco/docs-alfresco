@@ -38,15 +38,19 @@ To create a user interface:
 
 ## Theme
 
-You can add a theme to the user interface of the modelling application. There are several different ways of doing this and which way depends on the type of user you are.
+You can add a theme to the Digital Workspace. There are several different ways of doing this and how you do it will depend on the type of user you are.
 
-### Use the modelling application to change the Digital Workspace theme
+### Use the modelling application to change the theme
 
-To access the UI 
+To change the theme using the **UI** properties in the modelling application.  
 
-1. Sign into the Modeling Application.
+1. Sign into the modeling application.
 
-2. Select the UI that you want to configure.
+2. Select the UI you want to change and enter the new configuration properties under the Theme heading.
+
+3. Save the UI.
+
+The properties of theme are:
 
 | Property | Description |
 | ----------- |----------- |
@@ -58,15 +62,12 @@ To access the UI
 | Font family | This event is sent from the [Process runtime]({% link process-automation/latest/admin/architecture.md %}#process-runtime) and provides information about the process definition and the process instance created. |
 | Web font URL | . |
 
-### Generate theme using Modeling app and Admin app
+### Deploy the theme
 
-If you are deploying your application using APA or the Docker image we have just to provide the right application configuration and the theme will be generated at startup. For instance, using Modeling app:
+If you are deploying using the modelling application or Docker compose you must provide the correct configuration and the theme will be generated at startup.
+After updating the properties for the custom theme in the modelling application, new entries for **UI** added to this file: `"customCssPath": "./assets/theme/custom.css" (i.e. /[app-name]/ui/[ui-name]/assets/theme/custom.css)`
 
-After updating any property for custom theme in Modelling app, new entries for UI JSON representation are added:
-
-`"customCssPath": "./assets/theme/custom.css" (i.e. /[app-name]/ui/[ui-name]/assets/theme/custom.css)`
-
-Properties e.g. 
+For example:
 
 ```javascript
 "theme": {
@@ -79,15 +80,11 @@ Properties e.g.
          }
 ```
 
-After deploying the application using the Admin Application, the values from the the `theme` javascript are used for generating `custom.css`.
-
-(generation of the css file is done during the Docker startup process, see pt. '3. Generate theme manually')
-
-Generated css is fetched and used for altering application theme (new theme can be found under 'customCssPath' value)
+Once you have deployed your application using the admin application, the values from the the `theme` javascript are used for generating the `custom.css` file. If using Docker compose the `custom.css` file is generated during the Docker startup process. The `custom.css` file is used for altering the application theme and the new theme can be found under the `customCssPath` value.
 
 ### Generate theme manually
 
-If you are not deploying using APA or the Docker image, you can generate a theme running a Docker container locally or a bash script.The locally generated theme can be included in any application distribution (e.g. Tomcat) just setting the URL in the `app.config.json` file or including the CSS manually, for example:
+If you are not deploying your application using Process Automation or a Docker image, you can generate a theme running a Docker container locally using a bash script. The locally generated theme can be included in any application distribution (e.g. Tomcat). To do this you set the URL in the `app.config.json` file or include the `custom.css` manually, for example:
 
 `{"application":{"name":"my-app"}, "customCssPath": "./assets/theme/custom.css"}`
 
