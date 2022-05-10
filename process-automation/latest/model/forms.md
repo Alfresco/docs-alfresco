@@ -29,6 +29,7 @@ Two additional properties can be set for a form when no form field is selected:
 | -------- | ----------- |
 | Allow form to be used in standalone tasks | Set whether the form can be used in standalone tasks or not. Standalone tasks are tasks not associated with a process instance. |
 | Update form files metadata from fields on submit | If set to `true`, when the form is submitted and it contains files in an [attach file field](#attach-file-fields) that have been sourced from Content Services, the metadata for those files will be updated with the values entered into any other fields on the form. |
+| Edit form rules | You can create custom form rules that apply to a form or to the widgets on a form. Form rules are created and run by a user of the form. Each form rule has an event trigger, event conditions and actions. |
 
 ## Create a form
 
