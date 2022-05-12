@@ -54,13 +54,15 @@ The properties of theme are:
 
 | Property | Description |
 | ----------- |----------- |
-| Primary color | it is the most important colour in your app, it is used for meaningful items in the page. |
-| Accent color | it is used to provide more ways to accent and distinguish your UI. It is used for. * Floating action buttons* Selection controls, like sliders and switches* Highlighting selected text* Progress bars* Links and headlines |
-| Text color | The color of the text. |
-| Background color | The color of the background. |
-| Font size | The color of the background. |
-| Font family | This event is sent from the [Process runtime]({% link process-automation/latest/admin/architecture.md %}#process-runtime) and provides information about the process definition and the process instance created. |
-| Web font URL | . |
+| Primary color | The color is used to hightlight important parts of your application, for example the text for the Personal Files link in the left pane. |
+| Accent color | The color is used to accent highlight areas of your UI and make parts of it stand out more, for example it can be used for Floating action buttons, Selection controls such as sliders and switches, highlighting selected text or Progress bars, and some links. |
+| Text color | The color of text that is not as important as other text that has had other properties, for example the text **File Libraries** on the left pane. |
+| Background color | The color of the background, for example the color of the background of the left pane. |
+| Font size | The size of the font, in pixels. |
+| Font family | The family the font belongs to, for example Cursive. |
+| Web font URL | Where the specific information about the font used is gathered from, for example [Inspiration](https://fonts.googleapis.com/css2?family=Inspiration&display=swap))  |
+
+PUT IN EXAMPLE
 
 ### Deploy the theme
 
@@ -92,25 +94,31 @@ If you are not deploying your application using Process Automation or a Docker i
 
 Run Docker compose with your theme environment, for example:
 
-`docker run -e APP_CONFIG_CUSTOM_MODELED_EXTENSION='{"$id":"ui-f6bbda13-093a-47c6-b222-4feaa1cf1465","$name":"test","$description":"","$version":"0.0.2","$vendor":"","$license":"","appConfig":{"theme":{"accentColor": "#e7752e", "primaryColor":"#00ffbb", "backgroundColor":"#a3f0db", "baseFontSize":"20px", "fontFamily":"SyneTactile"},"application":{"name":"test"}},"features":{}}' -p 8080:8080 quay.io/alfresco/alfresco-digital-workspace:latest`
+```bash
+docker run -e APP_CONFIG_CUSTOM_MODELED_EXTENSION='{"$id":"ui-f6bbda13-093a-47c6-b222-4feaa1cf1465","$name":"test","$description":"","$version":"0.0.2","$vendor":"","$license":"","appConfig":{"theme":{"accentColor": "#e7752e", "primaryColor":"#00ffbb", "backgroundColor":"#a3f0db", "baseFontSize":"20px", "fontFamily":"SyneTactile"},"application":{"name":"test"}},"features":{}}' -p 8080:8080 quay.io/alfresco/alfresco-digital-workspace:latest
+```
 
 Once Docker is up and running, you can access the theme by navigating to `http://localhost:8080/assets/theme/custom.css`. Alternatively the `custom.css` file can be found by accessing the Docker container in the following directory `/usr/share/nginx/html/assets/`.
 
-#### Generate theme locally
+#### Generate custom theme locally
 
-If you want to generate the theme locally without using Docker you can checkout the project
+You generate the theme locally without using Docker.
 
-Add environment variable using the following command:
+1. Download [Alfresco modeler and admin apps](https://github.com/Alfresco/alfresco-apps).
 
-`export APP_CONFIG_CUSTOM_MODELED_EXTENSION='{"$id":"ui-f6bbda13-093a-47c6-b222-4feaa1cf1465","$name":"my-app","$description":"","$version":"0.0.2","$vendor":"","$license":"","appConfig":{"theme":{"primaryColor":"#00ffbb", "base-font-size":"20px", "font-family": "Cursive"}, "customCssPath": "./assets/theme/custom.css", "application":{"name":"my-app"}},"features":{}}'`
+2. Edit `alfresco-apps/package.json` and add `"sass-math-pow": "^0.2.0"`
 
-Then run `npm install -D sass-math-pow`.
+3. Run `npm install`.
 
-To generate the theme, move to docker/custom-theme folder and run `create-custom-theme.sh`
+4. Start the application `npm start content-ee-apa`.
 
-The `custom.css` will be generated in the same folder and it could use setting it using the `app.config.json` file for example
+5. Remove the `.tpl` file extension from `apps/content-ce/app/src/app/ui/dynamic-theme/theme-configuration.scss.tpl`.
 
-`{"application":{"name":"my-app"}, "customCssPath": "./assets/theme/custom.css"}`
+6. Edit to the file to remove all the variables in it, except `$theme-config`.
+
+7. Copy content of the file `apps/content-ce/app/src/app/ui/dynamic-theme/custom-theme.scss.tpl` to `apps/content-ce/app/src/app/ui/custom-theme.scss`.
+
+The application will reload automatically and the new theme displays.
 
 ## User interface modeling
 
