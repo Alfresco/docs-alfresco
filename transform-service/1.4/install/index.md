@@ -553,7 +553,7 @@ before continuing.
 
     # Shared File Store properties:
     sfs.url=http://localhost:8099
-    sfs.endpoint=${sfs.url}/alfresco/api/-default-/private/sfs/versions/1/file
+    sfs.endpoint=${sfs.url}/alfresco/api/-default-/private/sfs/versions/1
 
     # Transform Router properties:
     transform.service.enabled=true
