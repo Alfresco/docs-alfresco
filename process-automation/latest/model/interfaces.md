@@ -62,7 +62,7 @@ The properties of theme are:
 | Font family | The family the font belongs to, for example Cursive. |
 | Web font URL | Where the specific information about the font used is gathered from, for example [Inspiration](https://fonts.googleapis.com/css2?family=Inspiration&display=swap))  |
 
-PUT IN EXAMPLE
+![ADW Colors]({% link process-automation/images/ADW-colors.png %})
 
 ### Deploy the theme
 
