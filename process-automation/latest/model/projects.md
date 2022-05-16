@@ -43,7 +43,7 @@ Once a project has been created or uploaded into the Modeling Application, the f
 | Comment | Displays the comment entered when the new project was created. |
 | Uploaded | An icon displays if the project was uploaded. |
 | Version | Displays the current version of the project. |
-| Actions | A list of actions that can be made against the project: {::nomarkdown}<ul><li><b>Edit</b> allows the project name and description to be updated.</li><li><b>Delete</b> removes the project.</li><li><b>Download</b> bundles the project contents into a zipped folder to import it into a different environment.</li><li><b>Collaborators</b> is for managing the project permissions.</li><li><b>Release</b> creates a new version of the project.</li><li><b>View Releases</b> shows the metadata related to each release of the project.</li></ul>{:/} |
+| Options | A list of actions that can be made against the project: {::nomarkdown}<ul><li><b>Edit</b> allows the project name and description to be updated.</li><li><b>Delete</b> removes the project.</li><li><b>Download</b> bundles the project contents into a zipped folder to import it into a different environment.</li><li><b>Collaborators</b> is for managing the project permissions.</li><li><b>Release</b> creates a new version of the project.</li><li><b>View Releases</b> shows the metadata related to each release of the project.</li></ul>{:/} |
 
 ## Collaborators
 
