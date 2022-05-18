@@ -30,18 +30,17 @@ The properties for a project are:
 
 | Property | Description |
 | -------- | ----------- |
-| Name | *Required.* A unique name for a project. Project names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically, for example: `project-4-a` |
-| Comment | *Optional.* A short description of what the project is for. |
+| Project name | *Required.* A unique name for a project. Project names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically, for example: `project-4-a` |
+| Project description | *Optional.* A short description of what the project is for. |
 
 Once a project has been created or uploaded into the Modeling Application, the following properties are displayed:
 
 | Property | Description |
 | -------- | ----------- |
-| Name | Displays the unique name of the project. |
-| Created By | Displays which user created the project. |
+| Name | The name of the project as it appears in the Modeling Application. |
+| Updated | The amount of time that has lapsed since the last update to the project. |
 | Created | Displays how long ago the project was created. |
-| Comment | Displays the comment entered when the new project was created. |
-| Uploaded | An icon displays if the project was uploaded. |
+| Created By | Displays which user created the project. |
 | Version | Displays the current version of the project. |
 | Options | A list of actions that can be made against the project: {::nomarkdown}<ul><li><b>Edit</b> allows the project name and description to be updated.</li><li><b>Delete</b> removes the project.</li><li><b>Download</b> bundles the project contents into a zipped folder to import it into a different environment.</li><li><b>Collaborators</b> is for managing the project permissions.</li><li><b>Release</b> creates a new version of the project.</li><li><b>View Releases</b> shows the metadata related to each release of the project.</li></ul>{:/} |
 
