@@ -26,7 +26,7 @@ The properties for a released project are:
 
 | Property | Description |
 | -------- | ----------- |
-| Name | Displays the name of the released project. |
+| Name | Displays the release name of the project. |
 | Created By | Displays which user released the project. |
 | Created | The time lapsed since the version of the project was released. |
 | Comment | Displays the comment entered when the new project was released. |
