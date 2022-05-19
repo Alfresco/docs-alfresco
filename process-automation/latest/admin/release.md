@@ -18,7 +18,7 @@ To release a project:
 
 3. Select the **Release** action from the **Options** column for the project.
 
-4. Enter a Name for the project to be released and optionally add a Comment.
+4. Enter a **Name** for the project to be released and optionally add a **Comment**.
 
 ### Properties {#project-properties}
 
@@ -32,7 +32,7 @@ The properties for a released project are:
 | Comment | Displays the comment entered when the new project was released. |
 | Uploaded | An icon displays if the project was uploaded. |
 | Version | The version number of the project. |
-| Actions | A list of actions that can be made against the released project: {::nomarkdown}<li><b>Download</b> bundles the project contents into a zipped folder to import it into a different environment.</li><ul><li><b>Restore this release</b>Allows you to restore the release to this version. If you use this action the current models of the project will be replaced with those present in the release. If you want to preserve your current status you must create another release which you can restore it later.</li><li><b>Edit release</b>You can change the name of the release or update the comment made about it.</li></ul>{:/} |
+| Actions | A list of actions that can be made against the released project: {::nomarkdown}<li><b> Download</b> Bundles the project contents into a zipped folder to import it into a different environment.</li><ul><li><b>Restore this release</b>Allows you to restore the release to this version. If you use this action the current models of the project will be replaced with those present in the release. If you want to preserve your current status you must create another release which you can restore it later.</li><li><b>Edit release</b>You can change the name of the release or update the comment made about it.</li></ul>{:/} |
 
 ### Deployment
 
