@@ -20,7 +20,7 @@ To create a project:
 
     * **Upload Project** allows for uploading an existing project `.zip` into the Modeling Application.
 
-4. Enter a **Project name** and optional **Comment** if **Create Project** was chosen.
+4. Enter a **Project name** and optional **Project description** if **Create Project** was chosen.
 
 You can use the **Save as** function to save a new copy of a project from the projects view screen or from the home screen. This is accessed by clicking on the three dots and selecting **Save as**.  
 
