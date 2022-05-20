@@ -469,3 +469,19 @@ The actions that can be run against a form are:
 | Validate | Run validation against the form. Any errors can be seen in the log history at the bottom of the Modeling Application and are flagged in a pop-up box. |
 | Save | Save any changes made to the form. |
 | Delete | Delete the form. |
+
+## Form rules
+
+Form rules can be used to 
+
+Click **Edit form rules**
+
+You can respond to an event with one or more actions
+
+Condition builder is already there, there is no expression tab.
+
+This example describes how to create a form where a user can select their gender, and marital status, which then in turn populates another field with either Ms or Mr. If a user selects Married then they must also select the date of the marriage.
+
+
+
+
