@@ -71,7 +71,6 @@ our Support team - submit a case via [Hyland Community]({% link support/latest/c
 |-------|----|-------|
 |Identity Service 1.2|✓|For use with LDAP and SAML|
 |Identity Service 1.1|✓|For use with LDAP and SAML|
-|Process Workspace 1.3|✓| |
 
 **Related components**
 
