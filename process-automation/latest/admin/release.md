@@ -18,7 +18,7 @@ To release a project:
 
 3. Select the **Release** action from the **Options** column for the project.
 
-4. Enter a Name for the release and optionally add a Comment.
+4. Enter a **Name** for the release and optionally add a **Comment**.
 
 ### Properties {#project-properties}
 
