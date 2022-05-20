@@ -2,12 +2,9 @@
 title: Supported platforms
 ---
 
-Here is a list of the individual components that have been through the complete 
-Alfresco Quality Assurance and Certification activities for Alfresco Process Services.
+Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Process Services.
 
-Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact 
-our Support team - submit a case via [Hyland Community]({% link support/latest/contact/index.md %}).
-
+Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact our Support team - submit a case via [Hyland Community]({% link support/latest/contact/index.md %}).
 
 **Operating systems**
 
@@ -63,7 +60,7 @@ our Support team - submit a case via [Hyland Community]({% link support/latest/c
 
 |Integration|2.0|Comment|
 |-----------|----|-------|
-|Elasitcsearch 7.13.2|✓| |
+|Elasticsearch 7.13.2|✓| |
 
 **Integrated services**
 
