@@ -5,12 +5,11 @@ title: Supported platforms
 Here is a list of the individual components that have been through the complete 
 Alfresco Quality Assurance and Certification activities for Alfresco Process Services.
 
-Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact 
-our Support team [Alfresco Support Portal](https://support.alfresco.com).
+Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact our Support team - submit a case via [Hyland Community]({% link support/latest/contact/index.md %}).
 
 **Operating systems**
 
-|Server|2.0|Comment|
+|Server|2.3|Comment|
 |------|----|-------|
 |Red Hat Enterprise Linux 7.7|✓| |
 |Red Hat Enterprise Linux 7.6|✓| |
@@ -21,12 +20,15 @@ our Support team [Alfresco Support Portal](https://support.alfresco.com).
 
 **Databases**
 
-|Database|2.0|Driver|
+|Database|2.3|Driver|
 |--------|----|------|
 |MariaDB 10.5|✓|2.7.3|
 |MariaDB 10.4|✓|2.7.3|
+|MySQL 8.0|✓|`mysql-connector-java-8.0.25.jar`|
 |MySQL 5.7|✓|`mysql-connector-java-8.0.25.jar`|
+|MS SQL Server 2019|✓|`mssql-jdbc-9.2.1.jre11.jar`|
 |MS SQL Server 2019|✓|`mssql-jdbc-9.2.1.jre8.jar`|
+|MS SQL Server 2017|✓|`mssql-jdbc-9.2.1.jre11.jar`|
 |MS SQL Server 2017|✓|`mssql-jdbc-9.2.1.jre8.jar`|
 |Oracle 19c|✓|21.1.0.0|
 |PostgreSQL 13.1|✓|`postgresql-42.2.22.jar`|
@@ -36,20 +38,20 @@ our Support team [Alfresco Support Portal](https://support.alfresco.com).
 
 **Application servers**
 
-|Application server|2.0|Comment|
+|Application server|2.3|Comment|
 |------------------|----|-------|
 |Tomcat 9.0|✓| |
 |Jetty 9.4|✓| |
 
 **JDKs**
 
-|JDK|2.0|Comment|
+|JDK|2.3|Comment|
 |---|----|-------|
 |OpenJDK 11.0.1|✓| |
 
 **Browsers**
 
-|Browser|2.0|Comment|
+|Browser|2.3|Comment|
 |-------|----|-------|
 |Mozilla Firefox|✓| |
 |Microsoft Edge|✓|Versions based on Chromium only|
@@ -58,13 +60,13 @@ our Support team [Alfresco Support Portal](https://support.alfresco.com).
 
 **Third party integrations**
 
-|Integration|2.0|Comment|
+|Integration|2.3|Comment|
 |-----------|----|-------|
 |Elasitcsearch 7.13.2|✓| |
 
 **Integrated services**
 
-|Service|2.0|Comment|
+|Service|2.3|Comment|
 |-------|----|-------|
 |Identity Service 1.2|✓|For use with LDAP and SAML|
 |Identity Service 1.1|✓|For use with LDAP and SAML|
@@ -72,6 +74,6 @@ our Support team [Alfresco Support Portal](https://support.alfresco.com).
 
 **Related components**
 
-|Component|2.0|Comment|
+|Component|2.3|Comment|
 |---------|----|-------|
 |VMWare ESXi 5.1.0|✓|For supported guest operating systems|

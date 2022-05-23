@@ -11,7 +11,7 @@ accessing a repository. The aim is not to replace Share but it was necessary to 
 implementation, which was based around the Surf paradigms of pages, templates, components and web scripts, towards a
 solution that provided for rapid development and customization.
 
-While Share continues to be based primarily on the [YUI library](https://yuilibrary.com/){:target="_blank"}, Aikau is based around
+While Share continues to be based primarily on the [YUI library](https://clarle.github.io/yui3/){:target="_blank"}, Aikau is based around
 the [Dojo library](https://dojotoolkit.org/){:target="_blank"}.
 
 The main goals of Aikau are:
@@ -93,7 +93,7 @@ Aikau is available as an open-source [project on GitHub](https://github.com/Alfr
 
 ## Aikau Tutorial
 
-A comprehensive Aikau tutorial is [available on GitHub](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters/About.md){:target="_blank"}.
+A comprehensive Aikau tutorial is [available on GitHub](https://github.com/Alfresco/Aikau/tree/master/tutorial/chapters/About.md){:target="_blank"}.
 
 ## Aikau widget library documentation
 

@@ -5,7 +5,7 @@ title: Security Marks and Classification
 You can add security controls to files, records, folders, and {% include tooltip.html word="category" text="categories" %} so that only users with the required security 
 level can view or access them.
 
->**Note:** When you install **Enterprise** the Security Controls features are installed at the same time.
+> **Note:** When you install **Enterprise** the Security Controls features are installed at the same time.
 
 Security controls is the collective term for security classifications and security groups, which in turn are made up of 
 one or more security marks.
@@ -27,7 +27,7 @@ User security clearance is set for a user (or user group) by assigning security 
 You can create **Classification Reasons** to help identify and align the reasons why content is classified. 
 Governance Services comes pre-configured with some common classification reasons but you can edit, delete, and make your own.
 
->**Tip:** Security controls are configured and assigned through the standard Alfresco Admin Tools, and can be used completely independently of a records management site if required.
+> **Tip:** Security controls are configured and assigned through the standard Alfresco Admin Tools, and can be used completely independently of a records management site if required.
 
 ## Classification life cycle
 
@@ -73,7 +73,7 @@ When you {% include tooltip.html word="classify" text="classify" %} a file or re
 The top part is for setting classification and the bottom part for applying additional security marks. 
 You can apply both classification and additional security marks to files (or records) at the same time.
 
->**Note:** Standard [Alfresco permissions]({% link content-services/latest/using/permissions.md %}) and [Records Management permissions]({% link governance-services/latest/using/manage-permissions.md %}) continue to apply as well as any additional classifications.
+> **Note:** Standard [Alfresco permissions]({% link content-services/latest/using/permissions.md %}) and [Records Management permissions]({% link governance-services/latest/using/manage-permissions.md %}) continue to apply as well as any additional classifications.
 
 ### Classification security group
 
@@ -90,7 +90,7 @@ There are three clearance levels that can be [assigned to users](#setting-securi
 * **Secret** - Can see secret, confidential and unclassified files and records
 * **Confidential** - Can see confidential and unclassified files and records
 
->**Note:** The default Alfresco Administrator has Top Secret clearance. All other users have No Clearance until their clearance is changed.
+> **Note:** The default Alfresco Administrator has Top Secret clearance. All other users have No Clearance until their clearance is changed.
 
 You can't classify a file higher than your own security level. So if your security clearance is Confidential, 
 you can't classify a file as Top Secret.
@@ -132,7 +132,7 @@ Using the above examples, if a record has been classified as Media, Data Handlin
 * User 1 (Media, Data Handling, and UK) - can see and work with the record
 * User 2 (Media and UK) - doesn't see the record in the File Plan
 
->**Note:** Files and records aren't visibly labelled with custom security marks in the same way as they are with security classification marks.
+> **Note:** Files and records aren't visibly labelled with custom security marks in the same way as they are with security classification marks.
 
 ## How security clearance works
 
@@ -140,7 +140,7 @@ Security clearance is the assignment of security marks to users.
 
 Once marks are applied to content then users can only see that content if they have the required security clearance.
 
->**Note:** Standard [Alfresco permissions]({% link content-services/latest/using/permissions.md %}) and [Records Management permissions]({% link governance-services/latest/using/manage-permissions.md %}) continue to apply as well as any security clearance.
+> **Note:** Standard [Alfresco permissions]({% link content-services/latest/using/permissions.md %}) and [Records Management permissions]({% link governance-services/latest/using/manage-permissions.md %}) continue to apply as well as any security clearance.
 
 When security groups are created there are three different Group Types available, and each one controls how the user sees content, see [How security controls work](#how-security-controls-work).
 
@@ -228,7 +228,7 @@ nationality and job role.
     * Click ![Edit group]({% link governance-services/images/ico-configure.png %}){:height="18px" width="18px"} to edit the group name.
     * Click ![Delete group]({% link governance-services/images/ico-trashcan.png %}){:height="18px" width="18px"} to delete the group. You can't delete a group or its marks if it contains marks that are assigned to content.
 
-        >**Note:** No-one else can access a security group until you add security marks to it.
+        > **Note:** No-one else can access a security group until you add security marks to it.
 
         Once marks are added to the group, only users who have been assigned one of the marks can see the group.
 
@@ -248,7 +248,7 @@ nationality and job role.
 
 2. Click on a security group.
 
-    >**Tip:** You can't add security marks to the predefined Classification security group.
+    > **Tip:** You can't add security marks to the predefined Classification security group.
 
 3. Enter a name for a new security mark.
 
@@ -258,14 +258,14 @@ nationality and job role.
 
 5. Now repeat until you have added all the security marks you want to (you can always add more later).
 
-    >**Note:** You can always click ![Delete]({% link governance-services/images/ico-delete.png %}){:height="18px" width="18px"} to delete a security mark from the group. You can't delete a mark that's been assigned to a file. If you delete the last mark from a group then no-one else can access the group until you add marks to it.
+    > **Note:** You can always click ![Delete]({% link governance-services/images/ico-delete.png %}){:height="18px" width="18px"} to delete a security mark from the group. You can't delete a mark that's been assigned to a file. If you delete the last mark from a group then no-one else can access the group until you add marks to it.
 
 ## Setting security clearance
 
 Alfresco Administrators can assign different clearance levels to users and groups that give access to files and 
 records within their clearance level.
 
->**Note:** You need to have the Alfresco Administrator role to set security clearance. You can't change the clearance level of the default Alfresco Administrator.
+> **Note:** You need to have the Alfresco Administrator role to set security clearance. You can't change the clearance level of the default Alfresco Administrator.
 
 1. Click **Admin Tools** and then click **Security Controls > Assign**.
 
@@ -278,25 +278,25 @@ records within their clearance level.
     
     Hover over **Details** to see all security groups and security marks assigned to a user.
 
-    >**Note:** You won't see marks assigned to a user if you don't have clearance for them.
+    > **Note:** You won't see marks assigned to a user if you don't have clearance for them.
 
 2. Type a user's name or group name into the filter box to find the user / group.
 
-    >**Tip:** You can sort users by clicking **Name**, and view a user profile by clicking a user name.
+    > **Tip:** You can sort users by clicking **Name**, and view a user profile by clicking a user name.
 
     Click to select to view Groups and Users, or just Users or Groups.
 
 3. Hover over a user or group and click **Set Security Controls** next to them to change the security groups and marks they're assigned.
 
-    >**Note:** You can only assign Security Marks for the groups you are a part of.
+    > **Note:** You can only assign Security Marks for the groups you are a part of.
 
 4. Currently assigned security marks are highlighted. Click a security mark to assign it to the user / group, and again to unassign it.
 
-    >**Note:** Marks that are inherited from another group aren't shown, only marks that are assigned directly to this user / group.
+    > **Note:** Marks that are inherited from another group aren't shown, only marks that are assigned directly to this user / group.
 
 5. Click **Apply**, and any changes you've made are applied.
 
-    >**Note:** If a user has marks assigned that you don't have access to then these will be unaffected by any changes you make.
+    > **Note:** If a user has marks assigned that you don't have access to then these will be unaffected by any changes you make.
 
 ## Creating classification guides
 
@@ -331,7 +331,7 @@ Find out more in [How classification guides work](#how-classification-guides-wor
 
 8. Click on the guide name then click **New Topic**.
 
-    >**Tip:** You can click on a guide (not the guide name) then click ![Edit group]({% link governance-services/images/ico-configure.png %}){:height="18px" width="18px"} to edit the guide, or ![Delete group]({% link governance-services/images/ico-trashcan.png %}){:height="18px" width="18px"} to delete it.
+    > **Tip:** You can click on a guide (not the guide name) then click ![Edit group]({% link governance-services/images/ico-configure.png %}){:height="18px" width="18px"} to edit the guide, or ![Delete group]({% link governance-services/images/ico-trashcan.png %}){:height="18px" width="18px"} to delete it.
 
 9. Enter a name and optional description for the topic.
 
@@ -342,13 +342,13 @@ Find out more in [How classification guides work](#how-classification-guides-wor
     * **Security Classifications** - Select a classification level, a classification reason, and any other required classification details
     * **Security Groups** - Select all the required security marks
 
-        >**Note:** You cannot use security marks you do not posses when classifying content, unless you also use a security mark you do posses from the same group. If you have a security mark from a security group 'any' then you can view and assign all other marks from that group. When using marks (either when Classifying Content or creating Instructions) that you don't posses, you must include a mark from the same group to avoid losing access to the content. An error will appear if you attempt to create an instruction using only a mark you don't have, or have not included a mark from the same group.
+        > **Note:** You cannot use security marks you do not posses when classifying content, unless you also use a security mark you do posses from the same group. If you have a security mark from a security group 'any' then you can view and assign all other marks from that group. When using marks (either when Classifying Content or creating Instructions) that you don't posses, you must include a mark from the same group to avoid losing access to the content. An error will appear if you attempt to create an instruction using only a mark you don't have, or have not included a mark from the same group.
 
 11. Click **Save**.
 
     If the guide is switched **On** then users can select from the topics it contains to automatically classify content.
 
-    >**Note:** If you delete a guide containing instructions that are currently being used to classify content, then the content will retain its classification.
+    > **Note:** If you delete a guide containing instructions that are currently being used to classify content, then the content will retain its classification.
 
     If you edit a guide's instructions then that won't modify the classification level or marks applied to content previously classified using that instruction.
 
@@ -359,7 +359,7 @@ viewed or accessed by users who have the required security clearance.
 
 There are four security classification levels that you can assign. Security groups provide additional classification options.
 
->**Note:** You can also [classify files]({% link governance-services/latest/using/easy-access-records.md %}#classifying-files-and-folders) in Alfresco sites.
+> **Note:** You can also [classify files]({% link governance-services/latest/using/easy-access-records.md %}#classifying-files-and-folders) in Alfresco sites.
 
 See [Classification rules and tips](#classification-rules-and-tips) for more on classifying content.
 
@@ -377,7 +377,7 @@ You can autoclassify by adding instructions, manually apply classifications and 
 
 5. Click ![Add instructions]({% link governance-services/images/ico-instructions-action.png %}){:height="18px" width="18px"} next to the topic you want to apply instructions from then click **Select**.
 
-    >**Tip:** You can click **View** to check what classification level and security marks the topic instructions contain.
+    > **Tip:** You can click **View** to check what classification level and security marks the topic instructions contain.
 
 6. Repeat for as many topics as you want to add.
 
@@ -385,11 +385,11 @@ You can autoclassify by adding instructions, manually apply classifications and 
 
     All the topics you've selected will have their instructions applied to the item you're classifying.
 
-    >**Tip:** If topics contain instructions that clash then the higher level of classification will apply. For example if you add two topics, one with a classification level of Top Secret, and one with Secret, then the Top Secret level will apply.
+    > **Tip:** If topics contain instructions that clash then the higher level of classification will apply. For example if you add two topics, one with a classification level of Top Secret, and one with Secret, then the Top Secret level will apply.
 
 8. **To add Other Classification Source References**
 
-    >**Note:** This step is not required to classify an item.
+    > **Note:** This step is not required to classify an item.
 
 9. Enter the name of the source document from which the classification of the item has been derived.
 
@@ -410,7 +410,7 @@ You can autoclassify by adding instructions, manually apply classifications and 
     * **Confidential**
     * **Unclassified**
     
-    >**Tip:** If you select **Unclassified** then the item will be available to all users.
+    > **Tip:** If you select **Unclassified** then the item will be available to all users.
 
 15. Enter a classification agency, for example, government or other body (optional).
 
@@ -426,7 +426,7 @@ You can autoclassify by adding instructions, manually apply classifications and 
 
     Set a schedule for when the item will be declassified. This means when its classification level will be set to Unclassified. You can enter a specific date for the declassification to take place, an event that means declassification should be considered, and exemptions for when declassification shouldn't take place. All of these are optional.
 
-    >**Note:** Downgrade and declassification schedules are not automated. Any reclassification needs to be done manually.
+    > **Note:** Downgrade and declassification schedules are not automated. Any reclassification needs to be done manually.
 
 18. Click security marks to apply them to the item, and again to remove them.
 
@@ -436,7 +436,7 @@ You can autoclassify by adding instructions, manually apply classifications and 
 
     The item now displays its classification level, and can only be seen by those with the required security clearance.
 
-    >**Tip:** Items set to Unclassified with no applied security marks can be seen by all users.
+    > **Tip:** Items set to Unclassified with no applied security marks can be seen by all users.
 
     The classification reason and classification-related properties can be seen in the **Properties** when you preview the item.
 
@@ -499,7 +499,7 @@ You have the option to adjust the Declassification Time Frame for new files or f
 If there is an exemption attached to an item in the repository, its declassification time frame wont change if you 
 change the settings on the Declassification Time Frame page.
 
->**Note:** When using the feature ensure you read the information messages that are offered before you make any changes.
+> **Note:** When using the feature ensure you read the information messages that are offered before you make any changes.
 
 ### Declassification Exemptions
 
@@ -540,7 +540,7 @@ you can't reclassify content as Top Secret.
 
 See [Classification rules and tips](#classification-rules-and-tips) for more on classifying content.
 
->**Note:** Content can be reclassified multiple times.
+> **Note:** Content can be reclassified multiple times.
 
 1. Hover over a classified file, record, folder, or category and select **More**, then **Edit Classification**.
 
@@ -553,11 +553,11 @@ See [Classification rules and tips](#classification-rules-and-tips) for more on 
     * **Confidential**
     * **Unclassified**
     
-    >**Tip:** If you select unclassified then the content will be available to all users. The classification reason can be seen in its properties when you preview files and records or view the details of folders and categories.
+    > **Tip:** If you select unclassified then the content will be available to all users. The classification reason can be seen in its properties when you preview files and records or view the details of folders and categories.
 
 4. You can edit most fields without choosing a new classification. If you select a new classification then you need to state who is doing the reclassification and the reason for doing it.
 
-    >**Note:** If the content has previously been reclassified then the person who classified it and their reason are displayed. You can edit these if required.
+    > **Note:** If the content has previously been reclassified then the person who classified it and their reason are displayed. You can edit these if required.
 
 5. Update other **Security Classification** details as required.
 
@@ -569,8 +569,8 @@ See [Classification rules and tips](#classification-rules-and-tips) for more on 
 
     The content now displays its classification level, and can only be seen by those with the required security clearance.
 
-    >**Tip:** Content set to Unclassified with no applied security marks can be seen by all users.
+    > **Tip:** Content set to Unclassified with no applied security marks can be seen by all users.
 
-    >**Note:** The option to **Share** a file (not applicable for records) is no longer available for Top Secret, Secret, or Confidential files. When a file is declared as a record it retains its classification level and any security marks.
+    > **Note:** The option to **Share** a file (not applicable for records) is no longer available for Top Secret, Secret, or Confidential files. When a file is declared as a record it retains its classification level and any security marks.
 
     The classification reason and classification-related properties can be seen in its properties when you preview files and records or view the details of folders and categories.

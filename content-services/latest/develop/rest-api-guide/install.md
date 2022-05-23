@@ -16,6 +16,8 @@ If you just want to have a look at the latest API Explorer, then you can use an 
 [https://api-explorer.alfresco.com/api-explorer/](https://api-explorer.alfresco.com/api-explorer/){:target="_blank"}
 
 ## Installing
+>**Note:** if you are running Alfresco from a Docker Compose file, then the API Explorer is most likely already available. 
+>Check by accessing `http://localhost:8080/api-explorer`
 
 Most likely you would want to install the API Explorer into your local ACS installation. You can find the
 Alfresco API Explorer WAR file in [Alfresco’s Nexus repository](https://artifacts.alfresco.com/nexus/#nexus-search;quick~api-explorer){:target="_blank"}.
@@ -199,7 +201,7 @@ $ curl
 curl: try 'curl --help' or 'curl --manual' for more information
 ```
 
-If you don’t have curl installed you can find it here: [https://curl.haxx.se/](https://curl.haxx.se/){:target="_blank"}
+If you don’t have curl installed you can find it here: [https://curl.se/](https://curl.se/){:target="_blank"}
 
 ## Install a tool to format JSON responses {#json}
 

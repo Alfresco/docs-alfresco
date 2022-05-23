@@ -40,13 +40,13 @@ You now need to install the AMP files into the Alfresco Content Repository image
     For example, if you're using `6.2.N-docker-compose.yml`, you'll find on [line 15](https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/6.2.N-docker-compose.yml#L15){:target="_blank"}:
 
     ```bash
-    alfresco/alfresco-content-repository:6.2.2.1
+    quay.io/alfresco/alfresco-content-repository:6.2.2
     ```
 
 3. Add the following Docker commands to the `repository/Dockerfile` file and save it. Make sure that you change the image name and tag to match the above step:
 
     ```Dockerfile
-    FROM alfresco/alfresco-content-repository:6.2.2.1
+    FROM quay.io/alfresco/alfresco-content-repository:6.2.2
 
     # Customize container: install amps
 
@@ -82,7 +82,7 @@ You now need to install the AMP files into the Alfresco Content Repository image
 
 5. Replace the image used by the **alfresco** service in the Docker Compose file you chose in step 1.
 
-    For example, replace `image: alfresco/alfresco-content-repository:6.2.2.1` with `image: myregistrydomain/my-custom-alfresco-content-repository:6.2.2.1`:
+    For example, replace `image: quay.io/alfresco/alfresco-content-repository:6.2.2` with `image: myregistrydomain/my-custom-alfresco-content-repository:6.2.2.1`:
 
 6. Save the file.
 

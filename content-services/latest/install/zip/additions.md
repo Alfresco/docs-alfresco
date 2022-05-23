@@ -26,7 +26,7 @@ The source-localized files are encoded in ASCII, and the special and accented ch
 
 If you wish to use a translation that is not supplied with Content Services, then you must add the appropriate TinyMCE language pack for the translation to work correctly.
 
-1. Browse to the [TinyMCE website](http://tinymce.moxiecode.com/download_i18n.php){:target="_blank"}.
+1. Browse to the [TinyMCE website](https://www.tiny.cloud/?ctrl=lang&act=download&pr_id=1){:target="_blank"} {:target="_blank"}.
 
 2. Download the required TinyMCE language pack.
 
@@ -40,41 +40,36 @@ If you wish to use a translation that is not supplied with Content Services, the
 
 Use this information to review the components or modules that integrate Content Services with other applications.
 
-### Services
-
-| Services | Notes |
+| Name     | Notes |
 | -------- | ----- |
+| **Services** | |
 | Process Services | |
 | Governance Services | |
-
-### Integrations
-
-| Integrations | Notes |
-| ------------ | ----- |
+| | |
+| **Integrations** | |
 | Sync Service | |
 | Desktop Sync | |
 | Transform Service | |
 | Document Transformation Engine | Paid add-on module |
 | Search and Insight Engine | Paid add-on module |
+| Search Enterprise | |
 | Search Services | |
 | Federation Services | |
 | Identity Service | |
 | SAML Module for Alfresco Content Services | |
-| Intelligence Services |  |
+| Intelligence Services | Paid add-on module |
 | Content Connector for AWS S3 | Paid add-on module |
 | Content Connector for Azure | Paid add-on module |
-| Content Connector for AWS Glacier | |
-| Content Connector for EMC Centera | Paid add-on module and requires additional software |
 | Content Connector for Salesforce | |
 | Content Connector for SAP applications | Paid add-on module |
+| Content Connector for SAP Cloud | Paid add-on module |
+| Collaboration Connector for Microsoft 365 | |
+| Collaboration Connector for Teams | |
 | Outlook Integration | Paid add-on module |
 | Office Services | |
 | Google Docs Integration | |
-
-### Applications
-
-| Applications | Notes |
-| ------------ | ----- |
+| | |
+| **Applications** | |
 | Digital Workspace | |
 
 ## Test installation

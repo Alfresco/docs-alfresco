@@ -510,7 +510,7 @@ perform a GET, you would type the following in the command line:
 
 `curl -uadmin:admin -d "" -H "X-HTTP-Method-Override:GET" http://localhost:8080/alfresco/s/api/admin/usage`
 
->**Note:** cURL's `–d` parameter informs cURL to perform an HTTP POST. The complete cURL manual can be found at [http://curl.haxx.se/docs/manual.html](http://curl.haxx.se/docs/manual.html){:target="_blank"}.
+>**Note:** cURL's `–d` parameter informs cURL to perform an HTTP POST. The complete cURL manual can be found at [https://curl.se/docs/manual.html](https://curl.se/docs/manual.html){:target="_blank"}.
 
 In really unfortunate circumstances, some clients do not even support HTTP headers; therefore, the Web Script Framework 
 also supports a query parameter named `alf_method` for representing the method to override.

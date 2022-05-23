@@ -60,7 +60,7 @@ Use this information to configure an Aurora database on Amazon RDS for use with 
 
 2.  Execute `sudo su` to change to root.
 
-3.  Download the Alfresco Content Services installer for Linux from the [Support Portal](http://support.alfresco.com).
+3.  Download the Alfresco Content Services installer for Linux from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 4.  Install the downloaded installer using the following commands:
 
@@ -131,7 +131,7 @@ Use this information to configure a MySQL database on Amazon RDS for use with Al
 
 2.  Execute `sudo su` to change to root.
 
-3.  Download the Alfresco Content Services installer for Linux from the [Support Portal](http://support.alfresco.com).
+3.  Download the Alfresco Content Services installer for Linux from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 4.  Install the downloaded installer using the following commands:
 
@@ -203,7 +203,7 @@ The Oracle database is case sensitive, so any configuration setting that you add
 
 2.  Execute `sudo su` to change to root.
 
-3.  Download the Alfresco Content Services installer for Linux from the [Support Portal](http://support.alfresco.com).
+3.  Download the Alfresco Content Services installer for Linux from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 4.  Install the downloaded installer using the following commands:
 
@@ -287,7 +287,7 @@ Use this information to configure a PostgreSQL database on Amazon RDS for use wi
 
 2.  Execute `sudo su` to change to root.
 
-3.  Download the Alfresco Content Services installer for Linux from the [Support Portal](http://support.alfresco.com).
+3.  Download the Alfresco Content Services installer for Linux from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 4.  Install the downloaded installer using the following commands:
 

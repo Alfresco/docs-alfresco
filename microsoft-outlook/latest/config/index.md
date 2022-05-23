@@ -677,7 +677,7 @@ See examples of how to use these search settings below.
     <match type="aspect" pattern="cm:versionable">
         <target useTags="true" useText="true">
             <property name="cm:title"/>
-                <hr/>
+            <hr/>
             <property name="cm:description">
                 <ui multiline="true"/>
             </property>
@@ -685,7 +685,37 @@ See examples of how to use these search settings below.
     </match>
     ```
 
-7. Click **Apply** to save your changes and restart Microsoft Outlook.
+7. To use wildcards, add the asterisk character in the folder path, for example:
+
+    ```xml
+    <match pattern="/app:company_home/st:sites/*/cm:myexample-1-site-standard-search" >
+        <target useTags="true" useText="true">
+            <property name="cm:title"/>
+            <hr/>
+            <property name="cm:description">
+                <ui multiline="true"/>
+            </property>
+        </target>
+    </match>
+    ```
+
+    Starting from Outlook Integration 2.8.1, this rule allows you to assign the search configuration to every `myexample-1-site-standard-search` located under any `st:sites`, and with any number of folders between `st:sites` and `myexample-1-site-standard-search`.
+
+    Here is another example to show how the asterisk can be used in multiple locations:
+
+    ```xml
+    <match pattern="/app:company_home/st:sites/*/cm:testfolder/*/cm:myexample-1-site-standard-search">
+    ```
+
+    You can also use the asterisk wildcard in this way:
+
+    ```xml
+    <match pattern="/app:company_home/st:sites/cm:test*/cm:myexample-1-site-standard-search">
+    ```
+
+    > **Note:** An exact match of the pattern without a wildcard takes priority over the wildcard pattern.
+
+8. Click **Apply** to save your changes and restart Microsoft Outlook.
 
     The template changes are applied.
 
@@ -941,24 +971,28 @@ You can configure Outlook extended settings; for example, change the display lan
 
     >**Note:** You can also change the display language by selecting **Language** from the **Alfresco Outlook** toolbar tab.
 
-3. **Show Alfresco Outlook Client**: Show or hide the **Alfresco Outlook Client** panel (the Alfresco sidebar).
+3. **Theme**: Choose the theme for the Outlook plugin.
+
+    >**Note:** Restart Microsoft Outlook to apply the new theme.
+
+4. **Show Alfresco Outlook Client**: Show or hide the **Alfresco Outlook Client** panel (the Alfresco sidebar).
 
     >**Note:** This box is checked automatically if you have selected **Show Sidebar** from the **Alfresco Client** tab in Outlook.
 
-4. **Show sidebar for new emails**: Show or hide the Alfresco sidebar in emails that are open in a current window.
+5. **Show sidebar for new emails**: Show or hide the Alfresco sidebar in emails that are open in a current window.
 
-5. **Repository root**: Select whether the Alfresco sidebar and **Archive Directly** right click option allow you to see certain sites (**Sites only**) or all of Alfresco (**Full repository**).
+6. **Repository root**: Select whether the Alfresco sidebar and **Archive Directly** right click option allow you to see certain sites (**Sites only**) or all of Alfresco (**Full repository**).
 
-6. **Browse Sites**: Specify the default selection for the **Sites** list that is displayed in the **Explore** tab of the Alfresco sidebar.
+7. **Browse Sites**: Specify the default selection for the **Sites** list that is displayed in the **Explore** tab of the Alfresco sidebar.
 
-7. **Drag and drop priority**: Defines the priority for drag and drop from Alfresco:
+8. **Drag and drop priority**: Defines the priority for drag and drop from Alfresco:
 
     * **File**: Use drag and drop to attach a file from Alfresco into an email as a binary attachment. Hold down the Control (Ctrl) key to link files from Alfresco to the email as HTTP links.
     * **Link**: Use drag and drop to add files from Alfresco to the email as HTTP links. Hold down the Control (Ctrl) key to add files from Alfresco to the email as binary attachments.
     * **PDF**: Use drag and drop to convert Office files to PDF format and attach them to email.
     * **Link to PDF**: Use drag and drop to convert Office files to PDF format and add to the email as an HTTP link.
 
-8. **Use web URIs for**: Controls the target application for calling a browser directly from Outlook.
+9. **Use web URIs for**: Controls the target application for calling a browser directly from Outlook.
 
     Options are:
 
@@ -967,15 +1001,15 @@ You can configure Outlook extended settings; for example, change the display lan
 
     The location of the ADF client application must be configured in Share Admin Tools by your IT team.
 
-9. **Show tooltip on email hover**: Select to see a tool tip when you hover over an email.
+10. **Show tooltip on email hover**: Select to see a tool tip when you hover over an email.
 
-10. **Use default web browser**: Select whether the default browser should be used to open files.
+11. **Use default web browser**: Select whether the default browser should be used to open files.
 
-11. **Enable debug logging**: Check to enable logging for debug purposes. Check the log file by clicking **Open Log**.
+12. **Enable debug logging**: Check to enable logging for debug purposes. Check the log file by clicking **Open Log**.
 
-12. **Folder sort order**: Select the order you want for your Alfresco folders. Choose from **Name and subject (ascending)**, **Name and subject (descending)**, **Date modified (ascending)**, or **Date modified (descending)**.
+13. **Folder sort order**: Select the order you want for your Alfresco folders. Choose from **Name and subject (ascending)**, **Name and subject (descending)**, **Date modified (ascending)**, or **Date modified (descending)**.
 
-13. **Date sort display options**: If you select **Date modified (ascending)** or **Date modified (descending)** you can choose the display format from **Subject or name**, **Date and subject**, or **Date/time and subject**.
+14. **Date sort display options**: If you select **Date modified (ascending)** or **Date modified (descending)** you can choose the display format from **Subject or name**, **Date and subject**, or **Date/time and subject**.
 
 ### Configure views
 
@@ -1013,10 +1047,10 @@ Set the configuration template to import when the configuration dialog is called
 
 Use the Alfresco Client Settings XML file for advanced configuration of Alfresco Microsoft Outlook client.
 
-The `AlfrescoClientSettings-2.8.x.xml` file contains advanced configuration properties.
+The `AlfrescoClientSettings-2.9.x.xml` file contains advanced configuration properties.
 Use this file to set up attributes and metadata settings.
 
-1. Locate and open `AlfrescoClientSettings-2.8.x.xml` in the `C:\Users\<username>` directory, where `<username>` is your Windows user name.
+1. Locate and open `AlfrescoClientSettings-2.9.x.xml` in the `C:\Users\<username>` directory, where `<username>` is your Windows user name.
 
     The `<outlook>` section contains elements that you can configure to customize the Alfresco Outlook Client, and also additional `<storage>`, `<connection>`, `<logging>`, `<restrictions>`, and `<tabs>` sections:
 
@@ -1029,7 +1063,7 @@ Use this file to set up attributes and metadata settings.
         <connection url="http://127.0.0.1:8080/" shareUrl="share" alfrescoUrl="alfresco" login="admin" password="7DkTRpO8sfo=" checkCertificate="true" checkVersion="true" authentication="basic" webApp="2" shareAlterUrl="" settingsCheckInterval="480" />
         <logging minLevel="info" />
         <storage archiveOption="0" storeFiles="true" storeLink="true" storeMsg="false" compress="true" />
-        <feature autoPaging="false" highlightTexts="false" tokenAlterMode="false" messageIcon="false" />
+        <feature autoPaging="false" tokenAlterMode="false" messageIcon="false" />
         <explorer-search-properties />
         <search-properties />
       </outlook>
@@ -1049,8 +1083,8 @@ Use this file to set up attributes and metadata settings.
     |`hoverPreview`|Controls the behavior of the Preview window in the Search tab of the Alfresco sidebar|`true`: preview window is shown when hovering over the found item. This is the default setting.<br><br>`false`: preview window is not shown when hovering over the found item.|
     |`isSitesRoot`|Sets a root folder to show in the Explore tab of the Alfresco sidebar|`true`: root is the Sites folder. This is the default setting.<br><br>`false`: root is the Company Home folder.|
     |`mailNameDisplayPattern=" #subject (#from)"`|Modifies the email appearance in the Explore tab tree view of the Alfresco sidebar|Use these variables to modify the email fields displayed: `#subject`, `#from`, `#to`, `#sent`|
-    |`culture`|Sets the language used in Alfresco Outlook Client|Possible settings:`en`: English<br><br>`de`: German<br><br>`es`: Spanish<br><br>`it`: Italian<br><br>`fr`: French<br><br>`ja`: Japanelse<br><br>`ru`: Russian<br><br>`zh-cn`: Chinese (Simplified)<br><br>`pt-br`: Brazilian Portuguese<br><br>`nl`: Dutch<br><br>`nb-no`: Norwegian (Bokmal)<br><br>`cs`: Czech<br><br>`da`: Danish<br><br>`sv`: Swedish<br><br>`fi`: Finnish<br><br>`pl`: Polish<br><br>|
-    |`customAppTitle`|Renames Alfresco Outlook Client sidebar|Enter your chosen title as a text string.|
+    |`culture`|Sets the language used in Alfresco Outlook Client|Possible settings:`en`: English<br><br>`de`: German<br><br>`es`: Spanish<br><br>`it`: Italian<br><br>`fr`: French<br><br>`ja`: Japanese<br><br>`ru`: Russian<br><br>`zh-cn`: Chinese (Simplified)<br><br>`pt-br`: Brazilian Portuguese<br><br>`nl`: Dutch<br><br>`nb-no`: Norwegian (Bokmal)<br><br>`cs`: Czech<br><br>`da`: Danish<br><br>`sv`: Swedish<br><br>`fi`: Finnish<br><br>`pl`: Polish<br><br>|
+    |`customAppTitle`|Renames the Alfresco Outlook Client sidebar|Enter your chosen title as a text string.|
     |`customRibbonTitle`|Renames the Alfresco Client tab|Enter your chosen title as a text string.|
     |`customMenuTitle`|Renames the Alfresco Client option when right clicking a file|Enter your chosen title as a text string.**Note:** If you set this option, the same value is applied to `customRibbonTitle` if `customRibbonTitle` is blank.|
     |`sendLinkUrl`|Controls the behavior of links to files in Alfresco|`details`: link to the Document Details page is created. This is the default setting.<br><br>`download`: link to the Document Download page is created (only applies for Share URLs)|
@@ -1060,6 +1094,7 @@ Use this file to set up attributes and metadata settings.
     |`panelViewMode`|Controls the appearance of the Outlook sidebar|`list`: sidebar is shown as a list. This is the default setting.<br><br>`tree`: sidebar is shown as a tree structure.|
     |`searchMode`|Controls the search behavior|`standard`: standard search is used. This is the default setting.<br><br>`advanced`: Advanced search is used.|
     |`showMySites`|Controls the appearance of My Sites site selector|`true`: My Sites site selector is shown. This is the default setting.<br><br>`false`: My Sites site selector is not shown.|
+    |`theme`|Sets the theme of the Outlook plugin.<br><br>Added in Outlook Integration 2.9.|`classic`: Classic plugin theme is used. This is the default setting.<br><br>`dark`: Dark theme is used.|
 
 3. Configure the attributes that you need for the `<storage>` element:
 
@@ -1067,6 +1102,7 @@ Use this file to set up attributes and metadata settings.
     |---------|-----------|-----|
     |`archiveOption`|Controls email archive settings|`0` or `1`: default archive settings are used. This is the default setting.<br><br>`2`: archiving options are shown before the email is uploaded.|
     |`storeFiles`|Controls the Extract email attachment archive option|`true`: email attachments are extracted on upload to Alfresco. This is the default setting.<br><br>`false`: email attachments are not extracted on upload to Alfresco.|
+    |`storeFilesFromDesktop`|Controls the Extract attachments from files archive option.<br><br>Added in Outlook Integration 2.9.|`true`: email attachments from desktop files are extracted on upload to Alfresco.<br><br>`false`: email attachments are not extracted on upload to Alfresco. This is the default setting.|
     |`storeLink`|Controls the Archive as link email option|`true`: email is replaced with a link to email stored in Alfresco<br><br>`false`: email is not replaced with a link to the email stored in Alfresco. This is the default setting.|
     |`storeMsg`|Controls the Store original Outlook .MSG file archive option|`true`: original Outlook . MSG file is stored on upload to Alfresco<br><br>`false`: original Outlook . MSG file is not stored on upload to Alfresco. This is the default setting.|
     |`compress`|Controls the Compress message while uploading setting|`true`: message is compressed while uploading to Alfresco. This is the default setting.<br><br>`false`: message is not compressed while uploading to Alfresco|

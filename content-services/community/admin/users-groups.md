@@ -10,7 +10,7 @@ Before you can set up any security you need users and groups to work with. Use t
 
 The **Users** tool in the Share **Admin Tools** lets you create and manage the user accounts.
 
-See also Users tool [video tutorial]({% link content-services/community/tutorial/video/index.md %}#create-users)
+See also Users tool [video tutorial]({% link content-services/latest/tutorial/video/index.md %}#create-users)
 
 ### Create new user
 
@@ -245,7 +245,7 @@ Within a user account, you can manage the user's membership in existing user gro
 
 The **Groups** tool in the Share **Admin Tools** lets you create and manage user groups.
 
-See also Groups tool [video tutorial]({% link content-services/community/tutorial/video/index.md %}#create-groups).
+See also Groups tool [video tutorial]({% link content-services/latest/tutorial/video/index.md %}#create-groups).
 
 ### Browse user groups
 

@@ -6,7 +6,27 @@ The Azure Connector is configured using properties set in the global properties 
 
 For a complete list of all configuration properties, see the [Properties reference](#properties-reference).
 
+## Default configuration properties
+These are the configuration properties that are applied when you install the Azure Connector:
+
+```text
+# Configuration option for the store protocol
+connector.az.storeProtocol=azb
+
+# A number of retries in case an error occurs
+connector.az.maxErrorRetries=3
+
+# Indicates the maximum time (in seconds) allowed for any single try of an HTTP request.
+connector.az.tryTimeout=10
+
+# Cloud Storage Properties configuration
+connector.az.nativeStorageProperties=x-ms-access-tier,x-ms-archive-status,x-ms-rehydrate-priority
+connector.az.restorePriorityDefault=Standard
+connector.az.restoreAccessTierDefault=Cool
+```
+
 ## Basic configuration properties
+The following properties needs to be set up specifically for your environment and access to Azure storage.
 
 1. Open the `<classpathRoot>/alfresco-global.properties` file.
 
@@ -138,6 +158,41 @@ For a complete list of all configuration properties, see the [Properties referen
 
     You are now ready to start Content Services.
 
+## Cloud Storage Properties configuration {#cloud-storage-properties}
+Cloud Storage Properties are represented as a key-value pair (String-String) collection. Mentioned pairs are either directly
+retrieved from Cloud Storage Provider APIs object headers or derived from their values.
+
+Storage Properties are reflected at the content level and content may (especially when in Cloud Storage) or
+may not have at least one such property. **Storage Properties are not persisted as part of the metadata** (or any other way),
+so we rely on the `ContentStore` and `ServiceAdapter` implementations to provide the means to retrieve/derive the
+storage properties information.
+
+When cloud connectors do not provide functionality to retrieve storage properties, none will be returned.
+
+Configuration properties applicable to Azure Cloud Storage Properties functionality:
+
+|Property name |Property value|Description|  
+|---|---|---|
+|`connector.az.nativeStorageProperties`|`x-ms-access-tier,x-ms-archive-status,x-ms-rehydrate-priority`|Limits the list of Azure specific storage properties to be retrived|
+|`connector.az.rehydratePriorityDefault`|`Standard` / `High`|Default rehydrate (archive-restore) priority. Used when no respective value passed in archive-restore request.|
+|`connector.az.rehydrateAccessTier`|`Hot` / `Cold`| Blob access tier set for content within archive-restore request.|
+
+The following properties are currently (by default) returned from Azure Storage:
+
+|Name |Possible values|  
+|---|---|
+|`x-ms-access-tier`|`Hot` / `Cool` / `Archive`|
+|`x-ms-archive-status`|`rehydrate-pending-to-hot` / `rehydrate-pending-to-cool`|
+|`x-ms-rehydrate-priority`|`High` / `Standard`|
+
+Derived Storage Properties are Alfresco specific and currently reflecting information whether content is archived
+(offline) and whether it is being restored from offline state (and for how long):
+
+|Name |Possible values|Description|  
+|---|---|---|
+|`x-alf-archived`|`true`, `false`|Indicates whether content is archived (offline) and not immediately accessible|
+|`x-alf-archive-restore-in-progress`|`true`, `false`|Indicates whether a request to restore content from archive is progress.|
+
 ## Properties reference
 
 The Azure Connector provides a number of properties on installation and for customizing your configuration.
@@ -204,7 +259,7 @@ alfresco/extension/subsystems/ContentStore/Azure/Azure/*-context.xml
 alfresco/extension/subsystems/ContentStore/Azure/Azure/*.properties
 ```
 
-> **Note:** In Content Services 7.0 and Azure Connector 2.0, changing the current content store subsystem using the JMX client isn't supported. There's a limitation in Content Services which only allows switching between the embedded content stores.
+> **Note:** In Content Services 7.2 and Azure Connector 3.0, changing the current content store subsystem using the JMX client isn't supported. There's a limitation in Content Services which only allows switching between the embedded content stores.
 
 ### Deleted content store support in the repository versus Azure
 
@@ -227,7 +282,7 @@ The Azure multiple storage containers sample is a new store subsystem that is ba
 * `store1.azureBlobContentStore` as the default
 * `store2.azureBlobContentStore` as the second one
 
-The sample files can be found in `alfresco-azure-connector-2.0.x.amp`.
+The sample files can be found in `alfresco-azure-connector-3.0.x.amp`.
 
 * `azure-multiple-storage-containers-context.xml.sample` in `config/alfresco/extension`
 * `azure-mc-contentstore-context.xml.sample` and `azure-mc-contentstore.properties.sample` are in `config/alfresco/extension/subsystems/ContentStore/AzMultipleStorageContainers/AzMultipleStorageContainers`

@@ -683,9 +683,9 @@ If you're configuring SSL in a development or test environment, you can edit som
 
 > **Note:** These instructions should only be used for configuring a test environment. If you're configuring a production environment, you should use a proxy server to handle all SSL communication. See [Configuring SSL for a production environment](#ssl-repo) for more information.
 
-Here's an example of how to configure Tomcat 8.5 to work with HTTPS for your development or test system. At this point, we assume that:
+Here's an example of how to configure Tomcat 9 to work with HTTPS for your development or test system. At this point, we assume that:
 
-* You've already set up Content Service with Tomcat 8.5, running HTTP on port 8080.
+* You've already set up Content Service with Tomcat 9, running HTTP on port 8080.
   * Follow the steps in [Install using distribution zip]({% link content-services/latest/install/zip/index.md %}) if you haven't already done so.
 * You may have already setup HTTPS on port 8443 for Content Service to communicate with [Alfresco Search Services]({% link search-services/latest/index.md %}).
 * In our documentation, such as [Secure Sockets Layer (SSL) and the repository](#ssl-repo), port 8443 is generally provided as an example when setting up secure HTTPS connections. This is recommended only for use with Alfresco Search Services as it should use real client certificates, where `certificateVerification="required"`. For this development or test setup, we won't necessarily use client certificates, so we'll setup a separate HTTPS connector on a different port. You can have multiple connectors in Tomcat that use HTTPS and different ports.
@@ -753,9 +753,7 @@ Here's an example of how to configure Tomcat 8.5 to work with HTTPS for your dev
 
     2. On Windows, you can just use port 443 without any proxy.
 
-    Note that we use the `certificateVerification="none"` setting. See the [official Tomcat 8.5 page](https://tomcat.apache.org/tomcat-8.5-doc/config/http.html#SSL_Support_-_SSLHostConfig){:target="_blank"} to learn more about the HTTPS security settings for the connector.
-
-    If you're using an older version of Tomcat (which we don't recommend and don't support), the security settings are specified in a different format. See example for [Tomcat 7.0](https://tomcat.apache.org/tomcat-7.0-doc/config/http.html#SSL_Support){:target="_blank"}.
+    Note that we use the `certificateVerification="none"` setting. See the [official Tomcat 9.0 page](https://tomcat.apache.org/tomcat-9.0-doc/config/http.html#SSL_Support_-_SSLHostConfig){:target="_blank"} to learn more about the HTTPS security settings for the connector.
 
 6. Edit `alfresco-global.properties` and replace the relevant values for your case:
 
@@ -931,7 +929,7 @@ The following properties are available for fully-distributed caches and aren't s
 | -------- | ----------- |
 | cluster.type | The `cluster.type` attribute determines what type of cache is created when clustering is available. The acceptable values are: {::nomarkdown}<ul><li>fully-distributed: Uses a Hazelcast IMap backed distributed cache. The cache values can be stored on any member of the cluster, hence the term fully-distributed.</li><li>local: Always use a non-clustered cache. The cache values won't reflect updates made to the equivalent cache on another cluster member.</li><li>invalidating: Uses a local cache, but when an update or a removal is issued to the cache, an invalidation message is broadcast to all members of the cluster, and those members will remove the value from their cache. This value is useful where frequent reads cause performance problems (due to remote reads) or where values are non-serializable.</li></ul>{:/}|
 | backup-count | The `backup-count` attribute controls how many cluster members should hold a backup of the key/value pair. |
-| merge-policy | The `merge-policy` attribute determines how Hazelcast recovers from split brain syndrome, for example: {::nomarkdown}<ul><li>com.hazelcast.map.merge.PassThroughMergePolicy</li><li>com.hazelcast.map.merge.PutIfAbsentMapMergePolicy (the default)</li><li>com.hazelcast.map.merge.HigherHitsMapMergePolicy</li><li>com.hazelcast.map.merge.LatestUpdateMapMergePolicy</li></ul>{:/}<br><br>See [Network Partitioning (Split-Brain Syndrome)](https://docs.hazelcast.org/docs/latest/manual/html-single/#network-partitioning){:target="_blank"} for more information. |
+| merge-policy | The `merge-policy` attribute determines how Hazelcast recovers from split brain syndrome, for example: {::nomarkdown}<ul><li>com.hazelcast.map.merge.PassThroughMergePolicy</li><li>com.hazelcast.map.merge.PutIfAbsentMapMergePolicy (the default)</li><li>com.hazelcast.map.merge.HigherHitsMapMergePolicy</li><li>com.hazelcast.map.merge.LatestUpdateMapMergePolicy</li></ul>{:/}<br><br>See [Network Partitioning (Split-Brain Syndrome)](https://docs.hazelcast.com/imdg/latest/#network-partitioning){:target="_blank"} for more information. |
 
 ## Add a MIME type
 

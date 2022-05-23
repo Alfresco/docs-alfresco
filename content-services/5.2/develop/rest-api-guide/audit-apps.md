@@ -1,61 +1,43 @@
 ---
-title: Managing Audit Applications and Logs 
+title: Managing Audit Applications and Logs
 ---
 
 This section walks through how to manage audit applications and their audit logs via the ReST API.
 
-Audit logging is not enabled by default, but when it is enabled it is essential to be able to manage audit applications and their logs.
+Audit logging is not enabled by default, but when it is enabled it is essential to be able to manage audit applications
+and their logs.
 
 The ReST API supports listing audit applications, listing audit entries (logs), deleting audit entries etc.
 
-If you are not familiar with audit logging in ACS, then have a look at this [page]({% link content-services/5.2/admin/audit.md %}#auditing).
+If you are not familiar with audit logging in ACS, then have a look at this [page]({% link content-services/5.2/admin/audit.md %}).
 
--   **[Enable auditing and Alfresco Access audit application](#enable-auditing-and-alfresco-access-audit-application)**  
-Enable auditing in Alfresco repo and enable the out-of-the-box preconfigured "Alfresco Access" Audit Application.
--   **[List audit applications](#list-audit-applications)**  
-List audit appplications.
--   **[Get audit application metadata](#get-audit-application-metadata)**  
-Get the metadata (i.e. properties) for an audit application in the repository.
--   **[Enable/Disable an audit application](#enable-disable-audit-application)**  
-Enabling and disabling an audit application in the repository.
--   **[List audit entries (logs) for an audit application](#list-audit-entries-logs-for-an-audit-application)**  
-List audit entries for an audit application in the repository.
--   **[List audit entries (logs) for a node](#list-audit-entries-logs-for-a-node)**  
-List all the audit entries (logs) for a node, such as a folder or file.
--   **[Get an audit entry (log)](#get-an-audit-entry-log)**  
-Get the metadata (i.e. properties) for a group in the repository.
--   **[Delete audit entries (logs) for an audit application](#delete-audit-entries-logs-for-an-audit-application)**  
-Permanently delete audit entries (logs) for an audit application.
--   **[Delete an audit entry (log) for an audit application](#delete-an-audit-entry-log-for-an-audit-application)**  
-Delete a single audit entry (log) for an audit application.
-
-## Enable auditing and Alfresco Access audit application {#enable-auditing-and-alfresco-access-audit-application}
+## Enable auditing and Alfresco Access audit application
 
 Enable auditing in Alfresco repo and enable the out-of-the-box preconfigured "Alfresco Access" Audit Application.
 
-This section has a lot of examples where the "Alfresco Access" audit application has been enabled. So in order to get a better feeling for how the Audit ReST API works, it make sense to enable this audit application before moving on with the examples in this section.
+This section has a lot of examples where the "Alfresco Access" audit application has been enabled. So in order to get a
+better feeling for how the Audit ReST API works, it make sense to enable this audit application before moving on with
+the examples in this section.
 
-This [page]({% link content-services/5.2/admin/audit.md %}#how-to-enable-auditing) has all the info you need to enable this audit application.
+This [page]({% link content-services/5.2/admin/audit.md %}#enableauditing) has all the info you need to enable this
+audit application.
 
-## List audit applications
+## List audit applications {#listauditapps}
 
-List audit appplications.
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/audit/listAuditApps](http://localhost:8080/api-explorer/#!/audit/listAuditApps){:target="_blank"}
 
-|API Call|GET /audit-applications|
-|--------|-----------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/audit/listAuditApps](http://localhost:8080/api-explorer/#!/audit/listAuditApps)|
-|See also|[How to list audit entries (logs) for an application](#list-audit-entries---application)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**See also:** [How to list audit entries (logs) for an application](#listauditlogsforapp)
 
-To list audit applications you must have admin rights. What this means is that the user that is making the ReST call must be a member of the `ALFRESCO_ADMINISTRATORS` group.
+To list audit applications you must have admin rights. What this means is that the user that is making the ReST call must
+be a member of the `ALFRESCO_ADMINISTRATORS` group.
 
 To list audit applications use the following GET call:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications`
 
 Here is how to make the call:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -89,7 +71,8 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-In this case the repository has two audit applications enabled. We can see that they are enabled by looking at the `isEnabled` property.
+In this case the repository has two audit applications enabled. We can see that they are enabled by looking at the
+`isEnabled` property.
 
 When we want to get more data for a specific audit application we will use the `id`.
 
@@ -97,7 +80,7 @@ As in many other endpoints you can use the `fields` parameter to specify what pr
 
 If we wanted to return only the audit app identifier, then we could set `fields=id` as follows:
 
-```
+```bash
 curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications?fields=id' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -126,27 +109,27 @@ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4Z
   }
 }
 ```
+
 ## Get audit application metadata
 
 Get the metadata (i.e. properties) for an audit application in the repository.
 
-|API Call|GET /audit-applications/{id}|
-|--------|------------------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/audit/getAuditApp](http://localhost:8080/api-explorer/#!/audit/getAuditApp)|
-|See also|[How to list audit applications](#list-audit-applications)|
-|Repository Info|[Concepts](#list-audit-applications)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/audit/getAuditApp](http://localhost:8080/api-explorer/#!/audit/getAuditApp){:target="_blank"}
 
-To get metadata for an audit application you must have admin rights. What this means is that the user that is making the ReST call must be a member of the `ALFRESCO_ADMINISTRATORS` group.
+**See also:** [How to list audit applications](#listauditapps)
+
+To get metadata for an audit application you must have admin rights. What this means is that the user that is making the
+ReST call must be a member of the `ALFRESCO_ADMINISTRATORS` group.
 
 Getting the metadata (i.e. properties) for an audit application is done with the following GET call:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/{id}**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/{id}`
 
 The identifier for the audit application we want to get metadata for is specified with the `{id}` parameter.
 
 To get metadata for an audit application with id `alfresco-access` make the following call:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/alfresco-access' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -160,13 +143,14 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-As usual, the `fields` parameter can be used to return more or less data. If we wanted to only return info about if the audit application is enabled or not, then we could set `fields=isEnabled` as in the following call:
+As usual, the `fields` parameter can be used to return more or less data. If we wanted to only return info about if the
+audit application is enabled or not, then we could set `fields=isEnabled` as in the following call:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/alfresco-access?fields=isEnabled' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100    28    0    28    0     0    848      0 --:--:-- --:--:-- --:--:--   848
+100    28    0    28    0     0    848      0 --:--:-- --:--:-- --:--:-* 848
 {
   "entry": {
     "isEnabled": true
@@ -174,26 +158,24 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-## Enable/Disable an audit application {#enable-disable-audit-application}
+## Enable/Disable an audit application {#enabledisableapp}
 
 Enabling and disabling an audit application in the repository.
 
-|API Call|PUT /audit-applications/{id}|
-|--------|------------------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/audit/updateAuditApp](http://localhost:8080/api-explorer/#!/audit/updateAuditApp)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/audit/updateAuditApp](http://localhost:8080/api-explorer/#!/audit/updateAuditApp){:target="_blank"}
 
-To update an audit application you must have admin rights. What this means is that the user that is making the ReST call must be a member of the `ALFRESCO_ADMINISTRATORS` group.
+To update an audit application you must have admin rights. What this means is that the user that is making the ReST call
+must be a member of the `ALFRESCO_ADMINISTRATORS` group.
 
 It’s possible to update the audit app's `isEnabled` property. Use the following PUT call:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/{id}**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/{id}`
 
 The identifier for the audit app to be updated is specified with the `{id}` parameter.
 
 The body for an audit app update call looks like this:
 
-```
+```json
 {
     "isEnabled": [true | false]
 }
@@ -201,7 +183,7 @@ The body for an audit app update call looks like this:
 
 To disable an audit application with the id `alfresco-access` make the following call:
 
-```
+```bash
 $ curl -X PUT -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "isEnabled": false }' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/alfresco-access' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -217,31 +199,36 @@ $ curl -X PUT -H 'Content-Type: application/json' -H 'Accept: application/json' 
 
 The response shows that the audit app has indeed been disabled.
 
-New audit entries (logs) will not be created for a disabled audit application until it's re-enabled (and system-wide auditing is also enabled).
+New audit entries (logs) will not be created for a disabled audit application until it's re-enabled (and system-wide
+auditing is also enabled).
 
-Note, it's still possible to query and/or delete any existing audit entries (logs) even if auditing is disabled for the audit application.
+Note, it's still possible to query and/or delete any existing audit entries (logs) even if auditing is disabled for the
+audit application.
 
-## List audit entries (logs) for an audit application {#list-audit-entries-logs-for-an-audit-application}
+## List audit entries (logs) for an audit application {#listauditlogsforapp}
 
 List audit entries for an audit application in the repository.
 
-|API Call|GET /audit-applications/{id}/audit-entries|
-|--------|--------------------------------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/audit/listAuditEntriesForAuditApp](http://localhost:8080/api-explorer/#!/audit/listAuditEntriesForAuditApp)|
-|See also|[How to list all audit apps](#list-audit-applications) [How to list audit entries for a node, such as folder or file](#list-audit-entries-logs-for-a-node)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/audit/listAuditEntriesForAuditApp](http://localhost:8080/api-explorer/#!/audit/listAuditEntriesForAuditApp){:target="_blank"}
 
-To list audit entries you must have admin rights. What this means is that the user that is making the ReST call must be a member of the `ALFRESCO_ADMINISTRATORS` group.
+**See also:**
+
+* [How to list all audit apps](#listauditapps)
+* [How to list audit entries for a node, such as folder or file](#listauditlogsnode)
+
+To list audit entries you must have admin rights. What this means is that the user that is making the ReST call must be
+a member of the `ALFRESCO_ADMINISTRATORS` group.
 
 To list all audit entries (logs) for an audit application use the following GET call:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/{id}/audit-entries**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/{id}/audit-entries`
 
 The `id` parameter is the audit app identifier.
 
-For example, to list all audit entries (logs) for an audit application with the identifier "alfresco-access" the following call can be used:
+For example, to list all audit entries (logs) for an audit application with the identifier `alfresco-access` the
+following call can be used:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/alfresco-access/audit-entries' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -415,13 +402,15 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-The response contains a high level view of the audit entries that have been created for the audit app. However, it doesn't show you any detailed information about what operation that was performed. Was there a login, logout, file created, folder created etc?
+The response contains a high level view of the audit entries that have been created for the audit app. However, it doesn't
+show you any detailed information about what operation that was performed. Was there a login, logout, file created,
+folder created etc?
 
 We can get more detailed audit log entry information by using the `include` parameter and setting it to `include=values`.
 
 Here is the call again with more info returned:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/alfresco-access/audit-entries?include=values' | jq
  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                 Dload  Upload   Total   Spent    Left  Speed
@@ -705,13 +694,19 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-Now we get a much better idea of what has been going on in the repository. Who has been accessing it and when (login, logout) and what content that was read. We can also see that a file was created by user martin.
+Now we get a much better idea of what has been going on in the repository. Who has been accessing it and when (login,
+logout) and what content that was read. We can also see that a file was created by user martin.
 
-It's also possible to fetch logs for a certain time period. Let's say we just wanted logs between 2019-12-20T09:00:00 and 2019-12-20T10:00:00, we can achieve this by using the `where` clause and the `BETWEEN` keyword. The `where` clause would look like `where=(createdAt BETWEEN ('2019-12-20T09:00:00.000+0000','2019-12-20T10:00:00.000+0000'))` for our example. We can see that the date and time format matches the response above, where the created date has been returned in the same format (e.g. `"createdAt": "2019-12-20T11:53:25.534+0000"`). It's possible to specify the date and time in other formats too, the following works: `'2019-12-20T09:00:00.000+00:00','2019-12-20T10:00:00.000+00:00' and '2019-12-20T09:00:00.000Z','2019-12-20T10:00:00.000Z'`.
+It's also possible to fetch logs for a certain time period. Let's say we just wanted logs between 2019-12-20T09:00:00
+and 2019-12-20T10:00:00, we can achieve this by using the `where` clause and the `BETWEEN` keyword. The `where` clause
+would look like `where=(createdAt BETWEEN ('2019-12-20T09:00:00.000+0000','2019-12-20T10:00:00.000+0000'))` for our
+example. We can see that the date and time format matches the response above, where the created date has been returned
+in the same format (e.g. `"createdAt": "2019-12-20T11:53:25.534+0000"`). It's possible to specify the date and time in
+other formats too, the following works: `'2019-12-20T09:00:00.000+00:00','2019-12-20T10:00:00.000+00:00' and '2019-12-20T09:00:00.000Z','2019-12-20T10:00:00.000Z'`.
 
 Here is the call to demonstrate this:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' "http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/alfresco-access/audit-entries?where=(createdAt%20BETWEEN%20('2019-12-20T09%3A00%3A00.000%2B0000'%2C'2019-12-20T10%3A00%3A00.000%2B0000'))" | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -766,29 +761,29 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 
 Now we got only the 3 log entries back that matches the date range.
 
-A few things to note here when using **curl** to make this call. Because the date and time format uses single quotes (') the whole URL string needs to be enclosed with double quotes (") and the `where` clause need to be encoded.
+A few things to note here when using **curl** to make this call. Because the date and time format uses single quotes
+(') the whole URL string needs to be enclosed with double quotes (") and the `where` clause need to be encoded.
 
-## List audit entries (logs) for a node {#list-audit-entries-logs-for-a-node}
+## List audit entries (logs) for a node {#listauditlogsnode}
 
 List all the audit entries (logs) for a node, such as a folder or file.
 
-|API Call|GET /nodes/{id}/audit-entries|
-|--------|-------------------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/audit/listAuditEntriesForNode](http://localhost:8080/api-explorer/#!/audit/listAuditEntriesForNode)|
-|See also|[How to list audit entries (logs) for an audit app](#list-audit-entries-logs-for-an-audit-application)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/audit/listAuditEntriesForNode](http://localhost:8080/api-explorer/#!/audit/listAuditEntriesForNode){:target="_blank"}
 
-Sometimes you need to list audit entries for a single node, such as a folder or a file. Most other audit log endpoints requires the caller to be an admin. Not in this case though, the user just need to have access to the node.
+**See also:** [How to list audit entries (logs) for an audit app](#listauditlogsforapp)
+
+Sometimes you need to list audit entries for a single node, such as a folder or a file. Most other audit log endpoints
+requires the caller to be an admin. Not in this case though, the user just need to have access to the node.
 
 The following GET call is used for this:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/{id}/audit-entries**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/{id}/audit-entries`
 
 The identifier for the node we want to list audit entries (logs) for is specified with the `{id}` parameter.
 
 Here is how to get all audit entries for a text file with Node id `f0587f6b-f6ec-44ed-a7d2-db18865fd1db`:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/f0587f6b-f6ec-44ed-a7d2-db18865fd1db/audit-entries' | jq  
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -841,13 +836,15 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-The response contains a high level view of the audit entries that have been created for the node, which in this case is a text file. However, it doesn't show you any detailed information about what operation(s) that was performed on the file. Was the file just created, updated, or what?
+The response contains a high level view of the audit entries that have been created for the node, which in this case is
+a text file. However, it doesn't show you any detailed information about what operation(s) that was performed on the file.
+Was the file just created, updated, or what?
 
 We can get more detailed audit log entry information by using the `include` parameter and setting it to `include=values`.
 
 Here is the call again with more info returned:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/f0587f6b-f6ec-44ed-a7d2-db18865fd1db/audit-entries?include=values' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -985,17 +982,23 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-Now we get a much better idea of what has been going on with the file. It was first created by user **test**, then read by user **test**, and finally updated by user **test**.
+Now we get a much better idea of what has been going on with the file. It was first created by user **test**, then read
+by user **test**, and finally updated by user **test**.
 
-It's also possible to fetch logs for a certain time period. Let's say we just wanted logs for the text file after 2020-01-02 14:00:00, we can achieve this by using the `where` clause and the `BETWEEN` keyword. The `where` clause would look like `where=(createdAt BETWEEN ('2020-01-02T14:00:00.000+0000','2020-01-29T00:00:00.000+0000'))` for our example. We can see that the date and time format matches the response above, where the created date has been returned in the same format (e.g. `"createdAt": "2020-01-02T14:09:29.018+0000"`). It's possible to specify the date and time in other formats too, the following works: `'2020-01-02T14:00:00.000+00:00','2020-01-29T00:00:00.000+00:00' and '2020-01-02T14:00:00.000Z','2020-01-29T00:00:00.000Z'`.
+It's also possible to fetch logs for a certain time period. Let's say we just wanted logs for the text file after
+2020-01-02 14:00:00, we can achieve this by using the `where` clause and the `BETWEEN` keyword. The `where` clause would
+look like `where=(createdAt BETWEEN ('2020-01-02T14:00:00.000+0000','2020-01-29T00:00:00.000+0000'))` for our example.
+We can see that the date and time format matches the response above, where the created date has been returned in the same
+format (e.g. `"createdAt": "2020-01-02T14:09:29.018+0000"`). It's possible to specify the date and time in other formats too,
+the following works: `'2020-01-02T14:00:00.000+00:00','2020-01-29T00:00:00.000+00:00' and '2020-01-02T14:00:00.000Z','2020-01-29T00:00:00.000Z'`.
 
 Here is the call to demonstrate this:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' "http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/f0587f6b-f6ec-44ed-a7d2-db18865fd1db/audit-entries?where=(createdAt%20BETWEEN%20('2020-01-02T14%3A00%3A00.000%2B0000'%2C'2020-01-29T00%3A00%3A00.000%2B0000'))" | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   428    0   428    0     0    160      0 --:--:--  0:00:02 --:--:--   160
+100   428    0   428    0     0    160      0 --:--:--  0:00:02 --:--:-* 160
 {
   "list": {
     "pagination": {
@@ -1035,89 +1038,54 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 
 Now we got only the 2 log entries back that matches the date range.
 
-A few things to note here when using **curl** to make this call. Because the date and time format uses single quotes (') the whole URL string needs to be enclosed with double quotes (") and the `where` clause need to be encoded.
+A few things to note here when using **curl** to make this call. Because the date and time format uses single quotes (')
+the whole URL string needs to be enclosed with double quotes (") and the `where` clause need to be encoded.
 
-## Get an audit entry (log) {#get-an-audit-entry-log}
+## Get an audit entry (log)
 
-Get the metadata (i.e. properties) for a group in the repository.
+Get the metadata (i.e. properties) for an audit entry (i.e. log) in the repository.
 
-|API Call|GET /groups/{id}|
-|--------|------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/groups/getGroup](http://localhost:8080/api-explorer/#!/groups/getGroup)|
-|See also|[How to get the members (people and groups) of a group](#dev-api-by-language-alf-rest-manage-people-groups-list-peo)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/audit/getAuditEntry](http://localhost:8080/api-explorer/#!/audit/getAuditEntry){:target="_blank"}
 
-Getting the metadata (i.e. properties) for a group is done with the following GET call:
+To get metadata for an audit entry you must have admin rights. What this means is that the user that is making the
+ReST call must be a member of the `ALFRESCO_ADMINISTRATORS` group.
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/{id}**
+Getting the metadata (i.e. properties) for an audit entry is done with the following GET call:
 
-The identifier for the group we want to get metadata for is specified with the `{id}` parameter.
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/{id}/audit-entry/{entryId}`
 
-To get metadata for a group with id `engineering` make the following call:
+The identifier for the audit application we want to get metadata for is specified with the `{id}` parameter, and the
+audit entry is specified with the `{entryId}` parameter.
 
-```
-$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering' | jq
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100    86    0    86    0     0  10750      0 --:--:-- --:--:-- --:--:-- 10750
-{
-  "entry": {
-    "isRoot": true,
-    "displayName": "Engineering UPDATED",
-    "id": "GROUP_engineering"
-  }
-}
-```
-
-Note that the group `id` has to be prefixed with `GROUP_`.
-
-The `include` parameter can be used to return `parentIds` and `zones`:
-
-```
-$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering?include=parentIds,zones' | jq
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100   136    0   136    0     0  11333      0 --:--:-- --:--:-- --:--:-- 11333
-{
-  "entry": {
-    "isRoot": true,
-    "displayName": "Engineering UPDATED",
-    "parentIds": [],
-    "id": "GROUP_engineering",
-    "zones": [
-      "APP.DEFAULT",
-      "AUTH.ALF"
-    ]
-  }
-}
-```
-## Delete audit entries (logs) for an audit application {#delete-audit-entries-log-for-an-audit-application}
+## Delete audit entries (logs) for an audit application {#deletemultipleauditentries}
 
 Permanently delete audit entries (logs) for an audit application.
 
-|API Call|DELETE /audit-applications/{id}/audit-entries|
-|--------|-----------------------------------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/audit/deleteAuditEntriesForAuditApp](http://localhost:8080/api-explorer/#!/audit/deleteAuditEntriesForAuditApp)|
-|See also|[How to delete a single audit entry (log) for an app](#delete-an-audit-entry-log-for-an-audit-application)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/audit/deleteAuditEntriesForAuditApp](http://localhost:8080/api-explorer/#!/audit/deleteAuditEntriesForAuditApp){:target="_blank"}
 
-To permanently delete audit entries for an audit application you must have admin rights. What this means is that the user that is making the ReST call must be a member of the `ALFRESCO_ADMINISTRATORS` group.
+**See also:** [How to delete a single audit entry (log) for an app](#deletesingleentry)
+
+To permanently delete audit entries for an audit application you must have admin rights. What this means is that the
+user that is making the ReST call must be a member of the `ALFRESCO_ADMINISTRATORS` group.
 
 To delete audit entries the following DELETE call is used:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/{id}/audit-entries?where=(datetime range or id range)**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/{id}/audit-entries?where=(datetime range or id range)`
 
 The audit application that you want to delete audit entries from is identified with the `id` parameter.
 
 It's mandatory to specify a `where` clause with a date and time range or an audit entry id range. This range is inclusive.
 
-To demonstrate deleting audit entries we will work with the `alfresco-access` audit application and a number of audit entried (logs) in a specific time range.
+To demonstrate deleting audit entries we will work with the `alfresco-access` audit application and a number of
+audit entries (logs) in a specific time range.
 
-In this example we just want logs between 2019-12-20T09:00:00 and 2019-12-20T10:00:00, we can achieve this by using the `where` clause and the `BETWEEN` keyword. The `where` clause would look like `where=(createdAt BETWEEN ('2019-12-20T09:00:00.000+0000','2019-12-20T10:00:00.000+0000'))` for our example.
+In this example we just want logs between 2019-12-20T09:00:00 and 2019-12-20T10:00:00, we can achieve this by using the
+`where` clause and the `BETWEEN` keyword. The `where` clause would look like `where=(createdAt BETWEEN ('2019-12-20T09:00:00.000+0000','2019-12-20T10:00:00.000+0000'))`
+for our example.
 
 Here is the call to get these logs, so we know how many that would be deleted:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' "http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/alfresco-access/audit-entries?where=(createdAt%20BETWEEN%20('2019-12-20T09%3A00%3A00.000%2B0000'%2C'2019-12-20T10%3A00%3A00.000%2B0000'))" | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -1170,20 +1138,23 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-We got 3 log entries back and if we use the same date and time range when deleting, then these are the logs that will be removed permanently. A few things to note here when using **curl** to make this call. Because the date and time format uses single quotes (') the whole URL string needs to be enclosed with double quotes (") and the `where` clause need to be encoded.
+We got 3 log entries back and if we use the same date and time range when deleting, then these are the logs that will
+be removed permanently. A few things to note here when using **curl** to make this call. Because the date and time format
+uses single quotes (') the whole URL string needs to be enclosed with double quotes (") and the `where` clause need to be encoded.
 
-To delete log entries permanently that matches the 2019-12-20T09:00:00 and 2019-12-20T10:00:00 time range for the `alfresco-access` audit application use the following DELETE call:
+To delete log entries permanently that matches the 2019-12-20T09:00:00 and 2019-12-20T10:00:00 time range for the
+`alfresco-access` audit application use the following DELETE call:
 
-```
+```bash
 $ curl -X DELETE -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' "http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/alfresco-access/audit-entries?where=(createdAt%20BETWEEN%20('2019-12-20T09%3A00%3A00.000%2B0000'%2C'2019-12-20T10%3A00%3A00.000%2B0000'))" | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:-*   0
 ```
 
 To check that the entries are indeed deleted we can try and get them again:
 
-```
+```bash
 curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzIwMTI2NTNhODU1MTFjYWUxNTFmMzM5M2MwMDdiZDYzZjA1NDE2NGM=' "http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/alfresco-access/audit-entries?where=(createdAt%20BETWEEN%20('2019-12-20T09%3A00%3A00.000%2B0000'%2C'2019-12-20T10%3A00%3A00.000%2B0000'))" | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -1202,31 +1173,33 @@ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzIwM
 }
 ```
 
-We can also remove audit entries for an audit application using audit entries id ranges. The above audit entries we just deleted using a date and time range could also have been deleted using the following where clause: `where=(id BETWEEN ('1', '3')`. Both the date and time range and the id range are inclusive.
+We can also remove audit entries for an audit application using audit entries id ranges. The above audit entries we
+just deleted using a date and time range could also have been deleted using the following where clause:
+`where=(id BETWEEN ('1', '3')`. Both the date and time range and the id range are inclusive.
 
-## Delete an audit entry (log) for an audit application {#delete-an-audit-entry-log-for-an-audit-application}
+## Delete an audit entry (log) for an audit application {#deletesingleentry}
 
 Delete a single audit entry (log) for an audit application.
 
-|API Call|DELETE /audit-applications/{id}/audit-entries/{auditEntryId}|
-|--------|----------------------------------------------------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/audit/deleteAuditEntry](http://localhost:8080/api-explorer/#!/audit/deleteAuditEntry)|
-|See also|[Delete multiple audit entries for an app](#delete-audit-entries-log-for-an-audit-application|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/audit/deleteAuditEntry](http://localhost:8080/api-explorer/#!/audit/deleteAuditEntry){:target="_blank"}
 
-To delete an audit entry for an audit application you must have admin rights. What this means is that the user that is making the ReST call must be a member of the `ALFRESCO_ADMINISTRATORS` group.
+**See also:** [Delete multiple audit entries for an app](#deletemultipleauditentries)
+
+To delete an audit entry for an audit application you must have admin rights. What this means is that the user that is
+making the ReST call must be a member of the `ALFRESCO_ADMINISTRATORS` group.
 
 To delete an audit entry (log) from an audit app the following DELETE call is used:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/{id}/audit-entries/{auditEntryId}**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/{id}/audit-entries/{auditEntryId}`
 
-The audit application that you want to delete the audit entry from is identified with the `id` parameter. The audit entry that you want to delete is idenfied with the `auditEntryId`.
+The audit application that you want to delete the audit entry from is identified with the `id` parameter. The audit
+entry that you want to delete is identified with the `auditEntryId`.
 
 To demonstrate deleting a single audit entry we will fetch a few audit entries for a file node and then delete one of them.
 
 Here is how to get all audit entries for a text file with Node id `f0587f6b-f6ec-44ed-a7d2-db18865fd1db`:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/f0587f6b-f6ec-44ed-a7d2-db18865fd1db/audit-entries' | jq  
 % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -1281,16 +1254,16 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 
 To delete the audit entry with the id `26` from the audit application with id `alfresco-access` use the following DELETE call:
 
-```
+```bash
 $ curl -X DELETE -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/alfresco-access/audit-entries/26' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:-*   0
 ```
 
 To verify that the audit entry has indeed been deleted we can get all the audit entries for the node again:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/f0587f6b-f6ec-44ed-a7d2-db18865fd1db/audit-entries' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -1331,3 +1304,5 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
   }
 }
 ```
+
+

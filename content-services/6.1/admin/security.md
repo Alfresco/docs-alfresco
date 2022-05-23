@@ -1152,11 +1152,11 @@ If you lose or forget the password for the Admin user, you can reset the passwor
 
 You can configure a number of policies and filters in Alfresco Share to mitigate security attacks. You can also configure filters in Alfresco Repository to mitigate security attacks when the Content Services ReST API is accessed externally.
 
-The Open Web Application Security Project (OWASP) describes **Cross-Site Request Forgery (CSRF)** as a type of attack that occurs when a malicious web site, email, blog, instant message, or program causes a user's web browser to perform an unwanted action on a trusted site for which the user is currently authenticated (see the [Cross-Site_Request_Forgery Prevention_Cheat_Sheet](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_%28CSRF%29_Prevention_Cheat_Sheet)).
+The Open Web Application Security Project (OWASP) describes **Cross-Site Request Forgery (CSRF)** as a type of attack that occurs when a malicious web site, email, blog, instant message, or program causes a user's web browser to perform an unwanted action on a trusted site for which the user is currently authenticated (see the [Cross-Site_Request_Forgery Prevention_Cheat_Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html){:target="_blank"}).
 
 The Share application must be accessible on the network to be available to users, and so it is protected with a CSRF filter. You should then also ensure that `/alfresco` is protected behind a firewall. If another user interface client is used (that is, not Share), such as an ADF application that directly accesses the Content Services ReST API, then `/alfresco` needs to be protected with a CSRF filter.
 
-If you want to protect those areas against CSRF attacks, then you'll need to implement a solution similar to one of those listed in the [CSRF prevention cheat sheet](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_%28CSRF%29_Prevention_Cheat_Sheet). Of particular interest is a solution based on Apache with `mod_csrf` because of efficiency and its loose coupling with the applications to protect.
+If you want to protect those areas against CSRF attacks, then you'll need to implement a solution similar to one of those listed in the [CSRF prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html){:target="_blank"}. Of particular interest is a solution based on Apache with `mod_csrf` because of efficiency and its loose coupling with the applications to protect.
 
 ### Alfresco Share Security policies and filters
 
@@ -1422,7 +1422,7 @@ The CSRF filter can be configured in the `web-client-security-config.xml` file, 
 ```text
 # CSRF filter overrides
 csrf.filter.enabled=true
-csrf.filter.referer=https://mydomain.com/*.
+csrf.filter.referer=https://mydomain.com/.*
 csrf.filter.referer.always=false
 csrf.filter.origin=https://mydomain.com
 csrf.filter.origin.always=false

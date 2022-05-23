@@ -45,7 +45,7 @@ See [Prerequisites for using Salesforce Connector](#prerequisites) for more info
 
 1. Stop the Alfresco server.
 
-2. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}, and download and unzip the Salesforce zip package.
+2. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"}, download and unzip the Salesforce zip package.
 
 3. Copy the provided AMP files to the Alfresco amps and amps_share directories.
 
