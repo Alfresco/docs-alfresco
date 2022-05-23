@@ -472,7 +472,21 @@ The actions that can be run against a form are:
 
 ## Form rules
 
-Form rules can be used to 
+Form rules can be used to populate one field depending on the response given by a user in another field.
+
+> **Note:** Form rules are specific to your installation and configuration. The example described here creates a form rule called title that has two fields on it, the first is called `Gender` and the second is called `Title`. The first field is a dropdown list and contains the options `Man`, `Woman`, and `Other`. Depending on which option is selected determines what is displayed in the second field. If `Woman` is selected then the second field is automatically populated with `Ms`. The form rule ensures that any interaction with the form will contain consistent responses. This example is simple but you can see how form rules work. Your form rules could be more involved.
+
+### Create a form and form rule to identify title
+
+To create a form and form rule:
+
+1. Sign into the Modeling Application and open a Project, and then click the **+** icon next to **Forms**.
+
+    > **Note:** You are able to upload already created form by using the **Upload** button next to **Forms**. Any form you upload must be written in the JSON format.
+
+2. Enter a name for the form, for example 'Title'.
+
+3. 
 
 Click **Edit form rules**
 
@@ -480,7 +494,9 @@ You can respond to an event with one or more actions
 
 Condition builder is already there, there is no expression tab.
 
-This example describes how to create a form where a user can select their gender, and marital status, which then in turn populates another field with either Ms or Mr. If a user selects Married then they must also select the date of the marriage.
+This example describes how to create a form and a rule where a user can select their gender, which in turn populates another field with either Ms, Mr, or other.
+
+
 
 
 
