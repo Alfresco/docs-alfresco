@@ -478,17 +478,38 @@ Form rules can be used to populate one field depending on the response given by 
 
 ### Create a form and form rule to identify title
 
-To create a form and form rule:
+To create a form and a form rule:
 
-1. Sign into the Modeling Application and open a Project, and then click the **+** icon next to **Forms**.
+1. Sign into the Modeling Application and open a Project, click the three dots next to **Forms** and then click the **+** icon.
 
-    > **Note:** You are able to upload already created form by using the **Upload** button next to **Forms**. Any form you upload must be written in the JSON format.
+    > **Note:** You are able to upload already created forms by using the **Upload** button. Any form you upload must be written in the JSON format.
 
-2. Enter a name for the form, for example 'Title'.
+2. Enter a name for the form and then click **Create**
 
-3. 
+3. Add a [Dropdown](dropdown)] widget with the following configuration:
 
-Click **Edit form rules**
+    * **Label** called Gender
+    * **ID** called genderID
+    * Three options with **Male**, **Female**, and **Other** as labels
+
+4. Add a [Display value](Display-value-fields) widget with the following configuration: 
+
+    * **Label** called Title
+    * **ID** called titleID
+
+5. Select the form again by clicking the area above the word **outcome**, see screen shot.
+
+    ![Form editor]({% link process-automation/images/form-editor.png %})
+
+6. In the **Form Editor** pane click **Form Variables**.
+
+7. Click the green **Add button** and create a new variable with the name **title** and select **string** from the **Type > Primitives** dropdown list, and then click **Update**.
+
+8. Select the Display value widget and from the **Field Editor** pane select the **title** variable from the **Variables** dropdown list.
+
+9. Select the form again by clicking the area above the word **outcome** and then click **Edit form rules**.
+
+10. 
 
 You can respond to an event with one or more actions
 
