@@ -308,21 +308,32 @@ You might want to change several other entries (short/full names or descriptions
 
 Now, create a Zip file (without folders) with `manifest.json` and the two icon files.
 
-### Test the Collaboration Connector for Teams app {#test-app}
+### Publish the Collaboration Connector for Teams app {#test-app}
 
-This explains how end-users can add the Collaboration Connector for Teams app / client to their MS Teams 
-environment.
+This explains how a Microsoft Teams Admin user can install the Collaboration Connector for Teams app and make it 
+available to the organisation's users. 
 
->**Note:** A Microsoft Teams Admin can configure an organization-wide Teams App (so that end-users can skip this step).
+>**Note:** It is possible to install the custom app as an end-user. However, doing this might result in problems for 
+>other users to read messages from the user installing the app. It is recommended to install the custom app as a Teams Admin.
 
 In the Teams Client (e.g. webapp / desktop) do the following:
 
 1. Click the **Apps** icon in the lower left corner:
 
-   ![MS Teams Apps]({% link microsoft-teams/images/ms-teams-apps.png %}){:height="700px" width="600px"}
+   ![MS Teams Apps]({% link microsoft-teams/images/ms-teams-apps.png %}){:height="250px" width="200px"}
 
-2. To upload the manifest prepared in the [previous step](#create-teams-integ-app-manifest) click the **Upload a customized app** link
-3. Pick the manifest zip archive, the following screen should be displayed:
+2. Then click the **Manage your apps** menu item to the right. You will then see some actions as follows:
+
+   ![MS Teams Apps]({% link microsoft-teams/images/ms-teams-manage-your-apps.png %})
+
+3. Click the **Publish an app** action, this will display the following form:
+
+   ![MS Teams Apps]({% link microsoft-teams/images/ms-teams-publish-app-form.png %})
+
+4. Select the **Upload a customized app** method to publish the Alfresco Teams integration. Select the manifest prepared 
+   in the [previous step](#create-teams-integ-app-manifest). Pick the manifest zip archive.
+
+5. Pick the manifest zip archive, the following screen should be displayed:
 
    ![MS Teams Integration App loading]({% link microsoft-teams/images/ms-teams-integ-app-loading.png %}){:height="600px" width="600px"}
 
