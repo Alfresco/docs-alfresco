@@ -145,7 +145,6 @@ Property fields evaluate the search term against a particular property, special 
 |Type|Description|
 |-----------|----|
 |Property|Fully qualified property, for example `{http://www.alfresco.org/model/content/1.0}name:apple`|
-|Poroperty|Fully qualified property, for example `@{http://www.alfresco.org/model/content/1.0}name:apple`|
 |Property|CMIS style property, for example `cm_name:apple`.|
 |Property|Prefix style property, for example `cm:name:apple`.|
 |Property|Prefix style property, for example `@cm:name:apple`.|
