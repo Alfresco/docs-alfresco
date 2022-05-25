@@ -358,12 +358,11 @@ These examples show how to embed queries in CMIS.
 
 ```sql
 - strict queries
-SELECT * FROM Document WHERE CONTAINS("zebra")
 SELECT * FROM Document WHERE CONTAINS("quick")
 
 - Alfresco extensions
-SELECT * FROM Document D WHERE CONTAINS(D, 'cmis:name:'Tutorial")
-SELECT cmis:name as BOO FROM Document D WHERE CONTAINS('BOO:'Tutorial")
+SELECT * FROM Document D WHERE CONTAINS(D, 'cmis:name:\'Tutorial\'')
+SELECT cmis:name as BOO FROM Document D WHERE CONTAINS('BOO:\'Tutorial\'')
 ```
 
 ## Search Service
