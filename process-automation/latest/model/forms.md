@@ -472,27 +472,31 @@ The actions that can be run against a form are:
 
 ## Form rules
 
-Form rules can be used to populate one field depending on the response given by a user in another field.
+Form rules can be used to populate one field depending on the response given by a user in another field. In the example described here you create a form rule called **how_to_address** that has two fields on it, the first is called **Gender** and the second is called **Title**. The first field is a dropdown list and contains the options **Man**, **Woman**, and **Other**. If **Woman** is selected then the second field is automatically populated with **Ms**. The form rule ensures that any interaction with the form will contain consistent responses. This is a simple example and your form rules could be more involved.
 
-> **Note:** Form rules are specific to your installation and configuration. The example described here creates a form rule called title that has two fields on it, the first is called `Gender` and the second is called `Title`. The first field is a dropdown list and contains the options `Man`, `Woman`, and `Other`. Depending on which option is selected determines what is displayed in the second field. If `Woman` is selected then the second field is automatically populated with `Ms`. The form rule ensures that any interaction with the form will contain consistent responses. This example is simple but you can see how form rules work. Your form rules could be more involved.
+These instructions are in two parts. You first create a form, and then second create the form rules.
 
-### Create a form and form rule to identify title
+> **Note:** Form rules are specific to your installation and configuration.
 
-To create a form and a form rule:
+### Create the form
 
-1. Sign into the Modeling Application and open a Project, click the three dots next to **Forms** and then click the **+** icon.
+First you must create a form that can be used to configure the form rule:
+
+1. Sign into the Modeling Application and open a Project, click the three dots next to **Forms** and then select the **+** icon.
 
     > **Note:** You are able to upload already created forms by using the **Upload** button. Any form you upload must be written in the JSON format.
 
-2. Enter a name for the form and then click **Create**
+2. Enter a name for the form and then click **Create**.
 
-3. Add a [Dropdown](dropdown)] widget with the following configuration:
+    In this example the form is called **how-to-address**.
+
+3. Add a [Dropdown](#dropdown-fields) widget with the following configuration:
 
     * **Label** called Gender
     * **ID** called genderID
-    * Three options with **Male**, **Female**, and **Other** as labels
+    * Three options with **Male**, **Female**, and **Other** as their IDs and Labels.
 
-4. Add a [Display value](Display-value-fields) widget with the following configuration: 
+4. Add a [display value field](#display-value-fields) widget with the following configuration:
 
     * **Label** called Title
     * **ID** called titleID
@@ -501,24 +505,64 @@ To create a form and a form rule:
 
     ![Form editor]({% link process-automation/images/form-editor.png %})
 
-6. In the **Form Editor** pane click **Form Variables**.
+6. In the **Form Editor** pane click **Edit Form Variables**.
 
-7. Click the green **Add button** and create a new variable with the name **title** and select **string** from the **Type > Primitives** dropdown list, and then click **Update**.
+7. Click the **+** icon and create a new variable with the name **title**.
 
-8. Select the Display value widget and from the **Field Editor** pane select the **title** variable from the **Variables** dropdown list.
+8. From the **Type** dropdown list select **Primitives** and then **string**, and then click **Update**.
 
-9. Select the form again by clicking the area above the word **outcome** and then click **Edit form rules**.
+9. Select the **Display value** widget, and from the **Field Editor** pane select the **title** variable from the **Variables** dropdown list.
 
-10. 
+You have created a form where you can create form rules.
 
-You can respond to an event with one or more actions
+### Create form rules within the form  
 
-Condition builder is already there, there is no expression tab.
+To create form rules within the form:
 
-This example describes how to create a form and a rule where a user can select their gender, which in turn populates another field with either Ms, Mr, or other.
+1. Select the form again by clicking the area above the word **outcome** and then click **Edit form rules**.
 
+2. Click the green **+** icon to create a new rule.
 
+3. From the **Event source** dropdown list click **Form events** and select **Form loaded**.
 
+4. Click the **+** icon next to **Actions** to create a new action.
 
+5. From the **Action type** dropdown list click **Update variable** and select **Title**.
 
+    You are selecting the display value widget you created earlier.
 
+6. Click the **Edit** button next to the **Event output** dropdown list that is under the **Event output/Value** heading.
+
+7. Select **Value** from the right hand side and enter a value in the **Value** field, for example *Select your gender*, and then click **Update**.
+
+    This message will appear in the blank field of the display value widget before a user has selected their gender from the **Gender** dropdown list.
+
+8. Click the green **+** icon again to create a new rule.
+
+9. From the **Event source** dropdown list click **Field events** and then Click **Gender** and select **Gender - field value changes**.
+
+10. Click the **+** icon next to **Condition** to create a new condition.
+
+11. Select **Gender** from underneath the **title (Form fields)** heading.
+
+12. Select **Equals** and then **Value** from the top right.
+
+13. Enter **Female** into the **Value** field and then click **Save**.  
+
+14. Click the green **+** icon next to **Actions** to create a new action.
+
+15. From the **Action type** dropdown list click **Update variable** and select **Title**.
+
+16. Click the **Edit** button next to the **Event output** dropdown list which is under the **Event output/Value** heading.
+
+17. Select **Value** from the right hand side and enter a value, for example **Ms** and then click **Update**.
+
+    You are configuring the form to display **Ms** in the **Title** display value field widget when a user selects **Female** from the **Gender** dropdown list.  
+
+18. Create a **Gender - fieldValueChanged** form rule for each of the options within your dropdown list. In this example you would create another one for **Male**, and another one for **Other**.
+
+    > **Note:** You must create a **Gender - fieldValueChanged** form rule for each of the elements in your dropdown list.
+
+19. When you have created the relevant form rules click **Save**.
+
+20. Select **Preview** from the **Eye** icon and test the responses in the form are correct.  
