@@ -525,7 +525,7 @@ before continuing.
 4. Start the Shared File Store controller:
 
     ```java
-    java -DfileStorePath=/path/to/your/AlfrescoFileStore
+    java -DfileStorePath=/path/to/your/AlfrescoFileStore -Dscheduler.contract.path=/path/to/tempdir/scheduler.json
      -jar alfresco-shared-file-store-controller-x.y.z.jar
     ```
 
