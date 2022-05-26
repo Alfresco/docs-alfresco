@@ -23,76 +23,76 @@ The following example shows how the default filters are defined:
 #
 
 # Field-Facet-Qname => cm:content.mimetype
-default.cm:content.mimetype.filterID=filter_mimetype
-default.cm:content.mimetype.displayName=faceted-search.facet-menu.facet.formats
-default.cm:content.mimetype.displayControl=alfresco/search/FacetFilters
-default.cm:content.mimetype.maxFilters=5
-default.cm:content.mimetype.hitThreshold=1
-default.cm:content.mimetype.minFilterValueLength=4
-default.cm:content.mimetype.sortBy=DESCENDING
-default.cm:content.mimetype.scope=ALL
-default.cm:content.mimetype.scopedSites=
-default.cm:content.mimetype.isEnabled=true
+default.cm\:content.mimetype.filterID=filter_mimetype
+default.cm\:content.mimetype.displayName=faceted-search.facet-menu.facet.formats
+default.cm\:content.mimetype.displayControl=alfresco/search/FacetFilters
+default.cm\:content.mimetype.maxFilters=5
+default.cm\:content.mimetype.hitThreshold=1
+default.cm\:content.mimetype.minFilterValueLength=4
+default.cm\:content.mimetype.sortBy=DESCENDING
+default.cm\:content.mimetype.scope=ALL
+default.cm\:content.mimetype.scopedSites=
+default.cm\:content.mimetype.isEnabled=true
 
 # Field-Facet-Qname => cm:creator
-default.cm:creator.filterID=filter_creator
-default.cm:creator.displayName=faceted-search.facet-menu.facet.creator
-default.cm:creator.displayControl=alfresco/search/FacetFilters
-default.cm:creator.maxFilters=5
-default.cm:creator.hitThreshold=1
-default.cm:creator.minFilterValueLength=4
-default.cm:creator.sortBy=ALPHABETICALLY
-default.cm:creator.scope=ALL
-default.cm:creator.scopedSites=
-default.cm:creator.isEnabled=true
+default.cm\:creator.filterID=filter_creator
+default.cm\:creator.displayName=faceted-search.facet-menu.facet.creator
+default.cm\:creator.displayControl=alfresco/search/FacetFilters
+default.cm\:creator.maxFilters=5
+default.cm\:creator.hitThreshold=1
+default.cm\:creator.minFilterValueLength=4
+default.cm\:creator.sortBy=ALPHABETICALLY
+default.cm\:creator.scope=ALL
+default.cm\:creator.scopedSites=
+default.cm\:creator.isEnabled=true
 
 # Field-Facet-Qname => cm:modifier
-default.cm:modifier.filterID=filter_modifier
-default.cm:modifier.displayName=faceted-search.facet-menu.facet.modifier
-default.cm:modifier.displayControl=alfresco/search/FacetFilters
-default.cm:modifier.maxFilters=5
-default.cm:modifier.hitThreshold=1
-default.cm:modifier.minFilterValueLength=4
-default.cm:modifier.sortBy=ALPHABETICALLY
-default.cm:modifier.scope=ALL
-default.cm:modifier.scopedSites=
-default.cm:modifier.isEnabled=true
+default.cm\:modifier.filterID=filter_modifier
+default.cm\:modifier.displayName=faceted-search.facet-menu.facet.modifier
+default.cm\:modifier.displayControl=alfresco/search/FacetFilters
+default.cm\:modifier.maxFilters=5
+default.cm\:modifier.hitThreshold=1
+default.cm\:modifier.minFilterValueLength=4
+default.cm\:modifier.sortBy=ALPHABETICALLY
+default.cm\:modifier.scope=ALL
+default.cm\:modifier.scopedSites=
+default.cm\:modifier.isEnabled=true
 
 # Field-Facet-Qname => cm:created
-default.cm:created.filterID=filter_created
-default.cm:created.displayName=faceted-search.facet-menu.facet.created
-default.cm:created.displayControl=alfresco/search/FacetFilters
-default.cm:created.maxFilters=5
-default.cm:created.hitThreshold=1
-default.cm:created.minFilterValueLength=4
-default.cm:created.sortBy=INDEX
-default.cm:created.scope=ALL
-default.cm:created.scopedSites=
-default.cm:created.isEnabled=true
+default.cm\:created.filterID=filter_created
+default.cm\:created.displayName=faceted-search.facet-menu.facet.created
+default.cm\:created.displayControl=alfresco/search/FacetFilters
+default.cm\:created.maxFilters=5
+default.cm\:created.hitThreshold=1
+default.cm\:created.minFilterValueLength=4
+default.cm\:created.sortBy=INDEX
+default.cm\:created.scope=ALL
+default.cm\:created.scopedSites=
+default.cm\:created.isEnabled=true
 
 # Field-Facet-Qname => cm:modified
-default.cm:modified.filterID=filter_modified
-default.cm:modified.displayName=faceted-search.facet-menu.facet.modified
-default.cm:modified.displayControl=alfresco/search/FacetFilters
-default.cm:modified.maxFilters=5
-default.cm:modified.hitThreshold=1
-default.cm:modified.minFilterValueLength=4
-default.cm:modified.sortBy=INDEX
-default.cm:modified.scope=ALL
-default.cm:modified.scopedSites=
-default.cm:modified.isEnabled=true
+default.cm\:modified.filterID=filter_modified
+default.cm\:modified.displayName=faceted-search.facet-menu.facet.modified
+default.cm\:modified.displayControl=alfresco/search/FacetFilters
+default.cm\:modified.maxFilters=5
+default.cm\:modified.hitThreshold=1
+default.cm\:modified.minFilterValueLength=4
+default.cm\:modified.sortBy=INDEX
+default.cm\:modified.scope=ALL
+default.cm\:modified.scopedSites=
+default.cm\:modified.isEnabled=true
 
 # Field-Facet-Qname => cm:content.size
-default.cm:content.size.filterID=filter_content_size
-default.cm:content.size.displayName=faceted-search.facet-menu.facet.size
-default.cm:content.size.displayControl=alfresco/search/FacetFilters
-default.cm:content.size.maxFilters=5
-default.cm:content.size.hitThreshold=1
-default.cm:content.size.minFilterValueLength=4
-default.cm:content.size.sortBy=INDEX
-default.cm:content.size.scope=ALL
-default.cm:content.size.scopedSites=
-default.cm:content.size.isEnabled=true
+default.cm\:content.size.filterID=filter_content_size
+default.cm\:content.size.displayName=faceted-search.facet-menu.facet.size
+default.cm\:content.size.displayControl=alfresco/search/FacetFilters
+default.cm\:content.size.maxFilters=5
+default.cm\:content.size.hitThreshold=1
+default.cm\:content.size.minFilterValueLength=4
+default.cm\:content.size.sortBy=INDEX
+default.cm\:content.size.scope=ALL
+default.cm\:content.size.scopedSites=
+default.cm\:content.size.isEnabled=true
 ```
 
 ### Filter property description
@@ -144,16 +144,16 @@ You can define custom filters in the `solr-facets-config-custom.properties` file
     Here's an example of custom filter configuration:
 
     ```bash
-    custom.cm:description.filterID=filter_newFilter
-    custom.cm:description.displayName=faceted-search.facet-menu.facet.description
-    custom.cm:description.displayControl=alfresco/search/FacetFilters
-    custom.cm:description.maxFilters=3
-    custom.cm:description.hitThreshold=1
-    custom.cm:description.minFilterValueLength=2
-    custom.cm:description.sortBy=DESCENDING
-    custom.cm:description.scope=SCOPED_SITES
-    custom.cm:description.scopedSites=
-    custom.cm:description.isEnabled=true
+    custom.cm\:description.filterID=filter_newFilter
+    custom.cm\:description.displayName=faceted-search.facet-menu.facet.description
+    custom.cm\:description.displayControl=alfresco/search/FacetFilters
+    custom.cm\:description.maxFilters=3
+    custom.cm\:description.hitThreshold=1
+    custom.cm\:description.minFilterValueLength=2
+    custom.cm\:description.sortBy=DESCENDING
+    custom.cm\:description.scope=SCOPED_SITES
+    custom.cm\:description.scopedSites=
+    custom.cm\:description.isEnabled=true
     ```
 
     > **Note:** The values specified in the custom filters will overwrite the default filter's value. However, if you change the filter's default value(s) via Share, then any subsequent changes made to the filter values via the configuration files, won't be applied to the filter on server startup.
