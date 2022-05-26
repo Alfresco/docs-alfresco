@@ -2199,3 +2199,5 @@
             path: '/content-services/5.2/develop/reference/repo-root-objects-ref/'
           - title: 'Introduction to Aikau'
             path: '/content-services/5.2/develop/reference/aikau-intro-ref/'
+          - title: 'Alfresco Full Text Search Reference'
+            path: '/content-services/5.2/develop/alfresco-full-text-search-ref/'
