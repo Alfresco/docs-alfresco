@@ -1,12 +1,10 @@
 ---
-title: Configure Transformers
+title: Adding T-Engines to T-Router 
 ---
 
-## Add T-Engines to T-Router
-
-The T-Router uses T-Engine names to register new engines via properties. The names must be unique and consistent for 
-each engine, for both of its properties (url and queue). Examples of such name are: `IMAGEMAGICK`, `LIBREOFFICE`, 
-`PDF_RENDERER`, `TIKA`, `TRANSFORMER1`, `CUSTOM_ENGINE`, `CUSTOM_RED_ENGINE`, etc. 
+The Transform Router (T-Router) uses Transform Engines (T-Engine) names to register new engines via properties. The names 
+must be unique and consistent for each engine, for both of its properties (url and queue). Examples of such name are: 
+`IMAGEMAGICK`, `LIBREOFFICE`, `PDF_RENDERER`, `TIKA`, `TRANSFORMER1`, `CUSTOM_ENGINE`, `CUSTOM_RED_ENGINE`, etc. 
 
 The T-Engine names are case-insensitive.
 
@@ -55,7 +53,7 @@ JMS queue.
 
 ## T-Router pipeline configuration
 This section assumes that you're familiar with transformer concepts used in Alfresco Content Services and now in the 
-Transform Service. A good place to start is the [Content Services](https://github.com/Alfresco/acs-packaging/blob/release/6.2.N/docs/custom-transforms-and-renditions.md){:target="_blank"} 
+Transform Service. A good place to start is the [Content Services](https://github.com/Alfresco/acs-packaging/blob/master/docs/custom-transforms-and-renditions.md){:target="_blank"} 
 GitHub documentation, as the concepts and transformer configuration are identical.
 
 Here's a very brief overview.
@@ -77,7 +75,7 @@ are provided later.
 The T-Router supports pipeline transformers, allowing it to perform transformations in a sequence of requests to various 
 engines. This functionality is identical in definition to Content Services pipeline transformers (starting from Alfresco 
 Transform Service 1.3.0). For more information on these pipelines, see the Content Services GitHub documentation on 
-[Configuring a custom transform pipeline](https://github.com/Alfresco/acs-packaging/blob/release/6.2.N/docs/custom-transforms-and-renditions.md#configure-a-custom-transform-pipeline){:target="_blank"} 
+[Configuring a custom transform pipeline](https://github.com/Alfresco/acs-packaging/blob/master/docs/custom-transforms-and-renditions.md#configure-a-custom-transform-pipeline){:target="_blank"} 
 as the T-Router pipeline transformers are defined using the same format. Due to this commonality, pipelines defined in 
 Content Services can be moved to Transform Service directly. However, it's worth mentioning that most of the pipeline 
 definitions provided out of the box are identical to the pipeline definitions in Content Services.
