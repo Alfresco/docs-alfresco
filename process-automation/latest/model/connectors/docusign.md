@@ -104,13 +104,15 @@ When a Process Automation process is instantiated this way, the following variab
 
 2. Click the **ADD CONFIGURATION** dropdown list and select **Custom**.
 
-3. Under Listener Settings select **Active Connection** from the Status dropdown list.
+3. Under Listener Settings, select **Active Connection** from the **Status** dropdown list.
 
-4. Under Listener Settings enter your **URL to Publish** URL.
+4. Under Listener Settings, enter your **URL to Publish** URL.
 
     The pattern of the URL must follow: `{domain-name}/{application-name}/connector/{connector_name}/listener`.
 
-5. Under **Event settings > Trigger events > Envelope Events**, ensure the following are selected:
+5. Under Event Settings, select **Aggregate** from the **Event Message Delivery Mode** dropdown list.
+
+6. Under **Event settings > Trigger events > Envelope Events**, ensure the following are selected:
 
     * **Envelope Sent**
     * **Envelope Delivered**
@@ -118,7 +120,7 @@ When a Process Automation process is instantiated this way, the following variab
     * **Envelope Declined**
     * **Envelope Voided**
 
-6. Under **Event settings > Trigger events > Recipient Events**, ensure the following are selected:
+7. Under **Event settings > Trigger events > Recipient Events**, ensure the following are selected:
 
     * **Recipient Sent**
     * **Recipient Auto Responded**
@@ -127,7 +129,9 @@ When a Process Automation process is instantiated this way, the following variab
     * **Recipient Declined**
     * **Recipient Authentication Failure**
 
-7. Click **SAVE CONFIGURATION**.
+8. Click **SAVE CONFIGURATION**.
+
+![Settings]({% link process-automation/images/settings.png %})
 
 #### Logs and failures
 
