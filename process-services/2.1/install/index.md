@@ -9,7 +9,6 @@ The applications available to deploy are:
 
 * Process Services
 * Process Services Administrator
-* Process Workspace
 
 The following methods are available to deploy Process Services:
 
