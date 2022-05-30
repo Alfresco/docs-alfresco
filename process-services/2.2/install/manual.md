@@ -303,7 +303,7 @@ Ensure you have read the [supported platforms]({% link process-services/2.2/supp
 
 8. Enter `http://localhost:8080/activiti-admin` into a browser to begin using Process Services Administrator.
 
-After installing you will need to [apply a valid license file](#install-license) to your installation.
+After installing you will need to [apply a valid license file](#license) to your installation.
 
 ## License
 

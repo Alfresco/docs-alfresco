@@ -25,7 +25,7 @@ It is also possible to retrieve and update content properties in a Content Servi
 
 There are three ways to configure a connection to Content Services:
 
-* [Using the Identity Service to configure Single Sign On (SSO)](configure-a-connection-using-single-sign-on)
+* [Using the Identity Service to configure Single Sign On (SSO)](#configure-a-connection-using-single-sign-on)
 * [Using basic authentication](#configure-a-connection-using-basic-authentication)
 * [Using the Share Connector]({% link process-services/2.2/using/share-connector.md %})
 
