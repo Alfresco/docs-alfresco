@@ -17,23 +17,23 @@ Check you have the [required prerequisites](https://docs.alfresco.com/digital-wo
 Once the environment is properly configured, the next step is to have the source code of the project available locally in the development environment. If you are an Alfresco customer or partner, you can get a local copy of the project by opening a request in the [Alfresco Support Portal](https://myalfresco.force.com/support/SiteLogin).
 
 <!-- Do we want the rest of this section as a procedural list?-->
-In the `alfresco-digital-workspace` folder, create a file named `.env` with the following content (put the Alfresco Content Services URL as value).
+In the `alfresco-apps` folder, create a file named `.env` with the following content (put the Alfresco Content Services URL as value).
 
-```text
-AUTH_TYPE="BASIC"
-PROVIDER="ECM"
-API_CONTENT_HOST="https://..."
-API_PROCESS_HOST="https://..."
-OAUTH_HOST="https://.../auth/realms/alfresco"
-E2E_HOST="http://localhost:4200"
-ADMIN_EMAIL="..."
-ADMIN_PASSWORD="..."
-ADF_PATH="../alfresco-ng2-components"
-ACA_BRANCH="develop"
-MAXINSTANCES=3
+```
+BASE_URL="http://localhost:8080"
+APP_CONFIG_ECM_HOST="http://localhost:8080"
+APP_CONFIG_BPM_HOST=""
+APP_CONFIG_PROVIDER="ECM"
+APP_CONFIG_AUTH_TYPE="BASIC"
+APP_CONFIG_PLUGIN_MICROSOFT_ONLINE=false
+APP_CONFIG_PLUGIN_AOS=false
+APP_CONFIG_PLUGIN_PROCESS_SERVICE=false
+APP_CONFIG_PLUGIN_AI_SERVICE=false
+APP_CONFIG_PLUGIN_AOS=false
+APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
 ```
 
-Run `npm install` and then `npm start content-ee` to get the application up and running. The application will be available at the URL `http://localhost:4200` and the credentials are the ones required by Alfresco Content Services.
+Run `npm ci` and then `npm start content-ee` to get the application up and running. The application will be available at the URL `http://localhost:4200` and the credentials are the ones required by Alfresco Content Services.
 
 The Alfresco Digital Workspace should be running in development mode in the development environment.
 
@@ -43,43 +43,41 @@ In this tutorial, you are going to learn how to build, promote, test, and debug 
 
 Being a standard Angular application, the lifecycle and the tasks described for the Alfresco Digital Workspace are following the same principles, tooling, and best practices of any other standard Angular application.
 
-### Installing 
+### Installing
 
 In command line, enter `npm install`, as with any Angular application.
 
-### Applications and distributions 
+### Applications and distributions
 
-As part of the the Alfresco Digital Workspace distribution there are three different distributions to be run:
-
-* `content-ce` (Open Source Alfresco Content Application)
+As part of the the Alfresco Digital Workspace distribution there are different distributions to be run:
 
 * `content-ee` (Alfresco Digital Workspace with Alfresco Process Services extension)
 
-* `content-ee-cloud` (Alfresco Digital Workspace with Alfresco Process Automation extension)
+* `content-ee-apa` (Alfresco Digital Workspace with Alfresco Process Automation extension)
 
 The default distribution for the Alfresco Digital Workspace is set as `content-ee`.
 
 For any ADF-based application, such as the Alfresco Content Application, there is always one distribution and no need to specify it at build level.
 
-### Starting 
+### Starting
 
 The following command is valid for the Alfresco Digital Workspace.
 
-`npm start <content-ce|content-ee|content-ee-cloud> [prod]`
+`npm start <content-ee|content-ee-apa> [prod]`
 
 For the Alfresco Content Application or any other ADF-based application the command is `npm start`.
 
-### Building 
+### Building
 
 The following command is valid for the Alfresco Digital Workspace.
 
-`npm run build <content-ce|content-ee|content-ee-cloud> [prod]`
+`npm run build <content-ee|content-apa> [prod]`
 
 For the Alfresco Content Application or any other ADF-based application the command is `npm run build`.
 
 Once the build succeeds, a new folder named `dist` is created inside the project root. Inside the `dist` folder, is a collection of files representing the distribution of your application.
 
-### Building without one or more extensions 
+### Building without one or more extensions
 
 To exclude any of the bundled extensions from the distribution, remove the imported module representing the extension from the imports.
 
@@ -107,13 +105,13 @@ Once built, the compiled ADF-based application is available as a collection of f
 
 Nothing differs from a standard Angular application, and the same tips and best practices can be followed.
 
-### Testing 
+### Testing
 
 Unit tests on the Alfresco Content Application and the Alfresco Digital Workspace are developed and executed using Karma. For information on configuring your system to use Karma, see the **Index** page on the Karma site or their GitHub project. Check the source code or refer to the Karma documentation and tutorials for further details on how to develop tests.
 
 Build the Alfresco Digital Workspace using the command:
 
-`npm run build <content-ce|content-ee|content-ee-cloud> [prod]`
+`npm run build <content-ee|content-apa> [prod]`
 
 For ADF-based applications, such as the Alfresco Content Application, the command is `npm run build`.
 
@@ -125,7 +123,7 @@ it('...description...', () => {
 });
 ```
 
-### Debugging 
+### Debugging
 
 The debugging strategy for the Alfresco Digital Workspace, or any other ADF-based application, does not differ from recommended standard Angular applications. Refer to the dedicated content or documentation for further details.
 

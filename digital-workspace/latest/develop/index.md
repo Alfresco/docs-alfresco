@@ -2,14 +2,14 @@
 title: Develop Digital Workspace
 ---
 
-This development section uses the following prerequisites: 
+This development section uses the following prerequisites:
 
 # Prerequisites and requirements
 
 To ensure you have the correct environment configured, make sure that the following software is installed on your system:
 
-* Alfresco Content Services Community or Enterprise edition. Verify it is working correctly, by going to `http://localhost:8080/share`.
-* The latest Long-Term Support (LTS) version of NodeJs.
+* Alfresco Content Services Community or Enterprise edition. Verify it is working correctly, by going to `http://localhost:8080/alfresco`.
+* The latest **14** version of NodeJs.
 
 # Cloning and launching the front-end application
 
@@ -19,7 +19,11 @@ Once the environment is properly configured, open a terminal and clone the follo
 
 Once done, enter the alfresco-content-app folder and create a file named .env with the following content (put the ACS URL as value).
 
-`API_CONTENT_HOST="https://..."`
+```
+APP_CONFIG_ECM_HOST="http://localhost:8080"
+APP_CONFIG_PLUGIN_AOS=false
+APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
+```
 
 Run `npm install` and then `npm start` to get the application up and running. The application will be available at the URL <http://localhost:4200> and the credentials are the ones required by ACS.
 
@@ -36,24 +40,26 @@ In case of problems raise a question into the [Alfresco Forum](https://hub.alfre
 If you are an Alfresco Customer or an Official Partner, you might be interested in using the Enterprise stack instead of the Open Source introduced above. The changes to the tasks are not too many and you can try to do the same exercise with the following changes.
 
 * Use ACS Enterprise Edition instead of the Community Edition.
-* Use the `alfresco-digital-workspace-app` GitHub repository (this is a private repository so you may require to get a local copy of the project raising a request into the Alfresco Support Portal).
+  * Open your browser and check everything starts up correctly:
+  Alfresco: http://localhost:8080/alfresco
+* Use the `alfresco-apps` GitHub repository (this is a private repository so you may require to get a local copy of the project raising a request into the Alfresco Support Portal).
 * Use the following `.env` file.
 
-```text
-    AUTH_TYPE="BASIC"
-    PROVIDER="ECM"
-    API_CONTENT_HOST="<https://...>"
-    API_PROCESS_HOST="<https://...>"
-    OAUTH_HOST="<https://.../auth/realms/alfresco>"
-    E2E_HOST="<http://localhost:4200>"
-    ADMIN_EMAIL="..."
-    ADMIN_PASSWORD="..."
-    ADF_PATH="../alfresco-ng2-components"
-    ACA_BRANCH="develop"
-    MAXINSTANCES=3
+```
+BASE_URL="http://localhost:8080"
+APP_CONFIG_ECM_HOST="http://localhost:8080"
+APP_CONFIG_BPM_HOST=""
+APP_CONFIG_PROVIDER="ECM"
+APP_CONFIG_AUTH_TYPE="BASIC"
+APP_CONFIG_PLUGIN_MICROSOFT_ONLINE=false
+APP_CONFIG_PLUGIN_AOS=false
+APP_CONFIG_PLUGIN_PROCESS_SERVICE=false
+APP_CONFIG_PLUGIN_AI_SERVICE=false
+APP_CONFIG_PLUGIN_AOS=false
+APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
 ```
 
-* Run the application using `npm start content-ee`.
+* Run `npm ci` and run the application using `npm start content-ee`. The application will be available at the URL http://localhost:4200 and the credentials are the ones required by Alfresco Content Services.
 
 ## Conclusion
 
