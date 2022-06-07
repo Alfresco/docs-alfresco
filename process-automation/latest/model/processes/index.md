@@ -6,7 +6,7 @@ Processes are the collection of components that are used to build and represent 
 
 There are three concepts associated with modeling processes to understand and differentiate between:
 
-* **Diagrams** are the container that process definitions are modeled in. A process diagram can contain multiple process definitions when [pools]({% link process-automation/latest/model/processes/bpmn.md %}#pools-and-lanes) are used to separate them. Process diagrams are colour coded with the following definitions:
+* **Diagrams** are the container that process definitions are modeled in. A process diagram can contain multiple process definitions when [pools]({% link process-automation/latest/model/processes/bpmn.md %}#pools-and-lanes) are used to separate them. Process diagrams are color coded with the following definitions:
 
   * Blue indicates completed nodes
   * Green indicates current active nodes
@@ -317,3 +317,22 @@ The actions that can be run against a process are:
 | Validate | Run validation against the process. Any errors can be seen in the log history at the bottom of the Modeling Application and are flagged in a pop-up box. |
 | Save | Save any changes made on the process diagram. |
 | Delete | Delete the process diagram. |
+
+## Edit User Task Notifications
+
+Use 
+
+The fields on the on the Assignee tab and task notifications are used 
+
+| Action | Description |
+| ------ | ----------- |
+| From | Download the process diagram in `svg` format. |
+| Subject | Download the `.bpmn20.xml` for the process. |
+| Email template | Default email template, From file, From URL, Create new email template Run validation against the process. Any errors can be seen in the log history at the bottom of the Modeling Application and are flagged in a pop-up box. |
+| Enter your URL | Save any changes made on the process diagram. |
+| Preview | Delete the process diagram. |
+| Editor | Download the process diagram in `svg` format. |
+| Subject | Download the `.bpmn20.xml` for the process. |
+| From URL | Run validation against the process. Any errors can be seen in the log history at the bottom of the Modeling Application and are flagged in a pop-up box. |
+| Enter your URL | Save any changes made on the process diagram. |
+| Preview | Delete the process diagram. |
