@@ -58,7 +58,7 @@ Follow these steps to use the default (i.e. out-of-the-box) configuration of Int
 
     At this point, your rule has been applied to request the AI renditions and add the selected AI aspects.
 
-    See the Content Services documentation, [Folder rules]({% link content-services/latest/using/content/rules.md %}) to find out more about applying folder rules.
+    See the Content Services documentation, [Folder rules]({% link content-services/7.0/using/content/rules.md %}) to find out more about applying folder rules.
 
 10. Next, upload content to your test folder.
 

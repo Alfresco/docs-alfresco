@@ -112,7 +112,7 @@ A number of environment variables allow you to specify the configuration options
 
     ```yaml
     digital-workspace:
-        image: quay.io/alfresco/alfresco-digital-workspace:2.4.2
+        image: quay.io/alfresco/alfresco-digital-workspace:2.8
         environment:
         BASE_PATH: ./
         APP_CONFIG_PLUGIN_AI_SERVICE: "true"
