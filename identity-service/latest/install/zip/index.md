@@ -7,11 +7,11 @@ A default realm called `Alfresco` is installed.
 
 ## Prerequisites
 
-* Java 8 or Java 11 JDK installed
+* Java 11 JDK installed
 
 ## Installation steps
 
-1. Download the `alfresco-identity-service-1.8.0.zip` file from [Hyland Community](https://community.hyland.com/en/products/alfresco/release-notes/release-notes/alfresco-identity-service-version-170){:target="_blank"}.
+1. Download the `alfresco-identity-service-1.8.0.zip` file from [Hyland Community](https://community.hyland.com/en/products/alfresco/release-notes/release-notes/alfresco-identity-service-version-180){:target="_blank"}.
 
 2. Move the downloaded zip file to install location of choice and unzip the contents:
 
