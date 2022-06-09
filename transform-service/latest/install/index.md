@@ -354,9 +354,9 @@ from the left column that corresponds to the required Content Services version y
 5. Wait for the logs to show messages:
 
     ```bash
-    alfresco_1 | 2020-07-06 11:50:46,808  WARN ... The Alfresco Content Services license will expire in 2 days.
-    alfresco_1 | 2020-07-06 11:50:50,938  INFO ... Starting 'Transformers' subsystem, ID: [Transformers, default]
-    alfresco_1 | 2020-07-06 11:50:50,371  INFO ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+    alfresco_1 | 2022-06-02 11:50:46,808  WARN ... The Alfresco Content Services license will expire in 2 days.
+    alfresco_1 | 2022-06-02 11:50:50,938  INFO ... Starting 'Transformers' subsystem, ID: [Transformers, default]
+    alfresco_1 | 2022-06-02 11:50:50,371  INFO ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
     ```
 
     If you encounter errors whilst the system is starting up:
@@ -406,18 +406,18 @@ Use this information to verify that the system started correctly, and to clean u
         ```bash
         Container                               Repository                       Tag        Image Id       Size
         --------------------------------------------------------------------------------------------------------------------
-        acs-trial-activemq-1             alfresco/alfresco-activemq                     5.16.4-jre11-centos7   d62db8e1bc78        720MB
-        acs-trial-alfresco-1             quay.io/alfresco/alfresco-content-repository   7.2.0                  ced164010f42        1.4GB
-        acs-trial-control-center-1       quay.io/alfresco/alfresco-admin-app            7.2.0                  6d5dd63cc114        42.1MB
-        acs-trial-digital-workspace-1    quay.io/alfresco/alfresco-digital-workspace    2.6.0                  1a2eaa5bf7a9        573MB
-        acs-trial-postgres-1             postgres                                       13.3                   b2fcd079c1d4        315MB
-        acs-trial-proxy-1                alfresco/alfresco-acs-nginx                    3.3.0                  721f6317863d        23.2MB
-        acs-trial-share-1                quay.io/alfresco/alfresco-share                7.2.0                  2f5acc44fb87        723MB
-        acs-trial-shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    1.5.3                  03872fe68a6a        651MB
-        acs-trial-solr6-1                alfresco/alfresco-search-services              2.0.3                  88743e1bfb84        915MB
-        acs-trial-sync-service-1         quay.io/alfresco/service-sync                  3.6.0                  c0c25de3535c        722MB
-        acs-trial-transform-core-aio-1   alfresco/alfresco-transform-core-aio           2.6.0                  f382083e1ec5        1.74GB
-        acs-trial-transform-router-1     quay.io/alfresco/alfresco-transform-router     1.5.3                  bad174c8b67d        658MB       
+        docker-compose_activemq-1             alfresco/alfresco-activemq                     5.16.4-jre11-centos7   d62db8e1bc78        720MB
+        docker-compose_alfresco-1             quay.io/alfresco/alfresco-content-repository   7.2.0                  ced164010f42        1.4GB
+        docker-compose_control-center-1       quay.io/alfresco/alfresco-admin-app            7.2.0                  6d5dd63cc114        42.1MB
+        docker-compose_digital-workspace-1    quay.io/alfresco/alfresco-digital-workspace    2.6.0                  1a2eaa5bf7a9        573MB
+        docker-compose_postgres-1             postgres                                       13.3                   b2fcd079c1d4        315MB
+        docker-compose_proxy-1                alfresco/alfresco-acs-nginx                    3.3.0                  721f6317863d        23.2MB
+        docker-compose_share-1                quay.io/alfresco/alfresco-share                7.2.0                  2f5acc44fb87        723MB
+        docker-compose_shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    1.5.3                  03872fe68a6a        651MB
+        docker-compose_solr6-1                alfresco/alfresco-search-services              2.0.3                  88743e1bfb84        915MB
+        docker-compose_sync-service-1         quay.io/alfresco/service-sync                  3.6.0                  c0c25de3535c        722MB
+        docker-compose_transform-core-aio-1   alfresco/alfresco-transform-core-aio           2.6.0                  f382083e1ec5        1.74GB
+        docker-compose_transform-router-1     quay.io/alfresco/alfresco-transform-router     1.5.3                  bad174c8b67d        658MB       
         ```
 
     2. List the running containers:
