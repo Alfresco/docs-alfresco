@@ -2,7 +2,7 @@
 title: Adding T-Engines to T-Router 
 ---
 
-The Transform Router (T-Router) uses Transform Engines (T-Engine) names to register new engines via properties. The names 
+The Transform Router (T-Router) uses Transform Engine (T-Engine) names to register new engines via properties. The names 
 must be unique and consistent for each engine, for both of its properties (url and queue). Examples of such name are: 
 `IMAGEMAGICK`, `LIBREOFFICE`, `PDF_RENDERER`, `TIKA`, `TRANSFORMER1`, `CUSTOM_ENGINE`, `CUSTOM_RED_ENGINE`, etc. 
 
