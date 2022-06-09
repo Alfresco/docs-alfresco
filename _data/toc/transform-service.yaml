@@ -11,7 +11,7 @@
           path: '/transform-service/latest/config/'
         - title: 'Extend'
           pages:
-            - title: 'Adding T-Engines to T-Router'
+            - title: 'Add T-Engines to T-Router'
               path: '/transform-service/latest/config/add-tengine-trouter/'
     - title: 'Administer'
       path: '/transform-service/latest/admin/'
