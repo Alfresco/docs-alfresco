@@ -296,7 +296,7 @@ The Intelligence Services distribution zip file, `alfresco-ai-distribution-1.3.x
         java -jar <alfrescoInstallLocation>/bin/alfresco-mmt.jar install <installLocation>/amps-share/alfresco-ai-share-1.3.x.amp <installLocation>/tomcat/webapps/share.war
         ```
 
-    For more information, see [Using the Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) and [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).
+    For more information, see [Using the Module Management Tool (MMT)]({% link content-services/7.0/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) and [Installing an Alfresco Module Package]({% link content-services/7.0/install/zip/amp.md %}).
 
     Check the output to ensure that the AMP files have installed successfully.
 

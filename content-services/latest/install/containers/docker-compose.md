@@ -399,7 +399,7 @@ The Docker Compose file provides some default configuration. This section lists 
 | FILE_STORE_URL | Shared file store URL (in this case, the name of the container is used) |
 | TRANSFORM_ENGINE_REQUEST_QUEUE | Name of the queue. The default value is `org.alfresco.transform.engine.aio.acs` |
 | PDFRENDERER_EXE | Location of the PDF Renderer binary. The default value is `/usr/bin/alfresco-pdf-renderer` |
-| LIBREOFFICE_HOME | Location of the LibreOffice installation. The default value is `/opt/libreoffice6.3` |
+| LIBREOFFICE_HOME | Location of the LibreOffice installation. The default value is `/opt/libreoffice7.2` |
 | IMAGEMAGICK_ROOT | Location of the ImageMagick installation. The default value is `/usr/lib64/ImageMagick-7.0.10` |
 | IMAGEMAGICK_DYN | Location of the ImageMagick dynamic libraries. The default value is `/usr/lib64/ImageMagick-7.0.10/lib` |
 | IMAGEMAGICK_EXE | Location of the ImageMagick binary. The default value is `/usr/bin/convert` |

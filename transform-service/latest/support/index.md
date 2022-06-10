@@ -2,7 +2,7 @@
 title: Supported Platforms
 ---
 
-The following are the supported platforms and software requirements for Alfresco Transform Service 1.5.2:
+The following are the supported platforms and software requirements for Alfresco Transform Service 1.5.3:
 
 ## Alfresco Content Services
 

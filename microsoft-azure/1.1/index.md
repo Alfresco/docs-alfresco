@@ -8,7 +8,7 @@ Here is a summary of its key capabilities:
 
 * Support for [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction#blob-storage){:target="_blank"} for on-premises or Azure Cloud installation of Content Services
 * Support for hot and cool access tiers (based on storage account)
-* Based on the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java){:target="_blank"} (v12.6.1)
+* Based on the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java){:target="_blank"}
 * Storage path approach optimized for high-throughput reads and writes
 * Configurable retries and timeouts for large file uploads and downloads
 

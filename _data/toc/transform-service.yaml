@@ -6,7 +6,13 @@
     - title: 'Install'
       path: '/transform-service/latest/install/'
     - title: 'Configure'
-      path: '/transform-service/latest/config/'
+      pages:
+        - title: 'Overview'
+          path: '/transform-service/latest/config/'
+        - title: 'Extend'
+          pages:
+            - title: 'Add T-Engines to T-Router'
+              path: '/transform-service/latest/config/add-tengine-trouter/'
     - title: 'Administer'
       path: '/transform-service/latest/admin/'
 # Transform Service 1.4
