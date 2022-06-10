@@ -10,7 +10,7 @@ Care should be taken when upgrading from any previous releases of Content Servic
 
 * Ensure that you have a functional [backup of your Alfresco repository and database]({% link content-services/7.0/admin/backup-restore.md %}), before starting the upgrade process.
 * Download and run the [Alfresco Extension Inspector]({% link content-services/7.0/develop/extension-inspector.md %}) to understand which customization or library items need to be reviewed or updated to support the upgrade.
-* Review all new and deprecated features included in the Release Notes. Customers can access these from the [Support Portal](https://support.alfresco.com/){:target="_blank"}.
+* Review all new and deprecated features included in the Release Notes. Customers can access these from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 * Review and implement the new [Supported platforms]({% link content-services/7.0/support/index.md %}) options, and update as necessary for the new deployment. Also, check the general advice about [Supported Platforms and Languages](https://www.alfresco.com/services/subscription/supported-platforms){:target="_blank"} on our website.
 
 To upgrade from a previous version of Content Services to a later version, see the [upgrade process](#upgrade-process).
@@ -253,11 +253,13 @@ The `dir.root` directory is defined in the `alfresco-global.properties` file. By
 
     Remember to specify the relevant JDBC driver into your application server's classpath.
 
-## Apply recommended database patch
+## Apply optional performance database patch
+
+>**Note:** This patch can take hours to run on larger systems.
 
 Alfresco Content Services 7.0 contains a recommended database patch, which adds two indexes to the `alf_node` table and three to `alf_transaction`. This patch is optional, but recommended for larger implementations as it can have a big positive performance impact. These indexes are not automatically applied during upgrade, as the amount of time needed to create them might be considerable. They should be run manually after the upgrade process completes.
 
-To apply the patch, an admin should set the following Alfresco global property to `true`:
+To apply the patch, an admin should set the following Alfresco global property to `false`:
 
 ```text
 system.new-node-transaction-indexes.ignored=false

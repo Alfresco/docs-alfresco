@@ -34,7 +34,7 @@ You can use the Intelligence Services components by setting up a folder rule and
 
         To extract data using Amazon Rekognition, select **AI Labels**.
 
-        To extract data using Amazon Comprehend, select the remaining **AI *** aspects.
+        To extract data using Amazon Comprehend, select the remaining **AI** aspects.
 
     2. Select **Request AI renditions**.
 

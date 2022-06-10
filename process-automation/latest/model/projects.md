@@ -65,6 +65,8 @@ To release a project:
 
 Selecting the **View Releases** option for a project displays the version history for the project.
 
+You can restore your project to a previous release by selecting the three dots to the right of the release you want to restore, and then selecting **Restore this Release**.
+
 ## Validate a project
 
 Validation is run when any model within a project is saved. The **Validate** option is available to all model types and can be run on demand using the tick in the top toolbar. Project level validation will be run against all models in the project.

@@ -1590,7 +1590,7 @@ If you would like to work with the Alfresco Enterprise Edition, then this requir
 
 The very first task to complete is about installing an enterprise license, otherwise the server will remain in read-only mode. This task is required if and only if you used the All-In-One archetype or the Platform JAR archetype to generate your project. If you used the Share JAR archetype to generate your project, feel free to ignore this task and move on the next one.
 
-If you are an Alfresco Partner or Customer, you can request an enterprise license by you opening a ticket on the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}. The Enterprise license is nothing more and nothing less than a file with `lic` extension. The Enterprise license file goes into src/test/license folder. The license will be injected into the platform WAR before it is deployed to [Apache Tomcat](https://tomcat.apache.org/){:target="_blank"}. The license file name doesn't matter, but make sure that you keep it simple and maintain the `lic` extension.
+If you are an Alfresco Partner or Customer, you can request an enterprise license by you opening a ticket in [Hyland Community](https://community.hyland.com/){:target="_blank"}. The Enterprise license is nothing more and nothing less than a file with `lic` extension. The Enterprise license file goes into src/test/license folder. The license will be injected into the platform WAR before it is deployed to [Apache Tomcat](https://tomcat.apache.org/){:target="_blank"}. The license file name doesn't matter, but make sure that you keep it simple and maintain the `lic` extension.
 
 **Configuring the Enterprise release**
 

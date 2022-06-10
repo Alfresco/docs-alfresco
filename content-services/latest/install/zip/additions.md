@@ -60,7 +60,6 @@ Use this information to review the components or modules that integrate Content 
 | Intelligence Services | Paid add-on module |
 | Content Connector for AWS S3 | Paid add-on module |
 | Content Connector for Azure | Paid add-on module |
-| Content Connector for AWS Glacier | |
 | Content Connector for Salesforce | |
 | Content Connector for SAP applications | Paid add-on module |
 | Content Connector for SAP Cloud | Paid add-on module |

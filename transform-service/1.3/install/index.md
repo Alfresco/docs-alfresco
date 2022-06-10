@@ -431,7 +431,7 @@ The Transform Services distribution zip file includes all the files required to 
 metadata extraction capabilities. Ensure that you've installed the [prerequisites](#prereq-non-containerized-deploy)
 before continuing.
 
-1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download `alfresco-transform-service-distribution-1.3.x.zip`.
+1. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"} and download `alfresco-transform-service-distribution-1.3.x.zip`.
 
 2. Extract the zip file into a system directory; for example, `<installLocation>/`.
 
@@ -514,7 +514,7 @@ before continuing.
 
     # Shared File Store properties:
     sfs.url=http://localhost:8099
-    sfs.endpoint=${sfs.url}/alfresco/api/-default-/private/sfs/versions/1/file
+    sfs.endpoint=${sfs.url}/alfresco/api/-default-/private/sfs/versions/1
 
     # Transform Router properties:
     transform.service.enabled=true

@@ -11,3 +11,4 @@ services:
     command: jekyll serve --watch
     expose:
       - "4000"
+

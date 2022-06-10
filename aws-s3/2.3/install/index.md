@@ -46,7 +46,7 @@ The S3 Connector is packaged as an Alfresco Module Package (AMP) file.
 
 >**Note:** Ensure that you don't start Alfresco Content Services before installing the S3 Connector AMP.
 
-1. Go to the [Alfresco Support Portal](https://support.alfresco.com).
+1. Go to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 2. Download the `alfresco-s3-connector-2.3.x.amp` file.
 

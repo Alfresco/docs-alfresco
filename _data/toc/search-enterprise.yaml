@@ -1,5 +1,5 @@
 # Search Enterprise
-- version: 3.0
+- version: 3.1
   pages:
     - title: 'Introduction'
       path: '/search-enterprise/latest/'
@@ -19,8 +19,37 @@
           path: '/search-enterprise/latest/using/filtering/'
         - title: 'Field queries'
           path: '/search-enterprise/latest/using/field/'
+        - title: 'Path queries'
+          path: '/search-enterprise/latest/using/path/'
         - title: 'Query languages'
           path: '/search-enterprise/latest/using/languages/'
         - title: 'Unsupported features'
           path: '/search-enterprise/latest/using/unsupported/'
+        - title: 'Troubleshooting'
+          path: '/search-enterprise/latest/using/troubleshooting/'
+
+- version: 3.0
+  pages:
+    - title: 'Introduction'
+      path: '/search-enterprise/3.0/'
+    - title: 'Install'
+      path: '/search-enterprise/3.0/install/'
+    - title: 'Upgrade'
+      path: '/search-enterprise/3.0/upgrade/'
+    - title: 'Configure'
+      path: '/search-enterprise/3.0/config/'
+    - title: 'Administer'
+      path: '/search-enterprise/3.0/admin/'
+    - title: 'Using'
+      pages:
+        - title: 'Search query syntax'
+          path: '/search-enterprise/3.0/using/'
+        - title: 'Filtering paging and sorting'
+          path: '/search-enterprise/3.0/using/filtering/'
+        - title: 'Field queries'
+          path: '/search-enterprise/3.0/using/field/'
+        - title: 'Query languages'
+          path: '/search-enterprise/3.0/using/languages/'
+        - title: 'Unsupported features'
+          path: '/search-enterprise/3.0/using/unsupported/'
 

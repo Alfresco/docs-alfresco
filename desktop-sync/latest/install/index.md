@@ -15,7 +15,7 @@ To install Desktop Sync, follow these steps.
 
 1. Download the setup file:
 
-    * Windows 64-bit: `Alfresco-Desktop-Sync-Setup-v1.7.x_64.exe`
+    * Windows 64-bit: `Alfresco-Desktop-Sync-Setup-v1.10.x_64.exe`
 
 2. Double-click the downloaded file to run it.
 
@@ -45,7 +45,7 @@ The first time you open Desktop Sync you need to enter your login details to con
 
 The **Choose files and folders to sync** screen appears.
 
-![setup]({% link desktop-sync/images/setup.png %}){:height="562px" width="346px"}
+![Initial sync selection screen]({% link desktop-sync/images/setup-1.9.png %}){:height="555px" width="346px"}
 
 All your favorite Alfresco content, My Files, Shared Files, and your Alfresco sites are displayed.
 
@@ -57,11 +57,11 @@ If you want to use Desktop Sync on Mac, you'll need:
 
 * Mac OS version 10.11 or later
 
-1. Download the Mac installation file: `Alfresco-Desktop-Sync-v1.7.x.dmg`
+1. Download the Mac installation file: `Alfresco-Desktop-Sync-v1.10.x.dmg`
 
 2. Double click the downloaded file to unpack the content.
 
-3. Double click the PKG file to start the installation: `Alfresco-Desktop-Sync-v1.7.x.pkg`
+3. Double click the PKG file to start the installation: `Alfresco-Desktop-Sync-v1.10.x.pkg`
 
     A wizard will install Alfresco Desktop Sync at `/Applications/Alfresco Desktop Sync`.
 
@@ -105,7 +105,7 @@ The first time you open Desktop Sync you need to enter your login details to con
 
 The **Select sites and folders to sync** dialog appears.
 
-![setup]({% link desktop-sync/images/setup-mac.png %}){:height="327px" width="640px"}
+![Initial sync selection screen]({% link desktop-sync/images/setup-mac-1.9.png %}){:height="382px" width="640px"}
 
 All your Alfresco Content Services folders will be displayed from My Files, Shared Files, and your Sites.
 

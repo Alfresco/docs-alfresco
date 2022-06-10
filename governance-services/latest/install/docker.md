@@ -31,16 +31,16 @@ recommended for development and test environments only.
     ```text
     services:
         alfresco:
-            #image: alfresco/alfresco-content-repository:7.1.x
-            image: quay.io/alfresco/alfresco-governance-repository-enterprise:7.1.x
+            #image: alfresco/alfresco-content-repository:7.2.x
+            image: quay.io/alfresco/alfresco-governance-repository-enterprise:7.2.x
             mem_limit: 1700m
            
     ```
 
     ```text
         share:
-            #image: alfresco/alfresco-share:7.1.x
-            image: quay.io/alfresco/alfresco-governance-share-enterprise:7.1.x
+            #image: alfresco/alfresco-share:7.2.x
+            image: quay.io/alfresco/alfresco-governance-share-enterprise:7.2.x
             mem_limit: 1g
            
     ```

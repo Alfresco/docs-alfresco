@@ -27,7 +27,7 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-3.1.x.zip`, includes
 
 > **Note:** Make sure you're running the correct versions of operating system and software before you install the AMP file. See [Prerequisites]({% link sync-service/3.1/install/index.md %}) for more information.
 
-1. Download `AlfrescoSyncServer-3.1.x.zip` from the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}.
+1. Download `AlfrescoSyncServer-3.1.x.zip` from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 2. Extract the `AlfrescoSyncServer-3.1.x.zip` file into a system directory; for example, `<installLocation>/`.
 
@@ -191,8 +191,6 @@ Due to the limited capabilities of Docker Compose, this deployment method is rec
 ## Uninstalling Sync Service
 
 To remove the Sync Service, uninstall the Sync Service AMP file, remove the Sync Service installation, and then remove the ActiveMQ topic.
-
-These instructions apply to both Alfresco Content Services and Alfresco One.
 
 1. Stop the Alfresco server.
 

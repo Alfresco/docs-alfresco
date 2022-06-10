@@ -24,7 +24,7 @@ Yes there are. See [Best practices when using Smart Folders]({% link content-ser
 
 ## Where can I find technical documentation?
 
-Use the Smart Folder tutorial, [Smart Folders tutorial]({% link content-services/community/tutorial/smart.md %}), to set up a working Smart Folder configuration. General configuration information is here: [Configure Smart Folders]({% link content-services/community/config/index.md %}).
+Use the Smart Folder tutorial, [Smart Folders tutorial]({% link content-services/latest/tutorial/smart.md %}), to set up a working Smart Folder configuration. General configuration information is here: [Configure Smart Folders]({% link content-services/community/config/index.md %}).
 
 ## Which components or subsystems do Smart Folders provide?
 
@@ -98,10 +98,6 @@ Smart Folders have a limited set of actions:
   These actions aren't supported for files.
 
 The Smart Folder itself can't be edited in Community Edition, except through the Smart Folder Template. For more information about Smart Folder Templates, see [Apply a Smart Folder Template]({% link content-services/community/using/smart-folders.md %}).
-
-## Are Smart Folders supported in a multi-tenant production environment?
-
-No, Smart Folders are not supported in a multi-tenant production environment.
 
 ## Can I use multi-value properties with Smart Folders?
 

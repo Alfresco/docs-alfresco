@@ -10,9 +10,9 @@ There are a number of software requirements for installing the Glacier Connector
 
 ### Alfresco requirements
 
-* Alfresco Content Services 6.2 or later - [installed using the distribution zip]({% link content-services/latest/install/zip/index.md %})
+* Alfresco Content Services 6.2 - [installed using the distribution zip]({% link content-services/6.2/install/zip/index.md %})
 
-* Alfresco Content Connector for AWS S3 3.1 or later - [installed and configured]({% link aws-s3/latest/install/index.md %})
+* Alfresco Content Connector for AWS S3 3.1 or later - [installed and configured]({% link aws-s3/3.1/install/index.md %})
 
 * Alfresco Governance Services 3.2 or later - [installed using the distribution zip]({% link governance-services/3.2/install/zip.md %})
 
@@ -20,7 +20,7 @@ See [Supported Platforms]({% link aws-glacier/2.1/support/index.md %}) for more 
 
 > **Note:** You don't need to install Alfresco Governance Services to use the Glacier Connector with Alfresco Content Services. You must have an Alfresco Governance Services license to use the Glacier Connector, even if you don't intend to use Alfresco Governance Services. If you plan to use Alfresco Governance Services with the Glacier Connector, ensure that you read the [Glacier Connector FAQs]({% link aws-glacier/2.1/using/index.md %}) before you proceed.
 
-> **Important:** If you're already using Amazon S3 with WORM storage, you're unable to use the Glacier Connector. Amazon S3 with WORM storage requires that you use multiple buckets, which is not supported by the Glacier Connector. See [Configuring multiple buckets using S3 Connector]({% link aws-s3/latest/config/index.md %}#multibucketconfig) for more.
+> **Important:** If you're already using Amazon S3 with WORM storage, you're unable to use the Glacier Connector. Amazon S3 with WORM storage requires that you use multiple buckets, which is not supported by the Glacier Connector. See [Configuring multiple buckets using S3 Connector]({% link aws-s3/3.1/config/index.md %}#multibucketconfig) for more.
 
 ### AWS related requirements
 
@@ -30,13 +30,13 @@ To use the S3 Connector and Glacier Connector you need an AWS account. See [AWS]
 
 These steps describe how to install the Glacier Connector to an instance of Alfresco Content Services when you installed it using a distribution zip. The Glacier Connector is packaged as an Alfresco Module Package (AMP) file and is installed using the Module Management Tool (MMT).
 
-When you purchase the Glacier Connector, a support case is created with the AMP file attached. If you no longer have access to the AMP file, or you didn't receive a case notification, raise a new case through the [Support Portal](https://support.alfresco.com){:target="_blank"}.
+When you purchase the Glacier Connector, a support case is created with the AMP file attached. If you no longer have access to the AMP file, or you didn't receive a case notification, raise a new case through [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 1. Stop Alfresco Content Services.
 
 2. Use the Module Management Tool (MMT) to install the `alfresco-glacier-connector-repo-2.1.x.amp` file into the repository WAR (`alfresco.war`).
 
-    See the Alfresco Content Services documentation for [Using the Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool) and [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).
+    See the Alfresco Content Services documentation for [Using the Module Management Tool (MMT)]({% link content-services/6.2/develop/extension-packaging.md %}#using-the-module-management-tool) and [Installing an Alfresco Module Package]({% link content-services/6.2/install/zip/amp.md %}).
 
 3. Restart Alfresco Content Services.
 
