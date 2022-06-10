@@ -16,7 +16,6 @@ The Admin Console is a tool comprising separate pages that identify a particular
 * Consoles:
   * GoogleDocs: [Configuring Google Docs using Admin Tools]({% link google-drive/latest/config/index.md %}#configure-using-the-admin-console)
   * Model and Messages: [Managing models using the Admin Console]({% link content-services/6.2/develop/repo-ext-points/content-model.md %})
-  * Tenant: [Managing tenants]({% link content-services/6.2/admin/multi-tenancy.md %}#managetenants)
   * Workflow: [The Workflow Console]({% link content-services/6.2/admin/workflows.md %}#workflowconsole)
 * Email Services:
   * Inbound Email: [Managing inbound emails]({% link content-services/6.2/config/email.md %})

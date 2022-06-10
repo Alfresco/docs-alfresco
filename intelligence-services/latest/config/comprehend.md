@@ -525,7 +525,7 @@ For more details on extending the features of Digital Workspace, see the Alfresc
 
 ```yaml
   digital-workspace:
-    image: quay.io/alfresco/alfresco-digital-workspace:2.4.0-adw
+    image: quay.io/alfresco/alfresco-digital-workspace:2.8
     environment:
       BASE_PATH: ./
       APP_CONFIG_PLUGIN_AI_SERVICE: "true"

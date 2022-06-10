@@ -20,7 +20,7 @@ You also need to [install a valid license](#install-license) for the SAP Cloud C
 
 The SAP Cloud Connector is packaged as an {% include tooltip.html word="AMP" text="AMP" %} file. These steps describe how to install the SAP Cloud Connector to an instance of Content Services.
 
-1. Go to the [Support Portal](https://support.alfresco.com){:target="_blank"}, and then download the Alfresco Content Connector for SAP Cloud delivery package. It is provided as a ZIP file and contains at least the following files:
+1. Go to [Hyland Community](https://community.hyland.com/){:target="_blank"}, and then download the Alfresco Content Connector for SAP Cloud delivery package. It is provided as a ZIP file and contains at least the following files:
 
     * Module `sap-content-connector-cmis-repo-1.2.x.amp` for Content Services:
         * This contains the business logic for the SAP Cloud Connector.
@@ -44,7 +44,7 @@ The SAP Cloud Connector is packaged as an {% include tooltip.html word="AMP" tex
 
 ## Install the license {#install-license}
 
-The access and use of the SAP Cloud Connector is managed by a license. If you don't have a license yet, you can request a trial license from the [Support Portal](https://support.alfresco.com){:target="_blank"}.
+The access and use of the SAP Cloud Connector is managed by a license. If you don't have a license yet, you can request a trial license from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 > **Note:** Make sure you have a valid license file before continuing. The name of the license file is `content-connector-for-sap-cloud.l4j`.
 

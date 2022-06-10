@@ -1935,15 +1935,15 @@ This task can be performed by the enterprise system administrator or the Alfresc
 
 When using Chrome on Windows to access Share, if the command-line switch is not present, the permitted list consists of those servers in the Local Machine or Local Intranet security zone. This is the behavior in Internet Explorer. For example, when the host in the URL includes a "`.`" character, it is outside the Local Intranet security zone. Treating servers that bypass proxies as being in the Intranet zone is currently not supported.
 
-On Windows, HTTP authentication is achieved by adding the Kerberos delegation server whitelist policy, `AuthNegotiateDelegateWhitelist`. Note that the `AuthNegotiateDelegateWhitelist` policy:
+On Windows, HTTP authentication is achieved by adding the Kerberos delegation server allowlist policy, `AuthNegotiateDelegateAllowlist`. Note that the `AuthNegotiateDelegateAllowlist` policy:
 
 -   Specifies the servers that Chrome may delegate to
--   Has a Windows registry location of HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AuthNegotiateDelegateWhitelist
+-   Has a Windows registry location of HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AuthNegotiateDelegateAllowlist
 -   Has separate multiple server names with commas
 -   Allows wildcards (*)
 -   If you do not set this policy, Chrome does not delegate user credentials, even if a server is detected as Intranet
 
-To set the `AuthNegotiateDelegateWhitelist` policy, follow these steps:
+To set the `AuthNegotiateDelegateAllowlist` policy, follow these steps:
 
 1.  Download the Administrative policy template from [http://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip](http://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip).
 2.  Use the command line, `gpedit.msc` to open the local group policy management.
@@ -1952,9 +1952,9 @@ To set the `AuthNegotiateDelegateWhitelist` policy, follow these steps:
 5.  Click **Add/Remove Templates**.
 6.  Click the **Add** button.
 7.  Select windows/adm/en-US/chrome.adm from the policy_templates.zip download.
-8.  In the **Local Computer Policy Editor** console tree, navigate to **Local Computer Policy > Computer Configuration > Administrative Templates > Classic Administrative Templates (ADM) > Google > Google Chrome > Policies for HTTP Authentication > Kerberos delegation server whitelist**.
-9.  On the **Kerberos delegation server whitelist** window, click **Enabled**.
-10. Specify your Share server name(s) as value in **Kerberos delegation server whitelist**.
+8.  In the **Local Computer Policy Editor** console tree, navigate to **Local Computer Policy > Computer Configuration > Administrative Templates > Classic Administrative Templates (ADM) > Google > Google Chrome > Policies for HTTP Authentication > Kerberos delegation server allowlist**.
+9.  On the **Kerberos delegation server allowlist** window, click **Enabled**.
+10. Specify your Share server name(s) as value in **Kerberos delegation server allowlist**.
 11. To activate the policy, open Chrome.
 12. Type `chrome://policy` to list the settings as viewed by Chrome.
 
@@ -1971,7 +1971,7 @@ When using Chrome on Linux as your client, follow these steps:
 2.  To use Alfresco Share, use:
 
     ```text
-    google-chrome --auth-server-whitelist=madona:8080 --auth-negotiate-delegate-whitelist=madona:8080
+    google-chrome --auth-server-allowlist=madona:8080 --auth-negotiate-delegate-allowlist=madona:8080
     http://madona:8080/alfresco
     ```
 

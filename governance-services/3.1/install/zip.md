@@ -11,7 +11,7 @@ The Governance Services distribution zip file contain the following AMP files:
 
 > **Note:** Install the AMPs manually using the Module Management Tool (MMT), rather than using the `apply_amps` tool.
 
-1. Browse to the [Support Portal](http://support.alfresco.com){:target="_blank"} and download the Governance Services distribution zip, which contains the following files:
+1. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"} and download the Governance Services distribution zip, which contains the following files:
 
     * alfresco-governance-services-enterprise-repo-3.1.x.amp
     * alfresco-governance-services-enterprise-share-3.1.x.amp

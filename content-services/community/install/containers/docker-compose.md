@@ -91,15 +91,15 @@ Use this information to verify that the system started correctly, and to clean u
         You should see a list of the services defined in your `docker-compose.yaml` file:
 
         ```text
-                Container                           Repository                                 ...    Size
-        -----------------------------------------------------------------------------------------------------
-        docker-compose_activemq_1             alfresco/alfresco-activemq                       ...   706MB
-        docker-compose_alfresco_1             alfresco/alfresco-content-repository-community   ...   1.51GB
-        docker-compose_postgres_1             postgres                                         ...   314MB
-        docker-compose_proxy_1                alfresco/alfresco-acs-nginx                      ...   21.9MB
-        docker-compose_share_1                alfresco/alfresco-share                          ...   983MB
-        docker-compose_solr6_1                alfresco/alfresco-search-services                ...   1.11GB
-        docker-compose_transform-core-aio_1   alfresco/alfresco-transform-core-aio             ...   1.94GB
+        Container                             Repository                                       Tag             Image Id        Size  
+        -------------------------------------------------------------------------------------------------------------------------------
+        docker-compose_activemq_1             alfresco/alfresco-activemq                       5.16.1           e9dd27ce1a5d   706.3 MB
+        docker-compose_alfresco_1             alfresco/alfresco-content-repository-community   7.2.0            eed53a3099ea   1.201 GB
+        docker-compose_postgres_1             postgres                                         13.3             b2fcd079c1d4   314.7 MB
+        docker-compose_proxy_1                alfresco/alfresco-acs-nginx                      3.2.0            da6d34dd9386   21.86 MB
+        docker-compose_share_1                alfresco/alfresco-share                          7.2.0            8f7aa246f5fe   725.7 MB
+        docker-compose_solr6_1                alfresco/alfresco-search-services                2.0.3            4f6f7c71c901   462.1 MB
+        docker-compose_transform-core-aio_1   alfresco/alfresco-transform-core-aio             2.5.7            bba1b5d18513   1.696 GB
         ```
 
     2. List the running containers:
@@ -194,31 +194,34 @@ Use this information to verify that the system started correctly, and to clean u
     4. Stop all running containers, and remove them and the network:
 
         ```bash
-        docker-compose down [--rmi all]
+        docker-compose down --rmi all
         ```
 
         The `--rmi all` option also removes the images created by `docker-compose up`, and the images used by any service. You can use this, for example, if any containers fail and you need to remove them:
 
         ```text
-        ⠿ Container docker-compose_solr6_1                             Removed                                                        11.0s
-        ⠿ Container docker-compose_transform-core-aio_1                Removed                                                         2.4s
-        ⠿ Container docker-compose_proxy_1                             Removed                                                        10.8s
-        ⠿ Container docker-compose_postgres_1                          Removed                                                         1.2s
-        ⠿ Container docker-compose_activemq_1                          Removed                                                        10.8s
-        ⠿ Container docker-compose_alfresco_1                          Removed                                                        13.7s
-        ⠿ Container docker-compose_share_1                             Removed                                                        13.4s
-        ⠿ Image alfresco/alfresco-search-services:2.0.2                Removed                                                        14.8s
-        ⠿ Network docker-compose_default                               Removed                                                         0.2s
-        ⠹ Image alfresco/alfresco-activemq:5.16.1                      Removing                                                       79.7s
-        ⠹ Image alfresco/alfresco-acs-nginx:3.1.1                      Removing                                                       79.7s
-        ⠹ Image alfresco/alfresco-transform-core-aio:2.5.3             Removing                                                       79.7s
-        ⠹ Image postgres:13.1                                          Removing                                                       79.7s
-        ⠿ Image quay.io/alfresco/service-sync:3.4.1                    Warning: No resource found to remove                            0.2s
-        ⠿ Image quay.io/alfresco/alfresco-shared-file-store:0.16.0     Warning: No resource found to remove                            0.4s
-        ⠿ Image quay.io/alfresco/alfresco-share:7.1.0                  Warning: No resource found to remove                            0.3s
-        ⠿ Image quay.io/alfresco/alfresco-content-repository:7.1.0     Warning: No resource found to remove                            0.3s
-        ⠿ Image quay.io/alfresco/alfresco-transform-router:1.4.1       Warning: No resource found to remove                            0.2s
-        ⠿ Image quay.io/alfresco/alfresco-digital-workspace:2.3.0-adw  Warning: No resource found to remove                            0.3s
+        Stopping docker-compose_proxy_1              ... done
+        Stopping docker-compose_solr6_1              ... done
+        Stopping docker-compose_postgres_1           ... done
+        Stopping docker-compose_share_1              ... done
+        Stopping docker-compose_activemq_1           ... done
+        Stopping docker-compose_transform-core-aio_1 ... done
+        Stopping docker-compose_alfresco_1           ... done
+        Removing docker-compose_proxy_1              ... done
+        Removing docker-compose_solr6_1              ... done
+        Removing docker-compose_postgres_1           ... done
+        Removing docker-compose_share_1              ... done
+        Removing docker-compose_activemq_1           ... done
+        Removing docker-compose_transform-core-aio_1 ... done
+        Removing docker-compose_alfresco_1           ... done
+        Removing network docker-compose_default
+        Removing image alfresco/alfresco-content-repository-community:7.2.0
+        Removing image alfresco/alfresco-transform-core-aio:2.5.7
+        Removing image alfresco/alfresco-share:7.2.0
+        Removing image postgres:13.3
+        Removing image alfresco/alfresco-search-services:2.0.3
+        Removing image alfresco/alfresco-activemq:5.16.1
+        Removing image alfresco/alfresco-acs-nginx:3.2.0
         ```
 
 See the [Docker documentation](https://docs.docker.com/){:target="_blank"} for more on using Docker.

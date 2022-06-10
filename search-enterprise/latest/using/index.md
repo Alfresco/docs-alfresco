@@ -67,6 +67,7 @@ Fields fall into three types, property fields, special fields, and fields for da
 |Property|DENIED, for example `DENIED:'GROUP_EVERYONE'`.|
 |Special|TYPE, for example `TYPE:"qname"`.|
 |Special|ASPECT, for example `ASPECT:"qname"`.|
+|Special|SITE, for example `SITE:"shortname of the site"`.|
 |Special|TAG, for example `TAG:"name of the tag"`.|
 |Special|ALL, for example `ALL:'admin'`.|
 |Special|EXISTS, for example `EXISTS cm:name:'Sample-Document.docx'`.|
@@ -230,6 +231,28 @@ In the REST API you can specify the timezone to be used in search for date range
 }
 ```
 
+### Search using date math
+
+Date range queries can be more powerful when applying date math functions. AFTS supports adding and subtracting periods, as well as rounding:
+
+| AFTS query | Description |
+| ---------- | ----------- |
+| `acme:projectStartDate:[NOW TO NOW+1DAY>` | Documents that have a project start date in the next twenty four hours. |
+| `acme:projectStartDate:[NOW/DAY TO NOW/DAY+1DAY>` | Documents that have a project start date from the current day. The current day is defined as from midnight to midnight (UTC), **Note:** The subtle difference between this query and the one above. |
+| `acme:projectStartDate:[NOW-1MONTH/YEAR TO NOW-1MONTH/YEAR+1DAY>` | Documents with a project start date in the first day of the current year, or in the first day of last year if it is currently January. **Note:** It's possible to chain date math functions together. |
+| `cm:created:[2020-11-01T12:34:00/YEAR TO NOW>` | Documents that were created since the the start of 2020. **Note:** It's also possible to apply date math to absolute points in time. |
+
+All of these examples have used an inclusive lower bound and an exclusive upper bound. Other bounds can be used but Search Enterprise performs rounding based on the type of bound being used:
+
+| AFTS Bound | Description | Elasticsearch rounding behaviour |
+| ---------- | ------- | ----------------------- |
+| `[NOW/YEAR TO ...` | Inclusive lower bound. | From the start of the current year. |
+| `<NOW/YEAR TO ...` | Exclusive lower bound. | After the end of the current year. |
+| `... TO NOW/YEAR]` | Inclusive upper bound. | Until the end of the current year. |
+| `... TO NOW/YEAR>` | Exclusive upper bound. | Before the start of the current year. |
+
+For more details see the [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-range-query.html#range-query-date-math-rounding).
+
 ## Search for an exact term
 
 > **Note:** Exact Term searching is only allowed if default Alfresco Repository configuration has been changed in order to enable this feature.
@@ -275,6 +298,19 @@ becomes
 
 ```afts
 stopword1_quick quick fox_stopword2 fox stopword2_brown brown
+```
+
+## Search for proximity
+
+Google-style proximity is supported.
+
+To specify proximity for fields, use grouping.
+
+```sql
+big * apple
+TEXT:(big * apple)
+big *(3) apple
+TEXT:(big *(3) apple)
 ```
 
 ## Requesting optional item information

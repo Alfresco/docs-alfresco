@@ -4,7 +4,7 @@ title: Content models
 
 Use this information to create and manage custom models in Alfresco Share using the Model Manager.
 
-> **Note:** A [tutorial]({% link content-services/community/tutorial/model.md %}) for using the Model Manager is also available.
+> **Note:** A [tutorial]({% link content-services/latest/tutorial/model.md %}) for using the Model Manager is also available.
 
 ## Introduction
 

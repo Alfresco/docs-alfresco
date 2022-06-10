@@ -59,18 +59,20 @@ The following Docker images relate to Content Services:
 
 * `quay.io/alfresco/alfresco-content-repository` - the repository app (i.e. `alfresco.war`) running on Apache Tomcat
 * `quay.io/alfresco/alfresco-share` - the Share web interface (i.e. `share.war`) running on Apache Tomcat
-* `alfresco/alfresco-search-services` - the Solr 6 based search service running on Jetty
+* `quay.io/alfresco/alfresco-shared-file-store` - centralized/shared file storage, used by the content repository and transform service
+* `quay.io/alfresco/search-services` - the Solr 6 based search service running on Jetty
+* `quay.io/alfresco/service-sync` - synchronizes files between the desktop and repository using web services
 * `alfresco/alfresco-activemq` - the Alfresco ActiveMQ image
 * `alfresco/alfresco-acs-ngnix` - web proxy
 
-There are also other supporting features available, such as Docker images for image and document transformation:
+There are also supporting features available, such as Docker images for image and document transformation:
 
 * `quay.io/alfresco/alfresco-transform-router`
 * `alfresco/alfresco-transform-core-aio`
 
 Content Services provides a number of content transforms, but also allows custom transforms to be added. It's possible to create custom transforms that run in separate processes from the repository, known as Transform Engines (i.e. T-Engines). The same engines may be used in the Community and Enterprise Editions of Content Services. They may be directly connected to the repository as Local Transforms. Note that in the Enterprise Edition, the default option is to use them as part of Alfresco Transform Service, which provides more balanced throughput and scalability improvements.
 
-See [Custom Transforms and Renditions](https://github.com/Alfresco/acs-packaging/blob/master/docs/custom-transforms-and-renditions.md){:target="_blank"} for more.
+See [Transform Service]({% link transform-service/latest/index.md %}) for more info.
 
 > **Note:** The core Transform Engine images can be used in Content Services. The open-sourced code for the Transform Engines is available in the [Alfresco/alfresco-transform-core](https://github.com/Alfresco/alfresco-transform-core){:target="_blank"} GitHub project.
 

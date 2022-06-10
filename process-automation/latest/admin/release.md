@@ -8,10 +8,15 @@ The **DevOps** section of the Admin Application is used to deploy projects and m
 
 The **Project Releases** section displays a list of all [released projects]({% link process-automation/latest/model/projects.md %}#release-a-project) created in the Modeling Application.
 
-> **Note**: If you can't find your project in the list, make sure it has been released. To release a project:
-> 1. Sign into the Modeling Application.
-> 2. Find or search for your project in the list of projects.
-> 3. Select the **Release** action from the **Options** column for the project.
+ > **Note**: If you can't find your project in the list, make sure it has been released.
+
+To release a project:
+
+1. Sign into the Modeling Application.
+
+2. Find or search for your project in the list of projects.
+
+3. Select the **Release** action from the **Options** column for the project.
 
 ### Properties {#project-properties}
 
@@ -94,6 +99,28 @@ After clicking **Create** the deployment descriptor will be created and the appl
 
 You can delete a released project from the Admin App by selecting the three dots next to the project you want to delete and select **Delete**.
 
+### Promote a project release from one environment to another
+
+You can download a project release and then upload it to another environment. This is useful because you can test a new project release on a staging environment and then upload it to a production environment.
+
+To upload a project release to another environment:
+
+1. Navigate to the project where you want to download the project release.  
+
+2. On the Releases window click the three dots next to the release you want to upload to another environment and then click **Download**.
+
+    A zip file of the project release is created and downloads to your machine.
+
+3. Navigate to the environment where you want to upload the project release.
+
+4. Navigate to the project where you want to upload the project release.
+
+5. Go to the Releases window and click the **Upload** icon.
+
+6. Select the project release you created earlier.
+
+Once you have uploaded the project release it will appear in the list of project releases you have on the Releases window.
+
 ## Deployment descriptors
 
 The **Deployment Descriptors** section displays a list of all deployment descriptors in the environment. These are created by the [deployment service]({% link process-automation/latest/admin/architecture.md %}#deployment-service) whenever a project is deployed.
@@ -123,7 +150,7 @@ A previously exported deployment descriptor can be imported using the **Import**
 
 The **Application Instances** section displays a list of all deployed applications, and applications currently in the process of being deployed. Applications can have their permissions updated.
 
-> **Reminder**: Projects are referred to as applications when they are deployed.
+> **Reminder:** Projects are referred to as applications when they are deployed.
 
 ### Properties {#application-properties}
 
@@ -146,6 +173,20 @@ The **Undeploy** action removes a deployed application.
 ### Manage permissions
 
 The **Manage Permissions** option allows for additional users to be granted user or administrator access to an application without having to upgrade it.
+
+### Monitoring
+
+You can monitor the health of your installation by using the Monitoring dashboard. There is a dashboard for each deployed application.
+
+To access the dashboard.
+
+1. Log into the Alfresco Admin App.
+
+2. Expand **Devops** from the left pane and select **Application Instances**.
+
+3. Click the three dots next to the application you want to monitor and select **Monitoring**.
+
+You will see the Monitoring dashboard for the application. Services that are operational have a green dot. Services that are operational but may have some problems have a yellow dot **Note:** Generally these problems fix automatically. Services that are not operating and require assistance have a red dot. Services that have an unknown state have a grey dot.
 
 ### Upgrade
 
@@ -196,6 +237,22 @@ To update the runtime version.
 
 5. Select the runtime version you want to upgrade to and click **Update runtime version**.
 
-> **Note:** You can also update the runtime version of an application when you upgrade. For more see [Upgrade](#upgrade)
+> **Note:** You can also update the runtime version of an application when you upgrade. For more see [Upgrade](#upgrade).
 
 ![update runtime]({% link process-automation/images/update-runtime.png %})
+
+### Logs
+
+You can view Deployment Service Logs, Runtime Bundle Logs, and Process Storage Logs to help understand any errors you may be having with your installation. The Deployment Service Logs are always available because they belong to a shared service. The logs use different blue highlighting to indicate the app being viewed. The Runtime Bundle Logs and the Storage Logs are unavailable if the app is not deployed correctly.
+
+To view the logs:
+
+1. Log into the Alfresco Admin App.
+
+2. Expand **Devops** from the left pane and select **Application Instances**.
+
+3. Click the three dots next to the application you want review.
+
+4. Select **Logs** and then the logs you want to view.
+
+The log text is colour coded. White indicates no issue. Yellow indicates a warning, and Red indicates an error.

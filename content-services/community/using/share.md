@@ -11,7 +11,7 @@ With Alfresco Share it's simple to share information, run projects, and collabor
 * Work with content and add it to your site
 * Add users to your site, set up meetings and use social media features
 
-There are a set of [video tutorials]({% link content-services/community/tutorial/video/index.md %}) related to Alfresco Share, including a [tour of the available features]({% link content-services/community/tutorial/video/index.md %}#tour-of-alfresco-share).
+There are a set of [video tutorials]({% link content-services/latest/tutorial/video/index.md %}) related to Alfresco Share, including a [tour of the available features]({% link content-services/latest/tutorial/video/index.md %}#tour-of-alfresco-share).
 
 Alfresco Share content is stored in sites, and each individual site has its own dashboard made up of *dashlets*.
 

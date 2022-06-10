@@ -6,7 +6,7 @@ The SAP Connector capability for Content Services is delivered as a distribution
 
 In these topics you'll install and set up everything you need to run the SAP Connector. See [Prerequisites]({% link sap/5.0/install/index.md %}#prerequisites) and [Supported Platforms]({% link sap/5.0/support/index.md %}) for information on what you require before you start the installation.
 
-You can download the Alfresco Content Connector for SAP applications software from the: [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}.
+You can download the Alfresco Content Connector for SAP applications software from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ Below are the environment/software prerequisites for installing and using the SA
 * Firewall does not block HTTP traffic on port 80 / 8080 / 8082.
 * Access to the Content Services server with administrator privileges to:
   * Apply the SAP Connector {% include tooltip.html word="AMP" text="AMP" %} files
-  * Edit `alfresco-gobal.properties` file
+  * Edit `alfresco-global.properties` file
   * Stop/start the application server
 * Alfresco user with administrator permissions.
 
@@ -63,7 +63,7 @@ The SAP Connector is packaged as Alfresco Module Package (AMP) files.
 
 > **Note:** Ensure that you don't start Content Services before installing the SAP Connector AMPs.
 
-1. Go to the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}, click **Product Downloads**, and then download the SAP Connector distribution zip, which contains the following files:
+1. Go to [Hyland Community](https://community.hyland.com/){:target="_blank"}, click **Product downloads**, and then download the SAP Connector distribution zip, which contains the following files:
 
     * `sap-content-connector-repo-5.x.amp` for Content Services
     * `sap-content-connector-share-5.x.amp` for Alfresco Share

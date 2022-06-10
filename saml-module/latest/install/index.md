@@ -53,7 +53,7 @@ In the following steps, you can follow either:
 
 1. Stop the Alfresco Content Services server.
 
-2. Navigate to the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}, download and unzip the SAML Module for Alfresco Content Services zip package:
+2. Navigate to [Hyland Community](https://community.hyland.com/){:target="_blank"}, download and unzip the SAML Module for Alfresco Content Services zip package:
 
     * `alfresco-saml-1.2.x.zip`
 

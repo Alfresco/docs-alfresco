@@ -97,7 +97,7 @@ shard.instance=<shard.instance>
 shard.count=<shard.count>
 ```
 
-### DBID range (DB_ID_RANGE)
+### DBID range (DB_ID_RANGE) {#sharding-methods-db-id-range}
 
 This method is available in Search and Insight Engine 1.1 and later versions. This routes documents within specific DBID ranges to specific shards. It adds new shards to the cluster without requiring a reindex.
 

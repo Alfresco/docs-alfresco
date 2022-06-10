@@ -368,6 +368,7 @@ search.solrShardRegistry.maxAllowedReplicaTxCountDifference=1000
 |search.solrShardRegistry.purgeOnInit|If true, this property removes persisted shard state from the database when the subsystem starts for example, true|
 |search.solrShardRegistry.shardInstanceTimeoutInSeconds|Specifies that if a shard has not made a tracking request within this time, it will not be used for query. **Note:** When tracking large change sets or rebuilding your indexes, increase the shard timeout. For example, change the value of this property to 3200 or 7200 seconds|
 |search.solrShardRegistry.maxAllowedReplicaTxCountDifference|Specifies that if any shard is more than this number of transactions behind the leading instance, it will not be used, for example 1000 transactions|
+|search.solrShardRegistry.dbidRangeRefreshTimeoutInSeconds|This property controls the frequency of synchronisation of the shard information between multiple ACS instances for [DB_ID_RANGE]({% link insight-engine/1.4/config/sharding/index.md %}#sharding-methods-db-id-range)` sharding, for example `30`. <br/><br/>**Note:** This property is only used when you are using `DB_ID_RANGE` sharding with multiple ACS instances.|
 
 If there is more than one index for a store, the most up to date index (the one that has indexed most transactions) will be used. For each shard, an instance is chosen at random from all the shards that are actively tracking and within 1000 transactions of the lead instance.
 

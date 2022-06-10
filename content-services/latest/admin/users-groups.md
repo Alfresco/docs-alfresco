@@ -6,6 +6,8 @@ Before you can set up any security you need users and groups to work with. Use t
 
 > **Note:** The Content Services repository would normally be connected to a directory service to sync users and groups into the database, see [Setting up authentication and sync]({% link content-services/latest/admin/auth-sync.md %})
 
+> **Note:** You can also test an alternative way of managing users and groups using containerized deployment. See [Alfresco Control Center]({% link content-services/latest/admin/control-center.md %}).
+
 ## Manage users
 
 The **Users** tool in the Share **Admin Tools** lets you create and manage the user accounts.
