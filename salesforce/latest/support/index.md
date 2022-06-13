@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for the Content Connector for Salesforce 2.3.2:
+The following are the supported platforms for the Content Connector for Salesforce 2.3.4:
 
 | Version | Notes |
 | ------- | ----- |

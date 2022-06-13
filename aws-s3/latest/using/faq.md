@@ -23,7 +23,7 @@ AWS versioning-enabled buckets are completely transparent to Alfresco, so the st
 
 ## As a customer upgrading from a previous version to S3 Connector 3.x, should I remove the useTenantDomainPath property?
 
-The `s3.useTenantDomainInPath` property is `false` by default, so any new content you create won't add the tenant domain to the S3 path. If you want to add the tenant domain back to the path, then set this property to `true`. This may be useful for customers leveraging the [multi-tenant functionality]({% link content-services/latest/admin/multi-tenancy.md %}), where you don't want content from different tenants to be stored in the same folder. Note that this doesn't provide the optimal path for high throughput reads and writes.
+The `s3.useTenantDomainInPath` property is `false` by default, so any new content you create won't add the tenant domain to the S3 path. If you want to add the tenant domain back to the path, then set this property to `true`. Note that this doesn't provide the optimal path for high throughput reads and writes.
 
 ## Do I need to re-encrypt all content in an S3 bucket if I move to KMS?
 
@@ -47,4 +47,4 @@ You don't need to do anything. Any existing content is still encrypted as it was
 
 ## Does the S3 Connector support Amazon S3 Glacier?
 
-The S3 Connector supports Amazon S3 Glacier. See [Alfresco Content Connector for AWS Glacier]({% link aws-glacier/latest/index.md %}) for more information.
+The S3 Connector version 5.0 includes support for Amazon S3 Glacier via REST APIs.

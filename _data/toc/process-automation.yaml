@@ -47,6 +47,8 @@
               path: '/process-automation/latest/model/connectors/outlook/'
             - title: 'Microsoft Teams'
               path: '/process-automation/latest/model/connectors/teams/'
+        - title: 'Authentication'
+          path: '/process-automation/latest/model/authentication/'
         - title: 'Decision tables'
           path: '/process-automation/latest/model/decisions/'
         - title: 'User interfaces'
@@ -59,6 +61,8 @@
           path: '/process-automation/latest/model/triggers/'
         - title: 'Content models'
           path: '/process-automation/latest/model/content-models/'
+        - title: 'Data models'
+          path: '/process-automation/latest/model/data-models/'
     - title: 'Administer'
       pages:
         - title: 'Overview'

@@ -148,8 +148,6 @@ You may need to configure a number of optional properties for the S3 Connector 2
     s3.flatRoot=true
     ```
 
-    >**Note:** For a multi-tenant system you can also set `s3.useTenantDomainInPath=false`, however content from different tenants is co-mingled. For more details, see [Setting up multi-tenancy]({% link content-services/6.1/admin/multi-tenancy.md %}).
-
     You can apply S3 Connector 2.0 to an existing installation where S3 Connector 1.x was previously used without affect to the running of the system. This means that existing paths remain as they are, and new paths are generated based on your configuration.
 
     **Example 1:**

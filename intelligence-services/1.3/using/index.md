@@ -58,7 +58,7 @@ Follow these steps to use the default (i.e. out-of-the-box) configuration of Int
 
     At this point, your rule has been applied to request the AI renditions and add the selected AI aspects.
 
-    See the Content Services documentation, [Folder rules]({% link content-services/latest/using/content/rules.md %}) to find out more about applying folder rules.
+    See the Content Services documentation, [Folder rules]({% link content-services/7.0/using/content/rules.md %}) to find out more about applying folder rules.
 
 10. Next, upload content to your test folder.
 
@@ -104,10 +104,10 @@ If you're planning to use custom recognizers, custom classifiers, or custom meta
         See [Custom AI content model (Textract)]({% link intelligence-services/1.3/config/textract.md %}#custom-ai-content-model) for configured aspects.
 
     > **Note:** The new input field for the `Request AI renditions` action adds the ability to request custom renditions as comma separated rendition names. When left blank, the three default renditions are requested - (i.e. `aiFeatures`, `aiLabels`, and `aiTextract`). This allows you to configure a rule using various combinations, such as:
-
-    ```bash
-    aiFeatures, aiBusinessCustom, aiBusinessSport
-    ```
+    >
+    > ```bash
+    > aiFeatures, aiBusinessCustom, aiBusinessSport
+    > ```
 
 ## View AI properties
 

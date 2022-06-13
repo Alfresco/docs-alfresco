@@ -16,6 +16,7 @@ Using the configuration file, you can update:
 * user interface defaults and customization (including localization)
 * network access configuration
 * debug logging
+* [timezone](#change-timezone) used in `AlfrescoDesktopSync.log` file
 
 The configuration properties values are case sensitive and use the format `name.subname=value`, 
 for example, `syncmanager.deferFileSyncTimer=15`.
@@ -40,7 +41,7 @@ Here are examples of how you can set the URL to access a file:
 >The URL must also use an `http` or `https` protocol. If the property is left blank or not set correctly, 
 >the file sharing feature won't be available in Desktop Sync.
 
-For more info see [Sharing files]({% link desktop-sync/latest/using/sharing.md %}).
+For more information, see [Sharing files]({% link desktop-sync/latest/using/sharing.md %}).
 
 ## User interface
 
@@ -86,7 +87,7 @@ Here are some examples of the information that's collected:
 As an IT administrator, you can control the parts of the Desktop Sync UI that users can access, 
 so that they can't sync content from specific areas in Alfresco Content Services. 
 
-By default, the Content selection screen (see [selecting content to sync]({% link desktop-sync/latest/using/select-to-sync.md %})) 
+By default, the content selection dialog (see [selecting content to sync]({% link desktop-sync/latest/using/select-to-sync.md %})) 
 displays **My Files**, **Shared Files**, **Sites**, and **Company Home**. 
 If you want to hide any of these areas, change the value of the relevant `syncui.show*` property to `false`.
 
@@ -133,13 +134,13 @@ syncui.fileCustomTypes=My custom type (model-1:custom_type_name)
 
 |Property|Default value|Description|
 |--------|-------------|-----------|
-|alfrescosync.initialPollInterval|15 seconds|Sets the number of seconds before the first server polling after application startup.|
-|alfrescosync.pollingInterval|300 seconds|Sets the number of seconds between polling of the sync server for server-side file change events. This does not affect the processing of desktop file change events; they are always processed immediately.|
-|syncmanager.deferFileSyncTimer|15 seconds|Sets the number of seconds between retries of a deferred update for a file, such as when an application still has the file open.|
-|syncmanager.deferDelayRetryTimer|3600 seconds|Sets the number of seconds to retry syncing a deferred update for a file. If you wish to override the default setting, add this property in the configuration file. Maximum allowed value is 10 hours.|
-|syncmanager.deferOnlineCheckTimer|60 seconds|Sets the number of seconds between retries when a server connection is offline. This may be due to server being down, no network connection, or no route to the server.|
-|syncmanager.consistencyCheckRetryInterval|120 seconds|Sets the number of seconds between consistency check retry attempts. A consistency check may be aborted when too many file system changes are received during the consistency check scan.|
-|syncmanager.freeSpaceCheckTimer|120 seconds|Sets the number of seconds between free space checks when syncing has been paused due to the local free disk space threshold being reached.|
+|alfrescosync.initialPollInterval|15 seconds|Sets the number of seconds before the first server polling after application startup:{::nomarkdown}<ul><li>Minimum value: 0 seconds</li><li>Maximum allowed value: 18000 seconds (5 hours)</li></ul>{:/}|
+|alfrescosync.pollingInterval|300 seconds|Sets the number of seconds between polling of the sync server for server-side file change events. This does not affect the processing of desktop file change events; they are always processed immediately:{::nomarkdown}<ul><li>Minimum value: 10 seconds</li><li>Maximum allowed value: 18000 seconds (5 hours)</li></ul>{:/}|
+|syncmanager.deferFileSyncTimer|15 seconds|Sets the number of seconds between retries of a deferred update for a file, such as when an application still has the file open:{::nomarkdown}<ul><li>Minimum value: 10 seconds</li><li>Maximum allowed value: 60 seconds</li></ul>{:/}|
+|syncmanager.deferDelayRetryTimer|3600 seconds|Sets the number of seconds to retry syncing a deferred update for a file. If you wish to override the default setting, add this property in the configuration file:{::nomarkdown}<ul><li>Minimum value: 10 seconds</li><li>Maximum allowed value: 36000 seconds (10 hours)</li></ul>{:/}|
+|syncmanager.deferOnlineCheckTimer|60 seconds|Sets the number of seconds between retries when a server connection is offline. This may be due to server being down, no network connection, or no route to the server:{::nomarkdown}<ul><li>Minimum value: 15 seconds</li><li>Maximum allowed value: 600 seconds</li></ul>{:/}|
+|syncmanager.consistencyCheckRetryInterval|120 seconds|Sets the number of seconds between consistency check retry attempts. A consistency check may be aborted when too many file system changes are received during the consistency check scan:{::nomarkdown}<ul><li>Minimum value: 30 seconds</li><li>Maximum allowed value: 3600 seconds</li></ul>{:/}|
+|syncmanager.freeSpaceCheckTimer|120 seconds|Sets the number of seconds between free space checks when syncing has been paused due to the local free disk space threshold being reached:{::nomarkdown}<ul><li>Minimum value: 15 seconds</li><li>Maximum allowed value: 1800 seconds</li></ul>{:/}|
 
 ## Sync manager constraints
 
@@ -248,7 +249,7 @@ downloading or uploading content to/from the Alfresco Content Services CMIS serv
 
 |Property|Default value|Description|
 |--------|-------------|-----------|
-|cmis.lowSpeedTime|15 seconds|Specifies the number of seconds of low speed transfer that are required for a data transfer to be aborted.|
+|cmis.lowSpeedTime|30 seconds|Specifies the number of seconds of low speed transfer that are required for a data transfer to be aborted.|
 |cmis.lowSpeedLimit|1 bytes per second|Specifies the number of bytes per second that is considered to be a slow data transfer.|
 |syncmanager.resumeDownloadFileSize|500K|Specifies the size limit above which a download will resume. Default value is 500KB.|
 
@@ -402,6 +403,20 @@ logging.loggers.l6.level = error
 
 For more details on the logging configuration, see the [PocoProject](https://pocoproject.org/){:target="_blank"} documentation.
 
+## Change timezone {#change-timezone}
+
+The default timezone used in the `AlfrescoDesktopSync.log` file is `UTC`. As an IT administrator, if you want to change this so that the log file uses your local timezone, edit the configuration file:
+
+1. Remove the line `logging.formatters.f1.times = UTC`.
+2. Add the following lines:
+
+    ```bash
+    logging.channels.c1.formatter.times = local
+    logging.formatters.f1.times = local
+    ```
+
+3. Restart the Desktop Sync client, and open the log file to see the changes.
+
 ## Localization
 
 Desktop Sync supports 16 languages across the user interface, notifications and right-click context menu. 
@@ -451,8 +466,20 @@ Desktop Sync clients without any manual intervention.
 
 See [Managing automatic configuration updates]({% link desktop-sync/latest/admin/index.md %}#manage-automatic-configuration-updates) for more.
 
+## Manage sync configuration methods
+
+As an IT administrator, you can manage the configuration of your Desktop Sync client apps via the Desktop Sync UI and a configuration file. You can choose to enable or disable the content selection dialog from the UI for all your Desktop Sync clients, while setting enforced paths to sync from the configuration file.
+
+See [Manage sync configuration]({% link desktop-sync/latest/admin/index.md %}#manage-sync-configuration) for more.
+
 ## Force users to sync specific paths {#force-user-sync}
 
 You can configure your Desktop Sync client apps to enforce the sync and exclusion of specific paths or Sites that are added to the configuration file. This allows you to restrict what your Desktop Sync clients sync by pre-selecting the sync folders.
 
 See [Manage enforced sync]({% link desktop-sync/latest/admin/index.md %}#manage-enforced-sync) for more.
+
+## Hide specific paths from users {#hide-from-sync}
+
+You can configure your Desktop Sync client apps to hide specific paths or Sites that are added to the configuration file. This allows you to restrict what your Desktop Sync clients sync by hiding those locations from view in the content selection dialog.
+
+See [Manage hidden sync]({% link desktop-sync/latest/admin/index.md %}#manage-hidden-sync) for more.

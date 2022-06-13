@@ -35,6 +35,8 @@ You can see the **Admin Tools** option on the menu bar if you're an administrato
         * Groups: [Managing groups]({% link content-services/latest/admin/users-groups.md %}#manage-groups)
         * Users: [Managing users]({% link content-services/latest/admin/users-groups.md %}#manage-users)
 
+        > **Note:** You can also test an alternative way of managing users and groups using containerized deployment. See [Alfresco Control Center]({% link content-services/latest/admin/control-center.md %}).
+
 2. Select an Admin Tool from the left side to see the page for each tool.
 
 ## Manage Share Theme and Logo {#theme-logo}

@@ -46,13 +46,17 @@ To start a process instance:
 
 1. Sign into the Digital Workspace.
 
-2. Click the **NEW** dropdown.
+2. Click **Start Process**.
 
-3. Select **Start Process**.
+3. Select the process you would like to start from the modal window.
 
-4. Choose the process definition to use from the dropdown and give the process instance a name.
+    If you defined categories when you created your processes, they will be organized within those categories.
 
-5. Click **Start Process**.
+4. Click **START PROCESS**.
+
+    > **Note:** Once you have selected the process you would like to work with from the modal window you can copy and share the URL with another user, so they can start the process. This user must have credentials to sign into the Digital Workspace.
+
+All Alfresco Digital Workspace users who have initiated a process or participated in one can see all the tasks from the process, including the tasks assigned to other users. To see the list of tasks navigate to **Process Management** > **Processes** > **Running** > **Process details**.
 
 ### Start a process instance from a file
 
@@ -223,7 +227,7 @@ The right-statement can be one of the available variables, a JUEL expression, or
 
 ## Expression editor
 
-The expression editor is a code editor that provides autocompletion and hints when writing an expression that may contain a JUEL expression.
+The expression editor is a code editor that provides autocompletion and hints when writing an expression that may contain a JUEL expression. In the expression editor you can test JUEL expressions by first setting the values of variables and then once the expression has been created it can be tested by clicking the **Test** button. The result is displayed in the gray area above the variables.
 The expression editor appears in the following places:
 
 * Task mapping dialog: when selecting an expression as a variable value

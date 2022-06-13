@@ -1423,7 +1423,7 @@ The CSRF filter can be configured in the `web-client-security-config.xml` file, 
 ```text
 # CSRF filter overrides
 csrf.filter.enabled=true
-csrf.filter.referer=https://mydomain.com/*.
+csrf.filter.referer=https://mydomain.com/.*
 csrf.filter.referer.always=false
 csrf.filter.origin=https://mydomain.com
 csrf.filter.origin.always=false

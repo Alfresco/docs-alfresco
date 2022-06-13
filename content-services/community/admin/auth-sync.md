@@ -287,7 +287,7 @@ For example, if external authentication is the only authentication system in the
 
 Here are two scenarios where external authentication is configured with Community Edition and Share. In both scenarios, an HTTP or HTTPS request is sent to an authentication proxy. If authentication is OK, the proxy passes the request to Share using the AJP protocol.
 
-In the first scenario, the Share [endpoint-url]({% link content-services/community/develop/reference/surf-framework-ref.md %}#connectors-and-endpoints-connectorsendpoints) (`http://localhost:8080/alfresco/wcs`) sends the request directly to Community Edition using HTTP and a User Header. No certificate is used and the `external.authentication.proxyUserName` is blank:
+In the first scenario, the Share [endpoint-url]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#connectors-and-endpoints-connectorsendpoints) (`http://localhost:8080/alfresco/wcs`) sends the request directly to Community Edition using HTTP and a User Header. No certificate is used and the `external.authentication.proxyUserName` is blank:
 
     ```bash
     external.authentication.proxyUserName=
@@ -297,7 +297,7 @@ Community Edition trusts the header (defined by `external.authentication.proxyHe
 
 ![external-direct]({% link content-services/images/external-direct.png %})
 
-In the second scenario, the Share [endpoint-url]({% link content-services/community/develop/reference/surf-framework-ref.md %}#connectors-and-endpoints-connectorsendpoints) (`http://your.server.com/alfresco/wcs`) sends the request back to Apache, using HTTP and a User Header (defined by `external.authentication.proxyHeader`), and a certificate. `external.authentication.proxyUserName` is set:
+In the second scenario, the Share [endpoint-url]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#connectors-and-endpoints-connectorsendpoints) (`http://your.server.com/alfresco/wcs`) sends the request back to Apache, using HTTP and a User Header (defined by `external.authentication.proxyHeader`), and a certificate. `external.authentication.proxyUserName` is set:
 
     ```bash
     external.authentication.proxyUserName=alfresco-system

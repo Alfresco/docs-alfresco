@@ -183,12 +183,13 @@ Note how the user profile needs to be bootstrapped first. This is enforced with 
 
 The `id` and `description` properties should be specified in a message resource file as follows:
 
+> **Important:** The `id` value in the bean definition should be limited to 64 characters or less.  Using a value greater than 64 characters will cause the patch to be redeployed on every  restart.
+
 ```text
 org.alfresco.tutorial.bootstrap.patch.usersLoader=Load Users
 org.alfresco.tutorial.bootstrap.patch.usersLoader.description=Bootstraps users alftest1 and alftest2
 org.alfresco.tutorial.bootstrap.patch.userProfilesLoader=Load User Profiles
 org.alfresco.tutorial.bootstrap.patch.userProfilesLoader.description=Bootstraps first name, last name, email etc for user alftest1 and alftest2
-
 ```
 
 ### Bootstrapping groups
