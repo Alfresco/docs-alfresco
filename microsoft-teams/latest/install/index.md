@@ -326,7 +326,7 @@ In the Teams Client (e.g. webapp / desktop) do the following:
 
    ![MS Teams Apps]({% link microsoft-teams/images/ms-teams-manage-your-apps.png %})
 
-3. Click the **Publish an app** action, this will display the following form:
+3. Click the **Publish an app** action (or **Upload an app** in the Web UI), this will display the following form:
 
    ![MS Teams Apps]({% link microsoft-teams/images/ms-teams-publish-app-form.png %})
 
@@ -337,12 +337,13 @@ In the Teams Client (e.g. webapp / desktop) do the following:
 
    ![MS Teams Integration App loading]({% link microsoft-teams/images/ms-teams-integ-app-loading.png %}){:height="600px" width="600px"}
 
-4. Click **Add**.
-5. You should see the app with the search bar:
+6. Click **Add**.
+   
+7. You should see the app with the search bar:
 
    ![MS Teams Integration App Search]({% link microsoft-teams/images/ms-teams-integ-app-search-dialog.png %}){:height="250px" width="200px"}
 
-6. If you search for something it will ask you to login, use your Alfresco credentials.
+8. If you search for something it will ask you to login, use your Alfresco credentials.
 
 >**Note:** A common error is when uploading a manifest zip with the wrong layout:<br/>"Error while extracting package: Please ensure there are no folders in your app package and that
 your app package contains only the `manifest.json` and the two required icon files at its root level.
