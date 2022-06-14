@@ -311,7 +311,7 @@ Now, create a Zip file (without folders) with `manifest.json` and the two icon f
 ### Publish the Collaboration Connector for Teams app {#test-app}
 
 This explains how a Microsoft Teams Admin user can install the Collaboration Connector for Teams app and make it 
-available to the organisation's users. 
+available to the organization's users. 
 
 >**Note:** It is possible to install the custom app as an end-user. However, doing this might result in problems for 
 >other users to read messages from the user installing the app. It is recommended to install the custom app as a Teams Admin.
