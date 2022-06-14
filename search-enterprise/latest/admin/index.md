@@ -365,8 +365,11 @@ When using a different database you need to add to the Java classpath and to the
    --alfresco.reindex.toId=10000
    --spring.batch.datasource.url=jdbc:mysql://localhost:3306/alfresco
    --spring.batch.datasource.username=batchUser
+   --spring.datasource.username=batchUser
    --spring.batch.datasource.password=*****
+   --spring.datasource.password=*****
    --spring.batch.datasource.driver-class-name=com.mysql.jdbc.Driver
+   --spring.datasource.driver-class-name=com.mysql.jdbc.Driver
    --spring.batch.drop.script=classpath:/org/springframework/batch/core/schema-drop-mysql.sql
    --spring.batch.schema.script=classpath:/org/springframework/batch/core/schema-mysql.sql
 ```
