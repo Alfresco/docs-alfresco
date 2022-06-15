@@ -107,6 +107,7 @@ APP_CONFIG_PLUGIN_PROCESS_SERVICE=false
 APP_CONFIG_PLUGIN_AI_SERVICE=false
 APP_CONFIG_PLUGIN_AOS=false
 APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
+ACA_BRANCH="2.10.0"
 ```
 
 * Run `npm ci` and then run the application using `npm start content-ee`. The application will be available at the URL `http://localhost:4200` and the credentials are the ones required by Alfresco Content Services.
