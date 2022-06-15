@@ -37,6 +37,8 @@ Once a project has been created or uploaded into the Modeling Application, the f
 
 | Property | Description |
 | -------- | ----------- |
+| Name | The name of the project as it appears in the Modeling Application. |
+| Updated | The amount of time that has lapsed since the last update to the project. |
 | Created | Displays how long ago the project was created. |
 | Created By | Displays which user created the project. |
 | Version | Displays the current version of the project. |
