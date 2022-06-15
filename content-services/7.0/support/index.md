@@ -72,6 +72,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.6 | |
 | Alfresco Sync Service 3.5 | |
 | Alfresco Sync Service 3.4 | |
+| Alfresco Desktop Sync 1.11 | |
 | Alfresco Desktop Sync 1.10 | |
 | Alfresco Desktop Sync 1.9 | |
 | Alfresco Desktop Sync 1.8 | |
@@ -188,6 +189,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.6 | |
 | Alfresco Sync Service 3.5 | |
 | Alfresco Sync Service 3.4 | |
+| Alfresco Desktop Sync 1.11 | |
 | Alfresco Desktop Sync 1.10 | |
 | Alfresco Desktop Sync 1.9 | |
 | Alfresco Desktop Sync 1.8 | |
