@@ -43,3 +43,58 @@ Your current Content Services stack can continue to run while you are indexing t
 ![upgraded-environment]({% link search-enterprise/images/elasticsearch-upgrading-2.png %})
 
 > **Note:** You may need to use the Elasticsearch Re-indexing application to update to the latest changes. After that, new and updated documents will be uploaded to the Elasticsearch index by the Elasticsearch connector service using ActiveMQ messages.
+
+## Zero downtime upgrade
+
+You can upgrade from Search Services 2.x or Search and Insight Engine 2.x to Search Enterprise 3.1.1 when using Content Services 7.2 and above without experiencing any downtime. Following guide shows you how to upgrade from the Search Service to the Enterprise Search with a minimal downtime and with a minimal performance impact on the production environment.
+
+Let’s start with the typical ACS environment. Please notice that it’s configured to use a solr 6 based Search Service.
+
+![initial-environment]({% link search-enterprise/images/initial-environment.png %})
+
+Starting Elasticsearch server
+The Enterprise Search requires the Elasticsearch server. In this step a new server is started.
+
+![add-empty]({% link search-enterprise/images/add-empty-elasticsearch.png %})
+
+Starting a mirrored environment
+To avoid impacting the primary environment we need to mirror it by replicating a metadata database. We are not going to change the content so we can use the same Content Repository in a read only mode. Important part here is that the mirrored environment is configured to use the Elasticsearch we’ve started in the previous step.
+
+**Note:** If impacting a primary environment is not a concern then the full mirrored environment is not needed. The only thing to mirror is a Content Services.
+
+![mirror-acs]({% link search-enterprise/images/mirror-acs-environment.png %})
+
+Creating an Elasticsearch index
+Now we are ready to create an empty Elasticsearch index. The index is created on demand so it won’t be created at mirrored environment startup. To trigger an index creation we just need to execute any search query on the mirrored environment. Please verify the index is created and its metadata reflects your data model.
+
+![mirror-acs]({% link search-enterprise/images/mirror-acs-environment.png %})
+
+Populate index with already existing data
+In this step we will populate an index created in the previous step. It will be done based on the replicated database by starting the ES Re-Indexing component on the mirrored environment. Of course it opens a time window starting from taking a primary database snapshot in which changes are not reflected in the index. We will tackle it in a next steps.
+
+![intial-reindexing]({% link search-enterprise/images/initial-re-indexing.png %})
+
+Shutdown mirrored environment
+Now when we indexed data on the mirrored environment it’s no longer needed. All we need is an Elasticsearch server with populated index. Still the index is lagging behind the primary environment but we are going to deal with it.
+
+![shutdown-mirrored]({% link search-enterprise/images/shutdown-mirrored.png %})
+
+Starting ES Live Indexing on a primary environment
+ES Live Indexing component keeps our Index up to date with changes made through the Content Services. Right now we are fine with changes made after starting Live Indexing. There is still a gap between taking a snapshot and starting Live Indexing.
+
+![start-live-indexing]({% link search-enterprise/images/start-live-indexing.png %})
+
+Closing the gap
+Now it’s time to close the gap in the Elasticsearch index. It can be done by starting the ES Re-Indexing component but only for the data modified after taking a snapshot for creating a mirrored environment. Notice that in this step we still use the solr based search service but ES Live Indexing keeps the Elasticsearch index up to date.
+
+![final-reindexing]({% link search-enterprise/images/final-re-Indexing.png %})
+
+Switching to the Elasticsearch
+Now we are ready to switch to the Elasticsearch. It can be done through the Admin Console at runtime. At this point we still have both Search Service and Enterprise Search running but the Content Services is using Elasticsearch. If there are some problems we can still switch back to the Search service.
+
+![switch-elasticsearch]({% link search-enterprise/images/switch-elasticsearch.png %})
+
+Shutdown Search Service
+After confirming that everything works fine we are ready for the final step - shutting down a solr based Search Service.
+
+![shutdown-solr]({% link search-enterprise/images/shutdown-solr.png %})
