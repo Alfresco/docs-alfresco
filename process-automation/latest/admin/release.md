@@ -191,7 +191,9 @@ To access the dashboard.
 
 3. Click the three dots next to the application you want to monitor and select **Monitoring**.
 
-You will see the Monitoring dashboard for the application. Services that are operational have a green dot. Services that are operational but may have some problems have a yellow dot **Note:** Generally these problems fix automatically. Services that are not operating and require assistance have a red dot. Services that have an unknown state have a grey dot.
+You will see the Monitoring dashboard for the application. Services that are operational have a green dot. Services that are operational but may have some problems have a yellow dot **Note:** Generally these problems fix automatically. Services that are not operating and require assistance have a red dot. Services that have an unknown state have a grey dot. To gain more insight into a service you can expand it to see more detailed information.
+
+![monitoring dashboard]({% link process-automation/images/monitoring-dashboard.png %})
 
 ### Upgrade
 
@@ -260,4 +262,4 @@ To view the logs:
 
 4. Select **Logs** and then the logs you want to view.
 
-The log text is colour coded. White indicates no issue. Yellow indicates a warning, and Red indicates an error.
+The log text is color coded. White indicates no issue. Yellow indicates a warning, and Red indicates an error.
