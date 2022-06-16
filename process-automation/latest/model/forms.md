@@ -307,6 +307,7 @@ The advanced properties for a people field are:
 | -------- | ----------- |
 | Mode | Sets whether only a single, or multiple users can be selected. |
 | Select the logged user as default user | Select when you want the logged in user to be pre-populated in the people widget. |
+| Groups Restriction | Specify a group or groups of users who are permitted to display in a widget at runtime. If multiple groups are added, the users must belong to all groups in order to be displayed in a widget at runtime. |
 
 ### Radio buttons
 
