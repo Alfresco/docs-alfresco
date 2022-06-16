@@ -11,6 +11,7 @@ The basic properties of a user interface are:
 | Property | Description |
 | -------- | ----------- |
 | UI name | *Required.* The name of the interface. Must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically, for example `order-template`. |
+| Content/Process | *Required.* Select **Content** to force all the widgets in the Digital Workspace that refer to content, processes, and tasks to be displayed. Select **Process** when you want only the widgets that refer to processes, and tasks to be displayed. Additionally if **Process** is selected then the landing page can be configured that allows the user who runs the application to be redirected to the list of running processes, or to their list of My Tasks. |
 | UI description | *Optional.* A description of what the interface should be used for, for example `A template for orders to follow.` |
 | Default System Logo | *Optional.* The default system logo image. The recommended size for the logo is 28x28 px. **Note:** To set a new logo the file must be uploaded in advance with the visibility flag set to public, for more see [Files]({% link process-automation/latest/model/files.md %}). |
 | Application title | *Optional.* The name of the application. This is the name that will appear in the header and on the tab of your browser. |
