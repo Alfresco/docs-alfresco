@@ -9,7 +9,7 @@ This development section uses the following prerequisites:
 To ensure you have the correct environment configured, make sure that the following software is installed on your system:
 
 * Alfresco Content Services Community or Enterprise edition. Verify it is working correctly, by going to `http://localhost:8080/alfresco`.
-* The latest **14** version of NodeJs.
+* The latest **LTS** version of NodeJs.
 
 # Cloning and launching the front-end application
 
@@ -46,18 +46,15 @@ If you are an Alfresco Customer or an Official Partner, you might be interested 
 * Use the following `.env` file.
 
 ```
+ACA_BRANCH="2.10.0"
 BASE_URL="http://localhost:8080"
 APP_CONFIG_ECM_HOST="http://localhost:8080"
-APP_CONFIG_BPM_HOST=""
 APP_CONFIG_PROVIDER="ECM"
 APP_CONFIG_AUTH_TYPE="BASIC"
-APP_CONFIG_PLUGIN_MICROSOFT_ONLINE=false
-APP_CONFIG_PLUGIN_AOS=false
-APP_CONFIG_PLUGIN_PROCESS_SERVICE=false
-APP_CONFIG_PLUGIN_AI_SERVICE=false
 APP_CONFIG_PLUGIN_AOS=false
 APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
-ACA_BRANCH="2.10.0"
+APP_CONFIG_PLUGIN_PROCESS_SERVICE=false
+APP_CONFIG_PLUGIN_AI_SERVICE=false
 ```
 
 * Run `npm ci` and run the application using `npm start content-ee`. The application will be available at the URL http://localhost:4200 and the credentials are the ones required by Alfresco Content Services.

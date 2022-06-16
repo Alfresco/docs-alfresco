@@ -20,17 +20,15 @@ Once the environment is properly configured, the next step is to have the source
 In the `alfresco-apps` folder, create a file named `.env` with the following content (put the Alfresco Content Services URL as value).
 
 ```
+ACA_BRANCH="2.10.0"
 BASE_URL="http://localhost:8080"
 APP_CONFIG_ECM_HOST="http://localhost:8080"
-APP_CONFIG_BPM_HOST=""
 APP_CONFIG_PROVIDER="ECM"
 APP_CONFIG_AUTH_TYPE="BASIC"
-APP_CONFIG_PLUGIN_MICROSOFT_ONLINE=false
-APP_CONFIG_PLUGIN_AOS=false
-APP_CONFIG_PLUGIN_PROCESS_SERVICE=false
-APP_CONFIG_PLUGIN_AI_SERVICE=false
 APP_CONFIG_PLUGIN_AOS=false
 APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
+APP_CONFIG_PLUGIN_PROCESS_SERVICE=false
+APP_CONFIG_PLUGIN_AI_SERVICE=false
 ```
 
 Run `npm ci` and then `npm start content-ee` to get the application up and running. The application will be available at the URL `http://localhost:4200` and the credentials are the ones required by Alfresco Content Services.
