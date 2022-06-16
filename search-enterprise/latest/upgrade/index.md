@@ -54,21 +54,23 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
     ![add-empty]({% link search-enterprise/images/add-empty-elasticsearch.png %})
 
-2. Start a mirrored environment by replciating the content respository and content services.
+2. Start a mirrored environment by replciating the content respository and Content Services.
 
     You start a mirrored environment because the upgrade will not impact the primary environment. Once mirrored do not change the content repository and only use it in a read-only mode. Use the Elasticsearch instance you created as the content repository for the mirrored environment. If you do not need to preserve the content repository then you only need to mirror Content Services.
 
     ![mirror-acs]({% link search-enterprise/images/mirror-acs-environment.png %})
 
-Creating an Elasticsearch index
-Now we are ready to create an empty Elasticsearch index. The index is created on demand so it won’t be created at mirrored environment startup. To trigger an index creation we just need to execute any search query on the mirrored environment. Please verify the index is created and its metadata reflects your data model.
+3. Create an Elasticsearch index by executing a search query on the mirrored environment.
 
-![mirror-acs]({% link search-enterprise/images/mirror-acs-environment.png %})
+    Verify the index is created and its metadata correctly reflects your data model. The index is not created when you mirrored the content repository and Content Services.
 
-Populate index with already existing data
-In this step we will populate an index created in the previous step. It will be done based on the replicated database by starting the ES Re-Indexing component on the mirrored environment. Of course it opens a time window starting from taking a primary database snapshot in which changes are not reflected in the index. We will tackle it in a next steps.
+4. Populate index with existing data.
 
-![intial-reindexing]({% link search-enterprise/images/initial-re-indexing.png %})
+    The index is populated based on the replicated database and is done by starting the ES Re-Indexing component on the mirrored environment.
+
+    **Note:** A window displays that states the primary database does not reflect the up to date index. starting from taking a primary database snapshot in which changes are not reflected in the index. We will tackle it in a next steps.
+
+    ![intial-reindexing]({% link search-enterprise/images/initial-re-indexing.png %})
 
 Shutdown mirrored environment
 Now when we indexed data on the mirrored environment it’s no longer needed. All we need is an Elasticsearch server with populated index. Still the index is lagging behind the primary environment but we are going to deal with it.
