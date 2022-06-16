@@ -16,7 +16,7 @@ To develop an Alfresco front-end application, make sure the required software is
 
 * Alfresco Content Services (ACS) Enterprise edition
 
-* The latest **14** version of Node.js (available on their site **Home** or **Downloads** page)
+* The latest **LTS** version of Node.js (available on their site **Home** or **Downloads** page)
 
 All the Angular development is done using the Typescript language. It is highly suggested to adopt a good text editor to help you in this task. Visual Studio Code, a free, lightweight, and powerful tool from Microsoft that works well with Angular development.
 
