@@ -46,23 +46,19 @@ Your current Content Services stack can continue to run while you are indexing t
 
 ## Zero downtime upgrade
 
-You can upgrade from Search Services 2.x or Search and Insight Engine 2.x to Search Enterprise 3.1.1 when using Content Services 7.2 and above without experiencing any downtime. Following guide shows you how to upgrade from the Search Service to the Enterprise Search with a minimal downtime and with a minimal performance impact on the production environment.
+You can upgrade from Search Services 2.x without experiencing any downtime, to Search Enterprise 3.1.1 when you are using Content Services 7.2 and above.
 
-Let’s start with the typical ACS environment. Please notice that it’s configured to use a solr 6 based Search Service.
+1. Start an Elasticsearch 3.1.1 instance, for more see [Overview]({% link search-enterprise/latest/install/index.md %}).
 
-![initial-environment]({% link search-enterprise/images/initial-environment.png %})
+    Your installation is currently only using Solr6.
 
-Starting Elasticsearch server
-The Enterprise Search requires the Elasticsearch server. In this step a new server is started.
+    ![add-empty]({% link search-enterprise/images/add-empty-elasticsearch.png %})
 
-![add-empty]({% link search-enterprise/images/add-empty-elasticsearch.png %})
+2. Start a mirrored environment by replciating the content respository and content services.
 
-Starting a mirrored environment
-To avoid impacting the primary environment we need to mirror it by replicating a metadata database. We are not going to change the content so we can use the same Content Repository in a read only mode. Important part here is that the mirrored environment is configured to use the Elasticsearch we’ve started in the previous step.
+    You start a mirrored environment because the upgrade will not impact the primary environment. Once mirrored do not change the content repository and only use it in a read-only mode. Use the Elasticsearch instance you created as the content repository for the mirrored environment. If you do not need to preserve the content repository then you only need to mirror Content Services.
 
-**Note:** If impacting a primary environment is not a concern then the full mirrored environment is not needed. The only thing to mirror is a Content Services.
-
-![mirror-acs]({% link search-enterprise/images/mirror-acs-environment.png %})
+    ![mirror-acs]({% link search-enterprise/images/mirror-acs-environment.png %})
 
 Creating an Elasticsearch index
 Now we are ready to create an empty Elasticsearch index. The index is created on demand so it won’t be created at mirrored environment startup. To trigger an index creation we just need to execute any search query on the mirrored environment. Please verify the index is created and its metadata reflects your data model.
