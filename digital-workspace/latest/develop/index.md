@@ -61,7 +61,7 @@ To develop an Alfresco front-end application, make sure the required software is
   ```
   Alfresco: http://localhost:8080/alfresco
   ```
-* The latest **14** version of Node.js available on their site Home or Downloads section.
+* The latest **LTS** version of Node.js available on their site Home or Downloads section.
 
 ### Cloning and launching the front-end application
 
@@ -96,21 +96,74 @@ If you are an Alfresco Customer or an Official Partner, you can use the Enterpri
 * Use the following `.env` file.
 
 ```
+ACA_BRANCH="2.10.0"
 BASE_URL="http://localhost:8080"
 APP_CONFIG_ECM_HOST="http://localhost:8080"
-APP_CONFIG_BPM_HOST=""
 APP_CONFIG_PROVIDER="ECM"
 APP_CONFIG_AUTH_TYPE="BASIC"
-APP_CONFIG_PLUGIN_MICROSOFT_ONLINE=false
-APP_CONFIG_PLUGIN_AOS=false
-APP_CONFIG_PLUGIN_PROCESS_SERVICE=false
-APP_CONFIG_PLUGIN_AI_SERVICE=false
 APP_CONFIG_PLUGIN_AOS=false
 APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
-ACA_BRANCH="2.10.0"
+APP_CONFIG_PLUGIN_PROCESS_SERVICE=false
+APP_CONFIG_PLUGIN_AI_SERVICE=false
+```
+Note that ADW 2.8.0 is using ACA 2.10.0, but you may use a different one depending on the ADW version.
+
+```
+ADW   | ACA
+2.0.0 | 2.2.0
+2.1.0 | 2.3.0
+2.2.0 | 2.4.0
+2.3.0 | 2.5.0
+2.4.0 | 2.6.0
+2.5.0 | 2.7.0
+2.6.0 | 2.8.0
+2.8.0 | 2.10.0
 ```
 
 * Run `npm ci` and then run the application using `npm start content-ee`. The application will be available at the URL `http://localhost:4200` and the credentials are the ones required by Alfresco Content Services.
+
+The environment configuration provided for the sample above is the minimal required to test locally Alfresco Repository, but additional environment variables are available.
+
+```
+# App config settings
+APP_CONFIG_BPM_HOST="<url>"
+APP_CONFIG_ECM_HOST="<url>"
+APP_CONFIG_OAUTH2_HOST="<url>"
+APP_CONFIG_IDENTITY_HOST="<url>"
+APP_CONFIG_PROVIDER="ALL"
+APP_CONFIG_AUTH_TYPE="OAUTH"
+APP_CONFIG_OAUTH2_CLIENTID="alfresco"
+APP_CONFIG_OAUTH2_IMPLICIT_FLOW=true
+APP_CONFIG_OAUTH2_SILENT_LOGIN=true
+APP_CONFIG_OAUTH2_REDIRECT_SILENT_IFRAME_URI="{protocol}//{hostname}{:port}/assets/silent-refresh.html"
+APP_CONFIG_OAUTH2_REDIRECT_LOGIN=/
+APP_CONFIG_OAUTH2_REDIRECT_LOGOUT=/
+APP_CONFIG_APPS_DEPLOYED="[{"name": "simpleapp"}]"
+APP_CONFIG_LANDING_PAGE="/personal-files"
+
+# CONTENT RELATED
+ACA_BRANCH="develop"
+APP_CONFIG_PLUGIN_PROCESS_SERVICE=true
+APP_CONFIG_PLUGIN_AI_SERVICE=true
+APP_CONFIG_PLUGIN_AOS=true
+APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
+APP_CONFIG_CUSTOM_MODELED_EXTENSION = "{}"
+
+# CONTENT - MICROSOT PLUGIN RELATED
+APP_CONFIG_PLUGIN_MICROSOFT_ONLINE=true
+APP_CONFIG_MICROSOFT_ONLINE_OOI_URL="<url>"
+APP_CONFIG_MICROSOFT_ONLINE_CLIENTID="<clientid>"
+APP_CONFIG_MICROSOFT_ONLINE_AUTHORITY="<url>"
+APP_CONFIG_MICROSOFT_ONLINE_REDIRECT="<url>"
+
+# CONTENT - MICROSOT INTEGRATION TEST RELATED
+MICROSOFT_USER_INITIALS="<user-initials>"
+MICROSOFT_EMAIL="<email>"
+MICROSOFT_USER2_INITIALS="<user-initials>"
+MICROSOFT_EMAIL2="<email>"
+MICROSOFT_PASSWORD="<password>"
+MOO_LOGIN_URL="<url>"
+```
 
 ## Troubleshooting and support
 
