@@ -16,7 +16,7 @@ More in particular check that you have:
 
 Alfresco Content Services (alias ACS) Enterprise edition up and running (identify the URL that will be required as configuration).
 
-The latest **14** version of NodeJs.
+The latest **LTS** version of NodeJs.
 
 A recent (and supported) version of a browser (see here for further details).
 

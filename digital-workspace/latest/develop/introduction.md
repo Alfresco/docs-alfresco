@@ -21,17 +21,15 @@ Once the environment is properly configured, the next step is to have available 
 Once done, enter the alfresco-digital-workspace folder and create a file named .env with the following content (put the ACS URL as value).
 
 ```text
-AUTH_TYPE="BASIC"
-PROVIDER="ECM"
-API_CONTENT_HOST="https://..."
-API_PROCESS_HOST="https://..."
-OAUTH_HOST="https://.../auth/realms/alfresco"
-E2E_HOST="http://localhost:4200"
-ADMIN_EMAIL="..."
-ADMIN_PASSWORD="..."
-ADF_PATH="../alfresco-ng2-components"
-ACA_BRANCH="develop"
-MAXINSTANCES=3
+ACA_BRANCH="2.10.0"
+BASE_URL="http://localhost:8080"
+APP_CONFIG_ECM_HOST="http://localhost:8080"
+APP_CONFIG_PROVIDER="ECM"
+APP_CONFIG_AUTH_TYPE="BASIC"
+APP_CONFIG_PLUGIN_AOS=false
+APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
+APP_CONFIG_PLUGIN_PROCESS_SERVICE=false
+APP_CONFIG_PLUGIN_AI_SERVICE=false
 ```
 
 Run npm install and then npm start content-ee to get the application up and running. The application will be available at the URL http://localhost:4200 and the credentials are the ones required by ACS.

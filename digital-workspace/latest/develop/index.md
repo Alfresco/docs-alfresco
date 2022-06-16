@@ -13,7 +13,7 @@ The first thing to do is to check the prerequisites and the requirements to run 
 More in particular check that you have:
 
 * Alfresco Content Services (alias ACS) Community or Enterprise edition up and running (identify the URL that will be required as configuration).
-* The latest lts version of NodeJs.
+* The latest **LTS** version of NodeJs.
 
 # Cloning and launching the front-end application
 
@@ -44,18 +44,15 @@ If you are an Alfresco Customer or an Official Partner, you might be interested 
 * Use the following `.env` file.
 
 ```
+ACA_BRANCH="2.10.0"
 BASE_URL="http://localhost:8080"
 APP_CONFIG_ECM_HOST="http://localhost:8080"
-APP_CONFIG_BPM_HOST=""
 APP_CONFIG_PROVIDER="ECM"
 APP_CONFIG_AUTH_TYPE="BASIC"
-APP_CONFIG_PLUGIN_MICROSOFT_ONLINE=false
-APP_CONFIG_PLUGIN_AOS=false
-APP_CONFIG_PLUGIN_PROCESS_SERVICE=false
-APP_CONFIG_PLUGIN_AI_SERVICE=false
 APP_CONFIG_PLUGIN_AOS=false
 APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
-ACA_BRANCH="2.10.0"
+APP_CONFIG_PLUGIN_PROCESS_SERVICE=false
+APP_CONFIG_PLUGIN_AI_SERVICE=false
 ```
 
 * Run the application using `npm start content-ee`.
