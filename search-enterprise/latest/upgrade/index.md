@@ -72,27 +72,36 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
     ![intial-reindexing]({% link search-enterprise/images/initial-re-indexing.png %})
 
-Shutdown mirrored environment
-Now when we indexed data on the mirrored environment it’s no longer needed. All we need is an Elasticsearch server with populated index. Still the index is lagging behind the primary environment but we are going to deal with it.
+5. Shutdown the mirrored environment.
 
-![shutdown-mirrored]({% link search-enterprise/images/shutdown-mirrored.png %})
+    You are left with an Elasticsearch server with a populated index.
 
-Starting ES Live Indexing on a primary environment
-ES Live Indexing component keeps our Index up to date with changes made through the Content Services. Right now we are fine with changes made after starting Live Indexing. There is still a gap between taking a snapshot and starting Live Indexing.
+    **Note:** The index is not yet in sync with the primary environment.
 
-![start-live-indexing]({% link search-enterprise/images/start-live-indexing.png %})
+    ![shutdown-mirrored]({% link search-enterprise/images/shutdown-mirrored.png %})
 
-Closing the gap
-Now it’s time to close the gap in the Elasticsearch index. It can be done by starting the ES Re-Indexing component but only for the data modified after taking a snapshot for creating a mirrored environment. Notice that in this step we still use the solr based search service but ES Live Indexing keeps the Elasticsearch index up to date.
+6. Start ES Live Indexing on the primary environment.
 
-![final-reindexing]({% link search-enterprise/images/final-re-Indexing.png %})
+    ES Live Indexing keeps your Index up to date with changes made through Content Services.
 
-Switching to the Elasticsearch
-Now we are ready to switch to the Elasticsearch. It can be done through the Admin Console at runtime. At this point we still have both Search Service and Enterprise Search running but the Content Services is using Elasticsearch. If there are some problems we can still switch back to the Search service.
+    There is still a gap between taking a snapshot and starting Live Indexing.
+
+    ![start-live-indexing]({% link search-enterprise/images/start-live-indexing.png %})
+
+7. Closing the gap
+
+    Now it’s time to close the gap in the Elasticsearch index. It can be done by starting the ES Re-Indexing component but only for the data modified after taking a snapshot for creating a mirrored environment. Notice that in this step we still use the solr based search service but ES Live Indexing keeps the Elasticsearch index up to date.
+
+    ![final-reindexing]({% link search-enterprise/images/final-re-Indexing.png %})
+
+8. Switching to the Elasticsearch
+
+    Now we are ready to switch to the Elasticsearch. It can be done through the Admin Console at runtime. At this point we still have both Search Service and Enterprise Search running but the Content Services is using Elasticsearch. If there are some problems we can still switch back to the Search service.
 
 ![switch-elasticsearch]({% link search-enterprise/images/switch-elasticsearch.png %})
 
-Shutdown Search Service
-After confirming that everything works fine we are ready for the final step - shutting down a solr based Search Service.
+9. Shutdown Search Service
+
+    Confirm your new environment is working as expected and remove all the Solr based search services.
 
 ![shutdown-solr]({% link search-enterprise/images/shutdown-solr.png %})
