@@ -196,7 +196,7 @@ Mutual TLS is used for authentication between the Repository and Search and Insi
 
 This task assumes you have:
 
-* Installed Alfresco Content Services 6.2 or above, see [Supported platforms]({% link insight-engine/latest/support/index.md %}).
+* Installed Alfresco Content Services 6.2 or below 7.2, see [Supported platforms]({% link insight-engine/latest/support/index.md %}).
 * Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
     ```text
