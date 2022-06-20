@@ -20,9 +20,9 @@ The Identity Service is installed or deployed with a default realm applied calle
 Customizing a realm manually uses the administrator console of the Identity Service to configure realm settings.
 
 1. Sign into the master realm administrator console using the credentials created on your first sign in.
-2. [Add a new realm](https://www.keycloak.org/docs/16.1/server_admin/index.html#proc-creating-a-realm_server_administration_guide){:target="_blank"} or edit the `Alfresco` realm.
-3. [Create a new OIDC client](https://www.keycloak.org/docs/16.1/server_admin/index.html#_oidc_clients){:target="_blank"} or edit the existing one.
-4. Configure any [groups](https://www.keycloak.org/docs/16.1/server_admin/index.html#proc-managing-groups_server_administration_guide){:target="_blank"} or users.
+2. [Add a new realm](https://www.keycloak.org/docs/18.0/server_admin/index.html#proc-creating-a-realm_server_administration_guide){:target="_blank"} or edit the `Alfresco` realm.
+3. [Create a new OIDC client](https://www.keycloak.org/docs/18.0/server_admin/index.html#_oidc_clients){:target="_blank"} or edit the existing one.
+4. Configure any [groups](https://www.keycloak.org/docs/18.0/server_admin/index.html#proc-managing-groups_server_administration_guide){:target="_blank"} or users.
 
 ### Customize a realm using a JSON file
 
@@ -74,7 +74,7 @@ The [Alfresco theme](https://github.com/Alfresco/alfresco-keycloak-theme){:targe
 
 Themes are created using a combination of CSS, HTML [Freemarker templates](https://freemarker.apache.org/){:target="_blank"}, theme properties and images.
 
-Use the [Alfresco theme](https://github.com/Alfresco/alfresco-keycloak-theme){:target="_blank"} or the default [Keycloak theme](https://www.keycloak.org/docs/16.1/server_development/#creating-a-theme){:target="_blank"} as a base to extend and create custom themes from.
+Use the [Alfresco theme](https://github.com/Alfresco/alfresco-keycloak-theme){:target="_blank"} or the default [Keycloak theme](https://www.keycloak.org/docs/18.0/server_development/#creating-a-theme){:target="_blank"} as a base to extend and create custom themes from.
 
 ### Importing a theme for a Kubernetes deployment
 
