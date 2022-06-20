@@ -78,7 +78,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search and Insight Engine 2.0.3 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0.3 | |
 | Alfresco Federation Services 1.1 | |
-| Alfresco Identity Service 1.7 | |
+| Identity Service 1.8 | |
+| Identity Service 1.7 | |
 | SAML Module for Alfresco Content Services 1.2.2 | |
 | Alfresco Intelligence Services 1.4.4 | |
 | Alfresco Intelligence Services 1.4.2 | |
