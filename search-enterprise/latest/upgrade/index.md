@@ -50,29 +50,31 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
 1. Start an Elasticsearch 3.1.1 instance, for more see [Overview]({% link search-enterprise/latest/install/index.md %}).
 
-    Your installation is currently only using Solr6.
+    Currently your installation currently only using solr.
 
     ![add-empty]({% link search-enterprise/images/add-empty-elasticsearch.png %})
 
-2. Start a mirrored environment by replciating the content respository and Content Services.
+2. Start a mirrored environment by replicating the content respository and Content Services.
 
-    You start a mirrored environment because the upgrade will not impact the primary environment. Once mirrored do not change the content repository and only use it in a read-only mode. Use the Elasticsearch instance you created as the content repository for the mirrored environment. If you do not need to preserve the content repository then you only need to mirror Content Services.
+    You create a mirrored environment because the upgrade will not impact the primary environment. Use the Elasticsearch instance you created as the content repository for the mirrored environment. Once you have mirrored the environment do not change the content repository and only use it in read-only mode. If you do not need to preserve the content repository then you only need to mirror Content Services.
 
     ![mirror-acs]({% link search-enterprise/images/mirror-acs-environment.png %})
 
 3. Create an Elasticsearch index by executing a search query on the mirrored environment.
 
-    Verify the index is created and its metadata correctly reflects your data model. The index is not created when you mirrored the content repository and Content Services.
+    Verify the index is created and its metadata correctly reflects your data model.
 
-4. Populate index with existing data.
+    > **Note:** The index is not created when you mirrored the content repository and Content Services.
 
-    The index is populated based on the replicated database and is done by starting the ES Re-Indexing component on the mirrored environment.
+4. Populate the index with existing data.
 
-    **Note:** A window displays that states the primary database does not reflect the up to date index. starting from taking a primary database snapshot in which changes are not reflected in the index. We will tackle it in a next steps.
+    The index is populated and is based on the replicated database and is achieved by starting re-indexing on the mirrored environment. For more see [re-indexing]({% link search-enterprise/latest/config/index.md %}#alfresco-re-indexing-app).
+
+    **Note:** A window displays that states the primary database does not reflect the up to date index.
 
     ![intial-reindexing]({% link search-enterprise/images/initial-re-indexing.png %})
 
-5. Shutdown the mirrored environment.
+5. Shutdown the original environment.
 
     You are left with an Elasticsearch server with a populated index.
 
@@ -80,29 +82,29 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
     ![shutdown-mirrored]({% link search-enterprise/images/shutdown-mirrored.png %})
 
-6. Start Live Indexing on the primary environment.
+6. Keep your index up to date with changes made through Content Services.
 
-    Live Indexing keeps your Index up to date with changes made through Content Services.
+    To do this start live indexing on the primary environment. For more see [live-indexing]({% link search-enterprise/latest/config/index.md %}#alfresco-live-indexing-app).
 
-    There is still a gap between taking a snapshot and starting Live Indexing.
+    > **Note:** Even after starting live indexing there is still a gap however between when you took a snapshot and when you started live indexing.
 
     ![start-live-indexing]({% link search-enterprise/images/start-live-indexing.png %})
 
-7. Start Re-indexing on the Solr6 environment.
+7. Start re-indexing on the solr environment.
 
-    To close the gap in the Elasticsearch index start the Re-Indexing component on the Solr6 environment. **Note:** Live Indexing keeps the Elasticsearch environment index up to date.
+    To close the gap in the Elasticsearch index start re-indexing on the solr environment. **Note:** Live indexing keeps the Elasticsearch environment index up to date.
 
     ![final-reindexing]({% link search-enterprise/images/final-re-Indexing.png %})
 
 8. Switch to Elasticsearch
 
-    To switch to Elasticsearch access the Admin Console at runtime. At this point we still have both Search Service and Enterprise Search running but the Content Services is using Elasticsearch.
+    To switch to Elasticsearch access the Admin Console at runtime. Once you have done this you still have both Search Services and Search Enterprise running but Content Services is using Elasticsearch.
 
-    **Note:** If you experience any issues you can revert back to using Solr6.
+   > **Note:** If you experience any issues you can still revert back to using solr.
 
     ![switch-elasticsearch]({% link search-enterprise/images/switch-elasticsearch.png %})
 
-9. Shutdown Search Service
+9. Shutdown Search Services
 
     Confirm your new environment is working as expected and remove all the Solr based search services.
 
