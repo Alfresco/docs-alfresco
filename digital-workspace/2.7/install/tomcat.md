@@ -1,7 +1,7 @@
 ---
 title: Install into Tomcat 
 ---
-To install Alfresco Digital Workspace into Tomcat, you first need to install Alfresco Content Services 7.0 or above using the distribution zip. See [Installing using distribution zip]({% link content-services/latest/install/zip/index.md %}) for more information.
+To install Alfresco Digital Workspace into Tomcat, you first need to install Alfresco Content Services 7.2 or above using the distribution zip. See [Installing using distribution zip]({% link content-services/latest/install/zip/index.md %}) for more information.
 
 1. Log in to [Hyland Community](https://community.hyland.com/products/alfresco){:target="_blank"}.
 
