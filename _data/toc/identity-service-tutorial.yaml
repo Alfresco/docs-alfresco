@@ -1,5 +1,5 @@
 # Identity Service Tutorials
-- version: 1.7
+- version: 1.8
   pages:
     - title: 'Tutorials'
       path: '/identity-service/latest/tutorial/'
@@ -13,6 +13,20 @@
           path: '/identity-service/latest/tutorial/sso/ldap/'
         - title: 'Kerberos'
           path: '/identity-service/latest/tutorial/sso/kerberos/'
+- version: 1.7
+  pages:
+    - title: 'Tutorials'
+      path: '/identity-service/1.7/tutorial/'
+    - title: 'Single Sign On Guide'
+      pages:
+        - title: 'Overview '
+          path: '/identity-service/1.7/tutorial/sso/'
+        - title: 'SAML'
+          path: '/identity-service/1.7/tutorial/sso/saml/'
+        - title: 'LDAP'
+          path: '/identity-service/1.7/tutorial/sso/ldap/'
+        - title: 'Kerberos'
+          path: '/identity-service/1.7/tutorial/sso/kerberos/'
 - version: 1.6
   pages:
     - title: 'Tutorials'

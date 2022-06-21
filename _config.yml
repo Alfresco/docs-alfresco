@@ -303,6 +303,7 @@ defaults:
       support: true
       tutorial: true
       versions:
+        - 1.8
         - 1.7
         - 1.6
         - 1.5
@@ -314,12 +315,20 @@ defaults:
   - scope:
       path: "identity-service/latest"
     values:
-      version: 1.7
+      version: 1.8
       latest: true
   - scope:
       path: "identity-service/latest/tutorial"
     values:
       toc: "identity-service-tutorial"
+  - scope:
+      path: "identity-service/1.7"
+    values:
+      version: 1.7
+  - scope:
+      path: "identity-service/1.7/tutorial"
+    values:
+      toc: "identity-service-tutorial"  
   - scope:
       path: "identity-service/1.6"
     values:
