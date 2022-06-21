@@ -70,6 +70,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.7 | |
 | Alfresco Sync Service 3.6 | |
 | Alfresco Sync Service 3.5 | |
+| Alfresco Desktop Sync 1.11 | |
 | Alfresco Desktop Sync 1.10 | |
 | Alfresco Desktop Sync 1.9 | |
 | Alfresco Desktop Sync 1.8 | |
@@ -180,6 +181,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.7 | |
 | Alfresco Sync Service 3.6 | |
 | Alfresco Sync Service 3.5 | |
+| Alfresco Desktop Sync 1.11 | |
 | Alfresco Desktop Sync 1.10 | |
 | Alfresco Desktop Sync 1.9 | |
 | Alfresco Desktop Sync 1.8 | |
@@ -191,6 +193,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0 | |
 | Alfresco Federation Services 2.0 | |
+| Identity Service 1.8 | |
 | Identity Service 1.7 | |
 | Identity Service 1.6 | |
 | SAML Module for Alfresco Content Services 1.2.2 | |
@@ -214,7 +217,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.3 | |
 | | |
 | **Applications** | |
-| Alfresco Digital Workspace 2.7 | |
 | Alfresco Digital Workspace 2.6 | |
 | Alfresco Digital Workspace 2.5 | |
 | Alfresco Digital Workspace 2.4 | |
