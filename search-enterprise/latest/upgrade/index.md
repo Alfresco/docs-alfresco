@@ -50,7 +50,7 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
 1. Start an Elasticsearch 3.1.1 instance, for more see [Overview]({% link search-enterprise/latest/install/index.md %}).
 
-    Currently your installation currently only using solr.
+    Currently your installation is using solr.
 
     ![add-empty]({% link search-enterprise/images/add-empty-elasticsearch.png %})
 
@@ -86,7 +86,7 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
     To do this start live indexing on the primary environment. For more see [live-indexing]({% link search-enterprise/latest/config/index.md %}#alfresco-live-indexing-app).
 
-    > **Note:** Even after starting live indexing there is still a gap however between when you took a snapshot and when you started live indexing.
+    > **Note:** Even after starting live indexing there is still a gap from when you took a snapshot to when you started live indexing.
 
     ![start-live-indexing]({% link search-enterprise/images/start-live-indexing.png %})
 
