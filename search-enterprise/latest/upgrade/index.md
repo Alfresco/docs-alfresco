@@ -80,28 +80,30 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
     ![shutdown-mirrored]({% link search-enterprise/images/shutdown-mirrored.png %})
 
-6. Start ES Live Indexing on the primary environment.
+6. Start Live Indexing on the primary environment.
 
-    ES Live Indexing keeps your Index up to date with changes made through Content Services.
+    Live Indexing keeps your Index up to date with changes made through Content Services.
 
     There is still a gap between taking a snapshot and starting Live Indexing.
 
     ![start-live-indexing]({% link search-enterprise/images/start-live-indexing.png %})
 
-7. Closing the gap
+7. Start Re-indexing on the Solr6 environment.
 
-    Now it’s time to close the gap in the Elasticsearch index. It can be done by starting the ES Re-Indexing component but only for the data modified after taking a snapshot for creating a mirrored environment. Notice that in this step we still use the solr based search service but ES Live Indexing keeps the Elasticsearch index up to date.
+    To close the gap in the Elasticsearch index start the Re-Indexing component on the Solr6 environment. **Note:** Live Indexing keeps the Elasticsearch environment index up to date.
 
     ![final-reindexing]({% link search-enterprise/images/final-re-Indexing.png %})
 
-8. Switching to the Elasticsearch
+8. Switch to Elasticsearch
 
-    Now we are ready to switch to the Elasticsearch. It can be done through the Admin Console at runtime. At this point we still have both Search Service and Enterprise Search running but the Content Services is using Elasticsearch. If there are some problems we can still switch back to the Search service.
+    To switch to Elasticsearch access the Admin Console at runtime. At this point we still have both Search Service and Enterprise Search running but the Content Services is using Elasticsearch.
 
-![switch-elasticsearch]({% link search-enterprise/images/switch-elasticsearch.png %})
+    **Note:** If you experience any issues you can revert back to using Solr6.
+
+    ![switch-elasticsearch]({% link search-enterprise/images/switch-elasticsearch.png %})
 
 9. Shutdown Search Service
 
     Confirm your new environment is working as expected and remove all the Solr based search services.
 
-![shutdown-solr]({% link search-enterprise/images/shutdown-solr.png %})
+    ![shutdown-solr]({% link search-enterprise/images/shutdown-solr.png %})
