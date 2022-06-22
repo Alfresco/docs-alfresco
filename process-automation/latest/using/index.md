@@ -2,7 +2,7 @@
 title: Using Process Automation
 ---
 
-The default user interface for managing content, processes and tasks is the [Alfresco Digital Workspace]({% link digital-workspace/latest/index.md %}). An instance of Digital Workspace is deployed with every application and used to manage the processes associated with that application.
+The default user interface for managing content, processes and tasks is the [Alfresco Digital Workspace]({% link digital-workspace/latest/index.md %}). An instance of the Digital Workspace is deployed with every application and used to manage the processes associated with that application.
 
 Users need to have been given [user access]({% link process-automation/latest/admin/release.md %}#deploy-steps/user) to an application in order to access and manage content and processes in the Digital Workspace.
 
@@ -178,6 +178,10 @@ Once you have customized a filter, there are two options:
 * **Save filter as**: Selecting this will give you the option to provide a name for a new view for your filter and add it under the **Tasks** section.
 
 You can use the **Delete filter** option at any time to remove a view.
+
+## Processes/Tasks lists
+
+You can configure the Processes and Tasks lists. You can  
 
 ## Condition builder {#condition-builder}
 
