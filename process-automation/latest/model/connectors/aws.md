@@ -426,7 +426,7 @@ The input parameters of Document classification are:
 | maxEntities | Integer | *Optional.* The maximum number of entities that is returned. The parameter defaults to `${aws.comprehend.defaultMaxResults}`. |
 | confidenceLevel | Float | *Optional.* The minimum confidence level for a entity expressed by a float number between 0 and 1. The parameter defaults to `${aws.comprehend.defaultConfidence}`. |
 | timeout | Integer | *Optional.* The timeout for the remote call to the Comprehend service in milliseconds. The parameter defaults to `${aws.comprehend.asynchTimeout}`. |
-| customClassificationArn | String | *Optional.* The custom recognizer ARN endpoint. If left blank, the Comprehend service will use the value given to the `AWS_COMPREHEND_CUSTOM_CLASSIFICATION_ARN` environment variable. |
+| customClassificationArn | String | *Optional.* The custom recognizer ARN endpoint. If left blank, the Comprehend service will use the value given to the `AWS_COMPREHEND_CUSTOM_CLASSIFICATION_ARN` environment variable. **Note:** The `AWS_COMPREHEND_CUSTOM_CLASSIFICATION_ARN` environment variable does not have a default value. If it is being used then you must also set a value for it. |
 
 **Note:** The connector must receive either files or text but not both at the same time
 
