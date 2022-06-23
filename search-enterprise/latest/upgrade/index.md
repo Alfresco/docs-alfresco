@@ -54,7 +54,7 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
     ![add-empty]({% link search-enterprise/images/add-empty-elasticsearch.png %})
 
-2. Start a mirrored environment by replicating the content respository and Content Services.
+2. Start a mirrored environment by replicating the content repository and Content Services.
 
     You create a mirrored environment because the upgrade will not impact the primary environment. Use the Elasticsearch instance you created as the content repository for the mirrored environment. Once you have mirrored the environment do not change the content repository and only use it in read-only mode. If you do not need to preserve the content repository then you only need to mirror Content Services.
 
@@ -72,7 +72,7 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
     > **Note:** A window displays that states the primary database does not reflect the up to date index.
 
-    ![intial-reindexing]({% link search-enterprise/images/initial-re-indexing.png %})
+    ![initial-reindexing]({% link search-enterprise/images/initial-re-indexing.png %})
 
 5. Shutdown the original environment.
 
@@ -96,7 +96,7 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
     ![final-reindexing]({% link search-enterprise/images/final-re-Indexing.png %})
 
-8. Switch to Elasticsearch
+8. Switch to Elasticsearch.
 
     To switch to Elasticsearch access the Admin Console at runtime. Once you have done this you still have both Search Services and Search Enterprise running but Content Services is using Elasticsearch.
 
@@ -104,7 +104,7 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
     ![switch-elasticsearch]({% link search-enterprise/images/switch-elasticsearch.png %})
 
-9. Shutdown Search Services
+9. Shutdown Search Services.
 
     Confirm your new environment is working as expected and remove all the Solr based search services.
 
