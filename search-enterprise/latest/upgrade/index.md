@@ -4,7 +4,7 @@ title: Upgrade to Search Enterprise
 
 Use this information to upgrade from Search Services 2.x to Search Enterprise 3.1.
 
-> **Note:** A full re-index is required when you upgrade from Search Services 2.x to Search Enterprise 3.1 because the search engine is switching from Solr to Elasticsearch. If it is necessary for you to have a backup of the old SOLR index, then it must be copied elsewhere before you re-index.
+> > **Note:** A full re-index is required when you upgrade from Search Services 2.x to Search Enterprise 3.1 because the search engine is switching from Solr to Elasticsearch. If it is necessary for you to have a backup of the old SOLR index, then it must be copied elsewhere before you re-index.
 
 Search Enterprise 3.1 is compatible with Alfresco Content Services 7.1 and above, which means you need to upgrade to this version before applying the following steps.
 
@@ -42,7 +42,7 @@ Your current Content Services stack can continue to run while you are indexing t
 
 ![upgraded-environment]({% link search-enterprise/images/elasticsearch-upgrading-2.png %})
 
-> **Note:** You may need to use the Elasticsearch Re-indexing application to update to the latest changes. After that, new and updated documents will be uploaded to the Elasticsearch index by the Elasticsearch connector service using ActiveMQ messages.
+> > **Note:** You may need to use the Elasticsearch Re-indexing application to update to the latest changes. After that, new and updated documents will be uploaded to the Elasticsearch index by the Elasticsearch connector service using ActiveMQ messages.
 
 ## Zero downtime upgrade
 
@@ -64,13 +64,13 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
     Verify the index is created and its metadata correctly reflects your data model.
 
-    > **Note:** The index is not created when you mirrored the content repository and Content Services.
+    > > **Note:** The index is not created when you mirrored the content repository and Content Services.
 
 4. Populate the index with existing data.
 
     The index is populated and is based on the replicated database and is achieved by starting re-indexing on the mirrored environment. For more see [re-indexing]({% link search-enterprise/latest/config/index.md %}#alfresco-re-indexing-app).
 
-    **Note:** A window displays that states the primary database does not reflect the up to date index.
+    > **Note:** A window displays that states the primary database does not reflect the up to date index.
 
     ![intial-reindexing]({% link search-enterprise/images/initial-re-indexing.png %})
 
@@ -78,7 +78,7 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
     You are left with an Elasticsearch server with a populated index.
 
-    **Note:** The index is not yet in sync with the primary environment.
+    > **Note:** The index is not yet in sync with the primary environment.
 
     ![shutdown-mirrored]({% link search-enterprise/images/shutdown-mirrored.png %})
 
@@ -86,7 +86,7 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
     To do this start live indexing on the primary environment. For more see [live-indexing]({% link search-enterprise/latest/config/index.md %}#alfresco-live-indexing-app).
 
-    > **Note:** Even after starting live indexing there is still a gap from when you took a snapshot to when you started live indexing.
+    > > **Note:** Even after starting live indexing there is still a gap from when you took a snapshot to when you started live indexing.
 
     ![start-live-indexing]({% link search-enterprise/images/start-live-indexing.png %})
 
@@ -100,7 +100,7 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
     To switch to Elasticsearch access the Admin Console at runtime. Once you have done this you still have both Search Services and Search Enterprise running but Content Services is using Elasticsearch.
 
-   > **Note:** If you experience any issues you can still revert back to using solr.
+   > > **Note:** If you experience any issues you can still revert back to using solr.
 
     ![switch-elasticsearch]({% link search-enterprise/images/switch-elasticsearch.png %})
 
