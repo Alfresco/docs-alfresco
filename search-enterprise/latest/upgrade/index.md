@@ -72,7 +72,7 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
     **Note:** A window displays that states the primary database does not reflect the up to date index.
 
-    ![intial-reindexing]({% link search-enterprise/images/initial-re-indexing.png %})
+    ![initial-reindexing]({% link search-enterprise/images/initial-re-indexing.png %})
 
 5. Shutdown the original environment.
 
