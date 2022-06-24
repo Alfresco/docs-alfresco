@@ -54,7 +54,7 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
     ![add-empty]({% link search-enterprise/images/add-empty-elasticsearch.png %})
 
-2. Start a mirrored environment by replicating the content respository and Content Services.
+2. Start a mirrored environment by replicating the content repository and Content Services.
 
     You create a mirrored environment because the upgrade will not impact the primary environment. Use the Elasticsearch instance you created as the content repository for the mirrored environment. Once you have mirrored the environment do not change the content repository and only use it in read-only mode. If you do not need to preserve the content repository then you only need to mirror Content Services.
 
