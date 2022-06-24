@@ -104,7 +104,7 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
     ![switch-elasticsearch]({% link search-enterprise/images/switch-elasticsearch.png %})
 
-9. Shutdown Search Services
+9. Shutdown Search Services.
 
     Confirm your new environment is working as expected and remove all the Solr based search services.
 
