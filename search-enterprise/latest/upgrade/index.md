@@ -108,4 +108,4 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
     Confirm your new environment is working as expected and remove all the Solr based search services.
 
-    ![shutdown-Solr]({% link search-enterprise/images/shutdown-Solr.png %})
+    ![shutdown-solr]({% link search-enterprise/images/shutdown-solr.png %})
