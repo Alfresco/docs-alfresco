@@ -92,7 +92,9 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
 7. Start re-indexing on the Solr environment.
 
-    To close the gap in the Elasticsearch index start re-indexing on the Solr environment. > **Note:** Live indexing keeps the Elasticsearch environment index up to date.
+    To close the gap in the Elasticsearch index start re-indexing on the Solr environment.
+
+    > **Note:** Live indexing keeps the Elasticsearch environment index up to date.
 
     ![final-reindexing]({% link search-enterprise/images/final-re-Indexing.png %})
 
