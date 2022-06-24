@@ -96,7 +96,7 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
     ![final-reindexing]({% link search-enterprise/images/final-re-Indexing.png %})
 
-8. Switch to Elasticsearch
+8. Switch to Elasticsearch.
 
     To switch to Elasticsearch access the Admin Console at runtime. Once you have done this you still have both Search Services and Search Enterprise running but Content Services is using Elasticsearch.
 
