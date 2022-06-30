@@ -92,9 +92,9 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
         > **Note:** In Tomcat versions prior to 9 it was possible to use `org.apache.coyote.http11.Http11Protocol` as the protocol value, but now it has been removed. If you are using configuration from an old instance using a Tomcat version before 9, you need to update the connector protocol value.
 
 8. Save the `server.xml` file.
-
-> **Important:** Remember to review and update the Connector details in `server.xml`, including the keystore and truststore file locations, after installing and configuring Alfresco Search Services.
-
+   
+   > **Important:** Remember to review and update the Connector details in `server.xml`, including the keystore and truststore file locations, after installing and configuring Alfresco Search Services.
+   
 ## Install Alfresco WARs
 
 A WAR file is an archive file used to distribute a collection of files (JavaServer Pages, servlets, Java classes, XML files, tag libraries, and static web pages) that together constitute a web application.
@@ -217,6 +217,33 @@ After you've extracted the Content Services distribution zip, several directorie
 | root | `README.txt` | Version information for Content Services and Alfresco Share |
 | | `VERSIONS.md` | List of recommended components for the latest Content Services release |
 
+## Move keystore files to your installation
+
+The new keystore configuration implementation requires it to be configured with
+[JAVA parameters]({% link content-services/7.0/admin/security.md %}#alfresco-keystore-configuration).
+
+1. Move the default keystore files to your installation
+
+    1. Extract from the `alfresco-content-services-distribution-7.0.x.zip` file the following two files:
+
+        * `/keystore/metadata-keystore/keystore`
+        * `/keystore/metadata-keystore/keystore-passwords.properties`
+
+    2. Copy them to your installation at the following location:
+
+        * `<TOMCAT_HOME>/alf_data/keystore/metadata-keystore/keystore`
+        * `<TOMCAT_HOME>/alf_data/keystore/metadata-keystore/keystore-passwords.properties`
+
+2. Configure Tomcat 9 to use the default keystore files
+
+    1. Open `<TOMCAT_HOME>/bin/catalina.bat` in a text editor.
+
+    2. Add the following line to `catalina.bat`:
+
+       `set “JAVA_TOOL_OPTIONS=-Dencryption.keystore.type=JCEKS -Dencryption.cipherAlgorithm=DESede/CBC/PKCS5Padding -Dencryption.keyAlgorithm=DESede -Dencryption.keystore.location=<TOMCAT_HOME>/alf_data/keystore/metadata-keystore/keystore -Dmetadata-keystore.password=mp6yc0UD9e -Dmetadata-keystore.aliases=metadata -Dmetadata-keystore.metadata.password=oKIWzVdEdA -Dmetadata-keystore.metadata.algorithm=DESede”`
+
+       Make sure to replace `<TOMCAT_HOME>` with your Tomcat installation directory.
+    
 ## Tailor your installation
 
 When installing Content Services, an important part of the configuration process is the removal of any unused applications. Use this information to determine any applications that you might want to remove from your installation and how to remove them.
