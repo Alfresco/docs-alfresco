@@ -316,34 +316,31 @@ available to the organization's users.
 >**Note:** It is possible to install the custom app as an end-user. However, doing this might result in problems for 
 >other users to read messages from the user installing the app. It is recommended to install the custom app as a Teams Admin.
 
-In the Teams Client (e.g. webapp / desktop) do the following:
+In Microsoft Teams admin center do the following:
 
-1. Click the **Apps** icon in the lower left corner:
+1. Navigate to [**Teams apps > Manage apps**](https://docs.microsoft.com/en-us/microsoftteams/manage-apps){:target="_blank"}:
 
-   ![MS Teams Apps]({% link microsoft-teams/images/ms-teams-apps.png %}){:height="250px" width="200px"}
+   ![MS Teams Admin Ceneter Manage Apps]({% link microsoft-teams/images/ms-teams-admin-center-manage-apps.png %})
 
-2. Then click the **Manage your apps** menu item to the right. You will then see some actions as follows:
+2. Then select [**Upload**](https://docs.microsoft.com/en-us/microsoftteams/upload-custom-apps){:target="_blank"}, 
+   click **Upload**, select the app package (i.e. the manifest zip archive prepared in the 
+   [previous step](#create-teams-integ-app-manifest)), and select **Open**:
 
-   ![MS Teams Apps]({% link microsoft-teams/images/ms-teams-manage-your-apps.png %})
+   ![MS Teams Apps]({% link microsoft-teams/images/ms-teams-admin-center-upload-app.png %})
 
-3. Click the **Publish an app** action (or **Upload an app** in the Web UI), this will display the following form:
+3. Control access to the app:
 
-   ![MS Teams Apps]({% link microsoft-teams/images/ms-teams-publish-app-form.png %})
+   By default, all users in your organization can access the app in your organization's app store. To restrict and 
+   control who has permission to use the app, you can create and assign an app permission policy. To learn more, see 
+   [Manage app permission policies in Teams](https://docs.microsoft.com/en-us/microsoftteams/teams-app-permission-policies){:target="_blank"}.
 
-4. Select the **Upload a customized app** method to publish the Alfresco Teams integration. Select the manifest prepared 
-   in the [previous step](#create-teams-integ-app-manifest). Pick the manifest zip archive.
+4. Pin and install the app for users to discover:
 
-5. Pick the manifest zip archive, the following screen should be displayed:
+   By default, for users to find the app they have to go to your organization's app store and browse or search for it. 
+   To make it easy for users to get to the app, you can pin the app to the app bar in Teams. To do this, create an app 
+   setup policy and assign it to users. To learn more, see [Manage app setup policies in Teams](https://docs.microsoft.com/en-us/microsoftteams/teams-app-setup-policies){:target="_blank"}.
 
-   ![MS Teams Integration App loading]({% link microsoft-teams/images/ms-teams-integ-app-loading.png %}){:height="600px" width="600px"}
-
-6. Click **Add**.
-   
-7. You should see the app with the search bar:
-
-   ![MS Teams Integration App Search]({% link microsoft-teams/images/ms-teams-integ-app-search-dialog.png %}){:height="250px" width="200px"}
-
-8. If you search for something it will ask you to login, use your Alfresco credentials.
+5. If you search for something in the Alfresco app it will ask you to login, use your Alfresco credentials.
 
 >**Note:** A common error is when uploading a manifest zip with the wrong layout:<br/>"Error while extracting package: Please ensure there are no folders in your app package and that
 your app package contains only the `manifest.json` and the two required icon files at its root level.
