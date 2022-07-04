@@ -46,7 +46,7 @@ To configure the repository in Process Services:
     | Alfresco tenant | *Optional.* The tenant to use for the connection. The default value is `-default-`. |
     | Repository base URL | *Required.* The base URL of Content Services, for example `http://127.0.0.1:8080/alfresco/`. |
     | Share base URL | *Required.* The base URL of Share, for example `http://127.0.0.1:8080/share/`. |
-    | Alfresco version | *Required.* The version of Content Services used. This must initially be configured as `5.2`, even if using a later version of Content Services. The settings can be subsequently edited if using Process Services 1.11 or later with the Identity Service. |
+    | Alfresco version | *Required.* The version of Content Services used. This must initially be configured as `5.2`, even if using a later version of Content Services. |
     | Authentication | *Required.* The authentication method to use. Select `Enable Share Connector` checkbox. |
     | Secret | *Required.* The common secret used for communication between Content Services and Process Services. The default value us `activiti-share-connector-secret`. This must match the property `activiti.secret` set in Content Services. |
 
