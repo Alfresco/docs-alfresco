@@ -2,13 +2,9 @@
 title: Develop Digital Workspace
 ---
 
-The Alfresco Digital Workspace is the general-purpose application developed and provided by Alfresco to all the customers and partners. The Alfresco Digital Workspace is supported and enhanced through regular releases and utilizes content and content-centric process use cases.
+You can develop with and adapt the Digital Workspace. You can use the Application Development Framework Extensions or customizations to adjust or integrate your own solutions. [LINK] If you can customize the Digital workspace you can use the Digitial Workspace extensions [link], if you can't customize the the Digital Workspace you can create and use an custom App as an alternative. [LINK] If your project uses Alfresco Community Edition or open source components you must use Alfresco Content Application.  
 
-### Best Practices
-
-The suggested approach in designing an Alfresco front-end application is to consider the ready-to-be-used applications as the first choice. You may consider adopting the Alfresco Digital Workspace if you are implementing generic usage and needs. Use the Application Development Framework Extensions or customizations to adjust or integrate solutions.
-
-For projects adopting Community Editions or Open Source components, consider Alfresco Content Application as an alternative to Alfresco Digital Workspace. Alfresco Content Application is defined as an example of content application, and it is not officially supported by Alfresco (but contributions to the project are welcome).
+> **Note:** Alfresco Content Application is defined as an example of content application, and it is not officially supported by Alfresco (but contributions to the project are welcome). Use the image to determine how
 
 In the picture below, you can see drawn the decision process described above.
 
@@ -104,17 +100,7 @@ APP_CONFIG_PLUGIN_PROCESS_SERVICE=false
 APP_CONFIG_PLUGIN_AI_SERVICE=false
 ```
 
-Note that ADW 2.8.0 is using ACA 2.10.0, but you may use a different one depending on the ADW version.
-
-ADW   | ACA
-2.0.0 | 2.2.0
-2.1.0 | 2.3.0
-2.2.0 | 2.4.0
-2.3.0 | 2.5.0
-2.4.0 | 2.6.0
-2.5.0 | 2.7.0
-2.6.0 | 2.8.0
-2.8.0 | 2.10.0
+> **Note:** The Digital Workspace 2.9.x uses ACA version 2.10.0. If you are using a different version of the Digital Workspace the version of ACA could be different.
 
 * Run `npm ci` and then run the application using `npm start content-ee`. The application will be available at the URL `http://localhost:4200` and the credentials are the ones required by Alfresco Content Services.
 
