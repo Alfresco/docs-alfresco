@@ -564,10 +564,10 @@ before continuing.
 
     Content Services uses ActiveMQ for message queuing with various products, including the Transform Service.
 
-4. Start the Shared File Store controller:
+4. Start the Shared File Store (SFS) controller:
 
     ```java
-    java -DfileStorePath=/path/to/your/AlfrescoFileStore
+    java -DfileStorePath=/path/to/your/AlfrescoFileStore -Dscheduler.contract.path=/path/to/tempdir/scheduler.json
      -jar alfresco-shared-file-store-controller-1.5.x.jar
     ```
 
@@ -576,8 +576,10 @@ before continuing.
     By default, files are stored in `fileStorePath=/tmp/Alfresco`. This can be modified using the `fileStorePath` 
     parameter as shown in the above example.
 
-    The Shared File Store allows components such as the repository, and the Transform Service to share a common place to 
+    The SFS allows components such as the repository, and the Transform Service to share a common place to 
     store and retrieve files, for example, to enable transforms from an input source file to an output target file.
+   
+    >**Note:** Adding the scheduler contract path property to SFS startup is only required if running Windows.
 
 5. Start the all-in-one Transform Core Engine Spring Boot app:
 
