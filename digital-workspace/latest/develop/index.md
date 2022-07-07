@@ -2,19 +2,12 @@
 title: Develop Digital Workspace
 ---
 
-# Introducing the Alfresco Digital Workspace
-
 The Alfresco Digital Workspace is the general-purpose application developed and provided by Alfresco to all the customers and partners. The Alfresco Digital Workspace is supported and enhanced through regular releases and utilizes content and content-centric process use cases.
 
 ### Best Practices
 
-<!-- The more you can reuse of the Alfresco technology (frameworks and applications) the more you will be supported by Alfresco in enhancements, bug fixes, as well as additional features shipped through frequent releases. -->
-
 The suggested approach in designing an Alfresco front-end application is to consider the ready-to-be-used applications as the first choice. You may consider adopting the Alfresco Digital Workspace if you are implementing generic usage and needs. Use the Application Development Framework Extensions or customizations to adjust or integrate solutions.
 
-<!-- The decision really depends on your preferences, the goals of your project and the use cases that you are facing (often also the end-users expectations). Balance the “option” with the “effort” (impacting the cost and time to market), ideally before starting the development. -->
-
-<!-- remove the below paragraph? -->
 For projects adopting Community Editions or Open Source components, consider Alfresco Content Application as an alternative to Alfresco Digital Workspace. Alfresco Content Application is defined as an example of content application, and it is not officially supported by Alfresco (but contributions to the project are welcome).
 
 In the picture below, you can see drawn the decision process described above.
@@ -58,9 +51,11 @@ To develop an Alfresco front-end application, make sure the required software is
 
 * Alfresco Content Services Community edition.
   * Open your browser and check everything starts up correctly:
-  ```
+
+  ```bash
   Alfresco: http://localhost:8080/alfresco
   ```
+
 * The latest **LTS** version of Node.js available on their site Home or Downloads section.
 
 ### Cloning and launching the front-end application
@@ -71,7 +66,7 @@ Once the environment is properly configured, open a terminal and clone the follo
 
 Once done, enter the `alfresco-content-app` folder and create a file named `.env` with the following content (put the Alfresco Content Services URL as value).
 
-```
+```bash
 APP_CONFIG_ECM_HOST="http://localhost:8080"
 APP_CONFIG_PLUGIN_AOS=false
 APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
@@ -87,15 +82,17 @@ If you are an Alfresco Customer or an Official Partner, you can use the Enterpri
 
 * Use Alfresco Content Services Enterprise Edition instead of the Community Edition.
   * Open your browser and check everything starts up correctly:
-  ```
+
+  ```bash
   Alfresco: http://localhost:8080/alfresco
   ```
+
 * Use the `alfresco-apps` GitHub repository.
 
   **Note:** Request a local copy of the project in the Alfresco Support Portal.
 * Use the following `.env` file.
 
-```
+```bash
 ACA_BRANCH="2.10.0"
 BASE_URL="http://localhost:8080"
 APP_CONFIG_ECM_HOST="http://localhost:8080"
@@ -106,9 +103,9 @@ APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
 APP_CONFIG_PLUGIN_PROCESS_SERVICE=false
 APP_CONFIG_PLUGIN_AI_SERVICE=false
 ```
+
 Note that ADW 2.8.0 is using ACA 2.10.0, but you may use a different one depending on the ADW version.
 
-```
 ADW   | ACA
 2.0.0 | 2.2.0
 2.1.0 | 2.3.0
@@ -118,13 +115,12 @@ ADW   | ACA
 2.5.0 | 2.7.0
 2.6.0 | 2.8.0
 2.8.0 | 2.10.0
-```
 
 * Run `npm ci` and then run the application using `npm start content-ee`. The application will be available at the URL `http://localhost:4200` and the credentials are the ones required by Alfresco Content Services.
 
 The environment configuration provided for the sample above is the minimal required to test locally Alfresco Repository, but additional environment variables are available.
 
-```
+```bash
 # App config settings
 APP_CONFIG_BPM_HOST="<url>"
 APP_CONFIG_ECM_HOST="<url>"
@@ -172,86 +168,3 @@ Ask questions in the Application Development Framework section of the [Alfresco 
 ## Conclusion
 
 In this tutorial you learned how to launch a fully-featured ADF-based application on your development environment, starting from the source code, with the purpose to have a first experience with the development principles and the best practices suggested to create front-end applications working on top of the Alfresco backend services. This is only the first success that you can do with the Alfresco technology. Continue to learn on how to develop front-end applications using Alfresco, in the following sections of the official documentation.
-
-Use this information to develop with the Digital Workspace.
-
-## Prerequisites and requirements
-
-To ensure you have the correct environment configured, make sure the following software is installed on your system:
-
-* Alfresco Content Services Community or Enterprise edition. Verify it is working correctly, by going to `http://localhost:8080/alfresco`.
-* The latest LTS version of NodeJs.
-
-## Cloning and launching the front-end application
-
-Once the environment is properly configured and working, open a terminal window and clone the following GitHub repository to a working folder
-
-`git clone https://github.com/Alfresco/alfresco-content-app.git`
-
-Once complete, navigate to the `alfresco-content-app` directory and create a file called `file-name.env` using the following content.
-
-> **Note:** You must use your Content Services URL for `APP_CONFIG_ECM_HOST`.
-```bash
-APP_CONFIG_ECM_HOST="http://localhost:8080"
-APP_CONFIG_PLUGIN_AOS=false
-APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
-```
-
-Run `npm install` and then `npm start` to get the application up and running. The application is available at `http://localhost:4200` and the credentials are the ones used by Content Services.
-
-The Alfresco Content App is now running in development mode within your development environment.
-
-## Use the Enterprise stack instead of Open Source
-
-If you are an Alfresco Customer or an Official Partner, you can use the Enterprise stack instead of the Open Source method.
-
-* Use ACS Enterprise Edition instead of the Community Edition.
-  * Open your browser and check everything starts up correctly:
-  Alfresco: http://localhost:8080/alfresco
-* Use the `alfresco-apps` GitHub repository (this is a private repository so you may require to get a local copy of the project raising a request into the Alfresco Support Portal).
-* Use the following `file-name.env` file.
-
-```bash
-ACA_BRANCH="2.10.0"
-BASE_URL="http://localhost:8080"
-APP_CONFIG_ECM_HOST="http://localhost:8080"
-APP_CONFIG_PROVIDER="ECM"
-APP_CONFIG_AUTH_TYPE="BASIC"
-APP_CONFIG_PLUGIN_AOS=false
-APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
-APP_CONFIG_PLUGIN_PROCESS_SERVICE=false
-APP_CONFIG_PLUGIN_AI_SERVICE=false
-```
-
-Run `npm ci` and then run `npm start content-ee`. The application is available at http://localhost:4200 and the credentials are the ones used by Content Services.
-
-You now have an ADF-based application on your development environment.
-
-## Front end developer experience
-
-The backend services provided by Alfresco products use a reliable REST API foundation layer for all client interactions on the platform. Front end applications are a subset of these clients interactions and Alfresco provides an Angular-based [Application Development Framework (ADF)](LINK) for creating them.
-
-### Front end applications
-
-The Application Development Framework defines a set of services and visual components that developers can use to create bespoke end-user applications. The framework is not an end-user application itself, but it enables developers to create their own applications and is available as an [open source project](LINK).
-
-Alfresco provides two end user applications created using the Application Development Framework:
-
-* [Digital Workspace](LINK) is a fully supported application available to customers and partners working with Enterprise editions of Alfresco products and services.
-
-* [Content Application](LINK) is a free, open source example of an application created using the Application Development Framework.
-
-The following image explains the relation between the front end applications and backend Alfresco services.
-
-![Development options]({% link digital-workspace/images/develop-arch.png %})
-
-### Options
-
-One of the advantages of an open platform is that there are many options available to develop with. As an example, a developer can avoid using the Application Development Framework entirely and use a different technology such as React to interact with the REST API layer. You can also use a selection of services and components from the Application Development Framework and then build their own set of custom components and services on top of them. Alternatively, you can use the Digital Workspace or Content Application and modify it through custom extensions and integrations.
-
-## Troubleshooting and support
-
-Use the following community resources to help you with any issues you may experience:
-
-* Raise a question in the [Alfresco Forum](https://hub.alfresco.com/ "https://hub.alfresco.com/") (Application Development Framework section) 
-* Connect with the developers in the [Alfresco Gitter channel](https://alfresco.atlassian.net/wiki/spaces/PM/overview "https://alfresco.atlassian.net/wiki/spaces/PM/overview").
