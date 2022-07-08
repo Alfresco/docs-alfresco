@@ -222,6 +222,35 @@ After you've extracted the Content Services distribution zip, several directorie
 | | `generate_keystores.bat` | Windows version of keystore generation file |
 | | `/metadata-keystore` | Content metadata keystore information |
 
+## Move keystore files to your installation
+
+The new keystore configuration implementation requires it to be configured with
+[JAVA parameters]({% link content-services/latest/admin/security.md %}#alfresco-keystore-configuration).
+
+1. Move the default keystore files to your installation
+
+    1. Extract from the `alfresco-content-services-distribution-7.2.x.zip` file the following two files:
+
+        * `/keystore/metadata-keystore/keystore`
+        * `/keystore/metadata-keystore/keystore-passwords.properties`
+
+    2. Copy them to your installation at the following location:
+
+        * `<TOMCAT_HOME>/alf_data/keystore/metadata-keystore/keystore`
+        * `<TOMCAT_HOME>/alf_data/keystore/metadata-keystore/keystore-passwords.properties`
+
+2. Configure Tomcat 9 to use the default keystore files
+
+    1. Open `<TOMCAT_HOME>/bin/catalina.bat` in a text editor.
+
+    2. Add the following line to `catalina.bat`:
+
+       ```bash 
+       set “JAVA_TOOL_OPTIONS=-Dencryption.keystore.type=JCEKS -Dencryption.cipherAlgorithm=DESede/CBC/PKCS5Padding -Dencryption.keyAlgorithm=DESede -Dencryption.keystore.location=<TOMCAT_HOME>/alf_data/keystore/metadata-keystore/keystore -Dmetadata-keystore.password=mp6yc0UD9e -Dmetadata-keystore.aliases=metadata -Dmetadata-keystore.metadata.password=oKIWzVdEdA -Dmetadata-keystore.metadata.algorithm=DESede”
+       ```
+
+       Make sure to replace `<TOMCAT_HOME>` with your Tomcat installation directory.
+    
 ## Tailor your installation
 
 When installing Content Services, an important part of the configuration process is the removal of any unused applications. Use this information to determine any applications that you might want to remove from your installation and how to remove them.
