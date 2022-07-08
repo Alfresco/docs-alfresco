@@ -320,7 +320,7 @@ In Microsoft Teams admin center do the following:
 
 1. Navigate to [**Teams apps > Manage apps**](https://docs.microsoft.com/en-us/microsoftteams/manage-apps){:target="_blank"}:
 
-   ![MS Teams Admin Ceneter Manage Apps]({% link microsoft-teams/images/ms-teams-admin-center-manage-apps.png %})
+   ![MS Teams Admin Center Manage Apps]({% link microsoft-teams/images/ms-teams-admin-center-manage-apps.png %})
 
 2. Then select [**Upload**](https://docs.microsoft.com/en-us/microsoftteams/upload-custom-apps){:target="_blank"}, 
    click **Upload**, select the app package (i.e. the manifest zip archive prepared in the 
