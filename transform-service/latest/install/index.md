@@ -640,10 +640,10 @@ before continuing.
 
     # Transform Router properties:
     transform.service.enabled=true
-    transform.service.url=http://localhost:8095/
+    transform.service.url=http://<Transform Service host>:8095/
 
     # Transform Core properties:
-    localTransform.core-aio.url=http://transform-core-aio:8090/
+    localTransform.core-aio.url=http://<Transform Service host>:8090/
     ```
 
     This overrides the default properties provided by Content Services.
