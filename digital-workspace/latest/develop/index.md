@@ -2,44 +2,34 @@
 title: Develop Digital Workspace
 ---
 
-You can develop with and adapt the Digital Workspace. You can use the Application Development Framework Extensions or customizations to adjust or integrate your own solutions. [LINK] If you can customize the Digital workspace you can use the Digitial Workspace extensions [link], if you can't customize the the Digital Workspace you can create and use an custom App as an alternative. [LINK] If your project uses Alfresco Community Edition or open source components you must use Alfresco Content Application.  
-
-> **Note:** Alfresco Content Application is defined as an example of content application, and it is not officially supported by Alfresco (but contributions to the project are welcome). Use the image to determine how
-
-In the picture below, you can see drawn the decision process described above.
+You can develop with and adapt the Digital Workspace. To do this you can use the Digital Workspace extensions (link the text) or create a custom app using the Application Development Framework (link the text), to adjust or integrate your own solutions. If your project uses **Alfresco Content Services - Community Edition** or other open source components you must use [Alfresco Content Application](https://alfresco-content-app.netlify.app/#/) instead of the Digital Workspace. The Digital Workspace is a fully supported application that is available to customers and partners working with **Alfresco Content Services - Enterprise Edition** products and services. The Content Application is a free, open source example of an application created using the Application Development Framework and its use is not supported by Alfresco support.
 
 ![Develop front-end]({% link digital-workspace/images/develop-front-end.png %})
 
-## Front-end developer experience
+## Front-end experience
 
-The backend services provided by Alfresco products use a REST API foundation layer for all client interactions on the platform. Front-end applications are a subset of client interactions, and Alfresco provides an Angular-based Application Development Framework for creating them.
+The backend services provided by Alfresco products use a REST API foundation layer for all client interactions of the platform. Front-end applications are a subset of client interactions, and Alfresco provides an Angular-based Application Development Framework for creating them.
 
 ### Front-end applications
 
-The Application Development Framework is an Open Source project that defines a set of services and visual components that developers can use to create bespoke end-user applications. The framework is not an end-user application itself, but it enables developers to create their own applications.
+The Application Development Framework is an Open Source project that defines a set of services and visual components that you can use to create bespoke end-user applications. The framework is not an end-user application itself, but it enables you to create their own applications.
 
-Alfresco provides the end-user application created using the Application Development Framework:
-
-* [Digital Workspace](https://www.alfresco.com/ecm-software/alfresco-digital-workspace) is a fully supported application available to customers and partners working with Enterprise editions of Alfresco products and services.
-* [Content Application](https://alfresco-content-app.netlify.app/#/) is a free, open source example of an application created using the Application Development Framework.
-
-The following image explains the relationship between the front-end applications and backend Alfresco services: Digital Workspace (DW), Content Application (ACA) and Application Development Framework (ADF).
+The image explains the relationship between the front-end applications and backend Alfresco services, i.e. the Digital Workspace, the Content Application, and the Application Development Framework.
 
 ![Development options]({% link digital-workspace/images/develop-arch.png %})
 
 ### Options
 
-A hybrid option exists using both the Application Development Framework and custom components and services. Alternatively, a developer can use the Digital Workspace and modify it through custom extensions and integrations.
+A hybrid option exists using both the Application Development Framework and custom components and services. Or alternatively, you can use the Digital Workspace and modify it through custom extensions and integrations.
 
 ### Mobile development
 
-Native mobile frameworks and applications are provided by Alfresco as standard. Find the Mobile Workspace code at the following github repositories for [Android](https://github.com/alfresco/alfresco-mobile-workspace-android) or [iOS](https://github.com/alfresco/alfresco-mobile-workspace-ios).
+Native mobile frameworks and applications are provided by Alfresco as standard. You can access the Mobile Workspace code at the following github repositories, for [Android](https://github.com/alfresco/alfresco-mobile-workspace-android) or [iOS](https://github.com/alfresco/alfresco-mobile-workspace-ios).
 
 ## Build a Front-end application
 
-Launch a fully-featured, front-end application on a development environment. Use the source code, with the purpose to gain experience with development principles and  best practices suggested to create front-end applications working on top of the Alfresco backend services.
-
-The stack chosen for this initial task is the Open Source version of the front-end application. In the bonus section, repeat the same exercise with the Enterprise version (available for Alfresco customers and partners only).
+Use the following example to launch a fully-featured front-end application. It allows you to gain insight into how to create front-end applications that work on top of the Alfresco backend services.
+The example uses the open source version of the front-end application. You can repeat the same exercise with the Enterprise version (available for Alfresco customers and partners only). (Whats the link here?)
 
 ### Prerequisites and requirements
 
@@ -100,7 +90,7 @@ APP_CONFIG_PLUGIN_PROCESS_SERVICE=false
 APP_CONFIG_PLUGIN_AI_SERVICE=false
 ```
 
-> **Note:** The Digital Workspace 2.9.x uses ACA version 2.10.0. If you are using a different version of the Digital Workspace the version of ACA could be different.
+> **Note:** The Digital Workspace 2.9.x uses the Content Application version 2.10.0. Ensure you check the version of the documentaiton that matches your version of the Dgital Workspace because If you are using a different version of the Digital Workspace the version of the Content Application could be different.
 
 * Run `npm ci` and then run the application using `npm start content-ee`. The application will be available at the URL `http://localhost:4200` and the credentials are the ones required by Alfresco Content Services.
 
