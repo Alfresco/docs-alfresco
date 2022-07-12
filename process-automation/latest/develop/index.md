@@ -10,7 +10,7 @@ Communication with an external system should use the [REST connector]({% link pr
 
 > **Important**: The REST service and the AWS Lambda account and function need to be hosted outside of the Alfresco hosted environment.
 
-Both connectors can send and return JSON payloads from a process. The REST connector can also be configured as a [trigger]({% link process-automation/latest/model/triggers.md %}#webhooks) for webhooks.
+Both connectors can send and return json payloads from a process. The REST connector can also be configured as a [trigger]({% link process-automation/latest/model/triggers.md %}#webhooks) for webhooks.
 
 ## Extend the Digital Workspace
 
@@ -768,6 +768,18 @@ For example:
   "async": true
 }
 ```
+
+### Replay service task using REST API
+
+If a service task does not complete due to a Cloud connector failure it's possible to replay the task and send a new integration request. To do this you must provide the execution id and the definition id of the service task:
+
+`POST /v1/executions/{executionId}/replay/service-task`
+
+```json
+{
+   "flowNodeId": "flowNodeId"
+}
+
 
 ### Clean up using Create cleanup job
 
