@@ -566,4 +566,12 @@ To create form rules within the form:
 
 19. When you have created the relevant form rules click **Save**.
 
-20. Select **Preview** from the **Eye** icon and test the responses in the form are correct.  
+20. Select **Preview** from the **Eye** icon dropdown list and test the responses in the form are correct.  
+
+## Change preview size
+
+You can change the size of the form you want to preview. This is useful because the form size can simulate the different sizes of the devices that will be using the form. You can customize the size of the form or select which device you want to emulate.
+
+To change the size of the preview select **Preview** from the **Eye** icon dropdown list and select how you want to preview your form.
+
+![Form size]({% link process-automation/images/form-size.png %})
