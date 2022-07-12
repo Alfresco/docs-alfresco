@@ -4,7 +4,7 @@ title: Alfresco Desktop Sync
 
 With Desktop Sync, desktop users can securely and automatically sync content between their desktop and Alfresco Content Services.
 
-This release of Desktop Sync is a compatibility release to support Alfresco Sync Service 3.7, and adds the **Remove Local Content** application menu option for [Windows]({% link desktop-sync/1.11/using/app-menu.md %}#menu/windows/manage-your-account) and [Mac]({% link desktop-sync/1.11/using/app-menu.md %}#menu/mac/remove-local-content).
+This release of Desktop Sync is a compatibility release to support Alfresco Sync Service 3.7.
 
 You can easily connect to Alfresco Content Services and select folders and sites to view and work with on the desktop, even when working offline.
 
