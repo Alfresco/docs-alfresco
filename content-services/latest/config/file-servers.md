@@ -82,22 +82,22 @@ The following properties can be overridden on the `ftpServerConfig` bean.
 
   Specifies the address the FTP server binds to. If it's not specified, the server binds to all available addresses.
 
-    1. The `debugFlags` property enables debug output levels for FTP server debugging. The value should be a comma-separated list of flag names from the following table:
+1. The `debugFlags` property enables debug output levels for FTP server debugging. The value should be a comma-separated list of flag names from the following table:
 
-        | Flag | Description |
-        | ---- | ----------- |
-        | State | Session state changes |
-        | Search | Folder searches |
-        | Info | File information requests |
-        | File | File open/close |
-        | FileIO | File read/write |
-        | Error | Errors |
-        | Pkttype | Received packet type |
-        | Timing | Time packet processing |
-        | Dataport | Data port |
-        | Directory | Directory commands |
+    | Flag | Description |
+    | ---- | ----------- |
+    | State | Session state changes |
+    | Search | Folder searches |
+    | Info | File information requests |
+    | File | File open/close |
+    | FileIO | File read/write |
+    | Error | Errors |
+    | Pkttype | Received packet type |
+    | Timing | Time packet processing |
+    | Dataport | Data port |
+    | Directory | Directory commands |
 
-    2. Configure logging levels for the FTP server in `$ALF_HOME/tomcat/webapps/alfresco/WEB-INF/classes/log4j.properties` using:
+2. Configure logging levels for the FTP server in `$ALF_HOME/tomcat/webapps/alfresco/WEB-INF/classes/log4j.properties` using:
 
     ```bash
     log4j.logger.org.alfresco.ftp.protocol=debug
