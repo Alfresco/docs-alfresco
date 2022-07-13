@@ -61,7 +61,7 @@ A graphical workflow modeler is often used to create a workflow. The following d
 
 ![A diagram of an Alfresco workflow]({% link content-services/images/wf-diag-workflow-1.jpg %})
 
-The workflow engine executes BPMN 2.0 process definitions. BPNM 2.0 (Business Process Model and Notation) is an open standard developed by the Object Management Group (OMG) to provide a notation that is easily understandable by all business users: business analysts designing processes, developers implementing technology to perform those processes, and, business people managing and monitoring those processes. BPMN creates a standardized bridge for the gap between the business process design and process.
+The workflow engine executes BPMN 2.0 process definitions. BPMN 2.0 (Business Process Model and Notation) is an open standard developed by the Object Management Group (OMG) to provide a notation that is easily understandable by all business users: business analysts designing processes, developers implementing technology to perform those processes, and, business people managing and monitoring those processes. BPMN creates a standardized bridge for the gap between the business process design and process.
 
 Standard BPMN 2.0 process definition models can be exchanged between graphical editors, and executed on any BPMN 2.0 compliant engine. Be aware that if you use technology specific features in your definition, you will not be able to use that workflow on a different technology. For example, if you define a workflow to work with Alfresco Content Services, you will not be able to run it on a TIBCO server.
 

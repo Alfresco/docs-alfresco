@@ -2203,24 +2203,26 @@ Adding aspects to a folder or file is a bit more complicated than just updating 
 
 **API Explorer URL:** [http://localhost:8080/api-explorer/#!/nodes/updateNode](http://localhost:8080/api-explorer/#!/nodes/updateNode){:target="_blank"}
 
-**See also:** 
+**See also:**
 
 * [How to update metadata](#updatemetadatanode)  
-* [How to remove aspects](#removeaspectsnode) 
+* [How to remove aspects](#removeaspectsnode)
 
 >**Note:** It is not possible to include aspects or properties that are part of the `systemModel` (i.e. namespace `sys:`) in API calls.
-> 
-> For example, if you try and add the `sys:hidden` aspect to a node, the following error is returned: 
-> 
->```{
-> “error”: {
->   “errorKey”: “framework.exception.ApiDefault”,
->   “statusCode”: 400,
->   “briefSummary”: “NameSpace cannot be used by API: sys:hidden”,
->   “stackTrace”: “For security reasons the stack trace is no longer displayed, but the property is kept for previous versions”,
->   “descriptionURL”: “https://api-explorer.alfresco.com”
->  }
->}```
+>
+> For example, if you try and add the `sys:hidden` aspect to a node, the following error is returned:
+>
+> ```json
+> {
+>   “error”: {
+>     “errorKey”: “framework.exception.ApiDefault”,
+>     “statusCode”: 400,
+>     “briefSummary”: “NameSpace cannot be used by API: sys:hidden”,
+>     “stackTrace”: “For security reasons the stack trace is no longer displayed, but the property is kept for previous versions”,
+>     “descriptionURL”: “https://api-explorer.alfresco.com”
+>   }
+> }
+> ```
 
 When you set a property on a file via the update node call the associated aspect will be applied automatically for you, 
 if it’s not already set on the node. Let’s take the out-of-the-box `cm:effectivity` aspect for example, it has two properties 
@@ -2440,15 +2442,17 @@ Removing aspects from a folder or file is a bit more complicated than just updat
 >
 > For example, if you try and remove the `sys:hidden` aspect from a node, the following error is returned:
 >
->```{
-> “error”: {
->   “errorKey”: “framework.exception.ApiDefault”,
->   “statusCode”: 400,
->   “briefSummary”: “NameSpace cannot be used by API: sys:hidden”,
->   “stackTrace”: “For security reasons the stack trace is no longer displayed, but the property is kept for previous versions”,
->   “descriptionURL”: “https://api-explorer.alfresco.com”
->  }
->}```
+> ```json
+> {
+>   “error”: {
+>     “errorKey”: “framework.exception.ApiDefault”,
+>     “statusCode”: 400,
+>     “briefSummary”: “NameSpace cannot be used by API: sys:hidden”,
+>     “stackTrace”: “For security reasons the stack trace is no longer displayed, but the property is kept for previous versions”,
+>     “descriptionURL”: “https://api-explorer.alfresco.com”
+>   }
+> }
+> ```
 
 Removing an aspect from a node is similar to how you add a “marker” aspect. You first get the list of aspects currently 
 applied to the node. Then you remove the aspect from the list. And finally you use an update node call with the updated 
