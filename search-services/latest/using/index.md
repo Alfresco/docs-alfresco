@@ -324,31 +324,31 @@ OR
 `AND` and `OR` can be combined with `+`, `|`, `-` with the following meanings:
 
 |AND (no prefix is the same as +)|Description|
-|----------------------------------|-----------|
-|big AND dog|big and dog must occur|
-|+big AND +dog|big and dog must occur|
-|big AND +dog|big and dog must occur|
-|+big AND dog|big and dog must occur|
-|big AND dog|big must occur and dog should occur|
-|big AND dog|big should occur and dog must occur|
-|big AND dog|both big and dog should occur, and at least one must match|
-|big AND -dog|big must occur and dog must not occur|
-|-big AND dog|big must not occur and dog must occur|
-|-big AND -dog|both big and dog must not occur|
-|big AND -dog|big should occur and dog must not occur|
+|--------------------------------|-----------|
+|`big AND dog`|big and dog must occur|
+|`+big AND +dog`|big and dog must occur|
+|`big AND +dog`|big and dog must occur|
+|`+big AND dog`|big and dog must occur|
+|`big AND \|dog`|big must occur and dog should occur|
+|`\|big AND dog`|big should occur and dog must occur|
+|`\|big AND \|dog`|both big and dog should occur, and at least one must match|
+|`big AND -dog`|big must occur and dog must not occur|
+|`-big AND dog`|big must not occur and dog must occur|
+|`-big AND -dog`|both big and dog must not occur|
+|`\|big AND -dog`|big should occur and dog must not occur|
 
 |OR (no prefix is the same as +)|Description|
-|---------------------------------|-----------|
-|dog OR wolf|dog and wolf should occur, and at least one must match|
-|+dog OR +wolf|dog and wolf should occur, and at least one must match|
-|dog OR +wolf|dog and wolf should occur, and at least one must match|
-|+dog OR wolf|dog and wolf should occur, and at least one must match|
-|dog OR wolf|dog and wolf should occur, and at least one must match|
-|dog OR wolf|dog and wolf should occur, and at least one must match|
-|dog OR wolf|dog and wolf should occur, and at least one must match|
-|dog OR -wolf|dog should occur and wolf should not occur, one of the clauses must be valid for any result|
-|-dog OR wolf|dog should not occur and wolf should occur, one of the clauses must be valid for any result|
-|-dog OR -wolf|dog and wolf should not occur, one of the clauses must be valid for any result|
+|-------------------------------|-----------|
+|`dog OR wolf`|dog and wolf should occur, and at least one must match|
+|`+dog OR +wolf`|dog and wolf should occur, and at least one must match|
+|`dog OR +wolf`|dog and wolf should occur, and at least one must match|
+|`+dog OR wolf`|dog and wolf should occur, and at least one must match|
+|`dog OR \|wolf`|dog and wolf should occur, and at least one must match|
+|`\|dog OR wolf`|dog and wolf should occur, and at least one must match|
+|`\|dog OR \|wolf`|dog and wolf should occur, and at least one must match|
+|`dog OR -wolf`|dog should occur and wolf should not occur, one of the clauses must be valid for any result|
+|`-dog OR wolf`|dog should not occur and wolf should occur, one of the clauses must be valid for any result|
+|`-dog OR -wolf`|dog and wolf should not occur, one of the clauses must be valid for any result|
 
 ## Embed queries in CMIS
 
@@ -358,12 +358,11 @@ These examples show how to embed queries in CMIS.
 
 ```sql
 - strict queries
-SELECT * FROM Document WHERE CONTAINS("zebra")
 SELECT * FROM Document WHERE CONTAINS("quick")
 
 - Alfresco extensions
-SELECT * FROM Document D WHERE CONTAINS(D, 'cmis:name:'Tutorial")
-SELECT cmis:name as BOO FROM Document D WHERE CONTAINS('BOO:'Tutorial")
+SELECT * FROM Document D WHERE CONTAINS(D, 'cmis:name:\'Tutorial\'')
+SELECT cmis:name as BOO FROM Document D WHERE CONTAINS('BOO:\'Tutorial\'')
 ```
 
 ## Search Service
