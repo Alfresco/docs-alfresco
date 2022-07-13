@@ -323,8 +323,8 @@ OR
 
 `AND` and `OR` can be combined with `+`, `|`, `-` with the following meanings:
 
-|AND (no prefix is the same as +)|Explanation|
-|----------------------------------|-----------|
+|AND (no prefix is the same as +)|Description|
+|--------------------------------|-----------|
 |`big AND dog`|big and dog must occur|
 |`+big AND +dog`|big and dog must occur|
 |`big AND +dog`|big and dog must occur|
@@ -337,8 +337,8 @@ OR
 |`-big AND -dog`|both big and dog must not occur|
 |`\|big AND -dog`|big should occur and dog must not occur|
 
-|OR (no prefix is the same as +)|Explanation|
-|---------------------------------|-----------|
+|OR (no prefix is the same as +)|Description|
+|-------------------------------|-----------|
 |`dog OR wolf`|dog and wolf should occur, and at least one must match|
 |`+dog OR +wolf`|dog and wolf should occur, and at least one must match|
 |`dog OR +wolf`|dog and wolf should occur, and at least one must match|
