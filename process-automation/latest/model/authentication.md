@@ -11,7 +11,7 @@ The basic properties of creating authentication are:
 | Property | Description |
 | -------- | ----------- |
 | Authentication name | *Required.* The name used to identify the authentication. The name must be in lowercase and be between one and 26 characters in length, for example `token1auth`. |
-| Authentication description | *Optional.* A description of the authentication. This can be your identity provider, for example `Keycloak authentication used`. |
+| Authentication description | *Optional.* A description of the authentication, for example `Basic authentication used`. |
 | Authentication type | *Required.* Select the type of authentication, for example `Basic`. There are three types of authentication you can use, `Basic`, `Client credentials`, and `Bearer token`. |
 | Secured | *Optional.* When selected, credentials are defined during deployment time, or de-select the checkbox to provide them during modeling time. These credentials are used when contacting the external API. |
 | Clientid | *Required.* When using Client credentials authentication, enter the client id, for example `Client-1`. |
