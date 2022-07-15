@@ -484,9 +484,9 @@ docker-compose down
 
 ![Docker Desktop Resources]({% link content-services/images/docker-desktop-resources.png %})
 
-    When using *Linux* as Docker host, all the memory in the computer is available to Docker Compose. So no additional actions are required.
+When using *Linux* as Docker host, all the memory in the computer is available to Docker Compose. So no additional actions are required.
 
-    When using [Docker with WSL 2 Backend](https://docs.docker.com/desktop/windows/wsl/) in *Windows*, use the `.wslconfig` file to increase the `memory` available for Docker Compose.
+When using [Docker with WSL 2 Backend](https://docs.docker.com/desktop/windows/wsl/) in *Windows*, use the `.wslconfig` file to increase the `memory` available for Docker Compose.
 
 
 ## Reference
