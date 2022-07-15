@@ -472,15 +472,21 @@ docker-compose down
     docker-compose down --rmi all
     ```
 
-5. Try allocating more memory resources, as advised in `docker-compose.yml`.
+5. Try allocating more memory resources to Docker, as advised in `docker-compose.yml`.
 
-    For example, in Docker, change the memory setting in **Preferences** (or **Settings**) **Resources** > **Advanced** > **Memory** to at least 8GB. Make sure you restart Docker and wait for the process to finish before continuing.
+    For example, in Docker, change the memory setting in **Preferences** (Mac) or **Settings** (Windows) > **Resources** > **Advanced** > **Memory** to at least 13 GB. If you make changes, click **Apply & Restart** and wait for the process to finish before continuing.
 
     Go back to step 5 in the initial Docker Compose instructions to start the deployment again.
 
-> **Note:** In order to deploy onto Docker for Desktop you need to allocate at least 13 Gb (preferably 16 Gb) to the 
-> Docker Engine on the "Resources" tab in Docker for Desktop's preferences pane as shown in the screenshot below. This 
+When using *Linux* as Docker host, all the memory in the computer is available to Docker Compose. So no additional actions are required.
+
+When using [Docker with Windows Subsystem for Linux (WSL) 2 Backend](https://docs.docker.com/desktop/windows/wsl/){:target="_blank"} in *Windows*, use the `.wslconfig` file to increase the `memory` available for Docker Compose.
+
+> **Note:** In order to deploy onto Docker Desktop you need to allocate at least 13 GB (preferably 16 GB) to the
+> Docker Engine on the **Resources** tab in Docker Desktop's preferences pane as shown in the screenshot below. This
 > is required because insufficient memory will cause containers to exit without warning.
+
+![Docker Desktop Resources]({% link content-services/images/docker-desktop-resources.png %})
 
 ## Reference
 
