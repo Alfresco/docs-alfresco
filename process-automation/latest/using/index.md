@@ -266,3 +266,107 @@ Autocompletion can also show method suggestions and attributes when using the â€
 The expression editor provides helpful information when you place the cursor over an element of it. For example, in the image the cursor has been placed over the word `event` and a hint is displayed that provides a description of the `event` variable.
 
 ![Hints]({% link process-automation/images/hints.png %})
+
+## Process Analytics
+
+**Important** Process Analytics is a Beta feature which means it can only be used in a development environment for an experimental use case and is not intended for production use. It may contain bugs or errors, and may be prone to breaking changes in the future based on Beta testing.
+
+Process Analytics exposes a set of APIs that can be used to query business metrics about process instances and user tasks. The query language it uses is GraphQL.
+
+**Note** You must have the `ACTIVITI_ANALYTICS` role in the Identity Service to be able to execute queries.
+
+### Information available for process instances
+
+* Process instance duration in seconds (minimum, maximum, or average)
+* Total number of process instances (count)
+
+Data can be filtered by
+
+   * date range
+   * application name
+   * Process definition name
+   * process status
+   * grouped by
+   * process definition name
+   * process instance name
+
+Aggregated by
+
+   * time intervals (minute, hour, day, week, month, quarter, year)
+   * process status
+
+### Information available for user tasks
+
+* User task duration in seconds (minimum, maximum or average)
+*	Total number of user tasks (count)
+
+Data can be filtered by
+   * date range
+   * application name
+   * process definition name
+   * user task status
+   * grouped by
+   * process definition name
+   * user task name
+   * user task assignee
+
+Aggregated by
+
+   * time intervals (minute, hour, day, week, month, quarter, year)
+   * process status
+
+To use the process analytics APIs
+
+Before you use the process analytics APIs you must use the Admin app and change the password of the person who will be using them.
+When using the Playground use incognito mode for your browser. You access the Playground by navigating to https://{domain-name}/analytics/playground/. You use your new credentials to log into the system and you will see a similar screen to below.
+
+![Condition builder]({% link process-automation/images/process-analytics.png %})
+
+There are two tabs on the right side of the Playground: Docs and Schema. You can use the to learn about the structure of the APIs.
+
+Example queries
+
+Here are some examples of GraphQL queries that can be used in the Playground.
+
+#### Number of user tasks completed in 2022 aggregated by month 
+
+```JSON
+{ 
+	taskMetrics( 
+		query: { 
+			range: {  
+				from: "2022-01-01T00:00:00Z"  
+				to: "2022-12-31T00:00:00Z"  
+			} 
+		} 
+	) 
+	{ 
+		timer(name: activiti_user_task_completed) { 
+			count 
+			interval(by: task_completed_date, period: month, format: "yyyy-mm") 
+		} 
+	} 
+} 
+```
+
+#### Average process duration of the processes completed in June 2022 aggregated by day and grouped by process definition name
+
+```JSON
+{ 
+	processMetrics( 
+		query: { 
+			range: {  
+				from: "2022-06-01T00:00:00Z"  
+				to: "2022-06-30T00:00:00Z"  
+			} 
+		} 
+	) 
+	{ 
+		timer(name: activiti_process_instance_completed) { 
+			duration (stat: avg) 
+			interval(by: process_completed_date, period: day, format: "yyyy-mm-dd") 
+			group (by: process_definition_name) 
+		} 
+	} 
+} 
+```
