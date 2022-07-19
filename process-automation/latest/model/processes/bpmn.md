@@ -40,7 +40,7 @@ Once a form has been selected, it can be edited using the **Open Form** symbol.
 
 #### Mapping type
 
-The mapping type sets how data is passed between the start event and the process. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the start event and the process. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Don't map variables**. For form widgets and form variables you can add static values. For example you can pass a form variable called `path` which can be a file location or URL.
 
 {% endcapture %}
 {% capture start-img %}
