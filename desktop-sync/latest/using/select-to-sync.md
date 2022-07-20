@@ -163,7 +163,7 @@ When the checkbox is selected (since it's enabled by default), the folders are s
 
 The **Sync** progress dialog shows the status of the initial sync. The Alfresco icon in the menu bar changes to indicate that the sync is in progress ![]({% link desktop-sync/images/ds-syncing-mac.png %}){:height="23px" width="23px"}. Once the sync has completed successfully, the icon changes to ![]({% link desktop-sync/images/ds-synced-mac.png %}){:height="23px" width="23px"}.
 
-![]({% link desktop-sync/images/initialsync-mac-1.12.png %}){:height="239px" width="469px"}
+![]({% link desktop-sync/images/initialsync-mac-1.12.png %}){:height="221px" width="469px"}
 
 In `/<userHome>/Alfresco`, copies of all the content you've selected to sync are created. Desktop Sync automatically keeps both the local copy and the Alfresco Content Services versions in sync with each other whenever any changes are made.
 
