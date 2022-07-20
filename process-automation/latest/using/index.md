@@ -269,11 +269,11 @@ The expression editor provides helpful information when you place the cursor ove
 
 ## Process Analytics
 
-**Important** Process Analytics is a Beta feature which means it can only be used in a development environment for an experimental use case and is not intended for production use. It may contain bugs or errors, and may be prone to breaking changes in the future based on Beta testing.
+**Important:** Process Analytics is a Beta feature which means it can only be used in a development environment for an experimental use case and is not intended for production use. It may contain bugs or errors, and may be prone to breaking changes in the future based on Beta testing.
 
 Process Analytics exposes a set of APIs that can be used to query business metrics about process instances and user tasks. The query language it uses is GraphQL.
 
-**Note** You must have the `ACTIVITI_ANALYTICS` role in the Identity Service to be able to execute queries.
+**Note:** You must have the `ACTIVITI_ANALYTICS` role in the Identity Service to be able to execute queries.
 
 ### Information available for process instances
 
@@ -284,7 +284,7 @@ Data can be filtered by
 
    * date range
    * application name
-   * Process definition name
+   * process definition name
    * process status
    * grouped by
    * process definition name
@@ -315,20 +315,19 @@ Aggregated by
    * time intervals (minute, hour, day, week, month, quarter, year)
    * process status
 
-To use the process analytics APIs
+#### To use the process analytics APIs
 
-Before you use the process analytics APIs you must use the Admin app and change the password of the person who will be using them.
-When using the Playground use incognito mode for your browser. You access the Playground by navigating to https://{domain-name}/analytics/playground/. You use your new credentials to log into the system and you will see a similar screen to below.
+Before you use the process analytics APIs you must use the Admin app and change the password of the person who will be using them. When using the process analytics playground use incognito mode for your browser. You access the playground by navigating to `https://{domain-name}/analytics/playground/`. Use your new credentials to log into the system and you will see a similar screen to below.
 
-![Condition builder]({% link process-automation/images/process-analytics.png %})
+![Process Analytics]({% link process-automation/images/process-analytics.png %})
 
-There are two tabs on the right side of the Playground: Docs and Schema. You can use the to learn about the structure of the APIs.
+There are two tabs on the right side of the Playground: Docs and Schema. You can use them to learn about the structure of the APIs.
 
-Example queries
+#### Example queries
 
 Here are some examples of GraphQL queries that can be used in the Playground.
 
-#### Number of user tasks completed in 2022 aggregated by month 
+**Number of user tasks completed in 2022 aggregated by month**
 
 ```JSON
 { 
@@ -349,7 +348,7 @@ Here are some examples of GraphQL queries that can be used in the Playground.
 } 
 ```
 
-#### Average process duration of the processes completed in June 2022 aggregated by day and grouped by process definition name
+**Average process duration of the processes completed in June 2022 aggregated by day and grouped by process definition name**
 
 ```JSON
 { 
