@@ -26,7 +26,6 @@ The [Document Fingerprints]({% link insight-engine/latest/admin/index.md %}#docu
 
 SOLR uses several [Caches](https://solr.apache.org/guide/6_6/query-settings-in-solrconfig.html#QuerySettingsinSolrConfig-Caches) in order to retain some result information in memory. Since version 2.0 this feature can be disabled in order to decrease the use of RAM memory.
 
-
 From version 2.0.2, the SOLR Document Caches feature is disabled by default, including the following properties in the `solrcore.properties` file.
 
 ```bash

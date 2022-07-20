@@ -456,8 +456,8 @@ Use this information to start up Alfresco Content Services 6.2 or above and Sear
 
     ```yaml
         solr6:
-            #image: alfresco/alfresco-search-services:2.0.0
-            image: quay.io/alfresco/insight-engine:2.0.0
+            #image: alfresco/alfresco-search-services:2.0.x
+            image: quay.io/alfresco/insight-engine:2.0.x
             mem_limit: 2500m
             environment:
                 #Solr needs to know how to register itself with Alfresco
