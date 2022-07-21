@@ -2,7 +2,7 @@
 title: Using Process Automation
 ---
 
-The default user interface for managing content, processes and tasks is the [Alfresco Digital Workspace]({% link digital-workspace/latest/index.md %}). An instance of Digital Workspace is deployed with every application and used to manage the processes associated with that application.
+The default user interface for managing content, processes and tasks is the [Alfresco Digital Workspace]({% link digital-workspace/latest/index.md %}). An instance of the Digital Workspace is deployed with every application and used to manage the processes associated with that application.
 
 Users need to have been given [user access]({% link process-automation/latest/admin/release.md %}#deploy-steps/user) to an application in order to access and manage content and processes in the Digital Workspace.
 
@@ -178,6 +178,32 @@ Once you have customized a filter, there are two options:
 * **Save filter as**: Selecting this will give you the option to provide a name for a new view for your filter and add it under the **Tasks** section.
 
 You can use the **Delete filter** option at any time to remove a view.
+
+## Configure Process and Task lists
+
+You can configure the columns of the Process and Task lists in the Digital Workspace.
+
+The order of the columns can be adjusted.
+
+1. Navigate to Process Management on the left and then select any Process or Task list.
+
+2. Access the six dots on the top right of a column by hovering your mouse over the name of the column.
+
+2. Click and hold the six dots and then move the column on top of another column.
+
+    This moves the columns to the left one position and the column you are moving takes the place of the one underneath.
+
+![Move column]({% link process-automation/images/move-column.png %})
+
+The columns that are visible can be adjusted.
+
+1. Navigate to Process Management on the left and then select any Process or Task list.
+
+2. Click the three dots on the right of the last column.
+
+3. Select which columns you want show and then click **Apply**.
+
+![Select columns]({% link process-automation/images/select-columns.png %})
 
 ## Condition builder {#condition-builder}
 
