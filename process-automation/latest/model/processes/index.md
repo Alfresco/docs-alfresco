@@ -173,7 +173,11 @@ To create a process variable:
     * If the diagram contains only one process definition, make sure no BPMN element is selected by clicking on a blank section of the canvas and the **Edit Process Variables** button will be visible in the right-hand properties panel.
     * If the diagram contains more than one process definition then click on the individual [pools]({% link process-automation/latest/model/processes/bpmn.md %}#pools-and-lanes) to view the **Edit Process Variables** button for each definition.
 
-3. Use the **+** symbol to add new variables and enter a name, type, optional value and select whether it is required or not.
+3. Use the **+** symbol to add new variables and enter a name, type, optional value, and select whether it is required or not.
+
+	If you want the variable to be available in the Processes, and Tasks lists of the Digital Workspace click **Yes** below **Available in the web application**, and enter a display name. Once added to the Digital workspace you can select the new column by accessing the three dots on the top right.
+
+	 ![Process variable digital workspace]({% link process-automation/images/process-variable-digital.png %})
 
 > **Note**: The details of any process variables can be viewed in the properties section of the [extensions editor](#extensions-editor), for example:
 
