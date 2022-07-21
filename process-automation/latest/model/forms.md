@@ -139,6 +139,7 @@ The advanced properties for an attach file field are:
 | Display retrieve metadata option | Checking this box will allow the form filler to view the metadata of uploaded files. |
 | Display remove file option | Checking this box will allow the form filler to remove uploaded files from the form. |
 | Content Properties to display | You can select up to two custom properties to display next to the file name. |
+| Display upload new version option | Checking this box allows the **Upload new version** option to display in the Digital Workspace, when you click the three dots next to a file. If you upload a new version of a file you can indicate if the changes are minor or major, and you can write a comment about what the changes are or why the changes were made. |
 
 > **Important**: Users filling in a form with an attach file field need to be given explicit access to the upload directory if it is outside of the [default storage location]({% link process-automation/latest/admin/release.md %}#deploy-steps/storage) for the application.
 
