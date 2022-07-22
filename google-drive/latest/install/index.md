@@ -6,7 +6,7 @@ Use these steps to install the Google Docs Integration.
 
 1. Download the installation files.
 
-    For Alfresco Content Services, browse to [Hyland Community](https://community.hyland.com/){:target="_blank"}:
+    For Alfresco Content Services, browse to [Hyland Community](https://community.hyland.com/Products/alfresco/release-notes/release-notes/Alfresco-Google-Docs-Integration-Releases/){:target="_blank"}:
 
     | File | Description |
     | ---- | ----------- |
