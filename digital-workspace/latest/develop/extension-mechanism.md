@@ -219,7 +219,6 @@ Once done, edit the `my-extension.json` file in the `libs/my-extension/assets` f
 
 To declare the component identifier directly into the extension’s module. For that purpose edit the `libs/my-extension/src/lib/my-extension.module.ts` updating the following content.
 
-
 ```java
 // Add the following imports.
 import { ExtensionService } from '@alfresco/adf-extensions';

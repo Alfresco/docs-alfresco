@@ -58,6 +58,7 @@ The Yeoman generator will create a new project and install all dependencies requ
 **Note:** The Yeoman generator creates a new directory for your project. Make sure you change into this new directory.
 
 ### Configure the application to work with Alfresco Content Services
+
 1. Open the project in your code editor.
 2. Open the file `proxy.conf.js`.
 3. Change the target property in this file, so it points to your Alfresco Content Services URL and port. Please refer to your installation guide to find this URL, or if you're running an online trial, you will find the information in the email.
@@ -103,4 +104,4 @@ These essential features are available: browsing the repository, uploading, and 
 
 ### Troubleshooting and support
 
-For troubleshooting, browse and ask questions in the Alfresco Forum (Application Development Framework section) or connect with the developers into the Alfresco Gitter channel. As an Alfresco customer or partner, seek support in the Alfresco Support Portal.
+Ask questions in the Application Development Framework section of the [Alfresco Forum](https://hub.alfresco.com/t5/application-development/ct-p/developing){:target="_blank"} or in the Alfresco [Gitter Discussions](https://gitter.im/Alfresco/alfresco-ng2-components){:target="_blank"}. If you are an Alfresco customer or partner you can also request support in the [Alfresco Support Portal](https://myalfresco.force.com/support/SiteLogin){:target="_blank"}.

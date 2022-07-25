@@ -95,9 +95,9 @@ APP_CONFIG_PLUGIN_AI_SERVICE=false
 
 > **Note:** The Digital Workspace 2.9.x uses the Content Application version 2.10.0. Ensure you check the Digital Workspace documentation that matches your version because the Content Application version could be different.
 
-* Run `npm ci` and then run the application using `npm start content-ee`. The application is available at `http://localhost:4200` and you must use the Alfresco Content Services credentials.
+* Run `npm ci` and then run the application using `npm start content-ee`. The application is available at `http://localhost:4200` and you must use the Alfresco Content Services credentials to log in.
 
-The environment configuration provided for the sample above is the minimal required to locally test locally the Alfresco Repository, but additional environment variables are available.
+The configuration provided for the sample above is the minimal required for your development environment to locally test the Alfresco Repository, but additional environment variables are available.
 
 ```bash
 # App config settings
@@ -140,6 +140,6 @@ MICROSOFT_PASSWORD="<password>"
 MOO_LOGIN_URL="<url>"
 ```
 
-## Troubleshooting and support
+### Troubleshooting and support
 
-Ask questions in the Application Development Framework section of the [Alfresco Forum](https://hub.alfresco.com/t5/application-development/ct-p/developing) or in the Alfresco [Gitter Discussions](https://gitter.im/Alfresco/alfresco-ng2-components). If you are an Alfresco customer or partner you can also request support in the [Alfresco Support Portal](https://myalfresco.force.com/support/SiteLogin).
+Ask questions in the Application Development Framework section of the [Alfresco Forum](https://hub.alfresco.com/t5/application-development/ct-p/developing){:target="_blank"} or in the Alfresco [Gitter Discussions](https://gitter.im/Alfresco/alfresco-ng2-components){:target="_blank"}. If you are an Alfresco customer or partner you can also request support in the [Alfresco Support Portal](https://myalfresco.force.com/support/SiteLogin){:target="_blank"}.
