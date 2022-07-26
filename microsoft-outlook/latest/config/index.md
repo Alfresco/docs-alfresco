@@ -556,7 +556,7 @@ See step **11** for the complete example of metadata settings.
 
     > **Note:** An exact match of the folder without a wildcard takes priority over the wildcard pattern.
 
-22. To configure a dependent picklist that defines a constraint between two lists of values, use this example:
+22. Starting from Outlook Integration 2.9.1, you can configure a dependent picklist that defines a constraint between two lists of values. For example:
 
     ```xml
     <match pattern="/app:company_home/st:sites/cm:qa-ext-custom-metadata/cm:documentLibrary/cm:list-metadata" type="folder">
@@ -582,12 +582,14 @@ See step **11** for the complete example of metadata settings.
     </match>
     ```
 
-    If a property controls more than one dependent drop-down list, you can define `<picklist>` multiple times under the `<property>` tag. In this example, the first defined property contains a picklist to control the second property. When selecting a value for the first property, the Outlook plugin will try to find a corresponding entry in the configuration by using the `<controllingField>`.
+    If a property controls more than one dependent drop-down list, you can define `<picklist>` multiple times under the `<property>` tag.
+
+    In this example, the first defined property contains a picklist to control the second property. When selecting a value for the first property, the Outlook plugin will try to find a corresponding entry in the configuration by using the `<controllingField>`.
 
     * If a match is found, the plugin filters the second property to only show the specified values.
     * If no matching `<controllingField>` is found, the second property shows all available values.
 
-    Here's an example.
+    Here is an example of how the dependency works.
 
     | Drop-down box 1 values | Drop-down box 2 values |
     | ---------------------- | ---------------------- |
