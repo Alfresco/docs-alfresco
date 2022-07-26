@@ -2,7 +2,7 @@
 title: Developing Alfresco Development Framework based applications
 ---
 
-Develop a custom Alfresco Development Framework (ADF) based application to add features, behaviors, and customizations. The creation of this basic ADF-based application is possible through the scaffolding tool called Yeoman. This means in a small amount of time you can create a working ADF based application in your development environment.
+You can develop a custom Alfresco Development Framework application that adds features, behaviors, and customizations. Using the [Yeoman](https://yeoman.io/) scaffolding tool you can quickly create applications for testing in your development environment.
 
 ## Create an ADF based application using the Yeoman Generator
 
@@ -12,22 +12,28 @@ Below you can find the available tutorials on the most common and requested task
 
 ### Prerequisites and the requirements
 
-To develop an Alfresco front-end application, make sure the required software is available on your system:
+* Alfresco Content Services - Enterprise Edition.
+  * Open your browser and check everything starts up correctly:
 
-* Alfresco Content Services (ACS) Enterprise edition
+  ```bash
+  Alfresco: http://localhost:8080/alfresco
+  ```
 
-* The latest **LTS** version of Node.js (available on their site **Home** or **Downloads** page)
+* The latest **LTS** version of `Node.js`.
 
-All the Angular development is done using the Typescript language. It is highly suggested to adopt a good text editor to help you in this task. Visual Studio Code, a free, lightweight, and powerful tool from Microsoft that works well with Angular development.
+> **Note:** All Angular development is done using the Typescript language.
 
-### Installing the ADF Yeoman Generator
+### Create and start an ADF application
 
-1. You need to ensure you have Yeoman installed by running `yo --version`. If this is not already installed, run the following command.
+1. To ensure you have Yeoman installed open a command prompt and enter `yo --version`.
 
-   ```shell
-   npm install -g yo
-   ```
-   **Note:** If you're on Linux or MacOS, you might need to run the following commands    using `sudo`.
+    If this is not already installed, run the following command.
+
+      ```shell
+      npm install -g yo
+      ```
+
+   **Note:** If you're on Linux or MacOS, you might need to run the following commands using `sudo`.
 
 2. Install the latest version of the Alfresco Yeoman Generator ADF App.
 
@@ -35,36 +41,31 @@ All the Angular development is done using the Typescript language. It is highly 
    npm install -g generator-alfresco-adf-app@latest
    ```
 
-### Install the Angular CLI
+3. Install the angular CLI
 
-```shell
-npm install -g @angular/cli
-```
+   ```shell
+   npm install -g @angular/cli
+   ```
 
-Angular CLI makes it easy to create components, libraries, and more. You can check what version of the installed version Angular CLI you have installed by using the `ng v` command in the terminal.
+   Angular CLI makes it easy to create components, libraries, and more. You can check what version of the installed version Angular CLI you have installed by using the `ng v` command in the terminal.
 
-### Create your first ADF application
+4. Generate the application running the following command.
 
-Generate the application running the following command.
+   ```shell
+   yo alfresco-adf-app
+   ```
 
-```shell
-yo alfresco-adf-app
-```
+5. Enter a name and choose **Content Services** as the application blueprint and then enter `Y` to install the dependencies.
 
-Enter a name and choose `Content Services` as the application blueprint, then enter `Y` to install the dependencies (the following settings are optional).
+   The Yeoman generator will create a new project and install all dependencies required for your application.
 
-The Yeoman generator will create a new project and install all dependencies required for your application.
+   **Note:** The Yeoman generator creates a new directory for your project. You must work within this directory.
 
-**Note:** The Yeoman generator creates a new directory for your project. Make sure you change into this new directory.
+7. To configure the application to work with Content Services open the `proxy.conf.js` file in a code editor.
 
-### Configure the application to work with Alfresco Content Services
+8. Modify `"target": "http://localhost:8080"` so that it matches your Content Services URL and then save the file.
 
-1. Open the project in your code editor.
-2. Open the file `proxy.conf.js`.
-3. Change the target property in this file, so it points to your Alfresco Content Services URL and port. Please refer to your installation guide to find this URL, or if you're running an online trial, you will find the information in the email.
-4. Modify `"target": "http://localhost:8080"`, so that it matches your URL and save the file.
-
-   You do not need `/alfresco` at the end of the target URL. For example, you've launched Alfresco Content Services 6.1 using Docker Compose. Your Alfresco Content Services repository might be available at `http://localhost:8080/alfresco`. In this case, you will want the `proxy.conf.json` file to look like this:
+   You do not need `/alfresco` at the end of the target URL. For example, if you've launched Alfresco Content Services using Docker Compose your Alfresco Content Services repository might be available at `http://localhost:8080/alfresco`. In this case, your `proxy.conf.json` file might look like:
 
    ```JSON
    module.exports = {
@@ -76,7 +77,7 @@ The Yeoman generator will create a new project and install all dependencies requ
    };
    ```
 
-   If you're running an online trial, consult your emails for the correct URL. The    `proxy.conf.json` should look like this:
+   **Note:** If you're running an online trial, the Content Services URL is in the welcome email and the `proxy.conf.json` file might look like:
 
    ```JSON
    module.exports = {
@@ -88,19 +89,17 @@ The Yeoman generator will create a new project and install all dependencies requ
    };
    ```
 
-### Start the application
-
-1. To run the project, open a terminal and run:
+9. To start the application, open a command prompt and enter:
 
    `npm start`
 
-   A browser will automatically open up at `http://localhost:4200`.
+   A browser window will automatically open up at `http://localhost:4200`.
 
-2. Click the key icon in the side navigation to log in.
+10. Click the key icon in the side navigation to log in.
 
-   **Note:** If you're running an online trial, you can find your login credentials in the welcome email.
+   **Note:** If you're running an online trial, the Content Services login credentials are in the welcome email.
 
-These essential features are available: browsing the repository, uploading, and previewing documents.
+You can browse, upload, and preview documents in the repository with this application.
 
 ### Troubleshooting and support
 
