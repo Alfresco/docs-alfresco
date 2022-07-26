@@ -556,7 +556,48 @@ See step **11** for the complete example of metadata settings.
 
     > **Note:** An exact match of the folder without a wildcard takes priority over the wildcard pattern.
 
-22. Save your changes and restart Microsoft Outlook.
+22. Starting from Outlook Integration 2.9.1, you can configure a dependent picklist that defines a constraint between two lists of values. For example:
+
+    ```xml
+    <match pattern="/app:company_home/st:sites/cm:qa-ext-custom-metadata/cm:documentLibrary/cm:list-metadata" type="folder">
+        <target default="true" name="List Metadata" schemaId="81143a75">
+            <property allowedCategoryValues="cm:categoryRoot/cm:generalclassifiable/cm:Regionen/cm:EUROPA/cm:Nördliches_x0020_Europa" name="wpsmail-qa-ext:list-metadata-country-text">
+                <picklist targetProperty="wpsmail-qa-ext:list-metadata-language-text">
+                    <controllingField name="United Kingdom">
+                        <value name ="English"/>
+                        <value name ="Scottish"/>
+                        <value name ="Irish"/>
+                        <value name ="Welsh"/>
+                    </controllingField>
+                    <controllingField name="Germany">
+                        <value name ="German"/>
+                    </controllingField>
+                    <controllingField name="Spain">
+                        <value name ="Spanish"/>
+                    </controllingField>                    
+                </picklist>
+            </property>
+            <property name="wpsmail-qa-ext:list-metadata-languagetext" allowedCategoryValues="cm:categoryRoot/cm:generalclassifiable/cm:Languages" />
+         </target>
+    </match>
+    ```
+
+    If a property controls more than one dependent drop-down list, you can define `<picklist>` multiple times under the `<property>` tag.
+
+    In this example, the first defined property contains a picklist to control the second property. When selecting a value for the first property, the Outlook plugin will try to find a corresponding entry in the configuration by using the `<controllingField>`.
+
+    * If a match is found, the plugin filters the second property to only show the specified values.
+    * If no matching `<controllingField>` is found, the second property shows all available values.
+
+    Here is an example of how the dependency works.
+
+    | Drop-down box 1 values | Drop-down box 2 values |
+    | ---------------------- | ---------------------- |
+    | {::nomarkdown}<ul><li>United Kingdom </li><li>Germany </li><li>Spain </li><li>France </li></ul>{:/} | {::nomarkdown}<ul><li>English </li><li>German </li><li>Spanish </li></ul>{:/} |
+
+    When you select `Spain` in the first drop-down box, the second drop-down only allows you to select the value `Spanish`. However, when you select `France` in the first drop-down, the second drop-down shows all available languages without filtering, because `France` isn't configured as a `<controllingField>`.
+
+23. Save your changes and restart Microsoft Outlook.
 
     The template changes are applied.
 
@@ -840,7 +881,7 @@ These settings define global controls across your enterprise and are applied imm
 
     This sets a limit for the folder size that your users can drop onto the plugin.
 
-18. Click **Apply** to save your settings.
+20. Click **Apply** to save your settings.
 
 ### Configure other settings
 
