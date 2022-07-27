@@ -769,6 +769,18 @@ For example:
 }
 ```
 
+### Replay service task using REST API
+
+If a service task does not complete due to a Cloud connector failure it's possible to replay the task and send a new integration request. To do this you must provide the execution id and the definition id of the service task:
+
+`POST /v1/executions/{executionId}/replay/service-task`
+
+```json
+{
+   "flowNodeId": "flowNodeId"
+}
+```
+
 ### Clean up using Create cleanup job
 
 You can clean up historical data using the Create cleanup job process from within the Admin App.
