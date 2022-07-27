@@ -27,15 +27,17 @@ To deploy Community Edition using Docker Compose, download and install [Docker](
 
     ```text
     ...
-    ⠿ Network docker-compose_default                 Created    ...
-    ⠿ Container docker-compose_transform-core-aio_1  Created    ...
-    ⠿ Container docker-compose_activemq_1            Created    ...
-    ⠿ Container docker-compose_alfresco_1            Created    ...
-    ⠿ Container docker-compose_postgres_1            Created    ...
-    ⠿ Container docker-compose_share_1               Created    ...
-    ⠿ Container docker-compose_solr6_1               Created    ...
-    ⠿ Container docker-compose_proxy_1               Created    ...
-    Attaching to activemq_1, alfresco_1, postgres_1, proxy_1, share_1, solr6_1, transform-core-aio_1
+    ⠿ Network docker-compose_default                 Created        ...        0.2s
+    ⠿ Container docker-compose-alfresco-1            Created        ...        1.7s
+    ⠿ Container docker-compose-postgres-1            Created        ...        1.8s
+    ⠿ Container docker-compose-share-1               Created        ...        1.7s
+    ⠿ Container docker-compose-activemq-1            Created        ...        1.8s
+    ⠿ Container docker-compose-transform-core-aio-1  Created        ...        1.7s
+    ⠿ Container docker-compose-solr6-1               Created        ...        1.8s
+    ⠿ Container docker-compose-content-app-1         Created        ...        1.7s
+    ⠿ Container docker-compose-proxy-1               Created        ...        0.1s
+    Attaching to docker-compose-activemq-1, docker-compose-alfresco-1, docker-compose-content-app-1, docker-compose-postgres-1, docker-compose-proxy-1, docker-compose-share-1, docker-compose-solr6-1, docker-compose-transform-core-aio-1
+    d
     ...
     ```
 
@@ -47,8 +49,8 @@ To deploy Community Edition using Docker Compose, download and install [Docker](
 
     ```bash
     ...
-    alfresco_1 | 2021-10-04 13:57:50,740  INFO  ... Starting 'Transformers' subsystem, ID: [Transformers, default]
-    alfresco_1 | 2021-10-04 13:57:50,935  INFO  ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+    docker-compose-alfresco-1            | 2022-07-27 09:17:20,649  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-3] Starting 'Transformers' subsystem, ID: [Transformers, default]
+    docker-compose-alfresco-1            | 2022-07-27 09:17:20,930  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-3] Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
     ...
     ```
 
@@ -64,11 +66,7 @@ To deploy Community Edition using Docker Compose, download and install [Docker](
 
     If Docker is running on your local machine, the IP address will be just `localhost`.
 
-    If you're using the [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/){:target="_blank"}, run the following command to find the IP address:
-
-    ```bash
-    docker-machine ip
-    ```
+    If you're still using the [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/){:target="_blank"}, you'll need to switch to [Docker Desktop](https://docs.docker.com/install/){:target="_blank"} as Docker Toolbox is deprecated.
 
 5. Log in as the `admin` user. Enter the default administrator password `admin`.
 
@@ -91,15 +89,16 @@ Use this information to verify that the system started correctly, and to clean u
         You should see a list of the services defined in your `docker-compose.yaml` file:
 
         ```text
-        Container                             Repository                                       Tag             Image Id        Size  
-        -------------------------------------------------------------------------------------------------------------------------------
-        docker-compose_activemq_1             alfresco/alfresco-activemq                       5.16.1           e9dd27ce1a5d   706.3 MB
-        docker-compose_alfresco_1             alfresco/alfresco-content-repository-community   7.2.0            eed53a3099ea   1.201 GB
-        docker-compose_postgres_1             postgres                                         13.3             b2fcd079c1d4   314.7 MB
-        docker-compose_proxy_1                alfresco/alfresco-acs-nginx                      3.2.0            da6d34dd9386   21.86 MB
-        docker-compose_share_1                alfresco/alfresco-share                          7.2.0            8f7aa246f5fe   725.7 MB
-        docker-compose_solr6_1                alfresco/alfresco-search-services                2.0.3            4f6f7c71c901   462.1 MB
-        docker-compose_transform-core-aio_1   alfresco/alfresco-transform-core-aio             2.5.7            bba1b5d18513   1.696 GB
+        Container                             Repository                                       Tag                    Image Id            Size  
+        ----------------------------------------------------------------------------------------------------------------------------------------
+        docker-compose-activemq-1             alfresco/alfresco-activemq                       5.16.4-jre11-centos7   d62db8e1bc78        720MB
+        docker-compose-alfresco-1             alfresco/alfresco-content-repository-community   7.3.0-M1               23f23883a071        1.2GB
+        docker-compose-content-app-1          alfresco/alfresco-content-app                    2.11.0                 1fdc41f92a2a        44.2MB
+        docker-compose-postgres-1             postgres                                         14.4                   1133a9cdc367        376MB
+        docker-compose-proxy-1                alfresco/alfresco-acs-nginx                      3.4.2                  f9c4519b7920        23.4MB
+        docker-compose-share-1                alfresco/alfresco-share                          7.3.0-M1               159c6aaf0d22        723MB
+        docker-compose-solr6-1                alfresco/alfresco-search-services                2.0.3                  88743e1bfb84        915MB
+        docker-compose-transform-core-aio-1   alfresco/alfresco-transform-core-aio             2.5.7                  bba1b5d18513        1.7GB
         ```
 
     2. List the running containers:
@@ -143,13 +142,15 @@ Use this information to verify that the system started correctly, and to clean u
 
     ```text
     ^CGracefully stopping... (press Ctrl+C again to force)
-     ⠿ Container docker-compose_proxy_1               Stopped    ...
-     ⠿ Container docker-compose_postgres_1            Stopped    ...
-     ⠿ Container docker-compose_activemq_1            Stopped    ...
-     ⠿ Container docker-compose_transform-core-aio_1  Stopped    ...
-     ⠿ Container docker-compose_share_1               Stopped    ...
-     ⠿ Container docker-compose_solr6_1               Stopped    ...
-     ⠿ Container docker-compose_alfresco_1            Stopped    ...
+    [+] Running 8/8
+     ⠿ Container docker-compose-transform-core-aio-1  Stopped    ...
+     ⠿ Container docker-compose-solr6-1               Stopped    ...
+     ⠿ Container docker-compose-postgres-1            Stopped    ...
+     ⠿ Container docker-compose-proxy-1               Stopped    ...
+     ⠿ Container docker-compose-activemq-1            Stopped    ...
+     ⠿ Container docker-compose-alfresco-1            Stopped    ...
+     ⠿ Container docker-compose-share-1               Stopped    ...
+     ⠿ Container docker-compose-content-app-1         Stopped    ...
     ```
 
 5. Alternatively, you can open a new terminal window, change directory to the `docker-compose` folder, and run:
@@ -161,14 +162,17 @@ Use this information to verify that the system started correctly, and to clean u
     This stops the running services, as shown in the previous example, and removes them from memory:
 
     ```text
-    ⠿ Container docker-compose_solr6_1               Removed    ...
-    ⠿ Container docker-compose_transform-core-aio_1  Removed    ...
-    ⠿ Container docker-compose_postgres_1            Removed    ...
-    ⠿ Container docker-compose_proxy_1               Removed    ...
-    ⠿ Container docker-compose_activemq_1            Removed    ...
-    ⠿ Container docker-compose_share_1               Removed    ...
-    ⠿ Container docker-compose_alfresco_1            Removed    ...
+    ...
+    ⠿ Container docker-compose-transform-core-aio-1  Removed    ...
+    ⠿ Container docker-compose-solr6-1               Removed    ...
+    ⠿ Container docker-compose-postgres-1            Removed    ...
+    ⠿ Container docker-compose-proxy-1               Removed    ...
+    ⠿ Container docker-compose-activemq-1            Removed    ...
+    ⠿ Container docker-compose-alfresco-1            Removed    ...
+    ⠿ Container docker-compose-share-1               Removed    ...
+    ⠿ Container docker-compose-content-app-1         Removed    ...
     ⠿ Network docker-compose_default                 Removed    ...
+    ...
     ```
 
 6. You can use a few more commands to explore the services when they're running. Change directory to `docker-compose` before running these:
@@ -200,28 +204,17 @@ Use this information to verify that the system started correctly, and to clean u
         The `--rmi all` option also removes the images created by `docker-compose up`, and the images used by any service. You can use this, for example, if any containers fail and you need to remove them:
 
         ```text
-        Stopping docker-compose_proxy_1              ... done
-        Stopping docker-compose_solr6_1              ... done
-        Stopping docker-compose_postgres_1           ... done
-        Stopping docker-compose_share_1              ... done
-        Stopping docker-compose_activemq_1           ... done
-        Stopping docker-compose_transform-core-aio_1 ... done
-        Stopping docker-compose_alfresco_1           ... done
-        Removing docker-compose_proxy_1              ... done
-        Removing docker-compose_solr6_1              ... done
-        Removing docker-compose_postgres_1           ... done
-        Removing docker-compose_share_1              ... done
-        Removing docker-compose_activemq_1           ... done
-        Removing docker-compose_transform-core-aio_1 ... done
-        Removing docker-compose_alfresco_1           ... done
-        Removing network docker-compose_default
-        Removing image alfresco/alfresco-content-repository-community:7.2.0
-        Removing image alfresco/alfresco-transform-core-aio:2.5.7
-        Removing image alfresco/alfresco-share:7.2.0
-        Removing image postgres:13.3
-        Removing image alfresco/alfresco-search-services:2.0.3
-        Removing image alfresco/alfresco-activemq:5.16.1
-        Removing image alfresco/alfresco-acs-nginx:3.2.0
+        ...
+        ⠿ Container docker-compose-solr6-1                              Removed        ...        10.6s
+        ⠿ Container docker-compose-transform-core-aio-1                 Removed        ...        1.6s
+        ⠿ Container docker-compose-proxy-1                              Removed        ...        10.4s
+        ⠿ Container docker-compose-postgres-1                           Removed        ...         0.5s
+        ⠿ Container docker-compose-activemq-1                           Removed        ...        10.7s
+        ⠿ Container docker-compose-share-1                              Removed        ...        10.7s
+        ⠿ Container docker-compose-alfresco-1                           Removed        ...         1.3s
+        ⠿ Network docker-compose_default
+        ⠿ Image alfresco/alfresco-activemq:5.17.1-jre11-centos7         Removed        ...
+        ...
         ```
 
 See the [Docker documentation](https://docs.docker.com/){:target="_blank"} for more on using Docker.
@@ -236,7 +229,7 @@ See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment){:t
 
 Using the Community Compose file in this project deploys the following system:
 
-![Docker Compose - Community]({% link content-services/images/compose-community.png %}){:width="460" height="380px"}
+![Docker Compose - Community]({% link content-services/images/compose-community.png %}){:width="750" height="346px"}
 
 ## Cleanup
 
