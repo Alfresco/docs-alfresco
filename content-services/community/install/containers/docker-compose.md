@@ -62,6 +62,7 @@ To deploy Community Edition using Docker Compose, download and install [Docker](
     | ------- | -------- |
     | Administration and REST APIs | `http://localhost:8080/alfresco` |
     | Share | `http://localhost:8080/share` |
+    | Alfresco Content App | `http://localhost:8080/content-app` |
     | Search Services administration | `http://localhost:8083/solr` |
 
     If Docker is running on your local machine, the IP address will be just `localhost`.
