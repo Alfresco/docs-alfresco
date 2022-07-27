@@ -10,7 +10,7 @@ Communication with an external system should use the [REST connector]({% link pr
 
 > **Important**: The REST service and the AWS Lambda account and function need to be hosted outside of the Alfresco hosted environment.
 
-Both connectors can send and return json payloads from a process. The REST connector can also be configured as a [trigger]({% link process-automation/latest/model/triggers.md %}#webhooks) for webhooks.
+Both connectors can send and return JSON payloads from a process. The REST connector can also be configured as a [trigger]({% link process-automation/latest/model/triggers.md %}#webhooks) for webhooks.
 
 ## Extend the Digital Workspace
 
