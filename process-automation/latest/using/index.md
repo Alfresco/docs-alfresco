@@ -269,7 +269,7 @@ The expression editor provides helpful information when you place the cursor ove
 
 ## Process Analytics
 
-> **Important:** Process Analytics is a Beta feature which means it can only be used in a development environment for an experimental use case and is not intended for production use. It may contain bugs or errors, and may be prone to breaking changes in the future based on Beta testing.
+> **Important:** Process Analytics is a Beta feature. This means it can only be used in a development environment for an experimental use case, and is not intended for production use. It may contain bugs or errors, and may be prone to breaking changes in the future based on Beta testing.
 
 Process Analytics exposes a set of APIs that can be used to query business metrics about process instances and user tasks. The query language it uses is GraphQL.
 
@@ -280,40 +280,41 @@ Process Analytics exposes a set of APIs that can be used to query business metri
 * Process instance duration in seconds (minimum, maximum, or average)
 * Total number of process instances (count)
 
-Data can be filtered by
+Data can be filtered by:
 
-   * date range
-   * application name
-   * process definition name
-   * process status
-   * grouped by
-   * process definition name
-   * process instance name
+* date range
+* application name
+* process definition name
+* process status
+* grouped by
+* process definition name
+* process instance name
 
-Aggregated by
+Aggregated by:
 
-   * time intervals (minute, hour, day, week, month, quarter, year)
-   * process status
+* time intervals (minute, hour, day, week, month, quarter, year)
+* process status
 
 ### Information available for user tasks
 
 * User task duration in seconds (minimum, maximum or average)
-*	Total number of user tasks (count)
+* Total number of user tasks (count)
 
-Data can be filtered by
-   * date range
-   * application name
-   * process definition name
-   * user task status
-   * grouped by
-   * process definition name
-   * user task name
-   * user task assignee
+Data can be filtered by:
 
-Aggregated by
+* date range
+* application name
+* process definition name
+* user task status
+* grouped by
+* process definition name
+* user task name
+* user task assignee
 
-   * time intervals (minute, hour, day, week, month, quarter, year)
-   * process status
+Aggregated by:
+
+* time intervals (minute, hour, day, week, month, quarter, year)
+* process status
 
 #### To use the process analytics APIs
 
@@ -321,51 +322,51 @@ Before you use the process analytics APIs you must use the Admin app and change 
 
 ![Process Analytics]({% link process-automation/images/process-analytics.png %})
 
-There are two tabs on the right side of the Playground: Docs and Schema. You can use them to learn about the structure of the APIs.
+There are two tabs on the right side of the Playground: **Docs** and **Schema**. You can use them to learn about the structure of the APIs.
 
 #### Example queries
 
 Here are some examples of GraphQL queries that can be used in the Playground.
 
-**Number of user tasks completed in 2022 aggregated by month**
+**Example 1:** Number of user tasks completed in 2022 aggregated by month
 
-```JSON
-{ 
-	taskMetrics( 
-		query: { 
-			range: {  
-				from: "2022-01-01T00:00:00Z"  
-				to: "2022-12-31T00:00:00Z"  
-			} 
-		} 
-	) 
-	{ 
-		timer(name: activiti_user_task_completed) { 
-			count 
-			interval(by: task_completed_date, period: month, format: "yyyy-mm") 
-		} 
-	} 
+```json
+{
+  taskMetrics(
+    query: {
+      range: {
+        from: "2022-01-01T00:00:00Z"
+        to: "2022-12-31T00:00:00Z"
+      } 
+    } 
+  ) 
+  { 
+    timer(name: activiti_user_task_completed) { 
+      count 
+      interval(by: task_completed_date, period: month, format: "yyyy-mm") 
+    } 
+  } 
 } 
 ```
 
-**Average process duration of the processes completed in June 2022 aggregated by day and grouped by process definition name**
+**Example 2:** Average process duration of the processes completed in June 2022 aggregated by day and grouped by process definition name
 
-```JSON
-{ 
-	processMetrics( 
-		query: { 
-			range: {  
-				from: "2022-06-01T00:00:00Z"  
-				to: "2022-06-30T00:00:00Z"  
-			} 
-		} 
-	) 
-	{ 
-		timer(name: activiti_process_instance_completed) { 
-			duration (stat: avg) 
-			interval(by: process_completed_date, period: day, format: "yyyy-mm-dd") 
-			group (by: process_definition_name) 
-		} 
-	} 
-} 
+```json
+{
+  processMetrics(
+    query: {
+      range: {
+        from: "2022-06-01T00:00:00Z"
+        to: "2022-06-30T00:00:00Z"
+      }
+    }
+  )
+  {
+    timer(name: activiti_process_instance_completed) {
+      duration (stat: avg)
+      interval(by: process_completed_date, period: day, format: "yyyy-mm-dd")
+      group (by: process_definition_name)
+    }
+  }
+}
 ```
