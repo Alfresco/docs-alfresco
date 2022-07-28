@@ -22,7 +22,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 |  |  |
 | **Databases** | |
 | MySQL 8 | `mysql-connector-java-8.0.27.jar` |
-| MySQL 5.7.23 | `mysql-connector-java-5.1.40-bin.jar` |
+| MySQL 5.7.28 | `mysql-connector-java-5.1.49-bin.jar` |
 | MS SQL Server 2019 | `mssql-jdbc-9.2.1.jre11.jar` |
 | MS SQL Server 2017 | Microsoft JDBC Driver `7.2.2.jre11` for SQL Server. See [JDBC Driver](https://docs.microsoft.com/en-us/sql/connect/jdbc/system-requirements-for-the-jdbc-driver?view=sql-server-ver15){:target="_blank"} for supported versions. |
 | Oracle 19c | `Ojdbc8.jar – 19.11.0.0` |
