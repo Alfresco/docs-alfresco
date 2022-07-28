@@ -37,10 +37,10 @@
       path: '/digital-workspace/latest/media/'
     - title: 'Develop'    
       pages: 
-        - title: 'Introduction'
-          path: '/digital-workspace/latest/develop/introduction/'
         - title: 'Develop Digital Workspace'
           path: '/digital-workspace/latest/develop/'
+        - title: 'Manage the Digital Workspace'
+          path: '/digital-workspace/latest/develop/introduction/'
         - title: 'Develop ADF App'
           path: '/digital-workspace/latest/develop/developadfapp/'
         - title: 'Extension mechanism'

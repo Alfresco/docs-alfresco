@@ -24,105 +24,107 @@ Use this this information to develop a `hello word` extension for the Digital Wo
 
 ### Create a Digital Workspace extension
 
-Use the [Nx](https://nx.dev/) Workspace developer tools for monorepos to create the Digital Workspace extension.
+Use the [Nx](https://nx.dev/) developer tools for monorepos to create the Digital Workspace extension.
 
 1. Install `nx` cli globally.
 
-  `npm install -g nx`
+    `npm install -g nx`
 
 2. Use the following command to create a new extension called `my-extension`, from the root directory of the Digital Workspace project.
 
-  `nx g @nrwl/angular:lib my-extension`
+    `nx g @nrwl/angular:lib my-extension`
 
-Leave the default values of the command unless you are familiar with what they mean.
+    Leave the default values of the command unless you are familiar with what they mean.
 
-In the `libs/my-extension` path you will find the following structure:
+    In the `libs/my-extension` path you will find the following structure:
 
-* The `src folder` contains all the typescript source code
-* The `index.ts` file defines all the inclusions of the extension
-* The `lib/my-extension.module.ts` file defines the module class for the extension
-* The `README.md` file contains documentation
-* Other files for testing and configuration
+    * The `src folder` contains all the typescript source code
+    * The `index.ts` file defines all the inclusions of the extension
+    * The `lib/my-extension.module.ts` file defines the module class for the extension
+    * The `README.md` file contains documentation
+    * Other files for testing and configuration
 
-> **Note:** For more on creating libraries using Nx see [Angular Nx Tutorial - Step 8: Create Libs](https://nx.dev/angular-tutorial/08-create-libs)
+    > **Note:** For more on creating libraries using Nx see [Angular Nx Tutorial - Step 8: Create Libs](https://nx.dev/angular-tutorial/08-create-libs)
 
 3. Once `my-extension` is created, add the configuration to the extension module by editing the `./libs/my-extension/src/lib/my-extension.module.ts` file.
 
-  ```java
-  // Add the following import to the page.
-  import { provideExtensionConfig } from '@alfresco/adf-extensions';
-  // Add providers as described below.
-  NgModule({
-    imports: [CommonModule],
-    providers: [
-      provideExtensionConfig(['my-extension.json'])
-    ]
-  })
-  export class MyExtensionModule {}
-  ```
+    ```java
+    // Add the following import to the page.
+    import { provideExtensionConfig } from '@alfresco/adf-extensions';
+    // Add providers as described below.
+    NgModule({
+      imports: [CommonModule],
+      providers: [
+        provideExtensionConfig(['my-extension.json'])
+      ]
+    })
+    export class MyExtensionModule {}
+    ```
 
-4. To program the extension to add a new item called **hello world** to the **New** button on the landing page of the Digital Workspace, create a folder called `libs/my-extension/assets`.
+4. Create a directory called `libs/my-extension/assets`.
+
+    This directory is used to program the extension to add a new item called **hello world** to the **New** button on the landing page of the Digital Workspace.
 
 5. Once created, create a file called `libs/my-extension/assets/my-extension.json` with the following content.
 
-  ```json
-  {
-    "$version": "1.0.0",
-    "$id": "my.extension",
-    "$name": "my adf extension",
-    "$description": "my adf extension",
-    "$license": "Apache-2.0",
-    "actions": [],
-    "features": {
-      "create": [
-        {
-          "id": "my.extension.hello.world",
-          "title": "BYE BYE WORLD! (Logout)",
-          "order": 50,
-          "actions": {
-            "click": "LOGOUT"
+    ```json
+    {
+      "$version": "1.0.0",
+      "$id": "my.extension",
+      "$name": "my adf extension",
+      "$description": "my adf extension",
+      "$license": "Apache-2.0",
+      "actions": [],
+      "features": {
+        "create": [
+          {
+            "id": "my.extension.hello.world",
+            "title": "BYE BYE WORLD! (Logout)",
+            "order": 50,
+            "actions": {
+              "click": "LOGOUT"
+            }
           }
-        }
-      ]
-    },
-    "routes": [],
-    "rules": []
-  }
-  ```
+        ]
+      },
+      "routes": [],
+      "rules": []
+    }
+    ```
 
-  **Note:** After the Digital Workspace extension has been created, ensure the `tsconfig.base.json` file includes a link to the `libs/my-extension/src/index.ts` file as part of the paths item. These are default paths that are set during the creation of the extension and it is ufeful to verify the paths in case of any troubleshooting.
+      > **Note:** After the Digital Workspace extension has been created, ensure the `tsconfig.base.json` file includes a link to the `libs/my-extension/src/index.ts` file as part of the paths item. These are default paths that are set during the creation of the extension and it is ufeful to verify the paths in case of any troubleshooting.
 
 6. Edit the `apps/content-ee/src/app/extensions.module.ts` file to add the extension module to the application using the following format.
 
-```java
-// Add the following import to the page.
-import { MyExtensionModule } from '@alfresco-dbp/my-extension';
-@NgModule({
-    imports: [
-        ...,
-        MyExtensionModule,
-    ],
-})
-export class AppExtensionsModule {}
-```
+    ```java
+    // Add the following import to the page.
+    import { MyExtensionModule } from '@alfresco-dbp/my-extension';
+    @NgModule({
+        imports: [
+            ...,
+            MyExtensionModule,
+        ],
+    })
+    export class AppExtensionsModule {}
+    ```
 
 7. Edit the `angular.json` configuration file so the extension is visible from the Digital Workspace app.
 
 8. To the `projects/content-ee/targets/build/options/assets` file add the following.
 
-  ```json
-  {
-    "input": "libs/my-extension/assets",
-    "output": "/assets/plugins/",
-    "glob": "my-extension.json"
-  },
-  ```
+    ```json
+    {
+      "input": "libs/my-extension/assets",
+      "output": "/assets/plugins/",
+      "glob": "my-extension.json"
+    },
+    ```
 
 9. From a command prompt start the Digital Workspace.
 
-  ```shell
-  npm start content-ee
-  ```
+    ```shell
+    npm start content-ee
+    ```
 
 You have now added a new option to the **New** button called **BYE BYE WORLD!**. The new option initiates the logout command from the current Alfresco Digital Workspace session. For more see [Extending](https://alfresco-content-app.netlify.app/#/extending/){:target="_blank"} and [Application Development Framework Tutorials](https://www.alfresco.com/abn/adf/){:target="_blank"}.
 
@@ -136,9 +138,9 @@ You can replace an existing extension with a new one you have created. To achiev
 
   `nx g @nrwl/angular:lib my-extension`
 
-   **Note:** Ensure you use the same name as the existing extension, in this example it is called `my-extension`.
+   > **Note:** Ensure you use the same name as the existing extension, in this example it is called `my-extension`.
 
-Once done, delete the full content of the `libs/my-extension` folder and replace it with the source code of the new Digital Workspace extension.
+Once complete, delete the content of the `libs/my-extension` directory and replace it with the source code of the new Digital Workspace extension.
 
 ## Add a new page and menu item in the Digital Workspace
 
@@ -146,88 +148,88 @@ You can create a new page and a new menu item in the Digital Workspace. To achie
 
 1. Create a new folder called `libs/my-extension/src/lib/my-first-page` and add a new file into it called `my-first-page.component.ts` that contains the folliwing information.
 
-```java
-import { Component, } from '@angular/core';
-@Component({
-    selector: 'my-first-page',
-    template: "<h1>HELLO WORLD!</h1>"
-    })
-export class MyFirstPageComponent {}
-```
+    ```java
+    import { Component, } from '@angular/core';
+    @Component({
+        selector: 'my-first-page',
+        template: "<h1>HELLO WORLD!</h1>"
+        })
+    export class MyFirstPageComponent {}
+    ```
 
 2. Edit the `my-extension.json` file in the `libs/my-extension/assets` folder and add the following to the route array.
 
-  ```json
-  {
-      ...,
-      "routes": [
-          {
-              "id": "my.extension.myFirstPage",
-              "path": "my-first-page",
-              "parentRoute": "",
-              "layout": "app.layout.main",
-              "component": "my.extension.components.my-first-page",
-              "auth": [
-                  "content-services.auth"
-              ]
-          }
-      ],
-      "rules": []
-  }
-  ```
+    ```json
+    {
+        ...,
+        "routes": [
+            {
+                "id": "my.extension.myFirstPage",
+                "path": "my-first-page",
+                "parentRoute": "",
+                "layout": "app.layout.main",
+                "component": "my.extension.components.my-first-page",
+                "auth": [
+                    "content-services.auth"
+                ]
+            }
+        ],
+        "rules": []
+    }
+    ```
 
 3. Declare the component identifier directly into the extension’s module by editting the `libs/my-extension/src/lib/my-extension.module.ts` file with the following.
 
-  ```java
-  // Add the following imports.
-  import { ExtensionService } from '@alfresco/adf-extensions';
-  import { MyFirstPageComponent } from './my-first-page/my-first-page.component';
-  // Change the NgModule as follows.
-  @NgModule({
-    ...,
-    declarations: [MyFirstPageComponent]
-  })
-  export class MyExtensionModule {
-    constructor(extensions: ExtensionService) {
-      extensions.setComponents({
-        'my.extension.components.my-first-page': MyFirstPageComponent,
-      });
+    ```java
+    // Add the following imports.
+    import { ExtensionService } from '@alfresco/adf-extensions';
+    import { MyFirstPageComponent } from './my-first-page/my-first-page.component';
+    // Change the NgModule as follows.
+    @NgModule({
+      ...,
+      declarations: [MyFirstPageComponent]
+    })
+    export class MyExtensionModule {
+      constructor(extensions: ExtensionService) {
+        extensions.setComponents({
+          'my.extension.components.my-first-page': MyFirstPageComponent,
+        });
+      }
     }
-  }
-  ```
+    ```
 
-  You have added a new route (URI) to the application through the extension. You can test everything is working properly by launching the `npm start content-ee` command and pointing your browser to `http://localhost:4200/#my-first-page`.
+    You have added a new route (URI) to the application through the extension. You can test everything is working properly by launching the `npm start content-ee` command and pointing your browser to `http://localhost:4200/#my-first-page`.
 
 4. To add a menu item that points to the new page, edit the `my-extension.json` file in the `libs/my-extension/assets` folder and add the following to the features element.
 
-  ```json
-  {
-    ...
-    "features": {
-      ...,
-      "navbar": [
-        {
-          "id": "app.navbar.primary",
-          "items": [
-            {
-              "id": "app.navbar.libraries.menu",
-              "children": [
-                {
-                  "id": "app.navbar.libraries.all-libraries",
-                  "title": "My first page",
-                  "description": "My first page",
-                  "order": 400,
-                  "route": "my-first-page",
-                  "rules": {
-                    "visible": "app.content-services.isEnabled"
-                  }
-                }]
-            }]
-        }]
-    },
-    ...
-  }
-  ```
+    ```json
+    {
+      ...
+      "features": {
+        ...,
+        "navbar": [
+          {
+            "id": "app.navbar.primary",
+            "items": [
+              {
+                "id": "app.navbar.libraries.menu",
+                "children": [
+                  {
+                    "id": "app.navbar.libraries.all-libraries",
+                    "title": "My first page",
+                    "description": "My first page",
+                    "order": 400,
+                    "route": "my-first-page",
+                    "rules": {
+                      "visible": "app.content-services.isEnabled"
+                    }
+                  }]
+              }]
+          }]
+      },
+      ...
+    }
+    ```
 
 Below you can see what the layout looks like.
 

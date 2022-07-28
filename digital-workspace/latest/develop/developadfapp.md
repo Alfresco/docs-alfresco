@@ -1,14 +1,14 @@
 ---
-title: Developing Alfresco Development Framework based applications
+title: Developing ADF applications
 ---
 
-You can develop a custom Alfresco Development Framework application that adds features, behaviors, and customizations. Using the [Yeoman](https://yeoman.io/) scaffolding tool you can quickly create applications for testing in your development environment.
+You can develop a custom Alfresco Development Framework application that adds features, behaviors, and customizations. Using the [Yeoman](https://yeoman.io/){:target="_blank"} scaffolding tool you can quickly create applications for testing in your development environment.
 
 ## Create an ADF based application using the Yeoman Generator
 
-Consider adopting an ADF-based application to benefit from the ADF services and visual components provided by the framework. The [Yeoman Generator for Alfresco ADF Applications](https://github.com/Alfresco/generator-alfresco-adf-app) is available for free as an Open Source project on GitHub.
+The [Yeoman Generator for Alfresco ADF Applications](https://github.com/Alfresco/generator-alfresco-adf-app){:target="_blank"} is available for free as an open source project on GitHub.
 
-Below you can find the available tutorials on the most common and requested tasks about developing ADF based applications. To debug, test, or troubleshoot, visit [Build, debug, test, and promote the Alfresco Digital Workspace (and ADF-based applications)](https://docs.alfresco.com/digital-workspace/latest/develop/introduction).
+Below you can find the available tutorials on the most common and requested tasks about developing ADF based applications. To debug, test, or troubleshoot, see [Build, debug, test, and promote the Alfresco Digital Workspace (and ADF-based applications)](https://docs.alfresco.com/digital-workspace/latest/develop/introduction).
 
 ### Prerequisites and the requirements
 
@@ -33,7 +33,7 @@ Below you can find the available tutorials on the most common and requested task
       npm install -g yo
       ```
 
-   **Note:** If you're on Linux or MacOS, you might need to run the following commands using `sudo`.
+   > **Note:** If you're on Linux or MacOS, you might need to run the following commands using `sudo`.
 
 2. Install the latest version of the Alfresco Yeoman Generator ADF App.
 
@@ -59,7 +59,7 @@ Below you can find the available tutorials on the most common and requested task
 
    The Yeoman generator will create a new project and install all dependencies required for your application.
 
-   **Note:** The Yeoman generator creates a new directory for your project. You must work within this directory.
+   > **Note:** The Yeoman generator creates a new directory for your project. You must work within this directory.
 
 7. To configure the application to work with Content Services open the `proxy.conf.js` file in a code editor.
 
@@ -77,7 +77,7 @@ Below you can find the available tutorials on the most common and requested task
    };
    ```
 
-   **Note:** If you're running an online trial, the Content Services URL is in the welcome email and the `proxy.conf.json` file might look like:
+   > **Note:** If you're running an online trial, the Content Services URL is in the welcome email and the `proxy.conf.json` file might look like:
 
    ```JSON
    module.exports = {
@@ -97,7 +97,7 @@ Below you can find the available tutorials on the most common and requested task
 
 10. Click the key icon in the side navigation to log in.
 
-   **Note:** If you're running an online trial, the Content Services login credentials are in the welcome email.
+   > **Note:** If you're running an online trial, the Content Services login credentials are in the welcome email.
 
 You can browse, upload, and preview documents in the repository with this application.
 

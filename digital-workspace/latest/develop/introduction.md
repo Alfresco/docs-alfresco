@@ -2,7 +2,7 @@
 title: Manage the Digital Workspace
 ---
 
-Learn how to run the Alfresco Digital Workspace locally and manage it from a development perspective.
+Learn how to run the Digital Workspace locally and manage it from a development perspective.
 
 ## Run the Digital Workspace from the source code
 
@@ -23,104 +23,100 @@ To launch the Digital Workspace on your development environment you can start it
 
 Once Content Services is up and running you must make the source code of the project available locally in the development environment. If you are an Alfresco customer or partner, you can get a local copy of the project by opening a request in the [Alfresco Support Portal](https://myalfresco.force.com/support/SiteLogin){:target="_blank"}.
 
-In the `alfresco-apps` folder, create a file named `.env` with the following content.
+1. In the `alfresco-apps` directory, create a file named `.env` with the following content.
 
-> **Note** Enter the Alfresco Content Services URL as the `APP_CONFIG_ECM_HOST` value.
+    Enter the Content Services URL as the `APP_CONFIG_ECM_HOST` value.
 
-```bash
-ACA_BRANCH="2.10.0"
-BASE_URL="http://localhost:8080"
-APP_CONFIG_ECM_HOST="http://localhost:8080"
-APP_CONFIG_PROVIDER="ECM"
-APP_CONFIG_AUTH_TYPE="BASIC"
-APP_CONFIG_PLUGIN_AOS=false
-APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
-APP_CONFIG_PLUGIN_PROCESS_SERVICE=false
-APP_CONFIG_PLUGIN_AI_SERVICE=false
-```
+    ```bash
+    ACA_BRANCH="2.10.0"
+    BASE_URL="http://localhost:8080"
+    APP_CONFIG_ECM_HOST="http://localhost:8080"
+    APP_CONFIG_PROVIDER="ECM"
+    APP_CONFIG_AUTH_TYPE="BASIC"
+    APP_CONFIG_PLUGIN_AOS=false
+    APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
+    APP_CONFIG_PLUGIN_PROCESS_SERVICE=false
+    APP_CONFIG_PLUGIN_AI_SERVICE=false
+    ```
 
-> **Note:** The Digital Workspace 2.9.x uses the Content Application version 2.10.0. Ensure you check the Digital Workspace documentation that matches your version because the Content Application version could be different.
+    > **Note:** The Digital Workspace 2.9.x uses the Content Application version 2.10.0. Ensure you check the Digital Workspace documentation that matches your version because the Content Application version could be different.
 
-* Run `npm ci` and then run the application using `npm start content-ee`. The application is available at `http://localhost:4200` and you must use the Alfresco Content Services credentials to log in.
+2. Run `npm ci` and then run the application using `npm start content-ee`.
 
-The configuration provided for the sample above is the minimal required for your development environment to locally test the Alfresco Repository, but additional environment variables are available.
+    The application is available at `http://localhost:4200` and you must use the Content Services credentials to log in.
 
-```bash
-# App config settings
-APP_CONFIG_BPM_HOST="<url>"
-APP_CONFIG_ECM_HOST="<url>"
-APP_CONFIG_OAUTH2_HOST="<url>"
-APP_CONFIG_IDENTITY_HOST="<url>"
-APP_CONFIG_PROVIDER="ALL"
-APP_CONFIG_AUTH_TYPE="OAUTH"
-APP_CONFIG_OAUTH2_CLIENTID="alfresco"
-APP_CONFIG_OAUTH2_IMPLICIT_FLOW=true
-APP_CONFIG_OAUTH2_SILENT_LOGIN=true
-APP_CONFIG_OAUTH2_REDIRECT_SILENT_IFRAME_URI="{protocol}//{hostname}{:port}/assets/silent-refresh.html"
-APP_CONFIG_OAUTH2_REDIRECT_LOGIN=/
-APP_CONFIG_OAUTH2_REDIRECT_LOGOUT=/
-APP_CONFIG_APPS_DEPLOYED="[{"name": "simpleapp"}]"
-APP_CONFIG_LANDING_PAGE="/personal-files"
+    The configuration provided for the sample above is the minimal required for your development environment to locally test the Alfresco Repository, but additional environment variables are available.
 
-# CONTENT RELATED
-ACA_BRANCH="develop"
-APP_CONFIG_PLUGIN_PROCESS_SERVICE=true
-APP_CONFIG_PLUGIN_AI_SERVICE=true
-APP_CONFIG_PLUGIN_AOS=true
-APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
-APP_CONFIG_CUSTOM_MODELED_EXTENSION = "{}"
+    ```bash
+    # App config settings
+    APP_CONFIG_BPM_HOST="<url>"
+    APP_CONFIG_ECM_HOST="<url>"
+    APP_CONFIG_OAUTH2_HOST="<url>"
+    APP_CONFIG_IDENTITY_HOST="<url>"
+    APP_CONFIG_PROVIDER="ALL"
+    APP_CONFIG_AUTH_TYPE="OAUTH"
+    APP_CONFIG_OAUTH2_CLIENTID="alfresco"
+    APP_CONFIG_OAUTH2_IMPLICIT_FLOW=true
+    APP_CONFIG_OAUTH2_SILENT_LOGIN=true
+    APP_CONFIG_OAUTH2_REDIRECT_SILENT_IFRAME_URI="{protocol}//{hostname}{:port}/assets/silent-refresh.html"
+    APP_CONFIG_OAUTH2_REDIRECT_LOGIN=/
+    APP_CONFIG_OAUTH2_REDIRECT_LOGOUT=/
+    APP_CONFIG_APPS_DEPLOYED="[{"name": "simpleapp"}]"
+    APP_CONFIG_LANDING_PAGE="/personal-files"
 
-# CONTENT - MICROSOT PLUGIN RELATED
-APP_CONFIG_PLUGIN_MICROSOFT_ONLINE=true
-APP_CONFIG_MICROSOFT_ONLINE_OOI_URL="<url>"
-APP_CONFIG_MICROSOFT_ONLINE_CLIENTID="<clientid>"
-APP_CONFIG_MICROSOFT_ONLINE_AUTHORITY="<url>"
-APP_CONFIG_MICROSOFT_ONLINE_REDIRECT="<url>"
+    # CONTENT RELATED
+    ACA_BRANCH="develop"
+    APP_CONFIG_PLUGIN_PROCESS_SERVICE=true
+    APP_CONFIG_PLUGIN_AI_SERVICE=true
+    APP_CONFIG_PLUGIN_AOS=true
+    APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
+    APP_CONFIG_CUSTOM_MODELED_EXTENSION = "{}"
 
-# CONTENT - MICROSOT INTEGRATION TEST RELATED
-MICROSOFT_USER_INITIALS="<user-initials>"
-MICROSOFT_EMAIL="<email>"
-MICROSOFT_USER2_INITIALS="<user-initials>"
-MICROSOFT_EMAIL2="<email>"
-MICROSOFT_PASSWORD="<password>"
-MOO_LOGIN_URL="<url>"
-```
+    # CONTENT - MICROSOT PLUGIN RELATED
+    APP_CONFIG_PLUGIN_MICROSOFT_ONLINE=true
+    APP_CONFIG_MICROSOFT_ONLINE_OOI_URL="<url>"
+    APP_CONFIG_MICROSOFT_ONLINE_CLIENTID="<clientid>"
+    APP_CONFIG_MICROSOFT_ONLINE_AUTHORITY="<url>"
+    APP_CONFIG_MICROSOFT_ONLINE_REDIRECT="<url>"
 
-### Build, promote, test, and debug the Alfresco Digital Workspace
+    # CONTENT - MICROSOT INTEGRATION TEST RELATED
+    MICROSOFT_USER_INITIALS="<user-initials>"
+    MICROSOFT_EMAIL="<email>"
+    MICROSOFT_USER2_INITIALS="<user-initials>"
+    MICROSOFT_EMAIL2="<email>"
+    MICROSOFT_PASSWORD="<password>"
+    MOO_LOGIN_URL="<url>"
+    ```
 
-The Digital workspace is a standard Angular application and its lifecycle follows the same principles, and best practices of any other standard Angular application.
+### Build, promote, test
 
-### Installing
+The Digital workspace is a standard angular application and its lifecycle follows the same principles and best practices of any other standard angular application. Use this information to learn how to install it using different distributions, how to add or remove unwanted modules, how promote the application for use in different environments, and how to test it. 
 
-In the command line, enter `npm install`.
+1. In a command prompt, enter `npm install`.
 
-### Applications and distributions
+    There are two distributions available to run with the Digital Workspace.
+    The default distribution for the Digital Workspace is `content-ee`.
 
-There are different distributions available to run with the Digital Workspace:
+    * `content-ee` (The Digital Workspace with the Process Services extension)
+    * `content-ee-apa` (The Digital Workspace with the Process Automation extension)
 
-* `content-ee` (The Digital Workspace with the Process Services extension)
+2. In the command prompt, enter `npm start <content-ee|content-ee-apa> [prod]`.
 
-* `content-ee-apa` (The Digital Workspace with the Process Automation extension)
+    This command starts the application.
 
-The default distribution for the Alfresco Digital Workspace is set to `content-ee`.
+    > **Note:** For the Alfresco Content Application or any other ADF-based application the command is `npm start`.
 
-### Starting
+3. In the command prompt, enter `npm run build <content-ee|content-apa> [prod]`.
 
-In the command line, enter `npm start <content-ee|content-ee-apa> [prod]`.
+    This command builds the application.
 
-> **Note:** For the Alfresco Content Application or any other ADF-based application the command is `npm start`.
+    > **Note:** For the Alfresco Content Application or any other ADF-based application the command is `npm run build`.
 
-### Building
-
-In the command line, enter `npm run build <content-ee|content-apa> [prod]`.
-
-> **Note:** For the Alfresco Content Application or any other ADF-based application the command is `npm run build`.
-
-Once the build has finished, a new folder called `dist` is created inside the root folder of the project. Inside the `dist` folder, there is a collection of files that represent the distribution of your application.
+    Once the build has finished a new folder called `dist` is created inside the root directory of the project. Inside the `dist` directory there is a collection of files that represent the distribution of your application.
 
 ### Remove modules before building
 
-You can exclude unwanted modules from the distribution. For example, to remove any modules from the Digital Workspace access the `apps/content-ee/src/app/extensions.module.ts` file and remove any that are not needed.
+To remove any modules from the distribution, access the `apps/content-ee/src/app/extensions.module.ts` file and remove the ones that are not needed.
 
 ```java
 @NgModule({
@@ -140,7 +136,7 @@ export class AppExtensionsModule {}
 
 ### Promoting in a different environment
 
-The compiled application is available as a collection of files in the `dist` folder. If you want to use the application in a different environment all you need to do is copy the files over to your new server.
+The compiled application is available as a collection of files in the `dist` directory. If you want to use the application in a different environment all you need to do is copy the files over to your new server.
 
 ### Testing
 
@@ -153,10 +149,6 @@ it('...description...', () => {
     // Source code.
 });
 ```
-
-### Debugging
-
-The debugging strategy for the Digital Workspace, or any other ADF-based application, does not differ from recommended standard Angular applications.
 
 ### Troubleshooting and support
 
