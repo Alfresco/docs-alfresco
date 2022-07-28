@@ -286,7 +286,9 @@ Data can be filtered by:
 * application name
 * process definition name
 * process status
-* grouped by
+
+Grouped by:
+
 * process definition name
 * process instance name
 
@@ -306,7 +308,9 @@ Data can be filtered by:
 * application name
 * process definition name
 * user task status
-* grouped by
+
+Grouped by:
+
 * process definition name
 * user task name
 * user task assignee
