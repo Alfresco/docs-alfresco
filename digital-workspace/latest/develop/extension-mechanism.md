@@ -22,6 +22,8 @@ Use this this information to develop a `hello word` extension for the Digital Wo
 
 * The latest **LTS** version of `Node.js`.
 
+* Download the Digital Workspace project from [Nexus](https://nexus.alfresco.com/nexus/#nexus-search;quick~digital%20workspace){:target="_blank"}.
+
 ### Create a Digital Workspace extension
 
 Use the [Nx](https://nx.dev/) developer tools for monorepos to create the Digital Workspace extension.
@@ -44,7 +46,7 @@ Use the [Nx](https://nx.dev/) developer tools for monorepos to create the Digita
     * The `README.md` file contains documentation
     * Other files for testing and configuration
 
-    > **Note:** For more on creating libraries using Nx see [Angular Nx Tutorial - Step 8: Create Libs](https://nx.dev/angular-tutorial/08-create-libs)
+    > **Note:** For more on creating libraries using Nx see [Angular Nx Tutorial - Step 8: Create Libs](https://nx.dev/angular-tutorial/08-create-libs){:target="_blank"}
 
 3. Once `my-extension` is created, add the configuration to the extension module by editing the `./libs/my-extension/src/lib/my-extension.module.ts` file.
 
@@ -108,9 +110,9 @@ Use the [Nx](https://nx.dev/) developer tools for monorepos to create the Digita
     export class AppExtensionsModule {}
     ```
 
-7. Edit the `angular.json` configuration file so the extension is visible from the Digital Workspace app.
+7. Edit the `angular.json` file by adding the following configuration to the `projects/content-ee/targets/build/options/assets` section.
 
-8. To the `projects/content-ee/targets/build/options/assets` file add the following.
+     This configuration ensures the extension is visible from the Digital Workspace app.
 
     ```json
     {
@@ -120,7 +122,7 @@ Use the [Nx](https://nx.dev/) developer tools for monorepos to create the Digita
     },
     ```
 
-9. From a command prompt start the Digital Workspace.
+8. From a command prompt start the Digital Workspace.
 
     ```shell
     npm start content-ee
