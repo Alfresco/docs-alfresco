@@ -22,7 +22,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 |  |  |
 | **Databases** | |
 | MySQL 8 | `mysql-connector-java-8.0.27.jar` |
-| MySQL 5.7.23 | `mysql-connector-java-5.1.40-bin.jar` |
+| MySQL 5.7.28 | `mysql-connector-java-5.1.49-bin.jar` |
 | MS SQL Server 2019 | `mssql-jdbc-9.2.1.jre11.jar` |
 | MS SQL Server 2017 | Microsoft JDBC Driver `7.2.2.jre11` for SQL Server. See [JDBC Driver](https://docs.microsoft.com/en-us/sql/connect/jdbc/system-requirements-for-the-jdbc-driver?view=sql-server-ver15){:target="_blank"} for supported versions. |
 | Oracle 19c | `Ojdbc8.jar – 19.11.0.0` |
@@ -81,7 +81,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Federation Services 1.1 | |
 | Identity Service 1.8 | |
 | Identity Service 1.7 | |
-| SAML Module for Alfresco Content Services 1.2.2 | |
+| SAML Module for Alfresco Content Services 1.2.3 | |
 | Alfresco Intelligence Services 1.4.4 | |
 | Alfresco Intelligence Services 1.4.2 | |
 | Alfresco Content Connector for AWS S3 5.0 | Adds support for AWS Glacier using Cloud storage layer. |
@@ -91,10 +91,10 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for SAP applications 5.1.1 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
 | Alfresco Collaboration Connector for Microsoft 365 1.1.3 | |
-| Alfresco Collaboration Connector for Teams 1.0 | |
+| Alfresco Collaboration Connector for Teams 1.1 | |
 | Alfresco Outlook Integration 2.9 | |
 | Alfresco Office Services 1.4.1 | |
-| Alfresco Google Docs Integration 3.2.1 | |
+| Alfresco Google Docs Integration 3.2.2 | |
 | Alfresco Content Services SDK 5.1 | |
 | Alfresco Content Services SDK 4.4 | |
 | | |
@@ -201,7 +201,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Collaboration Connector for Teams 1.0 | |
 | Alfresco Outlook Integration 2.9 | |
 | Alfresco Office Services 1.4.1 | |
-| Alfresco Google Docs Integration 3.2.1 | |
+| Alfresco Google Docs Integration 3.2.2 | |
 | Alfresco Content Services SDK 5.1 | |
 | Alfresco Content Services SDK 4.4 | |
 | | |
