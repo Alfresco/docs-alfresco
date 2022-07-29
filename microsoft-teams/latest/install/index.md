@@ -261,7 +261,7 @@ something like this:
                     "type": "query",
                     "title": "Search Alfresco",
                     "description": "Perform a search in Alfresco",
-                    "initialRun": false,
+                    "initialRun": true,
                     "fetchTask": false,
                     "context": [
                         "commandBox",
@@ -284,7 +284,8 @@ something like this:
                     "type": "link",
                     "value": {
                         "domains": [
-                            "*.botframework.com"
+                                    "*.botframework.com",
+                                    "<YOUR_DOMAIN_URL>"
                         ]
                     }
                 }

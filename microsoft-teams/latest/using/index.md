@@ -41,19 +41,17 @@ can be searched for from a MS Teams client.
 
    ![MS Teams Integration App Search]({% link microsoft-teams/images/ms-teams-integ-app-search-dialog.png %}){:height="250px" width="200px"}
 
-2. Now, enter a search text and hit **Enter** to search for content in the Content Services repository 
-
-3. If you are not logged into the Alfresco repository, a **sign in** link will appear:
+2. If you are not logged into the Alfresco repository, a **sign in** link will appear:
 
    ![MS Teams Integration App SignIn Link]({% link microsoft-teams/images/ms-teams-integ-app-signin-link.png %}){:height="250px" width="200px"}
 
-4. Click the **sign in** link and then specify your Alfresco username and password:
+3. Click the **sign in** link and then specify your Alfresco username and password:
 
    ![MS Teams Integration App SignIn Dialog]({% link microsoft-teams/images/ms-teams-integ-app-signin-dialog.png %}){:height="400px" width="600px"}
 
-5. After a successful login the search result will display:
+4. Open the app again and you will see a successfully signed in message, you can now search the repository.
 
-   ![MS Teams Integration App Search Result]({% link microsoft-teams/images/ms-teams-integ-app-search-dialog-result.png %}){:height="250px" width="200px"}
+      ![Signed in]({% link microsoft-teams/images/signed-in.png %})
 
 ## Share a document
 
@@ -74,3 +72,21 @@ When you have a search result you can share files from it with the other members
 4. Members can open the doc in Alfresco Digital Workspace by clicking on **View in Alfresco**:
 
    ![MS Teams Integration App Doc View in ADW]({% link microsoft-teams/images/ms-teams-integ-app-doc-view-adw.png %}){:height="400px" width="600px"}
+
+## Unfurl ADW public shared links
+
+You can share Alfresco Digital Workspace links within the Teams client. Your colleagues can preview the contents of the link within the Teams client without having to navigate away to the Digital Workspace, or they can click and navigate away from Teams to see the contents of the link in the Digital Workspace.
+
+1. Send a public shared link to a colleague in the Teams client.
+
+   You will see a preview of the link in the **Type a new message** pane because the link will unfurl.
+
+     ![Add Share URL]({% link microsoft-teams/images/add-share-url.png %}){:height="300px" width="600px"}
+
+2. Your colleague will see the link and its unfurled contents in the chat window.
+
+     ![Share URL Chat window]({% link microsoft-teams/images/chat-window.png %}){:height="300px" width="600px"}
+
+3. If they click the **Preview** button they are shown a preview of the contents of the link within the Teams chat window.
+
+   ![Preview window]({% link microsoft-teams/images/preview-window.png %}){:height="300px" width="600px"}
