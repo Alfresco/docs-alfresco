@@ -90,3 +90,7 @@ You can share Alfresco Digital Workspace links within the Teams client. Your col
 3. If they click the **Preview** button they are shown a preview of the contents of the link within the Teams chat window.
 
    ![Preview window]({% link microsoft-teams/images/preview-window.png %}){:height="300px" width="600px"}
+
+4. If they click the **Open in Alfresco** button they are taken to the Digital Workspace to view the file.  
+
+      ![ADW Preview window]({% link microsoft-teams/images/adw-preview.png %}){:height="300px" width="600px"}
