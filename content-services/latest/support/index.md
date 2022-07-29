@@ -11,6 +11,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Version | Notes |
 | ------- | ----- |
 | **Operating systems** | |
+| Red Hat Enterprise Linux 8.5 x64 | |
 | Red Hat Enterprise Linux 8.4 x64 | |
 | Red Hat Enterprise Linux 8.2 x64 | |
 | Windows Server 2019 | |
