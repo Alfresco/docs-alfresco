@@ -84,7 +84,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Federation Services 2.0 | |
 | Identity Service 1.7 | |
 | Identity Service 1.6 | |
-| SAML Module for Alfresco Content Services 1.2.3 | |
 | SAML Module for Alfresco Content Services 1.2.2 | |
 | Alfresco Intelligence Services 1.4 | |
 | Alfresco Content Connector for AWS S3 4.1 | |
