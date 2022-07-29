@@ -98,6 +98,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Outlook Integration 2.9 | |
 | Alfresco Outlook Integration 2.8.1 | |
 | Alfresco Office Services 1.4 | |
+| Alfresco Google Docs Integration 3.2.2 | |
 | Alfresco Google Docs Integration 3.2.1 | |
 | Alfresco Enterprise Viewer 3.3.5 | |
 | Alfresco Content Accelerator 3.4.4 | |
