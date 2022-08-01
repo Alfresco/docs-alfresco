@@ -10,7 +10,7 @@ There are a number of software requirements for installing the Collaboration Con
 
 ### Alfresco requirements
 
-See the [Supported Platforms]({% link microsoft-teams/latest/support/index.md %}) for more information.
+See the [Supported Platforms]({% link microsoft-teams/1.0/support/index.md %}) for more information.
 
 ### Microsoft Teams requirements
 
@@ -261,7 +261,7 @@ something like this:
                     "type": "query",
                     "title": "Search Alfresco",
                     "description": "Perform a search in Alfresco",
-                    "initialRun": true,
+                    "initialRun": false,
                     "fetchTask": false,
                     "context": [
                         "commandBox",
@@ -284,8 +284,7 @@ something like this:
                     "type": "link",
                     "value": {
                         "domains": [
-                           "*.botframework.com",
-                           "<YOUR_DOMAIN_URL>"
+                            "*.botframework.com"
                         ]
                     }
                 }
