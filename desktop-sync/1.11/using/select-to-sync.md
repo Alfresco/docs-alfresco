@@ -72,11 +72,11 @@ When the checkbox is selected (since it's enabled by default), the folders are s
 
     > **Note:** The sync folder location must be set to a local folder as network folders aren't supported.
 
-### About the initial sync {#init-sync-win}
+### About the initial sync
 
-The **Sync** progress screen shows the status of initial sync. The Alfresco icon ![]({% link desktop-sync/images/ds-spin.png %})in the system tray will spin during the sync process. On completion, a notification appears on the system tray.
+The **Syncing** progress screen shows the status of initial sync. The Alfresco icon ![]({% link desktop-sync/images/ds-spin.png %})in the system tray will spin during the sync process. On completion, a notification appears on the system tray.
 
-![]({% link desktop-sync/images/initialsync-1.12.png %}){:height="160px" width="469px"}
+![]({% link desktop-sync/images/initialsync.png %}){:height="165px" width="469px"}
 
 In C`:\Users\<username>\Alfresco`, copies of all the content you've selected to sync are created. Desktop Sync automatically keeps both the local copy and the Alfresco versions in sync with each other whenever any changes are made.
 
@@ -159,11 +159,11 @@ When the checkbox is selected (since it's enabled by default), the folders are s
 
     > **Note:** The sync folder location must be set to a local folder as network folders aren't supported.
 
-### About the initial sync {#init-sync-mac}
+### About the initial sync
 
 The **Sync** progress dialog shows the status of the initial sync. The Alfresco icon in the menu bar changes to indicate that the sync is in progress ![]({% link desktop-sync/images/ds-syncing-mac.png %}){:height="23px" width="23px"}. Once the sync has completed successfully, the icon changes to ![]({% link desktop-sync/images/ds-synced-mac.png %}){:height="23px" width="23px"}.
 
-![]({% link desktop-sync/images/initialsync-mac-1.12.png %}){:height="221px" width="469px"}
+![]({% link desktop-sync/images/initialsync-mac.png %}){:height="168px" width="360px"}
 
 In `/<userHome>/Alfresco`, copies of all the content you've selected to sync are created. Desktop Sync automatically keeps both the local copy and the Alfresco Content Services versions in sync with each other whenever any changes are made.
 
