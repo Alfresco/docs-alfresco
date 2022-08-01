@@ -683,12 +683,17 @@ defaults:
       toc: "microsoft-teams"
       support: true
       versions:
+        - 1.1
         - 1.0
   - scope:
       path: "microsoft-teams/latest"
     values:
-      version: 1.0
+      version: 1.1
       latest: true
+  - scope:
+      path: "microsoft-teams/1.0"
+    values:
+      version: 1.0
 
 # Alfresco Office Services
   - scope:
