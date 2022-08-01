@@ -10,4 +10,3 @@ The following are the supported platforms for the Alfresco Collaboration Connect
 |Alfresco Content Services 7.1.0|Exposed via HTTPS|
 |Alfresco Identity Service 1.6.0|Exposed via HTTPS|
 |Alfresco Digital Workspace 2.4.0|Exposed via HTTPS|
-

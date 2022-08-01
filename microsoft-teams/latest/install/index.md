@@ -341,7 +341,7 @@ In Microsoft Teams admin center do the following:
    To make it easy for users to get to the app, you can pin the app to the app bar in Teams. To do this, create an app 
    setup policy and assign it to users. To learn more, see [Manage app setup policies in Teams](https://docs.microsoft.com/en-us/microsoftteams/teams-app-setup-policies){:target="_blank"}.
 
-5. If you search for something in the Alfresco app it will ask you to login. Use your Alfresco credentials.
+5. If you search for something in the Alfresco app it will ask you to log in. Use your Alfresco credentials.
 
 >**Note:** A common error is when uploading a manifest zip with the wrong layout:<br/>"Error while extracting package: Please ensure there are no folders in your app package and that
 your app package contains only the `manifest.json` and the two required icon files at its root level.

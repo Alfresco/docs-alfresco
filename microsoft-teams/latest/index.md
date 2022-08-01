@@ -9,7 +9,5 @@ in Alfresco Digital Workspace, or it can be opened directly in the Teams client 
 The following features are available:
 
 * Search for content in Alfresco Content Services
-* Share a Document that can be opened in Alfresco Digital Workspace
-* Share a Document backed by a public link that can be opened in Alfresco Digital Workspace or in the Teams client
-
-
+* Share a document that can be opened in Alfresco Digital Workspace
+* Share a document backed by a public link that can be opened in Alfresco Digital Workspace or in the Teams client

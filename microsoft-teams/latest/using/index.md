@@ -54,7 +54,7 @@ can be searched for from a MS Teams client.
    ![MS Teams Integration App Search Result]({% link microsoft-teams/images/ms-teams-integ-app-signed-in.png %}){:height="250px" width="200px"}
 
 5. Now, execute a search by typing a keyword in the search field and hit return:
-   
+
    ![MS Teams Integration App Search Result]({% link microsoft-teams/images/ms-teams-integ-app-search-dialog-result.png %}){:height="250px" width="200px"}
 
 ## Share a document
@@ -73,12 +73,12 @@ When you have a search result you can share files from it with the other members
 
    ![MS Teams Integration App Search Result item shared]({% link microsoft-teams/images/ms-teams-integ-app-search-dialog-result-item-shared.png %}){:height="300px" width="600px"}
 
-4. Members can open the doc in Alfresco Digital Workspace by clicking on **Open in Alfresco**:
+4. Members can open the document in Alfresco Digital Workspace by clicking on **Open in Alfresco**:
 
    ![MS Teams Integration App Doc View in ADW]({% link microsoft-teams/images/ms-teams-integ-app-doc-view-adw.png %}){:height="400px" width="600px"}
-   
+
 5. If the search result contains an item that has been shared via a public link, then you will see an extra **Preview** 
-   button, see the [Share a public link](#share-public-link) section for more info.
+   button. See the [Share a public link](#share-public-link) section for more info.
 
 ## Share a public link {#share-public-link}
 
@@ -86,7 +86,7 @@ You can share Alfresco Digital Workspace links within the Teams client. Your col
 public link within the Teams client without having to navigate away to the Digital Workspace (**Preview**), or they can 
 click and navigate away from Teams to see the contents of the link in the Digital Workspace (**Open in Alfresco**).
 
->**Note:** end users do not have to login to Alfresco Digital Workspace when using **Preview** in Teams.
+>**Note:** End users don't have to log in to Alfresco Digital Workspace when using **Preview** in Teams.
 
 1. Send a public shared link to a colleague in the Teams client.
 
