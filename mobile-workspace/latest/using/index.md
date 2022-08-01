@@ -52,7 +52,6 @@ This will open your file repository on your mobile device (e.g. Files for iPhone
 You can share single or multiple files from a different file system with the Mobile Workspace.
 
 1. On your mobile device, select the files you want to share with the Mobile Workspace. For example, in Google Drive.
-    
 
 2. Use the share function within the different file system (e.g. 'Send a Copy' with Google Drive) and select Workspace.
 
@@ -64,3 +63,66 @@ Open the Mobile Workspace to view your files.
  
  * On the Recent Files view, a banner displays the sync progress for all files as a percentage complete. Pressing the sync status banner opens a Transfers view with all the files selected to be shared with the Mobile Workspace. 
  * On the Transfers view, use the **Sync All** button to force the files to upload. This is used to complete the transfer when files were shared without an internet connection or if the internet connection is lost.
+
+## Create New Folder
+
+You can create new folders within the Mobile Workspace.
+
+1. Log into the Mobile Workspace.
+
+2. Search or navigate to the location you want to create a folder.
+
+3. Press the plus **+** button.
+
+4. Select **New folder** to create a new folder.
+
+## Move Files
+<!-- Unsure the terminology for the file menu -->
+You can move files within the Mobile Workspace.
+
+1. Log into the Mobile Workspace.
+
+2. Select the file (hamburger) menu (three dots).
+
+3. Select **Move** to open the File Library (Personal files).
+
+4. Search or navigate to the new location.
+
+5. Select the **Move** button to move the file to a new location. Select **Cancel** to cancel the move and return to the previous screen.
+
+ ## Rename Files
+
+ You can rename files within the Mobile Workspace.
+<!-- Unsure the terminology for the file menu -->
+
+1. Log into the Mobile Workspace.
+
+2. Select the file (hamburger) menu (three dots).
+
+3. Select **Rename** to open a new screen.
+
+4. Enter a new file name and an optional description.
+
+5. Select **Save** to save the new file name. Select **Cancel** to cancel the rename and return to the previous screen.
+
+ ## Scan Documents
+<!-- parts of this process and terminology needs to be clarified -->
+ You can scan documents within the Mobile Workspace.
+
+1. Log into the Mobile Workspace.
+
+2. Navigate to the **Personal Files** area.
+
+3. Press the plus **+** button.
+
+4. Press **Scan documents**.
+
+Your device's camera will load (you may have to allow the Mobile Workspace access to use the camera on your device).
+
+5. Position your device over the item to scan and capture a photo. Repeat for additional pages or documents to scan to one file.
+
+6. When all items are scanned, select Save.
+
+7. Select **Save**. The scan will be saved to the repository. <!-- Lillian said repository, but to be more specific, does it save to Personal Files or where you navigated to? -->
+
+If you do not wish to keep the scan, exit without saving. A dialog box will appear to confirm you want to **Discard** the scan. Select **Cancel** to return to save your scan.
