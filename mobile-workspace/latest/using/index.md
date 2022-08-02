@@ -75,54 +75,58 @@ You can create new folders within the Mobile Workspace.
 3. Press the plus **+** button.
 
 4. Select **New folder** to create a new folder.
+<!-- Additional steps? Type in the name for the new folder, optional description? Select Save or Cancel? -->
 
 ## Move Files
-<!-- Unsure the terminology for the file menu -->
+
 You can move files within the Mobile Workspace.
 
 1. Log into the Mobile Workspace.
 
-2. Select the file (hamburger) menu (three dots).
+2. Search or navigate to the file you want to move.
 
-3. Select **Move** to open the File Library (Personal files).
+3. Select the Floating action button.
+<!-- does this actually open the File Library or is another location or name? -->
+4. Select **Move** to open the File Library.
 
-4. Search or navigate to the new location.
+5. Search or navigate to the new location.
 
-5. Select the **Move** button to move the file to a new location. Select **Cancel** to cancel the move and return to the previous screen.
+6. Select the **Move** button to move the file to a new location. Select **Cancel** to cancel the move and return to the previous screen.
 
  ## Rename Files
 
  You can rename files within the Mobile Workspace.
-<!-- Unsure the terminology for the file menu -->
 
 1. Log into the Mobile Workspace.
 
-2. Select the file (hamburger) menu (three dots).
+2. Search or navigate to the file you want to rename.
 
-3. Select **Rename** to open a new screen.
+3. Select the Floating action button.
 
-4. Enter a new file name and an optional description.
+4. Select **Rename** to open a new screen.
 
-5. Select **Save** to save the new file name. Select **Cancel** to cancel the rename and return to the previous screen.
+5. Enter a new file name and an optional description.
+
+6. Select **Save** to save the new file name. Select **Cancel** to cancel the rename and return to the previous screen.
 
  ## Scan Documents
-<!-- parts of this process and terminology needs to be clarified -->
+<!-- refer to everything as documents or files? -->
  You can scan documents within the Mobile Workspace.
 
 1. Log into the Mobile Workspace.
 
-2. Navigate to the **Personal Files** area.
+2. Search or navigate to the area you want to add a scanned document.
 
 3. Press the plus **+** button.
 
 4. Press **Scan documents**.
 
-Your device's camera will load (you may have to allow the Mobile Workspace access to use the camera on your device).
+* Your device's camera will load.
+* On the first use, you will have to allow the Mobile Workspace access to use the camera on your device.
 
-5. Position your device over the item to scan and capture a photo. Repeat for additional pages or documents to scan to one file.
+5. Position your device over the document to scan and capture a photo. Repeat for additional pages or documents to scan to one file.
 
-6. When all items are scanned, select Save.
+6. When all documents are scanned, select **Save**.
 
-7. Select **Save**. The scan will be saved to the repository. <!-- Lillian said repository, but to be more specific, does it save to Personal Files or where you navigated to? -->
-
-If you do not wish to keep the scan, exit without saving. A dialog box will appear to confirm you want to **Discard** the scan. Select **Cancel** to return to save your scan.
+* The scan will be saved where you navigated.
+* If you do not wish to keep the scan, exit without saving. A dialog box will appear to confirm you want to **Discard** the scan. Select **Cancel** to return to save your scan.
