@@ -86,7 +86,7 @@ into platform extensions and user interface extensions:
 
 * [Platform extension points and detailed architecture](#platformarch)
 * [Share extension points and detailed architecture](#sharearchitecture)
-* [Digital workspace extension points]({% link digital-workspace/2.6/extensions/index.md %})
+* [Digital workspace extension points]({% link digital-workspace/latest/develop/extensions.md %})
 
 ## Content repository concepts {#repoconcepts}
 It is important as a developer to have a good understanding of the fundamental concepts of Content Services 
