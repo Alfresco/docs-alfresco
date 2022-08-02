@@ -69,7 +69,7 @@ Image Management provides features to allow you to edit image files in Digital W
 
    * ![rotate icon]({% link digital-workspace/images/adw-image-rotate-icon.png %}){:height="18px" width="18px"}: click this icon to start rotating the image.
 
-    You will now see two new actions in the panel under the image, one for saving rotation, and a cross for canceling the rotation manipulation.
+    You will now see two new actions in the panel under the image, one for saving the rotation, and a cross for canceling the rotation manipulation.
 
    * Save or cancel the rotation. If you **Save** the manipulated image a new minor file version is created (original image is file version 1.0). To cancel any rotation action click **Cancel** (X).
 

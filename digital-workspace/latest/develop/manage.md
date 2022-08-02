@@ -1,27 +1,23 @@
 ---
-title: Manage the Digital Workspace
+title: Manage Digital Workspace
 ---
 
-Learn how to run the Digital Workspace locally and manage it from a development perspective.
+Learn how to run the Digital Workspace in your local development environment from the source code and manage it from a developer perspective.
 
-## Run the Digital Workspace from the source code
+## Prerequisites and requirements
 
-To launch the Digital Workspace on your development environment you can start it from the source code.
-
-### Prerequisites and requirements
-
-* Alfresco Content Services - Enterprise Edition.
+* Alfresco Content Services - Enterprise Edition:
   * Open your browser and check everything starts up correctly:
 
-  ```bash
-  Alfresco: http://localhost:8080/alfresco
-  ```
+    ```bash
+    http://localhost:8080/alfresco
+    ```
 
 * The latest **LTS** version of `Node.js`.
 
-## Cloning and launching the front-end application
+## Clone and launch the front-end application
 
-Once Content Services is up and running you must make the source code of the project available locally in the development environment. If you are an Alfresco customer or partner, you can get a local copy of the project by opening a request in the [Alfresco Support Portal](https://myalfresco.force.com/support/SiteLogin){:target="_blank"}.
+Once Content Services is up and running, you must make the source code of the project available locally in your development environment. If you're an Alfresco customer or partner, you can get a local copy of the project by opening a request in [Hyland Community](https://community.hyland.com/tskb){:target="_blank"}.
 
 1. In the `alfresco-apps` directory, create a file named `.env` with the following content.
 
@@ -43,7 +39,7 @@ Once Content Services is up and running you must make the source code of the pro
 
 2. Run `npm ci` and then run the application using `npm start content-ee`.
 
-    The application is available at `http://localhost:4200` and you must use the Content Services credentials to log in.
+    The application is available at `http://localhost:4200`. Use the Content Services credentials to log in.
 
     The configuration provided for the sample above is the minimal required for your development environment to locally test the Alfresco Repository, but additional environment variables are available.
 
@@ -72,14 +68,14 @@ Once Content Services is up and running you must make the source code of the pro
     APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
     APP_CONFIG_CUSTOM_MODELED_EXTENSION = "{}"
 
-    # CONTENT - MICROSOT PLUGIN RELATED
+    # CONTENT - MICROSOFT PLUGIN RELATED
     APP_CONFIG_PLUGIN_MICROSOFT_ONLINE=true
     APP_CONFIG_MICROSOFT_ONLINE_OOI_URL="<url>"
     APP_CONFIG_MICROSOFT_ONLINE_CLIENTID="<clientid>"
     APP_CONFIG_MICROSOFT_ONLINE_AUTHORITY="<url>"
     APP_CONFIG_MICROSOFT_ONLINE_REDIRECT="<url>"
 
-    # CONTENT - MICROSOT INTEGRATION TEST RELATED
+    # CONTENT - MICROSOFT INTEGRATION TEST RELATED
     MICROSOFT_USER_INITIALS="<user-initials>"
     MICROSOFT_EMAIL="<email>"
     MICROSOFT_USER2_INITIALS="<user-initials>"
@@ -88,33 +84,42 @@ Once Content Services is up and running you must make the source code of the pro
     MOO_LOGIN_URL="<url>"
     ```
 
-### Build, promote, test
+## Build, promote, test
 
-The Digital workspace is a standard angular application and its lifecycle follows the same principles and best practices of any other standard angular application. Use this information to learn how to install it using different distributions, how to add or remove unwanted modules, how promote the application for use in different environments, and how to test it. 
+The Digital Workspace is a standard Angular application, and its lifecycle follows the same principles and best practices of any other standard Angular application. Use this information to learn how to install it using different distributions, how to add or remove unwanted modules, how to promote the application for use in different environments, and how to test it.
 
-1. In a command prompt, enter `npm install`.
+1. In a command prompt, enter:
 
-    There are two distributions available to run with the Digital Workspace.
-    The default distribution for the Digital Workspace is `content-ee`.
+    ```bash
+    npm install
+    ```
 
-    * `content-ee` (The Digital Workspace with the Process Services extension)
-    * `content-ee-apa` (The Digital Workspace with the Process Automation extension)
+    There are two distributions available to run with the Digital Workspace:
 
-2. In the command prompt, enter `npm start <content-ee|content-ee-apa> [prod]`.
+    | Distribution | Description |
+    | ------------ | ----------- |
+    | `content-ee` | *Default.* The Digital Workspace with the Process Services extension |
+    | `content-ee-apa` | The Digital Workspace with the Process Automation extension |
 
-    This command starts the application.
+2. Select the command to start the application:
 
-    > **Note:** For the Alfresco Content Application or any other ADF-based application the command is `npm start`.
+    ```bash
+    npm start <content-ee|content-ee-apa> [prod]
+    ```
 
-3. In the command prompt, enter `npm run build <content-ee|content-apa> [prod]`.
+    > **Note:** For the Alfresco Content Application or any other ADF-based application, the command is `npm start`.
 
-    This command builds the application.
+3. Select the command to build the application:
 
-    > **Note:** For the Alfresco Content Application or any other ADF-based application the command is `npm run build`.
+    ```bash
+    npm run build <content-ee|content-apa> [prod]
+    ```
+
+    > **Note:** For the Alfresco Content Application or any other ADF-based application, the command is `npm run build`.
 
     Once the build has finished a new folder called `dist` is created inside the root directory of the project. Inside the `dist` directory there is a collection of files that represent the distribution of your application.
 
-### Remove modules before building
+## Remove modules before building
 
 To remove any modules from the distribution, access the `apps/content-ee/src/app/extensions.module.ts` file and remove the ones that are not needed.
 
@@ -134,13 +139,13 @@ To remove any modules from the distribution, access the `apps/content-ee/src/app
 export class AppExtensionsModule {}
 ```
 
-### Promoting in a different environment
+## Promote to a different environment
 
 The compiled application is available as a collection of files in the `dist` directory. If you want to use the application in a different environment all you need to do is copy the files over to your new server.
 
-### Testing
+## Testing
 
-Unit tests on the Content Application or the Digital Workspace are developed and executed using Karma, for more see [Karma](https://karma-runner.github.io/latest/index.html){:target="_blank"}.
+Unit tests on the Content Application or the Digital Workspace are developed and executed using Karma - for more see [Karma](https://karma-runner.github.io/latest/index.html){:target="_blank"}.
 
 Unit tests are developed in files with extension `specs.ts`. Almost every component has a related `specs.ts` file stored directly in the same folder as the component. A unit test can look like:
 
@@ -150,6 +155,8 @@ it('...description...', () => {
 });
 ```
 
-### Troubleshooting and support
+## Troubleshooting and support
 
-Ask questions in the Application Development Framework section of the [Alfresco Forum](https://hub.alfresco.com/t5/application-development/ct-p/developing){:target="_blank"} or in the Alfresco [Gitter Discussions](https://gitter.im/Alfresco/alfresco-ng2-components){:target="_blank"}. If you are an Alfresco customer or partner you can also request support in the [Alfresco Support Portal](https://myalfresco.force.com/support/SiteLogin){:target="_blank"}.
+Ask questions in the Application Development Framework section of the [Alfresco Forum](https://hub.alfresco.com/t5/application-development/ct-p/developing){:target="_blank"} or in the Alfresco [Gitter Discussions](https://gitter.im/Alfresco/alfresco-ng2-components){:target="_blank"}.
+
+If you're an Alfresco customer or partner, you can also request support in [Hyland Community](https://community.hyland.com/tskb){:target="_blank"}.
