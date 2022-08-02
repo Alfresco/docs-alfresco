@@ -65,8 +65,8 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
 
     ```bash
     ...
-    alfresco_1 | 2022-03-01 14:00:50,707  INFO  ... Starting 'Transformers' subsystem, ID: [Transformers, default]
-    alfresco_1 | 2022-03-01 14:00:50,874  INFO  ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+    alfresco_1 | 2022-03-24 14:00:50,707  INFO  ... Starting 'Transformers' subsystem, ID: [Transformers, default]
+    alfresco_1 | 2022-03-24 14:00:50,874  INFO  ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
     ...
     ```
 
@@ -84,11 +84,7 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
 
     If Docker is running on your local machine, the IP address will be just `localhost`.
 
-    If you're using the [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/){:target="_blank"}, run the following command to find the IP address:
-
-    ```bash
-    docker-machine ip
-    ```
+    If you're still using the [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/){:target="_blank"}, you'll need to switch to [Docker Desktop](https://docs.docker.com/install/){:target="_blank"} as Docker Toolbox is deprecated.
 
 8. Log in as the `admin` user. Enter the default administrator password `admin`.
 
@@ -231,9 +227,11 @@ Use this information to verify that the system started correctly, and to clean u
 
         The `--rmi all` option also removes the images created by `docker-compose up`, and the images used by any service. You can use this, for example, if any containers fail and you need to remove them:
 
-        ```text        
+        ```bash
         % docker-compose down --rmi all
-       
+        ```
+
+        ```text
         Stopping acs-trial_alfresco_1          ... done
         Stopping acs-trial_digital-workspace_1 ... done
         Stopping acs-trial_share_1             ... done
@@ -297,7 +295,7 @@ The Docker Compose file provides some default configuration. This section lists 
 | REPO_PORT | Share needs to know how to register itself with Alfresco. The default value is `8080` |
 | CSRF_FILTER_REFERER | CSRF Referrer |
 | CSRF_FILTER_ORIGIN | CSRF Origin |
-| USE_SSL |	Enables ssl use if set to `true`. The default value is `false`|
+| USE_SSL | Enables ssl use if set to `true`. The default value is `false` |
 
 ### Alfresco Digital Workspace (digital-workspace)
 
@@ -448,7 +446,7 @@ docker-compose down
 
 ## Troubleshooting
 
-1. If you have issues running ```docker-compose up``` after deleting a previous Docker Compose cluster, try replacing step 5 in the initial Docker Compose instructions with:
+1. If you have issues running `docker-compose up` after deleting a previous Docker Compose cluster, try replacing step 5 in the initial Docker Compose instructions with:
 
     ```bash
     docker-compose down && docker-compose build --no-cache && docker-compose up

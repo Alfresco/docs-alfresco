@@ -70,6 +70,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.7 | |
 | Alfresco Sync Service 3.6 | |
 | Alfresco Sync Service 3.5 | |
+| Alfresco Desktop Sync 1.12 | |
 | Alfresco Desktop Sync 1.11 | |
 | Alfresco Desktop Sync 1.10 | |
 | Alfresco Desktop Sync 1.9 | |
@@ -97,6 +98,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Outlook Integration 2.9 | |
 | Alfresco Outlook Integration 2.8.1 | |
 | Alfresco Office Services 1.4 | |
+| Alfresco Google Docs Integration 3.2.2 | |
 | Alfresco Google Docs Integration 3.2.1 | |
 | Alfresco Enterprise Viewer 3.3.5 | |
 | Alfresco Content Accelerator 3.4.4 | |
@@ -181,6 +183,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.7 | |
 | Alfresco Sync Service 3.6 | |
 | Alfresco Sync Service 3.5 | |
+| Alfresco Desktop Sync 1.12 | |
 | Alfresco Desktop Sync 1.11 | |
 | Alfresco Desktop Sync 1.10 | |
 | Alfresco Desktop Sync 1.9 | |
