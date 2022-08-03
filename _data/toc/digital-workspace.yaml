@@ -43,7 +43,7 @@
           path: '/digital-workspace/latest/develop/deploy/'
         - title: 'Manage Digital Workspace'
           path: '/digital-workspace/latest/develop/manage/'
-        - title: 'Extension mechanism'
+        - title: 'Build extensions'
           path: '/digital-workspace/latest/develop/extensions/'  
     - title: 'Troubleshooting'
       path: '/digital-workspace/latest/troubleshooting/'

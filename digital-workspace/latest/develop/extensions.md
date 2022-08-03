@@ -1,5 +1,5 @@
 ---
-title: Extension mechanism
+title: Build extensions
 ---
 
 The Alfresco Application Development Framework (ADF) extension mechanism allows you to add, remove, and change the behavior of your applications. The extension mechanism supports the Digital Workspace, and is the recommended way to make direct changes to its source code.

@@ -1,12 +1,12 @@
 ---
-title: Deploy Digital Workspace
+title: Deploy front-end applications
 ---
 
 Use the example to launch a front-end application that sits on top of the Alfresco backend services. The example uses the Alfresco Content Services - Community Edition version of the front-end application. You can repeat the same exercise with the Alfresco Content Services - Enterprise Edition.
 
 ## Deploy Alfresco Content App {#deploy-aca}
 
-To develop a front-end application using the Alfresco Community Edition (the open source version), use the Content App (ACA) as a starting point.
+To develop a front-end application using the Alfresco Community Edition (the open source version), use the Content App as a starting point.
 
 ### Prerequisites {#prereqs-aca}
 
@@ -20,7 +20,7 @@ To develop a front-end application using the Alfresco Community Edition (the ope
 
 ### Deploy Content App
 
-Deploy ACA using the following steps:
+Deploy the Content App using the following steps:
 
 1. Open a command prompt and clone the following GitHub repository to a working directory:
 
@@ -30,15 +30,20 @@ Deploy ACA using the following steps:
 
 2. Navigate to the `alfresco-content-app` directory and create a file named `.env` with the following content:
 
-    > **Note:** Enter the Alfresco Content Services URL as the `APP_CONFIG_ECM_HOST` value.
-
     ```bash
     APP_CONFIG_ECM_HOST="http://localhost:8080"
     APP_CONFIG_PLUGIN_AOS=false
     APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
     ```
 
-3. Enter `npm install` and then `npm start` to get the application up and running.
+    > **Note:** Enter your Alfresco Content Services URL as the `APP_CONFIG_ECM_HOST` value.
+
+3. Run the following commands to start the application:
+
+    ```bash
+    npm install
+    npm start
+    ```
   
     The application is available at `http://localhost:4200` and you must use the Alfresco Content Services credentials.
 
@@ -64,9 +69,16 @@ Deploy Digital Workspace using the following steps:
 
 1. Request a local copy of the `alfresco-apps` GitHub repository project from [Hyland Community](https://community.hyland.com/tskb){:target="_blank"}.
 
-2. Create the following `.env` file.
+    There are two distributions available to run with the Digital Workspace:
 
-    > **Note:** The Digital Workspace 2.9.x uses the Content Application version 2.10.0. Ensure you check the Digital Workspace documentation that matches your version because the Content Application version could be different.
+    | Distribution | Description |
+    | ------------ | ----------- |
+    | `content-ee` | *Default.* The Digital Workspace with the Process Services extension |
+    | `content-ee-apa` | The Digital Workspace with the Process Automation extension |
+
+    > **Note:** This project uses the monorepo structure with several monorepo apps.
+
+2. Create the following `.env` file.
 
     ```bash
     ACA_BRANCH="2.10.0"
@@ -80,52 +92,64 @@ Deploy Digital Workspace using the following steps:
     APP_CONFIG_PLUGIN_AI_SERVICE=false
     ```
 
-3. In a command prompt run `npm ci` and then run the application using `npm start content-ee`.
+    > **Note:** The Digital Workspace 2.9.x uses the Content Application version 2.10.0. Ensure you check the Digital Workspace documentation that matches your version because the Content Application version could be different.
+
+3. Open a command prompt and run the following command to install all third-party dependencies:
+
+    ```bash
+    npm ci
+    ```
+
+4. Run the application:
+
+    ```bash
+    npm start  content-ee
+    ```
 
     The application is available at `http://localhost:4200` and you must use the Alfresco Content Services credentials to log in.
 
-The configuration provided for the sample above is the minimal required for your development environment to locally test the Alfresco Repository, but additional environment variables are available.
+    The configuration provided for the sample above is the minimal required for your development environment to locally test the Alfresco Repository, but additional environment variables are available.
 
-```bash
-# App config settings
-APP_CONFIG_BPM_HOST="<url>"
-APP_CONFIG_ECM_HOST="<url>"
-APP_CONFIG_OAUTH2_HOST="<url>"
-APP_CONFIG_IDENTITY_HOST="<url>"
-APP_CONFIG_PROVIDER="ALL"
-APP_CONFIG_AUTH_TYPE="OAUTH"
-APP_CONFIG_OAUTH2_CLIENTID="alfresco"
-APP_CONFIG_OAUTH2_IMPLICIT_FLOW=true
-APP_CONFIG_OAUTH2_SILENT_LOGIN=true
-APP_CONFIG_OAUTH2_REDIRECT_SILENT_IFRAME_URI="{protocol}//{hostname}{:port}/assets/silent-refresh.html"
-APP_CONFIG_OAUTH2_REDIRECT_LOGIN=/
-APP_CONFIG_OAUTH2_REDIRECT_LOGOUT=/
-APP_CONFIG_APPS_DEPLOYED="[{"name": "simpleapp"}]"
-APP_CONFIG_LANDING_PAGE="/personal-files"
+    ```bash
+    # App config settings
+    APP_CONFIG_BPM_HOST="<url>"
+    APP_CONFIG_ECM_HOST="<url>"
+    APP_CONFIG_OAUTH2_HOST="<url>"
+    APP_CONFIG_IDENTITY_HOST="<url>"
+    APP_CONFIG_PROVIDER="ALL"
+    APP_CONFIG_AUTH_TYPE="OAUTH"
+    APP_CONFIG_OAUTH2_CLIENTID="alfresco"
+    APP_CONFIG_OAUTH2_IMPLICIT_FLOW=true
+    APP_CONFIG_OAUTH2_SILENT_LOGIN=true
+    APP_CONFIG_OAUTH2_REDIRECT_SILENT_IFRAME_URI="{protocol}//{hostname}{:port}/assets/silent-refresh.html"
+    APP_CONFIG_OAUTH2_REDIRECT_LOGIN=/
+    APP_CONFIG_OAUTH2_REDIRECT_LOGOUT=/
+    APP_CONFIG_APPS_DEPLOYED="[{"name": "simpleapp"}]"
+    APP_CONFIG_LANDING_PAGE="/personal-files"
 
-# CONTENT RELATED
-ACA_BRANCH="develop"
-APP_CONFIG_PLUGIN_PROCESS_SERVICE=true
-APP_CONFIG_PLUGIN_AI_SERVICE=true
-APP_CONFIG_PLUGIN_AOS=true
-APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
-APP_CONFIG_CUSTOM_MODELED_EXTENSION = "{}"
+    # CONTENT RELATED
+    ACA_BRANCH="develop"
+    APP_CONFIG_PLUGIN_PROCESS_SERVICE=true
+    APP_CONFIG_PLUGIN_AI_SERVICE=true
+    APP_CONFIG_PLUGIN_AOS=true
+    APP_CONFIG_PLUGIN_CONTENT_SERVICE=true
+    APP_CONFIG_CUSTOM_MODELED_EXTENSION = "{}"
 
-# CONTENT - MICROSOFT PLUGIN RELATED
-APP_CONFIG_PLUGIN_MICROSOFT_ONLINE=true
-APP_CONFIG_MICROSOFT_ONLINE_OOI_URL="<url>"
-APP_CONFIG_MICROSOFT_ONLINE_CLIENTID="<clientid>"
-APP_CONFIG_MICROSOFT_ONLINE_AUTHORITY="<url>"
-APP_CONFIG_MICROSOFT_ONLINE_REDIRECT="<url>"
+    # CONTENT - MICROSOFT PLUGIN RELATED
+    APP_CONFIG_PLUGIN_MICROSOFT_ONLINE=true
+    APP_CONFIG_MICROSOFT_ONLINE_OOI_URL="<url>"
+    APP_CONFIG_MICROSOFT_ONLINE_CLIENTID="<clientid>"
+    APP_CONFIG_MICROSOFT_ONLINE_AUTHORITY="<url>"
+    APP_CONFIG_MICROSOFT_ONLINE_REDIRECT="<url>"
 
-# CONTENT - MICROSOFT INTEGRATION TEST RELATED
-MICROSOFT_USER_INITIALS="<user-initials>"
-MICROSOFT_EMAIL="<email>"
-MICROSOFT_USER2_INITIALS="<user-initials>"
-MICROSOFT_EMAIL2="<email>"
-MICROSOFT_PASSWORD="<password>"
-MOO_LOGIN_URL="<url>"
-```
+    # CONTENT - MICROSOFT INTEGRATION TEST RELATED
+    MICROSOFT_USER_INITIALS="<user-initials>"
+    MICROSOFT_EMAIL="<email>"
+    MICROSOFT_USER2_INITIALS="<user-initials>"
+    MICROSOFT_EMAIL2="<email>"
+    MICROSOFT_PASSWORD="<password>"
+    MOO_LOGIN_URL="<url>"
+    ```
 
 ## Generate and deploy an ADF App {#deploy-adf}
 

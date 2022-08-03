@@ -2,9 +2,9 @@
 title: Front-end app development overview
 ---
 
-You can develop with and adapt the Digital Workspace or integrate your own solutions. To do this you can use the [Digital Workspace extensions]({% link digital-workspace/latest/develop/extensions.md %}) or create a custom app using the Alfresco [Application Development Framework (ADF)]({% link digital-workspace/latest/develop/deploy.md %}). The Digital Workspace is a fully supported application that is available to customers and partners working with **Alfresco Content Services - Enterprise Edition**.
+You can develop with and adapt the Digital Workspace or integrate your own solutions. To do this you can use the Digital Workspace extensions or create a custom app using the Alfresco Application Development Framework (ADF). The Digital Workspace is a fully supported application that is available to customers and partners working with **Alfresco Content Services - Enterprise Edition**.
 
-If your project uses **Alfresco Content Services - Community Edition** or other open source components you must use [Alfresco Content Application](https://alfresco-content-app.netlify.app/#/){:target="_blank"} instead of the Digital Workspace. The Content Application is a free, open source example of an application created using the Application Development Framework, and its use is not supported by Alfresco support.
+If your project uses **Alfresco Content Services - Community Edition** or other open source components you must use Alfresco Content Application instead of the Digital Workspace. The Content Application is a free, open source example of an application created using the Application Development Framework, and its use is not supported by Alfresco support.
 
 ![Develop front-end]({% link digital-workspace/images/develop-front-end.png %}){:height="259px" width="536px"}
 
@@ -24,11 +24,16 @@ The image explains the relationship between the front-end applications and backe
 
 The following options are provided to start developing a front-end for Alfresco depending on the customization required. We have open source and enterprise applications if the customization is minimal. However, if you need to develop very comprehensive extensions, you can use the Application Development Framework.
 
-* Enterprise customers can use the Digital Workspace as a starting point. See [Deploy Alfresco Digital Workspace]({% link digital-workspace/latest/develop/deploy.md %}#deploy-adw) for more details.
+* Enterprise customers can use the Digital Workspace as a starting point.
+  * See [Deploy Alfresco Digital Workspace]({% link digital-workspace/latest/develop/deploy.md %}#deploy-adw) for more details.
+  * To develop extensions, see [Digital Workspace extensions]({% link digital-workspace/latest/develop/extensions.md %}) or create a custom app using the Alfresco [Application Development Framework (ADF)]({% link digital-workspace/latest/develop/deploy.md %})
 
-* Community customers can use the Content Application as a starting point. See [Deploy Alfresco Content App]({% link digital-workspace/latest/develop/deploy.md %}#deploy-aca) for more details.
+* Community customers can use the [Content Application](https://alfresco-content-app.netlify.app/#/){:target="_blank"} as a starting point.
+  * See [Deploy Alfresco Content App]({% link digital-workspace/latest/develop/deploy.md %}#deploy-aca) for more details.
+  * To develop extensions, see [Content App extensions]({% link digital-workspace/latest/develop/extensions.md %}).
 
-* Customers that require extensive customizations can use the Application Development Framework as a starting point. See [Generate and deploy an ADF App]({% link digital-workspace/latest/develop/deploy.md %}#deploy-adf) for more details.
+* Customers that require extensive customizations can use the Application Development Framework as a starting point.
+  * See [Generate and deploy an ADF App]({% link digital-workspace/latest/develop/deploy.md %}#deploy-adf) for more details.
 
 ## Mobile development
 

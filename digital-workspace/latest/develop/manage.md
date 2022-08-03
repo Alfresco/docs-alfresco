@@ -37,7 +37,12 @@ Once Content Services is up and running, you must make the source code of the pr
 
     > **Note:** The Digital Workspace 2.9.x uses the Content Application version 2.10.0. Ensure you check the Digital Workspace documentation that matches your version because the Content Application version could be different.
 
-2. Run `npm ci` and then run the application using `npm start content-ee`.
+2. Run the following commands to start the application:
+
+    ```bash
+    npm ci
+    npm start content-ee
+    ```
 
     The application is available at `http://localhost:4200`. Use the Content Services credentials to log in.
 
