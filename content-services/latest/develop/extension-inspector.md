@@ -28,12 +28,14 @@ The Extension Inspector has two main modules:
 | Analyser | `extension-inspector-analyser` for analyzing custom extensions against the inventory |
 
 ## Download
-You can download the [alfresco-extension-inspector-1.2.0.jar](https://artifacts.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/extension-inspector/alfresco-extension-inspector/1.2.0/alfresco-extension-inspector-1.2.0.jar) 
+
+You can download the [alfresco-extension-inspector-1.4.0.jar](https://artifacts.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/extension-inspector/alfresco-extension-inspector/1.4.0/alfresco-extension-inspector-1.4.0.jar) 
 file from the Alfresco Nexus repository.
 
 >**Note:** See the [Alfresco Extension Inspector](https://github.com/Alfresco/alfresco-extension-inspector){:target="_blank"} GitHub repository for more details.
 
 ## Run Inventory application
+
 The application generates a report for a `.war` file.
 
 Use the following command to run the application:
@@ -114,6 +116,7 @@ When you run the Inventory command, the output is a report in JSON format with t
 ```
 
 ## Run Analyser application
+
 The application analyzes custom extensions against WAR inventories.
 
 Use the following command to run the application:
