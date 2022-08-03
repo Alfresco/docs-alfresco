@@ -50,6 +50,7 @@ where:
 | ------ | ----------- |
 | <nobr>--inventory</nobr> | *Required.* The path to a valid `.war` file that you want to parse. |
 | <nobr>--o</nobr> | *Optional.* The output location where the report is generated. You can set this as either a file name or folder location. The report name defaults to `<war_name>.inventory.json`. |
+| <nobr>--help</nobr> | *Optional.* Show help text. |
 
 When you run the Inventory command, the output is a report in JSON format with the following example structure:
 
@@ -122,7 +123,7 @@ The application analyzes custom extensions against WAR inventories.
 Use the following command to run the application:
 
 ```bash
-java -jar alfresco-extension-inspector-<version>.jar <extension-filename> [--target-version=6.1.0[-7.0.0] | --target-inventory =/path/to/war_inventory.json] [--verbose=[true | false]]
+java -jar alfresco-extension-inspector-<version>.jar <extension-filename> [--target-version=6.1.0[-7.2.0] | --target-inventory =/path/to/war_inventory.json] [--verbose=[true | false]]
 ```
 
 where:
@@ -132,8 +133,24 @@ where:
 | <nobr>--target-version</nobr> | *Optional.* A specific Content Services version or range of versions. This option is mutually exclusive to `--target-inventory`. |
 | <nobr>--target-inventory</nobr> | *Optional.* The file path to an existing WAR inventory. This option is mutually exclusive to `--target-version`. |
 | <nobr>--verbose</nobr> | *Optional.* Verbose output. |
+| <nobr>--list-known-alfresco-versions</nobr> | *Optional.* List all Alfresco versions with inventory reports included in the tool. |
+| <nobr>--help</nobr> | *Optional.* Show help text. |
 
 When running the command, `alfresco-extension-inspector` writes the conflicts directly to the console, grouped by type.
+
+### Example commands
+
+Show help text:
+
+```bash
+   java -jar alfresco-extension-inspector.jar --help
+```
+
+List all Alfresco versions with bundled inventories:
+
+```bash
+   java -jar alfresco-extension-inspector.jar --list-known-alfresco-versions
+```
 
 The following conflict types are detected:
 
