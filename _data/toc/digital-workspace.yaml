@@ -35,8 +35,16 @@
           path: '/digital-workspace/latest/process/config/'
     - title: 'Image Management'
       path: '/digital-workspace/latest/media/'
-    - title: 'Developing Extensions'
-      path: '/digital-workspace/latest/extensions/'
+    - title: 'Develop'    
+      pages: 
+        - title: 'Overview'
+          path: '/digital-workspace/latest/develop/'
+        - title: 'Deploy'
+          path: '/digital-workspace/latest/develop/deploy/'
+        - title: 'Manage Digital Workspace'
+          path: '/digital-workspace/latest/develop/manage/'
+        - title: 'Build extensions'
+          path: '/digital-workspace/latest/develop/extensions/'  
     - title: 'Troubleshooting'
       path: '/digital-workspace/latest/troubleshooting/'
 - version: 2.8
