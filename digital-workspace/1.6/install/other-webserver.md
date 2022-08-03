@@ -3,9 +3,9 @@ title: Install into other webserver
 ---
 You can deploy Alfresco Digital Workspace into a different web server than where Alfresco Content Services is running. You can use another instance of Tomcat, a lightweight web server such as NGINX, or you can use a web server of your choice. First you need to install Alfresco Content Services 6.2 or above using the distribution zip. See [Installing using distribution zip]({% link content-services/latest/install/zip/index.md %}) for more information.
 
-1. Log in to the [Support Portal](https://support.alfresco.com/){:target="_blank"}.
+1. Log in to [Hyland Community](https://community.hyland.com/products/alfresco){:target="_blank"}.
 
-2. Go to the **Downloads** area and select Alfresco Digital Workspace.
+2. Go to **Product downloads** and select Alfresco Digital Workspace.
 
 3. Download `alfresco-digital-workspace-x.x.x.zip` for the required version.
 

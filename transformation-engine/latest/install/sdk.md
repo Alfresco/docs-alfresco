@@ -4,14 +4,12 @@ title: Install the SDK
 
 Use this information to install the Document Transformation Engine SDK.
 
-Download the Document Transformation Engine SDK from the [Alfresco Support Portal](http://support.alfresco.com){:target="_blank"}.This is an executable jar file with all dependencies that works as a command line client. The executable class is `com.westernacher.transformationserver.demo.DemoClient`.
-
-> **Note:** The Document Transformation Engine SDK source code is available on request. Contact [Customer Support](https://support.alfresco.com){:target="_blank"} for the SDK source code.
+Download the Document Transformation Engine SDK from [Hyland Community](https://community.hyland.com/){:target="_blank"}.This is an executable jar file with all dependencies that works as a command line client. The executable class is `com.westernacher.transformationserver.demo.DemoClient`.
 
 To invoke the Document Transformation Engine SDK jar file, use the following syntax:
 
 ```java
-java -jar alfresco-document-transformation-engine-sdk-2.3.0-plain.jar -in input.doc -out output.pdf -url http://trafo-url:8080transformation-server
+java -jar alfresco-document-transformation-engine-sdk-2.3.0-plain.jar -in input.doc -out output.pdf -url http://trafo-url:8080/transformation-server
 ```
 
 An API usage example is available at `com.westernacher.transformationserver.demo.ApiUsageExample`. You can copy, modify, and use this code in your own product.

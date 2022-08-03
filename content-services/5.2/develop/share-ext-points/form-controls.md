@@ -1,14 +1,18 @@
 ---
-title: Form Controls
+title: Form Controls Extension Point
 ---
 
 When defining a form the form controls for each field controls how the field is displayed and handled.
 
-|Extension Point|Form Controls|
-|---------------|-------------|
-|Support Status|[Full Support]({% link support/latest/policies/product-lifecycle.md %})|
-|Architecture Information|[Share Architecture]({% link content-services/5.2/develop/software-architecture.md %}#share-architecture).|
-|Description|Share comes with form controls for most of the field types that is used in a form, such as integers, dates, text, and so on. However, sometimes it is necessary to define and implement a custom form control. A form control is implemented as a FreeMarker template, here is the one for a standard Text Field (textfield.ftl): ```
+Architecture Information: [Share Architecture]({% link content-services/5.2/develop/software-architecture.md %}#sharearchitecture)
+
+## Description
+
+Share comes with form controls for most of the field types that is used in a form, such as integers, dates, text, and 
+so on. However, sometimes it is necessary to define and implement a custom form control. A form control is implemented 
+as a FreeMarker template, here is the one for a standard Text Field (`textfield.ftl`): 
+
+```xml
 <div class="form-field">
    <#if form.mode == "view">
       <div class="viewmode-field">
@@ -43,11 +47,15 @@ When defining a form the form controls for each field controls how the field is 
 </div>
 ```
 
-These standard form control implementations can be found in the tomcat/webapps/share/WEB-INF/classes/alfresco/site-webscripts/org/alfresco/components/form/controls directory. The two FreeMarker root objects that contain most of the information that we need when implementing the control is the `form` object and the `field` object. These objects get their data from the form and field definitions. And you can also implement [Form Filters]({% link content-services/5.2/develop/share-ext-points/form-processor-filters.md %}#form-processor-filters) to add extra properties that can be used in the form control implementation.
+These standard form control implementations can be found in the `tomcat/webapps/share/WEB-INF/classes/alfresco/site-webscripts/org/alfresco/components/form/controls` 
+directory. The two FreeMarker root objects that contain most of the information that we need when implementing the 
+control is the `form` object and the `field` object. These objects get their data from the form and field definitions. 
+And you can also implement [Form Filters]({% link content-services/5.2/develop/share-ext-points/form-processor-filters.md %}) 
+to add extra properties that can be used in the form control implementation.
 
 The following form definition shows the use of the Text Field form control:
 
-```
+```xml
 <config evaluator="node-type" condition="cm:content">
       <forms>
          <!-- Default form configuration for the cm:content type -->
@@ -71,11 +79,14 @@ The following form definition shows the use of the Text Field form control:
          </form>
 ```
 
-The field `cm:title` is using the textfield.ftl form control. You can also leave out the form control specification, like is shown here for the `cm:name` field, and let the forms engine select a matching form control based on field data type.
+The field `cm:title` is using the textfield.ftl form control. You can also leave out the form control specification, 
+like is shown here for the `cm:name` field, and let the forms engine select a matching form control based on field data type.
 
-Implementing a custom form control is as easy as creating a new FreeMarker template file and putting it somewhere under the alfresco/web-extension/site-webscripts/ directory. Here is an example of a custom form control for a Due Date field that should be editable sometimes and read-only sometimes, it is stored in org/alfresco/training/components/form/controls/duedate.ftl:
+Implementing a custom form control is as easy as creating a new FreeMarker template file and putting it somewhere under 
+the `alfresco/web-extension/site-webscripts` directory. Here is an example of a custom form control for a Due Date field 
+that should be editable sometimes and read-only sometimes, it is stored in `org/alfresco/training/components/form/controls/duedate.ftl`:
 
-```
+```xml
 <#-- This Date control implementation checks a property that is set up in a Form Filter to see
      if the due date should be displayed as read-only or not -->
 <#if form.data['prop_dueDateReadOnly'] == true>
@@ -87,9 +98,11 @@ Implementing a custom form control is as easy as creating a new FreeMarker templ
 </#if>
 ```
 
-This custom form control uses a custom property called `prop_dueDateReadOnly` that would need to be set up in a [Form Filters]({% link content-services/5.2/develop/share-ext-points/form-processor-filters.md %}#form-processor-filters). This form control would then be used as follows:
+This custom form control uses a custom property called `prop_dueDateReadOnly` that would need to be set up in a 
+[Form Filter]({% link content-services/5.2/develop/share-ext-points/form-processor-filters.md %}). This form control would then 
+be used as follows:
 
-```
+```xml
 <config evaluator="node-type" condition="acme:document">
       <forms>
         <form>
@@ -108,19 +121,28 @@ This custom form control uses a custom property called `prop_dueDateReadOnly` th
     </config>
 ```
 
-This defines a form for a custom type called `acme:document`, which contains a property called `acme:dueDate` that should use the new form control.|
-|Deployment - App Server|tomcat/shared/classes/alfresco/web-extension/site-webscripts/ (Untouched by re-depolyments and upgrades)Best practice is to put the file in a directory that explains what the file is for, such as for example:
+This defines a form for a custom type called `acme:document`, which contains a property called `acme:dueDate` that should 
+use the new form control.
 
-tomcat/shared/classes/alfresco/web-extension/site-webscripts/org/alfresco/training/components/form/controls
+## Deployment - App Server
 
-|
-|[Deployment All-in-One SDK project]({% link content-services/5.2/develop/sdk.md %}#getting-started-with-alfresco-content-services-sdk-3).|aio/share-jar/src/main/resources/alfresco/web-extension/site-webscripts/{custom path}|
-|More Information|-   [Customizing Form Controls]({% link content-services/5.2/develop/share-ext-points/share-config.md %}#customizing-forms-controls)
--   [Form Control Reference]({% link content-services/5.2/develop/reference/share-document-library-ref.md %}#forms-reference)
--   [Forms]({% link content-services/5.2/develop/share-ext-points/share-config.md %}#share-forms)
+* `tomcat/shared/classes/alfresco/web-extension/site-webscripts` (Untouched by re-deployments and upgrades)
 
-|
-|Tutorials|-   [Adding a custom Form Control]({% link content-services/5.2/develop/share-ext-points/share-config.md %}#providing-a-custom-form-control)
--   [Configuring a Form Control]({% link content-services/5.2/develop/share-ext-points/share-config.md %}#configuring-a-form-control)
+Best practice is to put the file in a directory that explains what the file is for, such as for example:
 
-|
+`tomcat/shared/classes/alfresco/web-extension/site-webscripts/org/alfresco/training/components/form/controls`
+
+## Deployment All-in-One SDK project
+
+* `aio/share-jar/src/main/resources/alfresco/web-extension/site-webscripts/{custom path}`
+
+## More Information
+
+* [Customizing Form Controls]({% link content-services/5.2/develop/reference/share-document-library-ref.md %}#customizeformcontrols)
+* [Form Control Reference]({% link content-services/5.2/develop/reference/share-document-library-ref.md %}#formref)
+* [Forms config]({% link content-services/5.2/develop/share-ext-points/share-config.md %}#shareformsconfig)
+
+## Tutorials
+
+* [Adding a custom Form Control]({% link content-services/5.2/develop/share-ext-points/share-config.md %}#customformcontrol)
+* [Configuring a Form Control]({% link content-services/5.2/develop/share-ext-points/share-config.md %}#formcontrolconfig)

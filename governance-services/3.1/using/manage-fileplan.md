@@ -4,7 +4,7 @@ title: Managing the File Plan
 
 The record {% include tooltip.html word="category" text="categories" %}, record folders, and records in the File Plan structure each have an appropriate set of actions. You can access the actions by hovering over an item in the File Plan or by clicking on an item name. Use these actions to manage the File Plan.
 
->**Note:** The standard Alfresco **Copy to**, **Move to** and renaming options are available for record categories, record folders, and records. See [Keeping your library organized]({% link content-services/6.1/using/content/manage.md %}#organizing-content) for further details.
+> **Note:** The standard Alfresco **Copy to**, **Move to** and renaming options are available for record categories, record folders, and records. See [Keeping your library organized]({% link content-services/6.1/using/content/manage.md %}#organizing-content) for further details.
 
 ## Managing record categories
 
@@ -61,7 +61,7 @@ When you don't need a record category any more you can delete it.
 
     The record category is removed from the Records Management system.
 
-    >**Important:** This will also delete the folders and records within the record category.
+    > **Important:** This will also delete the folders and records within the record category.
 
 ## Managing record folders
 
@@ -84,7 +84,7 @@ In the File Plan hover over a record folder to display the available actions. Th
 |View Audit Log|View the auditing information for the folder. The Audit Log displays the activity information in a new window and has options to export or file this information as a record.|
 |Manage rules|Create and edit rules so that folder content is managed automatically.|
 
->**Note:** When the folder is closed or on hold, a limited set of actions is available.
+> **Note:** When the folder is closed or on hold, a limited set of actions is available.
 
 ### Viewing record folders
 
@@ -146,23 +146,23 @@ Users with the appropriate {% include tooltip.html word="capabilities" text="cap
 
 A hold allows objects on hold for a particular reason to be tracked as a set. Holds prevent changes to on hold objects, which have their retention schedules suspended until the hold is removed.
 
->**Note:** When you add a folder to a hold, all records within the folder are also added to the hold. The records can't be removed from the hold individually, they can only be removed from the hold by removing the entire folder.
+> **Note:** When you add a folder to a hold, all records within the folder are also added to the hold. The records can't be removed from the hold individually, they can only be removed from the hold by removing the entire folder.
 
 1. Hover over a record folder in the File Plan and click **More** then **Add to Hold**.
 
     The Add to Hold screen displays.
 
-    >**Note:** This option isn't available if no holds have been set up in the Holds area or you don't have permission to put records on the existing holds.
+    > **Note:** This option isn't available if no holds have been set up in the Holds area or you don't have permission to put records on the existing holds.
 
 2. Select one or more holds and click **OK**.
 
     A message displays confirming that the folder is on hold, and the folder now displays the ![Frozen]({% link governance-services/images/ico-rm-frozen.png %}){:height="18px" width="18px"} icon.
 
-    >**Note:** Records and folders remain on hold until they have been removed from all holds they're added to.
+    > **Note:** Records and folders remain on hold until they have been removed from all holds they're added to.
 
 The folder remains in its' place in the File Plan. It is also shown in the **Holds** area of the explorer panel.
 
->**Note:** To remove a record folder from a hold hover over it in the File Plan or the Holds area and select **Remove from Hold**.
+> **Note:** To remove a record folder from a hold hover over it in the File Plan or the Holds area and select **Remove from Hold**.
 
 ### Closing a record folder
 
@@ -172,7 +172,7 @@ Users with the appropriate capability (Folder Control) can close folders. {% inc
 
     A message displays confirming that the folder is closed.
 
-    >**Note:** The action for this folder changes to **Re-open Folder**, which allows the folder to be reopened.
+    > **Note:** The action for this folder changes to **Re-open Folder**, which allows the folder to be reopened.
 
 ### Deleting a record folder
 
@@ -186,7 +186,7 @@ When you don't need a record folder any more you can delete it.
 
     The record folder is removed from the Records Management system.
 
-    >**Note:** This will also delete the records within the record folder.
+    > **Note:** This will also delete the records within the record folder.
 
 ## Managing records
 
@@ -237,9 +237,9 @@ You can link records to a folder other than the one they're filed in to file the
 
 This gives the effect of "duplicating" the record in another location, though there is still only one record, but it's now contained in more than one folder. Changes made to the record in one location will be reflected in all the other locations, and this includes deleting the record.
 
->**Important:** It's recommended that you don't link a record to a location where it will be subject to a retention schedule with different steps or a different sequence of steps.
+> **Important:** It's recommended that you don't link a record to a location where it will be subject to a retention schedule with different steps or a different sequence of steps.
 
->**Note:** The link option is only available to users who have the Link Records capability assigned to them by the Records Management Administrator.
+> **Note:** The link option is only available to users who have the Link Records capability assigned to them by the Records Management Administrator.
 
 1. Hover over a record in the File Plan and click **More** then **Link to**.
 
@@ -249,11 +249,11 @@ This gives the effect of "duplicating" the record in another location, though th
 
     A link is created in the destination folder. All copies of the record display the ![Linked]({% link governance-services/images/ico-rm-linkedrecord.png %}){:height="18px" width="18px"} icon.
 
-    >**Note:** Linked records won't move to the next retention step until the period for the current step has been completed in all retention schedules it falls under. So in effect they follow the retention schedule that has the longest period for a step.
+    > **Note:** Linked records won't move to the next retention step until the period for the current step has been completed in all retention schedules it falls under. So in effect they follow the retention schedule that has the longest period for a step.
 
 You can click **More** then **Unlink Record** against the record in the destination folder. This will remove the linked record from the destination folder.
 
->**Note:** The unlink option is only available to users who have the Unlink Records capability assigned to them by the Records Management Administrator.
+> **Note:** The unlink option is only available to users who have the Unlink Records capability assigned to them by the Records Management Administrator.
 
 ### Creating relationships between records
 
@@ -263,7 +263,7 @@ You can add relationships to records to create a connection between them. This c
 
 2. Select a relationship type in the New Relationship screen.
 
-    >**Note:** Most relationships don't alter or affect a record in any way, they are just used to create an association between records.
+    > **Note:** Most relationships don't alter or affect a record in any way, they are just used to create an association between records.
 
     However, if you select Obsoleted by/Obsoletes or Superseded by/Supersedes, then any outstanding retention schedule obsoleted or superseded events will be automatically completed.
 
@@ -287,7 +287,7 @@ Users with Records Manager permissions receive a notification email when vital r
 
 1. When a record is due for review hover over it in the File Plan.
 
-    >**Tip:** You can search for vital records using the **Records Search** on the **More** menu. Records that are due for review will display a warning symbol in the search results.
+    > **Tip:** You can search for vital records using the **Records Search** on the **More** menu. Records that are due for review will display a warning symbol in the search results.
 
 2. Click **Reviewed**.
 
@@ -297,7 +297,7 @@ Users with Records Manager permissions receive a notification email when vital r
 
 All records filed from a non-Records Management site are added to the {% include tooltip.html word="unfiledrecords" text="Unfiled Records" %} area by default.
 
->**Tip:** Access the Unfiled Records area using the explorer panel to the left of the File Plan.
+> **Tip:** Access the Unfiled Records area using the explorer panel to the left of the File Plan.
 
 Unfiled records can have been {% include tooltip.html word="declareasrecord" text="declared" %} as records from a non-Records Management site, from within the Unfiled Records area, or could be reports generated from within the File Plan. [Filing an unfiled record]({% link governance-services/3.1/using/file-records.md %}#filing-an-unfiled-record) describes how records in the Unfiled Records area are processed.
 
@@ -367,7 +367,7 @@ If you apply an action to a folder then it will also be applied to all records w
     |Accession|Transfers the record/folder to the previously specified location. An audit trail and metadata is retained.<br><br>This usually involves the specific legal and physical transfer of records between organizations.<br><br>By default {% include tooltip.html word="accession" text="accessioned" %} records/folders are temporarily held in the Transfers area of the File Plan until you hover over them and click **Complete Transfer**.|
     |Destroy|Removes the record/folder content from the Records Management system. If the **Maintain record metadata after destroy** option is selected in the retention schedule, then a visual representation of the record, an audit trail, and metadata is retained in the File Plan.<br><br>If the record was declared from a file in an Alfresco site then the file is also removed.|
 
-    >**Note:** Each time you manually run an action, that option is replaced with the next action step in the retention schedule, and a new option for undoing the step you've just done, for example, **Undo Cut Off**.
+    > **Note:** Each time you manually run an action, that option is replaced with the next action step in the retention schedule, and a new option for undoing the step you've just done, for example, **Undo Cut Off**.
 
     Icons next to the record/folder indicate their current stage in the schedule.
 
@@ -377,25 +377,25 @@ See also video explaining [processing records]({% link governance-services/3.1/t
 
 Users with the appropriate {% include tooltip.html word="capabilities" text="capabilities" %} can add records, and record folders to a hold to freeze them. Holds prevent changes to on hold items, which have their retention schedules suspended until the hold is removed.
 
->**Note:** When you add a folder to a hold, all records within the folder are also added to the hold. The records can't be removed from the hold individually, they can only be removed from the hold by removing the entire folder.
+> **Note:** When you add a folder to a hold, all records within the folder are also added to the hold. The records can't be removed from the hold individually, they can only be removed from the hold by removing the entire folder.
 
->**Tip:** You can only put records on hold if holds have been created to add them to.
+> **Tip:** You can only put records on hold if holds have been created to add them to.
 
 1. Hover over a record in the File Plan and click **More** then **Add to Hold**.
 
     The Add to Hold screen displays.
 
-    >**Note:** This option isn't available if no holds have been set up in the Holds area or you don't have permission to put records on the existing holds.
+    > **Note:** This option isn't available if no holds have been set up in the Holds area or you don't have permission to put records on the existing holds.
 
 2. Select one or more holds and click **OK**.
 
     A message displays confirming that the record is on hold, and the record now displays the ![Frozen]({% link governance-services/images/ico-rm-frozen.png %}){:height="18px" width="18px"} icon.
 
-    >**Note:** Records and folders remain on hold until they have been removed from all holds they're added to.
+    > **Note:** Records and folders remain on hold until they have been removed from all holds they're added to.
 
 The record remains in its place in the File Plan. It is also shown in the **Holds** area of the explorer panel.
 
->**Note:** To remove a record from a hold hover over it in the File Plan or the Holds area and select **Remove from Hold**.
+> **Note:** To remove a record from a hold hover over it in the File Plan or the Holds area and select **Remove from Hold**.
 
 ### Reverting a record to be an incomplete record
 
@@ -423,7 +423,7 @@ You can add records and folders to a hold to freeze them and suspend their reten
 
 You can create as many different holds as you want, which are represented as folders in the Holds area.
 
->**Tip:** Access the Holds area using the explorer panel to the left of the File Plan.
+> **Tip:** Access the Holds area using the explorer panel to the left of the File Plan.
 
 In the Holds area there's a **New Hold** option which you use to set up your different hold types. Once you have a list of different holds you can put [records](#addrecordstohold) and [record folders](#addrecordfoldertohold) on as many of the different holds as required.
 
@@ -433,23 +433,23 @@ When you add a folder to a hold, all records within the folder are also added to
 
 In the Holds area you can look through your Holds and when you go into a hold you can see the records that are on it. The records aren't removed from the File Plan though. They retain their place in the File Plan with limited actions available, and are identified as being on hold by the ![Frozen]({% link governance-services/images/ico-rm-frozen.png %}){:height="18px" width="18px"} icon.
 
->**Note:** Only users with permissions to view a hold will see the ![Frozen]({% link governance-services/images/ico-rm-frozen.png %}){:height="18px" width="18px"} icon next to records in the File Plan that are on that hold. Users without permission to view the hold will see the record but have no indication that it is on a hold. This provides confidentially on record holds.
+> **Note:** Only users with permissions to view a hold will see the ![Frozen]({% link governance-services/images/ico-rm-frozen.png %}){:height="18px" width="18px"} icon next to records in the File Plan that are on that hold. Users without permission to view the hold will see the record but have no indication that it is on a hold. This provides confidentially on record holds.
 
 You can use the **Manage Permissions** option to control which users can view, create, edit, and delete holds. Users who don't have read permission for a specific hold will not receive any indication that records it contains are in that hold.
 
->**Tip:** You can hover over a hold and click **Generate Hold Report** to create a report on the hold. The report is filed as an incomplete record in your selected destination.
+> **Tip:** You can hover over a hold and click **Generate Hold Report** to create a report on the hold. The report is filed as an incomplete record in your selected destination.
 
 ### Creating holds
 
 Users with the appropriate {% include tooltip.html word="capabilities" text="capabilities" %} can create multiple holds that are then used when records are put on hold.
 
->**Tip:** You can only put records on hold if holds have been created to add them to.
+> **Tip:** You can only put records on hold if holds have been created to add them to.
 
 1. Click on the Holds area of the File Plan in the explorer panel, and click **New Hold**.
 
 2. Enter a Name, Description and Reason for the hold.
 
-    >**Note:** The reason will be used to when deciding which hold a record should be put on.
+    > **Note:** The reason will be used to when deciding which hold a record should be put on.
 
 3. Click **Save**.
 
@@ -477,7 +477,7 @@ Exporting a records category or folder bundles the contents and structure into a
 
 3. Select the file format for the export and click **OK**.
 
-    >**Note:** A zip file retains the file structure, making it bigger than an ACP. In an ACP the file structure is stored in an xml file.
+    > **Note:** A zip file retains the file structure, making it bigger than an ACP. In an ACP the file structure is stored in an xml file.
 
     Depending on your browser, you are either prompted to specify a destination or the file is automatically downloaded to a default location.
 
@@ -489,7 +489,7 @@ Exporting a File Plan bundles the contents and structure of the entire plan into
 
 2. Select the file format for the export and click **OK**.
 
-    >**Note:** A zip file retains the file structure, making it bigger than an ACP. In an ACP the file structure is stored in an xml file.
+    > **Note:** A zip file retains the file structure, making it bigger than an ACP. In an ACP the file structure is stored in an xml file.
 
     Depending on your browser, you are either prompted to specify a destination or the file is automatically downloaded to a default location.
 
@@ -503,6 +503,6 @@ Importing an Alfresco Content Package (ACP) or zip file into a Records Managemen
 
 3. Click **Select Import File** and find the file that you want to upload.
 
-    >**Important:** You should only import an ACP/zip file that was exported from another Records Management File Plan.
+    > **Important:** You should only import an ACP/zip file that was exported from another Records Management File Plan.
 
     The Records Management content is extracted from the uploaded file with it's original structure maintained.

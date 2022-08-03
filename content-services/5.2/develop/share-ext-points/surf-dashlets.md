@@ -1,31 +1,38 @@
 ---
-title: Surf Dashlets
+title: Surf Dashlets Extension Point
 ---
 
-The Share web application has a special page called Dashboard, which contains windows (think Portlets) of content called dashlets. Currently most of these dashlets are Spring Surf dashlets, but they will eventually be converted to Aikau dashlets.
+The Share web application has a special page called Dashboard, which contains windows (think Portlets) of content called 
+dashlets. Currently most of these dashlets are Spring Surf dashlets, but they will eventually be converted to Aikau dashlets.
 
-|Extension Point|Surf Dashlets (It is recommended to use [Aikau Dashlets]({% link content-services/5.2/develop/share-ext-points/aikau-dashlets.md %}#aikau-dashlets) instead)|
-|---------------|-----------------------------------------------------------------------------------------------------------|
-|Architecture Information|[Share Architecture]({% link content-services/5.2/develop/software-architecture.md %}#share-architecture).|
-|Description|The following picture shows a User Dashboard with a number of Dashlets, such as My Sites and My Tasks:
+Architecture Information: [Share Architecture]({% link content-services/5.2/develop/software-architecture.md %}#sharearchitecture)
 
- ![]({% link content-services/images/dev-extensions-share-user-dashboard-dashlets.png %})
+## Description
 
- You can implement your own custom dashlets that can be added to either the User Dashboard or the Site Dashboard.
+The following picture shows a User Dashboard with a number of Dashlets, such as My Sites and My Tasks:
 
-Creating a Surf dashlet is the same thing as creating a Surf web script. Before continuing read through the [Surf Web Scripts section]({% link content-services/5.2/develop/repo-ext-points/web-scripts.md %}#surf-web-scripts). The controller of the dashlet presentation web script will usually call a Data web script on the repository side to get the content that should be displayed in the dashlet.
+![dev-extensions-share-user-dashboard-dashlets]({% link content-services/images/dev-extensions-share-user-dashboard-dashlets.png %})
 
-Let's look at an example of a custom dashlet, the following picture shows a Member Directory dashlet that can be used to search the User/People directory:
+You can implement your own custom dashlets that can be added to either the User Dashboard or the Site Dashboard.
 
- ![]({% link content-services/images/dev-extensions-share-user-dashboard-member-dir-dashlet.png %})
+Creating a Surf dashlet is the same thing as creating a Surf web script. Before continuing read through the 
+[Surf Web Scripts section]({% link content-services/5.2/develop/share-ext-points/web-scripts.md %}). The controller of the dashlet presentation web script 
+will usually call a Data web script on the repository side to get the content that should be displayed in the dashlet.
 
- This dashlet is implemented using a presentation web script, which in turn uses a Data web script to get the people matching the Search Filter parameter. The following picture illustrates:
+Let's look at an example of a custom dashlet, the following picture shows a Member Directory dashlet that can be used to 
+search the User/People directory:
 
-![]({% link content-services/images/dev-extensions-share-web-scripts-presentation-and-data.png %})
+![dev-extensions-share-user-dashboard-member-dir-dashlet]({% link content-services/images/dev-extensions-share-user-dashboard-member-dir-dashlet.png %})
 
- In this case we have a Spring Surf Web Script on the Share side that will, in its controller, call a repository web script (that is Data Web Script) to get a list of person records in JSON format. The controller looks something like this:
+This dashlet is implemented using a presentation web script, which in turn uses a Data web script to get the people 
+matching the Search Filter parameter. The following picture illustrates:
 
-```
+![dev-extensions-share-web-scripts-presentation-and-data]({% link content-services/images/dev-extensions-share-web-scripts-presentation-and-data.png %})
+
+In this case we have a Spring Surf Web Script on the Share side that will, in its controller, call a repository web script 
+(that is Data Web Script) to get a list of person records in JSON format. The controller looks something like this:
+
+```javascript
 // Get args from the Share page URL
 var filterValue = page.url.args["filter"];
 var connector = remote.connect("alfresco");
@@ -36,13 +43,17 @@ var peopleJSON = jsonUtils.toObject(peopleJSONString);
 model.people = peopleJSON["people"];  
 ```
 
-The controller makes use of a special root object called [remote]({% link content-services/5.2/develop/reference/surf-framework-ref.md %}#connectors-and-endpoints, which is used to connect to a remote service, such as the repository, and get data. The JSON data is returned from a repository web script) (that is, a Data web script), which in its controller uses the public API to fetch person information matching passed in Search Filter (that is, `filter`).
+The controller makes use of a special root object called [remote]({% link content-services/5.2/develop/reference/surf-framework-ref.md %}#remoteapi), 
+which is used to connect to a remote service, such as the repository, and get data. The JSON data is returned from a repository web script) 
+(that is, a Data web script), which in its controller uses the public API to fetch person information matching passed 
+in Search Filter (that is, `filter`).
 
-The repository web script uses a root object called `people` to search for person info. This root object is Alfresco Content Services specific and is only available in repository web scripts.
+The repository web script uses a root object called `people` to search for person info. This root object is Content Services 
+specific and is only available in repository web scripts.
 
 Now, to create a dashlet web script you also need a descriptor, which is defined in XML and looks something like this:
 
-```
+```xml
 <webscript>
     <shortname>Member Directory</shortname>
     <description>Provide Search of people and display in a list</description>
@@ -53,13 +64,13 @@ Now, to create a dashlet web script you also need a descriptor, which is defined
 
 The descriptor looks like any other web script descriptor except the `family` parameter, which can have the following values:
 
--   `user-dashlet` - A web script that implements a dashlet that can be added to a User Dashboard
--   `site-dashlet` - A web script that implements a dashlet that can be added to a Site Dashboard
--   `dashlet` - A web script that implements a dashlet that can be added to any Dashboard
+* `user-dashlet` - A web script that implements a dashlet that can be added to a User Dashboard
+* `site-dashlet` - A web script that implements a dashlet that can be added to a Site Dashboard
+* `dashlet` - A web script that implements a dashlet that can be added to any Dashboard
 
 The Dashlet UI needs to be implemented in the web script template as follows:
 
-```
+```xml
 <#-- JavaScript Dependencies
 <@markup id="js">
 </@>
@@ -112,33 +123,38 @@ The Dashlet UI needs to be implemented in the web script template as follows:
 </@>   
 ```
 
-Here we are not using any custom client side JavaScript or CSS. Instead we use a simple HTML only based UI with default out-of-the-box styling. In the markup you will see references to i18n labels such `${msg("member.directory.searchResult")}`. These messages are defined in the web script properties file as follows:
+Here we are not using any custom client side JavaScript or CSS. Instead we use a simple HTML only based UI with default 
+out-of-the-box styling. In the markup you will see references to i18n labels such `${msg("member.directory.searchResult")}`. 
+These messages are defined in the web script properties file as follows:
 
-```
+```text
 member.directory.dashletName=Member Directory
 member.directory.searchFilter=Search Filter
 member.directory.searchResult=Search Result   
 ```
 
-|
-|Deployment - App Server|-   tomcat/shared/classes/alfresco/web-extension/site-webscripts/ (Untouched by re-depolyments and upgrades)
--   tomcat/webapps/share/components/dashlets/ (when web resources are included you need to put them directly into the exploded webapp, this is NOT recommended.)
+## Deployment - App Server
 
- Best practice is to put the files in a directory that explains what they are for, such as for example:
+* `tomcat/shared/classes/alfresco/web-extension/site-webscripts` (Untouched by re-deployments and upgrades)
+* `tomcat/webapps/share/components/dashlets` (when web resources are included you need to put them directly into the exploded webapp, this is NOT recommended.)
 
-tomcat/shared/classes/alfresco/web-extension/site-webscripts/org/alfresco/training/components/dashlets
+Best practice is to put the files in a directory that explains what they are for, such as for example:
 
-|
-|[Deployment All-in-One SDK project]({% link content-services/5.2/develop/sdk.md %}#getting-started-with-alfresco-content-services-sdk-3).|-   aio/share-jar/src/main/resources/alfresco/web-extension/site-webscripts/{custom path}
--   aio/share-jar/src/main/resources/META-INF/resources/share-jar/components/dashlets (when web resources such as CSS and JS are included)
+`tomcat/shared/classes/alfresco/web-extension/site-webscripts/org/alfresco/training/components/dashlets`
 
-|
-|More Information|-   [Share Extras Project](http://share-extras.github.io/) - Contains loads of Dashlets, good place to go and look at how different types of Dashlets can be implemented.
+## Deployment All-in-One SDK project
 
-|
-|Sample Code|-   [Custom Surf Pages, Surf Dashlets, and Surf Web Scripts](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-surf-dashlet-and-page-share)
+* `aio/share-jar/src/main/resources/alfresco/web-extension/site-webscripts/{custom path}`
+* `aio/share-jar/src/main/resources/META-INF/resources/share-jar/components/dashlets` (when web resources such as CSS and JS are included)
 
-|
-|Tutorials|-   [Share Extras Project](http://share-extras.github.io/) - Look at the source code for the dashlets in this project
+## More Information
 
-|
+* [Share Extras Project](http://share-extras.github.io/){:target="_blank"} - Contains loads of Dashlets, good place to go and look at how different types of Dashlets can be implemented.
+
+## Sample Code
+
+* [Custom Surf Pages, Surf Dashlets, and Surf Web Scripts](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-surf-dashlet-and-page-share){:target="_blank"}
+
+## Tutorials
+
+* [Share Extras Project](http://share-extras.github.io/){:target="_blank"} - Look at the source code for the dashlets in this project

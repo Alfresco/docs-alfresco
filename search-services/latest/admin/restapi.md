@@ -232,7 +232,7 @@ The optional URL parameters that can be added:
 
     The number of the ACL transaction to purge.
 
-* **`nodeId`**
+* **`nodeid`**
 
     The number of the node to purge.
 
@@ -264,7 +264,7 @@ The optional URL parameters that can be added:
 
     The number of the ACL transaction to reindex.
 
-* **`nodeId`**
+* **`nodeid`**
 
     The number of the node to reindex.
 

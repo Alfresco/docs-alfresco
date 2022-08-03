@@ -4,6 +4,8 @@ title: Projects
 
 Projects are the top level component of the business process being modeled. They contain all of the logic for the models that make up the business process such as forms, processes, content models and connectors.
 
+Some example projects are available for you to use to help you get started, for more see [Example projects](#example-projects).
+
 ## Create a project
 
 To create a project:
@@ -20,6 +22,8 @@ To create a project:
 
 4. Enter a **Project name** and optional **Project description** if **Create Project** was chosen.
 
+You can use the **Save as** function to save a new copy of a project from the projects view screen or from the home screen. This is accessed by clicking on the three dots and selecting **Save as**.  
+
 ## Properties
 
 The properties for a project are:
@@ -33,6 +37,8 @@ Once a project has been created or uploaded into the Modeling Application, the f
 
 | Property | Description |
 | -------- | ----------- |
+| Name | The name of the project as it appears in the Modeling Application. |
+| Updated | The amount of time that has lapsed since the last update to the project. |
 | Created | Displays how long ago the project was created. |
 | Created By | Displays which user created the project. |
 | Version | Displays the current version of the project. |
@@ -60,6 +66,8 @@ To release a project:
 3. Select the **Release** action from the **Options** column for the project.
 
 Selecting the **View Releases** option for a project displays the version history for the project.
+
+You can restore your project to a previous release by selecting the three dots to the right of the release you want to restore, and then selecting **Restore this Release**.
 
 ## Validate a project
 
@@ -123,3 +131,25 @@ File definitions are created and stored for each model in a project:
 * `<content-model-name>.xml` is the format the content model is stored in.
 * `<content-model>-extensions.json` is the format that stores the content model metadata.
 * `<project-name>.json` is the project manifest that stores the name and version of a project.
+
+## Example projects
+
+To help you get started example projects for Audio and Video Transcription, Personal Identifiable Information Detection, and Invoice Review process are provided. Once you access the example projects you can make copies of them and save them as your own. Once saved, they can be reconfigured for your own purposes, including deploying your own applications that are based on them.
+
+![Example projects]({% link process-automation/images/example-projects.png %})
+
+### Access example projects
+
+To access an example project:
+
+1. Sign into the Modeling Application.
+
+2. Click **Example Projects** from the left pane.
+
+3. Select the example project you want to work with.
+
+4. Click **Duplicate and open**.
+
+5. Enter an appropriate name and click **Duplicate**.
+
+![Duplicate projects]({% link process-automation/images/duplicate-projects.png %})

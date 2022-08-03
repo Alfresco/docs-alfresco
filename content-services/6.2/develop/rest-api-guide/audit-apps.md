@@ -1052,7 +1052,7 @@ ReST call must be a member of the `ALFRESCO_ADMINISTRATORS` group.
 
 Getting the metadata (i.e. properties) for an audit entry is done with the following GET call:
 
-`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/{id}/audit-entry/{entryId}`
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/{id}/audit-entries/{entryId}`
 
 The identifier for the audit application we want to get metadata for is specified with the `{id}` parameter, and the
 audit entry is specified with the `{entryId}` parameter.

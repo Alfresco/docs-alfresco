@@ -944,7 +944,7 @@ Use this file to set up attributes and metadata settings.
         <connection url="http://127.0.0.1:8080/" shareUrl="share" alfrescoUrl="alfresco" login="admin" password="7DkTRpO8sfo=" checkCertificate="true" checkVersion="true" authentication="basic" webApp="2" shareAlterUrl="" settingsCheckInterval="480" />
         <logging minLevel="info" />
         <storage archiveOption="0" storeFiles="true" storeLink="true" storeMsg="false" compress="true" />
-        <feature autoPaging="false" highlightTexts="false" tokenAlterMode="false" messageIcon="false" />
+        <feature autoPaging="false" tokenAlterMode="false" messageIcon="false" />
         <explorer-search-properties />
         <search-properties />
       </outlook>
@@ -964,7 +964,7 @@ Use this file to set up attributes and metadata settings.
     |`hoverPreview`|Controls the behavior of the Preview window in the Search tab of the Alfresco sidebar|`true`: preview window is shown when hovering over the found item. This is the default setting.<br><br>`false`: preview window is not shown when hovering over the found item.|
     |`isSitesRoot`|Sets a root folder to show in the Explore tab of the Alfresco sidebar|`true`: root is the Sites folder. This is the default setting.<br><br>`false`: root is the Company Home folder.|
     |`mailNameDisplayPattern=" #subject (#from)"`|Modifies the email appearance in the Explore tab of the Alfresco sidebar|Use these variables to modify the email fields displayed: `#subject`, `#from`, `#to`, `#sent`|
-    |`culture`|Sets the language used in Alfresco Outlook Client|Possible settings:`en`: English<br><br>`de`: German<br><br>`es`: Spanish<br><br>`it`: Italian<br><br>`fr`: French<br><br>`ja`: Japanelse<br><br>`ru`: Russian<br><br>`zh-cn`: Chinese (Simplified)<br><br>`pt-br`: Brazilian Portuguese<br><br>`nl`: Dutch<br><br>`nb-no`: Norwegian (Bokmal)<br><br>`cs`: Czech<br><br>`da`: Danish<br><br>`sv`: Swedish<br><br>`fi`: Finnish<br><br>`pl`: Polish<br><br>|
+    |`culture`|Sets the language used in Alfresco Outlook Client|Possible settings:`en`: English<br><br>`de`: German<br><br>`es`: Spanish<br><br>`it`: Italian<br><br>`fr`: French<br><br>`ja`: Japanese<br><br>`ru`: Russian<br><br>`zh-cn`: Chinese (Simplified)<br><br>`pt-br`: Brazilian Portuguese<br><br>`nl`: Dutch<br><br>`nb-no`: Norwegian (Bokmal)<br><br>`cs`: Czech<br><br>`da`: Danish<br><br>`sv`: Swedish<br><br>`fi`: Finnish<br><br>`pl`: Polish<br><br>|
     |`customAppTitle`|Renames Alfresco Outlook Client sidebar|Enter your chosen title as a text string.|
     |`customRibbonTitle`|Renames the Alfresco Client tab|Enter your chosen title as a text string.|
     |`customMenuTitle`|Renames the Alfresco Client option when right clicking a file|Enter your chosen title as a text string.**Note:** If you set this option, the same value is applied to `customRibbonTitle` if `customRibbonTitle` is blank.|

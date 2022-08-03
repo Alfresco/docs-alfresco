@@ -378,7 +378,7 @@ The behaviors connect from Content Services to the SAP system via the SAP Java C
 
 #### Behavior: sapContentConnectorCreateArchivelink {#createArchivelinkBehavior}
 
-The behavior is responsible to connect the current document based on entered metadata to an existing SAP Business Object. Therefore, the `SAP Create Archivelink Aspect` is used. To connect a document to a SAP Business Object, the `SAP Create Archivelink Aspect` must be added and its values must be filled. Along with the `SAP Create Archivelink Aspect` the `SAP Connection Details` aspect will be added automatically.
+The behavior is responsible to connect the current document based on entered metadata to an existing SAP Business Object. Therefore, the `SAP Create Archivelink Aspect` is used. To connect a document to an SAP Business Object, the `SAP Create Archivelink Aspect` must be added and its values must be filled. Along with the `SAP Create Archivelink Aspect` the `SAP Connection Details` aspect will be added automatically.
 
 Once all mandatory properties of the aspects are set and the document is saved, the behavior fires `onUpdateProperties` and invokes a SAP function module which will create the related entries in the SAP tables based on the aspect data. The current document is then available in the attachment list of the related SAP Business Object.
 
@@ -450,7 +450,7 @@ The behavior can be enabled or disabled at the repository file for each SAP Cont
 
 #### Behavior: sapContentConnectorWorkflow {#workflowBehavior}
 
-The behavior will create a new inbox task for a SAP user in his SAP Business Workplace (transaction `SBPW`) in the SAP system. The current document will be attached to this task as a refernce link. The inbox task can be related to any SAP Workflow then (depends on SAP customizing). To invoke the behavior, the `SAP Workflow Details` aspect must be added to a document in Content Services. Along with this aspect the required `SAP Connection Details` aspect is added automatically. The mandatory aspect values must be filled and if the properties are saved, the behavior is invoked (`onUpdateProperties`).
+The behavior will create a new inbox task for a SAP user in his SAP Business Workplace (transaction `SBPW`) in the SAP system. The current document will be attached to this task as a reference link. The inbox task can be related to any SAP Workflow then (depends on SAP customizing). To invoke the behavior, the `SAP Workflow Details` aspect must be added to a document in Content Services. Along with this aspect the required `SAP Connection Details` aspect is added automatically. The mandatory aspect values must be filled and if the properties are saved, the behavior is invoked (`onUpdateProperties`).
 
 The following table lists the required data of the aspect that's required to create the inbox task for the SAP user:
 
@@ -490,7 +490,7 @@ The behavior can be enabled or disabled at the repository file for each SAP Cont
 
 The SAP Connector offers a couple of predefined content model types which accomplishes the different tasks of the available jobs. This section describes all available content model types with their purpose.
 
-The available content model types are closely related to the availble SAP Connector jobs ([Configuring jobs](#configure-jobs)) and SAP Connector behaviors ([Configuring behaviors](#configure-behaviors)). The types are already prepared with the necessary aspects.
+The available content model types are closely related to the available SAP Connector jobs ([Configuring jobs](#configure-jobs)) and SAP Connector behaviors ([Configuring behaviors](#configure-behaviors)). The types are already prepared with the necessary aspects.
 
 The SAP Connector offers the following predefined content model types:
 
@@ -510,7 +510,7 @@ To change the existing type of the document to a SAP Connector type, follow the 
 
 The `SAP Archivelink Document` type allows you to link a document in Alfresco manually to its corresponding business object in SAP. Based on the properties that must be entered during the creation, the connection to the SAP business object will be done automatically.
 
-> **Note:** Make sure to have the [Behavior: sapContentConnectorCreateArchivelink](#createArchivelinkBehavior) enabled.
+> **Note:** Make sure you've enabled [Behavior: sapContentConnectorCreateArchivelink](#createArchivelinkBehavior).
 
 To link a document to a corresponding SAP Business Object by the `SAP Archivelink Document` type:
 
@@ -522,23 +522,30 @@ To link a document to a corresponding SAP Business Object by the `SAP Archivelin
 3. Save the document. Now the [Behavior: sapContentConnectorCreateArchivelink](#createArchivelinkBehavior) will be invoked and call a related SAP function module which will create the necessary table entries.
 4. The current document is now available as attachment for the SAP Business Object (matching the aspect values).
 
-> **Note:** To connect a document of any other type, add the `SAP Create Archivelink Details` aspect to that document and provide the related aspect values that matches a SAP Business Object.
+> **Note:** To connect a document of any other type, add the `SAP Create Archivelink Details` aspect to that document and provide the related aspect values that match an SAP Business Object.
 
 #### SAP Barcode type
 
-The `SAP Barcode` type allows you to process a document in Alfresco with the barcode scenario (as certified by SAP HTTP-Content Server). Based on the barcode entered as value for the related aspect, the SAP Connector invokes a SAP function module which creates the entry in the **External Barcode** table in SAP. Does the barcode already exists in SAP, the document is available immediately as attachment for the related SAP Business Object (Late Archiving). Does the barcode not yet exists, the document will be attached to a SAP Business Object at the time a SAP user enters the barcode (Early Archiving).
+The `SAP Barcode` type allows you to process a document in Alfresco with the barcode scenario (as certified by the SAP HTTP-Content Server). Based on the barcode entered as a value for the related aspect, the SAP Connector invokes an SAP function module which creates the entry in the **External Barcode** table in SAP.
 
-> **Note:** Make sure to have the [Job: sapContentConnectorBarcode](#sapContentConnectorBarcodeJob) enabled.
+* If the barcode already exists in SAP, the document is available immediately as an attachment for the related SAP Business Object (i.e. Late Archiving).
+* If the barcode isn't yet in SAP, the document will be attached to an SAP Business Object when an SAP user enters the barcode (i.e. Early Archiving).
 
-To link a document to a SAP Business Object by the `SAP Barcode` type:
+> **Note:** Make sure you've enabled the [Job: sapContentConnectorBarcode](#sapContentConnectorBarcodeJob).
+
+To link a document to an SAP Business Object by the `SAP Barcode` type:
 
 1. Change the type of the document to `SAP Barcode`.
 2. Edit the properties of the document and enter the mandatory fields for the `SAP Connection Details` and `SAP Barcode Details` aspects:
 
     ![sap_conf_types_barcode_properties]({% link sap/images/sap_conf_types_barcode_properties.png %})
 
-3. Save the document. Now, depening on the CRON expression of the [Job: sapContentConnectorBarcode](#sapContentConnectorBarcodeJob), the job will pick up the document and create the necessary entry in the **External Barcode** table (check transaction `OAM1`) of the SAP system.
-4. For Late Archiving, the document is immediately available as attachment on the related SAP Business Object, for Early Archiving, the document is available as soon as the SAP user manually enters the matching barcode on a SAP Business Object.
+3. Save the document.
+
+    Depending on the CRON expression of the [Job: sapContentConnectorBarcode](#sapContentConnectorBarcodeJob), the job will pick up the document and create the necessary entry in the **External Barcode** table (check transaction `OAM1`) of the SAP system.
+
+    * For Late Archiving, the document is immediately available as an attachment on the related SAP Business Object.
+    * For Early Archiving, the document is available as soon as the SAP user manually enters the matching barcode on an SAP Business Object.
 
 > **Note:** To use the barcode with any other Content Services content type, add the `SAP Barcode Details` aspect to a document **and** make sure to have the [Behavior: sapContentConnectorBarcode](#sapContentConnectorBarcodeBehavior) **in addition** to the [Job: sapContentConnectorBarcode](#sapContentConnectorBarcodeJob) enabled for the current SAP System Configuration.
 
@@ -563,6 +570,12 @@ To create a new inbox task (SAP Workflow) for a SAP user including the current d
     > **Note:** As long as `Check SAP Workflow` is disabled, the behavior will not consider the current document.
 
 5. The current document is now available as attachment (link to the document in Content Services) of an inbox task assigned to the user in SAP.
+
+## Configure GenericXchange
+
+The GenericXchange module is used for flexible data exchange either via a secure Remote Function Call (RFC/SNC) connection or by invoking an Open Data Protocol (OData) service on the related SAP System (either SAP Cloud Essentials or SAP S/4HANA on-premises).
+
+To configure this module, see the Alfresco Content Connector for SAP Cloud documentation, [Configure GenericXchange]({% link sap-cloud/latest/config/genericxchange.md %}){:target="_blank"}.
 
 ## Open associated Business Object in SAP {#openassocbusinessobjinsap}
 
@@ -595,7 +608,7 @@ Use these steps to configure opening an associated SAP Business Objects in SAP.
     | integrations.sap.system.1.webClient.enabled | Enable or disable the feature for all SAP Content Repositories related to the SAP System Configuration. |
     | integrations.sap.system.1.webClient.url | Specify the base URL to the SAP Web application server. |
 
-    > **Note:** Any changes of the properties requires a restart of Content Services.
+    > **Note:** Any property changes require a restart of Content Services.
 
 The following table lists all available `SAP Object Types`, which are supported by default, including their associated `Transaction`. These are used to open the corresponding SAP Business Object. The parameter in the `Field Names in URL` column are automatically filled with the related values from the aspects.
 
@@ -603,6 +616,7 @@ The following table lists all available `SAP Object Types`, which are supported 
 | --------------- | --------------- | ------------------ |
 | BKPF | FB03 | RF05L-BELNR, RF05L-BUKRS, RF05L-GJAHR |
 | BUS1065 | PA40 | RP50G-PERNR |
+| BUS1001006 | MM03 | RMMG1-MATNR |
 | BUS2010 | ME43 | RM06E-ANFNR |
 | BUS2012 | ME23 | RM06E-BSTNR |
 | BUS2032 | VA03 | VBAK-VBELN |
@@ -674,7 +688,7 @@ The following macros are supported as values for URL parameter, if applicable :
 
 | Macro Name | Description |
 | ---------- | ----------- |
-| %SAP_CLIENT% | The SAP Client, specified in the `alfresco-gloabl.properties` for the SAP System Configuration. |
+| %SAP_CLIENT% | The SAP Client, specified in the `alfresco-global.properties` for the SAP System Configuration. |
 | %SAP_OBJECT% | The `SAP Object Type`, read from aspect value `connexasReplicate:sapobject`. For example `BKPF` (see [Job: sapContentConnectorReplicate](#sapContentConnectorReplicateJob)). |
 | %SAP_ARCHIVE_OBJECT% | The `SAP Document Type`, read from aspect value `connexasReplicate:saparchiveobject`. For example `Z_INV_XX`. |
 | %SAP_OBJECT_ID% | The `SAP Object Id`, read from aspect value `connexasReplicate:sapobjectid`. |

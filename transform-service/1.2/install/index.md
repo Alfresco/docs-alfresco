@@ -330,7 +330,7 @@ Use these instructions to install Transform Service using the distribution zip t
 
 The Transform Service distribution zip file includes all the files required to provide the Transform Service capabilities. Ensure that you've installed the prerequisites before continuing, for more see [Install Transform Service]({% link transform-service/1.2/install/index.md %}).
 
-1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download `alfresco-transform-service-distribution-1.2.x.zip`.
+1. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"} and download `alfresco-transform-service-distribution-1.2.x.zip`.
 
 2. Extract the zip file into a system directory; for example, `<installLocation>/`.
 
@@ -413,14 +413,14 @@ The Transform Service distribution zip file includes all the files required to p
 
     # Shared File Store properties:
     sfs.url=http://localhost:8099
-    sfs.endpoint=${sfs.url}/alfresco/api/-default-/private/sfs/versions/1/file
+    sfs.endpoint=${sfs.url}/alfresco/api/-default-/private/sfs/versions/1
 
     # Transform Router properties:
     transform.service.enabled=true
-    transform.service.url=http://localhost:8095/
+    transform.service.url=http://<Transform Service host>:8095/
 
     # Transform Core properties:
-    localTransform.core-aio.url=http://transform-core-aio:8090/
+    localTransform.core-aio.url=http://<Transform Service host>:8090/
     ```
 
     This overrides the default properties provided by Content Services.

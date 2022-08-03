@@ -1,29 +1,39 @@
 ---
-title: Permissions / Roles
+title: Permissions and roles Extension Point
 ---
 
-Permissions and their groupings are defined in XML configuration files. The default files are found in the distribution configuration directory as permissionDefinitions.xml and sitePermissionDefinitions.xml. This configuration can be replaced or extended to create new permissions and roles.
+Permissions and their groupings are defined in XML configuration files. The default files are found in the distribution 
+configuration directory as `permissionDefinitions.xml` and `sitePermissionDefinitions.xml`. This configuration can be 
+replaced or extended to create new permissions and roles.
 
-|Information|Permissions and Roles|
-|-----------|---------------------|
-|Support Status|[Full Support]({% link support/latest/policies/product-lifecycle.md %})|
-|Architecture Information|[Platform Architecture]({% link content-services/5.2/develop/software-architecture.md %}#platform-architecture)|
-|Description|Alfresco Content Services provides a handful of out-of-the-box roles with different levels of permissions in the repository: -   **Consumer** - can read content
--   **Contributor** - can create and upload content
--   **Editor** - can read and update content
--   **Collaborator** - can do everything except moving and deleting other users content
--   **Coordinator** - full access
+Architecture Information: [Platform Architecture]({% link content-services/5.2/develop/software-architecture.md %}#platformarch)
 
- There is also a special role called **owner**, which is assigned the creator of a piece of content. The owner has full access to content he or she has created. We can set up content permissions for users and groups by using these roles. If we are setting up permissions within a site, then we have four site roles to work with:
+## Description
 
- -   **Site Consumer** - can read content
--   **Site Contributor** - can create and upload content
--   **Site Collaborator** - can do everything except moving and deleting other users content
--   **Site Manager** - full access
+Content Services provides a handful of out-of-the-box roles with different levels of permissions in the repository: 
 
- Now, sometimes these roles are not enough to set up the permissions we need. We can then configure custom permissions (could also be referred to as custom roles). Before creating new permissions and roles it is a good idea to get familiar with the [**permissionDefinitions.xml**](https://github.com/Alfresco/alfresco-repository/blob/master/src/main/resources/alfresco/model/permissionDefinitions.xml) file format. The element defining a basic low level right is called **permission**. Here are a couple of examples of out-of-the-box permissions:
+* **Consumer** - can read content
+* **Contributor** - can create and upload content
+* **Editor** - can read and update content
+* **Collaborator** - can do everything except moving and deleting other users content
+* **Coordinator** - full access
 
- ```
+There is also a special role called **owner**, which is assigned the creator of a piece of content. The owner has 
+full access to content he or she has created. We can set up content permissions for users and groups by using these roles. 
+If we are setting up permissions within a site, then we have four site roles to work with:
+
+* **Site Consumer** - can read content
+* **Site Contributor** - can create and upload content
+* **Site Collaborator** - can do everything except moving and deleting other users content
+* **Site Manager** - full access
+
+Now, sometimes these roles are not enough to set up the permissions we need. We can then configure custom permissions 
+(could also be referred to as custom roles). Before creating new permissions and roles it is a good idea to get familiar 
+with the [**permissionDefinitions.xml**](https://github.com/Alfresco/alfresco-repository/blob/master/src/main/resources/alfresco/model/permissionDefinitions.xml){:target="_blank"} 
+file format. The element defining a basic low level right is called **permission**. Here are a couple of examples of 
+out-of-the-box permissions:
+
+```xml
 ...
 <permissionSet type="sys:base" expose="all" >
    ...                     
@@ -41,17 +51,25 @@ Permissions and their groupings are defined in XML configuration files. The defa
 ...
 ```
 
- So we can see that each permission has a `name` and an `expose` attribute. By convention a low level permission `name` will always start with an underscore (_). The full name includes the type `uri` from the outer `permissionSet`, such as for example `sys:base._ReadProperties`.
+So we can see that each permission has a `name` and an `expose` attribute. By convention a low level permission `name` 
+will always start with an underscore (`_`). The full name includes the type `uri` from the outer `permissionSet`, such as 
+for example `sys:base._ReadProperties`.
 
- The `expose` attribute tells Alfresco Content Services if this permission should be visible in the user interface. Note that a permission does not map one-to-one with a menu item or UI action. For example, there is no permission for downloading content. Instead the permissions are focused on what operation you are allowed to execute on a content item (node) in the Repository. To download content you will need the `_ReadContent` permission.
+The `expose` attribute tells Content Services if this permission should be visible in the user interface. 
+Note that a permission does not map one-to-one with a menu item or UI action. For example, there is no permission for 
+downloading content. Instead the permissions are focused on what operation you are allowed to execute on a content item 
+(node) in the Repository. To download content you will need the `_ReadContent` permission.
 
- When defining permissions we also specify what permission group they should be part of.
+When defining permissions we also specify what permission group they should be part of.
 
- Every permission that we define needs to be associated with a type or an aspect from the content model that it applies to. This is managed by grouping the permission definitions in a so called `permissionSet`, which specifies the type or aspect via the `type` attribute, in this case the `type` is set to `sys:base`, which is the base type in Alfresco Content Services out-of-the-box content model, so these low level permissions are applicable to all content nodes.
+Every permission that we define needs to be associated with a type or an aspect from the content model that it applies to. 
+This is managed by grouping the permission definitions in a so called `permissionSet`, which specifies the type or aspect 
+via the `type` attribute, in this case the `type` is set to `sys:base`, which is the base type in Content Services 
+out-of-the-box content model, so these low level permissions are applicable to all content nodes.
 
- Examples of low level **permissionGroup**s from the out-of-the-box ones:
+Examples of low level **permissionGroup**s from the out-of-the-box ones:
 
- ```
+```xml
 ...
 <permissionSet type="sys:base" expose="all" >
    ... 
@@ -65,11 +83,13 @@ Permissions and their groupings are defined in XML configuration files. The defa
 ...
 ```
 
- By convention there is one permission group per low level permission. The full name includes the type `uri` from the outer `permissionSet`, such as for example `sys:base.ReadProperties`.
+By convention there is one permission group per low level permission. The full name includes the type `uri` from the 
+outer `permissionSet`, such as for example `sys:base.ReadProperties`.
 
- We can find out how the public API methods map to the permission configuration by looking in the public-services-security-context.xml file. For example, the Content Service has the following access control set up:
+We can find out how the public API methods map to the permission configuration by looking in the 
+`public-services-security-context.xml` file. For example, the Content Service has the following access control set up:
 
- ```
+```xml
 ...
 <bean id="ContentService_security" class="org.alfresco.repo.security.permissions.impl.acegi.MethodSecurityInterceptor">
   <property name="authenticationManager"><ref bean="authenticationManager"/></property>
@@ -95,11 +115,12 @@ Permissions and their groupings are defined in XML configuration files. The defa
 ...
 ```
 
- Here we can see that getting the content for a node with `ContentService.getReader`, to for example download it, requires the `sys:base.ReadContent` permission.
+Here we can see that getting the content for a node with `ContentService.getReader`, to for example download it, 
+requires the `sys:base.ReadContent` permission.
 
- There are also convenience groupings based on high level content operation type, such as read, write, delete:
+There are also convenience groupings based on high level content operation type, such as `read`, `write`, `delete`:
 
-```
+```xml
 ...
 <permissionSet type="sys:base" expose="all" >
    ... 
@@ -117,11 +138,13 @@ Permissions and their groupings are defined in XML configuration files. The defa
 ...
 ```
 
- Here we can also see a `type` attribute being used when including the low level permission groups. In this case the `type` attribute specifies from what `permissionSet` to include the `permissionGroup`. So far everything has been specified inside one `permissionSet` with type set to `sys:base`, so the permission groups will be included from it.
+Here we can also see a `type` attribute being used when including the low level permission groups. In this case the `type` 
+attribute specifies from what `permissionSet` to include the `permissionGroup`. So far everything has been specified 
+inside one `permissionSet` with type set to `sys:base`, so the permission groups will be included from it.
 
- On top of the convenience groupings we have the groupings that could be said to represent roles, such as a Collaborator:
+On top of the convenience groupings we have the groupings that could be said to represent roles, such as a `Collaborator`:
 
- ```
+```xml
 ...
 <permissionSet type="cm:cmobject" expose="selected">
    ... 
@@ -149,11 +172,12 @@ Permissions and their groupings are defined in XML configuration files. The defa
 ...
 ```
 
- These "role" permission groups are what we work with from the user interface when setting up permissions. And they are applicable to all content of type `cm:cmobject`, which means files, folder, categories, links etc.
+These "role" permission groups are what we work with from the user interface when setting up permissions. And they are 
+applicable to all content of type `cm:cmobject`, which means files, folder, categories, links etc.
 
- There are even more specific permission definitions for just file types and folder types:
+There are even more specific permission definitions for just file types and folder types:
 
- ```
+```xml
 ...
 <permissionSet type="cm:content" expose="selected">
    <permissionGroup name="Coordinator" extends="true" expose="true"/>
@@ -174,11 +198,14 @@ Permissions and their groupings are defined in XML configuration files. The defa
 ...
 ```
 
- Here we can see another new attribute called `extends` being used. It can be used when we just want to extend an already existing permission group definition.
+Here we can see another new attribute called `extends` being used. It can be used when we just want to extend an already 
+existing permission group definition.
 
- It is also worth having a look at the Alfresco Share site permissions defined in the [**sitePermissionDefinitions.xml**](https://github.com/Alfresco/alfresco-repository/blob/master/src/main/resources/alfresco/model/sitePermissionDefinitions.xml) file, they look like this:
+It is also worth having a look at the Alfresco Share site permissions defined in the 
+[sitePermissionDefinitions.xml](https://github.com/Alfresco/alfresco-repository/blob/master/src/main/resources/alfresco/model/sitePermissionDefinitions.xml){:target="_blank"} 
+file, they look like this:
 
- ```
+```xml
 ...
 <permissionSet type="st:site" expose="selected">
    <permissionGroup name="SiteManager" allowFullControl="true" expose="true" />
@@ -199,11 +226,15 @@ Permissions and their groupings are defined in XML configuration files. The defa
 ...
 ```
 
- Here we can see that the site permissions (roles) basically just re-uses the standard permission groups. However, the `permissionSet` is targeted only at type `st:site`, and will not be applicable outside of a site. Also, note that the Editor role will not be available when working with site content.
+Here we can see that the site permissions (roles) basically just re-uses the standard permission groups. However, the 
+`permissionSet` is targeted only at type `st:site`, and will not be applicable outside of a site. Also, note that the 
+`Editor` role will not be available when working with site content.
 
- Now, let's **define a custom permission** for publishing web content classified with the ACME Content Model ([more info]({% link content-services/5.2/develop/repo-ext-points/content-model.md %})). We will assume we have a document library action that can be used to publish web content as follows:
+Now, let's **define a custom permission** for publishing web content classified with the ACME Content Model 
+([more info]({% link content-services/5.2/develop/repo-ext-points/content-model.md %})). We will assume we have a document library 
+action that can be used to publish web content as follows:
 
- ```
+```xml
 <action id="alfresco.tutorials.permissions.publishToWeb"
         icon="webpublish"
         type="javascript"
@@ -215,9 +246,10 @@ Permissions and their groupings are defined in XML configuration files. The defa
 </action>
 ```
 
- As we can see, the document library action will only be available to someone having the `WebPublishPermission`. This custom permission is defined as follows:
+As we can see, the document library action will only be available to someone having the `WebPublishPermission`. 
+This custom permission is defined as follows:
 
- ```
+```xml
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE permissions PUBLIC '-//ALFRESCO//DTD PERMISSIONS//EN' 'permissionSchema.dtd'>
 <permissions>
@@ -243,11 +275,18 @@ Permissions and their groupings are defined in XML configuration files. The defa
 </permissions>
 ```
 
- The Web Publishing permission is defined inside a `permissionSet` for the `acme:document` type, so the permission will only be available when we **Manage Permissions** for a content node that has this type applied. Inside the permission set we define the permission groups first and then the specific permission, the order is important. Note that only the `WebPublisher` permission group is exposed and will be available when setting permissions from the **Manage Permissions** dialog in Share. The permission that we use in the document library action definition has to be the low level permission group (i.e. `WebPublishPermission`) that encloses the basic permission.
+The Web Publishing permission is defined inside a `permissionSet` for the `acme:document` type, so the permission will 
+only be available when we **Manage Permissions** for a content node that has this type applied. Inside the permission 
+set we define the permission groups first and then the specific permission, the order is important. Note that only 
+the `WebPublisher` permission group is exposed and will be available when setting permissions from the 
+**Manage Permissions** dialog in Share. The permission that we use in the document library action definition has to 
+be the low level permission group (i.e. `WebPublishPermission`) that encloses the basic permission.
 
- At this point there is no other permissions (roles) available for `acme:document` content, so we might want to define ACME specific roles for Contributor, Collaborator etc. Otherwise the users will not be able to work with the ACME document content in the way they are used to with `cm:content`. So let's add more roles for the `acme:document` type as follows:
+At this point there is no other permissions (roles) available for `acme:document` content, so we might want to define 
+ACME specific roles for `Contributor`, `Collaborator` etc. Otherwise the users will not be able to work with the ACME document 
+content in the way they are used to with `cm:content`. So let's add more roles for the `acme:document` type as follows:
 
- ```
+```xml
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE permissions PUBLIC '-//ALFRESCO//DTD PERMISSIONS//EN' 'permissionSchema.dtd'>
 <permissions>
@@ -285,9 +324,11 @@ Permissions and their groupings are defined in XML configuration files. The defa
 </permissions>
 ```
 
- Here we have added ACME specific roles for the out-of-the-box standard roles. If we got this new permission model in a file called for example customPermissionDefinitions.xml, then it can be bootstrapped into the Repository with the following Spring bean definition:
+Here we have added ACME specific roles for the out-of-the-box standard roles. If we got this new permission model in a 
+file called for example `customPermissionDefinitions.xml`, then it can be bootstrapped into the Repository with the 
+following Spring bean definition:
 
- ```
+```xml
 <bean id="org.alfresco.tutorial.customPermissionDefinitions" parent="permissionModelBootstrap">
   <property name="model" value="alfresco/module/${project.artifactId}/model/customPermissionDefinitions.xml"/>
 </bean>
@@ -316,36 +357,37 @@ Permissions and their groupings are defined in XML configuration files. The defa
 
 ```
 
- The `WebPublishPermission` will unfortunately not be known to the Document Library and the action until we add it to the list of `userPermissions` by overriding the `baseJsonConversionComponent` bean as in the above code snippet.
+The `WebPublishPermission` will unfortunately not be known to the Document Library and the action until we add it to the 
+list of `userPermissions` by overriding the `baseJsonConversionComponent` bean as in the above code snippet.
 
 The UI labels for the ACME roles are controlled by the following properties:
 
- ```
+```
 roles.webpublisher=Web Publisher
 roles.acmecoordinator=ACME Coordinator
 roles.acmecollaborator=ACME Collaborator
 roles.acmeeditor=ACME Editor
 roles.acmecontributor=ACME Contributor
 roles.acmeconsumer=ACME Consumer
-
 ```
 
- That is all that is needed to add new custom permissions.
+That is all that is needed to add new custom permissions.
 
-|
-|Deployment - App Server|-   tomcat/shared/classes/alfresco/extension - Permission model XML file and Spring context file loading it
+## Deployment - App Server
 
-|
-|[Deployment All-in-One SDK project]({% link content-services/5.2/develop/sdk.md %}#getting-started-with-alfresco-content-services-sdk-3).|-   aio/platform-jar/src/main/resources/alfresco/module/platform-jar/context/bootstrap-context.xml - Spring bean loading permission model
--   aio/platform-jar/src/main/resources/alfresco/module/platform-jar/model/customPermissionDefinitions.xml - Custom permission model
--   You will also need a Share JAR to set labels for permission roles
+* `tomcat/shared/classes/alfresco/extension` - Permission model XML file and Spring context file loading it
 
-|
-|More Information|-   [Some more info around defining permissions]({% link content-services/5.2/admin/security.md %}#defining-permissions)
+## Deployment All-in-One SDK project
 
-|
-|Sample Code|-   [Custom permission (role) implementation (Repo JAR)](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-permission-repo)
--   [Custom DocLib Action using custom permission (role) (Share JAR)](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-permission-share)
+* `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/context/bootstrap-context.xml` - Spring bean loading permission model
+* `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/model/customPermissionDefinitions.xml` - Custom permission model
+* You will also need a Share JAR to set labels for permission roles
 
-|
+## More Information
 
+* [Some more info around defining permissions]({% link content-services/5.2/admin/security.md %}#definingpermissions)
+
+## Sample Code
+
+* [Custom permission (role) implementation (Repo AMP)](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-permission-repo){:target="_blank"}
+* [Custom DocLib Action using custom permission (role) (Share AMP)](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-permission-share){:target="_blank"}

@@ -30,7 +30,7 @@ There are three options available for declaring files as records:
 
     It's still available in its original site, with a full set of actions available, identified by the ![Major revisions]({% link governance-services/images/ico-rm-major-revisions.png %}){:height="18px" width="18px"} major versions icon or the ![All revisions]({% link governance-services/images/ico-rm-all-revisions.png %}){:height="18px" width="18px"} all versions icon.
 
-    >**Note:** Your Alfresco Administrator can choose to only make these options available to certain users only. If they've done this then you'll need to be a member of the RECORD_CONTRIBUTORS group for these options to be available.
+    > **Note:** Your Alfresco Administrator can choose to only make these options available to certain users only. If they've done this then you'll need to be a member of the RECORD_CONTRIBUTORS group for these options to be available.
 
     And as with standard Alfresco functionality you need to have the required permissions before you can do anything with files.
 
@@ -44,7 +44,7 @@ You can classify files and folders and apply {% include tooltip.html word="secur
 
 There are four security classification levels you can assign. {% include tooltip.html word="securitygroups" text="Security groups" %} provide additional classification options.
 
->**Note:** You can also [classify records]({% link governance-services/3.3/using/smc.md %}#classifyrecordsfolderscategories) in the File Plan.
+> **Note:** You can also [classify records]({% link governance-services/3.3/using/smc.md %}#classifyrecordsfolderscategories) in the File Plan.
 
 See [Classification rules and tips]({% link governance-services/3.3/using/smc.md %}#classification-rules-and-tips) for more on classifying content.
 
@@ -62,7 +62,7 @@ You can autoclassify by by adding instructions, manually apply classifications a
 
 5. Click ![Add instructions]({% link governance-services/images/ico-instructions-action.png %}){:height="18px" width="18px"} next to the topic you want to apply instructions from then click **Select**.
 
-   >**Tip:** You can click **View** to check what classification level and security marks the topic instructions contain.
+   > **Tip:** You can click **View** to check what classification level and security marks the topic instructions contain.
 
 6. Repeat for as many topics as you want to add.
 
@@ -70,11 +70,11 @@ You can autoclassify by by adding instructions, manually apply classifications a
 
     All the topics you've selected will have their instructions applied to the item you're classifying.
 
-    >**Tip:** If topics contain instructions that clash then the higher level of classification will apply. For example if you add two topics, one with a classification level of Top Secret, and one with Secret, then the Top Secret level will apply.
+    > **Tip:** If topics contain instructions that clash then the higher level of classification will apply. For example if you add two topics, one with a classification level of Top Secret, and one with Secret, then the Top Secret level will apply.
 
 8. **To add Other Classification Source References**
 
-   >**Note:** This step is not required to classify an item.
+   > **Note:** This step is not required to classify an item.
 
 9. Enter the name of the source document from which the classification of the item has been derived.
 
@@ -95,7 +95,7 @@ You can autoclassify by by adding instructions, manually apply classifications a
     * **Confidential**
     * **Unclassified**
 
-    >**Tip:** If you select **Unclassified** then the item will be available to all users.
+    > **Tip:** If you select **Unclassified** then the item will be available to all users.
 
 15. Enter a classification agency, for example, government or other body (optional).
 
@@ -111,7 +111,7 @@ You can autoclassify by by adding instructions, manually apply classifications a
 
     Set a schedule for when the file will be declassified. These means when its classification level will be set to Unclassified. You can enter a specific date for the declassification to take place, an event that means declassification should be considered, and exemptions for when declassification shouldn't take place. All of these are optional.
 
-    >**Note:** Downgrade and declassification schedules are not automated. Any reclassification needs to be done manually.
+    > **Note:** Downgrade and declassification schedules are not automated. Any reclassification needs to be done manually.
 
 18. Click security marks to apply them to the item, and again to remove them.
 
@@ -123,13 +123,13 @@ You can autoclassify by by adding instructions, manually apply classifications a
 
     The item now displays its classification level, and can only be seen by those with the required {% include tooltip.html word="securityclassification" text="security classification" %}.
 
-    >**Tip:** Items set to Unclassified with no applied security marks can be seen by all users.
+    > **Tip:** Items set to Unclassified with no applied security marks can be seen by all users.
 
     The option to **Share** the file is no longer available for Top Secret, Secret, or Confidential items. When a file or folder is declared as a record it retains its classification level and any security marks.
 
     The classification reason and classification-related properties can be seen in the **Properties** when you preview the file.
 
-    >**Note:** When you classify a file it isn't added to the Records Management site File Plan. If you want to create a record from it you still need to [declare the file as a record](#declaring-a-file-as-a-record)
+    > **Note:** When you classify a file it isn't added to the Records Management site File Plan. If you want to create a record from it you still need to [declare the file as a record](#declaring-a-file-as-a-record)
 
     If you delete a classified file then it's permanently deleted and isn't available in your Trashcan. If you delete a classified folder then all of its content is permanently deleted, even items that haven't been directly classified themselves.
 
@@ -147,7 +147,7 @@ You can create records from files in non-Governance Services sites and select th
 
    The file is added to the chosen destination folder in your Governance Services site. It's still visible in the original site, identified by the ![Easy access record]({% link governance-services/images/ico-rm-inplace.png %}){:height="18px" width="18px"} icon, but is locked and has a limited set of actions.
 
-   >**Note:** If you don't have a Records Management role, if your permission level is set to 'consumer' or the file is locked, you won't see the **File as Record** action. A file that has been filed as a record can be deleted but the record remains in the File Plan.
+   > **Note:** If you don't have a Records Management role, if your permission level is set to 'consumer' or the file is locked, you won't see the **File as Record** action. A file that has been filed as a record can be deleted but the record remains in the File Plan.
 
 ## Declaring a file as a record
 
@@ -159,13 +159,13 @@ You can create records from files in non-Records Management sites and add them s
 
     The file is added to the **Unfiled Records** area, in the explorer panel of your Records Management site. It's still visible in its original site, identified by the ![Easy access record]({% link governance-services/images/ico-rm-inplace.png %}){:height="18px" width="18px"} icon, but is locked and with a limited set of actions available.
 
-    >**Note:** You can't declare a record if your permission level for the site is Consumer, or if the file is locked.
+    > **Note:** You can't declare a record if your permission level for the site is Consumer, or if the file is locked.
 
     A file that has been declared as a record can be deleted. The records remain in the File Plan.
 
 This record can now be filed in the File Plan. You can find it in the **Unfiled Records** area in the File Plan explorer panel. New records display in the File Plan as incomplete records. You need to make sure any required metadata is added before you can set records to {% include tooltip.html word="recordcompleted" text="complete" %}.
 
->**Note:** You can also set up folder rules in a non-Records Management site so the files can be automatically declared as records. For example, you could create a rule that when a file is tagged as "Confirmed", then a record will be created of that file and added to the Records Management site.
+> **Note:** You can also set up folder rules in a non-Records Management site so the files can be automatically declared as records. For example, you could create a rule that when a file is tagged as "Confirmed", then a record will be created of that file and added to the Records Management site.
 
 See also video explaining [declaring a file as a record]({% link governance-services/3.3/tutorial/governance-services/index.md %}#declare-an-easy-access-record).  
 
@@ -175,21 +175,21 @@ When files are updated in Alfresco, a new version number of the file is created.
 
 1. In the Document Library of an Alfresco site find the file you want to declare a version of as a record.
 
-    >**Tip:** You can see a file's version history by clicking on the file, then in the file preview screen scrolling down to the Version History section. You can revert to previous versions by clicking the ![Revert version]({% link governance-services/images/ico-revert-version.png %}){:height="18px" width="18px"} icon.
+    > **Tip:** You can see a file's version history by clicking on the file, then in the file preview screen scrolling down to the Version History section. You can revert to previous versions by clicking the ![Revert version]({% link governance-services/images/ico-revert-version.png %}){:height="18px" width="18px"} icon.
 
 2. Hover over the file and click **More** then **Declare Version as Record**.
 
     The file is added to the Unfiled Records folder, in the explorer panel of your Records Management site, and is identified there as a version record by the ![Version record]({% link governance-services/images/ico-record-version.png %}){:height="18px" width="18px"} icon. The file is still available in its original site, with a full set of actions available.
 
-    >**Note:** You can't declare a version as a record if your permission level for the site is Consumer, or if the file is locked, or synced with an Alfresco in the Cloud site.
+    > **Note:** You can't declare a version as a record if your permission level for the site is Consumer, or if the file is locked, or synced with an Alfresco in the Cloud site.
 
 You can find these records in the {% include tooltip.html word="unfiledrecords" text="Unfiled Records" %} folder in the File Plan explorer panel. New records display in the File Plan as incomplete records. Any required metadata needs to be added before the records can be set to complete.
 
->**Note:** A file that has had versions declared as records can be deleted. The records remain in the File Plan.
+> **Note:** A file that has had versions declared as records can be deleted. The records remain in the File Plan.
 
 If you delete or destroy a record that was declared from a version, then that version is marked as deleted and can't be accessed. Other versions of the file remain unaffected.
 
->**Tip:** You can also set up folder rules in a non-Records Management site so the file versions can be automatically declared as records. For example, you could create a rule that when a file is tagged as "Confirmed", then a record will be created of that file version and added to the Records Management site. Version details will be available when looking at the record in the file preview screen on the Records Management site.
+> **Tip:** You can also set up folder rules in a non-Records Management site so the file versions can be automatically declared as records. For example, you could create a rule that when a file is tagged as "Confirmed", then a record will be created of that file version and added to the Records Management site. Version details will be available when looking at the record in the file preview screen on the Records Management site.
 
 ## Setting auto-declare options
 
@@ -219,7 +219,7 @@ Auto-declare options are set on a file by file basis, though you can set up a fo
 
 From this point forwards, each time a new version of the file is saved, a record is automatically created from the version and can be filed in the File Plan. You can find them in the Unfiled Records area in the File Plan explorer panel. New records display in the File Plan as incomplete records. Any required metadata needs to be added before the records can be set to complete. Version details will be available when looking at the record in the file preview screen on the Records Management site.
 
->**Note:** A file that has had versions declared as records can be deleted. The records remain in the File Plan.
+> **Note:** A file that has had versions declared as records can be deleted. The records remain in the File Plan.
 
 ## Moving easy access records
 

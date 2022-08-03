@@ -1,5 +1,5 @@
-# Desktop Sync 1.7
-- version: 1.7
+# Desktop Sync 1.11
+- version: 1.11
   pages:
     - title: 'Introduction'
       path: '/desktop-sync/latest/'
@@ -33,6 +33,150 @@
           path: '/desktop-sync/latest/using/ags/'
         - title: 'FAQ'
           path: '/desktop-sync/latest/using/faq/'
+
+# Desktop Sync 1.10
+- version: '1.10'
+  pages:
+    - title: 'Introduction'
+      path: '/desktop-sync/1.10/'
+    - title: "Install"
+      path: '/desktop-sync/1.10/install/'
+    - title: 'Upgrade'
+      path: '/desktop-sync/1.10/upgrade/'
+    - title: "Configure"
+      path: '/desktop-sync/1.10/config/'
+    - title: "Administer"
+      path: '/desktop-sync/1.10/admin/'
+    - title: 'Using'
+      pages:
+        - title: 'Select content to sync'
+          path: '/desktop-sync/1.10/using/select-to-sync/'
+        - title: 'Resolve and manage sync conflicts'
+          path: '/desktop-sync/1.10/using/sync-conflict-guide/'
+        - title: 'App icons and context menu'
+          path: '/desktop-sync/1.10/using/app-icons/'
+        - title: 'App menu in taskbar'
+          path: '/desktop-sync/1.10/using/app-menu/'
+        - title: 'Sharing files'
+          path: '/desktop-sync/1.10/using/sharing/'
+        - title: 'Version history'
+          path: '/desktop-sync/1.10/using/versions/'
+        - title: 'Properties'
+          path: '/desktop-sync/1.10/using/metadata/'
+        - title: 'Permissions'
+          path: '/desktop-sync/1.10/using/permissions/'
+        - title: 'Alfresco Governance Services'
+          path: '/desktop-sync/1.10/using/ags/'
+        - title: 'FAQ'
+          path: '/desktop-sync/1.10/using/faq/'
+
+# Desktop Sync 1.9
+- version: 1.9
+  pages:
+    - title: 'Introduction'
+      path: '/desktop-sync/1.9/'
+    - title: "Install"
+      path: '/desktop-sync/1.9/install/'
+    - title: 'Upgrade'
+      path: '/desktop-sync/1.9/upgrade/'
+    - title: "Configure"
+      path: '/desktop-sync/1.9/config/'
+    - title: "Administer"
+      path: '/desktop-sync/1.9/admin/'
+    - title: 'Using'
+      pages:
+        - title: 'Select content to sync'
+          path: '/desktop-sync/1.9/using/select-to-sync/'
+        - title: 'Resolve and manage sync conflicts'
+          path: '/desktop-sync/1.9/using/sync-conflict-guide/'
+        - title: 'App icons and context menu'
+          path: '/desktop-sync/1.9/using/app-icons/'
+        - title: 'App menu in taskbar'
+          path: '/desktop-sync/1.9/using/app-menu/'
+        - title: 'Sharing files'
+          path: '/desktop-sync/1.9/using/sharing/'
+        - title: 'Version history'
+          path: '/desktop-sync/1.9/using/versions/'
+        - title: 'Properties'
+          path: '/desktop-sync/1.9/using/metadata/'
+        - title: 'Permissions'
+          path: '/desktop-sync/1.9/using/permissions/'
+        - title: 'Alfresco Governance Services'
+          path: '/desktop-sync/1.9/using/ags/'
+        - title: 'FAQ'
+          path: '/desktop-sync/1.9/using/faq/'
+
+# Desktop Sync 1.8
+- version: 1.8
+  pages:
+    - title: 'Introduction'
+      path: '/desktop-sync/1.8/'
+    - title: "Install"
+      path: '/desktop-sync/1.8/install/'
+    - title: 'Upgrade'
+      path: '/desktop-sync/1.8/upgrade/'
+    - title: "Configure"
+      path: '/desktop-sync/1.8/config/'
+    - title: "Administer"
+      path: '/desktop-sync/1.8/admin/'
+    - title: 'Using'
+      pages:
+        - title: 'Select content to sync'
+          path: '/desktop-sync/1.8/using/select-to-sync/'
+        - title: 'Resolve and manage sync conflicts'
+          path: '/desktop-sync/1.8/using/sync-conflict-guide/'
+        - title: 'App icons and context menu'
+          path: '/desktop-sync/1.8/using/app-icons/'
+        - title: 'App menu in taskbar'
+          path: '/desktop-sync/1.8/using/app-menu/'
+        - title: 'Sharing files'
+          path: '/desktop-sync/1.8/using/sharing/'
+        - title: 'Version history'
+          path: '/desktop-sync/1.8/using/versions/'
+        - title: 'Properties'
+          path: '/desktop-sync/1.8/using/metadata/'
+        - title: 'Permissions'
+          path: '/desktop-sync/1.8/using/permissions/'
+        - title: 'Alfresco Governance Services'
+          path: '/desktop-sync/1.8/using/ags/'
+        - title: 'FAQ'
+          path: '/desktop-sync/1.8/using/faq/'
+
+# Desktop Sync 1.7
+- version: 1.7
+  pages:
+    - title: 'Introduction'
+      path: '/desktop-sync/1.7/'
+    - title: "Install"
+      path: '/desktop-sync/1.7/install/'
+    - title: 'Upgrade'
+      path: '/desktop-sync/1.7/upgrade/'
+    - title: "Configure"
+      path: '/desktop-sync/1.7/config/'
+    - title: "Administer"
+      path: '/desktop-sync/1.7/admin/'
+    - title: 'Using'
+      pages:
+        - title: 'Select content to sync'
+          path: '/desktop-sync/1.7/using/select-to-sync/'
+        - title: 'Resolve and manage sync conflicts'
+          path: '/desktop-sync/1.7/using/sync-conflict-guide/'
+        - title: 'App icons and context menu'
+          path: '/desktop-sync/1.7/using/app-icons/'
+        - title: 'App menu in taskbar'
+          path: '/desktop-sync/1.7/using/app-menu/'
+        - title: 'Sharing files'
+          path: '/desktop-sync/1.7/using/sharing/'
+        - title: 'Version history'
+          path: '/desktop-sync/1.7/using/versions/'
+        - title: 'Properties'
+          path: '/desktop-sync/1.7/using/metadata/'
+        - title: 'Permissions'
+          path: '/desktop-sync/1.7/using/permissions/'
+        - title: 'Alfresco Governance Services'
+          path: '/desktop-sync/1.7/using/ags/'
+        - title: 'FAQ'
+          path: '/desktop-sync/1.7/using/faq/'
 
 # Desktop Sync 1.6
 - version: 1.6

@@ -418,7 +418,7 @@ The communication via HTTPS should work fine between the SAP system and Content 
 
 Encrypt all passwords used in the `alfresco-global.properties` by the SAP Connector instead of storing it as plain-text. Make sure the SAP Connector is configured properly and working as expected.
 
-1. Go to the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}.
+1. Go to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 2. Download the related JAR file:
 

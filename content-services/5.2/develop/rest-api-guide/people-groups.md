@@ -4,57 +4,31 @@ title: Managing People and Groups
 
 This section walks through how to manage people and groups via the ReST API.
 
-Being able to manage people and groups remotely is useful in different test scenarios, development environments and, for example, when group permissions should be set up on folders.
+Being able to manage people and groups remotely is useful in different test scenarios, development environments and,
+for example, when group permissions should be set up on folders.
 
-However, it should be noted that in a production environment Alfresco is usually connected to an LDAP system and users (people) and groups are then synchronized (imported) from the LDAP system, including group memberships.
+However, it should be noted that in a production environment Alfresco is usually connected to an LDAP system and users
+(people) and groups are then synchronized (imported) from the LDAP system, including group memberships.
 
--   **[List people (users)](#list-people-users)**  
-List people (i.e. users) in the repository.
--   **[Create a person](#create-a-person)**  
-Creating a person (user) in the repository.
--   **[Get person metadata](#get-person-metadata)**  
-Get the metadata (i.e. properties) for a person, including preferences and avatar.
--   **[Update a person](#update-a-person)**  
-Updating the metadata for a person (user) in the repository.
--   **[Request password reset for a person](#request-password-reset-for-a-person)**  
-Requesting a password reset for a a person (user) in the repository.
--   **[List groups a person is a member of](#list-groups-a-person-is-a-member-of)**  
-List all the groups that a person is a member of.
--   **[List groups](#list-groups)**  
-List groups in the repository.
--   **[Create a group](#create-a-group)**  
-Creating a group in the repository.
--   **[Get group metadata](#get-group-metadata)**  
-Get the metadata (i.e. properties) for a group in the repository.
--   **[Update a group](#update-a-group)**  
-Updating the metadata (i.e. properties) for a group in the repository.
--   **[List all people and groups in a group](#list-all-people-and-groups-in-a-group)**  
-List all members (people and groups) of a group in the repository.
--   **[Adding people and groups to a group](#adding-people-and-groups-to-a-group)**  
-Adding members (i.e. people or groups) to a group in the repository.
--   **[Delete a person or group from a group](#delete-a-person-or-group-from-a-group)**  
-Deleting a person or group from a group in the repository.
--   **[Setting permissions for a group](#setting-permissions-for-a-group)**  
-Setting permissions for a group.
-
-
-## List people (users) {#list-people-users}
+## List people (users)
 
 List people (i.e. users) in the repository.
 
-|API Call|GET /people|
-|--------|-----------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/people/listPeople](http://localhost:8080/api-explorer/#!/people/listPeople)|
-|See also|[How to list group membership for people]({% link content-services/5.2/develop/rest-api-guide/people-groups.md %}#list-groups-a-person-is-a-member-of), [how to find people by term]({% link content-services/5.2/develop/rest-api-guide/searching.md %}#finding-people-by-a-term) and [how to search for people]({% link content-services/5.2/develop/rest-api-guide/searching.md %}#finding-content-by-a-search-query)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/people/listPeople](http://localhost:8080/api-explorer/#!/people/listPeople){:target="_blank"}
+
+**See also:**
+
+* [How to list group membership for people](#listpersongroupmembership)
+* [how to find people by term]({% link content-services/5.2/develop/rest-api-guide/searching.md %}#findpeoplebyterm)
+* [How to search for people]({% link content-services/5.2/develop/rest-api-guide/searching.md %}#searchbyquery)
 
 A useful feature is to be able to list people in the repository. The following GET request is used:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people`
 
 Here is how to make the call:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -145,27 +119,30 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-You may know that in the **/nodes** API, the properties and aspect names are not present by default but can be included via the `include` query parameter, the same holds true here as well. If you want to see any custom properties or aspects applied you can add `include=properties,aspectNames` to the URL. The results can also be sorted by `id` (username), `firstName` and `lastName`.
+You may know that in the `/nodes` API, the properties and aspect names are not present by default but can be included
+via the `include` query parameter, the same holds true here as well. If you want to see any custom properties or aspects
+applied you can add `include=properties,aspectNames` to the URL. The results can also be sorted by `id` (username),
+`firstName` and `lastName`.
 
-Unfortunately, there is no way of filtering the output, which can be a problem when you have loads of users. However, the **/queries/people** endpoint or the **/search** endpoint can be used to look for people and achieve the same thing.
+Unfortunately, there is no way of filtering the output, which can be a problem when you have loads of users. However, the
+`/queries/people` endpoint or the `/search` endpoint can be used to look for people and achieve the same thing.
 
-## Create a person {#create-a-person}
+## Create a person {#createperson}
 
 Creating a person (user) in the repository.
 
-|API Call|POST /people|
-|--------|------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/people/createPerson](http://localhost:8080/api-explorer/#!/people/createPerson)|
-|See also|[How to update a person](#update-a-person)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/people/createPerson](http://localhost:8080/api-explorer/#!/people/createPerson){:target="_blank"}
+
+**See also:** [How to update a person](#updateperson)
 
 Creating a person (i.e. user) is done with the following POST call:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people`
 
-The POST body for a person create call looks like this, you can use any of the properties defined in the out-of-the-box `cm:person` type:
+The POST body for a person create call looks like this, you can use any of the properties defined in the out-of-the-box
+`cm:person` type:
 
-```
+```json
 {
     "id": "string",
     "firstName": "string",
@@ -200,13 +177,15 @@ The POST body for a person create call looks like this, you can use any of the p
 }
 ```
 
-To create a person you must have admin rights. What this means is that the user that is making the ReST call must be a member of the `ALFRESCO_ADMINISTRATORS` group.
+To create a person you must have admin rights. What this means is that the user that is making the ReST call must be a
+member of the `ALFRESCO_ADMINISTRATORS` group.
 
-When creating the user the `enabled` property can be used to configure if the user should have access to Alfresco or not, if not specified the user has access by default.
+When creating the user the `enabled` property can be used to configure if the user should have access to Alfresco or not,
+if not specified the user has access by default.
 
 Let's create a user with id `test` and set minimal data for the user with the following POST body:
 
-```
+```json
 {
     "id": "test",
     "firstName": "Test",
@@ -218,11 +197,11 @@ Let's create a user with id `test` and set minimal data for the user with the fo
 
 The call looks like this:
 
-```
+```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "id": "test", "firstName": "Test", "lastName": "User", "password": "test", "email": "test@alfresco.com"}' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   347    0   241  100   106    607    267 --:--:-- --:--:-- --:--:--   871
+100   347    0   241  100   106    607    267 --:--:-- --:--:-- --:--:-* 871
 {
   "entry": {
     "firstName": "Test",
@@ -242,11 +221,13 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-Many Alfresco customers extend the out-of-the-box `cm:person` object, so support for custom properties have been added to this endpoint. For example, to create a person with a custom property called `acme:employeeId` the following POST body could be used (presuming the property has been defined in a custom content model).
+Many Alfresco customers extend the out-of-the-box `cm:person` object, so support for custom properties have been added
+to this endpoint. For example, to create a person with a custom property called `acme:employeeId` the following POST
+body could be used (presuming the property has been defined in a custom content model).
 
 The `properties` POST data property is used for this:
 
-```
+```json
 {
     "id": "test2",
     "firstName": "Test 2",
@@ -259,35 +240,32 @@ The `properties` POST data property is used for this:
 }
 ```
 
-To add an avatar image to a newly created person see the [update person]({% link content-services/5.2/develop/rest-api-guide/people-groups.md %}#update-a-person) page.
+To add an avatar image to a newly created person see the [update person](#updateperson) page.
 
-**Note**. in a production environment the users and groups are usually synched / imported from an LDAP environment, and not created manually like this. However, it can be useful to create users remotely like this for testing purpose and in a developer environment.
+>**Note**. in a production environment the users and groups are usually synched / imported from an LDAP environment, and not created manually like this. However, it can be useful to create users remotely like this for testing purpose and in a developer environment.
 
-## Get person metadata {#get-person-metadata}
+## Get person metadata
 
 Get the metadata (i.e. properties) for a person, including preferences and avatar.
 
-|API Call|GET /people/{id} GET /people/{id}/preferences
+**API Explorer URL:**
 
-GET /people/{id}/preferences/{id}
+* [http://localhost:8080/api-explorer/#!/people/getPerson](http://localhost:8080/api-explorer/#!/people/getPerson){:target="_blank"}
+* [http://localhost:8080/api-explorer/#!/preferences/listPreferences](http://localhost:8080/api-explorer/#!/preferences/listPreferences){:target="_blank"}
+* [http://localhost:8080/api-explorer/#!/preferences/getPreference](http://localhost:8080/api-explorer/#!/preferences/getPreference){:target="_blank"}
+* [http://localhost:8080/api-explorer/#!/people/getAvatarImage](http://localhost:8080/api-explorer/#!/people/getAvatarImage){:target="_blank"}
 
-GET /people/{id}/avatar
-
-|
-|--------|---------------------------------------------------------------------------------------------------------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/people/getPerson](http://localhost:8080/api-explorer/#!/people/getPerson) [http://localhost:8080/api-explorer/#!/preferences/listPreferences](http://localhost:8080/api-explorer/#!/preferences/listPreferences) [http://localhost:8080/api-explorer/#!/preferences/getPreference](http://localhost:8080/api-explorer/#!/preferences/getPreference) [http://localhost:8080/api-explorer/#!/people/getAvatarImage](http://localhost:8080/api-explorer/#!/people/getAvatarImage)|
-|See also|[How to get the groups that a person is a member of]({% link content-services/5.2/develop/rest-api-guide/people-groups.md %}#list-groups-a-person-is-a-member-of)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**See also:** [How to get the groups that a person is a member of](#listpersongroupmembership)
 
 Getting the metadata (i.e. properties) for a person (user) is done with the following GET call:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/{id}**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/{id}`
 
 The identifier for the person we want to get metadata for is specified with the `{id}` parameter.
 
 To get metadata for a person with id `test` make the following call:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/test' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -311,9 +289,10 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-All the properties that are set are returned by default. For example, the `abeecher` user has more properties from the `cm:person` object set, here is how the call looks like for this user:
+All the properties that are set are returned by default. For example, the `abeecher` user has more properties from the
+`cm:person` object set, here is how the call looks like for this user:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/abeecher' | jq
  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                 Dload  Upload   Total   Spent    Left  Speed
@@ -354,7 +333,7 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 
 If you don't want all properties returned you can control that with the `fields` parameter as follows:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/abeecher?fields=id,displayName' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -367,17 +346,18 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-Custom content model properties are not returned by default, use the `include` parameter to have them returned and set it to `include=propertiers` parameter.
+Custom content model properties are not returned by default, use the `include` parameter to have them returned and set
+it to `include=properties` parameter.
 
 To get the configured preferences for a person (user) use the following GET call:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/{id}/preferences**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/{id}/preferences`
 
 The identifier for the person we want to get preferences for is specified with the `{id}` parameter.
 
 To get preferences for a person with id `abeecher` make the following call:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/abeecher/preferences' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -441,7 +421,7 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 
 You can get a single preference for a person by the preference `id` as follows:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/abeecher/preferences/org.alfresco.share.documents.favourites' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -455,31 +435,31 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 
 ```
 
-## Update a person {#update-a-person}
+## Update a person {#updateperson}
 
 Updating the metadata for a person (user) in the repository.
 
-|API Call|PUT /people/{id} PUT /people/{id}/avatar
+**API Explorer URL:**
 
-|
-|--------|----------------------------------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/people/updatePerson](http://localhost:8080/api-explorer/#!/people/updatePerson) and [http://localhost:8080/api-explorer/#!/people/updateAvatarImage](http://localhost:8080/api-explorer/#!/people/updateAvatarImage)|
-|See also|[How to create a person]({% link content-services/5.2/develop/rest-api-guide/people-groups.md %}#create-a-person)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+* [http://localhost:8080/api-explorer/#!/people/updatePerson](http://localhost:8080/api-explorer/#!/people/updatePerson){:target="_blank"}
+* [http://localhost:8080/api-explorer/#!/people/updateAvatarImage](http://localhost:8080/api-explorer/#!/people/updateAvatarImage){:target="_blank"}
+
+**See also:** [How to create a person](#createperson)
 
 It’s possible to update the person (user) metadata, which means updating the properties and the avatar for a person.
 
 The following PUT call is used to update the properties:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/{id}**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/{id}`
 
 The identifier for the person to be updated is specified with the `{id}` parameter.
 
-To update a person you must have admin rights. What this means is that the user that is making the ReST call must be a member of the `ALFRESCO_ADMINISTRATORS` group.
+To update a person you must have admin rights. What this means is that the user that is making the ReST call must be a
+member of the `ALFRESCO_ADMINISTRATORS` group.
 
 The PUT body for a person properties update call looks like this:
 
-```
+```json
 {
 "entry": {
     "id": "string",
@@ -518,9 +498,10 @@ The PUT body for a person properties update call looks like this:
 }
 ```
 
-Let's assume we have a user in the repository with id `test` that we want to update the first name and last name for. This is then the PUT body we need to send:
+Let's assume we have a user in the repository with id `test` that we want to update the first name and last name for.
+This is then the PUT body we need to send:
 
-```
+```json
 {
     "firstName": "Testing",
     "lastName": "User number 1"
@@ -529,7 +510,7 @@ Let's assume we have a user in the repository with id `test` that we want to upd
 
 Here is the call:
 
-```
+```bash
 $ curl -X PUT -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "firstName": "Testing", "lastName": "User number 1"}' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/test' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -555,7 +536,7 @@ $ curl -X PUT -H 'Content-Type: application/json' -H 'Accept: application/json' 
 
 It's common to have to disable access for users. This can be done with this call as well. The following PUT body is used:
 
-```
+```json
 {
     "enabled": false
 }
@@ -563,7 +544,7 @@ It's common to have to disable access for users. This can be done with this call
 
 Here is the call to disable access to Alfresco for the `test` user:
 
-```
+```bash
 $ curl -X PUT -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "enabled": false }' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/test' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -594,13 +575,13 @@ Similarly, if you want to enable access for a user you would just post `{ "enabl
 
 To update the avatar image (photo) for a person the following PUT call is used:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/{id}/avatar**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/{id}/avatar`
 
-Let's say we have a PNG image called test_user_photo.png that we want to set as avatar for the `test` user.
+Let's say we have a PNG image called `test_user_photo.png` that we want to set as avatar for the `test` user.
 
 Here is the call to do that:
 
-```
+```bash
 $ curl -X PUT -H 'Content-Type: image/png' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' --data-binary '@test_user_photo.png' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/test/avatar' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -624,7 +605,7 @@ Note the `avatarId` property in the response, which is the identifier for the up
 
 If you are running an SDK Project you will most likely get the following type of response:
 
-```
+```json
 {
   "error": {
     "errorKey": "Unable to create thumbnail 'avatar' for image/png as no transformer is currently available.",
@@ -636,31 +617,34 @@ If you are running an SDK Project you will most likely get the following type of
 }
 ```
 
-An Alfresco SDK project doesn't have all the image transformers configured so this avatar image upload does not work in this situation.
+An Alfresco SDK project doesn't have all the image transformers configured so this avatar image upload does not work in
+this situation.
 
-## Request password reset for a person {#request-password-reset-for-a-person}
+## Request password reset for a person
 
 Requesting a password reset for a a person (user) in the repository.
 
-|API Call|POST /people/{id}/request-password-reset POST /people/{personId}/reset-password
+**API Explorer URL:**
 
-|
-|--------|-------------------------------------------------------------------------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/people/requestPasswordReset](http://localhost:8080/api-explorer/#!/people/requestPasswordReset) [http://localhost:8080/api-explorer/#!/people/resetPassword](http://localhost:8080/api-explorer/#!/people/resetPassword)|
-|See also|[How to create a person]({% link content-services/5.2/develop/rest-api-guide/people-groups.md %}#create-a-person)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+* [http://localhost:8080/api-explorer/#!/people/requestPasswordReset](http://localhost:8080/api-explorer/#!/people/requestPasswordReset){:target="_blank"}
+* [http://localhost:8080/api-explorer/#!/people/resetPassword](http://localhost:8080/api-explorer/#!/people/resetPassword){:target="_blank"}
 
-It’s possible to request a reset of the password for a person (user). An email will be sent to the user with information on how to reset the password via a link to a specific UI client. The POST body specifies what client that should be used to reset the password:
+**See also:** [How to create a person](#createperson)
 
-```
+It’s possible to request a reset of the password for a person (user). An email will be sent to the user with information
+on how to reset the password via a link to a specific UI client. The POST body specifies what client that should be used
+to reset the password:
+
+```json
 {
   "client": "my client"
 }
 ```
 
-Currently only the Alfresco Share UI client is registered with the Alfresco Repository server. So you would POST the following:
+Currently only the Alfresco Share UI client is registered with the Alfresco Repository server. So you would POST the
+following:
 
-```
+```json
 {
   "client": "share"
 }
@@ -668,42 +652,41 @@ Currently only the Alfresco Share UI client is registered with the Alfresco Repo
 
 Use the following POST call:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/{id}/request-password-reset**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/{id}/request-password-reset`
 
 The identifier for the person that requests a password reset is specified with the `{id}` parameter.
 
 To request a password reset via the Alfresco Share UI client for a person with id `test` make the following call:
 
-```
+```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{ "client": "share" }' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/test/request-password-reset' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100    21    0     0  100    21      0   1500 --:--:-- --:--:-- --:--:--  1500
 ```
 
-An email is now sent by the server to the email address that is stored for the `test` user. So to test this you would need to configure an SMTP server that the Alfresco repository server can talk to and send the email.
+An email is now sent by the server to the email address that is stored for the `test` user. So to test this you would
+need to configure an SMTP server that the Alfresco repository server can talk to and send the email.
 
-## List groups a person is a member of {#list-groups-a-person-is-a-member-of}
+## List groups a person is a member of {#listpersongroupmembership}
 
 List all the groups that a person is a member of.
 
-|API Call|GET /people/{id}/groups|
-|--------|-------------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/groups/listGroupMembershipsForPerson](http://localhost:8080/api-explorer/#!/groups/listGroupMembershipsForPerson)|
-|See also|[How to list all members (people and groups) of a group](#list-all-people-and-groups-in-a-group)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/groups/listGroupMembershipsForPerson](http://localhost:8080/api-explorer/#!/groups/listGroupMembershipsForPerson){:target="_blank"}
+
+**See also:** [How to list all members (people and groups) of a group](#listmembersofgroup)
 
 You might know how to list members of a group but you can also list all groups that a person is a member of.
 
 The following call is used for that:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/{id}/groups**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/{id}/groups`
 
 The identifier for the person we want to list group memberships for is specified with the `{id}` parameter.
 
 Here is how to get all group memberships for a user with id `abeecher`:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/abeecher/groups' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -743,23 +726,21 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-## List groups {#list-groups}
+## List groups
 
 List groups in the repository.
 
-|API Call|GET /groups|
-|--------|-----------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/groups/listGroups](http://localhost:8080/api-explorer/#!/groups/listGroups)|
-|See also|[How to list members (people and groups) of a group.](#list-all-people-and-groups-in-a-group)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/groups/listGroups](http://localhost:8080/api-explorer/#!/groups/listGroups){:target="_blank"}
+
+**See also:** [How to list members (people and groups) of a group.](#listmembersofgroup)
 
 To list groups in the repository use the following GET call:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups`
 
 Here is how to make the call:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -865,7 +846,7 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 
 This can return a lot of groups, by default it will return up to 100. Use the `maxItems` parameter to limit the number of groups returned:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups?fields=id&maxItems=5' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -912,9 +893,10 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 
 Here we have also used the `fields` parameter to only include the `id` property in the response.
 
-You can also filter groups with the `where` clause, the `isRoot` and `zones` properties can be used. For example, to return only root groups use the following call:
+You can also filter groups with the `where` clause, the `isRoot` and `zones` properties can be used. For example, to
+return only root groups use the following call:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups?where=(isRoot=true)' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -983,25 +965,27 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-## Create a group {#create-a-group}
+## Create a group {#creategroup}
 
 Creating a group in the repository.
 
-|API Call|POST /groups|
-|--------|------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/groups/createGroup](http://localhost:8080/api-explorer/#!/groups/createGroup)|
-|See also|[How to update a group](#update-a-group) and [how to add members to a group]({% link content-services/5.2/develop/rest-api-guide/people-groups.md %}#adding-people-and-groups-to-a-group)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/groups/createGroup](http://localhost:8080/api-explorer/#!/groups/createGroup){:target="_blank"}
 
-To create a group you must have admin rights. What this means is that the user that is making the ReST call must be a member of the `ALFRESCO_ADMINISTRATORS` group.
+**See also:**
+
+* [How to update a group](#updategroup)
+* [How to add members to a group](#addtogroup)
+
+To create a group you must have admin rights. What this means is that the user that is making the ReST call must be a
+member of the `ALFRESCO_ADMINISTRATORS` group.
 
 Creating a group is done with the following POST call:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups`
 
 The POST body for a group create call looks like this:
 
-```
+```json
 {
 "entry": {
     "id": "string",
@@ -1017,9 +1001,10 @@ The POST body for a group create call looks like this:
 }
 ```
 
-You don't need to pass in all these properties. For example, to create a group called **Engineering** with id `engineering`, use the following POST body:
+You don't need to pass in all these properties. For example, to create a group called **Engineering** with id
+`engineering`, use the following POST body:
 
-```
+```json
 {
    "id": "engineering",
    "displayName": "Engineering"
@@ -1028,7 +1013,7 @@ You don't need to pass in all these properties. For example, to create a group c
 
 The call looks like this:
 
-```
+```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "id": "engineering", "displayName": "Engineering" }' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -1042,27 +1027,26 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-The group id always starts with "GROUP_". If this is omitted, as in this case, it will be added automatically. This format is also returned when listing groups or group memberships.
+The group id always starts with `GROUP_`. If this is omitted, as in this case, it will be added automatically. This
+format is also returned when listing groups or group memberships.
 
-## Get group metadata {#get-group-metadata}
+## Get group metadata
 
 Get the metadata (i.e. properties) for a group in the repository.
 
-|API Call|GET /groups/{id}|
-|--------|------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/groups/getGroup](http://localhost:8080/api-explorer/#!/groups/getGroup)|
-|See also|[How to get the members (people and groups) of a group](#list-all-people-and-groups-in-a-group)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/groups/getGroup](http://localhost:8080/api-explorer/#!/groups/getGroup){:target="_blank"}
+
+**See also:** [How to get the members (people and groups) of a group](#listmembersofgroup)
 
 Getting the metadata (i.e. properties) for a group is done with the following GET call:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/{id}**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/{id}`
 
 The identifier for the group we want to get metadata for is specified with the `{id}` parameter.
 
 To get metadata for a group with id `engineering` make the following call:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -1080,7 +1064,7 @@ Note that the group `id` has to be prefixed with `GROUP_`.
 
 The `include` parameter can be used to return `parentIds` and `zones`:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering?include=parentIds,zones' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -1099,27 +1083,29 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-## Update a group {#update-a-group}
+## Update a group {#updategroup}
 
 Updating the metadata (i.e. properties) for a group in the repository.
 
-|API Call|PUT /groups/{id}|
-|--------|------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/groups/updateGroup](http://localhost:8080/api-explorer/#!/groups/updateGroup)|
-|See also|[How to create a group]({% link content-services/5.2/develop/rest-api-guide/people-groups.md %}#create-a-group) and [How to add members (people and groups) to a group]({% link content-services/5.2/develop/rest-api-guide/people-groups.md %}#adding-people-and-groups-to-a-group)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/groups/updateGroup](http://localhost:8080/api-explorer/#!/groups/updateGroup){:target="_blank"}
 
-To update a group you must have admin rights. What this means is that the user that is making the ReST call must be a member of the `ALFRESCO_ADMINISTRATORS` group.
+**See also:**
+
+* [How to create a group](#creategroup)
+* [How to add members (people and groups) to a group](#addtogroup)
+
+To update a group you must have admin rights. What this means is that the user that is making the ReST call must be a
+member of the `ALFRESCO_ADMINISTRATORS` group.
 
 It’s possible to update the group's `displayName`. Use the following PUT call:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1//groups/{id}**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1//groups/{id}`
 
 The identifier for the group to be updated is specified with the `{id}` parameter.
 
 The body for a group update call looks like this:
 
-```
+```json
 {
     "displayName": "string"
 }
@@ -1127,7 +1113,7 @@ The body for a group update call looks like this:
 
 To update the display name for a group with the id `engineering` make the following call:
 
-```
+```bash
 $ curl -X PUT -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "displayName": "Engineering UPDATED" }' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -1143,29 +1129,27 @@ $ curl -X PUT -H 'Content-Type: application/json' -H 'Accept: application/json' 
 
 Note that you have to prefix the group id with `GROUP_`.
 
-## List all people and groups in a group {#list-all-people-and-groups-in-a-group}
+## List all people and groups in a group {#listmembersofgroup}
 
 List all members (people and groups) of a group in the repository.
 
-|API Call|GET /groups/{id}/members|
-|--------|--------------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/groups/listGroupMemberships](http://localhost:8080/api-explorer/#!/groups/listGroupMemberships)|
-|See also|[How to list all groups a person is a member of]({% link content-services/5.2/develop/rest-api-guide/people-groups.md %}#list-groups-a-person-is-a-member-of)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/groups/listGroupMemberships](http://localhost:8080/api-explorer/#!/groups/listGroupMemberships){:target="_blank"}
+
+**See also:** [How to list all groups a person is a member of](#listpersongroupmembership)
 
 To list all groups and users that are members of a group use the following GET call:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/{id}/members**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/{id}/members`
 
 The `id` parameter is the group identifier and it must be prefixed with `GROUP_`.
 
 For example, to list all members of a group with identifier "engineering" the following call can be used:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering/members' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   277    0   277    0     0    893      0 --:--:-- --:--:-- --:--:--   893
+100   277    0   277    0     0    893      0 --:--:-- --:--:-- --:--:-* 893
 {
   "list": {
     "pagination": {
@@ -1196,13 +1180,14 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 
 ```
 
-You can use the `where` parameter to filter the return groups by `memberType`. To return only the members that are groups use the following call:
+You can use the `where` parameter to filter the return groups by `memberType`. To return only the members that are
+groups use the following call:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' "http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering/members?where=(memberType='GROUP')" | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   210    0   210    0     0    843      0 --:--:-- --:--:-- --:--:--   843
+100   210    0   210    0     0    843      0 --:--:-- --:--:-- --:--:-* 843
 {
   "list": {
     "pagination": {
@@ -1225,11 +1210,15 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-We can use this call to return all users that are members of a specific Alfresco Share site group. First we need to figure out the group identifier and then prefix it with `GROUP_`. For example, there is a default site in the repository with id `swsdp` and we can figure out the site groups based on the `site_{id}_[SiteCollaborator|SiteConsumer|SiteContributor|SiteManager]` template.
+We can use this call to return all users that are members of a specific Alfresco Share site group. First we need to
+figure out the group identifier and then prefix it with `GROUP_`. For example, there is a default site in the repository
+with id `swsdp` and we can figure out the site groups based on the
+`site_{id}_[SiteCollaborator|SiteConsumer|SiteContributor|SiteManager]` template.
 
-So, to see all users with manager access to the site we can get all members of the `site_swsdp_SiteManager` group, rember to prefix with `GROUP_`:
+So, to see all users with manager access to the site we can get all members of the `site_swsdp_SiteManager` group,
+remember to prefix with `GROUP_`:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_site_swsdp_SiteManager/members' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -1263,21 +1252,24 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-## Adding people and groups to a group {#adding-people-and-groups-to-a-group}
+## Adding people and groups to a group {#addtogroup}
 
 Adding members (i.e. people or groups) to a group in the repository.
 
-|API Call|POST /groups/{id}/members|
-|--------|---------------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/groups/createGroupMembership](http://localhost:8080/api-explorer/#!/groups/createGroupMembership)|
-|See also|[How to create a group]({% link content-services/5.2/develop/rest-api-guide/people-groups.md %}#create-a-group) and [how to set permissions for a group](#setting-permissions-for-a-group)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/groups/createGroupMembership](http://localhost:8080/api-explorer/#!/groups/createGroupMembership){:target="_blank"}
 
-When you have a group, the next step is most likely to add people and other groups to it so they can work on behalf of the group's permissions. It's common to set permissions for groups on folders. Then you just add users to the group and they get the group's permissions on the folder.
+**See also:**
+
+* [How to create a group](#creategroup)
+* [How to set permissions for a group](#setpermissionsgroup)
+
+When you have a group, the next step is most likely to add people and other groups to it so they can work on behalf of
+the group's permissions. It's common to set permissions for groups on folders. Then you just add users to the group and
+they get the group's permissions on the folder.
 
 To add a user or a group to a group we POST the following data:
 
-```
+```json
 {
      "id": "group or person identifier",
      "displayName": "name of the group or person",
@@ -1287,7 +1279,7 @@ To add a user or a group to a group we POST the following data:
 
 This data is posted to the following URL:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/{id}/members**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/{id}/members`
 
 The `id` parameter is the identifier of the group that the user or group that specified in the POST data should be added to.
 
@@ -1295,7 +1287,7 @@ Before we try this out let's add a person and two groups to use in an example.
 
 Create a test user by POSTing the following body (make sure that user id `test` doesn't already exist):
 
-```
+```json
 {
   "id": "test",
   "firstName": "Test",
@@ -1307,15 +1299,15 @@ Create a test user by POSTing the following body (make sure that user id `test` 
 
 to:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people`
 
 The call looks like this (you must be logged in as a user with admin rights for this to work):
 
-```
+```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "id": "test", "firstName": "Test", "lastName": "User", "password": "test", "email": "test@alfresco.com"}' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   347    0   241  100   106    607    267 --:--:-- --:--:-- --:--:--   871
+100   347    0   241  100   106    607    267 --:--:-- --:--:-- --:--:-* 871
 {
   "entry": {
     "firstName": "Test",
@@ -1337,7 +1329,7 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 
 Now create a group by POSTing the following body (make sure that group id `engineering` doesn't already exist):
 
-```
+```json
 {
    "id": "engineering",
    "displayName": "Engineering"
@@ -1346,11 +1338,11 @@ Now create a group by POSTing the following body (make sure that group id `engin
 
 to:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups`
 
 The call looks like this (you must be logged in as a user with admin rights for this to work):
 
-```
+```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "id": "engineering", "displayName": "Engineering" }' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -1364,11 +1356,13 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-The group id always starts with "GROUP_". If this is omitted, as in this case, it will be added automatically. This format is also returned when listing groups or group memberships. It should be noted that the other group-related operations also expect the id to start with "GROUP_".
+The group id always starts with `GROUP_`. If this is omitted, as in this case, it will be added automatically. This
+format is also returned when listing groups or group memberships. It should be noted that the other group-related
+operations also expect the id to start with `GROUP_`.
 
-Now add another group called "system-architects" that we will add as a member to the "engineering" group:
+Now add another group called `system-architects` that we will add as a member to the `engineering` group:
 
-```
+```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "id": "system-architects", "displayName": "System Architects" }' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -1382,11 +1376,11 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-We are now ready to add the "test" user and the "system-architects" group as members of the "engineering" group.
+We are now ready to add the `test` user and the `system-architects` group as members of the `engineering` group.
 
 Let's start by adding the System Architects group to the Engineering group. This is what we need to POST:
 
-```
+```json
 {
      "id": "GROUP_system-architects",
      "displayName": "System Architects",
@@ -1396,7 +1390,7 @@ Let's start by adding the System Architects group to the Engineering group. This
 
 Here is the call:
 
-```
+```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "id": "GROUP_system-architects", "displayName": "System Architects", "memberType": "GROUP"}' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering/members' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -1410,11 +1404,11 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-Note how the group identifier in the POST data and in the URL need to be prefixed with "GROUP_".
+Note how the group identifier in the POST data and in the URL need to be prefixed with `GROUP_`.
 
 Now, let's add the Test User user to the Engineering group, we need to POST this:
 
-```
+```json
 {
      "id": "test",
      "displayName": "Test user",
@@ -1424,7 +1418,7 @@ Now, let's add the Test User user to the Engineering group, we need to POST this
 
 Here is the call:
 
-```
+```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "id": "test", "displayName": "Test user", "memberType": "PERSON"}' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering/members' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -1438,13 +1432,14 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-Let's double check that the user and group really has been added to the Engineering group, we can use the **GET /groups/{group id}/members** call for that:
+Let's double check that the user and group really has been added to the Engineering group, we can use the
+`GET /groups/{group id}/members` call for that:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering/members' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   277    0   277    0     0    893      0 --:--:-- --:--:-- --:--:--   893
+100   277    0   277    0     0    893      0 --:--:-- --:--:-- --:--:-* 893
 {
   "list": {
     "pagination": {
@@ -1475,53 +1470,55 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 
 ```
 
-When the Engineering group has been populated with users and groups we can start configuring folder and file permissions for it.
+When the Engineering group has been populated with users and groups we can start configuring folder and file permissions
+for it.
 
-## Delete a person or group from a group {#delete-a-person-or-group-from-a-group}
+## Delete a person or group from a group
 
 Deleting a person or group from a group in the repository.
 
-|API Call|DELETE /groups/{id}/members/{id}|
-|--------|------------------------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/groups/deleteGroupMembership](http://localhost:8080/api-explorer/#!/groups/deleteGroupMembership)|
-|See also|[How to add a person or group to a group]({% link content-services/5.2/develop/rest-api-guide/people-groups.md %}#adding-people-and-groups-to-a-group)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/groups/deleteGroupMembership](http://localhost:8080/api-explorer/#!/groups/deleteGroupMembership){:target="_blank"}
 
-To delete a group membership you must have admin rights. What this means is that the user that is making the ReST call must be a member of the `ALFRESCO_ADMINISTRATORS` group.
+**See also:** [How to add a person or group to a group](#addtogroup)
+
+To delete a group membership you must have admin rights. What this means is that the user that is making the ReST call
+must be a member of the `ALFRESCO_ADMINISTRATORS` group.
 
 To remove a group or a user from a group the following DELETE call is used:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/{groupId}/members/{memberId}**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/{groupId}/members/{memberId}`
 
-The group that you want to remove the membership from is identified with the `groupId` parameter. The membership (i.e. user or group) that you want to remove is idenfied with the `memberId`.
+The group that you want to remove the membership from is identified with the `groupId` parameter. The membership
+(i.e. user or group) that you want to remove is idenfied with the `memberId`.
 
 To remove a user with id `test` from a group with id `engineering` use the following DELETE call:
 
-```
+```bash
 $ curl -X DELETE -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering/members/test' | jq
    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                   Dload  Upload   Total   Spent    Left  Speed
-   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:-*   0
 ```
 
 Note that you always have to prefix group identifiers with `GROUP_`.
 
 To remove a group with id `system-architects` from a group with id `engineering` use the following call:
 
-```
+```bash
 $ curl -X DELETE -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering/members/GROUP_system-architects' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:-*   0
 ```
 
-Let's double check that the user and group really has been removed from the Engineering group, we can use the **GET /groups/{group id}/members** call for that:
+Let's double check that the user and group really has been removed from the Engineering group, we can use the
+`GET /groups/{group id}/members` call for that:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering/members' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   113    0   113    0     0    342      0 --:--:-- --:--:-- --:--:--   342
+100   113    0   113    0     0    342      0 --:--:-- --:--:-- --:--:-* 342
 {
   "list": {
     "pagination": {
@@ -1538,16 +1535,20 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 
 The Engineering group is empty as the user and group we removed were the only members.
 
-## Setting permissions for a group {#setting-permissions-for-a-group}
+## Setting permissions for a group {#setpermissionsgroup}
 
 Setting permissions for a group.
 
-|API Call|[Get and set permissions for a node]({% link content-services/5.2/develop/rest-api-guide/folders-files.md %}#get-and-set-permissions-for-a-folder-or-file)|
-|--------|----------------------------------------------------------------------------------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/nodes/updateNode](http://localhost:8080/api-explorer/#!/nodes/updateNode)|
-|See also|[How to create a group]({% link content-services/5.2/develop/rest-api-guide/people-groups.md %}#create-a-group)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Call:** [Get and set permissions for a node]({% link content-services/5.2/develop/rest-api-guide/folders-files.md %}#setpermissionsnode)
 
-After creating a group and populating it with users and groups it is usually time to set permissions for it. What this means is to configure read and write permissions on different folders and files in the repository. So when users that are part of the group access those folders and files they automatically have the permissions that the group have. Setting permissions on groups instead of individual users makes life easier when managing the repository.
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/nodes/updateNode](http://localhost:8080/api-explorer/#!/nodes/updateNode){:target="_blank"}
 
-This is all done via the **PUT /nodes/{id}** call, for more info see [get and set permissions for a node]({% link content-services/5.2/develop/rest-api-guide/folders-files.md %}#get-and-set-permissions-for-a-folder-or-file).
+**See also:** [How to create a group](#creategroup)
+
+After creating a group and populating it with users and groups it is usually time to set permissions for it. What this
+means is to configure read and write permissions on different folders and files in the repository. So when users that
+are part of the group access those folders and files they automatically have the permissions that the group have.
+Setting permissions on groups instead of individual users makes life easier when managing the repository.
+
+This is all done via the `PUT /nodes/{id}` call, for more info see
+[get and set permissions for a node]({% link content-services/5.2/develop/rest-api-guide/folders-files.md %}#setpermissionsnode).

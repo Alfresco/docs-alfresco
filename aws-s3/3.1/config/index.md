@@ -173,8 +173,6 @@ with S3 Connector 1.x and behavior.
     s3.flatRoot=true
     ```
 
-    >**Note:** For a multi-tenant system you can also set `s3.useTenantDomainInPath=false`, however content from different tenants is co-mingled. For more details, see [Setting up multi-tenancy]({% link content-services/6.2/admin/multi-tenancy.md %}).
-
     You can apply S3 Connector 2.0 to an existing installation where S3 Connector 1.x was previously used without affect to the running of the system. This means that existing paths remain as they are, and new paths are generated based on your configuration.
 
     **Example 1:**
@@ -986,7 +984,7 @@ the stores.
 
 The S3 Connector provides a number of properties on installation and for customizing your configuration.
 
-This sections describes what's changed in the properties configuration:
+This section describes what's changed in the properties configuration:
 
 * New properties
 * New properties that supersede older properties
@@ -1002,7 +1000,8 @@ Here is a list of properties that have been added in S3 Connector 3.1.
 
     The value of this property will be appended (prefixed) to the AWS S3 URL for each uploaded file.
 
-    If used, it should typically represent a directory in S3, and be terminated by a "`/`" (slash) character (although this is not mandatory). 
+    If used, it should typically represent a directory in S3, and be terminated by a "`/`" (slash) character (although this is not mandatory).
+
     For example:
 
     ```text

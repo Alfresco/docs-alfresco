@@ -4,7 +4,7 @@ title: Content models
 
 Use this information to create and manage custom models in Alfresco Share using the Model Manager.
 
-> **Note:** A [tutorial]({% link content-services/community/tutorial/model.md %}) for using the Model Manager is also available.
+> **Note:** A [tutorial]({% link content-services/latest/tutorial/model.md %}) for using the Model Manager is also available.
 
 ## Introduction
 
@@ -45,7 +45,7 @@ Constraints control the input property values. For example, you can specify that
 
 You can create new models using the Model Manager.
 
-> **Note:** Field names should not start with a number due to the design of [Solr](https://lucene.apache.org/solr/guide/6_6/defining-fields.html#DefiningFields-FieldPropertiess){:target="_blank"}.
+> **Note:** Field names should not start with a number due to the design of [Solr](https://solr.apache.org/guide/6_6/defining-fields.html#DefiningFields-FieldPropertiess){:target="_blank"}.
 
 1. Log into Alfresco Share as a user that is a member of the `ALFRESCO_MODEL_ADMINISTRATORS` permission group and click **Admin Tools** > **Model Manager**.
 

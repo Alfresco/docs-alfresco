@@ -37,7 +37,7 @@ If you have not enforced SAML for a specific service provider, you can use the o
 
 1. Stop the Alfresco Content Services server.
 
-2. Navigate to the [Alfresco Support Portal](http://support.alfresco.com){:target="_blank"} and download and unzip the SAML Module for Alfresco Content Services zip package:
+2. Navigate to the [Alfresco Support Portal](http://support.alfresco.com){:target="_blank"}, download and unzip the SAML Module for Alfresco Content Services zip package:
 
     * `alfresco-saml-1.1.x.zip`
 

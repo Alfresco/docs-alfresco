@@ -32,3 +32,35 @@ The Mobile Workspace will attempt to keep this collection updated with the lates
 * The **Shared Files** view aggregates all files that have been shared using the QuickShare feature in the content repository.
 
 * The **Trash** view shows all the items that a user has deleted. An administrator can see items deleted by all users. The actions available in this view are **Restore** and **Permanently Delete**.
+
+## Upload files
+
+You can upload single or multiple files within the Mobile Workspace.
+
+1. Log into the Mobile Workspace.
+
+2. Navigate to the **Personal Files** area.
+
+3. Press the plus **+** button.
+
+4. Press **Upload Files**.
+
+This will open your file repository on your mobile device (e.g. Files for iPhone users) where you can select files to upload. This will upload files to the Personal files area. If you want to upload to a specific folder, create a new folder first and upload from inside that folder.
+
+## Share files from another file system
+
+You can share single or multiple files from a different file system with the Mobile Workspace.
+
+1. On your mobile device, select the files you want to share with the Mobile Workspace. For example, in Google Drive.
+    
+
+2. Use the share function within the different file system (e.g. 'Send a Copy' with Google Drive) and select Workspace.
+
+3. Select the location in the Mobile Workspace to share and store your files, and then click **Upload**.
+
+This will upload files to the Personal files area. If you want to upload to a specific folder, create a new folder first and then upload from inside that folder. Files can also be shared this way using the gallery with the Mobile Workspace.
+    
+Open the Mobile Workspace to view your files.
+ 
+ * On the Recent Files view, a banner displays the sync progress for all files as a percentage complete. Pressing the sync status banner opens a Transfers view with all the files selected to be shared with the Mobile Workspace. 
+ * On the Transfers view, use the **Sync All** button to force the files to upload. This is used to complete the transfer when files were shared without an internet connection or if the internet connection is lost.

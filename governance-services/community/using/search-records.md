@@ -61,7 +61,7 @@ Use these examples to see how the Search by and Search Date options work.
 
     `vitalRecordReviewPeriod::month`
 
-    >**Note:** Ensure that you've selected the component in the**Results options** section.
+    > **Note:** Ensure that you've selected the component in the**Results options** section.
 
 ### Search field options
 
@@ -106,7 +106,7 @@ Publication Date|`publicationDate`|The date that the record is published. Select
 
 If you select to **Search by** for a search, then the following fields are available if you select a **Web Record**, **Scanned Record**, **PDF Record**, or **Digital Photograph Record** field.
 
->**Note:** These options are only available in {% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %} compliant Records Management sites.
+> **Note:** These options are only available in {% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %} compliant Records Management sites.
 
 |Record type|Special type name|Description|
 |-----------|-----------------|-----------|
@@ -165,7 +165,7 @@ When you've run a search and are looking at the search results, you can select t
 
 The saved search displays in the **Saved Searches** menu on the Search page. The same list is available in the explorer panel of the File Plan.
 
->**Note:** The saved search feature saves only the search query and not the results. This means that when you next use the saved search, you might get different results, depending on the activity in the Records Management system.
+> **Note:** The saved search feature saves only the search query and not the results. This means that when you next use the saved search, you might get different results, depending on the activity in the Records Management system.
 
 ## Printing search results
 
@@ -189,7 +189,7 @@ You can export search results as an Alfresco Content Package (ACP).
 
     Depending on your browser you are prompted to open or save the file.
 
-    >**Note:** You can also export the results from the Printer Layout view.
+    > **Note:** You can also export the results from the Printer Layout view.
 
 ## Deleting a saved search
 
@@ -219,11 +219,11 @@ Users with the appropriate {% include tooltip.html word="capabilities" text="cap
 
     A message displays confirming that the record or folder is on hold.
 
-    >**Note:** If no holds have been set up in the Holds area then the screen will be empty. Records and folders remain on hold until they have been removed from all holds they're added to.
+    > **Note:** If no holds have been set up in the Holds area then the screen will be empty. Records and folders remain on hold until they have been removed from all holds they're added to.
 
 The selected records and/or folders remain in their place in the File Plan. They are also shown in the **Holds** area of the explorer panel.
 
->**Note:** To remove a record from a hold hover over it in the File Plan or the Holds area and select **Remove from Hold**.
+> **Note:** To remove a record from a hold hover over it in the File Plan or the Holds area and select **Remove from Hold**.
 
 ## Advanced search options
 
@@ -363,7 +363,7 @@ dateFiled:NOW
 
 To search for special types, you can match the special type names using ASPECT.
 
->**Note:** These options are only available in {% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %} compliant Records Management sites.
+> **Note:** These options are only available in {% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %} compliant Records Management sites.
 
 For example, to search for all digital photograph records:
 
@@ -411,7 +411,7 @@ For example, to search for only vital records:
 
 The Results tab shows the vital records (the Vital Record field has a value of Yes).
 
->**Note:** The vital records that are due for review will have the ![]({% link governance-services/images/rm-vr-dueforreview.png %}){:height="18px" width="18px"} icon next to Yes.
+> **Note:** The vital records that are due for review will have the ![]({% link governance-services/images/rm-vr-dueforreview.png %}){:height="18px" width="18px"} icon next to Yes.
 
 ### Searching using special operators
 
