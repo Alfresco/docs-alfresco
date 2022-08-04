@@ -130,9 +130,10 @@ where:
 
 | Option | Description |
 | ------ | ----------- |
+| extension-filename | *Required.* AMP or JAR file containing an Alfresco extension. |
 | <nobr>--target-version</nobr> | *Optional.* A specific Content Services version or range of versions. This option is mutually exclusive to `--target-inventory`. |
 | <nobr>--target-inventory</nobr> | *Optional.* The file path to an existing WAR inventory. This option is mutually exclusive to `--target-version`. |
-| <nobr>--verbose</nobr> | *Optional.* Verbose output. |
+| <nobr>--verbose</nobr> | *Optional.* Show verbose output. |
 | <nobr>--list-known-alfresco-versions</nobr> | *Optional.* List all Alfresco versions with inventory reports included in the tool. |
 | <nobr>--help</nobr> | *Optional.* Show help text. |
 
