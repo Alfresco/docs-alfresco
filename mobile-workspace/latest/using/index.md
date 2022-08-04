@@ -75,7 +75,10 @@ You can create new folders within the Mobile Workspace.
 3. Press the plus **+** button.
 
 4. Select **New folder** to create a new folder.
-<!-- Additional steps? Type in the name for the new folder, optional description? Select Save or Cancel? -->
+
+5. Type in a name for the new folder. Enter an optional description for the folder.
+
+6. Select **Save** to create the folder or select **Cancel** to cancel creating a new folder.
 
 ## Move Files
 
@@ -86,14 +89,14 @@ You can move files within the Mobile Workspace.
 2. Search or navigate to the file you want to move.
 
 3. Select the Floating action button.
-<!-- does this actually open the File Library or is another location or name? -->
-4. Select **Move** to open the File Library.
+
+4. Select **Move** to open the root Personal Files location.
 
 5. Search or navigate to the new location.
 
 6. Select the **Move** button to move the file to a new location. Select **Cancel** to cancel the move and return to the previous screen.
 
- ## Rename Files
+## Rename Files
 
  You can rename files within the Mobile Workspace.
 
@@ -103,14 +106,14 @@ You can move files within the Mobile Workspace.
 
 3. Select the Floating action button.
 
-4. Select **Rename** to open a new screen.
+4. Select **Rename** to open a dialog box.
 
 5. Enter a new file name and an optional description.
 
 6. Select **Save** to save the new file name. Select **Cancel** to cancel the rename and return to the previous screen.
 
- ## Scan Documents
-<!-- refer to everything as documents or files? -->
+## Scan Documents
+
  You can scan documents within the Mobile Workspace.
 
 1. Log into the Mobile Workspace.
@@ -120,11 +123,10 @@ You can move files within the Mobile Workspace.
 3. Press the plus **+** button.
 
 4. Press **Scan documents**.
-
 * Your device's camera will load.
 * On the first use, you will have to allow the Mobile Workspace access to use the camera on your device.
 
-5. Position your device over the document to scan and capture a photo. Repeat for additional pages or documents to scan to one file.
+5. Position your device to scan and capture a photo of the document. Repeat for additional pages or documents to scan as one file.
 
 6. When all documents are scanned, select **Save**.
 
