@@ -123,8 +123,9 @@ You can move files within the Mobile Workspace.
 3. Press the plus **+** button.
 
 4. Press **Scan documents**.
-* Your device's camera will load.
-* On the first use, you will have to allow the Mobile Workspace access to use the camera on your device.
+
+    * Your device's camera loads.
+    * On the first use, you must allow the Mobile Workspace access to use the camera on your device.
 
 5. Position your device to scan and capture a photo of the document. Repeat for additional pages or documents to scan as one file.
 
