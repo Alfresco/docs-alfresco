@@ -88,7 +88,7 @@ You can move files within the Mobile Workspace.
 
 2. Search or navigate to the file you want to move.
 
-3. Select the Floating action button.
+3. Select the floating action button (+).
 
 4. Select **Move** to open the root Personal Files location.
 
