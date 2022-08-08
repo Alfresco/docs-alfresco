@@ -58,11 +58,11 @@ You can share single or multiple files from a different file system with the Mob
 3. Select the location in the Mobile Workspace to share and store your files, and then click **Upload**.
 
 This will upload files to the Personal files area. If you want to upload to a specific folder, create a new folder first and then upload from inside that folder. Files can also be shared this way using the gallery with the Mobile Workspace.
-    
+
 Open the Mobile Workspace to view your files.
- 
- * On the Recent Files view, a banner displays the sync progress for all files as a percentage complete. Pressing the sync status banner opens a Transfers view with all the files selected to be shared with the Mobile Workspace. 
- * On the Transfers view, use the **Sync All** button to force the files to upload. This is used to complete the transfer when files were shared without an internet connection or if the internet connection is lost.
+
+* On the Recent Files view, a banner displays the sync progress for all files as a percentage complete. Pressing the sync status banner opens a Transfers view with all the files selected to be shared with the Mobile Workspace.
+* On the Transfers view, use the **Sync All** button to force the files to upload. This is used to complete the transfer when files were shared without an internet connection or if the internet connection is lost.
 
 ## Create New Folder
 
@@ -72,13 +72,13 @@ You can create new folders within the Mobile Workspace.
 
 2. Search or navigate to the location you want to create a folder.
 
-3. Press the plus **+** button.
+3. Press the floating action button (**+**).
 
-4. Select **New folder** to create a new folder.
+4. Press **New folder** to create a new folder.
 
 5. Type in a name for the new folder. Enter an optional description for the folder.
 
-6. Select **Save** to create the folder or select **Cancel** to cancel creating a new folder.
+6. Press **Save** to create the folder or press **Cancel** to cancel creating a new folder.
 
 ## Move Files
 
@@ -88,13 +88,13 @@ You can move files within the Mobile Workspace.
 
 2. Search or navigate to the file you want to move.
 
-3. Select the floating action button (+).
+3. Press the vertical ellipsis (**&vellip;**).
 
-4. Select **Move** to open the root Personal Files location.
+4. Press **Move** to open the root Personal Files location.
 
 5. Search or navigate to the new location.
 
-6. Select the **Move** button to move the file to a new location. Select **Cancel** to cancel the move and return to the previous screen.
+6. Press the **Move** button to move the file to a new location. Press **Cancel** to cancel the move and return to the previous screen.
 
 ## Rename Files
 
@@ -104,13 +104,13 @@ You can move files within the Mobile Workspace.
 
 2. Search or navigate to the file you want to rename.
 
-3. Select the Floating action button.
+3. Press the vertical ellipsis (**&vellip;**).
 
-4. Select **Rename** to open a dialog box.
+4. Press **Rename** to open a dialog box.
 
 5. Enter a new file name and an optional description.
 
-6. Select **Save** to save the new file name. Select **Cancel** to cancel the rename and return to the previous screen.
+6. Press **Save** to save the new file name. Press **Cancel** to cancel the rename and return to the previous screen.
 
 ## Scan Documents
 
@@ -120,7 +120,7 @@ You can move files within the Mobile Workspace.
 
 2. Search or navigate to the area you want to add a scanned document.
 
-3. Press the plus **+** button.
+3. Press the floating action button (**+**).
 
 4. Press **Scan documents**.
 
@@ -129,7 +129,7 @@ You can move files within the Mobile Workspace.
 
 5. Position your device to scan and capture a photo of the document. Repeat for additional pages or documents to scan as one file.
 
-6. When all documents are scanned, select **Save**.
+6. When all documents are scanned, press **Save**.
 
-* The scan will be saved where you navigated.
-* If you do not wish to keep the scan, exit without saving. A dialog box will appear to confirm you want to **Discard** the scan. Select **Cancel** to return to save your scan.
+    * The scan will be saved where you navigated.
+    * If you do not wish to keep the scan, exit without saving. A dialog box will appear to confirm you want to discard the scan, press **Discard**. Press **Cancel** to return to save your scan.
