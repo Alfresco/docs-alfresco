@@ -594,7 +594,7 @@ before continuing.
      -jar alfresco-transform-core-aio-boot-2.6.x.jar
     ```
 
-    > **Note:** You may need to change the paths depending on your operating system. For example:
+    > **Note:** LibreOffice, ImageMagick and Alfresco PDF Renderer binaries needs to be installed on the server where all-in-one core T-Engine is setup. Please see Prerequisites. You may need to change the paths depending on your operating system. For example:
     > java -DPDFRENDERER_EXE="/usr/local/acs72/alfresco-pdf-renderer/alfresco-pdf-renderer" \
        -DLIBREOFFICE_HOME="/usr/local/acs72/libreoffice" \
        -DIMAGEMAGICK_ROOT="/usr/local/acs72/imagemagick" \
