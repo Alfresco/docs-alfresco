@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for Desktop Sync 1.13:
+The following are the supported platforms for Desktop Sync 1.12:
 
 | Version | Notes |
 | ------- | ----- |
