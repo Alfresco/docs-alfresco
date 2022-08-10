@@ -38,7 +38,11 @@ To get started, prepare your production server by installing the prerequisite so
 7. Set up ActiveMQ.
 8. Install third-party software used by Community Edition. This includes LibreOffice, ImageMagick, and Alfresco PDF Renderer.
 
-> **Note:** Starting from Content Services 7.0, the `alfresco-pdf-renderer` binaries are no longer included in the distribution zip. LibreOffice, ImageMagick, and Alfresco PDF Renderer are no longer part of the Content Services zip installation. You must install LibreOffice, ImageMagick, and Alfresco PDF Renderer with transform service for transformations to be fully functional. For non-containerized deployment, you are also required to install Exiftool. Exiftool will be utilized by TIKAAuto metadata extraction parser. Community users can utilize [alfresco-transform-core-aio](https://github.com/Alfresco/alfresco-transform-core/tree/master/alfresco-transform-core-aio/alfresco-transform-core-aio-boot) boot app for installing transformation service.
+> **Note:** Starting from Content Services 7.0, the `alfresco-pdf-renderer` binaries are no longer included in the distribution zip. LibreOffice, ImageMagick, and Alfresco PDF Renderer are no longer part of the Content Services zip installation.
+>
+> * You must install LibreOffice, ImageMagick, and Alfresco PDF Renderer with the Transform Service for transformations to be fully functional.
+> * For non-containerized deployment, you are also required to install Exiftool. Exiftool will be utilized by the TIKAAuto metadata extraction parser.
+> * Community users can utilize [alfresco-transform-core-aio](https://github.com/Alfresco/alfresco-transform-core/tree/master/alfresco-transform-core-aio/alfresco-transform-core-aio-boot){:target="_blank"} Spring Boot app for installing transformation services.
 
 Review and test your setup to check that all the installation steps are complete:
 

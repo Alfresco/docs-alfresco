@@ -585,17 +585,21 @@ before continuing.
 
     ```java
     java -DPDFRENDERER_EXE="<alfresco-pdf-renderer_installation_dir>/alfresco-pdf-renderer"
-     -DLIBREOFFICE_HOME="<libreoffice_installation_dir>"
-     -DIMAGEMAGICK_ROOT="<imagemagick_installation_dir>"
-     -DIMAGEMAGICK_DYN="<imagemagick_installation_dir>/lib"
-     -DIMAGEMAGICK_EXE="<imagemagick_installation_dir>/bin/convert"
-     -DACTIVEMQ_URL=failover:(tcp://server:61616)?timeout=3000
-     -DFILE_STORE_URL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file
-     -jar alfresco-transform-core-aio-boot-2.6.x.jar
+       -DLIBREOFFICE_HOME="<libreoffice_installation_dir>"
+       -DIMAGEMAGICK_ROOT="<imagemagick_installation_dir>"
+       -DIMAGEMAGICK_DYN="<imagemagick_installation_dir>/lib"
+       -DIMAGEMAGICK_EXE="<imagemagick_installation_dir>/bin/convert"
+       -DACTIVEMQ_URL=failover:(tcp://server:61616)?timeout=3000
+       -DFILE_STORE_URL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file
+       -jar alfresco-transform-core-aio-boot-2.6.x.jar
     ```
 
-    > **Note:** LibreOffice, ImageMagick and Alfresco PDF Renderer binaries needs to be installed on the server where all-in-one core T-Engine is setup. Please see Prerequisites. You may need to change the paths depending on your operating system. For example:
-    > java -DPDFRENDERER_EXE="/usr/local/acs72/alfresco-pdf-renderer/alfresco-pdf-renderer" \
+    > **Note:** LibreOffice, ImageMagick and Alfresco PDF Renderer binaries needs to be installed on the server where the all-in-one core T-Engine is setup. See the [Prerequisites](#prereq-non-containerized-deploy) for more details. You may need to change the paths depending on your operating system.
+
+    For example:
+
+    ```java
+    java -DPDFRENDERER_EXE="/usr/local/acs72/alfresco-pdf-renderer/alfresco-pdf-renderer" \
        -DLIBREOFFICE_HOME="/usr/local/acs72/libreoffice" \
        -DIMAGEMAGICK_ROOT="/usr/local/acs72/imagemagick" \
        -DIMAGEMAGICK_DYN="/usr/local/acs72/imagemagick" \
@@ -604,6 +608,7 @@ before continuing.
        -DIMAGEMAGICK_CONFIG="/usr/local/acs72/imagemagick/config-Q16HDRI" \
        -DACTIVEMQ_URL=failover:(tcp://localhost:61616)?timeout=3000 \
        -jar /usr/local/acs72/bin/alfresco-transform-core-aio-boot-2.6.0.jar
+    ```
 
     Check the output to ensure that it starts successfully.
 

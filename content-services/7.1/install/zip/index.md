@@ -40,7 +40,7 @@ To get started, prepare your production server by installing the prerequisite so
 7. Set up ActiveMQ.
 8. Install third-party software used by Content Services.
 
-> **Note:** Starting from Content Services 7.0, the `alfresco-pdf-renderer` binaries are no longer included in the distribution zip. LibreOffice, ImageMagick, and Alfresco PDF Renderer are no longer part of the Content Services zip installation, as they've moved to the [Alfresco Transform Service installation]({% link transform-service/latest/install/index.md#prereq-non-containerized-deploy %}) for non-containerized deployment. You must install LibreOffice, ImageMagick, and Alfresco PDF Renderer with transform service for transformations to be fully functional. For non-containerized deployment, you are also required to install Exiftool. Exiftool will be utilized by TIKAAuto metadata extraction parser.
+> **Note:** Starting from Content Services 7.0, the `alfresco-pdf-renderer` binaries are no longer included in the distribution zip. LibreOffice, ImageMagick, and Alfresco PDF Renderer are no longer part of the Content Services zip installation, as they've moved to the [Alfresco Transform Service installation]({% link transform-service/latest/install/index.md %}#prereq-non-containerized-deploy) for non-containerized deployment. You must install LibreOffice, ImageMagick, and Alfresco PDF Renderer with the Transform Service for transformations to be fully functional. For non-containerized deployment, you are also required to install Exiftool. Exiftool will be utilized by the TIKAAuto metadata extraction parser.
 
 Review and test your setup to check that all the installation steps are complete:
 
