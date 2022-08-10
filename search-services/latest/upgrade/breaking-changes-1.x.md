@@ -6,6 +6,8 @@ Use this information when upgrading from Search Services 1.x to Search Services 
 
 ## Text indexation for properties of type `d:content`
 
+Every type from `cm:content` includes a default `d:content` property to store the content. You can declare additional `d:content` properties, or "secondary" properties.
+
 Search Services 1.x indexed the content of secondary `d:content` properties defined for a custom Content Model Type. This feature is unsupported by Search Services 2.x, so it's required to re-design your Content Model before upgrading.
 
 The following sample Content Model describes a secondary `d:content` property named `doc:attachment`:
