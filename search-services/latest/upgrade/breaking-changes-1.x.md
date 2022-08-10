@@ -2,13 +2,13 @@
 title: Breaking changes from Search Services 1.x
 ---
 
-Use this information to upgrade from Search Services 1.x to Search Services 2.x.
+Use this information when upgrading from Search Services 1.x to Search Services 2.x.
 
 ## Text indexation for properties of type `d:content`
 
 Search Services 1.x indexed the content of secondary `d:content` properties defined for a custom Content Model Type. This feature is unsupported by Search Services 2.x, so it's required to re-design your Content Model before upgrading.
 
-The following sample Content Model describes a secondary `d:content` property named `doc:attachment`.
+The following sample Content Model describes a secondary `d:content` property named `doc:attachment`:
 
 ```xml
 <type name="doc:sample">
@@ -26,7 +26,7 @@ The following sample Content Model describes a secondary `d:content` property na
 
 When using Search Services 1.x, the content stored in `doc:attachment` is indexed and searchable. From Search Services 2.x, the property `doc:attachment` is indexed but the content is not. So searching by content of the property is not working.
 
-In order to support this Content Model from Search Services 2.x, secondary `d:content` fields must be converted to `associations` with `cm:content` nodes. The following sample Content Model applies this conversion to the previous model.
+In order to support this Content Model from Search Services 2.x, secondary `d:content` fields must be converted to `associations` with `cm:content` nodes. The following sample Content Model applies this conversion to the previous model:
 
 ```xml
 <type name="doc:sample">
@@ -59,4 +59,4 @@ In order to support this Content Model from Search Services 2.x, secondary `d:co
 </aspect>
 ```
 
->> Note that this Content Model modification may also affect to custom integrations, since the results are returned with a different structure.
+> **Note:** This Content Model modification may also affect custom integrations, since the results are returned with a different structure.
