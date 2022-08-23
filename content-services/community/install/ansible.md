@@ -41,7 +41,7 @@ In the interest of keeping this guide simple, we'll use an AWS EC2 instance as t
 
     ![centos-ami]({% link content-services/images/centos-ami.png %})
 
-2. Download the Ansible playbook [zip file](https://nexus.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/alfresco-ansible-deployment/1.1.1/alfresco-ansible-deployment-1.1.1.zip){:target="_blank"}.
+2. Download the Ansible playbook [zip file](https://nexus.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/alfresco-ansible-deployment/2.0.0/alfresco-ansible-deployment-2.0.0.zip){:target="_blank"}.
 
 3. Transfer the ZIP file to the control node and SSH into the machine:
 
