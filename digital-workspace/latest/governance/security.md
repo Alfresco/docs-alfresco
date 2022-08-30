@@ -55,7 +55,7 @@ Use the Admin App to create Controls.
 
 11. Enter **Backend management** into the new row and then click **Save**.
 
-You have created a new Control called Training that has three Security Marks.
+You have created a new Control called Training that has three Security Marks. The Security Marks will be visible and useable within the Digital Workspace.
 
     ![security-controls]({% link digital-workspace/images/security-controls.png %})
 
