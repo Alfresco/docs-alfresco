@@ -19,21 +19,21 @@ There are three different ways you can configure your Controls:
 
     Example: The predefined Classification group has marks of Top Secret, Secret, and Classified. To see a file classified as Secret, the user must have Secret or Top Secret clearance.
 
-## Security Controls and Security Marks
+## Security Controls in the Admin App
 
 Use this example to create an **All** Control in the Admin App called Training that has three Security Marks, **Media**, **Data handling**, and **Backend management**.
 
-**Important:** All Security Marks you create are visible to all users.
+> **Important:** All Security Marks you create are visible to all users within the Digital Workspace.
 
-### Create Security Controls and Security Marks
+### Create Controls and Security Marks
 
-Use the Admin App to create Security Controls.
+Use the Admin App to create Controls.
 
 1. Log into the Admin App as an administrator.
 
 2. Expand the **Security** entry in the left pane and then click **Security Controls**.
 
-    You can view and edit all of your Security Controls from here.
+    You can view and edit all of your Controls from here.
 
 3. Click **Create New Control**.
 
@@ -55,36 +55,24 @@ Use the Admin App to create Security Controls.
 
 11. Enter **Backend management** into the new row and then click **Save**.
 
+You have created a new Control called Training that has three Security Marks.
+
     ![security-controls]({% link digital-workspace/images/security-controls.png %})
 
 ### Security Marks in the Digital Workspace
 
-Use the Digital Workspace to assign security Marks to files and folders, to limit their accessability from users that do not have the correct user rights.
+Use the Digital Workspace to assign security Marks to files and folders. Doing this limits their accessability from users that do not have the correct user rights.
 
 1. Sign into the Digital Workspace.
 
 2. Right click on the file or folder you want to add Security Marks to and select **Security Marks**.
 
-    You will see all the Security Marks available to you.
+    You will see all the Security Marks that are available.
 
 3. Select which Security Marks you want assigned to the file or folder and click **Save**.
 
 ![security-marks]({% link digital-workspace/images/security-marks.png %})
 
-Once you have saved the Security Marks for the file or folder the ones you have selected will be visible in the Security Marks column. If you have more than can be displayed there is a display all button.
+Once you have saved the Security Marks for the file or folder the ones you have selected will be visible in the Security Marks column. 
 
-
-The **ADD_SECURITY_MARKS** action is used to add Security Marks to specific content.  
-To add Security Marks in Process Automation you must have configured Security Marks in Governance Services. For information on Security Marks in Governance Services, see [Security Marks and Classification
-]({% link governance-services/latest/using/smc.md %})
-
-## Edit Security Marks in the Digital Workspace
-
-You can edit the Security Marks that are applied to individual files or directories in the Digital Workspace.
-
-There is a Security Marks column
-
-There is a show all button
-
-An Alfresco Administrator is the one who has access to change the Security Marks and security controls
-
+> **Note:** If you have more than can be displayed in the column you can click the **Display all** button.
