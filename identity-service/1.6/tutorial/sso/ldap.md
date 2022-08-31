@@ -38,7 +38,7 @@ There are thirteen steps to configuring SSO using an LDAP directory with Alfresc
 * Alfresco Process Workspace: `apw.example.com`
 * Identity Service: `ids.example.com`
 * LDAP Directory: `ldap.example.com`
-    * OpenLDAP was used for testing purposes.
+  * OpenLDAP was used for testing purposes.
 
 It is also assumed that certificates are correctly set up for each host and that each host exposes its service solely via TLS on the default port (443).
 
@@ -88,15 +88,15 @@ Clients need to be created and configured for Alfresco Office Services (AOS) and
     In the **Settings** tab:
 
     * A unique and identifiable **Client ID**.
-    *   A **Client Protocol** of `SAML`
-    *   A valid **Base URL**, for example: `https://repo.example.com/alfresco`
-    *   An identifiable **Name** that will be displayed.
-    *   The **Login Theme** is set to `Alfresco`
-    *   Set the **Valid Redirect URIs** using a wildcard `*`, for example: `https://repo.example.com/alfresco/*` and `https://ids.example.com/*`
-    *   Set **Master SAML Processing URL** and **IDP Initiated SSO URL Name** to the same value that you used for **Client ID**.
-    *   Set **Logout Service POST Binding URL**: `https://repo.example.com/alfresco/service/saml/-default-/aos/logout-request`
-    *   Make sure that the **Front Channel Logout** property is off.
-    *   **Save** the settings.
+    * A **Client Protocol** of `SAML`
+    * A valid **Base URL**, for example: `https://repo.example.com/alfresco`
+    * An identifiable **Name** that will be displayed.
+    * The **Login Theme** is set to `Alfresco`
+    * Set the **Valid Redirect URIs** using a wildcard `*`, for example: `https://repo.example.com/alfresco/*` and `https://ids.example.com/*`
+    * Set **Master SAML Processing URL** and **IDP Initiated SSO URL Name** to the same value that you used for **Client ID**.
+    * Set **Logout Service POST Binding URL**: `https://repo.example.com/alfresco/service/saml/-default-/aos/logout-request`
+    * Make sure that the **Front Channel Logout** property is off.
+    * **Save** the settings.
 
     In the **SAML Keys** tab:
 
