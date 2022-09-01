@@ -99,25 +99,25 @@ Clients also need to be created and configured for Alfresco Office Services (AOS
 
     In the **SAML Keys** tab:
 
-    *   Click the **Import** button:
-        *   Set **Key Alias** to `idpCert`
-        *   Set **Store Password** to `password`
-        *   Select the file `idp.jks` generated in step 3 of this section as the **Import File**.
-        *   **Import** the certificate.
-    
+    * Click the **Import** button:
+        * Set **Key Alias** to `idpCert`
+        * Set **Store Password** to `password`
+        * Select the file `idp.jks` generated in step 3 of this section as the **Import File**.
+        * **Import** the certificate.
+
     In the **Mappers** tab:
 
-    *   Click the **Add Builtin** button and add `X500 email`, `X500 givenName` and `X500 surname`.
-    *   **Edit** each mapper and set **SAML Attribute Name** to match the value of **Property** and set **SAML Attribute NameFormat** to `Basic`.
-    *   **Save** the edits.
+    * Click the **Add Builtin** button and add `X500 email`, `X500 givenName` and `X500 surname`.
+    * **Edit** each mapper and set **SAML Attribute Name** to match the value of **Property** and set **SAML Attribute NameFormat** to `Basic`.
+    * **Save** the edits.
 
 6. Create a new client for Desktop Sync under the `Alfresco` realm or the realm you created in [step 1](#step-1-configure-a-realm-and-client) setting at least the following :
 
     In the **Settings** tab:
 
-    *   A unique and identifiable **Client ID** .
-    *   The **Valid Redirect URI** must be set to `http://127.0.0.1*, http://localhost*`.
-    *   **Implicit Flow Enabled** is switched off.
+    * A unique and identifiable **Client ID** .
+    * The **Valid Redirect URI** must be set to `http://127.0.0.1*, http://localhost*`.
+    * **Implicit Flow Enabled** is switched off.
 
 ## Step 3: Configure LDAP synchronization
 

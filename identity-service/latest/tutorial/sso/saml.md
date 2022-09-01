@@ -37,9 +37,9 @@ There are fifteen steps to configuring SSO using a SAML identity provider with A
 * Alfresco Process Workspace: `apw.example.com`
 * Identity Service: `ids.example.com`
 * SAML Identity Provider: `saml.example.com`
-    * PingFederate was used for testing purposes.
+  * PingFederate was used for testing purposes.
 * LDAP Directory: `ldap.example.com`
-    * OpenLDAP was used for testing purposes.
+  * OpenLDAP was used for testing purposes.
 
 It is also assumed that certificates are correctly set up for each host and that each host exposes its service solely via TLS on the default port (443).
 
