@@ -63,6 +63,6 @@ Alfresco notifies customers and partners in the following manner:
 * For **Medium** severity issues, Alfresco releases the version containing the fix and publishes a security alert on the Alfresco Support Portal with details of the issue and of the fixed versions.
 * For **Low** severity issues, the fix is documented as part of the release notes for the service pack which includes the fix.
 
-## Reporting a security issue to Alfresco
+## Reporting a security issue to Hyland
 
-Please report all security issues by logging a support case via the [Support Portal](https://support.alfresco.com){:target="_blank"} or by sending an email to [security@alfresco.com](mailto:security@alfresco.com) to ensure that the information does not enter the public domain prematurely.
+Please report all security issues by logging a support case via [Hyland Community](https://community.hyland.com/){:target="_blank"}. See the [Contact Hyland Support]({% link support/latest/contact/index.md %}) page for more details. Support will assist in connecting you with the right resource to ensure that the information does not enter the public domain prematurely.
