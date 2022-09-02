@@ -187,8 +187,7 @@ This task assumes you have:
     > **Note:** The Admin Console is only available when you are using Alfresco Content Services Enterprise.
 
 ## Install without mutual TLS (plain HTTP)
-
-Use this information to install Search Services on the same machine as Alfresco Content Services without mutual TLS using plain HTTP.
+ > **Compatibity note:** With the release of Alfresco Content Services 7.2 and Search Service 2.0.3 the plain Http option (`solr.secureComms=none`) has been deprecated. While the plain Http is still valid for older versions, in newer ones please refer to the others, more secure, installation options.
 
 Mutual TLS is used for authentication between the Repository and Search Services. Without mutual TLS, internal APIs on both sides will be exposed without any form of authentication, giving full access to the repository data. In such a setup, you need to make sure that external access to these APIs is blocked, for example, with a front-end reverse proxy. See [Adding a reverse proxy in front of Content Services]({% link content-services/latest/install/zip/tomcat.md %}#adding-a-reverse-proxy-in-front-of-content-services)
  for more.
