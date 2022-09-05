@@ -4,6 +4,8 @@ title: Installation options
 
 You can install Search Services in two different ways using the distribution zip, the first is with mutual TLS, and the second is without mutual TLS (HTTP with secret word in request header).
 
+**Important:** From version 2.0 you cannot use the without mutual TLS (plain HTTP) installation method because it is no longer supported.
+
 ## Install with mutual TLS
 
 Use this information to install Search Services on the same machine as Alfresco Content Services with mutual TLS.

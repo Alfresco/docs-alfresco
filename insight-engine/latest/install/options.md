@@ -4,6 +4,8 @@ title: Installation options
 
 You can install Search and Insight Engine using the distribution zip or Docker Compose. There are two different ways you can install the software, the first is with mutual TLS, and the second is without mutual TLS (HTTP with secret word in request header).
 
+**Important:** From version 2.0 you cannot use the without mutual TLS (plain HTTP) installation method because it is no longer supported.
+
 ## Install with mutual TLS (zip)
 
 Use this information to install Search and Insight Engine on the same machine as Alfresco Content Services with mutual TLS.
