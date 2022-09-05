@@ -33,7 +33,7 @@ Additional target environments will be added in future releases.
 
 ## Set up Ansible
 
-A control node is required to run the playbook. You can use any computer as a control node that has Python installed. Usually, laptops, desktops, and servers can all run Ansible.
+A control node is required to run the playbook. You can use any computer as a control node that has Python 3 installed. Usually, laptops, desktops, and servers can all run Ansible.
 
 In the interest of keeping this guide simple, we'll use an AWS EC2 instance as the control node. The required steps are:
 
