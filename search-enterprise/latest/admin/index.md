@@ -58,7 +58,7 @@ $ java -jar alfresco-elasticsearch-reindexing-3.1.0-app.jar \
 --spring.datasource.username=alfresco \
 --spring.datasource.password=alfresco \
 --spring.activemq.broker-url=tcp://localhost:61616?jms.useAsyncSend=true \
---alfresco.reindex.prefixes-file=file:reindex.prefixes-file.json \
+--alfresco.reindex.prefixes-file=file:reindex.prefixes-file.json 
 ```
 
 When completed successfully you will see:  
@@ -88,7 +88,7 @@ $ java -jar alfresco-elasticsearch-reindexing-3.1.0-app.jar \
 --spring.datasource.username=alfresco \
 --spring.datasource.password=alfresco \
 --spring.activemq.broker-url=tcp://localhost:61616?jms.useAsyncSend=true \
---alfresco.reindex.prefixes-file=file:reindex.prefixes-file.json \
+--alfresco.reindex.prefixes-file=file:reindex.prefixes-file.json 
 ```
 
 When completed successfully you will see:
