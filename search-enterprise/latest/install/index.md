@@ -105,7 +105,7 @@ java -jar alfresco-elasticsearch-reindexing-3.1.0-app.jar \
 --spring.datasource.url=jdbc:postgresql://localhost:5432/alfresco \
 --spring.datasource.username=alfresco \
 --spring.datasource.password=alfresco \
---alfresco.reindex.prefixes-file=file:reindex.prefixes-file.json
+--alfresco.reindex.prefixes-file=file:reindex.prefixes-file.json \
 --alfresco.acceptedContentMediaTypesCache.baseurl=http://localhost:8090/transform/config \
 --spring.activemq.broker-url=nio://localhost:61616
 ```
@@ -136,7 +136,7 @@ If your services are deployed on a different server or port the following parame
 
 ```java
 java -jar alfresco-elasticsearch-live-indexing-3.1.0-app.jar \
---spring.activemq.broker-url=nio://tengine.local:61616 \
+--spring.activemq.broker-url=nio://localhost:61616 \
 --spring.elasticsearch.rest.uris=http://localhost:9200 \
 --alfresco.sharedFileStore.baseUrl=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file/ \
 --alfresco.acceptedContentMediaTypesCache.baseurl=http://localhost:8090/transform/config \
