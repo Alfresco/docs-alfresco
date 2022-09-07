@@ -221,11 +221,11 @@ The Java login files need to be updated with details of the Kerberos configurati
     * Uncomment the **two** sections that begin with: `<config evaluator="string-compare" condition="Remote">`
     * Navigate to the `<!--- Kerberos settings --->` section and replace `condition="KerberosDisabled"` with `condition="Kerberos"`
 
-    > **Note**: For Kerberos to work with user names that contain non-ASCII characters, add the following option to JAVA_OPTS for the Share JVM:
-
-    ```bash
-    >-Dsun.security.krb5.msinterop.kstring=true
-    ```
+    > **Note**: For Kerberos to work with user names that contain non-ASCII characters, add the following option to `JAVA_OPTS` for the Share JVM:
+    >
+    > ```bash
+    > -Dsun.security.krb5.msinterop.kstring=true
+    > ```
 
 ## Step 4: Configure Alfresco Digital Workspace
 
