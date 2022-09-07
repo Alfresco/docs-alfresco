@@ -31,7 +31,7 @@ The Identity Service can be deployed into a new or existing Kubernetes cluster.
 
     As an example, the following command references the infrastructure chart on its own to deploy the Identity Service and the [ngnix-ingress](https://github.com/helm/charts/tree/master/stable/nginx-ingress).
 
-    ```bash
+   ```bash
     helm install alfresco-stable/alfresco-infrastructure \
         --set alfresco-infrastructure.activemq.enabled=false \
         --set alfresco-infrastructure.nginx-ingress.enabled=true \
