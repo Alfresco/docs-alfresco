@@ -133,3 +133,55 @@ You can move files within the Mobile Workspace.
 
     * The scan will be saved where you navigated.
     * If you do not wish to keep the scan, exit without saving. A dialog box will appear to confirm you want to discard the scan, press **Discard**. Press **Cancel** to return to save your scan.
+
+## Tasks
+
+You can view, filter, complete, add comments, and add attachments to tasks while logged into the Mobile Workspace.
+
+### Tasks Overview
+
+The **Tasks** button is located at the bottom between **Favorites** and **Offline**. The Tasks list loads active tasks assigned to you or created by you. Task priority colors are set as the following: Low (green), Medium (orange), and High (red). Tasks will refresh when the user scrolls down at the end of the task list or when the refresh button is pressed. The refresh button will also reset filters.
+
+* If no tasks exist, you will see "Create a new task that you want to easily find later."
+* If a user is not able to view tasks, you will see this error:
+"This account is not configured on the process services."
+* A Dark mode for Tasks is set within user Settings under Appearance
+
+### Task Filters
+
+Filters can be set for Status, Due date, and Task Name. Filter chips are shown at the top of the Task list and will show the active filter.
+
+1. Select a filter chip.
+
+2. Follow the directions for each filter as follows:
+
+    * A Status filter can be set by selecting “Active” or “Completed” and press “Apply”. The Status filter chip label will show the active filter, so “Completed” instead of “Status”.
+    * Press “Due date” to set a custom, date-ranged filter. “From” and “To” start and end fields set using a calendar date picker. Only one date needs to be set. <!-- Probably will remove: There is a Cancel and Save button within the date picker. -->
+    * “Task Name” filter: filters Tasks by name, type in a text field. This filter does not apply to priority and is not case sensitive.
+
+3. Press **Apply** to set the filter and **Reset** to reset the filter to default. The **X** in top right of the filter UI will close the window and return to the Task list.
+
+4. The filter chips will show the active filters and the refresh button will reset the filters.
+
+### Task view
+
+* Individual tasks have a “Comments” section below the Task details. The most recent comment is shown with user icon, user name, greyed out date comment was added, and subtitle (smaller font size than user name and greyed out) of the user’s comment. On right, a link “View all” if more than one comment and “Read More” if the comment is too long.
+* There is a back arrow to exit Task view and return to the Task list
+* Below Existing comments: “Add a comment…” 
+* Below the Comments, “Attached files”, on right, a link “View all” if more than four
+  * “# attachments”
+  * Only 4 attachments are shown
+  * “View all” attachments screen is called “Attached files”
+  * Clicking an attachment will download the file to preview with a popup and Cancel option
+
+### Complete Tasks
+
+You will be able to complete Tasks if the task is assigned to you.
+
+1. Open a task from the Task list. At the bottom of the task is a **Complete** Floating Action Button.
+
+2. Press the **Complete** button. A popup is displayed:
+    “Are you sure you want to complete the task? You will no longer be able to make any changes.”
+    * A completed Task can be viewed, but cannot be edited with comments or attachments.
+
+3. Press **Confirm** to complete the task. Press **Cancel** to return to the task.
