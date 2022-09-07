@@ -29,8 +29,6 @@ The Identity Service can be deployed into a new or existing Kubernetes cluster.
 
     The Identity Service is deployed as part of the Alfresco infrastructure chart. Normally the infrastructure chart will be deployed as part of another product chart, such as Alfresco Content Services or Alfresco Process Services.
 
-    As an example, the following command references the infrastructure chart on its own to deploy the Identity Service and the [ngnix-ingress](https://github.com/helm/charts/tree/master/stable/nginx-ingress).
-
     As an example, the following command references the infrastructure chart on its own to deploy 
     the Identity Service and the [ngnix-ingress](https://github.com/helm/charts/tree/master/stable/nginx-ingress).
 
