@@ -167,7 +167,7 @@ Filters can be set for Status, Due date, and Task Name. Filter chips are shown a
 
 * Individual tasks have a “Comments” section below the Task details. The most recent comment is shown with user icon, user name, greyed out date comment was added, and subtitle (smaller font size than user name and greyed out) of the user’s comment. On right, a link “View all” if more than one comment and “Read More” if the comment is too long.
 * There is a back arrow to exit Task view and return to the Task list
-* Below Existing comments: “Add a comment…” 
+* Below Existing comments: “Add a comment…”
 * Below the Comments, “Attached files”, on right, a link “View all” if more than four
   * “# attachments”
   * Only 4 attachments are shown
