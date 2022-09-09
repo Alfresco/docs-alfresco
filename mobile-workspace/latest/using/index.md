@@ -147,7 +147,6 @@ The **Tasks** button is located at the bottom between **Favorites** and **Offlin
 "This account is not configured on the process services."
 <!-- * If no tasks exist, you will see "Create a new task that you want to easily find later." -->
 
-
 ### Task Filters
 
 Filters can be set for Status, Due date, and Task Name. Filter chips are shown at the top of the Task list and will show the active filter.
@@ -157,7 +156,7 @@ Filters can be set for Status, Due date, and Task Name. Filter chips are shown a
 2. Follow the directions for each filter as follows:
 
     * A Status filter can be set by selecting “Active” or “Completed” and press **Apply**. The Status filter chip label will show the active filter, so “Completed” instead of “Status”.
-    * Press **Due date** to set a custom, date-ranged filter. “From” and “To” start and end fields set using a calendar date picker. Only one date needs to be set. <!-- Probably will remove: There is a Cancel and Save button within the date picker. -->
+    * Press **Due date** to set a custom, date-ranged filter. “From” and “To” start and end fields set using a calendar date picker. Only one date needs to be set.
     * Press **Task Name** to filter tasks by name. Type your search in a text field. This filter does not apply to priority and is not case sensitive.
 
 3. Press **Apply** to set the filter and **Reset** to reset the filter to default. The **X** in top right of the filter UI will close the window and return to the Task list.
