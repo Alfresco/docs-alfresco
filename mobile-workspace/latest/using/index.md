@@ -173,7 +173,7 @@ Attached files is a section below Comments that shows the number of attached fil
 
 ### Complete Tasks
 
-You will be able to complete Tasks if the task is assigned to you.
+You will be able to complete tasks if the task is assigned to you.
 
 1. Open a task from the Task list. At the bottom of the task is a **Complete** Floating Action Button.
 
