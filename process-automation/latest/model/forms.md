@@ -169,6 +169,14 @@ Display text fields allow the form designer to display a line of fixed text to t
 
 Display text fields do not have the `Read-only`, `Placeholder`, and `Required?` fields, nor do they have an advanced properties tab.
 
+### Display Rich text
+
+Display Rich text allows you to add HTML formatted text to forms. You can test how the text will look at design time by using the preview button, before pushing the form to a live environment. The Display Rich text editor includes standard formatting tools such as headings, font color, hyperlinks, and code blocks.
+
+> **Note:** Once created the form only displays read-only text and does not capture any values.
+
+![payslip]({% link process-automation/images/payslip.png %})
+
 ### Display value fields
 
 Display value fields allow the form designer to display a value previously entered in the form. The `variables` property is used to select a [form variable](#form-variables) to display.
