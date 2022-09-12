@@ -161,7 +161,7 @@ Select the **View Error** option on a service task with the status of `ERROR`. T
 
 The **Audit** section provides details of all the [events]({% link process-automation/latest/model/processes/events.md %}) that have occurred in applications.
 
-All audit events can be filtered based on the application, event type, event ID or process instance ID.
+All audit events can be filtered based on the application, event type, event ID, or process instance ID. Use the **Export** button on the top right to download a `.CSV` list of all the audit events. If you have filtered the audit events then you only download the filtered list.
 
 ### Properties {#audit-properties}
 
@@ -174,4 +174,3 @@ The properties for each audit event are:
 | Event ID | The unique ID of the event. |
 | Process Instance ID | The process instance ID of the process that the event occurred in. |
 | Event Action | The payload of the event in JSON format. Click to view the details. |
-
