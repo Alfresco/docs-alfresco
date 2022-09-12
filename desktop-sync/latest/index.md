@@ -4,7 +4,7 @@ title: Alfresco Desktop Sync
 
 With Desktop Sync, desktop users can securely and automatically sync content between their desktop and Alfresco Content Services.
 
-This release of Desktop Sync is a compatibility release to support Alfresco Sync Service 3.7, and allows you to view the sync progress of your files and folders for a better user experience. See the **Sync** progress screen in [Windows]({% link desktop-sync/latest/using/select-to-sync.md %}#sync/windows/init-sync-win) and [Mac]({% link desktop-sync/latest/using/select-to-sync.md %}#sync/mac/init-sync-mac) for more details.
+This release of Desktop Sync is a compatibility release to support Alfresco Sync Service 3.7.
 
 You can easily connect to Alfresco Content Services and select folders and sites to view and work with on the desktop, even when working offline.
 
