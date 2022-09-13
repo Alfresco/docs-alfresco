@@ -316,7 +316,7 @@ The advanced properties for a people field are:
 
 Radio button fields allow the form designer to define a set of options a form filler must choose from. This list can be a manually entered set of options or it can read from a REST service.
 
-The advanced properties for a manual radio button field allow for a set of options to be entered with a `name` and `id` for each option set. Selecting the radio next to an option will set it as the default value.
+The advanced properties for a manual radio button field allow for a set of options to be entered with a `name` and `id` for each option set. You can change the position of the radio buttons by dragging them into the order you want them to appear. You can also set if you want your radio buttons aligned vertically or horizontally.
 
 The advanced properties for a REST radio button field are:
 
