@@ -142,9 +142,9 @@ You can view, filter, complete, and add comments to tasks while logged into the 
 
 The **Tasks** button is located at the bottom between **Favorites** and **Offline**. The Tasks list loads active tasks assigned to you or created by you. Task priority colors are set as the following: Low (green), Medium (orange), and High (red). Tasks will refresh when the user scrolls down to the end of the task list or when the refresh button is pressed. The refresh button will also reset filters.
 
-* A Dark mode for Tasks is set within user Settings under Appearance.
+* A Dark mode for Tasks can be set within user Settings under Appearance.
 * If a user is not able to view tasks, you will see this error:
-"This account is not configured on the process services."
+`This account is not configured on the process services.`
 
 ### Task Filters
 
@@ -158,7 +158,7 @@ Filters can be set for Status, Due date, and Task Name. Filter chips are shown a
     * Press **Due date** to set a custom, date-ranged filter. “From” and “To” start and end fields set using a calendar date picker. Only one date needs to be set.
     * Press **Task Name** to filter tasks by name. Type your search in a text field. This filter does not apply to priority and is not case sensitive.
 
-3. Press **Apply** to set the filter and **Reset** to reset the filter to default. The **X** in top right of the filter UI will close the window and return to the Task list.
+3. Press **Apply** to set the filter and **Reset** to reset the filter to default. The **X** in the top right of the filter UI will close the window and return to the Task list.
 
 4. The filter chips will show the active filters and the refresh button will reset the filters.
 
@@ -174,9 +174,12 @@ Attached files is a section below Comments that shows the number of attached fil
 
 You will be able to complete tasks if the task is assigned to you.
 
-1. Open a task from the Task list. At the bottom of the task is a **Complete** Floating Action Button.
+1. Open a task from the Task list. At the bottom of the task is a **Complete** floating action button.
 
-2. Press the **Complete** button. A popup is displayed:
-    “Are you sure you want to complete the task? You will no longer be able to make any changes.” A completed task can be viewed, but enters a read-only mode. No comments or attachments can be added to a completed task.
+2. Press the **Complete** button.
+
+    A popup is displayed: `Are you sure you want to complete the task? You will no longer be able to make any changes.`
+
+    A completed task can be viewed, but enters a read-only mode. No comments or attachments can be added to a completed task.
 
 3. Press **Confirm** to complete the task. Press **Cancel** to return to the task.
