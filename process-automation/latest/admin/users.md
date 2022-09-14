@@ -80,4 +80,4 @@ The roles available are:
 | ACTIVITI_IDENTITY | Provides access to the Admin Application. Users with this role are able to see the **Identity** section and manage users, groups and roles. |
 | ACTIVITI_MODELER | Provides access to the [Modeling Application]({% link process-automation/latest/model/index.md %}). Users with this role are able to model and release projects. |
 | ACTIVITI_USER | Users require this role to be given user access to an application. |
-| APPLICATION_MANAGER | Provides access to the Admin Application. Users with this role are able to see the **Process Admin** section but only the **Process Instances** and **User Tasks** tabs are available. All actions are available for **Process Instances** and **User Tasks** except **Variables** and **Audit**.  |
+| APPLICATION_MANAGER | Provides access to the Admin Application. Users with this role are able to see the **Process Admin** section but only the **Process Instances** and **User Tasks** tabs are available. All actions are available for **Process Instances** and **User Tasks** except **Variables** and **Audit**. |
