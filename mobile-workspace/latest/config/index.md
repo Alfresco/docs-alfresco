@@ -31,4 +31,4 @@ For Single Sign On (SSO) information see the [Single Sign On (SSO) Guide]({% lin
 
 You can extend the Mobile Workspace.
 
-Find the Mobile Workspace code at the following github repositories for [Android](https://github.com/alfresco/alfresco-mobile-workspace-android){:target="_blank"} or [iOS](https://github.com/alfresco/alfresco-mobile-workspace-ios){:target="_blank"}.
+Find the Mobile Workspace code at the following GitHub repositories for [Android](https://github.com/alfresco/alfresco-mobile-workspace-android){:target="_blank"} or [iOS](https://github.com/alfresco/alfresco-mobile-workspace-ios){:target="_blank"}.
