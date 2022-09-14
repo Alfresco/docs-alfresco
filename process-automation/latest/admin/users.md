@@ -75,8 +75,9 @@ The roles available are:
 
 | Role | Description |
 | ---- | ----------- |
-| ACTIVITI_ADMIN | Provides access to the Admin Application. Users with this role will be able to see the **Process Admin** section for applications that they have been given administrator access to when an application was [deployed]({% link process-automation/latest/admin/release.md %}#deployment). |
-| ACTIVITI_DEVOPS | Provides access to the Admin Application. Users with this role will be able to see the [**DevOps**]({% link process-automation/latest/admin/release.md %}) section in order to deploy and manage deployed projects. |
-| ACTIVITI_IDENTITY | Provides access to the Admin Application. Users with this role will be able to see the **Identity** section and manage users, groups and roles. |
-| ACTIVITI_MODELER | Provides access to the [Modeling Application]({% link process-automation/latest/model/index.md %}). Users with this role will be able to model and release projects. |
+| ACTIVITI_ADMIN | Provides access to the Admin Application. Users with this role are able to see the **Process Admin** section for applications that they have been given administrator access to when an application was [deployed]({% link process-automation/latest/admin/release.md %}#deployment). |
+| ACTIVITI_DEVOPS | Provides access to the Admin Application. Users with this role are able to see the [**DevOps**]({% link process-automation/latest/admin/release.md %}) section in order to deploy and manage deployed projects. |
+| ACTIVITI_IDENTITY | Provides access to the Admin Application. Users with this role are able to see the **Identity** section and manage users, groups and roles. |
+| ACTIVITI_MODELER | Provides access to the [Modeling Application]({% link process-automation/latest/model/index.md %}). Users with this role are able to model and release projects. |
 | ACTIVITI_USER | Users require this role to be given user access to an application. |
+| APPLICATION_MANAGER | Provides access to the Admin Application. Users with this role are able to see the **Process Admin** section but only the **Process Instances** and **User Tasks** tabs are available. All actions are available for **Process Instances** and **User Tasks** except **Variables** and **Audit**.  |
