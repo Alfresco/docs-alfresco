@@ -37,31 +37,31 @@ Use the Admin App to create Controls.
 
 3. Click **Create New Control**.
 
-4. Enter **Training** in the **Control Name field**.
+4. Enter `Training` in the **Control Name** field.
 
-5. Select **All** from the **Configuration** dropdown list.
+5. Select **All** from the **Configuration** drop-down list.
 
-    You can see from the example diagram the user has `Mark 2` security rights. When **All** is selected from the **Configuration** dropdown list it means they can only access files or directories that only have `Mark 2` Security Marks assigned to them.
+    You can see from the example diagram the user has `Mark 2` security rights. When **All** is selected from the **Configuration** drop-down list it means they can only access files or directories that only have `Mark 2` Security Marks assigned to them.
 
 6. Click the **+** symbol next to Security Marks.
 
-7. Enter **Media** into the new row.
+7. Enter `Media` into the new row.
 
 8. Click the **+** symbol again next to Security Marks.
 
-9. Enter **Data handling** into the new row.
+9. Enter `Data handling` into the new row.
 
 10. Click the **+** symbol again next to Security Marks.
 
-11. Enter **Backend management** into the new row and then click **Save**.
+11. Enter `Backend management` into the new row and then click **Save**.
 
 You have created a new Control called Training that has three Security Marks. The Security Marks will be visible and useable within the Digital Workspace.
 
 ![security-controls]({% link digital-workspace/images/security-controls.png %})
 
-### Security Marks in the Digital Workspace
+## Security Marks in the Digital Workspace
 
-Use the Digital Workspace to assign security Marks to files and folders. Doing this limits their accessability from users that do not have the correct user rights.
+Use the Digital Workspace to assign Security Marks to files and folders. Doing this limits their accessibility from users that do not have the correct user rights.
 
 1. Sign into the Digital Workspace.
 
@@ -73,6 +73,6 @@ Use the Digital Workspace to assign security Marks to files and folders. Doing t
 
 ![security-marks]({% link digital-workspace/images/security-marks.png %})
 
-Once you have saved the Security Marks for the file or folder the ones you have selected will be visible in the Security Marks column. 
+Once you have saved the Security Marks for the file or folder the ones you have selected will be visible in the Security Marks column.
 
 > **Note:** If you have more than can be displayed in the column you can click the **Display all** button.

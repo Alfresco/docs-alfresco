@@ -20,7 +20,7 @@
         - title: 'Governance Services overview'
           path: '/digital-workspace/latest/governance/'
         - title: 'Security Controls'
-          path: '/digital-workspace/latest/governance/security'
+          path: '/digital-workspace/latest/governance/security/'
         - title: 'Working with records'
           path: '/digital-workspace/latest/governance/records/'
     - title: 'Process Services'
