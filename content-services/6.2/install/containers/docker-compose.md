@@ -110,7 +110,7 @@ Use this information to verify that the system started correctly, and to clean u
                 Container                           Repository                            ...       Size
         --------------------------------------------------------------------------------------------------
         acs-trial_activemq_1                alfresco/alfresco-activemq                    ...   545.9 MB
-        acs-trial_alfresco_1                alfresco/alfresco-content-repository          ...   1.324 GB
+        acs-trial_alfresco_1                quay.io/alfresco/alfresco-content-repository  ...   1.324 GB
         acs-trial_digital-workspace_1       quay.io/alfresco/alfresco-digital-workspace   ...   34.35 MB
         acs-trial_postgres_1                postgres                                      ...   312.5 MB
         acs-trial_proxy_1                   alfresco/alfresco-acs-nginx                   ...   20.42 MB

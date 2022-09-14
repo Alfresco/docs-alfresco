@@ -202,7 +202,7 @@ Re-encryption occurs while the repository is running. For runtime re-encryption,
 
 Content Services uses cryptographic password hashing technique to securely store passwords.
 
-Content Services 6.1.1 used the MD4 (Message Digest 4) and SHA256 hash algorithms (mainly to support NLTM) to store critical data. But this is no longer considered a secure approach as the hashed password is very easy to decrypt. You now have the option to configure Content Services to use Bcrypt to store passwords. By default, the system uses MD4 to allow users to use MD4 hashed passwords for alfrescoNTLM authentication.
+Content Services 6.1.1 used the MD4 (Message Digest 4) and SHA256 hash algorithms (mainly to support NTLM) to store critical data. But this is no longer considered a secure approach as the hashed password is very easy to decrypt. You now have the option to configure Content Services to use Bcrypt to store passwords. By default, the system uses MD4 to allow users to use MD4 hashed passwords for alfrescoNTLM authentication.
 
 Bcrypt is an adaptive hash function based on the Blowfish symmetric block cipher cryptographic algorithm. It is incredibly slow to hash input compared to other functions, but this results in a much better output hash. Content Services is configured to use a strength of `10` to provide a good compromise of speed and strength.
 
@@ -1422,7 +1422,7 @@ The CSRF filter can be configured in the `web-client-security-config.xml` file, 
 ```text
 # CSRF filter overrides
 csrf.filter.enabled=true
-csrf.filter.referer=https://mydomain.com/*.
+csrf.filter.referer=https://mydomain.com/.*
 csrf.filter.referer.always=false
 csrf.filter.origin=https://mydomain.com
 csrf.filter.origin.always=false

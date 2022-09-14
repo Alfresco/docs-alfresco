@@ -1,5 +1,5 @@
 # Microsoft Outlook Integration
-- version: 2.8
+- version: 2.9
   pages:
     - title: 'Introduction'
       path: '/microsoft-outlook/latest/'
@@ -13,6 +13,20 @@
       path: '/microsoft-outlook/latest/admin/'
     - title: 'Using'
       path: '/microsoft-outlook/latest/using/'
+- version: 2.8
+  pages:
+    - title: 'Introduction'
+      path: '/microsoft-outlook/2.8/'
+    - title: 'Install'
+      path: '/microsoft-outlook/2.8/install/'
+    - title: 'Upgrade'
+      path: '/microsoft-outlook/2.8/upgrade/'
+    - title: 'Configure'
+      path: '/microsoft-outlook/2.8/config/'
+    - title: 'Administer'
+      path: '/microsoft-outlook/2.8/admin/'
+    - title: 'Using'
+      path: '/microsoft-outlook/2.8/using/'
 - version: 2.7
   pages:
     - title: 'Introduction'

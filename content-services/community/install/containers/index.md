@@ -52,25 +52,17 @@ The public Alfresco Docker images are available in the Docker Hub registry.
 
 Go to [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"} to see a list of images belonging to the `alfresco` user or, alternatively, [search for alfresco](https://hub.docker.com/search?q=alfresco%2F&type=image){:target="_blank"} from the Docker Hub home page:
 
-![Docker images from Alfresco in Docker Hub]({% link content-services/images/dockerhub.png %}){:width="460px" height="595px" style="border:1px solid #d3d3d3"}
-
-> **Note:** This shows a snippet from Docker Hub - not all images are visible.
-
 The following Docker images relate to Community Edition:
 
 * `alfresco/alfresco-content-repository-community` - the repository app (i.e. `alfresco.war`) running on Apache Tomcat
 * `alfresco/alfresco-share` - the Share web interface (i.e. `share.war`) running on Apache Tomcat
 * `alfresco/alfresco-search-services` - the Solr 6 based search service running on Jetty
 * `alfresco/alfresco-activemq` - the Alfresco ActiveMQ image
-* `alfresco/acs-community-ngnix`
+* `alfresco/alfresco-acs-nginx` - web proxy
 
-There are also other supporting features available, such as Docker images for image and document transformation:
+There are also supporting features available, such as Docker images for image and document transformation:
 
-* `alfresco/alfresco-imagemagick`
-* `alfresco/alfresco-libreoffice`
-* `alfresco/alfresco-pdf-renderer`
-* `alfresco/alfresco-tika`
-* `alfresco/alfresco-transform-misc`
+* `alfresco/alfresco-transform-core-aio`
 
 Community Edition provides a number of content transforms, but also allows custom transforms to be added. It's possible to create custom transforms that run in separate processes from the repository, known as Transform Engines (i.e. T-Engines). The same engines may be used in the Community and Enterprise Editions of Community Edition. They may be directly connected to the repository as Local Transforms. Note that in the Enterprise Edition, the default option is to use them as part of Alfresco Transform Service, which provides more balanced throughput and scalability improvements.
 

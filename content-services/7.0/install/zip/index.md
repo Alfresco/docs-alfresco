@@ -44,7 +44,7 @@ To get started, prepare your production server by installing the prerequisite so
 7. Set up ActiveMQ.
 8. Install third-party software used by Content Services.
 
-> **Note:** Starting from Content Services 7.0, the `alfresco-pdf-renderer` binaries are no longer included in the distribution zip. LibreOffice, ImageMagick, and Alfresco PDF Renderer are no longer part of the Content Services zip installation, as they've moved to the [Alfresco Transform Service installation]({% link transform-service/latest/install/index.md %}) for non-containerized deployment.
+> **Note:** Starting from Content Services 7.0, the `alfresco-pdf-renderer` binaries are no longer included in the distribution zip. LibreOffice, ImageMagick, and Alfresco PDF Renderer are no longer part of the Content Services zip installation, as they've moved to the [Alfresco Transform Service installation]({% link transform-service/1.4/install/index.md %}#prereq-non-containerized-deploy) for non-containerized deployment. You must install LibreOffice, ImageMagick, and Alfresco PDF Renderer with the Transform Service for transformations to be fully functional. For non-containerized deployment, you are also required to install Exiftool. Exiftool will be utilized by the TIKAAuto metadata extraction parser.
 
 Review and test your setup to check that all the installation steps are complete:
 
@@ -60,7 +60,7 @@ There are a number of different installation files available to you, each of whi
 
 For new installations or upgrades, use the distribution zip. Use the Alfresco WAR file to install Content Services within an existing Tomcat. The WAR file is included in the distribution zip. In addition, you must install all the required additional components manually.
 
-All files are available from the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}. Click **Product Downloads**, and then select the version of the product you require.
+All files are available from [Hyland Community](https://community.hyland.com/products/alfresco){:target="_blank"}. Sign in, select **Product downloads**, and search for the version of the product you require.
 
 See the [Supported platforms]({% link content-services/7.0/support/index.md %}) for more.
 

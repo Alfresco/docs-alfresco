@@ -14,7 +14,7 @@ The Admin Console is a tool comprising separate pages that identify a particular
 
 * System Summary: [View System Summary](#systemsummary)
 * Consoles:
-  * Model and Messages: [Managing models using the Admin Console]({% link content-services/community/develop/repo-ext-points/content-model.md %})
+  * Model and Messages: [Managing models using the Admin Console]({% link content-services/latest/develop/repo-ext-points/content-model.md %})
   * Workflow: [The Workflow Console]({% link content-services/community/admin/workflows.md %}#workflowconsole)
 * Support Tools:
   * Node Browser: [Using the Node Browser]({% link content-services/community/admin/troubleshoot.md %}#using-the-node-browser)

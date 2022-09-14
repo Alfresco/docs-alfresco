@@ -26,7 +26,7 @@ If you use several languages across your organization, you must enable cross-lan
 
 To [Search]({% link content-services/latest/using/search.md %}) you must prefix it with `=`.
 
-> **Note:** Exact term search will not work correctly unless the [Cross Locale](cross-locale) configuration is enabled. There are some limitations if you deploy Search Services with Cross Locale configuration **disabled**.
+> **Note:** Exact term search will not work correctly unless the [Cross Locale](#cross-locale) configuration is enabled. There are some limitations if you deploy Search Services with Cross Locale configuration **disabled**.
 
 * The Equals operator `=` must not be used in the user search boxes within the user interface i.e Share, ACS and Digital Workspace, because it will produce 0 results and the following error will show in the SOLR Logs:
 

@@ -75,7 +75,7 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 
 ## Comprehend
 
-The Comprehend connector provides a standard mechanism to extract entities and Personally identifiable information (PII) entities from text in your documents. The **ENTITY** action is used by the Comprehend connector to execute [Amazon Comprehend](https://aws.amazon.com/comprehend/){:target="_blank"} natural language processing (NLP) services and identify and analyze text from specific plain text files.
+The Comprehend connector provides a standard mechanism to extract entities and Personally identifiable information (PII) entities from text in your documents. The **ENTITY** action is used by the Comprehend connector to execute [Amazon Comprehend](https://aws.amazon.com/comprehend/){:target="_blank"} natural language processing (NLP) services and identify and analyze text from specific plain text files. The Comprehend connector supports default entity recognition, custom entity recognition, and custom document classification.
 
 > **Note:** The Comprehend connector can only receive either **files** or **text** but not both at the same time.
 
@@ -202,6 +202,7 @@ The connector uses a stream mechanism to send and receive information from it an
 ```bash
 spring.cloud.stream.bindings.textAnalysisConnectorConsumer.destination=comprehend.ENTITY
 spring.cloud.stream.bindings.textAnalysisPiiConnectorConsumer.destination=comprehend.PII_DETECTION
+spring.cloud.stream.bindings.textAnalysisDocumentClassificationConnectorConsumer.destination=comprehend.DOCUMENT_CLASSIFICATION
 ```
 
 > **Note:** The name of the channel must match the implementation value defined in the service task as part of the [BPMN Tasks Configuration](#bpmn-tasks-configuration).
@@ -258,6 +259,8 @@ The image and environment variables must be the same that were previously regist
 	"AWS_REGION": "eu-west-1",
 	"AWS_S3_BUCKET": "a-bucket-name",
 	"AWS_COMPREHEND_ROLE_ARN": "arn:aws:iam::**********:role/**********",
+	"AWS_COMPREHEND_CUSTOM_RECOGNIZER_ARN": "",
+	"AWS_COMPREHEND_CUSTOM_CLASSIFICATION_ARN": "arn:aws:comprehend:**********:**********:document-classifier/**********",
 	"AWS_ACCESS_KEY_ID": "******************",
 	"AWS_SECRET_KEY": "********************",
 	"ALFRESCO_IDENTITY_SERVICE_AUTH_SERVER_URL": "https://identity.aps2dev.envalfresco.com/auth",
@@ -265,7 +268,8 @@ The image and environment variables must be the same that were previously regist
 	"CONTENT_CLIENT_ID": "a-client-id",
 	"CONTENT_CLIENT_SECRET": "***************************",
 	"PROCESS_STORAGE_GATEWAY": "https://gateway.aps2dev.envalfresco.com",
-	"PROCESS_STORAGE_PATH": "/comprehend/process-storage"
+	"PROCESS_STORAGE_PATH": "/comprehend/process-storage",
+	
 }
 ```
 
@@ -273,14 +277,15 @@ The image and environment variables must be the same that were previously regist
 
 The Amazon Comprehend APIs that are called using the connector are:
 
-* [Detect Dominant Language API](https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectDominantLanguage.html){:target="_blank"}
-* [Detect Entities API](https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectEntities.html){:target="_blank"}
-* [Batch Detect Entities API](https://docs.aws.amazon.com/comprehend/latest/dg/API_BatchDetectEntities.html){:target="_blank"}
-* [Start Entities Detection Job API](https://docs.aws.amazon.com/comprehend/latest/dg/API_StartEntitiesDetectionJob.html){:target="_blank"}
-* [Describe Entities Detection Job API](https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribeEntitiesDetectionJob.html){:target="_blank"}
+* [DetectDominantLanguage](https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectDominantLanguage.html){:target="_blank"}
+* [DetectEntities](https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectEntities.html){:target="_blank"}
+* [BatchDetectEntities](https://docs.aws.amazon.com/comprehend/latest/dg/API_BatchDetectEntities.html){:target="_blank"}
+* [StartEntitiesDetectionJob](https://docs.aws.amazon.com/comprehend/latest/dg/API_StartEntitiesDetectionJob.html){:target="_blank"}
+* [DescribeEntitiesDetectionJob](https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribeEntitiesDetectionJob.html){:target="_blank"}
 * [DetectPiiEntities](https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectPiiEntities.html){:target="_blank"}
 * [StartPiiEntitiesDetectionJob](https://docs.aws.amazon.com/comprehend/latest/dg/API_StartPiiEntitiesDetectionJob.html){:target="_blank"}
 * [DescribePiiEntitiesDetectionJob](https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribePiiEntitiesDetectionJob.html){:target="_blank"}
+* [StartDocumentClassificationJob](https://docs.aws.amazon.com/comprehend/latest/dg/API_StartDocumentClassificationJob.html)
 
 To perform these calls it uses the AWS Comprehend SDK. This requires IAM users with the correct permissions to be created. The easiest way to do this is to give an IAM user the AWS managed policy `ComprehendFullAccess`. If you want to be stricter with access rights see [the list of all comprehend API permissions.](https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-api-permissions-ref.html)
 
@@ -341,6 +346,12 @@ The divided files are then uploaded to Amazon S3 using the same key prefix for a
 If the asynchronous job finishes successfully a compressed output file (`output.tar.gz`) with the result will be written by Amazon Comprehend. The file will be saved to the same bucket within a directory that is using the same key prefix. For more see [Asynchronous Batch Processing
 ](https://docs.aws.amazon.com/comprehend/latest/dg/how-async.html). The output file is downloaded from Amazon S3 and parsed into a `BatchDetectPiiResult` object. At the end of the process, all the resource files are cleaned, both locally and at Amazon S3.
 
+The `StartDocumentClassificationJob` operation is always performed asynchronously. It requires a custom model and the classifier ARN must be provided. You can provide the custom classification ARN in two ways:
+
+1. Use the `AWS_COMPREHEND_CUSTOM_CLASSIFICATION_ARN` environment variable when deploying the application.
+
+2. Use the `customClassificationArn` input variable in the connector action. If the variable is not provided the `AWS_COMPREHEND_CUSTOM_CLASSIFICATION_ARN` value is used.
+
 ### BPMN Tasks Configuration
 
 The following describes an example of how the text analysis connector is setup in AAE:
@@ -349,18 +360,20 @@ The following describes an example of how the text analysis connector is setup i
 
 As part of the BPMN definition process, any service task responsible for triggering the text analysis `comprehend.ENTITY` has to be set as the value for its implementation attribute.
 
-The following variables are required to be configured in order for the text analysis to function.
+The following variables must be configured for the text analysis to function.
 
-The input parameters of the Comprehend connector are:
+The input parameters of Entity detection are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to send for analysis. |
-| text | String | *Requires one.* Raw text to be sent for analysis. |
-| mediaType | String | *Optional.* The media type of the file to be analyzed, for example `/octect-stream`. |
-| maxEntities | Integer | *Optional.* The maximum number of entities to be extracted, for example `5`. |
-| confidenceLevel | String | *Optional.* The confidence level to use in the analysis between 0 and 1, for example `0.75`. |
-| timeout | Integer | *Optional.* The timeout period for calling the Comprehend service in milliseconds, for example `910000`. |
+| files | Array | *Optional.* The file to be analysed. If multiple files are passed, then only the first one will be analysed. |
+| text | String | *Optional.* The Text to be analysed. If the `files` parameter is set, then this should be left blank. |
+| maxEntities | Integer | *Optional.* The maximum number of entities that is returned. The parameter defaults to `${aws.comprehend.defaultMaxResults}`. |
+| confidenceLevel | Float | *Optional.* The minimum confidence level for a entity expressed by a float number between 0 and 1. The parameter defaults to `${aws.comprehend.defaultConfidence}`. |
+| timeout | Integer | *Optional.* The timeout for the remote call to the Comprehend service in milliseconds. The parameter defaults to `${aws.comprehend.asynchTimeout}`. |
+| customRecognizerArn | String | *Optional.* The custom recognizer ARN endpoint. If left blank, the Comprehend service will use the value given to the `AWS_COMPREHEND_CUSTOM_RECOGNIZER_ARN` environment variable. |
+
+> **Note:** The connector must receive either files or text but not both at the same time.
 
 The following is an example of the POST body for the Activiti REST API `http://{{domain}}/{{applicationName}}/rb/v1/process-instances` endpoint:
 
@@ -392,7 +405,32 @@ In the business process definition, the text analysis service task called **text
 </bpmn2:serviceTask>
 ```
 
-The output parameters from the entity analysis are:
+The input parameters of PII Entity detection are:
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| files | Array | *Optional.* The file to be analysed. If multiple files are passed, then only the first one will be analysed. |
+| text | String | *Optional.* The Text to be analysed. If the `files` parameter is set, then this should be left blank. |
+| maxEntities | Integer | *Optional.* The maximum number of entities that is returned. The parameter defaults to `${aws.comprehend.defaultMaxResults}`. |
+| confidenceLevel | Float | *Optional.* The minimum confidence level for a entity expressed by a float number between 0 and 1. The parameter defaults to `${aws.comprehend.defaultConfidence}`. |
+| timeout | Integer | *Optional.* The timeout for the remote call to the Comprehend service in milliseconds. The parameter defaults to `${aws.comprehend.asynchTimeout}`. |
+
+> **Note:** The connector must receive either files or text but not both at the same time.
+
+The input parameters of Document classification are:
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| files | Array | *Optional.* The file to be analysed. If multiple files are passed, then only the first one will be analysed. |
+| text | String | *Optional.* The Text to be analysed. If the `files` parameter is set, then this should be left blank. |
+| maxEntities | Integer | *Optional.* The maximum number of entities that is returned. The parameter defaults to `${aws.comprehend.defaultMaxResults}`. |
+| confidenceLevel | Float | *Optional.* The minimum confidence level for a entity expressed by a float number between 0 and 1. The parameter defaults to `${aws.comprehend.defaultConfidence}`. |
+| timeout | Integer | *Optional.* The timeout for the remote call to the Comprehend service in milliseconds. The parameter defaults to `${aws.comprehend.asynchTimeout}`. |
+| customClassificationArn | String | *Optional.* The custom recognizer ARN endpoint. If left blank, the Comprehend service will use the value given to the `AWS_COMPREHEND_CUSTOM_CLASSIFICATION_ARN` environment variable. **Note:** The `AWS_COMPREHEND_CUSTOM_CLASSIFICATION_ARN` environment variable does not have a default value. If it is being used then you must also set a value for it. |
+
+> **Note:** The connector must receive either files or text but not both at the same time.
+
+The output parameters from the entity detection are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
@@ -400,12 +438,19 @@ The output parameters from the entity analysis are:
 | aisResponse | JSON | *Optional.* The result of the analysis in [Alfresco Intelligence Service]({% link intelligence-services/latest/index.md %}) format. |
 | entities | JSON | *Optional.* The result object containing the entities detected. |
 
-The output parameters from the PII analysis are:
+The output parameters from the PII entity detection are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | awsResponse | JSON | *Optional.* The result of the analysis from the Comprehend service. |
 | piiEntityTypes | JSON | *Optional.* The result object containing the PII entities detected. |
+
+The output parameters from the Document classification are:
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| awsResponse | Object | *Optional.* The object that contains the original result of the text analysis performed by the Comprehend service. |
+| documentClassificationClasses | Array | *Optional.* An array that contains the list of the different classes detected in the analysis. |
 
 ### Comprehend configuration parameters
 

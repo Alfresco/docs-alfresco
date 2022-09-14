@@ -23,7 +23,7 @@ AWS versioning-enabled buckets are completely transparent to Alfresco, so the st
 
 ## As a customer upgrading from a previous version to S3 Connector 2.x, should I remove the useTenantDomainPath property?
 
-The `s3.useTenantDomainInPath` property is `false` by default, so any new content you create won't add the tenant domain to the S3 path. If you want to add the tenant domain back to the path, then set this property to `true`. This may be useful for customers leveraging the [multi-tenant functionality]({% link content-services/6.1/admin/multi-tenancy.md %}), where you don't want content from different tenants to be stored in the same folder. Note that this doesn't provide the optimal path for high throughput reads and writes.
+The `s3.useTenantDomainInPath` property is `false` by default, so any new content you create won't add the tenant domain to the S3 path. If you want to add the tenant domain back to the path, then set this property to `true`. Note that this doesn't provide the optimal path for high throughput reads and writes.
 
 ## Do I need to re-encrypt all content in an S3 bucket if I move to KMS?
 

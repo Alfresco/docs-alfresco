@@ -10,7 +10,7 @@ Background information on the content store and content binary life cycle.
 
 A content store (`ContentStore`) or combinations of content stores can be used to control how and where the binary files are physically stored. Binary streams can be stored across a range of locations and can be encrypted/decrypted, as necessary. Also, fast versus slow storage options can be wired up together for efficient storage and access.
 
-Content Services supports a number of different content stores. These are the File content store (default content store), Content store selector, S3 content store, Caching content store, Aggregating content store, Encrypted content store, and Centera content store. For more information on each content store, see [Content store types](#cstypes).
+Content Services supports a number of different content stores. These are the File content store (default content store), Content store selector, S3 content store, Caching content store, Aggregating content store, and Encrypted content store. For more information on each content store, see [Content store types](#cstypes).
 
 Common behavior of different content stores:
 
@@ -526,10 +526,6 @@ The Encrypted content store subsystem does not support automatic expiry of the m
 
 The [Alfresco Content Connector for AWS S3]({% link aws-s3/latest/index.md %}) is an add-on module that provides an alternative content store. It uses Amazon's Simple Storage Service (S3) as the storage mechanism for Content Services, allowing for virtually unlimited and inexpensive storage.
 
-### Alfresco Content Connector for AWS Glacier
-
-The [Alfresco Content Connector for AWS Glacier]({% link aws-glacier/latest/index.md %}) is an add-on module that provides an alternative content store that's optimized for infrequently used data, and suits the long term storage of archive and backup data. It works in conjunction with Alfresco Content Connector for AWS S3 and enables access to Amazon S3 Glacier.
-
 ### Alfresco Content Connector for Azure
 
 The [Alfresco Content Connector for Azure]({% link microsoft-azure/latest/index.md %}) is an add-on module that provides an alternative content store. It uses Microsoft's Azure Blob Storage as the storage mechanism for Content Services, allowing for virtually unlimited and inexpensive storage.
@@ -537,22 +533,6 @@ The [Alfresco Content Connector for Azure]({% link microsoft-azure/latest/index.
 ### Alfresco Content Connector for SAP applications
 
 [Alfresco Content Connector for SAP applications]({% link sap/latest/index.md %}) is an add-on module that offers seamless integration between Content Services and SAP (R/3, S/4HANA). It connects the structured data in SAP with the unstructured data in Content Services.
-
-### Alfresco Content Connector for EMC Centera
-
-The [Alfresco Content Connector for EMC Centera]({% link centera/latest/index.md %}) module provides integration between Content Services and Content Addressable Storage (CAS) systems.
-
-CAS systems store and locate files using addresses based on the file's content, rather than a physical location address. CAS systems are typically used for long-term storage of content that does not require frequent access or where it is stored for regulatory purposes.
-
-When a CAS system stores content, it generates a unique key or hash, which is based on the content. The hash is generated from the content properties, such as the name, date, or content itself.
-
-An example hash might be `EQM2GC012MC77e72B24N2MMFU59G418ACSAIE70BAS340TN3E1JJL`. This hash is then used as the address of the stored content, and which is then used to retrieve the content. When a request is made to the CAS using this address, it returns the associated content.
-
-The benefits of using CAS systems are:
-
-* Content can be located easily even in large volumes of data
-* Content integrity: if stored content has been altered then there is a mismatch between the hash passed as the address and hash computed on the fly
-* Avoids redundancy by recognizing that the hash is already present and so does not store it again
 
 ## Content store selector {#cs-selector}
 

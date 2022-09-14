@@ -65,7 +65,7 @@ This login protection feature is enabled by default, and can be configured by ad
 
 Community Edition uses cryptographic password hashing technique to securely store passwords.
 
-All versions Community Edition 201911 GA used the MD4 (Message Digest 4) and SHA256 hash algorithms (mainly to support NLTM) to store critical data. But this is no longer considered a secure approach as the hashed password is very easy to decrypt. You now have the option to configure Community Edition to use Bcrypt to store passwords. By default, the system uses MD4 to allow users to use MD4 hashed passwords for alfrescoNTLM authentication.
+All versions Community Edition 201911 GA used the MD4 (Message Digest 4) and SHA256 hash algorithms (mainly to support NTLM) to store critical data. But this is no longer considered a secure approach as the hashed password is very easy to decrypt. You now have the option to configure Community Edition to use Bcrypt to store passwords. By default, the system uses MD4 to allow users to use MD4 hashed passwords for alfrescoNTLM authentication.
 
 Bcrypt is an adaptive hash function based on the Blowfish symmetric block cipher cryptographic algorithm. It is incredibly slow to hash input compared to other functions, but this results in a much better output hash. Community Edition is configured to use a strength of `10` to provide a good compromise of speed and strength.
 
@@ -1183,7 +1183,7 @@ The CSRF filter can be configured in the `web-client-security-config.xml` file, 
 ```text
 # CSRF filter overrides
 csrf.filter.enabled=true
-csrf.filter.referer=https://mydomain.com/*.
+csrf.filter.referer=https://mydomain.com/.*
 csrf.filter.referer.always=false
 csrf.filter.origin=https://mydomain.com
 csrf.filter.origin.always=false

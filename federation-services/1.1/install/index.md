@@ -10,7 +10,7 @@ Check the [supported platforms]({% link federation-services/1.1/support/index.md
 
 > **Note**: A compatible version of Alfresco Governance Services (if you plan to use the Manage in Place capabilities) is required, for example: if using Alfresco Content Services 6.2, make sure that you install Alfresco Governance Services 3.2 or above.
 
-You can download the Federation Services software from the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}.
+You can download the Federation Services software from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 ### Federation Services requirements
 
@@ -29,7 +29,7 @@ See the [Simflofy documentation](https://simflofy.helpdocsonline.com/iandc/archi
 
 These steps describe how to install Federation Services to an instance of Alfresco Content Services.
 
-1. Go to the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"} and download the files provided for the Federation Services release.
+1. Go to [Hyland Community](https://community.hyland.com/){:target="_blank"} and download the files provided for the Federation Services release.
 
     This should include the following:
 

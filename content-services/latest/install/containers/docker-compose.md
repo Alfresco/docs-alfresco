@@ -6,13 +6,15 @@ Use this information to quickly start up Content Services using Docker Compose.
 
 > **Note:** While Docker Compose is often used for production deployments, the Docker Compose file provided is recommended for development and test environments only. Customers are expected to adapt this file to their own requirements, if they intend to use Docker Compose to deploy a production environment.
 
-To deploy Content Services using Docker Compose`, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites]({% link content-services/latest/install/containers/index.md %}#prerequisites) before continuing.
+To deploy Content Services using Docker Compose, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites]({% link content-services/latest/install/containers/index.md %}#prerequisites) before continuing.
 
 1. Download the `docker-compose.yml` file by accessing the Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"} page, which will give you a 30-day license.
 
-    If you already have a valid license file for Content Services 7.1, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/latest/admin/license.md %}) for more details.
+    If you already have a valid license file for Content Services 7.2, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/latest/admin/license.md %}) for more details.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
+
+    > **Note:** The Download Trial is usually updated for *major.minor* versions of Content Services. The latest published version on our website is labelled *Version 7.2 - March 2022)*.
 
 2. Save the `docker-compose.yml` file in a local folder.
 
@@ -63,8 +65,8 @@ To deploy Content Services using Docker Compose`, download and install [Docker](
 
     ```bash
     ...
-    alfresco_1 | 2021-10-04 13:44:21,010  INFO  ... Starting 'Transformers' subsystem, ID: [Transformers, default]
-    alfresco_1 | 2021-10-04 13:44:21,294  INFO  ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+    alfresco_1 | 2022-03-24 14:00:50,707  INFO  ... Starting 'Transformers' subsystem, ID: [Transformers, default]
+    alfresco_1 | 2022-03-24 14:00:50,874  INFO  ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
     ...
     ```
 
@@ -72,21 +74,17 @@ To deploy Content Services using Docker Compose`, download and install [Docker](
 
 7. Open your browser and check everything starts up correctly:
 
-    | Service | Endpoint |
-    | ------- | -------- |
-    | Administration and REST APIs | `http://localhost:8080/alfresco` |
-    | Share | `http://localhost:8080/share` |
-    | Digital Workspace | `http://localhost:8080/workspace` |
-    | Search Services administration | `http://localhost:8083/solr` |
-    | Sync Service health check | `http://localhost:9090/alfresco/healthcheck` |
+    | Service | Endpoint | Comment |
+    | ------- | -------- | ------- |
+    | Administration and REST APIs | `http://localhost:8080/alfresco` ||
+    | Share | `http://localhost:8080/share` ||
+    | Digital Workspace | `http://localhost:8080/workspace` ||
+    | Search Services administration | `http://localhost:8083/solr` |To get to the Solr Admin UI it’s necessary to add a header with a secret.<br/><br/>*For Safari:*<br/><br/>* Go to **Develop -> Show Web Inspector -> Sources**.<br/>* Click on the **+** next to the *Local Overrides* and choose **Local Overrides…**.<br/>* Configure URL with regular expression, using Solr host and port (e.g `http://localhost:8983/solr/*`) and add the `X-Alfresco-Search-Secret` header with the secret value.<br/><br/>*For Chrome, FireFox, Opera and Edge*:<br/><br/>* Install ModHeader extension.<br/>* Add the `X-Alfresco-Search-Secret` header with the secret value.|
+    | Sync Service health check | `http://localhost:9090/alfresco/healthcheck` ||
 
     If Docker is running on your local machine, the IP address will be just `localhost`.
 
-    If you're using the [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/){:target="_blank"}, run the following command to find the IP address:
-
-    ```bash
-    docker-machine ip
-    ```
+    If you're still using the [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/){:target="_blank"}, you'll need to switch to [Docker Desktop](https://docs.docker.com/install/){:target="_blank"} as Docker Toolbox is deprecated.
 
 8. Log in as the `admin` user. Enter the default administrator password `admin`.
 
@@ -106,22 +104,22 @@ Use this information to verify that the system started correctly, and to clean u
         docker-compose images
         ```
 
-        You should see a list of the services defined in your `docker-compose.yaml` file:
+        You should see a list of the services defined in your `docker-compose.yml` file (below are the tags used in the latest 7.2.0 release):
 
         ```text
         Container                        Repository                                     Tag                 Image Id            Size
         ------------------------------------------------------------------------------------------------------------------------------
-        acs-trial_activemq_1             alfresco/alfresco-activemq                     5.16.1              e9dd27ce1a5d        706MB
-        acs-trial_alfresco_1             quay.io/alfresco/alfresco-content-repository   7.1.0               b399ea1a5765        1.72GB
-        acs-trial_digital-workspace_1    quay.io/alfresco/alfresco-digital-workspace    2.3.0-adw           8019d54c175b        37.8MB
-        acs-trial_postgres_1             postgres                                       13.1                407cece1abff        314MB
-        acs-trial_proxy_1                alfresco/alfresco-acs-nginx                    3.1.1               3a00a45550a3        21.9MB
-        acs-trial_share_1                alfresco/alfresco-share                        7.1.0               8f1faa352e88        983MB
-        acs-trial_shared-file-store_1    quay.io/alfresco/alfresco-shared-file-store    0.16.0              e34dfac7a7d0        649MB
-        acs-trial_solr6_1                alfresco/alfresco-search-services              2.0.2               9b48bb3c76cb        1.11GB
-        acs-trial_sync-service_1         quay.io/alfresco/service-sync                  3.4.1               a062a3c347fb        945MB
-        acs-trial_transform-core-aio_1   alfresco/alfresco-transform-core-aio           2.5.3               74d4859db3e3        1.94GB
-        acs-trial_transform-router_1     quay.io/alfresco/alfresco-transform-router     1.4.1               622a37e3f3fc        645MB
+        acs-trial_activemq-1             alfresco/alfresco-activemq                     5.16.1              e9dd27ce1a5d        716.3 MB
+        acs-trial_alfresco-1             quay.io/alfresco/alfresco-content-repository   7.2.0               945933739097        1.437 GB
+        acs-trial_digital-workspace-1    quay.io/alfresco/alfresco-digital-workspace    2.6.0               1a2eaa5bf7a9        572.9 MB
+        acs-trial_postgres-1             postgres                                       13.3                b2fcd079c1d4        314.7 MB
+        acs-trial_proxy-1                alfresco/alfresco-acs-nginx                    3.2.0               da6d34dd9386        21.86 MB
+        acs-trial_share-1                quay.io/alfresco/alfresco-share                7.2.0               837b363e02af        758.7 MB
+        acs-trial_shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    0.16.1              dee75e9ffa5b        651.2 MB
+        acs-trial_solr6-1                quay.io/alfresco/search-services               2.1.0               5800e8a31bdd        890.8 MB
+        acs-trial_sync-service-1         quay.io/alfresco/service-sync                  3.5.0               7c0cee15f516        703.2 MB
+        acs-trial_transform-core-aio-1   alfresco/alfresco-transform-core-aio           2.5.6               39e6c1e8a6ad        1.667 GB
+        acs-trial_transform-router-1     quay.io/alfresco/alfresco-transform-router     1.5.1               ca6d0a1cb691        646.2 MB
         ```
 
     2. List the running containers:
@@ -130,7 +128,7 @@ Use this information to verify that the system started correctly, and to clean u
         docker-compose ps
         ```
 
-        You should see a list of the services defined in the `docker-compose.yaml` file.
+        You should see a list of the services defined in the `docker-compose.yml` file.
 
     3. View the log files for each service `<service-name>`, or container `<container-name>`:
 
@@ -229,30 +227,38 @@ Use this information to verify that the system started correctly, and to clean u
 
         The `--rmi all` option also removes the images created by `docker-compose up`, and the images used by any service. You can use this, for example, if any containers fail and you need to remove them:
 
+        ```bash
+        % docker-compose down --rmi all
+        ```
+
         ```text
-        ⠿ Container acs-trial_postgres_1                               Removed                                                         8.3s
-        ⠿ Container acs-trial_transform-router_1                       Removed                                                         9.8s
-        ⠿ Container acs-trial_proxy_1                                  Removed                                                        16.7s
-        ⠿ Container acs-trial_shared-file-store_1                      Removed                                                         8.3s
-        ⠿ Container acs-trial_sync-service_1                           Removed                                                        21.3s
-        ⠿ Container acs-trial_solr6_1                                  Removed                                                        22.0s
-        ⠿ Container acs-trial_transform-core-aio_1                     Removed                                                         9.4s
-        ⠿ Container acs-trial_activemq_1                               Removed                                                        12.5s
-        ⠿ Container acs-trial_share_1                                  Removed                                                        15.1s
-        ⠿ Container acs-trial_digital-workspace_1                      Removed                                                         3.6s
-        ⠿ Container acs-trial_alfresco_1                               Removed                                                        15.2s
-        ⠴ Image postgres:13.1                                          Removing                                                      153.3s
-        ⠴ Image alfresco/alfresco-activemq:5.16.1                      Removing                                                      153.3s
-        ⠿ Image quay.io/alfresco/alfresco-shared-file-store:0.16.0     Removed                                                       125.1s
-        ⠿ Network acs-trial_default                                    Removed                                                         0.3s
-        ⠿ Image alfresco/alfresco-search-services:2.0.2                Removed                                                       152.1s
-        ⠿ Image quay.io/alfresco/alfresco-content-repository:7.1.0     Removed                                                        79.3s
-        ⠿ Image quay.io/alfresco/alfresco-transform-router:1.4.1       Removed                                                       125.7s
-        ⠴ Image alfresco/alfresco-acs-nginx:3.1.1                      Removing                                                      153.3s
-        ⠿ Image alfresco/alfresco-transform-core-aio:2.5.3             Removed                                                       124.8s
-        ⠿ Image quay.io/alfresco/alfresco-digital-workspace:2.3.0-adw  Removed                                                       153.3s
-        ⠿ Image quay.io/alfresco/service-sync:3.4.1                    Removed                                                       150.8s
-        ⠿ Image quay.io/alfresco/alfresco-share:7.1.0                  Removed                                                         0.3s
+        Stopping acs-trial_alfresco_1          ... done
+        Stopping acs-trial_digital-workspace_1 ... done
+        Stopping acs-trial_share_1             ... done
+        Stopping acs-trial_activemq_1          ... done
+        Removing acs-trial_transform-router_1   ... done
+        Removing acs-trial_transform-core-aio_1 ... done
+        Removing acs-trial_proxy_1              ... done
+        Removing acs-trial_postgres_1           ... done
+        Removing acs-trial_alfresco_1           ... done
+        Removing acs-trial_digital-workspace_1  ... done
+        Removing acs-trial_solr6_1              ... done
+        Removing acs-trial_share_1              ... done
+        Removing acs-trial_sync-service_1       ... done
+        Removing acs-trial_shared-file-store_1  ... done
+        Removing acs-trial_activemq_1           ... done
+        Removing network acs-trial_default
+        Removing image quay.io/alfresco/alfresco-content-repository:7.2.0
+        Removing image quay.io/alfresco/alfresco-shared-file-store:0.16.1
+        Removing image quay.io/alfresco/alfresco-share:7.2.0
+        Removing image postgres:13.3
+        Removing image quay.io/alfresco/search-services:2.1.0
+        Removing image alfresco/alfresco-activemq:5.16.1
+        Removing image alfresco/alfresco-transform-core-aio:2.5.6
+        Removing image quay.io/alfresco/alfresco-transform-router:1.5.1
+        Removing image quay.io/alfresco/alfresco-digital-workspace:2.6.0
+        Removing image alfresco/alfresco-acs-nginx:3.2.0
+        Removing image quay.io/alfresco/service-sync:3.5.0
         ```
 
 See the [Docker documentation](https://docs.docker.com/){:target="_blank"} for more on using Docker.
@@ -265,7 +271,7 @@ See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment){:t
 * To deploy a specific released version of Content Services, several *major.minor* Docker Compose files are provided in the `docker-compose` folder of the project.
 * To modify your development environment, for example to change or mount files in the existing images, you'll have to create new custom Docker images (recommended approach). The same approach applies if you want to install AMP files into the repository and Share images. See the [Customization guidelines]({% link content-services/latest/install/containers/customize.md %}) for more.
 
-Using one of the Enterprise Compose files in this project deploys the following system:
+Using one of the Docker Compose - Enterprise files in this project deploys the following system:
 
 ![Docker Compose - Enterprise]({% link content-services/images/compose-enterprise.png %}){:width="460" height="380px"}
 
@@ -289,6 +295,7 @@ The Docker Compose file provides some default configuration. This section lists 
 | REPO_PORT | Share needs to know how to register itself with Alfresco. The default value is `8080` |
 | CSRF_FILTER_REFERER | CSRF Referrer |
 | CSRF_FILTER_ORIGIN | CSRF Origin |
+| USE_SSL | Enables ssl use if set to `true`. The default value is `false` |
 
 ### Alfresco Digital Workspace (digital-workspace)
 
@@ -390,7 +397,7 @@ The Docker Compose file provides some default configuration. This section lists 
 | FILE_STORE_URL | Shared file store URL (in this case, the name of the container is used) |
 | TRANSFORM_ENGINE_REQUEST_QUEUE | Name of the queue. The default value is `org.alfresco.transform.engine.aio.acs` |
 | PDFRENDERER_EXE | Location of the PDF Renderer binary. The default value is `/usr/bin/alfresco-pdf-renderer` |
-| LIBREOFFICE_HOME | Location of the LibreOffice installation. The default value is `/opt/libreoffice6.3` |
+| LIBREOFFICE_HOME | Location of the LibreOffice installation. The default value is `/opt/libreoffice7.2` |
 | IMAGEMAGICK_ROOT | Location of the ImageMagick installation. The default value is `/usr/lib64/ImageMagick-7.0.10` |
 | IMAGEMAGICK_DYN | Location of the ImageMagick dynamic libraries. The default value is `/usr/lib64/ImageMagick-7.0.10/lib` |
 | IMAGEMAGICK_EXE | Location of the ImageMagick binary. The default value is `/usr/bin/convert` |
@@ -421,7 +428,9 @@ The Docker Compose file provides some default configuration. This section lists 
 | REPO_URL | Repository URL inside network. The default value is `http://alfresco:8080` |
 | SHARE_URL | Share URL inside network. The default value is `http://share:8080` |
 | SYNCSERVICE_URL | Sync service URL inside network. The default value is `http://sync-service:9090` |
-| ACCESS_LOG | Sets the `access_log` value. Set to `off` to switch off logging |
+| ACCESS_LOG | Sets the `access_log` value. Set to `off` to switch off logging. |
+| USE_SSL | Enables ssl use if set to `true`. The default value is `false` |
+| DOMAIN | Set domain value for ssl certificate. |
 
 ## Customize
 
@@ -437,7 +446,7 @@ docker-compose down
 
 ## Troubleshooting
 
-1. If you have issues running ```docker-compose up``` after deleting a previous Docker Compose cluster, try replacing step 5 in the initial Docker Compose instructions with:
+1. If you have issues running `docker-compose up` after deleting a previous Docker Compose cluster, try replacing step 5 in the initial Docker Compose instructions with:
 
     ```bash
     docker-compose down && docker-compose build --no-cache && docker-compose up
@@ -461,13 +470,21 @@ docker-compose down
     docker-compose down --rmi all
     ```
 
-5. Try allocating more memory resources, as advised in `docker-compose.yml`.
+5. Try allocating more memory resources to Docker, as advised in `docker-compose.yml`.
 
-    For example, in Docker, change the memory setting in **Preferences** (or **Settings**) **Resources** > **Advanced** > **Memory** to at least 8GB. Make sure you restart Docker and wait for the process to finish before continuing.
+    For example, in Docker, change the memory setting in **Preferences** (Mac) or **Settings** (Windows) > **Resources** > **Advanced** > **Memory** to at least 13 GB. If you make changes, click **Apply & Restart** and wait for the process to finish before continuing.
 
     Go back to step 5 in the initial Docker Compose instructions to start the deployment again.
 
-> **Note:** You'll need a machine with at least 13GB of memory to distribute among the Docker containers.
+When using *Linux* as Docker host, all the memory in the computer is available to Docker Compose. So no additional actions are required.
+
+When using [Docker with Windows Subsystem for Linux (WSL) 2 Backend](https://docs.docker.com/desktop/windows/wsl/){:target="_blank"} in *Windows*, use the `.wslconfig` file to increase the `memory` available for Docker Compose.
+
+> **Note:** In order to deploy onto Docker Desktop you need to allocate at least 13 GB (preferably 16 GB) to the
+> Docker Engine on the **Resources** tab in Docker Desktop's preferences pane as shown in the screenshot below. This
+> is required because insufficient memory will cause containers to exit without warning.
+
+![Docker Desktop Resources]({% link content-services/images/docker-desktop-resources.png %})
 
 ## Reference
 

@@ -2,7 +2,7 @@
 title: Using Process Automation
 ---
 
-The default user interface for managing content, processes and tasks is the [Alfresco Digital Workspace]({% link digital-workspace/latest/index.md %}). An instance of Digital Workspace is deployed with every application and used to manage the processes associated with that application.
+The default user interface for managing content, processes and tasks is the [Alfresco Digital Workspace]({% link digital-workspace/latest/index.md %}). An instance of the Digital Workspace is deployed with every application and used to manage the processes associated with that application.
 
 Users need to have been given [user access]({% link process-automation/latest/admin/release.md %}#deploy-steps/user) to an application in order to access and manage content and processes in the Digital Workspace.
 
@@ -46,13 +46,17 @@ To start a process instance:
 
 1. Sign into the Digital Workspace.
 
-2. Click the **NEW** dropdown.
+2. Click **Start Process**.
 
-3. Select **Start Process**.
+3. Select the process you would like to start from the modal window.
 
-4. Choose the process definition to use from the dropdown and give the process instance a name.
+    If you defined categories when you created your processes, they will be organized within those categories.
 
-5. Click **Start Process**.
+4. Click **START PROCESS**.
+
+    > **Note:** Once you have selected the process you would like to work with from the modal window you can copy and share the URL with another user, so they can start the process. This user must have credentials to sign into the Digital Workspace.
+
+All Alfresco Digital Workspace users who have initiated a process or participated in one can see all the tasks from the process, including the tasks assigned to other users. To see the list of tasks navigate to **Process Management** > **Processes** > **Running** > **Process details**.
 
 ### Start a process instance from a file
 
@@ -175,7 +179,33 @@ Once you have customized a filter, there are two options:
 
 You can use the **Delete filter** option at any time to remove a view.
 
-## Condition builder
+## Configure Process and Task lists
+
+You can configure the columns of the Process and Task lists in the Digital Workspace.
+
+The order of the columns can be adjusted.
+
+1. Navigate to Process Management on the left and then select any Process or Task list.
+
+2. Access the six dots on the top right of a column by hovering your mouse over the name of the column.
+
+2. Click and hold the six dots and then move the column on top of another column.
+
+    This moves the columns to the left one position and the column you are moving takes the place of the one underneath.
+
+![Move column]({% link process-automation/images/move-column.png %})
+
+The columns that are visible can be adjusted.
+
+1. Navigate to Process Management on the left and then select any Process or Task list.
+
+2. Click the three dots on the right of the last column.
+
+3. Select which columns you want show and then click **Apply**.
+
+![Select columns]({% link process-automation/images/select-columns.png %})
+
+## Condition builder {#condition-builder}
 
 The condition builder is a tool that helps you build a JUEL expression for a condition. The condition is composed of a set of boolean statement(s) that are linked by an operator. This means the condition to be created is a statement evaluated as a boolean value. The following is an example.
 
@@ -223,7 +253,7 @@ The right-statement can be one of the available variables, a JUEL expression, or
 
 ## Expression editor
 
-The expression editor is a code editor that provides autocompletion and hints when writing an expression that may contain a JUEL expression.
+The expression editor is a code editor that provides autocompletion and hints when writing an expression that may contain a JUEL expression. In the expression editor you can test JUEL expressions by first setting the values of variables and then once the expression has been created it can be tested by clicking the **Test** button. The result is displayed in the gray area above the variables.
 The expression editor appears in the following places:
 
 * Task mapping dialog: when selecting an expression as a variable value
@@ -262,3 +292,111 @@ Autocompletion can also show method suggestions and attributes when using the â€
 The expression editor provides helpful information when you place the cursor over an element of it. For example, in the image the cursor has been placed over the word `event` and a hint is displayed that provides a description of the `event` variable.
 
 ![Hints]({% link process-automation/images/hints.png %})
+
+## Process Analytics
+
+> **Important:** Process Analytics is a Beta feature. This means it can only be used in a development environment for an experimental use case, and is not intended for production use. It may contain bugs or errors, and may be prone to breaking changes in the future based on Beta testing.
+
+Process Analytics exposes a set of APIs that can be used to query business metrics about process instances and user tasks. The query language it uses is GraphQL.
+
+> **Note:** You must have the `ACTIVITI_ANALYTICS` role in the Identity Service to be able to execute queries.
+
+### Information available for process instances
+
+* Process instance duration in seconds (minimum, maximum, or average)
+* Total number of process instances (count)
+
+Data can be filtered by:
+
+* date range
+* application name
+* process definition name
+* process status
+
+Grouped by:
+
+* process definition name
+* process instance name
+
+Aggregated by:
+
+* time intervals (minute, hour, day, week, month, quarter, year)
+* process status
+
+### Information available for user tasks
+
+* User task duration in seconds (minimum, maximum or average)
+* Total number of user tasks (count)
+
+Data can be filtered by:
+
+* date range
+* application name
+* process definition name
+* user task status
+
+Grouped by:
+
+* process definition name
+* user task name
+* user task assignee
+
+Aggregated by:
+
+* time intervals (minute, hour, day, week, month, quarter, year)
+* process status
+
+#### To use the process analytics APIs
+
+Before you use the process analytics APIs you must use the Admin app and change the password of the person who will be using them. When using the process analytics playground use incognito mode for your browser. You access the playground by navigating to `https://{domain-name}/analytics/playground/`. Use your new credentials to log into the system and you will see a similar screen to below.
+
+![Process Analytics]({% link process-automation/images/process-analytics.png %})
+
+There are two tabs on the right side of the Playground: **Docs** and **Schema**. You can use them to learn about the structure of the APIs.
+
+#### Example queries
+
+Here are some examples of GraphQL queries that can be used in the Playground.
+
+**Example 1:** Number of user tasks completed in 2022 aggregated by month
+
+```json
+{
+  taskMetrics(
+    query: {
+      range: {
+        from: "2022-01-01T00:00:00Z"
+        to: "2022-12-31T00:00:00Z"
+      } 
+    } 
+  ) 
+  { 
+    timer(name: activiti_user_task_completed) { 
+      count 
+      interval(by: task_completed_date, period: month, format: "yyyy-mm") 
+    } 
+  } 
+} 
+```
+
+**Example 2:** Average process duration of the processes completed in June 2022 aggregated by day and grouped by process definition name
+
+```json
+{
+  processMetrics(
+    query: {
+      range: {
+        from: "2022-06-01T00:00:00Z"
+        to: "2022-06-30T00:00:00Z"
+      }
+    }
+  )
+  {
+    timer(name: activiti_process_instance_completed) {
+      duration (stat: avg)
+      interval(by: process_completed_date, period: day, format: "yyyy-mm-dd")
+      group (by: process_definition_name)
+    }
+  }
+}
+```

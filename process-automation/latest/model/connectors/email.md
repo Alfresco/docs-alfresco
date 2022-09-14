@@ -1,16 +1,16 @@
 ---
-title: Email connector
+title: Email service
 ---
 
-The email connector is used to send emails using the SMTP protocol as part of a process instance.  
+The email service is used to send emails using the SMTP protocol as part of a process instance.  
 
-The email connector is displayed on the process diagram as an envelope.
+The email service is displayed on the process diagram as an envelope.
 
-> **Important**: The email connector requires an email server to use. This server is separate to the Alfresco hosted environment and should be created and managed by customers.
+> **Important**: The email service requires an email server to use. This server is separate to the Alfresco hosted environment and should be created and managed by customers.
 
 ## Send
 
-The **SEND** action is used by the email connector to send an email and optional attachments.
+The **SEND** action is used by the email service to send an email and optional attachments.
 
 The input parameters to send an email are:
 
@@ -61,7 +61,7 @@ An example of how the template can import values from the `metadata` is:
 
 ## Configuration parameters
 
-The configuration parameters for the email connector are:
+The configuration parameters for the email service are:
 
 | Parameter | Description |
 | --------- | ----------- |
@@ -80,11 +80,11 @@ The configuration parameters for the email connector are:
 | POLLING_PAGINATION | *Optional.* The number of emails retrieved in a single request, for example `10`. |
 | CRON_SCHEDULE | *Optional.* A Cron expression to configure the inbound polling frequency. |
 
-> **Note**: The polling configuration parameters are used when configuring email connector [triggers]({% link process-automation/latest/model/triggers.md %}).
+> **Note**: The polling configuration parameters are used when configuring email service [triggers]({% link process-automation/latest/model/triggers.md %}).
 
 ## Errors
 
-The possible [errors]({% link process-automation/latest/model/connectors/index.md %}#errors) that can be handled by the email connector are:
+The possible [errors]({% link process-automation/latest/model/connectors/index.md %}#errors) that can be handled by the email service are:
 
 | Error | Description |
 | ----- | ----------- |
@@ -93,8 +93,8 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 | TEMPLATE_READ_ERROR | Cannot read the FreeMarker template. |
 | TEMPLATE_METADATA_ERROR | The template references non-existing metadata. |
 | TEMPLATE_SYNTAX_ERROR | Invalid FreeMarker syntax. |
-| EMAIL_CONNECTION_ERROR | Unable to connect to email service. |
-| EMAIL_AUTHENTICATION_ERROR | Unable to authenticate into email service. |
+| EMAIL_CONNECTION_ERROR | Unable to connect to the email service. |
+| EMAIL_AUTHENTICATION_ERROR | Unable to authenticate into the email service. |
 | EMAIL_SEND_ERROR | Unable to send the email. |
 | UNKNOWN_ERROR | Unexpected runtime error. |
 | BAD_REQUEST | The server could not understand the request due to invalid syntax. |

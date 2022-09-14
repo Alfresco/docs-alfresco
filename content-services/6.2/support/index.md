@@ -65,6 +65,10 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
 | Alfresco Sync Service 3.3 | |
+| Alfresco Desktop Sync 1.10 | |
+| Alfresco Desktop Sync 1.9 | |
+| Alfresco Desktop Sync 1.8 | |
+| Alfresco Desktop Sync 1.7 | |
 | Alfresco Desktop Sync 1.6 | |
 | Alfresco Transform Service 1.4 | |
 | Alfresco Transform Service 1.3 | |
@@ -91,6 +95,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for Salesforce 2.3 | |
 | Alfresco Content Connector for Salesforce 2.2 | |
 | Alfresco Content Connector for Salesforce 2.1 | |
+| Alfresco Content Connector for SAP applications 5.2 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP applications 5.0 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
@@ -107,15 +112,14 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4 | |
 | | |
 | **Applications** | |
-| Alfresco Digital Workspace 2.4 | |
-| Alfresco Digital Workspace 2.3 | |
-| Alfresco Digital Workspace 2.2 | |
-| Alfresco Digital Workspace 2.1 | |
 | Alfresco Digital Workspace 2.0 | |
 | Alfresco Digital Workspace 1.6 | |
 | Alfresco Digital Workspace 1.5 | |
+| Alfresco Digital Workspace 1.4 | |
+| Alfresco Digital Workspace 1.3 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Application Development Framework (ADF) 3.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
+| Alfresco Mobile Workspace 1.4 | |
 | | |
 | **Components** | |
 | ImageMagick v7.0.10 | |
@@ -181,6 +185,10 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
 | Alfresco Sync Service 3.3 | |
 | Alfresco Sync Service 3.2 | |
+| Alfresco Desktop Sync 1.10 | |
+| Alfresco Desktop Sync 1.9 | |
+| Alfresco Desktop Sync 1.8 | |
+| Alfresco Desktop Sync 1.7 | |
 | Alfresco Desktop Sync 1.6 | |
 | Alfresco Desktop Sync 1.5 | |
 | Alfresco Desktop Sync 1.4 | |
@@ -209,6 +217,7 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Content Connector for EMC Centera 2.2.1 | |
 | Alfresco Content Connector for Salesforce 2.2 | |
 | Alfresco Content Connector for Salesforce 2.1 | |
+| Alfresco Content Connector for SAP applications 5.2 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP applications 5.0 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
@@ -229,7 +238,6 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Digital Workspace 1.5 | |
 | Alfresco Digital Workspace 1.4 | |
 | Alfresco Digital Workspace 1.3 | |
-| Alfresco Digital Workspace 1.2 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Application Development Framework (ADF) 3.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | | |
@@ -296,6 +304,10 @@ Alfresco Content Connector for Azure 1.1 | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
 | Alfresco Sync Service 3.3 | |
 | Alfresco Sync Service 3.2 | |
+| Alfresco Desktop Sync 1.10 | |
+| Alfresco Desktop Sync 1.9 | |
+| Alfresco Desktop Sync 1.8 | |
+| Alfresco Desktop Sync 1.7 | |
 | Alfresco Desktop Sync 1.6 | |
 | Alfresco Desktop Sync 1.5 | |
 | Alfresco Desktop Sync 1.4 | |
@@ -319,6 +331,7 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Content Connector for AWS Glacier 2.0 | Only compatible with Alfresco Content Connector for AWS S3 3.0 and below. |
 | Alfresco Content Connector for EMC Centera 2.2.1 | |
 | Alfresco Content Connector for Salesforce 2.1 | |
+| Alfresco Content Connector for SAP applications 5.2 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP applications 5.0 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
@@ -338,7 +351,6 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Digital Workspace 1.5 | |
 | Alfresco Digital Workspace 1.4 | |
 | Alfresco Digital Workspace 1.3 | |
-| Alfresco Digital Workspace 1.2 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Application Development Framework (ADF) 3.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | | |

@@ -113,7 +113,7 @@ There are two strategies to fill the gaps in the Elasticsearch server when provo
 Sample invocation for Fetch by IDS.
 
 ```java
-java -jar target/alfresco-elasticsearch-reindexing-3.0.0-app.jar \
+java -jar target/alfresco-elasticsearch-reindexing-3.1.0-app.jar \
   --alfresco.reindex.jobName=reindexByIds \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
@@ -125,7 +125,7 @@ java -jar target/alfresco-elasticsearch-reindexing-3.0.0-app.jar \
 Sample invocation for Fetch by DATE.
 
 ```java
- java -jar target/alfresco-elasticsearch-reindexing-3.0.0-app.jar \
+ java -jar target/alfresco-elasticsearch-reindexing-3.1.0-app.jar \
   --alfresco.reindex.jobName=reindexByDate \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
@@ -187,17 +187,23 @@ mediation:
      - nodeType2
      - ...
      . nodeTypeN
+  nodeAspects:
+     - nodeAspect1
+     - nodeAspect2
+     - …
+     - nodeAspectN
   fields:
      - field1
      - field2
      - ...
      . fieldN
-```  
+```
 
 Where:
 
 * **nodeTypes**: if the node wrapped in the incoming event has a type which is included in this set, the node processing is skipped.
 * **contentNodeTypes**: if the node wrapped in the incoming event has a content change associated with it and it has a type which is included in this set, then the corresponding content processing won't be executed. This means nodes belonging to one of the node types in this set, won't have any content indexed in Elasticsearch.
+* **nodeAspects**: if the node wrapped in the incoming event has an aspect which is included in this set, the node processing is skipped.
 * **fields**: fields listed in this set are removed from the incoming nodes metadata. This means fields in this set won't be sent to Elasticsearch for indexing, and therefore they won't be searchable.
 
 To override some of these values command line system properties can be specified. Using the standard Spring boot approach, the name of the property must be converted to uppercase and dots must be changed by underscore characters. The following sample overrides the default values for three different properties.
@@ -244,6 +250,8 @@ mediation:
   nodeTypes:
   contentNodeTypes:
     - cm:content
+  nodeAspects:
+    - sys:hidden
   fields:
     - cmis:changeToken
 ```

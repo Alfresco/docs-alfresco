@@ -559,4 +559,4 @@ developer needs to do and understand.
 
 ## Alfresco Transform Service (ATS) configuration (Enterprise only)
 
-To configure a T-Engine as a Remote Transform follow the steps described in [Alfresco Transform Service documentation]({% link transform-service/latest/config/engine.md %}).
+To configure a T-Engine as a Remote Transform follow the steps described in [Alfresco Transform Service documentation]({% link transform-service/latest/config/index.md %}).

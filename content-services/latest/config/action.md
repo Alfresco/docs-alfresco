@@ -20,7 +20,7 @@ To configure an APS action there are several prerequisites that must be met:
 
 To install the APS action AMP:
 
-1. Visit the [Support Portal](https://support.alfresco.com/){:target="_blank"} and download the APS action zip bundle.
+1. Visit [Hyland Community](https://community.hyland.com/){:target="_blank"} and download the APS action zip bundle.
 
 2. Unzip the bundle and place the `aps-action-share-7.0.0.amp` to the Content Services `amps_share` directory.
 
@@ -46,7 +46,7 @@ To configure the repository in Process Services:
     | Alfresco tenant | *Optional.* The tenant to use for the connection. The default value is `-default-`. |
     | Repository base URL | *Required.* The base URL of Content Services, for example `http://127.0.0.1:8080/alfresco/`. |
     | Share base URL | *Required.* The base URL of Share, for example `http://127.0.0.1:8080/share/`. |
-    | Alfresco version | *Required.* The version of Content Services used. This must initially be configured as `5.2`, even if using a later version of Content Services. The settings can be subsequently edited if using Process Services 1.11 or later with the Identity Service. |
+    | Alfresco version | *Required.* The version of Content Services used. This must initially be configured as `5.2`, even if using a later version of Content Services. |
     | Authentication | *Required.* The authentication method to use. Select `Enable Share Connector` checkbox. |
     | Secret | *Required.* The common secret used for communication between Content Services and Process Services. The default value us `activiti-share-connector-secret`. This must match the property `activiti.secret` set in Content Services. |
 

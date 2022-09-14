@@ -17,8 +17,12 @@ The outlined Hyland Support severity definitions are utilized when prioritizing 
 
 ## Technical Support Services
 
-Hyland will provide online or phone technical support related to problems reported by a customer and associated with the operation of any supported software, including assistance and advice related to the operation of the software. Technical Support Services are not available for retired software.
+Hyland will provide online or phone technical support related to problems reported by a customer and associated with the operation of any supported software, including assistance and advice related to the operation of the software.
+
+> **Note:** Technical Support Services are not available for retired software.
 
 ## Error Correction Services
 
-With respect to any Errors in the supported software which are reported by a customer and which are confirmed by Hyland, in the exercise of its reasonable judgment, Hyland will use its commercially reasonable efforts to correct the Error, which may be effected by a commercially reasonable workaround.  Hyland shall promptly commence to confirm any reported Errors after receipt of a proper report of such suspected Error from a customer.  Hyland may elect to correct the Error in the current available release, or in the next available commercially released version of the supported software and the resolution may require the customer to implement an upgrade and enhancement in order to obtain the correction. Error Correction Services are not available for retired software.
+With respect to any Errors in the supported software which are reported by a customer and which are confirmed by Hyland, in the exercise of its reasonable judgment, Hyland will use its commercially reasonable efforts to correct the Error, which may be effected by a commercially reasonable workaround. Hyland shall promptly commence to confirm any reported Errors after receipt of a proper report of such suspected Error from a customer. Hyland may elect to correct the Error in the current available release, or in the next available commercially released version of the supported software and the resolution may require the customer to implement an upgrade and enhancement in order to obtain the correction.
+
+> **Note:** Error Correction Services are not available for retired software.

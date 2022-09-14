@@ -68,7 +68,16 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Process Services 2.0 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 3.7 | |
+| Alfresco Sync Service 3.6 | |
+| Alfresco Sync Service 3.5 | |
 | Alfresco Sync Service 3.4 | |
+| Alfresco Desktop Sync 1.13 | |
+| Alfresco Desktop Sync 1.12 | |
+| Alfresco Desktop Sync 1.11 | |
+| Alfresco Desktop Sync 1.10 | |
+| Alfresco Desktop Sync 1.9 | |
+| Alfresco Desktop Sync 1.8 | |
 | Alfresco Desktop Sync 1.7 | |
 | Alfresco Transform Service 1.4 | |
 | Alfresco Transform Service 1.3.2 | |
@@ -85,11 +94,13 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for AWS Glacier 2.1 | Only compatible with Alfresco Content Connector for AWS S3 3.1 or above. |
 | Alfresco Content Connector for Salesforce 2.3 | |
 | Alfresco Content Connector for Salesforce 2.2.1 | |
+| Alfresco Content Connector for SAP applications 5.2 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
 | Alfresco Content Connector for SAP Cloud 1.1 | |
 | Alfresco Content Connector for SAP Cloud 1.0 | |
 | Alfresco Collaboration Connector for Microsoft 365 1.1 | |
+| Alfresco Outlook Integration 2.9 | |
 | Alfresco Outlook Integration 2.8 | |
 | Alfresco Office Services 1.4 | |
 | Alfresco Google Docs Integration 3.2.1 | |
@@ -99,13 +110,14 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.2 | |
 | | |
 | **Applications** | |
+| Alfresco Digital Workspace 2.6 | |
+| Alfresco Digital Workspace 2.5 | |
 | Alfresco Digital Workspace 2.4 | |
 | Alfresco Digital Workspace 2.3 | |
 | Alfresco Digital Workspace 2.2 | |
 | Alfresco Digital Workspace 2.1 | |
-| Alfresco Digital Workspace 2.0 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
-| Alfresco Mobile Workspace 1.0 | |
+| Alfresco Mobile Workspace 1.4 | |
 | | |
 | **Components** | |
 | ImageMagick v7.0.10 | |
@@ -173,7 +185,16 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Governance Services 3.5 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 3.7 | |
+| Alfresco Sync Service 3.6 | |
+| Alfresco Sync Service 3.5 | |
 | Alfresco Sync Service 3.4 | |
+| Alfresco Desktop Sync 1.13 | |
+| Alfresco Desktop Sync 1.12 | |
+| Alfresco Desktop Sync 1.11 | |
+| Alfresco Desktop Sync 1.10 | |
+| Alfresco Desktop Sync 1.9 | |
+| Alfresco Desktop Sync 1.8 | |
 | Alfresco Desktop Sync 1.7 | |
 | Alfresco Transform Service 1.4 | |
 | Alfresco Transform Service 1.3.2 | |
@@ -188,11 +209,13 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for AWS Glacier 2.1 | Only compatible with Alfresco Content Connector for AWS S3 3.1 or above. |
 | Alfresco Content Connector for Salesforce 2.3 | |
 | Alfresco Content Connector for Salesforce 2.2.1 | |
+| Alfresco Content Connector for SAP applications 5.2 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
 | Alfresco Content Connector for SAP Cloud 1.1 | |
 | Alfresco Content Connector for SAP Cloud 1.0 | |
 | Alfresco Collaboration Connector for Microsoft 365 1.1 | |
+| Alfresco Outlook Integration 2.9 | |
 | Alfresco Outlook Integration 2.8 | |
 | Alfresco Office Services 1.4 | |
 | Alfresco Google Docs Integration 3.2.1 | |
@@ -202,10 +225,14 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.2 | |
 | | |
 | **Applications** | |
+| Alfresco Digital Workspace 2.6 | |
+| Alfresco Digital Workspace 2.5 | |
+| Alfresco Digital Workspace 2.4 | |
+| Alfresco Digital Workspace 2.3 | |
 | Alfresco Digital Workspace 2.2 | |
 | Alfresco Digital Workspace 2.1 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
-| Alfresco Mobile Workspace 1.0 | |
+| Alfresco Mobile Workspace 1.4 | |
 | | |
 | **Components** | |
 | ImageMagick v7.0.10 | |
