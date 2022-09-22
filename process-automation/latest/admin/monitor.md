@@ -6,6 +6,12 @@ The **Process Admin** section of the Admin Application is used to manage process
 
 Users can only see this section if they have the `ACTIVITI_ADMIN` role. The information that a user sees in each section is then controlled by which applications they have been given administrator access to during [deployment]({% link process-automation/latest/admin/release.md %}#deployment) or afterwards by [updating the application permissions]({% link process-automation/latest/admin/release.md %}#manage-permissions).
 
+## Applications list
+
+The **Applications list** section is for viewing the applications you have released. You can use the **Star** icon that is available on each row, to 'favorite' a single application. This ensures the application appears first in the search lists, when using the search in the **Process Instances**, **User Tasks**, and **Service Tasks** sections.
+
+![Applications list]({% link process-automation/images/applications-list.png %})
+
 ## Process instances
 
 The **Process Instances** section is for monitoring all active, completed and suspended process instances that are running in each application.
@@ -174,4 +180,3 @@ The properties for each audit event are:
 | Event ID | The unique ID of the event. |
 | Process Instance ID | The process instance ID of the process that the event occurred in. |
 | Event Action | The payload of the event in JSON format. Click to view the details. |
-
