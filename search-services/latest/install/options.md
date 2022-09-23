@@ -192,11 +192,11 @@ This task assumes you have:
 
 Use this information to install Search Services on the same machine as Alfresco Content Services without mutual TLS, using HTTP with a secret word in the request header. This means communication between the Repository and Search Services is protected by a shared secret that is passed in a configurable Request HTTP Header.
 
-**Important:** This installation method is only supported when using Content Services 7.1 and above.
+**Important:** This installation method is only supported when using Content Services 7.2 and above.
 
 This task assumes you have:
 
-* Installed Alfresco Content Services 7.1 or above.
+* Installed Alfresco Content Services 7.2 or above.
 * Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
     ```text
