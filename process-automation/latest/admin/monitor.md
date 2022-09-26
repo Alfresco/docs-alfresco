@@ -8,7 +8,7 @@ Users can only see this section if they have the `ACTIVITI_ADMIN` role. The info
 
 ## Process instances
 
-The **Process Instances** section is for monitoring all active, completed and suspended process instances that are running in each application.
+The **Process Instances** section is for monitoring all active, completed, and suspended process instances that are running in each application. You can delete one or more selected process instances, regardless of what state they are in. Use the **Delete** button for a specific instance to delete it. You can delete more than one at the same time by using the **Select multiple** check box on the top right. Once you have selected multiple process instances, click delete from the top right.
 
 ### Properties {#process-properties}
 
