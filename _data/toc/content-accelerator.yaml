@@ -1,11 +1,73 @@
-# Alfresco Content Accelerator 3.4.4
-- version: 3.4
+# Alfresco Content Accelerator 3.5
+- version: 3.5
   pages:
     - title: 'Introduction'
       path: '/content-accelerator/latest/'
+
     - title: 'Install'
-      path: '/content-accelerator/latest/install/'
+      pages:
+      - title: 'Install Guide'
+        path: '/content-accelerator/latest/install/'
+      - title: 'Installation Requirements'
+        path: '/content-accelerator/latest/install/installation-requirements/'
+      - title: 'Front Tomcat with Apache'
+        path: '/content-accelerator/latest/install/front-tomcat-with-apache/'
+      - title: 'Same Origin Policy'
+        path: '/content-accelerator/latest/install/same-origin-policy/'
+      - title: 'Installing SSL'
+        path: '/content-accelerator/latest/install/installing-ssl/'
+      - title: 'Single Sign On (SSO)'
+        path: '/content-accelerator/latest/install/sso/'
+      - title: 'Supported Versions'
+        path: '/content-accelerator/latest/install/support/'
+
+
     - title: 'Administer'
-      path: '/content-accelerator/latest/admin/'
+      pages:
+      - title: 'Admin Guide'
+        path: '/content-accelerator/latest/admin/'
+      - title: 'Edit Online Configurations'
+        path: '/content-accelerator/latest/admin/edit-online-configurations/'
+      - title: 'Config Archiver'
+        path: '/content-accelerator/latest/admin/config-archiver/'
+      - title: 'Limit Search Results'
+        path: '/content-accelerator/latest/admin/limit-search-results/'
+      - title: 'Action Confiurations'
+        path: '/content-accelerator/latest/admin/actions/'
+      - title: 'Notifications and Notes'
+        path: '/content-accelerator/latest/admin/notifications-and-notes/'
+      - title: 'Integrations and Addons'
+        path: '/content-accelerator/latest/admin/integrations-and-addons/'
+      - title: 'Other ACA Admin Configurations'
+        path: '/content-accelerator/latest/admin/other-aca-admin-configs/'
+
     - title: 'Using'
-      path: '/content-accelerator/latest/using/'
+      pages:
+      - title: 'Overview'
+        path: '/content-accelerator/latest/using/'
+      - title: 'Content Accelerator for Claims Management'
+        path: '/content-accelerator/latest/using/content-accelerator-for-claims-management/'
+      - title: 'Content Accelerator for Policy and Procedure Management'
+        path: '/content-accelerator/latest/using/content-accelerator-for-pnp-management/'
+    
+    - title: 'Develop'
+      pages:
+      - title: 'Extension Content Accelerator (Custom Amp)'
+        path: '/content-accelerator/latest/develop/extension-content-accelerator/'
+
+
+ 
+  
+
+
+
+
+
+
+
+
+
+
+    
+
+ 

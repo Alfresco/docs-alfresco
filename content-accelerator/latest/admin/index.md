@@ -1342,7 +1342,7 @@ they need one:
     * Query Variable: `${user_id}`
 * Users Email From User ID
     * Query Variable: `${user_id}`
-* HPI Picklist (refers to picklist defined in Content Accelerator)
+* ACA Picklist (refers to picklist defined in Content Accelerator)
 
 Here is an example of the Web Service Query that uses a web service type, *Users in Groups*. The query will bring 
 back users within a particular group, see Testing Queries documentation. 

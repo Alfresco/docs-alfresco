@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for the Alfresco Content Accelerator 3.4.4:
+The following are the supported platforms for the Alfresco Content Accelerator 3.5:
 
 |Version|Notes|
 |-------|-----|

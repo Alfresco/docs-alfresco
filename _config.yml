@@ -1204,11 +1204,11 @@ defaults:
       toc: "content-accelerator"
       support: true
       versions:
-        - 3.4
+        - 3.5
   - scope:
       path: "content-accelerator/latest"
     values:
-      version: 3.4
+      version: 3.5
       latest: true
 
 sass:
