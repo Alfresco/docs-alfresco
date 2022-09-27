@@ -18,8 +18,6 @@
         path: '/content-accelerator/latest/install/installing-ssl/'
       - title: 'Single Sign On (SSO)'
         path: '/content-accelerator/latest/install/sso/'
-      - title: 'Supported Versions'
-        path: '/content-accelerator/latest/install/support/'
 
 
     - title: 'Administer'
@@ -43,17 +41,17 @@
 
     - title: 'Using'
       pages:
-      - title: 'Overview'
+      - title: 'User Guide'
         path: '/content-accelerator/latest/using/'
-      - title: 'Content Accelerator for Claims Management'
-        path: '/content-accelerator/latest/using/content-accelerator-for-claims-management/'
-      - title: 'Content Accelerator for Policy and Procedure Management'
-        path: '/content-accelerator/latest/using/content-accelerator-for-pnp-management/'
     
     - title: 'Develop'
       pages:
       - title: 'Extension Content Accelerator (Custom Amp)'
         path: '/content-accelerator/latest/develop/extension-content-accelerator/'
+      - title: 'Configuring the Content Accelerator for Claims Management'
+        path: '/content-accelerator/latest/develop/content-accelerator-for-claims-management/'
+      - title: 'Configuring the Content Accelerator for Policy and Procedure Management'
+        path: '/content-accelerator/latest/develop/content-accelerator-for-pnp-management/'
 
 
  

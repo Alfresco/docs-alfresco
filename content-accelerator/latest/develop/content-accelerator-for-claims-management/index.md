@@ -1,16 +1,11 @@
 ---
-title: Content Accelerator For Claims Management
+title: Configuring the Content Accelerator For Claims Management
 ---
 
-The Content Accelerator for Claims Management allows companies to extend their current data-driven claim systems with robust and efficient claims document management.
-
-As an integrated solution, the Claims Management Accelerator does not require the replacement of existing data systems, only extensions to “electronic file enable” the claim systems saving a huge amount of rework for data processing and document processing if combined in a single effort. Data such as insured name, policy number and claim number can be passed to the solution when electronic file system is first accessed, saving critical data entry time, effort and reducing errors. 
-
+## Integrations
 The below integration point can be used from Guidewire, Duck Creek, Salesforce, or any custom system to allow for integration from these systems to create a claim and launch users directly into the claim folder. A typical integration involves generating a URL link on the existing interface that can be put into an iframe or launch a new tab/window that takes the user directly into the claim folder. It will commonly pass in some key metadata from the claims data system to populate and update the claim info each time it is launched.
 
 ![Img Txt]({% link content-accelerator/images/Cached-RepoInsuranceSystemIntegrationFull.png %})
-
-## Integrations
 
 ### REST API
 **Create/Update a Claim Folder and Navigate to the Claim**  

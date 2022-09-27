@@ -1,15 +1,6 @@
 ---
-title: Content Accelerator for Policy and Procedure Management
+title: Configuring the Content Accelerator for Policy and Procedure Management
 ---
-
-The Alfresco Content Accelerator for Policy and Procedure Management helps companies maintain quality processes of their essential documents that require strict control over content lifecycle, reviews, and approvals.  The intuitive interface facilitates consistency, collaboration, electronic review and approval for knowledge workers and provides 21 CFR Part 11 compliant electronic signatures.  Document annotations are supported through using the build in Alfresco Enterprise Viewer to efficiently facilitate document review and approval. Customers will benefit from the following: 
-
-- Time & Cost Savings – Significant cost and time savings for customers that are using email and manual processes to gather signatures. 
-- Compliance – The interface adheres to the quality regulations from FDA, ISO, NRC, etc. For example, the Policy and Procedure Manager ensures that policies and procedures undergo periodic review and limit access to only Approved and Effective content.  
-- Consistency - The Policy and Procedure Accelerator drives the approval process based on a configurable change request form which collects relevant data about the change. This approach reduces user decisions and errors commonly found with an ad-hoc or static workflow template approach. 
-- Support for Complex Changes – Allows changes that impact multiple documents to be managed together as a single change package.  
-- Efficiency – A simple, intuitive interface allows users to easily locate and work with documents, including report generation for management.  
-- Secure - Document security is tightly controlled by the Alfresco Content Accelerator for Policy and Procedure Management.  Consumer users are only able to access Approved or Released content, while document editors and approvers can create and edit work-in-process versions, ensuring that document consumers are never referencing the wrong version of a policy or procedure document. 
 
 ## Typical Configuration Points
 While the Content Accelerator administration console provides powerful UI-based configurations, sometimes back end configurations are desired.  Typical configuration points include:
