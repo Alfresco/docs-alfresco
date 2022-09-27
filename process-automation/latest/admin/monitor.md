@@ -6,6 +6,32 @@ The **Process Admin** section of the Admin Application is used to manage applica
 
 Users can only see this section if they have the `ACTIVITI_ADMIN` role. The information that a user sees in each section is then controlled by which applications they have been given administrator access to during [deployment]({% link process-automation/latest/admin/release.md %}#deployment) or afterwards by [updating the application permissions]({% link process-automation/latest/admin/release.md %}#manage-permissions).
 
+## Configure columns
+
+You can configure the columns of the Applications List, Process Instances, User Tasks, and Service Tasks lists in the Admin App.
+
+The order of the columns can be adjusted.
+
+1. Expand the **Process Admin** section on the left of the Admin App and then select **Applications list**, **Process Instances**, **User Tasks**, or **Service Tasks**.
+
+2. Access the six dots on the top left of a column by hovering your mouse over the name of the column.
+
+3. Click and hold the six dots and then move the column on top of another column.
+
+    This moves the columns to the left one position and the column you are moving takes the place of the one underneath.
+
+![Move column]({% link process-automation/images/move-column-admin.png %})
+
+The columns that are visible can be adjusted.
+
+1. Expand the **Process Admin** section on the left of the Admin App and then select **Applications list**, **Process Instances**, **User Tasks**, or **Service Tasks**.
+
+2. Click the three dots on the right of the last column.
+
+3. Select which columns you want show and then click **Apply**.
+
+![Select columns]({% link process-automation/images/select-columns-admin.png %})
+
 ## Applications list
 
 The **Applications list** section is for viewing the applications you have released.
@@ -23,34 +49,6 @@ The columns for each application are:
 | Digital Workspace | If the application is the Digital Workspace, there is a link to it. |
 | Three dots | Right click on the three dots to access the [Process Instances](#process-instances), [User Tasks](#user-tasks), [Service Tasks](#service-tasks), [Audit](#audit), or [Data Cleanup](#data-cleanup) sections. |
 | Star icon | Use the icon to select which application you want to 'favorite'. The application you select will appear first in the search lists, when using the search in the **Process Instances**, **User Tasks**, and **Service Tasks** sections. |
-
-## Process instances
-
-## Configure Process instances and User task lists
-
-You can configure the columns of the Process instances and User task lists in the Admin App.
-
-The order of the columns can be adjusted.
-
-1. Expand the **Process Admin** section on the left of the Admin App and then select **Process instances** or **User Tasks**.
-
-2. Access the six dots on the top left of a column by hovering your mouse over the name of the column.
-
-3. Click and hold the six dots and then move the column on top of another column.
-
-    This moves the columns to the left one position and the column you are moving takes the place of the one underneath.
-
-![Move column]({% link process-automation/images/move-column-admin.png %})
-
-The columns that are visible can be adjusted.
-
-1. Expand the **Process Admin** section on the left of the Admin App and then select **Process instances** or **User Tasks**.
-
-2. Click the three dots on the right of the last column.
-
-3. Select which columns you want show and then click **Apply**.
-
-![Select columns]({% link process-automation/images/select-columns-admin.png %})
 
 ## Process Instances
 
