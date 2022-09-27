@@ -2,17 +2,17 @@
 title: Process administration
 ---
 
-The **Process Admin** section of the Admin Application is used to manage process instances and tasks. It also contains the audit log for applications.
+The **Process Admin** section of the Admin Application is used to manage applications, process instances, user tasks, service tasks, auditing, and data cleanup.
 
 Users can only see this section if they have the `ACTIVITI_ADMIN` role. The information that a user sees in each section is then controlled by which applications they have been given administrator access to during [deployment]({% link process-automation/latest/admin/release.md %}#deployment) or afterwards by [updating the application permissions]({% link process-automation/latest/admin/release.md %}#manage-permissions).
 
-## Configure Process instances and User task lists
+## Configure columns
 
-You can configure the columns of the Process instances and User task lists in the Admin App.
+You can configure the columns of the Applications List, Process Instances, User Tasks, and Service Tasks lists in the Admin App.
 
 The order of the columns can be adjusted.
 
-1. Expand the **Process Admin** section on the left of the Admin App and then select **Process instances** or **User Tasks**.
+1. Expand the **Process Admin** section on the left of the Admin App and then select **Applications list**, **Process Instances**, **User Tasks**, or **Service Tasks**.
 
 2. Access the six dots on the top left of a column by hovering your mouse over the name of the column.
 
@@ -24,13 +24,31 @@ The order of the columns can be adjusted.
 
 The columns that are visible can be adjusted.
 
-1. Expand the **Process Admin** section on the left of the Admin App and then select **Process instances** or **User Tasks**.
+1. Expand the **Process Admin** section on the left of the Admin App and then select **Applications list**, **Process Instances**, **User Tasks**, or **Service Tasks**.
 
 2. Click the three dots on the right of the last column.
 
 3. Select which columns you want show and then click **Apply**.
 
 ![Select columns]({% link process-automation/images/select-columns-admin.png %})
+
+## Applications list
+
+The **Applications list** section is for viewing the applications you have released.
+
+### Properties {#applications-properties}
+
+The columns for each application are:
+
+| Property | Description |
+| -------- | ----------- |
+| Application name | The name of the application. |
+| Description | A description of the application, if entered when the application was released. |
+| Version | The version of the application. |
+| Release | The amount of times the application has been released. |
+| Digital Workspace | If the application is the Digital Workspace, there is a link to it. |
+| Three dots | Right click on the three dots to access the [Process Instances](#process-instances), [User Tasks](#user-tasks), [Service Tasks](#service-tasks), [Audit](#audit), or [Data Cleanup](#data-cleanup) sections. |
+| Star icon | Use the icon to select which application you want to 'favorite'. The application you select will appear first in the search lists, when using the search in the **Process Instances**, **User Tasks**, and **Service Tasks** sections. |
 
 ## Process Instances
 
@@ -200,3 +218,27 @@ The properties for each audit event are:
 | Event ID | The unique ID of the event. |
 | Process Instance ID | The process instance ID of the process that the event occurred in. |
 | Event Action | The payload of the event in JSON format. Click to view the details. |
+
+## Data Cleanup
+
+You can clean up historical data using the Create cleanup job process from within the Admin App.
+
+1. Sign into the Admin App.
+
+2. Expand **Process Admin** from the left pane.
+
+3. Select **Data Cleanup**.
+
+4. Click the **+** symbol on the top right to create a new cleanup job.
+
+5. Select the application you want to run the Create cleanup job process for from the drop down menu.
+
+6. Select the applications process definition you want to cleanup.
+
+    You can select multiple process definitions. If you do not select a process definition for the application all process definitions are selected.
+
+7. Select the period of time you want to retain any completed or cancelled processes.
+
+8. Click **Yes I agree** to creating the cleanup job and then click **CREATE**.
+
+![Cleanup Job]({% link process-automation/images/cleanup-job.png %})
