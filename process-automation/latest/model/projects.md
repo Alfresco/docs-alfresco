@@ -153,3 +153,11 @@ To access an example project:
 5. Enter an appropriate name and click **Duplicate**.
 
 ![Duplicate projects]({% link process-automation/images/duplicate-projects.png %})
+
+## Search Projects
+
+You can search for any of the components that make up your projects.
+Use the **Magnifying icon** on the top left above the Project tree to search for components.
+In the image you can see all the components of the project that have 'company' in their name.
+
+![Search projects]({% link process-automation/images/search-projects.png %})

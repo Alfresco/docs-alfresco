@@ -26,7 +26,35 @@ The columns for each application are:
 
 ## Process instances
 
-The **Process Instances** section is for monitoring all active, completed and suspended process instances that are running in each application.
+## Configure Process instances and User task lists
+
+You can configure the columns of the Process instances and User task lists in the Admin App.
+
+The order of the columns can be adjusted.
+
+1. Expand the **Process Admin** section on the left of the Admin App and then select **Process instances** or **User Tasks**.
+
+2. Access the six dots on the top left of a column by hovering your mouse over the name of the column.
+
+3. Click and hold the six dots and then move the column on top of another column.
+
+    This moves the columns to the left one position and the column you are moving takes the place of the one underneath.
+
+![Move column]({% link process-automation/images/move-column-admin.png %})
+
+The columns that are visible can be adjusted.
+
+1. Expand the **Process Admin** section on the left of the Admin App and then select **Process instances** or **User Tasks**.
+
+2. Click the three dots on the right of the last column.
+
+3. Select which columns you want show and then click **Apply**.
+
+![Select columns]({% link process-automation/images/select-columns-admin.png %})
+
+## Process Instances
+
+The **Process Instances** section is for monitoring all active, completed, and suspended process instances that are running in each application. You can delete one or more selected process instances, regardless of what state they are in. Use the **Delete** button for a specific instance to delete it. You can delete more than one at the same time by using the **Select multiple** check box on the top right. Once you have selected multiple process instances, click delete from the top right.
 
 ### Properties {#process-properties}
 
@@ -179,7 +207,7 @@ Select the **View Error** option on a service task with the status of `ERROR`. T
 
 The **Audit** section provides details of all the [events]({% link process-automation/latest/model/processes/events.md %}) that have occurred in applications.
 
-All audit events can be filtered based on the application, event type, event ID or process instance ID.
+All audit events can be filtered based on the application, event type, event ID, or process instance ID. Use the **Export** button on the top right to download a `.CSV` list of all the audit events. Even if you have filtered the audit events you still download all the audit events for the selected application.
 
 ### Properties {#audit-properties}
 
