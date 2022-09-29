@@ -2,14 +2,14 @@
 title: What's new
 ---
 
-Alfresco Content Services (ACS) 7.2 is our latest software release with improvements to Content Services to accelerate 
+Alfresco Content Services (ACS) 7.3 is our latest software release with improvements to Content Services to accelerate 
 use and development for customer solutions for PaaS, Cloud, or on-premises deployment. With this release, Alfresco 
 continues to enable open-source communities, customers, and partners to deliver a highly scalable Content Store with 
 numerous applications, connectivity, and solutions.
 
 > **Note:** Alfresco customers can view more detailed Release Notes in [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
-Here's a quick summary of what's new in the Alfresco Content Services 7.2 release.
+Here's a quick summary of what's new in the Alfresco Content Services 7.3 release.
 
 ## Highlights
 * **Support for Direct Access URLs** 
@@ -45,7 +45,7 @@ performance benefiting those customers using Elasticsearch.
 * Alfresco Content Services Mobile Application
 
 ## Install
-Alfresco Content Services 7.2 is available as a distribution zip file for manual installation, or it can be installed 
+Alfresco Content Services 7.3 is available as a distribution zip file for manual installation, or it can be installed 
 using an Ansible playbook (Linux only) for non-containerized environments. It's also available as a set of Docker 
 images that can be deployed in containerized environments using Docker Compose or Helm charts (for Kubernetes).
 
@@ -68,9 +68,9 @@ See the [Extension Inspector]({% link content-services/latest/develop/extension-
 more details.
 
 ## Upgraded integrations
-Alfresco Content Services 7.2 introduces changes that require new releases of some modules.
+Alfresco Content Services 7.3 introduces changes that require new releases of some modules.
 
-To upgrade to Content Services 7.2, you'll also need to update any of the module artifacts to which you're entitled.
+To upgrade to Content Services 7.3, you'll also need to update any of the module artifacts to which you're entitled.
 
 See the [Supported Platforms]({% link content-services/latest/support/index.md %}) for more details.
 

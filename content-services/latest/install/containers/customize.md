@@ -33,7 +33,7 @@ You now need to install the AMP files into the Alfresco Content Repository image
 
 1. The `docker-compose` folder contains a file for each main code line of Content Services. Examine the relevant Docker Compose file for the version you want to apply the AMPs to.
 
-    For example, to apply AMPs to the latest version of 7.2, take a look at the `docker-compose.yml` file.
+    For example, to apply AMPs to the latest version of 7.3, take a look at the `docker-compose.yml` file.
 
 2. Take note of the image and tag used for the **alfresco** service in the Docker Compose file you chose.
 
