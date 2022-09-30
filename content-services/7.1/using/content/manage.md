@@ -288,6 +288,8 @@ While the preview feature lets you view a file in Alfresco Share, you also have 
 
     A new browser window opens displaying the selected file. For some file types, such as Microsoft Office documents, Share launches the file in its associated program.
 
+>**Important**: For security reasons, only the following file types are allowed to view in the browser: `.pdf`, `.png`, `.jpeg`, `.gif`, `.tiff`, `.bmp`. All other file types are instead downloaded. This is [configurable]({% link content-services/7.1/config/repository.md %}#conf-view-in-browser-mime-types).
+
 ### View a file on Google Maps
 
 When a file has geolocation data attached to it you can view the file location on Google Maps directly from Alfresco Share.
