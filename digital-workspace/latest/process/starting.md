@@ -11,7 +11,7 @@ You can start a process in Alfresco Digital Workspace, with or without a file at
 
 3. Select the Process you want to use from the list of processes.
 
-    Use the search bar to find the process you want to work with if you have a large amount of processes.
+    Use the search bar to find the process you want to work with if you have a large amount of processes. Recently used processes appear at the the top of the list.
 
 4. A default Process name is pre filled but it can be changed or more information can be added.
 
