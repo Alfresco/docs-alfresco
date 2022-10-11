@@ -6,8 +6,8 @@ Use this information to configure Sync Service.
 
 You can also find additional information in:
 
-* [Connect to Sync Service through JMX]({% link sync-service/latest/config/jmx.md %})
-* [Run Sync Service via a script]({% link sync-service/latest/config/script.md %})
+* [Connect to Sync Service through JMX]({% link sync-service/3.7/config/jmx.md %})
+* [Run Sync Service via a script]({% link sync-service/3.7/config/script.md %})
 
 ## Required properties
 
@@ -83,7 +83,7 @@ The following prerequisites are required:
 * Identity Service 1.4 or later
 * Alfresco Desktop Sync for Mac or Windows 1.7 or later
 
-Alfresco Sync Service 3.8 supplies the default configuration set in the `alfresco.global.properties` file directly to the Desktop Sync clients as users start the initial login.
+Alfresco Sync Service 3.7 supplies the default configuration set in the `alfresco.global.properties` file directly to the Desktop Sync clients as users start the initial login.
 
 See [Setting up Desktop Sync (Windows)]({% link desktop-sync/latest/install/index.md %}#faq/windows/setting-up-desktop-sync-on-windows) and [Setting up Desktop Sync (Mac)]({% link desktop-sync/latest/install/index.md %}#faq/windows/setting-up-desktop-sync-on-mac) for further details.
 

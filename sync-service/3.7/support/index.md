@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for Alfresco Sync Service 3.8:
+The following are the supported platforms for Alfresco Sync Service 3.7:
 
 | Version | Notes |
 | ------- | ----- |
