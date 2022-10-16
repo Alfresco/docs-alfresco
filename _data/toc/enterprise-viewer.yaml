@@ -1,0 +1,11 @@
+# Alfresco Enterprise Viewer 3.5
+- version: 3.5
+  pages:
+    - title: 'Introduction'
+      path: '/enterprise-viewer/latest/'
+    - title: 'Install'
+      pages:
+        - title: 'Overview'
+          path: '/enterprise-viewer/latest/install/'
+        # - title: 'Install options'
+        #   path: '/enterprise-viewer/latest/install/options/'
