@@ -214,11 +214,18 @@ Now we have an EKS cluster up and running, there are a few one time steps we nee
 
     ![NFS Inbound Rules]({% link content-services/images/eks-nfs-inbound-rules.png %})
 
-6. Deploy an NFS Client Provisioner with Helm using the following command (replace `EFS-DNS-NAME` with the string `file-system-id.efs.aws-region.amazonaws.com` where the `file-system-id` is the ID retrieved in step 1 and `aws-region` is the region you're using, e.g. `fs-72f5e4f1.efs.us-east-1.amazonaws.com`):
+6. Deploy an NFS Client Provisioner with Helm using the following commands (replace `EFS-DNS-NAME` with the string 
+   `FILE-SYSTEM-ID.efs.AWS-REGION.amazonaws.com` where the `FILE-SYSTEM-ID` is the ID retrieved in step 1 and 
+   `AWS-REGION` is the region you're using, e.g. `fs-72f5e4f1.efs.us-east-1.amazonaws.com`):
 
-    ```bash
-    helm install alfresco-nfs-provisioner stable/nfs-client-provisioner --set nfs.server="EFS-DNS-NAME" --set nfs.path="/" --set storageClass.name="nfs-client" --set storageClass.archiveOnDelete=false -n kube-system
-    ```
+   ```bash
+   helm repo add  nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
+   helm install alfresco-nfs-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
+   --set nfs.server="EFS-DNS-NAME" \
+   --set nfs.path="/" \
+   --set storageClass.name="nfs-client" \
+   --set storageClass.archiveOnDelete=false -n kube-system   
+   ```
 
 ### Deploy Content Services
 
@@ -290,7 +297,7 @@ kubectl create namespace alfresco
 3. Deploy the ingress (replace `ACM_CERTIFICATE_ARN` and `YOUR-DOMAIN-NAME` with the ARN of the certificate and hosted zone created earlier in the DNS section):
 
     ```bash
-    helm install acs-ingress ingress-nginx/ingress-nginx \
+    helm install acs-ingress ingress-nginx/ingress-nginx --version=3.7.1\
     --set controller.scope.enabled=true \
     --set controller.scope.namespace=alfresco \
     --set rbac.create=true \
