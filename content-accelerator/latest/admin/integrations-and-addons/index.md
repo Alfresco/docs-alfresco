@@ -3,29 +3,29 @@ title: Integrations and Addons
 ---
 
 
-# Integration with Docusign
+## Integration with Docusign
 
 Please note that as of May 2015, the Send to DocuSign action should work for any ECM back end.  However, we have only built an **Alfresco** job to retrieve completed documents from DocuSign and ingest them back in to the repository.
 
-## Setup a DocuSign Account
+### Setup a DocuSign Account
 1. If needed, create a DEV sandbox with DocuSign here: https://www.docusign.com/developer-center
   * We will want to have a separate sandbox for each of our environments.  This way, documents sent from edge2 aren't consumed by release2 (or any other environment)
 1. Once you are in, setup your DocuSign account and go to Admin -> Account -> API and Keys
 1. Click Add Integrator Key button to add an integrator key
 
-## Setup OpenContent 
+### Setup OpenContent 
 1. Override the applicable applicable docusign properties (see below) in a `project-placeholders.properties`, `override-placeholders.properties` or `opencontent-override-placeholders.properties` properties file as appropriate in OC for your project.  See the `hpi-edge-alf` project for an example.  Note that in most circumstances, the external overrides properties file is the correct spot.
 1. Alfresco Only - Setup module-context.xml to configure the job (See below)
 
-## Setup the Repository
+### Setup the Repository
 
-### Alfresco
+#### Alfresco
 1. Add a folder to the repository to store DocuSign data
   * Defaults to `/hpi/docuSignData`
   * Alfresco Permissions - HPI Administrators - Coordinator, EVERYONE - Contributor
   * Eventual Dctm ACL should give HPI Administrators and admingroup DELETE access and dm_world WRITE access.
 
-## Docusign Properties
+### Docusign Properties
 
 * `docusign.username` - DocuSign user name (which should be the same as the user's email address)
 * `docusign.password` - DocuSign user password, should be [encrypted with the TSGEncrypter](https://github.com/tsgrp/OpenContent/wiki/Encrypting-a-Password#obtaining-a-tsg-encrypted-password) and enclosed with the encryption indicator like: `@{theEncPassword}`
@@ -34,11 +34,11 @@ Please note that as of May 2015, the Send to DocuSign action should work for any
 * `docusign.hpi.dataPath` - The folder where DocuSign data objects should be stored.  Defaults to `/hpi/docuSignData`
 * `docusign.completed.version.policy` - When a document is completed in docusign, it is versioned in the repository.  This property controls whether the version is a major or minor version.  Note that for TSG Controlled Documents, versioning is not possible.  If a controlled document is sent out for DocuSign, the PDF rendition is replaced in the repository when DocuSign completes it's process.  The object is *not* versioned in the repository.
 
-## Module-Context Updates
+### Module-Context Updates
 In order for the Retrieve job to run in Alfresco, make the following updates to your project's `module-context.xml` or the external `opencontent-override-module-context.xml`:
 
-### Ensure that the DocuSign retrieve job is configured
-#### Alfresco 5.x ####
+#### Ensure that the DocuSign retrieve job is configured
+##### Alfresco 5.x ####
 ```xml
 <!-- Retrieve Content from Docusign Job -->
 <bean id="hpi-docusign-retrieve-job" class="org.alfresco.util.CronTriggerBean">
@@ -63,7 +63,7 @@ In order for the Retrieve job to run in Alfresco, make the following updates to 
 	<property name="cronExpression" value="0 0 * * * ?"/>
 </bean>
 ```
-#### Alfresco 6.x ####
+##### Alfresco 6.x ####
 ```
 <!-- Retrieve Content from Docusign Job -->
 	<bean id="hpi-docusign-retrieve-trigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
@@ -89,7 +89,7 @@ In order for the Retrieve job to run in Alfresco, make the following updates to 
 		</property>
 	</bean>
 ```
-### Ensure that the job is scheduled to run
+#### Ensure that the job is scheduled to run
 Ensure that the `tsgSchedulerAccessor` bean has the docusign retrieve job configured in the `triggers` list.  Remember to make sure that the `opencontent-override-module-context` file outside the amp isn't undoing changes you make to the `module-context`
 
 ```xml
@@ -105,23 +105,23 @@ Ensure that the `tsgSchedulerAccessor` bean has the docusign retrieve job config
 </bean>
 ```
 
-## Run Job Immediately
+### Run Job Immediately
 Since the job is typically configured to run every hour, it's sometimes necessary to force the job to run for testing.  Navigate to the Alfresco Admin Console -> Scheduled Jobs.  Run the `com.tsgrp.opencontent.alfresco.job.retrieveDocusignContentJob`
 
 
 
 
-# Configuring Controlled docs with AGS Solution
+## Configuring Controlled docs with AGS Solution
 
-## Background: 
+### Background: 
 
-### Why this exists: 
+#### Why this exists: 
 
 * When using Controlled Docs with AGS, as soon as a doc becomes effective it should become a record. 
 * If we were just to declare that effective controlled doc a record, it could no longer be able to be checked out and checked back in since records are immutable (the controlled doc version chain would essentially be dead) 
 * Therefore, the controlled docs with AGS solution will actually create a copy of the controlled document when it becomes effective so that that copy can be declared an AGS record and the controlled doc itself will still be able to be checked out and checked back in
 
-### Implications: 
+#### Implications: 
 
 * When a controlled doc becomes effective 
     * A record copy is created of that controlled doc (and a rule will run to declare that copy as a record) 
@@ -130,17 +130,17 @@ Since the job is typically configured to run every hour, it's sometimes necessar
 * superceded/obsolete
     * When a controlled doc becomes superceded or obsoleted, the record copy status will also be updated to show the change 
 
-## Configuring the solution:
+### Configuring the solution:
 
-### Prerequisites:
+#### Prerequisites:
 
 1. You will need AGS installed in alfresco 
 2. You will need a working controlled docs solutions such that documents are moved to the effective state
 3. You will need 2 separate object types - 1 for your controlled doc (for example acme:controlledDoc) and 1 type that your record should be copied to (for example acme:record)
 
-### The are 2 key pieces to configuring controlled docs with AGS 
+#### The are 2 key pieces to configuring controlled docs with AGS 
 
-### 1. Enable the functionality by overriding the default values for these props
+#### 1. Enable the functionality by overriding the default values for these props
 
 * controlled.docs.with.ags=true
     * Set this to true to signify we are using the controlled docs with AGS solution
@@ -162,7 +162,7 @@ Since the job is typically configured to run every hour, it's sometimes necessar
     * list of aspects to add (doesn’t need to be on controlled doc but can be)
     * Since we will copy over the rendition, add the do not autorender aspect
 
-### 2. Setup a folder rule to declare the created copy as an AGS record 
+#### 2. Setup a folder rule to declare the created copy as an AGS record 
 
 1. Need to setup the folder Rule to actually declare our record copy as an AGS Record
     1. In the share site -> on the folder where you record copy will get created (or moved to if autofile is configured) -> under folder rules -> add rule 
@@ -206,7 +206,7 @@ ACA provides some out of the box components to allow the repository to process M
 </bean>
 ```
 
-### General Usage
+#### General Usage
 
 When an MSG file is uploaded through Bulk Upload, the MSG file is parsed for any attachments. The attachments are displayed to the user as documents to upload; this means the user can set individual properties for each attachment, including a specific document object type. When the user is done editing properties and chooses to upload the files the attachments are created as individual repository objects with the properties specified by the user. All attachments are placed in the same folder as the email and each attachment is related to the email. A folder tag may additionally be added to each attachment (or the original email) to utilize the folder tags related objects functionality (assuming the content / object model has a folder tag property specified).
 
@@ -214,4 +214,118 @@ The default renditioning behavior is to allow the repository to add a PDF rendit
 
 >**Note:** A current limitation of the library used to parse the MSG files is that nested MSG attachments are not available as a byte array, which means the native content is not available.  However, a PDF rendition is generated by OC for any nested MSG attachment.
 
- 
+## Stage Collaboration Features
+
+ACA allows users to collaborate within the interface by utilizing tools like zoom and teams. You can configure these integrations so that users are able to start a teams or zoom call from within the stage view. 
+
+### Configuration Steps
+The stage collaboration features are configured in the ACA admin. 
+Under the Application configuration, find the Collaboration Setting section: 
+![image](https://user-images.githubusercontent.com/6698400/192580511-c190b92a-124f-4257-8060-dbec1ab4b78e.png)
+Here you will have the option to turn on zoom or teams integrations, or both. 
+This area holds the high level configurations for these integrations. 
+
+
+#### Application Config
+1. Set the collaboration url. These collaboration features require the AEV socket server to be installed. If you installed the defaults according to the installation guide then the socket server will be running on port 3000. Update the url to have the correct host and port. ex: https://edge2.tsgrp.com:3000 or http://localhost:3000
+
+
+2. Enable Zoom integration if desired by toggling the switch to on
+> * Once toggled on you will be prompted for a Client Id and authentication endpoint
+> * For the client Id, if you already have a zoom account setup with your application registered then go ahead and add the clientId and auth url from that account. If you need to set it up still, see the _**Zoom Setup via Zoom MarketPlace**_ section below. 
+
+
+3. Enable Teams integration if desired by toggling the switch to on
+> * Once toggled on you will be prompted for a Client Id and authentication endpoint
+> * For the client Id, if you already have an azure account setup with your application registered then go ahead and add the clientId and auth url from that account. If you need to set it up still, see the _**Teams Setup via Azure**_ section below. 
+
+#### Stage Config
+Now that the collaboration connection details are configured, we need to enable it for the individual stage configurations. 
+
+To do so, in the ACA admin interface, navigate to the Stage configuration you wish to enable collaboration for. Select the Stage Info section of the config in the dropdown. Then navigate to the Collaboration Settings section of this config. Flip the switch to enable overall collaboration then choose to enable zoom, teams, or both via the individual toggles. 
+
+![image](https://user-images.githubusercontent.com/6698400/192585745-edb26b64-98c5-4114-8da6-7f095e9d8b3c.png)
+
+#### OpenContent Config
+The final piece is to configure the teams integration information that Open Content requires. To do so, add the following properties to your `opencontent-override-placeholders.properties`
+
+**Required by both zoom and teams collaborations**
+
+> annotation.collabEndpoint= {endpoint to the collaboration server ex: http://localhost:3000}
+
+**Required by teams collaboration**
+
+> teams.redirectURL= {opencontent endpoint to redirect teams to ex: http://localhost:8080/alfresco/OpenContent/annotation/teamsAuth}
+
+> teams.clientId= {client id from teams marketplace}
+
+> teams.clientSecret= {client secret from teams marketplace}
+
+**Required by zoom collaboration**
+
+> zoom.redirectURL= {opencontent endpoint to redirect teams to ex: http://localhost:8080/alfresco/OpenContent/annotation/zoomAuth}
+
+> zoom.clientID= {client id from zoom marketplace}
+
+> zoom.clientKey= {client secret from zoom marketplace}
+
+> zoom.jwtTokenExpiration= {The time in seconds until the jwtToken expires}
+
+> zoom.recordMeetings=false
+
+> zoom.createMeetingRecordingObject=false
+
+### Teams Setup via Azure
+1. Sign in to the **Azure Portal**
+2. If your account gives you access to more than one tenant, select your account in the upper right hand corner. Set your portal session to the Azure AD tenant that you want.
+3. Search for and select **Azure Active Directory**. Under Manage, select **App Registrations** and then click **New registration**.
+4. When the **Register an application** page appears, enter your application’s registration information:
+     * **Name**: any name you want
+     * **Supported Account Types**: Select **Accounts in any organizational directory**
+     * **Redirect URI**: Choose **Web** and fill out the url of the path to your OpenContent plus the Teams endpoint name. `ex: http://localhost:8080/alfresco/OpenContent/annotation/teamsAuth`
+5. When finished, click **Register** and you will be taken to the Overview display. Copy and save the **Application (client) ID** so you can use it in the ACA configuration.
+6. Go to **Certificates & secrets** and create a new client secret. Copy and save this secret because you will need it to use as an injectable in OC.
+7. Go to **API Permissions**
+     * You should already have the **User.Read** permission. Keep it.
+     * Select **Add a permission**. 
+     * Navigate to **Microsoft Graph** -> **Delegated Permissions** -> **OnlineMeetings** -> Select and add the **OnlineMeetings.ReadWrite** permission
+
+### Zoom Setup via Zoom MarketPlace
+_**NOTE: For clients, the app must be made by the _zoom owner_ that has all the users added to their zoom account. For local development you may just create one on your zoom account**_
+
+**Creating a Zoom Application**
+
+ Here we are creating a zoom app that will allow us to access their APIs as well as interact with users zoom accounts
+1. Create an application in the zoom marketplace: https://marketplace.zoom.us/
+2. Pull open the dropdown that says Develop and click build app - select the OAuth for the app type
+3. Name it whatever you would like, make it an account-level app and do not publish to the Marketplace
+4. Now your app has been created. A few items to note here on the first page:
+     * You will need the clientID and Client Secret Key to use as injectables in OC and to fill in the application config in ACA. 
+     * Then you will also need to fill out the redirect URL and whitelist URL with the url of the path to the your OpenContent plus the zoom endpoint name. 
+`Ex: http://localhost:8080/alfresco/OpenContent/annotation/zoomAuth`
+5. Under the scopes section of the app setup, you will want to add the following scopes:
+    * meeting:write:admin
+    * user:read:admin
+
+**Adding roles for users**
+
+ Here we are adding users to a role, so they have permission to interact with the zoom application and start calls from Alfresco Enterprise Viewer
+1. Log in as the zoom owner
+2. Head to the role management section: https://zoom.us/role
+3. Add a role called developer
+4. Go to the Role Settings section for the developer role we created in step 3 as we will need to set a few of the roles:
+    * Under User and Permission Management - check view for Users(View user information)
+    * Under Dashboard - check view for Meetings(View detail information of real-time and past zoom meetings and relevant participants)
+    * Under Advanced Features - check edit for Zoom for Developers, Integration, and Marketplace
+
+**What to do if my collaboration endpoint is on https**
+
+You will need to import the SSL certificate into the truststore of the Java that is running OpenContent
+1. Get your SSL certificate
+    * The is the same certificate you have pointed your Collaboration Server at in the collaborationConfig.js file
+2. Find the Java home for the Java which is running OpenContent
+3. Find the truststore for this Java
+    * If this is a JDK the default should be at `{JAVA_HOME}/jre/lib/security/cacerts`, if it is a JRE the default should be at `{JAVA_HOME}/lib/security/cacerts`
+4. Import the certficate into the truststore using the java keytool command line tool
+    * `{JAVA_HOME}/bin/keytool -import -trustcacerts -alias collaborationServerCertificate -file {THE_CERTIFICATE}.cer -keystore {TRUSTSTORE_LOCATION}`
+    * The default password for the truststore should be `changeit`
