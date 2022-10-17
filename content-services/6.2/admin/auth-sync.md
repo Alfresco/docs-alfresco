@@ -975,10 +975,8 @@ Follow these instructions to configure Kerberos with Microsoft Windows Active Di
     6. Click **Finish**.
 
     7. Right-click the new user account name, and then select **Properties**.
-
-    8. Select the **Account** tab and enable the **Do not require Kerberos preauthentication** option in the **Account Options** section.
-
-    9. From the command prompt, use the `ktpass` utility to generate key tables for this account as shown:
+   
+    8. From the command prompt, use the `ktpass` utility to generate key tables for this account as shown:
 
         ```bash
         ktpass -princ HTTP/<host>.<domain>@<REALM> -pass <password> -mapuser
@@ -986,16 +984,16 @@ Follow these instructions to configure Kerberos with Microsoft Windows Active Di
         c:\temp\http<host>.keytab -kvno 0
         ```
 
-    10. Create the Service Principal Names (SPN) for the account using the `setspn` utility.
+    9. Create the Service Principal Names (SPN) for the account using the `setspn` utility.
 
         ```bash
         setspn -a HTTP/<host> http<host>
         setspn -a HTTP/<host>.<domain> http<host>
         ```
 
-    11. In the Active Directory Users and Computers application, right click on the `http<host>` user and select **Properties**.
+    10. In the Active Directory Users and Computers application, right click on the `http<host>` user and select **Properties**.
 
-    12. Select the **Delegation** tab. If you can't see the **Delegation** tab, do one or both of the following:
+    11. Select the **Delegation** tab. If you can't see the **Delegation** tab, do one or both of the following:
 
         * Check that you ran the specified `setspn` command correctly. Delegation is only intended to be used by service accounts, which should have registered SPNs, as opposed to a regular user account which typically does not have SPNs.
         * Raise the functional level of your domain to Windows Server 2012 R2 x64. To do this:
@@ -1003,7 +1001,7 @@ Follow these instructions to configure Kerberos with Microsoft Windows Active Di
             * In the console tree, right-click the applicable domain and then click **Raise Domain Functional Level**.
             * In **Select an available domain functional level**, click **Windows Server 2012**, and then click **Raise**.
 
-    13. In the user **Delegation** tab, select the **Trust this user for delegation to any service (Kerberos only)** check box.
+    12. In the user **Delegation** tab, select the **Trust this user for delegation to any service (Kerberos only)** check box.
 
 2. Copy the key table files created in step 1 to the servers they were named after. Copy the files to a protected area, such as `C:\etc\` or `/etc`.
 
