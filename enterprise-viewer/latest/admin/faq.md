@@ -1,0 +1,35 @@
+---
+title: Alfresco Enterprise Viewer FAQ
+---
+
+Is Alfresco Enterprise Viewer, formerly OpenAnnotate, based on OpenAnnotation (<http://www.openannotation.org/>)?
+
+* No, Alfresco Enterprise Viewer is based on the open Adobe XFDF standard for annotating PDFs (<https://partners.adobe.com/public/developer/en/xml/XFDF_Spec_3.0.pdf>)
+
+Where are annotations stored?
+
+* Annotations are stored in the ECM repository as related objects to the document being annotated. The annotations are stored in the XFDF specification to allow other applications to interface with the open specification.
+
+I use old versions of web browsers. Is it compatible?
+
+* The front end utilizes jQuery and Dojo. Previous versions of Alfresco Enterprise Viewer support all the way back to IE6. Contact TSG with questions if you need Alfresco Enterprise Viewer for these legacy browsers.
+
+Does Alfresco Enterprise Viewer allow concurrent access to annotate the same document by several users?
+
+* Alfresco Enterprise Viewer allows any number of users to concurrently annotate a document since each users' annotations are stored as separate objects.
+
+I am seeing stale page images, does Alfresco Enterprise Viewer Cache?  How can I clear this cache?
+
+* Yes!  Enterprise Viewer makes heavy use of caching at both the Server and Browser level.  To see totally fresh document pages, clear out AEV's server caches, as well as your browser cache to see your changes take effect.  To clear a running instance of AEV's server cache, you can simply hit these endpoints:
+
+First: <https://www.tsgrp.com/OpenSource/apidoc/oc-rest/edge/#api-Authentication-NewSessionSimple>
+
+Save the ticket from the above call for the next call:
+
+Finally : <https://www.tsgrp.com/OpenSource/apidoc/oc-rest/edge/#api-Cache-ClearEHCaches>
+
+After those two steps and browser cache clear, you should see fresh images.
+
+How does Alfresco Enterprise Viewer scale for large deployments?
+
+* Alfresco Enterprise Viewer easily scales to multiple instances with load balancing to allow scaling to any number of users. formats, then you are all set to go! If your documents are not available in one of the above formats, it is easy to write a transformer that will render your documents into one of the above formats. The most common example of this is in a Documentum or Alfresco repository to configure all .doc or .docx files to be rendered into a pdf when they are checked into the repository.
