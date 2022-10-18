@@ -67,10 +67,6 @@ integrations:
       - title: "Search and Insight Engine"
         text: "Alfresco Search and Insight Engine is our new generation of analytics using Alfresco Search Services."
         url: /insight-engine/latest/
-  - title: "Enterprise Viewer"
-    text: "Alfresco Enterprise Viewer (AEV) provides high-speed and secure viewing of document, video and audio content with team collaborative annotation, redaction and other modern document capabilities for Alfresco Content Services (ACS)."
-    url: /enterprise-viewer/latest/
-    image: /assets/img/logo_cm_72px.svg
   - title: "Federation"
     text: "Alfresco Federation Service provides a powerful and easy way to search and manage content federated from leading business systems and content management applications."
     url: /federation-services/latest/
@@ -156,6 +152,10 @@ applications:
   - title: "Content Mobile"
     text: "Alfresco Content Services for mobile allows you to view, edit, and share information in and out of the office via the mobile app."
     url: /content-mobile/latest/
+    image: /assets/img/logo_cm_72px.svg
+  - title: "Enterprise Viewer"
+    text: "Alfresco Enterprise Viewer (AEV) provides high-speed and secure viewing of document, video and audio content with team collaborative annotation, redaction and other modern document capabilities for Alfresco Content Services (ACS)."
+    url: /enterprise-viewer/latest/
     image: /assets/img/logo_cm_72px.svg
 #  - title: "Process for iOS"
 #    text: "Alfresco Process Services for mobile allows you to start new processes and interact with related content #via the mobile app."
