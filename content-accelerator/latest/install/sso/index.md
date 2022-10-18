@@ -1,5 +1,5 @@
 ---
-title: Single Sign On (SSO)
+title: Installing Single Sign On (SSO)
 ---
 
 # Configuring Single Sign On (SSO)
@@ -65,6 +65,9 @@ SSO, Recipient, Destination URLs: `http://<domain>/ocms/saml/SSO`
 Audience: `http://<domain>/ocms/saml/metadata`
 
 **ACA Properties**
+
+Override the following properties in the `hpi-overrides.properties`:
+
 ```bash
 #A UUID should be generated for the clientAuthenticationKey
 clientAuthenticationKey=<UUID>
@@ -85,6 +88,7 @@ includeServerPortInRequestURL=false
 contextPath=/ocms
 ```
 **hpi-security-context-override.xml**
+
 You will need to create a hpi-security-context.xml and place it in TOMCAT_HOME/shared/classes/. This file will contain the beans and settings for your SAML configuration. Below is an example of what this file could look like
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -343,21 +347,3 @@ In your opencontent-override-placeholders.properties set your client authenticat
 client.authentication.key=<UUID>
 sso.enabled=true
 ```
-### LDAP settings
-
-**ACA Properties**
-```bash
-ocURL=http://<HOSTNAME>:<PORT>/OpenContent/rest
-enableSSO=true
-ssoEndpoint=/authentication/getSessionForUser
-clientAuthenticationKey=<UUID>
-```
-
-**OpenContent**
-
-Set your client authentication key to the same string as the one set in ACA (usually a UUID):
-
-```bash
-client.authentication.key=17861aa1-ee05-418d-9bf6-2232c3e3489a
-```
-

@@ -6,7 +6,7 @@ title: Installing SSL
 
 Update the config.properties as well as hpi.properties to point to the proper port (usually 8443) and have the https. If you have a DER file you may skip straight to the Java installation instructions.
 
-##  OpenSSL
+###  OpenSSL
 
 Take the generated p7b and convert it to PEM with the following command.
 
@@ -18,7 +18,7 @@ Take the PEM and convert it to DER
 
 
 
-## Java Installation Instructions
+### Java Installation Instructions
 
 Open an Administrator Elevated command prompt and navigate to where Java 8 JRE bin is located.
 

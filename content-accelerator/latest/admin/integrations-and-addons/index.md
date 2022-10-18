@@ -23,7 +23,6 @@ Please note that as of May 2015, the Send to DocuSign action should work for any
 1. Add a folder to the repository to store DocuSign data
   * Defaults to `/hpi/docuSignData`
   * Alfresco Permissions - HPI Administrators - Coordinator, EVERYONE - Contributor
-  * Eventual Dctm ACL should give HPI Administrators and admingroup DELETE access and dm_world WRITE access.
 
 ### Docusign Properties
 
@@ -221,7 +220,7 @@ ACA allows users to collaborate within the interface by utilizing tools like zoo
 ### Configuration Steps
 The stage collaboration features are configured in the ACA admin. 
 Under the Application configuration, find the Collaboration Setting section: 
-![image](https://user-images.githubusercontent.com/6698400/192580511-c190b92a-124f-4257-8060-dbec1ab4b78e.png)
+![Content Accelerator Stage Collab Stage Settings]({% link content-accelerator/images/stage-collab-2.png %})
 Here you will have the option to turn on zoom or teams integrations, or both. 
 This area holds the high level configurations for these integrations. 
 
@@ -244,7 +243,7 @@ Now that the collaboration connection details are configured, we need to enable 
 
 To do so, in the ACA admin interface, navigate to the Stage configuration you wish to enable collaboration for. Select the Stage Info section of the config in the dropdown. Then navigate to the Collaboration Settings section of this config. Flip the switch to enable overall collaboration then choose to enable zoom, teams, or both via the individual toggles. 
 
-![image](https://user-images.githubusercontent.com/6698400/192585745-edb26b64-98c5-4114-8da6-7f095e9d8b3c.png)
+![Content Accelerator Stage Collab]({% link content-accelerator/images/stage-collab-1.png %})
 
 #### OpenContent Config
 The final piece is to configure the teams integration information that Open Content requires. To do so, add the following properties to your `opencontent-override-placeholders.properties`

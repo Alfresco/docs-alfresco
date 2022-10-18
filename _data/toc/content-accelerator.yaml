@@ -6,17 +6,13 @@
 
     - title: 'Install'
       pages:
-      - title: 'Install Guide'
-        path: '/content-accelerator/latest/install/'
       - title: 'Installation Requirements'
         path: '/content-accelerator/latest/install/installation-requirements/'
-      - title: 'Front Tomcat with Apache'
-        path: '/content-accelerator/latest/install/front-tomcat-with-apache/'
-      - title: 'Same Origin Policy'
-        path: '/content-accelerator/latest/install/same-origin-policy/'
+      - title: 'Install Guide'
+        path: '/content-accelerator/latest/install/'
       - title: 'Installing SSL'
         path: '/content-accelerator/latest/install/installing-ssl/'
-      - title: 'Single Sign On (SSO)'
+      - title: 'Installing Single Sign On (SSO)'
         path: '/content-accelerator/latest/install/sso/'
 
 

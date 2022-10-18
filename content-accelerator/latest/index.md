@@ -2,14 +2,13 @@
 title: Alfresco Content Accelerator
 ---
 
+## Overview
+
 Alfresco Content Accelerator (ACA) provides a **no-code**, **streamlined interface for fast implementations**. It focuses on 
 quickly building out **business-specific use cases** with reduced reliance on scarce IT and technical support resources, 
 enabling efficient document processing on Alfresco Content Services (ACS). 
 
 ACA enables customers to view, search, and manage their content from a friendly and simple modern front-end interface. 
-While ACA has been productized on Alfresco Content Services, it has the unique ability to connect to different 
-repositories through services work product including, but not limited to, Documentum and Hyland Flex (NoSQL) to surface 
-content like documents, videos, and forms.
 
 There are pre-configured “accelerators” on top of ACA that act as default configurations, or a starting point that the 
 customer, or our services team can tweak to the customer’s unique needs through the no-code configurable administration 
