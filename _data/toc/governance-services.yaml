@@ -1,5 +1,59 @@
-# Alfresco Governance Services 7.2
-- version: 7.2
+# Alfresco Governance Services latest
+- version: latest
+  pages:
+    - title: 'Introduction'
+      path: '/governance-services/latest/'
+    - title: 'Install'
+      pages:
+        - title: 'Overview'
+          path: '/governance-services/latest/install/'
+        - title: 'Install using Docker Compose'
+          path: '/governance-services/latest/install/docker/'
+        - title: 'Install from ZIP file'
+          path: '/governance-services/latest/install/zip/'
+        - title: 'Creating the RM site'
+          path: '/governance-services/latest/install/create-rm-site/'
+        - title: 'Uninstall the AMP files'
+          path: '/governance-services/latest/install/uninstall/'
+    - title: 'Upgrade'
+      path: '/governance-services/latest/upgrade/'
+    - title: "Configure"
+      path: '/governance-services/latest/config/'
+    - title: "Administer"
+      path: '/governance-services/latest/admin/'
+    - title: 'Using'
+      pages:
+        - title: 'Overview'
+          path: '/governance-services/latest/using/overview/'
+        - title: 'The File Plan'
+          path: '/governance-services/latest/using/the-fileplan/'
+        - title: 'Retention schedules'
+          path: '/governance-services/latest/using/retention-schedules/'
+        - title: 'Managing permissions'
+          path: '/governance-services/latest/using/manage-permissions/'
+        - title: 'Filing records'
+          path: '/governance-services/latest/using/file-records/'
+        - title: 'Easy access records'
+          path: '/governance-services/latest/using/easy-access-records/'
+        - title: 'Managing the File Plan'
+          path: '/governance-services/latest/using/manage-fileplan/'
+        - title: 'Automating the File Plan'
+          path: '/governance-services/latest/using/automate-fileplan/'
+        - title: 'Searching records'
+          path: '/governance-services/latest/using/search-records/'
+        - title: 'Auditing and reporting'
+          path: '/governance-services/latest/using/audit-report/'
+        - title: 'Working with Amazon S3 WORM'
+          path: '/governance-services/latest/using/worm/'
+        - title: 'Security marks and classification'
+          path: '/governance-services/latest/using/smc/'
+        - title: 'FAQ'
+          path: '/governance-services/latest/using/faq/'
+    - title: 'Develop'
+      pages:
+        - title: 'APIs'
+          path: '/governance-services/latest/develop/'
+- version: latest
   pages:
     - title: 'Introduction'
       path: '/governance-services/latest/'
