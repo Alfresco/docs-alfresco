@@ -187,11 +187,11 @@ To enable the Hazelcast cluster messaging, edit this section on each Share Tomca
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
                 http://www.hazelcast.com/schema/spring
-                http://www.hazelcast.com/schema/spring/hazelcast-spring-2.4.xsd">
+                http://www.hazelcast.com/schema/spring/hazelcast-spring-3.12.xsd">
    <!--
         Hazelcast distributed messaging configuration - Share web-tier cluster config
         - see http://www.hazelcast.com/docs.jsp
-        - and specifically http://docs.hazelcast.org/docs/2.4/manual/html-single/#SpringIntegration
+        - and specifically http://docs.hazelcast.org/docs/3.12/manual/html-single/#SpringIntegration
    -->
    <!-- Configure cluster to use either Multicast or direct TCP-IP messaging - multicast is default -->
    <!-- Optionally specify network interfaces - server machines likely to have more than one interface -->
@@ -236,7 +236,7 @@ If this configuration is enabled, the Share instance becomes a cluster node and 
 The following is a sample output that you get when you start Share:
 
 ```text
-INFO: /127.0.0.1]:5801 [slingshot] Hazelcast Community Edition 2.4 (20121017) starting at Address[127.0.0.1]:5801
+INFO: /127.0.0.1]:5801 [slingshot] Hazelcast Community Edition 3.12 starting at Address[127.0.0.1]:5801
 Dec 13, 2014 12:09:36 PM com.hazelcast.system
 INFO: /127.0.0.1]:5801 [slingshot] Copyright (C) 2008-2012 Hazelcast.com
 Dec 13, 2014 12:09:36 PM com.hazelcast.impl.LifecycleServiceImpl
