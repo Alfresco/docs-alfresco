@@ -35,7 +35,7 @@ The properties for a project are:
 
 Once a project has been created or uploaded into the Modeling Application, the following properties are displayed:
 
-    | Property | Description |
+| Property | Description |
 | -------- | ----------- |
 | Name | The name of the project as it appears in the Modeling Application. |
 | Updated | The amount of time that has lapsed since the last update to the project. |
