@@ -6,16 +6,15 @@ The following are the supported platforms for Alfresco Sync Service 3.8:
 
 | Version | Notes |
 | ------- | ----- |
+| Alfresco Content Services 7.3 | Optionally with Alfresco Governance Services 7.3 |
 | Alfresco Content Services 7.2 | Optionally with Alfresco Governance Services 7.2 |
-| Alfresco Content Services 7.1 | Optionally with Alfresco Governance Services 7.1 |
-| Alfresco Content Services 7.0 | Optionally with Alfresco Governance Services 3.5 |
-| Identity Service 1.4 or later | Required for SAML authentication |
-| Alfresco Desktop Sync for Windows 1.7 or later | |
-| Alfresco Desktop Sync for Mac 1.7 or later | |
+| Identity Service 1.8 or later | Required for SAML authentication |
+| Alfresco Desktop Sync for Windows 1.13.1 or later | |
+| Alfresco Desktop Sync for Mac 1.13.1 or later | |
 | | |
 | **Java** |
+| OpenJDK 17 (64-bit) | |
 | OpenJDK 11 (64-bit) | |
-| Oracle Java 8 onwards | |
 | | |
 | **Message brokers** |
 | Apache ActiveMQ 5.15.8 or later | |
