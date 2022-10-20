@@ -34,6 +34,14 @@
         path: '/content-accelerator/latest/admin/integrations-and-addons/'
       - title: 'Other ACA Admin Configurations'
         path: '/content-accelerator/latest/admin/other-aca-admin-configs/'
+      - title: 'OC Configuration Files'
+        path: '/content-accelerator/latest/admin/oc-configuration-files/'
+      - title: 'Encrypting a Password'
+        path: '/content-accelerator/latest/admin/encrypting-a-password/'
+      - title: 'Alfresco Audit Configuration'
+        path: '/content-accelerator/latest/admin/alfresco-audit-configuration/'
+      - title: 'Email Configuration'
+        path: '/content-accelerator/latest/admin/email-configuration/'
 
     - title: 'Using'
       pages:
