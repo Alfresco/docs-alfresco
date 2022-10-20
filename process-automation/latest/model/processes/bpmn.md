@@ -2054,7 +2054,7 @@ The basic properties for a user task are:
 
 The users or groups that are able to complete a task. A single user can be assigned or candidates can be set. Candidates are a list of users or groups that may claim a task at runtime. A single user or candidates must be set for a user task.  
 
-A single assignee is set in the XML attribute `activiti:assignee` and candidates in the attribute `activiti:candidateGroups`.
+A single assignee is set in the XML attribute `activiti:assignee` and candidates in the attribute `activiti:candidateGroups`. On the **Task Assignment** window use the dropdown menu on the top right to set if the assignment is for a single user or for candidates. If for candidates, from the **Assignment type** dropdown list, select either **Sequential** or **Manual** assignment types. Assigning a task manually means a user is assigned the task by another user or themselves. Assigning tasks sequentially means tasks are assigned automatically in a 'round-robin' scenario.
 
 Users and groups can be set from three different sources:
 
@@ -2079,8 +2079,6 @@ An optional date and time for a user task to be completed by in [ISO 8601](https
 * Select **Use time duration** then enter a time in Months, Days, Hours, and Minutes.
 
 * Select **Use process variable** then choose a process variable from the dropdown list. This option uses a process variable that must use the type `datetime`.
-
-
 
 Checking the **Use process variable** box for due date allows a [process variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) to be used to generate the date. The process variable must be of type `datetime`.
 
