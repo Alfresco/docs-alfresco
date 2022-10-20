@@ -49,6 +49,8 @@
           path: '/enterprise-viewer/latest/admin/performance/'
         - title: 'Transforming video files with FFMPEG'
           path: '/enterprise-viewer/latest/admin/ffmpeg/'
+        - title: 'OAT Override Overlay Configs'
+          path: '/enterprise-viewer/latest/admin/oat-override-overlay-configs/'
     - title: 'Develop'
       pages:
         - title: 'API and Javadoc'
