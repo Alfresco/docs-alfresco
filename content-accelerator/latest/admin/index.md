@@ -1633,13 +1633,6 @@ The following section describes the available tools.
 This section displays all the possible actions and conditions that are available in Content Accelerator and give a 
 detailed description of each.
 
-### Search Tool
-This is a search tool that can only be used by Repo Administrators. It is a tool that can perform searches and export 
-those searches to a spreadsheet. There are three different functionalities that can be performed in this section:
-
-1. **Search and export results** - In the search builder section, select a Search Config, an Object Type and the max number of results that you want returned (note if trying to bring back too many results the request could timeout). Next select the query mode (either FTS or CMIS). Then begin to build your query by choosing attributes to search on and what the criteria should be. Finally click the **execute search** button to retrieve your results.
-2. **Delete Nodes by Query** - In order to delete nodes by query, build up the query in the search builder section like before, choose a path in the repository for the report file to be written, choose whether or not you want to "Force Delete Nodes" then click the **Delete Nodes** button. All documents picked up in the query will be deleted and their node refs will be listed in the report at the location you chose.
-3. **Update Properties on Nodes** - First use the search builder to build your query. Then, in the bottom section you can select one or more properties and set a new value. When ready, click the **Update Properties** button and anything that is picked up by the query will have its properties updated based on what you configured to update.
 
 ### Config Archiver
 The Config Archiver is a tool that allows you to move Content Accelerator configuration from one environment to 

@@ -53,6 +53,13 @@
       - title: 'Configuring the Content Accelerator for Policy and Procedure Management'
         path: '/content-accelerator/latest/develop/content-accelerator-for-pnp-management/'
 
+    - title: 'Configure'
+      pages:
+      - title: 'Autofile'
+        path: '/content-accelerator/latest/configure/autofile/'
+      - title: 'Active Wizard'
+        path: '/content-accelerator/latest/configure/activewizard/'
+
 
  
   
