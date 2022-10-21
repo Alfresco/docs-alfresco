@@ -14,6 +14,8 @@
         path: '/content-accelerator/latest/install/installing-ssl/'
       - title: 'Installing Single Sign On (SSO)'
         path: '/content-accelerator/latest/install/sso/'
+      - title: 'Upgrading from Alfresco Content Accelerator 3.4'
+        path: '/content-accelerator/latest/install/upgrading/' 
 
 
     - title: 'Administer'
