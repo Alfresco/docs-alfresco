@@ -48,7 +48,9 @@
     - title: 'Configure'
       pages:
       - title: 'Autofile'
-        path: '/content-accelerator/latest/utilities/autofile/'
+        path: '/content-accelerator/latest/configure/autofile/'
+      - title: 'Active Wizard'
+        path: '/content-accelerator/latest/configure/activewizard/'
 
 
  
