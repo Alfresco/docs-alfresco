@@ -4,7 +4,7 @@ title: Node service cleanup job
 
 Cleans up deleted nodes and dangling transactions that are old enough.
 
-## Schedule cleanup of database tables {#schedulerdbcleanup}
+## Schedule cleanup
 You can schedule or manually trigger the `nodeServiceCleanupTrigger` script to clean up deleted nodes, dangling 
 transactions, and property values tables (i.e. `alf_transaction`, `alf_node` and `alf_node_properties` tables).
 
@@ -36,7 +36,7 @@ algorithm is supported only by PostgreSQL.
 
 Change the node cleanup batch default properties in `alfresco-global.properties`:
 
-1. Enable the new prop cleaner algorithm:
+1. Enable the new cleanup algorithm:
 
    ```text
    system.node_table_cleaner.algorithm=V2
@@ -49,7 +49,7 @@ Change the node cleanup batch default properties in `alfresco-global.properties`
    ```
    
 3. Set the tracking purge size. This property specifies the size of the chunk (in millisec). Default is a couple of hours. 
-   This property is not relevant for V2 algorithm:
+   **This property is not relevant for the V2 algorithm**:
    
    ```text
    index.tracking.purgeSize=7200000
