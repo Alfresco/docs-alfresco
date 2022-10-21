@@ -129,8 +129,8 @@ Now that we have the App set up, you can now successfully override the propertie
 * Restart alfresco and the Microsoft Teams external notification connection should be all set up!
 
 
-#### Microsoft Graph API Limitations (https://docs.microsoft.com/en-us/graph/overview?view=graph-rest-beta)
-* Currently, the API calls utilized within this integration are limited and in beta. 
+#### Microsoft Graph API Limitations
+* Currently, the API calls utilized within this integration are limited and in beta (https://docs.microsoft.com/en-us/graph/overview?view=graph-rest-beta)
 * The API call to send a direct message is only supported for work/school accounts (https://docs.microsoft.com/en-us/graph/api/chat-post-messages?view=graph-rest-beta&tabs=http) and is of the permission type delegated. 
      - The "Delegated" permission type defines a on-behalf-of-user permission. Essentially a user can only send a direct message to another user within the team (https://docs.microsoft.com/en-us/azure/active-directory/develop/developer-glossary#permissions). 
      - In the future, we hope this expands to include the "Application" permission type. The "Application" permission type would allow our application to direct message a user directly, without having to create a Service Account User.

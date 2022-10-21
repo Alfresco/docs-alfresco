@@ -20,7 +20,7 @@
       pages:
       - title: 'Admin Guide'
         path: '/content-accelerator/latest/admin/'
-      - title: 'Config Archiver'
+      - title: 'Importing and Exporting ACA Configs'
         path: '/content-accelerator/latest/admin/config-archiver/'
       - title: 'Action Confiurations'
         path: '/content-accelerator/latest/admin/actions/'
