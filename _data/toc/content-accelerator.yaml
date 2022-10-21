@@ -20,12 +20,8 @@
       pages:
       - title: 'Admin Guide'
         path: '/content-accelerator/latest/admin/'
-      - title: 'Edit Online Configurations'
-        path: '/content-accelerator/latest/admin/edit-online-configurations/'
       - title: 'Config Archiver'
         path: '/content-accelerator/latest/admin/config-archiver/'
-      - title: 'Limit Search Results'
-        path: '/content-accelerator/latest/admin/limit-search-results/'
       - title: 'Action Confiurations'
         path: '/content-accelerator/latest/admin/actions/'
       - title: 'Notifications and Notes'
