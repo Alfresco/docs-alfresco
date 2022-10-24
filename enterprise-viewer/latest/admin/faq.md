@@ -4,7 +4,7 @@ title: Alfresco Enterprise Viewer FAQ
 
 Is Alfresco Enterprise Viewer, formerly OpenAnnotate, based on OpenAnnotation (<http://www.openannotation.org/>)?
 
-* No, Alfresco Enterprise Viewer is based on the open Adobe XFDF standard for annotating PDFs (<https://partners.adobe.com/public/developer/en/xml/XFDF_Spec_3.0.pdf>)
+* No, Alfresco Enterprise Viewer is based on the open Adobe XFDF standard for annotating PDFs (<https://www.iso.org/obp/ui/#iso:std:iso:19444:-1:ed-1:v1:en>)
 
 Where are annotations stored?
 
@@ -22,7 +22,7 @@ I am seeing stale page images, does Alfresco Enterprise Viewer Cache?  How can I
 
 * Yes!  Enterprise Viewer makes heavy use of caching at both the Server and Browser level.  To see totally fresh document pages, clear out AEV's server caches, as well as your browser cache to see your changes take effect.  To clear a running instance of AEV's server cache, you can simply hit these endpoints:
 
-First: <https://www.tsgrp.com/OpenSource/apidoc/oc-rest/edge/#api-Authentication-NewSessionSimple>
+First: <https://www.tsgrp.com/OpenSource/apidoc/oc-rest/edge/#api-Authentication-NewSession>
 
 Save the ticket from the above call for the next call:
 

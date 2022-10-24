@@ -12,7 +12,7 @@ To understand what requires performance tuning, here is a step by step descripti
 - The browser makes a request to OpenContent for binary content, properties, associated annotation information.
 - If the binary content is cached (keyed on object id and modify date), return cached binary content.
 - If the binary content is not cached, fetch using ECM API.
-- Once user has loaded OpenAnnotate, individual pages are viewed in the browser as PNGs. These PNGs are transformed on demand as the user scrolls through the document pages. The application requests individual page transformations at the following times:
+- Once user has loaded Alfresco Enterprise Viewer, individual pages are viewed in the browser as PNGs. These PNGs are transformed on demand as the user scrolls through the document pages. The application requests individual page transformations at the following times:
   - Viewing current page
   - Precaching nearby pages (within a preconfigured range)
   - Progressively scaled different resolution images for gracefully degraded view experience
@@ -138,6 +138,6 @@ Alfresco Enterprise Viewer has a configuration to toggle if a "low-res" and a "h
 
 ## Alfresco Enterprise Viewer Transformations
 
-Should the embedded OpenContent transformations not scale to the level necessary for your implementation, the "Alfresco Enterprise Viewer Transformation" application can operate at scale. This application is also known as "OpenAnnotate Transformations", or OAT for short. Here is some information on OAT. <https://github.com/tsgrp/OpenAnnotate/wiki/OpenAnnotate-Transformations-(OAT>)
+Should the embedded OpenContent transformations not scale to the level necessary for your implementation, the "Alfresco Enterprise Viewer Transformation" application can operate at scale. This application is also known as "OpenAnnotate Transformations", or OAT for short. Here is some information on OAT. <https://github.com/tsgrp/OpenAnnotate/wiki/OpenAnnotate-Transformations-(OAT)>
 
 AEVT/OAT is utilized on Alfresco PaaS.

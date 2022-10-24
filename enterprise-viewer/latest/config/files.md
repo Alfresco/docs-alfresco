@@ -201,7 +201,7 @@ Default Value: `MM/DD/YYYY`
 #### enabledActions & Modes
 
 Configuring what Buttons / Actions appear in Alfresco Enterprise Viewer is a little more in-depth than the average config option.  See
-[Configuring OpenAnnotate Actions Buttons and Modes](https://github.com/tsgrp/OpenAnnotate/wiki/Configuring-OpenAnnotate-Actions-Buttons-and-Modes) for more details.
+[Configuring Alfresco Enterprise Viewer Actions Buttons and Modes](https://github.com/tsgrp/OpenAnnotate/wiki/Configuring-OpenAnnotate-Actions-Buttons-and-Modes) for more details.
 
 #### quillEnabledButtons
 
@@ -257,7 +257,7 @@ Default Value: `chat,userJoined,userLeft,serverConnection,checkInAnnotations,che
 
 #### slideViewerTileDirectoryRoot
 
-This is the root directory on the server filesystem where the slide viewer "tiles" should be served from. It is commonly a URL that is redirected through Apache to request files from the server. For more information on Slide viewer, see [Using Slide Viewer with OpenAnnotate](https://github.com/tsgrp/OpenAnnotate/wiki/Using-Slide-Viewer-with-OpenAnnotate).
+This is the root directory on the server filesystem where the slide viewer "tiles" should be served from. It is commonly a URL that is redirected through Apache to request files from the server. For more information on Slide viewer, see [Using Slide Viewer with Alfresco Enterprise Viewer](https://github.com/tsgrp/OpenAnnotate/wiki/Using-Slide-Viewer-with-OpenAnnotate).
 
 Default Value: `http://localhost:8080/OpenAnnotate/images/seadragon/`
 
@@ -285,15 +285,15 @@ This value is the % of a highlight must overlap a word for it to be detected as 
 
 10% ( =0.1)
 
-![Highlight Snap Threshold 10%](http://i.imgur.com/c8AhYLA.gif)
+![Highlight Snap Threshold 10%]({% link enterprise-viewer/images/snapThreshold_10.gif %})
 
 40% ( =0.4)
 
-![Highlight Snap Threshold 40%](http://i.imgur.com/JhNegB9.gif)
+![Highlight Snap Threshold 40%]({% link enterprise-viewer/images/snapThreshold_40.gif %})
 
 100% or more (greater than 1.0)
 
-![Highlight Snap Threshold 100% or more (greater than 1.0)](http://i.imgur.com/N7ySDlT.gif)
+![Highlight Snap Threshold 100% or more (greater than 1.0)]({% link enterprise-viewer/images/snapThreshold_gt_100.gif %})
 
 Default Value: `0.15`
 

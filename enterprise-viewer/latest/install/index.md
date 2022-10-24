@@ -6,33 +6,26 @@ title: Enterprise Viewer Installation Guide
 
 ### Document Repository
 
-The open source download of OpenAnnotate is supported on the following ECM platforms:
+The open source download of Alfresco Enterprise Viewer is supported on the following ECM platforms:
 
 ECM Platform | Minimum Version
 --- | ---
 EMC Documentum | 6.5 and above
 Alfresco | 4.2 and above
 
-If you need to support older versions of the repositories above or other repositories, TSG can build OpenAnnotate for our clients running:
-
-Platform | Minimum Version
---- | ---
-EMC Documentum | 5.3 SP6.5 and above
-Alfresco | 4.0.2.9 and above
-
 ### Java
 
-OpenAnnotate requires Java 1.5 or above. Consult your repository of choice for more detailed requirements. For example, Alfresco 4.0 and 4.1 require Java 1.6.  Alfresco 4.2 requires Java 1.7.
+Alfresco Enterprise Viewer requires Java 1.5 or above. Consult your repository of choice for more detailed requirements. For example, Alfresco 4.0 and 4.1 require Java 1.6.  Alfresco 4.2 requires Java 1.7.
 
 ## Installation
 
 ### Prerequisites
 
-OpenContent is a prerequisite before OpenAnnotate can be installed. For OpenContent installation instructions, please see the [OpenContent Installation Guide](https://github.com/tsgrp/OpenContent/wiki/Installation-guide). Note: you MUST install OpenContent before OpenAnnotate will function, so be sure to follow those steps before continuing.
+OpenContent is a prerequisite before Alfresco Enterprise Viewer can be installed. For OpenContent installation instructions, please see the [OpenContent Installation Guide](https://github.com/tsgrp/OpenContent/wiki/Installation-guide). Note: you MUST install OpenContent before Alfresco Enterprise Viewer will function, so be sure to follow those steps before continuing.
 
-### OpenAnnotate Installation
+### Alfresco Enterprise Viewer Installation
 
-Before installing OpenAnnotate, you must update configurations based on your environment. Open the OpenAnnotate.war file using a Zip viewer such as 7-zip and edit the `WEB-INF/classes/override-placeholders.properties` file. Alternatively, you can explode the war file, edit the file, and then re-create the war file.
+Before installing Alfresco Enterprise Viewer, you must update configurations based on your environment. Open the OpenAnnotate.war file using a Zip viewer such as 7-zip and edit the `WEB-INF/classes/override-placeholders.properties` file. Alternatively, you can explode the war file, edit the file, and then re-create the war file.
 
 We need to override the `ocRestEndpointAddress` property to point to the root REST endpoint URL for OpenContent.  Add or modify the following line to `override-placeholders.properties`:
 
@@ -56,7 +49,7 @@ To save annotations in Alfresco, a new folder for holding annotation objects mus
 1. Create new folder manually
     - Create a folder in the repository root named 'OpenAnnotate' and create a sub-folder named 'Annotations'. Set the permissions on the root 'OpenAnnotate' folder so that everybody that will be annotating has at least "CONTRIBUTOR" permissions.
 1. Install the included ACP
-    - The OpenAnnotate install distribution includes an 'OpenAnnotate.acp' that can be installed that automates the above process by creating the folders and setting the permissions automatically.
+    - The Alfresco Enterprise Viewer install distribution includes an 'OpenAnnotate.acp' that can be installed that automates the above process by creating the folders and setting the permissions automatically.
 1. Configure OpenContent with an existing folder (make sure all users have "CONTRIBUTOR" permissions on this folder)
     - In your OpenContent installation edit the following file `/alfresco/WEB-INF/classes/override-placeholders.properties`
     - Add the following property:
@@ -66,9 +59,9 @@ To save annotations in Alfresco, a new folder for holding annotation objects mus
 
 ## Understand Configuration Files
 
-Once you have finished installing, it's important that you understand how OA can be configured. Please see the [OpenAnnotate Configuration Guide](https://github.com/tsgrp/OpenAnnotate/wiki/OA-Configuration-Files) for more information.
+Once you have finished installing, it's important that you understand how AEV can be configured. Please see the [Alfresco Enterprise Viewer Configuration Guide]({% link enterprise-viewer/latest/config/files.md %}) for more information.
 
-## OpenAnnotate Integrations
+## Alfresco Enterprise Viewer Integrations
 
 Also, don't forget to configure the integrations with Webtop/FirstDoc, HPI, D2, CARA:
 
@@ -76,5 +69,5 @@ Also, don't forget to configure the integrations with Webtop/FirstDoc, HPI, D2, 
 - [OCMS](https://github.com/tsgrp/hpi/wiki/Installation-guide)
 - D2
 - CARA
-- [Alfresco Share](https://github.com/tsgrp/OpenAnnotate/wiki/Alfresco-Share-Integration-Installation)
+- [Alfresco Share]({% link enterprise-viewer/latest/install/alfresco.md %})
 - [Alfresco ADF]

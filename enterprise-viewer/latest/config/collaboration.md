@@ -2,7 +2,7 @@
 title: Alfresco Enterprise Viewer Collaboration Features
 ---
 
-OpenAnnotate has support for real-time collaboration features including real-time annotations, chat functionality and presentation mode. In order to take advantage of these collaboration features, a web socket server must be installed and configured. Currently the only web socket implementation of OpenAnnotate is one that uses [Socket.IO](http://socket.io/) built on a Node server (for more information on Node, visit their [website](https://nodejs.org/). A screen capture of the collaboration features can be seen [here](https://www.youtube.com/watch?v=yUOtGXHnxXo).
+Alfresco Enterprise Viewer has support for real-time collaboration features including real-time annotations, chat functionality and presentation mode. In order to take advantage of these collaboration features, a web socket server must be installed and configured. Currently the only web socket implementation of Alfresco Enterprise Viewer is one that uses [Socket.IO](http://socket.io/) built on a Node server (for more information on Node, visit their [website](https://nodejs.org/). A screen capture of the collaboration features can be seen [here](https://www.youtube.com/watch?v=yUOtGXHnxXo).
 
 ## Installing Node
 
@@ -16,7 +16,7 @@ After each command, the version of Node and npm should be output on the command 
 
 ## Developing on Socket.IO with Node
 
-The only web socket implementation for OpenAnnotate uses Socket.io on a Node server. The source code is located at the following SVN location:
+The only web socket implementation for Alfresco Enterprise Viewer uses Socket.io on a Node server. The source code is located at the following SVN location:
 
 [http://svn.tsgrp.com/repos/annotationtool/trunk/socket-servers/node](http://svn.tsgrp.com/repos/annotationtool/trunk/socket-servers/node)
 
@@ -59,17 +59,17 @@ The collaboration server can support listening on an HTTPS port as well.  Note t
 
 Note that the file path properties are relative to wherever the `server.js` file is located.
 
-## Configuring OpenAnnotate to Connect to the Node Server
+## Configuring Alfresco Enterprise Viewer to Connect to the Node Server
 
-In order to utilize the Node server, you must configure OpenAnnotate to use it. The two properties that must be set are the `collaborationEndpoint` and `collaborationModeEnabled` properties. For more information on these properties and how to set these properties, read [OA Configuration Files](https://github.com/tsgrp/OpenAnnotate/wiki/OA-Configuration-Files).
+In order to utilize the Node server, you must configure Alfresco Enterprise Viewer to use it. The two properties that must be set are the `collaborationEndpoint` and `collaborationModeEnabled` properties. For more information on these properties and how to set these properties, read [AEV Configuration Files]({% link enterprise-viewer/latest/config/files.md %}).
 
 ## Collaboration Modes
 
-With collaboration features enabled, there are three different modes that OpenAnnotate can be run in: normal mode, collaboration mode and presenter mode.
+With collaboration features enabled, there are three different modes that Alfresco Enterprise Viewer can be run in: normal mode, collaboration mode and presenter mode.
 
 ### Normal Mode
 
-Normal mode is the default mode for OpenAnnotate. This mode does not include any collaboration features. It is configured by setting the `collaborationModeEnabled` property to `false`.
+Normal mode is the default mode for Alfresco Enterprise Viewer. This mode does not include any collaboration features. It is configured by setting the `collaborationModeEnabled` property to `false`.
 
 ### Collaboration Mode
 
@@ -77,10 +77,10 @@ Collaboration mode is the mode that enables real-time annotations and well as ch
 
 ### Presenter Mode
 
-Presenter mode is a more specific form of collaboration mode; it has all the features of collaboration mode but enables one user to be the presenter and all other users to be participants. The presenter controls what page all participants are viewing as well as where in the page the viewports are set and at what zoom level. This mode is enabled by having the `collaborationModeEnabled` property set to `true` and using OpenAnnotate with the URL GET parameter `presenterMode` set to `true`.
+Presenter mode is a more specific form of collaboration mode; it has all the features of collaboration mode but enables one user to be the presenter and all other users to be participants. The presenter controls what page all participants are viewing as well as where in the page the viewports are set and at what zoom level. This mode is enabled by having the `collaborationModeEnabled` property set to `true` and using Alfresco Enterprise Viewer with the URL GET parameter `presenterMode` set to `true`.
 
 For example, if `collaborationModeEnabled` is set to `true` in my `override-placeholders.properties` file and I visit the following URL:
 
     http://localhost:${my_port}/OpenAnnotate/viewer.htm?docId=${docId}&presenterMode=true
 
-I will be viewing OpenAnnotate using presenter mode. The first user to view a document or collection will be the presenter. Only the presenter may pass the presenting privileges to other participants viewing the document or collection.
+I will be viewing Alfresco Enterprise Viewer using presenter mode. The first user to view a document or collection will be the presenter. Only the presenter may pass the presenting privileges to other participants viewing the document or collection.
