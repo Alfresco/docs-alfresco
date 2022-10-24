@@ -1,5 +1,5 @@
 ---
-title: Configuring the Content Accelerator For Claims Management
+title: Content Accelerator For Claims Management
 ---
 
 ## Integrations
@@ -50,15 +50,15 @@ Expected Result - claim folder created/updated for claim number 111111 and the u
 ### Default Claim Properties
 The following properties are defaulted for the claims accelerator. This may be something you want to override for different model types.
 ```
-#the oc name of the folder type as defined in the data model
+#the oc name of the folder type for the claim as defined in the data model
 insurance.dataModel.folderType=insurance_claimsFolder
 
 # the oc property associated with the folder's name (can remove the model type)
 insurance.folder.nameProperty=claimNumber
-# comma separated list (no spaces before/after property) of oc names required when creating a new object, the title property must be in this list
+# comma separated list (no spaces before/after property) of oc names required when creating a new object
 insurance.folder.requiredProperties=claimNumber
 ```
-### Modify Properties
+#### Modify these Properties
 To do this, create the file `opencontent-override-placeholders.properties` at the `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` folder and put the overridden properties in there.
 Two things to note with this:
 1. This file will win out on any other property files, even ones in the custom amp. For this reason, if you are using a custom amp, it is better to override the properties in the amp than this file

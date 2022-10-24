@@ -1,12 +1,14 @@
 ---
-title: Configuring the Content Accelerator for Policy and Procedure Management
+title: Content Accelerator for Policy and Procedure Management
 ---
 
-## Typical Configuration Points
+# Typical PnP Backend Configuration Points
 While the Content Accelerator administration console provides powerful UI-based configurations, sometimes back end configurations are desired.  Typical configuration points include:
 
-### Update the Change Request Form and Workflow
-Form and workflow updates are made in the WizardAdmin application.  See the ACA Administration guide for more information.
+## Update the Change Request Form and Workflow
+Form and workflow updates are made in the WizardAdmin application.  See http:// for more information.
+
+## Extend Quality Document Type
 
 ### Extend Quality Document Type (Before ACA version 3.5)
 
@@ -195,7 +197,7 @@ For the three steps above, see the below for example configuration:
 </bean>
 ```
 
-### Modify Default Security Settings 
+## Modify Default Security Settings 
 
 The Policy and Procedure solution includes a dynamic security model that allows documents to be secured independently based on lifecycle state. To override the existing security settings, override the following beans in the `opencontent-override-module-context.xml` (or the `opencontent-extension-override-module-ctx.xml` if using ACA 3.5 and above). This example extends the above `acme:document` example of a custom object type extending the `tsg:qualityDocument` object type, so please follow those steps above first.
 
@@ -271,8 +273,8 @@ If you wish to define your own custom permissionSets and permissionGroups, pleas
 
 Once a custom permissionSet is defined and enabled via your custom AMP, it can be referenced in the customized ACA permission configuration.
 
-### Modify Only Properties
-In some cases, you may only want to override some of the default properties of the pnp accelerator. You do not need an entire custom amp to do this though. Instead you can create the file `opencontent-override-placeholders.properties` at the `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` folder and put the overridden properties in there.
+## Modify Only Properties
+In some cases, you may only want to override some of the default properties of the pnp accelerator. You do not need an entire custom amp to do this. Instead you can create the file `opencontent-override-placeholders.properties` at the `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` folder and put the overridden properties in this file.
 Two things to note with this:
 1. This file will win out on any other property files, even ones in the custom amp. For this reason, if you are using a custom amp, it is better to override the properties in the amp than this file
 2. You will likely need to create the `module/com.tsgrp.opencontent/` folders in the `tomcat/shared/classes` directory

@@ -1,15 +1,16 @@
 ---
 title: Alfresco Autofiling
 ---
-SVN Location: [http://svn.tsgrp.com/repos/AlfrescoModules/trunk/tsg/autofile]
 
-## Configuration Folder
+## Configuring Autofile
+
+### Configuration Folder
 
 **Location must be created in Alfresco:** `/Company Home/Data Dictionary/Autofile Configuration`
 
 The `EVERYONE` authority must have Consumer permissions on this folder in order to be able to read the autofile configuration.
 
-## Configuration Parameters
+### Configuration Parameters
 
 * **name** (String, required) – name for the auto-file configuration object. Can be anything, but must be unique.
 
@@ -36,7 +37,7 @@ The `EVERYONE` authority must have Consumer permissions on this folder in order 
 
 * **sanitizePropValueRegex** (String, optional) - a regex that will be used to sanitize property values that will be used for Autofiling. Any property pulled from an object will run through the regex and a matching string will be used for filing.
 
-## Sample REST Call to Configure Autofiling
+### Sample REST Call to Configure Autofiling
 ```bash
 http://<SERVER>:<PORT>/alfresco/service/tsgrp/autofile/createAutofileConfig?params={"name":"Department - Region","rootPath":"Company Home/Sites/tsg-add-ons-demo/documentLibrary/Autofiling","types":["{http://www.tsgrp.com/model/tao/1.0}content"],
 "propertiesList":[
@@ -51,10 +52,9 @@ http://<SERVER>:<PORT>/alfresco/service/tsgrp/autofile/createAutofileConfig?para
 "{http://www.alfresco.org/model/content/1.0}description"],
 "criteriaRegexes":["A","B"]}
    ```
-Authorization for an admin user must be included. In Postman, switch to the `Authorization` tab. In the `TYPE` dropdown, select `Basic Auth` and then enter in an admin user's credentials.
 
-## Autofile Aspect
+>**Note:**Authorization for an admin user must be included. In Postman, switch to the `Authorization` tab. In the `TYPE` dropdown, select `Basic Auth` and then enter in an admin user's credentials.
 
-Autofile model URI: `[http://www.tsgrp.com/model/autofile/1.0]`
+## Utilizing Autofile
 
 The autofiled aspect, `af:autofiled`, must be applied to content in order for it to be autofiled. The easiest way to do this is to make the autofiled aspect mandatory for any content types that are to be autofiled. The aspect can also be applied manually.

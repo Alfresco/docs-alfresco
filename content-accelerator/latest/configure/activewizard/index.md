@@ -2,28 +2,15 @@
 title: Active Wizard
 ---
 
-## Leading Actions
-The ActiveForm module processes leading actions using a consistent algorithm for determining where to place pages in the flow.  The diagram below describes the process.
+Active Wizard is ACA's tool for configuring workflows and is included in the Policy and Procedure solution. 
 
-![AW Leading Actions](https://raw.githubusercontent.com/tsgrp/ActiveWizard/master/wiki-images/AW-leading-actions.jpg)
+## Active Wizard ACA Queries
 
-## Active Wizard Queries
-
-    Active Wizard queries have two high level types - Passthrough and Alfresco Content Accelerator.  This document describes the query types as well as how to set up query variables for cascading query functionality.
-
-## Passthrough Queries
-Passthrough queries take a query string typed into the AW admin, resolve any query variables, and then pass the query string to Alfresco Content Accelerator to run the query.
-
-Note: Currently only Documentum DQL is supported as a passthrough query.  In the future, we may implement Lucene for Alfresco and HBase, but the functionality does not currently exist.
-
-
-
-## Alfresco Content Accelerator Queries
-Rather than using a passthrough query, it's possible to write Java code in Alfresco Content Accelerator to execute a query.  Alfresco Content Accelerator queries all have a Parameters textbox that allows the administrator to pass information to the ACA query code.  This parameter value can either be simple text typed into the admin or a query variable that is resolved at runtime before the query is executed.
+It's possible to write Java code in Alfresco Content Accelerator to execute a query.  Alfresco Content Accelerator queries all have a Parameters textbox that allows the administrator to pass information to the ACA query code.  This parameter value can either be simple text typed into the admin or a query variable that is resolved at runtime before the query is executed.
 
 Note - as of ACA 2.5, ACA queries can either generate answers, or execute special functionality to return data to the front end form.
 
-Query variables can be used in the parameters textbox, similar to passthrough queries above.  Again, all parameters are formatted as: `${paramName}`.
+All parameters are formatted as: `${paramName}`.
 
 ### Provided ACA Queries
 A number of queries are available out of the box:
@@ -40,25 +27,22 @@ Get PDF Page Count | Return Data | Return the number of pages for the given obje
 External Link | Return Data | Return a URL that can be used on the front end to display a link or button to the user | The URL with tokens to format.  Beyond query variables, the bean also supports special tokens that are resolved server side.  See below
 ACA Picklist | Generate Answers | Generates answers by referencing the specified ACA picklist | The ACA application ID and the picklist ID formatted as: `${appId}\|${picklistId}`.  More information below.
 
-#### Special Parameter Tokens
-Some query beans support special tokens that work like query variables, but are provided by the bean implementation rather than form data.
+### External Link Tokens
 
-##### External Link Tokens
+Some query beans support special tokens that work like query variables, but are provided by the bean implementation rather than form data. Examples: 
+
 * `#{ticket}` - Resolves to the logged in user's ACA ticket
 * `#{userId}` - Resolves to the logged in user's ID
 
-#### ACA Picklists
+### ACA Picklists
 It is possible to set up an Active Wizard query to use an ACA picklist.  When choosing the ACA Picklist web service type, it is recommended to set up the URL like this:
 
 ```
-  ${ACAAppId}|${picklistName}`
+  ${picklistName}`
 ```
-
-It's also possible to hardcode the app ID like this: `default|${picklistName}`.  Not that you can also make the URL with just `${picklistName}`.  ACA will assume the `default` application ID.
 
 Note that it is not recommended to hardcode the picklist name.  It's more flexible to let the question configuration specify the picklist ID.
 
-As of this writing (Nov 2017), cascading one ACA picklist to another from ActiveForm is not supported.
 
 ### Creating a new ACA Query
 If you would like to create a new ACA query, write a java class that implements `com.tsgrp.Alfresco Content Accelerator.wizard.core.query.IWizardQuery`.  Then, register the bean in `wizard-bean-config.xml`, assuming this is a core ACA query. For example:
@@ -89,43 +73,40 @@ Now, include the bean in the following list:
 The AW admin gets the list of available queries from the `WizardQueryContainer`.  After restarting ACA, the new query will be available in the list.
 
 
-## Testing Queries
+### Testing Queries
 Use the [Test Query] button in the AW Query admin to test your query.  When testing queries, the application will ask for any query variable values before running the query.
 
-## Using a query in a Form Template
+### Using a query in a Form Template
 Since queries are configured separately from the form template, they can be used multiple times in one template, or even across multiple form templates.  Queries that generate answers must be configured as a query action on a placeholder answer.  For example:
 
 1. Create the question.  Ex: Select Users (multi-select)
 1. Create an answer.
-  1. If the query you plan to use is a passthrough query:
-    1. set the answer value to the column name you'd like to use as the value.  For example: `user_login_name`.
-    1. set the answer display text to the column name you'd like to use as the display text.  For example: `user_name`.
-  1. If the query you plan to use is an ACA query, the answer value and display text can be anything you wish.  The values are not used by the ACA query code (but the front end admin requires something).
+1. The answer value and display text can be anything you wish.  The values are not used by the ACA query code (but the front end admin requires something).
 1. Attach an Answer Impact to the question.  Choose `Run a Query` as the type.  Select your query from the query dropdown.
 1. Query variables will be presented below (if applicable).  See below for how to resolve variables.
 
-If your query generates data, it may be configured at the question level rather than the answer level.  Consult the Javadocs and/or code.
+If your query generates data, it may be configured at the question level rather than the answer level.  
 
-### Resolving Query Variables
+#### Resolving Query Variables
 Query variables can be resolved in one of two ways:
 
-#### Choose a question
+##### Choose a question
 Questions on the form are listed in the dropdown.  Choose one and the selected value(s) will be replaced before the query is executed.  Care *must* be taken to ensure that the value will always be filled out.  Therefore, you should not select a question that is either optional or later in the page flow.
 
-#### Type a value
+##### Type a value
 The admin can type in any value to replace a variable.  Using our "users in groups" example from above, this option allows us to reuse the query multiple times.  For example, one question could use `group_one` as the group name, whereas another question could use `group_two` as the group name.
 
 ## Launch Forms in Streamline Mode
-Some clients want to be able to launch directly into the form and show a confirmation page upon form completion.  This page describes how to set this up.
+Some clients want to be able to launch directly into the form and show a confirmation page upon form completion. Follow along below in order to configure this option.
 
-## ACA Admin Config
+### ACA Admin Config
 First, go into the ACAadmin in the `Workflow -> Active Wizard Forms` section.  Follow these steps:
 
 - Add your form template to the list of forms configured
 - Set an action to perform upon completion if desired.  Setting this to start the approval route is common.
-- Change the slider to enable streamline mode for the form and configure related settings below.
+- Change the slider to enable streamline mode for the form.
 
-## Launch a form in Streamline Mode
+### Launching the form
 Forms can be launched in streamline mode by formatting the URL as:
 
 `<server>/ocms/activeform/<form-name>/streamline/new`
@@ -133,11 +114,14 @@ Forms can be launched in streamline mode by formatting the URL as:
 For example:
 `http://edge1.tsgrp.com/ocms/activeform/Simple Workflow CR/streamline/new`
 
-## Launch Forms with Pre Populated Data
-
-Forms can be launched and data can be pre-populated by formatting the URL as:
+You can also include prepopulated data in the form when using streamline mode. To launch a form in streamline mode with prepopulated data format the URL as:
 
 `<server>/ocms/activeform/<form-name>/new/0?populate=true&{question_label}={value}&{question_label}={value}`
 
 For example:
 `http://edge2.tsgrp.com/ocms/activeform/Simple CR/new/0?populate=true&Type of Change=Document&Priority of Change=High`
+
+## Leading Actions
+The ActiveForm module processes leading actions using a consistent algorithm for determining where to place pages in the flow.  The diagram below describes the process.
+
+![AW Leading Actions](https://raw.githubusercontent.com/tsgrp/ActiveWizard/master/wiki-images/AW-leading-actions.jpg)
