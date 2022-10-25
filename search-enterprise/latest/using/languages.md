@@ -2,7 +2,7 @@
 title: Query languages
 ---
 
-In addition to AFTS the Lucene query language is supported. It is provided by the IR framework and the query API is built on top of the Lucene standard query parser. For more details see [Apache Lucene - Query Parser Syntax](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html){:target="_blank"}.
+In addition to AFTS the Lucene an CMIS query languages are supported. It is provided by the IR framework and the query API is built on top of the Lucene standard query parser. For more details see [Apache Lucene - Query Parser Syntax](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html){:target="_blank"}.
 
 The Search Enterprise documentation provides Apache Lucene - Query Parser Syntax information specific to Alfresco.
 
@@ -43,3 +43,25 @@ A property can be declared in queries using three notations:
 ```
 
 When prefixes and fully qualified names are used, the property has to be prefixed with the @ symbol and this is one of the main differences between AFTS and Lucene. Special characters (i.e. characters that have a special meaning in lucene) need to be escaped using the backslash.
+
+## CMIS Query Language
+
+The CMIS query language can be used with the Search Enterprise API.    
+
+### Properties
+
+### Embed queries in CMIS
+
+These examples show how to embed queries in CMIS.
+
+#### Embedded in CMIS contains()
+
+```sql
+- strict queries
+SELECT * FROM Document WHERE CONTAINS("quick")
+
+- Alfresco extensions
+SELECT * FROM Document D WHERE CONTAINS(D, 'cmis:name:\'Tutorial\'')
+SELECT cmis:name as BOO FROM Document D WHERE CONTAINS('BOO:\'Tutorial\'')
+```
+
