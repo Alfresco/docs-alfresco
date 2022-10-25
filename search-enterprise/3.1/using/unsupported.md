@@ -2,7 +2,7 @@
 title: Unsupported features
 ---
 
-The following features, which were supported with Search and Insight Engine 2.x and Search Services 2.x (Solr) are not supported in the latest release for Search Enterprise 3.x (Elasticsearch).
+The following features, which were supported with Search and Insight Engine 2.x and Search Services 2.x (Solr) are not supported in the 3.1 release for Search Enterprise 3.x (Elasticsearch).
 
 ## Indexing
 
@@ -98,7 +98,7 @@ In the examples above, filter queries must be executed using the REST API and no
 
 ## Unsupported data types and properties
 
-Data types and properties supported in Search and Insight Engine 2.x and Search Services 2.x that are not currently supported for Search Enterprise 3.x.
+Data types and properties supported in Search and Insight Engine 2.x and Search Services 2.x that are not currently supported for Search Enterprise 3.1.
 
 * http&#65279;://www.alfresco.org/model/cmis/1.0/cs01}id
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}any

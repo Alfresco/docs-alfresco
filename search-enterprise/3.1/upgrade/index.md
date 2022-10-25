@@ -2,19 +2,19 @@
 title: Upgrade to Search Enterprise
 ---
 
-Use this information to upgrade from Search Services 2.x to Search Enterprise 3.x.
+Use this information to upgrade from Search Services 2.x to Search Enterprise 3.1.
 
-> **Note:** A full re-index is required when you upgrade from Search Services 2.x to Search Enterprise 3.x because the search engine is switching from Solr to Elasticsearch. If it is necessary for you to have a backup of the old SOLR index, then it must be copied elsewhere before you re-index.
+> **Note:** A full re-index is required when you upgrade from Search Services 2.x to Search Enterprise 3.1 because the search engine is switching from Solr to Elasticsearch. If it is necessary for you to have a backup of the old SOLR index, then it must be copied elsewhere before you re-index.
 
-Search Enterprise 3.x is compatible with Alfresco Content Services 7.1 and above, which means you need to upgrade to this version before applying the following steps.
+Search Enterprise 3.1 is compatible with Alfresco Content Services 7.1 and above, which means you need to upgrade to this version before applying the following steps.
 
 ## Configure Subsystem in Repository
 
-Before upgrading you must activate and configure the Search Services subsystem in Content Services, for more see [Subsystem]({% link search-enterprise/latest/install/index.md %}#configure-subsystem-in-repository).
+Before upgrading you must activate and configure the Search Services subsystem in Content Services, for more see [Subsystem]({% link search-enterprise/3.1/install/index.md %}#configure-subsystem-in-repository).
 
 ## Install Elasticsearch connector
 
-The Elasticsearch connector can be installed using JAR files, Docker compose, or Helm, for more see [Install]({% link search-enterprise/latest/install/index.md %}).
+The Elasticsearch connector can be installed using JAR files, Docker compose, or Helm, for more see [Install]({% link search-enterprise/3.1/install/index.md %}).
 
 Once everything is up and running, use the Elasticsearch connector Re-indexing application to populate the Elasticsearch index. This operation may take a while, depending on the number of documents in your repository and on the indexing options selected (metadata, content and path). While the re-indexing process is progressing, the documents will gradually be available for searching.
 
@@ -42,13 +42,13 @@ Your current Content Services stack can continue to run while you are indexing t
 
 ![upgraded-environment]({% link search-enterprise/images/elasticsearch-upgrading-2.png %})
 
-> **Note:** You may need to use the Elasticsearch Re-indexing application to update to the latest changes. After that, new and updated documents will be uploaded to the Elasticsearch index by the Elasticsearch connector service using ActiveMQ messages.
+> **Note:** You may need to use the Elasticsearch Re-indexing application to update to the 3.1 changes. After that, new and updated documents will be uploaded to the Elasticsearch index by the Elasticsearch connector service using ActiveMQ messages.
 
 ## Zero downtime upgrade
 
-You can upgrade from Search Services 2.x without experiencing any downtime, to Search Enterprise 3.x when you are using Content Services 7.2 and above.
+You can upgrade from Search Services 2.x without experiencing any downtime, to Search Enterprise 3.1.1 when you are using Content Services 7.2 and above.
 
-1. Start an Elasticsearch 3.x instance, for more see [Overview]({% link search-enterprise/latest/install/index.md %}).
+1. Start an Elasticsearch 3.1.1 instance, for more see [Overview]({% link search-enterprise/3.1/install/index.md %}).
 
     Currently your installation is using Solr.
 
@@ -68,7 +68,7 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
 4. Populate the index with existing data.
 
-    The index is populated and is based on the replicated database and is achieved by starting re-indexing on the mirrored environment. For more see [re-indexing]({% link search-enterprise/latest/config/index.md %}#alfresco-re-indexing-app).
+    The index is populated and is based on the replicated database and is achieved by starting re-indexing on the mirrored environment. For more see [re-indexing]({% link search-enterprise/3.1/config/index.md %}#alfresco-re-indexing-app).
 
     > **Note:** A window displays that states the primary database does not reflect the up to date index.
 
@@ -84,7 +84,7 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
 6. Keep your index up to date with changes made through Content Services.
 
-    To do this start live indexing on the primary environment. For more see [live-indexing]({% link search-enterprise/latest/config/index.md %}#alfresco-live-indexing-app).
+    To do this start live indexing on the primary environment. For more see [live-indexing]({% link search-enterprise/3.1/config/index.md %}#alfresco-live-indexing-app).
 
     > **Note:** Even after starting live indexing there is still a gap from when you took a snapshot to when you started live indexing.
 
