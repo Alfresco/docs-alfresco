@@ -14,8 +14,8 @@ Depending on the complexity of the issue being experienced, the Support Analyst 
 
 Good communication is essential for us to focus on your issue. For Technical Support to address your issue we may request additional information. A timely response is appreciated, as it will assist us in resolving your issue that much faster.
 
-If at any point you are not satisfied with the progress being made toward case resolution, you can escalate your case by contacting Hyland's Customer Care Advisor (CCA) team via Engage Customer Care on Community.
+If at any point you are not satisfied with the progress being made toward case resolution, you can escalate your case by contacting Hyland's Customer Care Advocate (CCA) team via **Engage Customer Care** on Hyland Community.
 
-A support case is closed and "Resolved" upon your sign off on the resolution. If the reported issue has not been seen before, the issue and resolution will be documented in our [Knowledge Base](https://community.hyland.com/tskb){:target="_blank"} to assist other customers who may encounter the same issue.
+A support case is closed and **Resolved** upon your sign off on the resolution. If the reported issue has not been seen before, the issue and resolution will be documented in our [Knowledge Base](https://community.hyland.com/tskb){:target="_blank"} to assist other customers who may encounter the same issue.
 
 As the last step in the support case life cycle, when your case is closed you are sent a short survey designed to help us improve our service. Your feedback is important to us, and taking a couple of minutes to tell us how we did resolving your issue is greatly appreciated.
