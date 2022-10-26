@@ -20,7 +20,7 @@ Once everything is up and running, use the Elasticsearch connector Re-indexing a
 
 When the Re-indexing application has finished, the new and updated documents will be uploaded to the Elasticsearch index by the Elasticsearch connector service using ActiveMQ messages.
 
-## Replicate an existing Content Services 7.1 deployment
+## Replicate an existing Content Services 7.1 (and above) deployment
 
 Your current Content Services stack can continue to run while you are indexing the repository to Elasticsearch. This means you can continue to use the 'old' service until the process completes. It's recommended you create a read replica of the database so the indexing process won't affect service performance.
 
