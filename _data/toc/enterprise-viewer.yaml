@@ -21,8 +21,8 @@
           path: '/enterprise-viewer/latest/admin/faq/'
         - title: 'Performance Tuning'
           path: '/enterprise-viewer/latest/admin/performance/'
-        - title: 'OAT Override Overlay Configs'
-          path: '/enterprise-viewer/latest/admin/oat-override-overlay-configs/'
+        - title: 'AEVT Override Overlay Configs'
+          path: '/enterprise-viewer/latest/admin/aevt-override-overlay-configs/'
     - title: 'Develop'
       pages:
         - title: 'Integrations'
