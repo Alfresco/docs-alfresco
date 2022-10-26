@@ -7,7 +7,7 @@ Alfresco Search Enterprise 3.2 consists of Alfresco Content Services, Elasticsea
 ## Prerequisites
 
 * Alfresco Content Services 7.1 that includes Alfresco ActiveMQ, Alfresco Transform Service, and Database, for more see [Install overview]({% link content-services/latest/install/index.md %}).
-* Elasticsearch server 7.10. It may be used as a standard managed service or can be installed with the default configuration, for more see [Install Elasticsearch server](#install-elasticsearch-server).
+* Elasticsearch server 7.10 - 7.17 inclusive. It may be used as a standard managed service or can be installed with the default configuration, for more see [Install Elasticsearch server](#install-elasticsearch-server).
 * Elasticsearch Connector 3.2
 
 See the [Supported platforms]({% link search-enterprise/latest/support/index.md %}) for more.
@@ -396,7 +396,7 @@ More properties that can be used to configure the chart are available [here](htt
 
 ## Install Elasticsearch server
 
-The Elasticsearch connector uses a standard Elasticsearch 7.10.2 server. No additional plugin is required.
+The Elasticsearch connector uses a standard Elasticsearch 7.10 - 7.17 inclusive server. No additional plugin is required.
 
 Other alternatives may be selected for your Elasticsearch installation, for more see [Installing Elastic Search](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html){:target="_blank"}. Alternatively, a managed service from [Elasticsearch](https://www.elastic.co/elasticsearch/service){:target="_blank"} or [Amazon AWS](https://aws.amazon.com/elasticsearch-service/){:target="_blank"} can be used.
 

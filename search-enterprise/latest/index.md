@@ -15,7 +15,7 @@ The **Indexing** feature is provided by a Spring Boot application called Alfresc
 Alfresco Search Enterprise consists of the following components:
 
 * Alfresco Content Services 7.3
-* Elasticsearch 7.10.2 (It can be used as a standard managed service or can be installed using default configuration)
+* Elasticsearch 7.10 - 7.17 inclusive (It can be used as a standard managed service or can be installed using default configuration)
 * Alfresco Elasticsearch Connector 3.2
 
 > **Note:** Elasticsearch 7.10.2 is the last Apache2-licensed version. The Elasticsearch connector can also use [Amazon OpenSearch](https://aws.amazon.com/opensearch-service/the-elk-stack/what-is-opensearch/){:target="_blank"}.
