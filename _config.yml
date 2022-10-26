@@ -8,6 +8,7 @@ defaults:
       product: "Alfresco Enterprise Viewer"
       toc: "enterprise-viewer"
       location: "enterprise-viewer"
+      support: true
       versions:
         - 3.5
   - scope:

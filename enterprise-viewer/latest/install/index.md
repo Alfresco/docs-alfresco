@@ -4,18 +4,9 @@ title: Enterprise Viewer Installation Guide
 
 ## Supported Versions
 
-### Document Repository
-
-The open source download of Alfresco Enterprise Viewer is supported on the following ECM platforms:
-
-ECM Platform | Minimum Version
---- | ---
-EMC Documentum | 6.5 and above
-Alfresco | 4.2 and above
-
 ### Java
 
-Alfresco Enterprise Viewer requires Java 1.5 or above. Consult your repository of choice for more detailed requirements. For example, Alfresco 4.0 and 4.1 require Java 1.6.  Alfresco 4.2 requires Java 1.7.
+Alfresco Enterprise Viewer requires Java 11 or above. Consult your repository of choice for more detailed requirements. For example, Alfresco 4.0 and 4.1 require Java 1.6.  Alfresco 4.2 requires Java 1.7.
 
 ## Installation
 
@@ -29,8 +20,6 @@ Before installing Alfresco Enterprise Viewer, you must update configurations bas
 
 We need to override the `ocRestEndpointAddress` property to point to the root REST endpoint URL for OpenContent.  Add or modify the following line to `override-placeholders.properties`:
 
-- Documentum
-  - `ocRestEndpointAddress=http://${your-server}:${port}/OpenContent/rest`
 - Alfresco
   - `ocRestEndpointAddress=http://${your-server}:${port}/alfresco/OpenContent`
 

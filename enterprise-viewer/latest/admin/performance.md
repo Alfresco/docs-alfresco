@@ -138,6 +138,6 @@ Alfresco Enterprise Viewer has a configuration to toggle if a "low-res" and a "h
 
 ## Alfresco Enterprise Viewer Transformations
 
-Should the embedded OpenContent transformations not scale to the level necessary for your implementation, the "Alfresco Enterprise Viewer Transformation" application can operate at scale. This application is also known as "OpenAnnotate Transformations", or OAT for short. Here is some information on OAT. <https://github.com/tsgrp/OpenAnnotate/wiki/OpenAnnotate-Transformations-(OAT)>
+Should the embedded OpenContent transformations not scale to the level necessary for your implementation, the "Alfresco Enterprise Viewer Transformation" application can operate at scale. This application is also known as "Alfresco Enterprise Viewer Transformations", or AEVT for short. Here is some information on AEVT. <https://github.com/tsgrp/OpenAnnotate/wiki/OpenAnnotate-Transformations-(OAT)>
 
 AEVT/OAT is utilized on Alfresco PaaS.
