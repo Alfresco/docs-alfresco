@@ -18,10 +18,12 @@ Operating System and libraries for the target server machine:
 
 * **Windows**: Windows Server 2016 or newer
 * **Linux**: CentOS, Ubuntu, RHL, Amazon Linux
-   * **TrueType Font set** - A TrueType Font set including Arial is required to be installed onto the instance that is running the OpenContent AMP. Further information can be found [here](https://github.com/tsgrp/HPI/wiki/Installation-Requirements-Font-Install){:target="_blank"}.
-  
-  >**Note:** The Linux instructions are written for the CentOS version 7 operating system. Some instructions may 
-  >require slightly different commands with different Linux operating systems.
+   * **TrueType Font set** - In order to have OpenOverlay apply the expected fonts to overlays/watermarks, the Truetype Arial font is expected to be installed on the server that runs OpenContent. 
+      * **Ubuntu** - `sudo apt install ttf-mscorefonts-installer`
+      * **CentOS** -
+         1. Place fonts into the `/usr/share/fonts` directory
+         1. Run `fc-cache -v /usr/share/fonts/ && fc-cache-64 -v /usr/share/fonts/`
+      * **Amazon-linux** - this typically comes pre-installed
   
 ### Verify installation artifacts
 
@@ -30,30 +32,27 @@ Operating System and libraries for the target server machine:
 
 >**Note:** make sure you are using the correct `tsgrp-opencontent.amp` for your version of Alfresco.
 
-### Node.js
-* Node.js (use the latest supported release)
-* npm (Node package manager, included with Node.js)
-
-## Install Apache (Optional)
+## Install Proxy (Optional in non-production env)
 
 ### Web Proxy Background
 ACA must be exposed on the same port as OpenContent.  In other words, if the user accesses ACA using  `http://myserver:8080/hpi`, then ACA must make Ajax requests to OpenContent at: `http://myserver:8080/OpenContent`.  
 
-Since ACA executes as a JavaScript application in the browser and communicates with OpenContent on the server, you must account for the [Same-Origin Policy](https://en.wikipedia.org/wiki/Same-origin_policy).  There are two ways to handle this:
+Since ACA executes as a JavaScript application in the browser and communicates with OpenContent on the server, you must account for the Same Origin Policy.  There are two ways to handle this:
 
 1. Deploy the ACA war to the same Application Server that's running OpenContent.  This ensures that ACA is sourced from the same server and port as OpenContent.  Note - for this to work, the application server port must be accessible to the end user's browser.
 2. Front all communication from ACA to OpenContent through a web server. 
    * Install ACA on `http://myserver1:9090/hpi`
    * Install OpenContent on `http://myserver2:8080/OpenContent`
-   * Setup Apache to route:
+   * Setup a proxy to route:
    * `http://myserver3/hpi` routes to `http://myserver1:9090/hpi` 
    * `http://myserver3/OpenContent` routes to `http://myserver2:8080/OpenContent`
+   * In the above example, ACA would be configured to access OpenContent at `http://myserver3/OpenContent`.  Now, to the browser all communication is on the same protocol, server, and port so the Same Origin Policy is upheld.
 
-In the above example, ACA would be configured to access OpenContent at `http://myserver3/OpenContent`.  Now, to the browser all communication is on the same protocol, server, and port so the Same Origin Policy is upheld.
+If using option 1 (deploying aca/aev to the Alfresco Tomcat), you can skip to http://"Install libraries and AMPs" since no proxy will need to be installed.
 
-If using option 1 (deploying aca/aev to the Alfresco Tomcat), you can skip to the next section.
+If using option 2 (preferred for a production deployment), you must complete the following steps to setup a proxy. 
 
-If using option 2 (preferred for a production deployment), you must complete the following:
+### Proxy Setup 
 
 Durring install, the following routes must be proxied to their respective ports and applications. SSL is recommended at a minimum at the 
 Proxy layer for Production installations.
@@ -75,32 +74,23 @@ Claims Management Accelerator solution:
 * `{Application Base URL}/OpenAnnotate`
 * `{Application Base URL}/oat` (if installed)
 
+When installing a proxy please note that you are not limited to using apache or ngix. These are just two common options which we cover example installs of below. As long as the above routes are proxied appropriately you can move onto http://"Install libraries and AMPs". 
 
-Use the Instructions below to front OCMS/OpenAnnotate/ActiveWizard installed on a webserver such as Tomcat with Apache. Server values will need to be updated to match your environment. 
+### Example Proxy Install 1 - Apache HTTPD on Windows
 
-This page assumes that you're deploying ACA with the following setup:
+1. Install Apache httpd
 
-- Tomcat port 8080 - alfresco.war, share.war
-- Tomcat port 9090 - ocms.war, OpenAnnotate.war, WizardAdmin.war
+   Obtain binaries from https://www.apachelounge.com/download/
 
-#### *Nix
-Obtain installation files from https://httpd.apache.org/download.cgi
+   Install Apache to `C:\Apache\Apache24` (change to your desired version as appropriate).  This is referred to as `${apache.home}` below.
 
-#### Windows
-Obtain binaries from https://www.apachelounge.com/download/
+   - Navigate to `${apache.home}\conf` and open up `httpd.conf`
+   - Find the line that has ServerRoot on it  
+      - It should default to something like `ServerRoot "c:/Apache24"`
+      - Change the ServerRoot to where you extracted Apache
+   - If you would like to install as a service, consult the Readme.txt file that comes with the installation.
 
-Install Apache to `C:\Apache\Apache24` (change to your desired version as appropriate).  This is referred to as `${apache.home}` below.
-
-- Navigate to `${apache.home}\conf` and open up `httpd.conf`
-- Find the line that has ServerRoot on it  
-   - It should default to something like `ServerRoot "c:/Apache24"`
-   - Change the ServerRoot to where you extracted Apache
-- If you would like to install as a service, consult the Readme.txt file that comes with the installation.
-
-### Connect Apache Web Server to Alfresco Tomcat
-Note, remember to replace `${apache.home}` in all steps below with the Apache installation home folder from your installation.
-
-1. (WINDOWS) Modify httpd.conf (${apache.home}\conf\httpd.conf) to load the Virtual Hosts configuration file, and the Proxy, ProxyAJP, and Rewrite modules.  **Uncomment** the following lines:
+1. Modify httpd.conf (${apache.home}\conf\httpd.conf) to load the Virtual Hosts configuration file, and the Proxy, ProxyAJP, and Rewrite modules.  **Uncomment** the following lines:
 
            Include conf/extra/httpd-vhosts.conf
            LoadModule proxy_module modules/mod_proxy.so
@@ -113,13 +103,12 @@ Note, remember to replace `${apache.home}` in all steps below with the Apache in
            LoadModule deflate_module modules/mod_deflate.so   #optional - only needed if you plan on using the gzip flate stuff below
 
 
-    (UBUNTU) Run `sudo a2enmod proxy`, `sudo a2enmod proxy_ajp`, `sudo a2enmod rewrite`, and `sudo a2enmod proxy_http`.
+1. Modify the httpd-vhosts.conf file (${apache.home}\conf\extra\httpd-vhosts.conf).  Remove the sample virtual hosts from the file by deleting the `<VirtualHost *:80>` sections.
 
-1. (WINDOWS) Modify the httpd-vhosts.conf file (${apache.home}\conf\extra\httpd-vhosts.conf).  Remove the sample virtual hosts from the file by deleting the `<VirtualHost *:80>` sections.
+1. Add a new virtual host to your vhosts configuration file that points to the Alfresco Tomcat and Tomcat running ACA/AEV/WizardAdmin by adding the following lines.
 
-   (UBUNTU) Create a file in the `conf-available` folder named `httpd-vhosts.conf` (with the text as specified in the next step). Run `sudo a2enconf httpd-vhosts` then `service apache2 reload` to apply changes.
-
-1. Add a new virtual host that points to the Alfresco Tomcat and Tomcat running ACA/AEV/WizardAdmin by adding the following lines, making updates to server names and paths as needed:
+      Make sure to update server names and paths as needed (aka replace anything surrounded by ${}). 
+      Make sure to also Update the proxyPass sections at the bottom to proxy the apporpriate routes. 
 
 ```xml
     <VirtualHost *:80>
@@ -168,7 +157,7 @@ Note, remember to replace `${apache.home}` in all steps below with the Apache in
 		AddOutputFilterByType DEFLATE application/json
             </Location>
 
-	    #ALFRESCO ONLY: Proxy /alfresco requests to Alfresco's Tomcat
+	    # Proxy /alfresco requests to Alfresco's Tomcat
 	    ProxyPass /alfresco ajp://${your-TOMCAT-server-name}:8009/alfresco
 	    ProxyPass /share ajp://${your-TOMCAT-server-name}:8009/share
 	    # OR, use HTTP like this (use AJP in a production environment, as HTTP has more overhead and issues):
@@ -180,51 +169,133 @@ Note, remember to replace `${apache.home}` in all steps below with the Apache in
             #   /WizardAdmin
             #   /OpenContent [Documentum/Hadoop/Solr only]) 
             # This is generally a separate tomcat than the Tomcat running Alfresco for Alfresco environments
-	    ProxyPass / ajp://${your-TOMCAT-server-name}:9009/
+	    ProxyPass / ajp://${your-TOMCAT-server-name}:9090/
 
     </VirtualHost>
 ```
-4. Go to `${apache.home}`/bin, open a command prompt, and run httpd.exe 
-5. Test by hitting http://${your-server-name} and http://${your-server-name}/ocms
+
+1. ACA has some routes that are formatted like the following:
+   ```
+   /hpi/{aca-module}/{object-id}
+   ```
+   In the above case, the object ID is URL encoded.  This means that forward slashes in the object ID are URL encoded to `%2F`.  By default, apache httpd does not serve any URLs with a URL encoded forward (or back) slash.  
+
+   To work around the issue, add the following configuration to the `httpd-vhosts.conf` file for the host(s) ACA is running on:
+
+   ```
+   AllowEncodedSlashes On
+   ```
+
+1. (Re)start the proxy 
+
+   Go to `${apache.home}`/bin, open a command prompt, and run httpd.exe 
+
+1. Test by hitting http://${your-server-name}/alfresco 
 
 
-## Install libraries and AMPs
+### Example Proxy Install 2 -  Nginx install on Amazon Linux
+
+Here are some sample steps of installing nginx as a proxy (steps are done on amazon-linx and may need to be adjusted for other distributions)
+
+1. Install nginx on the server. For example:
+
+   * `sudo amazon-linux-extras list | grep nginx`
+   * `sudo amazon-linux-extras enable nginx1`
+   * `sudo yum clean metadata`
+   * `sudo yum -y install nginx`
+   * `nginx -v`
+
+1. Confirm you can startup nginx
+
+    * `sudo systemctl start nginx.service` (start the service)
+    * `sudo systemctl reload nginx.service` (reload the service)
+    * `sudo systemctl status nginx.service` (check that the status is active)
+    * `sudo systemctl stop nginx.service` (stop the service)
+
+1. Configure the proxy 
+
+    * `sudo vi /etc/nginx/nginx.conf`
+    * Replace contents of the file with the following (replacing ports and servers and adding additional proxy_pass configs as neccesary)
+
+    ```
+         worker_processes  1;
+
+         events {
+            worker_connections  1024;
+         }
+
+         http {
+            server {
+               listen *:80;
+
+               client_max_body_size 0;
+
+               set  $allowOriginSite *;
+               proxy_pass_request_headers on;
+               proxy_pass_header Set-Cookie;
+
+               # External settings, do not remove
+               #ENV_ACCESS_LOG
+
+               proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
+               proxy_redirect off;
+               proxy_buffering off;
+               proxy_set_header Host            $host:$server_port;
+               proxy_set_header X-Real-IP       $remote_addr;
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+               proxy_pass_header Set-Cookie;
+
+               # Protect access to SOLR APIs
+               location ~ ^(/.*/service/api/solr/.*)$ {return 403;}
+               location ~ ^(/.*/s/api/solr/.*)$ {return 403;}
+               location ~ ^(/.*/wcservice/api/solr/.*)$ {return 403;}
+               location ~ ^(/.*/wcs/api/solr/.*)$ {return 403;}
+
+               location ~ ^(/.*/proxy/alfresco/api/solr/.*)$ {return 403 ;}
+               location ~ ^(/.*/-default-/proxy/alfresco/api/.*)$ {return 403;}
+               
+               # Protect access to Prometheus endpoint
+               location ~ ^(/.*/s/prometheus)$ {return 403;}
+               
+               location /alfresco {
+                     proxy_pass http://${your-TOMCAT-server-name}:8080/alfresco;
+               }
+
+               location /share {
+                     proxy_pass  http://${your-TOMCAT-server-name}:8080/share;
+               }
+
+               location /ocms {
+                     proxy_pass http://${your-TOMCAT-server-name}:9090/ocms;
+               }
+
+               location /OpenAnnotate {
+                     proxy_pass http://${your-TOMCAT-server-name}:9090/OpenAnnotate;
+               }
+
+            }
+
+
+            server {
+               listen *:3000;
+               location / {
+                     proxy_pass http://${your-TOMCAT-server-name}:3000;
+               }
+            }
+         }
+         ```
+
+1. Start the nginx proxy and confirm it started up correctly
+    * `sudo systemctl start nginx.service`
+    * `sudo systemctl status nginx.service`
+
+1. Make sure whatever port your proxy is listening on is open to the end user (example: you will need to open port 80 if you are using the configs in our example above)
+
+1. Test that the proxy is working properly by hitting http://${your-TOMCAT-server-name}/share
+
+## Install libraries
 >**IMPORTANT!** Backup the Alfresco Content Services database, `alfresco.war`, and `share.war`. These resources need to 
 >be backed up in case of a rollback being required. (Make a copy of the original wars and store them in a safe location)
-
-### PDFIUM Installation (OPTIONAL) {#pdfium}
->**Note:** This step is only needed if using Alfresco Enterprise Viewer on Linux.
-
-1. Unpack the `pdfium.tar.gz` source to a location on your server.
-   
-2. Note the path where `pdfium` is being installed as `PDFIUM_HOME`.
-   
-3. Navigate into the newly unpacked PDFIUM directory.
-
-4. Execute the following command from the `PDFIUM_HOME` to ensure `pdfium` was unpacked successfully:
-   
-   ```bash
-   ./{PDFIUM_HOME}/pdfium --help
-   ```
-  
-   The `pdfium` help message is displayed.
-
-### FFMPEG Installation (OPTIONAL)  {#ffmpeg}
->**Note:** This step is only needed if using Alfresco Enterprise Viewer Video.
-
-1. Download and install an official FFMPEG Linux package from [here](https://ffmpeg.org/download.html){:target="_blank"}
-
-2. Note the path where FFMPEG is being installed as `FFMPEG_HOME`.
-
-3. Navigate into the newly unpacked FFMPEG directory.
-
-4. Execute the following command from the `FFMPEG_HOME` to ensure `ffmpeg` was unpacked successfully:
-
-   ```bash
-   ./{FFMPEG_HOME}/bin/ffmpeg --help
-   ```
-
-   The `ffmpeg` help message is displayed.
 
 ### ImageMagick Installation (OPTIONAL) {#im}
 >**Note:** This step is only needed if using Document Combining.
@@ -234,13 +305,11 @@ Note, remember to replace `${apache.home}` in all steps below with the Apache in
    * [Windows](https://download.imagemagick.org/ImageMagick/download/binaries/ImageMagick-7.1.0-portable-Q16-HDRI-x64.zip){:target="_blank"}
    * [Linux](https://download.imagemagick.org/ImageMagick/download/binaries/magick){:target="_blank"}
     
-   If on Windows, unzip the file.
+1. Note the path where ImageMagick is being installed as `IMAGEMAGICK_HOME`.
 
-2. Note the path where ImageMagick is being installed as `IMAGEMAGICK_HOME`.
+1. Navigate into the newly unpacked ImageMagick directory.
 
-3. Navigate into the newly unpacked ImageMagick directory.
-
-4. Execute the following command from the `IMAGEMAGICK_HOME` to ensure `convert` was unpacked successfully:
+1. Execute the following command from the `IMAGEMAGICK_HOME` to ensure `convert` was unpacked successfully:
 
    ```bash
    ./{IMAGEMAGICK_HOME}/bin/convert -help
@@ -248,42 +317,32 @@ Note, remember to replace `${apache.home}` in all steps below with the Apache in
 
    The `convert` help message is displayed.
 
-### Alfresco Module Packages (AMP) installation
+## Install Alfresco Module Packages (AMPs)
+
 In this section we ensure that all components of the Content Accelerator are installed correctly into Alfresco Content 
 Services.
 
 1. Stop the Alfresco server
    
-2. Copy the AMPs to the Alfresco Content Services installation:
+1. Copy the AMPs to the Alfresco Content Services installation:
 
    Navigate to the `ALFRESCO_HOME/amps` directory and copy the following amps to this directory (these are amps that 
    should be applied to the repository aka [alfresco.war]):
     * `tsgrp-opencontent.amp`
     * `tsgrp-autofile.amp`
     
-3. (OPTIONAL) This step is only required if installing Alfresco Enterprise Viewer:
-   
-   Navigate to the `ALFRESCO_HOME/amps` directory and copy the following amps there:
-   * `oa-service-alfresco.amp`
-
-4. (OPTIONAL) This step is only required if installing the Policy and Procedure Content Accelerator solution:
+1. (Pnp ONLY) This step is only required if installing the Policy and Procedure Content Accelerator solution:
 
    Navigate to the `ALFRESCO_HOME/amps` directory and copy the following amps there:
    * `tsgrp-alfresco-chain-versioning.amp`
    * `pnp-platform-3.5.amp`
 
-5. (OPTIONAL) This step is only required if installing the Claims Content Accelerator solution:
+1. (Claims ONLY) This step is only required if installing the Claims Content Accelerator solution:
 
    Navigate to the `ALFRESCO_HOME/amps` directory and copy the following amps there:
    * `claims-platform-3.5.amp`
-
-6. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer in Share:
-
-   Navigate to the `ALFRESCO_HOME/amps_share` directory and copy the following amps there:
-   * `oa-service-share.amp`
-   * `oa-share-webpreview.amp`
    
-7. Apply the AMPs
+1. Apply the AMPs
    
    From the `ALFRESCO_HOME` direcotry, run this command for each Repository AMP required (replace `{myAmp}` with the correct AMP name):
 
@@ -299,23 +358,7 @@ Services.
    java\{javaVersion}\bin\java -jar bin\alfresco-mmt.jar install amps\{myAmp}.amp tomcat\webapps\alfresco.war -force 
    ```
 
-8. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer in Share:
-
-   From the `ALFRESCO_HOME` direcotry, run this command for each Share AMP required (replace `{myAmp}` with the correct AMP name):
-
-   Linux:
-   
-   ```bash
-   java -jar bin/alfresco-mmt.jar install amps_share/{myAMP}.amp tomcat/webapps/share.war -force
-   ```
-   
-   Windows:
-   
-   ```bash
-   java\{javaVersion}\bin\java -jar bin\alfresco-mmt.jar install amps_share\{myAmp}.amp tomcat\webapps\share.war -force 
-   ```
-
-9. Delete current Alfresco deployed WAR files
+1. Delete current Alfresco deployed WAR files
 
    Navigate to the `ALFRESCO_HOME/tomcat/webapps` directory and delete the following [folders] (if they exist) to ensure 
    old versions of the `alfresco.war` and `share.war` are not run:
@@ -323,7 +366,7 @@ Services.
    * `alfresco`
    * `share`
 
-10. Install license file for OpenConnect
+1. Install license file for OpenConnect
 
    Navigate to the `ALFRESCO_HOME/tomcat/shared/classes/alfresco` folder and create the following folder structure: 
    `module/com.tsgrp.opencontent/license`.
@@ -331,7 +374,7 @@ Services.
    Place the `TextLicense.l4j` file in the `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/license` 
    directory. 
 
-11. Configure OpenConnect
+1. Configure OpenConnect
    
     Update the environment variables in the provided `opencontent-override-placeholders.properties`:
 
@@ -341,11 +384,9 @@ Services.
    
     * `application.root.url={Application Base URL}/ocms`
     * `oc.email.smtp.host={SMTP host}`
-    * `FFMPEG.path=FFMPEG_HOME` (if installed, get FFMPEG_HOME value from [FFMPEG Installation](#ffmpeg))
     * `imageMagick.path=IMAGEMAGICK_HOME` (if installed, get IMAGEMAGICK_HOME value from [ImageMagic Installation](#im))
-    * `pdfium.path=PDFIUM_HOME` (if installed, get PDFIUM_HOME value from [Pdfium Installation](#pdfium))
 
-12. Deploy the OpenConnect configuration: 
+1. Deploy the OpenConnect configuration: 
     
     Deploy/Copy the following files to the `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` 
     folder:
@@ -354,7 +395,7 @@ Services.
     * `opencontent-override-config.xml`
     * `opencontent-override-module-context.xml`
 
-13. Update Tomcat server configuration:   
+1. Update Tomcat server configuration:   
     
    By default, Apache Tomcat doesn't support UTF-8 characters for languages other than English. To enable support, the web.xml and server.xml files need to be modified in the deployed Tomcat. 
 
@@ -363,7 +404,7 @@ Services.
 
    The following will need to be updated: 
 
-   In the __${tomcat.home}/conf/web.xml__ 
+   In the __${tomcat.home}/conf/web.xml__
 
    Un-comment the setCharacterEncodingFilter and its mapping in web.xml (If not already uncommented)
 
@@ -415,11 +456,11 @@ Services.
    >**Note:** that in a typical Alfresco installation, the 8080 connector can be modified for HTTP communications and 
    >the 443 connector can be modified for HTTPS connections.
 
-14. (OPTIONAL) This step is only required if using Alfresco Search Services 2.0 or greater:
+1. (OPTIONAL) This step is only required if using Alfresco Search Services 2.0 or greater:
 
     a. Navigate to the `SOLR_HOME/solrhome/conf` folder.
     
-    b. In the file `shared.properties`, uncomment the following properties:
+    b. In the file `shared.properties`, uncomment the following properties (if not already uncommented):
        * `alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text`
        * `alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content`
        * `alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext`
@@ -435,90 +476,27 @@ Services.
       
        Start Solr process.
 
-15. Start up Alfresco server.
-
-## Install collaboration (optional)  {#collab}
-In this section the Alfresco Enterprise Viewer collaboration features Socket.IO server is installed.
-
->**Note:** that this installation is only required if the collaboration features are desired.
-
-1. Install Socket Server
-
-   Use the following installation packages:
-   * Windows: Use `socket-servers-win.zip`
-   * Linux: Use `socket-server-linux.zip`
-
-   Place the socket-servers zip in the directory where the Collaboration server is to be installed, and unzip it. This 
-   will be known as `SOCKET_HOME`.
-
-   This directory will now contain `server.js`, `windows-service.js`, `package.json`, `uninstall-windows-service.js`, 
-   `node_modules` and a `config` directory.
-
-2. Test the Socket Server
-
-   To start the collaboration server, navigate to `SOCKET_HOME/node` and run the following command: `node server.js`
-
-   A Node JavaScript server starts listening on port 3000 for connections, and the command prompt displays the message 
-   “listening on *:3000”.
-
-3. Stop Socket Server
-   
-   Press Ctrl+C to end the process.
-
-4. (OPTIONAL) Configure SSL
-
-   To configure SSL, navigate to the `/config` directory and edit the `collaborationConfig.js`. Change the following lines:
-
-   ```text 
-   config.httpsPort = <HTTPS_PORT>;
-   config.sslKeyPath = <SSL_KEYFILE_PATH>;
-   config.sslCertPath = <SSL_CERTFILE_PATH>;
-   ```
-
-   Where:
-
-   * `<HTTPS_PORT>` is the port the HTTPS collaboration connection will run on.
-   * `<SSL_KEYFILE_PATH>` is a file path to the SSL Key file on the server.
-   * `<SSL_CERTFILE_PATH>` is a file path to the SSL Cert file on the server.
-
-5. Install forever tool
-
-   Install forever by running the following command:
-
-   * Linux: `sudo npm install forever -g`
-   * Windows: `npm install forever -g`
-
-6. Start the Socket Server
-
-   Start the collaboration server using forever by running the following command:
-
-   `forever start server.js`
-
+1. Start up Alfresco server.
 
 ## Install webapps
-This sections walks through how to install the Alfresco Enterprise Viewer and Content Accelerator web applications 
+This sections walks through how to install the Alfresco Content Accelerator web application 
 (including the WizardAdmin if installing the Policy and Procedure Content Accelerator solution).
 
->**Note:** Choose to run either [Install Web Applications on Separate Tomcat](#install-webapps-separate-tomcat) or 
->[Install Web Applications on Alfresco Tomcat](#install-webapps-alfresco-tomcat), but not both.
+>**Note:** If you installed a proxy then follow the [Install Web Applications on Separate Tomcat](#install-webapps-separate-tomcat) Instructions. 
+> If no proxy was installed then follow the [Install Web Applications on Alfresco Tomcat](#install-webapps-alfresco-tomcat) instructions. 
 
 ### Install web applications on separate Tomcat {#install-webapps-separate-tomcat}
-This section walks through how to install the web applications on a separate Tomcat instance (this is recommended for 
-a production environment).
+This section walks through how to install the web applications on a separate Tomcat instance (Meaning, you must have a proxy setup).
 
-1. Stop Tomcat
+1. Install Apache Tomcat. See https://archive.apache.org/dist/tomcat 
 
-2. Copy the `ocms.war` file into the `TOMCAT_HOME/webapps` directory.
+1. Copy the `ocms.war` file into the `TOMCAT_HOME/webapps` directory.
 
-3. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer:
-   
-   Copy the `OpenAnnotate.war` file into the `TOMCAT_HOME/webapps` directory.
-
-4. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution:
+1. (Pnp ONLY) This step is only required if using the Policy and Procedure Content Accelerator solution:
 
    Copy the `WizardAdmin.war` file into the `TOMCAT_HOME/webapps` directory.
 
-5. Configure Tomcat for shared classpath loader as well as encoded slashes:
+1. Configure Tomcat for shared classpath loader as well as encoded slashes:
    
    Edit the `TOMCAT_HOME/conf/catalina.properties` file and enable the `shared.loader` by adding the following line:
 
@@ -528,63 +506,28 @@ a production environment).
    ```
    /hpi/{aca-module}/{object-id}
    ```
-   In the above case, the object ID is URL encoded.  This means that using Alfresco as a back-end, causes forward slashes in the object ID to be URL encoded to `%2F`.  By default, neither Tomcat nor Apache serve any URLs with a URL encoded forward (or back) slash.  
+   In the above case, the object ID is URL encoded.  This means that forward slashes in the object ID are URL encoded to `%2F`.  By default, Tomcat does not serve any URLs with a URL encoded forward (or back) slash.  
 
    To work around the issue, edit the `TOMCAT_HOME/conf/catalina.properties` file and add the following:
    ```
    org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true
    ```
 
-   To work around the issue on Apache, add the following configuration to the `httpd-vhosts.conf` file for the host(s) ACA is running on:
-
-   ```
-   AllowEncodedSlashes On
-   ```
-
-6. Configure Tomcat ports:
+1. Configure Tomcat ports in the `TOMCAT_HOME/conf/server.xml`:
 
    Configure the connector, server, and redirect ports to not conflict with Alfresco Tomcat’s (example below):
     
-   * Set Connector - `port="9080"`
-   * Set Connector - `redirectPort="9443"`
-   * Set Server - `port="9005"`
+   * Set Connector - `port="9090"` (default will be 8080)
+   * Set Connector - `redirectPort="9443"` (default will be 8443)
+   * Set Server - `port="9005"` (default will be 8005)
 
-7. Create a `classes` directory:
+   Note that you will need to ensure that the port chosen (ie 9090) is open to the end user
+
+1. Create a `classes` directory:
    
-   Create a `classes` directory within the `TOMCAT_HOME/shared` directory, if it does not already exist.
+   Create the path `TOMCAT_HOME/shared/classes`, if it does not already exist.
 
-8. (OPTIONAL) Required if setting up SSO:
-
-   Follow steps [here](https://github.com/tsgrp/HPI/wiki/Single-Sign-On-(SSO)){:target="_blank"} to enable SSO.
-
-9. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer:
-
-   Update the provided `openannotate-override-placeholders.properties` file: 
-
-   Set the `ocRestEndpointAddress` property to point to the root REST endpoint URL for OpenContent within Alfresco:
-
-   `{Application Base URL}/alfresco/OpenContent`
-
-   >**Note:** if the Alfresco Enterprise Viewer and the Alfresco Repository are located on the same server, then the 
-   >URL can be: `http://localhost:<alfrescoPort>/alfresco/OpenContent`
-
-10. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer:
-
-    Copy the `openannotate-override-placeholders.properties` file to the `TOMCAT_HOME/shared/classes` directory.
-
-11. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer AND leveraging the “Collaboration Server” 
-    functionality for collaborative annotation functionality:
-    
-    Update the `openannotate-override-placeholders.properties` file:
-    
-    * `collaborationModeEnabled=true`
-    * `collaborationEndpoint=http://${server}:${port}`
-
-    Replace the `${server}` and `${port}` placeholders in the above URL with the correct server and port values for 
-    the environment being installed to (See the section [Install collaboration features](#collab)))
-
-
-12. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution AND 
+1. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution AND 
     if `TOMCAT_HOME` is NOT `/opt/ocms-policy/apache-tomcat`
 
     Navigate to `TOMCAT_HOME/webapps` and extract the `WizardAdmin.war`.
@@ -599,7 +542,7 @@ a production environment).
     * `ImpactAnalysis.properties`:
         * Lines 26, 29, 39, 40, 42, 48, 49
 
-13. Start Tomcat
+1. Start Tomcat
 
 ### Install web applications on Alfresco Tomcat {#install-webapps-alfresco-tomcat}
 This section walks through how to install the web applications on Alfresco Tomcat (recommended for easier 
@@ -607,17 +550,13 @@ non-Production environment installation).
 
 1. Stop Alfresco Tomcat
 
-2. Copy the `ocms.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
+1. Copy the `ocms.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
 
-3. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer:
-
-   Copy the `OpenAnnotate.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
-
-4. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution:
+1. (Pnp ONLY) This step is only required if using the Policy and Procedure Content Accelerator solution:
 
    Copy the `WizardAdmin.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
 
-5. Configure Tomcat for shared classpath loader as well as encoded slashes:
+1. Configure Tomcat for shared classpath loader as well as encoded slashes:
 
    Edit the `ALFRESCO_HOME/tomcat/conf/catalina.properties` file and enable the `shared.loader` by adding the following line:
 
@@ -640,46 +579,12 @@ non-Production environment installation).
    org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true
    ```
 
-   To work around the issue on Apache, add the following configuration to the `httpd-vhosts.conf` file for the host(s) ACA is running on:
-
-   ```
-   AllowEncodedSlashes On
-   ```
-
-6. Create a `classes` directory:
+1. Create a `classes` directory:
 
    Create a `classes` directory within the `ALFRESCO_HOME/tomcat/shared` directory, if it does not already exist.
 
-7. (OPTIONAL) Required if setting up SSO:
 
-   Follow steps [here](https://github.com/tsgrp/HPI/wiki/Single-Sign-On-(SSO)){:target="_blank"} to enable SSO.
-
-8. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer:
-
-   Update the provided `openannotate-override-placeholders.properties` file:
-
-   Set the `ocRestEndpointAddress` property to point to the root REST endpoint URL for OpenContent within Alfresco:
-
-   `{Application Base URL}/alfresco/OpenContent`
-
-   >**Note:** the URL can also be: `http://localhost:<alfrescoPort>/alfresco/OpenContent`
-
-9. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer:
-
-    Copy the `openannotate-override-placeholders.properties` file to the `ALFRESCO_HOME/tomcat/shared/classes` directory.
-
-10. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer AND leveraging the “Collaboration Server”
-   functionality for collaborative annotation functionality:
-
-   Update the provided `openannotate-override-placeholders.properties` file:
-
-   * `collaborationModeEnabled=true`
-   * `collaborationEndpoint=http://${server}:${port}`
-
-   Replace the `${server}` and `${port}` placeholders in the above URL with the correct server and port values for
-   the environment being installed to. (See the section [Install collaboration features](#collab)))
-
-11. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution: 
+1. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution: 
 
     Navigate to `ALFRESCO_HOME/tomcat/webapps` and extract the `WizardAdmin.war`.
 
@@ -693,7 +598,7 @@ non-Production environment installation).
     * `ImpactAnalysis.properties`:
         * Lines 26, 29, 39, 40, 42, 48, 49
 
-12. Start Alfresco Tomcat
+1. Start Alfresco Tomcat
 
 ## Install Configurations
 
@@ -703,7 +608,7 @@ non-Production environment installation).
 
    This will create the base groups and folder for the application. 
 
-2. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution:
+1. (Pnp ONLY) This step is only required if using the Policy and Procedure Content Accelerator solution:
 
    Create Policy and Procedure specific groups and folders:
 
@@ -711,14 +616,14 @@ non-Production environment installation).
 
    This will create the base groups and folder for the Policy and Procedure solution. 
 
-3. Import default configuration:
+1. Import default configuration:
 
    In a browser navigate to `{Application Base URL}/ocms/admin/ConfigArchiver` and login to the application as the 
    Alfresco Administrator.
 
    Use the *Import Config* function to import the `default.zip` provided with the installation. 
 
-4. (OPTIONAL) This step is only required if **NOT** using the Alfresco Enterprise Viewer:
+1. (OPTIONAL) This step is only required if **NOT** using the Alfresco Enterprise Viewer:
 
    Navigate to the *Stage Config*. For each stage config:
     1.	Navigate to the *docviewer*
