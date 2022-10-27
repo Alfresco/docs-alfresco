@@ -1612,7 +1612,7 @@ which has a mandatory association to the original source node. When either the s
 to be removed. See `org.alfresco.repo.copy.CopyServiceImpl.beforeDeleteOriginalAssociation` for how the association 
 deletion is detected in order to ensure that the aspect is removed from the copied node.
 
-### Managing multi-value properties
+### Managing multi-value properties {#manage-multi-value-props}
 By default, a property supports a single value, but this may be changed to support multiple values via the `multiple` 
 element in the content model definition. Multiple values are rendered as lists in the various Alfresco APIs. A `d:text` 
 property with `multiple` set to `true` will allow you to store multiple string values for the property and the document, 
