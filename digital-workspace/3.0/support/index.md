@@ -1,7 +1,7 @@
 ---
 title: Supported Platforms
 ---
-The following are the supported platforms for Alfresco Digital Workspace 3.1:
+The following are the supported platforms for Alfresco Digital Workspace 3.0:
 
 ## Alfresco Content Services
 
