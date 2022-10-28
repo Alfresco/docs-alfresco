@@ -45,3 +45,16 @@ Yes, Digital Workspace supports Single Sign-On with the Identity Service. See [A
 Alfresco Digital Workspace does not support SAML Single Sign-On (SSO) for Alfresco Content Services. Users can login with their credentials using basic authentication, but SAML authentication must not be enforced.
 
 See [SAML Single Sign-On (SSO) Module for Alfresco Content Services]({% link saml-module/latest/index.md %}) for more information.
+
+### How can I change my User Profile in Alfresco Digital Workspace
+
+<!-- WIP -->
+Locate the User Profile menu item (click on the profile picture) that will show the user the current contact information and allow the user to edit
+
+The editing page, where the end user will be able to change the following information
+
+First Name, Last Name, Email - Mandatory
+
+Job Title , Location, Photo upload, Telephone, Mobile - optional
+
+Company Details: Name, Address, Post code, Telephone, email - optional
