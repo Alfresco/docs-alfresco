@@ -614,7 +614,7 @@ non-Production environment installation).
 
    This will create the base groups and folder for the Policy and Procedure solution. 
 
-1. Import default configuration. Rhere are two ways you can do this.
+1. Import default configuration. There are two ways you can do this.
    
    OPTION 1 - use the config import tool (This may not be available on initial install): 
 
