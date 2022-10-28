@@ -36,7 +36,7 @@ OpenContent is a prerequisite before Alfresco Enterprise Viewer can be installed
 ### FFMPEG Installation (OPTIONAL)  {#ffmpeg}
 >**Note:** This step is only needed if using Alfresco Enterprise Viewer Video.
 
-1. Download and install an official FFMPEG package from [here](https://ffmpeg.org/download.html){:target="_blank"}
+1. Download and install an official FFMPEG package from [here](https://ffmpeg.org/download.html){:target="_blank"}. Use the latest supported release. 
 
 2. Note the path where FFMPEG is being installed as `FFMPEG_HOME`.
 
@@ -111,18 +111,18 @@ In this section the Alfresco Enterprise Viewer collaboration features Socket.IO 
 
 1. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer in Share:
 
-   From the `ALFRESCO_HOME` direcotry, run this command for each Share AMP required (replace `{myAmp}` with the correct AMP name):
+   From the directory where your alfresco tomcat lives, run this command for each Share AMP required (replace `{myAmp}` with the correct AMP name):
 
    Linux:
    
    ```bash
-   java -jar bin/alfresco-mmt.jar install amps_share/{myAMP}.amp tomcat/webapps/share.war -force
+   java -jar {ALFRESCO_HOME}/bin/alfresco-mmt.jar install {ALFRESCO_HOME}/amps_share/{myAMP}.amp tomcat/webapps/share.war -force
    ```
    
    Windows:
    
    ```bash
-   java\{javaVersion}\bin\java -jar bin\alfresco-mmt.jar install amps_share\{myAmp}.amp tomcat\webapps\share.war -force 
+   java\{javaVersion}\bin\java -jar {ALFRESCO_HOME}\bin\alfresco-mmt.jar install {ALFRESCO_HOME}\amps_share\{myAmp}.amp tomcat\webapps\share.war -force 
    ```
 
 1. Configure OpenConnect
