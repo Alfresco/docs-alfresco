@@ -336,18 +336,18 @@ Services.
    
 1. Apply the AMPs
    
-   From the `ALFRESCO_HOME` direcotry, run this command for each Repository AMP required (replace `{myAmp}` with the correct AMP name):
+   From the directory where your alfresco tomcat lives, run this command for each Repository AMP required (replace `{myAmp}` with the correct AMP name and `{ALFRESCO_HOME}` with the location of your alfresco):
 
    Linux:
    
    ```bash
-   java -jar bin/alfresco-mmt.jar install amps/{myAMP}.amp tomcat/webapps/alfresco.war -force
+   java -jar {ALFRESCO_HOME}/bin/alfresco-mmt.jar install {ALFRESCO_HOME}/amps/{myAMP}.amp tomcat/webapps/alfresco.war -force
    ```
    
    Windows:
    
    ```bash
-   java\{javaVersion}\bin\java -jar bin\alfresco-mmt.jar install amps\{myAmp}.amp tomcat\webapps\alfresco.war -force 
+   java\{javaVersion}\bin\java -jar {ALFRESCO_HOME}\bin\alfresco-mmt.jar install {ALFRESCO_HOME}\amps\{myAmp}.amp tomcat\webapps\alfresco.war -force 
    ```
 
 1. Delete current Alfresco deployed WAR files
@@ -470,6 +470,8 @@ Services.
 
 1. Start up Alfresco server.
 
+1. Confirm OpenContent has been installed correctly by accessing http://{server}/alfresco/OpenContent
+
 ## Install webapps
 This sections walks through how to install the Alfresco Content Accelerator web application 
 (including the WizardAdmin if installing the Policy and Procedure Content Accelerator solution).
@@ -536,6 +538,8 @@ This section walks through how to install the web applications on a separate Tom
 
 1. Start Tomcat
 
+1. Confirm you can access ACA at http://{server}/ocms
+
 ### Install web applications on Alfresco Tomcat {#install-webapps-alfresco-tomcat}
 This section walks through how to install the web applications on Alfresco Tomcat (recommended for easier 
 non-Production environment installation).
@@ -591,6 +595,8 @@ non-Production environment installation).
         * Lines 26, 29, 39, 40, 42, 48, 49
 
 1. Start Alfresco Tomcat
+
+1. Confirm you can access ACA at http://{server}/ocms
 
 ## Install Configurations
 
