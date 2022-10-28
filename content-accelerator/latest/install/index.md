@@ -274,14 +274,6 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
                }
 
             }
-
-
-            server {
-               listen *:3000;
-               location / {
-                     proxy_pass http://${your-TOMCAT-server-name}:3000;
-               }
-            }
          }
          ```
 
