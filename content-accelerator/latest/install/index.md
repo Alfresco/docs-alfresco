@@ -616,12 +616,25 @@ non-Production environment installation).
 
    This will create the base groups and folder for the Policy and Procedure solution. 
 
-1. Import default configuration:
+1. Import default configuration. Rhere are two ways you can do this.
+   
+   OPTION 1 - use the config import tool (This may not be available on initial install): 
 
-   In a browser navigate to `{Application Base URL}/ocms/admin/ConfigArchiver` and login to the application as the 
-   Alfresco Administrator.
+      * In a browser navigate to `{Application Base URL}/ocms/admin/ConfigArchiver` and login to the application as the Alfresco Administrator.
 
-   Use the *Import Config* function to import the `default.zip` provided with the installation. 
+      * Use the *Import Config* function to import the `default.zip` provided with the installation. 
+
+   OPTION 2 - upload the configs via share: 
+
+      * In a browser navigate to `{Application Base URL}/share` and login to the application as the Alfresco Administrator.
+
+      * Navigate to the repository and into the folder `hpi`
+
+      * Drag and drop the `default.zip` folder into this location 
+
+      * Delete all contents of the current `default` folder
+
+      * Click on the `default.zip` and choose the "unzip to" action, select the `respository> hpi> default` folder
 
 1. (OPTIONAL) This step is only required if **NOT** using the Alfresco Enterprise Viewer:
 
