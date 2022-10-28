@@ -44,7 +44,7 @@ Additionally, these properties can be set as environment variables in Alfresco R
 
 ```docker
 alfresco:
-    image: quay.io/alfresco/alfresco-content-repository:7.1.0
+    image: quay.io/alfresco/alfresco-content-repository:7.3.0
     environment:
         JAVA_OPTS: "
         -Dindex.subsystem.name=elasticsearch
@@ -212,7 +212,7 @@ To override some of these values command line system properties can be specified
 $ java -DSPRING_ELASTICSEARCH_REST_URIS=http://localhost:9200
  -DSPRING_ACTIVEMQ_BROKERURL=nio://activemq:61616
  -DALFRESCO_SHAREDFILESTORE_BASEURL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file/
- -jar alfresco-elasticsearch-live-indexing-1.0.0-app.jar
+ -jar alfresco-elasticsearch-live-indexing-3.2.0-app.jar
 ```
 
 The same convention can be used when deploying the Elasticsearch connector using the Docker compose template.
