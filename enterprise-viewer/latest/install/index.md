@@ -104,7 +104,7 @@ In this section the Alfresco Enterprise Viewer collaboration features Socket.IO 
 
 1. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer in Share:
 
-   Navigate to the `ALFRESCO_HOME/amps_share` directory and copy the following amps there:
+   Navigate to the `ALFRESCO_HOME/amps_share`directory (create the directory if it doesnt exist). Copy the following amps there:
    * `oa-service-share.amp`
    * `oa-share-webpreview.amp`
    * `oa-service-share.amp`
@@ -204,6 +204,8 @@ This section walks through how to install the web applications on a separate Tom
 
 1. Start Tomcat
 
+1. Confirm you can access AEV at http://{server}/OpenAnnotate
+
 ### Install web applications on Alfresco Tomcat {#install-webapps-alfresco-tomcat}
 This section walks through how to install the web applications on Alfresco Tomcat (recommended for easier 
 non-Production environment installation).
@@ -238,3 +240,5 @@ non-Production environment installation).
 1. Copy the `openannotate-override-placeholders.properties` file to the `ALFRESCO_HOME/tomcat/shared/classes` directory.
 
 1. Start Alfresco Tomcat
+
+1. Confirm you can access AEV at http://{server}/OpenAnnotate
