@@ -259,6 +259,15 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
    Place the `TextLicense.l4j` file in the `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/license` 
    directory. 
 
+1. Configure OpenConnect
+   
+    Update the environment variables in the provided `opencontent-override-placeholders.properties`:
+
+    There are many configurations that [can] [be] overridden in this file later on. 
+   
+    To start, set the follow property: 
+     * `oc.email.smtp.host={SMTP host}`
+
 1. Deploy the OpenConnect configuration: 
     
     Deploy/Copy the following files to the `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` 
