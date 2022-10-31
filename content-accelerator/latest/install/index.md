@@ -35,20 +35,20 @@ Operating System and libraries for the target server machine:
 ## Install Proxy (Optional in non-production env)
 
 ### Web Proxy Background
-ACA must be exposed on the same port as OpenContent.  In other words, if the user accesses ACA using  `http://myserver:8080/hpi`, then ACA must make Ajax requests to OpenContent at: `http://myserver:8080/OpenContent`.  
+ACA must be exposed on the same port as OpenContent.  In other words, if the user accesses ACA using  `http://myserver:8080/ocms`, then ACA must make Ajax requests to OpenContent at: `http://myserver:8080/OpenContent`.  
 
 Since ACA executes as a JavaScript application in the browser and communicates with OpenContent on the server, you must account for the Same Origin Policy.  There are two ways to handle this:
 
 1. Deploy the ACA war to the same Application Server that's running OpenContent.  This ensures that ACA is sourced from the same server and port as OpenContent.  Note - for this to work, the application server port must be accessible to the end user's browser.
 2. Front all communication from ACA to OpenContent through a web server. 
-   * Install ACA on `http://myserver1:9090/hpi`
+   * Install ACA on `http://myserver1:9090/ocms`
    * Install OpenContent on `http://myserver2:8080/OpenContent`
    * Setup a proxy to route:
-   * `http://myserver3/hpi` routes to `http://myserver1:9090/hpi` 
+   * `http://myserver3/ocms` routes to `http://myserver1:9090/ocms` 
    * `http://myserver3/OpenContent` routes to `http://myserver2:8080/OpenContent`
    * In the above example, ACA would be configured to access OpenContent at `http://myserver3/OpenContent`.  Now, to the browser all communication is on the same protocol, server, and port so the Same Origin Policy is upheld.
 
-If using option 1 (deploying aca/aev to the Alfresco Tomcat), you can skip to http://"Install libraries and AMPs" since no proxy will need to be installed.
+If using option 1 (deploying ACA to the Alfresco Tomcat), you can skip to http://"Install libraries and AMPs" since no proxy will need to be installed.
 
 If using option 2 (preferred for a production deployment), you must complete the following steps to setup a proxy. 
 
@@ -63,7 +63,6 @@ Policy and Procedure Accelerator solution:
 * `{Application Base URL}/share`
 * `{Application Base URL}/WizardAdmin`
 * `{Application Base URL}/ocms`
-* `{Application Base URL}/OpenAnnotate`
 * `{Application Base URL}/oat` (if installed)
 
 Claims Management Accelerator solution:
@@ -71,7 +70,6 @@ Claims Management Accelerator solution:
 * `{Application Base URL}/alfresco`
 * `{Application Base URL}/share`
 * `{Application Base URL}/ocms`
-* `{Application Base URL}/OpenAnnotate`
 * `{Application Base URL}/oat` (if installed)
 
 When installing a proxy please note that you are not limited to using apache or ngix. These are just two common options which we cover example installs of below. As long as the above routes are proxied appropriately you can move onto http://"Install libraries and AMPs". 
@@ -105,7 +103,7 @@ When installing a proxy please note that you are not limited to using apache or 
 
 1. Modify the httpd-vhosts.conf file (${apache.home}\conf\extra\httpd-vhosts.conf).  Remove the sample virtual hosts from the file by deleting the `<VirtualHost *:80>` sections.
 
-1. Add a new virtual host to your vhosts configuration file that points to the Alfresco Tomcat and Tomcat running ACA/AEV/WizardAdmin by adding the following lines.
+1. Add a new virtual host to your vhosts configuration file that points to the Alfresco Tomcat and Tomcat running ACA/WizardAdmin by adding the following lines.
 
       Make sure to update server names and paths as needed (aka replace anything surrounded by ${}). 
       Make sure to also Update the proxyPass sections at the bottom to proxy the apporpriate routes. 
@@ -143,32 +141,13 @@ When installing a proxy please note that you are not limited to using apache or 
 	        Allow from all
 	    </Location>
 
-            #Optional - if you want to gzip static files before you send them out to clients, add the below
-            <Location /hpi>
-                AddOutputFilterByType DEFLATE text/plain
-		AddOutputFilterByType DEFLATE text/html
-		AddOutputFilterByType DEFLATE text/xml
-		AddOutputFilterByType DEFLATE text/css
-		AddOutputFilterByType DEFLATE application/xml
-		AddOutputFilterByType DEFLATE application/xhtml+xml
-		AddOutputFilterByType DEFLATE application/rss+xml
-		AddOutputFilterByType DEFLATE application/javascript
-		AddOutputFilterByType DEFLATE application/x-javascript
-		AddOutputFilterByType DEFLATE application/json
-            </Location>
-
 	    # Proxy /alfresco requests to Alfresco's Tomcat
 	    ProxyPass /alfresco ajp://${your-TOMCAT-server-name}:8009/alfresco
 	    ProxyPass /share ajp://${your-TOMCAT-server-name}:8009/share
 	    # OR, use HTTP like this (use AJP in a production environment, as HTTP has more overhead and issues):
 	    # ProxyPass /alfresco http://${your-server-name}:8080/alfresco
 
-	    #Proxy all requests at the root to the Tomcat that actually has the application in question ex: 
-            #   /ocms
-            #   /OpenAnnotate
-            #   /WizardAdmin
-            #   /OpenContent [Documentum/Hadoop/Solr only]) 
-            # This is generally a separate tomcat than the Tomcat running Alfresco for Alfresco environments
+	    #Proxy all requests at the root to the Tomcat that actually has the application in question
 	    ProxyPass / ajp://${your-TOMCAT-server-name}:9090/
 
     </VirtualHost>
@@ -176,7 +155,7 @@ When installing a proxy please note that you are not limited to using apache or 
 
 1. ACA has some routes that are formatted like the following:
    ```
-   /hpi/{aca-module}/{object-id}
+   /ocms/{aca-module}/{object-id}
    ```
    In the above case, the object ID is URL encoded.  This means that forward slashes in the object ID are URL encoded to `%2F`.  By default, apache httpd does not serve any URLs with a URL encoded forward (or back) slash.  
 
@@ -268,11 +247,6 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
                location /ocms {
                      proxy_pass http://${your-TOMCAT-server-name}:9090/ocms;
                }
-
-               location /OpenAnnotate {
-                     proxy_pass http://${your-TOMCAT-server-name}:9090/OpenAnnotate;
-               }
-
             }
          }
          ```
@@ -498,7 +472,7 @@ This section walks through how to install the web applications on a separate Tom
 
    ACA has some routes that are formatted like the following:
    ```
-   /hpi/{aca-module}/{object-id}
+   /ocms/{aca-module}/{object-id}
    ```
    In the above case, the object ID is URL encoded.  This means that forward slashes in the object ID are URL encoded to `%2F`.  By default, Tomcat does not serve any URLs with a URL encoded forward (or back) slash.  
 
@@ -569,7 +543,7 @@ non-Production environment installation).
 
    ACA has some routes that are formatted like the following:
    ```
-   /hpi/{aca-module}/{object-id}
+   /ocms/{aca-module}/{object-id}
    ```
    In the above case, the object ID is URL encoded.  This means that using Alfresco as a back-end, causes forward slashes in the object ID to be URL encoded to `%2F`.  By default, neither Tomcat nor Apache serve any URLs with a URL encoded forward (or back) slash.  
 
