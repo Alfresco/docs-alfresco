@@ -48,13 +48,13 @@ Since ACA executes as a JavaScript application in the browser and communicates w
    * `http://myserver3/OpenContent` routes to `http://myserver2:8080/OpenContent`
    * In the above example, ACA would be configured to access OpenContent at `http://myserver3/OpenContent`.  Now, to the browser all communication is on the same protocol, server, and port so the Same Origin Policy is upheld.
 
-If using option 1 (deploying ACA to the Alfresco Tomcat), you can skip to http://"Install libraries and AMPs" since no proxy will need to be installed.
+If using option 1 (deploying ACA to the Alfresco Tomcat), you can skip to [Install libraries](#install-libraries) since no proxy will need to be installed.
 
 If using option 2 (preferred for a production deployment), you must complete the following steps to setup a proxy. 
 
 ### Proxy Setup 
 
-Durring install, the following routes must be proxied to their respective ports and applications. SSL is recommended at a minimum at the 
+During install, the following routes must be proxied to their respective ports and applications. SSL is recommended at a minimum at the 
 Proxy layer for Production installations.
 
 Policy and Procedure Accelerator solution: 
@@ -63,16 +63,14 @@ Policy and Procedure Accelerator solution:
 * `{Application Base URL}/share`
 * `{Application Base URL}/WizardAdmin`
 * `{Application Base URL}/ocms`
-* `{Application Base URL}/oat` (if installed)
 
 Claims Management Accelerator solution:
 
 * `{Application Base URL}/alfresco`
 * `{Application Base URL}/share`
 * `{Application Base URL}/ocms`
-* `{Application Base URL}/oat` (if installed)
 
-When installing a proxy please note that you are not limited to using apache or ngix. These are just two common options which we cover example installs of below. As long as the above routes are proxied appropriately you can move onto http://"Install libraries and AMPs". 
+When installing a proxy please note that you are not limited to using apache or Nginx. These are just two common options which we cover example installs of below. As long as the above routes are proxied appropriately you can move onto http://"Install libraries and AMPs". 
 
 ### Example Proxy Install 1 - Apache HTTPD on Windows
 
@@ -98,15 +96,13 @@ When installing a proxy please note that you are not limited to using apache or 
            LoadModule access_compat_module modules/mod_access_compat.so
            LoadModule authz_host_module modules/mod_authz_host.so
            LoadModule filter_module modules/mod_filter.so
-           LoadModule deflate_module modules/mod_deflate.so   #optional - only needed if you plan on using the gzip flate stuff below
-
 
 1. Modify the httpd-vhosts.conf file (${apache.home}\conf\extra\httpd-vhosts.conf).  Remove the sample virtual hosts from the file by deleting the `<VirtualHost *:80>` sections.
 
 1. Add a new virtual host to your vhosts configuration file that points to the Alfresco Tomcat and Tomcat running ACA/WizardAdmin by adding the following lines.
 
       Make sure to update server names and paths as needed (aka replace anything surrounded by ${}). 
-      Make sure to also Update the proxyPass sections at the bottom to proxy the apporpriate routes. 
+      Make sure to also Update the proxyPass sections at the bottom to proxy the appropriate routes. 
 
 ```xml
     <VirtualHost *:80>
@@ -174,7 +170,7 @@ When installing a proxy please note that you are not limited to using apache or 
 
 ### Example Proxy Install 2 -  Nginx install on Amazon Linux
 
-Here are some sample steps of installing nginx as a proxy (steps are done on amazon-linx and may need to be adjusted for other distributions)
+Here are some sample steps of installing nginx as a proxy (steps are done on amazon-linux and may need to be adjusted for other distributions)
 
 1. Install nginx on the server. For example:
 
@@ -194,9 +190,10 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
 1. Configure the proxy 
 
     * `sudo vi /etc/nginx/nginx.conf`
-    * Replace contents of the file with the following (replacing ports and servers and adding additional proxy_pass configs as neccesary)
+    * Replace contents of the file with the following (replacing ports and servers and adding additional proxy_pass configs as necessary)
 
-    ```
+    ```conf 
+
          worker_processes  1;
 
          events {
@@ -259,7 +256,7 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
 
 1. Test that the proxy is working properly by hitting http://${your-TOMCAT-server-name}/share
 
-## Install libraries
+## Install libraries {#install-libraries}
 >**IMPORTANT!** Backup the Alfresco Content Services database, `alfresco.war`, and `share.war`. These resources need to 
 >be backed up in case of a rollback being required. (Make a copy of the original wars and store them in a safe location)
 
@@ -344,7 +341,7 @@ Services.
    
     Update the environment variables in the provided `opencontent-override-placeholders.properties`:
 
-    There are many configurations that [can] [be] overrriden in this file later on. 
+    There are many configurations that [can] [be] overridden in this file later on. 
 
     There are a few you will [need] to set for OpenContent to work correctly listed below:
    
@@ -623,7 +620,7 @@ non-Production environment installation).
 
       * Delete all contents of the current `default` folder
 
-      * Click on the `default.zip` and choose the "unzip to" action, select the `respository> hpi> default` folder
+      * Click on the `default.zip` and choose the "unzip to" action, select the `repository> hpi> default` folder
 
 1. (OPTIONAL) This step is only required if **NOT** using the Alfresco Enterprise Viewer:
 
