@@ -2,19 +2,358 @@
 title: Enterprise Viewer Installation Guide
 ---
 
+>**IMPORTANT!** If you are installing both ACA and AEV, we recommend that you start with the ACA install guide.
+
 ## Prerequisites
 
 ### Java
-
 Alfresco Enterprise Viewer requires Java 11 or above. Consult your repository of choice for more detailed requirements. For example, Alfresco 4.0 and 4.1 require Java 1.6.  Alfresco 4.2 requires Java 1.7.
 
-If Installing ACA and AEV we reccomend following the ACA install guide first. 
+### Alfresco repository version
+See the [Supported Platforms]({% link enterprise-viewer/latest/support.md %}) for more information.
 
-### OpenContent
+Please ensure you have the correct version of the Alfresco Enterprise Viewer package for your Alfresco Content Services version. 
+If you are unsure, please contact Alfresco Support.
 
-OpenContent is a prerequisite before Alfresco Enterprise Viewer can be installed. For OpenContent installation instructions, please see the [OpenContent Installation Guide](https://github.com/tsgrp/OpenContent/wiki/Installation-guide). Note: you MUST install OpenContent before Alfresco Enterprise Viewer will function, so be sure to follow those steps before continuing.
+### Operating System requirements
+Operating System and libraries for the target server machine:
 
-## Install Libraries
+* **Windows**: Windows Server 2016 or newer
+* **Linux**: CentOS, Ubuntu, RHL, Amazon Linux
+  
+## Install Proxy 
+
+### Do you need a Web Proxy?
+
+When installing AEV you have 2 options. 
+
+Option 1 - Deploy AEV to the Alfresco Tomcat. In this case you can skip to [OpenContent install](#installoc) since no proxy will need to be installed.
+
+Option 2 (preferred for a production deployment) - Deploy AEV to a separate tomcat. In this case you must complete the following steps to setup a proxy. 
+
+### Proxy Setup 
+
+The following routes must be proxied to their respective ports and applications in order for AEV to work correctly. SSL is recommended at a minimum at the 
+Proxy layer for Production installations.
+
+* `{Application Base URL}/alfresco`
+* `{Application Base URL}/share`
+* `{Application Base URL}/OpenAnnotate`
+* `{Application Base URL}/oat` (if installed)
+
+
+When installing a proxy please note that you are not limited to using apache or Nginx. These are just two common options which we cover example installs of below. As long as the above routes are proxied appropriately you can move onto the [AEV install](#install). 
+
+>**IMPORTANT!** If you already completed the ACA install guide and setup a proxy as a part of that install, you can just add the following routes: 
+>* `{Application Base URL}/OpenAnnotate`
+>* `{Application Base URL}/oat` (if installed)
+
+>To that proxy configuration and restart the proxy. Then go ahead and proceed to the [AEV install](#install). 
+
+
+### Example Proxy Install 1 - Apache HTTPD on Windows
+
+1. Install Apache httpd
+
+   Obtain binaries from https://www.apachelounge.com/download/
+
+   Install Apache to `C:\Apache\Apache24` (change to your desired version as appropriate).  This is referred to as `${apache.home}` below.
+
+   - Navigate to `${apache.home}\conf` and open up `httpd.conf`
+   - Find the line that has ServerRoot on it  
+      - It should default to something like `ServerRoot "c:/Apache24"`
+      - Change the ServerRoot to where you extracted Apache
+   - If you would like to install as a service, consult the Readme.txt file that comes with the installation.
+
+1. Modify httpd.conf (${apache.home}\conf\httpd.conf) to load the Virtual Hosts configuration file, and the Proxy, ProxyAJP, and Rewrite modules.  **Uncomment** the following lines:
+
+           Include conf/extra/httpd-vhosts.conf
+           LoadModule proxy_module modules/mod_proxy.so
+           LoadModule proxy_ajp_module modules/mod_proxy_ajp.so
+           LoadModule proxy_http_module modules/mod_proxy_http.so
+           LoadModule rewrite_module modules/mod_rewrite.so
+           LoadModule access_compat_module modules/mod_access_compat.so
+           LoadModule authz_host_module modules/mod_authz_host.so
+           LoadModule filter_module modules/mod_filter.so
+
+1. Modify the httpd-vhosts.conf file (${apache.home}\conf\extra\httpd-vhosts.conf).  Remove the sample virtual hosts from the file by deleting the `<VirtualHost *:80>` sections.
+
+1. Add a new virtual host to your vhosts configuration file that points to the Alfresco Tomcat and Tomcat running AEV by adding the following lines.
+
+      Make sure to update server names and paths as needed (aka replace anything surrounded by ${}). 
+      Make sure to also Update the proxyPass sections at the bottom to proxy the appropriate routes. 
+
+```xml
+    <VirtualHost *:80>
+	    ServerName ${your-server-name}
+	    ErrorLog "logs/${your-server-name}-error.log"
+	    CustomLog "logs/${your-server-name}-access.log" common
+	    ServerAlias ${your-server-name}
+
+	    AllowEncodedSlashes On
+	    LimitRequestFieldSize 65536
+	    ProxyIOBufferSize 65536
+
+	    #Optional - these two lines redirect the root URL (/) to /ocms.
+	    RewriteEngine on
+	    RewriteRule ^/$ /ocms [PT]
+	
+	    <Directory />
+	        Options All
+	        Order Deny,Allow
+	        Allow from all
+	    </Directory>
+
+	    ProxyRequests off
+
+	    <Proxy *>
+	        Order Deny,Allow
+	        Allow from all
+	    </Proxy>
+
+	    <Location />
+	        Order Deny,Allow
+	        Allow from all
+	    </Location>
+
+	    # Proxy /alfresco requests to Alfresco's Tomcat
+	    ProxyPass /alfresco ajp://${your-TOMCAT-server-name}:8009/alfresco
+	    ProxyPass /share ajp://${your-TOMCAT-server-name}:8009/share
+	    # OR, use HTTP like this (use AJP in a production environment, as HTTP has more overhead and issues):
+	    # ProxyPass /alfresco http://${your-server-name}:8080/alfresco
+
+	    #Proxy all requests at the root to the Tomcat that actually has the application in question ex: 
+	    ProxyPass / ajp://${your-TOMCAT-server-name}:9090/
+
+    </VirtualHost>
+```
+
+1. (Re)start the proxy 
+
+   Go to `${apache.home}`/bin, open a command prompt, and run httpd.exe 
+
+1. Test by hitting http://${your-server-name}/alfresco 
+
+
+### Example Proxy Install 2 -  Nginx install on Amazon Linux
+
+Here are some sample steps of installing nginx as a proxy (steps are done on amazon-linux and may need to be adjusted for other distributions)
+
+1. Install nginx on the server. For example:
+
+   * `sudo amazon-linux-extras list | grep nginx`
+   * `sudo amazon-linux-extras enable nginx1`
+   * `sudo yum clean metadata`
+   * `sudo yum -y install nginx`
+   * `nginx -v`
+
+1. Confirm you can startup nginx
+
+    * `sudo systemctl start nginx.service` (start the service)
+    * `sudo systemctl reload nginx.service` (reload the service)
+    * `sudo systemctl status nginx.service` (check that the status is active)
+    * `sudo systemctl stop nginx.service` (stop the service)
+
+1. Configure the proxy 
+
+    * `sudo vi /etc/nginx/nginx.conf`
+    * Replace contents of the file with the following (replacing ports and servers and adding additional proxy_pass configs as necessary)
+
+    ```
+    
+         worker_processes  1;
+
+         events {
+            worker_connections  1024;
+         }
+
+         http {
+            server {
+               listen *:80;
+
+               client_max_body_size 0;
+
+               set  $allowOriginSite *;
+               proxy_pass_request_headers on;
+               proxy_pass_header Set-Cookie;
+
+               # External settings, do not remove
+               #ENV_ACCESS_LOG
+
+               proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
+               proxy_redirect off;
+               proxy_buffering off;
+               proxy_set_header Host            $host:$server_port;
+               proxy_set_header X-Real-IP       $remote_addr;
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+               proxy_pass_header Set-Cookie;
+
+               # Protect access to SOLR APIs
+               location ~ ^(/.*/service/api/solr/.*)$ {return 403;}
+               location ~ ^(/.*/s/api/solr/.*)$ {return 403;}
+               location ~ ^(/.*/wcservice/api/solr/.*)$ {return 403;}
+               location ~ ^(/.*/wcs/api/solr/.*)$ {return 403;}
+
+               location ~ ^(/.*/proxy/alfresco/api/solr/.*)$ {return 403 ;}
+               location ~ ^(/.*/-default-/proxy/alfresco/api/.*)$ {return 403;}
+               
+               # Protect access to Prometheus endpoint
+               location ~ ^(/.*/s/prometheus)$ {return 403;}
+               
+               location /alfresco {
+                     proxy_pass http://${your-TOMCAT-server-name}:8080/alfresco;
+               }
+
+               location /share {
+                     proxy_pass  http://${your-TOMCAT-server-name}:8080/share;
+               }
+
+               location /OpenAnnotate {
+                     proxy_pass http://${your-TOMCAT-server-name}:9090/OpenAnnotate;
+               }
+
+            }
+         }
+         ```
+
+1. Start the nginx proxy and confirm it started up correctly
+    * `sudo systemctl start nginx.service`
+    * `sudo systemctl status nginx.service`
+
+1. Make sure whatever port your proxy is listening on is open to the end user (example: you will need to open port 80 if you are using the configs in our example above)
+
+1. Test that the proxy is working properly by hitting http://${your-TOMCAT-server-name}/share
+
+## Install OpenContent (Only need to follow these steps if installing AEV without ACA) {#installoc}
+
+1. Stop the Alfresco server
+   
+1. Copy the OpenContent AMP to the Alfresco Content Services installation:
+
+   Navigate to the `ALFRESCO_HOME/amps` directory and copy the `tsgrp-opencontent.amp` to this directory. 
+   
+1. Apply the AMP
+   
+   From the directory where your alfresco tomcat lives, run this command
+   Linux:
+   
+   ```bash
+   java -jar {ALFRESCO_HOME}/bin/alfresco-mmt.jar install {ALFRESCO_HOME}/amps/tsgrp-opencontent.amp tomcat/webapps/alfresco.war -force
+   ```
+   
+   Windows:
+   
+   ```bash
+   java\{javaVersion}\bin\java -jar {ALFRESCO_HOME}\bin\alfresco-mmt.jar install {ALFRESCO_HOME}\amps\tsgrp-opencontent.amp tomcat\webapps\alfresco.war -force 
+   ```
+
+1. Delete current Alfresco deployed WAR files
+
+   Navigate to the `ALFRESCO_HOME/tomcat/webapps` directory and delete the `alfresco` folder (if it exists)
+
+1. Install license file for OpenConnect
+
+   Navigate to the `ALFRESCO_HOME/tomcat/shared/classes/alfresco` folder and create the following folder structure: 
+   `module/com.tsgrp.opencontent/license`.
+
+   Place the `TextLicense.l4j` file in the `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/license` 
+   directory. 
+
+1. Deploy the OpenConnect configuration: 
+    
+    Deploy/Copy the following files to the `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` 
+    folder:
+  
+    * `opencontent-override-placeholders.properties`
+    * `opencontent-override-config.xml`
+    * `opencontent-override-module-context.xml`
+
+1. Update Tomcat server configuration:   
+    
+   By default, Apache Tomcat doesn't support UTF-8 characters for languages other than English. To enable support, the web.xml and server.xml files need to be modified in the deployed Tomcat. 
+
+   When running OpenContent on Tomcat 8+, the `relaxedQueryChars` and `relaxedPathChars` parameters are required on the Connector. 
+   If you are using Tomcat older than version 8.5 - you may need to add this to catalina.properties in your tomcat/conf folder.: ```tomcat.util.http.parser.HttpParser.requestTargetAllow=|{}```
+
+   The following will need to be updated: 
+
+   In the __${tomcat.home}/conf/web.xml__
+
+   Un-comment the setCharacterEncodingFilter and its mapping in web.xml (If not already uncommented)
+
+   ```xml
+   <!-- ================== Built In Filter Definitions ===================== -->
+
+
+   <!-- A filter that sets character encoding that is used to decode -->
+   <!-- parameters in a POST request -->
+      <filter>
+         <filter-name>setCharacterEncodingFilter</filter-name>
+         <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+         <init-param>
+               <param-name>encoding</param-name>
+               <param-value>UTF-8</param-value>
+         </init-param>
+         <async-supported>true</async-supported>
+      </filter>
+
+   <!-- ==================== Built In Filter Mappings ====================== -->
+
+   <!-- The mapping for the Set Character Encoding Filter -->
+      <filter-mapping>
+         <filter-name>setCharacterEncodingFilter</filter-name>
+         <url-pattern>/*</url-pattern>
+      </filter-mapping>
+   ```
+
+   In the __${tomcat.home}/conf/server.xml__
+
+   Add the following to the connector if 
+   not already present:
+
+    * `URIEncoding="UTF-8"`
+    * `connectionTimeout="20000"`
+    * `maxHttpHeaderSize="32768"`
+    * `relaxedQueryChars="{}[]|"`
+    * `relaxedPathChars="{}[]|"`
+
+   ```xml
+      <Connector port="8080" protocol="HTTP/1.1"
+                  connectionTimeout="20000"
+                  redirectPort="8443"
+                  URIEncoding="UTF-8"
+                  relaxedQueryChars="{}[]|"
+                  relaxedPathChars="{}[]|" />
+   ```
+
+   >**Note:** that in a typical Alfresco installation, the 8080 connector can be modified for HTTP communications and 
+   >the 443 connector can be modified for HTTPS connections.
+
+1. (OPTIONAL) This step is only required if using Alfresco Search Services 2.0 or greater:
+
+    a. Navigate to the `SOLR_HOME/solrhome/conf` folder.
+    
+    b. In the file `shared.properties`, uncomment the following properties (if not already uncommented):
+       * `alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text`
+       * `alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content`
+       * `alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext`
+    
+    c. Once the above changes have been made, Solr must be reindexed. 
+       
+       Stop the Solr process if it is running. 
+    
+       Clear out the following folder paths:
+        * `SOLR_HOME/solrhome/alfresco/index`
+        * `SOLR_HOME/solrhome/archive/index`
+        * `SOLR_HOME/solrhome/alfrescoModels`
+      
+       Start Solr process.
+
+1. Start up Alfresco server.
+
+1. Confirm OpenContent has been installed correctly by accessing http://{server}/alfresco/OpenContent
+
+## Install Libraries {#install}
 
 ### PDFIUM Installation (OPTIONAL) {#pdfium}
 >**Note:** This step is only needed if using Alfresco Enterprise Viewer on Linux.
@@ -71,8 +410,9 @@ In this section the Alfresco Enterprise Viewer collaboration features Socket.IO 
    Place the socket-servers zip in the directory where the Collaboration server is to be installed, and unzip it. This 
    will be known as `SOCKET_HOME`.
 
-   This directory will now contain `server.js`, `windows-service.js`, `package.json`, `uninstall-windows-service.js`, 
-   `node_modules` and a `config` directory.
+   This directory will now contain `server.js`, `Dockerfile`, `windows-service.js`, `package.json`, etc.
+
+1. If no `node_modules` directory is included in the `SOCKET_HOME`, then run `npm i` from the `SOCKET_HOME`directory to generate the `node_modules` directory. 
 
 1. Test the Socket Server
 
@@ -104,7 +444,7 @@ In this section the Alfresco Enterprise Viewer collaboration features Socket.IO 
 
 1. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer in Share:
 
-   Navigate to the `ALFRESCO_HOME/amps_share`directory (create the directory if it doesnt exist). Copy the following amps there:
+   Navigate to the `ALFRESCO_HOME/amps_share`directory (create the directory if it doesn't exist). Copy the following amps there:
    * `oa-service-share.amp`
    * `oa-share-webpreview.amp`
    * `oa-service-share.amp`
@@ -137,12 +477,12 @@ In this section the Alfresco Enterprise Viewer collaboration features Socket.IO 
 1. Start alfresco
 
 ## Install webapps
-This sections walks through how to install the Alfresco Enterprise Viewer web application. AEV can be installed on the same tomcat as Alfresco or it can be installed on a separate tomcat using a proxy. See the http://ACA Install guide#Install_Proxy section for more information on installing a proxy. 
+This sections walks through how to install the Alfresco Enterprise Viewer web application.
 
->**Note:** If you installed a proxy then follow the [Install Web Applications on Separate Tomcat](#install-webapps-separate-tomcat) Instructions. 
-> If no proxy was installed then follow the [Install Web Applications on Alfresco Tomcat](#install-webapps-alfresco-tomcat) instructions. 
+>**Note:** If you installed a proxy then follow the [Install Web Applications on Separate Tomcat](#install-webapps-separate-tomcat-oa) Instructions. 
+> If no proxy was installed then follow the [Install Web Applications on Alfresco Tomcat](#install-webapps-alfresco-tomcat-oa) instructions. 
 
-### Install web applications on separate Tomcat {#install-webapps-separate-tomcat}
+### Install web applications on separate Tomcat {#install-webapps-separate-tomcat-oa}
 This section walks through how to install the web applications on a separate Tomcat instance (meaning, you must have a proxy setup).
 
 1. Install Apache Tomcat. See https://archive.apache.org/dist/tomcat. Note that if you installed aca, you can utilize the same tomcat you may have installed for aca - shut it down now if its already running. 
@@ -206,7 +546,7 @@ This section walks through how to install the web applications on a separate Tom
 
 1. Confirm you can access AEV at http://{server}/OpenAnnotate
 
-### Install web applications on Alfresco Tomcat {#install-webapps-alfresco-tomcat}
+### Install web applications on Alfresco Tomcat {#install-webapps-alfresco-tomcat-oa}
 This section walks through how to install the web applications on Alfresco Tomcat (recommended for easier 
 non-Production environment installation).
 
