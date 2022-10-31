@@ -521,6 +521,15 @@ This section walks through how to install the web applications on a separate Tom
    
    Create the path `TOMCAT_HOME/shared/classes`, if it does not already exist.
 
+1.  Copy the `hpi-overrides.properties` file into the `TOMCAT_HOME/shared/classes` directory.
+
+1. Verify the secureBrowserCookies configuration. If you are planning to setup SSL then secureBrowserCookies should be set to `true` (this is the default), else it should be `false`. 
+
+   There are two places where this config will need to be updated: 
+
+   * `TOMCAT_HOME/shared/classes/hpi-overrides.properties`
+   * `TOMCAT_HOME/webapps/ocms/assets/config/config-overrides.js`
+
 1. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution AND 
     if `TOMCAT_HOME` is NOT `/opt/ocms-policy/apache-tomcat`
 
@@ -579,6 +588,14 @@ non-Production environment installation).
 
    Create a `classes` directory within the `ALFRESCO_HOME/tomcat/shared` directory, if it does not already exist.
 
+1. Copy the `hpi-overrides.properties` file into the `ALFRESCO_HOME/tomcat/shared/classes` directory.
+
+1. Verify the secureBrowserCookies configuration. If you are planning to setup SSL then secureBrowserCookies should be set to `true` (this is the default), else it should be `false`. 
+
+   There are two places where this config will need to be updated: 
+
+   * `ALFRESCO_HOME/shared/classes/hpi-overrides.properties`
+   * `ALFRESCO_HOME/tomcat/webapps/ocms/assets/config/config-overrides.js`
 
 1. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution: 
 
