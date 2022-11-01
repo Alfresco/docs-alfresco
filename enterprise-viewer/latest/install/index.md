@@ -20,6 +20,12 @@ Operating System and libraries for the target server machine:
 
 * **Windows**: Windows Server 2016 or newer
 * **Linux**: CentOS, Ubuntu, RHL, Amazon Linux
+
+### Download installation artifacts from Hyland Community
+
+You will need to download the following installation package from Hyland Community in order to install AEV
+
+* alfresco-enterprise-viewer-package-3.5.0.zip
   
 ## Install Proxy 
 
@@ -253,11 +259,9 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
 
 1. Install license file for OpenConnect
 
-   Navigate to the `ALFRESCO_HOME/tomcat/shared/classes/alfresco` folder and create the following folder structure: 
-   `module/com.tsgrp.opencontent/license`.
+   Create the `module/com.tsgrp.opencontent/license` folder structure on the /alfresco classpath, for example, at `ALFRESCO_HOME/tomcat/shared/classes/alfresco`
 
-   Place the `TextLicense.l4j` file in the `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/license` 
-   directory. 
+   Place the `TextLicense.l4j` file in the `license` directory. 
 
 1. Configure OpenConnect
    
@@ -270,7 +274,7 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
 
 1. Deploy the OpenConnect configuration: 
     
-    Deploy/Copy the following files to the `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` 
+    Deploy/Copy the following files onto the /alfresco classpath, for example, `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` 
     folder:
   
     * `opencontent-override-placeholders.properties`
@@ -476,7 +480,7 @@ In this section the Alfresco Enterprise Viewer collaboration features Socket.IO 
 
 1. Configure OpenConnect
    
-    Update the environment variables in the provided `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/opencontent-override-placeholders.properties`:
+    Update the environment variables in the provided `opencontent-override-placeholders.properties`. Deploy the updated file to the /alfresco classpath, for example, the `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` directory:
 
     If you installed ffmpeg and pdfium above, update these properties:
    
@@ -549,7 +553,7 @@ This section walks through how to install the web applications on a separate Tom
     Replace the `${server}` and `${port}` placeholders in the above URL with the correct server and port values for 
     the environment being installed to (See the section [Install collaboration features](#collab)))
 
-1. Copy the `openannotate-override-placeholders.properties` file to the `TOMCAT_HOME/shared/classes` directory.
+1. Copy the `openannotate-override-placeholders.properties` file to the tomcat classpath, for example, in the `TOMCAT_HOME/shared/classes` directory.
 
 1. Start Tomcat
 
@@ -586,7 +590,7 @@ non-Production environment installation).
    Replace the `${server}` and `${port}` placeholders in the above URL with the correct server and port values for
    the environment being installed to. (See the section [Install collaboration features](#collab)))
 
-1. Copy the `openannotate-override-placeholders.properties` file to the `ALFRESCO_HOME/tomcat/shared/classes` directory.
+1. Copy the `openannotate-override-placeholders.properties` file to the /alfresco classpath, for example, in the `ALFRESCO_HOME/tomcat/shared/classes` directory.
 
 1. Start Alfresco Tomcat
 

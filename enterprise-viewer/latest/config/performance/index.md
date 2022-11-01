@@ -64,7 +64,7 @@ pdfium.maxProcessCount=4
 
 Handles binary caching of pre and post transformed content.
 
-Some General places to look to improve your specific production environment are to properly size the OpenContent heap and caches are in ehcache.xml. If your usage patterns are that users don't end up coming back to view the same documents multiple times, you will likely want MORE `oc-content` and `oc-document-overlays` since that is the raw byte[] of the content that MuPDF keeps going to each time to get the content rather than having to go to the repository each time. `oc-pages` isn't as important in this case since the browser will cache most of the pages anyways.
+Some General places to look to improve your specific production environment are to properly size the OpenContent heap and caches are in ehcache.xml. If your usage patterns are that users don't end up coming back to view the same documents multiple times, you will likely want MORE `oc-content` and `oc-document-overlays` since that is the raw byte[] of the content that the transformation agent keeps going to each time to get the content rather than having to go to the repository each time. `oc-pages` isn't as important in this case since the browser will cache most of the pages anyways.
 
 ```xml
  <!-- cache for the content of our objects -->
@@ -128,6 +128,7 @@ Optionally, in the case of "single view" usage of document, local storage can be
 
 Every page of a document is transformed using either Pdfium, Ghostscript, or MuPDF, so anything that can be done to improve the performance of this process will help.
 
+- By default, AEV utilizes PDFium. For utilizing MuPDF or Ghostscript, a third party license may be required.
 - Use an SSD for your temporary directories
 - Even better, leverage a RAM Disk/[tempfs](https://en.wikipedia.org/wiki/Tmpfs) like `/dev/shm` as that is WAY faster than even an SSD
 

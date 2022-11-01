@@ -13,13 +13,11 @@ This page contains instructions for installing the OpenAnnotate Alfresco and Sha
 1. `oa-share-external-launcher.amp` - Alfresco Enterprise Viewer action in Share
 1. `oa-share-webpreview.amp` - Alfresco Enterprise Viewer replacing the OOB Share viewer
 
-If you are a developer looking to build these AMP packages from the SVN source code, see the page [Building the OpenAnnotate Alfresco and Share AMPs](https://github.com/tsgrp/OpenAnnotate/wiki/Building-the-OpenAnnotate-Alfresco-and-Share-AMPs).
-
 If you are looking to install similar AMPs that use Alfresco Enterprise Viewer as a Service, see the page [Installing Alfresco Enterprise Viewer Service Alfresco and Share AMPs](https://github.com/tsgrp/OpenAnnotate/wiki/Installing-OpenAnnotate-Service-Alfresco-and-Share-AMPs).
 
 ### The Share Customizations
 
-The Alfresco Enterprise Viewer Share customizations add additional functionality to Alfresco share for launching Alfresco Enterprise Viewer. The customizations are extensions to Alfresco share that follow the Alfresco SURF conventions for extending share. They do not impact other customizations, and do NOT extend/overwrite components that we typically see clients customize (like object models, security, folder structure).
+The Alfresco Enterprise Viewer Share customizations add additional functionality to Alfresco share for launching Alfresco Enterprise Viewer. The customizations are extensions to Alfresco share that follow the Alfresco SURF conventions for extending share. They do not impact other customizations, and do NOT extend/overwrite components that we typically see customized (like object models, security, folder structure).
 
 #### oa-share-external-launcher.amp
 

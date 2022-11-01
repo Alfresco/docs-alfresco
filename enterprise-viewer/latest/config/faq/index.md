@@ -2,7 +2,7 @@
 title: Alfresco Enterprise Viewer FAQ
 ---
 
-Is Alfresco Enterprise Viewer, formerly OpenAnnotate, based on OpenAnnotation (<http://www.openannotation.org/>)?
+Is Alfresco Enterprise Viewer based on OpenAnnotation (<http://www.openannotation.org/>)?
 
 * No, Alfresco Enterprise Viewer is based on the open Adobe XFDF standard for annotating PDFs (<https://www.iso.org/obp/ui/#iso:std:iso:19444:-1:ed-1:v1:en>)
 
@@ -22,14 +22,18 @@ I am seeing stale page images, does Alfresco Enterprise Viewer Cache?  How can I
 
 * Yes!  Enterprise Viewer makes heavy use of caching at both the Server and Browser level.  To see totally fresh document pages, clear out AEV's server caches, as well as your browser cache to see your changes take effect.  To clear a running instance of AEV's server cache, you can simply hit these endpoints:
 
-First: <https://www.tsgrp.com/OpenSource/apidoc/oc-rest/edge/#api-Authentication-NewSession>
+First:
+
+![Get Ticket Endpoint]({% link enterprise-viewer/images/getTicket.PNG %})
 
 Save the ticket from the above call for the next call:
 
-Finally : <https://www.tsgrp.com/OpenSource/apidoc/oc-rest/edge/#api-Cache-ClearEHCaches>
+Finally : 
+
+![Clear Caches]({% link enterprise-viewer/images/clearCaches.PNG %})
 
 After those two steps and browser cache clear, you should see fresh images.
 
 How does Alfresco Enterprise Viewer scale for large deployments?
 
-* Alfresco Enterprise Viewer easily scales to multiple instances with load balancing to allow scaling to any number of users. formats, then you are all set to go! If your documents are not available in one of the above formats, it is easy to write a transformer that will render your documents into one of the above formats. The most common example of this is in a Documentum or Alfresco repository to configure all .doc or .docx files to be rendered into a pdf when they are checked into the repository.
+* Alfresco Enterprise Viewer easily scales to multiple instances with load balancing to allow scaling to any number of users. 

@@ -2,7 +2,7 @@
 title: Alfresco Enterprise Viewer Configuration Files
 ---
 
-When installing and setting up Alfresco Enterprise Viewer, formerly OpenAnnotate, it's important to understand how configuration settings work.
+When installing and setting up Alfresco Enterprise Viewer it's important to understand how configuration settings work.
 
 ### Spring Properties Files
 
@@ -15,7 +15,7 @@ Spring loads properties files into the system in a specific order to allow overr
 1. `openannotate-override-placeholders.properties` (Optional. Tomcat Specific properties)
 1. `override-placeholders.properties` (environment specific properties)
 
-In general, use the `openannotate-override-placeholders.properties` to override any of the default properties.  This file is typically placed in `<TOMCAT_HOME>/shared/classes` folder, and will override all properties located in the OpenAnnotate.war.  Properties defined here can still be overridden by `override-placeholders.properties`, but if for example server urls are all that needs to be defined, these can be left in `openannotate-override-placeholders.properties`, allowing WARs to be promoted through various environments without needing to be re-built / configured.
+In general, use the `openannotate-override-placeholders.properties` to override any of the default properties.  This file must be placed on the tomcat classpath (for example, in the `<TOMCAT_HOME>/shared/classes` folder), and will override all properties located in the OpenAnnotate.war.  Properties defined here can still be overridden by `override-placeholders.properties`, but if for example server urls are all that needs to be defined, these can be left in `openannotate-override-placeholders.properties`, allowing WARs to be promoted through various environments without needing to be re-built / configured.
 
 ### OpenContent Properties
 
@@ -124,7 +124,7 @@ Default Value: `Document`
 
 #### oaLogoPath
 
-The path for the logo to display at the top left corner on the toolbar in the Alfresco Enterprise Viewer interface. Useful to override for different client logos. This path is relative to the `src/main/webapp` directory.
+The path for the logo to display at the top left corner on the toolbar in the Alfresco Enterprise Viewer interface. Useful to override for different logos. This path is relative to the `src/main/webapp` directory.
 
 Default Value: `images/logos`
 
