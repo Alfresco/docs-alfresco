@@ -347,7 +347,7 @@ The 'd' surrounding the group configures it to be a dropdown.
 ​
 Properties relating to dropdowns: 
 * --dropdownLabel - sets the dropdownLabel to the specified value. Defaults to an empty string.
-* --dropdownIcon - sets the dropdownIcon to the specified value. Defaults to chevron-down. These refers to glyphicon values which can be found at https://getboots...
+* --dropdownIcon - sets the dropdownIcon to the specified value. Defaults to chevron-down. These refers to glyphicon values which can be found at https://getbootstrap.com/docs/3.3/components/
 
 ​
 
