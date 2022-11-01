@@ -2,11 +2,11 @@
 title: Upgrading from 3.4
 ---
 
-# Recommendations
+## Recommendations
 It is highly recommended to perform and validate upgrade steps in a pre-production environment before executing in Production. Additionally, ensure that backups of the system and backups of the ACA configurations are taken before initiating the upgrade procedures. 
 
-# Upgrade Path
-The below instructions are validated to work on upgrading a 3.4.x version to 3.5. If upgrading from an older version of ACA, additional changes may be required. If you run into issues, reach out to Alfresco Support and open a case.
+## Upgrade Path
+The below instructions are validated to work on upgrading a 3.4.x version to 3.5. If upgrading from an older version of ACA, additional changes may be required.
 
 Here is the recommended upgrade path:
 - Backup Alfresco system
@@ -20,13 +20,13 @@ Here is the recommended upgrade path:
   - Verify key functionality
   - See below for details on ACA admin configuration changes required when moving from ACA 3.4.x to 3.5.
 
-# ACA Config Updates
+## ACA Config Updates
 Most ACA 3.5 actions should work with 3.4 configurations.  However, as with all releases, it's recommended that you backup your configs prior to the upgrade and visit all areas in the ACA admin to verify and tweak configurations.  For production environments, it's recommended to perform the upgrade in a Dev/QA environment and then utilize the config archiver to move upgraded configs to higher environments.
 
-## Send Notification Updates
+### Send Notification Updates
 Send Notification were overhauled to provide a more robust experience and will need to be reconfigured to work correctly.
 
-### Ad Hoc Form 
+***Ad Hoc Form***
 
 Notifications are now sent with information setup in an Ad Hoc Form. The form can have any type of attributes configured, but there are five named attributes that are associated to the Notification action
 
@@ -40,7 +40,7 @@ bpm_comment | Comment | Textarea | Suggested to configure with WYSIWYG option on
 
 Note: Only bpm_assignees and bpm_groupAssignee are required for notification to work. However, if not present in the form the ACA notification interface will still show columns for Notification Type, Due Date and Comment.  Any values missing on the form will result in a column that only contains blank values.
 
-***Notification Type*** - if the name of the Notification Type field is not properly configured as described above, follow these steps:
+**Notification Type** - if the name of the Notification Type field is not properly configured as described above, follow these steps:
 
   - Click the AutoComplete Options button in the Notification Type field row.  Note which Picklist is configured.  If any help text was configured, note this as well.
   - Delete the Notification Type row in the table using the `X` icon in the `Remove` column of the table
@@ -55,15 +55,15 @@ Note: Only bpm_assignees and bpm_groupAssignee are required for notification to 
   - Click `Save Config`
 
 
-### Workflow Config
+***Workflow Config***
 
 In the Workflow Config section of the Admin, select the HPI Notification workflow. Add the Ad Hoc form configured above as both the Start Form and View Notification.
 
-### Action Config
+***Action Config***
 
 In the sendNotification Action Config, there will be an option "Select Form to Display". Select the Ad Hoc form created in step one.
 
-## Bulk Upload Updates
+### Bulk Upload Updates
 Bulk upload contains a number of updates that should be reviewed and potentially enabled when upgrading an existing ACA instance.  These features will *not* be enabled until entering the configs and performing the following steps. 
 
 For each instance of the Bulk Upload action (either as a header action or Stage Folder action):
@@ -74,7 +74,7 @@ For each instance of the Bulk Upload action (either as a header action or Stage 
     - Determine if users would like saved session functionality.  Saved sessions is useful when Bulk Upload actions regularly take users a non-trivial amount of effort.  If users generally fill out Bulk Upload forms in less than 5 minutes, Saved Sessions may not be needed.
 1. Whether or not any updates were made, re-save the config. This will activate the new configurations.
 
-## Policy and Procedure Updates 
+### Policy and Procedure Updates 
 A number of new features were added to the default configurations for the 3.5 release in the Policy and Procedure Accelerator:
 
 - Document Subscriptions
