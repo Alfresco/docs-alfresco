@@ -59,7 +59,9 @@ insurance.folder.nameProperty=claimNumber
 insurance.folder.requiredProperties=claimNumber
 ```
 #### Modify these Properties
-To do this, create the file `opencontent-override-placeholders.properties` at the `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` folder and put the overridden properties in there.
+To do this, create the file `opencontent-override-placeholders.properties`. It will need to be located on the /alfresco classpath, for example, `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent`. Put the updated properties in there. 
+
 Two things to note with this:
+
 1. This file will win out on any other property files, even ones in the custom amp. For this reason, if you are using a custom amp, it is better to override the properties in the amp than this file
-2. You will likely need to create the `module/com.tsgrp.opencontent/` folders in the `tomcat/shared/classes` directory
+1. You will likely need to create the `module/com.tsgrp.opencontent/` folders

@@ -15,12 +15,6 @@
       - title: 'Upgrading from Alfresco Content Accelerator 3.4'
         path: '/content-accelerator/latest/install/upgrading/' 
 
-
-    - title: 'Administer'
-      pages:
-      - title: 'Admin Guide'
-        path: '/content-accelerator/latest/admin/'
-
     - title: 'Using'
       pages:
       - title: 'User Guide'
@@ -37,9 +31,11 @@
 
     - title: 'Configure'
       pages:
+      - title: 'Admin Guide'
+        path: '/content-accelerator/latest/configure/admin/'
       - title: 'Importing and Exporting ACA Configs'
         path: '/content-accelerator/latest/configure/config-archiver/'
-      - title: 'Action Confiurations'
+      - title: 'Action Configurations'
         path: '/content-accelerator/latest/configure/actions/'
       - title: 'Other ACA Admin Configurations'
         path: '/content-accelerator/latest/configure/other-aca-admin-configs/'

@@ -274,7 +274,9 @@ If you wish to define your own custom permissionSets and permissionGroups, pleas
 Once a custom permissionSet is defined and enabled via your custom AMP, it can be referenced in the customized ACA permission configuration.
 
 ## Modify Only Properties
-In some cases, you may only want to override some of the default properties of the pnp accelerator. You do not need an entire custom amp to do this. Instead you can create the file `opencontent-override-placeholders.properties` at the `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` folder and put the overridden properties in this file.
+In some cases, you may only want to override some of the default properties of the pnp accelerator. You do not need an entire custom amp to do this. Instead you can create the file `opencontent-override-placeholders.properties` on the /alfresco classpath, for example, `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent` and put the overridden properties in this file.
+
 Two things to note with this:
+
 1. This file will win out on any other property files, even ones in the custom amp. For this reason, if you are using a custom amp, it is better to override the properties in the amp than this file
-2. You will likely need to create the `module/com.tsgrp.opencontent/` folders in the `tomcat/shared/classes` directory
+1. You will likely need to create the `module/com.tsgrp.opencontent/` folders

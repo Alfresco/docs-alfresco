@@ -6,7 +6,8 @@ title: Installing Single Sign On (SSO)
 
 ### SSO settings
 
-Example configuration file below. This file lives at ```TOMCAT_HOME/shared/classes/hpi-overrides.properties```. 
+Example configuration file below. This file lives on the tomcats classpath, for example, ```TOMCAT_HOME/shared/classes/hpi-overrides.properties```. 
+
 If one doesn't exist already, place one there and make sure the [previous step of adding the shared/classes directory to the classpath](https://github.com/tsgrp/OpenContent/wiki/External-Properties) was done.
 
 ```bash
@@ -77,7 +78,7 @@ ssoEndpoint=/authentication/getSessionForUser
 ocURL=http://<domain>/alfresco/OpenContent
 entityId=http://<domain>/hpi/saml/metadata
 entityBaseURL=http://<domain>/ocms
-#The metadata file that you want to use (This file should live at TOMCAT_HOME/shared/classes/)
+#The metadata file that you want to use (This file should live at the tomcat classpath, for example, TOMCAT_HOME/shared/classes/)
 metadata.file=metadata.xml
 # SAML Context for load balanced/proxied environments
 # Properties should define how ACA is accessed via LB/proxy
@@ -89,7 +90,7 @@ contextPath=/ocms
 ```
 **hpi-security-context-override.xml**
 
-You will need to create a hpi-security-context.xml and place it in TOMCAT_HOME/shared/classes/. This file will contain the beans and settings for your SAML configuration. Below is an example of what this file could look like
+You will need to create a hpi-security-context.xml and place it on the tomcat classpath, for example, TOMCAT_HOME/shared/classes/. This file will contain the beans and settings for your SAML configuration. Below is an example of what this file could look like
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans" 

@@ -25,6 +25,15 @@ Operating System and libraries for the target server machine:
          1. Run `fc-cache -v /usr/share/fonts/ && fc-cache-64 -v /usr/share/fonts/`
       * **Amazon-linux** - this typically comes pre-installed
   
+### Download installation artifacts from Hyland Community
+
+You will need to download the following installation packages from Hyland Community in order to install ACA
+
+* alfresco-content-accelerator-base-package-3.5.0.zip
+* (Claims Only) alfresco-content-accelerator-claims-accelerator-3.5.0.zip
+* (Pnp Only) alfresco-content-accelerator-policy-and-procedure-accelerator-3.5.0.zip
+
+
 ### Verify installation artifacts
 
 * If using Alfresco Content Services 7.0.1-7.2.x, use the amp file from the `OC_7.0+` folder.
@@ -35,7 +44,7 @@ Operating System and libraries for the target server machine:
 ## Install Proxy (Optional in non-production env)
 
 ### Web Proxy Background
-ACA must be exposed on the same port as OpenContent.  In other words, if the user accesses ACA using  `http://myserver:8080/ocms`, then ACA must make Ajax requests to OpenContent at: `http://myserver:8080/OpenContent`.  
+ACA must be exposed on the same host and port as OpenContent.  In other words, if the user accesses ACA using  `http://myserver:8080/ocms`, then ACA must make Ajax requests to OpenContent at: `http://myserver:8080/OpenContent`.  
 
 Since ACA executes as a JavaScript application in the browser and communicates with OpenContent on the server, you must account for the Same Origin Policy.  There are two ways to handle this:
 
@@ -331,11 +340,9 @@ Services.
 
 1. Install license file for OpenConnect
 
-   Navigate to the `ALFRESCO_HOME/tomcat/shared/classes/alfresco` folder and create the following folder structure: 
-   `module/com.tsgrp.opencontent/license`.
+   Create the `module/com.tsgrp.opencontent/license` folder structure on the /alfresco classpath, for example, at `ALFRESCO_HOME/tomcat/shared/classes/alfresco`
 
-   Place the `TextLicense.l4j` file in the `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/license` 
-   directory. 
+   Place the `TextLicense.l4j` file in the `license` directory. 
 
 1. Configure OpenConnect
    
@@ -351,7 +358,7 @@ Services.
 
 1. Deploy the OpenConnect configuration: 
     
-    Deploy/Copy the following files to the `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` 
+    Deploy/Copy the following files onto the /alfresco classpath, for example, `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` 
     folder:
   
     * `opencontent-override-placeholders.properties`
@@ -488,17 +495,15 @@ This section walks through how to install the web applications on a separate Tom
 
    Note that you will need to ensure that the port chosen (ie 9090) is open to the end user
 
-1. Create a `classes` directory:
-   
-   Create the path `TOMCAT_HOME/shared/classes`, if it does not already exist.
+1. Locate the directory to place files on the tomcat classpath, for example, `tomcat/shared/classes` (create it if it doesn't exist).
 
-1.  Copy the `hpi-overrides.properties` file into the `TOMCAT_HOME/shared/classes` directory.
+1. Copy the `hpi-overrides.properties` file onto the tomcat classpath, for example, into the`TOMCAT_HOME/shared/classes` directory.
 
 1. Verify the secureBrowserCookies configuration. If you are planning to setup SSL then secureBrowserCookies should be set to `true` (this is the default), else it should be `false`. 
 
    There are two places where this config will need to be updated: 
 
-   * `TOMCAT_HOME/shared/classes/hpi-overrides.properties`
+   * `hpi-overrides.properties` on the tomcat classpath, for example, `TOMCAT_HOME/shared/classes/` directory.
    * `TOMCAT_HOME/webapps/ocms/assets/config/config-overrides.js`
 
 1. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution AND 
@@ -559,13 +564,13 @@ non-Production environment installation).
 
    Create a `classes` directory within the `ALFRESCO_HOME/tomcat/shared` directory, if it does not already exist.
 
-1. Copy the `hpi-overrides.properties` file into the `ALFRESCO_HOME/tomcat/shared/classes` directory.
+1. Copy the `hpi-overrides.properties` file onto the /alfresco classpath, for example, `ALFRESCO_HOME/tomcat/shared/classes` directory.
 
 1. Verify the secureBrowserCookies configuration. If you are planning to setup SSL then secureBrowserCookies should be set to `true` (this is the default), else it should be `false`. 
 
    There are two places where this config will need to be updated: 
 
-   * `ALFRESCO_HOME/shared/classes/hpi-overrides.properties`
+   * `hpi-overrides.properties` on the tomcat classpath, for example, `ALFRESCO_HOME/shared/classes/` directory.
    * `ALFRESCO_HOME/tomcat/webapps/ocms/assets/config/config-overrides.js`
 
 1. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution: 

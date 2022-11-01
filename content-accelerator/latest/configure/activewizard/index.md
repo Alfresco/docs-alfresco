@@ -97,7 +97,7 @@ Questions on the form are listed in the dropdown.  Choose one and the selected v
 The admin can type in any value to replace a variable.  Using our "users in groups" example from above, this option allows us to reuse the query multiple times.  For example, one question could use `group_one` as the group name, whereas another question could use `group_two` as the group name.
 
 ## Launch Forms in Streamline Mode
-Some clients want to be able to launch directly into the form and show a confirmation page upon form completion. Follow along below in order to configure this option.
+In some scenarios it may be beneficial to launch directly into the form and show a confirmation page upon form completion. Follow along below in order to configure this option.
 
 ### ACA Admin Config
 First, go into the ACAadmin in the `Workflow -> Active Wizard Forms` section.  Follow these steps:

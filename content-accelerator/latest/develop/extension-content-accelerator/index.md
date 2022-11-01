@@ -2,7 +2,7 @@
 title: Extension Content Accelerator (Custom Amp)
 ---
 
-The Extension Content Accelerator is a generic content accelerator that a client can make to add custom configurations and code to an existing accelerator. 
+The Extension Content Accelerator is a generic content accelerator for adding custom configurations and code to an existing accelerator. 
 
 ## How to add the Extension Content Accelerator onto existing Accelerators
 There are a few requirements that your custom amp must meet to work with the existing accelerators.
@@ -46,5 +46,3 @@ To add custom alfresco models you will need to define a bean that has a parent o
    </property>
 </bean>
 ```
-### Example Extension Amp
-https://git.tsgrp.com/root/alfresco-accelerators/-/tree/master/com.alfresco.accelerator.demo/com.alfresco.accelerator.demo-platform/src

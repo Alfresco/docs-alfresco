@@ -11,7 +11,7 @@ title: Integrations and Addons
 1. Click Add Integrator Key button to add an integrator key
 
 ### Setup OpenContent 
-1. Locate the `opencontent-override-placeholders.properties` file in the `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent` folder of the alfresco tomcat
+1. Locate the `opencontent-override-placeholders.properties` file. It will be located on the /alfresco classpath, for example, `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent`
 1. Add the following properties: 
 
 * `docusign.username` - DocuSign user name (which should be the same as the user's email address)
@@ -267,7 +267,7 @@ The final piece is to configure the teams integration information that Open Cont
      * Navigate to **Microsoft Graph** -> **Delegated Permissions** -> **OnlineMeetings** -> Select and add the **OnlineMeetings.ReadWrite** permission
 
 ### Zoom Setup via Zoom MarketPlace
-_**NOTE: For clients, the app must be made by the _zoom owner_ that has all the users added to their zoom account. For local development you may just create one on your zoom account**_
+_**NOTE: The app must be made by the _zoom owner_ that has all the users added to their zoom account.**_
 
 **Creating a Zoom Application**
 

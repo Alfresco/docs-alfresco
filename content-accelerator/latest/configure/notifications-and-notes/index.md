@@ -12,20 +12,33 @@ Users who have received a notification can either click the link in the email re
 
 
 ### Configuring Notifications
-As of ACA 3.4, notifications require an Ad-hoc form and workflow configurations.  The following steps should be used to set up notifications:
-
-1. Configure an Ad-Hoc Form for sending a notification.  For example:
-    - Form Name: `sendNotification`
-    - Attrs:
-      - `bpm_assignees` - User Assignees - Autocomplete, repeating
-      - `bpm_groupAssignee` - Group Assignees - Autocomplete, repeating
-      - `bpm_workflowDueDate` - Due Date - Date, single, optional
-      - `bpm_comment` - Comments - Textarea (with wysiwyg option checked if desired), single, optional
-    - Additionally any other attributes can be added in an ad-hoc manner.  Example: `notification_type`, etc
-2. In the Workflow section, set the workflow form created in the previous step as the Start Form for the `HPI Notification` workflow.
-3. When configuring the Send Notification action, choose the form created in step 1 in the action config.
+The following steps should be used to set up notifications. 
 
 Note - currently only one `sendNotification` form is supported.  Future releases may enable trac-specific overrides.
+
+
+*** Step 1: Setup the Ad Hoc Form***
+
+Notifications are now sent with information setup in an Ad Hoc Form. The form can have any type of attributes configured, but there are five named attributes that are associated to the Notification action
+
+Name | Label | Control Type | Notes |
+--- | --- | --- | --- |
+bpm_assignees | Users | AutoComplete | Repeating dropdown of all users.  Can be set to `allUsers` picklist or another if desired
+bpm_groupAssignee | Groups | AutoComplete | Repeating dropdown of all groups.  Optional, can be omitted if desired.
+notificationType | Notification Type | AutoComplete | Dropdown notification classification type.  **NOTE** - if the configuration contains a Notification Type field with `name = notification_type` (use the More button next to the field name to check) or any other value other than `notificationType`, it is recommended to follow the steps outlined below this table.
+bpm_workflowDueDate | Due Date | DateBox | Suggested due date for the notification.  Suggested to configure that the date must be today or in the future.
+bpm_comment | Comment | Textarea | Suggested to configure with WYSIWYG option on.
+
+Note: Only bpm_assignees and bpm_groupAssignee are required for notification to work. However, if not present in the form the ACA notification interface will still show columns for Notification Type, Due Date and Comment.  Any values missing on the form will result in a column that only contains blank values.
+
+
+*** Step 2: Setup the Workflow Config***
+
+In the Workflow Config section of the Admin, select the HPI Notification workflow. Add the Ad Hoc form configured above as both the Start Form and View Notification.
+
+*** Step 3: Setup the Action Config***
+
+In the sendNotification Action Config, there will be an option "Select Form to Display". Select the Ad Hoc form created in step one.
 
 
 ## External Notifications
@@ -60,7 +73,7 @@ Click on the submenu **_OAuth & Permissions_** under the **_Features_** menu. Yo
 
 #### Step 7: Override the Slack Properties
 Now that we have the bot user set up, you can now successfully override the properties to get Slack external notifications connected. 
-* Locate the `opencontent-override-placeholders.properties` file in the `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent` folder of the alfresco tomcat
+* Locate the `opencontent-override-placeholders.properties` file. It will be located on the /alfresco classpath, for example, `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent`
 * Put the properties `send.external.notifications=true` and `slack.auth.token=xxxx-yourAuthToken`. 
 * Restart alfresco and the Slack external notification connection should be all set up!
 
@@ -120,7 +133,7 @@ This is a valid user within your organization/team's azure directory. So, we nee
 
 #### Step 9: Override the Microsoft Teams Properties
 Now that we have the App set up, you can now successfully override the properties to get Teams external notifications connected. 
-* Locate the `opencontent-override-placeholders.properties` file in the `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent` folder of the alfresco tomcat
+* Locate the `opencontent-override-placeholders.properties` file. It will be located on the /alfresco classpath, for example, `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent`
 * Put the following properties in this file: 
      - `teams.team.id= ` this is the group id for the Microsoft Teams team. Follow this article, but instead of tenant id in the article, grab the **GROUP ID** from the url they show you how to get. https://teams.handsontek.net/2019/04/09/how-to-get-microsoft-teams-tenant-id/
      - `teams.app.id=` this is the Application (client) ID from **Step 3**, https://github.com/tsgrp/HPI/wiki/External-Notifications#step-3-app-overview, in the **_Overview_** tab.

@@ -256,7 +256,7 @@ To delete a picklist, click the x next to the name of the picklist in the list o
 
 #### Configuring a Picklist on a Form
 1. In Form Config, select a form and click/add the Object Type you would like to work on.
-1. Select/add the attribute you would like to tie to a picklist. Change the control type to a type that supports picklists (ex: DropDown, AutoComplete, RadioButton, Checkbox) - AutoComplete is reccomended. 
+1. Select/add the attribute you would like to tie to a picklist. Change the control type to a type that supports picklists (ex: DropDown, AutoComplete, RadioButton, Checkbox) - AutoComplete is recommended. 
 1. Click the options dropdown and select the desired picklist.
 
 ##### Configuring a Cascading Picklist
