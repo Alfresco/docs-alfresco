@@ -29,5 +29,5 @@
       pages:
         - title: 'Integrations'
           path: '/enterprise-viewer/latest/develop/integrations/'
-        - title: 'Integrations'
+        - title: 'ADF AEV Applications'
           path: '/enterprise-viewer/latest/develop/adf/'
