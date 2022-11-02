@@ -40,13 +40,13 @@ You now need to install the AMP files into the Alfresco Content Repository image
     For example, if you're using `docker-compose.yml`, you'll find on [line 15](https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/docker-compose.yml#L15){:target="_blank"}:
 
     ```bash
-    quay.io/alfresco/alfresco-content-repository:7.2.0
+    quay.io/alfresco/alfresco-content-repository:7.3.0
     ```
 
 3. Add the following Docker commands to the `repository/Dockerfile` file and save it. Make sure that you change the image name and tag to match the above step:
 
     ```Dockerfile
-    FROM quay.io/alfresco/alfresco-content-repository:7.2.0
+    FROM quay.io/alfresco/alfresco-content-repository:7.3.0
 
     # Customize container: install amps
 
@@ -76,23 +76,23 @@ You now need to install the AMP files into the Alfresco Content Repository image
 
 4. Build the image, making sure you give the image an appropriate name and tag, so you can easily identify it later.
 
-    In the example, replace `myregistrydomain/my-custom-alfresco-content-repository:7.2` and `myregistrydomain/my-custom-alfresco-content-repository:latest` with your own Docker registry, image name, and tag:
+    In the example, replace `myregistrydomain/my-custom-alfresco-content-repository:7.3` and `myregistrydomain/my-custom-alfresco-content-repository:latest` with your own Docker registry, image name, and tag:
 
     ```bash
-    docker build repository -t myregistrydomain/my-custom-alfresco-content-repository:7.2 -t myregistrydomain/my-custom-alfresco-content-repository:latest
+    docker build repository -t myregistrydomain/my-custom-alfresco-content-repository:7.3 -t myregistrydomain/my-custom-alfresco-content-repository:latest
     ```
 
     Once the image build is complete, you should see success messages:
 
     ```text
     Successfully built 632eda3ea296
-    Successfully tagged myregistrydomain/my-custom-alfresco-content-repository:7.2
+    Successfully tagged myregistrydomain/my-custom-alfresco-content-repository:7.3
     Successfully tagged myregistrydomain/my-custom-alfresco-content-repository:latest
     ```
 
 5. Replace the image used by the **alfresco** service in the Docker Compose file you chose in step 1.
 
-    For example, replace `image: quay.io/alfresco/alfresco-content-repository:7.2.0` with `image: myregistrydomain/my-custom-alfresco-content-repository:7.2`:
+    For example, replace `image: quay.io/alfresco/alfresco-content-repository:7.3.0` with `image: myregistrydomain/my-custom-alfresco-content-repository:7.3`:
 
 6. Save the file.
 
@@ -105,13 +105,13 @@ Let's repeat the process for the Alfresco Share image.
     For example, if you're using `docker-compose.yml`, you'll find on [line 93](https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/docker-compose.yml#L93){:target="_blank"}:
 
     ```bash
-    quay.io/alfresco/alfresco-share:7.2.0
+    quay.io/alfresco/alfresco-share:7.3.0
     ```
 
 2. Add the following Docker commands to the `share/Dockerfile` file and save it. Make sure you change the image name and tag to match the above step:
 
     ```Dockerfile
-    FROM quay.io/alfresco/alfresco-share:7.2.0
+    FROM quay.io/alfresco/alfresco-share:7.3.0
 
     ARG TOMCAT_DIR=/usr/local/tomcat
 
@@ -125,23 +125,23 @@ Let's repeat the process for the Alfresco Share image.
 
 3. Build the image, making sure you give the image an appropriate name and tag, so you can easily identify it later.
 
-    In the following command, replace `myregistrydomain/my-custom-alfresco-share:7.2` and `myregistrydomain/my-custom-alfresco-share:latest` with your own Docker registry, image name and tag:
+    In the following command, replace `myregistrydomain/my-custom-alfresco-share:7.3` and `myregistrydomain/my-custom-alfresco-share:latest` with your own Docker registry, image name and tag:
 
     ```bash
-    docker build share -t myregistrydomain/my-custom-alfresco-share:7.2 -t myregistrydomain/my-custom-alfresco-share:latest
+    docker build share -t myregistrydomain/my-custom-alfresco-share:7.3 -t myregistrydomain/my-custom-alfresco-share:latest
     ```
 
     Once the image build is complete, you should see success messages:
 
     ```text
     Successfully built 6d5ee67935da
-    Successfully tagged myregistrydomain/my-custom-alfresco-share:7.2
+    Successfully tagged myregistrydomain/my-custom-alfresco-share:7.3
     Successfully tagged myregistrydomain/my-custom-alfresco-share:latest
     ```
 
 4. Replace the image used by the **share** service in the Docker Compose file you chose in the previous section.
 
-    For example, replace `image: quay.io/alfresco/alfresco-share:7.2.0` with `image: myregistrydomain/my-custom-alfresco-share:7.2`
+    For example, replace `image: quay.io/alfresco/alfresco-share:7.3.0` with `image: myregistrydomain/my-custom-alfresco-share:7.3`
 
 5. Save the file.
 

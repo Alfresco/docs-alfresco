@@ -110,11 +110,11 @@ Use this information to verify that the system started correctly, and to clean u
         Container                        Repository                                     Tag                 Image Id            Size
         ------------------------------------------------------------------------------------------------------------------------------
         acs-trial_activemq-1             alfresco/alfresco-activemq                     5.16.1              e9dd27ce1a5d        716.3 MB
-        acs-trial_alfresco-1             quay.io/alfresco/alfresco-content-repository   7.2.0               945933739097        1.437 GB
+        acs-trial_alfresco-1             quay.io/alfresco/alfresco-content-repository   7.3.0               945933739097        1.437 GB
         acs-trial_digital-workspace-1    quay.io/alfresco/alfresco-digital-workspace    2.6.0               1a2eaa5bf7a9        572.9 MB
         acs-trial_postgres-1             postgres                                       13.3                b2fcd079c1d4        314.7 MB
         acs-trial_proxy-1                alfresco/alfresco-acs-nginx                    3.2.0               da6d34dd9386        21.86 MB
-        acs-trial_share-1                quay.io/alfresco/alfresco-share                7.2.0               837b363e02af        758.7 MB
+        acs-trial_share-1                quay.io/alfresco/alfresco-share                7.3.0               837b363e02af        758.7 MB
         acs-trial_shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    0.16.1              dee75e9ffa5b        651.2 MB
         acs-trial_solr6-1                quay.io/alfresco/search-services               2.1.0               5800e8a31bdd        890.8 MB
         acs-trial_sync-service-1         quay.io/alfresco/service-sync                  3.5.0               7c0cee15f516        703.2 MB
@@ -248,9 +248,9 @@ Use this information to verify that the system started correctly, and to clean u
         Removing acs-trial_shared-file-store_1  ... done
         Removing acs-trial_activemq_1           ... done
         Removing network acs-trial_default
-        Removing image quay.io/alfresco/alfresco-content-repository:7.2.0
+        Removing image quay.io/alfresco/alfresco-content-repository:7.3.0
         Removing image quay.io/alfresco/alfresco-shared-file-store:0.16.1
-        Removing image quay.io/alfresco/alfresco-share:7.2.0
+        Removing image quay.io/alfresco/alfresco-share:7.3.0
         Removing image postgres:13.3
         Removing image quay.io/alfresco/search-services:2.1.0
         Removing image alfresco/alfresco-activemq:5.16.1
@@ -397,7 +397,7 @@ The Docker Compose file provides some default configuration. This section lists 
 | FILE_STORE_URL | Shared file store URL (in this case, the name of the container is used) |
 | TRANSFORM_ENGINE_REQUEST_QUEUE | Name of the queue. The default value is `org.alfresco.transform.engine.aio.acs` |
 | PDFRENDERER_EXE | Location of the PDF Renderer binary. The default value is `/usr/bin/alfresco-pdf-renderer` |
-| LIBREOFFICE_HOME | Location of the LibreOffice installation. The default value is `/opt/libreoffice7.2` |
+| LIBREOFFICE_HOME | Location of the LibreOffice installation. The default value is `/opt/libreoffice7.3` |
 | IMAGEMAGICK_ROOT | Location of the ImageMagick installation. The default value is `/usr/lib64/ImageMagick-7.0.10` |
 | IMAGEMAGICK_DYN | Location of the ImageMagick dynamic libraries. The default value is `/usr/lib64/ImageMagick-7.0.10/lib` |
 | IMAGEMAGICK_EXE | Location of the ImageMagick binary. The default value is `/usr/bin/convert` |
