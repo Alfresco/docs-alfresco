@@ -7,6 +7,8 @@
       pages:
         - title: 'Install Guide'
           path: '/enterprise-viewer/latest/install/'
+        - title: 'Installing Alfresco Enterprise Viewer Transformer (Optional)'
+          path: '/enterprise-viewer/latest/install/aevt/'
         - title: 'Upgrading'
           path: '/enterprise-viewer/latest/upgrade/'
         - title: 'Integrating AEV with Alfresco Application Development Framework'
