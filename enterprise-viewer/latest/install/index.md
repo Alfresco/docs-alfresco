@@ -6,6 +6,14 @@ title: Enterprise Viewer Installation Guide
 
 ## Prerequisites
 
+### Distribution Zips
+
+The Enterprise Viewer can be installed using a distribution zip. These zip can be downloaded from Hyland Community.
+
+You will need to download the following distribution zip in order to install AEV
+
+* alfresco-enterprise-viewer-package-3.5.0.zip
+
 ### Java
 Alfresco Enterprise Viewer requires Java 11 or above. Consult your repository of choice for more detailed requirements. For example, Alfresco 4.0 and 4.1 require Java 1.6.  Alfresco 4.2 requires Java 1.7.
 
@@ -20,12 +28,6 @@ Operating System and libraries for the target server machine:
 
 * **Windows**: Windows Server 2016 or newer
 * **Linux**: CentOS, Ubuntu, RHL, Amazon Linux
-
-### Download installation artifacts from Hyland Community
-
-You will need to download the following installation package from Hyland Community in order to install AEV
-
-* alfresco-enterprise-viewer-package-3.5.0.zip
   
 ## Install Proxy 
 
@@ -236,8 +238,16 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
    
 1. Copy the OpenContent AMP to the Alfresco Content Services installation:
 
-   Navigate to the `ALFRESCO_HOME/amps` directory and copy the `tsgrp-opencontent.amp` to this directory. 
-   
+   Navigate to the `ALFRESCO_HOME/amps` directory and copy the `tsgrp-opencontent-{version_info}.amp` to this directory. 
+
+   The amp can be found in the alfresco-enterprise-viewer-package distribution zip under `Alfresco Artifacts` folder. 
+
+   >**Note:** make sure you are using the correct `tsgrp-opencontent.amp` for your version of Alfresco.
+
+   * If using Alfresco Content Services 7.1.x, use the `tsgrp-opencontent-3.5-for-acs7.1.amp`.
+   * If using Alfresco Content Services 7.2.x, use the `tsgrp-opencontent-3.5-for-acs7.2.amp`.
+   * If using Alfresco Content Services 7.3.x, use the `tsgrp-opencontent-3.5-for-acs7.3.amp`.
+
 1. Apply the AMP
    
    From the directory where your alfresco tomcat lives, run this command
@@ -261,25 +271,18 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
 
    Create the `module/com.tsgrp.opencontent/license` folder structure on the /alfresco classpath, for example, at `ALFRESCO_HOME/tomcat/shared/classes/alfresco`
 
-   Place the `TextLicense.l4j` file in the `license` directory. 
+   Place a `TextLicense.l4j` file in the `license` directory. 
 
-1. Configure OpenConnect
-   
-    Update the environment variables in the provided `opencontent-override-placeholders.properties`:
+1. Deploy the OpenConnect configuration: 
+    
+    Create a file called `opencontent-override-placeholders.properties` and put it onto the /alfresco classpath, for example, in the `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` folder.
+  
+    Update the necessary environment variables in the `opencontent-override-placeholders.properties`.
 
     There are many configurations that [can] [be] overridden in this file later on. 
    
     To start, set the follow property: 
      * `oc.email.smtp.host={SMTP host}`
-
-1. Deploy the OpenConnect configuration: 
-    
-    Deploy/Copy the following files onto the /alfresco classpath, for example, `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` 
-    folder:
-  
-    * `opencontent-override-placeholders.properties`
-    * `opencontent-override-config.xml`
-    * `opencontent-override-module-context.xml`
 
 1. Update Tomcat server configuration:   
     
@@ -371,13 +374,15 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
 ### PDFIUM Installation (OPTIONAL) {#pdfium}
 >**Note:** This step is only needed if using Alfresco Enterprise Viewer on Linux.
 
+1. Locate the`pdfium.tar.gz` in the `Third Party` folder of the alfresco-enterprise-viewer-package zip
+
 1. Unpack the `pdfium.tar.gz` source to a location on your server.
    
-2. Note the path where `pdfium` is being installed as `PDFIUM_HOME`.
+1. Note the path where `pdfium` is being installed as `PDFIUM_HOME`.
    
-3. Navigate into the newly unpacked `PDFIUM_HOME` directory.
+1. Navigate into the newly unpacked `PDFIUM_HOME` directory.
 
-4. Execute the following command from the `PDFIUM_HOME` to ensure `pdfium` was unpacked successfully:
+1. Execute the following command from the `PDFIUM_HOME` to ensure `pdfium` was unpacked successfully:
    
    ```bash
    ./pdfium --help
@@ -388,7 +393,7 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
 ### FFMPEG Installation (OPTIONAL)  {#ffmpeg}
 >**Note:** This step is only needed if using Alfresco Enterprise Viewer Video.
 
-1. Download and install an official FFMPEG package from [here](https://ffmpeg.org/download.html){:target="_blank"}. Use the latest supported release. 
+1. Download and install an official FFMPEG package from [here](https://ffmpeg.org/download.html){:target="_blank"}. Use the latest supported release. Note that the latest windows release is included in the `Third Party` folder of the alfresco-enterprise-viewer-package zip
 
 2. Note the path where FFMPEG is being installed as `FFMPEG_HOME`.
 
@@ -414,11 +419,9 @@ In this section the Alfresco Enterprise Viewer collaboration features Socket.IO 
    * Node.js (use the latest version your OS supports)
    * npm (Node package manager, included with Node.js)
 
-1. Install Socket Server
+1. Install Socket Server:
 
-   Use the following installation packages:
-   * Windows: Use `socket-servers-win.zip`
-   * Linux: Use `socket-server-linux.zip`
+   Locate the `socket-server.zip` in the `Collaboration` folder of the alfresco-enterprise-viewer-package zip.
 
    Place the socket-servers zip in the directory where the Collaboration server is to be installed, and unzip it. This 
    will be known as `SOCKET_HOME`.
@@ -455,27 +458,86 @@ In this section the Alfresco Enterprise Viewer collaboration features Socket.IO 
 
 1. Stop Alfresco
 
-1. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer in Share:
+1. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer in Share (Either the external launcher action, the webpreview, or both).
 
-   Navigate to the `ALFRESCO_HOME/amps_share`directory (create the directory if it doesn't exist). Copy the following amps there:
-   * `oa-service-share.amp`
-   * `oa-share-webpreview.amp`
-   * `oa-service-share.amp`
+   Locate the `oa-alfresco.amp` in the `Alfresco Artifacts` folder of the alfresco-enterprise-viewer-package zip.
 
-1. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer in Share:
+   Copy the amp to the `ALFRESCO_HOME/amps` directory.
 
-   From the directory where your alfresco tomcat lives, run this command for each Share AMP required (replace `{myAmp}` with the correct AMP name):
+   From the directory where your alfresco tomcat lives, run this command (replacing {ALFRESCO_HOME} with the location of your `ALFRESCO_HOME`):
 
    Linux:
    
    ```bash
-   java -jar {ALFRESCO_HOME}/bin/alfresco-mmt.jar install {ALFRESCO_HOME}/amps_share/{myAMP}.amp tomcat/webapps/share.war -force
+   java -jar {ALFRESCO_HOME}/bin/alfresco-mmt.jar install {ALFRESCO_HOME}/amps/oa-alfresco.amp tomcat/webapps/alfresco.war -force
    ```
    
    Windows:
    
    ```bash
-   java\{javaVersion}\bin\java -jar {ALFRESCO_HOME}\bin\alfresco-mmt.jar install {ALFRESCO_HOME}\amps_share\{myAmp}.amp tomcat\webapps\share.war -force 
+   java\{javaVersion}\bin\java -jar {ALFRESCO_HOME}\bin\alfresco-mmt.jar install {ALFRESCO_HOME}\amps\oa-alfresco.amp tomcat\webapps\alfresco.war -force 
+   ```
+
+1. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer External Launcher action in Share (This adds a Share action to launch a document in the Alfresco Enterprise Viewer in a new tab).
+
+   Locate the `oa-share-external-launcher.amp` in the `Share Artifacts` folder of the alfresco-enterprise-viewer-package zip.
+
+   Edit the following files in the amp by extracting them or by editing them directly inside the amp:
+
+    - `/web/component/(documentlibrary or preview)/annotation-urls.js`
+    - `/web/component/(documentlibrary or preview)/annotation-urls-min.js`
+
+    You need to update the `Alfresco.constants.EXTERNAL_LAUNCHER_ANNOTATION_URL` variable within these files. This variable needs to be updated with the URL of the server that Alfresco Enterprise Viewer is going to be deployed on (even if Alfresco Enterprise Viewer is deployed on the same server as the Share web application).
+
+    For example:
+
+        Alfresco.constants.EXTERNAL_LAUNCHER_ANNOTATION_URL = "http://jarvis2:8080/OpenAnnotate/login/external.htm";
+
+   Then, copy the amp to the `ALFRESCO_HOME/amps_share` directory (create the directory if it doesn't exist).
+
+   From the directory where your alfresco tomcat lives, run this command (replacing {ALFRESCO_HOME} with the location of your `ALFRESCO_HOME`):
+
+   Linux:
+   
+   ```bash
+   java -jar {ALFRESCO_HOME}/bin/alfresco-mmt.jar install {ALFRESCO_HOME}/amps_share/oa-share-external-launcher.amp tomcat/webapps/share.war -force
+   ```
+   
+   Windows:
+   
+   ```bash
+   java\{javaVersion}\bin\java -jar {ALFRESCO_HOME}\bin\alfresco-mmt.jar install {ALFRESCO_HOME}\amps_share\oa-share-external-launcher.amp tomcat\webapps\share.war -force 
+   ```
+
+1. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer Web Preview in Share (This replaces the OOB Share viewer with the Alfresco Enterprise Viewer).
+
+   Locate the `oa-share-webpreview.amp` in the `Share Artifacts` folder of the alfresco-enterprise-viewer-package zip.
+
+   Edit the following files in the amp by extracting them or by editing them directly inside the amp:
+
+    - `/web/component/(documentlibrary or preview)/annotation-urls.js`
+    - `/web/component/(documentlibrary or preview)/annotation-urls-min.js`
+
+    In both cases, you need to update the `Alfresco.constants.WEBPREVIEW_ANNOTATION_URL` variable within these files. This variable needs to be updated with the URL of the server that Alfresco Enterprise Viewer is going to be deployed on (even if Alfresco Enterprise Viewer is deployed on the same server as the Share web application).
+
+    For example:
+
+        Alfresco.constants.WEBPREVIEW_ANNOTATION_URL = "http://jarvis2:8080/OpenAnnotate/login/external.htm";
+
+   Then, copy the amp to the `ALFRESCO_HOME/amps_share` directory (create the directory if it doesn't exist).
+
+   From the directory where your alfresco tomcat lives, run this command (replacing {ALFRESCO_HOME} with the location of your `ALFRESCO_HOME`):
+
+   Linux:
+   
+   ```bash
+   java -jar {ALFRESCO_HOME}/bin/alfresco-mmt.jar install {ALFRESCO_HOME}/amps_share/oa-share-webpreview.amp tomcat/webapps/share.war -force
+   ```
+   
+   Windows:
+   
+   ```bash
+   java\{javaVersion}\bin\java -jar {ALFRESCO_HOME}\bin\alfresco-mmt.jar install {ALFRESCO_HOME}\amps_share\oa-share-webpreview.amp tomcat\webapps\share.war -force 
    ```
 
 1. Configure OpenConnect
@@ -487,7 +549,17 @@ In this section the Alfresco Enterprise Viewer collaboration features Socket.IO 
     * `FFMPEG.path=FFMPEG_HOME` (if installed, get FFMPEG_HOME value from [FFMPEG Installation](#ffmpeg))
     * `pdfium.path=PDFIUM_HOME` (if installed, get PDFIUM_HOME value from [Pdfium Installation](#pdfium))
 
+1. Delete current Alfresco and Share deployed WAR files
+
+   Navigate to the `ALFRESCO_HOME/tomcat/webapps` directory and delete the `alfresco` and `share` folders (if they exist)
+
 1. Start alfresco
+
+1. (OPTIONAL) If you installed one or both of the share extension AMPs you can verify they are deployed by doing the following:
+
+- `oa-share-external-launcher.amp` - open an asset in Share and look at the Document Actions panel on the right-hand side of the screen. Ensure that the asset has a PDF rendition or a suitable image rendition available for Alfresco Enterprise Viewer. If you installed the `oa-share-external-launcher.amp`, the "Alfresco Enterprise Viewer" action should be available.  
+- `oa-share-webpreview.amp` - open an asset in Share. If you installed the `oa-share-webpreview.amp` and the asset has a PDF rendition or a suitable image rendition available for Alfresco Enterprise Viewer, the asset should appear in "Alfresco Enterprise Viewer" directly in the Share application screen.
+
 
 ## Install webapps
 This sections walks through how to install the Alfresco Enterprise Viewer web application.
@@ -501,6 +573,8 @@ This section walks through how to install the web applications on a separate Tom
 1. Install Apache Tomcat. See https://archive.apache.org/dist/tomcat. Note that if you installed aca, you can utilize the same tomcat you may have installed for aca - shut it down now if its already running. 
 
 1. Copy the `OpenAnnotate.war` file into the `TOMCAT_HOME/webapps` directory.
+
+   This war can be found in the `Web Applications` folder of the alfresco-enterprise-viewer-package zip.
 
 1. (If not already configured in the aca install) - Configure Tomcat for shared classpath loader as well as encoded slashes:
    
@@ -532,6 +606,8 @@ This section walks through how to install the web applications on a separate Tom
 1. (If not already configured in the aca install) - Create a `classes` directory:
    
    Create the path `TOMCAT_HOME/shared/classes`, if it does not already exist.
+
+1. Locate the `openannotate-override-placeholders.properties` file in the `Web Applications` folder of the alfresco-enterprise-viewer-package zip.
 
 1. Update the provided `openannotate-override-placeholders.properties` file: 
 
@@ -567,10 +643,14 @@ non-Production environment installation).
 
 1. Copy the `OpenAnnotate.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
 
+   This war can be found in the `Web Applications` folder of the alfresco-enterprise-viewer-package zip.
+
 1. Create a `classes` directory:
 
    Create a `classes` directory within the `ALFRESCO_HOME/tomcat/shared` directory, if it does not already exist.
    
+1. Locate the `openannotate-override-placeholders.properties` file in the `Web Applications` folder of the alfresco-enterprise-viewer-package zip.
+
 1. Update the provided `openannotate-override-placeholders.properties` file:
 
    Set the `ocRestEndpointAddress` property to point to the root REST endpoint URL for OpenContent within Alfresco:

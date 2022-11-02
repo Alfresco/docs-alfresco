@@ -9,8 +9,8 @@
           path: '/enterprise-viewer/latest/install/'
         - title: 'Upgrading'
           path: '/enterprise-viewer/latest/upgrade/'
-        - title: 'Alfresco Integration Installation'
-          path: '/enterprise-viewer/latest/install/alfresco/'
+        - title: 'Integrating AEV with Alfresco Application Development Framework'
+          path: '/enterprise-viewer/latest/install/adf/'
     - title: 'Configure'
       pages:
         - title: 'Configuring AEV Actions and Modes'
