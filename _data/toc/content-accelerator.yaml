@@ -32,7 +32,7 @@
     - title: 'Configure'
       pages:
       - title: 'Admin Guide'
-        path: '/content-accelerator/latest/configure/admin/'
+        path: '/content-accelerator/latest/configure/admin-guide/'
       - title: 'Importing and Exporting ACA Configs'
         path: '/content-accelerator/latest/configure/config-archiver/'
       - title: 'Action Configurations'
@@ -43,6 +43,8 @@
         path: '/content-accelerator/latest/configure/notifications-and-notes/'
       - title: 'Integrations and Addons'
         path: '/content-accelerator/latest/configure/integrations-and-addons/'
+      - title: 'Limitations'
+        path: '/content-accelerator/latest/configure/limitations/'
       - title: 'OpenContent Property Overrides'
         path: '/content-accelerator/latest/configure/oc-property-overrides/'
       - title: 'Alfresco Audit Configuration'
@@ -53,6 +55,8 @@
         path: '/content-accelerator/latest/configure/autofile/'
       - title: 'Active Wizard'
         path: '/content-accelerator/latest/configure/activewizard/'
+      - title: 'Supported Languages'
+        path: '/content-accelerator/latest/configure/supported-languages/'
 
 
  

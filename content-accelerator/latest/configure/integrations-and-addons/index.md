@@ -347,7 +347,10 @@ Once your cloud solution has been chosen, the following steps must be completed 
 
 ### Google Drive
 
+> Please note that Google Docs is an experimental action and may not work properly
+
 Reference: https://developers.google.com/identity/protocols/OAuth2UserAgent
+
 
 1. Create a Google Project:
      * Access the following link: https://console.developers.google.com/apis/dashboard
@@ -364,6 +367,7 @@ Reference: https://developers.google.com/identity/protocols/OAuth2UserAgent
      * In the `Authorized JavaScript Origin` sections that appears, input the domain origin of your ACA application.
      * Click `Create` and Google should present you with a Client ID and Client Secret.
      * Copy the `Application (client) ID`.  This will be needed in the ACA admin (see below).
+
 
 ### Configure Google Drive and OneDrive Actions in ACA
 ### (CheckoutToCloudService, CheckinFromCloudService, CancelCheckout)

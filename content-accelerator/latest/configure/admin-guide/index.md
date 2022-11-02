@@ -312,7 +312,7 @@ High-level search settings including:
 * **Search form to display** - This is an important configuration, as it is the search form that will be displayed and drives the setup of several other search components.
 * **Limit search results to** - If lower than the repository setting for number of search results returned, this value will restrict search results. If higher than the repository search results settings, the repository value will be used. In other words, this setting cannot allow for more search results than the repository is set up to return.
 * **Enable type-to-path security** - For each type in the selected search form, a user can indicate a repository folder path (generally the path to the folder being searched) to pull the security setup from. Basically, this allows search to use repository folder level security to determine who can perform the configured searches.
-* **Open Content Query Implementation** - Allows queries to be run against a database. This should only be set to "Use Native Search APIs"
+* **Open Content Query Implementation** - Allows queries to be run against a database. This should only be set to "Use Native Search APIs". All other options are deprecated and will be removed from the drop down in future releases.
 
 #### Sidebar Settings
 Sidebar settings relate to the left-hand search tools beyond the Advanced Search form. The following settings are 
@@ -545,6 +545,8 @@ Document type, collections will still work however depending on the individual o
 not all metadata will be populated in the results table.
 
 ### Indexer
+> Please note that this feature is experimental and is being evaluated for future full inclusion.  Currently supported for customers via a Services Arrangement only.
+
 The indexer view is a side by side viewing of a document and a form. It allows a user to select text directly from the 
 document (document must be OCRed) and populate metadata. Indexer configs can be selected as views from a *Saved Search* 
 dashlet. There is a configuration on the *Saved Search* dashlet to select an Indexer Config, when selected, any link 
