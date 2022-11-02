@@ -407,6 +407,26 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
 
    The `ffmpeg` help message is displayed.
 
+## Configure OpenContent for AEV
+>**Note:** Only need to complete this section if ffmpeg and/or pdfium was installed above.
+
+1. Stop Alfresco
+
+1. Configure OpenConnect
+   
+    Update the environment variables in the provided `opencontent-override-placeholders.properties`. Deploy the updated file to the /alfresco classpath, for example, the `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` directory:
+
+    If you installed ffmpeg and pdfium above, update these properties:
+   
+    * `FFMPEG.path=FFMPEG_HOME` (if installed, get FFMPEG_HOME value from [FFMPEG Installation](#ffmpeg))
+    * `pdfium.path=PDFIUM_HOME` (if installed, get PDFIUM_HOME value from [Pdfium Installation](#pdfium))
+
+1. Delete current Alfresco deployed WAR files
+
+   Navigate to the `ALFRESCO_HOME/tomcat/webapps` directory and delete the `alfresco` folder (if it exists)
+
+1. Start alfresco
+
 ## Install collaboration (optional)  {#collab}
 In this section the Alfresco Enterprise Viewer collaboration features Socket.IO server is installed.
 
@@ -454,13 +474,15 @@ In this section the Alfresco Enterprise Viewer collaboration features Socket.IO 
 
    `forever start server.js`
 
-## Configure Alfresco and Share for AEV
+## Configure Share Extensions for AEV (Optional)
+
+>**Note:** These steps are only required if you wish to accomplish one or both of the following: 
+>   * Use the Alfresco Enterprise Viewer as the document viewer in the Share interface
+>   * Include an action in the Share interface to launch a document in the Alfresco Enterprise Viewer in a new tab
 
 1. Stop Alfresco
 
-1. (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer in Share (Either the external launcher action, the webpreview, or both).
-
-   Locate the `oa-alfresco.amp` in the `Alfresco Artifacts` folder of the alfresco-enterprise-viewer-package zip.
+1. Locate the `oa-alfresco.amp` in the `Alfresco Artifacts` folder of the alfresco-enterprise-viewer-package zip.
 
    Copy the amp to the `ALFRESCO_HOME/amps` directory.
 
@@ -540,26 +562,16 @@ In this section the Alfresco Enterprise Viewer collaboration features Socket.IO 
    java\{javaVersion}\bin\java -jar {ALFRESCO_HOME}\bin\alfresco-mmt.jar install {ALFRESCO_HOME}\amps_share\oa-share-webpreview.amp tomcat\webapps\share.war -force 
    ```
 
-1. Configure OpenConnect
-   
-    Update the environment variables in the provided `opencontent-override-placeholders.properties`. Deploy the updated file to the /alfresco classpath, for example, the `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` directory:
+1. Delete current Share deployed WAR files
 
-    If you installed ffmpeg and pdfium above, update these properties:
-   
-    * `FFMPEG.path=FFMPEG_HOME` (if installed, get FFMPEG_HOME value from [FFMPEG Installation](#ffmpeg))
-    * `pdfium.path=PDFIUM_HOME` (if installed, get PDFIUM_HOME value from [Pdfium Installation](#pdfium))
-
-1. Delete current Alfresco and Share deployed WAR files
-
-   Navigate to the `ALFRESCO_HOME/tomcat/webapps` directory and delete the `alfresco` and `share` folders (if they exist)
+   Navigate to the `ALFRESCO_HOME/tomcat/webapps` directory and delete the `share` folder (if it exists)
 
 1. Start alfresco
 
-1. (OPTIONAL) If you installed one or both of the share extension AMPs you can verify they are deployed by doing the following:
+1. (OPTIONAL) You can verify these amps were deployed correctly by doing the following:
 
 - `oa-share-external-launcher.amp` - open an asset in Share and look at the Document Actions panel on the right-hand side of the screen. Ensure that the asset has a PDF rendition or a suitable image rendition available for Alfresco Enterprise Viewer. If you installed the `oa-share-external-launcher.amp`, the "Alfresco Enterprise Viewer" action should be available.  
 - `oa-share-webpreview.amp` - open an asset in Share. If you installed the `oa-share-webpreview.amp` and the asset has a PDF rendition or a suitable image rendition available for Alfresco Enterprise Viewer, the asset should appear in "Alfresco Enterprise Viewer" directly in the Share application screen.
-
 
 ## Install webapps
 This sections walks through how to install the Alfresco Enterprise Viewer web application.
