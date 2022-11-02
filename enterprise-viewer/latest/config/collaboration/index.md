@@ -33,7 +33,7 @@ Note that the file path properties are relative to wherever the `server.js` file
 
 ## Configuring Alfresco Enterprise Viewer to Connect to the Node Server
 
-In order to utilize the Node server, you must configure Alfresco Enterprise Viewer to use it. The two properties that must be set are the `collaborationEndpoint` and `collaborationModeEnabled` properties. For more information on these properties and how to set these properties, read [AEV Configuration Files]({% link enterprise-viewer/latest/config/files.md %}).
+In order to utilize the Node server, you must configure Alfresco Enterprise Viewer to use it. The two properties that must be set are the `collaborationEndpoint` and `collaborationModeEnabled` properties. For more information on these properties and how to set these properties, read [AEV Configuration Files]({% link enterprise-viewer/latest/config/files/index.md %}).
 
 ## Collaboration Modes
 

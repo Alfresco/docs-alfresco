@@ -18,7 +18,7 @@ You will need to download the following distribution zip in order to install AEV
 Alfresco Enterprise Viewer requires Java 11 or above. Consult your repository of choice for more detailed requirements. For example, Alfresco 4.0 and 4.1 require Java 1.6.  Alfresco 4.2 requires Java 1.7.
 
 ### Alfresco repository version
-See the [Supported Platforms]({% link enterprise-viewer/latest/support.md %}) for more information.
+See the [Supported Platforms]({% link enterprise-viewer/latest/support/index.md %}) for more information.
 
 Please ensure you have the correct version of the Alfresco Enterprise Viewer package for your Alfresco Content Services version. 
 If you are unsure, please contact Alfresco Support.
