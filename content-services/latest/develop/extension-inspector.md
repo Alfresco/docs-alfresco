@@ -2,16 +2,11 @@
 title: Extension Inspector
 ---
 
-Alfresco Extension Inspector allows you to analyze Alfresco extensions and to compare them against a particular 
-Content Services version. For example, it helps you to understand how customizations and extensions are affected with 
-a newer version of Content Services, checking for compliance with our best practices and providing recommendations for 
-upgrade impact and safety. 
+Alfresco Extension Inspector allows you to analyze Alfresco extensions and to compare them against a particular Content Services version. For example, it helps you to understand how customizations and extensions are affected with a newer version of Content Services, checking for compliance with our best practices and providing recommendations for upgrade impact and safety.
 
-It works with Content Services 5.2 or later Enterprise Editions. The tool also works with other Content Services and 
-Community Edition `.war` files, as long as you can [generate an inventory report](#run-inventory-application).
+It works with Content Services 5.2 or later Enterprise Editions. The tool also works with other Content Services and Community Edition `.war` files, as long as you can [generate an inventory report](#run-inventory-application).
 
-The Extension Inspector scans and validates an Alfresco [extension (AMP or JAR)]({% link content-services/latest/develop/extension-packaging.md %}) 
-against an `alfresco.war` file.
+The Extension Inspector scans and validates an Alfresco [extension (AMP or JAR)]({% link content-services/latest/develop/extension-packaging.md %}) against an `alfresco.war` file.
 
 The main features of the Extension Inspector are:
 
@@ -29,8 +24,7 @@ The Extension Inspector has two main modules:
 
 ## Download
 
-You can download the [alfresco-extension-inspector-1.4.0.jar](https://artifacts.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/extension-inspector/alfresco-extension-inspector/1.4.0/alfresco-extension-inspector-1.4.0.jar) 
-file from the Alfresco Nexus repository.
+You can download the [alfresco-extension-inspector-1.5.0.jar](https://artifacts.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/extension-inspector/alfresco-extension-inspector/1.5.0/alfresco-extension-inspector-1.5.0.jar) file from the Alfresco Nexus repository.
 
 >**Note:** See the [Alfresco Extension Inspector](https://github.com/Alfresco/alfresco-extension-inspector){:target="_blank"} GitHub repository for more details.
 
@@ -123,7 +117,7 @@ The application analyzes custom extensions against WAR inventories.
 Use the following command to run the application:
 
 ```bash
-java -jar alfresco-extension-inspector-<version>.jar <extension-filename> [--target-version=6.1.0[-7.2.0] | --target-inventory =/path/to/war_inventory.json] [--verbose=[true | false]]
+java -jar alfresco-extension-inspector-<version>.jar <extension-filename> [--target-version=6.1.0[-7.3.0] | --target-inventory =/path/to/war_inventory.json] [--verbose=[true | false]]
 ```
 
 where:
