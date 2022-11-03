@@ -117,7 +117,7 @@ The application analyzes custom extensions against WAR inventories.
 Use the following command to run the application:
 
 ```bash
-java -jar alfresco-extension-inspector-<version>.jar <extension-filename> [--target-version=6.1.0[-7.2.0] | --target-inventory =/path/to/war_inventory.json] [--verbose=[true | false]]
+java -jar alfresco-extension-inspector-<version>.jar <extension-filename> [--target-version=6.1.0[-7.3.0] | --target-inventory =/path/to/war_inventory.json] [--verbose=[true | false]]
 ```
 
 where:
