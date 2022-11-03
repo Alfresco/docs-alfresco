@@ -146,9 +146,6 @@ applications:
         url: /digital-workspace/latest/
       - title: "Mobile Workspace"
         url: /mobile-workspace/latest/
-  - title: "Content Accelerator"
-    text: "Alfresco Content Accelerator is a content management application that can be used to build domain specific user interfaces."
-    url: /content-accelerator/latest/
   - title: "Application Development Framework"
     text: "Alfresco Application Development Framework makes it easy to build custom web applications to manage and view content in the repository."
     url: 'https://www.alfresco.com/abn/adf/docs/'
@@ -157,6 +154,10 @@ applications:
     text: "Alfresco Content Services for mobile allows you to view, edit, and share information in and out of the office via the mobile app."
     url: /content-mobile/latest/
     image: /assets/img/logo_cm_72px.svg
+  - title: "Content Accelerator"
+    image: /assets/img/aca-logo.png
+    text: "Alfresco Content Accelerator is a content management application that can be used to build domain specific user interfaces."
+    url: /content-accelerator/latest/
 
 #  - title: "Process for iOS"
 #    text: "Alfresco Process Services for mobile allows you to start new processes and interact with related content #via the mobile app."

@@ -2,10 +2,18 @@
 title: Install Content Accelerator
 ---
 
-The Content Accelerator can be installed using a distribution zip.
-
 ## Prerequisites
 There are a number of software requirements for installing the Content Accelerator:
+
+### Distribution Zips
+
+The Content Accelerator can be installed using distribution zips. These zips can be downloaded from Hyland Community.
+
+You will need to download the following distribution zips in order to install ACA
+
+* alfresco-content-accelerator-base-package-3.5.0.zip
+* (Claims Only) alfresco-content-accelerator-claims-accelerator-3.5.0.zip
+* (Pnp Only) alfresco-content-accelerator-policy-and-procedure-accelerator-3.5.0.zip
 
 ### Alfresco repository version
 See the [Supported Platforms]({% link content-accelerator/latest/support/index.md %}) for more information.
@@ -24,22 +32,7 @@ Operating System and libraries for the target server machine:
          1. Place fonts into the `/usr/share/fonts` directory
          1. Run `fc-cache -v /usr/share/fonts/ && fc-cache-64 -v /usr/share/fonts/`
       * **Amazon-linux** - this typically comes pre-installed
-  
-### Download installation artifacts from Hyland Community
 
-You will need to download the following installation packages from Hyland Community in order to install ACA
-
-* alfresco-content-accelerator-base-package-3.5.0.zip
-* (Claims Only) alfresco-content-accelerator-claims-accelerator-3.5.0.zip
-* (Pnp Only) alfresco-content-accelerator-policy-and-procedure-accelerator-3.5.0.zip
-
-
-### Verify installation artifacts
-
-* If using Alfresco Content Services 7.0.1-7.2.x, use the amp file from the `OC_7.0+` folder.
-* If using Alfresco Content Services 7.3, use the amp file from the `OC_7.3+` folder.
-
->**Note:** make sure you are using the correct `tsgrp-opencontent.amp` for your version of Alfresco.
 
 ## Install Proxy (Optional in non-production env)
 
@@ -300,8 +293,16 @@ Services.
 
    Navigate to the `ALFRESCO_HOME/amps` directory and copy the following amps to this directory (these are amps that 
    should be applied to the repository aka [alfresco.war]):
-    * `tsgrp-opencontent.amp`
+    * `tsgrp-opencontent-{version_info}.amp`
     * `tsgrp-autofile.amp`
+
+   These amps can be found in the alfresco-content-accelerator-base-package distribution zip under `Alfresco Artifacts` folder. 
+
+   >**Note:** make sure you are using the correct `tsgrp-opencontent.amp` for your version of Alfresco.
+
+   * If using Alfresco Content Services 7.1.x, use the `tsgrp-opencontent-3.5-for-acs7.1.amp`.
+   * If using Alfresco Content Services 7.2.x, use the `tsgrp-opencontent-3.5-for-acs7.2.amp`.
+   * If using Alfresco Content Services 7.3.x, use the `tsgrp-opencontent-3.5-for-acs7.3.amp`.
     
 1. (Pnp ONLY) This step is only required if installing the Policy and Procedure Content Accelerator solution:
 
@@ -309,10 +310,14 @@ Services.
    * `tsgrp-alfresco-chain-versioning.amp`
    * `pnp-platform-3.5.amp`
 
+   These amps can be found in the alfresco-content-accelerator-policy-and-procedure-accelerator distribution zip under `Alfresco Artifacts` folder. 
+
 1. (Claims ONLY) This step is only required if installing the Claims Content Accelerator solution:
 
    Navigate to the `ALFRESCO_HOME/amps` directory and copy the following amps there:
    * `claims-platform-3.5.amp`
+
+   This amps can be found in the alfresco-content-accelerator-claims-accelerator distribution zip under `Alfresco Artifacts` folder. 
    
 1. Apply the AMPs
    
@@ -342,19 +347,7 @@ Services.
 
    Create the `module/com.tsgrp.opencontent/license` folder structure on the /alfresco classpath, for example, at `ALFRESCO_HOME/tomcat/shared/classes/alfresco`
 
-   Place the `TextLicense.l4j` file in the `license` directory. 
-
-1. Configure OpenConnect
-   
-    Update the environment variables in the provided `opencontent-override-placeholders.properties`:
-
-    There are many configurations that [can] [be] overridden in this file later on. 
-
-    There are a few you will [need] to set for OpenContent to work correctly listed below:
-   
-    * `application.root.url={Application Base URL}/ocms`
-    * `oc.email.smtp.host={SMTP host}`
-    * `imageMagick.path=IMAGEMAGICK_HOME` (if installed, get IMAGEMAGICK_HOME value from [ImageMagic Installation](#im))
+   Place a `TextLicense.l4j` file in the `license` directory. 
 
 1. Deploy the OpenConnect configuration: 
     
@@ -364,6 +357,21 @@ Services.
     * `opencontent-override-placeholders.properties`
     * `opencontent-override-config.xml`
     * `opencontent-override-module-context.xml`
+
+   These files can be found in the `Alfresco Artifacts` folder of the alfresco-content-accelerator-base-package zip.
+
+1. Configure OpenConnect
+   
+    In the `opencontent-override-placeholders.properties` file deployed in the last step, update the following environment variables: 
+
+    There are many configurations that [can] [be] overridden in this file later on. 
+
+    There are a few you will [need] to set for OpenContent to work correctly listed below:
+   
+    * `application.root.url={Application Base URL}/ocms`
+    * `oc.email.smtp.host={SMTP host}`
+    * `imageMagick.path=IMAGEMAGICK_HOME` (if installed, get IMAGEMAGICK_HOME value from [ImageMagic Installation](#im))
+
 
 1. Update Tomcat server configuration:   
     
@@ -464,9 +472,13 @@ This section walks through how to install the web applications on a separate Tom
 
 1. Copy the `ocms.war` file into the `TOMCAT_HOME/webapps` directory.
 
+   This war can be found in the `Web Applications` folder of the alfresco-content-accelerator-base-package zip. 
+
 1. (Pnp ONLY) This step is only required if using the Policy and Procedure Content Accelerator solution:
 
    Copy the `WizardAdmin.war` file into the `TOMCAT_HOME/webapps` directory.
+
+   This war can be found in the `Web Applications` folder of the alfresco-content-accelerator-policy-and-procedure-accelerator zip. 
 
 1. Configure Tomcat for shared classpath loader as well as encoded slashes:
    
@@ -497,7 +509,9 @@ This section walks through how to install the web applications on a separate Tom
 
 1. Locate the directory to place files on the tomcat classpath, for example, `tomcat/shared/classes` (create it if it doesn't exist).
 
-1. Copy the `hpi-overrides.properties` file onto the tomcat classpath, for example, into the`TOMCAT_HOME/shared/classes` directory.
+1. Locate the `hpi-overrides.properties` file in the `Web Applications` folder of the alfresco-content-accelerator-base-package. 
+
+   Copy this `hpi-overrides.properties` file onto the tomcat classpath, for example, into the`TOMCAT_HOME/shared/classes` directory.
 
 1. Verify the secureBrowserCookies configuration. If you are planning to setup SSL then secureBrowserCookies should be set to `true` (this is the default), else it should be `false`. 
 
@@ -533,9 +547,13 @@ non-Production environment installation).
 
 1. Copy the `ocms.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
 
+   This war can be found in the `Web Applications` folder of the alfresco-content-accelerator-base-package zip. 
+
 1. (Pnp ONLY) This step is only required if using the Policy and Procedure Content Accelerator solution:
 
    Copy the `WizardAdmin.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
+
+   This war can be found in the `Web Applications` folder of the alfresco-content-accelerator-policy-and-procedure-accelerator zip. 
 
 1. Configure Tomcat for shared classpath loader as well as encoded slashes:
 
@@ -564,13 +582,15 @@ non-Production environment installation).
 
    Create a `classes` directory within the `ALFRESCO_HOME/tomcat/shared` directory, if it does not already exist.
 
-1. Copy the `hpi-overrides.properties` file onto the /alfresco classpath, for example, `ALFRESCO_HOME/tomcat/shared/classes` directory.
+1. Locate the `hpi-overrides.properties` file in the `Web Applications` folder of the alfresco-content-accelerator-base-package. 
+
+   Copy this `hpi-overrides.properties` file onto the tomcat classpath, for example, into the`ALFRESCO_HOME/tomcat/shared/classes` directory.
 
 1. Verify the secureBrowserCookies configuration. If you are planning to setup SSL then secureBrowserCookies should be set to `true` (this is the default), else it should be `false`. 
 
    There are two places where this config will need to be updated: 
 
-   * `hpi-overrides.properties` on the tomcat classpath, for example, `ALFRESCO_HOME/shared/classes/` directory.
+   * `hpi-overrides.properties` on the tomcat classpath, for example, `ALFRESCO_HOME/tomcat/shared/classes/` directory.
    * `ALFRESCO_HOME/tomcat/webapps/ocms/assets/config/config-overrides.js`
 
 1. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution: 
@@ -607,13 +627,20 @@ non-Production environment installation).
 
    This will create the base groups and folder for the Policy and Procedure solution. 
 
+1. Locate the `default-{accelerator}.zip` configurations and rename it. 
+
+   * For Pnp, the file will be named `default-pnp.zip` and can be found in the `Configuration` folder of the alfresco-content-accelerator-policy-and-procedure-accelerator zip.
+   * For Claims, the file will be named `default-claims.zip` and can be found in the `Configuration` folder of the alfresco-content-accelerator-claims-accelerator zip.
+
+   Obtain the `default-{accelerator}.zip` for your accelerator and rename the zip to `default.zip`.
+
 1. Import default configuration. There are two ways you can do this.
    
    OPTION 1 - use the config import tool (This may not be available on initial install): 
 
       * In a browser navigate to `{Application Base URL}/ocms/admin/ConfigArchiver` and login to the application as the Alfresco Administrator.
 
-      * Use the *Import Config* function to import the `default.zip` provided with the installation. 
+      * Use the *Import Config* function to import the `default.zip` from the last step. 
 
    OPTION 2 - upload the configs via share: 
 
@@ -621,7 +648,7 @@ non-Production environment installation).
 
       * Navigate to the repository and into the folder `hpi`
 
-      * Drag and drop the `default.zip` folder into this location 
+      * Drag and drop the `default.zip` into this location 
 
       * Delete all contents of the current `default` folder
 
