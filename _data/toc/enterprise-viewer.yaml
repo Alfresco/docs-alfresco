@@ -23,7 +23,7 @@
           path: '/enterprise-viewer/latest/config/collaboration/'       
         - title: 'Performance Tuning'
           path: '/enterprise-viewer/latest/config/performance/'
-        - title: 'AEVT Override Overlay Configs'
+        - title: 'Configuring Overlays'
           path: '/enterprise-viewer/latest/config/aevt-override-overlay-configs/'
         - title: 'FAQ'
           path: '/enterprise-viewer/latest/config/faq/'

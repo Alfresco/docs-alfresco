@@ -257,7 +257,7 @@ Default Value: `chat,userJoined,userLeft,serverConnection,checkInAnnotations,che
 
 #### slideViewerTileDirectoryRoot
 
-This is the root directory on the server filesystem where the slide viewer "tiles" should be served from. It is commonly a URL that is redirected through Apache to request files from the server. For more information on Slide viewer, see [Using Slide Viewer with Alfresco Enterprise Viewer](https://github.com/tsgrp/OpenAnnotate/wiki/Using-Slide-Viewer-with-OpenAnnotate).
+This is the root directory on the server filesystem where the slide viewer "tiles" should be served from. It is commonly a URL that is redirected through Apache to request files from the server. 
 
 Default Value: `http://localhost:8080/OpenAnnotate/images/seadragon/`
 
