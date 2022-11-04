@@ -4,8 +4,6 @@ title: Alfresco Enterprise Viewer Pre-Requisites & Sizing
 
 ## Recommended Software Environment
 
-Alfresco recommends the following:
-
 Server-Side
 
 * Server Operating System: Windows Server 2012R2 (64 bits) or Redhat Enterprise Linux (64 bits)
@@ -88,7 +86,7 @@ It means the system must be able to handle a
 maximum of 500 concurrent users.
 ```
 
-### Based on these assumptions, Alfresco recommends the following options
+### Based on these assumptions, the following options are recommended
 
 1. 2 Servers with the following specifications
    * 4 CPUs
