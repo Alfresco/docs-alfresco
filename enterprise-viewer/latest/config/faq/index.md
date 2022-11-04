@@ -2,9 +2,9 @@
 title: Alfresco Enterprise Viewer FAQ
 ---
 
-Is Alfresco Enterprise Viewer based on OpenAnnotation (<http://www.openannotation.org/>)?
+Is Alfresco Enterprise Viewer based on OpenAnnotation ([http://www.openannotation.org/](http://www.openannotation.org/))?
 
-* No, Alfresco Enterprise Viewer is based on the open Adobe XFDF standard for annotating PDFs (<https://www.iso.org/obp/ui/#iso:std:iso:19444:-1:ed-1:v1:en>)
+* No, Alfresco Enterprise Viewer is based on the open Adobe XFDF standard for annotating PDFs ([https://www.iso.org/obp/ui/#iso:std:iso:19444:-1:ed-1:v1:en](https://www.iso.org/obp/ui/#iso:std:iso:19444:-1:ed-1:v1:en>))
 
 Where are annotations stored?
 

@@ -42,7 +42,7 @@ Endpoint to perform a log in operation using the provided parameters. Redirects 
 * **Sample Call**
 Expected Result - the admin will login successfully and be redirected to the AEV viewer with the document supplied as the `docId` parameter open to page 5 and with 3 documents showing in the document list sidebar.
 
-> `https://domain.com/OpenAnnotate/login.htm`
+> `https://{server}/OpenAnnotate/login.htm`
 **Form-data body**
 `username`: admin
 `password`: admin
@@ -85,7 +85,7 @@ Endpoint to login from an external source with a username. The endpoint expects 
 * **Sample Call**
 Expected Result - the admin will be successfully authenticated and be redirected to the AEV viewer with the document supplied as the `docId` parameter open.
 
-> `https://domain.com/OpenAnnotate/login/external.htm?username=admin&ticket=TICKET_6dd55060d45cc05957b16da3becd9938f9414b9e&docId=workspace://SpacesStore/c47ef310-e731-427c-afc0-af8821c40890`
+> `https://{server}/OpenAnnotate/login/external.htm?username=admin&ticket=TICKET_6dd55060d45cc05957b16da3becd9938f9414b9e&docId=workspace://SpacesStore/c47ef310-e731-427c-afc0-af8821c40890`
 
 ## Features
 
@@ -109,7 +109,7 @@ Document ID List Parameter (Documentum):
 `docIdList=090130da806908e9,090130da806908e2,090130da806908e5`
 
 Full request:  
-> `https://domain.com/OpenAnnotate/viewer.htm?docId=workspace://SpacesStore/fbe65690-62b2-4275-8655-f9f08778c12a&username=admin&docIdList=workspace://SpacesStore/d7de806c-9aa6-4b14-8ff2-95b902d33d5d,workspace://SpacesStore/0ed0e588-8c70-42ad-8e77-2211e4bdd9ce,workspace://SpacesStore/0f39c66d-f414-4a06-861e-c91a3ff12335`
+> `https://{server}/OpenAnnotate/viewer.htm?docId=workspace://SpacesStore/fbe65690-62b2-4275-8655-f9f08778c12a&username=admin&docIdList=workspace://SpacesStore/d7de806c-9aa6-4b14-8ff2-95b902d33d5d,workspace://SpacesStore/0ed0e588-8c70-42ad-8e77-2211e4bdd9ce,workspace://SpacesStore/0f39c66d-f414-4a06-861e-c91a3ff12335`
 
 Expected Result: the admin will be redirected to the AEV viewer with the document supplied as the `docId` parameter and with 3 documents showing in the document list sidebar.
 
@@ -136,6 +136,6 @@ Startup  Search Parameter:
 `startupSearch=termToSearchOn`
 
 Full request:  
-> `https://domain.com/OpenAnnotate/viewer.htm?docId=workspace://SpacesStore/fbe65690-62b2-4275-8655-f9f08778c12a&username=admin&startupSearch=termToSearchOn`
+> `https://{server}/OpenAnnotate/viewer.htm?docId=workspace://SpacesStore/fbe65690-62b2-4275-8655-f9f08778c12a&username=admin&startupSearch=termToSearchOn`
 
 Expected Result: On page load any matches on the term to search are highlighted in the document and search results tab.
