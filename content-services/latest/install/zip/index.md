@@ -12,7 +12,7 @@ For a description of the system paths used within this documentation, see [Syste
 
 To install Content Services using the distribution zip (which also contains the WAR files), make sure that the required software is available on your system:
 
-* Java: OpenJDK 11 is recommended
+* Java: OpenJDK 17 is recommended
 * Application server: Apache Tomcat
 * Database: PostgreSQL or MySQL
 * Message broker: ActiveMQ
