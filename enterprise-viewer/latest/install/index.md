@@ -41,8 +41,7 @@ Option 2 (preferred for a production deployment) - Deploy AEV to a separate tomc
 
 ### Proxy Setup 
 
-The following routes must be proxied to their respective ports and applications in order for AEV to work correctly. SSL is recommended at a minimum at the 
-Proxy layer for Production installations.
+The following routes must be proxied to their respective ports and applications in order for AEV to work correctly. SSL is recommended at a minimum at the Proxy layer for Production installations.
 
 * `{Application Base URL}/alfresco`
 * `{Application Base URL}/share`

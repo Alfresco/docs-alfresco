@@ -14,7 +14,6 @@ In order to use the collaboration features, you must first install Node on the s
 
 After each command, the version of Node and npm should be output on the command line. `npm` is a command line tool for installing Node packages.
 
-
 ## Collaboration Server Port
 
 The node server port is configured in the `config/collaborationConfig.js` file.  By default, the collaboration server listens for HTTP requests on port 3000 and does not listen on an HTTPS port.
@@ -33,7 +32,7 @@ Note that the file path properties are relative to wherever the `server.js` file
 
 ## Configuring Alfresco Enterprise Viewer to Connect to the Node Server
 
-In order to utilize the Node server, you must configure Alfresco Enterprise Viewer to use it. The two properties that must be set are the `collaborationEndpoint` and `collaborationModeEnabled` properties. For more information on these properties and how to set these properties, read [AEV Configuration Files]({% link enterprise-viewer/latest/config/files/index.md %}).
+In order to utilize the Node server, you must configure Alfresco Enterprise Viewer to use it. The two properties that must be set are the `collaborationEndpoint` and `collaborationModeEnabled` properties. For more information on these properties and how to set these properties, read [AEV Configuration Files]({% link enterprise-viewer/latest/config/files.md %}).
 
 ## Collaboration Modes
 
@@ -46,5 +45,3 @@ Normal mode is the default mode for Alfresco Enterprise Viewer. This mode does n
 ### Collaboration Mode
 
 Collaboration mode is the mode that enables real-time annotations and well as chat functionality. It is configured by setting the `collaborationModeEnabled` property to `true`.
-
-

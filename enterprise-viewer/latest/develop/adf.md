@@ -12,7 +12,7 @@ An ADF application with AEV integrated is provided as part of the AEV deployment
 
 Include the following block in your application's `app.config.json` file and change as needed for your local environment.
 
-```
+```json
 "alfresco-enterprise-viewer": {
     "$version": "1.0.0",
     "enabled" : true,

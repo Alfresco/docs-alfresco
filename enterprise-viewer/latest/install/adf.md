@@ -2,7 +2,7 @@
 title: Integrating AEV with Alfresco Application Development Framework
 ---
 
-AEV can also be integrated with an existing ADF application. 
+AEV can also be integrated with an existing ADF application.
 
 1. Install Alfresco Enterprise Viewer as per the install guide (either as part of the Alfresco Tomcat or as a separate Tomcat/Java application server).
 
