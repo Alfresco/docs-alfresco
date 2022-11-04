@@ -59,8 +59,7 @@ separate servers the memory can be divided between them. Our initial recommended
 
 For this evaluation, we’ll assume all the users are concurrent users.
 
----| Reviewers & Viewers ---
-| Month | Total | Avg Day |
+| Month | Total Reviewers & Viewers | Avg Day Reviewers & Viewers |
 | --- | --- | --- |
 | Jan- 14 | 5,748 | 287 |
 | Feb- 14 | 7,184 | 359 |
