@@ -62,7 +62,7 @@ When installing a proxy please note that you are not limited to using apache or 
 
 1. Install Apache httpd
 
-   Obtain binaries from https://www.apachelounge.com/download/
+   Obtain binaries from [https://www.apachelounge.com/download/](https://www.apachelounge.com/download/)
 
    Install Apache to `C:\Apache\Apache24` (change to your desired version as appropriate).  This is referred to as `${apache.home}` below.
 
@@ -127,7 +127,7 @@ When installing a proxy please note that you are not limited to using apache or 
 	    ProxyPass /alfresco ajp://${your-TOMCAT-server-name}:8009/alfresco
 	    ProxyPass /share ajp://${your-TOMCAT-server-name}:8009/share
 	    # OR, use HTTP like this (use AJP in a production environment, as HTTP has more overhead and issues):
-	    # ProxyPass /alfresco http://${your-server-name}:8080/alfresco
+	    # ProxyPass /alfresco http://{server}:8080/alfresco
 
 	    #Proxy all requests at the root to the Tomcat that actually has the application in question ex: 
 	    ProxyPass / ajp://${your-TOMCAT-server-name}:9090/
@@ -139,7 +139,7 @@ When installing a proxy please note that you are not limited to using apache or 
 
    Go to `${apache.home}`/bin, open a command prompt, and run httpd.exe 
 
-1. Test by hitting http://${your-server-name}/alfresco 
+1. Test by hitting http://{server}/alfresco 
 
 
 ### Example Proxy Install 2 -  Nginx install on Amazon Linux
@@ -208,15 +208,15 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
                location ~ ^(/.*/s/prometheus)$ {return 403;}
                
                location /alfresco {
-                     proxy_pass http://${your-TOMCAT-server-name}:8080/alfresco;
+                     proxy_pass http://{server}:8080/alfresco;
                }
 
                location /share {
-                     proxy_pass  http://${your-TOMCAT-server-name}:8080/share;
+                     proxy_pass  http://{server}:8080/share;
                }
 
                location /OpenAnnotate {
-                     proxy_pass http://${your-TOMCAT-server-name}:9090/OpenAnnotate;
+                     proxy_pass http://{server}:9090/OpenAnnotate;
                }
 
             }
@@ -229,7 +229,7 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
 
 1. Make sure whatever port your proxy is listening on is open to the end user (example: you will need to open port 80 if you are using the configs in our example above)
 
-1. Test that the proxy is working properly by hitting http://${your-TOMCAT-server-name}/share
+1. Test that the proxy is working properly by hitting http://{server}/share
 
 ## Install OpenContent (Only need to follow these steps if installing AEV without ACA) {#installoc}
 
@@ -433,7 +433,7 @@ In this section the Alfresco Enterprise Viewer collaboration features Socket.IO 
 
 1. Install Node.js
 
-   Both NodeJS and npm will need to be installed. Follow the Node.js install instructions at https://nodejs.org/
+   Both NodeJS and npm will need to be installed. Follow the Node.js install instructions at [https://nodejs.org/](https://nodejs.org/)
 
    * Node.js (use the latest version your OS supports)
    * npm (Node package manager, included with Node.js)
@@ -512,7 +512,7 @@ In this section the Alfresco Enterprise Viewer collaboration features Socket.IO 
 
     For example:
 
-        Alfresco.constants.EXTERNAL_LAUNCHER_ANNOTATION_URL = "http://jarvis2:8080/OpenAnnotate/login/external.htm";
+        Alfresco.constants.EXTERNAL_LAUNCHER_ANNOTATION_URL = "http://localhost:8080/OpenAnnotate/login/external.htm";
 
    Then, copy the amp to the `ALFRESCO_HOME/amps_share` directory (create the directory if it doesn't exist).
 
@@ -543,7 +543,7 @@ In this section the Alfresco Enterprise Viewer collaboration features Socket.IO 
 
     For example:
 
-        Alfresco.constants.WEBPREVIEW_ANNOTATION_URL = "http://jarvis2:8080/OpenAnnotate/login/external.htm";
+        Alfresco.constants.WEBPREVIEW_ANNOTATION_URL = "http://localhost:8080/OpenAnnotate/login/external.htm";
 
    Then, copy the amp to the `ALFRESCO_HOME/amps_share` directory (create the directory if it doesn't exist).
 
@@ -581,7 +581,7 @@ This sections walks through how to install the Alfresco Enterprise Viewer web ap
 ### Install web applications on separate Tomcat {#install-webapps-separate-tomcat-oa}
 This section walks through how to install the web applications on a separate Tomcat instance (meaning, you must have a proxy setup).
 
-1. Install Apache Tomcat. See https://archive.apache.org/dist/tomcat. Note that if you installed aca, you can utilize the same tomcat you may have installed for aca - shut it down now if its already running. 
+1. Install Apache Tomcat. See [https://archive.apache.org/dist/tomcat](https://archive.apache.org/dist/tomcat). Note that if you installed aca, you can utilize the same tomcat you may have installed for aca - shut it down now if its already running. 
 
 1. Copy the `OpenAnnotate.war` file into the `TOMCAT_HOME/webapps` directory.
 

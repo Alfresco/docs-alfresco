@@ -130,7 +130,7 @@ Every page of a document is transformed using either Pdfium, Ghostscript, or MuP
 
 - By default, AEV utilizes PDFium. For utilizing MuPDF or Ghostscript, a third party license may be required.
 - Use an SSD for your temporary directories
-- Even better, leverage a RAM Disk/[tempfs](https://en.wikipedia.org/wiki/Tmpfs) like `/dev/shm` as that is WAY faster than even an SSD
+- Even better, leverage a [RAM Disk/tempfs](https://en.wikipedia.org/wiki/Tmpfs) like `/dev/shm` as that is WAY faster than even an SSD
 
 ## Alfresco Enterprise Viewer Performance
 

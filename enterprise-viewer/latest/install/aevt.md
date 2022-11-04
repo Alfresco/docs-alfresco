@@ -31,7 +31,7 @@ See the below graphic for how AEVT can be added to an AEV installation.
 ### Install webapps
 This sections walks through how to install the Alfresco Enterprise Viewer Transformer web application.
 
-1. Install Apache Tomcat. See https://archive.apache.org/dist/tomcat
+1. Install Apache Tomcat. See [https://archive.apache.org/dist/tomcat](https://archive.apache.org/dist/tomcat)
 
 1. Copy the `oat.war` file into the `TOMCAT_HOME/webapps` directory.
 
@@ -114,7 +114,7 @@ RewriteRule ^/alfresco/OpenContent/openannotate/(.*)$ /oat/optimus/$1 [L]
 
 This will cause all incoming to calls from `/alfresco/OpenContent/openannotate` to get mapped to `/oat/optimus`. Thus both the OpenContent and AEVT servers can accept calls to `/alfresco/OpenContent/openannotate`. URL rewriting is no longer neccesary at the Proxy/Load Balancer level.
 
-If you are not on Tomcat 8+, setting up the Tuckey UrlRewriteFilter may be an option (https://tuckey.org/urlrewrite). Or you can setup an additional proxy on the AEVT server. 
+If you are not on Tomcat 8+, setting up the [Tuckey UrlRewriteFilter](https://tuckey.org/urlrewrite) may be an option. Or you can setup an additional proxy on the AEVT server. 
 
 ## AEVT Configuration
 Your deployment must include an `application.properties`. The `application.properties` can be placed on the /oat classpath (for example: `TOMCAT_HOME`/shared/classes or whatever was configured in the shared loader in the webapps install above).
