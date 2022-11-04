@@ -1668,4 +1668,4 @@ action links listed in the table below.
 |[Edit Online](/content-accelerator/latest/configure/integrations-and-addons/#google-drive-and-onedrive-integrations){:target="_blank"}|Document Action|
 |[Sign with DocuSign](/content-accelerator/latest/configure/integrations-and-addons/#integration-with-docusign){:target="_blank"}|Document Action|
 |[Document Info View](/content-accelerator/latest/configure/other-aca-admin-configs/#docinfo-view){:target="_blank"}|Document Action|
-|[Refined Search in View All Documents](/content-accelerator/latest/configure/other-aca-admin-configs/#refined-search){:target="_blank"}|Action Add-On|
+|[Refined Search in View All Documents](/content-accelerator/latest/configure/actions/#refined-search){:target="_blank"}|Action Add-On|
