@@ -264,7 +264,7 @@ The way AEVT will get these overlay config override files will be to utilize the
 
 The two ways that the overlay config override files can be gotten and used within AEVT:
 1. On startup of AEVT, there is a scheduled job to only run on startup.
-2. Calling an AEVT rest endpoint called `optimus/refreshOverlayConfigOverrides` [https://github.com/tsgrp/OpenContent/wiki/OAT-Override-Overlay-Configs/_edit#updateversion-overlay-config-override-file](https://github.com/tsgrp/OpenContent/wiki/OAT-Override-Overlay-Configs/_edit#updateversion-overlay-config-override-file) 
+2. Calling an AEVT rest endpoint called `optimus/refreshOverlayConfigOverrides` [Make Updates or Version Existing Overlay Config Overrides](#make-updates-or-version-existing-overlay-config-overrides) 
 
 
 ## Override Overlay Config Files for The First Time
@@ -318,7 +318,7 @@ Once you enable the overlay config override, you have to add the overlay overrid
 1. Upload overlay config override zip file
 
     * Under the `Assets` folder, upload the overlay config override file by moving or copying it to the `Assets` folder locally. Then, you can use the Config Archiver within the Admin section of ACA to upload these updated configs. 
-    * A second option would be Alfresco specific. You can navigate in share to find the ACA config `Asset` folder [https://github.com/tsgrp/OpenContent/wiki/OAT-Override-Overlay-Configs/_edit#1-find-or-create-the-assets-folder](https://github.com/tsgrp/OpenContent/wiki/OAT-Override-Overlay-Configs/_edit#1-find-or-create-the-assets-folder). Then you can simply upload the overlay config override zip file here.
+    * A second option would be Alfresco specific. You can navigate in share to find the ACA config `Asset` folder (Refer Step 3 above for Find or create the assets folder). Then you can simply upload the overlay config override zip file here.
 
 1. Check other notable configuration properties
 
@@ -339,7 +339,7 @@ The overlay config override file has been set and at this point you want to make
 
 1. Update Overlay Config Override Zip File
 
-    * To make changes, simply follow step above ([https://github.com/tsgrp/OpenContent/wiki/OAT-Override-Overlay-Configs#3-upload-overlay-config-override-zip-file](https://github.com/tsgrp/OpenContent/wiki/OAT-Override-Overlay-Configs#3-upload-overlay-config-override-zip-file)) to re-upload the configs or re-upload the overlay config override file within Share, if you are in Alfresco.
+    * To make changes, simply follow step above ([Refer Step 5 from Configure Overlays Overrides](#configure-overlays-overrides)) to re-upload the configs or re-upload the overlay config override file within Share, if you are in Alfresco.
 
 1. Clear OC Cache
 

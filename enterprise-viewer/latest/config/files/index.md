@@ -201,7 +201,7 @@ Default Value: `MM/DD/YYYY`
 #### enabledActions & Modes
 
 Configuring what Buttons / Actions appear in Alfresco Enterprise Viewer is a little more in-depth than the average config option.  See
-[Configuring Alfresco Enterprise Viewer Actions Buttons and Modes](https://github.com/tsgrp/OpenAnnotate/wiki/Configuring-OpenAnnotate-Actions-Buttons-and-Modes) for more details.
+[Configuring Alfresco Enterprise Viewer Actions Buttons and Modes](/enterprise-viewer/latest/config/aev-actions-and-modes-config) for more details.
 
 #### quillEnabledButtons
 

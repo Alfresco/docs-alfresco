@@ -42,7 +42,7 @@ Endpoint to perform a log in operation using the provided parameters. Redirects 
 * **Sample Call**
 Expected Result - the admin will login successfully and be redirected to the AEV viewer with the document supplied as the `docId` parameter open to page 5 and with 3 documents showing in the document list sidebar.
 
-> <https://domain.com/OpenAnnotate/login.htm>
+> `https://domain.com/OpenAnnotate/login.htm`
 **Form-data body**
 `username`: admin
 `password`: admin
@@ -85,7 +85,7 @@ Endpoint to login from an external source with a username. The endpoint expects 
 * **Sample Call**
 Expected Result - the admin will be successfully authenticated and be redirected to the AEV viewer with the document supplied as the `docId` parameter open.
 
-> <https://domain.com/OpenAnnotate/login/external.htm?username=admin&ticket=TICKET_6dd55060d45cc05957b16da3becd9938f9414b9e&docId=workspace://SpacesStore/c47ef310-e731-427c-afc0-af8821c40890>
+> `https://domain.com/OpenAnnotate/login/external.htm?username=admin&ticket=TICKET_6dd55060d45cc05957b16da3becd9938f9414b9e&docId=workspace://SpacesStore/c47ef310-e731-427c-afc0-af8821c40890`
 
 ## Features
 
