@@ -2,11 +2,11 @@
 title: Installing Single Sign On (SSO)
 ---
 
-# Configuring Single Sign On (SSO)
+## Configuring Single Sign On (SSO)
 
 ### SSO settings
 
-Example configuration file below. This file lives on the tomcats classpath, for example, ```TOMCAT_HOME/shared/classes/hpi-overrides.properties```. 
+Example configuration file below. This file lives on the tomcats classpath, for example, ```TOMCAT_HOME/shared/classes/hpi-overrides.properties```.
 
 If one doesn't exist already, place one there and make sure the previous step of adding the shared/classes directory to the classpath was done.
 
@@ -59,13 +59,13 @@ openAnnotateVideoURL=
 
 ### SAML settings
 
-**Identity Provider (IdP) SAML Setup**
+#### Identity Provider (IdP) SAML Setup
 
 SSO, Recipient, Destination URLs: `http://{server}/ocms/saml/SSO`
 
 Audience: `http://{server}/ocms/saml/metadata`
 
-**ACA Properties**
+#### ACA Properties
 
 Override the following properties in the `hpi-overrides.properties`:
 
@@ -88,10 +88,12 @@ serverPort=80
 includeServerPortInRequestURL=false
 contextPath=/ocms
 ```
-**hpi-security-context-override.xml**
+
+#### hpi-security-context-override.xml
 
 You will need to create a hpi-security-context.xml and place it on the tomcat classpath, for example, TOMCAT_HOME/shared/classes/. This file will contain the beans and settings for your SAML configuration. Below is an example of what this file could look like
-```
+
+```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans" 
     xmlns:security="http://www.springframework.org/schema/security" 
@@ -337,12 +339,11 @@ You will need to create a hpi-security-context.xml and place it on the tomcat cl
     <bean id="parserPoolHolder" class="org.springframework.security.saml.parser.ParserPoolHolder"/>
 
 </beans>
-
 ```
 
-**OpenContent**
+#### OpenContent
 
-In your opencontent-override-placeholders.properties set your client authentication key to the same string as the one set in ACA and enableSSO:
+In your `opencontent-override-placeholders.properties` set your client authentication key to the same string as the one set in ACA and enableSSO:
 
 ```bash
 client.authentication.key=<UUID>

@@ -38,6 +38,7 @@ The `EVERYONE` authority must have Consumer permissions on this folder in order 
 * **sanitizePropValueRegex** (String, optional) - a regex that will be used to sanitize property values that will be used for Autofiling. Any property pulled from an object will run through the regex and a matching string will be used for filing.
 
 ### Sample REST Call to Configure Autofiling
+
 ```bash
 http://{server}:{port}/alfresco/service/tsgrp/autofile/createAutofileConfig?params={"name":"Department - Region","rootPath":"Company Home/Sites/tsg-add-ons-demo/documentLibrary/Autofiling","types":["{http://www.tsgrp.com/model/tao/1.0}content"],
 "propertiesList":[

@@ -2,17 +2,18 @@
 title: Integrations and Addons
 ---
 
-
 ## Integration with Docusign
 
 ### Setup a DocuSign Account
+
 1. If needed, create a DEV sandbox with DocuSign [here](https://www.docusign.com/developer-center).
 1. Once you are in, setup your DocuSign account and go to Admin -> Account -> API and Keys
 1. Click Add Integrator Key button to add an integrator key
 
-### Setup OpenContent 
+### Setup OpenContent
+
 1. Locate the `opencontent-override-placeholders.properties` file. It will be located on the /alfresco classpath, for example, `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent`
-1. Add the following properties: 
+1. Add the following properties:
 
 * `docusign.username` - DocuSign user name (which should be the same as the user's email address)
 * `docusign.password` - DocuSign user password, should be [encrypted with the TSGEncrypter](/content-accelerator/latest/configure/oc-property-overrides/#encrypting-property-values) and enclosed with the encryption indicator like: `@{theEncPassword}`
@@ -23,35 +24,35 @@ title: Integrations and Addons
 
 1. Update the module-context in order for the Retrieve job to run. Adding the following to the `opencontent-override-module-context.xml`:
 
-```
+```xml
 <!-- Retrieve Content from Docusign Job -->
-	<bean id="hpi-docusign-retrieve-trigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
-		<!-- Run every hour -->
-		<property name="cronExpression" value="0 0 * * * ?"/>
-		<property name="jobDetail">
-			<bean id="com.tsgrp.opencontent.alfresco.job.retrieveDocusignContentJob"
-				  class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
-				<property name="jobClass" value="com.tsgrp.opencontent.alfresco.job.RetrieveDocusignContentJob"/>
-				<property name="jobDataAsMap">
-					<map>
-						<entry key="serviceRegistry" value-ref="ServiceRegistry"/>
-						<entry key="version" value="${docusign.completed.version.policy}"/>
-						<entry key="docuSignUsername" value="${docusign.username}"/>
-						<entry key="docuSignPassword" value="${docusign.password}"/>
-						<entry key="integratorKey" value="${docusign.integratorKey}"/>
-						<entry key="docuSignLoginURL" value="${docusign.login.url}"/>
-						<entry key="dataPath" value="${docusign.hpi.dataPath}"/>
-						<entry key="folderNotesEnabled" value="${docusign.folderNotesEnabled}"/>
-					</map>
-				</property>
-			</bean>
-		</property>
-	</bean>
+<bean id="hpi-docusign-retrieve-trigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+    <!-- Run every hour -->
+    <property name="cronExpression" value="0 0 * * * ?"/>
+    <property name="jobDetail">
+        <bean id="com.tsgrp.opencontent.alfresco.job.retrieveDocusignContentJob"
+                class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+            <property name="jobClass" value="com.tsgrp.opencontent.alfresco.job.RetrieveDocusignContentJob"/>
+            <property name="jobDataAsMap">
+                <map>
+                    <entry key="serviceRegistry" value-ref="ServiceRegistry"/>
+                    <entry key="version" value="${docusign.completed.version.policy}"/>
+                    <entry key="docuSignUsername" value="${docusign.username}"/>
+                    <entry key="docuSignPassword" value="${docusign.password}"/>
+                    <entry key="integratorKey" value="${docusign.integratorKey}"/>
+                    <entry key="docuSignLoginURL" value="${docusign.login.url}"/>
+                    <entry key="dataPath" value="${docusign.hpi.dataPath}"/>
+                    <entry key="folderNotesEnabled" value="${docusign.folderNotesEnabled}"/>
+                </map>
+            </property>
+        </bean>
+    </property>
+</bean>
 ```
 
 1. Ensure that the job is scheduled to run
 
-Ensure that the `tsgSchedulerAccessor` bean has the docusign retrieve job configured in the `triggers` list.  This can be overriden in the `opencontent-override-module-context.xml`. 
+Ensure that the `tsgSchedulerAccessor` bean has the docusign retrieve job configured in the `triggers` list.  This can be overriden in the `opencontent-override-module-context.xml`.
 
 ```xml
 <bean id="tsgSchedulerAccessor" class="org.springframework.scheduling.quartz.SchedulerAccessorBean">
@@ -69,76 +70,73 @@ Ensure that the `tsgSchedulerAccessor` bean has the docusign retrieve job config
 1. After making these changes you will need to restart alfresco
 
 ### Setup the Repository
-1. Add a folder to the repository to store DocuSign data
+
+* Add a folder to the repository to store DocuSign data
   * Defaults to `/hpi/docuSignData`
   * Set the permissions on the folder to - HPI Administrators - Coordinator, EVERYONE - Contributor
 
-
 ### Run Job Immediately
+
 Since the job is typically configured to run every hour, it's sometimes necessary to force the job to run for testing.  Navigate to the Alfresco Admin Console -> Scheduled Jobs.  Run the `com.tsgrp.opencontent.alfresco.job.retrieveDocusignContentJob`
-
-
-
 
 ## Integrating Controlled Documents Solution with Alfresco Goverance Services
 
-### Background: 
+### Background
 
-* When utilizing ACA Controlled Docs and Alfresco Goverance Services, a common desired result is that as soon as a doc becomes effective it should become an ags record. 
-* If we were just to declare that effective controlled doc a record, it could no longer be able to be checked out and checked back in since records are immutable (the controlled doc version chain would essentially be dead) 
+* When utilizing ACA Controlled Docs and Alfresco Goverance Services, a common desired result is that as soon as a doc becomes effective it should become an ags record.
+* If we were just to declare that effective controlled doc a record, it could no longer be able to be checked out and checked back in since records are immutable (the controlled doc version chain would essentially be dead)
 * Therefore, enabling the controlled docs with AGS solution will actually create a copy of the controlled document when it becomes effective so that that copy can be declared an AGS record and the controlled doc itself will still be able to be checked out and checked back in
 
-#### The following things will happen when this add on is enabled: 
+#### The following things will happen when this add on is enabled
 
-* When a controlled doc becomes effective 
-    * A record copy is created of that controlled doc
+* When a controlled doc becomes effective
+  * A record copy is created of that controlled doc
 * Disposition
-    * When the record copy is deleted, a behavior will now run and delete the associated controlled document version
+  * When the record copy is deleted, a behavior will now run and delete the associated controlled document version
 * superceded/obsolete
-    * When a controlled doc becomes superceded or obsoleted, the record copy status will also be updated to show the change 
+  * When a controlled doc becomes superceded or obsoleted, the record copy status will also be updated to show the change
 
-### Configuring the solution:
+### Configuring the solution
 
-#### Prerequisites:
+#### Prerequisites
 
-1. You will need AGS installed in alfresco 
+1. You will need AGS installed in alfresco
 2. You will need a working controlled docs solutions such that documents are moved to the effective state
 3. You will need 2 separate object types - 1 for your controlled doc (for example hy:controlledDoc) and 1 type that your record should be copied to (for example hy:record)
 
-#### The are 2 key pieces to configuring controlled docs with AGS 
+#### The are 2 key pieces to configuring controlled docs with AGS
 
 ##### 1. Enable the functionality by overriding the default values for these props
 
-* controlled.docs.with.ags=true
-    * Set this to true to signify we are using the controlled docs with AGS solution
-* controlled.docs.with.ags.object.type={http://www.hyland.com/model/content/1.0}record
-    * Set the ObjectType for the created record copy of the node
-    * this is the object type that we will use when we create the copy of the controlled document 
-    * It should be a different object type than the controlled document
-* controlled.docs.with.ags.association={http://www.hyland.com/model/content/1.0}controlledRecordCopyAssoc
-    * Set the Name of the Association to associate the controlled doc to its record copy
-    * This is what ties the controlled document to its record copy so we can later look up the associated document to update status or disposition 
-* controlled.docs.with.ags.behaviors.to.disable={http://www.alfresco.org/model/content/1.0}content,{http://www.tsgrp.com/model/tsg/1.0}renditioned
-    * Set the list of behaviors that should be disabled when running the controlled doc with AGS logic
-    * We suggest setting this to at least cm:content and tsg:Rendition since these content props will be automatically copied over and we don’t want them generated from jobs on our record copy
-* controlled.docs.with.ags.prefix.for.name.of.copy=REC_
-    * Set the prefix we append to the name of the Record Copy of the controlled document to avoid collisions by copying with the exact same name
-* controlled.docs.with.ags.associations.to.copy.over=
-    * list of associations we want to copy over from the controlled document to the Record copy
-* controlled.docs.with.ags.aspects.to.always.add={http://www.tsgrp.com/model/tsg/1.0}doNotAutoRender (http://www.tsgrp.com/model/tsg/1.0%7DdoNotAutoRender)
-    * list of aspects to add (doesn’t need to be on controlled doc but can be)
-    * Since we will copy over the rendition, add the do not autorender aspect
+* `controlled.docs.with.ags=true`
+  * Set this to true to signify we are using the controlled docs with AGS solution
+* `controlled.docs.with.ags.object.type={http://www.hyland.com/model/content/1.0}record`
+  * Set the ObjectType for the created record copy of the node
+  * this is the object type that we will use when we create the copy of the controlled document
+  * It should be a different object type than the controlled document
+* `controlled.docs.with.ags.association={http://www.hyland.com/model/content/1.0}controlledRecordCopyAssoc`
+  * Set the Name of the Association to associate the controlled doc to its record copy
+  * This is what ties the controlled document to its record copy so we can later look up the associated document to update status or disposition
+* `controlled.docs.with.ags.behaviors.to.disable={http://www.alfresco.org/model/content/1.0}content,{http://www.tsgrp.com/model/tsg/1.0}renditioned`
+  * Set the list of behaviors that should be disabled when running the controlled doc with AGS logic
+  * We suggest setting this to at least cm:content and tsg:Rendition since these content props will be automatically copied over and we don’t want them generated from jobs on our record copy
+* `controlled.docs.with.ags.prefix.for.name.of.copy=REC_`
+  * Set the prefix we append to the name of the Record Copy of the controlled document to avoid collisions by copying with the exact same name
+* `controlled.docs.with.ags.associations.to.copy.over=`
+  * list of associations we want to copy over from the controlled document to the Record copy
+* `controlled.docs.with.ags.aspects.to.always.add={http://www.tsgrp.com/model/tsg/1.0}doNotAutoRender (http://www.tsgrp.com/model/tsg/1.0%7DdoNotAutoRender)`
+  * list of aspects to add (doesn’t need to be on controlled doc but can be)
+  * Since we will copy over the rendition, add the do not autorender aspect
 
-##### 2. Setup a folder rule to declare the created copy as an AGS record 
+##### 2. Setup a folder rule to declare the created copy as an AGS record
 
 1. Need to setup the folder Rule to actually declare our record copy as an AGS Record
-    1. In the share site -> on the folder where your record copy will get created (or moved to if autofile is configured) -> under folder rules -> add rule 
-        1. Set the rule to run: `on create or enter` 
-        2. RUN WHEN - `Content Type = Content` (since we dont want this to run when folders are created in here) 
-        3. File Record -> to unfiled Records Folder 
+    1. In the share site -> on the folder where your record copy will get created (or moved to if autofile is configured) -> under folder rules -> add rule
+        1. Set the rule to run: `on create or enter`
+        2. RUN WHEN - `Content Type = Content` (since we dont want this to run when folders are created in here)
+        3. File Record -> to unfiled Records Folder
         4. Check Box to Run on Subfolders
 2. Optional: You can also then setup another rule on the unfiled records folder in the RM site to file the record to a more specific location
-
 
 ## Processing Outlook MSG Files
 
@@ -152,7 +150,7 @@ When an MSG file is uploaded through Bulk Upload, the MSG file is parsed for any
 
 ### Renditioning Outlook MSG Files
 
-The MSG file can be renditioned to a PDF by either OpenContent or Alfresco. 
+The MSG file can be renditioned to a PDF by either OpenContent or Alfresco.
 
 #### Using Alfresco for MSG renditions
 
@@ -160,24 +158,25 @@ The default renditioning behavior is to allow the repository to add a PDF rendit
 
 Renditioning MSG to PDF is available OOTB in Alfresco *if your object type has the `tsg:renditioned` aspect applied to it*.  To take advantage of Alfresco's renditioning engine, ensure you have the below settings.
     1. Bulk Upload is configured to let the repository generate the PDF rendition for MSG files.
-    1. The following bean is in the `module-context.xml`: 
-            ``` xml
-                <bean id="transformer.complex.OcMsg2PdfTransformer" class="org.alfresco.repo.content.transform.ComplexContentTransformer" parent="baseContentTransformer">
-                    <property name="transformers">
-                        <list>
-                            <ref bean="transformer.OutlookMsg"/>
-                            <ref bean="transformer.PdfBox.TextToPdf"/>
-                            <ref bean="transformer.Pdf2swf"/>
-                        </list>
-                    </property>
-                    <property name="intermediateMimetypes">
-                        <list>
-                            <value>text/plain</value>
-                            <value>application/pdf</value>
-                        </list>
-                    </property>
-                </bean>
-                ```
+    1. The following bean is in the `module-context.xml`:
+
+``` xml
+    <bean id="transformer.complex.OcMsg2PdfTransformer" class="org.alfresco.repo.content.transform.ComplexContentTransformer" parent="baseContentTransformer">
+        <property name="transformers">
+            <list>
+                <ref bean="transformer.OutlookMsg"/>
+                <ref bean="transformer.PdfBox.TextToPdf"/>
+                <ref bean="transformer.Pdf2swf"/>
+            </list>
+        </property>
+        <property name="intermediateMimetypes">
+            <list>
+                <value>text/plain</value>
+                <value>application/pdf</value>
+            </list>
+        </property>
+    </bean>
+    ```
 
     1. The following property is set in the `alfresco-defaults.properties`:
       `content.transformer.complex.OcMsg2PdfTransformer.pipeline=OutlookMsg|txt|*|pdf|Pdf2swf`
@@ -401,6 +400,3 @@ Reference: [https://developers.google.com/identity/protocols/OAuth2UserAgent](ht
     - If Give Edit Ability Slider is set to true, there will be another slider setting whether to send an email to all users with Write permission on the document any time it is checked out to OneDrive. If set to false, the document will simply show up in those users' Shared Folder on OneDrive.
 1. For Google Drive, enter the Application ID and choose "Alfresco"
 1. Click Save Config.
-
-
- 

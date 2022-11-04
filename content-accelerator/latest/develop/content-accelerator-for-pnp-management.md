@@ -2,15 +2,17 @@
 title: Content Accelerator for Policy and Procedure Management
 ---
 
-# Typical PnP Backend Configuration Points
+## Typical PnP Backend Configuration Points
+
 While the Content Accelerator administration console provides powerful UI-based configurations, sometimes back end configurations are desired.  Typical configuration points include:
 
-## Update the Change Request Form and Workflow
+### Update the Change Request Form and Workflow
+
 Form and workflow updates are made in the WizardAdmin application.  See the [Admin Guide](/content-accelerator/latest/configure/admin-guide/#activewizard) for more information.
 
-## Extend Quality Document Type
+### Extend Quality Document Type
 
-### Extend Quality Document Type (Before ACA version 3.5)
+#### Extend Quality Document Type (Before ACA version 3.5)
 
 The default Quality Document object type is the out-of-the-box available controlled document type. If you wish to add additional properties or aspects to your Policy and Procedure solution, you can extend the quality document type using the following steps.
 
@@ -27,7 +29,7 @@ In a custom Alfresco AMP, define your custom Alfresco object model, then do the 
 
 You can define whatever additional properties, aspects, associations etc that you wish on your custom object type.
 
-1. You'll need to import the `aw` namespace - `<import uri="http://www.activewizard.com/model/content/1.0" prefix="aw" />` 
+1. You'll need to import the `aw` namespace - `<import uri="http://www.activewizard.com/model/content/1.0" prefix="aw" />`
 
 2. Update your dictionary import bean to depend on the `com.tsgrp.openContent.dictionaryBootstrap` bean, eg below:
 
@@ -38,19 +40,19 @@ You can define whatever additional properties, aspects, associations etc that yo
 
 In addition to the above steps in your custom AMP, you'll need to configure the `opencontent-override-module-context.xml` to recognize your new custom type.
 
-3. Define the `tsgQualityDocBehaviours`, `tsgControlledDocVersionPolicies`, and `permissionsModel` beans in the `opencontent-override-module-context.xml`.
+1. Define the `tsgQualityDocBehaviours`, `tsgControlledDocVersionPolicies`, and `permissionsModel` beans in the `opencontent-override-module-context.xml`.
 
-4. Add the `acme:document` object type to the `validDoctypesForTSGVersionControl` property lists for the first three beans.
+1. Add the `acme:document` object type to the `validDoctypesForTSGVersionControl` property lists for the first three beans.
 
-5. Add the `acme:document` object type to the `permissionsModel` bean.
+1. Add the `acme:document` object type to the `permissionsModel` bean.
 
-6. Add the `acme:document` object type to the `WizardQualityDocLifecycleApplicableTypes` bean in the `opencontent-override-config.xml`.
+1. Add the `acme:document` object type to the `WizardQualityDocLifecycleApplicableTypes` bean in the `opencontent-override-config.xml`.
 
 For the three steps above, see the below for example configuration:
 
 ```xml
 <!-- Behaviour to applied to Quality Documents in order to update aspects, tsg:status, and remove minor versions upon promotion. -->
-<bean id="tsgQualityDocBehaviours"	class="com.tsgrp.alfresco.behaviour.TSGQualityDocumentBehaviors"	init-method="init" depends-on="com.tsgrp.openContent.dictionaryBootstrap,pnp-sample-extension-project.dictionaryBootstrap">
+<bean id="tsgQualityDocBehaviours" class="com.tsgrp.alfresco.behaviour.TSGQualityDocumentBehaviors" init-method="init" depends-on="com.tsgrp.openContent.dictionaryBootstrap,pnp-sample-extension-project.dictionaryBootstrap">
     <property name="policyComponent" ref="policyComponent" />
     <property name="serviceRegistry" ref="ServiceRegistry" />
     <property name="behaviorFilter" ref="policyBehaviourFilter" />
@@ -70,7 +72,7 @@ For the three steps above, see the below for example configuration:
 </bean>
 
 <!-- Contains the version policy and related necessary behaviors to control document versioning schema -->
-<bean id="tsgControlledDocVersionPolicies"	class="com.tsgrp.alfresco.behaviour.ControlledDocumentVersionPolicy"	init-method="init" depends-on="com.tsgrp.openContent.dictionaryBootstrap,pnp-sample-extension-project.dictionaryBootstrap">
+<bean id="tsgControlledDocVersionPolicies" class="com.tsgrp.alfresco.behaviour.ControlledDocumentVersionPolicy" init-method="init" depends-on="com.tsgrp.openContent.dictionaryBootstrap,pnp-sample-extension-project.dictionaryBootstrap">
     <property name="policyComponent" ref="policyComponent" />
     <property name="serviceRegistry" ref="ServiceRegistry" />
     <property name="behaviorFilter" ref="policyBehaviourFilter" />
@@ -88,9 +90,9 @@ For the three steps above, see the below for example configuration:
 </bean>
 
 <util:map id="permissionsModel">
-    <entry key="aw:qualityDocument" 		                    value-ref="permissions_aw_quality_document"/>
-    <entry key="aw:controlledDocument"		                    value-ref="permissions_aw_controlled_document"/>
-    <entry key="aw:psi" 					                    value-ref="permissions_aw_psi"/>
+    <entry key="aw:qualityDocument"                             value-ref="permissions_aw_quality_document"/>
+    <entry key="aw:controlledDocument"                          value-ref="permissions_aw_controlled_document"/>
+    <entry key="aw:psi"                                         value-ref="permissions_aw_psi"/>
     <entry key="acme:document"                                  value-ref="permissions_aw_quality_document"/>
 </util:map>
 
@@ -105,7 +107,7 @@ For the three steps above, see the below for example configuration:
 </bean>
 ```
 
-### Extend Quality Document Type  (ACA version 3.5 and above)
+#### Extend Quality Document Type  (ACA version 3.5 and above)
 
 The default Quality Document object type is the out-of-the-box available controlled document type. If you wish to add additional properties or aspects to your Policy and Procedure solution, you can extend the quality document type using the following steps.
 
@@ -122,25 +124,25 @@ In a custom Alfresco AMP ( [See](/content-accelerator/latest/develop/extension-c
 
 You can define whatever additional properties, aspects, associations etc that you wish on your custom object type.
 
-1. You'll need to import the `aw` namespace - `<import uri="http://www.activewizard.com/model/content/1.0" prefix="aw" />` 
+1. You'll need to import the `aw` namespace - `<import uri="http://www.activewizard.com/model/content/1.0" prefix="aw" />`
 
-2. In the custom Amps module-context, override the `com.tsgrp.openContent.dictionaryBootstrap` bean and add your custom model [here](/content-accelerator/latest/develop/extension-content-accelerator/)
+1. In the custom Amps module-context, override the `com.tsgrp.openContent.dictionaryBootstrap` bean and add your custom model [here](/content-accelerator/latest/develop/extension-content-accelerator/)
 
 Next in your custom amps opencontent-extension-override-module-ctx.xml file
 
-3. Define the `tsgQualityDocBehaviours`, `tsgControlledDocVersionPolicies`, and `permissionsModel` beans.
+1. Define the `tsgQualityDocBehaviours`, `tsgControlledDocVersionPolicies`, and `permissionsModel` beans.
 
-4. Add the `acme:document` object type to the `validDoctypesForTSGVersionControl` property lists for the first three beans.
+1. Add the `acme:document` object type to the `validDoctypesForTSGVersionControl` property lists for the first three beans.
 
-5. Add the `acme:document` object type to the `permissionsModel` bean.
+1. Add the `acme:document` object type to the `permissionsModel` bean.
 
-6. Add the `acme:document` object type to the `WizardQualityDocLifecycleApplicableTypes` bean in the `opencontent-extension-override-config.xml`.
+1. Add the `acme:document` object type to the `WizardQualityDocLifecycleApplicableTypes` bean in the `opencontent-extension-override-config.xml`.
 
 For the three steps above, see the below for example configuration:
 
 ```xml
 <!-- Behaviour to applied to Quality Documents in order to update aspects, tsg:status, and remove minor versions upon promotion. -->
-<bean id="tsgQualityDocBehaviours"	class="com.tsgrp.alfresco.behaviour.TSGQualityDocumentBehaviors"	init-method="init" depends-on="com.tsgrp.openContent.dictionaryBootstrap">
+<bean id="tsgQualityDocBehaviours" class="com.tsgrp.alfresco.behaviour.TSGQualityDocumentBehaviors" init-method="init" depends-on="com.tsgrp.openContent.dictionaryBootstrap">
     <property name="policyComponent" ref="policyComponent" />
     <property name="serviceRegistry" ref="ServiceRegistry" />
     <property name="behaviorFilter" ref="policyBehaviourFilter" />
@@ -160,7 +162,7 @@ For the three steps above, see the below for example configuration:
 </bean>
 
 <!-- Contains the version policy and related necessary behaviors to control document versioning schema -->
-<bean id="tsgControlledDocVersionPolicies"	class="com.tsgrp.alfresco.behaviour.ControlledDocumentVersionPolicy"	init-method="init" depends-on="com.tsgrp.openContent.dictionaryBootstrap">
+<bean id="tsgControlledDocVersionPolicies" class="com.tsgrp.alfresco.behaviour.ControlledDocumentVersionPolicy" init-method="init" depends-on="com.tsgrp.openContent.dictionaryBootstrap">
     <property name="policyComponent" ref="policyComponent" />
     <property name="serviceRegistry" ref="ServiceRegistry" />
     <property name="behaviorFilter" ref="policyBehaviourFilter" />
@@ -178,10 +180,10 @@ For the three steps above, see the below for example configuration:
 </bean>
 
 <util:map id="permissionsModel">
-    <entry key="aw:qualityDocument" 		               value-ref="permissions_aw_quality_document"/>
-    <entry key="aw:controlledDocument"		                value-ref="permissions_aw_controlled_document"/>
-    <entry key="aw:psi" 					value-ref="permissions_aw_psi"/>
-    <entry key="acme:document"                                  value-ref="permissions_aw_quality_document"/>
+    <entry key="aw:qualityDocument"                         value-ref="permissions_aw_quality_document"/>
+    <entry key="aw:controlledDocument"                      value-ref="permissions_aw_controlled_document"/>
+    <entry key="aw:psi"                                     value-ref="permissions_aw_psi"/>
+    <entry key="acme:document"                              value-ref="permissions_aw_quality_document"/>
 </util:map>
 
 <bean id="WizardQualityDocLifecycleApplicableTypes" class="java.util.ArrayList" >
@@ -195,7 +197,7 @@ For the three steps above, see the below for example configuration:
 </bean>
 ```
 
-## Modify Default Security Settings 
+### Modify Default Security Settings
 
 The Policy and Procedure solution includes a dynamic security model that allows documents to be secured independently based on lifecycle state. To override the existing security settings, override the following beans in the `opencontent-override-module-context.xml` (or the `opencontent-extension-override-module-ctx.xml` if using ACA 3.5 and above). This example extends the above `acme:document` example of a custom object type extending the `tsg:qualityDocument` object type, so please follow those steps above first.
 
@@ -210,7 +212,7 @@ The Policy and Procedure solution includes a dynamic security model that allows 
 </util:map>
 ```
 
-2. Create a `permissions_acme_document` bean and update its value refs to point to new permission sets, as needed.  If we want the subtype to simply follow the exact permissions as the out of the box parent, simply set the permissions model to the existing permissions, likely `permissions_aw_quality_document` for document subtypes and `permissions_aw_psi` for subtypes.  However, if we want to make changes for our subtype, see the below example where the Superseded permissions are changed for a document subtype.
+1. Create a `permissions_acme_document` bean and update its value refs to point to new permission sets, as needed.  If we want the subtype to simply follow the exact permissions as the out of the box parent, simply set the permissions model to the existing permissions, likely `permissions_aw_quality_document` for document subtypes and `permissions_aw_psi` for subtypes.  However, if we want to make changes for our subtype, see the below example where the Superseded permissions are changed for a document subtype.
 
 Original permission set:
 
@@ -244,7 +246,7 @@ Updated permission set
 </util:map>
 ```
 
-3. Lastly define the new custom permission. 
+1. Lastly define the new custom permission.
 
 Original permission setting
 
@@ -265,196 +267,196 @@ Customized permission setting
 </util:map>
 ```
 
-A full reference of the permission sets granted is listed here: 
+A full reference of the permission sets granted is listed here:
 
 `ocPermissionDefinitions.xml`
 
 ```xml
 <permissions>
 
-	<!-- Namespaces used in type references -->
+    <!-- Namespaces used in type references -->
 
-	<namespaces>
-		<namespace uri="http://www.alfresco.org/model/system/1.0" prefix="sys"/>
-		<namespace uri="http://www.alfresco.org/model/content/1.0" prefix="cm"/>
-		<namespace uri="http://www.alfresco.org/model/wcmmodel/1.0" prefix="wcm"/>
-		<namespace uri="http://www.alfresco.org/model/wcmappmodel/1.0" prefix="wca"/>
-		<namespace uri="http://www.activewizard.com/model/content/1.0" prefix="aw" />
-		<namespace uri="http://www.tsgrp.com/model/openannotate/1.0" prefix="oa" />
+    <namespaces>
+        <namespace uri="http://www.alfresco.org/model/system/1.0" prefix="sys"/>
+        <namespace uri="http://www.alfresco.org/model/content/1.0" prefix="cm"/>
+        <namespace uri="http://www.alfresco.org/model/wcmmodel/1.0" prefix="wcm"/>
+        <namespace uri="http://www.alfresco.org/model/wcmappmodel/1.0" prefix="wca"/>
+        <namespace uri="http://www.activewizard.com/model/content/1.0" prefix="aw" />
+        <namespace uri="http://www.tsgrp.com/model/openannotate/1.0" prefix="oa" />
 
-	</namespaces>
+    </namespaces>
 
-	<!-- aw:doc permissions for forms and other aw docs -->
-	<permissionSet type="aw:doc" expose="selected">
+    <!-- aw:doc permissions for forms and other aw docs -->
+    <permissionSet type="aw:doc" expose="selected">
 
-		<permissionGroup name="wizard_form_draft" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-			<includePermissionGroup type="sys:base" permissionGroup="Write"/>
-			<includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
-			<includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
-		</permissionGroup>
-		
-		<permissionGroup name="wizard_form_in_review" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-			<includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
-			<includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
-		</permissionGroup>
-		
-		<permissionGroup name="wizard_form_in_review_edit" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-			<includePermissionGroup type="sys:base" permissionGroup="Write"/>
-			<includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
-			<includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
-		</permissionGroup>
+        <permissionGroup name="wizard_form_draft" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+            <includePermissionGroup type="sys:base" permissionGroup="Write"/>
+            <includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
+            <includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
+        </permissionGroup>
+        
+        <permissionGroup name="wizard_form_in_review" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+            <includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
+            <includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
+        </permissionGroup>
+        
+        <permissionGroup name="wizard_form_in_review_edit" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+            <includePermissionGroup type="sys:base" permissionGroup="Write"/>
+            <includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
+            <includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
+        </permissionGroup>
 
-		<permissionGroup name="wizard_form_pending_approval" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-			<includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
-		</permissionGroup>
-		
-		<permissionGroup name="wizard_form_pending_approval_edit" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-			<includePermissionGroup type="sys:base" permissionGroup="Write"/>
-			<includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
-			<includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
-		</permissionGroup>
-		
-		<permissionGroup name="wizard_form_approved" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-		</permissionGroup>
-		
-		<permissionGroup name="wizard_form_closed" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-		</permissionGroup>
-		
-		<permissionGroup name="wizard_form_cancelled" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-		</permissionGroup>
-		
-		<permissionGroup name="wizard_form_cancelled_relate" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-			<includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
-		</permissionGroup>
-	</permissionSet>
-	
-	<!-- permissions for controlled docs in the system -->
-	<permissionSet type="cm:content" expose="selected">	
-		<permissionGroup name="controlled_doc_draft" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-			<includePermissionGroup type="sys:base" permissionGroup="Write"/>
-			<includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
-			<includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
-		</permissionGroup>
-		
-		<permissionGroup name="controlled_doc_draft_readonly" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-		</permissionGroup>
+        <permissionGroup name="wizard_form_pending_approval" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+            <includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
+        </permissionGroup>
+        
+        <permissionGroup name="wizard_form_pending_approval_edit" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+            <includePermissionGroup type="sys:base" permissionGroup="Write"/>
+            <includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
+            <includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
+        </permissionGroup>
+        
+        <permissionGroup name="wizard_form_approved" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+        </permissionGroup>
+        
+        <permissionGroup name="wizard_form_closed" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+        </permissionGroup>
+        
+        <permissionGroup name="wizard_form_cancelled" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+        </permissionGroup>
+        
+        <permissionGroup name="wizard_form_cancelled_relate" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+            <includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
+        </permissionGroup>
+    </permissionSet>
 
-		<permissionGroup name="controlled_doc_draft_delete" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-			<includePermissionGroup type="sys:base" permissionGroup="Write"/>
-			<includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
-			<includePermissionGroup type="sys:base" permissionGroup="Delete" />
-			<includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
-		</permissionGroup>
-		
-		<permissionGroup name="controlled_doc_in_review" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-			<includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
-		</permissionGroup>
-		
-		<permissionGroup name="controlled_doc_in_review_edit" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-			<includePermissionGroup type="sys:base" permissionGroup="Write"/>
-			<includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
-			<includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
-		</permissionGroup>
-		
-		<permissionGroup name="controlled_doc_pending_approval" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-			<includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
-		</permissionGroup>
-		
-		<permissionGroup name="controlled_doc_pending_approval_edit" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-			<includePermissionGroup type="sys:base" permissionGroup="Write"/>
-			<includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
-			<includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
-		</permissionGroup>
-		
-		<permissionGroup name="controlled_doc_approved" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-		</permissionGroup>
-		
-		<permissionGroup name="controlled_doc_approved_edit" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-			<includePermissionGroup type="sys:base" permissionGroup="Write"/>
-			<includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
-			<includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
-		</permissionGroup>
-		
-		<permissionGroup name="controlled_doc_effective" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-		</permissionGroup>
-		
-		<permissionGroup name="controlled_doc_effective_edit" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-			<includePermissionGroup type="sys:base" permissionGroup="Write"/>
-			<includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
-			<includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
-		</permissionGroup>
-		
-		<permissionGroup name="controlled_doc_superseded" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-		</permissionGroup>
+    <!-- permissions for controlled docs in the system -->
+    <permissionSet type="cm:content" expose="selected">
+        <permissionGroup name="controlled_doc_draft" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+            <includePermissionGroup type="sys:base" permissionGroup="Write"/>
+            <includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
+            <includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
+        </permissionGroup>
+        
+        <permissionGroup name="controlled_doc_draft_readonly" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+        </permissionGroup>
 
-		<!-- For clients who want to expose superseded documents for property edit.  
-			 Note that actually versioning a superseded document _will fail_.  Care must be made
-			 in the calling application to only allow property edit, not document editing.  -->
-		<permissionGroup name="controlled_doc_superseded_edit" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-			<includePermissionGroup type="sys:base" permissionGroup="Write"/>
-		</permissionGroup>
+        <permissionGroup name="controlled_doc_draft_delete" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+            <includePermissionGroup type="sys:base" permissionGroup="Write"/>
+            <includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
+            <includePermissionGroup type="sys:base" permissionGroup="Delete" />
+            <includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
+        </permissionGroup>
+        
+        <permissionGroup name="controlled_doc_in_review" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+            <includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
+        </permissionGroup>
+        
+        <permissionGroup name="controlled_doc_in_review_edit" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+            <includePermissionGroup type="sys:base" permissionGroup="Write"/>
+            <includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
+            <includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
+        </permissionGroup>
+        
+        <permissionGroup name="controlled_doc_pending_approval" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+            <includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
+        </permissionGroup>
+        
+        <permissionGroup name="controlled_doc_pending_approval_edit" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+            <includePermissionGroup type="sys:base" permissionGroup="Write"/>
+            <includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
+            <includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
+        </permissionGroup>
+        
+        <permissionGroup name="controlled_doc_approved" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+        </permissionGroup>
+        
+        <permissionGroup name="controlled_doc_approved_edit" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+            <includePermissionGroup type="sys:base" permissionGroup="Write"/>
+            <includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
+            <includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
+        </permissionGroup>
+        
+        <permissionGroup name="controlled_doc_effective" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+        </permissionGroup>
+        
+        <permissionGroup name="controlled_doc_effective_edit" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+            <includePermissionGroup type="sys:base" permissionGroup="Write"/>
+            <includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
+            <includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
+        </permissionGroup>
+        
+        <permissionGroup name="controlled_doc_superseded" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+        </permissionGroup>
 
-		<permissionGroup name="controlled_doc_obsolete" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-		</permissionGroup>
+        <!-- For clients who want to expose superseded documents for property edit.  
+                Note that actually versioning a superseded document _will fail_.  Care must be made
+                in the calling application to only allow property edit, not document editing.  -->
+        <permissionGroup name="controlled_doc_superseded_edit" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+            <includePermissionGroup type="sys:base" permissionGroup="Write"/>
+        </permissionGroup>
 
-	</permissionSet>
+        <permissionGroup name="controlled_doc_obsolete" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+        </permissionGroup>
 
-	<!-- oa:unredacted permissions for the original versions of redacted content -->
-	<permissionSet type="oa:unredacted" expose="selected">
+    </permissionSet>
 
-		<permissionGroup name="redaction_admin" expose="false">
-			<includePermissionGroup type="sys:base" permissionGroup="Read"/>
-			<includePermissionGroup type="sys:base" permissionGroup="Write"/>
-			<includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
-			<includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
-			<includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
-		</permissionGroup>
-		
-	</permissionSet>
+    <!-- oa:unredacted permissions for the original versions of redacted content -->
+    <permissionSet type="oa:unredacted" expose="selected">
+
+        <permissionGroup name="redaction_admin" expose="false">
+            <includePermissionGroup type="sys:base" permissionGroup="Read"/>
+            <includePermissionGroup type="sys:base" permissionGroup="Write"/>
+            <includePermissionGroup type="sys:base" permissionGroup="AddChildren" />
+            <includePermissionGroup type="cm:lockable" permissionGroup="CheckOut" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CheckIn" />
+            <includePermissionGroup type="cm:workingcopy" permissionGroup="CancelCheckOut" />
+        </permissionGroup>
+        
+    </permissionSet>
 
 </permissions>
 ```
@@ -480,27 +482,27 @@ A full reference of the permission sets granted is listed here:
 
 <util:map id="permissions_aw_controlled_document">
     <!-- controlled doc security -->
-    <entry key="${wizard.lifecycle.repoNames.draftControlledDocState}"				value-ref="controlledDocDraftPermissions" />
-    <entry key="${wizard.lifecycle.repoNames.inReviewControlledDocState}"			value-ref="controlledDocInReviewPermissions" />
-    <entry key="${wizard.lifecycle.repoNames.pendingApprovalControlledDocState}"	value-ref="controlledDocPendingApprovalPermissions" />
-    <entry key="${wizard.lifecycle.repoNames.approvedControlledDocState}"			value-ref="controlledDocApprovedPermissions" />
-    <entry key="${wizard.lifecycle.repoNames.effectiveControlledDocState}"			value-ref="controlledDocEffectivePermissions" />
-    <entry key="${wizard.lifecycle.repoNames.supersededControlledDocState}"		    value-ref="controlledDocSupersededPermissions" />
-    <entry key="${wizard.lifecycle.repoNames.obsoleteControlledDocState}"			value-ref="controlledDocObsoletePermissions" />
+    <entry key="${wizard.lifecycle.repoNames.draftControlledDocState}"           value-ref="controlledDocDraftPermissions" />
+    <entry key="${wizard.lifecycle.repoNames.inReviewControlledDocState}"        value-ref="controlledDocInReviewPermissions" />
+    <entry key="${wizard.lifecycle.repoNames.pendingApprovalControlledDocState}" value-ref="controlledDocPendingApprovalPermissions" />
+    <entry key="${wizard.lifecycle.repoNames.approvedControlledDocState}"        value-ref="controlledDocApprovedPermissions" />
+    <entry key="${wizard.lifecycle.repoNames.effectiveControlledDocState}"       value-ref="controlledDocEffectivePermissions" />
+    <entry key="${wizard.lifecycle.repoNames.supersededControlledDocState}"      value-ref="controlledDocSupersededPermissions" />
+    <entry key="${wizard.lifecycle.repoNames.obsoleteControlledDocState}"        value-ref="controlledDocObsoletePermissions" />
     <!-- redaction security -->
-    <entry key="{http://www.tsgrp.com/model/openannotate/1.0}unredacted"	value-ref="unredactedPermissions" />
+    <entry key="{http://www.tsgrp.com/model/openannotate/1.0}unredacted"         value-ref="unredactedPermissions" />
 </util:map>
 
 <util:map id="permissions_aw_psi">
     <!-- form security -->
-    <entry key="${wizard.lifecycle.repoNames.draftFormState}"				value-ref="wizardFormDraftPermissions" />
-    <entry key="${wizard.lifecycle.repoNames.inReviewFormState}"			value-ref="wizardFormInReviewPermissions" />
-    <entry key="${wizard.lifecycle.repoNames.pendingApprovalFormState}"		value-ref="wizardFormPendingApprovalPermissions" />
-    <entry key="${wizard.lifecycle.repoNames.approvedFormState}"			value-ref="wizardFormApprovedPermissions" />
-    <entry key="${wizard.lifecycle.repoNames.closedFormState}"				value-ref="wizardFormClosedPermissions" />
-    <entry key="${wizard.lifecycle.repoNames.cancelledFormState}"			value-ref="wizardFormCancelledPermissions" />
+    <entry key="${wizard.lifecycle.repoNames.draftFormState}"               value-ref="wizardFormDraftPermissions" />
+    <entry key="${wizard.lifecycle.repoNames.inReviewFormState}"            value-ref="wizardFormInReviewPermissions" />
+    <entry key="${wizard.lifecycle.repoNames.pendingApprovalFormState}"     value-ref="wizardFormPendingApprovalPermissions" />
+    <entry key="${wizard.lifecycle.repoNames.approvedFormState}"            value-ref="wizardFormApprovedPermissions" />
+    <entry key="${wizard.lifecycle.repoNames.closedFormState}"              value-ref="wizardFormClosedPermissions" />
+    <entry key="${wizard.lifecycle.repoNames.cancelledFormState}"           value-ref="wizardFormCancelledPermissions" />
     <!-- redaction security -->
-    <entry key="{http://www.tsgrp.com/model/openannotate/1.0}unredacted"	value-ref="unredactedPermissions" />
+    <entry key="{http://www.tsgrp.com/model/openannotate/1.0}unredacted"    value-ref="unredactedPermissions" />
 </util:map>
 
 <!-- individual FORM draft, inReview, pendingApproval, approved, and closed permissions maps keyed by the group name -->
@@ -568,7 +570,8 @@ If you wish to define your own custom permissionSets and permissionGroups, pleas
 
 Once a custom permissionSet is defined and enabled via your custom AMP, it can be referenced in the customized ACA permission configuration.
 
-## Modify Only Properties
+### Modify Only Properties
+
 In some cases, you may only want to override some of the default properties of the pnp accelerator. You do not need an entire custom amp to do this. Instead you can create the file `opencontent-override-placeholders.properties` on the /alfresco classpath, for example, `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent` and put the overridden properties in this file.
 
 Two things to note with this:
