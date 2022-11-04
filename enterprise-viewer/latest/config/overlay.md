@@ -330,7 +330,7 @@ Once you enable the overlay config override, you have to add the overlay overrid
 
     * There are a couple other notable configuration properties that I will highlight here that need to be set.
     * **overlayConfigOverrideAppId** : the asset file endpoint that is used within AEVT needs to know of an `appId`. This `appId` is what the outer folder is named within the ACA configs. Most of the time this `appId` will be set to `default`.
-    * **openContentUrl**: the openContentUrl will be exactly what the name indicates, the url that points to OpenContent (EX: [http://localhost:8080/alfresco/OpenContent](http://localhost:8080/alfresco/OpenContent)). This is important for how AEVT needs to communicate with OpenContent.
+    * **openContentUrl**: the openContentUrl will be exactly what the name indicates, the url that points to OpenContent (EX: `http://localhost:8080/alfresco/OpenContent`). This is important for how AEVT needs to communicate with OpenContent.
     * **tempDirForFilesCachedFromNas**: the name is a little deceiving for how we are using it here, but it is defining what directory should we use as the temp directory (EX: C:/apacheHome/temp). The temp directory is where these overridden overlay config files will be placed.
 
     ```xml
