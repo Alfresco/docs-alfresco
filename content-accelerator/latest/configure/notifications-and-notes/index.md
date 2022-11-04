@@ -129,16 +129,16 @@ A service account user is needed to send a direct 1:1 message to the user that i
 
 #### Step 8: Encrypt the Service Account User's Password
 This is a valid user within your organization/team's azure directory. So, we need to encrypt the password before adding it to our override property file.
-* The steps to achieving the encryption can be followed here: https://github.com/tsgrp/OpenContent/wiki/Encrypting-a-Password
+* The steps to achieving the encryption can be followed [here](/content-accelerator/latest/configure/oc-property-overrides/#encrypting-property-values)
 
 #### Step 9: Override the Microsoft Teams Properties
 Now that we have the App set up, you can now successfully override the properties to get Teams external notifications connected. 
 * Locate the `opencontent-override-placeholders.properties` file. It will be located on the /alfresco classpath, for example, `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent`
 * Put the following properties in this file: 
      - `teams.team.id= ` this is the group id for the Microsoft Teams team. Follow this article, but instead of tenant id in the article, grab the **GROUP ID** from the url they show you how to get. https://teams.handsontek.net/2019/04/09/how-to-get-microsoft-teams-tenant-id/
-     - `teams.app.id=` this is the Application (client) ID from **Step 3**, https://github.com/tsgrp/HPI/wiki/External-Notifications#step-3-app-overview, in the **_Overview_** tab.
-     - `teams.service.account.username=` this is the username from **Step 7**, https://github.com/tsgrp/HPI/wiki/External-Notifications#step-7-creation-of-a-service-account-user, for the service account user
-     - `teams.service.account.password=` this is the encrypted password surrounded by "@{}" from **Step 8**, https://github.com/tsgrp/HPI/wiki/External-Notifications#step-8-encrypt-the-service-account-users-password
+     - `teams.app.id=` this is the Application (client) ID from [Step 3](#step-3-app-overview) in the **_Overview_** tab.
+     - `teams.service.account.username=` this is the username from [Step 7](#step-7-creation-of-a-service-account-user) for the service account user
+     - `teams.service.account.password=` this is the encrypted password surrounded by "@{}" from [Step 8](#step-8-encrypt-the-service-account-users-password)
 * Restart alfresco and the Microsoft Teams external notification connection should be all set up!
 
 

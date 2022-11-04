@@ -15,7 +15,7 @@ title: Integrations and Addons
 1. Add the following properties: 
 
 * `docusign.username` - DocuSign user name (which should be the same as the user's email address)
-* `docusign.password` - DocuSign user password, should be [encrypted with the TSGEncrypter](https://github.com/tsgrp/OpenContent/wiki/Encrypting-a-Password#obtaining-a-tsg-encrypted-password) and enclosed with the encryption indicator like: `@{theEncPassword}`
+* `docusign.password` - DocuSign user password, should be [encrypted with the TSGEncrypter](/content-accelerator/latest/configure/oc-property-overrides/#encrypting-property-values) and enclosed with the encryption indicator like: `@{theEncPassword}`
 * `docusign.integratorKey` - see setup step above
 * `docusign.login.url` - the login URL is defaulted to the DocuSign dev sandbox URL in `universal-defaults.properties`.  You will want to override this for production environments
 * `docusign.hpi.dataPath` - The folder where DocuSign data objects should be stored.  Defaults to `/hpi/docuSignData`

@@ -200,7 +200,7 @@ Is the relationship between an email and its attachments. For example, in a rela
 
 #### Folder Tags
 
-You can optionally add a tag to the email object after it's created, typically set to 'Correspondence'.  Usually, this is set when the folder is displayed using [Folder Tags](https://github.com/tsgrp/hpi/wiki/Related-Objects#folder-tags).  If this is the case, you will typically want to set the Email Storage Location to empty.  This way, the email will be stored in the parent folder, but displayed in a 'Correspondence' tag in the folder.
+You can optionally add a tag to the email object after it's created, typically set to 'Correspondence'.  Usually, this is set when the folder is displayed using [Folder Tags](/content-accelerator/latest/configure/actions/#folder-tags).  If this is the case, you will typically want to set the Email Storage Location to empty.  This way, the email will be stored in the parent folder, but displayed in a 'Correspondence' tag in the folder.
 
 >**Note:** If you have both the folder and document action configured for send email, you will want to have the same tags in both configurations.
 

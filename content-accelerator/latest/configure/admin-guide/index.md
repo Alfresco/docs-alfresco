@@ -98,7 +98,7 @@ is a list of labels and values managed directly in the admin. Each picklist can 
 and can have a default value.
 
 #### OpenContent and Web Service Picklists
-Other picklist types are available upon request. See the [picklist documentation](https://github.com/tsgrp/HPI/wiki/Picklists){:target="_blank"} 
+Other picklist types are available upon request. See the [picklist documentation](/content-accelerator/latest/configure/other-aca-admin-configs/#picklists){:target="_blank"} 
 for more information.
 
 ### Forms
@@ -170,11 +170,11 @@ if there is no trac context. Content Accelerator uses the following logic:
 1. If coming from a trac-aware module, the document will be sent to the stage on the context trac. For example, searching for a document in the 'Engineering' trac, clicking on the document will take you to the document using the Engineering Trac's stage config.
 2. If coming from a non trac-aware module, the document will be sent to the stage on the trac as configured in the trac config. For example, if the user clicks on an Engineering document in the Dashboard or in a Notification, Content Accelerator will look for any trac configs that contain the Engineering document's type in the "Types used in trac" list. If only one trac is found, the user will be taken to the stage for that trac. If the Engineering document's type is found in more than one trac, the user will be given a choice as to what trac to use.
 
-To limit what users have access to each trac, [see this](https://github.com/tsgrp/hpi/wiki/Limiting-User's-Trac-Access){:target="_blank"}.
+To limit what users have access to each trac, [see this](/content-accelerator/latest/configure/other-aca-admin-configs/#limiting-users-trac-access){:target="_blank"}.
 
 ### Trac Security
 Security can be configured at the trac level to limit what groups are allowed to access each trac. 
-See [here](https://github.com/tsgrp/HPI/wiki/Limiting-User%27s-Trac-Access#how-to-limit-a-users-trac-access){:target="_blank"} for further information.
+See [here](/content-accelerator/latest/configure/other-aca-admin-configs/#limiting-users-trac-access){:target="_blank"} for further information.
 
 ### Event Logging
 A single option to turn event logging on or off. If on, log files will be kept on the server that can be used to see 
@@ -453,7 +453,7 @@ different area of the application. Below is a breakdown of the common ways to co
 * **Folder Tags** - This is a strategy for organizing content within a folder as opposed to outside a folder. Documents in a folder are tagged on import, generally by subtype or other descriptor, then are grouped by tags in the related objects section.
 * **External Relations** - This is a lesser-used strategy that generally requires some customization. It takes an external endpoint and will display objects returned from the request.
 
-For further information [click here](https://github.com/tsgrp/HPI/wiki/Related-Objects){:target="_blank"}.
+For further information [click here](/content-accelerator/latest/configure/other-aca-admin-configs/#related-objects){:target="_blank"}.
 
 #### Folder Actions
 Configure the available actions on the folder loaded in the stage. See the Action Configuration section for more details 
@@ -1662,16 +1662,16 @@ action links listed in the table below.
 
 |Action Name/Link|Type|
 |-----------|---------|
-|[Send Email](https://github.com/tsgrp/HPI/wiki/Send-email){:target="_blank"}|Folder and Document Action|
-|[Send Notification](https://github.com/tsgrp/HPI/wiki/Notifications){:target="_blank"}|Document Workflow|
-|[Send External Notification](https://github.com/tsgrp/HPI/wiki/External-Notifications){:target="_blank"} (MS Teams/ Slack)|Document Workflow|
-|[Export Folder](https://github.com/tsgrp/HPI/wiki/Export-folder){:target="_blank"}|Folder Action|
-|[Bulk Upload](https://github.com/tsgrp/HPI/wiki/Bulk-Upload){:target="_blank"}|Folder or Contextless Action|
-|[Download Document](https://github.com/tsgrp/HPI/wiki/Download-Document---Export-Native-Content){:target="_blank"}|Document Action|
-|[Edit Online](https://github.com/tsgrp/HPI/wiki/Edit-Online-Configurations){:target="_blank"}|Document Action|
-|[Sign with DocuSign](https://github.com/tsgrp/HPI/wiki/HPI-Integration-with-Docusign){:target="_blank"}|Document Action|
+|[Send Email](/content-accelerator/latest/configure/actions/#send-email){:target="_blank"}|Folder and Document Action|
+|[Send Notification](/content-accelerator/latest/configure/notifications-and-notes/#notifications){:target="_blank"}|Document Workflow|
+|[Send External Notification](/content-accelerator/latest/configure/notifications-and-notes/#external-notifications){:target="_blank"} (MS Teams/ Slack)|Document Workflow|
+|[Export Folder](/content-accelerator/latest/configure/actions/#export-folder){:target="_blank"}|Folder Action|
+|[Bulk Upload](/content-accelerator/latest/configure/actions/#bulk-upload){:target="_blank"}|Folder or Contextless Action|
+|[Download Document](/content-accelerator/latest/configure/actions/#download-document){:target="_blank"}|Document Action|
+|[Edit Online](/content-accelerator/latest/configure/integrations-and-addons/#google-drive-and-onedrive-integrations){:target="_blank"}|Document Action|
+|[Sign with DocuSign](/content-accelerator/latest/configure/integrations-and-addons/#integration-with-docusign){:target="_blank"}|Document Action|
 |[Send to Kira](https://github.com/tsgrp/HPI/wiki/Send-to-Kira){:target="_blank"}|Document Action|
 |[Import Print](https://github.com/tsgrp/HPI/wiki/OCMS-Import-Print){:target="_blank"}|Contextless Action|
 |[Database Table View](https://github.com/tsgrp/HPI/wiki/Database-Table-View){:target="_blank"}|Contextless Action|
 |[Refined Search in View All Documents](https://github.com/tsgrp/HPI/wiki/Refined-Search-in-View-All-Documents){:target="_blank"}|Action Add-On|
-|[Document Info View](https://github.com/tsgrp/HPI/wiki/Doc-Info-View){:target="_blank"}|Document Action|
+|[Document Info View](/content-accelerator/latest/configure/other-aca-admin-configs/#docinfo-view){:target="_blank"}|Document Action|

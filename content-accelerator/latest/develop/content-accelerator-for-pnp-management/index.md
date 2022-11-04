@@ -111,7 +111,7 @@ For the three steps above, see the below for example configuration:
 
 The default Quality Document object type is the out-of-the-box available controlled document type. If you wish to add additional properties or aspects to your Policy and Procedure solution, you can extend the quality document type using the following steps.
 
-In a custom Alfresco AMP (See https://github.com/tsgrp/HPI/wiki/Extension-Content-Accelerator-(Custom-Amp) on what is expected of a custom ACA amp and how to set it up properly), define your custom Alfresco object model, then do the following:
+In a custom Alfresco AMP ( [See](/content-accelerator/latest/develop/extension-content-accelerator/) ) on what is expected of a custom ACA amp and how to set it up properly), define your custom Alfresco object model, then do the following:
 
 1. Extend the `aw:qualityDocument` type in your object model.
 
@@ -126,7 +126,7 @@ You can define whatever additional properties, aspects, associations etc that yo
 
 1. You'll need to import the `aw` namespace - `<import uri="http://www.activewizard.com/model/content/1.0" prefix="aw" />` 
 
-2. In the custom Amps module-context, override the `com.tsgrp.openContent.dictionaryBootstrap` bean and add your custom model (https://github.com/tsgrp/HPI/wiki/Extension-Content-Accelerator-(Custom-Amp)#how-to-add-custom-alfresco-models)
+2. In the custom Amps module-context, override the `com.tsgrp.openContent.dictionaryBootstrap` bean and add your custom model [here](/content-accelerator/latest/develop/extension-content-accelerator/)
 
 Next in your custom amps opencontent-extension-override-module-ctx.xml file
 
