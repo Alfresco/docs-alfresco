@@ -10,8 +10,8 @@ Spring loads properties files into the system in a specific order to allow overr
 1. *-defaults.properties
 1. project-placeholders.properties
 1. override-placeholders.properties
-1. opencontent-override-placeholders.properties (This file is stored outside of open content.  see [External Properties](https://github.com/tsgrp/OpenContent/wiki/External-Configurations-and-Properties))
-1. opencontent-extension-override-placeholders.properties (This file is stored outside of open content.  see [External Properties](https://github.com/tsgrp/OpenContent/wiki/External-Configurations-and-Properties))
+1. opencontent-override-placeholders.properties
+1. opencontent-extension-override-placeholders.properties
 
 Therefore, if you you want to override a property in one of the defaults, you should place the overridden value in one of the higher level properties files.  Technically, it doesn't matter which, as long as the final value is correct for your system.
 

@@ -113,7 +113,7 @@ Note that you can always get back to your Client ID by going to the Credentials 
 
 ##### Box Application
 1. Create an application in Box or use an existing one
-2. Go to https://app.box.com/developers/console to view existing apps or create a new one
+2. Go to [https://app.box.com/developers/console](https://app.box.com/developers/console) to view existing apps or create a new one
 ![Img Txt]({% link content-accelerator/images/BulkUpload-Box-Apps.png %})
 3. When asked what type of app you are building, choose `Partner Integration`
 4. Within an application, under the configuration tab, we can see the Client ID that we will need to use in the bulk upload admin (picture below)
@@ -211,7 +211,7 @@ Users can toggle attaching a folder note in addition to the rest of their email 
 
 
 
-## View All Documents Refined Search
+## View All Documents Refined Search {#refined-search}
 
 ### Overview
 This feature allows the user to perform an additional search on a container from the View All Documents action. In some situations, such as a long-tail insurance claim, the total number of documents in a given container may exceed the repository's search result limit. The "Refined Search" feature gives the user more control over what documents from the container are returned to View All Documents by allowing some to provide more specific search criteria. This feature can still be used when that limit has not been reached by the initial view all documents query.

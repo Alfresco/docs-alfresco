@@ -6,7 +6,7 @@ title: Integrations and Addons
 ## Integration with Docusign
 
 ### Setup a DocuSign Account
-1. If needed, create a DEV sandbox with DocuSign here: https://www.docusign.com/developer-center
+1. If needed, create a DEV sandbox with DocuSign [here](https://www.docusign.com/developer-center).
 1. Once you are in, setup your DocuSign account and go to Admin -> Account -> API and Keys
 1. Click Add Integrator Key button to add an integrator key
 
@@ -223,7 +223,7 @@ This area holds the high level configurations for these integrations.
 
 
 #### Application Config
-1. Set the collaboration url. These collaboration features require the AEV socket server to be installed. If you installed the defaults according to the installation guide then the socket server will be running on port 3000. Update the url to have the correct host and port. ex: https://edge2.tsgrp.com:3000 or http://localhost:3000
+1. Set the collaboration url. These collaboration features require the AEV socket server to be installed. If you installed the defaults according to the installation guide then the socket server will be running on port 3000. Update the url to have the correct host and port. (ex: http://localhost:3000)
 
 
 2. Enable Zoom integration if desired by toggling the switch to on
@@ -278,7 +278,7 @@ The final piece is to configure the teams integration information that Open Cont
 4. When the **Register an application** page appears, enter your application’s registration information:
      * **Name**: any name you want
      * **Supported Account Types**: Select **Accounts in any organizational directory**
-     * **Redirect URI**: Choose **Web** and fill out the url of the path to your OpenContent plus the Teams endpoint name. `ex: http://localhost:8080/alfresco/OpenContent/annotation/teamsAuth`
+     * **Redirect URI**: Choose **Web** and fill out the url of the path to your OpenContent plus the Teams endpoint name. ex: `http://localhost:8080/alfresco/OpenContent/annotation/teamsAuth`
 5. When finished, click **Register** and you will be taken to the Overview display. Copy and save the **Application (client) ID** so you can use it in the ACA configuration.
 6. Go to **Certificates & secrets** and create a new client secret. Copy and save this secret because you will need it to use as an injectable in OC.
 7. Go to **API Permissions**
@@ -292,13 +292,15 @@ _**NOTE: The app must be made by the _zoom owner_ that has all the users added t
 **Creating a Zoom Application**
 
  Here we are creating a zoom app that will allow us to access their APIs as well as interact with users zoom accounts
-1. Create an application in the zoom marketplace: https://marketplace.zoom.us/
+1. Create an application in the [zoom marketplace](https://marketplace.zoom.us/).
 2. Pull open the dropdown that says Develop and click build app - select the OAuth for the app type
 3. Name it whatever you would like, make it an account-level app and do not publish to the Marketplace
 4. Now your app has been created. A few items to note here on the first page:
      * You will need the clientID and Client Secret Key to use as injectables in OC and to fill in the application config in ACA. 
      * Then you will also need to fill out the redirect URL and whitelist URL with the url of the path to the your OpenContent plus the zoom endpoint name. 
-`Ex: http://localhost:8080/alfresco/OpenContent/annotation/zoomAuth`
+
+        Ex: `http://localhost:8080/alfresco/OpenContent/annotation/zoomAuth`
+
 5. Under the scopes section of the app setup, you will want to add the following scopes:
     * meeting:write:admin
     * user:read:admin
@@ -307,7 +309,7 @@ _**NOTE: The app must be made by the _zoom owner_ that has all the users added t
 
  Here we are adding users to a role, so they have permission to interact with the zoom application and start calls from Alfresco Enterprise Viewer
 1. Log in as the zoom owner
-2. Head to the role management section: https://zoom.us/role
+2. Head to the [role management section](https://zoom.us/role)
 3. Add a role called developer
 4. Go to the Role Settings section for the developer role we created in step 3 as we will need to set a few of the roles:
     * Under User and Permission Management - check view for Users(View user information)
@@ -340,7 +342,7 @@ Once your cloud solution has been chosen, the following steps must be completed 
 1. Create a new App Registration
 1. Make sure the audience is set to `Accounts in any organizational directory and personal Microsoft accounts`
 1. Select the Authentication section
-    - Set up Redirect url(s) (example: https://my.organization.com/ocms/dummy/path).
+    - Set up Redirect url(s) (example: `https://{server}/ocms/dummy/path`).
       - Note that for development, a redirect URL starting with `http://localhost` is acceptable.  All other URLs must start with `https://`.
     - Under `Implicit grant`, ensure the `Access tokens` and `ID tokens` checkboxes are checked
 1. Select the API Permissions section.  Ensure the following permissions are granted:
@@ -369,11 +371,11 @@ Once your cloud solution has been chosen, the following steps must be completed 
 
 > Please note that Google Docs is an experimental action and may not work properly
 
-Reference: https://developers.google.com/identity/protocols/OAuth2UserAgent
+Reference: [https://developers.google.com/identity/protocols/OAuth2UserAgent](https://developers.google.com/identity/protocols/OAuth2UserAgent)
 
 
 1. Create a Google Project:
-     * Access the following link: https://console.developers.google.com/apis/dashboard
+     * Access the [Google Developers Console](https://console.developers.google.com/apis/dashboard)
      * If not already, sign-in to your Google Drive account associated with your ACA application.
      * Click on `Select a Project` and create a new project from the menu that appears.
 2. Enable Drive within your newly created Google Project:

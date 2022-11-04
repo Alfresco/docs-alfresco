@@ -37,18 +37,18 @@ Operating System and libraries for the target server machine:
 ## Install Proxy (Optional in non-production env)
 
 ### Web Proxy Background
-ACA must be exposed on the same host and port as OpenContent.  In other words, if the user accesses ACA using  `http://myserver:8080/ocms`, then ACA must make Ajax requests to OpenContent at: `http://myserver:8080/OpenContent`.  
+ACA must be exposed on the same host and port as OpenContent.  In other words, if the user accesses ACA using  `http://myserver:8080/ocms`, then ACA must make Ajax requests to OpenContent at: `http://{server}:8080/OpenContent`.  
 
 Since ACA executes as a JavaScript application in the browser and communicates with OpenContent on the server, you must account for the Same Origin Policy.  There are two ways to handle this:
 
 1. Deploy the ACA war to the same Application Server that's running OpenContent.  This ensures that ACA is sourced from the same server and port as OpenContent.  Note - for this to work, the application server port must be accessible to the end user's browser.
 2. Front all communication from ACA to OpenContent through a web server. 
-   * Install ACA on `http://myserver1:9090/ocms`
-   * Install OpenContent on `http://myserver2:8080/OpenContent`
+   * Install ACA on `http://{server1}:9090/ocms`
+   * Install OpenContent on `http://{server2}:8080/OpenContent`
    * Setup a proxy to route:
-   * `http://myserver3/ocms` routes to `http://myserver1:9090/ocms` 
-   * `http://myserver3/OpenContent` routes to `http://myserver2:8080/OpenContent`
-   * In the above example, ACA would be configured to access OpenContent at `http://myserver3/OpenContent`.  Now, to the browser all communication is on the same protocol, server, and port so the Same Origin Policy is upheld.
+   * `http://{server3}/ocms` routes to `http://{server1}:9090/ocms` 
+   * `http://{server3}/OpenContent` routes to `http://{server2}:8080/OpenContent`
+   * In the above example, ACA would be configured to access OpenContent at `http://{server3}/OpenContent`.  Now, to the browser all communication is on the same protocol, server, and port so the Same Origin Policy is upheld.
 
 If using option 1 (deploying ACA to the Alfresco Tomcat), you can skip to [Install libraries](#install-libraries) since no proxy will need to be installed.
 
@@ -78,7 +78,7 @@ When installing a proxy please note that you are not limited to using apache or 
 
 1. Install Apache httpd
 
-   Obtain binaries from https://www.apachelounge.com/download/
+   Obtain binaries from [https://www.apachelounge.com/download/](https://www.apachelounge.com/download/)
 
    Install Apache to `C:\Apache\Apache24` (change to your desired version as appropriate).  This is referred to as `${apache.home}` below.
 
@@ -143,7 +143,7 @@ When installing a proxy please note that you are not limited to using apache or 
 	    ProxyPass /alfresco ajp://${your-TOMCAT-server-name}:8009/alfresco
 	    ProxyPass /share ajp://${your-TOMCAT-server-name}:8009/share
 	    # OR, use HTTP like this (use AJP in a production environment, as HTTP has more overhead and issues):
-	    # ProxyPass /alfresco http://${your-server-name}:8080/alfresco
+	    # ProxyPass /alfresco http://{server}:8080/alfresco
 
 	    #Proxy all requests at the root to the Tomcat that actually has the application in question
 	    ProxyPass / ajp://${your-TOMCAT-server-name}:9090/
@@ -167,7 +167,7 @@ When installing a proxy please note that you are not limited to using apache or 
 
    Go to `${apache.home}`/bin, open a command prompt, and run httpd.exe 
 
-1. Test by hitting http://${your-server-name}/alfresco 
+1. Test by hitting http://{server}/alfresco 
 
 
 ### Example Proxy Install 2 -  Nginx install on Amazon Linux
@@ -236,15 +236,15 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
                location ~ ^(/.*/s/prometheus)$ {return 403;}
                
                location /alfresco {
-                     proxy_pass http://${your-TOMCAT-server-name}:8080/alfresco;
+                     proxy_pass http://{server}:8080/alfresco;
                }
 
                location /share {
-                     proxy_pass  http://${your-TOMCAT-server-name}:8080/share;
+                     proxy_pass  http://{server}:8080/share;
                }
 
                location /ocms {
-                     proxy_pass http://${your-TOMCAT-server-name}:9090/ocms;
+                     proxy_pass http://{server}:9090/ocms;
                }
             }
          }
@@ -256,7 +256,7 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
 
 1. Make sure whatever port your proxy is listening on is open to the end user (example: you will need to open port 80 if you are using the configs in our example above)
 
-1. Test that the proxy is working properly by hitting http://${your-TOMCAT-server-name}/share
+1. Test that the proxy is working properly by hitting http://{server}/share
 
 ## Install libraries {#install-libraries}
 >**IMPORTANT!** Backup the Alfresco Content Services database, `alfresco.war`, and `share.war`. These resources need to 
@@ -468,7 +468,7 @@ This sections walks through how to install the Alfresco Content Accelerator web 
 ### Install web applications on separate Tomcat {#install-webapps-separate-tomcat}
 This section walks through how to install the web applications on a separate Tomcat instance (Meaning, you must have a proxy setup).
 
-1. Install Apache Tomcat. See https://archive.apache.org/dist/tomcat 
+1. Install Apache Tomcat. See [https://archive.apache.org/dist/tomcat](https://archive.apache.org/dist/tomcat)
 
 1. Copy the `ocms.war` file into the `TOMCAT_HOME/webapps` directory.
 

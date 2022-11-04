@@ -248,7 +248,6 @@ DataDictionary picklists will get their values from the underlying data model.
 - **Normal** - When the view is rendered, the picklist's values will be queried.  While this ensures the most up-to-date information, very large picklists or many picklists on a single view can cause the application to slow down.
 - **Async** - Picklist values are not queried until the user enters three characters OR the dropdown arrow is clicked (see below for more information about the dropdown arrow).  Values are filtered on the server side, so your picklist query needs to account for this.  Async picklists are recommended for very large picklists or cases where you have a lot of picklists on a view at once.  See the `Configuring a Picklist on a Form` section below for more information about configuring async picklists.
 - **Cache at Login** - Picklist values will be cached at login and will remain in browser memory until the user logs out.  This means that cascading picklists cannot be cached.  Large picklists should not use this setting.
->**Note:** see https://github.com/tsgrp/HPI/issues/1057
 
 1. When finished configuring your picklists, click 'Save Config' to save the changes.
 
@@ -288,7 +287,7 @@ In this example, we're getting the distinct `region` value from all project fold
 From a governance standpoint, be careful with growable picklists as typos and other human errors can cause the list to grow unwieldy.
 
 
-## Limiting User's Trac Access
+## Limiting User's Trac Access 
 
 ### How To Limit a User's Trac Access
 As of ACA 2.5, Trac Security can be configured based on repository groups in the ACA admin. 
@@ -299,13 +298,6 @@ As of ACA 2.5, Trac Security can be configured based on repository groups in the
 4. Select all groups you would like to have access to this trac and save the config - if you would no longer like to secure the trac, click the "remove trac security" button instead
 
 Now, every time a user tries to access a secured trac, the application will check the Trac Security config to see if they a part of a group that is allowed to access the trac. If the user has no tracs they are allowed to access, they will be logged out of the application and be notified to contact their system administrator.
-
-
-## ACA Themes
-
-It's possible to change the theme that ACA uses in the Application Config within ACA admin.
-
-To change the colors, simply navigate to the Application Config and update the color settings in the Themes section.  Remember that after saving any changes, you must refresh the page to see the updates.  Any users currently in the application would need to refresh as well.
 
 ## Collections
 
@@ -318,7 +310,7 @@ To view the collections you create, go to Collection view and select the "My Col
 To search public collections of other users, use the "Search Collections" tab in Collections view.        
 
 
-## DocInfo View
+## DocInfo View {#docinfo-view}
 
 The purpose of this feature is to display an additional information pane that can contain specified attributes and associations for documents that abide by restrictions that are configured through ACA Admin. In order for this informational pane to show up, the view must be enabled in the ACA Admin and the document being opened in the docviewer must match the given configuration restrictions.
 

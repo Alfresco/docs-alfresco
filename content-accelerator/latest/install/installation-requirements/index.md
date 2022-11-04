@@ -2,7 +2,7 @@
 title: Installation Requirements
 ---
 
-The server setup required to run ACA will vary based on the needs for that specific install.  Below are some general guidelines and recommendations. Please not that this page is meant to represent general guidance and recommendations regarding deployments. For additional info please see https://docs.alfresco.com/support/latest/policies/deployment/
+The server setup required to run ACA will vary based on the needs for that specific install.  Below are some general guidelines and recommendations. Please not that this page is meant to represent general guidance and recommendations regarding deployments. For additional info please see [https://docs.alfresco.com/support/latest/policies/deployment/](https://docs.alfresco.com/support/latest/policies/deployment/)
 
 **Application Components for Every Installation**
 - ACA - web application

@@ -8,7 +8,7 @@ title: Installing Single Sign On (SSO)
 
 Example configuration file below. This file lives on the tomcats classpath, for example, ```TOMCAT_HOME/shared/classes/hpi-overrides.properties```. 
 
-If one doesn't exist already, place one there and make sure the [previous step of adding the shared/classes directory to the classpath](https://github.com/tsgrp/OpenContent/wiki/External-Properties) was done.
+If one doesn't exist already, place one there and make sure the previous step of adding the shared/classes directory to the classpath was done.
 
 ```bash
 # NOTE - this properties file should decribe the default properties for the ACA wrapper.  Project specific settings
@@ -29,7 +29,7 @@ fakeSSO=false
 # SSO Repository (optional for some implementations)
 docbase=
 
-# OpenContent Services REST Root URL (ex: http://myserver/OpenContent/rest)
+# OpenContent Services REST Root URL (ex: http://{server}/OpenContent/rest)
 ocURL=
 
 # Endpoint to use to connect for SSO.  Should build off of the ocURL (ex: /authentication/getSessionForUser)
@@ -61,9 +61,9 @@ openAnnotateVideoURL=
 
 **Identity Provider (IdP) SAML Setup**
 
-SSO, Recipient, Destination URLs: `http://<domain>/ocms/saml/SSO`
+SSO, Recipient, Destination URLs: `http://{server}/ocms/saml/SSO`
 
-Audience: `http://<domain>/ocms/saml/metadata`
+Audience: `http://{server}/ocms/saml/metadata`
 
 **ACA Properties**
 
@@ -75,9 +75,9 @@ clientAuthenticationKey=<UUID>
 enableSSO=true
 samlSSO=true
 ssoEndpoint=/authentication/getSessionForUser
-ocURL=http://<domain>/alfresco/OpenContent
-entityId=http://<domain>/hpi/saml/metadata
-entityBaseURL=http://<domain>/ocms
+ocURL=http://{server}/alfresco/OpenContent
+entityId=http://{server}/hpi/saml/metadata
+entityBaseURL=http://{server}/ocms
 #The metadata file that you want to use (This file should live at the tomcat classpath, for example, TOMCAT_HOME/shared/classes/)
 metadata.file=metadata.xml
 # SAML Context for load balanced/proxied environments

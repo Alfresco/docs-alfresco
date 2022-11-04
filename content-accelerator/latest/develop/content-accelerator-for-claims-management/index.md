@@ -28,7 +28,7 @@ None
 * **Sample Call**  
 Expected Result - claim folder created/updated for claim number 111111 and the user is routed to that folder. The claim folder has its attributes set to whatever values are passed in.
 
-> https://domain.com/ocms/claim?claimNumber=8005882300&claimOwner=Joe%20Claimant&lossDate=2020-05-15&participants[]=Joe%20Claimant&participants[]=Slipping%20Jimmy&policyNumber=8675309
+> https://{server}/ocms/claim?claimNumber=8005882300&claimOwner=Joe%20Claimant&lossDate=2020-05-15&participants[]=Joe%20Claimant&participants[]=Slipping%20Jimmy&policyNumber=8675309
 
 
 * All Fields Available

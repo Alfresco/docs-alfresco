@@ -107,8 +107,7 @@ Some common endpoints are (using `ocAudit` application in examples below, but co
   * valueType={valueType}
     * Defines Java type of the value you are searching on, must be the fully qualified class name! (Ex. when searching on NodeRef, _valueType_ must be `org.alfresco.service.cmr.repository.NodeRef`
    
-For more information regarding Alfresco Audits, please visit the [Alfresco Audit Documentation Page](http://docs.alfresco.com/5.0/concepts/audit-intro.html)
-
+For more information regarding Alfresco Audits, please visit the [Alfresco Audit Documentation Page](https://docs.alfresco.com/content-services/latest/admin/audit/)
 
 
 ## Configuring Action Audits in ACA

@@ -40,8 +40,9 @@ the application's header. Icons for header links are defaulted, can be turned of
 This section provides the ability to add custom links to the application's header (e.g. a link to your company's IT Help Page).
 
 #### Content Accelerator Themes
-This section provides the ability to style the application with a custom color themes. For further information see 
-[HPI Themes](https://github.com/tsgrp/HPI/wiki/HPI-Themes){:target="_blank"}.
+This section provides the ability to style the application with a custom color themes. 
+
+To change the colors, simply navigate to the Application Config and update the color settings in the Themes section.  Remember that after saving any changes, you must refresh the page to see the updates.  Any users currently in the application would need to refresh as well.
 
 ![Content Accelerator Color theme customization]({% link content-accelerator/images/aca-color-scheme-customization.png %})
 
@@ -76,7 +77,6 @@ Configure labels, filters, and more as needed. Types must be added to the Object
       If the value is not found in the picklist, the original value will be displayed. For example, configuring the 
       `Picklist` filter on the `objectTypeReadOnly` property can format `dm_document` as Document or 
       `tsg:qualityDocument` as `Quality Document` for the end user to see when searching, viewing properties, etc. 
-      See [https://github.com/tsgrp/HPI/issues/1904](https://github.com/tsgrp/HPI/issues/1904) for more information.
 * There is the ability to create a `Composite Type`, which is a type that can include multiple Types. This is used only 
   for types with overlapping attributes and there is a requirement to search on multiple types at once through the 
   search interface.
@@ -586,10 +586,7 @@ All workflows have a "Start Form", this is the form that is displayed when the u
 have at least one other opportunity for an Ad Hoc Form to be displayed, whether it's an approval or review task or just 
 a complete workflow task, the Admin has the ability to display an Ad Hoc Form for each step of the workflow. 
 
-For more details on how to configure Activiti Workflows see Configuring Workflows 
-[here](https://github.com/tsgrp/HPI/wiki/Activiti-Workflow-Config#configuring-activiti-workflows-in-ocms){:target="_blank"}.
-
-## Active Wizard
+## Active Wizard {#activewizard}
 This section of the document explains tasks associated with users who are allowed access to the Active Wizard Admin
 application.
 
@@ -1654,7 +1651,7 @@ new license if needed.
 
 ## Action Configuration
 While many actions require little to no configuration beyond enabling the action, some more complicated actions have 
-additional configuration options. See the [Content Accelerator Features](https://github.com/tsgrp/HPI/wiki#ocms-features){:target="_blank"} 
+additional configuration options. See the [Action Configurations](/content-accelerator/latest/configure/actions){:target="_blank"} 
 section for further details about how to configure certain commonly used actions in Content Accelerator. Individual 
 action links listed in the table below.
 
@@ -1670,8 +1667,5 @@ action links listed in the table below.
 |[Download Document](/content-accelerator/latest/configure/actions/#download-document){:target="_blank"}|Document Action|
 |[Edit Online](/content-accelerator/latest/configure/integrations-and-addons/#google-drive-and-onedrive-integrations){:target="_blank"}|Document Action|
 |[Sign with DocuSign](/content-accelerator/latest/configure/integrations-and-addons/#integration-with-docusign){:target="_blank"}|Document Action|
-|[Send to Kira](https://github.com/tsgrp/HPI/wiki/Send-to-Kira){:target="_blank"}|Document Action|
-|[Import Print](https://github.com/tsgrp/HPI/wiki/OCMS-Import-Print){:target="_blank"}|Contextless Action|
-|[Database Table View](https://github.com/tsgrp/HPI/wiki/Database-Table-View){:target="_blank"}|Contextless Action|
-|[Refined Search in View All Documents](https://github.com/tsgrp/HPI/wiki/Refined-Search-in-View-All-Documents){:target="_blank"}|Action Add-On|
 |[Document Info View](/content-accelerator/latest/configure/other-aca-admin-configs/#docinfo-view){:target="_blank"}|Document Action|
+|[Refined Search in View All Documents](/content-accelerator/latest/configure/other-aca-admin-configs/#refined-search){:target="_blank"}|Action Add-On|

@@ -53,7 +53,10 @@ send.external.notifications=true
 ```
 
 ### Slack Setup
-#### Step 1: Navigate to https://api.slack.com and sign in
+#### Step 1: Navigate to Slack Api and sign in
+
+Link to Slack Api: [https://api.slack.com](https://api.slack.com)
+
 Click on the tab **_Your Apps_** in the top right corner. If you have not created an app yet, then hit the **_Create New App_** button. Give it a name and select the workspace where you want the application to live. If you already have an app created, then click on it.
 
 #### Step 2: Customize app Display Information (optional)
@@ -78,7 +81,10 @@ Now that we have the bot user set up, you can now successfully override the prop
 * Restart alfresco and the Slack external notification connection should be all set up!
 
 ### MS Teams Setup
-#### Step 1: Navigate to https://portal.azure.com/ and sign in
+#### Step 1: Navigate to Azure Portal and sign in
+
+Link to Azure Portal: [https://portal.azure.com/](https://portal.azure.com/)
+
 In the search bar, search for **_App Registrations_**. Click on the **_New registration_** plus button in the top left corner of the view.
 
 #### Step 2: Register the application (API)
@@ -103,13 +109,13 @@ Navigate to the **_API permissions_** tab on the left menu bar. Click the plus b
 * User.ReadWrite.All
 
 #### Step 5: Grant/Request Admin Consent
-You may notice there are some permissions that need Admin Consent. These are the permissions of `Group.Read.All`, `Group.ReadWrite.All`, `User.Read.All`, `User.ReadWrite.All`. If you are not the admin, you will have to get them to grant these permissions. To grant the permissions, follow this documentation link: https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/grant-admin-consent#grant-admin-consent-in-app-registrations
+You may notice there are some permissions that need Admin Consent. These are the permissions of `Group.Read.All`, `Group.ReadWrite.All`, `User.Read.All`, `User.ReadWrite.All`. If you are not the admin, you will have to get them to grant these permissions. To grant the permissions, follow this [documentation link](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/grant-admin-consent#grant-admin-consent-in-app-registrations).
 
 #### Step 6: Authentication
 Click on the **_Authentication_** tab on the left side menu. There are 2 different ways the following configurations can be filled out on this screen depending on if your azure account loads their new or old view for this section.
 
 1. The _"new"_ experience, which should be loaded by default (this is Azure's update to some of these views). 
-     - Click on the Add a platform. It will ask you to add a redirect URI. We don't necessarily need one for this API, but it's a required field. So give it your application url root/homepage EX: http://localhost:8080. 
+     - Click on the Add a platform. It will ask you to add a redirect URI. We don't necessarily need one for this API, but it's a required field. So give it your application url root/homepage (EX: `http://localhost:8080`). 
      - Leave the Logout Url section blank
      - Select the check-boxes for the **Access token** and **ID tokens** (this is very important because it lets the application generate a access token to be used within the API calls)
      - Once that is created, scroll to the bottom of the page to the **_Advanced Settings_** header. Turn this on. We are not using re-direct URI's. That means we are grabbing tokens without user involvement/sign-in window.
@@ -123,7 +129,7 @@ Click on the **_Authentication_** tab on the left side menu. There are 2 differe
 
 #### Step 7: Creation of a Service Account User
 A service account user is needed to send a direct 1:1 message to the user that is receiving the task notification.
-* The admin needs to add an account to the organization/team that should have a name that signifies its purpose. EX: Service Account (https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory)
+* The admin needs to add an account to the organization/team that should have a name that signifies its purpose. EX: Service Account. For helping setting up a new account see this [link](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory)
 * >**Important:** This user does not need elevated permissions and needs to be apart of the team that the user who is receiving the task notification is in.
 * Note the username and password for the account this will be used in the next step.
 
@@ -135,7 +141,7 @@ This is a valid user within your organization/team's azure directory. So, we nee
 Now that we have the App set up, you can now successfully override the properties to get Teams external notifications connected. 
 * Locate the `opencontent-override-placeholders.properties` file. It will be located on the /alfresco classpath, for example, `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent`
 * Put the following properties in this file: 
-     - `teams.team.id= ` this is the group id for the Microsoft Teams team. Follow this article, but instead of tenant id in the article, grab the **GROUP ID** from the url they show you how to get. https://teams.handsontek.net/2019/04/09/how-to-get-microsoft-teams-tenant-id/
+     - `teams.team.id= ` this is the group id for the Microsoft Teams team. Follow this [article](https://teams.handsontek.net/2019/04/09/how-to-get-microsoft-teams-tenant-id/), but instead of tenant id in the article, grab the **GROUP ID** from the url they show you how to get. 
      - `teams.app.id=` this is the Application (client) ID from [Step 3](#step-3-app-overview) in the **_Overview_** tab.
      - `teams.service.account.username=` this is the username from [Step 7](#step-7-creation-of-a-service-account-user) for the service account user
      - `teams.service.account.password=` this is the encrypted password surrounded by "@{}" from [Step 8](#step-8-encrypt-the-service-account-users-password)
@@ -143,9 +149,9 @@ Now that we have the App set up, you can now successfully override the propertie
 
 
 #### Microsoft Graph API Limitations
-* Currently, the API calls utilized within this integration are limited and in beta (https://docs.microsoft.com/en-us/graph/overview?view=graph-rest-beta)
-* The API call to send a direct message is only supported for work/school accounts (https://docs.microsoft.com/en-us/graph/api/chat-post-messages?view=graph-rest-beta&tabs=http) and is of the permission type delegated. 
-     - The "Delegated" permission type defines a on-behalf-of-user permission. Essentially a user can only send a direct message to another user within the team (https://docs.microsoft.com/en-us/azure/active-directory/develop/developer-glossary#permissions). 
+* Currently, the [API calls](https://docs.microsoft.com/en-us/graph/overview?view=graph-rest-beta) utilized within this integration are limited and in beta.
+* The [API call to send a direct message](https://docs.microsoft.com/en-us/graph/api/chat-post-messages?view=graph-rest-beta&tabs=http) is only supported for work/school accounts and is of the permission type delegated. 
+     - The "Delegated" permission type defines a [on-behalf-of-user permission](https://docs.microsoft.com/en-us/azure/active-directory/develop/developer-glossary#permissions). Essentially a user can only send a direct message to another user within the team. 
      - In the future, we hope this expands to include the "Application" permission type. The "Application" permission type would allow our application to direct message a user directly, without having to create a Service Account User.
 
 

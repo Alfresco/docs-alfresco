@@ -39,7 +39,7 @@ The `EVERYONE` authority must have Consumer permissions on this folder in order 
 
 ### Sample REST Call to Configure Autofiling
 ```bash
-http://<SERVER>:<PORT>/alfresco/service/tsgrp/autofile/createAutofileConfig?params={"name":"Department - Region","rootPath":"Company Home/Sites/tsg-add-ons-demo/documentLibrary/Autofiling","types":["{http://www.tsgrp.com/model/tao/1.0}content"],
+http://{server}:{port}/alfresco/service/tsgrp/autofile/createAutofileConfig?params={"name":"Department - Region","rootPath":"Company Home/Sites/tsg-add-ons-demo/documentLibrary/Autofiling","types":["{http://www.tsgrp.com/model/tao/1.0}content"],
 "propertiesList":[
 "{http://www.tsgrp.com/model/tao/1.0}department",
 "{http://www.tsgrp.com/model/tao/1.0}region"

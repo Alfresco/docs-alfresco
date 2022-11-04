@@ -112,16 +112,16 @@ Forms can be launched in streamline mode by formatting the URL as:
 `<server>/ocms/activeform/<form-name>/streamline/new`
 
 For example:
-`http://edge1.tsgrp.com/ocms/activeform/Simple Workflow CR/streamline/new`
+`http://{server}/ocms/activeform/Simple Workflow CR/streamline/new`
 
-You can also include prepopulated data in the form when using streamline mode. To launch a form in streamline mode with prepopulated data format the URL as:
+You can also include pre-populated data in the form when using streamline mode. To launch a form in streamline mode with pre-populated data format the URL as:
 
 `<server>/ocms/activeform/<form-name>/new/0?populate=true&{question_label}={value}&{question_label}={value}`
 
 For example:
-`http://edge2.tsgrp.com/ocms/activeform/Simple CR/new/0?populate=true&Type of Change=Document&Priority of Change=High`
+`http://{server}/ocms/activeform/Simple CR/new/0?populate=true&Type of Change=Document&Priority of Change=High`
 
 ## Leading Actions
 The ActiveForm module processes leading actions using a consistent algorithm for determining where to place pages in the flow.  The diagram below describes the process.
 
-![AW Leading Actions](https://raw.githubusercontent.com/tsgrp/ActiveWizard/master/wiki-images/AW-leading-actions.jpg)
+![AW Leading Actions]({% link content-accelerator/images/AW-leading-actions.jpg %})
