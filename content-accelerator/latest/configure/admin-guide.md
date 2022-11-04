@@ -53,7 +53,7 @@ repository security will prevent unauthorized users from making any changes.
 
 #### Header Actions
 This section provides the ability to configure global actions for the application. Actions configured here are available 
-to all users in the application's header. See the [Action Configuration]({% link content-accelerator/latest/using/index.md %}#actions) 
+to all users in the application's header. See the [Action Configuration](/content-accelerator/latest/using/user-guide/#actions) 
 in the User Guide for more details on how to configure specific actions.
 
 #### OC Settings

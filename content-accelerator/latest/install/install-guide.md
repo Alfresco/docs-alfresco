@@ -16,7 +16,7 @@ You will need to download the following distribution zips in order to install AC
 * (Pnp Only) alfresco-content-accelerator-policy-and-procedure-accelerator-3.5.0.zip
 
 ### Alfresco repository version
-See the [Supported Platforms]({% link content-accelerator/latest/support/index.md %}) for more information.
+See the [Supported Platforms](/content-accelerator/latest/support/) for more information.
 
 Please ensure you have the correct version of the Content Accelerator package for your Alfresco Content Services version. 
 If you are unsure, please contact Alfresco Support.
