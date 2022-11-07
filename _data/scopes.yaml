@@ -38,3 +38,7 @@ applications:
     digital-workspace: "Digital Workspace"
     mobile-workspace: "Mobile Workspace"
     content-mobile: "Content Services for Mobile"
+support:
+  title: "Support"
+  scopes:
+    support: "Support Handbook"
