@@ -1,12 +1,12 @@
 ---
-title: Alfresco SDK 5.1 for out-of-process extensions
+title: Alfresco SDK 5.2 for out-of-process extensions
 ---
 
-Alfresco SDK 5.1 is a development kit that provides an easy to use approach to developing applications and 
+Alfresco SDK 5.2 is a development kit that provides an easy to use approach to developing applications and 
 out-of-process extensions for Content Services 7.x. With this SDK you can develop, package, test, run, document and 
 release your extension project.
 
-The following picture illustrates where SDK 5.1 fits into the big picture:
+The following picture illustrates where SDK 5.2 fits into the big picture:
 
 ![sdk52_big_picture]({% link content-services/images/sdk52_big_picture.png %})
 
@@ -14,26 +14,26 @@ The SDK is a fundamental tool provided by Alfresco to developers to build custom
 Content Services Platform. It is based on the [Spring Integration](https://spring.io/projects/spring-integration){:target="_blank"} 
 tooling library and the [Spring Boot](https://spring.io/projects/spring-boot){:target="_blank"} library. 
 
-Alfresco SDK 5.1 is released under [Apache License version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html){:target="_blank"} 
+Alfresco SDK 5.2 is released under [Apache License version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html){:target="_blank"} 
 and supports Content Services Enterprise Edition as well as Community Edition. If you're an Enterprise customer, 
 please check the [Alfresco SDK Support status]({% link content-services/latest/support/index.md %}) 
 for the version you're using. If your version is in Limited or Full Support and you need help, contact our 
 [Support team](https://support.alfresco.com/){:target="_blank"}.
 
-The 5.1 release takes advantage of Semantic Versioning ([SEMVER](https://semver.org/){:target="_blank"}), which means that 
+The 5.2 release takes advantage of Semantic Versioning ([SEMVER](https://semver.org/){:target="_blank"}), which means that 
 this new release is not directly compatible with the previous releases of the SDK.
 
-There is no direct upgrade path from previous versions of the SDK. This is because version 5.1 is an additional SDK to 
+There is no direct upgrade path from previous versions of the SDK. This is because version 5.2 is an additional SDK to 
 support out-of-process extensions, rather than an updated 4.x version. [Alfresco SDK 4.x]({% link content-services/latest/develop/sdk.md %}) 
 is still needed for a lot of the extension points, such as [content modelling]({% link content-services/latest/develop/repo-ext-points/content-model.md %}).
 
 If you have an existing project with business logic that could be lifted out and implemented as an external service, then 
-the recommended approach is to create a new SDK 5.1 project and start using the event system to implement the business logic. 
+the recommended approach is to create a new SDK 5.2 project and start using the event system to implement the business logic. 
 Any business logic that is executed as a result of an action in the Repository, such as document or folder uploaded, updated, deleted,
 can be reimplemented as an external out-process extension utilizing the new event system. 
 
 ## What's new?
-* Alfresco SDK 5.1 [integrates](#using-event-gateway) with the new [Event Gateway]({% link content-services/latest/develop/oop-ext-points/event-gateway.md %}) 
+* Alfresco SDK 5.2 [integrates](#using-event-gateway) with the new [Event Gateway]({% link content-services/latest/develop/oop-ext-points/event-gateway.md %}) 
 that is part of Content Services version 7.1.
 * ReST API authentication using [OAuth2](#rest-api-config) with Alfresco Identity Service.
 
@@ -579,7 +579,7 @@ Before you start, make sure you're familiar with Spring Boot and the Maven proje
         <parent>
             <groupId>org.alfresco</groupId>
             <artifactId>alfresco-java-sdk</artifactId>
-            <version>5.1.0</version>
+            <version>5.2.0</version>
         </parent>
         
         <groupId>org.alfresco.tutorial</groupId>
@@ -772,7 +772,7 @@ Add the following dependency in the Maven project file (i.e. `pom.xml`):
     <dependency>
         <groupId>org.alfresco</groupId>
         <artifactId>alfresco-java-event-api-spring-boot-starter</artifactId>
-        <version>5.1.0</version>
+        <version>5.2.0</version>
     </dependency>
 </dependencies>
 ```
@@ -941,7 +941,7 @@ Add the following dependency in the Maven project file (i.e. `pom.xml`):
     <dependency>
         <groupId>org.alfresco</groupId>
         <artifactId>alfresco-java-event-api-spring-boot-starter</artifactId>
-        <version>5.1.0</version>
+        <version>5.2.0</version>
     </dependency>
 </dependencies>
 ```
@@ -1286,7 +1286,7 @@ Make sure you have completed [prerequisites](#prereq) and created a [starter pro
         <dependency>
         <groupId>org.alfresco</groupId>
         <artifactId>alfresco-java-rest-api-spring-boot-starter</artifactId>
-        <version>5.1.0</version>
+        <version>5.2.0</version>
         </dependency>
     </dependencies>
     ```
@@ -1809,14 +1809,14 @@ search.service.path=/alfresco/api/-default-/public/search/versions/1
         <dependency>
             <groupId>org.alfresco</groupId>
             <artifactId>alfresco-java-event-api-spring-boot-starter</artifactId>
-            <version>5.1.0</version>
+            <version>5.2.0</version>
         </dependency>
         
         <!-- Alfresco Java SDK 5 Java ReST API wrapper Spring Boot Starter -->
         <dependency>
         <groupId>org.alfresco</groupId>
         <artifactId>alfresco-java-rest-api-spring-boot-starter</artifactId>
-        <version>5.1.0</version>
+        <version>5.2.0</version>
         </dependency>
     </dependencies>
     ```
@@ -1958,7 +1958,7 @@ mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=
 ```
 
 ## Using the Event Gateway {#using-event-gateway}
-Alfresco Java SDK 5.1 is compatible with [Alfresco Event Gateway]({% link content-services/latest/develop/oop-ext-points/event-gateway.md %}).
+Alfresco Java SDK 5.2 is compatible with [Alfresco Event Gateway]({% link content-services/latest/develop/oop-ext-points/event-gateway.md %}).
 
 Using the Alfresco Event Gateway REST API, extensions can manage the lifecycle of an event subscription. For example, 
 an out-of-process extension may [create a subscription](#gateway-api-create-sub) 
@@ -1973,7 +1973,7 @@ To work with the Gateway ReST API Java Wrapper in your extension project, add th
 <dependency>
     <groupId>org.alfresco</groupId>
     <artifactId>alfresco-event-gateway-api</artifactId>
-    <version>5.1.0</version>
+    <version>5.2.0</version>
 </dependency>
 ```
 
