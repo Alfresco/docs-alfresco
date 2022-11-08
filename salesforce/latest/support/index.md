@@ -6,6 +6,7 @@ The following are the supported platforms for the Content Connector for Salesfor
 
 | Version | Notes |
 | ------- | ----- |
+| Content Services 7.3.x | Requires Salesforce Connector 2.3.7 and later |
 | Content Services 7.2.x | |
 | Content Services 7.1.x | |
 | Content Services 7.0.x | |
