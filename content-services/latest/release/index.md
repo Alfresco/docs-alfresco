@@ -10,21 +10,11 @@ Here's a quick summary of what's new in the Alfresco Content Services 7.3 releas
 
 ## Highlights
 
-* **New License**
-* **Activiti Console removed**
 * **Java 17 support**
 * **Support for Alfresco Search Enterprise 3.2 with Elasticsearch and OpenSearch**
+* **New License**
+* **Activiti Console removal**
   
-### New License
-
-Since September 1st 2017, the Alfresco EULA forbids adding workflows to the workflow engine embedded in Alfresco Content Services. With the release of version 7.3, this will be enforced through a check on a flag in the license file.
-
-Customers who bought Alfresco Content Services before September 1st 2017 will retain the ability to add and modify workflows for the embedded workflow engine. Customers who bought Alfresco Content Services on or after September 1st 2017 will not be able to add workflows. They will only be able to change workflows with the following IDs: "activitiReview", "activitiInvitationNominated", "activitiReviewPooled", "activitiParallelReview", "activitiAdhoc", "activitiParallelGroupReview", "activitiInvitationModerated", "activitiInvitationNominatedAddDirect", "resetPassword" or "companyRFC".
-
-### Activiti Console removed
-
-As part of the gradual decommissioning of the embedded workflow engine, the embedded Activiti Workflow Console has been removed from Alfresco Content Services.
-
 ### Java 17 support
 
 Alfresco Content Services 7.3 now supports running on Java 17. See the Supported Platforms page for all supported technologies.
@@ -32,6 +22,16 @@ Alfresco Content Services 7.3 now supports running on Java 17. See the Supported
 ### Support for Alfresco Search Enterprise 3.2 with Elasticsearch and OpenSearch
 
 Enables organizations to easily deploy, use and scale Elasticsearch or OpenSearch with Alfresco.  7.3 builds on 7.2 and further extends support to Elasticsearch and OpenSearch.
+
+### New License
+
+Since September 1st 2017, the Alfresco EULA forbids adding workflows to the workflow engine embedded in Alfresco Content Services. With the release of version 7.3, this will be enforced through a check on a flag in the license file.
+
+Customers who bought Alfresco Content Services before September 1st 2017 will retain the ability to add and modify workflows for the embedded workflow engine. Customers who bought Alfresco Content Services on or after September 1st 2017 will not be able to add workflows. They will only be able to change workflows with the following IDs: "activitiReview", "activitiInvitationNominated", "activitiReviewPooled", "activitiParallelReview", "activitiAdhoc", "activitiParallelGroupReview", "activitiInvitationModerated", "activitiInvitationNominatedAddDirect", "resetPassword" or "companyRFC".
+
+### Activiti Console removal
+
+As part of the gradual decommissioning of the embedded workflow engine, the embedded Activiti Workflow Console has been removed from Alfresco Content Services.
 
 ## Deprecated software
 
