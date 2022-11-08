@@ -35,7 +35,7 @@ Enables organizations to easily deploy, use and scale Elasticsearch or OpenSearc
 
 ## Deprecated software
 
-We are ending support for the Share based module for SAML and replacing it with an Identity Service (IDS) based solution, that will greatly improve the customer SSO experience.
+We are ending support for the Alfresco SAML SSO module, previously used to configure SAML authentication in Alfresco Office Service (AOS). Coherently with other components in Alfresco, the new solution is now based on an Identity Service (IDS) via OAuth2 that will greatly improve the customer SSO experience. Configuring SAML will still be possible but as part of identity provider configuration.
 
 ## Install
 
