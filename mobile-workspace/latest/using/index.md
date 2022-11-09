@@ -140,11 +140,10 @@ You can view, filter, complete, and add comments to tasks while logged into the 
 
 ### Tasks Overview
 
-The **Tasks** button is located at the bottom between **Favorites** and **Offline**. The Tasks list loads active tasks assigned to you or created by you. Task priority colors are set as the following: Low (green), Medium (orange), and High (red). Tasks will refresh when the user scrolls down to the end of the task list or when the refresh button is pressed. The refresh button will also reset filters.
+The **Tasks** button is located at the bottom between **Favorites** and **Offline**. The Tasks list loads active tasks assigned to you or created by you. Task priority colors are set as the following: Low (green), Medium (orange), and High (red). Tasks will refresh when you scroll down to the end of the task list or when you press the refresh button. The refresh button will also reset filters.
 
 * A Dark mode for Tasks can be set within user Settings under Appearance.
-* If a user is not able to view tasks, you will see this error:
-`This account is not configured on the process services.`
+* If you are unable to view tasks, you will see this error: **This account is not configured on the process services.**
 
 ### Task Filters
 
@@ -154,32 +153,60 @@ Filters can be set for Status, Due date, and Task Name. Filter chips are shown a
 
 2. Follow the directions for each filter as follows:
 
-    * A Status filter can be set by selecting “Active” or “Completed” and press **Apply**. The Status filter chip label will show the active filter, so “Completed” instead of “Status”.
-    * Press **Due date** to set a custom, date-ranged filter. “From” and “To” start and end fields set using a calendar date picker. Only one date needs to be set.
+    * A Status filter can be set by selecting **Active** or **Completed** and then press **Apply**. The Status filter chip label will show the active filter, so “Completed” instead of “Status”.
+    * Press **Due date** to set a custom, date-ranged filter. **From** and **To** start and end fields are set using a calendar date picker. Only one date needs to be set.
     * Press **Task Name** to filter tasks by name. Type your search in a text field. This filter does not apply to priority and is not case sensitive.
 
-3. Press **Apply** to set the filter and **Reset** to reset the filter to default. The **X** in the top right of the filter UI will close the window and return to the Task list.
+3. Press **Apply** to set the filter and **Reset** to reset the filter to default. The **X** in the top right closes the window and returns you to the Task list.
 
 4. The filter chips will show the active filters and the refresh button will reset the filters.
 
 ### Task view
 
-Within the Task view are details about the task: Task name, Due date, Priority, Assignee, Status, and Identifier. There is a back arrow to exit Task view and return to the Task list.
+Within the Task view are details about the task: Task name, Due date, Priority, Assignee, Status, and Identifier. There is a back arrow to exit the Task view and return to the Task list.
 
-Individual tasks have a “Comments” section below the task details. The most recent comment is shown with the user's icon, user name, date the comment was added, and the user’s comment. If there is more than one comment, you will see a link to **View all**. The link **Add a comment…** is below existing comments.
+Individual tasks have a Comments section below the task details. The most recent comment is shown with the user's icon, user name, date the comment was added, and the user’s comment. If there is more than one comment, you will see a link to **View all**. The link **Add a comment…** is below the existing comments. If you have access to  
 
 Attached files is a section below Comments that shows the number of attached files to the task. The link **View all** displays an Attached files page when there are more than four attachments. Clicking an attachment will download the file to preview with a popup and **Cancel** option.
 
 ### Complete Tasks
 
-You will be able to complete tasks if the task is assigned to you.
+You can complete tasks if the task is assigned to you.
 
-1. Open a task from the Task list. At the bottom of the task is a **Complete** floating action button.
+1. Open a task from the Task list.
+
+    At the bottom of the task is a **Complete** floating action button.
 
 2. Press the **Complete** button.
 
-    A popup is displayed: `Are you sure you want to complete the task? You will no longer be able to make any changes.`
+    A popup is displayed: **Are you sure you want to complete the task? You will no longer be able to make any changes.**
 
     A completed task can be viewed, but enters a read-only mode. No comments or attachments can be added to a completed task.
 
 3. Press **Confirm** to complete the task. Press **Cancel** to return to the task.
+
+### Create 'to do' task
+
+
+
+### Edit existing task comment
+
+### Reassign task 
+
+### Complete task
+
+### Change task due date
+
+### Add attachments to task 
+
+As a user i would like to be able to create a new task type ‘to do’ 
+
+As an end user I want to edit a task so that I can update an existing comment
+
+As a user i would like to be able to re-assign a my task  to another user
+
+As a user i would like to be able to set the my task to ‘complete’ status to indicate the task has been completed
+
+As a user I can change the due date
+
+As a user I would like to be able to add attachments to a my task such as a file for review. 
