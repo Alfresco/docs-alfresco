@@ -56,7 +56,9 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Safari 14 | |
 | | |
 | **Java** | |
+| OpenJDK 17.0.4 | |
 | OpenJDK 11.0.13 | |
+| Amazon Corretto 17 | |
 | Amazon Corretto 11 | |
 | | |
 | **Third party integrations** | |
@@ -95,8 +97,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Outlook Integration 2.9 | |
 | Alfresco Office Services 1.4.1 | |
 | Alfresco Google Docs Integration 3.2.2 | |
-| Alfresco Content Services SDK 5.1 | |
-| Alfresco Content Services SDK 4.4 | |
+| Alfresco Content Services SDK 5.2 | |
+| Alfresco Content Services SDK 4.5 | |
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 3.0 | |
