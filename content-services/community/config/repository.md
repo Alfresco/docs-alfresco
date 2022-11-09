@@ -150,7 +150,7 @@ If you're a Windows user, register Tomcat as a Windows service:
 * From the `/tomcat/bin` directory, run the following command at a command prompt:
 
     ```bash
-    tomcat7w.exe //ES//<alfrescoTomcatnum1>
+    tomcat9w.exe //ES//<alfrescoTomcatnum1>
     ```
 
     where `<alfrescoTomcatnum1>` is the value from your `tomcat_unique_service_name` parameter.
@@ -606,7 +606,7 @@ Here's an example of how to configure Tomcat 8.5 to work with HTTPS for your dev
 
     2. On Windows, you can just use port 443 without any proxy.
 
-    Note that we use the `certificateVerification="none"` setting. See the [official Tomcat 8.5 page](https://tomcat.apache.org/tomcat-8.5-doc/config/http.html#SSL_Support_-_SSLHostConfig){:target="_blank"} to learn more about the HTTPS security settings for the connector.
+    Note that we use the `certificateVerification="none"` setting. See the [official Tomcat 8.5 page](https://tomcat.apache.org/tomcat-8.5-doc/config/http.html#SSL_Support_-_SSLHostConfig){:target="_blank"} or [Tomcat 9.0 page](https://tomcat.apache.org/tomcat-9.0-doc/config/http.html#SSL_Support_-_SSLHostConfig){:target="_blank"} to learn more about the HTTPS security settings for the connector.
 
     If you're using an older version of Tomcat (which we don't recommend and don't support), the security settings are specified in a different format. See example for [Tomcat 7.0](https://tomcat.apache.org/tomcat-7.0-doc/config/http.html#SSL_Support){:target="_blank"}.
 
