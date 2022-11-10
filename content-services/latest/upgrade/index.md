@@ -21,12 +21,12 @@ When you upgrade Content Services, it's recommended that you follow a structured
 
 The following diagram shows the upgrade paths for major versions:
 
-![Upgrade paths to 7.2]({% link content-services/images/upgrade-path-7.2.png %})
+![Upgrade paths to 7.3]({% link content-services/images/upgrade-path-7.3.png %})
 
 The upgrade path recommendations are:
 
-* Direct upgrades to Content Services 7.2 are supported only from 5.2.x and later.
-* Content Services 7.2 introduces changes that require new releases of some modules. To upgrade to 7.3, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/latest/support/index.md %}) for more details on the associated versions.
+* Direct upgrades to Content Services 7.3 are supported only from 5.2.x and later.
+* Content Services 7.3 introduces changes that require new releases of some modules. To upgrade to 7.3, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/latest/support/index.md %}) for more details on the associated versions.
 * You must upgrade to a supported version of Alfresco Search Services before upgrading the repository to 7.3. See [Upgrade Search Services]({% link search-services/latest/upgrade/index.md %}) for more information.
   * Upgrades from Content Services 5.2 must first upgrade from Solr 4 to Alfresco Search Services.
 
