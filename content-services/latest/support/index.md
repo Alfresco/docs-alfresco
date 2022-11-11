@@ -11,34 +11,37 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Version | Notes |
 | ------- | ----- |
 | **Operating systems** | |
+| Red Hat Enterprise Linux 8.6 x64 | |
 | Red Hat Enterprise Linux 8.5 x64 | |
-| Red Hat Enterprise Linux 8.4 x64 | |
-| Red Hat Enterprise Linux 8.2 x64 | |
+<!--| Red Hat Enterprise Linux 8.4 x64 | | -->
+<!--| Red Hat Enterprise Linux 8.2 x64 | | REMOVED -->
+| Windows Server 2022 | |
 | Windows Server 2019 | |
 | Amazon Linux | v2 |
-| CentOS 7.9 x64 | |
-| CentOS 8.3 x64 | |
+<!--| CentOS 7.9 x64 | | -->
+<!--| CentOS 8.3 x64 | | REMOVED -->
+| Ubuntu 22.04 | |
 | Ubuntu 20.04 | |
-| Ubuntu 18.04 | |
+<!--| Ubuntu 18.04 | |-->
 |  |  |
 | **Databases** | |
 | MySQL 8 | `mysql-connector-java-8.0.27.jar` |
-| MySQL 5.7.28 | `mysql-connector-java-5.1.49-bin.jar` |
 | MS SQL Server 2019 | `mssql-jdbc-9.2.1.jre11.jar` |
-| MS SQL Server 2017 | Microsoft JDBC Driver `7.2.2.jre11` for SQL Server. See [JDBC Driver](https://docs.microsoft.com/en-us/sql/connect/jdbc/system-requirements-for-the-jdbc-driver?view=sql-server-ver15){:target="_blank"} for supported versions. |
 | Oracle 19c | `Ojdbc8.jar – 19.11.0.0` |
-| PostgreSQL 13.3 | `Postgresql-42.3.2.jar` |
-| PostgreSQL 12.7 | |
+| PostgreSQL 14.x | `Postgresql-42.3.2.jar` |
+| PostgreSQL 13.x | `Postgresql-42.3.2.jar` |
+<!--| PostgreSQL 12.7 | |
 | PostgreSQL 12.4 | `Postgresql-42.2.18.jar` |
 | PostgreSQL 11.12 | |
-| PostgreSQL 11.7 | |
-| MariaDB 10.6 | |
-| MariaDB 10.5 | `MariaDB Connector/J 2.7.2` |
-| MariaDB 10.4 | `MariaDB Connector/J 2.7.1`|
+| PostgreSQL 11.7 | | REMOVED -->
+| MariaDB 10.6 | <!--driver version?-->|
+<!--| MariaDB 10.5 | `MariaDB Connector/J 2.7.2` |
+| MariaDB 10.4 | `MariaDB Connector/J 2.7.1`| REMOVED -->
 | Amazon Aurora | Use of Amazon Aurora is supported only if it is configured to emulate one of the supported versions of PostgreSQL or MySQL listed above, and the listed JDBC driver is used. |
 | | |
 | **Message brokers** | |
-| ActiveMQ v5.16.1 | |
+| ActiveMQ v5.17 | |
+| ActiveMQ v5.16 | |
 | | |
 | **Application servers** | |
 | Tomcat 9 | |
