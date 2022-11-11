@@ -612,7 +612,6 @@ defaults:
       path: "transformation-engine/2.2"
     values:
       version: 2.2
-      latest: true
 
 # Alfresco Content Connector for AWS S3
   - scope:
