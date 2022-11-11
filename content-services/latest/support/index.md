@@ -68,8 +68,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Process Services 2.3 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
-| Alfresco Sync Service 3.7 | |
-| Alfresco Sync Service 3.6 | |
+| Alfresco Sync Service 3.8 | |
 | Alfresco Desktop Sync 1.13 | |
 | Alfresco Desktop Sync 1.12 | |
 | Alfresco Desktop Sync 1.11 | |
@@ -87,8 +86,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Intelligence Services 1.4.2 | |
 | Alfresco Content Connector for AWS S3 5.0 | Adds support for AWS Glacier using Cloud storage layer. |
 | Alfresco Content Connector for Azure 3.0 | |
-| Alfresco Content Connector for Salesforce 2.3.4 and later | |
 | Alfresco Content Connector for SAP applications 5.2.1 | |
+| Alfresco Content Connector for Salesforce 2.3.7 and later | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
 | Alfresco Collaboration Connector for Microsoft 365 1.1.3 | |
 | Alfresco Collaboration Connector for Teams 1.1 | |
