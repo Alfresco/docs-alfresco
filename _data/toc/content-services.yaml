@@ -165,7 +165,7 @@
           pages:
           - title: 'In-Process SDK (4.5)'
             path: '/content-services/latest/develop/sdk/'
-          - title: 'Out-of-Process SDK (5.1)'
+          - title: 'Out-of-Process SDK (5.2)'
             path: '/content-services/latest/develop/oop-sdk/'
         - title: 'Extension packaging (modules)'
           path: '/content-services/latest/develop/extension-packaging/'
