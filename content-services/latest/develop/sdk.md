@@ -2929,7 +2929,7 @@ worth noting that hot reloading is only supported on the platform, and not in Al
 
 As an alternative to the HotSwapAgent you can also try out JRebel. It has more features but isn't free.
 
-The way to configure HotSwapAgent in case of using Java 11 or Java 17 is pretty different. By default, ACS 6.1 uses Java 11 and ACS 7.3+ uses Java 17.
+The way to configure HotSwapAgent in case of using Java 11 or Java 17 is pretty different. By default, ACS 6.1+ uses Java 11 and ACS 7.3+ uses Java 17.
 
 ##### Issue with Docker Toolbox
 
