@@ -38,7 +38,7 @@ Working with Docker images gives the developers the opportunity to easily custom
 Adding, removing and configuring services in the environment is as easy as modifying the Docker Compose descriptor file.
 
 ### Support for Java 17
-[Java 17](https://openjdk.org/projects/jdk/17/){:target="_blank"} is the next Long Term Support (LTS) version that provides support for 3 years. Alfresco 7.3+ already offers support for this version of the Java platform.
+[Java 17](https://openjdk.org/projects/jdk/17/){:target="_blank"} is the latest Long Term Support (LTS) version that provides support for 3 years. Alfresco 7.3+ already offers support for this version of the Java platform.
 
 Alfresco SDK 4.5 has been modified to add support for Java 17, as well. This way, if you're working as a developer in customizations for Alfresco 7.3 or later, you must now use SDK 4.5 + JDK 17 to work on them. The Apache Maven plugins included in the archetypes has been updated to avoid any issue with Java 17.
 
