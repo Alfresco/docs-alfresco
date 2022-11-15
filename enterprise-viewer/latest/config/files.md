@@ -285,15 +285,15 @@ This value is the % of a highlight must overlap a word for it to be detected as 
 
 10% ( =0.1)
 
-![Highlight Snap Threshold 10%]({% link enterprise-viewer/images/snapThreshold_10.gif %})
+![Highlight Snap Threshold 10%]({% link enterprise-viewer/images/snap-threshold_10.gif %})
 
 40% ( =0.4)
 
-![Highlight Snap Threshold 40%]({% link enterprise-viewer/images/snapThreshold_40.gif %})
+![Highlight Snap Threshold 40%]({% link enterprise-viewer/images/snap-threshold_40.gif %})
 
 100% or more (greater than 1.0)
 
-![Highlight Snap Threshold 100% or more (greater than 1.0)]({% link enterprise-viewer/images/snapThreshold_gt_100.gif %})
+![Highlight Snap Threshold 100% or more (greater than 1.0)]({% link enterprise-viewer/images/snap-threshold_gt_100.gif %})
 
 Default Value: `0.15`
 

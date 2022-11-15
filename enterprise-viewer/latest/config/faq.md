@@ -24,13 +24,13 @@ I am seeing stale page images, does Alfresco Enterprise Viewer Cache?  How can I
 
 First:
 
-![Get Ticket Endpoint]({% link enterprise-viewer/images/getTicket.PNG %})
+![Get Ticket Endpoint]({% link enterprise-viewer/images/get-ticket.png %})
 
 Save the ticket from the above call for the next call:
 
 Finally : 
 
-![Clear Caches]({% link enterprise-viewer/images/clearCaches.PNG %})
+![Clear Caches]({% link enterprise-viewer/images/clear-caches.png %})
 
 After those two steps and browser cache clear, you should see fresh images.
 

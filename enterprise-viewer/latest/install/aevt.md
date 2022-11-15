@@ -24,7 +24,7 @@ AEVT is recommended when:
 
 See the below graphic for how AEVT can be added to an AEV installation.
 
-![AEVT Architecture]({% link enterprise-viewer/images/AEVT_Architecture_Diagram.png %})
+![AEVT Architecture]({% link enterprise-viewer/images/aevt_architecture.png %})
 
 ## AEVT Install
 
