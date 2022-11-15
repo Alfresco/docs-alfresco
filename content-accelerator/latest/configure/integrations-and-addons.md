@@ -133,7 +133,7 @@ Since the job is typically configured to run every hour, it's sometimes necessar
 1. Need to setup the folder Rule to actually declare our record copy as an AGS Record
     1. In the share site -> on the folder where your record copy will get created (or moved to if autofile is configured) -> under folder rules -> add rule
         1. Set the rule to run: `on create or enter`
-        2. RUN WHEN - `Content Type = Content` (since we dont want this to run when folders are created in here)
+        2. RUN WHEN - `Content Type = Content` (since we don't want this to run when folders are created in here)
         3. File Record -> to unfiled Records Folder
         4. Check Box to Run on Subfolders
 2. Optional: You can also then setup another rule on the unfiled records folder in the RM site to file the record to a more specific location
