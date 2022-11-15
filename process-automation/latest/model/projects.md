@@ -42,7 +42,9 @@ Once a project has been created or uploaded into the Modeling Application, the f
 | Created | Displays how long ago the project was created. |
 | Created By | Displays which user created the project. |
 | Version | Displays the current version of the project. |
+| Collaborators | Displays an icon for each of the collaborators that are collaborating on a project, for more see [Collaborators](#collaborators). |
 | Options | A list of actions that can be made against the project: {::nomarkdown}<ul><li><b>Edit</b> allows the project name and description to be updated.</li><li><b>Delete</b> removes the project.</li><li><b>Download</b> bundles the project contents into a zipped folder to import it into a different environment.</li><li><b>Collaborators</b> is for managing the project permissions.</li><li><b>Release</b> creates a new version of the project.</li><li><b>View Releases</b> shows the metadata related to each release of the project.</li></ul>{:/} |
+| Star icon | Use the icon to select which projects you want to add to the **Favorite projects** view. |
 
 ## Collaborators
 

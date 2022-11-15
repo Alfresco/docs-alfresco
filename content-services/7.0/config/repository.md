@@ -967,6 +967,14 @@ The MIME type default definitions are in the [mimetype-map.xml](https://dev.alfr
 
 The MIME type is available in the repository.
 
+## Configure view in browser MIME types {#conf-view-in-browser-mime-types}
+
+The `content.nonAttach.mimetypes` property specifies the MIME types (by default: `application/pdf`, `image/jpeg`, 
+`image/gif`, `image/png`, `image/tiff` ,`image/bmp`) that can be viewed in a browser by clicking the Alfresco Share 
+button **View in Browser**, all other file types are forced to be downloaded. 
+
+This property can be overridden, but it's discouraged since it might cause a security breach.
+
 ## Configure metadata extraction
 
 Metadata extraction automatically extracts metadata information from inbound and/or updated content and updates the

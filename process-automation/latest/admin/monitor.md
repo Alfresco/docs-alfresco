@@ -4,7 +4,7 @@ title: Process administration
 
 The **Process Admin** section of the Admin Application is used to manage applications, process instances, user tasks, service tasks, auditing, and data cleanup.
 
-Users can only see this section if they have the `ACTIVITI_ADMIN` role. The information that a user sees in each section is then controlled by which applications they have been given administrator access to during [deployment]({% link process-automation/latest/admin/release.md %}#deployment) or afterwards by [updating the application permissions]({% link process-automation/latest/admin/release.md %}#manage-permissions).
+You can only see this section if you have the `ACTIVITI_ADMIN` role. The information you see in each section is controlled by which applications you have been given administrator access to during [deployment]({% link process-automation/latest/admin/release.md %}#deployment) or afterwards by [updating the application permissions]({% link process-automation/latest/admin/release.md %}#manage-permissions).
 
 ## Configure columns
 
@@ -12,7 +12,7 @@ You can configure the columns of the Applications List, Process Instances, User 
 
 The order of the columns can be adjusted.
 
-1. Expand the **Process Admin** section on the left of the Admin App and then select **Applications list**, **Process Instances**, **User Tasks**, or **Service Tasks**.
+1. Expand the **Process Admin** section on the left of the Admin App and then select **Applications List**, **Process Instances**, **User Tasks**, or **Service Tasks**.
 
 2. Access the six dots on the top left of a column by hovering your mouse over the name of the column.
 
@@ -24,7 +24,7 @@ The order of the columns can be adjusted.
 
 The columns that are visible can be adjusted.
 
-1. Expand the **Process Admin** section on the left of the Admin App and then select **Applications list**, **Process Instances**, **User Tasks**, or **Service Tasks**.
+1. Expand the **Process Admin** section on the left of the Admin App and then select **Applications List**, **Process Instances**, **User Tasks**, or **Service Tasks**.
 
 2. Click the three dots on the right of the last column.
 
@@ -32,9 +32,9 @@ The columns that are visible can be adjusted.
 
 ![Select columns]({% link process-automation/images/select-columns-admin.png %})
 
-## Applications list
+## Applications List
 
-The **Applications list** section is for viewing the applications you have released.
+The **Applications List** section is for viewing the applications you have released.
 
 ### Properties {#applications-properties}
 
@@ -67,7 +67,7 @@ The properties for each process instance are:
 | Start Date | The time since the process instance was started. |
 | App Release Version | The [version of the application]({% link process-automation/latest/admin/release.md %}#upgrade) the process instance is using. |
 
-> **Note**: Further details are available to view for each process instance by clicking on it. A properties panel will appear on the right-hand side of the screen.
+> **Note:** Further details are available to view for each process instance by clicking on it. A properties panel will appear on the right-hand side of the screen.
 
 The status of process instances are:
 
@@ -80,11 +80,11 @@ The status of process instances are:
 
 ### Diagram
 
-Select the **Diagram** option to view which stage the process is currently at and the path that the process instance has taken to get there. The currently active task or activity is highlighted in bold red. The process flow taken is highlighted in red.
+Use the **Diagram** option to view which stage the process is currently at and the path that the process instance has taken to get there. The currently active task or activity is highlighted in bold red. The process flow taken is highlighted in red.
 
 ### Variables
 
-Select the **Variables** option to view and edit the [process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables) values for a process instance.
+Use the **Variables** option to view and edit the [process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables) values for a process instance.
 
 The properties for variables are:
 
@@ -97,29 +97,29 @@ The properties for variables are:
 
 ### Suspend and activate
 
-Select the **Suspend** option to pause a process instance. This will stop any action from completing in the process instance. Use the **Activate** option to resume a suspended process instance.
+Use the **Suspend** option to pause a process instance. This will stop any action from completing in the process instance. Use the **Activate** option to resume a suspended process instance.
 
 Suspending a process instance will change the status to `SUSPENDED`.
 
 Activating a process instance will change the status to `RUNNING`.
 
-> **Note**: The **Suspend** option is only available to process instances with a status of `RUNNING` and the **Activate** option is only available to process instances with a status of `SUSPENDED`.
+> **Note:** The **Suspend** option is only available to process instances with a status of `RUNNING` and the **Activate** option is only available to process instances with a status of `SUSPENDED`.
 
 ### Cancel
 
-Select the **Cancel** option to cancel a process instance. This will stop any action from completing in the process instance. Cancelled process instances cannot be restarted or worked on again.
+Use the **Cancel** option to cancel a process instance. This will stop any action from completing in the process instance. Cancelled process instances cannot be restarted or worked on again.
 
 Cancelling a process instance will change the status to `CANCELLED`.
 
-> **Note**: The **Cancel** option is not available to process instances with a status of `COMPLETED`.
+> **Note:** The **Cancel** option is not available to process instances with a status of `COMPLETED`.
 
 ### Audit {#process-instance-audit}
 
-Select the **Audit** option to view all audit logs for the selected process instance. This will open the [audit](#audit) section with the filter restricted to the application and process instance ID of the selected process instance.
+Use the **Audit** option to view all audit logs for the selected process instance. This will open the [audit](#audit) section with the filter restricted to the application and process instance ID of the selected process instance.
 
 ## User tasks
 
-The **User Tasks** section is for monitoring all active, assigned, completed and suspended tasks that are running in each application.
+The **User Tasks** section is for monitoring all active, assigned, completed, and suspended tasks that are running in each application.
 
 ### Properties {#task-properties}
 
@@ -135,23 +135,23 @@ The properties for each task are:
 | Last Modified | The time since the task was last updated. |
 | Parent ID | The ID of a parent task if the standalone task has one. |
 
-> **Note**: Further details are available to view for each task by clicking on it. A properties panel will appear on the right-hand side of the screen and certain properties can be edited if the status is `CREATED` or `ASSIGNED`.
+> **Note:** Further details are available to view for each task by clicking on it. A properties panel will appear on the right-hand side of the screen and certain properties can be edited if the status is `CREATED` or `ASSIGNED`.
 
 The status of tasks are:
 
 | Status | Description |
 | ------ | ----------- |
 | CREATED | The task has been created but not yet assigned. |
-| ASSIGNED | The task has assigned but not yet completed. |
+| ASSIGNED | The task has been assigned but not yet completed. |
 | COMPLETED | The task has been completed. |
 | SUSPENDED | The task is suspended because the process instance it belongs to has been suspended. It cannot be completed until the process instance is activated. |
 | CANCELLED | The task has been cancelled and cannot be completed. |
 
 ### Variables {#task-variables}
 
-Select the **Variables** option to view and edit the [task variables]({% link process-automation/latest/model/forms.md %}#form-variables) values for a user task.
+Use the **Variables** option to view and edit the [task variables]({% link process-automation/latest/model/forms.md %}#form-variables) values for a user task.
 
-> **Note**: Task variables are also known as form variables from a modeling perspective.
+> **Note:** Task variables are also known as form variables from a modeling perspective.
 
 The properties for task variables are:
 
@@ -164,17 +164,17 @@ The properties for task variables are:
 
 ### Sibling tasks
 
-Select the **Sibling Tasks** option to view any other standalone tasks that share the same parent task.
+Use the **Sibling Tasks** option to view any other standalone tasks that share the same parent task.
 
 ### Audit {#task-audit}
 
-Select the **Audit** option to view all audit logs for the selected task. This will open the [audit](#audit) section with the filter restricted to the application and the `Event ID` of the selected user task.
+Use the **Audit** option to view all audit logs for the selected task. This will open the [audit](#audit) section with the filter restricted to the application and the `Event ID` of the selected user task.
 
 ## Service tasks
 
 The **Service Tasks** section is for monitoring all [service tasks]({% link process-automation/latest/model/processes/bpmn.md %}#service-task) that are running in each application.
 
-> **Note**: This includes [connectors]({% link process-automation/latest/model/connectors/index.md %}), [decision tables]({% link process-automation/latest/model/decisions.md %}) and [scripts]({% link process-automation/latest/model/scripts.md %}).
+> **Note:** This includes [connectors]({% link process-automation/latest/model/connectors/index.md %}), [decision tables]({% link process-automation/latest/model/decisions.md %}) and [scripts]({% link process-automation/latest/model/scripts.md %}).
 
 ### Properties {#service-properties}
 
@@ -199,7 +199,7 @@ The status of tasks are:
 
 ### View error
 
-Select the **View Error** option on a service task with the status of `ERROR`. This will display a detailed stack trace of the error associated with the service task.
+Use the **View Error** option on a service task with the status of `ERROR`. This will display a detailed stack trace of the error associated with the service task.
 
 ## Audit
 
@@ -231,13 +231,13 @@ You can clean up historical data using the Create cleanup job process from withi
 
 4. Click the **+** symbol on the top right to create a new cleanup job.
 
-5. Select the application you want to run the Create cleanup job process for from the drop down menu.
+5. Use the application you want to run the Create cleanup job process for from the drop down menu.
 
-6. Select the applications process definition you want to cleanup.
+6. Use the applications process definition you want to cleanup.
 
     You can select multiple process definitions. If you do not select a process definition for the application all process definitions are selected.
 
-7. Select the period of time you want to retain any completed or cancelled processes.
+7. Use the period of time you want to retain any completed or cancelled processes.
 
 8. Click **Yes I agree** to creating the cleanup job and then click **CREATE**.
 

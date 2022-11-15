@@ -1,8 +1,8 @@
 ---
-title: Alfresco SDK 4.4 for in-process extensions
+title: Alfresco SDK 4.5 for in-process extensions
 ---
 
-Alfresco SDK 4.4 is a Maven based development kit that provides an easy to use approach to developing applications and 
+Alfresco SDK 4.5 is a Maven based development kit that provides an easy to use approach to developing applications and 
 extensions for Alfresco. With this SDK you can develop, package, test, run, document and release your Alfresco extension project.
 
 The following picture illustrates where SDK 4.x fits into the big picture:
@@ -22,7 +22,7 @@ for the version you're using. If your version is in Limited or Full Support and 
 The 4.0 release took advantage of Semantic Versioning ([SEMVER](https://semver.org/){:target="_blank"}), which means 
 that it isn't directly compatible with the previous releases of the SDK.
 
-If you have existing projects that you wish to upgrade to SDK 4.4 the recommended approach is to generate a new project 
+If you have existing projects that you wish to upgrade to SDK 4.5 the recommended approach is to generate a new project 
 from the new archetypes and move your code into place.
 
 ## What's new?
@@ -37,11 +37,10 @@ solutions.
 Working with Docker images gives the developers the opportunity to easily customize the deployment of the local environment to adapt it to their requirements.
 Adding, removing and configuring services in the environment is as easy as modifying the Docker Compose descriptor file.
 
-### Support for Java 11
-[Java 11](https://openjdk.java.net/projects/jdk/11/){:target="_blank"} is the next Long Term Support (LTS) version that provides support for 3 years. Alfresco 6.1+ already offers
-support for this version of the Java platform.
+### Support for Java 17
+[Java 17](https://openjdk.org/projects/jdk/17/){:target="_blank"} is the latest Long Term Support (LTS) version that provides support for 3 years. Alfresco 7.3+ already offers support for this version of the Java platform.
 
-Alfresco SDK 4.0 has been modified to add support for Java 11 as well. This way, if you're working as a developer in customizations for Alfresco 6.1 or later, you must now use SDK 4.0 + JDK 11 to work on them. The Apache Maven plugins included in the archetypes has been updated to avoid any issue with Java 11.
+Alfresco SDK 4.5 has been modified to add support for Java 17, as well. This way, if you're working as a developer in customizations for Alfresco 7.3 or later, you must now use SDK 4.5 + JDK 17 to work on them. The Apache Maven plugins included in the archetypes has been updated to avoid any issue with Java 17.
 
 ### Easy dependency configuration
 The configuration of the Maven dependency management has been greatly improved thanks to the addition of a _bill of materials_ (BOM). 
@@ -73,13 +72,13 @@ environment can be more similar to a real one, including whatever other service 
 
 ## Getting started with Alfresco SDK {#gettingstarted}
 
-Use these instructions to get started with using Alfresco SDK 4.4.
+Use these instructions to get started with using Alfresco SDK 4.5.
 
 ### Prerequisites
 
-There are a number of software requirements for using Alfresco SDK 4.4:
+There are a number of software requirements for using Alfresco SDK 4.5:
 
-* Java Development Kit (JDK) - Version 11
+* Java Development Kit (JDK) - Version 17
 * Maven - Version 3.3
 * Docker - Latest stable version
 * JRebel (optional) for hot reloading of web resources, configuration, and classes
@@ -87,27 +86,27 @@ There are a number of software requirements for using Alfresco SDK 4.4:
 
 #### Java
 
-ACS 6.0 is compiled and executed using Java 8, but it is highly recommended to work with ACS 6.1+ which uses Java 11.
+ACS 6.1 is compiled and executed using Java 11, but it is highly recommended to work with ACS 7.3+ which uses Java 17.
 
-1. Download [JDK 11](https://jdk.java.net/11/){:target="_blank"}, unzip it and configure it as the default Java installation.
+1. Download [JDK 17](https://jdk.java.net/archive/){:target="_blank"}, unzip it and configure it as the default Java installation.
 
 2. Verify the installation for both JDK and JRE.
 
     ```bash
     $ javac -version
-    javac 11.0.1
+    javac 17.0.2
     
     $ java -version
-    openjdk version "11.0.1" 2018-10-16
-    OpenJDK Runtime Environment 18.9 (build 11.0.1+13)
-    OpenJDK 64-Bit Server VM 18.9 (build 11.0.1+13, mixed mode)
+    openjdk version "17.0.2" 2021-09-10
+    OpenJDK Runtime Environment 18.9 (build 17.0.2+8)
+    OpenJDK 64-Bit Server VM 18.9 (build 17.0.2+8, mixed mode)
     ```
 
 3. Make sure JAVA_HOME is setup correctly, so other tools like Maven will use the correct version.
 
     ```bash
     $ env|grep JAVA_HOME
-    JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home
+    JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.0.2.jdk/Contents/Home
     ```
 
 #### Maven
@@ -115,7 +114,7 @@ ACS 6.0 is compiled and executed using Java 8, but it is highly recommended to w
 Alfresco recommends that you keep up-to-date with all the Maven releases. Linux distributions and package managers tend to bundle older releases and this is 
 the most common pitfall.
 
-Alfresco SDK 4.4 requires Maven 3.3.0+, but you are recommended to download the latest version.
+Alfresco SDK 4.5 requires Maven 3.3.0+, but you are recommended to download the latest version.
 
 1. Download and install [Apache Maven](https://maven.apache.org/download.cgi){:target="_blank"} and make sure it is configured correctly on your path.
 
@@ -125,8 +124,8 @@ Alfresco SDK 4.4 requires Maven 3.3.0+, but you are recommended to download the 
     $ mvn -v
     Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
     Maven home: /usr/local/Cellar/maven/3.3.9/libexec
-    Java version: 11.0.1, vendor: Oracle Corporation
-    Java home: /Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home
+    Java version: 17.0.2, vendor: Oracle Corporation
+    Java home: /Library/Java/JavaVirtualMachines/jdk-17.0.2.jdk/Contents/Home
     Default locale: en_ES, platform encoding: UTF-8
     OS name: "mac os x", version: "10.13.4", arch: "x86_64", family: "mac"
     ```
@@ -187,7 +186,7 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     * `org.alfresco.maven.archetype:alfresco-platform-jar-archetype`
     * `org.alfresco.maven.archetype:alfresco-share-jar-archetype`
 
-3. Choose the latest version, such as 4.4.0.
+3. Choose the latest version, such as 4.5.0.
 
     ```bash
     Choose org.alfresco.maven.archetype:alfresco-allinone-archetype version:
@@ -206,7 +205,8 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     13: 4.1.0
     14: 4.2.0
     15: 4.3.0
-    15: 4.4.0   
+    15: 4.4.0
+    16: 4.5.0   
     ```
 
 4. Next you will be prompted for additional values, like `groupId`, `artifactId`, and `package`, as shown below:
@@ -235,7 +235,7 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
 
     ```bash
     [INFO] ----------------------------------------------------------------------------
-    [INFO] Using following parameters for creating project from Archetype: alfresco-allinone-archetype:4.4.0-SNAPSHOT
+    [INFO] Using following parameters for creating project from Archetype: alfresco-allinone-archetype:4.5.0-SNAPSHOT
     [INFO] ----------------------------------------------------------------------------
     [INFO] Parameter: groupId, Value: com.acme
     [INFO] Parameter: artifactId, Value: my-all-in-one
@@ -525,7 +525,7 @@ my-all-in-one-project mbergljung$ ./run.sh build_start
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Build Order:
 [INFO] 
-[INFO] AIO - SDK 4.4
+[INFO] AIO - SDK 4.5
 [INFO] Alfresco Platform/Repository JAR Module
 [INFO] Alfresco Share JAR Module
 [INFO] Integration Tests Module
@@ -535,7 +535,7 @@ my-all-in-one-project mbergljung$ ./run.sh build_start
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Summary:
 [INFO] 
-[INFO] AIO - SDK 4.4 ...................................... SUCCESS [  0.680 s]
+[INFO] AIO - SDK 4.5 ...................................... SUCCESS [  0.680 s]
 [INFO] Alfresco Platform/Repository JAR Module ............ SUCCESS [  5.461 s]
 [INFO] Alfresco Share JAR Module .......................... SUCCESS [  0.557 s]
 [INFO] Integration Tests Module ........................... SUCCESS [  0.900 s]
@@ -625,7 +625,7 @@ Then check the name of the ACS Repository container:
 $ docker container ls
 CONTAINER ID        IMAGE                                                         COMMAND                  CREATED             STATUS              PORTS                                                      NAMES
 733867a70117        alfresco-content-services-my-all-in-one-project:development   "catalina.sh run -se…"   5 minutes ago       Up 5 minutes        0.0.0.0:8080->8080/tcp, 0.0.0.0:8888->8888/tcp             docker_my-all-in-one-project-acs_1
-1f197e52b4f2        alfresco/alfresco-search-services:1.2.0                       "/bin/sh -c '$DIST_D…"   5 minutes ago       Up 5 minutes        0.0.0.0:8983->8983/tcp                                     docker_my-all-in-one-project-ass_1
+1f197e52b4f2        alfresco/alfresco-search-services:2.0.3                       "/bin/sh -c '$DIST_D…"   5 minutes ago       Up 5 minutes        0.0.0.0:8983->8983/tcp                                     docker_my-all-in-one-project-ass_1
 4eff0cc9cc25        alfresco-share-my-all-in-one-project:development              "/usr/local/tomcat/s…"   5 minutes ago       Up 5 minutes        8000/tcp, 0.0.0.0:8180->8080/tcp, 0.0.0.0:9898->8888/tcp   docker_my-all-in-one-project-share_1
 a7854ff16d72        postgres:9.6                                                  "docker-entrypoint.s…"   5 minutes ago       Up 5 minutes        0.0.0.0:5555->5432/tcp                                     docker_my-all-in-one-project-postgres_1
 ``` 
@@ -2929,7 +2929,7 @@ worth noting that hot reloading is only supported on the platform, and not in Al
 
 As an alternative to the HotSwapAgent you can also try out JRebel. It has more features but isn't free.
 
-The way to configure HotSwapAgent in case of using Java 8 or Java 11 is pretty different. By default, ACS 6.0 uses Java 8 and ACS 6.1+ uses Java 11.
+The way to configure HotSwapAgent in case of using Java 11 or Java 17 is pretty different. By default, ACS 6.1+ uses Java 11 and ACS 7.3+ uses Java 17.
 
 ##### Issue with Docker Toolbox
 

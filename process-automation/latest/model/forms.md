@@ -158,10 +158,11 @@ The advanced properties for a date field are:
 
 | Property | Description |
 | -------- | ----------- |
+| Default value | Sets the default date of the field. If you want the default date to be 'today' and that is the current day then you can select the **Today** checkbox. |
+| Set dynamic date range | When turned on you can enter a **Minimum** and **Maximum** date range. This forces the date picker to only allow a user to select a date within the configured period, and any dates outside of the date range will be grayed out. **Note:** When using dynamic date range, the **Min Date** and **Max Date** fields are unavailable. |
 | Min date | Sets the earliest date that can be entered into the field. |
 | Max date | Sets the latest date that can be entered into the field. |
 | Date format | Sets the format of how a date is entered into the field. For example: `YYYY-MM-DD` would display as `2001-10-01` for 1st October, 2001. |
-| Default value | Sets the default date of the field. If you want the default date to be 'today' and that is the current day then you can select the **Today** checkbox. |
 
 ### Display text fields
 
