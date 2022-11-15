@@ -155,7 +155,7 @@ applications:
     url: /content-mobile/latest/
     image: /assets/img/logo_cm_72px.svg
   - title: "Content Accelerator"
-    image: /assets/img/aca-logo.png
+    image: /assets/img/aca-logo.svg
     text: "Alfresco Content Accelerator is a content management application that can be used to build domain specific user interfaces."
     url: /content-accelerator/latest/
 
