@@ -185,13 +185,9 @@ You can complete tasks if the task is assigned to you.
 
 3. Press **Confirm** to complete the task. Press **Cancel** to return to the task.
 
-### Create 'to do' task
-
-
-
 ### Edit existing task comment
 
-You can edit 
+You can edit a comment on 
 
 ### Reassign task
 
@@ -245,20 +241,8 @@ You can add attachments to a task.
 
 2. Press **Add attachments**.
 
-    You can add attachments be either taking a photo or video using your mobile device, by uploading a photo or video using storage accessible to your mobile device, or you can upload any other types of files that are accessible to your mobile device. Once you have added a task they will display below the **Attached files** section at the bottom of the window. 
+    You can add attachments be either taking a photo or video using your mobile device, by uploading a photo or video using storage accessible to your mobile device, or you can upload any other types of files that are accessible to your mobile device. Once you have added a task they will display below the **Attached files** section at the bottom of the window.
 
     > **Note:** You may need to scroll further down the page to see all the attachments.  
 
 ![add attachment]({% link mobile-workspace/images/add-attachment.png %})
-
-As a user i would like to be able to create a new task type ‘to do’ 
-
-As an end user I want to edit a task so that I can update an existing comment
-
-As a user i would like to be able to re-assign a my task  to another user
-
-As a user i would like to be able to set the my task to ‘complete’ status to indicate the task has been completed
-
-As a user I can change the due date
-
-As a user I would like to be able to add attachments to a my task such as a file for review. 
