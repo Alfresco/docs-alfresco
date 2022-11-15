@@ -4,7 +4,7 @@ title: Install using the distribution ZIP
 
 Governance Services is installed by applying two AMP files to an existing Alfresco Community Edition installation.
 
-Download the Alfresco Governance Services distribution from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
+Download the Alfresco Governance Services distribution from [Alfresco Nexus repository](https://nexus.alfresco.com/nexus/#nexus-search;gav~org.alfresco~alfresco-governance*~7.3.0~~){:target="_blank"}.
 
 The Governance Services Community Edition distribution zip contains the following files:
 
