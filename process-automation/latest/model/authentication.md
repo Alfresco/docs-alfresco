@@ -3,6 +3,9 @@ title: Authentication
 --- 
 
 Use Authentication when your system requires access to external REST services.
+An authentication called **Application Service Credentials** is already created for use within Process Automation. The authentication can be used when you create radio buttons or dropdown lists on your forms. The authentication is selected from the **Authentication** dropdown list, accessed from: **Field Editor > Advanced > REST Service > Authentication**. The authentication it uses is the same as the authentication assigned to the script runtime user.
+
+> **Note:** The name **Application Service Credentials** cannot be used for one of your own authentications because it is reserved.
 
 ## Properties
 
