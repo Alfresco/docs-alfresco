@@ -19,7 +19,7 @@ The following are the supported platforms for Alfresco Sync Service 3.1:
 | Amazon MQ | |
 | | |
 | **Operating systems** |
-| Window Server 2012 R2 x64 | {::nomarkdown}Not fully tested:<ul><li>Windows Server 2016</li></ul>{:/}|
+| Windows Server 2012 R2 x64 | {::nomarkdown}Not fully tested:<ul><li>Windows Server 2016</li></ul>{:/}|
 | Linux | Tested with Red Hat Enterprise Linux 7.3 x64 {::nomarkdown}<p>Not fully tested:<ul><li>CentOS 7 x64</li><li>Ubuntu 16.04 LTS x64</li></ul></p>{:/} |
 | | |
 | **Databases** |
