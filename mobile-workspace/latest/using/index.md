@@ -191,13 +191,65 @@ You can complete tasks if the task is assigned to you.
 
 ### Edit existing task comment
 
-### Reassign task 
+You can edit 
+
+### Reassign task
+
+You can reassign a task to another person.
+
+1. Open a task from the Task list.
+
+2. Press **Edit** on the top right.
+
+3. Press the **Edit** icon next to the **Assignee** name.
+
+4. Search for a new assignee using their name or email address.
+
+5. Select the new assignee and then press **Done**.
+
+The task has been reassigned.
 
 ### Complete task
 
+You can complete a task assigned to you. Once the task is marked as complete, you wont be able to make anymore changes to it.
+
+1. From the the Task list, open a task that is assigned to you.
+
+   You can see if a task is assigned to you because your username will appear underneath it.
+
+2. Press the **Mark as complete** button, to complete the task.
+
+![Complete task]({% link mobile-workspace/images/mark-complete.png %})
+
 ### Change task due date
 
-### Add attachments to task 
+You can change the due date of a task.
+
+1. Open a task from the Task list.
+
+2. Press **Edit** on the top right.
+
+3. Press the **Edit** icon next to **Due date**.
+
+4. Select the new due date and press **OK**.
+
+5. Press **Done**
+
+![Date change]({% link mobile-workspace/images/date-change.png %})
+
+### Add attachments to task
+
+You can add attachments to a task.
+
+1. Open a task from the Task list.
+
+2. Press **Add attachments**.
+
+    You can add attachments be either taking a photo or video using your mobile device, by uploading a photo or video using storage accessible to your mobile device, or you can upload any other types of files that are accessible to your mobile device. Once you have added a task they will display below the **Attached files** section at the bottom of the window. 
+
+    > **Note:** You may need to scroll further down the page to see all the attachments.  
+
+![add attachment]({% link mobile-workspace/images/add-attachment.png %})
 
 As a user i would like to be able to create a new task type ‘to do’ 
 
