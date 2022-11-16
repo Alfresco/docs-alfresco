@@ -12,7 +12,7 @@ Here's a quick summary of what's new in the Alfresco Content Services 7.3 releas
 
 * **Java 17 support**
 * **Support for Alfresco Search Enterprise 3.2 with Elasticsearch and OpenSearch**
-* **New License**
+* **New license**
 * **Activiti Console removal**
   
 ### Java 17 support
@@ -23,7 +23,7 @@ Alfresco Content Services 7.3 now supports running on Java 17. See the Supported
 
 Enables organizations to easily deploy, use and scale Elasticsearch or OpenSearch with Alfresco.  7.3 builds on 7.2 and further extends support to Elasticsearch and OpenSearch.
 
-### New License
+### New license
 
 Since September 1st 2017, the Alfresco EULA forbids adding workflows to the workflow engine embedded in Alfresco Content Services. With the release of version 7.3, this will be enforced through a check on a flag in the license file.
 
