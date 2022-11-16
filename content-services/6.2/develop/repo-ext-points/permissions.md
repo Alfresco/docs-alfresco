@@ -27,7 +27,11 @@ If we are setting up permissions within a site, then we have four site roles to 
 * **Site Collaborator** - can do everything except moving and deleting other users content
 * **Site Manager** - full access
 
-A user with privileges to create or modify an embedded workflow may execute arbitrary system commands with the same privileges as the account running Alfresco. Now, sometimes these roles are not enough to set up the permissions we need. We can then configure custom permissions (could also be referred to as custom roles). Before creating new permissions and roles it is a good idea to get familiar with the [**permissionDefinitions.xml**](https://github.com/Alfresco/alfresco-repository/blob/master/src/main/resources/alfresco/model/permissionDefinitions.xml){:target="_blank"} file format. The element defining a basic low level right is called **permission**. Here are a couple of examples of out-of-the-box permissions:
+Now, sometimes these roles are not enough to set up the permissions we need. We can then configure custom permissions 
+(could also be referred to as custom roles). Before creating new permissions and roles it is a good idea to get familiar 
+with the [**permissionDefinitions.xml**](https://github.com/Alfresco/alfresco-repository/blob/master/src/main/resources/alfresco/model/permissionDefinitions.xml){:target="_blank"} 
+file format. The element defining a basic low level right is called **permission**. Here are a couple of examples of 
+out-of-the-box permissions:
 
 ```xml
 ...
