@@ -132,4 +132,4 @@ For example:
 
 The ActiveForm module processes leading actions using a consistent algorithm for determining where to place pages in the flow.  The diagram below describes the process.
 
-![AW Leading Actions]({% link content-accelerator/images/AW-leading-actions.jpg %})
+![AW Leading Actions]({% link content-accelerator/images/aw-leading-actions.jpg %})

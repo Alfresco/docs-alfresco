@@ -118,12 +118,12 @@ Note that you can always get back to your Client ID by going to the Credentials 
 
 1. Create an application in Box or use an existing one
 2. Go to [https://app.box.com/developers/console](https://app.box.com/developers/console) to view existing apps or create a new one
-![Img Txt]({% link content-accelerator/images/BulkUpload-Box-Apps.png %})
+![Img Txt]({% link content-accelerator/images/bulkupload-box-apps.png %})
 3. When asked what type of app you are building, choose `Partner Integration`
 4. Within an application, under the configuration tab, we can see the Client ID that we will need to use in the bulk upload admin (picture below)
 5. Below the client ID will also be the redirect URI that will need to redirect back to ACA
 (ex. `https://localhost:8080/hpi/dummy/path`)
-![Img Txt]({% link content-accelerator/images/BulkUpload-Box-ClientID.png %})
+![Img Txt]({% link content-accelerator/images/bulkupload-box-clientid.png %})
 
 ##### Bulk Upload Config for Box
 
@@ -133,12 +133,12 @@ Note that you can always get back to your Client ID by going to the Credentials 
 4. Set Client ID (Explained above)
 5. Set Link Type to 'direct'
 6. Choose whether to allow a user to select multiple documents to upload
-![Box Upload]({% link content-accelerator/images/BulkUpload-Box-Config.png %})
+![Box Upload]({% link content-accelerator/images/bulkupload-box-config.png %})
 
 ##### Separate Bulk Upload View for Box
 
 1. When configured, Box upload will be a button next to the other upload buttons
-![Bulk Upload View]({% link content-accelerator/images/BulkUpload-Box-Upload.png %})
+![Bulk Upload View]({% link content-accelerator/images/bulkupload-box-upload.png %})
 
 #### Saved Sessions
 

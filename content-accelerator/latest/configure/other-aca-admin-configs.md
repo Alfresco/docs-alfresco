@@ -83,12 +83,12 @@ Show an icon next to document objects to download them directly without having t
 When ON, documents are categorized by the Folder Tag value on each document.  Expanding the folder will show one "sub-folder" for each Folder Tag and the documents with that Folder tag will be displayed under the corresponding subfolder.
 See this example with the config on, these folders dont actually exist but are displayed based on the folder tags on the documents in the top level folder.
 
-![Exand Folder Tags On]({% link content-accelerator/images/expand_folder_tags.PNG %})
+![Exand Folder Tags On]({% link content-accelerator/images/expand_folder_tags.png %})
 
 When OFF, expanding the folder will simply display documents and subfolders as they exist in the repository.
 See this example of expanding the same folder with the config off.
 
-![Exand Folder Tags Off]({% link content-accelerator/images/expand_folder_tags_off.PNG %})
+![Exand Folder Tags Off]({% link content-accelerator/images/expand_folder_tags_off.png %})
 
 ## Picklists
 

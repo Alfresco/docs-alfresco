@@ -197,21 +197,21 @@ ACA allows users to collaborate within the interface by utilizing tools like Zoo
 
 When viewing a claim with stage collaboration enabled, the stage info section of ACA will include user icons for each user currently viewing that claim. 
 
-![Stage Collab Bubbles]({% link content-accelerator/images/stage_collab_bubbles.PNG %})
+![Stage Collab Bubbles]({% link content-accelerator/images/stage_collab_bubbles.png %})
 
 If a user, views one of the documents within the claim, then their icon will appear next to that document for all other users viewing the claim. 
 
 For example, if both Alice and Katie are viewing claim 123123 and Alice opens the `3.pdf` document like so... 
 
-![Stage Collab Alice]({% link content-accelerator/images/stage_collab_icons1.PNG %})
+![Stage Collab Alice]({% link content-accelerator/images/stage_collab_icons1.png %})
 
 Katie will see an icon in the view all documents table showing that someone is viewing that document. If Katie hovers over that icon she can see that it is Alice who is viewing the document. 
 
-![Stage Collab Alice]({% link content-accelerator/images/stage_collab_icons2.PNG %})
+![Stage Collab Alice]({% link content-accelerator/images/stage_collab_icons2.png %})
 
 Another important feature to note: (If configured) there will be an option to start a zoom and/or teams call with the users viewing the claim. 
 
-![Stage Collab Calls]({% link content-accelerator/images/stage_collab_calls.PNG %})
+![Stage Collab Calls]({% link content-accelerator/images/stage_collab_calls.png %})
 
 ### Configuration Steps
 The stage collaboration features are configured in the ACA admin. 

@@ -6,7 +6,7 @@ title: Content Accelerator For Claims Management
 
 The below integration point can be used from Guidewire, Duck Creek, Salesforce, or any custom system to allow for integration from these systems to create a claim and launch users directly into the claim folder. A typical integration involves generating a URL link on the existing interface that can be put into an iframe or launch a new tab/window that takes the user directly into the claim folder. It will commonly pass in some key metadata from the claims data system to populate and update the claim info each time it is launched.
 
-![Img Txt]({% link content-accelerator/images/Cached-RepoInsuranceSystemIntegrationFull.png %})
+![Img Txt]({% link content-accelerator/images/cached-repoinsurancesystemintegrationfull.png %})
 
 ### REST API
 
