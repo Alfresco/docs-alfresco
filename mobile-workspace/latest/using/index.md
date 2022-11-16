@@ -175,9 +175,9 @@ You can complete tasks if the task is assigned to you.
 
 1. Open a task from the Task list.
 
-    At the bottom of the task is a **Complete** floating action button.
+    At the bottom of the task is a **Mark as Complete** floating action button.
 
-2. Press the **Complete** button.
+2. Press the **Mark as Complete** button.
 
     A popup is displayed: **Are you sure you want to complete the task? You will no longer be able to make any changes.**
 
@@ -185,9 +185,7 @@ You can complete tasks if the task is assigned to you.
 
 3. Press **Confirm** to complete the task. Press **Cancel** to return to the task.
 
-### Edit existing task comment
-
-You can edit a comment on 
+![Complete task]({% link mobile-workspace/images/mark-complete.png %})
 
 ### Reassign task
 
@@ -205,18 +203,6 @@ You can reassign a task to another person.
 
 The task has been reassigned.
 
-### Complete task
-
-You can complete a task assigned to you. Once the task is marked as complete, you wont be able to make anymore changes to it.
-
-1. From the the Task list, open a task that is assigned to you.
-
-   You can see if a task is assigned to you because your username will appear underneath it.
-
-2. Press the **Mark as complete** button, to complete the task.
-
-![Complete task]({% link mobile-workspace/images/mark-complete.png %})
-
 ### Change task due date
 
 You can change the due date of a task.
@@ -233,15 +219,15 @@ You can change the due date of a task.
 
 ![Date change]({% link mobile-workspace/images/date-change.png %})
 
-### Add attachments to task
+### Add attachments to a task
 
 You can add attachments to a task.
 
 1. Open a task from the Task list.
 
-2. Press **Add attachments**.
+2. Press **Add attachments**, at the bottom of the screen.
 
-    You can add attachments be either taking a photo or video using your mobile device, by uploading a photo or video using storage accessible to your mobile device, or you can upload any other types of files that are accessible to your mobile device. Once you have added a task they will display below the **Attached files** section at the bottom of the window.
+    You can add attachments by either taking a photo or video using your mobile device, by uploading a photo or video using storage accessible to your mobile device, or you can upload any other types of files that are accessible to your mobile device. Once you have added a task they will display below the **Attached files** section at the bottom of the window.
 
     > **Note:** You may need to scroll further down the page to see all the attachments.  
 
