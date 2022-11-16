@@ -21,13 +21,15 @@ Alfresco Content Services 7.3 now supports running on Java 17. See the Supported
 
 ### Support for Alfresco Search Enterprise 3.2 with Elasticsearch and OpenSearch
 
-Enables organizations to easily deploy, use and scale Elasticsearch or OpenSearch with Alfresco.  7.3 builds on 7.2 and further extends support to Elasticsearch and OpenSearch.
+Enables organizations to easily deploy, use and scale Elasticsearch or OpenSearch with Alfresco. Content Services 7.3 builds on 7.2 and further extends support to Elasticsearch and OpenSearch.
 
 ### New license
 
 Since September 1st 2017, the Alfresco EULA forbids adding workflows to the workflow engine embedded in Alfresco Content Services. With the release of version 7.3, this will be enforced through a check on a flag in the license file.
 
-Customers who bought Alfresco Content Services before September 1st 2017 will retain the ability to add and modify workflows for the embedded workflow engine. Customers who bought Alfresco Content Services on or after September 1st 2017 will not be able to add workflows. They will only be able to change workflows with the following IDs: "activitiReview", "activitiInvitationNominated", "activitiReviewPooled", "activitiParallelReview", "activitiAdhoc", "activitiParallelGroupReview", "activitiInvitationModerated", "activitiInvitationNominatedAddDirect", "resetPassword" or "companyRFC".
+Customers who bought Alfresco Content Services before September 1st 2017 will retain the ability to add and modify workflows for the embedded workflow engine.
+
+Customers who bought Alfresco Content Services on or after September 1st 2017 will not be able to add workflows. They will only be able to change workflows with the following IDs: `activitiReview`, `activitiInvitationNominated`, `activitiReviewPooled`, `activitiParallelReview`, `activitiAdhoc`, `activitiParallelGroupReview`, `activitiInvitationModerated`, `activitiInvitationNominatedAddDirect`, `resetPassword` or `companyRFC`.
 
 ### Activiti Console removal
 
