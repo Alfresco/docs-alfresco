@@ -24,18 +24,18 @@ Use these steps to install the Google Docs Integration.
 
 3. Move the repository AMP file to the amps directory.
 
-4. Move the Share AMP file to the `amps\_share` directory.
+4. Move the Share AMP file to the `amps_share` directory.
 
 5. Stop the server.
 
-6. Delete the `tomcat\\webapps\\alfresco` and `tomcat\\webapps\\share` folders in the installation directory.
+6. Delete the `tomcat\webapps\alfresco` and `tomcat\webapps\share` folders in the installation directory.
 
 7. Use the Module Management Tool (MMT) to install the AMP files into the relevant WAR file:
 
     For the repository:
 
     ```bash
-    java -jar <installLocation>\bin\alfresco-mmt.jar install <installLocation>\amps\alfresco-googledocs-repo-**<version\>**.amp <installLocation>\tomcat\webapps\alfresco.war
+    java -jar <installLocation>\bin\alfresco-mmt.jar install <installLocation>\amps\alfresco-googledocs-repo-**<version>**.amp <installLocation>\tomcat\webapps\alfresco.war
     ```
 
     > **Note:** Replace `<version>` with your specific file name.
@@ -46,18 +46,18 @@ Use these steps to install the Google Docs Integration.
     For Alfresco Share:
 
     ```bash
-    java -jar <installLocation>\bin\alfresco-mmt.jar install <installLocation>\amps_share\alfresco-googledocs-share-**<version\>**.amp <installLocation>\tomcat\webapps\share.war
+    java -jar <installLocation>\bin\alfresco-mmt.jar install <installLocation>\amps_share\alfresco-googledocs-share-**<version>**.amp <installLocation>\tomcat\webapps\share.war
     ```
 
     > **Note:** Replace `<version>` with your specific file name.
 
-    Alternatively, if your installation is running in the Tomcat application server, you can use the `<installLocation\>\\bin\\apply\_amps` command to apply all AMP files that are located in both the amps and `amps\_share` directories.
+    Alternatively, if your installation is running in the Tomcat application server, you can use the `<installLocation>\bin\apply_amps` command to apply all AMP files that are located in both the amps and `amps_share` directories.
 
-    Install both Google Docs AMP files at the same time by using the `apply\_amps` command:
+    Install both Google Docs AMP files at the same time by using the `apply_amps` command:
 
-    * Linux: `bin/apply\_amps.sh`
-    * Windows: `bin\\apply\_amps.bat`
+    * Linux: `bin/apply_amps.sh`
+    * Windows: `bin\apply_amps.bat`
 
-    The `apply\_amps` command checks the version of Alfresco Content Services so that you install the relevant AMP package to the correct version.
+    The `apply_amps` command checks the version of Alfresco Content Services so that you install the relevant AMP package to the correct version.
 
 8. Start the server.
