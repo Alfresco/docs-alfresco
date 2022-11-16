@@ -225,7 +225,7 @@ You can add attachments to a task.
 
 1. Open a task from the Task list.
 
-2. Press **Add attachments**, at the bottom of the screen.
+2. Press **Add attachments**, at the bottom of the window.
 
     You can add attachments by either taking a photo or video using your mobile device, by uploading a photo or video using storage accessible to your mobile device, or you can upload any other types of files that are accessible to your mobile device. Once you have added a task they will display below the **Attached files** section at the bottom of the window.
 
