@@ -1,5 +1,5 @@
 ---
-title: Configuring AEV Actions and Modes
+title: Configuring AEV actions and modes
 ---
 
 To modify what actions and modes appear in the Alfresco Enterprise Viewer, certain properties can be edited in the `openannotate-override-placeholders.properties` file. This file would have been deployed to the tomcat classpath as a part of the install process. Note that in order for changes to this file to take effect, the tomcat will need to be restarted after the changes are made.  
@@ -23,7 +23,7 @@ This is a list of the properties you can override in the `openannotate-override-
 
 Additional detail about each of these properties and their default values are listed in the next section.
 
-## Default AEV Enabled Actions
+## Default AEV enabled actions
 
 The following dives into each of these properties and documents the default values for the AEV actions enabled in each mode.
 
@@ -95,11 +95,11 @@ The Actions enabled in the quick document viewing mode with text search and sele
 Default Value: `(t:Navigation),(prevPage,nextPage,zoomIn,zoomOut,--isSmallScreen),(selectText),
 (t:Mode),(t:PageEntry),(printAnnotatedPdf),(t:DocumentManipulation,--showAtAllSizes),(mouse),(t:Search,--sidebar)`
 
-## Overriding Enabled Actions
+## Overriding enabled actions
 
 Overriding any of the properties listed in the last section in the `openannotate-override-placeholders.properties` with a value different than the default would change the actions displayed in AEV for that mode.
 
-### Overriding Enabled Actions Using ActionIds
+### Overriding enabled actions using ActionIds
 
 To add a particular action to a specific mode in AEV, the actionId for that action can be added to the comma separated list for the mode specific property.
 
@@ -113,7 +113,7 @@ For example, if we wanted to add the `Print Annotated PDF` Action to `Signature 
 
  And add the `printAnnotatedPdf` action to this mode.
 
-### Overriding Enabled Actions Using ActionTypes
+### Overriding enabled actions using ActionTypes
 
 AEV action types are predefined groups of actions made for faster/easier (though less granular) configuration of AEV.
 
@@ -396,34 +396,34 @@ NONSECTIONED: "NonSectioned"
 Actions that belong to this type: `printAnnotatedPdf`.
 ​
 
-## Action Groups, Toolbar Order, and Dropdowns
+## Action groups, toolbar order, and dropdowns
 
-### Action Groups
+### Action groups
 
 The grouping of actions is controlled by enclosing each group of actions or action types within parenthesis.  These action groups are displayed in the toolbar separated by vertical dividers.
 
-### Toolbar Ordering
+### Toolbar ordering
 
 The order of actions in the toolbar is controlled by the order of the comma separated list of these action groups. The order of the comma separated list determines how the toolbar appears in AEV.  
 
-Note: The AEV logo, load time, and color picker are currently not configurable and will always appear in set positions.  
+> **Note:** The AEV logo, load time, and color picker are currently not configurable and will always appear in set positions.  
 
-### Action DropDowns
+### Action dropdowns
 
 Dropdowns are configured by adding dropdown specific properties within the group.  For example, the actions in the Action Type `Download` can be set as a dropdown using the following:
 
 `d(t:Download,--dropdownLabel-Downloads,--dropdownIcon-download-alt)`
 
-The 'd' surrounding the group configures it to be a dropdown.
+The `d` surrounding the group configures it to be a dropdown.
 ​
 Properties relating to dropdowns:
 
-* --dropdownLabel - sets the dropdownLabel to the specified value. Defaults to an empty string.
-* --dropdownIcon - sets the dropdownIcon to the specified value. Defaults to chevron-down. These refers to glyphicon values which can be found at [https://getbootstrap.com/docs/3.3/components/](https://getbootstrap.com/docs/3.3/components/)
+| Property | Description |
+| -------- | ----------- |
+| --dropdownLabel | Sets the `dropdownLabel` to the specified value. Defaults to an empty string. |
+| --dropdownIcon  | Sets the `dropdownIcon` to the specified value. Defaults to chevron-down. These refer to glyphicon values provided at [https://getbootstrap.com/docs/3.3/components/](https://getbootstrap.com/docs/3.3/components/){:target="_blank"}. |
 
-​
-
-## Enabling and Disabling Modes of AEV
+## Enabling and disabling modes of AEV
 
 The modes that appear in AEV are controlled by the `enable{MODE}Actions` properties just like the actions are.
 
