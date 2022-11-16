@@ -1,5 +1,5 @@
 ---
-title: Installing Alfresco Enterprise Viewer Transformer (optional)
+title: Install Alfresco Enterprise Viewer Transformer (optional)
 ---
 
 > **Important:** AEVT (formerly known as "OAT") is not recommended for most installs of AEV. AEVT makes an environment more complex and should only be deployed when needed.

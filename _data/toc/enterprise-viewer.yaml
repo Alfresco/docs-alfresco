@@ -31,8 +31,8 @@
           path: '/enterprise-viewer/latest/config/overlay/'
         - title: 'FAQ'
           path: '/enterprise-viewer/latest/config/faq/'
-        - title: 'Supported Languages'
-          path: '/enterprise-viewer/latest/config/supportedlanguages/'
+        - title: 'Supported languages'
+          path: '/enterprise-viewer/latest/config/supported-languages/'
     - title: 'Develop'
       pages:
         - title: 'Integrations'

@@ -16,9 +16,6 @@ The Enterprise Viewer can be installed using a distribution zip. You'll need to 
 
 Alfresco Enterprise Viewer requires Java 11 or above. Consult your repository of choice for more detailed requirements.
 
-<!--Why describe EoM version - start with 7.x ??
-For example, Alfresco 4.0 and 4.1 require Java 1.6. Alfresco 4.2 requires Java 1.7.-->
-
 ### Alfresco repository version
 
 See the [Supported Platforms]({% link enterprise-viewer/latest/support/index.md %}) for more information.
@@ -145,7 +142,7 @@ When installing a proxy please note that you are not limited to using apache or 
 
    Go to `${apache.home}/bin`, open a command prompt, and run `httpd.exe`.
 
-6. Test the proxy is working properly by opening [http://{server}/alfresco](http://{server}/alfresco){:target="_blank"}.
+6. Test the proxy is working properly by opening `http://{server}/alfresco`.
 
 ### Example proxy install 2 -  Nginx install on Amazon Linux
 
@@ -239,7 +236,7 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
 
 5. Make sure whatever port your proxy is listening on is open to the end user (example: you will need to open port 80 if you are using the configs in our example above)
 
-6. Test the proxy is working properly by opening [http://{server}/share](http://{server}/share){:target="_blank"}.
+6. Test the proxy is working properly by opening `http://{server}/share`.
 
 ## Install OpenContent
 
@@ -373,7 +370,7 @@ You only need to follow these steps if installing AEV without ACA {#installoc}
 
 9. Start up Alfresco server.
 
-10. Confirm OpenContent has been installed correctly by accessing <http://{server}/alfresco/OpenContent>
+10. Confirm OpenContent has been installed correctly by accessing `http://{server}/alfresco/OpenContent`.
 
 ## Install libraries {#install}
 
@@ -671,7 +668,7 @@ This section walks through how to install the web applications on a separate Tom
 
 9. Start Tomcat
 
-10. Confirm you can access AEV at [http://{server}/OpenAnnotate](http://{server}/OpenAnnotate){:target="_blank"}.
+10. Confirm you can access AEV at `http://{server}/OpenAnnotate`.
 
 ### Install web applications on Alfresco Tomcat {#install-webapps-alfresco-tomcat-oa}
 
@@ -711,4 +708,4 @@ This section walks through how to install the web applications on Alfresco Tomca
 
 8. Start Alfresco Tomcat
 
-9. Confirm you can access AEV at [http://{server}/OpenAnnotate](http://{server}/OpenAnnotate){:target="_blank"}.
+9. Confirm you can access AEV at `http://{server}/OpenAnnotate`.

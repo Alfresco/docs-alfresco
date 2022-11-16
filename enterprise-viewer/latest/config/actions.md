@@ -265,7 +265,7 @@ Actions that belong to this type: `selectText`, `highlight`, `strikeout`, `inser
 
 ```json
 /**
- * Actions that create annotations which are a static or dynmaic image on the doucment.
+ * Actions that create annotations which are a static or dynamic image on the document.
  */
 STAMP: "Stamp",
 ```
@@ -325,7 +325,7 @@ Actions that belong to this type: `printSummary`, `exportSummary`
 
 ```json
 /**
- *  Actions relating to readct all search button in the readction mode.
+ *  Actions relating to redact all search button in the redaction mode.
  */
 SEARCH: "Search",
 ```
