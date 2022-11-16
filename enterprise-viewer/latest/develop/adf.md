@@ -2,7 +2,7 @@
 title: Alfresco Development Framework (ADF)
 ---
 
-## AEV Embedded in ADF
+## AEV embedded in ADF
 
 Alfresco Enterprise Viewer (AEV) can be integrated into Alfresco Developer Framework (ADF) applications by replacing or overriding the default ADF Viewer component behavior.
 

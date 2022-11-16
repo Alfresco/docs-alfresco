@@ -10,7 +10,7 @@
         - title: 'Install Alfresco Enterprise Viewer Transformer (optional)'
           path: '/enterprise-viewer/latest/install/aevt/'
         - title: 'Upgrade'
-          path: '/enterprise-viewer/latest/upgrade/'
+          path: '/enterprise-viewer/latest/install/upgrade/'
         - title: 'Integrate AEV with ADF'
           path: '/enterprise-viewer/latest/install/adf/'
         - title: 'Prerequisites and sizing'
@@ -35,5 +35,5 @@
       pages:
         - title: 'Integrations'
           path: '/enterprise-viewer/latest/develop/integrations/'
-        - title: 'ADF AEV Applications'
+        - title: 'ADF AEV applications'
           path: '/enterprise-viewer/latest/develop/adf/'
