@@ -1,22 +1,22 @@
 ---
-title: Alfresco Enterprise Viewer Performance Tuning
+title: AEV performance tuning
 ---
 
 AEV relies heavily on progressive transformations of PDF to PNG content to generate its premium user experience. These transformations incur the vast majority of system load, therefore, performance tuning generally focuses on the load use cases below:
 
-- Loading native or renditioned content from the repository (full binary)
-- Transformation of individual page(s) of PDF to PNG at specific resolution
+* Loading native or renditioned content from the repository (full binary)
+* Transformation of individual page(s) of PDF to PNG at specific resolution
 
 To understand what requires performance tuning, here is a step by step description of what happens when a user loads a document in AEV (simplified for performance tuning purposes):
 
-- The browser makes a request to OpenContent for binary content, properties, associated annotation information.
-- If the binary content is cached (keyed on object id and modify date), return cached binary content.
-- If the binary content is not cached, fetch using ECM API.
-- Once user has loaded Alfresco Enterprise Viewer, individual pages are viewed in the browser as PNGs. These PNGs are transformed on demand as the user scrolls through the document pages. The application requests individual page transformations at the following times:
-  - Viewing current page
-  - Precaching nearby pages (within a preconfigured range)
-  - Progressively scaled different resolution images for gracefully degraded view experience
-  - Page resize events
+* The browser makes a request to OpenContent for binary content, properties, associated annotation information.
+* If the binary content is cached (keyed on object id and modify date), return cached binary content.
+* If the binary content is not cached, fetch using ECM API.
+* Once user has loaded Alfresco Enterprise Viewer, individual pages are viewed in the browser as PNGs. These PNGs are transformed on demand as the user scrolls through the document pages. The application requests individual page transformations at the following times:
+  * Viewing current page
+  * Precaching nearby pages (within a preconfigured range)
+  * Progressively scaled different resolution images for gracefully degraded view experience
+  *Page resize events
 
 As the transformation requests require page-specific transformation events, the current iteration of the Alfresco T-Engine framework does not support the needs of AEV. Thus, transformations are performed by default in the server hosting the OpenContent REST API (typically the ACS server node). See the "AEVT" section below for an alternative for extreme scaling requirements.
 
@@ -64,7 +64,7 @@ pdfium.maxProcessCount=4
 
 Handles binary caching of pre and post transformed content.
 
-Some General places to look to improve your specific production environment are to properly size the OpenContent heap and caches are in ehcache.xml. If your usage patterns are that users don't end up coming back to view the same documents multiple times, you will likely want MORE `oc-content` and `oc-document-overlays` since that is the raw byte[] of the content that the transformation agent keeps going to each time to get the content rather than having to go to the repository each time. `oc-pages` isn't as important in this case since the browser will cache most of the pages anyways.
+Some General places to look to improve your specific production environment are to properly size the OpenContent heap and caches are in `ehcache.xml`. If your usage patterns are that users don't end up coming back to view the same documents multiple times, you will likely want MORE `oc-content` and `oc-document-overlays` since that is the raw byte[] of the content that the transformation agent keeps going to each time to get the content rather than having to go to the repository each time. `oc-pages` isn't as important in this case since the browser will cache most of the pages anyways.
 
 ```xml
  <!-- cache for the content of our objects -->
@@ -128,16 +128,16 @@ Optionally, in the case of "single view" usage of document, local storage can be
 
 Every page of a document is transformed using either Pdfium, Ghostscript, or MuPDF, so anything that can be done to improve the performance of this process will help.
 
-- By default, AEV utilizes PDFium. For utilizing MuPDF or Ghostscript, a third party license may be required.
-- Use an SSD for your temporary directories
-- Even better, leverage a [RAM Disk/tempfs](https://en.wikipedia.org/wiki/Tmpfs) like `/dev/shm` as that is WAY faster than even an SSD
+* By default, AEV utilizes PDFium. For utilizing MuPDF or Ghostscript, a third party license may be required.
+* Use an SSD for your temporary directories
+* Even better, leverage a [RAM Disk/tempfs](https://en.wikipedia.org/wiki/Tmpfs) like `/dev/shm` as that is WAY faster than even an SSD
 
-## Alfresco Enterprise Viewer Performance
+## Alfresco Enterprise Viewer performance
 
 Alfresco Enterprise Viewer has a configuration to toggle if a "low-res" and a "high-res" image are requested for a page. Toggle the below property to make there be less load on the system and only load the high-resolution rather than both. There are times that the high-res call could complete before the other call if the system is really bogged down, so the less load that can be triggered in general has been found to have a positive impact at peak usage.
 ```progressiveReloadSteps=0```
 
-## Alfresco Enterprise Viewer Transformations
+## Alfresco Enterprise Viewer transformations
 
 Should the embedded OpenContent transformations not scale to the level necessary for your implementation, the "Alfresco Enterprise Viewer Transformation" application can operate at scale. This application is also known as "Alfresco Enterprise Viewer Transformations", or AEVT for short. Here is some information on AEVT. [Installing Alfresco Enterprise Viewer Transformer](/enterprise-viewer/latest/install/aevt)
 
