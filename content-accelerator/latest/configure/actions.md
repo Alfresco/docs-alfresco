@@ -49,7 +49,7 @@ You must have a TWAIN-compliant scanner plugged into your machine with the prope
 
 ###### Install Dynamic Web TWAIN
 
-Run the `dynamicwebtwainhtml5edition.exe` installation file.
+Run the `DynamicWebTWAINHTML5Edition.exe` installation file.
 
 ##### Configuration Options for Scanning
 
