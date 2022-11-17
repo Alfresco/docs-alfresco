@@ -10,11 +10,11 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
 
 1. Download the `docker-compose.yml` file by accessing the Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"} page, which will give you a 30-day license.
 
-    If you already have a valid license file for Content Services 7.3, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/latest/admin/license.md %}) for more details.
+    If you already have a valid license file for Content Services 7.2, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/latest/admin/license.md %}) for more details.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 
-    > **Note:** The Download Trial is usually updated for *major.minor* versions of Content Services. The latest published version on our website is labelled *Version 7.3 - March 2022)*.
+    > **Note:** The Download Trial is usually updated for *major.minor* versions of Content Services. The latest published version on our website is labelled *Version 7.2 - March 2022)*.
 
 2. Save the `docker-compose.yml` file in a local folder.
 
@@ -104,17 +104,17 @@ Use this information to verify that the system started correctly, and to clean u
         docker-compose images
         ```
 
-        You should see a list of the services defined in your `docker-compose.yml` file (below are the tags used in the latest 7.3.0 release):
+        You should see a list of the services defined in your `docker-compose.yml` file (below are the tags used in the latest 7.2.0 release):
 
         ```text
         Container                        Repository                                     Tag                 Image Id            Size
         ------------------------------------------------------------------------------------------------------------------------------
         acs-trial_activemq-1             alfresco/alfresco-activemq                     5.16.1              e9dd27ce1a5d        716.3 MB
-        acs-trial_alfresco-1             quay.io/alfresco/alfresco-content-repository   7.3.0               945933739097        1.437 GB
+        acs-trial_alfresco-1             quay.io/alfresco/alfresco-content-repository   7.2.0               945933739097        1.437 GB
         acs-trial_digital-workspace-1    quay.io/alfresco/alfresco-digital-workspace    2.6.0               1a2eaa5bf7a9        572.9 MB
         acs-trial_postgres-1             postgres                                       13.3                b2fcd079c1d4        314.7 MB
         acs-trial_proxy-1                alfresco/alfresco-acs-nginx                    3.2.0               da6d34dd9386        21.86 MB
-        acs-trial_share-1                quay.io/alfresco/alfresco-share                7.3.0               837b363e02af        758.7 MB
+        acs-trial_share-1                quay.io/alfresco/alfresco-share                7.2.0               837b363e02af        758.7 MB
         acs-trial_shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    0.16.1              dee75e9ffa5b        651.2 MB
         acs-trial_solr6-1                quay.io/alfresco/search-services               2.1.0               5800e8a31bdd        890.8 MB
         acs-trial_sync-service-1         quay.io/alfresco/service-sync                  3.5.0               7c0cee15f516        703.2 MB
@@ -248,9 +248,9 @@ Use this information to verify that the system started correctly, and to clean u
         Removing acs-trial_shared-file-store_1  ... done
         Removing acs-trial_activemq_1           ... done
         Removing network acs-trial_default
-        Removing image quay.io/alfresco/alfresco-content-repository:7.3.0
+        Removing image quay.io/alfresco/alfresco-content-repository:7.2.0
         Removing image quay.io/alfresco/alfresco-shared-file-store:0.16.1
-        Removing image quay.io/alfresco/alfresco-share:7.3.0
+        Removing image quay.io/alfresco/alfresco-share:7.2.0
         Removing image postgres:13.3
         Removing image quay.io/alfresco/search-services:2.1.0
         Removing image alfresco/alfresco-activemq:5.16.1
