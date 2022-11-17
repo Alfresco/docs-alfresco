@@ -212,7 +212,7 @@ The Policy and Procedure solution includes a dynamic security model that allows 
 </util:map>
 ```
 
-1. Create a `permissions_acme_document` bean and update its value refs to point to new permission sets, as needed.  If we want the subtype to simply follow the exact permissions as the out of the box parent, simply set the permissions model to the existing permissions, likely `permissions_aw_quality_document` for document subtypes and `permissions_aw_psi` for subtypes.  However, if we want to make changes for our subtype, see the below example where the Superseded permissions are changed for a document subtype.
+2. Create a `permissions_acme_document` bean and update its value refs to point to new permission sets, as needed.  If we want the subtype to simply follow the exact permissions as the out of the box parent, simply set the permissions model to the existing permissions, likely `permissions_aw_quality_document` for document subtypes and `permissions_aw_psi` for subtypes.  However, if we want to make changes for our subtype, see the below example where the Superseded permissions are changed for a document subtype.
 
 Original permission set:
 
@@ -246,7 +246,7 @@ Updated permission set
 </util:map>
 ```
 
-1. Lastly define the new custom permission.
+3. Lastly define the new custom permission.
 
 Original permission setting
 
@@ -577,4 +577,5 @@ In some cases, you may only want to override some of the default properties of t
 Two things to note with this:
 
 1. This file will win out on any other property files, even ones in the custom amp. For this reason, if you are using a custom amp, it is better to override the properties in the amp than this file
-1. You will likely need to create the `module/com.tsgrp.opencontent/` folders
+
+2. You will likely need to create the `module/com.tsgrp.opencontent/` folders
