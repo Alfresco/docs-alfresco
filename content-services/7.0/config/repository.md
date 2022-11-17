@@ -1247,3 +1247,17 @@ cors.exposed.headers=Access-Control-Allow-Origin,Access-Control-Allow-Credential
 cors.support.credentials=true
 cors.preflight.maxage=10
 ```
+
+## JavaScript execution
+
+> **Note:** This section only applied from Alfresco Content Services 7.0.1.9 onwards.
+
+The repository can execute server-side JavaScript from different places as webscripts, workflows, or folder rules. This section shows how to limit these scripts execution regarding duration, memory usage, and call stack depth. This is useful to prevent long running scripts or high memory consumption. The described limits will only apply to scripts that have been uploaded to the repository by users.
+
+| Property | Description |
+| -------- | ----------- |
+| scripts.execution.optimizationLevel | This property allows you to configure the Rhino optimization level: {::nomarkdown}<ul><li>When set to `-1`, the interpretive mode is used.</li><li>When set to `0`, no optimizations are performed.</li><li>When set to `1-9`, optimizations are performed.</li></ul>{:/} The default value is  `0`. <br><br>For more details, see [Mozilla Projects - Rhino Optimization](https://udn.realityripple.com/docs/Mozilla/Projects/Rhino/Optimization){:target="_blank"}. |
+| scripts.execution.maxScriptExecutionSeconds | The number of seconds a script is allowed to run. If script execution exceeds the configured seconds, it will be stopped. <br><br>To enable this limit, set the property with a value bigger than zero. The default value is  `-1` (disabled). |
+| scripts.execution.maxStackDepth | The maximum stack depth (call frames) allowed in a single invocation of the interpreter. <br><br>This configuration only works for scripts compiled with interpretive mode, which means the optimization level will always be `-1`, overriding the value from the `scripts.execution.optimizationLevel` property. <br><br>To enable this limit, set the property with a value bigger than zero. The default value is  `-1` (disabled). |
+| scripts.execution.maxMemoryUsedInBytes | The maximum memory (in bytes) a script is allowed to use. If script execution exceeds the configured memory, it will be stopped. <br><br>To enable this limit, set the property with a value bigger than zero. The default value is  `-1` (disabled). <br><br>This configuration only works with the supported JVM. |
+| scripts.execution.observerInstructionCount | The number of instructions that will trigger the observer that applies the described limits: seconds, memory, and call stack depth. <br><br>The value may vary depending on the optimization level. <br><br>This configuration allows you to monitor the script execution and needs to be set to a value bigger than zero so that the described limits work. The default value is  `-1` (disabled). |
