@@ -56,7 +56,6 @@ Use this information to review the components or modules that integrate Content 
 | Search Services | |
 | Federation Services | |
 | Identity Service | |
-| SAML Module for Alfresco Content Services | |
 | Intelligence Services | Paid add-on module |
 | Content Connector for AWS S3 | Paid add-on module |
 | Content Connector for Azure | Paid add-on module |
