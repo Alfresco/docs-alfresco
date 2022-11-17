@@ -202,21 +202,31 @@ All dashlets have a few common configurations, these include the display name, w
 This dashlet can be configured to run a search and display the results on the dashboard. It includes the following configuration options:
 
 1. Search Config
+
     1. Select Object Type
+
     2. Select visible attributes
+
     3. Select "Linked" attribute
+
     4. Select sort attribute and order
+
     5. Link to Indexer (only used if the saved search is an indexing queue)
+
     6. Trac to resolve to (only necessary if the object type is used on multiple tracs)
+
     7. Allow users to sort the columns themselves
 
 2. Search Criteria
+
     1. Configure the search by adding criteria
+
     2. Each criterion has an attribute, an operator and a value
+
     3. There are 3 special values available:
-        1. `$user.loginName`  (current login name)
-        2. `$user.displayName` (current display name)
-        3. `$date`  (current date)
+        * `$user.loginName`  (current login name)
+        * `$user.displayName` (current display name)
+        * `$date`  (current date)
 
 Below is an example of the *Saved Search Dashlet* custom configuration.
 
@@ -251,13 +261,18 @@ Some example high-level reports are:
 A *Reporting* dashlet is configured similarly to a *Saved Search* dashlet, in that the data populating the graph is driven by configured queries. While there are many configuration options, the basic steps to creating a reporting dashlet are:
 
 1. **Add query terms** - Each query term is a query that will be run to plot one component of the graph. For example, to create a graph comparing incoming pharmaceutical batch documents that were right the first time vs. requiring rework, create two query terms: one for the Batch Documents with property `RFT=true`, one for Batch Documents with property `RFT=false`.
+
 2. **Configure query terms** - Each term can contain many query criteria that are ANDed together to generate the query.
+
     1. Add term
+
     2. Select metadata field to query on
+
     3. Select operator
         * Equality operators (`Is Like`, `Is Equal`, `Is Not Equal`) - Enter a value next to the operator for comparison. Tokens `$user.loginName`, `$user.displayName`, `$date` are supported.
         * Date range operators (`Within`, `Past`, `Next`) - Enter a number and a time interval.
         * Distinct - This is a special case that should be used when looking to plot all values of a property, without creating a term for each possible value. This is useful for when there are many possible changing or unknown values, such as user names. Consider the example of Claims per Claimant.
+
 3. **Configure graph properties** - There are two broad categories of graphs: Snapshot and Date Range. Static graphs capture the results of the queries configured above for the current moment, while Date Range graphs will run the configured queries for various time intervals and plot the results over time.
 
 Date Range graphs must be bar or line charts, and must additionally specify a date property to plot against such as `Created Date`, `Approval Date`, `Modified Date`, etc.
@@ -315,9 +330,13 @@ Sidebar settings relate to the left-hand search tools beyond the Advanced Search
 The Attribute Search section covers the configuration of the property-based search form. To configure, for each type in the selected form:
 
 1. Toggle the "Enabled" switch under Attribute Search Controls
+
 2. Configure the default sort attribute
+
 3. Configure sort attribute and order
+
 4. Configure whether to allow search on all versions, which determines whether all versions or just the current version are brought back in the search results
+
 5. If search on all versions is allowed, select whether it should be the default method
 
 #### Search Results
@@ -343,26 +362,35 @@ There are several functional components of search results.
 This section dictates the table configurations specific to each search result type, such as columns displayed, linking to stage, etc. For each type configured in the form configure the following:
 
 1. Search result opt-in features
-    1. **Show Thumbnails in Table View** - If selected search results in the table view that have a thumbnail will display the thumbnail.
-    2. **Enable separate thumbnail view** - Will enable a grid-style thumbnail view in addition to the table metadata view. This is great for image-based scenarios.
-    3. **Sort repeating attributes** - Repeating attributes appear as comma-separated values. This will sort the comma-separated values alphabetically.
-    4. **Enable Reset Button** - Users can order or hide columns for the search results table, and those local configurations are stored under their user preferences. Reset clears out search-related user preferences, and resets the look of the table to the default.
-    5. **Enable standardized table view** - When enabled, users can click this view and ALL users will see the exact same table sorted the exact same way.
+
+    * **Show Thumbnails in Table View** - If selected search results in the table view that have a thumbnail will display the thumbnail.
+    * **Enable separate thumbnail view** - Will enable a grid-style thumbnail view in addition to the table metadata view. This is great for image-based scenarios.
+    * **Sort repeating attributes** - Repeating attributes appear as comma-separated values. This will sort the comma-separated values alphabetically.
+    * **Enable Reset Button** - Users can order or hide columns for the search results table, and those local configurations are stored under their user preferences. Reset clears out search-related user preferences, and resets the look of the table to the default.
+    * **Enable standardized table view** - When enabled, users can click this view and ALL users will see the exact same table sorted the exact same way.
+
 2. Object Title - Configure which attribute in the table should be clickable.
+
 3. Indicator Icons - Configure icons that are displayed next to the Title attribute in the table if the criteria is met for a particular document. The most common scenario this is used for is displaying a lock icon next to checked out documents. This scenario is so common that its configuration is mapped to a single button click &gt; "Add Lock/Key"
+
 4. Search result Link Resolver dictates where the user is taken when clicking a search result link.
     * **Stage** - This is the most common setting, and will open the document or folder in Stage using the Stage configuration for the given Trac the user is on.
     * **Stream** - open content stream in new browser tab
     * **Wizard** - Wizard form stage is set up differently from normal content's stage. In order for this to work, you must have a specific Stage configuration for Wizard Forms.
     * **DocViewer** - A Viewer-only option, which excludes all actions/stage details.
     * **External Link** - If configured you will be prompted to enter a base URL and then add in the objectId `${objectId}` as a parameter. This is utilized if you want the search to launch an external application and pass in the objectId.
+
 5. Search result attributes. These are the attributes that will be displayed as columns in the search results. There are two subcategories when configuring - hidden and visible. Visible columns appear immediately upon return of results. Hidden columns can be toggled to be displayed per the user's preferences. Resetting to default will restore the hidden/visible fields configured in the admin.
+
 6. Individual document actions
    These are the actions that appear in the right-click menu of a particular search result. The actions are executed on the selected document only (as opposed to Group Actions, which can be executed on one or more returned results).
 
    To configure an action:
+
    1. Select the action from the list of available actions
+
    2. Once the action is selected, click the edit icon
+
    3. The configuration section contains general action configuration, as well as options for the individual action. See the Action Configuration section for more details on how to configure specific actions.
 
 #### Group Actions
@@ -374,7 +402,9 @@ Group actions can be executed on one or more search results using the checkboxes
 To configure a group action:
 
 1. Select the action from the list of available actions
+
 2. Once the action is selected, click the edit icon
+
 3. The configuration section contains general action configuration, as well as options for the individual action. See the Action Configuration section for more details on how to configure specific actions.
 
 #### Facets
@@ -500,19 +530,24 @@ Folder Actions are the grouping of actions that appear to the left of the viewer
 Configuring an action:
 
 1. Select the action from the list of available actions
+
 2. Once the action is selected, click the edit icon
+
 3. The configuration section contains general action configuration, as well as options for the individual action.
 
 Common action configurations: (snapshot with various sections)
 
 1. Change action name and subtitle
-1. Set the action handler to change the action launch method
+
+2. Set the action handler to change the action launch method
     1. **Modal** will open the action as a popup, keeping the context of Content Accelerator in the background. If the modal action handler is configured, modal size can also be adjusted.
     2. **Right-side** will open the action to the right of document viewer
 
-1. Set the default action to launch when navigating to the folder level. This is commonly set to View All Documents, which displays a list of documents in the selected folder.
-1. Set the action icon
-1. Toggle whether the action's permissions are evaluated in "Why Can't I...", which will indicate to the user what requirement is preventing them from executing the action.
+3. Set the default action to launch when navigating to the folder level. This is commonly set to View All Documents, which displays a list of documents in the selected folder.
+
+4. Set the action icon
+
+5. Toggle whether the action's permissions are evaluated in "Why Can't I...", which will indicate to the user what requirement is preventing them from executing the action.
 
 For more detail on configuring actions, see the Action Configuration section.
 
