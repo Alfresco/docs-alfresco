@@ -100,7 +100,7 @@ The Bulk Upload action provides support for pulling in emails/threads and their 
 1. When creating the client ID:
 
 * Make sure Web application is selected
-* In the Authorized JavaScript origins section, put in the url for that is hosting ACA. For example, if ACA was accessed by `http://www.mysite.com/hpi`, you would use http://`www.mysite.com`.  Note that multiple domains can be entered here if you have multiple HPIs that you would like to access the Gmail API.
+* In the Authorized JavaScript origins section, put in the url for that is hosting ACA. For example, if ACA was accessed by `http://www.mysite.com/hpi`, you would use `http://www.mysite.com`.  Note that multiple domains can be entered here if you have multiple HPIs that you would like to access the Gmail API.
 
 1. Click Create Client ID
 1. Copy the Client ID

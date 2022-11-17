@@ -120,7 +120,7 @@ Navigate to the **_API permissions_** tab on the left menu bar. Click the plus b
 
 #### Step 5: Grant/Request Admin Consent
 
-You may notice there are some permissions that need Admin Consent. These are the permissions of `Group.Read.All`, `Group.ReadWrite.All`, `User.Read.All`, `User.ReadWrite.All`. If you are not the admin, you will have to get them to grant these permissions. To grant the permissions, follow this [documentation link](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/grant-admin-consent#grant-admin-consent-in-app-registrations).
+You may notice there are some permissions that need Admin Consent. These are the permissions of `Group.Read.All`, `Group.ReadWrite.All`, `User.Read.All`, `User.ReadWrite.All`. If you are not the admin, you will have to get them to grant these permissions. To grant the permissions, follow this [Azure Active Directory documentation link](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/grant-admin-consent#grant-admin-consent-in-app-registrations).
 
 #### Step 6: Authentication
 
@@ -145,9 +145,9 @@ Click on the **_Authentication_** tab on the left side menu. There are 2 differe
 
 A service account user is needed to send a direct 1:1 message to the user that is receiving the task notification.
 
-* The admin needs to add an account to the organization/team that should have a name that signifies its purpose. EX: Service Account. For helping setting up a new account see this [link](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory)
+* The admin needs to add an account to the organization/team that should have a name that signifies its purpose, i.e., Service Account. For helping setting up a new account see this [Azure Active Directory link](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory)
 * >**Important:** This user does not need elevated permissions and needs to be apart of the team that the user who is receiving the task notification is in.
-* Note the username and password for the account this will be used in the next step.
+ **Note:** The username and password for the account this will be used in the next step.
 
 #### Step 8: Encrypt the Service Account User's Password
 

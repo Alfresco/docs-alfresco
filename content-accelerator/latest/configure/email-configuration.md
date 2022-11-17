@@ -45,7 +45,9 @@ oc.email.smtp.starttls.required=true
 To enable Gmail access, follow these steps:
 
 1. Enable 2 step verification on your Gmail account
-1. Generate an App specific password [Create & use App Passwords](https://support.google.com/accounts/answer/185833#:~:text=to%2520your%2520data.-,sign%2520in%2520with%2520app%2520passwords,-Tip%253A%2520App%2520Passwords)
-1. Use the app specific password
+
+2. Generate an App specific password [Create & use App Passwords](https://support.google.com/accounts/answer/185833#:~:text=to%2520your%2520data.-,sign%2520in%2520with%2520app%2520passwords,-Tip%253A%2520App%2520Passwords)
+
+3. Use the app specific password
 
 To override these properties and see how to encrypt a password refer to the [OpenContent Property Overrides](/content-accelerator/latest/configure/oc-property-overrides/)  page

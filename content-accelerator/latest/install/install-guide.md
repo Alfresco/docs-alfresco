@@ -43,7 +43,10 @@ ACA must be exposed on the same host and port as OpenContent.  In other words, i
 
 Since ACA executes as a JavaScript application in the browser and communicates with OpenContent on the server, you must account for the Same Origin Policy.  There are two ways to handle this:
 
-1. Deploy the ACA war to the same Application Server that's running OpenContent.  This ensures that ACA is sourced from the same server and port as OpenContent.  Note - for this to work, the application server port must be accessible to the end user's browser.
+1. Deploy the ACA war to the same Application Server that's running OpenContent.  This ensures that ACA is sourced from the same server and port as OpenContent.
+
+   > **Note:** for this to work, the application server port must be accessible to the end user's browser.
+
 2. Front all communication from ACA to OpenContent through a web server.
 
    * Install ACA on `http://{server1}:9090/ocms`
@@ -74,7 +77,7 @@ Claims Management Accelerator solution:
 * `{Application Base URL}/share`
 * `{Application Base URL}/ocms`
 
-When installing a proxy please note that you are not limited to using apache or Nginx. These are just two common options which we cover example installs of below. As long as the above routes are proxied appropriately you can move onto http://"Install libraries and AMPs".
+When installing a proxy please note that you are not limited to using apache or Nginx. These are just two common options which we cover example installs of below. As long as the above routes are proxied appropriately you can move onto `http://"Install libraries and AMPs"`.
 
 ### Example Proxy Install 1 - Apache HTTPD on Windows
 
@@ -90,7 +93,7 @@ When installing a proxy please note that you are not limited to using apache or 
    *Change the ServerRoot to where you extracted Apache
 *If you would like to install as a service, consult the Readme.txt file that comes with the installation.
 
-2. Modify httpd.conf (${apache.home}\conf\httpd.conf) to load the Virtual Hosts configuration file, and the Proxy, ProxyAJP, and Rewrite modules.  **Uncomment** the following lines:
+2. Modify `httpd.conf` (`${apache.home}\conf\httpd.conf`) to load the Virtual Hosts configuration file, and the Proxy, ProxyAJP, and Rewrite modules.  **Uncomment** the following lines:
 
            Include conf/extra/httpd-vhosts.conf
            LoadModule proxy_module modules/mod_proxy.so
@@ -101,7 +104,7 @@ When installing a proxy please note that you are not limited to using apache or 
            LoadModule authz_host_module modules/mod_authz_host.so
            LoadModule filter_module modules/mod_filter.so
 
-3. Modify the httpd-vhosts.conf file (${apache.home}\conf\extra\httpd-vhosts.conf).  Remove the sample virtual hosts from the file by deleting the `<VirtualHost *:80>` sections.
+3. Modify the `httpd-vhosts.conf` file (`${apache.home}\conf\extra\httpd-vhosts.conf`).  Remove the sample virtual hosts from the file by deleting the `<VirtualHost *:80>` sections.
 
 4. Add a new virtual host to your vhosts configuration file that points to the Alfresco Tomcat and Tomcat running ACA/WizardAdmin by adding the following lines.
 
@@ -165,7 +168,7 @@ When installing a proxy please note that you are not limited to using apache or 
 
 2. (Re)start the proxy
 
-   Go to `${apache.home}`/bin, open a command prompt, and run httpd.exe
+   Go to `${apache.home}`/bin, open a command prompt, and run `httpd.exe`
 
 3. Test by hitting `http://{server}/alfresco`
 
@@ -367,7 +370,7 @@ In this section we ensure that all components of the Content Accelerator are ins
 
    By default, Apache Tomcat doesn't support UTF-8 characters for languages other than English. To enable support, the web.xml and server.xml files need to be modified in the deployed Tomcat.
 
-   When running OpenContent on Tomcat 8+, the `relaxedQueryChars` and `relaxedPathChars` parameters are required on the Connector. If you are using Tomcat older than version 8.5 - you may need to add this to catalina.properties in your tomcat/conf folder.: ```tomcat.util.http.parser.HttpParser.requestTargetAllow=|{}```
+   When running OpenContent on Tomcat 8+, the `relaxedQueryChars` and `relaxedPathChars` parameters are required on the Connector. If you are using Tomcat older than version 8.5 - you may need to add this to catalina.properties in your tomcat/conf folder.: `tomcat.util.http.parser.HttpParser.requestTargetAllow=|{}`
 
    The following will need to be updated:
 

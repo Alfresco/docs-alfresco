@@ -6,7 +6,7 @@ title: Integrations and Addons
 
 ### Setup a DocuSign Account
 
-1. If needed, create a DEV sandbox with DocuSign [here](https://www.docusign.com/developer-center).
+1. If needed, create a DEV sandbox with [DocuSign](https://www.docusign.com/developer-center).
 
 2. Once you are in, setup your DocuSign account and go to Admin -> Account -> API and Keys
 

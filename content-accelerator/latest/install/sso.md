@@ -91,7 +91,7 @@ contextPath=/ocms
 
 #### hpi-security-context-override.xml
 
-You will need to create a hpi-security-context.xml and place it on the tomcat classpath, for example, TOMCAT_HOME/shared/classes/. This file will contain the beans and settings for your SAML configuration. Below is an example of what this file could look like
+You will need to create a `hpi-security-context.xml` and place it on the tomcat classpath, for example, `TOMCAT_HOME/shared/classes/`. This file will contain the beans and settings for your SAML configuration. Below is an example of what this file could look like
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>

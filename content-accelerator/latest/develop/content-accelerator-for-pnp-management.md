@@ -566,7 +566,7 @@ A full reference of the permission sets granted is listed here:
 
 ```
 
-If you wish to define your own custom permissionSets and permissionGroups, please see this [page](https://docs.alfresco.com/content-services/latest/develop/repo-ext-points/permissions/) for more information.
+If you wish to define your own custom permissionSets and permissionGroups, please see [Permissions and roles Extension Point](https://docs.alfresco.com/content-services/latest/develop/repo-ext-points/permissions/) for more information.
 
 Once a custom permissionSet is defined and enabled via your custom AMP, it can be referenced in the customized ACA permission configuration.
 
