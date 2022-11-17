@@ -62,25 +62,3 @@ Alfresco provides basic configuration of four patterns, `includedTypesPatterns`,
 4. In `custom-aos-metadata-mapping-context.xml`, check the `includedInstantiableTypesPatterns` and `excludedInstantiableTypesPatterns` properties.
 
     These properties define the list of types that are available to users for document creation in the **Save As** dialog. If the `includedInstantiableTypesPatterns` is empty or not set, new documents are always created with the default type. If no system type matches the types configured in `includedInstantiableTypesPatterns`, the base type `cm:content` is used by default. If exactly one type matches the configuration, this type is automatically used for all documents created with the **Save As** dialog in Microsoft Office.
-
-## Configuring secure authentication with Identity Service
-
-You can configure AOS to seamlessly integrate with Identity Service, disabling Basic Authentication and relying on Identity Service instead to perform the authentication when leveraging AOS capabilities.
-
-Assuming Identity Service is properly installed and configured, the `authentication.chain` property should already be defined and should include an authentication chain component of type `identity-service`. For example:
-
-```text
-authentication.chain=identity-service-1:identity-service,alfrescoNtlm-1:alfrescoNtlm
-```
-
-To integrate AOS and Identity Service, it is sufficient that the `authentication.chain` property defines an authentication chain component of type `identity-service` as the first available component.
-
-It is now possible to perform the secure authentication via Identity Service when editing documents in Microsoft Office through Alfresco Content Services.
-
-You can still access the AOS endpoints via a web browser as long as the secure authentication has been performed first by visiting the following URL (assuming the Alfresco Content Services host name is `repo.example.com`):
-
-```text
-https://repo.example.com/alfresco/service/aos/authenticate
-```
-
-> **Note:** The duration of the authenticated session will be affected by the session timeouts configured within Keycloak.
