@@ -734,7 +734,7 @@ There are three ways a user can be notified and navigate to their approval workf
 
 2. The *Change Control Inbox* is a collection of all the users tasks as well as group tasks (tasks assigned to the group the user is within). Clicking on the *Form Name* will bring the user to the form to view the review task.
 
-   Note that the *Workflow Docs* can be clicked to view this form's document associations.
+   **Note:** that the *Workflow Docs* can be clicked to view this form's document associations.
 
    ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-for-review3.png %})
 

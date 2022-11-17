@@ -119,6 +119,4 @@ A wizard-style form is utilized to capture change request information. The form 
 ![ACA intro policy management3]({% link content-accelerator/images/aca-intro-policy-management-03.png %})
 ![ACA intro policy management4]({% link content-accelerator/images/aca-intro-policy-management-04.png %})
 
-Notes:
-
-Please note that AEV Edit and Redaction Modes are not supported with documents managed by the PnP Accelerator (Controlled Docs, Quality Docs, Wizard Forms)
+**Note:** AEV Edit and Redaction Modes are not supported with documents managed by the PnP Accelerator (Controlled Docs, Quality Docs, Wizard Forms)

@@ -54,7 +54,9 @@ To change the colors, simply navigate to the Application Config and update the c
 
 #### Application Security
 
-This section provides the ability to choose which groups that have access to the Content Accelerator Admin. If no groups are selected, then *all* users will be allowed to access the admin screens. Note that even if users can access the Admin, repository security will prevent unauthorized users from making any changes.
+This section provides the ability to choose which groups that have access to the Content Accelerator Admin. If no groups are selected, then *all* users will be allowed to access the admin screens.
+
+**Note:** Even if users can access the Admin, repository security will prevent unauthorized users from making any changes.
 
 #### Header Actions
 
@@ -68,7 +70,7 @@ This section displays the `applicationId` for the Content Accelerator configurat
 
 Add all types that will be used in the Content Accelerator (all repo types will be pulled in from the backend repository). Configure labels, filters, and more as needed. Types must be added to the Object Type config before continuing.
 
-**Notes**:
+**Notes:**
 
 * The Object Type Config must contain at least one type for the rest of the Content Accelerator admin to work properly. Configure all types before continuing.
 * Configure any container types as having Container set to `true`. Common types that require this setting:
@@ -99,9 +101,9 @@ Other picklist types are available upon request. See the [picklist documentation
 
 ### Forms
 
-Create forms for the types users will interact with. Examples of parts of the application that require forms are Advanced Search, View/Edit Properties, Add Documents, Bulk Edit Properties, etc.
+Create forms for the types users will interact with. Examples of parts of the application that require forms are Advanced Search, View/Edit Properties, Add Documents, Bulk Edit Properties.
 
-Note that forms can be reused. For example, the same form can be used for View/Edit Properties and Bulk Edit Properties.
+**Note:** Forms can be reused. For example, the same form can be used for View/Edit Properties and Bulk Edit Properties.
 
 #### Recommended Forms
 
@@ -253,9 +255,9 @@ A *Reporting* dashlet is configured similarly to a *Saved Search* dashlet, in th
     1. Add term
     2. Select metadata field to query on
     3. Select operator
-        * Equality operators (`Is Like`, `Is Equal`, `Is Not Equal`) - Enter a value next to the operator for comparison. Note that tokens `$user.loginName`, `$user.displayName`, `$date` are supported
-        * Date range operators (`Within`, `Past`, `Next`) - Enter a number and a time interval
-        * Distinct - This is a special case that should be used when looking to plot all values of a property, without creating a term for each possible value. This is useful for when there are many possible changing or unknown values, such as user names. Consider the example of Claims per Claimant
+        * Equality operators (`Is Like`, `Is Equal`, `Is Not Equal`) - Enter a value next to the operator for comparison. Tokens `$user.loginName`, `$user.displayName`, `$date` are supported.
+        * Date range operators (`Within`, `Past`, `Next`) - Enter a number and a time interval.
+        * Distinct - This is a special case that should be used when looking to plot all values of a property, without creating a term for each possible value. This is useful for when there are many possible changing or unknown values, such as user names. Consider the example of Claims per Claimant.
 3. **Configure graph properties** - There are two broad categories of graphs: Snapshot and Date Range. Static graphs capture the results of the queries configured above for the current moment, while Date Range graphs will run the configured queries for various time intervals and plot the results over time.
 
 Date Range graphs must be bar or line charts, and must additionally specify a date property to plot against such as `Created Date`, `Approval Date`, `Modified Date`, etc.
@@ -437,8 +439,7 @@ Configure the available actions on the folder loaded in the stage. See the Actio
 
 #### Document Viewer
 
-Content Accelerator contains support for several specialized content viewers, and support for various renditioning,
-download, and markup strategies. These components can be configured in the Document Viewer configuration section.
+Content Accelerator contains support for several specialized content viewers, and support for various renditioning, download, and markup strategies. These components can be configured in the Document Viewer configuration section.
 
 ##### Viewers
 
@@ -446,7 +447,7 @@ download, and markup strategies. These components can be configured in the Docum
 
 Available Viewers (RE-ORG W/ PRIORITY)
 
-Note that multiple viewers can be configured at a time, and will automatically be used based on the content formats they support. If multiple configured viewers overlap in supported formats, the first configured will take precedence.
+**Note:** Multiple viewers can be configured at a time, and will automatically be used based on the content formats they support. If multiple configured viewers overlap in supported formats, the first configured will take precedence.
 
 |Viewer|Description|
 |------|-----------|
@@ -1413,14 +1414,13 @@ In the above scenario, if the accounting role, sales role and CIO roles are all 
 
 If none of the top-level rules are tripped for a role, the entire role will not participate in workflow. For instance, in the last example, if the accounting role is not tripped but sales and CIO are, the workflow will consist of only a broadcast review to the Sales and CIO roles.
 
-Click the **Change Priorities** button from the Roles Overview page to update the Role priorities. This will enable the priority text boxes next to each role. Enter the priority number desired for each role, and click **OK**. The **cancel** button will return the priority numbers to their previous state.
+Click the **Change Priorities** button from the Roles Overview page to update the Role priorities. This will enable the priority text boxes next to each role. Enter the priority number desired for each role, and click **OK**. The **Cancel** button will return the priority numbers to their previous state.
 
->**Note:** If the **Change Priorities** button is disabled, another user is currently updating role priorities on the
->Form Template.
+>**Note:** If the **Change Priorities** button is disabled, another user is currently updating role priorities on the Form Template.
 
 ##### Group Based Roles and Priority
 
-Note that all group-based roles *must* exist in a unique priority. If the administrator attempts to combine, for example, two group-based roles or one user based and one group-based role in a single priority, the application will revert to the original priority numbers and display an error message.
+All group-based roles *must* exist in a unique priority. If the administrator attempts to combine, for example, two group-based roles or one user based and one group-based role in a single priority, the application will revert to the original priority numbers and display an error message.
 
 #### Managing Activity (Task) Names
 

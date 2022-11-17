@@ -77,7 +77,7 @@ Below is a list of some (not all) audit events that are eligible to be enabled/d
 * COPY
 * CHECK IN
 * CHECK OUT
-  * Note that the `CHECK OUT` audit event is placed on the *working copy* node.  The primary node simply has an `addNodeAspect` event for the `checkedOut` aspect.
+  * **Note:** The `CHECK OUT` audit event is placed on the *working copy* node.  The primary node simply has an `addNodeAspect` event for the `checkedOut` aspect.
 * CANCEL CHECK OUT
 * CREATE VERSION
 * readContent
@@ -102,7 +102,7 @@ Some common endpoints are (using `ocAudit` application in examples below, but co
   * verbose=true
   * user={userId}
   * limit=1000 (defaults to 100)
-  * Date based queries work with Epoch timestamps.  Use something like [https://www.epochconverter.com/](https://www.epochconverter.com/).  Note that many online converters use epoch time in **seconds**, whereas Alfresco is expecting **milliseconds**.  
+  * Date based queries work with Epoch timestamps.  Use something like [https://www.epochconverter.com/](https://www.epochconverter.com/).  Many online converters use epoch time in **seconds**, whereas Alfresco is expecting **milliseconds**.  
     * fromTime=timestamp
     * toTime=timestamp
   * forward={forward}
@@ -119,7 +119,7 @@ For more information regarding Alfresco Audits, please visit the [Alfresco Audit
 
 ### Enable/Disable Action Audit
 
-Audits are enabled/disabled on an individual action basis. To toggle the configuration, open your config (stage or search), open your module, and edit your action. A toggle should appear in the Advanced Properties section of the action. Enabling the action audit will tell OC to generate audits when this action is executed. Disabling the action audit will tell OC not to generate audits when the action is executed (Note: the action executor itself will still be run, but the audit generation code will not be executed).
+Audits are enabled/disabled on an individual action basis. To toggle the configuration, open your config (stage or search), open your module, and edit your action. A toggle should appear in the Advanced Properties section of the action. Enabling the action audit will tell OC to generate audits when this action is executed. Disabling the action audit will tell OC not to generate audits when the action is executed (The action executor itself will still be run, but the audit generation code will not be executed).
 
 ### Configure Audit Event Name and Event Description
 

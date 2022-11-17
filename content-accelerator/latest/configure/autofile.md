@@ -23,11 +23,11 @@ The `EVERYONE` authority must have Consumer permissions on this folder in order 
 
 * **autoCreateFolderType** (String, required if autoCreateFolders is true) – if folders are to be automatically created, this property is used to configure the content type that new folders will be created as (must be in QName format, e.g. `{http://www.alfresco.org/model/content/1.0}folder`)
 
-* **inheritDocPropertiesList** (String, optional) - if folders will be autocreated, properties on the folder can be set based on common properties with the autofiled document. To enable this, set this list of properties to the properties you'd like to inherit to the folder using the same format as `propertiesList`. Note that properties will only be set if the folder is being created. If a document is autofiled to an existing folder, properties are not updated. Also note that you must ensure that any property you place in this list must actually exist on the `autoCreateFolderType`.
+* **inheritDocPropertiesList** (String, optional) - if folders will be autocreated, properties on the folder can be set based on common properties with the autofiled document. To enable this, set this list of properties to the properties you'd like to inherit to the folder using the same format as `propertiesList`. The properties will only be set if the folder is being created. If a document is autofiled to an existing folder, properties are not updated. You must ensure that any property you place in this list must actually exist on the `autoCreateFolderType`.
 
 * **autoRenameDuplicates** (Boolean, optional – default true) – this flag tells the system whether or not to automatically rename a document if a document with the same name already exists in the target folder during auto-filing
 
-* **dateFormat** (String, optional – default "MM-dd-yyyy") – if you will need to autofile by a date string property, you have the option to set the date format here. Note that if your date format contains forward slashes (/), separate folders will be created based on the slashes.
+* **dateFormat** (String, optional – default "MM-dd-yyyy") – if you will need to autofile by a date string property, you have the option to set the date format here. If your date format contains forward slashes (/), separate folders will be created based on the slashes.
 
 * **criteriaProperties** (List, optional) - list of properties that will be checked against regexes to determine if the autofile config should be used. If the value of the properties match the corresponding regexes, the config will be used. If one or more properties doesn't match its corresponding regex, then the config will not be used, and additional configs will be tested in priority order.
 
@@ -54,7 +54,7 @@ http://{server}:{port}/alfresco/service/tsgrp/autofile/createAutofileConfig?para
 "criteriaRegexes":["A","B"]}
    ```
 
->**Note:**Authorization for an admin user must be included. In Postman, switch to the `Authorization` tab. In the `TYPE` dropdown, select `Basic Auth` and then enter in an admin user's credentials.
+**Note:** Authorization for an admin user must be included. In Postman, switch to the `Authorization` tab. In the `TYPE` dropdown, select `Basic Auth` and then enter in an admin user's credentials.
 
 ## Utilizing Autofile
 

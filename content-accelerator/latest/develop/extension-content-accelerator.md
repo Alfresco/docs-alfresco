@@ -10,7 +10,7 @@ There are a few requirements that your custom amp must meet to work with the exi
 
 1. The amp configuration and code must reside under `alfresco/module/com.alfresco.aca.accelerator.extension` to be properly picked up
 2. Any overrides for ACA properties must reside in a file named `opencontent-extension-override-placeholders.properties`
-3. Any overrides or additions to the ACA bean configurations need to reside in a file named `opencontent-extension-override-config.xml`. Note that you can have this file reference other xml config files but ACA will only specifically look for this file
+3. Any overrides or additions to the ACA bean configurations need to reside in a file named `opencontent-extension-override-config.xml`. **Note:** This file can reference other xml config files but ACA will only specifically look for this file.
 4. Name the module context file for the extension `opencontent-extension-override-module-ctx.xml`
 
 ### How to override ACA overlay configurations in the custom amp

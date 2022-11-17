@@ -38,12 +38,12 @@ Expected Result - claim folder created/updated for claim number 111111 and the u
   * claimOwner
   * policyNumber
   * insuredName
-  * participants[]  (Note, this is a repeating field, so must be passed in as an array, each time the key should be repeated)
+  * participants[]  (This is a repeating field, so must be passed in as an array, each time the key should be repeated)
   * lossDate
   * reportDate
   * closeDate
 
-* Notes
+**Note:**
   * Dates should be passed in in the following format: YYYY-MM-DD
   * Custom fields in your object model that extend the "claimDocument" can also be passed in. Example: customModel:myCustomAttribute would be passed in as `&myCustomAttribute=MyValue`
 
@@ -68,4 +68,4 @@ To do this, create the file `opencontent-override-placeholders.properties`. It w
 Two things to note with this:
 
 1. This file will win out on any other property files, even ones in the custom amp. For this reason, if you are using a custom amp, it is better to override the properties in the amp than this file
-1. You will likely need to create the `module/com.tsgrp.opencontent/` folders
+2. You will likely need to create the `module/com.tsgrp.opencontent/` folders

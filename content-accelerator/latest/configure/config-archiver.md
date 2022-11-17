@@ -2,7 +2,7 @@
 title: Config Archiver
 ---
 
-> The Config Archiver makes moving ACA config files to, from, and between any OpenContent repository easy. It is located in the "Tools" section within ACA admin.
+The Config Archiver makes moving ACA config files to, from, and between any OpenContent repository easy. It is located in the "Tools" section within ACA admin.
 
 ## Exporting Configs
 
@@ -14,7 +14,7 @@ Clicking the export button will begin the export.  The name of the zip that is d
 
 To import configs, simply access the Import section of the Config Archiver and drag the `default.zip` file containing the archived configs into the drop zone and click the `Import` button.
 
-Note that the name of the archive file is important - the import tool assumes the file you upload is named: `default.zip`.
+The name of the archive file is important - the import tool assumes the file you upload is named: `default.zip`.
 
 The import will handle this zip in one of two ways:
 

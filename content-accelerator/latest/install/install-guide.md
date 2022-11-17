@@ -32,7 +32,7 @@ Operating System and libraries for the target server machine:
     * **Ubuntu** - `sudo apt install ttf-mscorefonts-installer`
     * **CentOS** -
        1. Place fonts into the `/usr/share/fonts` directory
-       1. Run `fc-cache -v /usr/share/fonts/ && fc-cache-64 -v /usr/share/fonts/`
+       2. Run `fc-cache -v /usr/share/fonts/ && fc-cache-64 -v /usr/share/fonts/`
     * **Amazon-linux** - this typically comes pre-installed
 
 ## Install Proxy (Optional in non-production env)
@@ -90,7 +90,7 @@ When installing a proxy please note that you are not limited to using apache or 
    *Change the ServerRoot to where you extracted Apache
 *If you would like to install as a service, consult the Readme.txt file that comes with the installation.
 
-1. Modify httpd.conf (${apache.home}\conf\httpd.conf) to load the Virtual Hosts configuration file, and the Proxy, ProxyAJP, and Rewrite modules.  **Uncomment** the following lines:
+2. Modify httpd.conf (${apache.home}\conf\httpd.conf) to load the Virtual Hosts configuration file, and the Proxy, ProxyAJP, and Rewrite modules.  **Uncomment** the following lines:
 
            Include conf/extra/httpd-vhosts.conf
            LoadModule proxy_module modules/mod_proxy.so
@@ -101,9 +101,9 @@ When installing a proxy please note that you are not limited to using apache or 
            LoadModule authz_host_module modules/mod_authz_host.so
            LoadModule filter_module modules/mod_filter.so
 
-1. Modify the httpd-vhosts.conf file (${apache.home}\conf\extra\httpd-vhosts.conf).  Remove the sample virtual hosts from the file by deleting the `<VirtualHost *:80>` sections.
+3. Modify the httpd-vhosts.conf file (${apache.home}\conf\extra\httpd-vhosts.conf).  Remove the sample virtual hosts from the file by deleting the `<VirtualHost *:80>` sections.
 
-1. Add a new virtual host to your vhosts configuration file that points to the Alfresco Tomcat and Tomcat running ACA/WizardAdmin by adding the following lines.
+4. Add a new virtual host to your vhosts configuration file that points to the Alfresco Tomcat and Tomcat running ACA/WizardAdmin by adding the following lines.
 
 * Make sure to update server names and paths as needed (aka replace anything surrounded by ${}).
 * Make sure to also Update the proxyPass sections at the bottom to proxy the appropriate routes.
@@ -163,11 +163,11 @@ When installing a proxy please note that you are not limited to using apache or 
 
    `AllowEncodedSlashes On`
 
-1. (Re)start the proxy
+2. (Re)start the proxy
 
    Go to `${apache.home}`/bin, open a command prompt, and run httpd.exe
 
-1. Test by hitting `http://{server}/alfresco`
+3. Test by hitting `http://{server}/alfresco`
 
 ### Example Proxy Install 2 -  Nginx install on Amazon Linux
 
@@ -181,14 +181,14 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
    * `sudo yum -y install nginx`
    * `nginx -v`
 
-1. Confirm you can startup nginx
+2. Confirm you can startup nginx
 
     * `sudo systemctl start nginx.service` (start the service)
     * `sudo systemctl reload nginx.service` (reload the service)
     * `sudo systemctl status nginx.service` (check that the status is active)
     * `sudo systemctl stop nginx.service` (stop the service)
 
-1. Configure the proxy
+3. Configure the proxy
 
     * `sudo vi /etc/nginx/nginx.conf`
     * Replace contents of the file with the following (replacing ports and servers and adding additional proxy_pass configs as necessary)
@@ -249,13 +249,13 @@ http {
 }
 ```
 
-1. Start the nginx proxy and confirm it started up correctly
+4. Start the nginx proxy and confirm it started up correctly
     * `sudo systemctl start nginx.service`
     * `sudo systemctl status nginx.service`
 
-1. Make sure whatever port your proxy is listening on is open to the end user (example: you will need to open port 80 if you are using the configs in our example above)
+5. Make sure whatever port your proxy is listening on is open to the end user (example: you will need to open port 80 if you are using the configs in our example above)
 
-1. Test that the proxy is working properly by hitting `http://{server}/share`
+6. Test that the proxy is working properly by hitting `http://{server}/share`
 
 ## Install libraries {#install-libraries}
 
@@ -271,11 +271,11 @@ http {
    * [Windows](https://download.imagemagick.org/ImageMagick/download/binaries/ImageMagick-7.1.0-portable-Q16-HDRI-x64.zip){:target="_blank"}
    * [Linux](https://download.imagemagick.org/ImageMagick/download/binaries/magick){:target="_blank"}
 
-1. Note the path where ImageMagick is being installed as `IMAGEMAGICK_HOME`.
+2. Note the path where ImageMagick is being installed as `IMAGEMAGICK_HOME`.
 
-1. Navigate into the newly unpacked ImageMagick directory.
+3. Navigate into the newly unpacked ImageMagick directory.
 
-1. Execute the following command from the `IMAGEMAGICK_HOME` to ensure `convert` was unpacked successfully:
+4. Execute the following command from the `IMAGEMAGICK_HOME` to ensure `convert` was unpacked successfully:
 
    `./{IMAGEMAGICK_HOME}/bin/convert -help`
 
@@ -287,7 +287,7 @@ In this section we ensure that all components of the Content Accelerator are ins
 
 1. Stop the Alfresco server
 
-1. Copy the AMPs to the Alfresco Content Services installation:
+2. Copy the AMPs to the Alfresco Content Services installation:
 
    Navigate to the `ALFRESCO_HOME/amps` directory and copy the following amps to this directory (these are amps that should be applied to the repository aka [alfresco.war]):
     * `tsgrp-opencontent-{version_info}.amp`
@@ -301,7 +301,7 @@ In this section we ensure that all components of the Content Accelerator are ins
    * If using Alfresco Content Services 7.2.x, use the `tsgrp-opencontent-3.5-for-acs7.2.amp`.
    * If using Alfresco Content Services 7.3.x, use the `tsgrp-opencontent-3.5-for-acs7.3.amp`.
 
-1. (Pnp ONLY) This step is only required if installing the Policy and Procedure Content Accelerator solution:
+3. (Pnp ONLY) This step is only required if installing the Policy and Procedure Content Accelerator solution:
 
    Navigate to the `ALFRESCO_HOME/amps` directory and copy the following amps there:
    * `tsgrp-alfresco-chain-versioning.amp`
@@ -309,14 +309,14 @@ In this section we ensure that all components of the Content Accelerator are ins
 
    These amps can be found in the alfresco-content-accelerator-policy-and-procedure-accelerator distribution zip under `Alfresco Artifacts` folder.
 
-1. (Claims ONLY) This step is only required if installing the Claims Content Accelerator solution:
+4. (Claims ONLY) This step is only required if installing the Claims Content Accelerator solution:
 
    Navigate to the `ALFRESCO_HOME/amps` directory and copy the following amps there:
-   * `claims-platform-3.5.amp`
+   `claims-platform-3.5.amp`
 
    This amps can be found in the alfresco-content-accelerator-claims-accelerator distribution zip under `Alfresco Artifacts` folder.
 
-1. Apply the AMPs
+5. Apply the AMPs
 
    From the directory where your alfresco tomcat lives, run this command for each Repository AMP required (replace `{myAmp}` with the correct AMP name and `{ALFRESCO_HOME}` with the location of your alfresco):
 
@@ -328,20 +328,20 @@ In this section we ensure that all components of the Content Accelerator are ins
 
    `java\{javaVersion}\bin\java -jar {ALFRESCO_HOME}\bin\alfresco-mmt.jar install {ALFRESCO_HOME}\amps\{myAmp}.amp tomcat\webapps\alfresco.war -force`
 
-1. Delete current Alfresco deployed WAR files
+6. Delete current Alfresco deployed WAR files
 
    Navigate to the `ALFRESCO_HOME/tomcat/webapps` directory and delete the following [folders] (if they exist) to ensure old versions of the `alfresco.war` and `share.war` are not run:
 
    * `alfresco`
    * `share`
 
-1. Install license file for OpenConnect
+7. Install license file for OpenConnect
 
    Create the `module/com.tsgrp.opencontent/license` folder structure on the /alfresco classpath, for example, at `ALFRESCO_HOME/tomcat/shared/classes/alfresco`
 
    Place a `TextLicense.l4j` file in the `license` directory.
 
-1. Deploy the OpenConnect configuration:
+8. Deploy the OpenConnect configuration:
 
     Deploy/Copy the following files onto the /alfresco classpath, for example, `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` folder:
   
@@ -351,7 +351,7 @@ In this section we ensure that all components of the Content Accelerator are ins
 
    These files can be found in the `Alfresco Artifacts` folder of the alfresco-content-accelerator-base-package zip.
 
-1. Configure OpenConnect
+9. Configure OpenConnect
 
     In the `opencontent-override-placeholders.properties` file deployed in the last step, update the following environment variables:
 
@@ -363,7 +363,7 @@ In this section we ensure that all components of the Content Accelerator are ins
     * `oc.email.smtp.host={SMTP host}`
     * `imageMagick.path=IMAGEMAGICK_HOME` (if installed, get IMAGEMAGICK_HOME value from [ImageMagic Installation](/content-accelerator/latest/install/install-guide/#im))
 
-1. Update Tomcat server configuration:
+10. Update Tomcat server configuration:
 
    By default, Apache Tomcat doesn't support UTF-8 characters for languages other than English. To enable support, the web.xml and server.xml files need to be modified in the deployed Tomcat.
 
@@ -422,7 +422,7 @@ In this section we ensure that all components of the Content Accelerator are ins
    >**Note:** that in a typical Alfresco installation, the 8080 connector can be modified for HTTP communications and
    >the 443 connector can be modified for HTTPS connections.
 
-1. (OPTIONAL) This step is only required if using Alfresco Search Services 2.0 or greater:
+11. (OPTIONAL) This step is only required if using Alfresco Search Services 2.0 or greater:
 
     a. Navigate to the `SOLR_HOME/solrhome/conf` folder.
 
@@ -434,24 +434,24 @@ In this section we ensure that all components of the Content Accelerator are ins
 
     c. Once the above changes have been made, Solr must be reindexed.
 
-       Stop the Solr process if it is running. 
-    
+       Stop the Solr process if it is running.
+
        Clear out the following folder paths:
-        * `SOLR_HOME/solrhome/alfresco/index`
-        * `SOLR_HOME/solrhome/archive/index`
-        * `SOLR_HOME/solrhome/alfrescoModels`
-      
+       * `SOLR_HOME/solrhome/alfresco/index`
+       * `SOLR_HOME/solrhome/archive/index`
+       * `SOLR_HOME/solrhome/alfrescoModels`
+
        Start Solr process.
 
-1. Start up Alfresco server.
+12. Start up Alfresco server.
 
-1. Confirm OpenContent has been installed correctly by accessing `http://{server}/alfresco/OpenContent`
+13. Confirm OpenContent has been installed correctly by accessing `http://{server}/alfresco/OpenContent`
 
 ## Install webapps
 
 This sections walks through how to install the Alfresco Content Accelerator web application (including the WizardAdmin if installing the Policy and Procedure Content Accelerator solution).
 
->**Note:** If you installed a proxy then follow the [Install Web Applications on Separate Tomcat](/content-accelerator/latest/install/install-guide/#install-webapps-separate-tomcat) Instructions. 
+>**Note:** If you installed a proxy then follow the [Install Web Applications on Separate Tomcat](/content-accelerator/latest/install/install-guide/#install-webapps-separate-tomcat) Instructions.
 > If no proxy was installed then follow the [Install Web Applications on Alfresco Tomcat](/content-accelerator/latest/install/install-guide/#install-webapps-alfresco-tomcat) instructions.
 
 ### Install web applications on separate Tomcat {#install-webapps-separate-tomcat}
@@ -460,17 +460,17 @@ This section walks through how to install the web applications on a separate Tom
 
 1. Install Apache Tomcat. See [https://archive.apache.org/dist/tomcat](https://archive.apache.org/dist/tomcat)
 
-1. Copy the `ocms.war` file into the `TOMCAT_HOME/webapps` directory.
+2. Copy the `ocms.war` file into the `TOMCAT_HOME/webapps` directory.
 
    This war can be found in the `Web Applications` folder of the alfresco-content-accelerator-base-package zip.
 
-1. (Pnp ONLY) This step is only required if using the Policy and Procedure Content Accelerator solution:
+3. (Pnp ONLY) This step is only required if using the Policy and Procedure Content Accelerator solution:
 
    Copy the `WizardAdmin.war` file into the `TOMCAT_HOME/webapps` directory.
 
    This war can be found in the `Web Applications` folder of the alfresco-content-accelerator-policy-and-procedure-accelerator zip.
 
-1. Configure Tomcat for shared classpath loader as well as encoded slashes:
+4. Configure Tomcat for shared classpath loader as well as encoded slashes:
 
    Edit the `TOMCAT_HOME/conf/catalina.properties` file and enable the `shared.loader` by adding the following line:
 
@@ -486,7 +486,7 @@ This section walks through how to install the web applications on a separate Tom
 
    `org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true`
 
-1. Configure Tomcat ports in the `TOMCAT_HOME/conf/server.xml`:
+5. Configure Tomcat ports in the `TOMCAT_HOME/conf/server.xml`:
 
    Configure the connector, server, and redirect ports to not conflict with Alfresco Tomcat’s (example below):
 
@@ -496,20 +496,20 @@ This section walks through how to install the web applications on a separate Tom
 
    Note that you will need to ensure that the port chosen (ie 9090) is open to the end user
 
-1. Locate the directory to place files on the tomcat classpath, for example, `tomcat/shared/classes` (create it if it doesn't exist).
+6. Locate the directory to place files on the tomcat classpath, for example, `tomcat/shared/classes` (create it if it doesn't exist).
 
-1. Locate the `hpi-overrides.properties` file in the `Web Applications` folder of the alfresco-content-accelerator-base-package.
+7. Locate the `hpi-overrides.properties` file in the `Web Applications` folder of the alfresco-content-accelerator-base-package.
 
    Copy this `hpi-overrides.properties` file onto the tomcat classpath, for example, into the`TOMCAT_HOME/shared/classes` directory.
 
-1. Verify the secureBrowserCookies configuration. If you are planning to setup SSL then secureBrowserCookies should be set to `true` (this is the default), else it should be `false`.
+8. Verify the secureBrowserCookies configuration. If you are planning to setup SSL then secureBrowserCookies should be set to `true` (this is the default), else it should be `false`.
 
    There are two places where this config will need to be updated:
 
    * `hpi-overrides.properties` on the tomcat classpath, for example, `TOMCAT_HOME/shared/classes/` directory.
    * `TOMCAT_HOME/webapps/ocms/assets/config/config-overrides.js`
 
-1. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution AND if `TOMCAT_HOME` is NOT `/opt/ocms-policy/apache-tomcat`
+9. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution AND if `TOMCAT_HOME` is NOT `/opt/ocms-policy/apache-tomcat`
 
     Navigate to `TOMCAT_HOME/webapps` and extract the `WizardAdmin.war`.
 
@@ -522,9 +522,9 @@ This section walks through how to install the web applications on a separate Tom
     * `ImpactAnalysis.properties`:
         * Lines 26, 29, 39, 40, 42, 48, 49
 
-1. Start Tomcat
+10. Start Tomcat
 
-1. Confirm you can access ACA at `http://{server}/ocms`
+11. Confirm you can access ACA at `http://{server}/ocms`
 
 ### Install web applications on Alfresco Tomcat {#install-webapps-alfresco-tomcat}
 
@@ -532,17 +532,17 @@ This section walks through how to install the web applications on Alfresco Tomca
 
 1. Stop Alfresco Tomcat
 
-1. Copy the `ocms.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
+2. Copy the `ocms.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
 
    This war can be found in the `Web Applications` folder of the alfresco-content-accelerator-base-package zip.
 
-1. (Pnp ONLY) This step is only required if using the Policy and Procedure Content Accelerator solution:
+3. (Pnp ONLY) This step is only required if using the Policy and Procedure Content Accelerator solution:
 
    Copy the `WizardAdmin.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
 
    This war can be found in the `Web Applications` folder of the alfresco-content-accelerator-policy-and-procedure-accelerator zip.
 
-1. Configure Tomcat for shared classpath loader as well as encoded slashes:
+4. Configure Tomcat for shared classpath loader as well as encoded slashes:
 
    Edit the `ALFRESCO_HOME/tomcat/conf/catalina.properties` file and enable the `shared.loader` by adding the following line:
 
@@ -562,22 +562,22 @@ This section walks through how to install the web applications on Alfresco Tomca
 
    `org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true`
 
-1. Create a `classes` directory:
+5. Create a `classes` directory:
 
    Create a `classes` directory within the `ALFRESCO_HOME/tomcat/shared` directory, if it does not already exist.
 
-1. Locate the `hpi-overrides.properties` file in the `Web Applications` folder of the alfresco-content-accelerator-base-package.
+6. Locate the `hpi-overrides.properties` file in the `Web Applications` folder of the alfresco-content-accelerator-base-package.
 
    Copy this `hpi-overrides.properties` file onto the tomcat classpath, for example, into the`ALFRESCO_HOME/tomcat/shared/classes` directory.
 
-1. Verify the secureBrowserCookies configuration. If you are planning to setup SSL then secureBrowserCookies should be set to `true` (this is the default), else it should be `false`.
+7. Verify the secureBrowserCookies configuration. If you are planning to setup SSL then secureBrowserCookies should be set to `true` (this is the default), else it should be `false`.
 
    There are two places where this config will need to be updated:
 
    * `hpi-overrides.properties` on the tomcat classpath, for example, `ALFRESCO_HOME/tomcat/shared/classes/` directory.
    * `ALFRESCO_HOME/tomcat/webapps/ocms/assets/config/config-overrides.js`
 
-1. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution:
+8. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution:
 
     Navigate to `ALFRESCO_HOME/tomcat/webapps` and extract the `WizardAdmin.war`.
 
@@ -591,9 +591,9 @@ This section walks through how to install the web applications on Alfresco Tomca
     * `ImpactAnalysis.properties`:
         * Lines 26, 29, 39, 40, 42, 48, 49
 
-1. Start Alfresco Tomcat
+9. Start Alfresco Tomcat
 
-1. Confirm you can access ACA at `http://{server}/ocms`
+10. Confirm you can access ACA at `http://{server}/ocms`
 
 ## Install Configurations
 
@@ -603,7 +603,7 @@ This section walks through how to install the web applications on Alfresco Tomca
 
    This will create the base groups and folder for the application.
 
-1. (Pnp ONLY) This step is only required if using the Policy and Procedure Content Accelerator solution:
+2. (Pnp ONLY) This step is only required if using the Policy and Procedure Content Accelerator solution:
 
    Create Policy and Procedure specific groups and folders:
 
@@ -611,14 +611,14 @@ This section walks through how to install the web applications on Alfresco Tomca
 
    This will create the base groups and folder for the Policy and Procedure solution.
 
-1. Locate the `default-{accelerator}.zip` configurations and rename it.
+3. Locate the `default-{accelerator}.zip` configurations and rename it.
 
    * For Pnp, the file will be named `default-pnp.zip` and can be found in the `Configuration` folder of the alfresco-content-accelerator-policy-and-procedure-accelerator zip.
    * For Claims, the file will be named `default-claims.zip` and can be found in the `Configuration` folder of the alfresco-content-accelerator-claims-accelerator zip.
 
    Obtain the `default-{accelerator}.zip` for your accelerator and rename the zip to `default.zip`.
 
-1. Import default configuration. There are two ways you can do this.
+4. Import default configuration. There are two ways you can do this.
 
    OPTION 1 - use the config import tool (This may not be available on initial install):
 
@@ -638,10 +638,10 @@ This section walks through how to install the web applications on Alfresco Tomca
 
       * Click on the `default.zip` and choose the "unzip to" action, select the `repository> hpi> default` folder
 
-1. (OPTIONAL) This step is only required if **NOT** using the Alfresco Enterprise Viewer:
+5. (OPTIONAL) This step is only required if **NOT** using the Alfresco Enterprise Viewer:
 
    Navigate to the *Stage Config*. For each stage config:
     1. Navigate to the *docviewer*
-    1. Turn off *Alfresco Enterprise Viewer* and *Alfresco Enterprise Video Viewer*
-    1. Turn on `PDF.js` and `Video.js`
-    1. Click **Save Config**
+    2. Turn off *Alfresco Enterprise Viewer* and *Alfresco Enterprise Video Viewer*
+    3. Turn on `PDF.js` and `Video.js`
+    4. Click **Save Config**

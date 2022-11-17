@@ -12,16 +12,22 @@ The below instructions are validated to work on upgrading a 3.4.x version to 3.5
 
 Here is the recommended upgrade path:
 
-- Backup Alfresco system
-- Upgrade ACS platform to latest released version
-  - Verify startup without errors in logs
-  - ***Note**: If upgrading to the latest released version is not possible, upgrade to the latest patch release.*
-  - ***Note**: While ACA 3.4.5 will run on Alfresco 7.3, some functionality may be impacted. An upgrade to Alfresco 7.3 requires an upgrade to ACA 3.5 for full support.*
-- Upgrade ACA infrastructure components (AMPs, WARs, Tomcat changes, property files)
-  - Verify startup without errors in logs
-- Upgrade ACA admin configurations (ACA admin web interface)
-  - Verify key functionality
-  - See below for details on ACA admin configuration changes required when moving from ACA 3.4.x to 3.5.
+1. Backup Alfresco system
+
+2. Upgrade ACS platform to latest released version
+
+   * Verify startup without errors in logs
+
+   **Note:** If upgrading to the latest released version is not possible, upgrade to the latest patch release. While ACA 3.4.5 will run on Alfresco 7.3, some functionality may be impacted. An upgrade to Alfresco 7.3 requires an upgrade to ACA 3.5 for full support.
+
+3. Upgrade ACA infrastructure components (AMPs, WARs, Tomcat changes, property files)
+
+   * Verify startup without errors in logs
+
+4. Upgrade ACA admin configurations (ACA admin web interface)
+
+   * Verify key functionality
+   * See below for details on ACA admin configuration changes required when moving from ACA 3.4.x to 3.5.
 
 ## ACA Config Updates
 
