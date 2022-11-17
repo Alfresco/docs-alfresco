@@ -7,8 +7,10 @@ title: Integrations and Addons
 ### Setup a DocuSign Account
 
 1. If needed, create a DEV sandbox with DocuSign [here](https://www.docusign.com/developer-center).
-1. Once you are in, setup your DocuSign account and go to Admin -> Account -> API and Keys
-1. Click Add Integrator Key button to add an integrator key
+
+2. Once you are in, setup your DocuSign account and go to Admin -> Account -> API and Keys
+
+3. Click Add Integrator Key button to add an integrator key
 
 ### Setup OpenContent
 
@@ -20,9 +22,11 @@ title: Integrations and Addons
 * `docusign.integratorKey` - see setup step above
 * `docusign.login.url` - the login URL is defaulted to the DocuSign dev sandbox URL in `universal-defaults.properties`.  You will want to override this for production environments
 * `docusign.hpi.dataPath` - The folder where DocuSign data objects should be stored.  Defaults to `/hpi/docuSignData`
-* `docusign.completed.version.policy` - When a document is completed in docusign, it is versioned in the repository.  This property controls whether the version is a major or minor version.  Note that for TSG Controlled Documents, versioning is not possible.  If a controlled document is sent out for DocuSign, the PDF rendition is replaced in the repository when DocuSign completes it's process.  The object is *not* versioned in the repository.
+* `docusign.completed.version.policy` - When a document is completed in docusign, it is versioned in the repository.  This property controls whether the version is a major or minor version.
 
-1. Update the module-context in order for the Retrieve job to run. Adding the following to the `opencontent-override-module-context.xml`:
+  > **Note:** Versioning is not possible for TSG Controlled Documents.  If a controlled document is sent out for DocuSign, the PDF rendition is replaced in the repository when DocuSign completes it's process.  The object is *not* versioned in the repository.
+
+3. Update the module-context in order for the Retrieve job to run. Adding the following to the `opencontent-override-module-context.xml`:
 
 ```xml
 <!-- Retrieve Content from Docusign Job -->
@@ -50,7 +54,7 @@ title: Integrations and Addons
 </bean>
 ```
 
-1. Ensure that the job is scheduled to run
+4. Ensure that the job is scheduled to run
 
 Ensure that the `tsgSchedulerAccessor` bean has the docusign retrieve job configured in the `triggers` list.  This can be overriden in the `opencontent-override-module-context.xml`.
 
@@ -67,13 +71,15 @@ Ensure that the `tsgSchedulerAccessor` bean has the docusign retrieve job config
 </bean>
 ```
 
-1. After making these changes you will need to restart alfresco
+5. After making these changes you will need to restart alfresco
 
 ### Setup the Repository
 
-* Add a folder to the repository to store DocuSign data
-  * Defaults to `/hpi/docuSignData`
-  * Set the permissions on the folder to - HPI Administrators - Coordinator, EVERYONE - Contributor
+1. Add a folder to the repository to store DocuSign data
+
+   * Defaults to `/hpi/docuSignData`
+
+2. Set the permissions on the folder to - HPI Administrators - Coordinator, EVERYONE - Contributor
 
 ### Run Job Immediately
 
@@ -101,7 +107,9 @@ Since the job is typically configured to run every hour, it's sometimes necessar
 #### Prerequisites
 
 1. You will need AGS installed in alfresco
+
 2. You will need a working controlled docs solutions such that documents are moved to the effective state
+
 3. You will need 2 separate object types - 1 for your controlled doc (for example hy:controlledDoc) and 1 type that your record should be copied to (for example hy:record)
 
 #### The are 2 key pieces to configuring controlled docs with AGS
@@ -130,21 +138,29 @@ Since the job is typically configured to run every hour, it's sometimes necessar
 
 ##### 2. Setup a folder rule to declare the created copy as an AGS record
 
-1. Need to setup the folder Rule to actually declare our record copy as an AGS Record
-    1. In the share site -> on the folder where your record copy will get created (or moved to if autofile is configured) -> under folder rules -> add rule
-        1. Set the rule to run: `on create or enter`
-        2. RUN WHEN - `Content Type = Content` (since we don't want this to run when folders are created in here)
-        3. File Record -> to unfiled Records Folder
-        4. Check Box to Run on Subfolders
-2. Optional: You can also then setup another rule on the unfiled records folder in the RM site to file the record to a more specific location
+Setup the folder Rule to declare our record copy as an AGS Record
+
+  1. In the share site, on the folder where your record copy will get created (or moved to if autofile is configured), under folder rules -> add rule.
+
+      1. Set the rule to run: `on create or enter`
+
+      2. RUN WHEN - `Content Type = Content` (since we don't want this to run when folders are created in here)
+
+      3. File Record -> to unfiled Records Folder
+
+      4. Check Box to Run on Subfolders
+
+     > Optional: You can also then setup another rule on the unfiled records folder in the RM site to file the record to a more specific location
 
 ## Processing Outlook MSG Files
 
 ACA provides some out of the box components to allow the repository to process MSG files when they are added to the system.  The general goals and requirements are to:
 
 1. Parse the MSG file for any attachments and allow the user to specify an object type and individual properties for each attachment.
-1. Store any attachments in the repository and relate them back to the original email.  The email is the parent, any attachments are children (if a nested MSG file has an attachment, it is related to the top level email, not the nested MSG file).
-1. Generate a PDF rendition for the uploaded MSG file.  
+
+2. Store any attachments in the repository and relate them back to the original email.  The email is the parent, any attachments are children (if a nested MSG file has an attachment, it is related to the top level email, not the nested MSG file).
+
+3. Generate a PDF rendition for the uploaded MSG file.  
 
 When an MSG file is uploaded through Bulk Upload, the MSG file is parsed for any attachments. The attachments are displayed to the user as documents to upload; this means the user can set individual properties for each attachment, including a specific document object type. When the user is done editing properties and chooses to upload the files the attachments are created as individual repository objects with the properties specified by the user. All attachments are placed in the same folder as the email and each attachment is related to the email. A folder tag may additionally be added to each attachment (or the original email) to utilize the folder tags related objects functionality (assuming the content / object model has a folder tag property specified).
 
@@ -157,55 +173,58 @@ The MSG file can be renditioned to a PDF by either OpenContent or Alfresco.
 The default renditioning behavior is to allow the repository to add a PDF rendition to the uploaded MSG file(s). It's also possible to generate a PDF rendition using iText (**not recommended**).  This is configured in the Bulk Import action config in the ACA admin.
 
 Renditioning MSG to PDF is available OOTB in Alfresco *if your object type has the `tsg:renditioned` aspect applied to it*.  To take advantage of Alfresco's renditioning engine, ensure you have the below settings.
-    1. Bulk Upload is configured to let the repository generate the PDF rendition for MSG files.
-    1. The following bean is in the `module-context.xml`:
 
-``` xml
-    <bean id="transformer.complex.OcMsg2PdfTransformer" class="org.alfresco.repo.content.transform.ComplexContentTransformer" parent="baseContentTransformer">
-        <property name="transformers">
-            <list>
-                <ref bean="transformer.OutlookMsg"/>
-                <ref bean="transformer.PdfBox.TextToPdf"/>
-                <ref bean="transformer.Pdf2swf"/>
-            </list>
-        </property>
-        <property name="intermediateMimetypes">
-            <list>
-                <value>text/plain</value>
-                <value>application/pdf</value>
-            </list>
-        </property>
-    </bean>
-    ```
+  1. Bulk Upload is configured to let the repository generate the PDF rendition for MSG files.
 
-    1. The following property is set in the `alfresco-defaults.properties`:
-      `content.transformer.complex.OcMsg2PdfTransformer.pipeline=OutlookMsg|txt|*|pdf|Pdf2swf`
+  2. The following bean is in the `module-context.xml`:
+
+      ``` xml
+          <bean id="transformer.complex.OcMsg2PdfTransformer" class="org.alfresco.repo.content.transform.ComplexContentTransformer" parent="baseContentTransformer">
+              <property name="transformers">
+                  <list>
+                      <ref bean="transformer.OutlookMsg"/>
+                      <ref bean="transformer.PdfBox.TextToPdf"/>
+                      <ref bean="transformer.Pdf2swf"/>
+                  </list>
+              </property>
+              <property name="intermediateMimetypes">
+                  <list>
+                      <value>text/plain</value>
+                      <value>application/pdf</value>
+                  </list>
+              </property>
+          </bean>
+      ```
+
+  3. The following property is set in the `alfresco-defaults.properties`:
+  
+  `content.transformer.complex.OcMsg2PdfTransformer.pipeline=OutlookMsg|txt|*|pdf|Pdf2swf`
 
 #### Using OpenContent for MSG renditions
 
 To take advantage of OpenContent's MSG to PDF renditioning, ensure you have the below settings:
-    1. Bulk Upload is configured to let OpenContent generate the PDF rendition for MSG files.
+
+* Bulk Upload is configured to let OpenContent generate the PDF rendition for MSG files.
 
 >**Note:** A current limitation of the library used to parse the MSG files is that nested MSG attachments are not available as a byte array, which means the native content is not available.  However, a PDF rendition is generated by OC for any nested MSG attachment.
 
-
 ## Stage Collaboration Features
 
-ACA allows users to collaborate within the interface by utilizing tools like Zoom and Microsoft Teams. You can configure these integrations so that users are able to start a Teams or Zoom call from within the stage view of ACA. 
+ACA allows users to collaborate within the interface by utilizing tools like Zoom and Microsoft Teams. You can configure these integrations so that users are able to start a Teams or Zoom call from within the stage view of ACA.
 
-### Stage Collaboration in Action 
+### Stage Collaboration in Action
 
-When viewing a claim with stage collaboration enabled, the stage info section of ACA will include user icons for each user currently viewing that claim. 
+When viewing a claim with stage collaboration enabled, the stage info section of ACA will include user icons for each user currently viewing that claim.
 
 ![Stage Collab Bubbles]({% link content-accelerator/images/stage_collab_bubbles.png %})
 
-If a user, views one of the documents within the claim, then their icon will appear next to that document for all other users viewing the claim. 
+If a user, views one of the documents within the claim, then their icon will appear next to that document for all other users viewing the claim.
 
-For example, if both Alice and Katie are viewing claim 123123 and Alice opens the `3.pdf` document like so... 
+For example, if both Alice and Katie are viewing claim 123123 and Alice opens the `3.pdf` document shown below:
 
 ![Stage Collab Alice]({% link content-accelerator/images/stage_collab_icons1.png %})
 
-Katie will see an icon in the view all documents table showing that someone is viewing that document. If Katie hovers over that icon she can see that it is Alice who is viewing the document. 
+Katie will see an icon in the view all documents table showing that someone is viewing that document. If Katie hovers over that icon she can see that it is Alice who is viewing the document.
 
 ![Stage Collab Alice]({% link content-accelerator/images/stage_collab_icons2.png %})
 
@@ -217,58 +236,62 @@ Another important feature to note: (If configured) there will be an option to st
 The stage collaboration features are configured in the ACA admin. 
 Under the Application configuration, find the Collaboration Setting section: 
 ![Content Accelerator Stage Collab Stage Settings]({% link content-accelerator/images/stage-collab-2.png %})
-Here you will have the option to turn on zoom or teams integrations, or both. 
-This area holds the high level configurations for these integrations. 
+Here you will have the option to turn on zoom or teams integrations, or both.
+This area holds the high level configurations for these integrations.
 
 
 #### Application Config
-1. Set the collaboration url. These collaboration features require the AEV socket server to be installed. If you installed the defaults according to the installation guide then the socket server will be running on port 3000. Update the url to have the correct host and port. (ex: http://localhost:3000)
 
+1. Set the collaboration url. These collaboration features require the AEV socket server to be installed. If you installed the defaults according to the installation guide then the socket server will be running on port 3000. Update the url to have the correct host and port. (ex: `http://localhost:3000`)
 
 2. Enable Zoom integration if desired by toggling the switch to on
-> * Once toggled on you will be prompted for a Client Id and authentication endpoint
-> * For the client Id, if you already have a zoom account setup with your application registered then go ahead and add the clientId and auth url from that account. If you need to set it up still, see the _**Zoom Setup via Zoom MarketPlace**_ section below. 
 
+   * Once toggled on you will be prompted for a Client Id and authentication endpoint
+   * For the client Id, if you already have a zoom account setup with your application registered then go ahead and add the clientId and auth url from that account. If you need to set it up still, see the **Zoom Setup via Zoom MarketPlace** section below. 
 
 3. Enable Teams integration if desired by toggling the switch to on
-> * Once toggled on you will be prompted for a Client Id and authentication endpoint
-> * For the client Id, if you already have an azure account setup with your application registered then go ahead and add the clientId and auth url from that account. If you need to set it up still, see the _**Teams Setup via Azure**_ section below. 
+
+   * Once toggled on you will be prompted for a Client Id and authentication endpoint
+
+   * For the client Id, if you already have an azure account setup with your application registered then go ahead and add the clientId and auth url from that account. If you need to set it up still, see the **Teams Setup via Azure** section below.
 
 #### Stage Config
-Now that the collaboration connection details are configured, we need to enable it for the individual stage configurations. 
+
+Now that the collaboration connection details are configured, we need to enable it for the individual stage configurations.
 
 To do so, in the ACA admin interface, navigate to the Stage configuration you wish to enable collaboration for. Select the Stage Info section of the config in the dropdown. Then navigate to the Collaboration Settings section of this config. Flip the switch to enable overall collaboration then choose to enable zoom, teams, or both via the individual toggles. 
 
 ![Content Accelerator Stage Collab]({% link content-accelerator/images/stage-collab-1.png %})
 
 #### OpenContent Config
+
 The final piece is to configure the teams integration information that Open Content requires. To do so, add the following properties to your `opencontent-override-placeholders.properties`
 
 **Required by both zoom and teams collaborations**
 
-> annotation.collabEndpoint= {endpoint to the collaboration server ex: http://localhost:3000}
+`annotation.collabEndpoint= {endpoint to the collaboration server ex: http://localhost:3000}`
 
 **Required by teams collaboration**
 
-> teams.redirectURL= {opencontent endpoint to redirect teams to ex: http://localhost:8080/alfresco/OpenContent/annotation/teamsAuth}
+* `teams.redirectURL= {opencontent endpoint to redirect teams to ex: http://localhost:8080/alfresco/OpenContent/annotation/teamsAuth}`
 
-> teams.clientId= {client id from teams marketplace}
+* `teams.clientId= {client id from teams marketplace}`
 
-> teams.clientSecret= {client secret from teams marketplace}
+* `teams.clientSecret= {client secret from teams marketplace}`
 
 **Required by zoom collaboration**
 
-> zoom.redirectURL= {opencontent endpoint to redirect teams to ex: http://localhost:8080/alfresco/OpenContent/annotation/zoomAuth}
+* `zoom.redirectURL= {opencontent endpoint to redirect teams to ex: http://localhost:8080/alfresco/OpenContent/annotation/zoomAuth}`
 
-> zoom.clientID= {client id from zoom marketplace}
+* `zoom.clientID= {client id from zoom marketplace}`
 
-> zoom.clientKey= {client secret from zoom marketplace}
+* `zoom.clientKey= {client secret from zoom marketplace}`
 
-> zoom.jwtTokenExpiration= {The time in seconds until the jwtToken expires}
+* `zoom.jwtTokenExpiration= {The time in seconds until the jwtToken expires}`
 
-> zoom.recordMeetings=false
+* `zoom.recordMeetings=false`
 
-> zoom.createMeetingRecordingObject=false
+* `zoom.createMeetingRecordingObject=false`
 
 ### Teams Setup via Azure
 1. Sign in to the **Azure Portal**
@@ -286,14 +309,19 @@ The final piece is to configure the teams integration information that Open Cont
      * Navigate to **Microsoft Graph** -> **Delegated Permissions** -> **OnlineMeetings** -> Select and add the **OnlineMeetings.ReadWrite** permission
 
 ### Zoom Setup via Zoom MarketPlace
-_**NOTE: The app must be made by the _zoom owner_ that has all the users added to their zoom account.**_
+
+The app must be made by the _zoom owner_ that has all the users added to their zoom account.
 
 **Creating a Zoom Application**
 
- Here we are creating a zoom app that will allow us to access their APIs as well as interact with users zoom accounts
+ Here we are creating a zoom app that will allow us to access their APIs as well as interact with users zoom accounts.
+
 1. Create an application in the [zoom marketplace](https://marketplace.zoom.us/).
+
 2. Pull open the dropdown that says Develop and click build app - select the OAuth for the app type
+
 3. Name it whatever you would like, make it an account-level app and do not publish to the Marketplace
+
 4. Now your app has been created. A few items to note here on the first page:
      * You will need the clientID and Client Secret Key to use as injectables in OC and to fill in the application config in ACA. 
      * Then you will also need to fill out the redirect URL and whitelist URL with the url of the path to the your OpenContent plus the zoom endpoint name. 
@@ -301,29 +329,40 @@ _**NOTE: The app must be made by the _zoom owner_ that has all the users added t
         Ex: `http://localhost:8080/alfresco/OpenContent/annotation/zoomAuth`
 
 5. Under the scopes section of the app setup, you will want to add the following scopes:
+
     * meeting:write:admin
     * user:read:admin
 
 **Adding roles for users**
 
- Here we are adding users to a role, so they have permission to interact with the zoom application and start calls from Alfresco Enterprise Viewer
+ Here we are adding users to a role, so they have permission to interact with the zoom application and start calls from Alfresco Enterprise Viewer.
+
 1. Log in as the zoom owner
+
 2. Head to the [role management section](https://zoom.us/role)
+
 3. Add a role called developer
+
 4. Go to the Role Settings section for the developer role we created in step 3 as we will need to set a few of the roles:
+
     * Under User and Permission Management - check view for Users(View user information)
     * Under Dashboard - check view for Meetings(View detail information of real-time and past zoom meetings and relevant participants)
     * Under Advanced Features - check edit for Zoom for Developers, Integration, and Marketplace
 
 **What to do if my collaboration endpoint is on https**
 
-You will need to import the SSL certificate into the truststore of the Java that is running OpenContent
+You will need to import the SSL certificate into the truststore of the Java that is running OpenContent.
+
 1. Get your SSL certificate
     * The is the same certificate you have pointed your Collaboration Server at in the collaborationConfig.js file
+
 2. Find the Java home for the Java which is running OpenContent
+
 3. Find the truststore for this Java
     * If this is a JDK the default should be at `{JAVA_HOME}/jre/lib/security/cacerts`, if it is a JRE the default should be at `{JAVA_HOME}/lib/security/cacerts`
+
 4. Import the certficate into the truststore using the java keytool command line tool
+
     * `{JAVA_HOME}/bin/keytool -import -trustcacerts -alias collaborationServerCertificate -file {THE_CERTIFICATE}.cer -keystore {TRUSTSTORE_LOCATION}`
     * The default password for the truststore should be `changeit`
 
@@ -336,30 +375,41 @@ The configs for these actions will require you to specify either Google Drive or
 Once your cloud solution has been chosen, the following steps must be completed in order to integrate your selected cloud solution with ACA:
 
 ### Microsoft OneDrive
+
 1. Navigate to the [Azure Portal](https://portal.azure.com) and login.
-1. Search for `App registrations`
-1. Create a new App Registration
-1. Make sure the audience is set to `Accounts in any organizational directory and personal Microsoft accounts`
-1. Select the Authentication section
-    - Set up Redirect url(s) (example: `https://{server}/ocms/dummy/path`).
-      - Note that for development, a redirect URL starting with `http://localhost` is acceptable.  All other URLs must start with `https://`.
-    - Under `Implicit grant`, ensure the `Access tokens` and `ID tokens` checkboxes are checked
-1. Select the API Permissions section.  Ensure the following permissions are granted:
-    - Microsoft Graph: `user.read, Files.ReadWrite.All, Files.ReadWrite.AppFolder, Files.ReadWrite.Selected, offline_access, openid, Sites.ReadWrite.All`
-    - Admin Consent Required - no for all
-1. After saving all changes, navigate back to the Overview page and copy the `Application (client) ID`.  This will be needed in the ACA admin (see below).
-1. Follow these steps if your version of Java runs into issues with the SSL Certificate, usually manifesting in `PKIX` errors in the log files:
+
+2. Search for `App registrations`
+
+3. Create a new App Registration
+
+4. Make sure the audience is set to `Accounts in any organizational directory and personal Microsoft accounts`
+
+5. Select the Authentication section
+
+   1. Set up Redirect url(s) (example: `https://{server}/ocms/dummy/path`).
+      > **Note:** For development, a redirect URL starting with `http://localhost` is acceptable.  All other URLs must start with `https://`.
+
+   2. Under `Implicit grant`, ensure the `Access tokens` and `ID tokens` checkboxes are checked
+
+6. Select the API Permissions section.  Ensure the following permissions are granted:
+
+    * Microsoft Graph: `user.read, Files.ReadWrite.All, Files.ReadWrite.AppFolder, Files.ReadWrite.Selected, offline_access, openid, Sites.ReadWrite.All`
+    * Admin Consent Required - no for all
+
+7. After saving all changes, navigate back to the Overview page and copy the `Application (client) ID`.  This will be needed in the ACA admin (see below).
+
+8. Follow these steps if your version of Java runs into issues with the SSL Certificate, usually manifesting in `PKIX` errors in the log files:
 
      * Download and install OpenSSL
      * Ensure you are on the same network as the target server
      * From a command prompt, run this command:
 
-        - `openssl s_client -showcerts -host graph.microsoft.com -port 443`
+       `openssl s_client -showcerts -host graph.microsoft.com -port 443`
 
      * For the first certificate returned (there are usually 2), mark the lines starting with `-----BEGIN CERTIFICATE-----` up to `-----END CERTIFICATE-----` and copy them into a text editor and save to a file on the Alfresco server.
      * Run this command on the Alfresco server to add the certificate to the Java keystore:
 
-        - `<ALFRESCO_HOME>\java\bin\keytool.exe -import -trustcacerts -alias <give the certificate an alias> -file <path to file from the previous step> -keystore <ALFRESCO_HOME>\java\lib\security\cacerts`
+       `<ALFRESCO_HOME>\java\bin\keytool.exe -import -trustcacerts -alias <give the certificate an alias> -file <path to file from the previous step> -keystore <ALFRESCO_HOME>\java\lib\security\cacerts`
 
     - The alias can be anything as long as it's unique
      * When prompted, enter the default keystore password
@@ -368,35 +418,42 @@ Once your cloud solution has been chosen, the following steps must be completed 
 
 ### Google Drive
 
-> Please note that Google Docs is an experimental action and may not work properly
+> **Note:** Google Docs is an experimental action and may not work properly.
 
 Reference: [https://developers.google.com/identity/protocols/OAuth2UserAgent](https://developers.google.com/identity/protocols/OAuth2UserAgent)
 
-
 1. Create a Google Project:
-     * Access the [Google Developers Console](https://console.developers.google.com/apis/dashboard)
-     * If not already, sign-in to your Google Drive account associated with your ACA application.
-     * Click on `Select a Project` and create a new project from the menu that appears.
-2. Enable Drive within your newly created Google Project:
-     * Navigate back to the Google API Library
-     * From the list of Google APIs, choose `Google Drive API.`
-     * Click `Enable` on the menu screen that appears.
-3. Create a Client ID:
-     * Click on the Credentials tab from the Google API Library home.
-     * Click on `Create Credentials` and select `OAuth client ID` from the dropdown that appears.
-     * Select `Web Application` as the Application Type.
-     * In the `Authorized JavaScript Origin` sections that appears, input the domain origin of your ACA application.
-     * Click `Create` and Google should present you with a Client ID and Client Secret.
-     * Copy the `Application (client) ID`.  This will be needed in the ACA admin (see below).
+   * Access the [Google Developers Console](https://console.developers.google.com/apis/dashboard)
+   * If not already, sign-in to your Google Drive account associated with your ACA application.
+    * Click on `Select a Project` and create a new project from the menu that appears.
 
+2. Enable Drive within your newly created Google Project:
+    * Navigate back to the Google API Library
+    * From the list of Google APIs, choose `Google Drive API.`
+    * Click `Enable` on the menu screen that appears.
+
+3. Create a Client ID:
+    * Click on the Credentials tab from the Google API Library home.
+    * Click on `Create Credentials` and select `OAuth client ID` from the dropdown that appears.
+    * Select `Web Application` as the Application Type.
+    * In the `Authorized JavaScript Origin` sections that appears, input the domain origin of your ACA application.
+    * Click `Create` and Google should present you with a Client ID and Client Secret.
+    * Copy the `Application (client) ID`.  This will be needed in the ACA admin (see below).
 
 ### Configure Google Drive and OneDrive Actions in ACA
-### (CheckoutToCloudService, CheckinFromCloudService, CancelCheckout)
+
+#### (CheckoutToCloudService, CheckinFromCloudService, CancelCheckout)
+
 1. Select the action.
-1. In the `Edit Online With` slider, choose "Office Online" or "Google Drive"
-1. For Office online, Enter the Client ID and the Redirect URL from the newly registered Application.
-    - Set OneDrive checkout location to `Personal or Organization`. The default is the user's personal OneDrive.
-    - Set `Give Edit Ability` Slider depending on whether you want Share Permissions in OneDrive to be automatically sent to any users with Write Permission on that Document.
-    - If Give Edit Ability Slider is set to true, there will be another slider setting whether to send an email to all users with Write permission on the document any time it is checked out to OneDrive. If set to false, the document will simply show up in those users' Shared Folder on OneDrive.
-1. For Google Drive, enter the Application ID and choose "Alfresco"
-1. Click Save Config.
+
+2. In the `Edit Online With` slider, choose "Office Online" or "Google Drive"
+
+3. For Office online, Enter the Client ID and the Redirect URL from the newly registered Application.
+
+    * Set OneDrive checkout location to `Personal or Organization`. The default is the user's personal OneDrive.
+    * Set `Give Edit Ability` Slider depending on whether you want Share Permissions in OneDrive to be automatically sent to any users with Write Permission on that Document.
+    * If Give Edit Ability Slider is set to true, there will be another slider setting whether to send an email to all users with Write permission on the document any time it is checked out to OneDrive. If set to false, the document will simply show up in those users' Shared Folder on OneDrive.
+
+4. For Google Drive, enter the Application ID and choose "Alfresco"
+
+5. Click Save Config.

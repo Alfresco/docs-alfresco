@@ -45,25 +45,32 @@ Name | Label | Control Type | Notes |
 --- | --- | --- | --- |
 bpm_assignees | Users | AutoComplete | Repeating dropdown of all users.  Can be set to `allUsers` picklist or another if desired
 bpm_groupAssignee | Groups | AutoComplete | Repeating dropdown of all groups.  Optional, can be omitted if desired.
-notificationType | Notification Type | AutoComplete | Dropdown notification classification type.  **NOTE** - if the configuration contains a Notification Type field with `name = notification_type` (use the More button next to the field name to check) or any other value other than `notificationType`, it is recommended to follow the steps outlined below this table.
+notificationType | Notification Type | AutoComplete | Dropdown notification classification type.  **Note:** If the configuration contains a Notification Type field with `name = notification_type` (use the More button next to the field name to check) or any other value other than `notificationType`, it is recommended to follow the steps outlined below this table.
 bpm_workflowDueDate | Due Date | DateBox | Suggested due date for the notification.  Suggested to configure that the date must be today or in the future.
 bpm_comment | Comment | Textarea | Suggested to configure with WYSIWYG option on.
 
-Note: Only bpm_assignees and bpm_groupAssignee are required for notification to work. However, if not present in the form the ACA notification interface will still show columns for Notification Type, Due Date and Comment.  Any values missing on the form will result in a column that only contains blank values.
+**Note:** Only bpm_assignees and bpm_groupAssignee are required for notification to work. However, if not present in the form the ACA notification interface will still show columns for Notification Type, Due Date and Comment.  Any values missing on the form will result in a column that only contains blank values.
 
 **Notification Type** - if the name of the Notification Type field is not properly configured as described above, follow these steps:
 
-*Click the AutoComplete Options button in the Notification Type field row.  Note which Picklist is configured.  If any help text was configured, note this as well.
-*Delete the Notification Type row in the table using the `X` icon in the `Remove` column of the table
-*Click the `Delete Custom Attributes` button.  Check the box next to `Notification Type` and click `Delete Selected Attributes`
-*Click `Create Custom Attribute` and fill out the following:
-  *Name: `notificationType`
-  *Label: `Notification Type`
-  *Click `Add Attribute`
-*Click `Add Attributes` and choose the Notification Type attribute.  Set:
-  *Control Type: `AutoComplete`
-  *Under Options, choose the picklist noted above and add back in any help text if needed
-*Click `Save Config`
+1. Click the AutoComplete Options button in the Notification Type field row.  Remember which Picklist is configured and any configured help text.
+
+2. Delete the Notification Type row in the table using the `X` icon in the `Remove` column of the table.
+
+3. Click the `Delete Custom Attributes` button.  Check the box next to `Notification Type` and click `Delete Selected Attributes`.
+
+4. Click `Create Custom Attribute` and fill out the following:
+
+   * Name: `notificationType`
+   * Label: `Notification Type`
+   * Click `Add Attribute`
+
+5. Click `Add Attributes` and choose the Notification Type attribute.  Set:
+
+   * Control Type: `AutoComplete`
+   * Under Options, choose the picklist noted above and add back in any help text if needed
+
+6. Click `Save Config`
 
 ***Workflow Config***
 
@@ -80,32 +87,42 @@ Bulk upload contains a number of updates that should be reviewed and potentially
 For each instance of the Bulk Upload action (either as a header action or Stage Folder action):
 
 1. In Advanced Properties -> Indexing Mode
-    - Validate the list of extensions that should show the document preview window while uploading.  When users upload documents using the Bulk Upload action, the document preview will only display if the document's extension is in the configured list.  Otherwise, for extensions not in the list, the preview pane will not display.
-1. Advanced Properties -> Saved Sessions
-    - Determine if users would like saved session functionality.  Saved sessions is useful when Bulk Upload actions regularly take users a non-trivial amount of effort.  If users generally fill out Bulk Upload forms in less than 5 minutes, Saved Sessions may not be needed.
-1. Whether or not any updates were made, re-save the config. This will activate the new configurations.
+
+     * Validate the list of extensions that should show the document preview window while uploading.  When users upload documents using the Bulk Upload action, the document preview will only display if the document's extension is in the configured list.  Otherwise, for extensions not in the list, the preview pane will not display.
+
+2. Advanced Properties -> Saved Sessions
+
+     * Determine if users would like saved session functionality.  Saved sessions is useful when Bulk Upload actions regularly take users a non-trivial amount of effort.  If users generally fill out Bulk Upload forms in less than 5 minutes, Saved Sessions may not be needed.
+
+3. Whether or not any updates were made, re-save the config. This will activate the new configurations.
 
 ### Policy and Procedure Updates
 
 A number of new features were added to the default configurations for the 3.5 release in the Policy and Procedure Accelerator:
 
-- Document Subscriptions
-- Document Distribution Lists
-- Automated Training Period
-- Periodic Review Interval per-document
-- Ad-Hoc Form Supporting Documents
-- Review Comments Documents
+* Document Subscriptions
+* Document Distribution Lists
+* Automated Training Period
+* Periodic Review Interval per-document
+* Ad-Hoc Form Supporting Documents
+* Review Comments Documents
 
-Follow these steps to add the above features to existing Policy and Procedure Configs.  Note that all of the above are optional.  Steps for these features (all or in part) can be skipped as desired.
+Follow these steps to add the above (optional) features to existing Policy and Procedure Configs.
 
 1. Add the following aspects to the Non-Mandatory Aspect Config.  The Aspect Label can be anything, it is not shown to users. Attribute labels will default to sensible values but can be changed as needed.
-    - `tsg_distributionsAttrs`
-    - `tsg_subscriptionAttrs`
-1. In the Object Type Config, add the aspects added in the last step to the `Quality Document` type.  If the label of this type was changed, look for the type with `ocName` set to `Quality Document`.
-1. Add the following attributes to `Quality Document`. Attribute labels will default to sensible values but can be changed as needed.
-    - `tsg_trainingPeriod`
-    - `periodic_review_interval`
-1. Edit the `createObjectControlledDocs` form:
+
+    * `tsg_distributionsAttrs`
+    * `tsg_subscriptionAttrs`
+
+2. In the Object Type Config, add the aspects added in the last step to the `Quality Document` type.  If the label of this type was changed, look for the type with `ocName` set to `Quality Document`.
+
+3. Add the following attributes to `Quality Document`. Attribute labels will default to sensible values but can be changed as needed.
+
+    * `tsg_trainingPeriod`
+    * `periodic_review_interval`
+
+4. Edit the `createObjectControlledDocs` form:
+
     - Add the Training Period property
       - Control Type: Textbox
       - Suggested Options Settings:
@@ -125,18 +142,24 @@ Follow these steps to add the above features to existing Policy and Procedure Co
       - Control Type: Autocomplete
       - Suggested Options Settings:
         - Picklist: `allGroups`
-          - ***Note**: you may want to configure a more restrictive group depending on your repository and use case*
+          **Note:** you may want to configure a more restrictive group depending on your repository and use case
         - Help Text: `Groups selected here will receive a notification when this document is Approved, Effective or Obsolete.`
       - Editable, Not Required, Repeating
-1. Edit the `viewProperties` form:
+
+5. Edit the `viewProperties` form:
+
     - Add the same properties with the same settings as the `create` form above.  Exceptions:
       - Periodic Review Interval should *not* have a default value in the `viewProperties` form
-1. Edit the `controlleddocs` Stage config and navigate to the DocViewer config
+
+6. Edit the `controlleddocs` Stage config and navigate to the DocViewer config
+
     - Add the following Document Actions:
       - subscribe
       - unsubscribe
     - Default settings and action order can be changed as desired
-1. Navigate to the Dashboard config and:
+
+7. Navigate to the Dashboard config and:
+
     - Add a new "My Subscriptions" dashlet
       - ID: `mySubscriptions`
       - Name: `My Subscriptions`
@@ -158,7 +181,9 @@ Follow these steps to add the above features to existing Policy and Procedure Co
         - ***Hint**: If the "Subscription User List" attribute is not available, clear your browser cache and try again.*
     - Save the dashlet config
     - In the Dashboard Tabs section, add the `My Subscriptions` dashlet to the `Home` tab.  Order the dashlets as desired and then click `Save Tabs`.
-1. Edit the `wizard` Stage config and navigate to the Folder Actions config.  Edit the `Wizard Actions` section.
+
+7. Edit the `wizard` Stage config and navigate to the Folder Actions config.  Edit the `Wizard Actions` section.
+
     - Add the `manageAdHocDocuments` action to the list of selected actions.
       - Action order in the list can be set as desired, but it's recommended to place this action above or below the `manageWorkflowDocuments` action.
     - Edit the `manageAdHocDocuments` action:
@@ -173,7 +198,9 @@ Follow these steps to add the above features to existing Policy and Procedure Co
         - Make File Title Unique: selected
         - Dynamic Filenames for Comment Docs: selected
           - Update pattern so the value is: `Review Comment - $displayName$ - $currentDate$ $currentTime$`
-1. In the `wizard` stage config, navigate to Related Objects and:
+
+8. In the `wizard` stage config, navigate to Related Objects and:
+
     - Add a New Relation Configuration:
       - Label: `Related Review Comments`
       - Relationship Type: `Relation Based`
