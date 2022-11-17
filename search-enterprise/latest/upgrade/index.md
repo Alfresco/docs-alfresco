@@ -56,7 +56,7 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
 2. Start a mirrored environment by replicating the content repository and Content Services.
 
-    You create a mirrored environment because the upgrade will not impact the primary environment. Use the Elasticsearch instance you created as the content repository for the mirrored environment. Once you have mirrored the environment do not change the content repository and only use it in read-only mode. If you do not need to preserve the content repository then you only need to mirror Content Services.
+    You create a mirrored environment so the upgrade will not impact the primary environment. Use the Elasticsearch instance you created as the content repository for the mirrored environment. Once you have mirrored the environment do not change the content repository and only use it in read-only mode. If you do not need to preserve the content repository then you only need to mirror Content Services.
 
     ![mirror-acs]({% link search-enterprise/images/mirror-acs-environment.png %})
 
@@ -114,78 +114,66 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
 ## Upgrade from legacy Content Services
 
-You can guide shows you how to upgrade from the Legacy ACS (5.2.x, 6.2.x) with the Search Service to the Current ACS (7.x at the time of writing) with the Enterprise Search without a need to run Solr reindexing and with a minimal performance impact on the production environment.
+You can upgrade from the legacy versions of Content Services 5.2.x and 6.2.x with Search Services (Solr) to Content Services 7.x with Search Enterprise. You can do this with minimal performance impact on your production environment, and you do not need to reindex Solr. 
 
+1. Start an Elasticsearch 3.x instance, for more see [Overview]({% link search-enterprise/latest/install/index.md %}).
 
-Following guide shows you how to upgrade from the Legacy ACS (5.2.x, 6.2.x) with the Search Service to the Current ACS (7.x at the time of writing) with the Enterprise Search without a need to run Solr reindexing and with a minimal performance impact on the production environment.
+    Currently your installation is using Solr.
 
+    ![start-elasticsearch]({% link search-enterprise/images/start-elasticsearch.png %})
 
+2. Start a mirrored environment by replicating the content repository and Content Services.
 
+    You create a mirrored environment because the upgrade will not impact the primary environment. Use the Elasticsearch instance you created as the content repository for the mirrored environment. Once you have mirrored the environment do not change the content repository and only use it in read-only mode. If you do not need to preserve the content repository then you only need to mirror Content Services.
 
+    ![start-mirrored]({% link search-enterprise/images/start-mirrored.png %})
 
-#### Primary Environment
+    The goal of this step is to have a similar environment as you would have after doing a regular upgrade. If any custom upgrade procedure is required you can also apply it to the mirrored environment.The mirrored environment uses the same content store as the production one. During the metadata upgrade on the mirrored environment some content could be created. This should not affect the live environment because it won’t be referenced by the live metadata Store. This is a compromise between replicating the whole content store which can be time consuming and expensive, and having a small amount of unreferenced data. If it’s not possible to share the content store then a replicated content store can be used.
 
-Let’s start with the typical ACS 5.2 environment. Please notice that it’s configured to use a solr based Search Service.
+    > **Important:** The mirrored environment is used just to populate the Elasticsearch index. It’s important that this environment is isolated from the live environment i.e. do not join it to the production cluster or access the live metadata store.
 
-![primary-environment]({% link search-enterprise/images/primary-environment.png %})
+3. Create an Elasticsearch index by executing a search query on the mirrored environment.
 
-#### Starting Elasticsearch server
+    Verify the index is created and its metadata correctly reflects your data model.
 
-The Enterprise Search requires the Elasticsearch server. In this step a new server is started.
+    > **Note:** The index is not created when you mirrored the content repository and Content Services.
 
-![start-elasticsearch]({% link search-enterprise/images/start-elasticsearch.png %})
+    ![elastic-index]({% link search-enterprise/images/elastic-index.png %})
 
-#### Starting a mirrored environment
+4. Populate the index with existing data.
 
-To avoid impacting the initial environment we need to mirror it by replicating a metadata and sharing the existing content stores. Important part here is that the mirrored environment is using the Current ACS version and is configured to use the Elasticsearch we’ve started in the previous step.
+    The index is populated and is based on the replicated database and is achieved by starting re-indexing on the mirrored environment. For more see [re-indexing]({% link search-enterprise/latest/config/index.md %}#alfresco-re-indexing-app).
 
+    > **Note:** A window displays that states the primary database does not reflect the up to date index.
 
-![start-mirrored]({% link search-enterprise/images/start-mirrored.png %})
+    ![populate-index]({% link search-enterprise/images/populate-index.png %})
 
+5. Shutdown the mirrored environment.
 
-The goal of this step is to have a similar environment as you would have after doing a regular upgrade. If any custom upgrade procedure is required please apply it as well to the mirrored environment.
+    You are left with an Elasticsearch server with a populated index.
 
-> **Note:** The mirrored environment is using the same Content Store as the production one. During the Metadata upgrade on the mirrored environment some content might be created. It shouldn’t affect the live environment because it won’t be referenced by the live Metadata Store. It’s a compromise between replicating the whole Content Store (might be time consuming and really expensive) and having a couple of unreferenced data. If it’s not possible to share the Content Store then replicated Content Store can be used.
+    > **Note:** The index is not yet in sync with the primary environment.
 
-> **Important:** The mirrored environment is used just to populate the Elasticsearch index. It’s important that this environment is isolated from the live environment (not joining the production cluster or accessing the live Metadata Store).
+    ![shutdown-mirrored-two]({% link search-enterprise/images/shutdown-mirrored-two.png %})
 
+6. Upgrade the initial environment.
 
-#### Creating an Elasticsearch index
+    You now have a legacy version of Content Services using Solr and an Elasticsearch server that has an almost complete version of the index. Upgrade the legacy environment and then switch the search engine from Solr to Elasticsearch.
 
-Now we are ready to create an empty Elasticsearch index. The index is created on demand so it won’t be created at mirrored environment startup. To trigger an index creation we just need to execute any search query on the mirrored environment. Please verify the index is created and its metadata reflects your data model.
+    ![upgrading-initial-enviro]({% link search-enterprise/images/upgrading-initial-enviro.png %})
 
-![elastic-index]({% link search-enterprise/images/elastic-index.png %})
+7. Close the gap in the Elasticsearch index.
 
-#### Populate index with already existing data
+    You do this by starting the Elasticsearch re-indexing component, and only for the data modified after taking the snapshot you created for the mirrored environment.
 
-In this step we will populate an index created in the previous step. It will be done based on the replicated database and content store by starting the ES Re-Indexing component on the mirrored environment. Of course it opens a time window starting from taking a primary database snapshot in which changes are not reflected in the index. We will tackle it in a next steps.
+    ![close-elasticsearch-gap]({% link search-enterprise/images/close-elasticsearch-gap.png %})
 
-![populate-index]({% link search-enterprise/images/populate-index.png %})
+8. Wait for re-indexing to complete.
 
-#### Shutdown mirrored environment
+    Once re-indexing is complete you have upgraded Content Services to have an up to date Elasticsearch index.
 
-Now when we indexed data on the mirrored environment it’s no longer needed. All we need is an Elasticsearch server with populated index. Still the index is lagging behind the primary environment but we are going to deal with it.
+    ![final-state]({% link search-enterprise/images/final-state.png %})
 
-![shutdown-mirrored-two]({% link search-enterprise/images/shutdown-mirrored-two.png %})
-
-#### Upgrading the initial environment
-
-Previous steps lead us to the state where we have a Legacy ACS using Solr and an Elasticsearch server with an index covering most of our data. Now it’s time to upgrade the environment together with switching the search engine from Solr to Elasticsearch.
-
-![upgrading-initial-enviro]({% link search-enterprise/images/upgrading-initial-enviro.png %})
-
-#### Closing the gap
-
-Now it’s time to close the gap in the Elasticsearch index. It can be done by starting the ES Re-Indexing component but only for the data modified after taking a snapshot for creating a mirrored environment.
-
-![close-elasticsearch-gap]({% link search-enterprise/images/close-elasticsearch-gap.png %})
-
-#### Final state
-
-When Re-Indexing is done we reached a point where we have upgraded ACS with up to date Elasticsearch index.
-
-![final-state]({% link search-enterprise/images/final-state.png %})
-
-#### How it looks from the End User perspective
+Once this has completed the work can be summarized with the diagram below.
 
 ![end-user-perspective]({% link search-enterprise/images/end-user-perspective.png %})
