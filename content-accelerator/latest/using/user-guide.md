@@ -46,7 +46,7 @@ The above screenshot shows what Search's main components look like and environme
 8. Search result controls such as pagination, select results, items per page, and text filtering of results.
 9. Table displays results returned by the search, along with configured metadata fields.
 10. Reset table settings to its defaults.
-    >**Note**: this could be on in some environments and not in others depending on if the administrator turned it on.
+    >**Note:** this could be on in some environments and not in others depending on if the administrator turned it on.
 
 Search results can be paginated and filtered all from a single screen without needing to re-execute a search. Many document and folder actions can be performed from Search. There are two easy ways to execute those actions:
 

@@ -658,12 +658,12 @@ To copy a Form Template:
 
 Initiating the save as functionality makes an exact copy of the Form Template as it was the last time it was checked in, the only difference being the name of the set. Any changes that have been made since the set was checked out will not show up in the destination set.
 
->**Note**: To make changes to a set and then copy those changes over to a new set, first click the **save all changes** button,
+>**Note:** To make changes to a set and then copy those changes over to a new set, first click the **save all changes** button,
 >and then re-checkout the set and click the **save as** button.
 
 The name of the new set must be unique, as is required with any new set. If an invalid name is entered in the Form Template title, the page will refresh informing you to select another name.
 
->**Note**: If you choose to begin editing the destination set after making a copy, the source set will remain checked
+>**Note:** If you choose to begin editing the destination set after making a copy, the source set will remain checked
 >out to you until you return to check it back in. The set will be unavailable to other administrative users until this time.
 
 ##### Deleting a Form Template
@@ -730,7 +730,7 @@ To make a page not required:
 
 Making a page not required makes it unavailable to users creating Form Templates instances off of the Form Template unless certain criteria are met.  For more on how to use required pages to lead to sub-pages, see [Working with an individual Page and its Inputs](/content-accelerator/latest/configure/admin-guide/#working-individual-page).
 
->**Note**: For users creating Forms to see changes made to the requirement of pages, the changed version of the
+>**Note:** For users creating Forms to see changes made to the requirement of pages, the changed version of the
 >Form Template must be published and activated.
 
 ##### Reordering Pages
@@ -742,7 +742,7 @@ To change the order of the required pages:
 * Click the up or down arrow icon to change the page order
 * Click reorder to accept the new ordering, or cancel to cancel the reordering
 
->**Note**: For users creating Forms to see changes made to the order of pages, the changed version of the Form Template
+>**Note:** For users creating Forms to see changes made to the order of pages, the changed version of the Form Template
 >must be published and activated.
 
 ##### Deleting Optional Pages
@@ -752,7 +752,7 @@ To delete an Optional (non-required) Page:
 * Check out the Form Template
 * Click the scissors' icon for the page to delete
 
->**Note**: A page cannot be deleted if it is led to by another page.  If this is the case, a message will be displayed
+>**Note:** A page cannot be deleted if it is led to by another page.  If this is the case, a message will be displayed
 >showing the user which pages need to be modified before a delete operation will succeed. If the page contains certain
 >actions, such as Mpower variable mappings, a warning will be displayed to the user.
 
@@ -1045,7 +1045,7 @@ The following sections are available:
 
 The blackout days section allows the administrator to specify that certain days of the week should not be available for selection. In the example above, Sunday and Saturday will not be available in the calendar.
 
->**Note**: As of v3.4, blackout date functionality is reserved for future use.
+>**Note:** As of v3.4, blackout date functionality is reserved for future use.
 
 ![Img Txt]({% link content-accelerator/images/aca-form-input-mask-question-date-rules-blackedout.png %})
 
