@@ -14,7 +14,7 @@ Users who have received a notification can either click the link in the email re
 
 The following steps should be used to set up notifications.
 
-Note - currently only one `sendNotification` form is supported.  Future releases may enable trac-specific overrides.
+Currently only one `sendNotification` form is supported.  Future releases may enable trac-specific overrides.
 
 #### Step 1: Setup the Ad Hoc Form
 
@@ -28,7 +28,7 @@ notificationType | Notification Type | AutoComplete | Dropdown notification clas
 bpm_workflowDueDate | Due Date | DateBox | Suggested due date for the notification.  Suggested to configure that the date must be today or in the future.
 bpm_comment | Comment | Textarea | Suggested to configure with WYSIWYG option on.
 
-Note: Only bpm_assignees and bpm_groupAssignee are required for notification to work. However, if not present in the form the ACA notification interface will still show columns for Notification Type, Due Date and Comment.  Any values missing on the form will result in a column that only contains blank values.
+**Note:** Only bpm_assignees and bpm_groupAssignee are required for notification to work. However, if not present in the form the ACA notification interface will still show columns for Notification Type, Due Date and Comment.  Any values missing on the form will result in a column that only contains blank values.
 
 #### Step 2: Setup the Workflow Config
 
@@ -126,20 +126,31 @@ You may notice there are some permissions that need Admin Consent. These are the
 
 Click on the **_Authentication_** tab on the left side menu. There are 2 different ways the following configurations can be filled out on this screen depending on if your azure account loads their new or old view for this section.
 
-1. The _"new"_ experience, which should be loaded by default (this is Azure's update to some of these views).
+##### _"New"_ experience
 
-* Click on the Add a platform. It will ask you to add a redirect URI. We don't necessarily need one for this API, but it's a required field. So give it your application url root/homepage (EX: `http://localhost:8080`).
-* Leave the Logout Url section blank
-* Select the check-boxes for the **Access token** and **ID tokens** (this is very important because it lets the application generate a access token to be used within the API calls)
-* Once that is created, scroll to the bottom of the page to the **_Advanced Settings_** header. Turn this on. We are not using re-direct URI's. That means we are grabbing tokens without user involvement/sign-in window.
-* Click Save at the top to save all these changes.
+New experience is loaded by default. This is Azure's update to some of these views.
 
-1. The _"old"_ experience. You can tell if you are on the old, if the button to the right of the Discard says _Switch to the new experience_.
+1. Click on the Add a platform. It will ask you to add a redirect URI. We don't necessarily need one for this API, but it's a required field. So give it your application url root/homepage (EX: `http://localhost:8080`).
 
-* Skip the Redirect URIs section and do not input a logout url.
-* Under the **_Implicit grant_** section, select the check-boxes for the **Access token** and **ID tokens** (this is very important because it lets the application generate a access token to be used within the API calls)
-* Click Yes for the **_Default client type_** to treat application as a public client.
-* Click save at the top to save all these changes.
+2. Leave the Logout Url section blank
+
+3. Select the check-boxes for the **Access token** and **ID tokens** (this is very important because it lets the application generate a access token to be used within the API calls)
+
+4. Once that is created, scroll to the bottom of the page to the **_Advanced Settings_** header. Turn this on. We are not using re-direct URI's. That means we are grabbing tokens without user involvement/sign-in window.
+
+5. Click Save at the top to save all these changes.
+
+##### _"Old"_ experience
+
+You can tell if you are on the old, if the button to the right of the Discard says _Switch to the new experience_.
+
+1. Skip the Redirect URIs section and do not input a logout url.
+
+2. Under the **_Implicit grant_** section, select the check-boxes for the **Access token** and **ID tokens** (this is very important because it lets the application generate a access token to be used within the API calls).
+
+3. Click Yes for the **_Default client type_** to treat application as a public client.
+
+4. Click save at the top to save all these changes.
 
 #### Step 7: Creation of a Service Account User
 

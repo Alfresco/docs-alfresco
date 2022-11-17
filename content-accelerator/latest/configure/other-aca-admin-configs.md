@@ -164,9 +164,12 @@ where the quotes can include any string to concatenate between attributes.
 In the above setup there are four parts:
 
 1. The language to use for searching - currently only lucene queries are supported.
-1. The label and value columns to use. The value column is optional.
-1. The actual query to execute.
-1. The attribute to sort the returned results by (optional).
+
+2. The label and value columns to use. The value column is optional.
+
+3. The actual query to execute.
+
+4. The attribute to sort the returned results by (optional).
 
 Here is an example OC picklist using lucene:
 
@@ -202,9 +205,12 @@ Picklists with a datalist source may be configured if the Alfresco and Share rep
 Steps to create the datalist:
 
 1. Once the TSG Datalist AMPs have been installed navigate to Share. Navigate to a site and open up the "Data Lists" tab. (This might need to be configured using the site settings tool located in the upper right corner).
-1. In the upper left hand corner click the "New List" button.
-1. Select one of the Value Assistance lists and give it a title then click save.
-1. Add as many items as you would like.
+
+2. In the upper left hand corner click the "New List" button.
+
+3. Select one of the Value Assistance lists and give it a title then click save.
+
+4. Add as many items as you would like.
 
 After a datalist has been added in Alfresco or Share, use the following syntax to use the values as a picklist:
 
@@ -213,9 +219,12 @@ After a datalist has been added in Alfresco or Share, use the following syntax t
 The above value has four parts:
 
 1. `datalist` - tells OC that this picklist is driving from a datalist
-1. The name of the datalist
-1. The label and value columns to use. This section is optional.  If omitted, OC will return the label and value from the first level of the datalist.
-1. Cascading query to use for multi-level datalists.  This section is optional, see below for details.
+
+2. The name of the datalist
+
+3. The label and value columns to use. This section is optional.  If omitted, OC will return the label and value from the first level of the datalist.
+
+4. Cascading query to use for multi-level datalists.  This section is optional, see below for details.
 
 For non-cascading datalist picklists, OC will automatically look for the label and value columns and return them sorted by the label column.  For example, say we have a datalist named 'Business Departments', the picklist entry config is as simple as:
 
@@ -272,32 +281,37 @@ DataDictionary picklists will get their values from the underlying data model.
 #### Create your Picklist
 
 1. In the aca admin under the Picklist configuration section, enter the name for your new picklist. This name is not visible to the user and must be unique across all picklists in ACA.  This name *can* match the name of your OC picklist.
-1. In the dropdown, choose the type of picklist you would like to create.  
+
+2. In the dropdown, choose the type of picklist you would like to create.  
 
 * Simple Picklist - your picklist will be added immediately to the list of picklists.  Click it to begin configuring your picklist.
 * OpenContent Picklist - you will now see a dropdown appear with the name of the keys in your `ProjectPicklists` bean you created (see above).  Select the picklist and click 'Add'.
 
-1. If you select a picklist from the list of picklist, you can see all the possible values for the picklist. You can choose a value in the list to be the default value of the picklist.
-1. A select box allows you to choose the Picklist Load Type:
+3. If you select a picklist from the list of picklist, you can see all the possible values for the picklist. You can choose a value in the list to be the default value of the picklist.
+
+4. A select box allows you to choose the Picklist Load Type:
 
 * **Normal** - When the view is rendered, the picklist's values will be queried.  While this ensures the most up-to-date information, very large picklists or many picklists on a single view can cause the application to slow down.
 * **Async** - Picklist values are not queried until the user enters three characters OR the dropdown arrow is clicked (see below for more information about the dropdown arrow).  Values are filtered on the server side, so your picklist query needs to account for this.  Async picklists are recommended for very large picklists or cases where you have a lot of picklists on a view at once.  See the `Configuring a Picklist on a Form` section below for more information about configuring async picklists.
 * **Cache at Login** - Picklist values will be cached at login and will remain in browser memory until the user logs out.  This means that cascading picklists cannot be cached.  Large picklists should not use this setting.
 
-1. When finished configuring your picklists, click 'Save Config' to save the changes.
+5. When finished configuring your picklists, click 'Save Config' to save the changes.
 
 To delete a picklist, click the x next to the name of the picklist in the list of picklists and click 'Save Config' to save the changes.
 
 #### Configuring a Picklist on a Form
 
 1. In Form Config, select a form and click/add the Object Type you would like to work on.
-1. Select/add the attribute you would like to tie to a picklist. Change the control type to a type that supports picklists (ex: DropDown, AutoComplete, RadioButton, Checkbox) - AutoComplete is recommended.
-1. Click the options dropdown and select the desired picklist.
+
+2. Select/add the attribute you would like to tie to a picklist. Change the control type to a type that supports picklists (ex: DropDown, AutoComplete, RadioButton, Checkbox) - AutoComplete is recommended.
+
+3. Click the options dropdown and select the desired picklist.
 
 ##### Configuring a Cascading Picklist
 
 1. In the options dropdown, click the 'cascading' option.  A 'Depends On' dropdown will display the type's attributes.  Choose the attribute(s) that this field should cascade from.
-1. When a user attempts to fill out a form with a cascading picklist, the 'cascaded to' field will only be editable if all the attributes that the field depends on have values.
+
+2. When a user attempts to fill out a form with a cascading picklist, the 'cascaded to' field will only be editable if all the attributes that the field depends on have values.
 
 ##### Configuring Async Picklists
 
@@ -332,8 +346,11 @@ From a governance standpoint, be careful with growable picklists as typos and ot
 As of ACA 2.5, Trac Security can be configured based on repository groups in the ACA admin.
 
 1. Navigate to the ACA Admin and click "Trac Security" from the menu on the left
+
 2. Select the trac(s) you would like to secure from the list of tracs on the left hand side of the config
+
 3. Click on the new trac bar that appeared and a list of groups will appear
+
 4. Select all groups you would like to have access to this trac and save the config - if you would no longer like to secure the trac, click the "remove trac security" button instead
 
 Now, every time a user tries to access a secured trac, the application will check the Trac Security config to see if they a part of a group that is allowed to access the trac. If the user has no tracs they are allowed to access, they will be logged out of the application and be notified to contact their system administrator.

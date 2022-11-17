@@ -15,7 +15,8 @@ title: Integrations and Addons
 ### Setup OpenContent
 
 1. Locate the `opencontent-override-placeholders.properties` file. It will be located on the /alfresco classpath, for example, `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent`
-1. Add the following properties:
+
+2. Add the following properties:
 
 * `docusign.username` - DocuSign user name (which should be the same as the user's email address)
 * `docusign.password` - DocuSign user password, should be [encrypted with the TSGEncrypter](/content-accelerator/latest/configure/oc-property-overrides/#encrypting-property-values) and enclosed with the encryption indicator like: `@{theEncPassword}`
@@ -106,11 +107,9 @@ Since the job is typically configured to run every hour, it's sometimes necessar
 
 #### Prerequisites
 
-1. You will need AGS installed in alfresco
-
-2. You will need a working controlled docs solutions such that documents are moved to the effective state
-
-3. You will need 2 separate object types - 1 for your controlled doc (for example hy:controlledDoc) and 1 type that your record should be copied to (for example hy:record)
+* You will need AGS installed in alfresco
+* You will need a working controlled docs solutions such that documents are moved to the effective state
+* You will need 2 separate object types - 1 for your controlled doc (for example hy:controlledDoc) and 1 type that your record should be copied to (for example hy:record)
 
 #### The are 2 key pieces to configuring controlled docs with AGS
 
@@ -228,7 +227,7 @@ Katie will see an icon in the view all documents table showing that someone is v
 
 ![Stage Collab Alice]({% link content-accelerator/images/stage_collab_icons2.png %})
 
-Another important feature to note: (If configured) there will be an option to start a zoom and/or teams call with the users viewing the claim. 
+Another important feature to note: (If configured) there will be an option to start a zoom and/or teams call with the users viewing the claim.
 
 ![Stage Collab Calls]({% link content-accelerator/images/stage_collab_calls.png %})
 
