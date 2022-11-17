@@ -103,8 +103,8 @@ Click ![Settings]({% link desktop-sync/images/ico-ds-alfresco.png %}) to open th
 |Tab name|Description|
 |--------|-----------|
 |Checked Out|Displays files that you have checked out from your synced folder in Desktop Sync. You can click the icon or file name to open it, or double-click to reveal the file in Finder. See [working with multiple Checked Out files]({% link desktop-sync/1.12/using/app-menu.md %}#faq/mac) for more.|
-|Pending|Displays any changes that are waiting to be synced to Alfresco.>**Note:** Files that are currently in use by another application are listed here.|
-|Conflicts|Displays a list of files or folders that are in conflict. >**Note:** If a folder is in conflict as well as any of its contents (such as a file or sub-folder), special rules apply for how this content is resolved. See [sync conflict resolution guide]({% link desktop-sync/1.12/using/sync-conflict-guide.md %}#faq/mac) for more details.|
+|Pending|Displays any changes that are waiting to be synced to Alfresco. **Note:** Files that are currently in use by another application are listed here.|
+|Conflicts|Displays a list of files or folders that are in conflict. **Note:** If a folder is in conflict as well as any of its contents (such as a file or sub-folder), special rules apply for how this content is resolved. See [sync conflict resolution guide]({% link desktop-sync/1.12/using/sync-conflict-guide.md %}#faq/mac) for more details.|
 
 #### Finder menu actions
 
@@ -118,7 +118,7 @@ You can access Desktop Sync actions through the Finder context menu by right cli
 |Cancel Check Out|Shown only when you have one or more files checked out. You can cancel editing to unlock the file(s) without saving changes. See [working with multiple files in Finder]({% link desktop-sync/1.12/using/app-menu.md %}#faq/mac) for more.|
 |Keep my Changes|Shown only when you need to resolve a conflict. Select this option to keep the changes made on your computer. This will sync your changes to Alfresco as a new version.|
 |Discard my Changes|Shown only when you need to resolve a conflict. Select this option to discard the changes made on your computer. This will sync the latest version from Alfresco, overwriting your changes in your `Alfresco` sync folder.|
-|Declare as Record|Shown only when Alfresco Governance Services is running. Select this option to declare the file as a record. See [Declaring records]({% link governance-services/latest/using/easy-access-records.md %}#file-as-record) for more. >**Note:** Files previously rejected as a record can't be automatically declared again. See [Managing unfiled records]({% link governance-services/latest/using/manage-fileplan.md %}#managing-unfiled-records) for information on resetting the status.|
+|Declare as Record|Shown only when Alfresco Governance Services is running. Select this option to declare the file as a record. See [Declaring records]({% link governance-services/latest/using/easy-access-records.md %}#file-as-record) for more. **Note:** Files previously rejected as a record can't be automatically declared again. See [Managing unfiled records]({% link governance-services/latest/using/manage-fileplan.md %}#managing-unfiled-records) for information on resetting the status.|
 |Share|Shown only when you right-click a file (i.e. not a folder). Select this option to share a link to a file. See [Sharing files]({% link desktop-sync/1.12/using/sharing.md %}#faq/mac) for more.|
 |Version History|Select this option to view and manage the version history of a file. See [Version history]({% link desktop-sync/1.12/using/versions.md %}) for more.|
 |Properties|Select this option to view, edit, and update properties directly in Desktop Sync. See [Properties]({% link desktop-sync/1.12/using/metadata.md %}#faq/mac) for more.|

@@ -49,7 +49,6 @@ integrations:
       - title: "Document Transformation Engine"
         text: "Alfresco Document Transformation Engine is a stable, fast, and scalable solution for high-quality transformations of Microsoft Office documents."
         url: /transformation-engine/latest/
-
       - title: "Media Management"
         text: "Alfresco Media Management provides the capability to transform and add metadata and relationships to your digital media."
         url: /media-management/latest/
@@ -67,7 +66,6 @@ integrations:
       - title: "Search and Insight Engine"
         text: "Alfresco Search and Insight Engine is our new generation of analytics using Alfresco Search Services."
         url: /insight-engine/latest/
-
   - title: "Federation"
     text: "Alfresco Federation Service provides a powerful and easy way to search and manage content federated from leading business systems and content management applications."
     url: /federation-services/latest/
@@ -133,6 +131,7 @@ integrations:
       - title: "Google Docs"
         text: "Alfresco Google Docs Integration allows you to use Google Docs to edit document content stored in Alfresco Content Services, as an alternative to the online and offline editing capabilities in Alfresco Share."
         url: /google-drive/latest/
+
 applications:
   - title: "Digital Workspace"
     text: "Alfresco Digital Workspace is a content management application built with the Alfresco Application Development Framework (ADF).
@@ -154,7 +153,10 @@ applications:
     text: "Alfresco Content Services for mobile allows you to view, edit, and share information in and out of the office via the mobile app."
     url: /content-mobile/latest/
     image: /assets/img/logo_cm_72px.svg
-
+  - title: "Enterprise Viewer"
+    text: "Alfresco Enterprise Viewer (AEV) provides high-speed and secure viewing of document, video and audio content with team collaborative annotation, redaction and other modern document capabilities for Alfresco Content Services."
+    url: /enterprise-viewer/latest/
+    image: /assets/img/aev-logo.svg
 #  - title: "Process for iOS"
 #    text: "Alfresco Process Services for mobile allows you to start new processes and interact with related content #via the mobile app."
 #    url:
@@ -164,4 +166,3 @@ applications:
 #        url:
 #      - title: "Android"
 #        url:
-
