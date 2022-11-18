@@ -77,7 +77,6 @@ In the examples above, filter queries must be executed using the REST API and no
 
 ## Query languages
 
-* CMIS query language
 * SQL query language using JDBC Driver
 
 ## Tools & Components
@@ -100,7 +99,6 @@ In the examples above, filter queries must be executed using the REST API and no
 
 Data types and properties supported in Search and Insight Engine 2.x and Search Services 2.x that are not currently supported for Search Enterprise 3.x.
 
-* http&#65279;://www.alfresco.org/model/cmis/1.0/cs01}id
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}any
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}assocref
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}category

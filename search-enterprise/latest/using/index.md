@@ -85,6 +85,21 @@ The whole phrase will be tokenized before the search according to the appropriat
 "big yellow banana"
 ```
 
+## Embed queries in CMIS
+
+These examples show how to embed queries in CMIS.
+
+## Embedded in CMIS contains()
+
+```sql
+- strict queries
+SELECT * FROM Document WHERE CONTAINS("quick")
+
+- Alfresco extensions
+SELECT * FROM Document D WHERE CONTAINS(D, 'cmis:name:\'Tutorial\'')
+SELECT cmis:name as BOO FROM Document D WHERE CONTAINS('BOO:\'Tutorial\'')
+```
+
 ## Search for wildcards
 
 Wildcards are supported in terms, phrases, and exact phrases using `*` to match zero, one, or more characters and `?` to match a single character.
@@ -191,7 +206,7 @@ cm:my\ content:my\ name
 
 Inclusive ranges can be specified in Google-style. There is an extended syntax for more complex ranges. Unbounded ranges can be defined using MIN and MAX for numeric and date types and "u0000" and "FFFF" for text (anything that is invalid).
 
-|Lucene|Google|Description|Example|
+|Lucene/CMIS|Google|Description|Example|
 |------|------|-----------|-------|
 |`[#1 TO #2]`|`#1..#2`|The range #1 to #2 inclusive ``#1 <= x <= #2``|`0..5``[0 TO 5]`|
 |`<#1 TO #2]`| |The range #1 to #2 including #2 but not #1.`#1 < x <= #2`|`<0 TO 5]`|
