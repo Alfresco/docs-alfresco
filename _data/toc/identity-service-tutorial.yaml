@@ -3,7 +3,7 @@
   pages:
     - title: 'Tutorials'
       path: '/identity-service/latest/tutorial/'
-    - title: 'Single Sign On Guide'
+    - title: 'Single Sign On Guide v2'
       pages:
         - title: 'Overview '
           path: '/identity-service/latest/tutorial/sso/'
@@ -13,6 +13,16 @@
           path: '/identity-service/latest/tutorial/sso/ldap/'
         - title: 'Kerberos'
           path: '/identity-service/latest/tutorial/sso/kerberos/'
+    - title: 'Single Sign On Guide v1'
+      pages:
+        - title: 'Overview '
+          path: '/identity-service/latest/tutorial/sso-v1/'
+        - title: 'SAML'
+          path: '/identity-service/latest/tutorial/sso-v1/saml/'
+        - title: 'LDAP'
+          path: '/identity-service/latest/tutorial/sso-v1/ldap/'
+        - title: 'Kerberos'
+          path: '/identity-service/latest/tutorial/sso-v1/kerberos/'
 - version: 1.7
   pages:
     - title: 'Tutorials'
