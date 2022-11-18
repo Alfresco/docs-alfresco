@@ -23,7 +23,7 @@ AOS replaces and enhances the Microsoft SharePoint Protocol Support that was ava
 There are some dependencies that you might encounter when using Alfresco Office Services (AOS).
 
 * AOS relies on SSL to allow communication with the repository:
-  * You must activate SSL when using Alfresco Office Services 1.4. For more information, see [Configuring SSL]({% link content-services/latest/config/repository.md %}).
+  * You must activate SSL when using Alfresco Office Services 1.5. For more information, see [Configuring SSL]({% link content-services/latest/config/repository.md %}).
      If you are using a proxy server to handle SSL, make sure that the proxy is not filtering requests to Alfresco. For more information on proxy SSL configurations, see [Configuring SSL in a production environment]({% link content-services/latest/config/repository.md %}#ssl-prod).
   * There are some limitations when using the Alfresco `external` authentication subsystem. External authentication can work well when using a web browser client, but not when using the MS Office client. This is because no authentication information is sent with the file URL, and MS Office does not store authentication information, so starts a new authentication process. An example of this is when using CAS. CAS authenticates using an HTML form and a web browser that follows an HTTP redirect. The web authentication works correctly, but MS Office authentication will not work because it does not permit completion of the form. This problem is caused by the limited set of authentication protocols that MS Office supports.
 
