@@ -165,7 +165,7 @@ Filters can be set for Status, Due date, and Task Name. Filter chips are shown a
 
 Within the Task view are details about the task: Task name, Due date, Priority, Assignee, Status, and Identifier. There is a back arrow to exit the Task view and return to the Task list.
 
-Individual tasks have a Comments section below the task details. The most recent comment is shown with the user's icon, user name, date the comment was added, and the user’s comment. If there is more than one comment, you will see a link to **View all**. The link **Add a comment…** is below the existing comments. If you have access to  
+Individual tasks have a Comments section below the task details. The most recent comment is shown with the user's icon, user name, date the comment was added, and the user’s comment. If there is more than one comment, you will see a link to **View all**. The link **Add a comment…** is below the existing comments.  
 
 Attached files is a section below Comments that shows the number of attached files to the task. The link **View all** displays an Attached files page when there are more than four attachments. Clicking an attachment will download the file to preview with a popup and **Cancel** option.
 
