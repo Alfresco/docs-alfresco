@@ -42,4 +42,4 @@ A property can be declared in queries using three notations:
 @{http://www.alfresco.org/model/content/1.0}title:(Object Oriented Programming)
 ```
 
-When prefixes and fully qualified names are used, the property has to be prefixed with the @ symbol and this is one of the main differences between AFTS and Lucene. Special characters (i.e. characters that have a special meaning in lucene) need to be escaped using the backslash.
+When prefixes and fully qualified names are used, the property has to be prefixed with the @ symbol and this is one of the main differences between AFTS and Lucene. Special characters (i.e. characters that have a special meaning in Lucene) need to be escaped using the backslash.
