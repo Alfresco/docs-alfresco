@@ -20,10 +20,9 @@ The events that can trigger a rule are:
 
 Here are some examples of how you can use rules to automate repetitive tasks:
 
-* All records with certain criteria that enter a folder can be filed as a record.
-* All incomplete records placed in a folder are completed.
-* A record with certain criteria that enters a folder can be linked to a category.
-* Remove the aspect of certain records that enter a folder.
+* Content with certain criteria that enter a folder can be linked to a category.
+* Content with certain criteria that enter a folder can have aspects added, or removed.
+* Content with certain criteria that enter a folder can execute a script.
 
 ### Creating a rule
 
