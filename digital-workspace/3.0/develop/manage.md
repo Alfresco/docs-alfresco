@@ -35,7 +35,7 @@ Once Content Services is up and running, you must make the source code of the pr
     APP_CONFIG_PLUGIN_AI_SERVICE=false
     ```
 
-    > **Note:** The Digital Workspace 3.0.x uses the Content Application version 2.10.0. Ensure you check the Digital Workspace documentation that matches your version because the Content Application version could be different.
+    > **Note:** The Digital Workspace 3.0.x uses the Content Application version 3.0.0.
 
 2. Run the following commands to start the application:
 
