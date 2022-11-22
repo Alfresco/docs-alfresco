@@ -231,4 +231,4 @@ You can add attachments to a task.
 
     > **Note:** You may need to scroll further down the page to see all the attachments.  
 
-![add attachment]({% link mobile-workspace/images/add-attachment.png %})
+![Add attachment]({% link mobile-workspace/images/add-attachment.png %})
