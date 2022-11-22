@@ -15,6 +15,8 @@
           path: '/digital-workspace/latest/install/containerized/'
     - title: 'Configure'
       path: '/digital-workspace/latest/config/'
+    - title: 'Using'
+      path: '/digital-workspace/latest/using/'
     - title: 'Governance Services'
       pages: 
         - title: 'Governance Services overview'
@@ -23,8 +25,6 @@
           path: '/digital-workspace/latest/governance/security/'
         - title: 'Working with records'
           path: '/digital-workspace/latest/governance/records/'
-        - title: 'Working with folder rules'
-          path: '/digital-workspace/latest/governance/folder-rules/'
     - title: 'Process Services'
       pages: 
         - title: 'Process Services overview'
