@@ -49,8 +49,8 @@ To deploy Community Edition using Docker Compose, download and install [Docker](
 
     ```bash
     ...
-    docker-compose-alfresco-1            | 2022-07-27 09:17:20,649  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-3] Starting 'Transformers' subsystem, ID: [Transformers, default]
-    docker-compose-alfresco-1            | 2022-07-27 09:17:20,930  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-3] Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+    docker-compose-alfresco-1            | 2022-11-23 17:45:10,889  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-3] Starting 'Transformers' subsystem, ID: [Transformers, default]
+    docker-compose-alfresco-1            | 2022-11-23 17:45:11,234  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-3] Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
     ...
     ```
 
@@ -121,14 +121,14 @@ Use this information to verify that the system started correctly, and to clean u
 
         ```bash
         docker-compose logs share
-        docker container logs docker-compose_share_1
+        docker container logs docker-compose-share-1
         ```
 
         You can add an optional parameter `--tail=25` before `<container-name>` to display the last 25 lines of the logs for the selected container.
 
         ```bash
         docker-compose logs --tail=25 share
-        docker container logs --tail=25 docker-compose_share_1
+        docker container logs --tail=25 docker-compose-share-1
         ```
 
         Check for a success message:
@@ -214,7 +214,7 @@ Use this information to verify that the system started correctly, and to clean u
         ⠿ Container docker-compose-share-1                              Removed        ...        10.7s
         ⠿ Container docker-compose-alfresco-1                           Removed        ...         1.3s
         ⠿ Network docker-compose_default
-        ⠿ Image alfresco/alfresco-activemq:5.17.1-jre11-centos7         Removed        ...
+        ⠿ Image alfresco/alfresco-activemq:5.17.1-jre11-rockylinux8     Removed        ...
         ...
         ```
 
