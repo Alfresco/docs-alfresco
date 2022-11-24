@@ -2,7 +2,7 @@
 title: Field queries
 ---
 
-The fields listed and the corresponding query execution behavior are common to AFTS and the Lucene query languages.
+The fields listed and the corresponding query execution behavior are common to AFTS, Lucene, and CMIS query languages.
 
 ## Type and Aspect Queries
 
