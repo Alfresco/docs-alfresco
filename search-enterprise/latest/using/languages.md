@@ -2,7 +2,7 @@
 title: Query languages
 ---
 
-{% include tooltip.html word="AFTS" text="AFTS" %} is the primary query language for use with Search Enterprise. In addition to AFTS the Lucene, and CMIS query languages are also supported. If you require any additional queries to be written in the future, Alfresco recommends the use of AFTS.
+AFTS is the primary query language for use with Search Enterprise. In addition to AFTS the Lucene, and CMIS query languages are also supported. If you require any additional queries to be written in the future, Alfresco recommends the use of AFTS.
 
 The search string syntax depends on the given query language and can differ significantly between AFTS, Lucene, and CMIS. However, there are some shared aspects that provide the same behavior in the languages, for more see [Field queries]({% link search-enterprise/latest/using/field.md %}).
 
