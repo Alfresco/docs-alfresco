@@ -49,8 +49,8 @@ To deploy Community Edition using Docker Compose, download and install [Docker](
 
     ```bash
     ...
-    docker-compose-alfresco-1            | 2022-07-27 09:17:20,649  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-3] Starting 'Transformers' subsystem, ID: [Transformers, default]
-    docker-compose-alfresco-1            | 2022-07-27 09:17:20,930  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-3] Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+    docker-compose-alfresco-1            | 2022-11-23 17:45:10,889  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-3] Starting 'Transformers' subsystem, ID: [Transformers, default]
+    docker-compose-alfresco-1            | 2022-11-23 17:45:11,234  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-3] Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
     ...
     ```
 
@@ -90,16 +90,16 @@ Use this information to verify that the system started correctly, and to clean u
         You should see a list of the services defined in your `docker-compose.yaml` file:
 
         ```text
-        Container                             Repository                                       Tag                    Image Id            Size  
+        Container                             Repository                                       Tag                        Image Id        Size  
         ----------------------------------------------------------------------------------------------------------------------------------------
-        docker-compose-activemq-1             alfresco/alfresco-activemq                       5.16.4-jre11-centos7   d62db8e1bc78        720MB
-        docker-compose-alfresco-1             alfresco/alfresco-content-repository-community   7.3.0-M1               23f23883a071        1.2GB
-        docker-compose-content-app-1          alfresco/alfresco-content-app                    2.11.0                 1fdc41f92a2a        44.2MB
-        docker-compose-postgres-1             postgres                                         14.4                   1133a9cdc367        376MB
-        docker-compose-proxy-1                alfresco/alfresco-acs-nginx                      3.4.2                  f9c4519b7920        23.4MB
-        docker-compose-share-1                alfresco/alfresco-share                          7.3.0-M1               159c6aaf0d22        723MB
-        docker-compose-solr6-1                alfresco/alfresco-search-services                2.0.3                  88743e1bfb84        915MB
-        docker-compose-transform-core-aio-1   alfresco/alfresco-transform-core-aio             2.5.7                  bba1b5d18513        1.7GB
+        docker-compose-activemq-1             alfresco/alfresco-activemq                       5.17.1-jre11-rockylinux8   0cd1a9629a85    631.6MB
+        docker-compose-alfresco-1             alfresco/alfresco-content-repository-community   7.3.0                      b377cd61b11c    1.165GB
+        docker-compose-content-app-1          alfresco/alfresco-content-app                    3.1.0                      e5dc9193309f    45.18MB
+        docker-compose-postgres-1             postgres                                         14.4                       e09e90144645    376.1MB
+        docker-compose-proxy-1                alfresco/alfresco-acs-nginx                      3.4.2                      f9c4519b7920    23.45MB
+        docker-compose-share-1                alfresco/alfresco-share                          7.3.0                      e77a380ab703    720.4MB
+        docker-compose-solr6-1                alfresco/alfresco-search-services                2.0.5                      936f6335d2e5    919.5MB
+        docker-compose-transform-core-aio-1   alfresco/alfresco-transform-core-aio             3.0.0                      c97305a9232a    1.687GB
         ```
 
     2. List the running containers:
@@ -121,14 +121,14 @@ Use this information to verify that the system started correctly, and to clean u
 
         ```bash
         docker-compose logs share
-        docker container logs docker-compose_share_1
+        docker container logs docker-compose-share-1
         ```
 
         You can add an optional parameter `--tail=25` before `<container-name>` to display the last 25 lines of the logs for the selected container.
 
         ```bash
         docker-compose logs --tail=25 share
-        docker container logs --tail=25 docker-compose_share_1
+        docker container logs --tail=25 docker-compose-share-1
         ```
 
         Check for a success message:
@@ -214,7 +214,7 @@ Use this information to verify that the system started correctly, and to clean u
         ⠿ Container docker-compose-share-1                              Removed        ...        10.7s
         ⠿ Container docker-compose-alfresco-1                           Removed        ...         1.3s
         ⠿ Network docker-compose_default
-        ⠿ Image alfresco/alfresco-activemq:5.17.1-jre11-centos7         Removed        ...
+        ⠿ Image alfresco/alfresco-activemq:5.17.1-jre11-rockylinux8     Removed        ...
         ...
         ```
 

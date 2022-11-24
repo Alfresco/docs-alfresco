@@ -24,7 +24,6 @@ The following features, which were supported with Search and Insight Engine 2.x 
 * Fuzzy matching
 * Search for spans and positions
 * Search for boosts
-* Wildcards in phrase queries
 * Field Facets Pagination
 * Field Facets Tags Exclusion
 
@@ -39,9 +38,6 @@ The following features, which were supported with Search and Insight Engine 2.x 
 * ANCESTOR
 * PRIMARYASSOCQNAME
 * PRIMARYASSOCTYPEQNAME
-* ISNULL
-* ISNOTNULL
-* ISUNSET
 * FINGERPRINT
 * ISROOT
 * ISCONTAINER
@@ -84,14 +80,6 @@ In the examples above, filter queries must be executed using the REST API and no
 * Alfresco Search and Insight Engine
 * Alfresco Governance Services
 * Alfresco Federation Services
-* Alfresco Intelligence Services
-* Alfresco Content Connector for AWS Glacier
-* Alfresco Content Connector for Salesforce
-* Alfresco Content Connector for SAP applications
-* Alfresco Collaboration Connector for Microsoft 365
-* Alfresco Outlook Integration
-* Alfresco Office Services
-* Alfresco Google Docs Integration
 * Alfresco Enterprise Viewer
 * Alfresco Content Accelerator
 

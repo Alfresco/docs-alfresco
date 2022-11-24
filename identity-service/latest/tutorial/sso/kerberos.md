@@ -24,7 +24,6 @@ There are six steps to configuring SSO using Kerberos with Alfresco products. Th
 * Alfresco Content Services: `repo.example.com`
 * Alfresco Share: `share.example.com`
 * Alfresco Digital Workspace: `adw.example.com`
-* Alfresco Office Services: `repo.example.com/alfresco/aos`
 * Alfresco Process Services: `aps.example.com`
 * Alfresco Process Workspace: `apw.example.com`
 * Active Directory: `ldap.example.com`

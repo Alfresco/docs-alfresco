@@ -8,11 +8,11 @@ recommended for development and test environments only.
 
 ## Prerequisites and supported platforms
 
-* [Docker](https://docs.docker.com/install/)
+* [Docker](https://docs.docker.com/install/){:target="_blank"}
     * This allows you to run Docker images and Docker Compose on a single computer.
-* [Docker Compose](https://docs.docker.com/compose/install/)
+* [Docker Compose](https://docs.docker.com/compose/install/){:target="_blank"}
     * Docker Compose is included as part of some Docker installers. If it's not part of your installation, then install it separately after you've installed Docker.
-* Access to [Quay](http://www.quay.io)
+* Access to [Quay](http://www.quay.io){:target="_blank"}
     * Alfresco customers can request Quay.io credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/). These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
 
 > **Note:** Make sure that the following ports are free on your computer: 5432, 8080, 8082, 8083. These ports are set in the `docker-compose.yml` file.
@@ -31,16 +31,16 @@ recommended for development and test environments only.
     ```text
     services:
         alfresco:
-            #image: alfresco/alfresco-content-repository:7.2.x
-            image: quay.io/alfresco/alfresco-governance-repository-enterprise:7.2.x
+            #image: alfresco/alfresco-content-repository:7.3.x
+            image: quay.io/alfresco/alfresco-governance-repository-enterprise:7.3.x
             mem_limit: 1700m
            
     ```
 
     ```text
         share:
-            #image: alfresco/alfresco-share:7.2.x
-            image: quay.io/alfresco/alfresco-governance-share-enterprise:7.2.x
+            #image: alfresco/alfresco-share:7.3.x
+            image: quay.io/alfresco/alfresco-governance-share-enterprise:7.3.x
             mem_limit: 1g
            
     ```
