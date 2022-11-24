@@ -85,21 +85,6 @@ The whole phrase will be tokenized before the search according to the appropriat
 "big yellow banana"
 ```
 
-## Embed queries in CMIS
-
-These examples show how to embed queries in CMIS.
-
-## Embedded in CMIS contains()
-
-```sql
-- strict queries
-SELECT * FROM Document WHERE CONTAINS("quick")
-
-- Alfresco extensions
-SELECT * FROM Document D WHERE CONTAINS(D, 'cmis:name:\'Tutorial\'')
-SELECT cmis:name as BOO FROM Document D WHERE CONTAINS('BOO:\'Tutorial\'')
-```
-
 ## Search for wildcards
 
 Wildcards are supported in terms, phrases, and exact phrases using `*` to match zero, one, or more characters and `?` to match a single character.
