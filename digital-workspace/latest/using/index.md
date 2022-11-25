@@ -30,7 +30,7 @@ You can create rules for a folder within the Digital Workspace.
 
 1. Right click a folder in the Digital Workspace and select **Manage rules**.
 
-2. Click the **Create Rules** button.
+2. Click the **Create rule** button.
 
 3. Enter a name and a description for the rule.
 
