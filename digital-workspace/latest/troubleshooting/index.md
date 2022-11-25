@@ -50,4 +50,4 @@ See [SAML Single Sign-On (SSO) Module for Alfresco Content Services]({% link sam
 
 To change your profile, locate the Profile menu item on the top right and click the profile image, and then click **My Profile**.
 
-You can edit the General and Company details sections by clicking **Edit**. Once you have made the required changes, click **Save**.
+You can edit the **General** and **Company details** sections by clicking **Edit**. Once you have made the required changes, click **Save**.
