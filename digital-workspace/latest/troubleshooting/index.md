@@ -9,7 +9,7 @@ Refer to [Cross Origin Resource Sharing (CORS) filters]({% link content-services
 
 ### Can I customize the Digital Workspace
 
-Yes, there are a number of customizations available that can be configured in ../digital-workspace/app.config.json. See [Configure Digital Workspace]({% link digital-workspace/latest/config/index.md %}) for more details. The application can also be extended using the ADF Extension framework. See [Extending](https://alfresco-content-app.netlify.com/#/extending/).
+Yes, there are a number of customizations available that can be configured in `../digital-workspace/app.config.json`. See [Configure Digital Workspace]({% link digital-workspace/latest/config/index.md %}) for more details. The application can also be extended using the ADF Extension framework. See [Extending](https://alfresco-content-app.netlify.com/#/extending/).
 
 ### I have installed an extension and the Digital Workspace does not work
 
