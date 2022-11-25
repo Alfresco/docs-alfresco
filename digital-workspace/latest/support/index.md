@@ -8,4 +8,3 @@ The following are the supported platforms for Alfresco Digital Workspace 3.1:
 | Version | Notes |
 | ------- | ----- |
 | Alfresco Content Services 7.3.x | |
-| Alfresco Content Services 7.2.x | |
