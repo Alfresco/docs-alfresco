@@ -40,19 +40,25 @@ To create authentication:
 
    Optionally, deselect **Secured** so you can enter a username and password that is used when contacting the API.
 
+## Authentication
+
+The following is an authentication created using Basic authentication and a username and password.
+
+![Authentication]({% link process-automation/images/authentication.png %})
+
 ## Update authentication for deployed application
 
 To update authentication:
 
 1. Expand the **Process Admin** section on the left of the Admin App and then select **Application Instances**.
 
-2. For the application you want to update, click the three dots on the right of the last column, and then select **Upgrade**.
+2. For the application you want to update, click the three dots on the right of the last column and then select **Upgrade**.
 
 3. Select the version you want to upgrade to from the **Upgrade** dropdown list.
 
-4. If you want users to receive an email each time a process assigns them a task, select **Enable user task  mail notifications**.  
+4. If you want user's to receive an email each time a process assigns them a task, select **Enable user task  mail notifications**.  
 
-   For the authentications that are not secured, parameters will be automatically filled with the same values as set in the Modeling Application.
+   For the authentications that are not secure, any configuration will be automatically added based on the values already set in the Modeling Application.
 
    If we want to override only parameters for current authentications, we can do it by clicking on checkbox in the authentication step, which is only visible in case the authentications are the same as it was in our currently deployed version.
   
@@ -78,8 +84,4 @@ To delete authentication:
 
 ![Authentication Delete]({% link process-automation/images/authentication-delete.png %})
 
-## Authentication
 
-The following is an authentication created using Basic authentication and a username and password.
-
-![Authentication]({% link process-automation/images/authentication.png %})
