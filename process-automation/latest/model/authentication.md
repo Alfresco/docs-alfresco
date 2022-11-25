@@ -44,20 +44,20 @@ To create authentication:
 
 To update authentication:
 
-1. Sign into the Admin Application and click on Application Instances in DevOps section.
+1. Expand the **Process Admin** section on the left of the Admin App and then select **Application Instances**.
 
-2. Click the context menu (three dots).
+2. For the application you want to update, click the three dots on the right of the last column, and then select **Upgrade**.
 
-3. Choose upgrade.
+3. Select the version you want to upgrade to from the **Upgrade** dropdown list.
 
-4. Proceed to **Authentications** step.
+4. If you want users to receive an email each time a process assigns them a task, select **Enable user task  mail notifications**.  
 
-5. Provide new parameters for the authentications
-
-   For the authentications that are not secured, parameters will be automatically filled with the same values as set in Modeling Application.
+   For the authentications that are not secured, parameters will be automatically filled with the same values as set in the Modeling Application.
 
    If we want to override only parameters for current authentications, we can do it by clicking on checkbox in the authentication step, which is only visible in case the authentications are the same as it was in our currently deployed version.
   
+5. Click **Upgrade**.
+
 ![Authentication Upgrade]({% link process-automation/images/authentication-upgrade-override-params.png %})
 
 ## Delete authentication
