@@ -384,3 +384,35 @@ services:
     volumes:
       - ./exactTermSearch.properties:/usr/local/tomcat/webapps/alfresco/WEB-INF/classes/alfresco/search/elasticsearch/config/exactTermSearch.properties
 ```
+
+## Different databases support
+Based on the DataSource configuration an implementation for accessing the repo database is created.
+Actually supported types of databases are PostgreSQL, MySQL, MariaDB, SQL Server and Oracle Database.
+Supported versions are sames as for ACS. 
+
+| Property                                  | Description                                                                                                                                                                     |
+|-------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| spring.datasource.url=                    | Specify Database URL.                                                                                                                                                           |                                                                                                                                                              |
+| spring.datasource.username=               | Specify Database username.                                                                                                                                                      |
+| spring.datasource.password=               | Specify Database password.                                                                                                                                                      |
+| spring.datasource.hikari.maximumPoolSize= | Sets the maximum size of connections in HikariCP.                                                                                                                               |
+| alfresco.dbType=                          | This optional property allows you to disable the auto-detection and to specify the database type directly. Supported values: **postgresql, mysql, mariadb, sqlserver, oracle**. |
+
+PostgreSQL is used as a default database. 
+To use different database properties should be changed accordingly to database used in ACS. 
+
+Moreover, JDBC driver should be added inside docker container on `/opt/db-drivers/` for specific used database different from PostgreSQL.
+
+For example docker-compose using volume:
+```docker
+services:
+    reindexing-service:
+        image: quay.io/alfresco/alfresco-elasticsearch-reindexing:latest
+        mem_limit: 1024m
+        environment:
+        - ...
+        volumes:
+            - ./yours/path/to/jdbc/drivers:/opt/db-drivers:ro
+```
+
+
