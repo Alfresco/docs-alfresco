@@ -50,7 +50,7 @@ The following is an authentication created using Basic authentication and a user
 
 To update authentication:
 
-1. Expand the **Devops** section on the left of the Admin App and then select **Application Instances**.
+1. Expand the **Devops** section on the left of the Admin Application and then select **Application Instances**.
 
 2. For the application you want to update, click the three dots on the right of the last column and then select **Upgrade**.
 
@@ -60,9 +60,13 @@ To update authentication:
 
 5. Click **Upgrade**.
 
-   **Important:** For your authentications that are not secure i.e. you did not select the **Secured** check box when the authentication was created, the configuration values already set in the Modeling Application will be automatically applied to the upgraded application. You will see the tabs on the upgrade configuration window are pre-populated. For your authentications that are secure i.e. you did select the **Secured** check box when the authentication was created, you must re-enter all of the configuration values when performing the upgrade. If we want to override only parameters for current authentications, you will see the tabs on the upgrade configuration window are not pre-populated.
+   **Important:** For your authentications that are not secure i.e. you did not select the **Secured** check box when the authentication was created, the configuration values already set in the Modeling Application will be automatically applied during the upgrade process. For your authentications that are secure i.e. you did select the **Secured** check box when the authentication was created, you must must re-enter the authentication values on the **Authentications** tab when performing the upgrade.
 
 ![Authentication Upgrade]({% link process-automation/images/authentication-upgrade-override-params.png %})
+
+   If we want to override only parameters for current authentications, you will see the tabs on the upgrade configuration window are not pre-populated.
+
+
 
 ## Delete authentication
 
