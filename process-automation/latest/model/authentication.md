@@ -50,25 +50,23 @@ The following is an authentication created using Basic authentication and a user
 
 To update authentication:
 
-1. Expand the **Process Admin** section on the left of the Admin App and then select **Application Instances**.
+1. Expand the **Devops** section on the left of the Admin App and then select **Application Instances**.
 
 2. For the application you want to update, click the three dots on the right of the last column and then select **Upgrade**.
 
 3. Select the version you want to upgrade to from the **Upgrade** dropdown list.
 
-4. If you want user's to receive an email each time a process assigns them a task, select **Enable user task  mail notifications**.  
+4. If you want user's to receive an email each time a process assigns them a task, select **Enable user task mail notifications**.
 
-   For the authentications that are not secure, any configuration will be automatically added based on the values already set in the Modeling Application.
-
-   If we want to override only parameters for current authentications, we can do it by clicking on checkbox in the authentication step, which is only visible in case the authentications are the same as it was in our currently deployed version.
-  
 5. Click **Upgrade**.
+
+   **Important:** For your authentications that are not secure i.e. you did not select the **Secured** check box when the authentication was created, the configuration values already set in the Modeling Application will be automatically applied to the upgraded application. You will see the tabs on the upgrade configuration window are pre-populated. For your authentications that are secure i.e. you did select the **Secured** check box when the authentication was created, you must re-enter all of the configuration values when performing the upgrade. If we want to override only parameters for current authentications, you will see the tabs on the upgrade configuration window are not pre-populated.
 
 ![Authentication Upgrade]({% link process-automation/images/authentication-upgrade-override-params.png %})
 
 ## Delete authentication
 
-To delete authentication:
+To delete an authentication:
 
 1. Sign into the Modeling Application and open a project.
 
