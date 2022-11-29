@@ -128,14 +128,14 @@ The properties for each task are:
 | Property | Description |
 | -------- | ----------- |
 | ID | The unique ID of the task. |
-| Name | The name given to the task. |
+| Task Name | The name given to the task. |
 | Assignee | The user assigned to the task. |
 | Status | The current status of the task. See the table below for a list of possible statuses. |
 | Created Date | The time since the task was started. |
 | Last Modified | The time since the task was last updated. |
 | Parent ID | The ID of a parent task if the standalone task has one. |
 
-> **Note:** Further details are available to view for each task by clicking on it. A properties panel will appear on the right-hand side of the screen and certain properties can be edited if the status is `CREATED` or `ASSIGNED`.
+Further details are available to view for each task by clicking on it. A properties panel will appear on the right-hand side of the screen and certain properties can be edited if the status is `CREATED` or `ASSIGNED`.
 
 The status of tasks are:
 
@@ -146,6 +146,21 @@ The status of tasks are:
 | COMPLETED | The task has been completed. |
 | SUSPENDED | The task is suspended because the process instance it belongs to has been suspended. It cannot be completed until the process instance is activated. |
 | CANCELLED | The task has been cancelled and cannot be completed. |
+
+#### Select Multiple
+
+You can delete or change the assignee of multiple user tasks at the same time.
+
+1. Select the **Select Multiple** check box on the top right.  
+
+2. Use the check boxes on the left next to each user task to select the ones you want to change in bulk.
+
+    **Note:** You can also select all of the user tasks at once by selecting the check box at the top of the list.
+
+3. Click **Delete** or **Change assignee** from the three dots menu on the top right. 
+
+4. 
+
 
 ### Variables {#task-variables}
 
