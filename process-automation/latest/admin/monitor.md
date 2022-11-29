@@ -153,14 +153,15 @@ You can delete or change the assignee of multiple user tasks at the same time.
 
 1. Select the **Select Multiple** check box on the top right.  
 
-2. Use the check boxes on the left next to each user task to select the ones you want to change in bulk.
+2. Use the check boxes on the left next to each user task to select the ones you want to change.
 
     **Note:** You can also select all of the user tasks at once by selecting the check box at the top of the list.
 
-3. Click **Delete** or **Change assignee** from the three dots menu on the top right. 
+3. Click **Delete** or **Change assignee** from the three dots menu on the top right.
 
-4. 
+    This change will apply to all of the user tasks you have selected on the left.
 
+4. Follow the prompts and confirm to delete the user tasks or select a new assignee and then click **Assign**.
 
 ### Variables {#task-variables}
 
