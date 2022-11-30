@@ -38,6 +38,7 @@ applications:
     digital-workspace: "Digital Workspace"
     mobile-workspace: "Mobile Workspace"
     content-accelerator: "Content Accelerator"
+    enterprise-viewer: "Enterprise Viewer"
 support:
   title: "Support"
   scopes:
