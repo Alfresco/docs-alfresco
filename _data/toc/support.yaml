@@ -3,30 +3,30 @@
   pages:
     - title: 'Introduction'
       path: '/support/latest/'
-    - title: 'Support Packages'
-      path: '/support/latest/packages/'
+    - title: 'Support Overview'
+      path: '/support/latest/packages/' #rename overview.md ?
     - title: "Premier Services"
       path: '/support/latest/premier/'
     - title: 'Roles and Responsibilities'
       path: '/support/latest/roles/'
     - title: 'Contact Hyland Support'
-      path: '/support/latest/contact/'
+      path: '/support/latest/contact/' #rename contact.md
       pages:
         - title: 'Support Issue Resources and Case Logging'
-          path: '/support/latest/contact/log-issue/'
+          path: '/support/latest/contact/log-issue/'      #move path
         - title: 'Support Case Life Cycle'
-          path: '/support/latest/contact/case-lifecycle/'
+          path: '/support/latest/contact/case-lifecycle/' #move path
         - title: 'Escalate an Issue'
-          path: '/support/latest/contact/escalate-issue/'
+          path: '/support/latest/contact/escalate-issue/' #move path
     - title: 'Support Hours'
       path: '/support/latest/hours/'
     - title: 'Service Level Targets (SLT)'
       path: '/support/latest/slt/'
     - title: 'Severity Definitions'
       path: '/support/latest/severity/'
-    - title: 'Support Holiday Calendar'
-      path: '/support/latest/holidays/'
-    - title: 'Support Policies'
+    - title: 'Case Status Definitions'
+      path: '/support/latest/resources/issue-status/'
+    - title: 'Product Support Policies'
       path: '/support/latest/policies/'
       pages:
         - title: 'Deployment and Containerization Support Policy'
@@ -48,8 +48,6 @@
     - title: 'Resources'
       path: '/support/latest/resources/'
       pages:
-        - title: 'Case Status Definitions'
-          path: '/support/latest/resources/issue-status/'
         - title: 'Supported Stacks'
           path: '/support/latest/resources/supported-stacks/'
         - title: 'Heartbeat Message'

@@ -10,11 +10,11 @@ An enhancement request is a piece of functionality that was not specified at the
 
 ## How are enhancement requests created
 
-Enhancement requests are accepted and created by the support team using a support case entered within the [Support Portal](https://support.alfresco.com){:target="_blank"} along with an associated Engineering issue. The associated support case is then placed in a Pending Engineering state while the Engineering team works through the issue.
+Enhancement requests are created by customers and partners through the **Ideas** page on Hyland Community. Ideas in Hyland Community is designed to facilitate innovation around Hyland products and solutions. Think of it as your connection to our Product Management team, your opportunity to influence the roadmap. You can suggest product enhancements, share a concept for something new, and vote in favor of Ideas you support.
 
 ## What happens to my enhancement requests
 
-Enhancement requests are kept in a separate Engineering [project.](https://issues.alfresco.com/jira/browse/MNT){:target="_blank"}. You are welcome to vote on enhancements you would find useful in your environment. Alfresco uses the votes as an indication of applicability across our subscriber base.
+Enhancement requests are kept in a separate Engineering [project.](https://issues.alfresco.com/jira/browse/MNT){:target="_blank"}. You are welcome to vote on enhancements you would find useful in your environment. Hyland uses the votes as an indication of applicability across our subscriber base.
 
 As the planning for a new release gets underway, enhancements requests are reviewed for consideration in the next release.
 
@@ -22,7 +22,7 @@ Once an enhancement request has been implemented, the original enhancement reque
 
 ## Can enhancement requests be escalated
 
-If you are a customer or partner, then you can escalate your enhancement via the standard support and account management channels.
+If you are a customer or partner, then you can escalate your enhancement via the standard Customer Success and account management channels.
 
 ## Can I request an enhancement for a specific Alfresco product/version
 

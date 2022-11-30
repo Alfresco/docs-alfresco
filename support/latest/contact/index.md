@@ -6,7 +6,7 @@ There are several ways to contact Hyland for assistance with your products and s
 
 ## Support Analysts
 
-Support Analysts answer questions concerning customer environments and troubleshoot issues with implemented solutions:
+Support Analysts answer questions concerning Hyland's products and troubleshoot issues with your implemented products:
 
 * Specific functionality (“How should this button work?”)
 * Broken functionality (”I pressed this button and X should have happened, but I saw Y”)
@@ -14,9 +14,9 @@ Support Analysts answer questions concerning customer environments and troublesh
 
 Active maintenance and support is required.
 
-To contact Support, please log into [Hyland Community](https://community.hyland.com/){:target="_blank"} and navigate to **Support > Open Support Cases**. From this page you can submit a new support case, review the status of an existing support case, and comment on an open case to share information with the assigned Analyst.
+To contact Technical Support, please log into [Hyland Community](https://community.hyland.com/){:target="_blank"} and navigate to **Support > Open Support Cases**. From this page you can submit a new support case, review the status of an existing support case, and comment on an open case to share information with the assigned Analyst.
 
-Production down and emergency support issues should be reported to Support by phone and are prioritized by the scope of impact. Phone contact information is located on the Community **Contact Support** page.
+Production down and emergency support issues should be reported to Technical Support by phone and are prioritized by the scope of impact. Phone contact information is located on the Community **Technical Support Contact Information** page.
 
 ## Global Services Consultants
 
@@ -28,8 +28,8 @@ Consultants help you to:
 * Incorporate best practice advice
 * Help identify issues that are intertwined with custom code before handing off to Support
 
-Consultants work on a per day basis and their services must be purchased separately from maintenance and support. Partner consultants are arranged and billed through the Partner. You can arrange consulting hours through your normal sales channel. For additional information, please contact your Hyland Account Executive for direction.
+Consultants work on a per day basis and their services must be purchased separately from maintenance and support. Partner consultants are arranged and billed through the Partner. You can arrange consulting hours through your normal Sales channel. For additional information, please contact your Hyland Account Executive for direction.
 
 ## Partner Enablement Team
 
-The Partner Enablement Team helps Partners with their specific environment, general and pre-sales related questions. More information is available at [Partner Central](https://partners.alfresco.com/English/){:target="_blank"} or by contacting [partner-feedback@alfresco.com](mailto:partner-feedback@alfresco.com).
+The Partner Enablement Team helps Partners with their specific environment, general and pre-sales related questions. More information is available at [Partner Central](https://community.hyland.com/hyland-partners/){:target="_blank"}.

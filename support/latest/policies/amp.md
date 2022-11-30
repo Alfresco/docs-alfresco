@@ -15,7 +15,7 @@ Extensions and integrations can be classified based on their provenience:
 
 ## Alfresco Supported Extensions and Integrations
 
-An AMP/JAR will only be supported if it is documented in the [Official Documentation Online](/), since this will mean that it:
+An AMP/JAR will only be supported if it is documented in the [Official Documentation online](/), since this will mean that it:
 
 * Has been through a full QA cycle
 * Support have the infrastructure to test and reproduce issues
