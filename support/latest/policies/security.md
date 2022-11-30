@@ -65,4 +65,4 @@ Alfresco notifies customers and partners in the following manner:
 
 ## Reporting a security issue to Hyland
 
-Please report all security issues by logging a support case via [Hyland Community](https://community.hyland.com/){:target="_blank"}. See the [Contact Hyland Support]({% link support/latest/contact/index.md %}) page for more details. Support will assist in connecting you with the right resource to ensure that the information does not enter the public domain prematurely.
+Please report all security issues by logging a support case via [Hyland Community](https://community.hyland.com/){:target="_blank"}. See the [Contact Hyland Support]({% link support/latest/contact.md %}) page for more details. Support will assist in connecting you with the right resource to ensure that the information does not enter the public domain prematurely.

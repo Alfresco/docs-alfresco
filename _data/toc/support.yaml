@@ -4,20 +4,20 @@
     - title: 'Introduction'
       path: '/support/latest/'
     - title: 'Support Overview'
-      path: '/support/latest/packages/' #rename overview.md ?
+      path: '/support/latest/packages/'
     - title: "Premier Services"
       path: '/support/latest/premier/'
     - title: 'Roles and Responsibilities'
       path: '/support/latest/roles/'
     - title: 'Contact Hyland Support'
-      path: '/support/latest/contact/' #rename contact.md
+      path: '/support/latest/contact/'
       pages:
         - title: 'Support Issue Resources and Case Logging'
-          path: '/support/latest/contact/log-issue/'      #move path
+          path: '/support/latest/log-issue/'
         - title: 'Support Case Life Cycle'
-          path: '/support/latest/contact/case-lifecycle/' #move path
+          path: '/support/latest/case-lifecycle/'
         - title: 'Escalate an Issue'
-          path: '/support/latest/contact/escalate-issue/' #move path
+          path: '/support/latest/escalate-issue/'
     - title: 'Support Hours'
       path: '/support/latest/hours/'
     - title: 'Service Level Targets (SLT)'
