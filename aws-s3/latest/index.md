@@ -8,6 +8,7 @@ This release of the S3 Connector is a compatibility release to support Alfresco 
 
 Other features introduced in previous versions include:
 
+* Support for AWS Glacier storage type and introduction of [Cloud Storage Properties]({% link aws-s3/latest/config/index.md %}#cloud-storage-properties) (v5.0).
 * [Direct Access URLs]({% link aws-s3/latest/config/direct-access.md %}) (v4.1)
 * [S3 Content Store Subsystems]({% link aws-s3/latest/config/index.md %}#content-store-subsystems) (v3.1)
 * S3MultipleBuckets subsystem configuration (v3.1)
