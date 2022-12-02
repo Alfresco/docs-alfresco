@@ -404,20 +404,20 @@ Use this information to verify that the system started correctly, and to clean u
         You should see a list of the services defined in your `docker-compose.yaml` file:
 
         ```bash
-        Container                               Repository                       Tag        Image Id       Size
-        --------------------------------------------------------------------------------------------------------------------
-        docker-compose_activemq-1             alfresco/alfresco-activemq                     5.16.4-jre11-centos7   d62db8e1bc78        720MB
-        docker-compose_alfresco-1             quay.io/alfresco/alfresco-content-repository   7.2.0                  ced164010f42        1.4GB
-        docker-compose_control-center-1       quay.io/alfresco/alfresco-admin-app            7.2.0                  6d5dd63cc114        42.1MB
-        docker-compose_digital-workspace-1    quay.io/alfresco/alfresco-digital-workspace    2.6.0                  1a2eaa5bf7a9        573MB
-        docker-compose_postgres-1             postgres                                       13.3                   b2fcd079c1d4        315MB
-        docker-compose_proxy-1                alfresco/alfresco-acs-nginx                    3.3.0                  721f6317863d        23.2MB
-        docker-compose_share-1                quay.io/alfresco/alfresco-share                7.2.0                  2f5acc44fb87        723MB
-        docker-compose_shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    1.5.3                  03872fe68a6a        651MB
-        docker-compose_solr6-1                alfresco/alfresco-search-services              2.0.3                  88743e1bfb84        915MB
-        docker-compose_sync-service-1         quay.io/alfresco/service-sync                  3.6.0                  c0c25de3535c        722MB
-        docker-compose_transform-core-aio-1   alfresco/alfresco-transform-core-aio           2.6.0                  f382083e1ec5        1.74GB
-        docker-compose_transform-router-1     quay.io/alfresco/alfresco-transform-router     1.5.3                  bad174c8b67d        658MB       
+        Container                             Repository                                     Tag        Image Id         Size
+        ----------------------------------------------------------------------------------------------------------------------
+        docker-compose_activemq-1             alfresco/alfresco-activemq:5.17.1-jre11-rockylinux8       0cd1a9629a85     632MB
+        docker-compose_alfresco-1             quay.io/alfresco/alfresco-content-repository   7.3.0      13fbb0267e48     1.3GB
+        docker-compose_control-center-1       quay.io/alfresco/alfresco-admin-app            7.6.0      f64bca8ae242     44.6MB
+        docker-compose_digital-workspace-1    quay.io/alfresco/alfresco-digital-workspace    3.1.0      5842196a4fb4     576MB
+        docker-compose_postgres-1             postgres                                       14.4       e09e90144645     376MB
+        docker-compose_proxy-1                alfresco/alfresco-acs-nginx                    3.4.2      f9c4519b7920     23.5MB
+        docker-compose_share-1                quay.io/alfresco/alfresco-share                7.3.0      e77a380ab703     720MB
+        docker-compose_shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    2.0.0      32d64489f2b6     607MB
+        docker-compose_solr6-1                alfresco/alfresco-search-services              2.0.5      936f6335d2e5     920MB
+        docker-compose_sync-service-1         quay.io/alfresco/service-sync                  3.8.0      0418d131e179     629MB
+        docker-compose_transform-core-aio-1   alfresco/alfresco-transform-core-aio           3.0.0      c97305a9232a     1.69GB
+        docker-compose_transform-router-1     quay.io/alfresco/alfresco-transform-router     2.0.0      c084269f2c47     597MB       
         ```
 
     2. List the running containers:
