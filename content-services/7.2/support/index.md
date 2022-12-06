@@ -76,6 +76,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.11 | |
 | Alfresco Desktop Sync 1.10 | |
 | Alfresco Desktop Sync 1.9 | |
+| Alfresco Transform Service 2.0.0 | |
 | Alfresco Transform Service 1.5.2 | |
 | Alfresco Document Transformation Engine 2.3 | |
 | Alfresco Search Enterprise 3.1 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.x upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
@@ -87,7 +88,9 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | SAML Module for Alfresco Content Services 1.2.3 | |
 | Alfresco Intelligence Services 1.4.4 | |
 | Alfresco Intelligence Services 1.4.2 | |
+| Alfresco Content Connector for AWS S3 5.1 | |
 | Alfresco Content Connector for AWS S3 5.0 | Adds support for AWS Glacier using Cloud storage layer. |
+| Alfresco Content Connector for Azure 3.1 | |
 | Alfresco Content Connector for Azure 3.0 | |
 | Alfresco Content Connector for Salesforce 2.3.4 and later | |
 | Alfresco Content Connector for SAP applications 5.2 | |
@@ -187,6 +190,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.11 | |
 | Alfresco Desktop Sync 1.10 | |
 | Alfresco Desktop Sync 1.9 | |
+| Alfresco Transform Service 2.0.0 | |
 | Alfresco Transform Service 1.5.2 | |
 | Alfresco Document Transformation Engine 2.3 | |
 | Alfresco Search Enterprise 3.1 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.x upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
@@ -198,7 +202,9 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | SAML Module for Alfresco Content Services 1.2.2 | |
 | Alfresco Intelligence Services 1.4.4 | |
 | Alfresco Intelligence Services 1.4.2 | |
+| Alfresco Content Connector for AWS S3 5.1 | |
 | Alfresco Content Connector for AWS S3 5.0 | Adds support for AWS Glacier using Cloud storage layer. |
+| Alfresco Content Connector for Azure 3.1 | |
 | Alfresco Content Connector for Azure 3.0 | |
 | Alfresco Content Connector for Salesforce 2.3.4 and later | |
 | Alfresco Content Connector for SAP applications 5.2 | |
