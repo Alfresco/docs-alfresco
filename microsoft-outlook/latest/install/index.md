@@ -331,6 +331,7 @@ You might need local administrator rights to install .NET 4.5 and Microsoft VS T
     |`SHAREALT`|No default|Sets alternative URL for Alfresco Share.|
     |`AUTH`|`basic|windows|saml`|Sets authentication type.|
     |`APPTITLE`|Default: Alfresco Outlook Plugin|Sets a custom title for Alfresco Outlook Client. Format: `"My Custom Title"`|
+    |`LANGS`|No default|Sets the available languages for the Alfresco Outlook Client. Format: `"en,de,fr"`. See `CULTURE` parameter for available language codes. Added in Outlook Integration 2.9.2.|
 
 4. Verify that Alfresco Outlook Client has installed in Microsoft Outlook.
 
