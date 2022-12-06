@@ -284,7 +284,7 @@ from the left column that corresponds to the required Content Services version y
     You'll need your [Quay.io](https://quay.io){:target="_blank"} account credentials to access the Docker images. If 
     you don't already have these credentials, contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"}.
    
-3. (OPTIONAL) Make sure the Docker Compose file use the following versions of Transform Router, Transform Core AIO T-Engine, and Shared file store:
+3. (OPTIONAL) Make sure the Docker Compose file uses the following versions of Transform Router, Transform Core AIO T-Engine, and Shared file store:
 
    ```yaml
    transform-router:
@@ -668,17 +668,18 @@ before continuing.
 
 10. Ensure that the environment is up and running:
 
-    1.Check the logs for Content Services startup.
+    1. Check the logs for Content Services startup.
 
-    2.Monitor ActiveMQ by accessing the Web Console, e.g. `http://localhost:8161/admin/`.
+    2. Monitor ActiveMQ by accessing the Web Console, e.g. `http://localhost:8161/admin/`.
 
-    3.Temporarily enable `TransformDebug` in the repository if you want to see detailed debug log entries.
+    3. Temporarily enable `TransformDebug` in the repository if you want to see detailed debug log entries.
 
-    4.Navigate to Digital Workspace or Share, and upload a file (such as a `.jpg`, `.png`, `.docx` etc.).
+    4. Navigate to Digital Workspace or Share, and upload a file (such as a `.jpg`, `.png`, `.docx` etc.).
 
-* Check the logs to see the metadata and work performed for the uploaded file. These should be available in the Spring Boot apps:
-  * `alfresco-transform-router`
-  * `alfresco-transform-core-aio`
+    5. Check the logs to see the metadata and work performed for the uploaded file. These should be available in the Spring Boot apps:
+
+        * `alfresco-transform-router`
+        * `alfresco-transform-core-aio`
 
 Files should also be available in the specified path for the `alfresco-shared-file-store`. However, these files will 
 only temporarily appear in the Shared File Store until explicitly deleted by the repository and/or expired and cleaned up.
