@@ -269,7 +269,7 @@ from the left column that corresponds to the required Content Services version y
     ```
 
     > **Note:** Replace the version number `x.y.z` with the tag that matches the Content Services version you want to 
-    > deploy. For example, if you want Content Services 7.2.0, then select tag `5.2.0`.
+    > deploy. For example, if you want Content Services 7.3.0, then select tag `5.3.0`.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to 
     > determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 
@@ -335,18 +335,18 @@ from the left column that corresponds to the required Content Services version y
 
     ```bash
     Creating network "docker-compose_default" with the default driver
-    Creating docker-compose_digital-workspace_1 ... done
-    Creating docker-compose_solr6_1             ... done
-    Creating docker-compose_shared-file-store_1 ... done
-    Creating docker-compose_sync-service_1      ... done
-    Creating docker-compose_alfresco_1          ... done
-    Creating docker-compose_share_1             ... done
-    Creating docker-compose_postgres_1          ... done
-    Creating docker-compose_activemq_1          ... done
-    Creating docker-compose_proxy_1              ... done
-    Creating docker-compose_transform-router_1   ... done
-    Creating docker-compose_transform-core-aio_1 ... done
-    Attaching to docker-compose_digital-workspace_1, docker-compose_shared-file-store_1, docker-compose_alfresco_1,
+    Creating docker-compose-digital-workspace-1 ... done
+    Creating docker-compose-solr6-1             ... done
+    Creating docker-compose-shared-file-store-1 ... done
+    Creating docker-compose-sync-service-1      ... done
+    Creating docker-compose-alfresco-1          ... done
+    Creating docker-compose-share-1             ... done
+    Creating docker-compose-postgres-1          ... done
+    Creating docker-compose-activemq-1          ... done
+    Creating docker-compose-proxy-1              ... done
+    Creating docker-compose-transform-router-1   ... done
+    Creating docker-compose-transform-core-aio-1 ... done
+    Attaching to docker-compose-digital-workspace-1, docker-compose-shared-file-store-1, docker-compose-alfresco-1,
     ```
 
     As an alternative, you can also start the containers in the background by running `docker-compose up -d`.
@@ -354,9 +354,12 @@ from the left column that corresponds to the required Content Services version y
 5. Wait for the logs to show messages:
 
     ```bash
-    alfresco_1 | 2022-06-02 11:50:46,808  WARN ... The Alfresco Content Services license will expire in 2 days.
-    alfresco_1 | 2022-06-02 11:50:50,938  INFO ... Starting 'Transformers' subsystem, ID: [Transformers, default]
-    alfresco_1 | 2022-06-02 11:50:50,371  INFO ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+    ...
+    docker-compose-alfresco-1 | ... INFO  [service.descriptor.DescriptorService] [main] Alfresco license: Creating time limited trial license
+    docker-compose-alfresco-1 | ... WARN  [repo.usage.RepoUsageMonitor] [main] The Alfresco Content Services license will expire in 2 days.
+    ...
+    docker-compose-alfresco-1 | ... INFO ... Starting 'Transformers' subsystem, ID: [Transformers, default]
+    docker-compose-alfresco-1 | ... INFO ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
     ```
 
     If you encounter errors whilst the system is starting up:
@@ -404,20 +407,20 @@ Use this information to verify that the system started correctly, and to clean u
         You should see a list of the services defined in your `docker-compose.yaml` file:
 
         ```bash
-        Container                             Repository                                     Tag        Image Id         Size
-        ----------------------------------------------------------------------------------------------------------------------
-        docker-compose_activemq-1             alfresco/alfresco-activemq:5.17.1-jre11-rockylinux8       0cd1a9629a85     632MB
-        docker-compose_alfresco-1             quay.io/alfresco/alfresco-content-repository   7.3.0      13fbb0267e48     1.3GB
-        docker-compose_control-center-1       quay.io/alfresco/alfresco-admin-app            7.6.0      f64bca8ae242     44.6MB
-        docker-compose_digital-workspace-1    quay.io/alfresco/alfresco-digital-workspace    3.1.0      5842196a4fb4     576MB
-        docker-compose_postgres-1             postgres                                       14.4       e09e90144645     376MB
-        docker-compose_proxy-1                alfresco/alfresco-acs-nginx                    3.4.2      f9c4519b7920     23.5MB
-        docker-compose_share-1                quay.io/alfresco/alfresco-share                7.3.0      e77a380ab703     720MB
-        docker-compose_shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    2.0.0      32d64489f2b6     607MB
-        docker-compose_solr6-1                alfresco/alfresco-search-services              2.0.5      936f6335d2e5     920MB
-        docker-compose_sync-service-1         quay.io/alfresco/service-sync                  3.8.0      0418d131e179     629MB
-        docker-compose_transform-core-aio-1   alfresco/alfresco-transform-core-aio           3.0.0      c97305a9232a     1.69GB
-        docker-compose_transform-router-1     quay.io/alfresco/alfresco-transform-router     2.0.0      c084269f2c47     597MB       
+        Container                             Repository                                     Tag                        Image Id         Size
+        ---------------------------------------------------------------------------------------------------------------------------------------
+        docker-compose-activemq-1             alfresco/alfresco-activemq                     5.17.1-jre11-rockylinux8   0cd1a9629a85     632MB
+        docker-compose-alfresco-1             quay.io/alfresco/alfresco-content-repository   7.3.0                      13fbb0267e48     1.3GB
+        docker-compose-control-center-1       quay.io/alfresco/alfresco-admin-app            7.6.0                      f64bca8ae242     44.6MB
+        docker-compose-digital-workspace-1    quay.io/alfresco/alfresco-digital-workspace    3.1.0                      5842196a4fb4     576MB
+        docker-compose-postgres-1             postgres                                       14.4                       e09e90144645     376MB
+        docker-compose-proxy-1                alfresco/alfresco-acs-nginx                    3.4.2                      f9c4519b7920     23.5MB
+        docker-compose-share-1                quay.io/alfresco/alfresco-share                7.3.0                      e77a380ab703     720MB
+        docker-compose-shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    2.0.0                      32d64489f2b6     607MB
+        docker-compose-solr6-1                alfresco/alfresco-search-services              2.0.5                      936f6335d2e5     920MB
+        docker-compose-sync-service-1         quay.io/alfresco/service-sync                  3.8.0                      0418d131e179     629MB
+        docker-compose-transform-core-aio-1   alfresco/alfresco-transform-core-aio           3.0.0                      c97305a9232a     1.69GB
+        docker-compose-transform-router-1     quay.io/alfresco/alfresco-transform-router     2.0.0                      c084269f2c47     597MB       
         ```
 
     2. List the running containers:
@@ -439,14 +442,14 @@ Use this information to verify that the system started correctly, and to clean u
 
         ```bash
         docker-compose logs share
-        docker container logs docker-compose_share_1
+        docker container logs docker-compose-share-1
         ```
 
         You can add an optional parameter `--tail=25` before `<container-name>` to display the last 25 lines of the 
         logs for the selected container.
 
         ```bash
-        docker container logs --tail=25 docker-compose_share_1
+        docker container logs --tail=25 docker-compose-share-1
         ```
 
         Check for a success message:
@@ -461,17 +464,17 @@ Use this information to verify that the system started correctly, and to clean u
 
     ```bash
     ^CGracefully stopping... (press Ctrl+C again to force)
-    Stopping docker-compose_transform-core-aio_1 ... done
-    Stopping docker-compose_transform-router_1   ... done
-    Stopping docker-compose_proxy_1              ... done
-    Stopping docker-compose_sync-service_1       ... done
-    Stopping docker-compose_shared-file-store_1  ... done
-    Stopping docker-compose_postgres_1           ... done
-    Stopping docker-compose_activemq_1           ... done
-    Stopping docker-compose_share_1              ... done
-    Stopping docker-compose_solr6_1              ... done
-    Stopping docker-compose_alfresco_1           ... done
-    Stopping docker-compose_digital-workspace_1  ... done
+    Stopping docker-compose-transform-core-aio-1 ... done
+    Stopping docker-compose-transform-router-1   ... done
+    Stopping docker-compose-proxy-1              ... done
+    Stopping docker-compose-sync-service-1       ... done
+    Stopping docker-compose-shared-file-store-1  ... done
+    Stopping docker-compose-postgres-1           ... done
+    Stopping docker-compose-activemq-1           ... done
+    Stopping docker-compose-share-1              ... done
+    Stopping docker-compose-solr6-1              ... done
+    Stopping docker-compose-alfresco-1           ... done
+    Stopping docker-compose-digital-workspace-1  ... done
     ```
 
 5. Alternatively, you can open a new terminal window, change directory to the `docker-compose` folder, and run:
@@ -483,12 +486,12 @@ Use this information to verify that the system started correctly, and to clean u
     This stops the running services, as shown in the previous example, and removes them from memory:
 
     ```bash
-    Stopping docker-compose_transform-core-aio_1 ... done
+    Stopping docker-compose-transform-core-aio-1 ... done
     ...
-    Stopping docker-compose_digital-workspace_1  ... done
-    Removing docker-compose_transform-core-aio_1 ... done
+    Stopping docker-compose-digital-workspace-1  ... done
+    Removing docker-compose-transform-core-aio-1 ... done
     ...
-    Removing docker-compose_digital-workspace_1  ... done
+    Removing docker-compose-digital-workspace-1  ... done
     Removing network docker-compose_default
     ```
 
