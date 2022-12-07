@@ -76,7 +76,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.11 | |
 | Alfresco Desktop Sync 1.10 | |
 | Alfresco Desktop Sync 1.9 | |
-| Alfresco Transform Service 2.0.0 | |
+| Alfresco Transform Service 2.0 | |
 | Alfresco Transform Service 1.5.2 | |
 | Alfresco Document Transformation Engine 2.3 | |
 | Alfresco Search Enterprise 3.1 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.x upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
@@ -190,7 +190,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.11 | |
 | Alfresco Desktop Sync 1.10 | |
 | Alfresco Desktop Sync 1.9 | |
-| Alfresco Transform Service 2.0.0 | |
+| Alfresco Transform Service 2.0 | |
 | Alfresco Transform Service 1.5.2 | |
 | Alfresco Document Transformation Engine 2.3 | |
 | Alfresco Search Enterprise 3.1 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.x upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
