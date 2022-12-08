@@ -46,44 +46,40 @@ The following is an authentication created using Basic authentication and a user
 
 ![Authentication]({% link process-automation/images/authentication.png %})
 
-## Update authentication for deployed application
+## Upgrade authentication for deployed application
 
-To update authentication:
+You can upgrade the authentication of your application using the same version of your application. You can also upgrade the authentication of your application and change the deployed version.
 
-1. Expand the **Devops** section on the left of the Admin Application and then select **Application Instances**.
+To upgrade your authentication:
 
-2. For the application you want to update, click the three dots on the right of the last column and then select **Upgrade**.
+1. Expand the **Devops** section on the left of the Admin App and then select **Application Instances**.
+
+2. For the application you want to upgrade, click the three dots on the right of the last column and then select **Upgrade**.
 
 3. Select the version you want to upgrade to from the **Upgrade** dropdown list.
 
-4. If you want user's to receive an email each time a process assigns them a task, select **Enable user task mail notifications**.
+   If you select a different version of the application to the currently deployed one you will be required to enter authentication details further in this process. You can see the currently deployed version from the **Version** column on the **Application Instances** window.
 
-5. Click **Upgrade**.
+4. If you want user's to receive an email each time a process assigns them a task, select **Enable user task mail notifications** and then select the **Authentications** tab.
+
+5. Select **Change the authentication values** to change the current authentication values and then click **Upgrade**.
+
+   If you are upgrading to a different version of the application to the currently deployed one, the **Change the authentication values** check box will not be visible. Instead, you will be required to re-enter the authentication details of the authentication assigned to the version of the application you are upgrading to.
+
+6. Click **Upgrade**.
 
    **Important:** For your authentications that are not secure i.e. you did not select the **Secured** check box when the authentication was created, the configuration values already set in the Modeling Application will be automatically applied during the upgrade process. For your authentications that are secure i.e. you did select the **Secured** check box when the authentication was created, you must must re-enter the authentication values on the **Authentications** tab when performing the upgrade.
-
-![Authentication Upgrade]({% link process-automation/images/authentication-upgrade-override-params.png %})
-
-   If we want to override only parameters for current authentications, you will see the tabs on the upgrade configuration window are not pre-populated.
-
-
 
 ## Delete authentication
 
 To delete an authentication:
 
-1. Sign into the Modeling Application and open a project.
+1. Sign into the Modeling App and open the project that contains the authentication you want to delete.
 
-2. Click on authentication that you want to delete.
+2. Expand the **Authentications** section on the left.
 
-3. From the editor header toolbar, select menu (three dots).
+3. Select the authentication you want to delete.
 
-4. Click on 'Delete' and confirm.
+4. click the three dots and then select **Delete**.
 
-> **Warning**
->
-> By removing the authentication you could affect existing project in case it is still referencing it.
-
-![Authentication Delete]({% link process-automation/images/authentication-delete.png %})
-
-
+5. You will see **Deleting the authentication may affect your project if this authentication is already in use**. Click **Confirm** if you still want to delete the authentication.
