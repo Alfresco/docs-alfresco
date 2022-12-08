@@ -1285,7 +1285,7 @@ Make sure you have completed [prerequisites](#prereq) and created a [starter pro
         <!-- Alfresco Java SDK 5 Java ReST API wrapper Spring Boot Starter -->
         <dependency>
         <groupId>org.alfresco</groupId>
-        <artifactId>alfresco-java-rest-api-spring-boot-starter</artifactId>
+        <artifactId>alfresco-acs-java-rest-api-spring-boot-starter</artifactId>
         <version>5.2.0</version>
         </dependency>
     </dependencies>
@@ -1815,7 +1815,7 @@ search.service.path=/alfresco/api/-default-/public/search/versions/1
         <!-- Alfresco Java SDK 5 Java ReST API wrapper Spring Boot Starter -->
         <dependency>
         <groupId>org.alfresco</groupId>
-        <artifactId>alfresco-java-rest-api-spring-boot-starter</artifactId>
+        <artifactId>alfresco-acs-java-rest-api-spring-boot-starter</artifactId>
         <version>5.2.0</version>
         </dependency>
     </dependencies>
