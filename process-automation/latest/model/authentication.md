@@ -58,13 +58,13 @@ To upgrade your authentication:
 
 3. Select the version you want to upgrade to from the **Upgrade** dropdown list.
 
-   If you select a different version of the application that does not have the same configuration as the currently deployed one, you will optionally be able to enter new authentication details further in this process.
+   If you select a version of the application that is identical to the currently deployed one, you will optionally be able to change the configuration values further in this process. If you select a different version of the application that does not have the same configuration values as the currently deployed one, you will be forced to re-enter the authentication values for that application further in this process.
 
 4. If you want user's to receive an email each time a process assigns them a task, select **Enable user task mail notifications** and then select the **Authentications** tab.
 
 5. Select **Change the authentication values** to change the current authentication values and then click **Upgrade**.
 
-   If you are upgrading to a different version of the application to the currently deployed one, the **Change the authentication values** check box will not be visible. Instead, you will be required to re-enter the authentication details of the authentication assigned to the version of the application you are upgrading to.
+   If you are upgrading to a different version of the application to the currently deployed one, the **Change the authentication values** check box will not be visible. Instead, you will be required to re-enter the authentication values of the authentication assigned to the version of the application you are upgrading to.
 
 6. Click **Upgrade**.
 
