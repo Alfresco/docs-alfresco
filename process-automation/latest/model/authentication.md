@@ -48,7 +48,7 @@ The following is an authentication created using Basic authentication and a user
 
 ## Upgrade authentication for deployed application
 
-You can upgrade the authentication of your application using the same version of your application. You can also upgrade the authentication of your application and change the deployed version.
+You can upgrade the authentication of your deployed application.
 
 To upgrade your authentication:
 
@@ -58,7 +58,7 @@ To upgrade your authentication:
 
 3. Select the version you want to upgrade to from the **Upgrade** dropdown list.
 
-   If you select a different version of the application to the currently deployed one you will be required to enter authentication details further in this process. You can see the currently deployed version from the **Version** column on the **Application Instances** window.
+   If you select a different version of the application that does not have the same configuration as the currently deployed one, you will optionally be able to enter new authentication details further in this process.
 
 4. If you want user's to receive an email each time a process assigns them a task, select **Enable user task mail notifications** and then select the **Authentications** tab.
 
