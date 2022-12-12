@@ -60,7 +60,7 @@ To upgrade your authentication:
 
    If you select a version of the application that is identical to the currently deployed one, you will optionally be able to change the configuration values further in this process. If you select a different version of the application that does not have the same configuration values as the currently deployed one, you will be forced to re-enter the authentication values for that application further in this process.
 
-4. If you want user's to receive an email each time a process assigns them a task, select **Enable user task mail notifications** and then select the **Authentications** tab.
+4. If you want users to receive an email each time a process assigns them a task, select **Enable user task mail notifications** and then select the **Authentications** tab.
 
 5. Select **Change the authentication values** to change the current authentication values and then click **Upgrade**.
 
