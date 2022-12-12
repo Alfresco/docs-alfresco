@@ -68,7 +68,7 @@ To upgrade your authentication:
 
 6. Click **Upgrade**.
 
-   **Important:** For your authentications that are not secure i.e. you did not select the **Secured** check box when the authentication was created, the configuration values already set in the Modeling Application will be automatically applied during the upgrade process. For your authentications that are secure i.e. you did select the **Secured** check box when the authentication was created, you must must re-enter the authentication values on the **Authentications** tab when performing the upgrade.
+   **Important:** For your authentications that are not secure, in other words you did not select the **Secured** check box when the authentication was created, the configuration values already set in the Modeling Application will be automatically applied during the upgrade process. For your authentications that are secure, in other words you did select the **Secured** check box when the authentication was created, you must must re-enter the authentication values on the **Authentications** tab when performing the upgrade.
 
 ## Delete authentication
 
