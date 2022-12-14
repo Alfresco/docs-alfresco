@@ -80,6 +80,6 @@ To delete an authentication:
 
 3. Select the authentication you want to delete.
 
-4. click the three dots and then select **Delete**.
+4. Click the three dots and then select **Delete**.
 
 5. You will see **Deleting the authentication may affect your project if this authentication is already in use**. Click **Confirm** if you still want to delete the authentication.
