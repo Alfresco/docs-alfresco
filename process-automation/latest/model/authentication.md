@@ -23,7 +23,9 @@ The basic properties of creating authentication are:
 | Scope | *Required.* When using Client credentials authentication, enter one or more scope values that make up part of the API account you want to access, for example `api.account.one`. The scope entered is validated before you can save the authentication. |
 | Token | *Required.* When using Bearer token authentication, enter the bearer token for the API, for example `bearer-token`. |
 
- > **Note:** All the configuration parameters can be overridden at deployment time.
+ > **Note**
+ >
+ > All the configuration parameters can be overridden at deployment time.
 
 ## Create authentication
 
@@ -46,3 +48,41 @@ To create authentication:
 The following is an authentication created using Basic authentication and a username and password.
 
 ![Authentication]({% link process-automation/images/authentication.png %})
+
+## Upgrade authentication for deployed application
+
+You can upgrade the authentication of your deployed application.
+
+To upgrade your authentication:
+
+1. Expand the **Devops** section on the left of the Admin App and then select **Application Instances**.
+
+2. For the application you want to upgrade, click the three dots on the right of the last column and then select **Upgrade**.
+
+3. Select the version you want to upgrade to from the **Upgrade** dropdown list.
+
+   If you select a version of the application that is identical to the currently deployed one, you will optionally be able to change the configuration values further in this process. If you select a different version of the application that does not have the same configuration values as the currently deployed one, you will be forced to re-enter the authentication values for that application further in this process.
+
+4. If you want users to receive an email each time a process assigns them a task, select **Enable user task mail notifications** and then select the **Authentications** tab.
+
+5. Select **Change the authentication values** to change the current authentication values and then click **Upgrade**.
+
+   If you are upgrading to a different version of the application to the currently deployed one, the **Change the authentication values** check box will not be visible. Instead, you will be required to re-enter the authentication values of the authentication assigned to the version of the application you are upgrading to.
+
+6. Click **Upgrade**.
+
+   **Important:** For your authentications that are not secure, in other words you did not select the **Secured** check box when the authentication was created, the configuration values already set in the Modeling Application will be automatically applied during the upgrade process. For your authentications that are secure, in other words you did select the **Secured** check box when the authentication was created, you must must re-enter the authentication values on the **Authentications** tab when performing the upgrade.
+
+## Delete authentication
+
+To delete an authentication:
+
+1. Sign into the Modeling App and open the project that contains the authentication you want to delete.
+
+2. Expand the **Authentications** section on the left.
+
+3. Select the authentication you want to delete.
+
+4. Click the three dots and then select **Delete**.
+
+5. You will see **Deleting the authentication may affect your project if this authentication is already in use**. Click **Confirm** if you still want to delete the authentication.
