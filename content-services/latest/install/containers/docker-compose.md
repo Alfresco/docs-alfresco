@@ -14,7 +14,7 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 
-    > **Note:** The Download Trial is usually updated for *major.minor* versions of Content Services. The latest published version on our website is labelled *Version 7.2 - March 2022)*.
+    > **Note:** The Download Trial is usually updated for *major.minor* versions of Content Services. The latest published version on our website is labelled *Version 7.3 - December 2022)*.
 
 2. Save the `docker-compose.yml` file in a local folder.
 
@@ -40,20 +40,21 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
 
     ```text
     ...
-    ⠿ Network acs-trial_default                         Created    ...
-    ⠿ Volume "acs-trial_shared-file-store-volume"       Created    ...
-    ⠿ Container acs-trial_sync-service_1                Created    ...
-    ⠿ Container acs-trial_share_1                       Created    ...
-    ⠿ Container acs-trial_solr6_1                       Created    ...
-    ⠿ Container acs-trial_activemq_1                    Created    ...
-    ⠿ Container acs-trial_digital-workspace_1           Created    ...
-    ⠿ Container acs-trial_shared-file-store_1           Created    ...
-    ⠿ Container acs-trial_alfresco_1                    Created    ...
-    ⠿ Container acs-trial_postgres_1                    Created    ...
-    ⠿ Container acs-trial_proxy_1                       Created    ...
-    ⠿ Container acs-trial_transform-router_1            Created    ...
-    ⠿ Container acs-trial_transform-core-aio_1          Created    ...
-    Attaching to activemq_1, alfresco_1, digital-workspace_1, postgres_1, proxy_1, share_1, shared-file-store_1, solr6_1, sync-service_1, transform-core-aio_1, transform-router_1
+    Creating network "acstrial_default" with the default driver
+    Creating volume "acstrial_shared-file-store-volume" with default driver
+    Creating acstrial_control-center_1    ... done
+    Creating acstrial_activemq_1          ... done
+    Creating acstrial_sync-service_1      ... done
+    Creating acstrial_solr6_1             ... done
+    Creating acstrial_digital-workspace_1 ... done
+    Creating acstrial_share_1             ... done
+    Creating acstrial_postgres_1          ... done
+    Creating acstrial_alfresco_1          ... done
+    Creating acstrial_shared-file-store_1  ... done
+    Creating acstrial_proxy_1              ... done
+    Creating acstrial_transform-router_1   ... done
+    Creating acstrial_transform-core-aio_1 ... done
+    Attaching to acstrial_postgres_1, acstrial_control-center_1, acstrial_sync-service_1, acstrial_share_1, acstrial_digital-workspace_1, acstrial_alfresco_1, acstrial_solr6_1,    acstrial_activemq_1, acstrial_shared-file-store_1, acstrial_proxy_1, acstrial_transform-router_1, acstrial_transform-core-aio_1
     ...
     ```
 
@@ -81,6 +82,7 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
     | Digital Workspace | `http://localhost:8080/workspace` ||
     | Search Services administration | `http://localhost:8083/solr` |To get to the Solr Admin UI it’s necessary to add a header with a secret.<br/><br/>*For Safari:*<br/><br/>1. Go to **Develop -> Show Web Inspector -> Sources**.<br/>2. Click on the **+** next to *Local Overrides* and select **Local Overrides…**.<br/>3.  Configure URL with regular expression, using Solr host and port (e.g `http://localhost:8983/solr/*`) and add the `X-Alfresco-Search-Secret` header with the secret value.<br/><br/>*For Chrome, FireFox, Opera, and Edge*:<br/><br/>1. Install the ModHeader extension.<br/>2. Add the `X-Alfresco-Search-Secret` header with the secret value, as seen in the image. <br/><br/>![Modheader]({% link content-services/images/modheader.png %}){:width="460" height="380px"}|
     | Sync Service health check | `http://localhost:9090/alfresco/healthcheck` ||
+    | Admin Console | `http://localhost:8080/alfresco/s/enterprise/admin` ||
 
     If Docker is running on your local machine, the IP address will be just `localhost`.
 
@@ -104,22 +106,23 @@ Use this information to verify that the system started correctly, and to clean u
         docker-compose images
         ```
 
-        You should see a list of the services defined in your `docker-compose.yml` file (below are the tags used in the latest 7.2.0 release):
+        You should see a list of the services defined in your `docker-compose.yml` file (below are the tags used in the latest 7.3.0 release):
 
         ```text
-        Container                        Repository                                     Tag                 Image Id            Size
-        ------------------------------------------------------------------------------------------------------------------------------
-        acs-trial_activemq-1             alfresco/alfresco-activemq                     5.16.1              e9dd27ce1a5d        716.3 MB
-        acs-trial_alfresco-1             quay.io/alfresco/alfresco-content-repository   7.2.0               945933739097        1.437 GB
-        acs-trial_digital-workspace-1    quay.io/alfresco/alfresco-digital-workspace    2.6.0               1a2eaa5bf7a9        572.9 MB
-        acs-trial_postgres-1             postgres                                       13.3                b2fcd079c1d4        314.7 MB
-        acs-trial_proxy-1                alfresco/alfresco-acs-nginx                    3.2.0               da6d34dd9386        21.86 MB
-        acs-trial_share-1                quay.io/alfresco/alfresco-share                7.2.0               837b363e02af        758.7 MB
-        acs-trial_shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    0.16.1              dee75e9ffa5b        651.2 MB
-        acs-trial_solr6-1                quay.io/alfresco/search-services               2.1.0               5800e8a31bdd        890.8 MB
-        acs-trial_sync-service-1         quay.io/alfresco/service-sync                  3.5.0               7c0cee15f516        703.2 MB
-        acs-trial_transform-core-aio-1   alfresco/alfresco-transform-core-aio           2.5.6               39e6c1e8a6ad        1.667 GB
-        acs-trial_transform-router-1     quay.io/alfresco/alfresco-transform-router     1.5.1               ca6d0a1cb691        646.2 MB
+        Container                        Repository                                     Tag                       Image Id       Size
+        ---------------------------------------------------------------------------------------------------------------------------------
+        acstrial_activemq_1              alfresco/alfresco-activemq                     5.17.1-jre11-rockylinux8  0cd1a9629a85   631.6 MB
+        acstrial_alfresco_1              quay.io/alfresco/alfresco-content-repository   7.3.0                     13fbb0267e48   1.349 GB
+        acstrial_control-center_1        quay.io/alfresco/alfresco-admin-app            7.6.0                     f64bca8ae242   44.64 MB
+        acstrial_digital-workspace_1     quay.io/alfresco/alfresco-digital-workspace    3.1.0                     5842196a4fb4   576.4 MB
+        acstrial_postgres_1              postgres                                       14.4                      e09e90144645   376.1 MB
+        acstrial_proxy_1                 alfresco/alfresco-acs-nginx                    3.4.2                     f9c4519b7920   23.45 MB
+        acstrial_share_1                 quay.io/alfresco/alfresco-share                7.3.0                     e77a380ab703   720.4 MB
+        acstrial_shared-file-store_1     quay.io/alfresco/alfresco-shared-file-store    2.0.0                     32d64489f2b6   607.2 MB
+        acstrial_solr6_1                 alfresco/alfresco-search-services              2.0.5                     936f6335d2e5   919.5 MB
+        acstrial_sync-service_1          quay.io/alfresco/service-sync                  3.8.0                     0418d131e179   629.2 MB
+        acstrial_transform-core-aio_1    alfresco/alfresco-transform-core-aio           3.0.0                     c97305a9232a   1.687 GB
+        acstrial_transform-router_1      quay.io/alfresco/alfresco-transform-router     2.0.0                     c084269f2c47   596.7 MB
         ```
 
     2. List the running containers:
@@ -162,18 +165,19 @@ Use this information to verify that the system started correctly, and to clean u
 4. Stop the session by using `CONTROL+C` in the same window as the running services:
 
     ```text
-    ^CGracefully stopping... (press Ctrl+C again to force)
-    ⠿ Container acs-trial_solr6_1               Stopped    ...
-    ⠿ Container acs-trial_proxy_1               Stopped    ...
-    ⠿ Container acs-trial_share_1               Stopped    ...
-    ⠿ Container acs-trial_sync-service_1        Stopped    ...
-    ⠿ Container acs-trial_activemq_1            Stopped    ...
-    ⠿ Container acs-trial_postgres_1            Stopped    ...
-    ⠿ Container acs-trial_transform-router_1    Stopped    ...
-    ⠿ Container acs-trial_transform-core-aio_1  Stopped    ...
-    ⠿ Container acs-trial_shared-file-store_1   Stopped    ...
-    ⠿ Container acs-trial_alfresco_1            Stopped    ...
-    ⠿ Container acs-trial_digital-workspace_1   Stopped    ...
+    Gracefully stopping... (press Ctrl+C again to force)
+    Stopping acstrial_transform-router_1   ... done
+    Stopping acstrial_proxy_1              ... done
+    Stopping acstrial_transform-core-aio_1 ... done
+    Stopping acstrial_postgres_1           ... done
+    Stopping acstrial_alfresco_1           ... done
+    Stopping acstrial_solr6_1              ... done
+    Stopping acstrial_shared-file-store_1  ... done
+    Stopping acstrial_share_1              ... done
+    Stopping acstrial_sync-service_1       ... done
+    Stopping acstrial_control-center_1     ... done
+    Stopping acstrial_digital-workspace_1  ... done
+    Stopping acstrial_activemq_1           ... done
     ```
 
 5. Alternatively, you can open a new terminal window, change directory to the `docker-compose` folder, and run:
@@ -185,18 +189,31 @@ Use this information to verify that the system started correctly, and to clean u
     This stops the running services, as shown in the previous example, and removes them from memory:
 
     ```text
-    ⠿ Container acs-trial_solr6_1               Removed    ...
-    ⠿ Container acs-trial_transform-core-aio_1  Removed    ...
-    ⠿ Container acs-trial_postgres_1            Removed    ...
-    ⠿ Container acs-trial_proxy_1               Removed    ...
-    ⠿ Container acs-trial_transform-router_1    Removed    ...
-    ⠿ Container acs-trial_sync-service_1        Removed    ...
-    ⠿ Container acs-trial_shared-file-store_1   Removed    ...
-    ⠿ Container acs-trial_alfresco_1            Removed    ...
-    ⠿ Container acs-trial_share_1               Removed    ...
-    ⠿ Container acs-trial_digital-workspace_1   Removed    ...
-    ⠿ Container acs-trial_activemq_1            Removed    ...
-    ⠿ Network acs-trial_default                 Removed    ...
+    Stopping acstrial_transform-core-aio_1 ... done
+    Stopping acstrial_transform-router_1   ... done
+    Stopping acstrial_proxy_1              ... done
+    Stopping acstrial_shared-file-store_1  ... done
+    Stopping acstrial_solr6_1              ... done
+    Stopping acstrial_share_1              ... done
+    Stopping acstrial_alfresco_1           ... done
+    Stopping acstrial_postgres_1           ... done
+    Stopping acstrial_digital-workspace_1  ... done
+    Stopping acstrial_sync-service_1       ... done
+    Stopping acstrial_activemq_1           ... done
+    Stopping acstrial_control-center_1     ... done
+    Removing acstrial_transform-core-aio_1 ... done
+    Removing acstrial_transform-router_1   ... done
+    Removing acstrial_proxy_1              ... done
+    Removing acstrial_shared-file-store_1  ... done
+    Removing acstrial_solr6_1              ... done
+    Removing acstrial_share_1              ... done
+    Removing acstrial_alfresco_1           ... done
+    Removing acstrial_postgres_1           ... done
+    Removing acstrial_digital-workspace_1  ... done
+    Removing acstrial_sync-service_1       ... done
+    Removing acstrial_activemq_1           ... done
+    Removing acstrial_control-center_1     ... done
+    Removing network acstrial_default
     ```
 
 6. You can use a few more commands to explore the services when they're running. Change directory to `docker-compose` before running these:
