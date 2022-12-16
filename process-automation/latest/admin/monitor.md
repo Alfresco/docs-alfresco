@@ -147,7 +147,7 @@ The status of tasks are:
 | SUSPENDED | The task is suspended because the process instance it belongs to has been suspended. It cannot be completed until the process instance is activated. |
 | CANCELLED | The task has been cancelled and cannot be completed. |
 
-#### Select Multiple
+#### Select multiple user tasks
 
 You can delete or change the assignee of multiple user tasks at the same time.
 
