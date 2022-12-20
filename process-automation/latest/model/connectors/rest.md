@@ -236,3 +236,36 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 | BAD_GATEWAY | The server got an invalid response. |
 | SERVICE_UNAVAILABLE | The server is not ready to handle the request. |
 | GATEWAY_TIMEOUT | The server is acting as a gateway and cannot get a response in time. |
+
+## Use the REST Connector to send files
+
+You can use the Rest Connector to send files.
+
+1. In the Modelling Application click the **+** icon next to processes and create a new process called `send-file`.
+
+2. Create a **User task** called `Attach file`.
+
+3. Create a **REST Connector** called `Send post request`.
+
+4. Join the the User task to the REST Connector.
+
+5. Select the **REST Connector** and from the **Properties pane** select the **POST** action from the **Action** dropdown list.
+
+6. Click the edit icon next to **RequestPayload**.
+
+7. In the **Value** column on the right
+
+    ```{
+    "base64File": "${getBase64FileContent(file)}"
+        }
+        ```
+
+    Where `file` is the file process variable and might have a different name in your process.
+
+8.  
+
+The Rest Connector needs to be able to accept a File reference and send it to a given endpoint as payload 
+
+
+A possible Use case for the payload can be use the expression editor to reference the file 
+
