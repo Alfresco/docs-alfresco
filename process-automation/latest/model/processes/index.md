@@ -292,7 +292,7 @@ Any mapping configured in a process is stored in the **Extensions Editor** using
 
 ### Capture assignee of completed task
 
-You can use output mapping and the `sys_task_assignee` pre-defined variable, to capture the assignee of a completed task. This is helpful because you could use the assignee information in another process. For example, you could use this in a support context where whoever the assignee of a completed task is could be the contact person for the account for which the task was carried out.
+You can use output mapping and the `sys_task_assignee` pre-defined variable to capture the assignee of a completed task. This is helpful because you could use the assignee information in another process. For example, you could use this in a support context where whoever the assignee of a completed task is could be the contact person for the account for which the task was carried out.
 
 > **Note:** The `sys_task_assignee` variable is a system variable and cannot be edited.
 
