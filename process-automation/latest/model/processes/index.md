@@ -300,7 +300,7 @@ To create a process that captures the assignee of a completed task:
 
 1. Create a form, for more see [Forms]({% link process-automation/latest/model/forms.md %}).
 
-2. Create a process that includes a **User task**, for more see [User tasks]({% link process-automation/latest/admin/monitor.md %}#user-tasks).
+2. Create a process that includes a [User task]({% link process-automation/latest/admin/monitor.md %}#user-tasks).
 
 3. From the **Properties** pane select the form you created from the **Form name** dropdown list.  
 
