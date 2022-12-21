@@ -290,6 +290,32 @@ Any mapping configured in a process is stored in the **Extensions Editor** using
 }
 ```
 
+### Capture assignee of completed task
+
+You can use output mapping and the `sys_task_assignee` pre-defined variable to capture the assignee of a completed task. This is helpful because you could use the assignee information in another process. For example, you could use this in a support context where whoever the assignee of a completed task is could be the contact person for the account for which the task was carried out.
+
+> **Note:** The `sys_task_assignee` variable is a system variable and cannot be edited.
+
+To create a process that captures the assignee of a completed task:
+
+1. Create a [form]({% link process-automation/latest/model/forms.md %}).
+
+2. Create a process that includes a [User task]({% link process-automation/latest/admin/monitor.md %}#user-tasks).
+
+3. From the **Properties** pane select the form you created from the **Form name** dropdown list.  
+
+4. From the **Mapping type** dropdown list select **Map variables**.
+
+5. Deselect the **User task** by clicking anywhere in the white space and then click **Edit Process Variables** from the right pane.
+
+6. Click the **+** icon and enter a name for the process variable in the **Name** field.
+
+7. From the **Type** dropdown list select **Primitives** then select **string** and then click **Update**.
+
+8. Select your **User task** again and from the `sys_task_assignee` dropdown menu under **Output mapping** select the process variable you have just created.
+
+You now have a process that captures the assigned user of a completed task.
+
 ## Errors
 
 Errors are used by error catching events and error throwing events to model business exceptions using [BPMN elements]({% link process-automation/latest/model/processes/bpmn.md %}). They can be created and managed at the individual error event level, or at a diagram level. Unlike process variables, errors can be shared between process definitions in the same diagram.
