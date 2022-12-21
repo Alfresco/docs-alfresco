@@ -298,7 +298,7 @@ You can use output mapping and the `sys_task_assignee` pre-defined variable, to 
 
 To create a process that captures the assignee of a completed task:
 
-1. Create a form, for more see [Forms]({% link process-automation/latest/model/forms.md %}).
+1. Create a [form]({% link process-automation/latest/model/forms.md %}).
 
 2. Create a process that includes a [User task]({% link process-automation/latest/admin/monitor.md %}#user-tasks).
 
