@@ -126,7 +126,7 @@ alfresco.cross.locale.property.0={http://www.alfresco.org/model/content/1.0}name
 alfresco.cross.locale.property.1={http://www.alfresco.org/model/content/1.0}lockOwner
 ```
 
-You can extend that capability to some well known data types, at the same file location, by uncommenting the lines below and performing a full reindex to enable cross locale on those types:
+You can extend that capability to some well known data types, at the same file location, by uncommenting the lines below and performing a full reindex to enable cross locale on all properties defined with those types:
 
 ```text
 alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text
