@@ -119,7 +119,7 @@ If you don’t specify a field the search runs against name, description, title,
 
 > **Note:** If cross locale is not configured for the field then an exception occurs.
 
-The list of default supported fields (a.k.a. Alfresco properties) are declared in the `<search_services_home>/solrhome/conf/shared.properties` file.
+The list of default supported fields (a.k.a. Alfresco properties) is declared in the `<search_services_home>/solrhome/conf/shared.properties` file.
 
 ```text
 alfresco.cross.locale.property.0={http://www.alfresco.org/model/content/1.0}name
