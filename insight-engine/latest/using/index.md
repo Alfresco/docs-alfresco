@@ -144,7 +144,7 @@ For details about deployment using the Docker Compose file, see [Installation op
 
     ```YAML
     zeppelin:
-        image: quay.io/alfresco/insight-zeppelin:2.0.0
+        image: quay.io/alfresco/insight-zeppelin:2.0.x
         environment:
                 - REPO_HOST=alfresco
                 - REPO_PORT=8080
