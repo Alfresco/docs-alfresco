@@ -40,21 +40,21 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
 
     ```text
     ...
-    Creating network "acstrial_default" with the default driver
-    Creating volume "acstrial_shared-file-store-volume" with default driver
-    Creating acstrial_control-center_1     ... done
-    Creating acstrial_activemq_1           ... done
-    Creating acstrial_sync-service_1       ... done
-    Creating acstrial_solr6_1              ... done
-    Creating acstrial_digital-workspace_1  ... done
-    Creating acstrial_share_1              ... done
-    Creating acstrial_postgres_1           ... done
-    Creating acstrial_alfresco_1           ... done
-    Creating acstrial_shared-file-store_1  ... done
-    Creating acstrial_proxy_1              ... done
-    Creating acstrial_transform-router_1   ... done
-    Creating acstrial_transform-core-aio_1 ... done
-    Attaching to acstrial_postgres_1, acstrial_control-center_1, acstrial_sync-service_1, acstrial_share_1, acstrial_digital-workspace_1, acstrial_alfresco_1, acstrial_solr6_1,    acstrial_activemq_1, acstrial_shared-file-store_1, acstrial_proxy_1, acstrial_transform-router_1, acstrial_transform-core-aio_1
+    Creating network "acs-trial_default" with the default driver
+    Creating volume "acs-trial_shared-file-store-volume" with default driver
+    Creating acs-trial_control-center_1     ... done
+    Creating acs-trial_activemq_1           ... done
+    Creating acs-trial_sync-service_1       ... done
+    Creating acs-trial_solr6_1              ... done
+    Creating acs-trial_digital-workspace_1  ... done
+    Creating acs-trial_share_1              ... done
+    Creating acs-trial_postgres_1           ... done
+    Creating acs-trial_alfresco_1           ... done
+    Creating acs-trial_shared-file-store_1  ... done
+    Creating acs-trial_proxy_1              ... done
+    Creating acs-trial_transform-router_1   ... done
+    Creating acs-trial_transform-core-aio_1 ... done
+    Attaching to acs-trial_postgres_1, acs-trial_control-center_1, acs-trial_sync-service_1, acs-trial_share_1, acs-trial_digital-workspace_1, acs-trial_alfresco_1, acs-trial_solr6_1,    acs-trial_activemq_1, acs-trial_shared-file-store_1, acs-trial_proxy_1, acs-trial_transform-router_1, acs-trial_transform-core-aio_1
     ...
     ```
 
@@ -111,18 +111,18 @@ Use this information to verify that the system started correctly, and to clean u
         ```text
         Container                        Repository                                     Tag                       Image Id       Size
         ---------------------------------------------------------------------------------------------------------------------------------
-        acstrial_activemq_1              alfresco/alfresco-activemq                     5.17.1-jre11-rockylinux8  0cd1a9629a85   631.6 MB
-        acstrial_alfresco_1              quay.io/alfresco/alfresco-content-repository   7.3.0                     13fbb0267e48   1.349 GB
-        acstrial_control-center_1        quay.io/alfresco/alfresco-admin-app            7.6.0                     f64bca8ae242   44.64 MB
-        acstrial_digital-workspace_1     quay.io/alfresco/alfresco-digital-workspace    3.1.0                     5842196a4fb4   376.4 MB
-        acstrial_postgres_1              postgres                                       14.4                      e09e90144645   376.1 MB
-        acstrial_proxy_1                 alfresco/alfresco-acs-nginx                    3.4.2                     f9c4519b7920   23.45 MB
-        acstrial_share_1                 quay.io/alfresco/alfresco-share                7.3.0                     e77a380ab703   720.4 MB
-        acstrial_shared-file-store_1     quay.io/alfresco/alfresco-shared-file-store    2.0.0                     32d64489f2b6   607.2 MB
-        acstrial_solr6_1                 alfresco/alfresco-search-services              2.0.5                     936f6335d2e5   919.5 MB
-        acstrial_sync-service_1          quay.io/alfresco/service-sync                  3.8.0                     0418d131e179   629.2 MB
-        acstrial_transform-core-aio_1    alfresco/alfresco-transform-core-aio           3.0.0                     c97305a9232a   1.687 GB
-        acstrial_transform-router_1      quay.io/alfresco/alfresco-transform-router     2.0.0                     c084269f2c47   596.7 MB
+        acs-trial_activemq_1              alfresco/alfresco-activemq                     5.17.1-jre11-rockylinux8  0cd1a9629a85   631.6 MB
+        acs-trial_alfresco_1              quay.io/alfresco/alfresco-content-repository   7.3.0                     13fbb0267e48   1.349 GB
+        acs-trial_control-center_1        quay.io/alfresco/alfresco-admin-app            7.6.0                     f64bca8ae242   44.64 MB
+        acs-trial_digital-workspace_1     quay.io/alfresco/alfresco-digital-workspace    3.1.0                     5842196a4fb4   376.4 MB
+        acs-trial_postgres_1              postgres                                       14.4                      e09e90144645   376.1 MB
+        acs-trial_proxy_1                 alfresco/alfresco-acs-nginx                    3.4.2                     f9c4519b7920   23.45 MB
+        acs-trial_share_1                 quay.io/alfresco/alfresco-share                7.3.0                     e77a380ab703   720.4 MB
+        acs-trial_shared-file-store_1     quay.io/alfresco/alfresco-shared-file-store    2.0.0                     32d64489f2b6   607.2 MB
+        acs-trial_solr6_1                 alfresco/alfresco-search-services              2.0.5                     936f6335d2e5   919.5 MB
+        acs-trial_sync-service_1          quay.io/alfresco/service-sync                  3.8.0                     0418d131e179   629.2 MB
+        acs-trial_transform-core-aio_1    alfresco/alfresco-transform-core-aio           3.0.0                     c97305a9232a   1.687 GB
+        acs-trial_transform-router_1      quay.io/alfresco/alfresco-transform-router     2.0.0                     c084269f2c47   596.7 MB
         ```
 
     2. List the running containers:
@@ -166,18 +166,18 @@ Use this information to verify that the system started correctly, and to clean u
 
     ```text
     Gracefully stopping... (press Ctrl+C again to force)
-    Stopping acstrial_transform-router_1   ... done
-    Stopping acstrial_proxy_1              ... done
-    Stopping acstrial_transform-core-aio_1 ... done
-    Stopping acstrial_postgres_1           ... done
-    Stopping acstrial_alfresco_1           ... done
-    Stopping acstrial_solr6_1              ... done
-    Stopping acstrial_shared-file-store_1  ... done
-    Stopping acstrial_share_1              ... done
-    Stopping acstrial_sync-service_1       ... done
-    Stopping acstrial_control-center_1     ... done
-    Stopping acstrial_digital-workspace_1  ... done
-    Stopping acstrial_activemq_1           ... done
+    Stopping acs-trial_transform-router_1   ... done
+    Stopping acs-trial_proxy_1              ... done
+    Stopping acs-trial_transform-core-aio_1 ... done
+    Stopping acs-trial_postgres_1           ... done
+    Stopping acs-trial_alfresco_1           ... done
+    Stopping acs-trial_solr6_1              ... done
+    Stopping acs-trial_shared-file-store_1  ... done
+    Stopping acs-trial_share_1              ... done
+    Stopping acs-trial_sync-service_1       ... done
+    Stopping acs-trial_control-center_1     ... done
+    Stopping acs-trial_digital-workspace_1  ... done
+    Stopping acs-trial_activemq_1           ... done
     ```
 
 5. Alternatively, you can open a new terminal window, change directory to the `docker-compose` folder, and run:
@@ -189,31 +189,31 @@ Use this information to verify that the system started correctly, and to clean u
     This stops the running services, as shown in the previous example, and removes them from memory:
 
     ```text
-    Stopping acstrial_transform-core-aio_1 ... done
-    Stopping acstrial_transform-router_1   ... done
-    Stopping acstrial_proxy_1              ... done
-    Stopping acstrial_shared-file-store_1  ... done
-    Stopping acstrial_solr6_1              ... done
-    Stopping acstrial_share_1              ... done
-    Stopping acstrial_alfresco_1           ... done
-    Stopping acstrial_postgres_1           ... done
-    Stopping acstrial_digital-workspace_1  ... done
-    Stopping acstrial_sync-service_1       ... done
-    Stopping acstrial_activemq_1           ... done
-    Stopping acstrial_control-center_1     ... done
-    Removing acstrial_transform-core-aio_1 ... done
-    Removing acstrial_transform-router_1   ... done
-    Removing acstrial_proxy_1              ... done
-    Removing acstrial_shared-file-store_1  ... done
-    Removing acstrial_solr6_1              ... done
-    Removing acstrial_share_1              ... done
-    Removing acstrial_alfresco_1           ... done
-    Removing acstrial_postgres_1           ... done
-    Removing acstrial_digital-workspace_1  ... done
-    Removing acstrial_sync-service_1       ... done
-    Removing acstrial_activemq_1           ... done
-    Removing acstrial_control-center_1     ... done
-    Removing network acstrial_default
+    Stopping acs-trial_transform-core-aio_1 ... done
+    Stopping acs-trial_transform-router_1   ... done
+    Stopping acs-trial_proxy_1              ... done
+    Stopping acs-trial_shared-file-store_1  ... done
+    Stopping acs-trial_solr6_1              ... done
+    Stopping acs-trial_share_1              ... done
+    Stopping acs-trial_alfresco_1           ... done
+    Stopping acs-trial_postgres_1           ... done
+    Stopping acs-trial_digital-workspace_1  ... done
+    Stopping acs-trial_sync-service_1       ... done
+    Stopping acs-trial_activemq_1           ... done
+    Stopping acs-trial_control-center_1     ... done
+    Removing acs-trial_transform-core-aio_1 ... done
+    Removing acs-trial_transform-router_1   ... done
+    Removing acs-trial_proxy_1              ... done
+    Removing acs-trial_shared-file-store_1  ... done
+    Removing acs-trial_solr6_1              ... done
+    Removing acs-trial_share_1              ... done
+    Removing acs-trial_alfresco_1           ... done
+    Removing acs-trial_postgres_1           ... done
+    Removing acs-trial_digital-workspace_1  ... done
+    Removing acs-trial_sync-service_1       ... done
+    Removing acs-trial_activemq_1           ... done
+    Removing acs-trial_control-center_1     ... done
+    Removing network acs-trial_default
     ```
 
 6. You can use a few more commands to explore the services when they're running. Change directory to `docker-compose` before running these:
@@ -245,32 +245,32 @@ Use this information to verify that the system started correctly, and to clean u
         The `--rmi all` option also removes the images created by `docker-compose up`, and the images used by any service. You can use this, for example, if any containers fail and you need to remove them:
 
         ```bash
-        % docker-compose down --rmi all
+        docker-compose down --rmi all
         ```
 
         ```text
-        Stopping acstrial_transform-router_1   ... done
-        Stopping acstrial_transform-core-aio_1 ... done
-        Stopping acstrial_solr6_1              ... done
-        Stopping acstrial_sync-service_1       ... done
-        Stopping acstrial_alfresco_1           ... done
-        Stopping acstrial_shared-file-store_1  ... done
-        Stopping acstrial_postgres_1           ... done
-        Stopping acstrial_share_1              ... done
-        Stopping acstrial_control-center_1     ... done
-        Stopping acstrial_activemq_1           ... done
-        Removing acstrial_transform-router_1   ... done
-        Removing acstrial_transform-core-aio_1 ... done
-        Removing acstrial_proxy_1              ... done
-        Removing acstrial_postgres_1           ... done
-        Removing acstrial_alfresco_1           ... done
-        Removing acstrial_digital-workspace_1  ... done
-        Removing acstrial_solr6_1              ... done
-        Removing acstrial_share_1              ... done
-        Removing acstrial_control-center_1     ... done
-        Removing acstrial_sync-service_1       ... done
-        Removing acstrial_shared-file-store_1  ... done
-        Removing acstrial_activemq_1           ... done
+        Stopping acs-trial_transform-router_1   ... done
+        Stopping acs-trial_transform-core-aio_1 ... done
+        Stopping acs-trial_solr6_1              ... done
+        Stopping acs-trial_sync-service_1       ... done
+        Stopping acs-trial_alfresco_1           ... done
+        Stopping acs-trial_shared-file-store_1  ... done
+        Stopping acs-trial_postgres_1           ... done
+        Stopping acs-trial_share_1              ... done
+        Stopping acs-trial_control-center_1     ... done
+        Stopping acs-trial_activemq_1           ... done
+        Removing acs-trial_transform-router_1   ... done
+        Removing acs-trial_transform-core-aio_1 ... done
+        Removing acs-trial_proxy_1              ... done
+        Removing acs-trial_postgres_1           ... done
+        Removing acs-trial_alfresco_1           ... done
+        Removing acs-trial_digital-workspace_1  ... done
+        Removing acs-trial_solr6_1              ... done
+        Removing acs-trial_share_1              ... done
+        Removing acs-trial_control-center_1     ... done
+        Removing acs-trial_sync-service_1       ... done
+        Removing acs-trial_shared-file-store_1  ... done
+        Removing acs-trial_activemq_1           ... done
         Removing network acs-trial_default
         Removing image quay.io/alfresco/alfresco-content-repository:7.3.0
         Removing image quay.io/alfresco/alfresco-shared-file-store:2.0.0
