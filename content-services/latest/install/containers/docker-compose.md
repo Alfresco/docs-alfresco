@@ -10,7 +10,7 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
 
 1. Download the `docker-compose.yml` file by accessing the Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"} page, which will give you a 30-day license.
 
-    If you already have a valid license file for Content Services 7.2, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/latest/admin/license.md %}) for more details.
+    If you already have a valid license file for Content Services 7.3, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/latest/admin/license.md %}) for more details.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 
@@ -66,8 +66,8 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
 
     ```bash
     ...
-    alfresco_1 | 2022-03-24 14:00:50,707  INFO  ... Starting 'Transformers' subsystem, ID: [Transformers, default]
-    alfresco_1 | 2022-03-24 14:00:50,874  INFO  ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+    alfresco_1 | 2022-12-14 14:00:50,707  INFO  ... Starting 'Transformers' subsystem, ID: [Transformers, default]
+    alfresco_1 | 2022-12-14 14:00:50,874  INFO  ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
     ...
     ```
 
@@ -355,6 +355,8 @@ The Docker Compose file provides some default configuration. This section lists 
 | APP_CONFIG_APPS_DEPLOYED | The name of the deployed application (e.g. `"[{"name": "<the name of the deployed application>"}]"`) |
 
 ### Alfresco Content App (content-app)
+
+This app is deployed by default only with the Community Compose file, `community-docker-compose.yml`.
 
 | Property | Description |
 | -------- | ----------- |
