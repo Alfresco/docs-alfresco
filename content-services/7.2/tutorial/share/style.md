@@ -6,7 +6,7 @@ Tutorials that deal with styling of the Share user interface. For example, how t
 
 ## Adding a custom Share Theme {#addcustomtheme}
 
-**Extension Point**: [Share Themes]({% link content-services/latest/develop/share-ext-points/share-themes.md %})
+**Extension Point**: [Share Themes]({% link content-services/7.2/develop/share-ext-points/share-themes.md %})
 
 **Description**:
 
@@ -31,11 +31,11 @@ The following steps are usually needed to customize the Share UI using a custom 
 **Related Information**:
 
 This tutorial assumes that you are familiar with the Share architecture. If you are new to it then read up on it 
-[here]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture) before starting this tutorial.
+[here]({% link content-services/7.2/develop/software-architecture.md %}#sharearchitecture) before starting this tutorial.
 
 **Source Code**: [Go to code](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-page-content-share){:target="_blank"}
 
-This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) project.
+This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/7.2/develop/sdk.md %}#workingaio) project.
 
 Tutorial implementation steps:
 
@@ -175,13 +175,13 @@ Tutorial implementation steps:
 
     ![dev-extensions-share-tutorials-custom-theme-dashboard]({% link content-services/images/dev-extensions-share-tutorials-custom-theme-dashboard.png %})
 
-    You should also see a custom logo on each page. If you are also running with the [Share header customization]({% link content-services/latest/tutorial/share/header.md %}) installed, then you will see that it overrides the theme customization:
+    You should also see a custom logo on each page. If you are also running with the [Share header customization]({% link content-services/7.2/tutorial/share/header.md %}) installed, then you will see that it overrides the theme customization:
 
     ![dev-extensions-share-tutorials-custom-theme-menu-with-header-customization]({% link content-services/images/dev-extensions-share-tutorials-custom-theme-menu-with-header-customization.png %})
 
 ## Customizing the Share Header Style (Aikau) {#customizeshareheaderstyle}
 
-**Extension Point**: [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %})
+**Extension Point**: [Surf Extension Modules]({% link content-services/7.2/develop/share-ext-points/surf-extension-modules.md %})
 
 **Description**:
 
@@ -212,7 +212,7 @@ Header widgets via LESS variables.
 
 **Source Code**: [Go to code](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/change-header-style-share){:target="_blank"}
 
-This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) project.
+This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/7.2/develop/sdk.md %}#workingaio) project.
 
 Tutorial implementation steps:
 
@@ -298,7 +298,7 @@ Tutorial implementation steps:
 
 2.  Decide if you want to customize an existing theme or use a custom theme.
 
-    Customizing the style of the header can be done either by overriding an existing theme, such as the Green Theme, or by creating a new custom theme. In this exercise we will customize the out-of-the-box Green Theme. If we are just customization LESS variables, and we don't need to change anything else in the Green Theme, then it is enough to just create a Green Theme XML file and override the LESS variables. There is no need to copy over the complete `theme` directory like when [creating a custom theme]({% link content-services/latest/develop/share-ext-points/share-themes.md %}).
+    Customizing the style of the header can be done either by overriding an existing theme, such as the Green Theme, or by creating a new custom theme. In this exercise we will customize the out-of-the-box Green Theme. If we are just customization LESS variables, and we don't need to change anything else in the Green Theme, then it is enough to just create a Green Theme XML file and override the LESS variables. There is no need to copy over the complete `theme` directory like when [creating a custom theme]({% link content-services/7.2/develop/share-ext-points/share-themes.md %}).
 
 3.  Create a new themes directory under the `aio/aio-share-jar/src/main/resources/alfresco/web-extension/site-data` directory.
 

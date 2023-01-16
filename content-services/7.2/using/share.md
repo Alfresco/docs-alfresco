@@ -11,7 +11,7 @@ With Alfresco Share it's simple to share information, run projects, and collabor
 * Work with content and add it to your site
 * Add users to your site, set up meetings and use social media features
 
-There are a set of [video tutorials]({% link content-services/latest/tutorial/video/index.md %}) related to Alfresco Share, including a [tour of the available features]({% link content-services/latest/tutorial/video/index.md %}#tour-of-alfresco-share).
+There are a set of [video tutorials]({% link content-services/7.2/tutorial/video/index.md %}) related to Alfresco Share, including a [tour of the available features]({% link content-services/7.2/tutorial/video/index.md %}#tour-of-alfresco-share).
 
 Alfresco Share content is stored in sites, and each individual site has its own dashboard made up of *dashlets*.
 
@@ -57,7 +57,7 @@ Wherever you are in Alfresco Share, you can click **Home** or **User Dashboard**
 
 The dashlets on this page give you a simple and up-to-date overview of what's been going on in the sites you're a member of.
 
-> **Note:** If you've [set your home page]({% link content-services/latest/using/dashboard.md %}#sethomepage) then when you click **Home** that page will open.
+> **Note:** If you've [set your home page]({% link content-services/7.2/using/dashboard.md %}#sethomepage) then when you click **Home** that page will open.
 
 You can customize your dashboard to display the information that interests you. Each dashlet you select is displayed on the dashboard.
 

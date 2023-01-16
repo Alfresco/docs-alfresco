@@ -6,7 +6,7 @@ The following are tutorials related to pages in the Share Web Application (`shar
 
 ## Adding content to a Surf page {#addcontent}
 
-**Extension Point**: [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %})
+**Extension Point**: [Surf Extension Modules]({% link content-services/7.2/develop/share-ext-points/surf-extension-modules.md %})
 
 **Description**: 
 
@@ -25,13 +25,13 @@ A simple and effective way to add content to a Surf page is to follow these step
 **Related Information**:
 
 This tutorial assumes that you are familiar with the Spring Surf development framework. If you are new to it then read 
-up on it [here]({% link content-services/latest/develop/software-architecture.md %}#surf-framework) before starting this tutorial. 
-If you have not already done so you should also review the [Introducing SurfBug]({% link content-services/latest/develop/tools.md %}#surfbug) 
+up on it [here]({% link content-services/7.2/develop/software-architecture.md %}#surf-framework) before starting this tutorial. 
+If you have not already done so you should also review the [Introducing SurfBug]({% link content-services/7.2/develop/tools.md %}#surfbug) 
 topic as this tool is used in this tutorial.
 
 **Source Code**: [Go to code](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-page-content-share){:target="_blank"}
 
-This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) project.
+This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/7.2/develop/sdk.md %}#workingaio) project.
 
 Tutorial implementation steps:
 
@@ -58,7 +58,7 @@ Tutorial implementation steps:
 
 4.  Identify which component to add the new sub-component to.
 
-    For this we use the [SurfBug]({% link content-services/latest/develop/tools.md %}#surfbug) tool. Once the tool is activated (from `http://localhost:8080/share/page/surfBugStatus`) we can identify the component on the page as follows:
+    For this we use the [SurfBug]({% link content-services/7.2/develop/tools.md %}#surfbug) tool. Once the tool is activated (from `http://localhost:8080/share/page/surfBugStatus`) we can identify the component on the page as follows:
 
     ![dev-extensions-share-tutorials-add-content-page-surfbug]({% link content-services/images/dev-extensions-share-tutorials-add-content-page-surfbug.png %})
 
@@ -114,7 +114,7 @@ Tutorial implementation steps:
 
 ## Removing content from a Surf page {#removecontent}
 
-**Extension Point**: [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %})
+**Extension Point**: [Surf Extension Modules]({% link content-services/7.2/develop/share-ext-points/surf-extension-modules.md %})
 
 **Description**:
 
@@ -133,19 +133,19 @@ A simple and effective way to remove content from a Surf page is to follow these
 **Related Information**:
 
 This tutorial assumes that you are familiar with the Spring Surf development framework. If you are new to it then read 
-up on it [here]({% link content-services/latest/develop/software-architecture.md %}#surf-framework) before starting this tutorial. 
-If you have not already done so you should also review the [Introducing SurfBug]({% link content-services/latest/develop/tools.md %}#surfbug) 
+up on it [here]({% link content-services/7.2/develop/software-architecture.md %}#surf-framework) before starting this tutorial. 
+If you have not already done so you should also review the [Introducing SurfBug]({% link content-services/7.2/develop/tools.md %}#surfbug) 
 topic as this tool is used in this tutorial.
 
 **Source Code**: [Go to code](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/remove-page-content-share){:target="_blank"}
 
-This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) project.
+This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/7.2/develop/sdk.md %}#workingaio) project.
 
 Tutorial implementation steps:
 
 1.  Identify which component that corresponds to the content that should be removed.
 
-    For this we use the [SurfBug]({% link content-services/latest/develop/tools.md %}#surfbug) tool. Once the tool is activated (from `http://localhost:8080/share/page/surfBugStatus`) we can identify the component on the page as follows:
+    For this we use the [SurfBug]({% link content-services/7.2/develop/tools.md %}#surfbug) tool. Once the tool is activated (from `http://localhost:8080/share/page/surfBugStatus`) we can identify the component on the page as follows:
 
     ![dev-extensions-share-tutorials-remove-content-page-surfbug]({% link content-services/images/dev-extensions-share-tutorials-remove-content-page-surfbug.png %})
 
@@ -223,7 +223,7 @@ Tutorial implementation steps:
 
 ## Customizing (web script properties) the footer text for a Surf page
 
-**Extension Point**: [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %})
+**Extension Point**: [Surf Extension Modules]({% link content-services/7.2/develop/share-ext-points/surf-extension-modules.md %})
 
 **Description**:
 
@@ -244,19 +244,19 @@ i18n properties files for a web script. The approach looks something like this:
 **Related Information**:
 
 This tutorial assumes that you are familiar with the Spring Surf development framework. If you are new to it then read 
-up on it [here]({% link content-services/latest/develop/software-architecture.md %}#surf-framework) before starting this tutorial. 
-If you have not already done so you should also review the [Introducing SurfBug]({% link content-services/latest/develop/tools.md %}#surfbug) 
+up on it [here]({% link content-services/7.2/develop/software-architecture.md %}#surf-framework) before starting this tutorial. 
+If you have not already done so you should also review the [Introducing SurfBug]({% link content-services/7.2/develop/tools.md %}#surfbug) 
 topic as this tool is used in this tutorial.
 
 **Source Code**: [Go to code](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/customize-webscript-i18n-props-share){:target="_blank"}
 
-This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) project.
+This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/7.2/develop/sdk.md %}#workingaio) project.
 
 Tutorial implementation steps:
 
 1.  Identify the web script that delivers the content that should be customized.
 
-    For this we use the [SurfBug]({% link content-services/latest/develop/tools.md %}#surfbug) tool. Once the tool is activated (from `http://localhost:8080/share/page/surfBugStatus`) we can identify the web script as follows:
+    For this we use the [SurfBug]({% link content-services/7.2/develop/tools.md %}#surfbug) tool. Once the tool is activated (from `http://localhost:8080/share/page/surfBugStatus`) we can identify the web script as follows:
 
     ![dev-extensions-share-tutorials-i18n-customize-page-surfbug]({% link content-services/images/dev-extensions-share-tutorials-i18n-customize-page-surfbug.png %})
 
@@ -318,7 +318,7 @@ Tutorial implementation steps:
 
 ## Customizing (web script controller) the WebView dashlet on the Dashboard page {#customizewscontroller}
 
-**Extension Point**: [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %})
+**Extension Point**: [Surf Extension Modules]({% link content-services/7.2/develop/share-ext-points/surf-extension-modules.md %})
 
 **Description**:
 
@@ -339,13 +339,13 @@ controller for a web script. The approach looks something like this:
 **Related Information**:
 
 This tutorial assumes that you are familiar with the Spring Surf development framework. If you are new to it then read 
-up on it [here]({% link content-services/latest/develop/software-architecture.md %}#surf-framework) before starting this tutorial. 
-If you have not already done so you should also review the [Introducing SurfBug]({% link content-services/latest/develop/tools.md %}#surfbug) 
+up on it [here]({% link content-services/7.2/develop/software-architecture.md %}#surf-framework) before starting this tutorial. 
+If you have not already done so you should also review the [Introducing SurfBug]({% link content-services/7.2/develop/tools.md %}#surfbug) 
 topic as this tool is used in this tutorial.
 
 **Source Code**: [Go to code](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/customize-webscript-controller-share){:target="_blank"}
 
-This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) project.
+This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/7.2/develop/sdk.md %}#workingaio) project.
 
 Tutorial implementation steps:
 
@@ -434,7 +434,7 @@ Tutorial implementation steps:
 
 2.  Identify the web script that delivers the content that should be customized.
 
-    For this we use the [SurfBug]({% link content-services/latest/develop/tools.md %}#surfbug) tool. Once the tool is activated (from `http://localhost:8080/share/page/surfBugStatus`) we can identify the web script as follows:
+    For this we use the [SurfBug]({% link content-services/7.2/develop/tools.md %}#surfbug) tool. Once the tool is activated (from `http://localhost:8080/share/page/surfBugStatus`) we can identify the web script as follows:
 
     ![dev-extensions-share-tutorials-controller-customize-page-surfbug]({% link content-services/images/dev-extensions-share-tutorials-controller-customize-page-surfbug.png %})
 
@@ -507,7 +507,7 @@ It is not always possible to use this approach to customize existing components,
 
 ## Customizing (web script template) the footer text for a Surf page
 
-**Extension Point**: [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %})
+**Extension Point**: [Surf Extension Modules]({% link content-services/7.2/develop/share-ext-points/surf-extension-modules.md %})
 
 **Description**:
 
@@ -528,19 +528,19 @@ template for a web script. The approach looks something like this:
 **Related Information**:
 
 This tutorial assumes that you are familiar with the Spring Surf development framework. If you are new to it then read 
-up on it [here]({% link content-services/latest/develop/software-architecture.md %}#surf-framework) before starting this tutorial. 
-If you have not already done so you should also review the [Introducing SurfBug]({% link content-services/latest/develop/tools.md %}#surfbug) 
+up on it [here]({% link content-services/7.2/develop/software-architecture.md %}#surf-framework) before starting this tutorial. 
+If you have not already done so you should also review the [Introducing SurfBug]({% link content-services/7.2/develop/tools.md %}#surfbug) 
 topic as this tool is used in this tutorial.
 
 **Source Code**: [Go to code](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/customize-webscript-template-share){:target="_blank"}
 
-This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) project.
+This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/7.2/develop/sdk.md %}#workingaio) project.
 
 Tutorial implementation steps:
 
 1.  Identify the web script that delivers the content that should be customized.
 
-    For this we use the [SurfBug]({% link content-services/latest/develop/tools.md %}#surfbug) tool. Once the tool is activated (from `http://localhost:8080/share/page/surfBugStatus`) we can identify the web script as follows:
+    For this we use the [SurfBug]({% link content-services/7.2/develop/tools.md %}#surfbug) tool. Once the tool is activated (from `http://localhost:8080/share/page/surfBugStatus`) we can identify the web script as follows:
 
     ![dev-extensions-share-tutorials-i18n-customize-page-surfbug]({% link content-services/images/dev-extensions-share-tutorials-i18n-customize-page-surfbug.png %})
 
@@ -657,7 +657,7 @@ Adding a new page requires a minimum of three files:
 * A Template-Instance definition file
 * A FreeMarker template file
 
-1.  This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) project.
+1.  This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/7.2/develop/sdk.md %}#workingaio) project.
 
 2.  Create a new folder called `pages` in `aio/aio-share-jar/src/main/resources/alfresco/web-extension/site-data`.
 
@@ -729,7 +729,7 @@ Surf applications can define a sign in page by configuring the `login` page-type
 object. In Share this definition can be found in the `surf.xml` configuration file which sets the `login` page-type to 
 map to the `slingshot-login` page.
 
-1.  This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) project.
+1.  This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/7.2/develop/sdk.md %}#workingaio) project.
 
 2.  In the `aio/aio-share-jar/src/main/resources/META-INF/share-config-custom.xml` file, add the following contents:
 
@@ -812,7 +812,7 @@ the Share `web.xml` file.
 To change the landing page for the application, you can override the default site configuration for Alfresco Share. 
 The site configuration used is defined in `surf.xml` and is set to `slingshot.site.configuration` by default.
 
-1.  This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) project.
+1.  This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/7.2/develop/sdk.md %}#workingaio) project.
 
 2.  Create a folder called `configurations` in `aio/aio-share-jar/src/main/resources/alfresco/web-extension/site-data`
 

@@ -6,7 +6,7 @@ A number of JavaScript root objects are available when you are implementing a co
 `companyhome` and `people`. Sometimes you might have custom Java code that you want to call from JavaScript controllers, 
 this is possible by adding custom JavaScript root objects.
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/7.2/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
@@ -61,7 +61,7 @@ See Deployment SDK Project instead.
 
 ## More Information
 
-* [Repository JavaScript root objects reference]({% link content-services/latest/develop/reference/repo-root-objects-ref.md %}) (Have a look at what root objects are available for repository web scripts, and so on)
-* [Surf root object reference]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#surfrootobjects) (Have a look at what root objects are available for Surf web scripts)
+* [Repository JavaScript root objects reference]({% link content-services/7.2/develop/reference/repo-root-objects-ref.md %}) (Have a look at what root objects are available for repository web scripts, and so on)
+* [Surf root object reference]({% link content-services/7.2/develop/reference/surf-framework-ref.md %}#surfrootobjects) (Have a look at what root objects are available for Surf web scripts)
 
 

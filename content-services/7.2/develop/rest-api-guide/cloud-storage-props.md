@@ -120,7 +120,7 @@ List Cloud storage properties for a content node (e.g. file)  version in the rep
 
 **See also:**
 
-* [Get file version history]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#getfileversionhistory)
+* [Get file version history]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#getfileversionhistory)
 
 The following GET request is used:
 
@@ -214,8 +214,8 @@ Archive a content node (e.g. file) in the Cloud.
 
 **See also:**
 
-* [Upload a file]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#uploadfile)
-* [Upload a file with custom type]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#uploadfilecustomtype)
+* [Upload a file]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#uploadfile)
+* [Upload a file with custom type]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#uploadfilecustomtype)
 
 The following POST request is used, here the `nodeId` refers to a content node in the Alfresco repository that we want 
 to archive in the Cloud:
@@ -249,8 +249,8 @@ Archive a content node (e.g. file) version in the Cloud.
 
 **See also:**
 
-* [Get file version history]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#getfileversionhistory)
-* [Upload a new version of a file]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#uploadnewversionfile)
+* [Get file version history]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#getfileversionhistory)
+* [Upload a new version of a file]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#uploadnewversionfile)
 
 The following POST request is used, here the `nodeId` refers to a content node in the Alfresco repository and the 
 `versionId` refers to the version identifier of that file that we want to archive in the Cloud:

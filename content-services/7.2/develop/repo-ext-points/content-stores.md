@@ -4,7 +4,7 @@ title: Content Stores Extension Point
 
 There are many Content Stores available out-of-the-box but custom stores can also be implemented.
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/7.2/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
@@ -121,7 +121,7 @@ App server. Implement as a JAR Module instead.
 
 ## More Information
 
-* [Using and configuring Content Stores]({% link content-services/latest/admin/content-stores.md %}) - Main documentation page for out-of-the-box content stores
+* [Using and configuring Content Stores]({% link content-services/7.2/admin/content-stores.md %}) - Main documentation page for out-of-the-box content stores
 
 ## Sample Code
 

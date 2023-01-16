@@ -5,7 +5,7 @@ title: Data Lists Extension Point
 Data lists are records of data stored in the repository as nodes. There are a number of data list types available but 
 custom ones can also be implemented.
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/7.2/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
@@ -44,7 +44,7 @@ The `dl:dataList` type extends the `cm:folder` type. So this is actually similar
 (content items without the file and just metadata).
 
 The only thing we need to do when creating a custom data list is to define a new type that extends the `dl:dataListItem` 
-type. As you have probably figured out, a custom data list is defined as a type in a [content model]({% link content-services/latest/develop/repo-ext-points/content-model.md %}).
+type. As you have probably figured out, a custom data list is defined as a type in a [content model]({% link content-services/7.2/develop/repo-ext-points/content-model.md %}).
 
 Let's say we want to keep a list of projects that we are currently working on, then the content model type definition 
 would look like this:
@@ -119,7 +119,7 @@ would look like this:
 ```
 
 Here we are defining a new data list item type called `acmedl:projectListItem` with a number of properties and an 
-association to the project members. This is just straight forward custom [content model]({% link content-services/latest/develop/repo-ext-points/content-model.md %}) definitions.
+association to the project members. This is just straight forward custom [content model]({% link content-services/7.2/develop/repo-ext-points/content-model.md %}) definitions.
 
 We haven't given any of the properties or the association a title so we add a resource file with labels for the 
 content model (called for example `datalist-model.properties`):
@@ -208,13 +208,13 @@ This is done in `share-config-custom.xml` as usual:
 ```
 
 If you want a special appearance for a field then use the standard form configuration alternatives as explained in the 
-[content model]({% link content-services/latest/develop/repo-ext-points/content-model.md %}) section.
+[content model]({% link content-services/7.2/develop/repo-ext-points/content-model.md %}) section.
 
 Now when we got the Data List up and running it is likely that we want to populate it. Maybe there is data in an external 
 system that we want to populate the data list with, or we might just want to use a script to populate it in a repeatable 
 and quick way.
 
-One way of doing this is via a [Repository Web Script]({% link content-services/latest/develop/repo-ext-points/web-scripts.md %}). Let's create a simple 
+One way of doing this is via a [Repository Web Script]({% link content-services/7.2/develop/repo-ext-points/web-scripts.md %}). Let's create a simple 
 Web Script that creates and populates the Project List we created above via both Java and JavaScript. 
 
 The descriptor looks like this:
@@ -439,8 +439,8 @@ To implement and deploy a data list model with full UI support you need both a r
 
 ## More Information
 
-* [How to use the Data Lists from a site in Alfresco Share]({% link content-services/latest/using/sites/features.md %}#data-list)
-* [Content Models]({% link content-services/latest/develop/repo-ext-points/content-model.md %}) - data lists are a type of content model, read all about content models here
+* [How to use the Data Lists from a site in Alfresco Share]({% link content-services/7.2/using/sites/features.md %}#data-list)
+* [Content Models]({% link content-services/7.2/develop/repo-ext-points/content-model.md %}) - data lists are a type of content model, read all about content models here
 
 ## Sample Code
 

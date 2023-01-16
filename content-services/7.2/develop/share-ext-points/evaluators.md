@@ -4,7 +4,7 @@ title: Evaluators Extension Point
 
 Component visibility in the Share user interface can be controlled by Evaluators.
 
-Architecture Information: [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
+Architecture Information: [Share Architecture]({% link content-services/7.2/develop/software-architecture.md %}#sharearchitecture)
 
 ## Description
 
@@ -104,16 +104,16 @@ Use a Share JAR SDK project instead.
 
 ## More Information
 
-* [See the Rating Extension Point for example evaluator]({% link content-services/latest/develop/repo-ext-points/ratings.md %})
-* [Predefined evaluators for Document Library]({% link content-services/latest/develop/reference/share-document-library-ref.md %}#predefinedevaluatorsref)
-* [Extension Module Deployment and Evaluators]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %}#moduledeployandevaluators)
+* [See the Rating Extension Point for example evaluator]({% link content-services/7.2/develop/repo-ext-points/ratings.md %})
+* [Predefined evaluators for Document Library]({% link content-services/7.2/develop/reference/share-document-library-ref.md %}#predefinedevaluatorsref)
+* [Extension Module Deployment and Evaluators]({% link content-services/7.2/develop/share-ext-points/surf-extension-modules.md %}#moduledeployandevaluators)
 
 ## Tutorials
 
-* [Creating a Custom Evaluator]({% link content-services/latest/tutorial/share/rendering.md %}#createcustomevaluator)
-* [Selecting an Evaluator for an Extension Module]({% link content-services/latest/tutorial/share/rendering.md %}#selectingevaluator)
-* [Sub-Component Evaluation]({% link content-services/latest/tutorial/share/rendering.md %}#subcomponentevaluation)
-* [Improving Sub-Component Evaluation]({% link content-services/latest/tutorial/share/rendering.md %}#improvesubcomponenteval)
+* [Creating a Custom Evaluator]({% link content-services/7.2/tutorial/share/rendering.md %}#createcustomevaluator)
+* [Selecting an Evaluator for an Extension Module]({% link content-services/7.2/tutorial/share/rendering.md %}#selectingevaluator)
+* [Sub-Component Evaluation]({% link content-services/7.2/tutorial/share/rendering.md %}#subcomponentevaluation)
+* [Improving Sub-Component Evaluation]({% link content-services/7.2/tutorial/share/rendering.md %}#improvesubcomponenteval)
 
 ## Alfresco Developer Blogs
 

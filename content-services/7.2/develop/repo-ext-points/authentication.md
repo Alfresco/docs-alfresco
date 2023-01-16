@@ -5,14 +5,14 @@ title: Authentication Extension Point
 Content Services provides a number of authentication systems out-of-the-box, such as LDAP. It is also possible 
 to implement and configure custom authentication systems.
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/7.2/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
 Content Services includes multiple authentication systems, including Database, Active Directory, LDAP, Kerberos, 
 External, and can be set up to authenticate with one of them or a combination of them. Normally these authentication 
 systems cover most of the authentication combinations and mechanisms needed. Make sure to read through the 
-[authentication section]({% link content-services/latest/admin/auth-sync.md %}) before proceeding so you are sure that there is not 
+[authentication section]({% link content-services/7.2/admin/auth-sync.md %}) before proceeding so you are sure that there is not 
 already an out-of-the-box authentication solutions that will work for you. 
 
 In special circumstances when there is a proprietary authentication system that Content Services needs to 
@@ -20,10 +20,10 @@ authenticate with, a custom authentication mechanism can be implemented and depl
 systems or authentication databases that provides no standard authentication protocol, such as LDAP, and that does not 
 provide a user interface where the user can login and be redirected to Content Services (this is called proxy 
 authentication and the External authentication method can be used out-of-the-box, see 
-[this information]({% link content-services/latest/admin/auth-sync.md %}#extauthconfig)).
+[this information]({% link content-services/7.2/admin/auth-sync.md %}#extauthconfig)).
 
 Each authentication system that Content Services supports is implemented as a 
-[subsystem]({% link content-services/latest/develop/repo-ext-points/subsystems.md %}) that can be enabled and configured independently.
+[subsystem]({% link content-services/7.2/develop/repo-ext-points/subsystems.md %}) that can be enabled and configured independently.
 
 To demonstrate how to implement a custom/proprietary authentication mechanism we will implement an authentication 
 component that just authenticates a certain user-name held in memory. The same approach can be used to implement an 
@@ -231,8 +231,8 @@ After restarting Content Services we should be able to login with the user-name 
 
 ## More Information
 
-* [Authentication subsystems overview]({% link content-services/latest/admin/auth-sync.md %}#configauthsubsystems)
-* [Authentication chain]({% link content-services/latest/admin/auth-sync.md %}#authchainconfig)
+* [Authentication subsystems overview]({% link content-services/7.2/admin/auth-sync.md %}#configauthsubsystems)
+* [Authentication chain]({% link content-services/7.2/admin/auth-sync.md %}#authchainconfig)
 
 ## Sample Code
 

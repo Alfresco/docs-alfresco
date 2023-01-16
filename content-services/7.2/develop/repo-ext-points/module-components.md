@@ -2,10 +2,10 @@
 title: Module Components Extension Point
 ---
 
-A `ModuleComponent` executes code and is tied to a specific [Module]({% link content-services/latest/develop/extension-packaging.md %}). 
+A `ModuleComponent` executes code and is tied to a specific [Module]({% link content-services/7.2/develop/extension-packaging.md %}). 
 It is packed with the rest of the module files in an AMP or JAR.
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/7.2/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
@@ -114,7 +114,7 @@ It is called `ImporterModuleComponent` and you can use it by defining the a Spri
 ```
 
 Note here the use also of the `appliesToVersion` property. For more information about bootstrapping content see this 
-[extension point]({% link content-services/latest/develop/repo-ext-points/bootstrap-content.md %}).
+[extension point]({% link content-services/7.2/develop/repo-ext-points/bootstrap-content.md %}).
 
 ## Deployment - App Server
 

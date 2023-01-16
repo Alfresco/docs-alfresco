@@ -5,7 +5,7 @@ title: Scheduled Jobs Extension Point
 Content Services automatically runs a number of scheduled jobs, for example the content store cleaner job and 
 temporary file cleaner job. It is possible to configure new scheduled jobs.
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/7.2/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
@@ -157,7 +157,7 @@ has an `enabled` flag. If it's required to control the scheduling of the trigger
 `org.alfresco.schedule.AlfrescoSchedulerAccessorBean` instead of Spring's accessor, as in the example above.
 
 Sometimes we might want the scheduled job to be applied to a set of nodes determined by a query and the job implementation 
-to be in the form of a [Repository Action]({% link content-services/latest/develop/repo-ext-points/repo-actions.md %}). Having the job implemented as a repository 
+to be in the form of a [Repository Action]({% link content-services/7.2/develop/repo-ext-points/repo-actions.md %}). Having the job implemented as a repository 
 action is handy as it can then be re-used in other places. Implementing this kind of scheduled job usually starts off 
 with the repository action class:
 
@@ -205,7 +205,7 @@ public class SimpleRepoActionExecuter extends ActionExecuterAbstractBase {
 
 The repository action class extends the `ActionExecuterAbstractBase` as usual and implements the `addParameterDefinitions` 
 and `executeImpl` methods that are part of the action interface. See more information about how to implement repository 
-actions [here]({% link content-services/latest/develop/repo-ext-points/repo-actions.md %}). We use the `ServiceRegistry` to get to the 
+actions [here]({% link content-services/7.2/develop/repo-ext-points/repo-actions.md %}). We use the `ServiceRegistry` to get to the 
 public API, such as the `NodeService`. The `actionedUponNodeRef` will contain a node that is part of a result from a 
 query set up in a Spring bean (we will configure this bean in a bit).
 

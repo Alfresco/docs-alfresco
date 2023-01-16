@@ -49,14 +49,14 @@ Alfresco Content Services 7.2 is available as a distribution zip file for manual
 using an Ansible playbook (Linux only) for non-containerized environments. It's also available as a set of Docker 
 images that can be deployed in containerized environments using Docker Compose or Helm charts (for Kubernetes).
 
-See the [Install]({% link content-services/latest/install/index.md %}) documentation for more details.
+See the [Install]({% link content-services/7.2/install/index.md %}) documentation for more details.
 
 ## Upgrade
 Care should be taken when upgrading from any previous version of Content Services. There are steps that should be 
 reviewed and planned before you upgrade. Familiarize yourself with the guidance provided and plan your upgrade carefully.
 
-See the detailed [Upgrade]({% link content-services/latest/upgrade/index.md %}) documentation, including the 
-Content Services [upgrade paths]({% link content-services/latest/upgrade/index.md %}#upgrade-paths).
+See the detailed [Upgrade]({% link content-services/7.2/upgrade/index.md %}) documentation, including the 
+Content Services [upgrade paths]({% link content-services/7.2/upgrade/index.md %}#upgrade-paths).
 
 ## Alfresco Extension Inspector
 An optional utility has been created to help partners and customers better understand the customizations in their 
@@ -64,7 +64,7 @@ existing deployments. The Extension Inspector is a utility for AMP inspection fo
 Content Services 5.2.7, 6.2.2, and 7.x releases. The inspector is recommended for use before installing new versions of 
 our product to help expose any issues that might impede success.
 
-See the [Extension Inspector]({% link content-services/latest/develop/extension-inspector.md %}) documentation for 
+See the [Extension Inspector]({% link content-services/7.2/develop/extension-inspector.md %}) documentation for 
 more details.
 
 ## Upgraded integrations
@@ -72,11 +72,11 @@ Alfresco Content Services 7.2 introduces changes that require new releases of so
 
 To upgrade to Content Services 7.2, you'll also need to update any of the module artifacts to which you're entitled.
 
-See the [Supported Platforms]({% link content-services/latest/support/index.md %}) for more details.
+See the [Supported Platforms]({% link content-services/7.2/support/index.md %}) for more details.
 
 ## SDK
-The latest release of the [Alfresco in-process SDK]({% link content-services/latest/develop/sdk.md %}) is SDK 4.4, which 
+The latest release of the [Alfresco in-process SDK]({% link content-services/7.2/develop/sdk.md %}) is SDK 4.4, which 
 is compatible with this release.
 
-The latest release of the [Alfresco out-of-process Event SDK]({% link content-services/latest/develop/oop-sdk.md %}) is 
-SDK 5.1, which is compatible with this release and the new [SDK Event Gateway]({% link content-services/latest/develop/oop-ext-points/event-gateway.md %}).
+The latest release of the [Alfresco out-of-process Event SDK]({% link content-services/7.2/develop/oop-sdk.md %}) is 
+SDK 5.1, which is compatible with this release and the new [SDK Event Gateway]({% link content-services/7.2/develop/oop-ext-points/event-gateway.md %}).

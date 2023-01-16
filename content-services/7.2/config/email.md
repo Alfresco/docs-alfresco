@@ -353,7 +353,7 @@ To enable IMAPS, use the following properties:
 
 #### Extract attachments
 
-An IMAP message can contain a message and a set of attachments, and the IMAP server can split the attachments into separate content nodes. Use this property with caution if you have a large repository. See [Troubleshooting IMAP]({% link content-services/latest/admin/troubleshoot.md%}#troubleshooting-imap) for more information.
+An IMAP message can contain a message and a set of attachments, and the IMAP server can split the attachments into separate content nodes. Use this property with caution if you have a large repository. See [Troubleshooting IMAP]({% link content-services/7.2/admin/troubleshoot.md%}#troubleshooting-imap) for more information.
 
 | Property | Description |
 | -------- | ----------- |

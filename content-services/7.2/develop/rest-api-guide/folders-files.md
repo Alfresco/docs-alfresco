@@ -1709,7 +1709,7 @@ This is a text file
 The `versionId` is the same as the version label.
 
 >**Note:** HTTP 412 status is returned when requested content is in Cloud Storage and is offline (not immediately accessible).
-> In such a case, to retrieve content, a [request to restore content]({% link content-services/latest/develop/rest-api-guide/cloud-storage-props.md %}#restorefile)
+> In such a case, to retrieve content, a [request to restore content]({% link content-services/7.2/develop/rest-api-guide/cloud-storage-props.md %}#restorefile)
 > from offline state needs to be submitted.
 
 To revert to a previous version of the file we have to POST the following:
@@ -1757,7 +1757,7 @@ add an extra query parameter called `attachment` and set it to `false` (i.e.
 `http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/c4980e44-92ac-41a5-91dc-2b2183c61de8/content?attachment=false`).
 
 >**Note:** HTTP 412 status is returned when requested content is in Cloud Storage and is offline (not immediately accessible). 
-> In such a case, to retrieve content, a [request to restore content]({% link content-services/latest/develop/rest-api-guide/cloud-storage-props.md %}#restorefile) 
+> In such a case, to retrieve content, a [request to restore content]({% link content-services/7.2/develop/rest-api-guide/cloud-storage-props.md %}#restorefile) 
 > from offline state needs to be submitted.
 
 ## Download multiple files {#downloadmultiplefiles}
@@ -1923,7 +1923,7 @@ Sample response for Azure Connector:
 ```
 
 >**Note:** HTTP 412 status is returned when requested content is in Cloud Storage and is offline (not immediately accessible).
-> In such a case, to retrieve content, a [request to restore content]({% link content-services/latest/develop/rest-api-guide/cloud-storage-props.md %}#restorefile)
+> In such a case, to retrieve content, a [request to restore content]({% link content-services/7.2/develop/rest-api-guide/cloud-storage-props.md %}#restorefile)
 > from offline state needs to be submitted.
 
 ## List file renditions {#listfilerenditions}
@@ -2053,7 +2053,7 @@ $ curl -X GET --output somerendition.png -H 'Accept: image/png' -H 'Authorizatio
 ```
 
 >**Note:** HTTP 412 status is returned when requested content is in Cloud Storage and is offline (not immediately accessible).
-> In such a case, to retrieve content, a [request to restore content]({% link content-services/latest/develop/rest-api-guide/cloud-storage-props.md %}#restorefile)
+> In such a case, to retrieve content, a [request to restore content]({% link content-services/7.2/develop/rest-api-guide/cloud-storage-props.md %}#restorefile)
 > from offline state needs to be submitted.
 
 ## Get Direct Download URL for a file rendition
@@ -4406,7 +4406,7 @@ $ curl -X DELETE -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VU
 Now when you have tagged a lot of files and folders you probably want to find them based on these tags. This can be 
 done via the `/search` API and the `TAG:{tag}` keyword. 
 
-See the [complex search]({% link content-services/latest/develop/rest-api-guide/searching.md %}#searchbyquery) page for an example.
+See the [complex search]({% link content-services/7.2/develop/rest-api-guide/searching.md %}#searchbyquery) page for an example.
 
 ## Copy folders and files {#copynode}
 

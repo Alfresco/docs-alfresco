@@ -6,7 +6,7 @@ Defining a custom content model for the repository is a fundamental task in almo
 It will allow you to build a robust system with content that can be classified, searched, structured, and processed in 
 many different ways.
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/7.2/develop/software-architecture.md %}#platformarch)
 
 ## Introduction
 
@@ -56,7 +56,7 @@ familiar with object-oriented modelling, then the concepts of content modelling 
 
 The meta model contains the constructs or syntax that can be used to define content models, which are defined in XML.
 
->**Important:** It is possible to create custom content models from the Alfresco Share UI without the need to use XML. These models can then be exported as XML and included in a build project. See the [Content modeling with Model Manager]({% link content-services/latest/config/models.md %}) for further information.
+>**Important:** It is possible to create custom content models from the Alfresco Share UI without the need to use XML. These models can then be exported as XML and included in a build project. See the [Content modeling with Model Manager]({% link content-services/7.2/config/models.md %}) for further information.
 
 For detailed instructions on how to implement content models, see the [define and deploy section](#definedeploy). 
 When you have defined and deployed a content model you would want to be able to work with it from the Share UI, see the 
@@ -74,7 +74,7 @@ then have a look at this [section](#uiconfig).
 To define a new content model means to add an XML file to the repository. This can be done via a 
 bootstrapping procedure, shown below, or [dynamically](#deploymodel) via the 
 user interface. If you are running an Enterprise edition it is also possible to manage content models from the 
-[Admin Console]({% link content-services/latest/admin/admin-console.md %}). At the end of this article you will find information about where 
+[Admin Console]({% link content-services/7.2/admin/admin-console.md %}). At the end of this article you will find information about where 
 this XML file should be located in an SDK project and where it should be located in a standard installation.
 
 A new custom content model starts with, you guessed it, a `model` element definition, which is the container for all 
@@ -638,7 +638,7 @@ private void createContractFile() {
 
 In this case you are creating an ACME Contract document file. You set the properties for the security classification aspect when you create the Contract node as it is a mandatory aspect on the Contract type. If you want to add other aspects you can do that as shown for the `webPublished` aspect.
 
->**Important:** It is possible to create custom content models from the Alfresco Share UI without the need to use XML. These models can then be exported as XML and included in a build project. See the [Model Manager in Share Admin Tools documentation]({% link content-services/latest/config/models.md %}) for further information.
+>**Important:** It is possible to create custom content models from the Alfresco Share UI without the need to use XML. These models can then be exported as XML and included in a build project. See the [Model Manager in Share Admin Tools documentation]({% link content-services/7.2/config/models.md %}) for further information.
 
 ## Configuring the User Interface {#uiconfig}
 
@@ -1154,7 +1154,7 @@ To deactivate a model:
 
 ### Managing models using the Repo Admin Console {#deployadminconsole}
 
-Use the **Model and Messages Console** in the [Repo Admin Console]({% link content-services/latest/admin/admin-console.md %}) to manage models.
+Use the **Model and Messages Console** in the [Repo Admin Console]({% link content-services/7.2/admin/admin-console.md %}) to manage models.
 
 1.  Open the Admin Console (`http://{host}:{port}/alfresco/service/enterprise/admin`).
 
@@ -1237,11 +1237,11 @@ These file locations are untouched by re-deployments and upgrades.
 
 ## More Information
 
-* [Defining and Deploying a custom Content Model for Data Lists]({% link content-services/latest/develop/repo-ext-points/data-lists.md %})
-* [Displaying types]({% link content-services/latest/develop/share-ext-points/share-config.md %}#displaytypemetadata) - more information about how to display type properties
-* [Displaying aspects]({% link content-services/latest/develop/share-ext-points/share-config.md %}#displayaspectmetadata) - more information about how to display aspect properties
-* [Grouping fields in forms]({% link content-services/latest/develop/share-ext-points/share-config.md %}#displayfieldsingroups)
-* [Model Manager in Share Admin Tools]({% link content-services/latest/config/models.md %})
+* [Defining and Deploying a custom Content Model for Data Lists]({% link content-services/7.2/develop/repo-ext-points/data-lists.md %})
+* [Displaying types]({% link content-services/7.2/develop/share-ext-points/share-config.md %}#displaytypemetadata) - more information about how to display type properties
+* [Displaying aspects]({% link content-services/7.2/develop/share-ext-points/share-config.md %}#displayaspectmetadata) - more information about how to display aspect properties
+* [Grouping fields in forms]({% link content-services/7.2/develop/share-ext-points/share-config.md %}#displayfieldsingroups)
+* [Model Manager in Share Admin Tools]({% link content-services/7.2/config/models.md %})
 
 ## Sample Code
 
@@ -1253,7 +1253,7 @@ These file locations are untouched by re-deployments and upgrades.
 ## Tutorials
 
 * [Jeff Potts Alfresco Developer Series: Working With Custom Content Types in Alfresco](http://ecmarchitect.com/alfresco-developer-series-tutorials/content/tutorial/tutorial.html){:target="_blank"} - a very thorough walk-through of how to develop custom Content Models, a must read.
-* [Defining and Deploying a custom Content Model]({% link content-services/latest/tutorial/platform/content-model.md %}) (Short introduction excluding localization)
+* [Defining and Deploying a custom Content Model]({% link content-services/7.2/tutorial/platform/content-model.md %}) (Short introduction excluding localization)
 
 ## Developer Blogs
 

@@ -2,11 +2,11 @@
 title: ReST API Java Wrapper Extension Point
 ---
 
-One of the libraries provided by the [SDK for out-of-process extensions]({% link content-services/latest/develop/oop-sdk.md %})
-is the Java ReST API wrapper library. It enables you to work with the [Alfresco ReST API]({% link content-services/latest/develop/rest-api-guide/index.md %})
+One of the libraries provided by the [SDK for out-of-process extensions]({% link content-services/7.2/develop/oop-sdk.md %})
+is the Java ReST API wrapper library. It enables you to work with the [Alfresco ReST API]({% link content-services/7.2/develop/rest-api-guide/index.md %})
 from a Java client with standard Java classes. There is no need to parse JSON or create HTTP requests.
 
-To set up a project with the Java ReST API library follow these [instructions]({% link content-services/latest/develop/oop-sdk.md %}#restapijavawrapperproject).
+To set up a project with the Java ReST API library follow these [instructions]({% link content-services/7.2/develop/oop-sdk.md %}#restapijavawrapperproject).
 
 ## Common parameters {#common-parameters}
 There are some common parameters in the different API calls. They are documented here instead of repeating the docs for
@@ -35,7 +35,7 @@ To list contents of a folder in the repository use the `listNodeChildren` method
 [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listNodeChildren){:target="_blank"},
 which is one of the main APIs used when you want to manipulate folders and files.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#listcontentsfolder)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#listcontentsfolder)
 
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
@@ -97,7 +97,7 @@ To filter listed contents of a folder in the repository use the `listNodeChildre
 [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listNodeChildren){:target="_blank"}
 and set the `where` clause parameter.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#filtercontentsfolder)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#filtercontentsfolder)
 
 For a description of the common parameters, such as `where` and `include`, see this [section](#common-parameters).
 
@@ -157,7 +157,7 @@ To get metadata for a node, such as a file or folder, in the repository use the 
 [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#getNode){:target="_blank"},
 which is one of the main APIs used when you want to manipulate folders and files.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#getnodemetadata)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#getnodemetadata)
 
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
@@ -276,7 +276,7 @@ To create a folder in the repository use the `createNode` method of the
 [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#createNode){:target="_blank"},
 which is one of the main APIs used when you want to manipulate folders and files.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#createfolder)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#createfolder)
 
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
@@ -361,7 +361,7 @@ method, which will create the metadata for the file, and then the [`NodesApi.upd
 method that will set the content for the file.
 
 At the moment it's necessary to make two calls to upload a file, but enhancements are being developed in a new version
-of SDK 5 to provide a one method approach as this is [supported in the ReST API]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#uploadfile).
+of SDK 5 to provide a one method approach as this is [supported in the ReST API]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#uploadfile).
 
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
@@ -526,7 +526,7 @@ There's actually not much difference to how you upload a file with a custom type
 </aspect>
 ```
 We got two custom properties `acme:documentId` and `acme:securityClassification`. For more information on how to
-implement and deploy this custom content model see [this documentation]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#uploadfilecustomtype).
+implement and deploy this custom content model see [this documentation]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#uploadfilecustomtype).
 
 Now, to upload a file and set this custom type and aspect we use the same code as for [upload a file](#uploadfile) with
 minor updates to the `contentType` variable and the `createFileMetadata` method:
@@ -658,7 +658,7 @@ See also [manage associations](#manageassociations) for more examples of uploadi
 To upload a new version of a file to the repository use the [`NodesApi.updateNodeContent`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#updateNodeContent){:target="_blank"}
 method, which will set the new content for the file.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#uploadnewversionfile)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#uploadnewversionfile)
 
 For a description of the common parameters, such as `majorVersion`, see this [section](#common-parameters).
 
@@ -822,7 +822,7 @@ steps](#uploadfilecustomtype).
 To get the version history for a file use the [`VersionsApi.listVersionHistory`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/VersionsApi.md#listVersionHistory){:target="_blank"}
 method, which will retrieve a list of all the node versions.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#getfileversionhistory)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#getfileversionhistory)
 
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
@@ -952,7 +952,7 @@ made when uploading a new version of the file. Folder nodes does not have conten
 To download a file use the [`NodesApi.getNodeContent`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#getNodeContent){:target="_blank"}
 method, which will download the content bytes for the file.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#downloadfile)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#downloadfile)
 
 ```java
 import org.alfresco.core.handler.NodesApi;
@@ -1010,7 +1010,7 @@ To download multiple files use the [`DownloadsApi.createDownload`](https://githu
 method to create a ZIP download on the server side, then check the status of the ZIP download with [`DownloadsApi.getDownload`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/DownloadsApi.md#getDownload){:target="_blank"}.
 When the download is ready get it with [NodesApi.getNodeConent](#downloadfile)
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#downloadmultiplefiles)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#downloadmultiplefiles)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -1137,7 +1137,7 @@ to be created on the server side. Then we can download with the usual [getNodeCo
 To list content renditions for a file use the [`RenditionsApi.listRenditions`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/RenditionsApi.md#listRenditions){:target="_blank"}
 method.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#listfilerenditions)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#listfilerenditions)
 
 For a description of the common parameters, such as `where`, see this [section](#common-parameters).
 
@@ -1262,7 +1262,7 @@ thumbnail and preview of document.
 To get the content for a file rendition the [`RenditionsApi.getRenditionContent`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/RenditionsApi.md#getRenditionContent){:target="_blank"}
 method, which will download the content bytes for the file rendition.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#getrenditioncontent)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#getrenditioncontent)
 
 ```java
 import org.alfresco.core.handler.RenditionsApi;
@@ -1336,7 +1336,7 @@ Executing this code and getting a `pdf` rendition for a text file looks like thi
 To update metadata for a node, such as a file or folder, use the [`NodesApi.updateNode`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#updateNode){:target="_blank"}
 method.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#updatemetadatanode)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#updatemetadatanode)
 
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
@@ -1457,7 +1457,7 @@ To add aspects to a node, use the [`NodesApi.updateNode`](https://github.com/Alf
 method. The way you do this is described in the [update metadata for a node](#updatenodemetadata) section. Note that you
 only need to add aspects to a node when they are so called "marker" aspects without properties.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#addaspectnode)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#addaspectnode)
 
 ## Remove aspects from a folder or file
 To remove aspects from a node, use the [`NodesApi.updateNode`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#updateNode){:target="_blank"}
@@ -1467,13 +1467,13 @@ Removing an aspect from a node is similar to how you add a “marker” aspect. 
 applied to the node. Then you remove the aspect from the list. And finally you use an update node call with the updated
 aspect list.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#removeaspectsnode)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#removeaspectsnode)
 
 ## Get and Set permissions for a folder or file {#setpermissionfornode}
 To manage permissions for a node, use the [`NodesApi.updateNode`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#updateNode){:target="_blank"}
 method.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#setpermissionsnode)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#setpermissionsnode)
 
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
@@ -1698,11 +1698,11 @@ and the following methods:
 |[listSourceAssociations](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listSourceAssociations)|List source peer-2-peer associations|
 |[listTargetAssociations](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listTargetAssociations)|List target peer-2-peer associations|
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#workingwithrelbetweennodes)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#workingwithrelbetweennodes)
 
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
-Assuming we have deployed the [FDK content model]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#alfrescofdkcontentmodel)
+Assuming we have deployed the [FDK content model]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#alfrescofdkcontentmodel)
 with secondary parent-child and peer-2-peer association types, then the following code examples shows how to create those
 types of associations (it also shows how to upload files, create folder, create node of different type):
 
@@ -2152,7 +2152,7 @@ and the following methods:
 |[listComments](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/CommentsApi.md#listComments)|List comments for a node| 
 |[updateComment](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/CommentsApi.md#updateComment)|Update a comment for a node| 
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#managecomments)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#managecomments)
 
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
@@ -2279,7 +2279,7 @@ and the following methods:
 [listTagsForNode](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/TagsApi.md#listTagsForNode){:target="_blank"}|List tags for a node|
 [updateTag](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/TagsApi.md#updateTag){:target="_blank"}|Update a tag|
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#managecomments)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#managecomments)
 
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
@@ -2380,7 +2380,7 @@ Note that the tag count are not available directly after you have created the ta
 ## Copy folders and files
 To copy a node, such as a file or folder, use the `copyNode` method of the [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#copyNode){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#copynode)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#copynode)
 
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
@@ -2462,7 +2462,7 @@ Location: class PathInfo {
 ## Move folders and files
 To copy a node, such as a file or folder, use the `moveNode` method of the [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#moveNode){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#movenode)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#movenode)
 
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
@@ -2547,7 +2547,7 @@ Location: class PathInfo {
 To lock a file for editing, use the `lockNode` method of the [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#lockNode){:target="_blank"}.
 Use the `unlockNode` method when you are finished editing the node.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#locknode)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#locknode)
 
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
@@ -2678,7 +2678,7 @@ Note that the `lockNode` call response contains some extra parameters with lock 
 To create a link to a file, use the `createNode` method of the [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#createNode){:target="_blank"}
 and create a node of the type `app:filelink`.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#linknode)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#linknode)
 
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
@@ -2771,7 +2771,7 @@ a value for the `isLink` property.
 ## Delete a folder or file
 To delete a folder or a file node, use the `deleteNode` method of the [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#deleteNode){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#deletenode)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#deletenode)
 
 ```java
 import org.alfresco.core.handler.NodesApi;
@@ -2817,7 +2817,7 @@ Executing this code would give the following result, passing in the node to dele
 ## List deleted folders and files (Trashcan)
 To list deleted nodes, use the `listDeletedNodes` method of the [`TrashcanApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/TrashcanApi.md#listDeletedNodes){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#listdeletedfiles)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#listdeletedfiles)
 
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
@@ -2967,7 +2967,7 @@ before it was deleted (i.e. `path.name`)
 ## Restore deleted folders and files (Trashcan)
 To list deleted nodes, use the `restoreDeletedNode` method of the [`TrashcanApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/TrashcanApi.md#restoreDeletedNode){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#restorefile)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#restorefile)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -3055,7 +3055,7 @@ To create an Alfresco Share site in the repository use the `createSite` method o
 [`SitesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/SitesApi.md#createSite){:target="_blank"},
 which is the main API used to create and manage sites.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/sites.md %}#createsite)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/sites.md %}#createsite)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -3108,7 +3108,7 @@ For more information about how to list site containers, such as Document Library
 Adding content to a site uses the same API calls as are used to create folders and upload files elsewhere in the Repository.
 See [create folder](#createfolder) and [upload file](#uploadfile) for more information.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/sites.md %}#addcontent)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/sites.md %}#addcontent)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -3234,7 +3234,7 @@ Executing this code will create a folder in the passed in site's document librar
 ## Adding members to a site
 Adding members to a site uses the `createSiteMembership` method of the [`SitesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/SitesApi.md#createSiteMembership){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/sites.md %}#addmemberstosite)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/sites.md %}#addmemberstosite)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -3332,7 +3332,7 @@ that these are usually managed via a directory server (LDAP/Active Directory).
 ## List people (users)
 Listing people uses the `listPeople` method of the [`PeopleApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/PeopleApi.md#listPeople){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#listusers)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/people-groups.md %}#listusers)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -3389,7 +3389,7 @@ Executing this code will list all users in the repository (note, if connected to
 ## Create a person
 Creating a person uses the `createPerson` method of the [`PeopleApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/PeopleApi.md#createPerson){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#createperson)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/people-groups.md %}#createperson)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -3488,7 +3488,7 @@ Getting metadata for a person involves a number of API calls:
 * [`PreferencesApi.listPreferences`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/PreferencesApi.md#listPreferences){:target="_blank"}
 * [`PreferencesApi.getPreference`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/PreferencesApi.md#getPreference){:target="_blank"}
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#getpersonmetadata)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/people-groups.md %}#getpersonmetadata)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -3615,7 +3615,7 @@ Updating metadata for a person involves these two API calls:
 * [`PeopleApi.updatePerson`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/PeopleApi.md#updatePerson){:target="_blank"}
 * [`PeopleApi.updateAvatarImage`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/PeopleApi.md#updateAvatarImage){:target="_blank"}
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#updateperson)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/people-groups.md %}#updateperson)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -3720,7 +3720,7 @@ Requesting a password reset for a person (user) in the repository involves these
 * [`PeopleApi.requestPasswordReset`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/PeopleApi.md#requestPasswordReset){:target="_blank"}
 * [`PeopleApi.resetPassword`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/PeopleApi.md#resetPassword){:target="_blank"}
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#requestpwdreset)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/people-groups.md %}#requestpwdreset)
 
 ```java
 import org.alfresco.core.handler.PeopleApi;
@@ -3765,7 +3765,7 @@ password request should be via the Alfresco Share UI:
 ## List groups a person is a member of
 Listing groups that a person is a member of uses the `listGroupMembershipsForPerson` method of the [`GroupsApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/GroupsApi.md#listGroupMembershipsForPerson){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#listpersongroupmembership)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/people-groups.md %}#listpersongroupmembership)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -3839,7 +3839,7 @@ two of the out-of-the-box users `abeecher` and `admin`:
 ## List groups
 Listing the groups available in the repository uses the `listGroups` method of the [`GroupsApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/GroupsApi.md#listGroups){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#listgroups)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/people-groups.md %}#listgroups)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -3909,7 +3909,7 @@ are loads of Share sites and the system is connected to a directory server:
 ## Create a group
 Creating a group uses the `createGroup` method of the [`GroupsApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/GroupsApi.md#createGroup){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#creategroup)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/people-groups.md %}#creategroup)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -3966,7 +3966,7 @@ Executing this code will create a group, in this case we are creating an HR grou
 ## Get group metadata
 Getting metadata for a group uses the `getGroup` method of the [`GroupsApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/GroupsApi.md#getGroup){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#getgroup)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/people-groups.md %}#getgroup)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -4019,7 +4019,7 @@ note that you have to prefix group ids with `GROUP_`:
 ## Update a group
 Updating a group name uses the `updateGroup` method of the [`GroupsApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/GroupsApi.md#updateGroup){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#updategroup)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/people-groups.md %}#updategroup)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -4079,7 +4079,7 @@ group with id `hr`, note that you have to prefix group ids with `GROUP_`:
 ## List all people and groups in a group
 Listing all the members of a group (i.e. people and groups) uses the `listGroupMemberships` method of the [`GroupsApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/GroupsApi.md#listGroupMemberships){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#listmembersofgroup)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/people-groups.md %}#listmembersofgroup)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -4136,7 +4136,7 @@ Executing this code will list the members of passed in group id, note that you h
 ## Adding people and groups to a group
 Adding members to a group uses the `createGroupMembership` method of the [`GroupsApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/GroupsApi.md#createGroupMembership){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#addtogroup)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/people-groups.md %}#addtogroup)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -4204,7 +4204,7 @@ Executing this code will add a person, or a group, to passed in group id, note t
 ## Delete a person or group from a group
 Deleting members of a group uses the `deleteGroupMembership` method of the [`GroupsApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/GroupsApi.md#deleteGroupMembership){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#deletefromgroup)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/people-groups.md %}#deletefromgroup)
 
 ```java
 import org.alfresco.core.handler.GroupsApi;
@@ -4255,19 +4255,19 @@ with `GROUP_`:
 Setting permissions for a group uses the `updateNode` method of the [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#updateNode){:target="_blank"}.
 For more info see [set permissions for a node](#setpermissionfornode).
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#setpermissionsgroup)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/people-groups.md %}#setpermissionsgroup)
 
 ## === Managing Audit Applications and Logs ===
 The following sections walk through how to use the Java ReST API wrapper services when managing audit applications and
 their logs.
 
 ## Enable auditing and Alfresco Access audit application
-[See this section]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#enableauditing)
+[See this section]({% link content-services/7.2/develop/rest-api-guide/audit-apps.md %}#enableauditing)
 
 ## List audit applications
 Listing all the audit applications uses the `listAuditApps` method of the [`AuditApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/AuditApi.md#listAuditApps){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#listauditapps)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/audit-apps.md %}#listauditapps)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -4336,7 +4336,7 @@ the `alfresco-access` audit application, then you will see the following listing
 ## Get audit application metadata
 Getting the audit application metadata uses the `getAuditApp` method of the [`AuditApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/AuditApi.md#getAuditApp){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#getauditappmetadata)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/audit-apps.md %}#getauditappmetadata)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -4371,7 +4371,7 @@ public class GetAuditAppCmd {
 ## Enable/Disable an audit application
 Enable and disable an audit application uses the `updateAuditApp` method of the [`AuditApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/AuditApi.md#updateAuditApp){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#enabledisableapp)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/audit-apps.md %}#enabledisableapp)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -4409,7 +4409,7 @@ public class EnableDisableAuditAppCmd {
 ## List audit entries (logs) for an audit application
 Listing all the audit logs for an audit application uses the `listAuditEntriesForAuditApp` method of the [`AuditApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/AuditApi.md#listAuditEntriesForAuditApp){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#listauditlogsforapp)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/audit-apps.md %}#listauditlogsforapp)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -4524,7 +4524,7 @@ Executing this code will list the audit logs for passed in audit app id. The aud
 ## List audit entries (logs) for a node
 Listing all the audit logs for a node uses the `listAuditEntriesForNode` method of the [`AuditApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/AuditApi.md#listAuditEntriesForNode){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#listauditlogsnode)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/audit-apps.md %}#listauditlogsnode)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -4604,7 +4604,7 @@ Executing this code will list the audit logs for passed in audit app id and audi
 ## Get an audit entry (log)
 Getting an audit log uses the `getAuditEntry` method of the [`AuditApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/AuditApi.md#getAuditEntry){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#getauditentry)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/audit-apps.md %}#getauditentry)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -4668,7 +4668,7 @@ Executing this code will list the audit logs for passed in audit app id. The aud
 ## Delete audit entries (logs) for an audit application
 Deleting audit logs for an audit app uses the `deleteAuditEntriesForAuditApp` method of the [`AuditApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/AuditApi.md#deleteAuditEntriesForAuditApp){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#deletemultipleauditentries)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/audit-apps.md %}#deletemultipleauditentries)
 
 For a description of the common parameters, such as `where`, see this [section](#common-parameters).
 
@@ -4715,7 +4715,7 @@ Executing this code will delete audit logs for passed in audit app id and where 
 ## Delete an audit entry (log) for an audit application
 Deleting a single audit entry for an audit app uses the `deleteAuditEntry` method of the [`AuditApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/AuditApi.md#deleteAuditEntry){:target="_blank"}.
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#deletesingleentry)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/audit-apps.md %}#deletesingleentry)
 
 ```java
 import org.alfresco.core.handler.AuditApi;
@@ -4763,7 +4763,7 @@ To find a node, such as a folder or file, by a term use the `findNodes` method o
 which is a search API you can use when doing simple search on a term. For more complex search, such as Alfresco Full Text Search (AFTS),
 use the [Search API](#searchingbyquery);
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/searching.md %}#findnodesbyterm)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/searching.md %}#findnodesbyterm)
 
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
@@ -4833,7 +4833,7 @@ To find sites by term use the `findSites` method of the [`QueriesApi`](https://g
 which is a search API you can use when doing simple search on a term. For more complex search, such as Alfresco Full Text Search (AFTS),
 use the [Search API](#searchingbyquery);
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/searching.md %}#findsitesbyterm)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/searching.md %}#findsitesbyterm)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -4890,7 +4890,7 @@ To find sites by term use the `findPeople` method of the [`QueriesApi`](https://
 which is a search API you can use when doing simple search on a term. For more complex search, such as Alfresco Full Text Search (AFTS),
 use the [Search API](#searchingbyquery);
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/searching.md %}#findpeoplebyterm)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/searching.md %}#findpeoplebyterm)
 
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
@@ -4948,7 +4948,7 @@ Executing this code gives the following type of result:
 To find content based on more complex search queries, such as using Alfresco Full Text Search (AFTS), use the
 [`SearchApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-search-rest-api/docs/SearchApi.md#search){:target="_blank"},;
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/searching.md %}#searchbyquery)
+[More info about this ReST API endpoint]({% link content-services/7.2/develop/rest-api-guide/searching.md %}#searchbyquery)
 
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 

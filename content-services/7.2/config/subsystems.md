@@ -47,22 +47,22 @@ The supplied subsystem categories are:
 
 | Subsystem name | Functional area |
 | -------------- | --------------- |
-| [ActivitiesFeed]({% link content-services/latest/config/email.md %}#configure-activities-feed) | Activities notifications |
-| [Audit]({% link content-services/latest/admin/audit.md %}) | Audit related functions |
-| [Authentication]({% link content-services/latest/admin/auth-sync.md %}) | Authentication related functions |
-| [ContentStore]({% link content-services/latest/admin/content-stores.md %}) | Properties for the encrypted and non-encrypted Content Stores |
-| [email]({% link content-services/latest/config/email.md %}) | Outbound and inbound SMTP property settings |
-| [fileServers]({% link content-services/latest/config/file-servers.md %}) | Properties for the FTP servers |
+| [ActivitiesFeed]({% link content-services/7.2/config/email.md %}#configure-activities-feed) | Activities notifications |
+| [Audit]({% link content-services/7.2/admin/audit.md %}) | Audit related functions |
+| [Authentication]({% link content-services/7.2/admin/auth-sync.md %}) | Authentication related functions |
+| [ContentStore]({% link content-services/7.2/admin/content-stores.md %}) | Properties for the encrypted and non-encrypted Content Stores |
+| [email]({% link content-services/7.2/config/email.md %}) | Outbound and inbound SMTP property settings |
+| [fileServers]({% link content-services/7.2/config/file-servers.md %}) | Properties for the FTP servers |
 | [googledocs]({% link google-drive/latest/index.md %}) | Properties for Google Docs integration |
-| [imap]({% link content-services/latest/config/email.md %}#configure-imap) | Properties for the IMAP service |
-| [Replication]({% link content-services/latest/admin/replication.md %}) | Settings for the replication jobs tool |
+| [imap]({% link content-services/7.2/config/email.md %}#configure-imap) | Properties for the IMAP service |
+| [Replication]({% link content-services/7.2/admin/replication.md %}) | Settings for the replication jobs tool |
 | [Search]({% link search-services/latest/index.md %}) | Search mechanism |
-| [Subscriptions]({% link content-services/latest/config/email.md %}#enable-subscription-service) | Settings for the activities feeds |
-| [Synchronization]({% link content-services/latest/admin/auth-sync.md %}#configuring-synchronization) | Synchronization of local user and group information with the user registry exporters (usually LDAP directories) in the authentication chain |
-| [sysAdmin]({% link content-services/latest/config/repository.md %}#sysadmin) | Properties for server administration |
+| [Subscriptions]({% link content-services/7.2/config/email.md %}#enable-subscription-service) | Settings for the activities feeds |
+| [Synchronization]({% link content-services/7.2/admin/auth-sync.md %}#configuring-synchronization) | Synchronization of local user and group information with the user registry exporters (usually LDAP directories) in the authentication chain |
+| [sysAdmin]({% link content-services/7.2/config/repository.md %}#sysadmin) | Properties for server administration |
 | thirdparty | Properties for third-party software |
-| [Transformers]({% link content-services/latest/admin/transformations.md %}) | Properties for the transformation server |
-| [wcm_deployment_receiver]({% link content-services/latest/admin/workflows.md %}#workflowconsole) | Properties for WCM Deployment Receiver |
+| [Transformers]({% link content-services/7.2/admin/transformations.md %}) | Properties for the transformation server |
+| [wcm_deployment_receiver]({% link content-services/7.2/admin/workflows.md %}#workflowconsole) | Properties for WCM Deployment Receiver |
 
 ## Subsystem configuration files
 
@@ -101,7 +101,7 @@ Properties files in the subsystem directory declare the configuration parameters
 Use the following methods to modify the subsystem properties:
 
 * JConsole `Alfresco:Type=Configuration` tree shows the subsystems and all their composite properties
-* See [Modify global properties]({% link content-services/latest/config/index.md %}#modify-global-props) for more information on how to configure a prepackaged subsystem.
+* See [Modify global properties]({% link content-services/7.2/config/index.md %}#modify-global-props) for more information on how to configure a prepackaged subsystem.
 * Use `-D` options
 
 ## Mounting a subsystem

@@ -5,7 +5,7 @@ title: Configure file servers
 
 The **File Server** subsystem allows access to the Content Services data stores through the FTP protocol. This allows you to browse to the repository using an FTP client.
 
-> **Note:** We recommend that you implement an allowed authentication mechanism relative to the file server you are using. For more information on the different types of authentication subsystems and their use, see [Authentication subsystem types]({% link content-services/latest/admin/auth-sync.md %}#authsubsystypes).
+> **Note:** We recommend that you implement an allowed authentication mechanism relative to the file server you are using. For more information on the different types of authentication subsystems and their use, see [Authentication subsystem types]({% link content-services/7.2/admin/auth-sync.md %}#authsubsystypes).
 
 As with other Content Services subsystems, the File Server subsystem exposes all of its configuration options as properties that can be controlled through a JMX interface or the global properties file.
 

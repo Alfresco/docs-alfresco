@@ -7,11 +7,11 @@ if you are a Java developer you should be able to quickly get up to speed on the
 in Java and most of the extension points use Java.
 
 It's a good idea to start your developer journey by reading through the 
-[Software Architecture]({% link content-services/latest/develop/software-architecture.md %}) section, as this will
+[Software Architecture]({% link content-services/7.2/develop/software-architecture.md %}) section, as this will
 get you up to speed on the different components of the platform, and how they work together. It will also introduce you to 
 the different types of extensions that can be implemented.
 
-There are two types of [extensions]({% link content-services/latest/develop/overview-ext-points.md %}) that can be built: in-process extensions and out-of-process extensions.
+There are two types of [extensions]({% link content-services/7.2/develop/overview-ext-points.md %}) that can be built: in-process extensions and out-of-process extensions.
 
 * **In-Process Extensions** consist of custom code that is run together 
 with the product code in the same process.
@@ -43,17 +43,17 @@ in the custom code. If they are separated it's much easier to see where the prob
 * **Development speed**: When developing out-of-process extensions the code-change -> test roundtrip is faster as you don't 
 have to restart Content Services to see the impact of a code change. This is a major benefit to the developers.  
 
-You can see why developing out-of-process extensions is the way to go. See [SDK 5]({% link content-services/latest/develop/oop-sdk.md %}) for more information. 
+You can see why developing out-of-process extensions is the way to go. See [SDK 5]({% link content-services/7.2/develop/oop-sdk.md %}) for more information. 
 However, there are certain customizations that still have to be done in-process, such as implementing a content model. 
 Because of this it's useful to be familiar with both ways of developing customizations. Designing and implementing a 
 content model is usually the first thing that needs to be done in most content management projects. So make sure to read 
-through the [Content model extension point]({% link content-services/latest/develop/repo-ext-points/content-model.md %}) 
-documentation and then walk through the [content model tutorial]({% link content-services/latest/tutorial/platform/content-model.md %}). 
+through the [Content model extension point]({% link content-services/7.2/develop/repo-ext-points/content-model.md %}) 
+documentation and then walk through the [content model tutorial]({% link content-services/7.2/tutorial/platform/content-model.md %}). 
 By implementing a content model you will get familiar with the in-process extension model and the associated 
-[SDK 4]({% link content-services/latest/develop/sdk.md %}).
+[SDK 4]({% link content-services/7.2/develop/sdk.md %}).
 
 When you have the custom content model in place, providing types and aspects related to the project domain (i.e. finance,
-healthcare, manufacturing etc.), then you can move on and implement the business logic using [SDK 5 event handling and ReST API libraries]({% link content-services/latest/develop/oop-sdk.md %}) 
+healthcare, manufacturing etc.), then you can move on and implement the business logic using [SDK 5 event handling and ReST API libraries]({% link content-services/7.2/develop/oop-sdk.md %}) 
 and the user interface with the Alfresco [Application Development Framework (ADF)](https://www.alfresco.com/abn/adf/docs/){:target="_blank"}. 
 ADF is based on Angular and it provides a number of components that can be aggregated to create the user interface 
 you need for your domain.

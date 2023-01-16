@@ -16,15 +16,15 @@ smart.folders.enabled=true
 
 Smart Folders is part of the standard repository, and there might be unexpected interactions if Smart Folders are enabled but not used. The most important impact is on performance. Alfresco Content Services performance might degrade based on the complexity and the number of Smart Folders used.
 
-See [Best practices for Smart Folders]({% link content-services/latest/config/smart-folders/index.md %}#best-practice) , and [Type-based, System, and Custom Smart Folders]({% link content-services/latest/config/smart-folders/index.md %}#sf-type) for more information.
+See [Best practices for Smart Folders]({% link content-services/7.2/config/smart-folders/index.md %}#best-practice) , and [Type-based, System, and Custom Smart Folders]({% link content-services/7.2/config/smart-folders/index.md %}#sf-type) for more information.
 
 ## Are there best practices to avoid performance problems?
 
-Yes there are. See [Best practices when using Smart Folders]({% link content-services/latest/config/smart-folders/index.md %}#best-practice) for more information.
+Yes there are. See [Best practices when using Smart Folders]({% link content-services/7.2/config/smart-folders/index.md %}#best-practice) for more information.
 
 ## Where can I find technical documentation?
 
-Use the Smart Folder tutorial, [Smart Folders tutorial]({% link content-services/latest/tutorial/smart.md %}), to set up a working Smart Folder configuration. General configuration information is here: [Configure Smart Folders]({% link content-services/latest/config/index.md %}).
+Use the Smart Folder tutorial, [Smart Folders tutorial]({% link content-services/7.2/tutorial/smart.md %}), to set up a working Smart Folder configuration. General configuration information is here: [Configure Smart Folders]({% link content-services/7.2/config/index.md %}).
 
 ## Which components or subsystems do Smart Folders provide?
 
@@ -97,7 +97,7 @@ Smart Folders have a limited set of actions:
 
   These actions aren't supported for files.
 
-The Smart Folder itself can't be edited in Alfresco Content Services, except through the Smart Folder Template. For more information about Smart Folder Templates, see [Apply a Smart Folder Template]({% link content-services/latest/using/smart-folders.md %}).
+The Smart Folder itself can't be edited in Alfresco Content Services, except through the Smart Folder Template. For more information about Smart Folder Templates, see [Apply a Smart Folder Template]({% link content-services/7.2/using/smart-folders.md %}).
 
 ## Can I use multi-value properties with Smart Folders?
 

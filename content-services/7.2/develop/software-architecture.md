@@ -876,7 +876,7 @@ The following steps are needed to add a Surf Page:
 * Add a properties file (.properties) - Optional but good practice
 * Add Web Script(s) that fetches content to display (if you have `page` scoped regions and use an existing template)
 
-The full tutorial, and introduction to Surf Pages, can be found ([here]({% link content-services/latest/develop/share-ext-points/surf-pages.md %})).
+The full tutorial, and introduction to Surf Pages, can be found ([here]({% link content-services/7.2/develop/share-ext-points/surf-pages.md %})).
 
 Next, have a look at how to implement the same Hello World page with Aikau.
 
@@ -890,7 +890,7 @@ To implement the Hello World page in Aikau we have to go through the following s
 * Add Widget to display content
 * Choose what Surf Page you want to use as a basis (dp, hdp, rdp etc)
 
-For a full tutorial and introduction to Aikau Pages, see ([Introduction to Aikau Pages]({% link content-services/latest/develop/software-architecture.md %}#aikauintro)).
+For a full tutorial and introduction to Aikau Pages, see ([Introduction to Aikau Pages]({% link content-services/7.2/develop/software-architecture.md %}#aikauintro)).
 
 #### Surf Pages introduction {#surfpageintro}
 Use this information for a brief introduction to Spring Surf Pages.
@@ -1285,14 +1285,14 @@ The two main categories of API that are available to use when interacting with t
 and the embedded APIs.
 
 ### Remote APIs
-The main remote Application Programming Interface (API) is the [Alfresco ReST API]({% link content-services/latest/develop/rest-api-guide/index.md %}),
+The main remote Application Programming Interface (API) is the [Alfresco ReST API]({% link content-services/7.2/develop/rest-api-guide/index.md %}),
 which should be the first place you go to when you want to interact with the Alfresco Repository remotely. 
 If portability is very important, than have a look at the CMIS ReST API,
 which is a standard implemented by many ECM vendors.
 
 ### Embedded APIs
 The embedded APIs have traditionally been used a lot to build customizations that run inside the same JVM as the 
-Alfresco Repository. There are both a [Public Java API]({% link content-services/latest/develop/reference/java-foundation-ref.md %}) and a Repository JavaScript API.
+Alfresco Repository. There are both a [Public Java API]({% link content-services/7.2/develop/reference/java-foundation-ref.md %}) and a Repository JavaScript API.
 Before using the embedded APIs a thorough investigation should be done to rule out the possibility of building the extension 
 with a remote API. It is not recommended to build embedded extensions unless it is absolutely necessary.
 They make it difficult during upgrades and can quite easily have unintended side effects on core repository functionality, 

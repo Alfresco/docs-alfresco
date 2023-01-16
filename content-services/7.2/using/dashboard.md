@@ -30,7 +30,7 @@ If you want, add multiple copies of each dashlet and then set the filters so tha
 
         > **Note:** You can drag and drop dashlets around the columns to change the display order, or to the trash can (or press DELETE) to remove them.
 
-        See [What can I do with my dashlets?]({% link content-services/latest/using/index.md %}#whatcanidowithmydashlets) for more.
+        See [What can I do with my dashlets?]({% link content-services/7.2/using/index.md %}#whatcanidowithmydashlets) for more.
 
 4. Select whether to show or hide the Get Started Panel.
 

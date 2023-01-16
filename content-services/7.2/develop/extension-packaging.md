@@ -39,7 +39,7 @@ http://<your_domain>:<your_port>/alfresco/service/enterprise/admin/admin-systems
 
 The System Summary includes information about installed Module Packages.
 
-You can find out more about using the Repository Admin Console [here]({% link content-services/latest/admin/admin-console.md %}).
+You can find out more about using the Repository Admin Console [here]({% link content-services/7.2/admin/admin-console.md %}).
 
 ## Module properties file
 
