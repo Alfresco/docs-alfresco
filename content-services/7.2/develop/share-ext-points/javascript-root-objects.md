@@ -6,12 +6,12 @@ A number of JavaScript root objects are available when you are implementing a co
 as `page` and `remote`. Sometimes you might have custom Java code that you want to call from JavaScript controllers, 
 this is possible by adding custom JavaScript root objects.
 
-Architecture Information: [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
+Architecture Information: [Share Architecture]({% link content-services/7.2/develop/software-architecture.md %}#sharearchitecture)
 
 ## Description
 
 This is implemented as a Repository extension, see 
-[Repository JavaScript root objects]({% link content-services/latest/develop/repo-ext-points/javascript-root-objects.md %})
+[Repository JavaScript root objects]({% link content-services/7.2/develop/repo-ext-points/javascript-root-objects.md %})
 
 ## Deployment - App Server
 
@@ -24,4 +24,4 @@ Use a Repository JAR.
 
 ## More Information
 
-* [Spring Surf Root Object Reference]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#surfrootobjects) (Have a look at what root objects are already there)
+* [Spring Surf Root Object Reference]({% link content-services/7.2/develop/reference/surf-framework-ref.md %}#surfrootobjects) (Have a look at what root objects are already there)

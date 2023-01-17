@@ -113,8 +113,8 @@ Creating folders and adding files to an Alfresco Share site's Document Library.
 
 **See also:**
 
-* [How to create a folder]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#createfolder)
-* [How to upload a file]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#uploadfile)
+* [How to create a folder]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#createfolder)
+* [How to upload a file]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#uploadfile)
 
 When you have a site, the next step is most likely to add some content to the Document Library. Each site "page" has a 
 container in which it stores its data. The Document Library is no different, we can use the following endpoint to GET 

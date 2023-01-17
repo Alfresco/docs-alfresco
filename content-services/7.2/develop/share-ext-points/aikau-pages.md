@@ -6,7 +6,7 @@ The Share web application is built up of a main menu from which you can navigate
 implemented mostly in the Surf development framework. However, a number of pages, such as search, have been converted 
 and implemented with the new Aikau development framework, see architecture section.
 
-Architecture Information: [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
+Architecture Information: [Share Architecture]({% link content-services/7.2/develop/software-architecture.md %}#sharearchitecture)
 
 ## Description
 
@@ -20,9 +20,9 @@ implemented in Aikau:
 * Analytics and Reporting Widgets
 * Document List prototype
 
-Implementing an Aikau page is greatly simplified compared to creating a [Surf page]({% link content-services/latest/develop/share-ext-points/surf-pages.md %}). 
-The only thing you need to do is implement a [Surf Web Script]({% link content-services/latest/develop/share-ext-points/web-scripts.md %}) and zero or 
-more [Aikau Widgets]({% link content-services/latest/develop/share-ext-points/aikau-widgets.md %}).
+Implementing an Aikau page is greatly simplified compared to creating a [Surf page]({% link content-services/7.2/develop/share-ext-points/surf-pages.md %}). 
+The only thing you need to do is implement a [Surf Web Script]({% link content-services/7.2/develop/share-ext-points/web-scripts.md %}) and zero or 
+more [Aikau Widgets]({% link content-services/7.2/develop/share-ext-points/aikau-widgets.md %}).
 
 The web scripts controller is where all the fun happens. It is where you define your page layout in JSON, including all 
 the Aikau Widgets that make up the page. It will look something like this for a Hello World page:
@@ -320,13 +320,13 @@ all of the XML that defined it.
 
 ## More Information
 
-* [Software Architecture - Introduction to Aikau Pages]({% link content-services/latest/develop/software-architecture.md %}#aikauintro) - This page contains a walk-through on how to create an Aikau page, and it also has links to a page that shows how to create the same page with old-school Surf.
-* [Introduction to Aikau]({% link content-services/latest/develop/reference/aikau-intro-ref.md %})
+* [Software Architecture - Introduction to Aikau Pages]({% link content-services/7.2/develop/software-architecture.md %}#aikauintro) - This page contains a walk-through on how to create an Aikau page, and it also has links to a page that shows how to create the same page with old-school Surf.
+* [Introduction to Aikau]({% link content-services/7.2/develop/reference/aikau-intro-ref.md %})
 * [Aikau Widget Reference](http://dev.alfresco.com/resource/docs/aikau-jsdoc/){:target="_blank"} - this is the place to look for widgets that you can use in your pages.
 
 ## Tutorials
 
-* [Adding new AMD packages for Aikau Widgets]({% link content-services/latest/tutorial/share/amd.md %})
+* [Adding new AMD packages for Aikau Widgets]({% link content-services/7.2/tutorial/share/amd.md %})
 * [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/tree/master/tutorial/chapters){:target="_blank"}
 
 ## Developer Blogs

@@ -4,7 +4,7 @@ title: File metadata extraction
 
 This page contains information about metadata extraction, which happens when a file is uploaded to the Alfresco repository.
 
-For information about configuring metadata extractors, see [metadata extraction extension point]({% link content-services/latest/develop/repo-ext-points/metadata-extractors.md %}).
+For information about configuring metadata extractors, see [metadata extraction extension point]({% link content-services/7.2/develop/repo-ext-points/metadata-extractors.md %}).
 
 ## File metadata mapping to Repository properties
 

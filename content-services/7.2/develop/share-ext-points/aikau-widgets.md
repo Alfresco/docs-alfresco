@@ -5,7 +5,7 @@ title: Aikau Widgets Extension Point
 Aikau pages are built up of widgets. There are two types of widgets, presentation widgets and service widgets. These 
 JavaScript widgets are Dojo classes. A widget can have its own CSS, HTML, and Properties.
 
-Architecture Information: [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
+Architecture Information: [Share Architecture]({% link content-services/7.2/develop/software-architecture.md %}#sharearchitecture)
 
 ## Description
 
@@ -144,12 +144,12 @@ Best practice is to put the file in a directory that explains what the file is f
 
 ## More Information
 
-* [Introduction to Aikau]({% link content-services/latest/develop/reference/aikau-intro-ref.md %})
+* [Introduction to Aikau]({% link content-services/7.2/develop/reference/aikau-intro-ref.md %})
 * [Aikau Widget Reference](http://dev.alfresco.com/resource/docs/aikau-jsdoc/){:target="_blank"} - Look here before you start creating widgets, one might exist that does what you want.
 
 ## Tutorials
 
-* [Adding new AMD packages for Aikau Widgets]({% link content-services/latest/tutorial/share/amd.md %})
+* [Adding new AMD packages for Aikau Widgets]({% link content-services/7.2/tutorial/share/amd.md %})
 * [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/tree/master/tutorial/chapters){:target="_blank"}
 
 ## Developer Blogs

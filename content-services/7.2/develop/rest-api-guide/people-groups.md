@@ -19,8 +19,8 @@ List people (i.e. users) in the repository.
 **See also:**
 
 * [How to list group membership for people](#listpersongroupmembership)
-* [how to find people by term]({% link content-services/latest/develop/rest-api-guide/searching.md %}#findpeoplebyterm)
-* [How to search for people]({% link content-services/latest/develop/rest-api-guide/searching.md %}#searchbyquery)
+* [how to find people by term]({% link content-services/7.2/develop/rest-api-guide/searching.md %}#findpeoplebyterm)
+* [How to search for people]({% link content-services/7.2/develop/rest-api-guide/searching.md %}#searchbyquery)
 
 A useful feature is to be able to list people in the repository. The following GET request is used:
 
@@ -1539,7 +1539,7 @@ The Engineering group is empty as the user and group we removed were the only me
 
 Setting permissions for a group.
 
-**API Call:** [Get and set permissions for a node]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#setpermissionsnode)
+**API Call:** [Get and set permissions for a node]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#setpermissionsnode)
 
 **API Explorer URL:** [http://localhost:8080/api-explorer/#!/nodes/updateNode](http://localhost:8080/api-explorer/#!/nodes/updateNode){:target="_blank"}
 
@@ -1551,4 +1551,4 @@ are part of the group access those folders and files they automatically have the
 Setting permissions on groups instead of individual users makes life easier when managing the repository.
 
 This is all done via the `PUT /nodes/{id}` call, for more info see 
-[get and set permissions for a node]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#setpermissionsnode).
+[get and set permissions for a node]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#setpermissionsnode).

@@ -16,7 +16,7 @@ tooling library and the [Spring Boot](https://spring.io/projects/spring-boot){:t
 
 Alfresco SDK 5.1 is released under [Apache License version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html){:target="_blank"} 
 and supports Content Services Enterprise Edition as well as Community Edition. If you're an Enterprise customer, 
-please check the [Alfresco SDK Support status]({% link content-services/latest/support/index.md %}) 
+please check the [Alfresco SDK Support status]({% link content-services/7.2/support/index.md %}) 
 for the version you're using. If your version is in Limited or Full Support and you need help, contact our 
 [Support team](https://support.alfresco.com/){:target="_blank"}.
 
@@ -24,8 +24,8 @@ The 5.1 release takes advantage of Semantic Versioning ([SEMVER](https://semver.
 this new release is not directly compatible with the previous releases of the SDK.
 
 There is no direct upgrade path from previous versions of the SDK. This is because version 5.1 is an additional SDK to 
-support out-of-process extensions, rather than an updated 4.x version. [Alfresco SDK 4.x]({% link content-services/latest/develop/sdk.md %}) 
-is still needed for a lot of the extension points, such as [content modelling]({% link content-services/latest/develop/repo-ext-points/content-model.md %}).
+support out-of-process extensions, rather than an updated 4.x version. [Alfresco SDK 4.x]({% link content-services/7.2/develop/sdk.md %}) 
+is still needed for a lot of the extension points, such as [content modelling]({% link content-services/7.2/develop/repo-ext-points/content-model.md %}).
 
 If you have an existing project with business logic that could be lifted out and implemented as an external service, then 
 the recommended approach is to create a new SDK 5.1 project and start using the event system to implement the business logic. 
@@ -33,7 +33,7 @@ Any business logic that is executed as a result of an action in the Repository, 
 can be reimplemented as an external out-process extension utilizing the new event system. 
 
 ## What's new?
-* Alfresco SDK 5.1 [integrates](#using-event-gateway) with the new [Event Gateway]({% link content-services/latest/develop/oop-ext-points/event-gateway.md %}) 
+* Alfresco SDK 5.1 [integrates](#using-event-gateway) with the new [Event Gateway]({% link content-services/7.2/develop/oop-ext-points/event-gateway.md %}) 
 that is part of Content Services version 7.1.
 * ReST API authentication using [OAuth2](#rest-api-config) with Alfresco Identity Service.
 
@@ -43,10 +43,10 @@ The SDK includes Java libraries for the following:
 * **Alfresco Java Event API** - enables an Alfresco developer to work with the new Alfresco Event system from Java.
 * **Alfresco Java ReST API** - enables an Alfresco developer to work with the Alfresco ReST API 1.0 from Java.
 
-Make sure to read through the [Platform architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Make sure to read through the [Platform architecture]({% link content-services/7.2/develop/software-architecture.md %}#platformarch)
 before continuing as this section assumes familiarity with the Content Services architecture and event system.
 
-If you are not familiar with Alfresco ReST API version 1.0, then read through this [introduction]({% link content-services/latest/develop/rest-api-guide/index.md %}).
+If you are not familiar with Alfresco ReST API version 1.0, then read through this [introduction]({% link content-services/7.2/develop/rest-api-guide/index.md %}).
 
 ## Java Event API
 The SDK has a Java library that wraps the Alfresco Event Model so it is more convenient to handle events in a Java project. 
@@ -63,7 +63,7 @@ The Alfresco Java Event API is consists of four main components:
 The event model is a component that offers a custom model definition to clearly specify the way the Alfresco event data is organized.
 
 This component is declared in the module [alfresco-java-event-api-model](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-model){:target="_blank"} 
-and is explained in detail [here]({% link content-services/latest/develop/oop-ext-points/events.md %}#eventmodel).
+and is explained in detail [here]({% link content-services/7.2/develop/oop-ext-points/events.md %}#eventmodel).
 
 ### Event handling library
 The event handling library is a core component of the Alfresco Java Event API that offers a set of pre-defined event handling 
@@ -205,7 +205,7 @@ There are some data mapping objects that are good to know about when working wit
 When working with the Event API and folders and files there is one data object called `NodeResource` that is used over 
 and over. It's used to get to the JSON node data returned in the JMS message payload.
 
-Here is an example payload for a file [node updated event]({% link content-services/latest/develop/oop-ext-points/events.md %}#nodeupdatedevent):
+Here is an example payload for a file [node updated event]({% link content-services/7.2/develop/oop-ext-points/events.md %}#nodeupdatedevent):
 
 ```json
 {
@@ -376,7 +376,7 @@ The first node ID in the list is the immediate parent folder for the node as in 
 When working with the Event API and Parent-Child associations there is one data object called `ChildAssociationResource` 
 that is used over and over. It's used to get to the JSON association data returned in the JMS message payload.
 
-Here is an example payload for a [Parent-Child association created event]({% link content-services/latest/develop/oop-ext-points/events.md %}#parentchildassoccreatedevent):
+Here is an example payload for a [Parent-Child association created event]({% link content-services/7.2/develop/oop-ext-points/events.md %}#parentchildassoccreatedevent):
 
 ```json
 {
@@ -425,7 +425,7 @@ The `resource.getParent().getId()` call will return the Node ID for the parent n
 When working with the Event API and Peer-2-Peer associations there is one data object called `PeerAssociationResource` 
 that is used over and over. It's used to get to the JSON association data returned in the JMS message payload.
 
-Here is an example payload for a [Peer-2-Peer association created event]({% link content-services/latest/develop/oop-ext-points/events.md %}#peer2peerassoccreatedevent):
+Here is an example payload for a [Peer-2-Peer association created event]({% link content-services/7.2/develop/oop-ext-points/events.md %}#peer2peerassoccreatedevent):
 
 ```json
 {
@@ -921,7 +921,7 @@ public class ContentUploadedEventHandler implements OnNodeCreatedEventHandler {
 Here we are using the `org.alfresco.event.sdk.handling.filter.IsFileFilter`, which will make sure that the event handler
 is triggered only when the node type is `cm:content` or subtype thereof, which represents files.
 
-For a complete list of events with sample code see the [events extension point]({% link content-services/latest/develop/oop-ext-points/events.md %}) 
+For a complete list of events with sample code see the [events extension point]({% link content-services/7.2/develop/oop-ext-points/events.md %}) 
 documentation. For a complete list of Event Filters available in the SDK see this [section](#eventfilter).
 
 For information on how to implement a custom event filter see this [section](#customeventfilters).
@@ -1166,7 +1166,7 @@ public class EventsApplication {
 }
 ```
 
-For a complete list of events with sample code see the [events extension point]({% link content-services/latest/develop/oop-ext-points/events.md %}) 
+For a complete list of events with sample code see the [events extension point]({% link content-services/7.2/develop/oop-ext-points/events.md %}) 
 documentation. For a complete list of Event Filters available in the SDK see this [section](#eventfilter).
 
 For information on how to implement a custom event filter see this [section](#customeventfilters).
@@ -1240,7 +1240,7 @@ public class ContentUploadedEventHandler implements OnNodeCreatedEventHandler {
 
 ## ReST API Java wrapper {#rest-api-java-wrapper}
 The ReST API Java wrapper library in SDK 5 provides a Java object wrapper around the Alfresco ReST API. If you are not 
-familiar with Alfresco ReST API version 1.0, then read through this [introduction]({% link content-services/latest/develop/rest-api-guide/index.md %}).
+familiar with Alfresco ReST API version 1.0, then read through this [introduction]({% link content-services/7.2/develop/rest-api-guide/index.md %}).
 
 The ReST API wrapper classes have been generated based on the ReST API [Swagger definition](https://swagger.io/){:target="_blank"}. 
 The following main packages exist for the different APIs:
@@ -1546,7 +1546,7 @@ public class CreateFileCmd {
 ```
 
 You might notice that it requires two calls to create a file with content. The ReST API does provide a way to do this 
-with one call as can be seen [here]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#uploadfile).
+with one call as can be seen [here]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#uploadfile).
 However, the generated Java wrapping classes does not yet provide functionality for this (it is scheduled to be supported in 
 a future version of SDK 5).
 
@@ -1774,7 +1774,7 @@ $ java -jar target/rest-api-0.0.1-SNAPSHOT.jar search test file
 This sample has shown us that it's is easy to interact with the Alfresco Repository from a Java client with the help 
 of SDK 5 Java ReST API services.
  
-For more information see the [ReST API Java wrapper extension point]({% link content-services/latest/develop/oop-ext-points/rest-api-java-wrapper.md %}) 
+For more information see the [ReST API Java wrapper extension point]({% link content-services/7.2/develop/oop-ext-points/rest-api-java-wrapper.md %}) 
 documentation. 
 
 ## Creating an extension project for both event handling and Java ReST API {#eventandrestproject}
@@ -1958,7 +1958,7 @@ mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=
 ```
 
 ## Using the Event Gateway {#using-event-gateway}
-Alfresco Java SDK 5.1 is compatible with [Alfresco Event Gateway]({% link content-services/latest/develop/oop-ext-points/event-gateway.md %}).
+Alfresco Java SDK 5.1 is compatible with [Alfresco Event Gateway]({% link content-services/7.2/develop/oop-ext-points/event-gateway.md %}).
 
 Using the Alfresco Event Gateway REST API, extensions can manage the lifecycle of an event subscription. For example, 
 an out-of-process extension may [create a subscription](#gateway-api-create-sub) 
@@ -1978,7 +1978,7 @@ To work with the Gateway ReST API Java Wrapper in your extension project, add th
 ```
 
 ### Creating a subscription {#gateway-api-create-sub}
-The following code shows an example of how to create a subscription with a filter that only accepts [events of type]({% link content-services/latest/develop/oop-ext-points/events.md%}#acseventtypes)
+The following code shows an example of how to create a subscription with a filter that only accepts [events of type]({% link content-services/7.2/develop/oop-ext-points/events.md%}#acseventtypes)
 `org.alfresco.event.node.Created` and `org.alfresco.event.node.Updated`:
 
 ```java

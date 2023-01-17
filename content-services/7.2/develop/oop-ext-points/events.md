@@ -10,7 +10,7 @@ The following diagram gives an overview of the Event System and the event types:
 
 ![acs_70_event_system_overview]({% link content-services/images/acs_70_event_system_overview.png %})
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/7.2/develop/software-architecture.md %}#platformarch)
 
 ## Event Model {#eventmodel}
 The event model in Content Services is a library packaged as a JAR file, which is part of the repository (i.e. `alfresco.war`). 
@@ -80,14 +80,14 @@ Content Services event data payload/attributes:
 |`data.resource.id`    |String|The Alfresco Repository Node Id for the resource (e.g. node such as folder or file) that the data represent.|
 |`data.resource.primaryHierarchy` |Array|Optional primary hierarchy of ancestors of the resource affected, i.e. folder path for the node. Note that the first element is the immediate parent.|
 |`data.resource.name`             |String|The name of the resource. This is the name of the node, e.g. the name of a folder or a file.|
-|`data.resource.nodeType`         |String|A content model type, such as `cm:content` for a file or `cm:folder` for a folder. See [content modelling]({% link content-services/latest/develop/repo-ext-points/content-model.md %})|
+|`data.resource.nodeType`         |String|A content model type, such as `cm:content` for a file or `cm:folder` for a folder. See [content modelling]({% link content-services/7.2/develop/repo-ext-points/content-model.md %})|
 |`data.resource.createdByUser`    |Object|The id (String) and display name (String) of the user that created the node.|
 |`data.resource.createdAt`        |String|The time a node was created.|
 |`data.resource.modifiedByUser`   |Object|The id (String) and display name (String) of the user that modified/updated the node.|
 |`data.resource.modifiedAt`       |String|The time a node was modified/updated.|
 |`data.resource.content`          |Object|If the node is of content type `cm:content` (i.e. a file), then this object contains information about the file, such as MIME-type and size.|
-|`data.resource.properties`       |Object|[Content model]({% link content-services/latest/develop/repo-ext-points/content-model.md %}) properties corresponding to the `data.resource.nodeType`.|
-|`data.resource.aspectNames`      |Array|[Content model]({% link content-services/latest/develop/repo-ext-points/content-model.md %}) aspects that have been applied to the node.|
+|`data.resource.properties`       |Object|[Content model]({% link content-services/7.2/develop/repo-ext-points/content-model.md %}) properties corresponding to the `data.resource.nodeType`.|
+|`data.resource.aspectNames`      |Array|[Content model]({% link content-services/7.2/develop/repo-ext-points/content-model.md %}) aspects that have been applied to the node.|
 |`data.resource.isFolder`         |Boolean|`true` if this node is of type `cm:folder`.|
 |`data.resource.isFile`           |Boolean|`true` if this node is of type `cm:content`.|
 |`data.resource.resourceReaderAuthorities`|Array|(*Enterprise Only*) The authority IDs, such as `GROUP_EVERYONE`, that have READ access to the resource affected by the event. **Note**: this property will not be present in the event when `authorities generation` is disabled.|
@@ -185,7 +185,7 @@ Here is an example payload for this event type:
 }
 ```
 
-Using the [Node Browser]({% link content-services/latest/admin/troubleshoot.md %}#usingnodebrowser) the following 
+Using the [Node Browser]({% link content-services/7.2/admin/troubleshoot.md %}#usingnodebrowser) the following 
 `NodeRefs` were resolved as follows:
 
 ```json
@@ -203,7 +203,7 @@ The event payload is telling us that a file called `purchase-order-scan.pdf` (i.
 `d71dd823-82c7-477c-8490-04cb0e826e65` (i.e. `data.resource.id`).
 
 To find out the display name for a folder or file via its Node ID use the ReST API to 
-[get metadata]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#getnodemetadata). This 
+[get metadata]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#getnodemetadata). This 
 call can also be used to get other properties for the created node as not all are returned in the event data 
 (i.e. `data.resource.properties`).
 
@@ -248,11 +248,11 @@ public class ContentUploadedEventHandler implements OnNodeCreatedEventHandler {
 }
 ```
 
-This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter). 
+This code uses a custom [`ParentFolderFilter`]({% link content-services/7.2/develop/oop-sdk.md %}#parentfoldercustomfilter). 
 
-For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/latest/develop/oop-sdk.md %}#noderesourceobj).
+For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/7.2/develop/oop-sdk.md %}#noderesourceobj).
 
-To create an SDK event handler project that uses plain Java event handlers follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#purejavaeventhandlers).
+To create an SDK event handler project that uses plain Java event handlers follow [these instructions]({% link content-services/7.2/develop/oop-sdk.md %}#purejavaeventhandlers).
 
 {% endcapture %}
 
@@ -303,11 +303,11 @@ public class NewContentFlow extends IntegrationFlowAdapter {
 }
 ```
 
-This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter). 
+This code uses a custom [`ParentFolderFilter`]({% link content-services/7.2/develop/oop-sdk.md %}#parentfoldercustomfilter). 
 
-For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/latest/develop/oop-sdk.md %}#noderesourceobj).
+For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/7.2/develop/oop-sdk.md %}#noderesourceobj).
 
-To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#springintegrationhandlers).
+To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/7.2/develop/oop-sdk.md %}#springintegrationhandlers).
 
 {% endcapture %}
 
@@ -447,7 +447,7 @@ The event data payload looks very similar to the data for a created node. There 
 `resourceBefore` that contains the property values before the update. In this case we can see that the `cm:title` property
 of the `cm:titled` aspect has been filled in (i.e. `data.resource.properties.cm:title: "Purchase Order"`).
 
-Using the [Node Browser]({% link content-services/latest/admin/troubleshoot.md %}#usingnodebrowser) the following 
+Using the [Node Browser]({% link content-services/7.2/admin/troubleshoot.md %}#usingnodebrowser) the following 
 `NodeRefs` were resolved as follows:
 
 ```json
@@ -465,7 +465,7 @@ The event payload is telling us that a file called `purchase-order-scan.pdf` (i.
 `d71dd823-82c7-477c-8490-04cb0e826e65` (i.e. `data.resource.id`).
 
 To find out the display name for a folder or file via its Node ID use the ReST API to 
-[get metadata]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#getnodemetadata). This 
+[get metadata]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#getnodemetadata). This 
 call can also be used to get other properties for the created node as not all are returned in the event data 
 (i.e. `data.resource.properties`).
 
@@ -516,11 +516,11 @@ public class ContentUpdatedEventHandler implements OnNodeUpdatedEventHandler {
 Note that you can get to the property values before the update via the `repoEvent.getData().getResourceBefore()` call.
 You can compare those to the values retreived via `repoEvent.getData().getResource()` and see what's changed.
 
-This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter). 
+This code uses a custom [`ParentFolderFilter`]({% link content-services/7.2/develop/oop-sdk.md %}#parentfoldercustomfilter). 
 
-For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/latest/develop/oop-sdk.md %}#noderesourceobj).
+For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/7.2/develop/oop-sdk.md %}#noderesourceobj).
 
-To create an SDK event handler project that uses plain Java event handlers follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#purejavaeventhandlers).
+To create an SDK event handler project that uses plain Java event handlers follow [these instructions]({% link content-services/7.2/develop/oop-sdk.md %}#purejavaeventhandlers).
 
 {% endcapture %}
 
@@ -576,11 +576,11 @@ public class UpdatedContentFlow extends IntegrationFlowAdapter {
 Note that you can get to the property values before the update via the `repoEvent.getData().getResourceBefore()` call.
 You can compare those to the values retreived via `repoEvent.getData().getResource()` and see what's changed.
 
-This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter).
+This code uses a custom [`ParentFolderFilter`]({% link content-services/7.2/develop/oop-sdk.md %}#parentfoldercustomfilter).
 
-For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/latest/develop/oop-sdk.md %}#noderesourceobj). 
+For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/7.2/develop/oop-sdk.md %}#noderesourceobj). 
 
-To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#springintegrationhandlers).
+To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/7.2/develop/oop-sdk.md %}#springintegrationhandlers).
 
 {% endcapture %}
 
@@ -696,7 +696,7 @@ Here is an example payload for this event type:
 ```
 
 The event data payload looks very similar to the data for a created node. Using the 
-[Node Browser]({% link content-services/latest/admin/troubleshoot.md %}#usingnodebrowser) the following 
+[Node Browser]({% link content-services/7.2/admin/troubleshoot.md %}#usingnodebrowser) the following 
 `NodeRefs` were resolved as follows:
 
 ```json
@@ -757,11 +757,11 @@ public class ContentDeletedEventHandler implements OnNodeDeletedEventHandler {
 }
 ```
 
-This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter). 
+This code uses a custom [`ParentFolderFilter`]({% link content-services/7.2/develop/oop-sdk.md %}#parentfoldercustomfilter). 
 
-For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/latest/develop/oop-sdk.md %}#noderesourceobj).
+For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/7.2/develop/oop-sdk.md %}#noderesourceobj).
 
-To create an SDK event handler project that uses plain Java event handlers follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#purejavaeventhandlers).
+To create an SDK event handler project that uses plain Java event handlers follow [these instructions]({% link content-services/7.2/develop/oop-sdk.md %}#purejavaeventhandlers).
 
 {% endcapture %}
 
@@ -812,11 +812,11 @@ public class DeletedContentFlow extends IntegrationFlowAdapter {
 }
 ```
 
-This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter). 
+This code uses a custom [`ParentFolderFilter`]({% link content-services/7.2/develop/oop-sdk.md %}#parentfoldercustomfilter). 
 
-For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/latest/develop/oop-sdk.md %}#noderesourceobj).
+For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/7.2/develop/oop-sdk.md %}#noderesourceobj).
 
-To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#springintegrationhandlers).
+To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/7.2/develop/oop-sdk.md %}#springintegrationhandlers).
 
 {% endcapture %}
 
@@ -859,7 +859,7 @@ necessary ReST API calls.
 
 ## Parent-Child association created event {#parentchildassoccreatedevent}
 This event is fired whenever a **secondary** parent -> child association is created, such as via the the 
-[POST nodes/{parentId}/secondary-children]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#createparentchildassoc4nodeexist)  
+[POST nodes/{parentId}/secondary-children]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#createparentchildassoc4nodeexist)  
 ReST API. The full name of this event is `org.alfresco.event.assoc.child.Created`. 
 
 >**Note** that this event will not be generated when a file is created or a folder is created. In this case the **primary** 
@@ -894,7 +894,7 @@ Here is an example payload for this event type:
 }
 ```
 
-Using the [Node Browser]({% link content-services/latest/admin/troubleshoot.md %}#usingnodebrowser) the following 
+Using the [Node Browser]({% link content-services/7.2/admin/troubleshoot.md %}#usingnodebrowser) the following 
 `NodeRefs` were resolved as follows:
 
 ```json
@@ -949,9 +949,9 @@ public class ParentChildAssocCreatedEventHandler implements OnChildAssocCreatedE
 This code uses the `org.alfresco.event.sdk.handling.filter.AssocTypeFilter` event filter to specify what type of 
 Parent-Child association we are interested in. 
 
-For more information about how to extract all the properties from the message payload see [`ChildAssociationResource` info]({% link content-services/latest/develop/oop-sdk.md %}#childassocresourceobj).
+For more information about how to extract all the properties from the message payload see [`ChildAssociationResource` info]({% link content-services/7.2/develop/oop-sdk.md %}#childassocresourceobj).
 
-To create an SDK event handler project that uses plain Java event handlers follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#purejavaeventhandlers).
+To create an SDK event handler project that uses plain Java event handlers follow [these instructions]({% link content-services/7.2/develop/oop-sdk.md %}#purejavaeventhandlers).
 
 {% endcapture %}
 
@@ -1001,9 +1001,9 @@ public class ParentChildAssocCreatedFlow extends IntegrationFlowAdapter {
 This code uses the `org.alfresco.event.sdk.handling.filter.AssocTypeFilter` event filter to specify what type of 
 Parent-Child association we are interested in. 
 
-For more information about how to extract all the properties from the message payload see [`ChildAssociationResource` info]({% link content-services/latest/develop/oop-sdk.md %}#childassocresourceobj).
+For more information about how to extract all the properties from the message payload see [`ChildAssociationResource` info]({% link content-services/7.2/develop/oop-sdk.md %}#childassocresourceobj).
 
-To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#springintegrationhandlers).
+To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/7.2/develop/oop-sdk.md %}#springintegrationhandlers).
 
 {% endcapture %}
 
@@ -1044,7 +1044,7 @@ where you could make the necessary ReST API calls.
 
 ## Parent-Child association deleted event
 This event is fired whenever a **secondary** parent -> child association is deleted, such as via the the 
-[DELETE nodes/{parentId}/secondary-children]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#deletingassociations)  
+[DELETE nodes/{parentId}/secondary-children]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#deletingassociations)  
 ReST API. The full name of this event is `org.alfresco.event.assoc.child.Deleted`. 
 
 >**Note** that this event will not be generated when a file is deleted or a folder is deleted. In this case the **primary** 
@@ -1079,7 +1079,7 @@ Here is an example payload for this event type:
 }
 ```
 
-Using the [Node Browser]({% link content-services/latest/admin/troubleshoot.md %}#usingnodebrowser) the following 
+Using the [Node Browser]({% link content-services/7.2/admin/troubleshoot.md %}#usingnodebrowser) the following 
 `NodeRefs` were resolved as follows:
 
 ```json
@@ -1137,9 +1137,9 @@ public class ParentChildAssocDeletedEventHandler implements OnChildAssocDeletedE
 This code uses the `org.alfresco.event.sdk.handling.filter.AssocTypeFilter` event filter to specify what type of 
 Parent-Child association we are interested in. 
 
-For more information about how to extract all the properties from the message payload see [`ChildAssociationResource` info]({% link content-services/latest/develop/oop-sdk.md %}#childassocresourceobj).
+For more information about how to extract all the properties from the message payload see [`ChildAssociationResource` info]({% link content-services/7.2/develop/oop-sdk.md %}#childassocresourceobj).
 
-To create an SDK event handler project that uses plain Java event handlers follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#purejavaeventhandlers).
+To create an SDK event handler project that uses plain Java event handlers follow [these instructions]({% link content-services/7.2/develop/oop-sdk.md %}#purejavaeventhandlers).
 
 {% endcapture %}
 
@@ -1189,9 +1189,9 @@ public class ParentChildAssocDeletedFlow extends IntegrationFlowAdapter {
 This code uses the `org.alfresco.event.sdk.handling.filter.AssocTypeFilter` event filter to specify what type of 
 Parent-Child association we are interested in. 
 
-For more information about how to extract all the properties from the message payload see [`ChildAssociationResource` info]({% link content-services/latest/develop/oop-sdk.md %}#childassocresourceobj).
+For more information about how to extract all the properties from the message payload see [`ChildAssociationResource` info]({% link content-services/7.2/develop/oop-sdk.md %}#childassocresourceobj).
 
-To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#springintegrationhandlers).
+To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/7.2/develop/oop-sdk.md %}#springintegrationhandlers).
 
 {% endcapture %}
 
@@ -1232,7 +1232,7 @@ where you could make the necessary ReST API calls.
 
 ## Peer association created event {#peer2peerassoccreatedevent}
 This event is fired whenever a peer association is created, such as via the the 
-[POST nodes/{sourceId}/targets]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#createparentchildassoc4nodeexist)  
+[POST nodes/{sourceId}/targets]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#createparentchildassoc4nodeexist)  
 ReST API. The full name of this event is `org.alfresco.event.assoc.peer.Created`. 
 
 Here is an example payload for this event type:
@@ -1262,7 +1262,7 @@ Here is an example payload for this event type:
 }
 ```
 
-Using the [Node Browser]({% link content-services/latest/admin/troubleshoot.md %}#usingnodebrowser) the following 
+Using the [Node Browser]({% link content-services/7.2/admin/troubleshoot.md %}#usingnodebrowser) the following 
 `NodeRefs` were resolved as follows:
 
 ```json
@@ -1316,9 +1316,9 @@ public class Peer2PeerAssocCreatedEventHandler implements OnPeerAssocCreatedEven
 This code uses the `org.alfresco.event.sdk.handling.filter.AssocTypeFilter` event filter to specify what type of 
 Peer-2-Peer association we are interested in. 
 
-For more information about how to extract all the properties from the message payload see [`PeerAssociationResource` info]({% link content-services/latest/develop/oop-sdk.md %}#peerassocresourceobj).
+For more information about how to extract all the properties from the message payload see [`PeerAssociationResource` info]({% link content-services/7.2/develop/oop-sdk.md %}#peerassocresourceobj).
 
-To create an SDK event handler project that uses plain Java event handlers follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#purejavaeventhandlers).
+To create an SDK event handler project that uses plain Java event handlers follow [these instructions]({% link content-services/7.2/develop/oop-sdk.md %}#purejavaeventhandlers).
 
 {% endcapture %}
 
@@ -1369,9 +1369,9 @@ public class Peer2PeerAssocCreatedFlow extends IntegrationFlowAdapter {
 This code uses the `org.alfresco.event.sdk.handling.filter.AssocTypeFilter` event filter to specify what type of 
 Peer-2-Peer association we are interested in. 
 
-For more information about how to extract all the properties from the message payload see [`PeerAssociationResource` info]({% link content-services/latest/develop/oop-sdk.md %}#peerassocresourceobj).
+For more information about how to extract all the properties from the message payload see [`PeerAssociationResource` info]({% link content-services/7.2/develop/oop-sdk.md %}#peerassocresourceobj).
 
-To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#springintegrationhandlers).
+To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/7.2/develop/oop-sdk.md %}#springintegrationhandlers).
 
 {% endcapture %}
 
@@ -1412,7 +1412,7 @@ where you could make the necessary ReST API calls.
 
 ## Peer association deleted event
 This event is fired whenever a peer association is deleted, such as via the the 
-[DELETE nodes/{sourceId}/targets]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#deletingassociations)  
+[DELETE nodes/{sourceId}/targets]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#deletingassociations)  
 ReST API. The full name of this event is `org.alfresco.event.assoc.peer.Deleted`. 
 
 Here is an example payload for this event type:
@@ -1442,7 +1442,7 @@ Here is an example payload for this event type:
 }
 ```
 
-Using the [Node Browser]({% link content-services/latest/admin/troubleshoot.md %}#usingnodebrowser) the following 
+Using the [Node Browser]({% link content-services/7.2/admin/troubleshoot.md %}#usingnodebrowser) the following 
 `NodeRefs` were resolved as follows:
 
 ```json
@@ -1498,9 +1498,9 @@ public class Peer2PeerAssocDeletedEventHandler implements OnPeerAssocDeletedEven
 This code uses the `org.alfresco.event.sdk.handling.filter.AssocTypeFilter` event filter to specify what type of 
 Peer-2-Peer association we are interested in. 
 
-For more information about how to extract all the properties from the message payload see [`PeerAssociationResource` info]({% link content-services/latest/develop/oop-sdk.md %}#peerassocresourceobj).
+For more information about how to extract all the properties from the message payload see [`PeerAssociationResource` info]({% link content-services/7.2/develop/oop-sdk.md %}#peerassocresourceobj).
 
-To create an SDK event handler project that uses plain Java event handlers follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#purejavaeventhandlers).
+To create an SDK event handler project that uses plain Java event handlers follow [these instructions]({% link content-services/7.2/develop/oop-sdk.md %}#purejavaeventhandlers).
 
 {% endcapture %}
 
@@ -1550,9 +1550,9 @@ public class Peer2PeerAssocDeletedFlow extends IntegrationFlowAdapter {
 This code uses the `org.alfresco.event.sdk.handling.filter.AssocTypeFilter` event filter to specify what type of 
 Peer-2-Peer association we are interested in. 
 
-For more information about how to extract all the properties from the message payload see [`PeerAssociationResource` info]({% link content-services/latest/develop/oop-sdk.md %}#peerassocresourceobj).
+For more information about how to extract all the properties from the message payload see [`PeerAssociationResource` info]({% link content-services/7.2/develop/oop-sdk.md %}#peerassocresourceobj).
 
-To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#springintegrationhandlers).
+To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/7.2/develop/oop-sdk.md %}#springintegrationhandlers).
 
 {% endcapture %}
 
@@ -1665,7 +1665,7 @@ Here is an example payload for this event type:
 ```
 
 In this case the node permissions for user `abeecher` was updated. For information about what specific 
-permissions were set or removed for the user use the [ReST API]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#setpermissionsnode).
+permissions were set or removed for the user use the [ReST API]({% link content-services/7.2/develop/rest-api-guide/folders-files.md %}#setpermissionsnode).
 
 When subscribing to the `org.alfresco.event.permission.Updated` event it's possible to filter out anything that is
 of no interest. So for example, if you are only interested in permission updates for a specific node or folder it would 
@@ -1707,11 +1707,11 @@ public class PermissionUpdatedEventHandler implements OnPermissionUpdatedEventHa
 This code uses the `org.alfresco.event.sdk.handling.filter.IsFileFilter` event filter to specify that we are only interested 
 in permission updates to files. 
 
-This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter). 
+This code uses a custom [`ParentFolderFilter`]({% link content-services/7.2/develop/oop-sdk.md %}#parentfoldercustomfilter). 
 
-For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/latest/develop/oop-sdk.md %}#noderesourceobj).
+For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/7.2/develop/oop-sdk.md %}#noderesourceobj).
 
-To create an SDK event handler project that uses plain Java event handlers follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#purejavaeventhandlers).
+To create an SDK event handler project that uses plain Java event handlers follow [these instructions]({% link content-services/7.2/develop/oop-sdk.md %}#purejavaeventhandlers).
 
 {% endcapture %}
 
@@ -1766,11 +1766,11 @@ public class PermissionUpdatedFlow extends IntegrationFlowAdapter {
 This code uses the `org.alfresco.event.sdk.handling.filter.IsFileFilter` event filter to specify that we are only interested 
 in permission updates to files. 
 
-This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter). 
+This code uses a custom [`ParentFolderFilter`]({% link content-services/7.2/develop/oop-sdk.md %}#parentfoldercustomfilter). 
 
-For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/latest/develop/oop-sdk.md %}#noderesourceobj).
+For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/7.2/develop/oop-sdk.md %}#noderesourceobj).
 
-To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#springintegrationhandlers).
+To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/7.2/develop/oop-sdk.md %}#springintegrationhandlers).
 
 {% endcapture %}
 

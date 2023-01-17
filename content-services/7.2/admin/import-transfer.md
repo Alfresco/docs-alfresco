@@ -36,7 +36,7 @@ Three assumptions are made when importing content `in-place`:
   * It is recommended you keep immediate children to a few thousands at a maximum.
   * In order to choose an efficient distribution scheme, you should know that when m files are randomly distributed into n leaf folders, when `m >> n log n` the statistical maximum load of a leaf is `m/n + O(sqrt((m log n)/n))`.
 
-In addition, the in-place bulk import provides support for [Managing the content store]({% link content-services/latest/admin/content-stores.md %}#cs-selector). This allows you to select which store the content to import is to be found.
+In addition, the in-place bulk import provides support for [Managing the content store]({% link content-services/7.2/admin/content-stores.md %}#cs-selector). This allows you to select which store the content to import is to be found.
 
 ### Prepare file system
 
@@ -162,7 +162,7 @@ You can also enable logging for the transaction handler to identify any transact
 log4j.logger.org.alfresco.repo.transaction.RetryingTransactionHelper=info
 ```
 
-For more information about log4j, see [log4j.properties file]({% link content-services/latest/develop/extension-packaging.md %}#log4jpropsfile).
+For more information about log4j, see [log4j.properties file]({% link content-services/7.2/develop/extension-packaging.md %}#log4jpropsfile).
 
 #### Bulk import using the user interface {#bulkimportwithui}
 

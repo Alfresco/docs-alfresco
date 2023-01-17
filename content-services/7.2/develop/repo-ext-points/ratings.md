@@ -5,7 +5,7 @@ title: Ratings Extension Point
 Content Services supports rating of content according to different schemes, such as likes or five-star. 
 It is also possible to implement custom rating schemes.
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/7.2/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
@@ -53,9 +53,9 @@ The form has a drop down where the user can select the Five Star rating he or sh
 interface will be used to demonstrate how the Rating Service can be used, it is by no mean a complete Five Star rating 
 user interface. Everyone will have different ideas around how it should look like, what widgets and icons to use etc.
 
-Let's start by defining the [Document Library]({% link content-services/latest/develop/share-ext-points/doclib.md %}) action 
+Let's start by defining the [Document Library]({% link content-services/7.2/develop/share-ext-points/doclib.md %}) action 
 (note that this is not a repository extension but should be part of a 
-[Share JAR Module]({% link content-services/latest/develop/sdk.md %}#workingshare)):
+[Share JAR Module]({% link content-services/7.2/develop/sdk.md %}#workingshare)):
 
 ```xml
 <config evaluator="string-compare" condition="DocLibActions">
@@ -94,7 +94,7 @@ Let's start by defining the [Document Library]({% link content-services/latest/d
 This configuration defines the Rate Node Doc Lib action and makes it visible when browsing files and folders and 
 when looking at details pages for files and folders. The `onActionFormDialog` is an out-of-the-box JavaScript 
 `function` that can be used when you need a form to collect data that should be used by the action. And this the 
-function will take this data and call the [Repo Action]({% link content-services/latest/develop/repo-ext-points/repo-actions.md %}) 
+function will take this data and call the [Repo Action]({% link content-services/7.2/develop/repo-ext-points/repo-actions.md %}) 
 that is specified with the `itemId` parameter.
 
 The visibility of the Doc Lib action will be controlled by the evaluator with the id `alfresco.tutorials.evaluator.isRatedFiveStar`, 
@@ -171,8 +171,8 @@ The form for selecting the Five Star rating has been hard-coded with the options
 The above configuration also contains a form configuration for the `cm:fiveStarRatingSchemeRollups` aspect, which will 
 be automatically applied to a node when it is rated for the first time, and updated every time somebody new rates the node.
 
-The [Repository Action]({% link content-services/latest/develop/repo-ext-points/repo-actions.md %}) implementation look 
-like this (this should be contained in a [Repository JAR Module]({% link content-services/latest/develop/sdk.md %}#workingplatform)):
+The [Repository Action]({% link content-services/7.2/develop/repo-ext-points/repo-actions.md %}) implementation look 
+like this (this should be contained in a [Repository JAR Module]({% link content-services/7.2/develop/sdk.md %}#workingplatform)):
 
 ```java
 public class RateNodeActionExecuter extends ActionExecuterAbstractBase {

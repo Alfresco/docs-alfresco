@@ -2,7 +2,7 @@
 title: Set up authentication and sync
 ---
 
-Use this information to manage user authentication. Set up if users should be authenticated with the database, LDAP, SSO etc. Set up how user and group information should be synced (imported) with Content Services. Users and groups can also be managed from the Share [Admin Tools]({% link content-services/latest/admin/users-groups.md %}), but it's more common to sync with a Directory Service, which is discussed here.
+Use this information to manage user authentication. Set up if users should be authenticated with the database, LDAP, SSO etc. Set up how user and group information should be synced (imported) with Content Services. Users and groups can also be managed from the Share [Admin Tools]({% link content-services/7.2/admin/users-groups.md %}), but it's more common to sync with a Directory Service, which is discussed here.
 
 Authentication subsystems and authentication chains are discussed first as an understanding of those is necessary when configuring authentication and synchronization.
 
@@ -242,7 +242,7 @@ The authentication configuration examples adopt the following structured approac
 
 ### Configure external authentication
 
-Use this information to enable the external authentication subsystem using the `alfresco-global.properties` file and the [Repository Admin Console]({% link content-services/latest/admin/admin-console.md %}).
+Use this information to enable the external authentication subsystem using the `alfresco-global.properties` file and the [Repository Admin Console]({% link content-services/7.2/admin/admin-console.md %}).
 
 **Configuring/enabling external authentication subsystem using the `alfresco-global.properties` file:**
 
@@ -294,7 +294,7 @@ For example, if external authentication is the only authentication system in the
 
 Here are two scenarios where external authentication is configured with Content Services and Share. In both scenarios, an HTTP or HTTPS request is sent to an authentication proxy. If authentication is OK, the proxy passes the request to Share using the AJP protocol.
 
-In the first scenario, the Share [endpoint-url]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#connectors-and-endpoints-connectorsendpoints) (`http://localhost:8080/alfresco/wcs`) sends the request directly to Content Services using HTTP and a User Header. No certificate is used and the `external.authentication.proxyUserName` is blank:
+In the first scenario, the Share [endpoint-url]({% link content-services/7.2/develop/reference/surf-framework-ref.md %}#connectors-and-endpoints-connectorsendpoints) (`http://localhost:8080/alfresco/wcs`) sends the request directly to Content Services using HTTP and a User Header. No certificate is used and the `external.authentication.proxyUserName` is blank:
 
     ```bash
     external.authentication.proxyUserName=
@@ -304,7 +304,7 @@ Content Services trusts the header (defined by `external.authentication.proxyHea
 
 ![external-direct]({% link content-services/images/external-direct.png %})
 
-In the second scenario, the Share [endpoint-url]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#connectors-and-endpoints-connectorsendpoints) (`http://your.server.com/alfresco/wcs`) sends the request back to Apache, using HTTP and a User Header (defined by `external.authentication.proxyHeader`), and a certificate. `external.authentication.proxyUserName` is set:
+In the second scenario, the Share [endpoint-url]({% link content-services/7.2/develop/reference/surf-framework-ref.md %}#connectors-and-endpoints-connectorsendpoints) (`http://your.server.com/alfresco/wcs`) sends the request back to Apache, using HTTP and a User Header (defined by `external.authentication.proxyHeader`), and a certificate. `external.authentication.proxyUserName` is set:
 
     ```bash
     external.authentication.proxyUserName=alfresco-system
@@ -541,7 +541,7 @@ You have configured Share to use an external SSO.
 
 Use this information to set up SSO with client certificates.
 
-1. Setup Apache as proxy server in front of Content Services and configure it to use SSL as described in [Configuring SSL for a production environment]({% link content-services/latest/config/repository.md %}#ssl-repo).
+1. Setup Apache as proxy server in front of Content Services and configure it to use SSL as described in [Configuring SSL for a production environment]({% link content-services/7.2/config/repository.md %}#ssl-repo).
 
 2. Activate external authentication as described in [Configuring external authentication](#configextauthrepoconsole).
 
@@ -577,7 +577,7 @@ An LDAP subsystem supports two main functions:
 
 Either of these functions can be used in isolation or in combination. When LDAP authentication is used without user registry export, default Content Services person objects are created automatically for all those users who successfully login. However, they won't be populated with attributes without user registry export enabled. LDAP user registry export is most likely to be used without LDAP authentication when chained with other authentication subsystems. For example, Kerberos against Active Directory, and possibly Samba on top of OpenLDAP.
 
-The user registry export function assumes that groups are stored in LDAP as an object that has a repeating attribute, which defines the distinguished names of other groups, or users. This is supported in the standard LDAP schema using the `groupOfNames` type. See the example LDIF file in [OpenLDAP tips]({% link content-services/latest/admin/troubleshoot.md %}#openldap-tips).
+The user registry export function assumes that groups are stored in LDAP as an object that has a repeating attribute, which defines the distinguished names of other groups, or users. This is supported in the standard LDAP schema using the `groupOfNames` type. See the example LDIF file in [OpenLDAP tips]({% link content-services/7.2/admin/troubleshoot.md %}#openldap-tips).
 
 #### LDAP configuration properties {#ldapconfprops}
 
@@ -1443,7 +1443,7 @@ Once the Identity Service has been deployed, there are two steps to configure Co
 
 * Configure the [`alfresco-global.properties` file](#isprops)
 
-> **Note:** See the [supported platforms]({% link content-services/latest/support/index.md %}) page for the compatibility between Content Services and Identity Service.
+> **Note:** See the [supported platforms]({% link content-services/7.2/support/index.md %}) page for the compatibility between Content Services and Identity Service.
 
 #### Identity Service configuration properties {#isprops}
 

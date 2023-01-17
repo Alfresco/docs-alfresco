@@ -129,7 +129,7 @@ There are a number of software requirements for installing (or deploying) Conten
 
 Note that the [VERSIONS.md](https://github.com/Alfresco/acs-packaging/blob/master/distribution/src/main/resources/VERSIONS.md){:target="_blank"} file in GitHub lists the supported versions.
 
-> **Note:** The images downloaded directly from [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"}, or [Quay.io](https://quay.io/){:target="_blank"} are for a limited trial of the Enterprise version of Content Services that goes into read-only mode after 2 days. For a longer (30-day) trial, get the Alfresco Content Services Download Trial by following the steps in [Deploy using Docker Compose]({% link content-services/latest/install/containers/docker-compose.md %}).
+> **Note:** The images downloaded directly from [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"}, or [Quay.io](https://quay.io/){:target="_blank"} are for a limited trial of the Enterprise version of Content Services that goes into read-only mode after 2 days. For a longer (30-day) trial, get the Alfresco Content Services Download Trial by following the steps in [Deploy using Docker Compose]({% link content-services/7.2/install/containers/docker-compose.md %}).
 
 > **Note:** Alfresco customers can request Quay.io credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/){:target="_blank"}. These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
 
@@ -144,7 +144,7 @@ To deploy Content Services using Helm charts, you need to install the following 
 * [Helm](https://github.com/helm/helm#install){:target="_blank"} - the tool for installing and managing Kubernetes applications.
   * There are Helm charts that allow you to deploy Content Services in a Kubernetes cluster, for example, on AWS.
 
-See [Install using Helm]({% link content-services/latest/install/containers/helm.md %}) for more.
+See [Install using Helm]({% link content-services/7.2/install/containers/helm.md %}) for more.
 
 ### Docker Compose (recommended for evaluations only)
 
@@ -155,4 +155,4 @@ See [Install using Helm]({% link content-services/latest/install/containers/helm
 
 > **Note:** Check the prerequisites for your operating system, for Docker and Docker Compose, using the links provided.
 
-See [Install using Docker Compose]({% link content-services/latest/install/containers/docker-compose.md %}) for more.
+See [Install using Docker Compose]({% link content-services/7.2/install/containers/docker-compose.md %}) for more.

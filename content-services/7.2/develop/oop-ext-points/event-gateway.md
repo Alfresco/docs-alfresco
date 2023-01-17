@@ -2,7 +2,7 @@
 title: Event Gateway
 ---
 
-The Event Gateway is a brand new Alfresco Component, introduced to improve the security of the [event mechanism]({% link content-services/latest/develop/oop-ext-points/events.md %}). 
+The Event Gateway is a brand new Alfresco Component, introduced to improve the security of the [event mechanism]({% link content-services/7.2/develop/oop-ext-points/events.md %}). 
 The Event Gateway relies on existing components that produces internal events flagged for external consumption. Those 
 events are then consumed by the Event Gateway Service and routed to various destinations such as the queryable Event Store, 
 Global Public Event Topic, subscription triggers, and the Event Archive.
@@ -231,4 +231,4 @@ The Event Gateway provides a ReST API with the following features:
 An out-of-process extension may create a subscription to receive certain types of events in a specific topic of an 
 ActiveMQ broker.
 
-For more information on how to use the subscription API see the [SDK 5 documentation]({% link content-services/latest/develop/oop-sdk.md %}#using-event-gateway).
+For more information on how to use the subscription API see the [SDK 5 documentation]({% link content-services/7.2/develop/oop-sdk.md %}#using-event-gateway).

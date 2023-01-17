@@ -5,7 +5,7 @@ title: Surf Dashlets Extension Point
 The Share web application has a special page called Dashboard, which contains windows (think Portlets) of content called 
 dashlets. Currently most of these dashlets are Spring Surf dashlets, but they will eventually be converted to Aikau dashlets.
 
-Architecture Information: [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
+Architecture Information: [Share Architecture]({% link content-services/7.2/develop/software-architecture.md %}#sharearchitecture)
 
 ## Description
 
@@ -16,7 +16,7 @@ The following picture shows a User Dashboard with a number of Dashlets, such as 
 You can implement your own custom dashlets that can be added to either the User Dashboard or the Site Dashboard.
 
 Creating a Surf dashlet is the same thing as creating a Surf web script. Before continuing read through the 
-[Surf Web Scripts section]({% link content-services/latest/develop/share-ext-points/web-scripts.md %}). The controller of the dashlet presentation web script 
+[Surf Web Scripts section]({% link content-services/7.2/develop/share-ext-points/web-scripts.md %}). The controller of the dashlet presentation web script 
 will usually call a Data web script on the repository side to get the content that should be displayed in the dashlet.
 
 Let's look at an example of a custom dashlet, the following picture shows a Member Directory dashlet that can be used to 
@@ -43,7 +43,7 @@ var peopleJSON = jsonUtils.toObject(peopleJSONString);
 model.people = peopleJSON["people"];  
 ```
 
-The controller makes use of a special root object called [remote]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#remoteapi), 
+The controller makes use of a special root object called [remote]({% link content-services/7.2/develop/reference/surf-framework-ref.md %}#remoteapi), 
 which is used to connect to a remote service, such as the repository, and get data. The JSON data is returned from a repository web script) 
 (that is, a Data web script), which in its controller uses the public API to fetch person information matching passed 
 in Search Filter (that is, `filter`).

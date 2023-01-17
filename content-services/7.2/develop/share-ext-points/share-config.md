@@ -8,13 +8,13 @@ presentation framework.
 
 A number of options are available to developers and administrators for configuring Share to better fit into their environment. 
 Many of these mechanisms are provided by the underlying Surf framework, therefore a knowledge of 
-[Surf]({% link content-services/latest/develop/software-architecture.md %}#surf-framework) is considered useful 
+[Surf]({% link content-services/7.2/develop/software-architecture.md %}#surf-framework) is considered useful 
 for anyone wishing to implement substantial customizations.
 
 A lot of the customizations that you might want to do to the Share user interface does not require coding. They can be 
 handled by XML configuration and a simple restart of Content Services.
 
-Architecture Information: [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
+Architecture Information: [Share Architecture]({% link content-services/7.2/develop/software-architecture.md %}#sharearchitecture)
 
 ## Description
  
@@ -689,7 +689,7 @@ where:
 
 A note about the `labelParam` `value`: refactoring on the client-side (JavaScript code) means that a common helper object 
 is available for each node within the Document Library during the rendering cycle, namely `jsNode`. A full reference for 
-this new resource is in [jsNode reference.]({% link content-services/latest/develop/reference/share-document-library-ref.md %}#jsnoderef)
+this new resource is in [jsNode reference.]({% link content-services/7.2/develop/reference/share-document-library-ref.md %}#jsnoderef)
 
 ##### Metadata templates
 
@@ -976,7 +976,7 @@ YAHOO.Bubbling.fire("registerRenderer",
   });
 ```
 
-See [EXIF renderer source code]({% link content-services/latest/develop/reference/share-document-library-ref.md %}#exifrendref) for the complete source for this example.
+See [EXIF renderer source code]({% link content-services/7.2/develop/reference/share-document-library-ref.md %}#exifrendref) for the complete source for this example.
 
 ##### Custom action handler
 
@@ -1144,8 +1144,8 @@ The following themes are available:
 
 The default theme, which comprises the CSS and image assets used across all pages, displays in a new installation.
 
-You can also create your own themes. Take a look at the [Share Theme Extension Point]({% link content-services/latest/develop/share-ext-points/share-themes.md %}) 
-and the [Adding a custom Share Theme]({% link content-services/latest/tutorial/share/style.md %}#addcustomtheme) tutorial.
+You can also create your own themes. Take a look at the [Share Theme Extension Point]({% link content-services/7.2/develop/share-ext-points/share-themes.md %}) 
+and the [Adding a custom Share Theme]({% link content-services/7.2/tutorial/share/style.md %}#addcustomtheme) tutorial.
 
 ### Selecting Share themes
 
@@ -1339,7 +1339,7 @@ When a request is made to a page containing the form component, the following se
 9.  The form component FreeMarker template instantiates the FormUI JavaScript component.
 10. The FormUI JavaScript instantiates the forms runtime and registers all validation handlers.
 
-For a description of the available form controls, refer to [Forms reference]({% link content-services/latest/develop/reference/share-document-library-ref.md %}#formref).
+For a description of the available form controls, refer to [Forms reference]({% link content-services/7.2/develop/reference/share-document-library-ref.md %}#formref).
 
 At this point, the form is ready for the user to interact. When the user interacts with the form, the forms runtime constantly checks the validation rules enabling and disabling the **Submit** button appropriately. When the user submits the form, the following sequence of events occurs.
 
@@ -2022,6 +2022,6 @@ You can add custom MIME types as required to this file, or create your own confi
 
 ## Tutorials
 
-* [Making custom types visible]({% link content-services/latest/tutorial/platform/content-model.md %}#shareconfigtypesprops)
-* [Making custom aspects visible]({% link content-services/latest/tutorial/platform/content-model.md %}#addaspect)
+* [Making custom types visible]({% link content-services/7.2/tutorial/platform/content-model.md %}#shareconfigtypesprops)
+* [Making custom aspects visible]({% link content-services/7.2/tutorial/platform/content-model.md %}#addaspect)
 * [Controlling search results]({% link search-services/latest/config/transactional.md %}#controlling-search-results)

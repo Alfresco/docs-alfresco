@@ -6,13 +6,13 @@ Most of the Share UI functionality can be traced back to a web script in one pla
 be able to override the controller or template of one of these out-of-the-box web scripts. Same things goes for 
 other out-of-the-box code for things like pages and dashlets.
 
-The preferred way of modifying out-of-the-box code is by using [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %}) 
+The preferred way of modifying out-of-the-box code is by using [Surf Extension Modules]({% link content-services/7.2/develop/share-ext-points/surf-extension-modules.md %}) 
 
-Architecture Information: [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
+Architecture Information: [Share Architecture]({% link content-services/7.2/develop/software-architecture.md %}#sharearchitecture)
 
 ## Modifying Out-of-the-box Surf Web Scripts
 
-The preferred way of modifying out-of-the-box [Surf Web Scripts]({% link content-services/latest/develop/share-ext-points/web-scripts.md %}) 
+The preferred way of modifying out-of-the-box [Surf Web Scripts]({% link content-services/7.2/develop/share-ext-points/web-scripts.md %}) 
 is by using Surf Extension Modules to target the Web Script that should be replaced:
 
 ```xml
@@ -45,14 +45,14 @@ This approach is no longer needed.
 Most of the pages in the Share web application are implemented with the Surf UI framework. In many cases it is necessary 
 to modify these pages.
 
-The preferred way of modifying [Surf pages]({% link content-services/latest/develop/share-ext-points/surf-pages.md %}) 
+The preferred way of modifying [Surf pages]({% link content-services/7.2/develop/share-ext-points/surf-pages.md %}) 
 is by using Surf Extension Modules to target the component that should be replaced or hidden. It is also possible to 
 add components to a page this way. The Extension Modules section has all the details.
 
 ## Modifying Out-of-the-box Surf dashlets
 
 The Share web application has a special page called Dashboard, which contains windows of content called dashlets. 
-Currently most of these dashlets are [Surf dashlets]({% link content-services/latest/develop/share-ext-points/surf-dashlets.md %}), 
+Currently most of these dashlets are [Surf dashlets]({% link content-services/7.2/develop/share-ext-points/surf-dashlets.md %}), 
 and it is possible to modify the contents on them.
 
 The preferred way of modifying Surf dashlets is by using Surf Extension Modules to target the component that should be 
@@ -62,7 +62,7 @@ replaced or hidden. It is also possible to add components to a dashlet this way.
 
 The Share web application pages and dashlets are built up of widgets. Sometimes it is necessary to modify these.
 
-The preferred way of modifying [Surf widgets]({% link content-services/latest/develop/share-ext-points/surf-widgets.md %}) 
+The preferred way of modifying [Surf widgets]({% link content-services/7.2/develop/share-ext-points/surf-widgets.md %}) 
 is by using Surf Extension Modules to target the component that has the widget that should be replaced or hidden. 
 It is also possible to add widgets to a page this way. The Extension Modules section has all the details.
 
@@ -70,7 +70,7 @@ It is also possible to add widgets to a page this way. The Extension Modules sec
 
 The Share web application has a number of Aikau pages. These can be modified.
 
-The preferred way of modifying [Aikau pages]({% link content-services/latest/develop/share-ext-points/aikau-pages.md %}) 
+The preferred way of modifying [Aikau pages]({% link content-services/7.2/develop/share-ext-points/aikau-pages.md %}) 
 is by using Surf Extension Modules to target the Aikau widget that should be replaced or hidden. It is also possible to 
 add widgets to a page this way. The Extension Modules section has all the details. Now, if we want to modify an existing 
 page we need to grab hold of it in the Web Script controller, this will look like this:
@@ -89,7 +89,7 @@ This is all that is required to extend an existing JSON model. We're using `widg
 
 The Share web application has a special page called Dashboard, which contains windows of content called dashlets. 
 Currently most of these dashlets are Spring Surf dashlets, but they will eventually be converted to 
-[Aikau dashlets]({% link content-services/latest/develop/share-ext-points/aikau-dashlets.md %}).
+[Aikau dashlets]({% link content-services/7.2/develop/share-ext-points/aikau-dashlets.md %}).
 
 The preferred way of modifying Aikau dashlets is by using Surf Extension Modules to target the Aikau widget that should 
 be replaced or hidden. It is also possible to add widgets to a dashlet this way. The Extension Modules section has all the details.
@@ -99,7 +99,7 @@ be replaced or hidden. It is also possible to add widgets to a dashlet this way.
 Every Aikau menu, page, and dashlet is built up of one or more widgets. Sometimes it is necessary to modify out of the 
 box widgets.
 
-The preferred way of modifying [Aikau widgets]({% link content-services/latest/develop/share-ext-points/aikau-widgets.md %}) 
+The preferred way of modifying [Aikau widgets]({% link content-services/7.2/develop/share-ext-points/aikau-widgets.md %}) 
 is by using Surf Extension Modules to target the widget that should be replaced or hidden. It is also possible to add 
 widgets this way. The Extension Modules section has all the details.
 
@@ -114,12 +114,12 @@ widgets this way. The Extension Modules section has all the details.
 
 ## More Information
 
-* [Introduction to Aikau]({% link content-services/latest/develop/reference/aikau-intro-ref.md %})
+* [Introduction to Aikau]({% link content-services/7.2/develop/reference/aikau-intro-ref.md %})
 * [Aikau Widget Reference](https://dev.alfresco.com/resource/docs/aikau-jsdoc/){:target="_blank"} - this is the place to look for widgets that you can use in your dashlets.
 
 ## Tutorials
 * [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/tree/master/tutorial/chapters){:target="_blank"}
-* [Adding new AMD packages for Aikau Widgets]({% link content-services/latest/tutorial/share/amd.md %})
+* [Adding new AMD packages for Aikau Widgets]({% link content-services/7.2/tutorial/share/amd.md %})
 
 ## Developer Blogs
 

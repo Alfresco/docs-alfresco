@@ -5,7 +5,7 @@ title: Bootstrap Content Extension Point
 For many content management solutions it is useful to have some data populated when the solution is first deployed. 
 This is done by bootstrapping content.
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/7.2/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
@@ -128,7 +128,7 @@ The `password` is stored as an MD4 Hash, which can be generated following the in
 [this page](https://hub.alfresco.com/t5/alfresco-content-services-hub/security-and-authentication/ba-p/290215#toc-hId-919638868){:target="_blank"}.
 
 Note that while MD4 is the default encoding format for passwords, there is additional support for Bcrypt. For more information 
-about Bcrypt support, see [Cryptographic password hashing]({% link content-services/latest/admin/security.md %}#bcryptoverview).
+about Bcrypt support, see [Cryptographic password hashing]({% link content-services/7.2/admin/security.md %}#bcryptoverview).
 
 We can store this XML file as part of the Repository JAR module extension project in a file name such as `import-users.xml`.
 
@@ -537,7 +537,7 @@ we get when exporting a site. So to bootstrap a file it will look like this:
 ```
 
 Besides using patches to bootstrap content there is also the `ImporterModuleComponent` that can be used to bootstrap/import 
-content into the Repository, for more information about this see [Module Components]({% link content-services/latest/develop/repo-ext-points/module-components.md %}).
+content into the Repository, for more information about this see [Module Components]({% link content-services/7.2/develop/repo-ext-points/module-components.md %}).
 
 ### More info on bootstrapping folders and files
 
@@ -789,7 +789,7 @@ These file locations are untouched by re-deployments and upgrades.
 
 ## More Information
 
-* [Bcrypt password encryption support]({% link content-services/latest/admin/security.md %}#bcryptoverview)
+* [Bcrypt password encryption support]({% link content-services/7.2/admin/security.md %}#bcryptoverview)
 
 ## Sample Code
 

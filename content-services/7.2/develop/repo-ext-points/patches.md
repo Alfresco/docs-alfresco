@@ -4,7 +4,7 @@ title: Patches Extension Point
 
 A patch is a piece of Java code that executes once when Content Services starts. Custom patches can be implemented.
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/7.2/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
@@ -192,7 +192,7 @@ As patches are implemented in Java it is better to use an SDK project for deploy
 
 ## More Information
 
-* See the [Bootstrap content]({% link content-services/latest/develop/repo-ext-points/bootstrap-content.md %}) extension point for out-of-the-box patch implementations that import content.
+* See the [Bootstrap content]({% link content-services/7.2/develop/repo-ext-points/bootstrap-content.md %}) extension point for out-of-the-box patch implementations that import content.
 
 ## Sample Code
 

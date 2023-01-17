@@ -24,7 +24,7 @@ Alfresco API Explorer WAR file in [Alfresco’s Nexus repository](https://artifa
 Pick the version that closest matches your ACS installation.
 
 To install the WAR file follow one of two approaches. If you are using a trial version of ACS then you follow the first
-approach described below. If you are using the [Alfresco SDK]({% link content-services/latest/develop/sdk.md %})
+approach described below. If you are using the [Alfresco SDK]({% link content-services/7.2/develop/sdk.md %})
 you would want to follow the second approach. The main difference between the two is that the first one will lead to
 loss of the data that you are working with as the ACS trial Docker Compose file does not use volumes
 (i.e. it does not store data externally but instead inside the container).

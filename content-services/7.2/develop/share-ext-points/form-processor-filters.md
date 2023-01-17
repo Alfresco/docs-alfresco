@@ -5,13 +5,13 @@ title: Form Processor Filters Extension Point
 Form Processor filters can be used to modify submitted form data before and after persistence. They can also be used to 
 manage form fields before and after form generation.
 
-Architecture Information: [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
+Architecture Information: [Share Architecture]({% link content-services/7.2/develop/software-architecture.md %}#sharearchitecture)
 
 ## Description
 
 Form Processor filters are typically used to add custom processing to a form processor. If you are new to how forms are 
 persisted and generated, and how filters plays into that, then read the 
-[Form Processors]({% link content-services/latest/develop/share-ext-points/form-processors.md %}) extension point docs before proceeding.
+[Form Processors]({% link content-services/7.2/develop/share-ext-points/form-processors.md %}) extension point docs before proceeding.
 
 Here are a number of use-cases for form processor filters:
 
@@ -21,7 +21,7 @@ Here are a number of use-cases for form processor filters:
 * Generate XML rendition of the metadata after the form data is stored in the database.
 * Check field values before they are stored in the database.
 
-A filter registry is associated with each [Form Processor]({% link content-services/latest/develop/share-ext-points/form-processors.md %}) 
+A filter registry is associated with each [Form Processor]({% link content-services/7.2/develop/share-ext-points/form-processors.md %}) 
 implementation that extends the `FilteredFormProcessor` class, each registered `Filter` is then called 
 (within the same transaction) for each request processed by the `FormProcessor`.
 
@@ -29,7 +29,7 @@ It is the responsibility of the `Filter` to determine whether it is applicable f
 Filters are executed is not guaranteed.
 
 Implementing a form processor filter requires a bit of Java programming. The following is an example of a filter that 
-adds a property called `prop_dueDateReadOnly`, which is then used in a custom [Form Control]({% link content-services/latest/develop/share-ext-points/form-controls.md %}) 
+adds a property called `prop_dueDateReadOnly`, which is then used in a custom [Form Control]({% link content-services/7.2/develop/share-ext-points/form-controls.md %}) 
 to determine if a Due Date should be read-only or not:
 
 ```java
@@ -138,6 +138,6 @@ Build a Repository JAR instead.
 
 ## More Information
 
-* [Form Processors]({% link content-services/latest/develop/share-ext-points/form-processors.md %})
-* [Form Controls]({% link content-services/latest/develop/share-ext-points/form-controls.md %})
-* [Forms config]({% link content-services/latest/develop/share-ext-points/share-config.md %}#shareformsconfig)
+* [Form Processors]({% link content-services/7.2/develop/share-ext-points/form-processors.md %})
+* [Form Controls]({% link content-services/7.2/develop/share-ext-points/form-controls.md %})
+* [Forms config]({% link content-services/7.2/develop/share-ext-points/share-config.md %}#shareformsconfig)

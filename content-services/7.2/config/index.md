@@ -17,19 +17,19 @@ Use the following methods to configure Content Services:
 
 * **Admin Console**
 
-  The Admin Console is an administrator's tool to manage your configuration. You can run the Admin Console from a browser without having to start Alfresco Share. See [Using the Admin Console]({% link content-services/latest/admin/admin-console.md %}) for more information.
+  The Admin Console is an administrator's tool to manage your configuration. You can run the Admin Console from a browser without having to start Alfresco Share. See [Using the Admin Console]({% link content-services/7.2/admin/admin-console.md %}) for more information.
 
 * **Share Admin Tools**
 
-  Share Admin Tools is an administrator's tool to create and manage users and groups from Alfresco Share, set application preferences, manage categories and tags, and browse the system information in the node browser. See [Using the Alfresco Share Admin Tools]({% link content-services/latest/admin/share-admin-tools.md %}) for more information.
+  Share Admin Tools is an administrator's tool to create and manage users and groups from Alfresco Share, set application preferences, manage categories and tags, and browse the system information in the node browser. See [Using the Alfresco Share Admin Tools]({% link content-services/7.2/admin/share-admin-tools.md %}) for more information.
 
 * **Global properties file**
 
-  The global properties file (`alfresco-global.properties`) is used to detect extended properties. For example, when you install Content Services, many of the installation settings are saved in the global properties file. The global properties file is used to detect the extended properties. You can use the global properties to set all your property settings; whenever you make a change, you must restart the server to apply those changes. See [Using the `alfresco-global.properties` file]({% link content-services/latest/config/index.md %}#using-alfresco-globalproperties) for more information.
+  The global properties file (`alfresco-global.properties`) is used to detect extended properties. For example, when you install Content Services, many of the installation settings are saved in the global properties file. The global properties file is used to detect the extended properties. You can use the global properties to set all your property settings; whenever you make a change, you must restart the server to apply those changes. See [Using the `alfresco-global.properties` file]({% link content-services/7.2/config/index.md %}#using-alfresco-globalproperties) for more information.
 
 * **JMX client**
 
-  The JMX client allows you to edit the settings while the system is running. The settings you change are automatically persisted in the database and synchronized across a cluster. When you start up Content Services, the system initially uses the `alfresco-global.properties` file to set the properties in the JMX client, but then any changes you make in the JMX client persist in the database but are not reflected back into the `alfresco-global.properties` file. See [Using a JMX client to change settings dynamically]({% link content-services/latest/config/index.md %}#using-jmx-client-to-change-settings-dynamically) for more information.
+  The JMX client allows you to edit the settings while the system is running. The settings you change are automatically persisted in the database and synchronized across a cluster. When you start up Content Services, the system initially uses the `alfresco-global.properties` file to set the properties in the JMX client, but then any changes you make in the JMX client persist in the database but are not reflected back into the `alfresco-global.properties` file. See [Using a JMX client to change settings dynamically]({% link content-services/7.2/config/index.md %}#using-jmx-client-to-change-settings-dynamically) for more information.
 
 ## Using `alfresco-global.properties`
 
@@ -64,9 +64,9 @@ If you're installing manually, then you can use the `alfresco-global.properties.
     | db.username=alfresco | Specifies the name of the main database user. This name is used to authenticate with the database. |
     | db.password=alfresco | Specifies the password for the database user. This password is used to authenticate with the database. |
 
-    You can set additional database properties, such as `db.port` and `db.host`. See [Advanced configuration properties]({% link content-services/latest/config/databases.md %}#advanced-configuration-properties) for more properties that can be set.
+    You can set additional database properties, such as `db.port` and `db.host`. See [Advanced configuration properties]({% link content-services/7.2/config/databases.md %}#advanced-configuration-properties) for more properties that can be set.
 
-4. Configure your supported database for use. See [Configuring databases]({% link content-services/latest/config/databases.md %}).
+4. Configure your supported database for use. See [Configuring databases]({% link content-services/7.2/config/databases.md %}).
 
 5. Select a JDBC driver used with each connection type.
 
@@ -414,9 +414,9 @@ The monitoring and management extensions can be subdivided into three categories
 
   Allow control over various subsystems.
 
-For more information on these categories of bean, refer to the reference section [JMX bean categories]({% link content-services/latest/admin/jmx-reference.md %}).
+For more information on these categories of bean, refer to the reference section [JMX bean categories]({% link content-services/7.2/admin/jmx-reference.md %}).
 
-You can also manage JMX settings in the [Admin Console JMX Settings]({% link content-services/latest/admin/support-tools.md %}#jmxsettings).
+You can also manage JMX settings in the [Admin Console JMX Settings]({% link content-services/7.2/admin/support-tools.md %}#jmxsettings).
 
 #### Coexistence with other MBeans
 
@@ -468,7 +468,7 @@ You can make basic configuration updates to customize Content Services, or modif
 
   You can configure Content Services for your specific environment either by using the Admin Console, editing the `alfresco-global.properties` file, or using a JMX client (as described at the start of this page).
 
-* [Configuring Alfresco Share]({% link content-services/latest/develop/share-ext-points/index.md %})
+* [Configuring Alfresco Share]({% link content-services/7.2/develop/share-ext-points/index.md %})
 
   A number of options are available to customize Share. To configure Share, use the configuration file, `share-config-custom.xml` .
 
@@ -478,7 +478,7 @@ You can make basic configuration updates to customize Content Services, or modif
 
 > **Note:** Remember not to use the default user names, URLs, or passwords with different environments.
 
-> **Note:** You can customize or scale up to meet your login and security requirements. See [Setting up authentication and security]({% link content-services/latest/admin/security.md %}) for more information.
+> **Note:** You can customize or scale up to meet your login and security requirements. See [Setting up authentication and security]({% link content-services/7.2/admin/security.md %}) for more information.
 
 ## Customize individual configuration items
 

@@ -4,7 +4,7 @@ title: Site Presets Extension Point
 
 A site preset contains the initial configuration for a Share site, such as the site Dashboard layout.
 
-Architecture Information: [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
+Architecture Information: [Share Architecture]({% link content-services/7.2/develop/software-architecture.md %}#sharearchitecture)
 
 ## Description
 
@@ -72,7 +72,7 @@ that has been set for the site type. It looks something like this for the `Colla
 ```
 
 Here is some Surf component configuration again. If you are not up to speed on Surf and the Share architecture, then 
-read the [Share architecture section]({% link content-services/latest/develop/software-architecture.md %}#surf-framework). 
+read the [Share architecture section]({% link content-services/7.2/develop/software-architecture.md %}#surf-framework). 
 The first two `component` definitions sets the title and navigation bar for the site. The rest of the component 
 definitions sets the different dashlets that should be displayed on the Dashboard. The last `pages` section is used to 
 include the Dashboard page with layout and the different site pages.
@@ -123,7 +123,7 @@ In this case we have added a custom page called `helloworld` to the site, and th
 
 ## Tutorials
 
-* [Adding a new Preset]({% link content-services/latest/tutorial/share/pages.md %}#customizewscontroller) - this tutorial is not really about site presets, but it starts off by setting up a new user preset.
+* [Adding a new Preset]({% link content-services/7.2/tutorial/share/pages.md %}#customizewscontroller) - this tutorial is not really about site presets, but it starts off by setting up a new user preset.
 
 ## Alfresco Developer Blogs
 

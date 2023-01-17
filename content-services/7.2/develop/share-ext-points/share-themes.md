@@ -5,7 +5,7 @@ title: Share Themes Extension Point
 The Share web application comes with a number of themes that can be used to set the look and feel of the application. 
 It is also possible to create your own custom UI themes.
 
-Architecture Information: [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
+Architecture Information: [Share Architecture]({% link content-services/7.2/develop/software-architecture.md %}#sharearchitecture)
 
 ## Description
 
@@ -57,11 +57,11 @@ Use a Share JAR project instead.
 
 ## More Information
 
-* [Share theme config]({% link content-services/latest/develop/share-ext-points/share-config.md %}#sharethemeconfig)
+* [Share theme config]({% link content-services/7.2/develop/share-ext-points/share-config.md %}#sharethemeconfig)
 
 ## Tutorials
 
-* [Adding a custom Share Theme]({% link content-services/latest/tutorial/share/style.md %}#addcustomtheme)
+* [Adding a custom Share Theme]({% link content-services/7.2/tutorial/share/style.md %}#addcustomtheme)
 
 ## Developer Blogs
 
