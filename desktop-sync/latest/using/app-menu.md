@@ -16,7 +16,7 @@ Hover your cursor over the Desktop Sync icon to display sync status information,
 
 Right-click on the Desktop Sync icon ![]({% link desktop-sync/images/ds-icon.png %}) to see the application popup menu:
 
-![]({% link desktop-sync/images/ds-system-menu.png %}){:height="143px" width="164px"}
+![]({% link desktop-sync/images/ds-system-menu-1.14.png %}){:height="161px" width="164px"}
 
 ### Application menu items
 
@@ -50,6 +50,14 @@ If several files are **Checked Out**, you have the following options:
 #### Go to Alfresco Folder
 
 Opens the `Alfresco` sync folder for Desktop Sync.
+
+#### Search
+
+Opens the **Search** dialog so you can start searching your local synced files and folders.
+
+* Start your search by typing in the search field. As you type, you'll see results presented even if you've only provided partial search text. In the search results, you'll see folders and files are easily identifiable by their respective icons.
+* You can view the search results listed by *Name*, *Location*, *Modified Date*, and *Size*. You can also search by file name and file extension, for example, by entering `png` or `.png`.
+* To locate a file from the **Search** window, double-click the file/folder icon to show the content in Windows Explorer.
 
 #### Sync Now
 
@@ -142,6 +150,16 @@ You can access Desktop Sync from the Mac OS X menu bar where the application ico
 * **Application icon**
 
     Click the Desktop Sync ![Desktop Sync]({% link desktop-sync/images/ico-ds-alfresco.png %}){:height="23px" width="23px"} icon to see more options.
+
+* **Search**
+
+    Click the Search ![Search]({% link desktop-sync/images/ds-ico-search.png %}){:height="23px" width="23px"} icon to open the **Search** dialog and start searching your local synced files and folders.
+
+    You can only search the content that's already synced in the `Alfresco` folder. This avoids having to use the search feature in Mac Finder/Windows Explorer which takes longer and sometimes provides irrelevant results.
+
+  * Start your search by typing in the search field. As you type, you'll see results presented even if you've only provided partial search text. In the search results, you'll see folders and files are easily identifiable by their respective icons.
+  * You can view the search results listed by *Name*, *Modified Date*, and *Size*. You can also search by file name and file extension, for example, by entering `png` or `.png`.
+  * To locate a file from the **Search** window, click the icon on the right side of the required row to show the content in Mac Finder.
 
 * **Sync folder**
 
