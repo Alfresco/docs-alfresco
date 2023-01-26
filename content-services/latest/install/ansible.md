@@ -118,13 +118,14 @@ The table below shows the version of the components deployed by the playbook for
 
 | Component | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0.N Enterprise | 6.2.N Enterprise | Community |
 |-|-|-|-|-|-|-|
-| OpenJDK | - | 11.0.13 | 11.0.13 | 11.0.13 | 11.0.13 | 11.0.13 |
+| OpenJDK | 17.0.3 | 11.0.13 | 11.0.13 | 11.0.13 | 11.0.13 | 11.0.13 |
 | Apache Tomcat | - | 9.0.59 | 9.0.59 | 9.0.59 | 8.5.72 | 9.0.59 |
 | PostgreSQL | - | 13.x | 13.x | 13.x | 11.x | 13.x |
 | Apache ActiveMQ | - | 5.16.4 | 5.16.4 | 5.16.4 | 5.15.14 | 5.16.4 |
 | Repository | - | 7.2.0 | 7.1.1 | 7.0.1.4 | 6.2.2 | 7.1.1.2 |
 | Share | - | 7.2.0 | 7.1.1 | 7.0.1.4 | 6.2.2 | 7.1.1.2 |
 | Search Services | - | 2.0.3 | 2.0.2 | 2.0.1.1 | 1.4.3 | 2.0.3 |
+| Search Enterprise   | 3.2.0 | 3.1.1 | 3.1.1 | - | - | - |
 | All-In-One Transformation Engine | - | 2.5.7 | 2.5.6 | 2.3.10 | 2.5.6 | 2.5.7 |
 | AOS | - | 1.4.1 | 1.4.0 |  1.4.0 | 1.3.1 |  |
 | GoogleDocs | - | 3.2.1 | 3.2.1 | 3.2.1 | 3.2.0 |  |
@@ -179,6 +180,64 @@ Without any additional configuration applied, the playbook installs the default 
 
 To install everything on the control node, follow the steps in the [Local installation](#local-installation) section. To install to one or more other machines, follow the steps in the [Remote installation](#remote-installation) section.
 
+### Specifying a different component repository
+
+In case you want to use a different server/repository for a specific artifact to further customize your deployment, you can override the default URL in two ways:
+
+You can change the value of `component.repository` key for the selected component, provided that the path to your custom artifact follows the conventional [Maven2 Repository Layout](https://maven.apache.org/repository/layout.html). For example to change the repository of ACS artifact you would:
+
+Edit `group_vars/all.yml`:
+
+```yaml
+acs:
+  version: 7.2.1
+  repository: "{{ nexus_repository.enterprise_releases }}/alfresco-content-services-distribution"
+  edition: Enterprise
+```
+
+to
+
+```yaml
+acs:
+  version: 7.2.1
+  repository: "https://your.repo.com/path/to/your/artifacts"
+  edition: Enterprise
+```
+
+> This assumes that the full URL to your custom artifact looks like `https://your.repo.com/path/to/your/artifacts/7.2.1/alfresco-content-services-distribution-7.2.1.zip`
+
+In case you want to install a different (not latest) ACS version, you should make similar changes to the respective `*-extra-vars.yml` file.
+
+The other way is to override the URL completely:
+
+In `group_vars/all.yml` you need to find the section under which the default download URL for the specific artifact is defined out of `downloads`, `war_downloads` and `amp_downloads` and override it, for example:
+
+```yaml
+downloads:
+  acs_zip_url: "https://your.repo.com/path/to/your/artifacts/your-alfresco-content-services-community-distribution.zip"
+  acs_zip_sha1_checksum_url: "https://your.repo.com/path/to/your/artifacts/your-alfresco-content-services-community-distribution.zip.sha1"
+```
+
+Or:
+
+```yaml
+war_downloads:
+  - url: "https://your.repo.com/path/to/your/artifacts/your-api-explorer.war"
+    sha1_checksum_url: "https://your.repo.com/path/to/your/artifacts/your-api-explorer.war.sha1"
+    dest: "{{ content_folder }}/web-server/webapps/api-explorer.war"
+```
+
+Or:
+
+```yaml
+amp_downloads:
+  - url: "https://your.repo.com/path/to/your/artifacts/your-alfresco-aos-module.amp"
+    sha1_checksum_url: "https://your.repo.com/path/to/your/artifacts/your-alfresco-aos-module.amp.sha1"
+    dest: "{{ content_folder }}/amps_repo/alfresco-aos-module.amp"
+```
+
+> Be careful not to override the value for `dest` key
+
 ## Local installation
 
 The diagram below shows the result of a local installation.
@@ -198,7 +257,6 @@ Alternatively, to deploy other versions of Content Services use one of the follo
 * **7.1**: `ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@7.1.N-extra-vars.yml"`
 * **7.0**: `ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@7.0.N-extra-vars.yml"`
 * **6.2**: `ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@6.2.N-extra-vars.yml"`
-* **Community**: `ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@community-extra-vars.yml"`
 
 If you see an error message during installation, then check for [possible causes](#errormsg).
 
@@ -260,7 +318,6 @@ To deploy different versions of Content Services use one of the following comman
 * **7.1**: `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.1.N-extra-vars.yml"`
 * **7.0**: `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.0.N-extra-vars.yml"`
 * **6.2**: `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@6.2.N-extra-vars.yml"`
-* **Community**: `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@community-extra-vars.yml"`
 
 If you see an error message during installation, then check for [possible causes](#errormsg).
 
@@ -304,7 +361,6 @@ To deploy different versions of Content Services use one of the following comman
 * **7.1**: `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.1.N-extra-vars.yml"`
 * **7.0**: `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.0.N-extra-vars.yml"`
 * **6.2**: `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@6.2.N-extra-vars.yml"`
-* **Community**: `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@community-extra-vars.yml"`
 
 If you see an error message during installation, then check for [possible causes](#errormsg).
 
