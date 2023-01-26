@@ -187,7 +187,7 @@ To install everything on the control node, follow the steps in the [Local instal
 
 In case you want to use a different server/repository for a specific artifact to further customize your deployment, you can override the default URL in two ways:
 
-You can change the value of `component.repository` key for the selected component, provided that the path to your custom artifact follows the conventional [Maven2 Repository Layout](https://maven.apache.org/repository/layout.html). For example to change the repository of ACS artifact you would:
+You can change the value of `component.repository` key for the selected component, provided that the path to your custom artifact follows the conventional [Maven2 Repository Layout](https://maven.apache.org/repository/layout.html). For example to change the repository of Content Services artifact you would:
 
 Edit `group_vars/all.yml`:
 
@@ -239,7 +239,7 @@ amp_downloads:
     dest: "{{ content_folder }}/amps_repo/alfresco-aos-module.amp"
 ```
 
-> Be careful not to override the value for `dest` key
+> **Note:** Be careful not to override the value for `dest` key
 
 ## Local installation
 
@@ -548,7 +548,6 @@ This secret should be placed either in the inventory file under the `all` group 
 
 >**Warning**: Should you forget to provide that shared secret, the playbook will generate a random one. While that may sound convenient, keep in mind that doing so will break the idempotency of the playbook, and the shared secret will be updated everytime you run the playbook.
 
-<!-- New section from dev notes -->
 ### Secrets management
 
 This playbook expects that security-relevant secrets are configured within the
@@ -673,17 +672,15 @@ And then edit `vars/secrets.yml` to fill all the required arguments for the plug
 
 ### Alfresco global properties
 
-You can provide your [repository configuration](https://github.com/Alfresco/acs-deployment/blob/master/docs/properties-reference.md){:target="_blank"} 
-by editing the `configuration_files/alfresco-global.properties` file.
+You can provide your [repository configuration](https://github.com/Alfresco/acs-deployment/blob/master/docs/properties-reference.md){:target="_blank"} by editing the `configuration_files/alfresco-global.properties` file.
 
-The properties defined in this file are appended to the generated `alfresco-global.properties` located in 
-`/etc/opt/alfresco/content-services/classpath`.
+The properties defined in this file are appended to the generated `alfresco-global.properties` located in `/etc/opt/alfresco/content-services/classpath`.
 
 ### Enable SSL
 
 If you have a FQDN and a certificate you want to use, place the certificate and the key in the `configuration_files/ssl_certificates` folder before running the playbook. Also, replace the `fqdn_alfresco: "your_domain.com"` with your own domain in `group_vars/all.yml` along with setting `use_ssl: true`.
 
-> NOTE: The certificate and the key should be named the same as the domain, for example, `your_domain.com.key` and `your_domain.com.crt`
+> **Note:** The certificate and the key should be named the same as the domain, for example, `your_domain.com.key` and `your_domain.com.crt`
 
 ### Apply your own modules (AMP)
 
@@ -716,12 +713,11 @@ All the `_environment` variables defined for the roles are dictionaries, and all
 
 ### External databases
 
-By default, the playbook installs and configures a Postgres database server for you.<!-- Questionable insert to add to docs -->
-That server is a basic PostgreSQL setup with no specific optimization or features. For example, it doesn't provide any high availability mechanism.
+By default, the playbook installs and configures a Postgres database server for you. That server is a basic PostgreSQL setup with no specific optimization or features. For example, it doesn't provide any high availability mechanism.
 
 > This server also requires to NOT have a sudo configuration with `requirestty` set.
 
-<!-- End questionable content --> If you'd prefer to use an external database server, you can override the `repo_db_url` variable as described in the earlier section.
+If you'd prefer to use an external database server, you can override the `repo_db_url` variable as described in the earlier section.
 
 An example custom database URL is shown below:
 
@@ -912,7 +908,7 @@ This playbook will remove the temporary artifacts which are stored on the hosts.
 pipenv run ansible-playbook playbooks/platform-cleanup.yml -i <inventory_file>.yml
 ```
 
-> Note: This playbook can break the idempotency, for example, downloaded artifacts need to removed by running the cleanup playbook.
+> **Note:** This playbook can break the idempotency, for example, downloaded artifacts need to removed by running the cleanup playbook.
 
 ### Additional troubleshooting
 
