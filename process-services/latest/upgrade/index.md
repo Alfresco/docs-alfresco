@@ -51,9 +51,25 @@ Any database upgrade changes should have now been applied.
 
 ## Upgrading from 1.x to 2.x
 
-When you upgrade from APS 1.x to 2.x you are upgrading from Activiti 5.x to 7. There are breaking changes that you need to be aware of in order for your system to function correctly after you have upgraded.
+When you upgrade from Process Services 1.x to 2.x you are upgrading from Activiti 5.x to 7.x. There are breaking changes that you need to be aware of in order for your system to function correctly after you have upgraded.
 
 > **Note:** You do not need to migrate your database when upgrading from 1.x to 2.x.
+
+1. Navigate to [Hyland Community](https://community.hyland.com/){:target="_blank"} and download the latest Process Services installation file.  
+
+2. In your 1.x installation you must ensure you set `activiti5.migration.enabled=true` and `activiti.engine5.enabled=true` in the `activiti-app.properties` file before migrating to Process Services 2.x.
+
+    Setting the properties to `True` converts non-asynchronous processes to Activiti 7.x.
+
+3. Upgrade to the latest version of Process Services using the installation file.
+
+4. Once all in flight Process Services 1.x processes are complete you must set `activiti5.migration.enabled=false` and `activiti.engine5.enabled=false` in the `activiti-app.properties` file.
+
+    If you keep the properties set to `true` they would be of no use once all the processes are complete.
+
+All process definitions that are Async/Timer will still be using Activiti 5.x but all other processes, including non-asynchronous processes, will be running on Activiti 7.x. This means your business operations can resume and any new processes will run on Activiti 7.x.
+If you want to run the Process Services 2.3.6 installation again you must set `activiti5.migration.enabled=false` to ensure future applications restart.
+Once all Process Services 1.x asynchronous processes are complete you must disable the Activiti 5.x engine by setting `activiti.engine5.enabled=false` in the `activiti-app.properties` file.
 
 ### Alfresco Process Services breaking changes
 
