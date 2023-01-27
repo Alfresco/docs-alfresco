@@ -65,8 +65,6 @@ When you upgrade from Process Services 1.x to 2.x you are upgrading from Activit
 
 4. Once all in flight Process Services 1.x processes are complete you must set `activiti5.migration.enabled=false` and `activiti.engine5.enabled=false` in the `activiti-app.properties` file.
 
-    If you keep the properties set to `true` they would be of no use once all the processes are complete.
-
 All process definitions that are Async/Timer will still be using Activiti 5.x but all other processes, including non-asynchronous processes, will be running on Activiti 7.x. This means your business operations can resume and any new processes will run on Activiti 7.x.
 If you want to run the Process Services 2.3.6 installation again you must set `activiti5.migration.enabled=false` to ensure future applications restart.
 Once all Process Services 1.x asynchronous processes are complete you must disable the Activiti 5.x engine by setting `activiti.engine5.enabled=false` in the `activiti-app.properties` file.
