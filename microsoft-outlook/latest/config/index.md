@@ -1136,6 +1136,7 @@ Use this file to set up attributes and metadata settings.
     |`searchMode`|Controls the search behavior|`standard`: standard search is used. This is the default setting.<br><br>`advanced`: Advanced search is used.|
     |`showMySites`|Controls the appearance of My Sites site selector|`true`: My Sites site selector is shown. This is the default setting.<br><br>`false`: My Sites site selector is not shown.|
     |`theme`|Sets the theme of the Outlook plugin.<br><br>Added in Outlook Integration 2.9.|`classic`: Classic plugin theme is used. This is the default setting.<br><br>`dark`: Dark theme is used.|
+    |`showSpecificLanguages`|Sets the available languages of the Outlook plugin.<br><br>Added in Outlook Integration 2.9.2.|`empty`: All supported languages can be selected. This is the default setting.<br><br>`en,de,fr`(example): Only English, German and French can be selected.|
 
 3. Configure the attributes that you need for the `<storage>` element:
 
