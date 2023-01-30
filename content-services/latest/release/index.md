@@ -39,7 +39,7 @@ As part of the gradual decommissioning of the embedded workflow engine, the embe
 
 In the Alfresco Content Services 7.3.0.1 release, configuration options were introduced to control the execution of JavaScript by the repository. With the release of Service Pack 7.3.1, these configuration options have changed.
 
-See the [JavaScript execution]({% link content-services/content-services/latest/config/repository/#javascript-execution %}) section for the new configuration options.
+See the [JavaScript execution]({% link content-services/latest/config/repository.md %}#javascript-execution) section for the new configuration options.
 
 ## Deprecated software
 
