@@ -99,8 +99,6 @@ Activiti 5 had only 1 job table and this meant that a fairly complex query had t
 
 From Activiti 6, the jobs have been split up in a job `ACT_RU_JOB`, timer `ACT_RU_TIMER_JOB`, suspended `ACT_RU_SUSPENDED_JOB`, and `ACT_RU_DEADLETTER_JOB` dead letter table.
 
-Once you have upgraded from 1.x to 2.x you must set the `activiti.engine5.enabled` property to `true` in the `activiti-app.properties` file.
-
 #### Signaling an execution
 
 In Activiti 6, the `signal()` methods have been renamed to `trigger()`.
