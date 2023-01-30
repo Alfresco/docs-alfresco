@@ -35,6 +35,12 @@ Customers who bought Alfresco Content Services on or after September 1st 2017 wi
 
 As part of the gradual decommissioning of the embedded workflow engine, the embedded Activiti Workflow Console has been removed from Alfresco Content Services.
 
+### Changes in JavaScript execution configuration
+
+In the Alfresco Content Services 7.3.0.1 release, configuration options were introduced to control the execution of JavaScript by the repository. With the release of Service Pack 7.3.1, these configuration options have changed.
+
+See the [JavaScript execution]({% link content-services/content-services/latest/config/repository/#javascript-execution %}) section for the new configuration options.
+
 ## Deprecated software
 
 We are ending support for the Alfresco SAML SSO module, previously used to configure SAML authentication in Alfresco Office Service (AOS). Coherently with other components in Alfresco, the new solution is now based on an Identity Service (IDS) via OAuth2 that will greatly improve the customer SSO experience. Configuring SAML will still be possible but as part of identity provider configuration.
