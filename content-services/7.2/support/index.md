@@ -71,6 +71,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.8 | |
 | Alfresco Sync Service 3.7 | |
 | Alfresco Sync Service 3.6 | |
+| Alfresco Desktop Sync 1.14 | |
 | Alfresco Desktop Sync 1.13 | |
 | Alfresco Desktop Sync 1.12 | |
 | Alfresco Desktop Sync 1.11 | |
@@ -82,7 +83,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search Enterprise 3.1 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.x upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
 | Alfresco Search and Insight Engine 2.0.3 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0.3 | |
-| Alfresco Federation Services 1.1 | |
+| Alfresco Federation Services 2.1 | |
 | Identity Service 1.8 | |
 | Identity Service 1.7 | |
 | SAML Module for Alfresco Content Services 1.2.3 | |
@@ -185,6 +186,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.8 | |
 | Alfresco Sync Service 3.7 | |
 | Alfresco Sync Service 3.6 | |
+| Alfresco Desktop Sync 1.14 | |
 | Alfresco Desktop Sync 1.13 | |
 | Alfresco Desktop Sync 1.12 | |
 | Alfresco Desktop Sync 1.11 | |
@@ -196,7 +198,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search Enterprise 3.1 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.x upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
 | Alfresco Search and Insight Engine 2.0.3 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0.3 | |
-| Alfresco Federation Services 1.1 | |
+| Alfresco Federation Services 2.1 | |
 | Identity Service 1.8 | |
 | Identity Service 1.7 | |
 | SAML Module for Alfresco Content Services 1.2.2 | |

@@ -14,6 +14,7 @@ Here's a quick summary of what's new in the Alfresco Content Services 7.3 releas
 * **Support for Alfresco Search Enterprise 3.2 with Elasticsearch and OpenSearch**
 * **New license**
 * **Activiti Console removal**
+* **Changes in JavaScript execution configuration**
   
 ### Java 17 support
 
@@ -34,6 +35,12 @@ Customers who bought Alfresco Content Services on or after September 1st 2017 wi
 ### Activiti Console removal
 
 As part of the gradual decommissioning of the embedded workflow engine, the embedded Activiti Workflow Console has been removed from Alfresco Content Services.
+
+### Changes in JavaScript execution configuration
+
+In the Alfresco Content Services 7.3.0.1 release, configuration options were introduced to control the execution of JavaScript by the repository. With the release of Service Pack 7.3.1, these configuration options have changed.
+
+See the [JavaScript execution]({% link content-services/latest/config/repository.md %}#javascript-execution) section for the new configuration options.
 
 ## Deprecated software
 
