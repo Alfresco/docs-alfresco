@@ -233,8 +233,8 @@ Displays information about checked out files, any pending syncs, and conflicts.
 
     To resolve a conflict, select the conflict and either click:
 
-      * **Discard my Changes**: Replaces the local file with the Alfresco copy.
-      * **Keep my Changes**: Copies updates made to content locally over to Alfresco.
+    * **Discard my Changes**: Replaces the local file with the Alfresco copy.
+    * **Keep my Changes**: Copies updates made to content locally over to Alfresco.
 
 > **Note:** There may be times when you can't resolve a conflict for a file because the parent folder also has a conflict. In this case, your only choice is to resolve the conflict on the folder by either selecting **Keep my Changes** or **Discard my Changes**. Your choice is then applied to all files within that folder.
 
