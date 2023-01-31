@@ -16,7 +16,7 @@ Hover your cursor over the Desktop Sync icon to display sync status information,
 
 Right-click on the Desktop Sync icon ![]({% link desktop-sync/images/ds-icon.png %}) to see the application popup menu:
 
-![]({% link desktop-sync/images/ds-system-menu-1.14.png %}){:height="161px" width="164px"}
+![]({% link desktop-sync/images/ds-system-menu-1.14.png %}){:height="178px" width="184px"}
 
 ### Application menu items
 
