@@ -14,6 +14,7 @@ Here's a quick summary of what's new in the Alfresco Content Services 7.3 releas
 * **Support for Alfresco Search Enterprise 3.2 with Elasticsearch and OpenSearch**
 * **New license**
 * **Activiti Console removal**
+* **Changes in JavaScript execution configuration**
   
 ### Java 17 support
 
