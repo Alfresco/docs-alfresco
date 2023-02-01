@@ -95,72 +95,71 @@ In addition to the requirements mentioned earlier for control nodes in general, 
 
 While Content Services supports a wide range of OS, the playbook is only supported for a subset of them. The table below gives detailed information on the status of supported OS (Additional target environments will be added in future releases):
 
-| OS Flavor / version |  7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0 Enterprise | 6.2.2 Enterprise | Community |
-|-|-|-|-|-|-|-|
-| Amazon Linux (v2) | - | - | - | - | - | - |
-| Amazon Linux (v1) | - | - | - | - | - | - |
-| RHEL 8.6 | [x] | - | - | - | - | [x] |
-| RHEL 8.5 | [x] | [x] | - | - | - | [x] |
-| RHEL 8.4 | [x] | [x] | [x] |[x] | - | [x] |
-| RHEL 8.2 | [x] | [x] | [x] | - | [x] |
-| RHEL 7.7 | - | - | [x] | [x] | - | [x] |
-| RHEL 7.6 | - | - | [x] | [x] | [x] | [x] |
-| CentOS 8 x64 | [x] | [x] |[x] |[x] | - | [x] |
-| CentOS 7 x64 | [x] | [x] | [x] |[x] | [x] | [x] |
-| Ubuntu 22.04 | [x] | - | - | - | - | [x] |
-| Ubuntu 20.04 | [x] | [x] |[x] |[x] | - | [x] |
-| Ubuntu 18.04 | - | - |[x] |[x] | [x] | [x] |
-| SUSE 15.0 | - | - | - | - | - | - |
-| SUSE 12.0 SP1 x64 | - | - | - | - | - | - |
+| OS Flavor / version |  7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0 Enterprise | Community |
+|-|-|-|-|-|-|
+| Amazon Linux (v2) | - | - | - | - | - |
+| Amazon Linux (v1) | - | - | - | - | - |
+| RHEL 8.6 | [x] | - | - | - | [x] |
+| RHEL 8.5 | [x] | [x] | - | - | [x] |
+| RHEL 8.4 | [x] | [x] | [x] |[x] | [x] |
+| RHEL 8.2 | [x] | [x] | [x] | [x] |
+| RHEL 7.7 | - | - | [x] | [x] | [x] |
+| RHEL 7.6 | - | - | [x] | [x] | [x] |
+| CentOS 7 x64 | [x] | [x] | [x] |[x] | [x] |
+| Ubuntu 22.04 | [x] | - | - | - | [x] |
+| Ubuntu 20.04 | [x] | [x] |[x] |[x] | [x] |
+| Ubuntu 18.04 | - | - |[x] |[x] | [x] |
+| SUSE 15.0 | - | - | - | - | - |
+| SUSE 12.0 SP1 x64 | - | - | - | - | - |
 
 >**Note:** Ansible version 2.12.x is used for testing this playbook.
 
 ### Component versions
 
-The table below shows the version of the components deployed by the playbook for Content Services 7.x and 6.2.N.
+The table below shows the version of the components deployed by the playbook for Content Services 7.x and Community.
 
-| Component | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0.N Enterprise | 6.2.N Enterprise | Community |
-|-|-|-|-|-|-|-|
-| OpenJDK | 17.0.3 | 11.0.13 | 11.0.13 | 11.0.13 | 11.0.13 | 11.0.13 |
-| Apache Tomcat | 9.0.59 | 9.0.59 | 9.0.59 | 9.0.59 | 8.5.72 | 9.0.59 |
-| PostgreSQL | 14.x | 13.x | 13.x | 13.x | 11.x | 13.x |
-| Apache ActiveMQ | 5.16.4 | 5.16.4 | 5.16.4 | 5.16.4 | 5.15.14 | 5.16.4 |
-| Repository | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 6.2.2 | 7.1.1.2 |
-| Share | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 6.2.2 | 7.1.1.2 |
-| Search Services | 2.0.5 | 2.0.4 | 2.0.2 | 2.0.1.1 | 1.4.3 | 2.0.3 |
-| Search Enterprise   | 3.2.0 | 3.1.1 | 3.1.1 | - | - | - |
-| All-In-One Transformation Engine | 3.0.0 | 2.5.7 | 2.5.6 | 2.3.10 | 2.5.6 | 2.5.7 |
-| AOS | 1.5.0 | 1.4.1 | 1.4.0 |  1.4.0 | 1.3.1 |  |
-| GoogleDocs | 3.3.0 | 3.2.2 | 3.2.1 | 3.2.1 | 3.2.0 |  |
-| Digital Workspace | 3.1.0 | 2.9.0 | 2.6.0 | 2.1.0 | 2.6.0 | N/A |
-| Transform Router | 2.0.0 | 1.5.3 | 1.5.1 |1.3.2 | 1.5.1 | N/A |
-| Shared File Store | 2.0.0 | 0.16.1 | 0.16.1 | 0.13.0 | 0.16.1 | N/A |
-| Sync Service | 3.8.0 | 3.6.0 | 3.5.0 | 3.4.0 | 3.3.3.1 | N/A |
+| Component | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0.N Enterprise | Community |
+|-|-|-|-|-|-|
+| OpenJDK | 17.0.3 | 11.0.13 | 11.0.13 | 11.0.13 | 11.0.13 |
+| Apache Tomcat | 9.0.59 | 9.0.59 | 9.0.59 | 9.0.59 | 9.0.59 |
+| PostgreSQL | 14.x | 13.x | 13.x | 13.x | 13.x |
+| Apache ActiveMQ | 5.16.4 | 5.16.4 | 5.16.4 | 5.16.4 | 5.16.4 |
+| Repository | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 7.1.1.2 |
+| Share | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 7.1.1.2 |
+| Search Services | 2.0.5 | 2.0.4 | 2.0.2 | 2.0.1.1 | 2.0.3 |
+| Search Enterprise   | 3.2.0 | 3.1.1 | 3.1.1 | - | - |
+| All-In-One Transformation Engine | 3.0.0 | 2.5.7 | 2.5.6 | 2.3.10 | 2.5.7 |
+| AOS | 1.5.0 | 1.4.1 | 1.4.0 |  1.4.0 | - |
+| GoogleDocs | 3.3.0 | 3.2.2 | 3.2.1 | 3.2.1 | - |
+| Digital Workspace | 3.1.0 | 2.9.0 | 2.6.0 | 2.1.0 | N/A |
+| Transform Router | 2.0.0 | 1.5.3 | 1.5.1 |1.3.2 | N/A |
+| Shared File Store | 2.0.0 | 0.16.1 | 0.16.1 | 0.13.0 | N/A |
+| Sync Service | 3.8.0 | 3.6.0 | 3.5.0 | 3.4.0 | N/A |
 
 ## Set up Ansible
 
 Not all distributions of Linux may match the version requirements for Ansible and its dependencies. Below we describe how to configure a control node  with one of the many ways to set a python virtual environment. With python `virtualenvs` you can install the exact same versions of Ansible we use when testing without impacting your system installation of python. Doing so you're ensuring best chances of success.
 
-1. Download the Ansible playbook [zip file](https://nexus.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/alfresco-ansible-deployment/2.0.0/alfresco-ansible-deployment-2.0.0.zip)
+1. Download the Ansible playbook [zip file](https://nexus.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/alfresco-ansible-deployment/2.2.1/alfresco-ansible-deployment-2.2.1.zip)
 
-2. If you're not working directly on the control node, transfer the ZIP file to the control node together with the SSH private key required to login to the target machines, and SSH into the machine
+   If you're not working directly on the control node, transfer the ZIP file to  the control node together with the SSH private key required to login to the  target machines, and SSH   into the control node.
 
-    ```bash
-    scp  alfresco-ansible-deployment-<version>.zip user@controlnode:
-    scp  ~/.ssh/ansible_rsa user@controlnode:.ssh
-    ssh  user@controlnode
-    ```
+   ```bash
+   scp  alfresco-ansible-deployment-<version>.zip user@controlnode:
+   scp  ~/.ssh/ansible_rsa user@controlnode:.ssh
+   ssh  user@controlnode
+   ```
 
-    >**Note:** You may want to generate an SSH key pair locally and use it later for deployment. Whether you use a locally generated key, or copy over a key to the control node, it is your responsibility to deploy it to the target machines so Ansible can use it. Using SSH keys is recommended but not mandatory. If you instead use password, make sure to add the `-k`switch to the ansible command, so it prompts you for a password.
+   >**Note:** You may want to generate an SSH key pair locally and use it later  for deployment. Whether you use a locally generated key, or copy over a key to  the control node, it is your responsibility to deploy it to the target  machines so Ansible can use it. Using SSH keys is recommended but not  mandatory. If you instead use password, make sure to add the `-k` switch to  the `ansible` command, so it prompts you for a password.
 
-3. Check prerequisites and install required tools:
+2. Check prerequisites and install required tools:
 
     ```bash
     python --version # must be at least 3.8 in order to use Ansible 2.12
     sudo apt install virtualenvwrapper unzip # Use your distro's package manager instead of apt if it's not Debian based
     ```
 
-4. Install Ansible and required dependencies in python `virtualenv`:
+3. Install Ansible and required dependencies in python `virtualenv`:
 
     ```bash
     unzip alfresco-ansible-deployment-<version>.zip
@@ -170,7 +169,7 @@ Not all distributions of Linux may match the version requirements for Ansible an
     ansible-galaxy install -r requirements.yml
     ```
 
-5. If you intend to deploy an Enterprise system, create environment variables to hold your Nexus credentials as shown below (replacing the values appropriately):
+4. If you intend to deploy an Enterprise system, create environment variables to hold your Nexus credentials as shown below (replacing the values appropriately):
 
    ```bash
    export NEXUS_USERNAME="<your-username>"
@@ -259,7 +258,6 @@ Alternatively, to deploy other versions of Content Services use one of the follo
 * **7.2**: `ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@7.2.N-extra-vars.yml"`
 * **7.1**: `ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@7.1.N-extra-vars.yml"`
 * **7.0**: `ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@7.0.N-extra-vars.yml"`
-* **6.2**: `ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@6.2.N-extra-vars.yml"`
 
 If you see an error message during installation, then check for [possible causes](#errormsg).
 
@@ -320,7 +318,6 @@ To deploy different versions of Content Services use one of the following comman
 * **7.2**: `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.2.N-extra-vars.yml"`
 * **7.1**: `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.1.N-extra-vars.yml"`
 * **7.0**: `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.0.N-extra-vars.yml"`
-* **6.2**: `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@6.2.N-extra-vars.yml"`
 
 If you see an error message during installation, then check for [possible causes](#errormsg).
 
@@ -363,7 +360,6 @@ To deploy different versions of Content Services use one of the following comman
 * **7.2**: `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.2.N-extra-vars.yml"`
 * **7.1**: `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.1.N-extra-vars.yml"`
 * **7.0**: `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.0.N-extra-vars.yml"`
-* **6.2**: `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@6.2.N-extra-vars.yml"`
 
 If you see an error message during installation, then check for [possible causes](#errormsg).
 
@@ -395,7 +391,7 @@ There are other useful arguments you can use with the `ansible-playbook` command
 * `-K`: Prompt for sudo password. Useful when the user used to connect to the machine is not `root`.
 * `-e`: Pass an extra variable or override an existing one.
 * `-l`: Limit the play to a subset of hosts (either groups or individuals hosts or a mix of both).
-* `-u user`: specify the username to use to connect to all targets (prefer adding the `ànsible_ssh_user` to the inventory file in the right scope, e.g. under the `all`group)
+* `-u user`: specify the username to use to connect to all targets (prefer adding the `ansible_ssh_user` to the inventory file in the right scope, e.g. under the `all`group)
 
 ## Content Services cluster
 
@@ -424,7 +420,7 @@ For example:
 ...
 ```
 
-In some circumstances, you may want to have a repository node that's dedicated to a scheduled task (such as ingesting massive amount of documents). Depending on the nature of the task, and the requirements of your organisation, it may be preferable to leave this node out of the cluster. To leave nodes out of the cluster set the `cluster_keepoff` variable to `true` in one of the `repository` group nodes. It will provision the node with the repository and share services but make sure it's not taking part in neither the share, nor the repository cluster realm.
+In some circumstances, you may want to have a repository node that's dedicated to a scheduled task (such as ingesting massive amount of documents). Depending on the nature of the task, and the requirements of your organization, it may be preferable to leave this node out of the cluster. To leave nodes out of the cluster set the `cluster_keepoff` variable to `true` in one of the `repository` group nodes. It will provision the node with the repository and share services but make sure it's not taking part in neither the share, nor the repository cluster realm.
 
 >A typical use case is to have a dedicated Solr tracking node. The playbook will then prefer to use that dedicated node, if it finds one, for solr tracking and only use the other as a backup server (no load balancing).
 
@@ -577,10 +573,10 @@ pipenv run ansible-playbook --ask-vault-pass playbooks/acs.yml
 While we recommend to refer to the official Ansible documentation to properly configure
 [Ansible vault](https://docs.ansible.com/ansible/latest/user_guide/vault.html#managing-vault-passwords),
 below a basic configuration that will help you in quickly installing Alfresco
-without to having to input the Vault password everytime.
+without to having to input the Vault password every time.
 
 Configure a password in a file (e.g. `~/.vault_pass.txt`), optionally
-autogenerating it with:
+auto generating it with:
 
 ```bash
 openssl rand -base64 21 > ~/.vault_pass.txt
