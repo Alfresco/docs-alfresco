@@ -102,13 +102,13 @@ While Content Services supports a wide range of OS, the playbook is only support
 | RHEL 8.6 | [x] | - | - | - | [x] |
 | RHEL 8.5 | [x] | [x] | - | - | [x] |
 | RHEL 8.4 | [x] | [x] | [x] |[x] | [x] |
-| RHEL 8.2 | [x] | [x] | [x] | [x] |
+| RHEL 8.2 | [x] | [x] | [x] | [x] | [x] |
 | RHEL 7.7 | - | - | [x] | [x] | [x] |
 | RHEL 7.6 | - | - | [x] | [x] | [x] |
 | CentOS 7 x64 | [x] | [x] | [x] |[x] | [x] |
 | Ubuntu 22.04 | [x] | - | - | - | [x] |
-| Ubuntu 20.04 | [x] | [x] |[x] |[x] | [x] |
-| Ubuntu 18.04 | - | - |[x] |[x] | [x] |
+| Ubuntu 20.04 | [x] | [x] | [x] | [x] | [x] |
+| Ubuntu 18.04 | - | - | [x] | [x] | [x] |
 | SUSE 15.0 | - | - | - | - | - |
 | SUSE 12.0 SP1 x64 | - | - | - | - | - |
 
@@ -120,12 +120,12 @@ The table below shows the version of the components deployed by the playbook for
 
 | Component | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0.N Enterprise | Community |
 |-|-|-|-|-|-|
-| OpenJDK | 17.0.3 | 11.0.13 | 11.0.13 | 11.0.13 | 11.0.13 |
+| OpenJDK | 17.0.3 | 11.0.13 | 11.0.13 | 11.0.13 | 17.0.03 |
 | Apache Tomcat | 9.0.59 | 9.0.59 | 9.0.59 | 9.0.59 | 9.0.59 |
 | PostgreSQL | 14.x | 13.x | 13.x | 13.x | 13.x |
 | Apache ActiveMQ | 5.16.4 | 5.16.4 | 5.16.4 | 5.16.4 | 5.16.4 |
-| Repository | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 7.1.1.2 |
-| Share | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 7.1.1.2 |
+| Repository | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 7.2.0 |
+| Share | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 7.2.0 |
 | Search Services | 2.0.5 | 2.0.4 | 2.0.2 | 2.0.1.1 | 2.0.3 |
 | Search Enterprise   | 3.2.0 | 3.1.1 | 3.1.1 | - | - |
 | All-In-One Transformation Engine | 3.0.0 | 2.5.7 | 2.5.6 | 2.3.10 | 2.5.7 |
