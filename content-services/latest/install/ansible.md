@@ -142,7 +142,7 @@ Not all distributions of Linux may match the version requirements for Ansible an
 
 1. Download the Ansible playbook [zip file](https://nexus.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/alfresco-ansible-deployment/2.2.1/alfresco-ansible-deployment-2.2.1.zip)
 
-   If you're not working directly on the control node, transfer the ZIP file to  the control node together with the SSH private key required to login to the  target machines, and SSH   into the control node.
+   If you're not working directly on the control node, transfer the ZIP file to  the control node together with the SSH private key required to login to the  target machines, and SSH into the control node.
 
    ```bash
    scp  alfresco-ansible-deployment-<version>.zip user@controlnode:
