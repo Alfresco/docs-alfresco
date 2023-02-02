@@ -391,7 +391,7 @@ There are other useful arguments you can use with the `ansible-playbook` command
 * `-K`: Prompt for sudo password. Useful when the user used to connect to the machine is not `root`.
 * `-e`: Pass an extra variable or override an existing one.
 * `-l`: Limit the play to a subset of hosts (either groups or individuals hosts or a mix of both).
-* `-u user`: specify the username to use to connect to all targets (prefer adding the `ansible_ssh_user` to the inventory file in the right scope, e.g. under the `all`group)
+* `-u user`: specify the username to use to connect to all targets (prefer adding the `ansible_ssh_user` to the inventory file in the right scope, e.g. under the `all` group)
 
 ## Content Services cluster
 
