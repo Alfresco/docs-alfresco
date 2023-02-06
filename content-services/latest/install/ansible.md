@@ -37,7 +37,7 @@ A Content Services inventory file has the following groups a host can belong to:
 * `external_activemq`: an alternative group to `activemq` in case you don't want to deploy ActiveMQ using our basic activemq role but instead use an ActiveMQ instance of yours which matched your hosting standards.
 * `search`: a single host on which to deploy Alfresco Search Services.
 * `search_enterprise`: one or more hosts on which to deploy Search Enterprise, as an alternative to Alfresco Search.
-* `elasticsearch`: one or more hosts on which deploy the ElasticSearch cluster backing Search Enterprise.
+* `elasticsearch`: one or more hosts on which to deploy the ElasticSearch cluster backing Search Enterprise.
 * `external_elasticsearch`: an alternative group to `elasticsearch` in case you don't want to deploy ElasticSearch using the [community ElasticSearch role](https://github.com/buluma/ansible-role-elasticsearch){:target="_blank"} but instead use an ElasticSearch cluster of yours which matches your hosting standards.
 * `nginx`: a single host on which the playbook will deploy an NGINX reverse proxy configured for the numerous http based services, such as Alfresco Share and Alfresco Digital Workspace.
 * `adw`: a single host where you want the Alfresco Digital Workspace UI to be installed.
