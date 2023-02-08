@@ -193,7 +193,7 @@ You can reassign a task to another person.
 
 1. Open a task from the Task list.
 
-2. Select **Edit** on the top right.
+2. Tap **Edit** on the top right.
 
 3. Tap the **Edit** icon next to the **Assignee** name.
 
@@ -209,7 +209,7 @@ You can change the due date of a task.
 
 1. Open a task from the Task list.
 
-2. Select **Edit** on the top right.
+2. Tap **Edit** on the top right.
 
 3. Tap the **Edit** icon next to **Due date**.
 
