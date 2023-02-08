@@ -113,6 +113,10 @@ Cancelling a process instance will change the status to `CANCELLED`.
 
 > **Note:** The **Cancel** option is not available to process instances with a status of `COMPLETED`.
 
+### Delete
+
+Use the **Delete** option to delete a process instance. When you delete a process instance a new audit event is created that indicates the process instance once existed but is now deleted.
+
 ### Audit {#process-instance-audit}
 
 Use the **Audit** option to view all audit logs for the selected process instance. This will open the [audit](#audit) section with the filter restricted to the application and process instance ID of the selected process instance.
