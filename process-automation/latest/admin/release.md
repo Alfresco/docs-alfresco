@@ -197,7 +197,7 @@ You will see the Monitoring dashboard for the application. Services that are ope
 
 ### Upgrade
 
-Upgrading an application allows for a new version of a released project to be deployed to an existing application. Tasks and process instances that are in progress and based on a previous application version can still be completed, however any new ones started will use the new model definitions.
+Upgrading an application allows for a new version of a released project to be deployed to an existing application. Tasks and process instances that are in progress and based on a previous application version can still be completed, however any new ones started will use the new model definitions. The upgrade process is transactional, which means that if there is an error during the upgrade process the application is automatically rolled back to the previous stable version.
 
 > **Note**: An application can be upgraded to a released project version that is lower than the one currently deployed, however the application version will still increment.
 
