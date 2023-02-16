@@ -57,7 +57,7 @@ Process Services uses [Logback](https://logback.qos.ch){:target="_blank"} for lo
 
 Process Services installs with the default Logback configuration reading from `<Tomcat install location>/webapps/activiti-app/WEB-INF/classes/logback.xml` and the equivalent location for Process Services Administrator.
 
-The default configuration can be overridden by placing your own `logback.xml` or  logback-test.xml  in `<Tomcat install location>/lib`.
+The default configuration can be overridden by placing your own `logback.xml` or `logback-test.xml` in `<Tomcat install location>/lib`.
 
 By default Process Services logs to the console. To log to file, edit the logging configuration file to specify a file appender and location. For example:
 
