@@ -27,7 +27,7 @@ The following are the prerequisites needed to configure SSO with LDAP:
 
 ## Configuration
 
-There are elevn steps to configuring SSO using an LDAP directory with Alfresco products. The following are the host names used as examples throughout the configuration:
+There are eleven steps to configuring SSO using an LDAP directory with Alfresco products. The following are the host names used as examples throughout the configuration:
 
 * Alfresco Content Services: `repo.example.com`
 * Alfresco Share: `share.example.com`
@@ -108,43 +108,13 @@ The properties listed that need to be set for Alfresco Content Services (ACS) ar
     |csrf.filter.referer | The referer value of ACS to prevent Cross Site Request Forgery (CSRF), for example `https://repo.example.com`|
     |csrf.filter.origin | The origin value of ACS to prevent Cross Site Request Forgery (CSRF), for example `https://repo.example.com/*`|
 
-2. Update the `share-config-custom.xml` file located by default in `$ALFRESCO_HOME/tomcat/shared/classes/alfresco/web-extension/`:
+2. Sign in to the administrator console of ACS as an administrator. The URL of the administrator console is `https://repo.example.com:443/alfresco/service/enterprise/admin`.
 
-    * Set the `CSRFPolicy` to true as in the following example:
+3. Navigate to **Directories** > **Directory Management** and click **Run Synchronize** to perform a manual LDAP sync.
 
-        ```xml
-        <config evaluator="string-compare" condition="CSRFPolicy" replace="true">
-        ```
+4. Sign into Share as an administrator. The URL for Share is `https://share.example.com/share`.
 
-    * Add the following two rules to allow for signing out via SAML:
-
-        ```xml
-        <rule>
-          <request>
-            <method>GET</method>
-            <path>/res/.*</path>
-          </request>
-        </rule>
-        ```
-
-        ```xml
-        <rule>
-          <request>
-            <method>POST</method>
-            <path>/page/saml-authnresponse|/page/saml-logoutresponse|/page/saml-logoutrequest</path>
-          </request>
-        </rule>
-        ```
-
-        > **Note**: Incoming public GET requests will be caught avoiding them being evaluated by other rules. Incoming POST requests from identity providers do not need a token.
-
-3. Sign in to the administrator console of ACS as an administrator. The URL of the administrator console is `https://repo.example.com:443/alfresco/service/enterprise/admin`.
-
-4. Navigate to **Directories** > **Directory Management** and click **Run Synchronize** to perform a manual LDAP sync.
-
-5. Sign into Share as an administrator. The URL for Share is `https://share.example.com/share`.
-
-6. Navigate to **Admin Tools** > **Users** to verify that all user accounts have been synchronized correctly.
+5. Navigate to **Admin Tools** > **Users** to verify that all user accounts have been synchronized correctly.
 
 ## Step 4: Configure Alfresco Digital Workspace
 
