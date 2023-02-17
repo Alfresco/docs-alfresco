@@ -108,13 +108,21 @@ The properties listed that need to be set for Alfresco Content Services (ACS) ar
     |csrf.filter.referer | The referer value of ACS to prevent Cross Site Request Forgery (CSRF), for example `https://repo.example.com`|
     |csrf.filter.origin | The origin value of ACS to prevent Cross Site Request Forgery (CSRF), for example `https://repo.example.com/*`|
 
-2. Sign in to the administrator console of ACS as an administrator. The URL of the administrator console is `https://repo.example.com:443/alfresco/service/enterprise/admin`.
+2. Update the `share-config-custom.xml` file located by default in `$ALFRESCO_HOME/tomcat/shared/classes/alfresco/web-extension/`:
 
-3. Navigate to **Directories** > **Directory Management** and click **Run Synchronize** to perform a manual LDAP sync.
+    * Set the `CSRFPolicy` to true as in the following example:
 
-4. Sign into Share as an administrator. The URL for Share is `https://share.example.com/share`.
+        ```xml
+        <config evaluator="string-compare" condition="CSRFPolicy" replace="true">
+        ```
 
-5. Navigate to **Admin Tools** > **Users** to verify that all user accounts have been synchronized correctly.
+3. Sign in to the administrator console of ACS as an administrator. The URL of the administrator console is `https://repo.example.com:443/alfresco/service/enterprise/admin`.
+
+4. Navigate to **Directories** > **Directory Management** and click **Run Synchronize** to perform a manual LDAP sync.
+
+5. Sign into Share as an administrator. The URL for Share is `https://share.example.com/share`.
+
+6. Navigate to **Admin Tools** > **Users** to verify that all user accounts have been synchronized correctly.
 
 ## Step 4: Configure Alfresco Digital Workspace
 

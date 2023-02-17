@@ -161,7 +161,15 @@ The properties listed that need to be set for Alfresco Content Services (ACS) ar
     |csrf.filter.referer | The referer value of ACS to prevent Cross Site Request Forgery (CSRF), for example `https://repo.example.com`|
     |csrf.filter.origin | The origin value of ACS to prevent Cross Site Request Forgery (CSRF), for example `https://repo.example.com/*`|
 
-2. Set a session timeout in both web.xml files located by default in `$ALFRESCO_HOME/tomcat/webapps/share/WEB-INF` and `$ALFRESCO_HOME/tomcat/webapps/alfresco/WEB-INF`. This should match the value [configured for the realm](#step-1-configure-a-realm-and-clients).
+2. Update the `share-config-custom.xml` file located by default in `$ALFRESCO_HOME/tomcat/shared/classes/alfresco/web-extension/`:
+
+    * Set the `CSRFPolicy` to true as in the following example:
+
+        ```xml
+        <config evaluator="string-compare" condition="CSRFPolicy" replace="true">
+        ```
+
+3. Set a session timeout in both `web.xml` files located by default in `$ALFRESCO_HOME/tomcat/webapps/share/WEB-INF` and `$ALFRESCO_HOME/tomcat/webapps/alfresco/WEB-INF`. This should match the value [configured for the realm](#step-1-configure-a-realm-and-clients).
 
     The following is an example of the property to add:
 
@@ -173,13 +181,10 @@ The properties listed that need to be set for Alfresco Content Services (ACS) ar
 
     > **Note:** This example sets a session time of 12 hours.
 
-3. Sign in to the administrator console of ACS as an administrator. The URL of the administrator console is `https://repo.example.com:443/alfresco/service/enterprise/admin`.
-
-4. Navigate to **Directories** > **Directory Management** and click **Run Synchronize** to perform a manual LDAP sync.
-
-5. Sign into Share as an administrator. The URL for Share is `https://share.example.com/share`.
-
-6. Navigate to **Admin Tools** > **Users** to verify that all user accounts have been synchronized correctly.
+4. Sign in to the administrator console of ACS as an administrator. The URL of the administrator console is `https://repo.example.com:443/alfresco/service/enterprise/admin`.
+5. Navigate to **Directories** > **Directory Management** and click **Run Synchronize** to perform a manual LDAP sync.
+6. Sign into Share as an administrator. The URL for Share is `https://share.example.com/share`.
+7. Navigate to **Admin Tools** > **Users** to verify that all user accounts have been synchronized correctly.
 
 ## Step 7: Configure Alfresco Digital Workspace
 
