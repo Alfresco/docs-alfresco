@@ -27,7 +27,7 @@ The following are the prerequisites needed to configure SSO with LDAP:
 
 ## Configuration
 
-There are elevn steps to configuring SSO using an LDAP directory with Alfresco products. The following are the host names used as examples throughout the configuration:
+There are eleven steps to configuring SSO using an LDAP directory with Alfresco products. The following are the host names used as examples throughout the configuration:
 
 * Alfresco Content Services: `repo.example.com`
 * Alfresco Share: `share.example.com`
@@ -115,28 +115,6 @@ The properties listed that need to be set for Alfresco Content Services (ACS) ar
         ```xml
         <config evaluator="string-compare" condition="CSRFPolicy" replace="true">
         ```
-
-    * Add the following two rules to allow for signing out via SAML:
-
-        ```xml
-        <rule>
-          <request>
-            <method>GET</method>
-            <path>/res/.*</path>
-          </request>
-        </rule>
-        ```
-
-        ```xml
-        <rule>
-          <request>
-            <method>POST</method>
-            <path>/page/saml-authnresponse|/page/saml-logoutresponse|/page/saml-logoutrequest</path>
-          </request>
-        </rule>
-        ```
-
-        > **Note**: Incoming public GET requests will be caught avoiding them being evaluated by other rules. Incoming POST requests from identity providers do not need a token.
 
 3. Sign in to the administrator console of ACS as an administrator. The URL of the administrator console is `https://repo.example.com:443/alfresco/service/enterprise/admin`.
 
