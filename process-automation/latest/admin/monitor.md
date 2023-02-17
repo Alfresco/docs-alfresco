@@ -52,7 +52,7 @@ The columns for each application are:
 
 ## Process Instances
 
-The **Process Instances** section is for monitoring all active, completed, and suspended process instances that are running in each application. You can delete one or more selected process instances, regardless of what state they are in. Use the **Delete** button for a specific instance to delete it. You can delete more than one at the same time by using the **Select multiple** check box on the top right. Once you have selected multiple process instances, click delete from the top right.
+The **Process Instances** section is for monitoring all active, completed, and suspended process instances that are running in each application. 
 
 ### Properties {#process-properties}
 
@@ -133,7 +133,7 @@ Cancelling a process instance will change the status to `CANCELLED`.
 
 ### Delete
 
-Use the **Delete** option to delete the process instance. When you delete the process instance you will permanently delete it and all of its data. The operation cannot be undone.
+Use the **Delete** option to delete a process instance. When you delete a process instance you will permanently delete it and all of its data and the operation cannot be undone. You can delete one or more selected process instances, regardless of what state they are in. You can delete more than one at the same time by using the Select multiple check box on the top right. Once you have selected multiple process instances, click delete from the top right.
 
 ## User tasks
 
