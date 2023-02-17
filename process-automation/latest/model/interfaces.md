@@ -46,28 +46,30 @@ To change the theme using the **UI** properties in the modelling application.
 
 1. Sign into the modeling application.
 
-2. Select the UI you want to change and enter the new configuration properties under the Theme heading.
+2. Select the **UI** you want to change and enter the new configuration properties under the **Theme** heading.
 
-3. Save the UI.
+3. Save the **UI**.
 
-The properties of theme are:
+The properties of the UI theme are:
+
+> **Note:** See example image below.
 
 | Property | Description |
 | ----------- |----------- |
-| Primary color | The color is used to hightlight important parts of your application, for example the text for the Personal Files link in the left pane. |
-| Accent color | The color is used to accent highlight areas of your UI and make parts of it stand out more, for example it can be used for Floating action buttons, Selection controls such as sliders and switches, highlighting selected text or Progress bars, and some links. |
-| Text color | The color of text that is not as important as other text that has had other properties, for example the text **File Libraries** on the left pane. |
+| Primary color | The color is used to hightlight important parts of your application, for example the text for the **Personal Files** link in the left pane. |
+| Accent color | The color is used to accent highlight areas of your UI and make parts of it stand out more, for example it can be used for floating action buttons, selection controls such as sliders and switches, highlighting selected text or Progress bars, and some links. |
+| Text color | The color of text that is not as important as other text, for example the text **File Libraries** on the left pane. |
 | Background color | The color of the background, for example the color of the background of the left pane. |
 | Font size | The size of the font, in pixels. |
 | Font family | The family the font belongs to, for example Cursive. |
-| Web font URL | Where the specific information about the font used is gathered from, for example [Inspiration](https://fonts.googleapis.com/css2?family=Inspiration&display=swap))  |
+| Web font URL | Where the specific information about the font used is gathered from, for [example](https://fonts.googleapis.com/css2?family=Inspiration&display=swap){:target="_blank"}.  |
 
 ![ADW Colors]({% link process-automation/images/ADW-colors.png %})
 
 ### Deploy the theme
 
 If you are deploying using the modelling application or Docker compose you must provide the correct configuration and the theme will be generated at startup.
-After updating the properties for the custom theme in the modelling application, new entries for **UI** added to this file: `"customCssPath": "./assets/theme/custom.css" (i.e. /[app-name]/ui/[ui-name]/assets/theme/custom.css)`
+After updating the properties for the custom theme in the modelling application, new entries for the **UI** are added to this file: `"customCssPath": "./assets/theme/custom.css" (i.e. /[app-name]/ui/[ui-name]/assets/theme/custom.css)`
 
 For example:
 
@@ -82,11 +84,11 @@ For example:
          }
 ```
 
-Once you have deployed your application using the admin application, the values from the the `theme` javascript are used for generating the `custom.css` file. If using Docker compose the `custom.css` file is generated during the Docker startup process. The `custom.css` file is used for altering the application theme and the new theme can be found under the `customCssPath` value.
+Once you have deployed your application using the admin app, the values from the the `theme` javascript are used for generating the `custom.css` file. If using Docker compose the `custom.css` file is generated during the Docker startup process. The `custom.css` file is used for altering the application theme and the new theme can be found under the `customCssPath` value.
 
 ### Generate theme manually
 
-If you are not deploying your application using Process Automation or a Docker image, you can generate a theme running a Docker container locally using a bash script. The locally generated theme can be included in any application distribution (e.g. Tomcat). To do this you set the URL in the `app.config.json` file or include the `custom.css` manually, for example:
+If you are not deploying your application using the modeling application or a Docker compose, you can generate a theme running a Docker container locally using a bash script. The locally generated theme can be included in any application distribution, for example using Tomcat. To do this you set the URL in the `app.config.json` file or include the `custom.css` manually, for example:
 
 `{"application":{"name":"my-app"}, "customCssPath": "./assets/theme/custom.css"}`
 
@@ -102,9 +104,9 @@ Once Docker is up and running, you can access the theme by navigating to `http:/
 
 #### Generate custom theme locally
 
-You generate the theme locally without using Docker.
+To generate the theme locally without using Docker.
 
-1. Download [Alfresco modeler and admin apps](https://github.com/Alfresco/alfresco-apps).
+1. Download [Alfresco modeler and admin apps](https://github.com/Alfresco/alfresco-apps){:target="_blank"}.
 
 2. Edit `alfresco-apps/package.json` and add `"sass-math-pow": "^0.2.0"`
 
@@ -114,11 +116,11 @@ You generate the theme locally without using Docker.
 
 5. Remove the `.tpl` file extension from `apps/content-ce/app/src/app/ui/dynamic-theme/theme-configuration.scss.tpl`.
 
-6. Edit to the file to remove all the variables in it, except `$theme-config`.
+6. Edit the file to remove all the variables in it, except `$theme-config`.
 
-7. Copy content of the file `apps/content-ce/app/src/app/ui/dynamic-theme/custom-theme.scss.tpl` to `apps/content-ce/app/src/app/ui/custom-theme.scss`.
+7. Copy the content of the file `apps/content-ce/app/src/app/ui/dynamic-theme/custom-theme.scss.tpl` to `apps/content-ce/app/src/app/ui/custom-theme.scss`.
 
-The application will reload automatically and the new theme displays.
+The application will reload automatically and the new theme will display.
 
 ## User interface modeling
 
