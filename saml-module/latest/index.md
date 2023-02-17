@@ -2,7 +2,10 @@
 title: SAML Module for Alfresco Content Services
 ---
 
-> **Important**: It is recommended to use the SAML Module in conjunction with the [Identity Service single sign on (SSO) guide]({% link identity-service/latest/tutorial/sso/saml.md %}) when setting up SAML authentication and SSO capabilities.
+> **Important:** It is recommended to use the SAML Module in conjunction with the [Identity Service single sign on (SSO) guide]({% link identity-service/latest/tutorial/sso-v1/saml.md %}) when setting up SAML authentication and SSO capabilities. Check the compatibility of your installed products as the SAML configuration has changed since Alfresco Content Services 7.3:
+>
+> * [Supported platforms for SAML Module]({% link saml-module/latest/support/index.md %})
+> * [Supported platforms for Identity Service]({% link identity-service/latest/support/index.md %})
 
 You can use Security Assertion Markup Language (SAML) with Alfresco to support SAML authentication for Content Services.
 
