@@ -320,19 +320,12 @@ The actions that can be run against a process are:
 
 ## Edit User Task Notifications
 
-Use 
+Use the **Edit User Task Notification** window to edit the default email templates used for processes. You can configure the **From** and **Subject** fields for the selected user task so that at runtime they will send task email notifications that are not the default, to the assignee or candidate.
 
-The fields on the on the Assignee tab and task notifications are used 
+The fields on the **Assignee** tab and **Candidate** tabs are:
 
 | Action | Description |
 | ------ | ----------- |
-| From | Download the process diagram in `svg` format. |
-| Subject | Download the `.bpmn20.xml` for the process. |
-| Email template | Default email template, From file, From URL, Create new email template Run validation against the process. Any errors can be seen in the log history at the bottom of the Modeling Application and are flagged in a pop-up box. |
-| Enter your URL | Save any changes made on the process diagram. |
-| Preview | Delete the process diagram. |
-| Editor | Download the process diagram in `svg` format. |
-| Subject | Download the `.bpmn20.xml` for the process. |
-| From URL | Run validation against the process. Any errors can be seen in the log history at the bottom of the Modeling Application and are flagged in a pop-up box. |
-| Enter your URL | Save any changes made on the process diagram. |
-| Preview | Delete the process diagram. |
+| From | Enter an email address that the task will be sent from. |
+| Subject | Enter a message for the user that will recieve the notification. For example `The task ${taskName} awaits your response.` |
+| Email template | Select the email template you want to use. You can select from the, **Default email template**, **From file**, **From URL**, and **Create new email template**. |
