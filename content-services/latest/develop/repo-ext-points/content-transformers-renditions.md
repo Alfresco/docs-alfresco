@@ -218,6 +218,9 @@ changed by resetting the following Alfresco global property.
 local.transform.pipeline.config.dir=shared/classes/alfresco/extension/transform/pipelines
 ```
 
+Local transform-core-aio docker image might need a [newer version of image and approach](#adding-pipelines-and-failover-transforms-to-a-t-engine)
+with providing config directly to the T-Engine.
+
 On startup this location is checked every minute, but then switches to once an hour if successful. After a problem, it 
 tries every minute again. These are the same properties use to decide when to read T-Engine configurations, 
 because pipelines combine transformers in the T-Engines.
@@ -284,6 +287,37 @@ maxSourceSizeBytes see [Supported Source and Target List](https://github.com/Alf
 Unlike pipelines, it must not be blank.
 * `transformOptions` - A list of references to options required by
 the pipeline transformer.
+
+### Adding pipelines and failover transforms to a T-Engine
+
+Since Content Services version 7.2 and ATS 1.5:
+
+So far we have talked about defining pipelines and failover transforms in the Repository or ATS router pipeline files. It is also possible to add them to a T-Engine's configuration, even when they reference a transformer provided by another T-Engine. It is only when all transform steps exist that the pipeline or failover transform becomes available. Warning messages will be issued if step transforms do not exist.
+
+Generally it is better to add them to T-Engines to avoid having to add an identical entry to both the Repository and ATS Router pipeline files.
+
+Since Alfresco Transform Core 3.0.0, config files with additional pipelines or overrides can be provided directly to a T-Engine image through additional config files (which may be resources on the classpath or external files) that are specified with Spring Boot properties such as `transform.config.file.<filename>` or environment variables like `TRANSFORM_CONFIG_FILE_<filename>`. In case of issues with changing configuration of transform-core-aio T-Engine such approach may be necessary.
+
+#### Modifying existing configuration
+
+Since Content Services version 7.2 and ATS 1.5:
+
+The Repository and ATS router read the configuration from T-Engines and then their own pipeline files. The T-Engine order is based on the `<engineName>` and the pipeline file order is based on the filenames. As sorting is alphanumeric, you may wish to consider using a fixed length numeric prefix.
+
+For example:
+
+```text
+
+localTransform.imagemagick.url=http://localhost:8091/
+localTransform.libreoffice.url=http://localhost:8092/
+localTransform.misc.url=http://localhost:8094/
+localTransform.pdfrenderer.url=http://localhost:8090/
+localTransform.tika.url=http://localhost:8093/
+shared/classes/alfresco/extension/transform/pipelines/0100-basePipelines.json
+shared/classes/alfresco/extension/transform/pipelines/0200-a-cutdown-libreoffice.json
+```
+
+The following sections describe ways to modify the configuration that has already been read. This may be added to T-Engine or pipeline files.
 
 ### Overriding a Local transform
 
