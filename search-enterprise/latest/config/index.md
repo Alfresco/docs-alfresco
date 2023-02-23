@@ -154,7 +154,7 @@ The table below lists the main configuration properties that can be specified th
 | alfresco.content.refresh.event.queue | The channel where transform requests are re-inserted by the content event aggregator as consequence of a failure. The default value is `org.alfresco.search.contentrefresh.event`. |
 | alfresco.content.event.retry.maxAllowed | Maximum number of redelivery attempts allowed. `0` is used to disable redelivery, and `-1` will attempt redelivery forever until it succeeds. |
 | alfresco.content.event.retry.backoff | Exponential backoff multiplier that can be used to multiply each consequent redelivery delay. |
-| alfresco.content.event.retry.delay | Delay in milliseconds between each redelivery attempt. Note it is affected by the backoff multiplier. |
+| alfresco.content.event.retry.delay | Initial delay in milliseconds between redelivery attempts. Subsequent delays will be affected by the backoff multiplier. |
 | alfresco.content.event.retry.maxDelay | An upper bound in milliseconds for the computed redelivery delay. This is used when you specify backoff multiplied delays and is used to avoid the delay growing too large. |
 | acs.repo.transform.request.endpoint | Alfresco Repository channel. The default value is `activemq:queue:acs-repo-transform-request?jmsMessageType=Text`. |
 | alfresco.sharedFileStore.baseUrl | Alfresco Shared FileStore endpoint. The default value is `http://127.1.0.1:8099/alfresco/api/-default-/private/sfs/versions/1/file/`. |
