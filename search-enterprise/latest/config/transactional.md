@@ -6,53 +6,30 @@ Alfresco Content Services supports the execution of a subset of the CMIS Query L
 
 TMDQ supports use cases where eventual consistency is not the preferred option.
 
-The Elasticsearch subsystem is eventually consistent. A change can take any length of time to be reflected in the index, ranging from a few seconds to several minutes. Elasticsearch indexes the metadata and the content of each updated node, in the order in which the nodes were last changed. The indexing components will try to index information about nodes as fast as possible, but content indexing is likely to be limited by the time needed to extract text from the files and all indexing will be affected by the rate at which the nodes are being changed.
+The Elasticsearch subsystem is eventually consistent. The amount of time a change takes to reflect in the index is normally less than 1 second, but can be longer under heavy load, or for complex/cascading updates. Elasticsearch indexes the metadata and the content of each updated node, in the order in which the nodes were last changed. The indexing components will try to index information about nodes as fast as possible, but content indexing is likely to be limited by the time needed to extract text from the files and all indexing will be affected by the rate at which the nodes are being changed.
 
-Some queries can be executed both transactionally against the database or with eventual consistency against the Solr index. Only queries using the AFTS or CMIS query languages can be executed against the database. The Lucene query language cannot be used against the database whereas, `selectNodes` (XPATH) on the Java API always goes against the database, walking and fetching nodes as required.
-
-Improvements to tracking results in less lag to metadata indexing. Metadata updates are impacted less by content indexing or the bulk updates to PATH for `move`, `rename`, `link` and, `unlink` operations.
-
-The database can only be used for a subset of all the queries. These queries can be in the CMIS QL or AFTS QL. CMIS QL expressions are more likely to use TMDQ because of the default behavior to do exact matches. AFTS QL defaults to full text search and uses constructs not supported by the database engine. For example, PATH queries.
+Some queries can be executed both transactionally against the database or with eventual consistency against the Elasticsearch index. Only queries using the AFTS or CMIS query languages can be executed against the database. The Lucene query language cannot be used against the database whereas, `selectNodes` (XPATH) on the Java API always goes against the database, walking and fetching nodes as required.
 
 In general, TMDQ does not support:
 
-* Structural queries, full text search, and special fields: This includes SITE that are derived from structure and long strings (> 1024 characters). Text fields support exact and pattern-based matching subject to the database collation. Filter queries are rewritten along with the main query to create one large query. Ordering is fine, but again subject to database collation for text.
+* Structural queries.
+* Full text search.
+* Special fields (For example `SITE`).
 * Faceting.
-* Any aggregation: This includes counting the total number of matches for the query.
+* Any aggregation.
+   > **Note:** This includes counting the total number of matches for the query.
 
-AFTS and CMIS queries are parsed to an abstract form. This is then sent to an execution engine. There are two execution engines: the database and the Elasticsearch index. The default is to try the database first and fall back to the Solr index, if the query is not supported against the database. This is configurable for a search subsystem and per query using the Java API.
+AFTS and CMIS queries are parsed to an abstract form. This is then sent to an execution engine. There are two execution engines: the database and the Elasticsearch index. The default is to try the database first and fall back to the Elasticsearch index, if the query is not supported against the database. This is configurable for a search subsystem and per query using the Java API.
 
-To support TMDQ:
-
-* Alfresco Content Services supports TMDQ by default.
-
-## Features
-
-The following are the available feature of the transactional metadata query.
-
-* Transactional metadata query is supported for both Elasticsearch and noindex search subsystems.
-* Transactional metadata query does not support facets.
-* When you enable transactional metadata queries, a query is parsed to check if all of its parts are supported by the database-based query engine. If yes, the database is used automatically.
-* Using the database gives transactional consistency as opposed to the eventual consistency provided by Elasticsearch.
-* If you use the transactional metadata query with the noindex subsystem, the search functionality in Alfresco Share won't work as it relies on full text search.
-* Normally, a query will be executed against the database, if possible. Database execution of a query depends on the query itself. It also depends on the application of an optional patch to the database, which creates the required supporting database indexes. If the supporting indexes have been created, each index subsystem can be configured to:
-* perform transactional execution of queries;
-* execute queries transactionally, when possible, and fall back to eventual consistency; or
-* always execute eventual consistency.
-* When queries are executed against the database:
-* Hidden nodes will be returned by the database, as they are in Alfresco Content Services 5.0.
-* Large result sets are not supported because Alfresco Content Services does not evaluate permissions in query but as a post filter.
-* Counts will not reflect the number of nodes that match the query.
-* The `SearchParameters` and `QueryOptions` objects can be used to override this behaviour per query.
-Alfresco Content Services supports the execution of a subset of the CMIS Query Language (CMIS QL) and Alfresco Full Text Search (AFTS) queries directly against the database. Also, the noindex subsystem supports queries only against the database. This collection of features is called transactional metadata query (TMDQ).
+> **Note:** Alfresco Content Services supports TMDQ by default.
 
 ## Options supported by Query Languages
 
-Use this information to know what options are supported by the Public API, CMIS Query Language (QL), and Alfresco Full Text Search Query Language (FTS QL).
+Use this information to know what options are supported by the v1 REST API, CMIS Query Language (QL), and Alfresco Full Text Search Query Language (FTS QL).
 
-### Public API and TMDQ
+### v1 REST API and TMDQ
 
-From public API, anything that is not a simple query, a filter query, an option that affects these, or an option that affects what is returned for each node in the results, is not supported by TMDQ.
+For the v1 REST API, anything that is not a simple query, a filter query, an option that affects these, or an option that affects what is returned for each node in the results, is not supported by TMDQ.
 
 TMDQ supports:
 
@@ -69,7 +46,7 @@ TMDQ supports:
 
 The default limits for permission evaluation will restrict the results returned from TMDQ based on both the number of results processed and time taken. These can be increased, if required.
 
-The Public API does not support TMDQ for:
+The v1 REST API does not support TMDQ for:
 
 * `templates`
 * `localisation` and `timezone`
@@ -84,15 +61,13 @@ The Public API does not support TMDQ for:
 
 Some of these will be ignored and produce transactional results; others will fail and be eventual.
 
-The Public API ignores the SQL select part of a CMIS query and generate the results as it would do for AFTS.
+The v1 REST API ignores the SQL select part of a CMIS query and generate the results as it would do for AFTS.
 
 ### CMIS QL & TMDQ
 
 For CMIS QL, all expressions except for `CONTAINS()`, `SCORE()`, and `IN_TREE()` can now be executed against the database. Most data types are supported except for the CMIS uri and html types. Strings are supported but only if there are 1024 characters or less in length.
 
-In Alfresco One 5.0, `OR`, decimal, and boolean types were not supported; it is only from Alfresco One 5.1 onwards that they are supported.
-
-Primary and secondary types are supported and require inner joins to link them together. You can skip joins to secondary types from the fetch in CMIS using the public API. You would need an explicit `SELECT` list and supporting joins from a CMIS client. You still need joins to secondary types for predicates and ordering. As CMIS SQL supports ordering as part of the query language, you have to do it there and not via the Public API sort.
+Primary and secondary types are supported and require inner joins to link them together. You can skip joins to secondary types from the fetch in CMIS using the v1 REST API. You would need an explicit `SELECT` list and supporting joins from a CMIS client. You still need joins to secondary types for predicates and ordering. As CMIS SQL supports ordering as part of the query language, you have to do it there and not via the v1 REST API sort.
 
 For multi-valued properties, CMIS QL supports `ANY` semantics from SQL 92. A query against a multi-lingual property, such as title or description, is treated as multi-valued and may match in any language. In the results, you will see the best value for your locale, which may not match the query. Also, ordering will consider any value.
 
@@ -111,11 +86,12 @@ Ranges, PATH, and ANCESTOR are not currently supported.
 Some differences between the database and TMDQ:
 
 * The database has specific fixed collation as defined by the database schema. This affects all string comparisons, such as ordering or case sensitivity in equality. Elasticsearch uses Java localised collation and supports more advanced ordering and multi-lingual fields. The two engines can produce different results for lexical comparison, case sensitivity, ordering, or when using `mltext` properties.
-* The database results include hidden nodes. You can exclude them in the query. The Elasticsearch index results will never include hidden nodes and respects the index control aspect.
+* The database results include hidden nodes. You can exclude them in the query.
 * The database post filters the results to apply permissions. As a result, no total count can be provided and large result sets are not well supported. This also affects paging behaviour. Permission evaluation is truncated by time or number of evaluations. TMDQ is not intended to scale to more than 10s of thousands of nodes. It will not perform well for users who can read one node in a million. It cannot and will not tell you how many results matched the query. To do this could require an inordinate number of permission checks. It does enough to give you the page requested. The Elasticsearch index can apply permissions at query and facet time to billions of nodes. For the same reason, do not expect any aggregation support in TMDQ.
-* `CONTAINS()` support is complicated. The pure CMIS part of the query and `CONTAINS()` part are melded together into a single abstract query representation. By default, in CMIS the `CONTAINS()` expression implies full text search, so the queries will go to the Elasticsearch index.
+* `CONTAINS()` is supported. The pure CMIS part of the query and the `CONTAINS()` part are melded together into a single abstract query representation. By default, in CMIS the `CONTAINS()` expression implies full text search, which means the queries will go to the Elasticsearch index.
 * The database does not score. It will return results in some order that depends on the query plan, unless you ask for specific ordering. A three part `OR` query, where some documents match more than one constraint, is treated as equal. For Elasticsearch index queries, the more parts of an `OR` match, the higher is the score. The docs that match more optional parts of the query will come higher up.
 * Queries from Share will not use TMDQ as they will most likely have a full text part to the query and ask for facets.
+* Exact term search will behave differently when executed against the database or the search index. This is due to how tokenisation is applied to strings in the search index, for more see [Exact Term Queries](https://hub.alfresco.com/t5/alfresco-content-services-blog/exact-term-queries-in-search-services-2-0/ba-p/302200).
 
 ### Exact match and patterns
 
@@ -142,14 +118,6 @@ The following AFTS exact matches and patterns are supported:
 * `=<field>:term`
 * `=<field>:ter*`
 * `=<field>:*erm`
-
-### Full text search for CMIS QL and AFTS
-
-* CMIS QL
-  * IN_TREE()
-  * IN_FOLDER()
-* AFTS
-  * PATH
 
 ### Supported for special fields in TMDQ using AFTS
 
