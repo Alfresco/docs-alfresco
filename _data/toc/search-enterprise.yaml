@@ -12,7 +12,7 @@
         - title: 'Overview'
           path: '/search-enterprise/latest/config/'
         - title: 'Transactional metadata query'
-          path: '/search-services/latest/config/transactional/'
+          path: '/search-enterprise/latest/config/transactional/'
     - title: 'Administer'
       path: '/search-enterprise/latest/admin/'
     - title: 'Using'
