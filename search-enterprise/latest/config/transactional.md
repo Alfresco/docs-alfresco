@@ -196,7 +196,8 @@ The `WHERE` and `ORDER BY` clauses support the following property data types and
   * Support for comparisons `=` and `<>`
   * Supports ordering for single-valued properties
 * `id`
-  * Supports `cmis:objectId`, `cmis:baseTypeId`, `cmis:objectTypeId`, `cmis:parentId`, `=`, `<>`, `IN`, `NOT IN`
+  * Support for `cmis:objectId`, `cmis:baseTypeId`, `cmis:objectTypeId` and `cmis:parentId` fields
+  * Support for comparison using `=`, `<>`, `IN`, `NOT IN`
   * Ordering using a property, which is a CMIS identifier, is not supported
 * `datetime`
   * Supports all properties and comparisons `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
