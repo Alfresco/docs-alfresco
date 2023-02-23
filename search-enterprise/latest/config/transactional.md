@@ -183,7 +183,7 @@ The `WHERE` and `ORDER BY` clauses support the following property data types and
     ```
 
 * `integer`
-  * Supports all properties and comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
+  * Supports comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
   * Supports ordering for single-valued properties
 
 * `double`
