@@ -232,7 +232,7 @@ A predicate specifies a condition that is true or false about a given row or gr
 
 ## Unsupported predicates
 
-The following predicates are not supported:
+The following predicates are not supported by TMDQ:
 
 * TEXT search predicate, such as `CONTAINS()` and `SCORE()` 
 * `IN_TREE()` predicate
