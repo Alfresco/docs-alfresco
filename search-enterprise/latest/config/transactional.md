@@ -126,7 +126,7 @@ Elasticsearch supports exact match on all non-text properties. Text properties o
 The following specific CMIS QL fields are supported:
 
 * `cmis:parentId`
-* `cmis:objectcId`
+* `cmis:objectId`
 * `cmis:objectTypeId`
 * `cmis:baseTypeId`
 * `cmis:contentStreamMimeType`
