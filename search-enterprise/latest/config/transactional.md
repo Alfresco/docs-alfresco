@@ -193,7 +193,7 @@ The `WHERE` and `ORDER BY` clauses support the following property data types and
   * Supports all properties and comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
   * Supports ordering for single-valued properties
 * `boolean`
-  * Supports properties and comparisons, such as `=` and `<>`
+  * Support for comparisons `=` and `<>`
   * Supports ordering for single-valued properties
 * `id`
   * Supports `cmis:objectId`, `cmis:baseTypeId`, `cmis:objectTypeId`, `cmis:parentId`, `=`, `<>`, `IN`, `NOT IN`
