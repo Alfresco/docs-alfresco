@@ -82,7 +82,7 @@ The Public API does not support TMDQ for:
 * `highlight`
 * `ranges facets`
 
-Some of these will be ignored and produce transactional results; others will fail and be eventual.
+The use of these with TMDQ is undefined. Some of these options will be ignored and results will come from the database; others will cause the database query to fail and ACS will fail over to return results from the search index.
 
 The Public API ignores the SQL select part of a CMIS query and generate the results as it would do for AFTS.
 
