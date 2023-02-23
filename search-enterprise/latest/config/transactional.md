@@ -102,7 +102,7 @@ For multi-valued properties, CMIS QL supports `ANY` semantics from SQL 92. A que
 
 ### Alfresco FTS QL & TMDQ
 
-It is more difficult to write AFTS queries that use TMDQ as the default behaviour is to use full text queries for text. These cannot go against the database. Also, special fields like `SITE` and `TAG` that are derived from the structure will not go to the database. `TYPE`, `ASPECT` and the related exact matches work fine with TMDQ. All property data types are fine but strings should be less than 1024 characters in length. Text queries have to be prefixed with `=` to avoid full text search. Additionally, `PARENT` is supported but `OR` is supported from Alfresco One 5.1 onwards.
+It is more difficult to write AFTS queries that use TMDQ as the default behaviour is to use full text queries for text and full text queries cannot be served by the database. Also, special fields like `SITE` and `TAG` that are derived from paths or other nodes will not be handled by the database. `TYPE`, `ASPECT` and the related exact matches will work with TMDQ. All property data types are fine but strings should be less than 1024 characters in length. Text queries have to be prefixed with `=` to avoid full text search.
 
 Ranges, PATH, and ANCESTOR are not currently supported.
 
