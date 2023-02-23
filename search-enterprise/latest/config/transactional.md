@@ -271,7 +271,7 @@ The default value for these properties is `TRANSACTIONAL_IF_POSSIBLE`. However, 
 * `EVENTUAL`
 * `TRANSACTIONAL`
 
-The `solr.query.cmis.queryConsistency` and `solr.query.fts.queryConsistency` properties can also be set per query on the `SearchParameters` and `QueryOptions` objects.
+The `solr.query.cmis.queryConsistency` and `solr.query.fts.queryConsistency` properties can also be set per query on the `SearchParameters` and `QueryOptions` objects in the Java Public API.
 
 ## Configuring an optional patch for upgrade
 
