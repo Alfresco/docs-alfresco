@@ -75,6 +75,25 @@ Fields fall into three types, property fields, special fields, and fields for da
 |Field for Data Type|Fully qualified Data Type, for example `{http://www.alfresco.org/model/dictionary/1.0}content:apple`.|
 |Field for Data Type|Data Type style property, for example `d:content:apple`.|
 
+## Search in multi-value fields
+
+When you search in multi-value fields there are additional options available than for [Search in fields](#search-in-fields). To search in multi-value fields your properties must have `Multiple` values enabled, for more see [Create a property
+]({% link content-services/latest/config/models.md %}#create-a-property).
+
+The following example queries are executed using a sample multi-valued property `"mul:os"` that stores values `"MacOS"` and `"Linux"`.
+
+`mul:os:"MacOS"`
+
+Returns the document because `"MacOS"` is one of the values of the property.
+
+`mul:os:("MacOS" AND "Windows")`
+
+Does not return a document because the property doesn't contain the value `"Windows"`.
+
+`mul:os:("MacOS" OR "Windows")`
+
+Returns the document because `"MacOS"` is one of the values of the property, even though `"Windows"` is not.
+
 ## Search for a phrase
 
 Phrases are enclosed in double quotes. Any embedded quotes can be escaped using ''. If no field is specified then the default `TEXT` field will be used, as with searches for a single term.
