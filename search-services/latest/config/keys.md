@@ -79,13 +79,13 @@ It is recommended that you set your own passwords when generating certificates. 
 (For Linux)
 
 ```bash
-./run.sh -keystorepass “password" -truststorepass “password"
+./run.sh -keystorepass "password" -truststorepass "password"
 ```
 
 (For Windows)
 
 ```bash
-run.cmd -keystorepass “password" -truststorepass “password"
+run.cmd -keystorepass "password" -truststorepass "password"
 ```
 
 ## Keystore directory structure
