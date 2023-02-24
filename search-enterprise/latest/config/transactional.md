@@ -332,9 +332,9 @@ Use this information to control the maximum number of items that an Alfresco Sha
 
 By default, the Share search feature returns a maximum of 250 search results. You can extend this number of search results to return more than 250 entries.
 
-1. Download the [share-config.xml](http://dev.alfresco.com/resource/AlfrescoOne/5.1/configuration/alfresco/share-config.xml) file.
+1. Download your `share-config.xml` file found at `tomcat/webapps/share/WEB-INF/classes/alfresco/share-config.xml`, for more see [Share Configuration Extension Point](https://docs.alfresco.com/content-services/latest/develop/share-ext-points/share-config/).
 
-2. Open the share-config.xml file and copy the `<config evaluator="string-compare" condition="Search" replace="true">` section.
+2. Open the `share-config.xml` file and copy the `<config evaluator="string-compare" condition="Search" replace="true">` section.
 
 3. Open the `<web-extension>share-config-custom.xml` file and then paste the copied section.
 
