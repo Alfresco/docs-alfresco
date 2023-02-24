@@ -183,7 +183,7 @@ The `WHERE` and `ORDER BY` clauses support the following property data types and
     ```
 
 * `integer`
-  * Supports all properties and comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
+  * Supports comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
   * Supports ordering for single-valued properties
 
 * `double`
@@ -193,13 +193,14 @@ The `WHERE` and `ORDER BY` clauses support the following property data types and
   * Supports all properties and comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
   * Supports ordering for single-valued properties
 * `boolean`
-  * Supports properties and comparisons, such as `=` and `<>`
+  * Support for comparisons `=` and `<>`
   * Supports ordering for single-valued properties
 * `id`
-  * Supports `cmis:objectId`, `cmis:baseTypeId`, `cmis:objectTypeId`, `cmis:parentId`, `=`, `<>`, `IN`, `NOT IN`
+  * Support for `cmis:objectId`, `cmis:baseTypeId`, `cmis:objectTypeId` and `cmis:parentId` fields
+  * Support for comparison using `=`, `<>`, `IN`, `NOT IN`
   * Ordering using a property, which is a CMIS identifier, is not supported
 * `datetime`
-  * Supports all properties and comparisons `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
+  * Supports comparisons using `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN` and `NOT IN`
   * Supports ordering for single-valued properties
     For example:
 
@@ -231,7 +232,7 @@ A predicate specifies a condition that is true or false about a given row or gr
 
 ## Unsupported predicates
 
-The following predicates are not supported:
+The following predicates are not supported by TMDQ:
 
 * TEXT search predicate, such as `CONTAINS()` and `SCORE()` 
 * `IN_TREE()` predicate
@@ -270,7 +271,7 @@ The default value for these properties is `TRANSACTIONAL_IF_POSSIBLE`. However, 
 * `EVENTUAL`
 * `TRANSACTIONAL`
 
-The `solr.query.cmis.queryConsistency` and `solr.query.fts.queryConsistency` properties can also be set per query on the `SearchParameters` and `QueryOptions` objects.
+The `solr.query.cmis.queryConsistency` and `solr.query.fts.queryConsistency` properties can also be set per query on the `SearchParameters` and `QueryOptions` objects in the Java Public API.
 
 ## Configuring an optional patch for upgrade
 
@@ -310,7 +311,7 @@ The following sections describe how to configure search in Alfresco Share.
 
 ## Controlling permissions checking
 
-You can limit the time Alfresco Content Services spends on ensuring that the user executing the search has the necessary permissions to see each result. Setting this limit increases search speed and reduces the use of resources.
+TMDQ may take a long time when trying to create a page of results with a sparse result set. You can limit the time Alfresco Content Services spends per TMDQ query by configuring a maximum duration or a maximum number of permission checks before returning. Setting this limit increases search speed and reduces the use of resources but may result in the user receiving a partial page of results for expensive queries.
 
 You can limit both the time spent and the number of documents checked before Alfresco Content Services returns a search query using the `system.acl.maxPermissionCheckTimeMillis` and the `system.acl.maxPermissionChecks` properties. The default values are 10000 and 1000 respectively.
 
@@ -326,7 +327,7 @@ You can limit both the time spent and the number of documents checked before Alf
 
     > **Note:** If you increase these values and have a query that returns a very large number of results, (a) the search results will take longer to be returned to the user, and (b) the system will spend longer to check permissions, leading to the possibility of performance degradation. If you set these values to a low number, you run the risk of inconsistent search results every time you run the same search. These settings are also applied when paging. So paging the results will only go up to the maximum returned results based on these settings.
 
-## Controlling search results
+### Limiting search results
 
 Use this information to control the maximum number of items that an Alfresco Share search returns.
 
