@@ -244,7 +244,6 @@ In the following cases, the query will go to the database but the result might n
 * `IS NULL`: Currently, this operator will only find properties that are explicitly NULL as opposed to the property not existing.
 * `SORT`: The multi-valued and `mltext` properties will sort according to one of the values. Ordering is not localized and relies on the database collation. It uses an `INNER JOIN`, which will also filter NULL values from the result set.
 * `d:mltext`: This data type ignores locale. However, if there is more than one locale, the localised values behave as a multi-valued string. Ordering on `mltext` will be undefined as it is effectively multi-valued.
-* `UPPER()` and `LOWER()`: Comparison predicates provide additional support for SQL `UPPER()` and LOWER() functions (that were dropped from a draft version of CMIS specification but are supported for backward compatibility).
 
 ## Configuring transactional metadata query
 
