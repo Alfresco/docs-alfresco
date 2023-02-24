@@ -313,7 +313,7 @@ The following sections describe how to configure search in Alfresco Share.
 
 TMDQ may take a long time when trying to create a page of results with a sparse result set. You can limit the time Alfresco Content Services spends per TMDQ query by configuring a maximum duration or a maximum number of permission checks before returning. Setting this limit increases search speed and reduces the use of resources but may result in the user receiving a partial page of results for expensive queries.
 
-You can limit both the time spent and the number of documents checked before Alfresco Content Services returns a search query using the `system.acl.maxPermissionCheckTimeMillis` and the `system.acl.maxPermissionChecks` properties. The default values are 10000 and 1000 respectively.
+You can limit both the time spent and the number of documents checked before Alfresco Content Services returns search results using the `system.acl.maxPermissionCheckTimeMillis` and the `system.acl.maxPermissionChecks` properties. The default values are 10000 and 1000 respectively.
 
 1. Open the `<classpathRoot>/alfresco-global.properties` file.
 
