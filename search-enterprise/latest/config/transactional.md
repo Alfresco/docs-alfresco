@@ -123,7 +123,7 @@ The following AFTS exact matches and patterns are supported:
 * `=<field>:ter*`
 * `=<field>:*erm`
 
-### Supported for special fields in TMDQ using AFTS
+### Support for special fields in TMDQ using AFTS
 
 * PARENT
 * TYPE
@@ -182,26 +182,19 @@ The `WHERE` and `ORDER BY` clauses support the following property data types and
     select * from cmis:document where cmis:name <> 'fred' order by cmis:name
     ```
 
-* `integer`
-  * Supports comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
-  * Supports ordering for single-valued properties
-
-* `double`
-  * Supports all properties and comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
-  * Supports ordering for single-valued properties
-* `float`
-  * Supports all properties and comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
-  * Supports ordering for single-valued properties
+* `integer`, `double`, and `float`
+  * Support all properties and comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
+  * Support ordering for single-valued properties
 * `boolean`
   * Support for comparisons `=` and `<>`
-  * Supports ordering for single-valued properties
+  * Support ordering for single-valued properties
 * `id`
-  * Support for `cmis:objectId`, `cmis:baseTypeId`, `cmis:objectTypeId` and `cmis:parentId` fields
+  * Support `cmis:objectId`, `cmis:baseTypeId`, `cmis:objectTypeId` and `cmis:parentId` fields
   * Support for comparison using `=`, `<>`, `IN`, `NOT IN`
   * Ordering using a property, which is a CMIS identifier, is not supported
 * `datetime`
-  * Supports comparisons using `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN` and `NOT IN`
-  * Supports ordering for single-valued properties
+  * Support comparisons using `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN` and `NOT IN`
+  * Support ordering for single-valued properties
     For example:
 
     ```sql
@@ -225,9 +218,7 @@ A predicate specifies a condition that is true or false about a given row or gr
 
     > **Note:** Prefixed expressions perform better and should be used where possible.
 
-* `NULL` predicate 
-* Quantified comparison predicate (`= ANY`)
-* Quantified IN predicate (`ANY .... IN (....)`)
+* `NULL` predicate
 * `IN_FOLDER` predicate function
 
 ## Unsupported predicates
@@ -273,43 +264,11 @@ The default value for these properties is `TRANSACTIONAL_IF_POSSIBLE`. However, 
 
 The `solr.query.cmis.queryConsistency` and `solr.query.fts.queryConsistency` properties can also be set per query on the `SearchParameters` and `QueryOptions` objects in the Java Public API.
 
-## Configuring an optional patch for upgrade
-
-Transactional metadata query requires two optional patches to be applied for full support. If no patch is applied there is no database support.
-
-The first patch does not support boolean, float or double properties, and disjunction (OR). It adds the database support for TMDQ equivalent to an out-of-the-box Alfresco One 5.0 install (where float, double, boolean, and disjunctions are not supported).
-
-The second patch adds the database support for TMDQ equivalent to an out-of-the-box Alfresco One 5.1 install. Some CMIS QL use cases where `OR` would be used are supported by using `IN`. In Alfresco One 5.1 and later versions, these restrictions go away after applying all TMDQ optional patches. The database size will be approximately 25% larger with all indexes applied.
-
-To use or run a query against the `float`, `double`, or `boolean` property data types, you need to run an optional patch that adds the required indexes to the database. To do so, set the following property in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
-
-```bash
-system.metadata-query-indexes-more.ignored=false 
-```
-
-When using all other data types (such as `string`, `integer`, `id`, or `datetime`), to enable the patch that adds the required indexes to the database, set the following property in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
-
-```bash
-system.metadata-query-indexes.ignored=false 
-```
-
-If these optional patches are not run, the metadata query will not be used, regardless of the configuration. This configuration is checked when the subsystem is reloaded.
-
-For a new install, the default behavior is to use the `TRANSACTIONAL_IF_POSSIBLE` metadata queries. For an upgraded system, the `TRANSACTIONAL_IF_POSSIBLE` metadata queries will be used only if the upgrade patches have been run.
-
-## Adding optional indexes to a database
-
-When you are upgrading the database, you can add optional indexes in order to support the metadata query feature. This information lets you know the likely duration of the upgrade and how to do it incrementally.
-
-For large repositories, creating the database indexes to support the transactional metadata query can take some time. To check how long it will take, you can add the first index to the database and note the time taken. The full upgrade is estimated to take less than 10 times this value. However, this can vary depending on the structure of the data, the database, and the size of the repository.
-
-The [SQL patch script](http://dev.alfresco.com/resource/AlfrescoOne/5.0/configuration/alfresco/dbscripts/upgrade/4.2/org.hibernate.dialect.Dialect/metadata-query-indexes.sql) can be run in parts, adding one index at a time. The patch is marked complete by the statement that inserts into alf_applied_patch. The patch can be marked as unapplied using the SQL delete statement.
-
 ## Configuring search in Alfresco Share
 
 The following sections describe how to configure search in Alfresco Share.
 
-## Controlling permissions checking
+### Controlling permissions checking
 
 TMDQ may take a long time when trying to create a page of results with a sparse result set. You can limit the time Alfresco Content Services spends per TMDQ query by configuring a maximum duration or a maximum number of permission checks before returning. Setting this limit increases search speed and reduces the use of resources but may result in the user receiving a partial page of results for expensive queries.
 
