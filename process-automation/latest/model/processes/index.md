@@ -6,7 +6,7 @@ Processes are the collection of components that are used to build and represent 
 
 There are three concepts associated with modeling processes to understand and differentiate between:
 
-* **Diagrams** are the container that process definitions are modeled in. A process diagram can contain multiple process definitions when [pools]({% link process-automation/latest/model/processes/bpmn.md %}#pools-and-lanes) are used to separate them. Process diagrams are colour coded with the following definitions:
+* **Diagrams** are the container that process definitions are modeled in. A process diagram can contain multiple process definitions when [pools]({% link process-automation/latest/model/processes/bpmn.md %}#pools-and-lanes) are used to separate them. Process diagrams are color coded with the following definitions:
 
   * Blue indicates completed nodes
   * Green indicates current active nodes
@@ -347,3 +347,15 @@ The actions that can be run against a process are:
 | Validate | Run validation against the process. Any errors can be seen in the log history at the bottom of the Modeling Application and are flagged in a pop-up box. |
 | Save | Save any changes made on the process diagram. |
 | Delete | Delete the process diagram. |
+
+## Edit User Task Notifications
+
+Use the **Edit User Task Notification** window to edit the default email templates used for processes. You can configure the **From** and **Subject** fields for the selected user task so that at runtime they will send task email notifications that are not the default, to the assignee or candidate.
+
+The fields on the **Assignee** tab and **Candidate** tabs are:
+
+| Action | Description |
+| ------ | ----------- |
+| From | Enter an email address that the task will be sent from. |
+| Subject | Enter a message for the user that will recieve the notification. For example `The task ${taskName} awaits your response.` |
+| Email template | Select the email template you want to use. You can select from the, **Default email template**, **From file**, **From URL**, and **Create new email template**. |
