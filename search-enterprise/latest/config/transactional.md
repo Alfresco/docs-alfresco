@@ -6,7 +6,7 @@ Alfresco Content Services supports the execution of a subset of the CMIS Query L
 
 TMDQ supports use cases where eventual consistency is not the preferred option.
 
-The Elasticsearch subsystem is eventually consistent. The amount of time a change takes to reflect in the index is normally less than 1 second, but can be longer under heavy load, or for complex/cascading updates. Elasticsearch indexes the metadata and the content of each updated node, in the order in which the nodes were last changed. The indexing components will try to index information about nodes as fast as possible, but content indexing is likely to be limited by the time needed to extract text from the files and all indexing will be affected by the rate at which the nodes are being changed.
+The Elasticsearch subsystem is eventually consistent. A change can take any length of time to be reflected in the index, ranging from a few seconds to several minutes. Elasticsearch indexes the metadata and the content of each updated node, in the order in which the nodes were last changed. The indexing components will try to index information about nodes as fast as possible, but content indexing is likely to be limited by the time needed to extract text from the files and all indexing will be affected by the rate at which the nodes are being changed.
 
 Some queries can be executed both transactionally against the database or with eventual consistency against the Elasticsearch index. Only a subset of queries using the AFTS or CMIS query languages can be executed against the database. No queries using the Lucene query language can be used against the database whereas, `selectNodes` (XPATH) on the Java API always goes against the database, walking and fetching nodes as required.
 
@@ -65,7 +65,7 @@ The v1 REST API does not support TMDQ for:
 
 The use of these with TMDQ is undefined. Some of these options will be ignored and results will come from the database; others will cause the database query to fail and ACS will fail over to return results from the search index.
 
-The Public API ignores the SQL select part of a CMIS query and generate the results as it would do for AFTS.
+The V1 REST API ignores the SQL `SELECT` part of a CMIS query and generates the results as it would do for AFTS.
 
 ### CMIS QL & TMDQ
 
@@ -173,7 +173,7 @@ The following object types and their sub-types are supported:
 The `WHERE` and `ORDER BY` clauses support the following property data types and comparisons:
 
 * `string`
-  * Supports all properties and comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`, `LIKE`
+  * Supports comparisons using `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN` and `NOT IN` `LIKE`
   * Supports ordering for single-valued properties
     For example:
 
@@ -182,17 +182,17 @@ The `WHERE` and `ORDER BY` clauses support the following property data types and
     ```
 
 * `integer`, `double`, and `float`
-  * Support all properties and comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
-  * Support ordering for single-valued properties
+  * Supports all comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
+  * Supports ordering for single-valued properties
 * `boolean`
   * Support for comparisons `=` and `<>`
-  * Support ordering for single-valued properties
+  * Supports ordering for single-valued properties
 * `id`
-  * Support `cmis:objectId`, `cmis:baseTypeId`, `cmis:objectTypeId` and `cmis:parentId` fields
-  * Support for comparison using `=`, `<>`, `IN`, `NOT IN`
+  * Supports `cmis:objectId`, `cmis:baseTypeId`, `cmis:objectTypeId` and `cmis:parentId` fields
+  * Support for comparisons, using `=`, `<>`, `IN`, `NOT IN`
   * Ordering using a property, which is a CMIS identifier, is not supported
 * `datetime`
-  * Support comparisons using `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN` and `NOT IN`
+  * Supports all comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN` and `NOT IN`
   * Support ordering for single-valued properties
     For example:
 
@@ -260,7 +260,7 @@ The default value for these properties is `TRANSACTIONAL_IF_POSSIBLE`. However, 
 * `EVENTUAL`
 * `TRANSACTIONAL`
 
-The `solr.query.cmis.queryConsistency` and `solr.query.fts.queryConsistency` properties can also be set per query on the `SearchParameters` and `QueryOptions` objects in the Java Public API.
+The `solr.query.cmis.queryConsistency` and `solr.query.fts.queryConsistency` properties can also be set per query on the `SearchParameters` and `QueryOptions` objects in the V1 REST API.
 
 ## Configuring search in Alfresco Share
 
