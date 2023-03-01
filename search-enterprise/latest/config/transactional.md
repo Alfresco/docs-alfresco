@@ -6,11 +6,9 @@ Alfresco Content Services supports the execution of a subset of the CMIS Query L
 
 TMDQ supports use cases where eventual consistency is not the preferred option.
 
-The Elasticsearch subsystem is eventually consistent. A change can take any length of time to be reflected in the index, ranging from a few seconds to several minutes. Elasticsearch indexes the metadata and the content of each updated node, in the order in which the nodes were last changed. The indexing components will try to index information about nodes as fast as possible, but content indexing is likely to be limited by the time needed to extract text from the files and all indexing will be affected by the rate at which the nodes are being changed.
+The Elasticsearch subsystem is eventually consistent. The amount of time a change a change takes to reflect in the index is normally less than 1 second, but can be longer under heavy load, or for complex/cascading updates. Elasticsearch indexes the metadata and the content of each updated node, in the order in which the nodes were last changed. The indexing components will try to index information about nodes as fast as possible, but content indexing is likely to be limited by the time needed to extract text from the files and all indexing will be affected by the rate at which the nodes are being changed.
 
 Some queries can be executed both transactionally against the database or with eventual consistency against the Elasticsearch index. Only a subset of queries using the AFTS or CMIS query languages can be executed against the database. No queries using the Lucene query language can be used against the database whereas, `selectNodes` (XPATH) on the Java API always goes against the database, walking and fetching nodes as required.
-
-The database can only be used for a subset of all the queries. These queries can be in the CMIS QL or AFTS QL. CMIS QL expressions are more likely to use TMDQ because of the default behavior to do exact matches. AFTS QL defaults to full text search and uses constructs not supported by the database engine. For example, PATH queries.
 
 In general, TMDQ does not support:
 
@@ -89,7 +87,7 @@ Some differences between the database and TMDQ:
 
 * The database has specific fixed collation as defined by the database schema. This affects all string comparisons, such as ordering or case sensitivity in equality. Elasticsearch uses Java localised collation and supports more advanced ordering and multi-lingual fields. The two engines can produce different results for lexical comparison, case sensitivity, ordering, or when using `mltext` properties.
 * The database post filters the results to apply permissions. As a result, no total count can be provided and large result sets are not well supported. This also affects paging behaviour. Permission evaluation is truncated by time or number of evaluations. TMDQ is not intended to scale to tens of thousands of nodes. It will not perform well for users who can only read one node in a million. It cannot tell you how many results matched the query and cannot support aggregations. It will try to do enough to give you the page requested. The Elasticsearch index can apply permissions at query and facet time, allowing queries to scale to billions of nodes.
-* `CONTAINS()` support is complicated. The pure CMIS part of the query and `CONTAINS()` part are melded together into a single abstract query representation. By default, in CMIS the `CONTAINS()` expression implies full text search, so the queries will go to the Elasticsearch index.
+* The CMIS part of the query and `CONTAINS()` part are melded together into a single abstract query representation. By default, in CMIS the `CONTAINS()` expression implies full text search, so the queries will go to the Elasticsearch index.
 * The database does not score. It will return results in some order that depends on the query plan, unless you ask for specific ordering. A three part `OR` query, where some documents match more than one constraint, is treated as equal. For Elasticsearch index queries, the more parts of an `OR` match, the higher is the score. The docs that match more optional parts of the query will come higher up.
 * Queries from Share will not use TMDQ as they will most likely have a full text part to the query and ask for facets.
 * Exact term search will behave differently when executed against the database or the search index. This is due to how tokenisation is applied to strings in the search index, for more see [Exact Term Queries](https://hub.alfresco.com/t5/alfresco-content-services-blog/exact-term-queries-in-search-services-2-0/ba-p/302200).
@@ -180,7 +178,7 @@ The `WHERE` and `ORDER BY` clauses support the following property data types and
     ```
 
 * `integer`, `double`, and `float`
-  * Supports all comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
+  * Supports comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
   * Supports ordering for single-valued properties
 * `boolean`
   * Support for comparisons `=` and `<>`
@@ -190,7 +188,7 @@ The `WHERE` and `ORDER BY` clauses support the following property data types and
   * Support for comparisons, using `=`, `<>`, `IN`, `NOT IN`
   * Ordering using a property, which is a CMIS identifier, is not supported
 * `datetime`
-  * Supports all comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN` and `NOT IN`
+  * Supports comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN` and `NOT IN`
   * Support ordering for single-valued properties
     For example:
 
