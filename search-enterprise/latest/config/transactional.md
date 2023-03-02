@@ -246,10 +246,12 @@ Configure the transaction metadata query using the subsystem properties.
 
 The common properties used to configure the transactional metadata query for the search subsystems are:
 
-* `solr.query.cmis.queryConsistency`
-* `solr.query.fts.queryConsistency`
+* `query.cmis.queryConsistency`
+* `query.fts.queryConsistency`
 
 These properties should be set in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file.
+
+> **Important:** The name of these properties has changed. They were called `solr.query.cmis.queryConsistency` and `solr.query.fts.queryConsistency` but these were deprecated. The old names of the properties will still work with Elasticsearch but it is highly recommended you update them in your configuration.
 
 The default value for these properties is `TRANSACTIONAL_IF_POSSIBLE`. However, you can override it with any of the following permitted values:
 
@@ -303,6 +305,3 @@ By default, the Share search feature returns a maximum of 250 search results. Yo
     2. Click **Refresh Web Scripts**.
 
         You have now refreshed the web scripts and set a limit to the number of items a search in Share returns.
-
-> **Note:** Custom searches and searches from the node browser use the `solr.query.maximumResultsFromUnlimitedQuery` property to control search results. For more information, see [Solr core configuration properties
-]({% link search-services/latest/config/index.md %}#solr-core-configuration-properties).

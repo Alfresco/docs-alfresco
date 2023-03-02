@@ -39,6 +39,7 @@ Additional property values can be included in the global configuration file `alf
 | elasticsearch.lockRetryPeriodSeconds | Number of seconds to wait before retrying the Elasticsearch index initialization in lock mode. The default value is `10`. |
 | elasticsearch.query.includeGroupsForRoleAdmin | Include groups for Role Admin in permission filters when this value is set to `true`. The default value is `false`. |
 | elasticsearch.index.mapping.total_fields.limit | Mapping limit settings: The maximum number of fields in Alfresco index. When working on deployments including a large collection of custom content models, this value may be increased, but it is not recommended. The default value is `7500`. |
+| elasticsearch.index.max_result_window | Maximum number of results that can be returned by a single query. The default value is `10000`. |
 
 Some of the properties above can be edited in the Search Admin Console, but values will be applied only to the Alfresco Repository instance. To update values for the Elasticsearch connector update its property file manually. **Note:** It is important that the Elasticsearch connector and repository configuration match, otherwise the search functionality will be impaired.
 
