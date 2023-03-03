@@ -252,7 +252,7 @@ The default value for these properties is `TRANSACTIONAL_IF_POSSIBLE`. However, 
 * `EVENTUAL`
 * `TRANSACTIONAL`
 
-The `solr.query.cmis.queryConsistency` and `solr.query.fts.queryConsistency` properties can also be set per query on the `SearchParameters` and `QueryOptions` objects in the V1 REST API.
+The `query.cmis.queryConsistency` and `query.fts.queryConsistency` properties can also be set per query on the `SearchParameters` and `QueryOptions` objects in the V1 REST API.
 
 ## Configuring search in Alfresco Share
 
