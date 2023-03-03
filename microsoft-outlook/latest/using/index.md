@@ -135,7 +135,7 @@ Work with your files and folders using the Alfresco sidebar.
 
     >**Note:** In Alfresco Outlook Integration 2.7, the **Explore** tab is only available if the **Workflow** tab is also enabled to save space for more content. The **Workflow** tab is hidden by default.
 
-    >**Note:** In Alfresco Outlook Integration 2.9.2, the **Explore** tab includes a Simple Search Filter.
+    >**Note:** In Alfresco Outlook Integration 2.9.2, the **Explore** tab includes a Simple Search Filter that allows you to filter the simple search results via options **Exclude folders** or to show **Folders only**. The default option is to show **All content**.
 
 2. Repo location selector: choose which sites and content you wish to see. You can see the full repository in this view, or limit the view to certain sites only (**All Sites**, **My Sites** or **Favorite Sites**).
 
