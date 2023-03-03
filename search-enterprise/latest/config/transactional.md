@@ -52,10 +52,6 @@ The v1 REST API does not support TMDQ for:
 * `localisation` and `timezone`
 * `facetQueries`
 * `facetFields`
-* `facetIntervals`
-* `pivots`
-* `stats`
-* `spellcheck`
 * `highlight`
 * `ranges facets`
 
@@ -169,28 +165,26 @@ The following object types and their sub-types are supported:
 The `WHERE` and `ORDER BY` clauses support the following property data types and comparisons:
 
 * `string`
-  * Supports comparisons using `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN` and `NOT IN` `LIKE`
-  * Supports ordering for single-valued properties
-    For example:
+  * Supports comparisons using `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN` and `LIKE`.
+  * Supports ordering for single-valued properties, for example:
 
     ```sql
     select * from cmis:document where cmis:name <> 'fred' order by cmis:name
     ```
 
 * `integer`, `double`, and `float`
-  * Supports comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
-  * Supports ordering for single-valued properties
+  * Supports comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`.
+  * Supports ordering for single-valued properties.
 * `boolean`
   * Support for comparisons `=` and `<>`
-  * Supports ordering for single-valued properties
+  * Supports ordering for single-valued properties.
 * `id`
-  * Supports `cmis:objectId`, `cmis:baseTypeId`, `cmis:objectTypeId` and `cmis:parentId` fields
-  * Support for comparisons, using `=`, `<>`, `IN`, `NOT IN`
-  * Ordering using a property, which is a CMIS identifier, is not supported
+  * Supports `cmis:objectId`, `cmis:baseTypeId`, `cmis:objectTypeId` and `cmis:parentId` fields.
+  * Support for comparisons, using `=`, `<>`, `IN` and `NOT IN`.
+  * Ordering using a property, which is a CMIS identifier, is not supported.
 * `datetime`
-  * Supports comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN` and `NOT IN`
-  * Support ordering for single-valued properties
-    For example:
+  * Supports comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN` and `NOT IN`.
+  * Support ordering for single-valued properties, for example:
 
     ```sql
     select * from cmis:document where cmis:lastModificationDate = '2010-04-01T12:15:00.000Z' order by
