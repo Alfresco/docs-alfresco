@@ -5820,30 +5820,16 @@ For more information about installing and configuring Alfresco Outlook Integrati
 
 Use this information to install and configure the Document Transformation Engine.
 
--   **[Document Transformation Engine overview](#document-transformation-engine-overview)**  
-The Document Transformation Engine is a stable, fast, and scalable solution for high-quality transformations of Microsoft Office documents. It is an enterprise alternative to LibreOffice.
--   **[Document Transformation Engine setup](#document-transformation-engine-setup)**  
-The Document Transformation Engine consists of two software modules: the standalone Document Transformation Engine and the Alfresco Transformation client.
--   **[Installing the Document Transformation Engine](#installing-the-document-transformation-engine)**  
-Use this information to install all the components required for the Document Transformation Engine.
--   **[Configuring the Document Transformation Engine](#configuring-the-document-transformation-engine)**  
-Configuring the Document Transformation Engine consists of two parts: configuring the standalone Transformation Engine using the Web Console, and configuring the Alfresco Transformation client using a properties file or JMX.
--   **[Using the Document Transformation Engine](#using-the-document-transformation-engine)**  
-The Document Transformation Engine is used when you upload files to Alfresco Content Services, and you can see results in the Alfresco Share preview.
--   **[Integrating with monitoring tools](#integrating-with-monitoring-tools)**  
-You can integrate the Document Transformation Engine with monitoring tools; for example, Nagios or Hyperic, by using HTTP REST calls.
-
-
 
 #### Document Transformation Engine overview {#document-transformation-engine-overview}
 
-The Document Transformation Engine is a stable, fast, and scalable solution for high-quality transformations of Microsoft Office documents. It is an enterprise alternative to LibreOffice.
+The Document Transformation Engine is a stable, fast, and scalable solution for high-quality transformations of Microsoft Office documents (Word, Excel, and PowerPoint only) to PDF. It is an enterprise alternative to LibreOffice.
 
 The engine features an open architecture, and it offers the following features:
 
 -   **High quality**
 
-    The Document Transformation Engine uses genuine Microsoft Office software to transform MS Word, Excel, and PowerPoint documents to PDF. This guarantees the handling of all Office files and pixel-perfect transformations, and it corrects previous layout issues in the Share preview feature.
+    The Document Transformation Engine uses genuine Microsoft Office software to transform Word, Excel, and PowerPoint documents to PDF. This guarantees the handling of the supported file types and pixel-perfect transformations, and it corrects previous layout issues in the Share preview feature.
 
     The Document Transformation Engine can also be used to convert emails to PDFs. This is a useful feature in conjunction with the Outlook Plugin.
 
