@@ -52,35 +52,35 @@ To set the realm file during deployment:
         --namespace $DESIREDNAMESPACE
     ```
 
-## Running Identity Service with Process Services
+## Run Identity Service with Process Services
 
-You can run the Identity Service with Process Services. If you are using Identity Service 1.8.x and above and Process Services 2.3.x and above, you must configure both applications correctly for the logout functionality to work correctly.
+You can run the Identity Service with Process Services. If you are using Identity Service 1.8.x and above and Process Services 2.3.x and above, you must configure both applications correctly for the logout functionality in Process Services to function.
 
 > **Note:** If you do not configure the Identity Service and Process Services correctly, you will recieve an error when you try and logout using Process Services.
 
-To run Identity Service with Process Services:
+To run the Identity Service with Process Services:
 
 1. In your Identity Service installation navigate to `<location>\alfresco-identity-service-1.8.0\alfresco-identity-service-1.8.0\standalone\configuration` and open `standalone.xml`.
 
 2. Edit the `spi` elements section to include:
 
-  ```xml
-  <spi name="login-protocol">
-      <provider name="openid-connect" enabled="true">
-          <properties>
-              <property name="legacy-logout-redirect-uri" value="true"/>
-          </properties>
-      </provider>    
-  </spi>
- 
+    ```xml
+    <spi name="login-protocol">
+        <provider name="openid-connect" enabled="true">
+            <properties>
+              <property name="legacy-logout-redirect-uri"   value="true"/>
+            </properties>
+          </provider>    
+    </spi>
+    ```
+
 3. Save the file and restart your system.
 
-4. Navigate to Process Services and  
+4. Navigate to Process Services and ensure you have set `keycloak.token-store=cookie` in the `activiti-identity-service.properties` file in Process Services. For more see `keycloak.token-store` in the [Process Services properties]({% link process-services/latest/config/authenticate.md %}#properties) table.
 
+5. Restart your system.
 
-
-
-
+The Process Services logout functionality will now work with the Identity Service.
 
 ## Configure a custom theme
 
