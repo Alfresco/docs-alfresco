@@ -78,7 +78,7 @@ To run the Identity Service with Process Services:
 
 4. Ensure you have set `keycloak.token-store=cookie` in the `activiti-identity-service.properties` file in Process Services. For more see `keycloak.token-store` in the [Process Services properties]({% link process-services/latest/config/authenticate.md %}#properties) table.
 
-5. Restart your system.
+5. Restart Process Services.
 
 The Process Services logout functionality will now work with the Identity Service.
 
