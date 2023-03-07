@@ -54,13 +54,13 @@ To set the realm file during deployment:
 
 ## Run Identity Service with Process Services
 
-You can run the Identity Service with Process Services. If you are using Identity Service 1.8.x and above and Process Services 2.3.x and above, you must configure both applications correctly for the logout functionality in Process Services to function.
+You can run the Identity Service with Process Services. You must configure both applications for the logout functionality in Process Services to function correctly.
 
-> **Note:** If you do not configure the Identity Service and Process Services correctly, you will recieve an error when you try and logout using Process Services.
+> **Note:** If you do not configure the Identity Service and Process Services correctly, you will receive an error when you try and logout using Process Services.
 
 To run the Identity Service with Process Services:
 
-1. In your Identity Service installation navigate to `<location>\alfresco-identity-service-1.8.0\alfresco-identity-service-1.8.0\standalone\configuration` and open `standalone.xml`.
+1. In your Identity Service installation navigate to `<alfresco-identity-service>/standalone/configuration` and open `standalone.xml`.
 
 2. Edit the `spi` elements section to include:
 
@@ -74,9 +74,9 @@ To run the Identity Service with Process Services:
     </spi>
     ```
 
-3. Save the file and restart your system.
+3. Save the file and restart the Identity Service.
 
-4. Navigate to Process Services and ensure you have set `keycloak.token-store=cookie` in the `activiti-identity-service.properties` file in Process Services. For more see `keycloak.token-store` in the [Process Services properties]({% link process-services/latest/config/authenticate.md %}#properties) table.
+4. Ensure you have set `keycloak.token-store=cookie` in the `activiti-identity-service.properties` file in Process Services. For more see `keycloak.token-store` in the [Process Services properties]({% link process-services/latest/config/authenticate.md %}#properties) table.
 
 5. Restart your system.
 
