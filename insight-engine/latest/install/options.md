@@ -203,7 +203,6 @@ This task assumes you have:
 
     ```text
     index.subsystem.name=solr6
-    mutual-TLS-solr.secureComms=https
     solr.secureComms=https
     solr.port.ssl=8983
     ```
