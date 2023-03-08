@@ -201,9 +201,9 @@ This task assumes you have:
 
     ```text
     index.subsystem.name=solr6
-    mutual-TLS-solr.secureComms=https
-    solr.secureComms=https
-    solr.port.ssl=8983
+    solr.secureComms=secret
+    solr.port=8983
+    solr.sharedSecret=password
     ```
 
 > **Important:** To ensure the security of your system specify your own custom secret word for the `solr.sharedSecret` property, than the one provided in the example.
