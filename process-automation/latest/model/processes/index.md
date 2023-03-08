@@ -359,3 +359,7 @@ The fields on the **Assignee** tab and **Candidate** tabs are:
 | From | Enter an email address that the task will be sent from. |
 | Subject | Enter a message for the user that will recieve the notification. For example `The task ${taskName} awaits your response.` |
 | Email template | Select the email template you want to use. You can select from the, **Default email template**, **From file**, **From URL**, and **Create new email template**. |
+
+## Edit Process Permissions
+
+Use the **Edit Process Permissions** window to configure who can start a new process. The permission levels available are: **Everyone can start it**, **Nobody can start it**, or **Specific users/groups** can start it.
