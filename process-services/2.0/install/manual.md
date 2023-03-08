@@ -303,39 +303,7 @@ Ensure you have read the [supported platforms]({% link process-services/2.0/supp
 
 8. Enter `http://localhost:8080/activiti-admin` into a browser to begin using Process Services Administrator.
 
-After installing you will need to [apply a valid license file](#install-license) to your installation.
-
-### Install Process Workspace
-
-You can install Process Workspace using a Web Application Archive (WAR) file or by deploying the files manually into your web container.
-
-To install Process Workspace from a WAR file, visit [Hyland Community](https://community.hyland.com/){:target="_blank"} and download the latest version of `process-workspace.war`.
-
-Move the `process-workspace.war` file into your web container and restart the server.
-
-Using Tomcat as an example, this would be the `/webapps` folder.
-
-Alternatively, you can manually deploy Process Workspace into your web container using the following steps:
-
-1. Download the latest [supported version]({% link process-services/2.0/support/index.md %}) of Process Workspace from [artifacts.alfresco.com](https://artifacts.alfresco.com/nexus/){:target="_blank"}.
-
-    >**Note:** Located in the `activiti-enterprise-releases` repository under `/com/alfresco/alfresco-process-services-workspace`.
-
-2. Download and unzip the `.tgz` file.
-
-3. Move the `dist` folder contained in the unzipped folder into your web container.
-
-    >**Note:** For Tomcat this is the `/webapps` folder.
-
-4. Restart your web server.
-
-> **Important:** Note that the URL for Process Workspace will be generated from the name of the folder you deploy into your web container. To change this:
->
-> 1. Rename the folder in your preferred development environment (IDE).
-> 2. Restart your web server.
-> 3. Navigate to Process Workspace in a browser using the format: `http://{host}:{port}/{folder-name}`
->
-> For example, if you renamed the `dist` folder to `process-workspace` and deployed locally on port 8080 this would be: `http://localhost:8080/process-workspace`
+After installing you will need to [apply a valid license file](#license) to your installation.
 
 ## License
 

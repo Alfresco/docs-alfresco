@@ -11,6 +11,8 @@ To use Search Enterprise with the Alfresco Content Services platform the followi
 * For *searching* features the Alfresco Repository properties must be configured in the `alfresco-global.properties` file. This can also be done as an environment variable by configuring the Search Subystem.
 * The Elasticsearch connector environment variables related to communication with the Alfresco Repository (Database, ActiveMQ and Transform Service) must be set and the Elasticsearch server for *indexing* features.
 
+> **Note:** To ensure backward compatibility, the exact same property values are used for configuring connection to the Opensearch Search subsystem (*'elasticsearch'* prefixes and aliases shall not change).
+
 ## Alfresco Repository
 
 Alfresco Repository provides configuration properties for the Elasticsearch Search subystem that defines the connection to the external Elasticsearch server, for more see [Subsystem]({% link search-enterprise/latest/install/index.md %}#configure-subsystem-in-repository).
@@ -44,7 +46,7 @@ Additionally, these properties can be set as environment variables in Alfresco R
 
 ```docker
 alfresco:
-    image: quay.io/alfresco/alfresco-content-repository:7.1.0
+    image: quay.io/alfresco/alfresco-content-repository:7.3.0
     environment:
         JAVA_OPTS: "
         -Dindex.subsystem.name=elasticsearch
@@ -113,7 +115,7 @@ There are two strategies to fill the gaps in the Elasticsearch server when provo
 Sample invocation for Fetch by IDS.
 
 ```java
-java -jar target/alfresco-elasticsearch-reindexing-3.1.0-app.jar \
+java -jar target/alfresco-elasticsearch-reindexing-3.2.0-app.jar \
   --alfresco.reindex.jobName=reindexByIds \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
@@ -125,7 +127,7 @@ java -jar target/alfresco-elasticsearch-reindexing-3.1.0-app.jar \
 Sample invocation for Fetch by DATE.
 
 ```java
- java -jar target/alfresco-elasticsearch-reindexing-3.1.0-app.jar \
+ java -jar target/alfresco-elasticsearch-reindexing-3.2.0-app.jar \
   --alfresco.reindex.jobName=reindexByDate \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
@@ -150,8 +152,10 @@ The table below lists the main configuration properties that can be specified th
 | spring.elasticsearch.rest.uris | Comma-separated list of Elasticsearch endpoints. The default value is `http://localhost:9200`. |
 |elasticsearch.indexName | Name of the index to be used in Elasticsearch server. The default value is `alfresco`.|
 | alfresco.content.refresh.event.queue | The channel where transform requests are re-inserted by the content event aggregator as consequence of a failure. The default value is `org.alfresco.search.contentrefresh.event`. |
-| alfresco.content.event.retry.maxAllowed | Maximum number of retries in case of transient failure processing. The default value is `3`. |
-| alfresco.content.event.retry.delay | Delay in milliseconds between subsequent retries. The default value is `4000`. |
+| alfresco.content.event.retry.maxAllowed | Maximum number of redelivery attempts allowed. `0` is used to disable redelivery, and `-1` will attempt redelivery forever until it succeeds. |
+| alfresco.content.event.retry.backoff | Exponential backoff multiplier that can be used to multiply each consequent redelivery delay. |
+| alfresco.content.event.retry.delay | Initial delay in milliseconds between redelivery attempts. Subsequent delays will be affected by the backoff multiplier. |
+| alfresco.content.event.retry.maxDelay | An upper bound in milliseconds for the computed redelivery delay. This is used when you specify backoff multiplied delays and is used to avoid the delay growing too large. |
 | acs.repo.transform.request.endpoint | Alfresco Repository channel. The default value is `activemq:queue:acs-repo-transform-request?jmsMessageType=Text`. |
 | alfresco.sharedFileStore.baseUrl | Alfresco Shared FileStore endpoint. The default value is `http://127.1.0.1:8099/alfresco/api/-default-/private/sfs/versions/1/file/`. |
 | alfresco.sharedFileStore.timeout | Alfresco Shared FileStore maximum read timeout in milliseconds. The default value is `4000`. |
@@ -212,7 +216,7 @@ To override some of these values command line system properties can be specified
 $ java -DSPRING_ELASTICSEARCH_REST_URIS=http://localhost:9200
  -DSPRING_ACTIVEMQ_BROKERURL=nio://activemq:61616
  -DALFRESCO_SHAREDFILESTORE_BASEURL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file/
- -jar alfresco-elasticsearch-live-indexing-1.0.0-app.jar
+ -jar alfresco-elasticsearch-live-indexing-3.2.0-app.jar
 ```
 
 The same convention can be used when deploying the Elasticsearch connector using the Docker compose template.

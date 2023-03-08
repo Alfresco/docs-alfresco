@@ -41,13 +41,6 @@ There are a number of recommendations for calculating sizing. You will need:
 
 Microsoft Office transformations are I/O-heavy, and so on some solutions, I/O contention can be a performance bottleneck. When multiple Word conversions occur in parallel, performance can suffer heavily from poor random read and write speeds.
 
-Using an Amazon EC2 instance c3.2xlarge, the I/O metrics are as follows:
-
-* sequential read speed: 131 MB/s
-* sequential write speed: 83 MB/s
-* random qd32 read speed: 10,4 MB/s
-* random qd32 write speed: 3,8 MB/s
-
 ## Installation
 
 The Document Transformation Engine is [installed in three parts]({% link transformation-engine/2.2/install/zip.md %}) and also has an [SDK that can be installed]({% link transformation-engine/2.2/install/sdk.md %}).

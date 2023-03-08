@@ -77,15 +77,15 @@ failover:(tcp://localhost:61616?wireFormat.maxInactivityDurationInitalDelay=3000
 
 Alfresco Desktop Sync users can authenticate through a SAML identity provider.
 
-The following prerequisites are required:
+The following prerequisites are required - see the [Supported platforms]({% link sync-service/latest/support/index.md %}) page for specific versions:
 
-* Alfresco Content Services 7.0 or later
-* Identity Service 1.4 or later
-* Alfresco Desktop Sync for Mac or Windows 1.7 or later
+* Alfresco Content Services
+* Identity Service
+* Alfresco Desktop Sync for Mac or Windows
 
-Alfresco Sync Service 3.7 supplies the default configuration set in the `alfresco.global.properties` file directly to the Desktop Sync clients as users start the initial login.
+Sync Service supplies the default configuration set in the `alfresco.global.properties` file directly to the Desktop Sync clients as users start the initial login.
 
-See [Setting up Desktop Sync (Windows)]({% link desktop-sync/latest/install/index.md %}#faq/windows/setting-up-desktop-sync-on-windows) and [Setting up Desktop Sync (Mac)]({% link desktop-sync/latest/install/index.md %}#faq/windows/setting-up-desktop-sync-on-mac) for further details.
+See [Setting up Desktop Sync (Windows)]({% link desktop-sync/latest/install/index.md %}#install/windows/setting-up-desktop-sync-on-windows) and [Setting up Desktop Sync (Mac)]({% link desktop-sync/latest/install/index.md %}#install/mac/setting-up-desktop-sync-on-mac) for further details.
 
 The Identity Service may be configured with multiple applications. If an application is created for Alfresco Desktop Sync, then specific configuration properties must be included in the `sync/service-sync/config.yml` file.
 

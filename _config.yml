@@ -1,5 +1,21 @@
 defaults:
 
+# Alfresco Enterprise Viewer
+  - scope:
+      path: "enterprise-viewer"
+    values:
+      layout: "docs"
+      product: "Alfresco Enterprise Viewer"
+      toc: "enterprise-viewer"
+      location: "enterprise-viewer"
+      support: true
+      versions:
+        - 3.5
+  - scope:
+      path: "enterprise-viewer/latest"
+    values:
+      version: 3.5
+      latest: true
 # Alfresco Content Services
   - scope:
       path: "content-services"
@@ -11,6 +27,7 @@ defaults:
       tutorial: true
       support: true
       versions:
+        - 7.3
         - 7.2
         - 7.1
         - 7.0
@@ -21,11 +38,20 @@ defaults:
   - scope:
       path: "content-services/latest"
     values:
-      version: 7.2
+      version: 7.3
       latest: true
       release: true
   - scope:
       path: "content-services/latest/tutorial"
+    values:
+      toc: "content-services-tutorial"
+  - scope:
+      path: "content-services/7.2"
+    values:
+      version: 7.2
+      release: true
+  - scope:
+      path: "content-services/7.2/tutorial"
     values:
       toc: "content-services-tutorial"
   - scope:
@@ -97,6 +123,9 @@ defaults:
       toc: "digital-workspace"
       support: true
       versions:
+        - 3.1
+        - 3.0
+        - 2.9
         - 2.8
         - 2.7
         - 2.6
@@ -111,8 +140,20 @@ defaults:
   - scope:
       path: "digital-workspace/latest"
     values:
-      version: 2.8
+      version: 3.1
       latest: true
+  - scope:
+      path: "digital-workspace/3.0"
+    values:
+      version: 3.0
+  - scope:
+      path: "digital-workspace/2.9"
+    values:
+      version: 2.9
+  - scope:
+      path: "digital-workspace/2.8"
+    values:
+      version: 2.8
   - scope:
       path: "digital-workspace/2.7"
     values:
@@ -179,13 +220,18 @@ defaults:
       toc: "google-drive"
       support: true
       versions:
+        - 3.3
         - 3.2
         - 3.1
   - scope:
       path: "google-drive/latest"
     values:
-      version: 3.2
+      version: 3.3
       latest: true
+  - scope:
+      path: "google-drive/3.2"
+    values:
+      version: 3.2
   - scope:
       path: "google-drive/3.1"
     values:
@@ -233,6 +279,7 @@ defaults:
       toc: "microsoft-azure"
       support: true
       versions:
+        - 3.1
         - 3.0
         - 2.1
         - 2.0
@@ -242,8 +289,12 @@ defaults:
   - scope:
       path: "microsoft-azure/latest"
     values:
-        version: 3.0
+        version: 3.1
         latest: true
+  - scope:
+      path: "microsoft-azure/3.0"
+    values:
+      version: 3.0
   - scope:
       path: "microsoft-azure/2.1"
     values:
@@ -303,6 +354,7 @@ defaults:
       support: true
       tutorial: true
       versions:
+        - 1.8
         - 1.7
         - 1.6
         - 1.5
@@ -314,12 +366,20 @@ defaults:
   - scope:
       path: "identity-service/latest"
     values:
-      version: 1.7
+      version: 1.8
       latest: true
   - scope:
       path: "identity-service/latest/tutorial"
     values:
       toc: "identity-service-tutorial"
+  - scope:
+      path: "identity-service/1.7"
+    values:
+      version: 1.7
+  - scope:
+      path: "identity-service/1.7/tutorial"
+    values:
+      toc: "identity-service-tutorial"  
   - scope:
       path: "identity-service/1.6"
     values:
@@ -384,6 +444,10 @@ defaults:
       toc: "desktop-sync"
       support: true
       versions:
+        - 1.14
+        - 1.13
+        - 1.12
+        - 1.11
         - "1.10"
         - 1.9
         - 1.8
@@ -393,8 +457,24 @@ defaults:
   - scope:
       path: "desktop-sync/latest"
     values:
-      version: "1.10"
+      version: 1.14
       latest: true
+  - scope:
+      path: "desktop-sync/1.13"
+    values:
+      version: 1.13
+  - scope:
+      path: "desktop-sync/1.12"
+    values:
+      version: 1.12
+  - scope:
+      path: "desktop-sync/1.11"
+    values:
+      version: 1.11
+  - scope:
+      path: "desktop-sync/1.10"
+    values:
+      version: "1.10"
   - scope:
       path: "desktop-sync/1.9"
     values:
@@ -427,6 +507,7 @@ defaults:
       tutorial: true
       support: true
       versions:
+        - 7.3
         - 7.2
         - 7.1
         - 3.5
@@ -438,10 +519,18 @@ defaults:
   - scope:
       path: "governance-services/latest"
     values:
-      version: 7.2
+      version: 7.3
       latest: true
   - scope:
       path: "governance-services/latest/tutorial"
+    values:
+      toc: "governance-services-tutorial"
+  - scope:
+      path: "governance-services/7.2"
+    values:
+      version: 7.2
+  - scope:
+      path: "governance-services/7.2/tutorial"
     values:
       toc: "governance-services-tutorial"
   - scope:
@@ -578,7 +667,6 @@ defaults:
       path: "transformation-engine/2.2"
     values:
       version: 2.2
-      latest: true
 
 # Alfresco Content Connector for AWS S3
   - scope:
@@ -590,6 +678,7 @@ defaults:
       toc: "aws-s3"
       support: true
       versions:
+        - 5.1
         - 5.0
         - 4.1
         - 4.0
@@ -600,8 +689,12 @@ defaults:
   - scope:
       path: "aws-s3/latest"
     values:
-      version: 5.0
+      version: 5.1
       latest: true
+  - scope:
+      path: "aws-s3/5.0"
+    values:
+      version: 5.0
   - scope:
       path: "aws-s3/4.1"
     values:
@@ -659,12 +752,17 @@ defaults:
       toc: "microsoft-teams"
       support: true
       versions:
+        - 1.1
         - 1.0
   - scope:
       path: "microsoft-teams/latest"
     values:
-      version: 1.0
+      version: 1.1
       latest: true
+  - scope:
+      path: "microsoft-teams/1.0"
+    values:
+      version: 1.0
 
 # Alfresco Office Services
   - scope:
@@ -676,6 +774,7 @@ defaults:
       toc: "microsoft-office"
       support: true
       versions:
+        - 1.5
         - 1.4
         - 1.3
         - 1.2
@@ -683,8 +782,12 @@ defaults:
   - scope:
       path: "microsoft-office/latest"
     values:
-      version: 1.4
+      version: 1.5
       latest: true
+  - scope:
+      path: "microsoft-office/1.4"
+    values:
+      version: 1.4
   - scope:
       path: "microsoft-office/1.3"
     values:
@@ -708,6 +811,7 @@ defaults:
       toc: "transform-service"
       support: true
       versions:
+        - 2.0
         - 1.5
         - 1.4
         - 1.3
@@ -717,8 +821,12 @@ defaults:
   - scope:
       path: "transform-service/latest"
     values:
-      version: 1.5
+      version: 2.0
       latest: true
+  - scope:
+      path: "transform-service/1.5"
+    values:
+      version: 1.5
   - scope:
       path: "transform-service/1.4"
     values:
@@ -898,14 +1006,19 @@ defaults:
       toc: "federation-services"
       support: true
       versions:
+        - 2.1
         - 2.0
         - 1.1
         - 1.0
   - scope:
       path: "federation-services/latest"
     values:
-      version: 2.0
+      version: 2.1
       latest: true
+  - scope:
+      path: "federation-services/2.0"
+    values:
+      version: 2.0
   - scope:
       path: "federation-services/1.1"
     values:
@@ -925,13 +1038,18 @@ defaults:
       toc: "search-enterprise"
       support: true
       versions:
+        - 3.2
         - 3.1
         - 3.0
   - scope:
       path: "search-enterprise/latest"
     values:
-      version: 3.1
+      version: 3.2
       latest: true
+  - scope:
+      path: "search-enterprise/3.1"
+    values:
+      version: 3.1
   - scope:
       path: "search-enterprise/3.0"
     values:
@@ -1006,6 +1124,7 @@ defaults:
       toc: "sync-service"
       support: true
       versions:
+        - 3.8
         - 3.7
         - 3.6
         - 3.5
@@ -1017,8 +1136,12 @@ defaults:
   - scope:
       path: "sync-service/latest"
     values:
-      version: 3.7
+      version: 3.8
       latest: true
+  - scope:
+      path: "sync-service/3.7"
+    values:
+      version: 3.7
   - scope:
       path: "sync-service/3.6"
     values:
@@ -1141,18 +1264,21 @@ defaults:
     values:
       version: 2.4
 
-# Alfresco Content Services for Mobile
+# Alfresco Content Accelerator
   - scope:
-      path: "content-mobile"
+      path: "content-accelerator"
     values:
       layout: "docs"
-      product: "Alfresco Content Services for Mobile"
-      location: "content-mobile"
-      toc: "content-mobile"
+      product: "Alfresco Content Accelerator"
+      location: "content-accelerator"
+      toc: "content-accelerator"
+      support: true
+      versions:
+        - 3.5
   - scope:
-      path: "content-mobile/latest"
+      path: "content-accelerator/latest"
     values:
-      version: 1.0
+      version: 3.5
       latest: true
 
 sass:

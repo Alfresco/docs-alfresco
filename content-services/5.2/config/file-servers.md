@@ -10,7 +10,7 @@ As with other Alfresco Content Services subsystems, the File Server subsystem ex
 
 -   **[Enabling file servers](#enabling-file-servers)**  
 Alfresco Content Services supports access using the CIFS and FTP protocols. Use File Servers in the Admin Console to enable, configure, and disable these services.
--   **[Configuring SMB/CIFS server](#configuring-smb/cifs-server)**  
+-   **[Configuring SMB/CIFS server](#configuring-smb-cifs-server)**  
 The server includes Java socket-based implementations of the SMB/CIFS protocol that can be used on any platform.
 -   **[Configuring the FTP file server](#configuring-the-ftp-file-server)**  
 Use this information to configure the FTP file server.
@@ -55,7 +55,7 @@ Alfresco Content Services supports access using the CIFS and FTP protocols. Use 
     If you do not want to save the changes, click **Cancel**.
 
 
-## Configuring SMB/CIFS server {#configuring-smb/cifs-server}
+## Configuring SMB/CIFS server {#configuring-smb-cifs-server}
 
 The server includes Java socket-based implementations of the SMB/CIFS protocol that can be used on any platform.
 
@@ -67,9 +67,9 @@ The default configuration uses the JNI-based code under Windows and the Java soc
 The following properties can be configured for the SMB/CIFS server.
 -   **[Java-based SMB properties](#java-based-smb-properties)**  
 The following properties will only take effect on non-Windows servers, where the Java-based SMB implementation is used.
--   **[Running SMB/CIFS from a normal user account](#running-smb/cifs-from-a-normal-user-account)**  
+-   **[Running SMB/CIFS from a normal user account](#running-smb-cifs-from-a-normal-user-account)**  
 On Unix-like systems such as Linux and Solaris, the default setup must be run using the root user account so that the CIFS server can bind to the privileged ports (TCP 139/445 UDP 137/138).
--   **[SMB/CIFS advanced Spring overrides](#smb/cifs-advanced-spring-overrides)**  
+-   **[SMB/CIFS advanced Spring overrides](#smb-cifs-advanced-spring-overrides)**  
 The SMB/CIFS server beans are declared in the file-servers-context.xml file. Using the subsystem extension classpath mechanism, you can place site specific customization of these default values in a Spring bean file in <extension>\subsystems\fileServers\default\default\custom-file-servers-context.xml (note that the default\default part of the path is intentional).
 -   **[Additional information for CIFS on Windows](#additional-information-for-cifs-on-windows)**  
 Use this information to assist you when setting up CIFS servers on Windows.
@@ -174,7 +174,7 @@ The following properties will only take effect on non-Windows servers, where the
     Specifies the name of the CIFS URL for Alfresco Share.
 
 
-### Running SMB/CIFS from a normal user account {#running-smb/cifs-from-a-normal-user-account}
+### Running SMB/CIFS from a normal user account {#running-smb-cifs-from-a-normal-user-account}
 
 On Unix-like systems such as Linux and Solaris, the default setup must be run using the root user account so that the CIFS server can bind to the privileged ports (TCP 139/445 UDP 137/138).
 
@@ -228,6 +228,7 @@ The CIFS server can be configured to run using non-privileged ports and then use
 
     -   TCP ports 139/445 to TCP 1139/1445
     -   UDP ports 137/138 to UDP 1137/1138
+
 3.  On Mac OS X 10.9 and earlier, use these commands:
 
     ```
@@ -266,9 +267,9 @@ The CIFS server can be configured to run using non-privileged ports and then use
     The UDP forwarding does not work, which affects the NetBIOS name lookups. A workaround is either to add a DNS entry matching the CIFS server name and/or add a static WINS mapping, or add an entry to the clients LMHOSTS file.
 
 
-### SMB/CIFS advanced Spring overrides {#smb/cifs-advanced-spring-overrides}
+### SMB/CIFS advanced Spring overrides {#smb-cifs-advanced-spring-overrides}
 
-The SMB/CIFS server beans are declared in the file-servers-context.xml file. Using the subsystem extension classpath mechanism, you can place site specific customization of these default values in a Spring bean file in <extension>\subsystems\fileServers\default\default\custom-file-servers-context.xml (note that the default\default part of the path is intentional).
+The SMB/CIFS server beans are declared in the file-servers-context.xml file. Using the subsystem extension classpath mechanism, you can place site specific customization of these default values in a Spring bean file in `<extension>\subsystems\fileServers\default\default\custom-file-servers-context.xml` (note that the `default\default` part of the path is intentional).
 
 The main bean that drives the CIFS server configuration is called `cifsServerConfig`. This has several properties that can be populated with child beans that control various optional SMB implementations.
 
@@ -434,9 +435,9 @@ To setup the keystore and truststore files, follow the instructions from the Jav
 
 ### FTP advanced Spring overrides {#ftp-advanced-spring-overrides}
 
-The FTP server beans are declared in the file-servers-context.xml file.
+The FTP server beans are declared in the `file-servers-context.xml` file.
 
-Using the subsystem extension classpath mechanism, site specific customization of these default values can be placed in a Spring bean file. Create a file called custom-file-servers-context.xml and place it in a folder with the path <extension>\subsystems\fileServers\default\default\custom-file-servers-context.xml (note that the default\default part of the path is intentional).
+Using the subsystem extension classpath mechanism, site specific customization of these default values can be placed in a Spring bean file. Create a file called custom-file-servers-context.xml and place it in a folder with the path `<extension>\subsystems\fileServers\default\default\custom-file-servers-context.xml` (note that the `default\default` part of the path is intentional).
 
 The following properties can be overridden on the `ftpServerConfig` bean.
 
@@ -460,11 +461,9 @@ The following properties can be overridden on the `ftpServerConfig` bean.
     |`Dataport`|Data port|
     |`Directory`|Directory commands|
 
-2.  Configure logging levels for the FTP server in $ALF_HOME/tomcat/webapps/alfresco/WEB-INF/classes/log4j.properties using:
+2.  Configure logging levels for the FTP server in `$ALF_HOME/tomcat/webapps/alfresco/WEB-INF/classes/log4j.properties` using:
 
     ```
     log4j.logger.org.alfresco.ftp.protocol=debug
     log4j.logger.org.alfresco.ftp.server=debug
     ```
-
-

@@ -72,6 +72,9 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.6 | |
 | Alfresco Sync Service 3.5 | |
 | Alfresco Sync Service 3.4 | |
+| Alfresco Desktop Sync 1.13.0 | |
+| Alfresco Desktop Sync 1.12 | |
+| Alfresco Desktop Sync 1.11 | |
 | Alfresco Desktop Sync 1.10 | |
 | Alfresco Desktop Sync 1.9 | |
 | Alfresco Desktop Sync 1.8 | |
@@ -81,6 +84,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Document Transformation Engine 2.3 | |
 | Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0 | |
+| Alfresco Federation Services 2.1 | |
 | Alfresco Federation Services 2.0 | |
 | Identity Service 1.5 | Alfresco Content Services 7.0 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
 | Identity Service 1.4 | Alfresco Content Services 7.0 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
@@ -107,16 +111,15 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.2 | |
 | | |
 | **Applications** | |
-| Alfresco Digital Workspace 2.8 | |
-| Alfresco Digital Workspace 2.7 | |
 | Alfresco Digital Workspace 2.6 | |
 | Alfresco Digital Workspace 2.5 | |
 | Alfresco Digital Workspace 2.4 | |
 | Alfresco Digital Workspace 2.3 | |
 | Alfresco Digital Workspace 2.2 | |
 | Alfresco Digital Workspace 2.1 | |
+| Alfresco Application Development Framework (ADF) 5.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
-| Alfresco Mobile Workspace 1.0 | |
+| Alfresco Mobile Workspace 1.4 | |
 | | |
 | **Components** | |
 | ImageMagick v7.0.10 | |
@@ -188,6 +191,9 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.6 | |
 | Alfresco Sync Service 3.5 | |
 | Alfresco Sync Service 3.4 | |
+| Alfresco Desktop Sync 1.13.0 | |
+| Alfresco Desktop Sync 1.12 | |
+| Alfresco Desktop Sync 1.11 | |
 | Alfresco Desktop Sync 1.10 | |
 | Alfresco Desktop Sync 1.9 | |
 | Alfresco Desktop Sync 1.8 | |
@@ -196,6 +202,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Transform Service 1.3.2 | |
 | Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. Nb. Java 11.0.9.1 and other four part Java versions are not currently compatible due to a bug in Jetty. |
 | Alfresco Search Services 2.0 | |
+| Alfresco Federation Services 2.1 | |
 | Alfresco Federation Services 2.0 | |
 | Identity Service 1.4 | Alfresco Content Services 7.0 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
 | SAML Module for Alfresco Content Services 1.2.1 | |
@@ -221,13 +228,15 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.2 | |
 | | |
 | **Applications** | |
+| Alfresco Digital Workspace 2.6 | |
 | Alfresco Digital Workspace 2.5 | |
 | Alfresco Digital Workspace 2.4 | |
 | Alfresco Digital Workspace 2.3 | |
 | Alfresco Digital Workspace 2.2 | |
 | Alfresco Digital Workspace 2.1 | |
+| Alfresco Application Development Framework (ADF) 5.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
-| Alfresco Mobile Workspace 1.0 | |
+| Alfresco Mobile Workspace 1.4 | |
 | | |
 | **Components** | |
 | ImageMagick v7.0.10 | |

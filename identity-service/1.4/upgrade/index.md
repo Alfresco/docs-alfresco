@@ -70,20 +70,20 @@ Use the following steps to upgrade a manual ZIP installation:
 
     For a Linux or Unix environment:
 
-    ```
+    ```bash
     $ cd alfresco-identity-service-1.5.0/bin
     $ ./standalone.sh -b <IP_ADDRESS>
     ```
 
     For a Windows environment using a bat script:
 
-    ```
+    ```bash
     > ...\alfresco-identity-service-1.5.0\bin\standalone.bat -b <IP_ADDRESS>
     ```
 
     For a Windows environment using a Powershell script:
 
-    ```
+    ```bash
     > ...\alfresco-identity-service-1.5.0\bin\standalone.ps1 -b <IP_ADDRESS>
     ```
 

@@ -118,6 +118,24 @@ the base64 encoded ticket.
 How to get a ticket and how to use it is explained [here]({% link content-services/7.1/develop/rest-api-guide/install.md %}#auth) 
 in the ReST API user guide.
 
+### JSON with Padding (JSONP)
+The `allow.unsecure.callback.jsonp` property controls if the JSONP feature is supported or not, it is `false` by default. 
+If set to `true`, then the `callback` query parameter on a ReST call will be accepted. This parameter is used by JSONP 
+to encapsulate a JSON response with a javascript function.
+
+>**Important!:** If JSONP is enabled by setting the `allow.unsecure.callback.jsonp` to `true`, then this can lead to a security issue.
+
+The following table explains how the ReST API behaves depending on the setting of this property:
+
+|property value|`callback` parameter|result|
+|--------------|------------------|------|
+|`false`|existing|HTTP 403 with an error message, operation cancelled|
+|`false`|non existing|operation executed as usual|
+|`true`|existing|operation executed as usual|
+|`true`|non existing|operation executed as usual|
+
+The `allow.unsecure.callback.jsonp` property is set in the `alfresco-global.properties` configuration file.
+
 ### Limiting result items
 
 By default the API will return a maximum of 100 result items in any one request, this can be controlled via the 

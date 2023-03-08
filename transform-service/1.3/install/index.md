@@ -484,7 +484,7 @@ before continuing.
      -jar alfresco-transform-core-aio-boot-x.y.z.jar
     ```
 
-    > **Note:** You may need to change the paths depending on your operating system.
+    > **Note:** LibreOffice, ImageMagick and Alfresco PDF Renderer binaries needs to be installed on the server where the all-in-one core T-Engine is setup. See the [Prerequisites](#prereq-non-containerized-deploy) for more details. You may need to change the paths depending on your operating system.
 
     Check the output to ensure that it starts successfully.
 
@@ -514,14 +514,14 @@ before continuing.
 
     # Shared File Store properties:
     sfs.url=http://localhost:8099
-    sfs.endpoint=${sfs.url}/alfresco/api/-default-/private/sfs/versions/1/file
+    sfs.endpoint=${sfs.url}/alfresco/api/-default-/private/sfs/versions/1
 
     # Transform Router properties:
     transform.service.enabled=true
-    transform.service.url=http://localhost:8095/
+    transform.service.url=http://<Transform Service host>:8095/
 
     # Transform Core properties:
-    localTransform.core-aio.url=http://transform-core-aio:8090/
+    localTransform.core-aio.url=http://<Transform Service host>:8090/
     ```
 
     This overrides the default properties provided by Content Services.

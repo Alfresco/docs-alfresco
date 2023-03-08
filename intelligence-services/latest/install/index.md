@@ -17,7 +17,7 @@ In this section you'll install and set up everything you need to run Intelligenc
 
 ### Access to Docker images
 
-Some of the Docker images that are used by the Intelligence Services module are uploaded to a private registry, **Quay.io**. Since the Intelligence Services module adds AI capabilities to Alfresco Transform Service (see [Transform Service install overview]({% link transform-service/latest/admin/index.md %}#docker-images-overview), you'll also need access to the following image:
+Some of the Docker images that are used by the Intelligence Services module are uploaded to a private registry, **Quay.io**. Since the Intelligence Services module adds AI capabilities to Alfresco Transform Service (see [Transform Service install overview]({% link transform-service/latest/admin/index.md %}#docker-images-overview)), you'll also need access to the following image:
 
 ```bash
 alfresco/alfresco-ai-docker-engine

@@ -1,8 +1,8 @@
 ---
-title: Alfresco Search Enterprise
+title: Alfresco Search Enterprise 
 ---
 
-Alfresco Content Services supports the Elasticsearch platform for searching within the repository using Alfresco Search Enterprise 3.1.
+Alfresco Content Services supports the Elasticsearch platform for searching within the repository using Alfresco Search Enterprise 3.2.
 
 [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html){:target="_blank"} is an open source enterprise search platform that uses the [Lucene](https://lucene.apache.org/){:target="_blank"} engine for indexing and searching. Elasticsearch is written in Java and runs as a standalone search server. The Alfresco Repository sends HTTP requests to the Elasticsearch REST API to search for content and metadata. The Alfresco Elasticsearch connector updates the cores and indexes in Elasticsearch. This consumes ActiveMQ messages produced by the Alfresco Repository when folders, documents, and permissions are created or updated in the repository.
 
@@ -14,9 +14,9 @@ The **Indexing** feature is provided by a Spring Boot application called Alfresc
 
 Alfresco Search Enterprise consists of the following components:
 
-* Alfresco Content Services 7.1
-* Elasticsearch 7.10.2 (It can be used as a standard managed service or can be installed using default configuration)
-* Alfresco Elasticsearch Connector 3.1
+* Alfresco Content Services 7.3
+* Elasticsearch 7.17.x - any version between 7.10.x and 7.17.x inclusive, is compatible. (It can be used as a standard managed service or can be installed using default configuration)
+* Alfresco Elasticsearch Connector 3.2
 
 > **Note:** Elasticsearch 7.10.2 is the last Apache2-licensed version. The Elasticsearch connector can also use [Amazon OpenSearch](https://aws.amazon.com/opensearch-service/the-elk-stack/what-is-opensearch/){:target="_blank"}.
 
@@ -24,4 +24,4 @@ The services required for Alfresco Search Enterprise are included in the followi
 
 ![architecture]({% link search-enterprise/images/elasticsearch_connector_architecture.png %})
 
-**Note:** Currently, Alfresco Search Enterprise is only supported with the Postgres database and supports only English language queries. For a full list of features supported by Alfresco Search Services, but not yet for Alfresco Search Enterprise, see [Unsupported]({% link search-enterprise/latest/using/unsupported.md %}).
+> **Note:** Currently, Alfresco Search Enterprise is only supported with the Postgres database and supports only English language queries. For a full list of features supported by Alfresco Search Services, but not yet for Alfresco Search Enterprise, see [Unsupported]({% link search-enterprise/latest/using/unsupported.md %}).

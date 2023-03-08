@@ -261,7 +261,7 @@ something like this:
                     "type": "query",
                     "title": "Search Alfresco",
                     "description": "Perform a search in Alfresco",
-                    "initialRun": false,
+                    "initialRun": true,
                     "fetchTask": false,
                     "context": [
                         "commandBox",
@@ -284,7 +284,8 @@ something like this:
                     "type": "link",
                     "value": {
                         "domains": [
-                            "*.botframework.com"
+                           "*.botframework.com",
+                           "<YOUR_DOMAIN_URL>"
                         ]
                     }
                 }
@@ -308,30 +309,39 @@ You might want to change several other entries (short/full names or descriptions
 
 Now, create a Zip file (without folders) with `manifest.json` and the two icon files.
 
-### Test the Collaboration Connector for Teams app {#test-app}
+### Publish the Collaboration Connector for Teams app {#test-app}
 
-This explains how end-users can add the Collaboration Connector for Teams app / client to their MS Teams 
-environment.
+This explains how a Microsoft Teams Admin user can install the Collaboration Connector for Teams app and make it 
+available to the organization's users. 
 
->**Note:** A Microsoft Teams Admin can configure an organization-wide Teams App (so that end-users can skip this step).
+>**Note:** It is possible to install the custom app as an end-user. However, doing this might result in problems for 
+>other users to read messages from the user installing the app. It is recommended to install the custom app as a Teams Admin.
 
-In the Teams Client (e.g. webapp / desktop) do the following:
+In Microsoft Teams admin center do the following:
 
-1. Click the **Apps** icon in the lower left corner:
+1. Navigate to [**Teams apps > Manage apps**](https://docs.microsoft.com/en-us/microsoftteams/manage-apps){:target="_blank"}:
 
-   ![MS Teams Apps]({% link microsoft-teams/images/ms-teams-apps.png %}){:height="700px" width="600px"}
+   ![MS Teams Admin Center Manage Apps]({% link microsoft-teams/images/ms-teams-admin-center-manage-apps.png %})
 
-2. To upload the manifest prepared in the [previous step](#create-teams-integ-app-manifest) click the **Upload a customized app** link
-3. Pick the manifest zip archive, the following screen should be displayed:
+2. Then select [**Upload**](https://docs.microsoft.com/en-us/microsoftteams/upload-custom-apps){:target="_blank"}, 
+   click **Upload**, select the app package (i.e. the manifest zip archive prepared in the 
+   [previous step](#create-teams-integ-app-manifest)), and select **Open**:
 
-   ![MS Teams Integration App loading]({% link microsoft-teams/images/ms-teams-integ-app-loading.png %}){:height="600px" width="600px"}
+   ![MS Teams Apps]({% link microsoft-teams/images/ms-teams-admin-center-upload-app.png %})
 
-4. Click **Add**.
-5. You should see the app with the search bar:
+3. Control access to the app:
 
-   ![MS Teams Integration App Search]({% link microsoft-teams/images/ms-teams-integ-app-search-dialog.png %}){:height="250px" width="200px"}
+   By default, all users in your organization can access the app in your organization's app store. To restrict and 
+   control who has permission to use the app, you can create and assign an app permission policy. To learn more, see 
+   [Manage app permission policies in Teams](https://docs.microsoft.com/en-us/microsoftteams/teams-app-permission-policies){:target="_blank"}.
 
-6. If you search for something it will ask you to login, use your Alfresco credentials.
+4. Pin and install the app for users to discover:
+
+   By default, for users to find the app they have to go to your organization's app store and browse or search for it. 
+   To make it easy for users to get to the app, you can pin the app to the app bar in Teams. To do this, create an app 
+   setup policy and assign it to users. To learn more, see [Manage app setup policies in Teams](https://docs.microsoft.com/en-us/microsoftteams/teams-app-setup-policies){:target="_blank"}.
+
+5. If you search for something in the Alfresco app it will ask you to log in. Use your Alfresco credentials.
 
 >**Note:** A common error is when uploading a manifest zip with the wrong layout:<br/>"Error while extracting package: Please ensure there are no folders in your app package and that
 your app package contains only the `manifest.json` and the two required icon files at its root level.

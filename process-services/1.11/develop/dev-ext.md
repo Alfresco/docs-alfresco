@@ -473,7 +473,7 @@ Some more examples:
     * Amount type: `<<if [annualsalary > $40000]>>, it is generous, <<else>> a standard starting salary \<</if>>`
     * Checkbox: `<<if [senstitiveflag=="true"]>>it is Confidential, <<else>> Not Confidential \<</if>>`
 * Date type: `<<[datefield]>>`
-* Format date type: `<<[datefield]>>:"yyyy.MM.dd">>`
+* Format date type: `<<[datefield]:"yyyy.MM.dd">>`
 * Number/amount: `<<[amountfield]>>`
 * String Boolean: `<<[Genericcheckbox]>>`
 * Radio button / Typehead / dropdown: Select `<<[Options_LABEL]>> with an ID <<[Options_ID]>>`

@@ -25,7 +25,7 @@ There are several options for installing Insight Zeppelin:
 
 Use this information to manually install Insight Zeppelin using a distribution zip.
 
-1. Download the `alfresco-insight-zeppelin-2.0.0.zip` file from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
+1. Download the `alfresco-insight-zeppelin-2.0.x.zip` file from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 2. Unzip the file.
 
@@ -144,7 +144,7 @@ For details about deployment using the Docker Compose file, see [Installation op
 
     ```YAML
     zeppelin:
-        image: quay.io/alfresco/insight-zeppelin:2.0.0
+        image: quay.io/alfresco/insight-zeppelin:2.0.x
         environment:
                 - REPO_HOST=alfresco
                 - REPO_PORT=8080

@@ -1,5 +1,5 @@
 ---
-title: Support Policies
+title: Product Support Policies
 ---
 A glossary of terms and the Support policy for Alfresco Products, Components, and Versions.
 

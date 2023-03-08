@@ -152,7 +152,7 @@ There are several prerequisites for deploying on Amazon EKS using Helm charts:
 * A Kubernetes namespace configured for Process Services.
 * Helm and Tiller configured in the Kubernetes cluster. See [Helm's quickstart guide](https://docs.helm.sh/using_helm/#quickstart-guide){:target="_blank"} for reference.
 
-Use the following steps to deploy Process Services, Process Services Administrator, Process Workspace, a Postgres database and optionally the [Identity Service]({% link identity-service/1.2/index.md %}):
+Use the following steps to deploy Process Services, Process Services Administrator, a Postgres database and optionally the [Identity Service]({% link identity-service/1.2/index.md %}):
 
 1. Create a Kubernetes secret to access images in Quay.
 
@@ -220,8 +220,6 @@ Use the following steps to deploy Process Services, Process Services Administrat
 
     3. Set the Process Services environment variable `IDENTITY_SERVICE_AUTH` to `http://$DNS/auth`.
 
-    4. Ensure the Identity Service settings for Process Workspace are set in the [properties](#helm-properties).
-
 6. Deploy the chart using a command similar to the following:
 
     ```bash
@@ -232,7 +230,6 @@ The applications will be available at the following URLs:
 
 * Process Services: `http://$DNS/activiti-app`
 * Process Services Administrator: `http://$DNS/activiti-admin`
-* Process Workspace: `http://$DNS/`
 * Identity Service administrator console: `http://$DNS/auth/admin`
 
 >**Note:** To change the context paths of any of the applications, edit the ingress paths:
@@ -279,14 +276,7 @@ The following properties can be configured in the `values.yaml` file or overridd
 |ACTIVITI_ADMIN_REST_APP_PORT|The port for the Administrator API. The default is `80`. |
 |ACTIVITI_ADMIN_REST_APP_USERNAME|The default user for the Admin API. The default is `admin@app.activiti.com`. |
 |ACTIVITI_ADMIN_REST_APP_PASSWORD|The default password for the Admin API. The default is `admin`. |
-|BASE_PATH|The base path of Process Workspace. This needs to match the setting of the ingress path if it is changed. The default is `/`. |
-|APP_CONFIG_AUTH_TYPE|The authentication method for Process Workspace. The default is `OAUTH`. |
 |APP_CONFIG_BPM_HOST|The location of Process Services. The default is `http://DNS`. |
-|APP_CONFIG_OAUTH2_HOST|The URL used to authenticate Process Workspace with against the Identity Service. The default is `http://DNS/auth/realms/alfresco`. |
-|APP_CONFIG_OAUTH2_CLIENTID|The client configured in the Identity Service for Process Workspace. The default is `activiti`. |
-|APP_CONFIG_OAUTH2_REDIRECT_LOGIN|The redirect for sign in that Process Workspace will use when configured with Identity Service. This will normally match `BASE_PATH`. The default is `/`. |
-|APP_CONFIG_OAUTH2_REDIRECT_LOGOUT|The redirect for sign out that Process Workspace will use when configured with Identity Service. This will normally match `BASE_PATH`. The default is `/`. |
-|APP_CONFIG_OAUTH2_REDIRECT_SILENT_IFRAME_URI|The silent redirect used by Process Workspace if a user is already authenticated. The default is `http://DNS/process-workspace/assets/silent-refresh.html`. |
 |IDENTITY_SERVICE_ENABLED|Sets whether the Identity Service is enabled or not. The default is `false`. |
 |IDENTITY_SERVICE_REALM|The name of the realm used by the Identity Service. The default is `alfresco`. |
 |IDENTITY_SERVICE_SSL_REQUIRED|Sets whether communication to and from the Identity Service is over HTTPS or not. The default is `none`. |

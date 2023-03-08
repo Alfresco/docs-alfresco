@@ -51,7 +51,7 @@ Below are the environment/software prerequisites for installing and using the SA
 * Firewall does not block HTTP traffic on port 80 / 8080 / 8082.
 * Access to the Content Services server with administrator privileges to:
   * Apply the SAP Connector {% include tooltip.html word="AMP" text="AMP" %} files
-  * Edit `alfresco-gobal.properties` file
+  * Edit `alfresco-global.properties` file
   * Stop/start the application server
 * Alfresco user with administrator permissions.
 

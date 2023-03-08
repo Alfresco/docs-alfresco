@@ -26,7 +26,7 @@ The source-localized files are encoded in ASCII, and the special and accented ch
 
 If you wish to use a translation that is not supplied with Content Services, then you must add the appropriate TinyMCE language pack for the translation to work correctly.
 
-1. Browse to the [TinyMCE website](https://www.tiny.cloud/?ctrl=lang&act=download&pr_id=1){:target="_blank"} {:target="_blank"}.
+1. Browse to the [TinyMCE website](https://www.tiny.cloud/?ctrl=lang&act=download&pr_id=1){:target="_blank"}.
 
 2. Download the required TinyMCE language pack.
 
@@ -56,7 +56,6 @@ Use this information to review the components or modules that integrate Content 
 | Search Services | |
 | Federation Services | |
 | Identity Service | |
-| SAML Module for Alfresco Content Services | |
 | Intelligence Services | Paid add-on module |
 | Content Connector for AWS S3 | Paid add-on module |
 | Content Connector for Azure | Paid add-on module |

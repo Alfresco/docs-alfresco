@@ -57,12 +57,12 @@ As usual, no SSL queries configured go to the slave.
 
 ### Configuring Solr master
 
-The configuration affecting replication is controlled by a single file, `alresco-insight-engine/solrhome/templates/re-rank/conf/solrconfig.xml`. To configure the master server, follow the steps below:
+The configuration affecting replication is controlled by a single file, `alfresco-insight-engine/solrhome/templates/re-rank/conf/solrconfig.xml`. To configure the master server, follow the steps below:
 
-1. Edit the `alresco-insight-engine/solrhome/templates/re-rank/conf/solrconfig.xml` file on the master server to change the default replication handler configuration. Remember to uncomment the `master` section.
+1. Edit the `alfresco-insight-engine/solrhome/templates/re-rank/conf/solrconfig.xml` file on the master server to change the default replication handler configuration. Remember to uncomment the `master` section.
 
     ```bash
-    <requestHandler name="/replication" class="org.alfresco.solr.handler.AlfrescoReplicationHandler" > 
+    <requestHandler name="/replication" class="solr.ReplicationHandler" > 
         <!--
            To enable simple master/slave replication, uncomment one of the 
            sections below, depending on whether this solr instance should be
@@ -105,7 +105,7 @@ Here again, the solrconfig.xml file controls the configuration affecting replica
 1. Uncomment the `slave` section.
 
     ```bash
-    <requestHandler name="/replication" class="org.alfresco.solr.handler.AlfrescoReplicationHandler" > 
+    <requestHandler name="/replication" class="solr.ReplicationHandler" > 
         <!--
            To enable simple master/slave replication, uncomment one of the 
            sections below, depending on whether this solr instance should be
@@ -186,7 +186,7 @@ To promote a slave, follow the steps below:
     ![]({% link insight-engine/images/slave-version.png %})
 
 2. Stop the Solr server on the new master.
-3. In the alresco-insight-engine/solrhome/templates/re-rank/conf/solrconfig.xml file, replace the Solr configuration in the replication handler that defines the slave with the one that defines the master.
+3. In the alfresco-insight-engine/solrhome/templates/re-rank/conf/solrconfig.xml file, replace the Solr configuration in the replication handler that defines the slave with the one that defines the master.
 
     ```bash
     <requestHandler name="/replication" class="org.alfresco.solr.handler.AlfrescoReplicationHandler"> 

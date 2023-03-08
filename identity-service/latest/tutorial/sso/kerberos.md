@@ -24,7 +24,6 @@ There are six steps to configuring SSO using Kerberos with Alfresco products. Th
 * Alfresco Content Services: `repo.example.com`
 * Alfresco Share: `share.example.com`
 * Alfresco Digital Workspace: `adw.example.com`
-* Alfresco Office Services: `repo.example.com/alfresco/aos`
 * Alfresco Process Services: `aps.example.com`
 * Alfresco Process Workspace: `apw.example.com`
 * Active Directory: `ldap.example.com`
@@ -221,10 +220,11 @@ The Java login files need to be updated with details of the Kerberos configurati
     * Uncomment the **two** sections that begin with: `<config evaluator="string-compare" condition="Remote">`
     * Navigate to the `<!--- Kerberos settings --->` section and replace `condition="KerberosDisabled"` with `condition="Kerberos"`
 
-    > **Note**: For Kerberos to work with user names that contain non-ASCII characters, add the following option to JAVA_OPTS for the Share JVM:
-    >```bash
-    >-Dsun.security.krb5.msinterop.kstring=true
-    >```
+    > **Note**: For Kerberos to work with user names that contain non-ASCII characters, add the following option to `JAVA_OPTS` for the Share JVM:
+    >
+    > ```bash
+    > -Dsun.security.krb5.msinterop.kstring=true
+    > ```
 
 ## Step 4: Configure Alfresco Digital Workspace
 

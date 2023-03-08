@@ -587,10 +587,11 @@ Both the `ldap` and `ldap-ad` subsystem types support the following configurable
 
 **LDAP authentication properties**
 
-> **Note:** The `create.missing.people` property in the Alfresco global properties file is set to true by default in Alfresco. This can have the affect of creating users unexpectedly. To avoid this you can override the default setting by changing the property to `create.missing.people property=false`. You can also deselect **Auto Create People on Login** in the Alfresco Admin Console. To do this navigate to **Synchronization Settings** > **Auto Create People on Login**.
+> **Note:** The `create.missing.people` property in the Alfresco global properties file is set to `true` by default in Alfresco. This can have the affect of creating users unexpectedly. To avoid this you can override the default setting by changing the property to `create.missing.people property=false`. You can also deselect **Auto Create People on Login** in the Alfresco Admin Console. To do this navigate to **Synchronization Settings** > **Auto Create People on Login**.
 
 | Property | Description |
 | -------- | ----------- |
+|ldap.authentication.initial.checks.enabled|This property allows you to enable or disable the initial LDAP checks that are performed during the subsystem start (e.g. on repository bootstrap or when changes are done through the Admin Console). When set to `true`, the following checks are performed against the current LDAP configuration: `anonymous bind`, `simple DN`, `DN` and `principal`. When set to `false`, the checks are not executed in any circumstances. **Note**: In a cluster environment this property allows you to leave the LDAP checks enabled only in one single node, and prevents the checks from running in the other nodes.|
 |ldap.authentication.active|This Boolean flag, when `true` enables use of this LDAP subsystem for authentication. It might be that this subsystem should only be used for user registry export, in which case this flag should be set to `false` and you would have to chain an additional subsystem such kerberos to provide authentication functions. |
 |ldap.authentication.java.naming.referral|This property specifies how the referrals sent by AD in the search results are handled by Alfresco. The recommended values are:<br><br>`ignore`<br><br>If `ldap.authentication.java.naming.referral=ignore`, the following exception will be thrown when a referral is encountered:<br><br>```javax.naming.PartialResultException: Unprocessed Continuation Reference(s); remaining name 'dc=alfness,dc=com'```<br><br>`follow`<br><br>If `ldap.authentication.java.naming.referral=follow`, Alfresco will automatically follow the referral. To be successful, make sure Alfresco can access the referred server. If this property has not been set, then the default is to follow the referrals.<br><br>`throw`<br><br>If `ldap.authentication.java.naming.referral=throw`, the following exception will be thrown:<br><br>```com.sun.jndi.ldap.LdapReferralException: Continuation Reference; remaining name 'dc=alfness,dc=com'```<br><br>For more information, see [Referrals in the JNDI](https://docs.oracle.com/javase/jndi/tutorial/ldap/referral/jndi.html). |
 |ldap.authentication.java.naming.security.authentication|The mechanism to use to authenticate with the LDAP server. This should be set to one of the standard values listed here or one of the values supported by the LDAP provider. Oracle's LDAP provider supports the following SASL mechanisms. The recommended values are:<br><br>`simple`<br><br>The basic LDAP authentication mechanism requiring the user name and password to be passed over the wire unencrypted. You might be able to add SSL for secure access, otherwise this should only be used for testing.<br><br>`DIGEST-MD5`<br><br>More secure RFC 2831 Digest Authentication. Note that with Active Directory, this requires your user accounts to be set up with reversible encryption, not the default setting. |
@@ -1233,15 +1234,15 @@ This task can be performed by the enterprise system administrator or the Alfresc
 
 When using Chrome on Windows to access Share, if the command-line switch is not present, the permitted list consists of those servers in the Local Machine or Local Intranet security zone. This is the behavior in Internet Explorer. For example, when the host in the URL includes a "`.`" character, it is outside the Local Intranet security zone. Treating servers that bypass proxies as being in the Intranet zone is currently not supported.
 
-On Windows, HTTP authentication is achieved by adding the Kerberos delegation server whitelist policy, `AuthNegotiateDelegateWhitelist`. Note that the `AuthNegotiateDelegateWhitelist` policy:
+On Windows, HTTP authentication is achieved by adding the Kerberos delegation server allowlist policy, `AuthNegotiateDelegateAllowlist`. Note that the `AuthNegotiateDelegateAllowlist` policy:
 
 * Specifies the servers that Chrome may delegate to
-* Has a Windows registry location of `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AuthNegotiateDelegateWhitelist`
+* Has a Windows registry location of `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AuthNegotiateDelegateAllowlist`
 * Has separate multiple server names with commas
 * Allows wildcards (*)
 * If you do not set this policy, Chrome does not delegate user credentials, even if a server is detected as Intranet
 
-To set the `AuthNegotiateDelegateWhitelist` policy, follow these steps:
+To set the `AuthNegotiateDelegateAllowlist` policy, follow these steps:
 
 1. Download the Administrative policy template from [http://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip](http://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip).
 2. Use the command line, `gpedit.msc` to open the local group policy management.
@@ -1250,9 +1251,9 @@ To set the `AuthNegotiateDelegateWhitelist` policy, follow these steps:
 5. Click **Add/Remove Templates**.
 6. Click the **Add** button.
 7. Select `windows/adm/en-US/chrome.adm` from the `policy_templates.zip` download.
-8. In the **Local Computer Policy Editor** console tree, navigate to **Local Computer Policy > Computer Configuration > Administrative Templates > Classic Administrative Templates (ADM) > Google > Google Chrome > Policies for HTTP Authentication > Kerberos delegation server whitelist**.
-9. On the **Kerberos delegation server whitelist** window, click **Enabled**.
-10. Specify your Share server name(s) as value in **Kerberos delegation server whitelist**.
+8. In the **Local Computer Policy Editor** console tree, navigate to **Local Computer Policy > Computer Configuration > Administrative Templates > Classic Administrative Templates (ADM) > Google > Google Chrome > Policies for HTTP Authentication > Kerberos delegation server allowlist**.
+9. On the **Kerberos delegation server allowlist** window, click **Enabled**.
+10. Specify your Share server name(s) as value in **Kerberos delegation server allowlist**.
 11. To activate the policy, open Chrome.
 12. Type `chrome://policy` to list the settings as viewed by Chrome.
 
@@ -1269,7 +1270,7 @@ When using Chrome on Linux as your client, follow these steps:
 2. To use Alfresco Share, use:
 
     ```bash
-    google-chrome --auth-server-whitelist=madona:8080 --auth-negotiate-delegate-whitelist=madona:8080
+    google-chrome --auth-server-allowlist=madona:8080 --auth-negotiate-delegate-allowlist=madona:8080
     http://madona:8080/alfresco
     ```
 

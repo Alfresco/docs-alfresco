@@ -8,6 +8,7 @@ New features introduced in v2.9 are:
 
 * Adds configuration option to display Alfresco Outlook Integration in dark mode
 * Adds configuration option to extract attachments from files
+* Adds the ability to configure a dependency constraint between lists of values (via a dependent picklist)
 
 Features of Outlook Integration include the ability to archive content (i.e. emails, meetings, appointments, and files) into Alfresco, full metadata support, full search, tagging and workflow capabilities, and the ability to attach files and view archived emails in your inbox. In addition, you can create new versions of existing documents, review the version history of a versioned document, and revert back to previous versions.
 

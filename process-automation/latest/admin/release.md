@@ -18,16 +18,21 @@ To release a project:
 
 3. Select the **Release** action from the **Options** column for the project.
 
+4. Enter a **Name** for the release and optionally add a **Comment**.
+
 ### Properties {#project-properties}
 
 The properties for a released project are:
 
 | Property | Description |
 | -------- | ----------- |
-| Project Name | The name of the project as it appears in the Modeling Application. |
-| Version | The latest version number of the released project. |
-| Created By | The user that created the project. |
-| Created | The time since the project `version` was released. |
+| Name | Displays the release name of the project. |
+| Created By | Displays which user released the project. |
+| Created | The time lapsed since the version of the project was released. |
+| Comment | Displays the comment entered when the new project was released. |
+| Uploaded | An icon displays if the project was uploaded. |
+| Version | The version number of the project. |
+| Actions | A list of actions that can be made against the released project: {::nomarkdown} <ul><li><b>Download</b> Bundles the project contents into a zipped folder to import it into a different environment.</li><li><b>Restore this release</b> Allows you to restore the release to this version. If you use this action the current models of the project will be replaced with those present in the release. If you want to preserve your current status you must create another release which you can restore it later.</li><li><b>Edit release</b> You can change the name of the release or update the comment made about it.</li></ul>{:/} |
 
 ### Deployment
 
@@ -186,13 +191,15 @@ To access the dashboard.
 
 3. Click the three dots next to the application you want to monitor and select **Monitoring**.
 
-You will see the Monitoring dashboard for the application. Services that are operational have a green dot. Services that are operational but may have some problems have a yellow dot **Note:** Generally these problems fix automatically. Services that are not operating and require assistance have a red dot. Services that have an unknown state have a grey dot.
+You will see the Monitoring dashboard for the application. Services that are operational have a green dot. Services that are operational but may have some problems have a yellow dot. **Note:** Generally these problems fix automatically. Services that are not operating and require assistance have a red dot. Services that have an unknown state have a grey dot. To gain more insight into a service you can expand it to see more detailed information.
+
+![monitoring dashboard]({% link process-automation/images/monitoring-dashboard.png %})
 
 ### Upgrade
 
-Upgrading an application allows for a new version of a released project to be deployed to an existing application. Tasks and process instances that are in progress and based on a previous application version can still be completed, however any new ones started will use the new model definitions.
+Upgrading an application allows for a new version of a released project to be deployed to an existing application. Tasks and process instances that are in progress and based on a previous application version can still be completed, however any new ones started will use the new model definitions. An application can be upgraded to a released project version that is lower than the one currently deployed, however the application version will still increment.
 
-> **Note**: An application can be upgraded to a released project version that is lower than the one currently deployed, however the application version will still increment.
+> **Note:** The upgrade process is transactional, which means that if there is an error during the upgrade process the application is automatically rolled back to the previous stable version.
 
 The version of an application is incremental and independent of the released project version, for example:
 
@@ -255,4 +262,4 @@ To view the logs:
 
 4. Select **Logs** and then the logs you want to view.
 
-The log text is colour coded. White indicates no issue. Yellow indicates a warning, and Red indicates an error.
+The log text is color coded. White indicates no issue. Yellow indicates a warning, and Red indicates an error.

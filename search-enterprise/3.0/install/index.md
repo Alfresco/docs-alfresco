@@ -105,7 +105,7 @@ java -jar alfresco-elasticsearch-reindexing-3.0.0-app.jar \
 --spring.datasource.url=jdbc:postgresql://localhost:5432/alfresco \
 --spring.datasource.username=alfresco \
 --spring.datasource.password=alfresco \
---alfresco.reindex.prefixes-file=file:reindex.prefixes-file.json
+--alfresco.reindex.prefixes-file=file:reindex.prefixes-file.json \
 --alfresco.acceptedContentMediaTypesCache.baseurl=http://localhost:8090/transform/config \
 --spring.activemq.broker-url=nio://localhost:61616
 ```
@@ -136,7 +136,7 @@ If your services are deployed on a different server or port the following parame
 
 ```java
 java -jar alfresco-elasticsearch-live-indexing-3.0.0-app.jar \
---spring.activemq.broker-url=nio://tengine.local:61616 \
+--spring.activemq.broker-url=nio://localhost:61616 \
 --spring.elasticsearch.rest.uris=http://localhost:9200 \
 --alfresco.sharedFileStore.baseUrl=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file/ \
 --alfresco.acceptedContentMediaTypesCache.baseurl=http://localhost:8090/transform/config \
@@ -307,7 +307,7 @@ Use this information to install the the Elasticsearch connector using Helm. The 
 
 Depending on where you want to install Content Services you must follow the appropriate instructions for the Kubernetes cluster, for more see [Docker Desktop](https://github.com/Alfresco/acs-deployment/blob/master/docs/helm/docker-desktop-deployment.md){:target="_blank"} or [AWS EKS](https://github.com/Alfresco/acs-deployment/blob/master/docs/helm/eks-deployment.md){:target="_blank"}.
 
-To replace Search Services with the Elasticsearch Connector you must configure the [requirements.yaml](https://github.com/Alfresco/acs-deployment/blob/master/helm/alfresco-content-services/requirements.yaml){:target="_blank"} file and set the `alfresco-elasticsearch-connector.enabled` property to `true` and `alfresco-search.enabled` to `false`.
+To replace Search Services with the Elasticsearch Connector you must configure the [values.yaml](https://github.com/Alfresco/acs-deployment/blob/master/helm/alfresco-content-services/values.yaml){:target="_blank"} file and set the `alfresco-elasticsearch-connector.enabled` property to `true` and `alfresco-search.enabled` to `false`.
 
 The Elasticsearch Connector will start four new Kubernetes deployments for live indexing:
 

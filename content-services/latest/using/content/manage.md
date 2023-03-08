@@ -50,9 +50,9 @@ You can drag and drop folders straight from your computer into Alfresco Share.
 
 When you drop a folder, subfolders or files in the dropped folder will also be added. This means that you can add whole sets of files and folders and maintain their structure.
 
-If empty folders exist in the folder structure you upload then they'll also be created.
+If empty folders exist in the folder structure you upload then they'll also be created. However, a file must exist somewhere within the folder structure when the upload includes empty folders.
 
-> **Note:** Thumbs.db, desktop.ini, and DS_Store files aren't uploaded, even if they exist within a folder you drag and drop.
+> **Note:** `Thumbs.db`, `desktop.ini`, and `DS_Store` files aren't uploaded, even if they exist within a folder you drag and drop.
 
 1. Choose where you want to add a folder, either by using the explorer panel or by clicking through folders in the file list.
 
@@ -287,6 +287,8 @@ While the preview feature lets you view a file in Alfresco Share, you also have 
 2. Click **View in Browser**.
 
     A new browser window opens displaying the selected file. For some file types, such as Microsoft Office documents, Share launches the file in its associated program.
+
+>**Important:** For security reasons, only the following file types are allowed to be viewed in the browser: `.pdf`, `.png`, `.jpeg`, `.gif`, `.tiff`, `.bmp`. All other file types are instead downloaded. This is [configurable]({% link content-services/latest/config/repository.md %}#conf-view-in-browser-mime-types).
 
 ### View a file on Google Maps
 

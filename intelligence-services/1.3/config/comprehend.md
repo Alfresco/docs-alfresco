@@ -346,7 +346,7 @@ alfresco:
       - ./customAIPropertyMapping.json:/usr/local/tomcat/customAIPropertyMapping.json
       - ./customAIContentModel.xml:/usr/local/tomcat/shared/classes/alfresco/extension/customAIContentModel.xml
       # DOC: file needs to end in -context.xml and to be in this location.
-      # Details on (Deployment - App Server) -> https://docs.alfresco.com/content-services/latest/develop/repo-ext-points/content-model/#definedeploy)
+      # Details on (Deployment - App Server) -> https://docs.alfresco.com/content-services/7.0/develop/repo-ext-points/content-model/#definedeploy)
       - ./custom-ai-content-model-context.xml:/usr/local/tomcat/shared/classes/alfresco/extension/custom-ai-content-model-context.xml
       - ./custom-ai-renditions-definitions.json:/usr/local/tomcat/shared/classes/alfresco/extension/transform/renditions/custom-ai-renditions-definitions.json
 ```
@@ -459,7 +459,7 @@ share:
         -Dalfresco.protocol=http
         "
     volumes:
-      # DOC: configuring Share -> https://docs.alfresco.com/content-services/latest/develop/share-ext-points/share-config/)
+      # DOC: configuring Share -> https://docs.alfresco.com/content-services/7.0/develop/share-ext-points/share-config/)
       - ./share-config-custom.xml:/usr/local/tomcat/shared/classes/alfresco/web-extension/share-config-custom-dev.xml
       - ./bootstrap-custom-labels.properties:/usr/local/tomcat/shared/classes/alfresco/web-extension/messages/bootstrap-custom-labels.properties
       - ./share-custom-slingshot-application-context.xml:/usr/local/tomcat/shared/classes/alfresco/web-extension/custom-slingshot-application-context.xml
