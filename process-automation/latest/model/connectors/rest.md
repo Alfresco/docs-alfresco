@@ -4,7 +4,7 @@ title: REST connector
 
 The REST connector is used to provide a connection with a REST service. It can also be used to configure a [webhook]({% link process-automation/latest/model/triggers.md %}#webhooks) as an incoming trigger.
 
-The REST connector appears on the process diagram as a pair of curly brackets.
+The REST connector appears on the process diagram as a pair of curly brackets. When configuring the REST connector you can use [Authentication]({% link process-automation/latest/model/authentication.md %}).
 
 > **Important**: All REST services need to be separate to the Alfresco hosted environment and should be created and managed by customers.
 
@@ -87,6 +87,41 @@ The output parameters from POST are:
 | restResult | JSON | *Optional.* The response from the REST service call. |
 | restStatus | Integer | *Optional.* The HTTP response status code from the REST service call. |
 | restResponseHeaders | JSON | *Optional.* The HTTP response headers from the REST service call. |
+
+### Use the POST action to send files
+
+You can use the `RequestPayload` property in the expression editor to reference and send a file from another location using the **POST** action.
+
+To use the **POST** action to send files:
+
+1. In the Modelling Application click the **+** icon next to processes and create a new process called `send-file`.
+
+2. Create a **User task** called `Attach file`.
+
+3. Create a **REST Connector** called `Send POST request`.
+
+4. Join the **User task** to the **REST Connector**.
+
+5. Select the **REST Connector** and from the **Properties pane** select the **POST** action from the **Action** dropdown list.
+
+6. Click the edit icon next to **RequestPayload** under the **Input mapping** section.
+
+7. In the **Value** column on the right add the following.
+
+    ```{
+    "base64File": "${getBase64FileContent(file)}"
+       }
+        ```
+
+    Where `file` is the file process variable and might have a different name in your process.
+
+8. Select the **restUrI** parameter on the left and then select **Value** on the right.
+
+9. Enter the UrI you want to use, for example `https://postman-echo.com` and then click **Update**.
+
+This process can now be used in your forms to send a file.
+
+> **Note:** The maximum file size for each file is 10 MB and the files are processed one-by-one to decrease the amount of memory used. If you have a large number of concurrent processes with bigger files, the execution time might be longer than usual.
 
 ## PUT
 

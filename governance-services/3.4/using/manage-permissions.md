@@ -23,11 +23,11 @@ given permission to see it.
 
 Setting user permissions on folders and {% include tooltip.html word="category" text="categories" %} lets you control who can see and work in different areas of the {% include tooltip.html word="fileplan" text="File Plan" %}.
 
->**Tip:** Remember that until you have given users permission for a folder or category they won't be able to see it or work with its contents.
+> **Tip:** Remember that until you have given users permission for a folder or category they won't be able to see it or work with its contents.
 
 1. Click **Manage Permissions** when you're in the folder or category you want to set permissions for in the File Plan.
 
-    >**Tip:** You can also hover over a folder in the File Plan and click **More** then **Manage Permissions**, or a category in the File Plan and click **Manage Permissions**.
+    > **Tip:** You can also hover over a folder in the File Plan and click **More** then **Manage Permissions**, or a category in the File Plan and click **Manage Permissions**.
 
     The **Manage Permissions** page opens with the name of the selected folder or category displayed. Any users and groups that currently have permissions assigned are also displayed. You can change existing user permissions or **Remove** them entirely.
 
@@ -39,7 +39,7 @@ Setting user permissions on folders and {% include tooltip.html word="category" 
 
 4. Click **Add** next to the user, group, or role that you want to add permissions for.
 
-    >**Tip:** You can add permissions for as many users, groups, and roles as you want.
+    > **Tip:** You can add permissions for as many users, groups, and roles as you want.
 
 5. Select either **Read and File** or **Read Only**.
 

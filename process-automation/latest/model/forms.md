@@ -29,6 +29,8 @@ Two additional properties can be set for a form when no form field is selected:
 | -------- | ----------- |
 | Allow form to be used in standalone tasks | Set whether the form can be used in standalone tasks or not. Standalone tasks are tasks not associated with a process instance. |
 | Update form files metadata from fields on submit | If set to `true`, when the form is submitted and it contains files in an [attach file field](#attach-file-fields) that have been sourced from Content Services, the metadata for those files will be updated with the values entered into any other fields on the form. |
+| Set left label for fields | Set all field labels to appear on the left side instead of at the top of the field. |
+| Edit form rules | You can create custom form rules that apply to a form or to the widgets on a form. Form rules are created and run by a user of the form. Each form rule has an event trigger, event conditions, and actions. |
 
 ## Create a form
 
@@ -60,7 +62,7 @@ The Modeling Application contains two tabs for creating and editing forms.
 
 ### Form Editor
 
-The **Form Editor** is the GUI for modeling forms by dragging and dropping form fields from the palette onto the form designer. The palette contains all of the [form field](#form-fields) types that can be used to a model a form. The **Form Editor** also has the ability to create multiple tabs and rows, as well as create custom outcomes.
+The **Form Editor** is the GUI for modeling forms by dragging and dropping form fields from the palette onto the form designer. The palette contains all of the [form field](#form-fields) types that can be used to model a form. The **Form Editor** also has the ability to create multiple tabs and rows, as well as create custom outcomes.
 
 #### Tabs
 
@@ -137,6 +139,8 @@ The advanced properties for an attach file field are:
 | Display download file option | Checking this box will allow the form filler to download any uploaded files. |
 | Display retrieve metadata option | Checking this box will allow the form filler to view the metadata of uploaded files. |
 | Display remove file option | Checking this box will allow the form filler to remove uploaded files from the form. |
+| Content Properties to display | You can select up to two custom properties to display next to the file name. |
+| Display upload new version option | Checking this box allows the **Upload new version** option to display in the Digital Workspace, when you click the three dots next to a file. If you upload a new version of a file you can indicate if the changes are minor or major, and you can write a comment about what the changes are or why the changes were made. |
 
 > **Important**: Users filling in a form with an attach file field need to be given explicit access to the upload directory if it is outside of the [default storage location]({% link process-automation/latest/admin/release.md %}#deploy-steps/storage) for the application.
 
@@ -154,6 +158,8 @@ The advanced properties for a date field are:
 
 | Property | Description |
 | -------- | ----------- |
+| Default value | Sets the default date of the field. If you want the default date to be 'today' and that is the current day then you can select the **Today** checkbox. |
+| Set dynamic date range | When turned on you can enter a **Minimum** and **Maximum** date range. This forces the date picker to only allow a user to select a date within the configured period, and any dates outside of the date range will be grayed out. **Note:** When using dynamic date range, the **Min Date** and **Max Date** fields are unavailable. |
 | Min date | Sets the earliest date that can be entered into the field. |
 | Max date | Sets the latest date that can be entered into the field. |
 | Date format | Sets the format of how a date is entered into the field. For example: `YYYY-MM-DD` would display as `2001-10-01` for 1st October, 2001. |
@@ -162,28 +168,71 @@ The advanced properties for a date field are:
 
 Display text fields allow the form designer to display a line of fixed text to the form filler. This text is not editable by the filler themselves. The `Text to display` property is used to enter the text.
 
-Display text fields do not have the `Read-only`, `Placeholder` and `Required?` fields, nor do they have an advanced properties tab.
+Display text fields do not have the `Read-only`, `Placeholder`, and `Required?` fields, nor do they have an advanced properties tab.
+
+### Display Rich text
+
+Display Rich text allows you to add HTML formatted text to forms. You can test how the text will look at design time by using the preview button, before pushing the form to a live environment. The Display Rich text editor includes standard formatting tools such as headings, font color, hyperlinks, and code blocks.
+
+> **Note:** Once created the form only displays read-only text and does not capture any values.
+
+![payslip]({% link process-automation/images/payslip.png %})
 
 ### Display value fields
 
 Display value fields allow the form designer to display a value previously entered in the form. The `variables` property is used to select a [form variable](#form-variables) to display.
 
-Display value fields do not have the `Read-only`, `Placeholder` and `Required?` fields, nor do they have an advanced properties tab.
+Display value fields do not have the `Read-only`, `Placeholder`, and `Required?` fields, nor do they have an advanced properties tab.
 
 ### Dropdown fields
 
 Dropdown fields allow the form designer to define a set of options a form filler must choose from a list. This list can be a manually entered set of options or it can read from a REST service.
 
-The advanced properties for a manual dropdown field allow for a set of options to be entered with a `name` and `id` for each option set. Selecting the radio button next to an option will set it as the `empty value`. An empty value` is taken to mean the field is empty if this option is selected when the form is filled in.
+The advanced properties for a manual dropdown field allow for a set of options to be entered with a `name` and `id` for each option set. Selecting the radio button next to an option will set it as the `empty value`. An empty value is taken to mean the field is empty if this option is selected when the form is filled in.
 
 The advanced properties for a REST dropdown field are:
 
 | Property | Description |
 | -------- | ----------- |
+| Authentication | The authentication type. |
 | REST URL | The URL of the REST service. |
 | Path to array in JSON response | The path to the JSON response. Enter `.` to use the full path. |
 | ID property | The ID of the REST service. |
 | Label property | The name of the REST service. |
+| Conditional | Turn this option on if you would like to link your dropdown widget with another dropdown widget and to create a conditional relationship between them. For example, if you select a country from one dropdown widget, the second dropdown widget will only show cities from that country. |
+| Depends on | Select which other dropdown widget you would like to connect with. |
+| If equal | Select which child entry of the **Depends on** field you want to work with and add subordinate entries for it. |
+
+To create a conditional relationship between two dropdown lists using Country and City as an example:
+
+1. Add two dropdown widgets to your form.
+
+2. Name one of them Country and the other one City.
+
+3. Select the City dropdown widget and click the **Advanced** tab.
+
+4. Select **Manual** and turn on the **Conditional** field.
+
+    **Note:** You can only have the following relationships: manual parent and manual child, manual parent and REST child, REST parent and REST child.
+
+5. Select Country from the **Depends on** dropdown list.
+
+6. Select the Country dropdown widget and click the **Advanced** tab.
+
+7. Add a name for the label and then add all the Countries using the **Add option** field.
+
+8. Select the City dropdown widget again and click the **Advanced** tab.
+
+9. From the **If equal** dropdown list select the Country you want to work with and then add all the cities you would like available in the dropdown list.
+
+**Note:** You can link as many dropdown fields as you want.
+
+When you use dropdown fields in Process Automation you can enter any character of the item you are searching for to limit the amount of returned entries, this includes any part of a sentence. This feature works when there are more than five entries and is useful when your lists are large.
+
+You can select single or multiple entries from a dropdown list to use them further in your process.
+
+When using **REST Service** you can use the ID of the linked widget in the REST URL. For example, if your URL is `https://mydomain.com/get-cities/country=${Country}` the value inside `${}` is the ID of the linked widget. If my widget had an ID called `my-dropdown` your URL would be `https://mydomain.com/get-cities/country=${my-dropdown}`.
+The `${my-dropdown-id}` can be used in any position of the URL, for example you can also use `https://mydomain.com/country=${Country}/get-cities`. When authentication is required for the REST service you can select the authentication type from the Authentication dropdown list. For how to create authentication types see, [Authentication]({% link process-automation/latest/model/authentication.md %}).
 
 ### File viewer fields
 
@@ -269,21 +318,26 @@ The advanced properties for a people field are:
 | Property | Description |
 | -------- | ----------- |
 | Mode | Sets whether only a single, or multiple users can be selected. |
+| Select the logged user as default user | Select when you want the logged in user to be pre-populated in the people widget. |
+| Groups Restriction | Specify a group or groups of users who are permitted to display in a widget at runtime. If multiple groups are added, the users must belong to all groups in order to be displayed in a widget at runtime. |
 
 ### Radio buttons
 
 Radio button fields allow the form designer to define a set of options a form filler must choose from. This list can be a manually entered set of options or it can read from a REST service.
 
-The advanced properties for a manual radio button field allow for a set of options to be entered with a `name` and `id` for each option set. Selecting the radio next to an option will set it as the default value.
+The advanced properties for a manual radio button field allow for a set of options to be entered with a `name` and `id` for each option set. You can change the position of the radio buttons by dragging them into the order you want them to appear. You can also set if you want your radio buttons aligned vertically or horizontally.
 
 The advanced properties for a REST radio button field are:
 
 | Property | Description |
 | -------- | ----------- |
+| Authentication | The authentication type. |
 | REST URL | The URL of the REST service. |
 | Path to array in JSON response | The path to the JSON response. Enter `.` to use the full path. |
 | ID property | The ID of the REST service. |
 | Label property | The name of the REST service. |
+
+When authentication is required for the REST service you can select the authentication type from the Authentication dropdown list. For how to create authentication types see, [Authentication]({% link process-automation/latest/model/authentication.md %}).
 
 ### Text fields
 
@@ -299,6 +353,38 @@ The advanced properties for a text field are:
 | Input mask | Set the format for how data may be entered into the field. For example `(00) 0000-0000` for a mandatory 8-digit phone number and 2-digit area code will not allow for letters to be entered at all. |
 | Reversed | This reverses the entry for an `Input mask` and reads the text from right to left instead. |
 | Input mask placeholder | The placeholder to demonstrate the format of an `Input mask`. For example `(__) ____-____` in the phone number example. |
+
+### Metadata viewer
+
+The Metadata viewer can be used to view the metadata of any file you upload or attach to your GUI using the Attach file widget.  
+
+To create a form that contains the Metadata viewer:
+
+1. Create or edit an existing form, for more see [Create a form](#create-a-form).
+
+2. Add the Attach file widget to the form.
+
+3. Add the Metadata viewer widget to the form.
+
+4. Select the **Advanced** tab of the Metadata viewer widget on the **Field Editor** pane.
+
+5. From the **Linked attach file widget** dropdown menu select the Attach file widget you want to link with the Metadata viewer.
+
+   You can add more than one Attach file widget and Metadata viewer widgets to a single form.
+
+The advanced properties for the Metadata viewer are:
+
+| Property | Description |
+| -------- | ----------- |
+| Expanded | Select the check box to enable the properties viewer to display all of the properties groups and not just the default properties. |
+| Display default properties | Select the check box if you want to display the default properties. |
+| Display empty | Select the check box to allow the display of empty values in the card view. |
+| Editable | Select the check box to display the metadata in an editable view where it can be updated. |
+| Multi | Select the check box to allow more than one properties group to be expanded at the same time. |
+| Copy to clipboard on click | Select the check box to allow the value of a property to be copied to the clipboard when it is clicked. |
+| Use chips for multi-value properties | Select the check box to allow the display of multi-value properties as chips. |
+| Display aspect | Select the Aspect you wish to display as an expanded card. |
+| Preset | The name or configuration of the the metadata preset. Click the preset button to configure the metadata you would like visible in your GUI, for more on presets see [Application config presets](https://www.alfresco.com/abn/adf/docs/content-services/components/content-metadata-card.component/#application-config-presets){:target="_blank"}. |
 
 ## Custom form widgets
 
@@ -395,3 +481,108 @@ The actions that can be run against a form are:
 | Validate | Run validation against the form. Any errors can be seen in the log history at the bottom of the Modeling Application and are flagged in a pop-up box. |
 | Save | Save any changes made to the form. |
 | Delete | Delete the form. |
+
+## Form rules
+
+Form rules can be used to populate one field depending on the response given by a user in another field. In the example described here you create a form rule called **how_to_address** that has two fields on it, the first is called **Gender** and the second is called **Title**. The first field is a dropdown list and contains the options **Man**, **Woman**, and **Other**. If **Woman** is selected then the second field is automatically populated with **Ms**. The form rule ensures that any interaction with the form will contain consistent responses. This is a simple example and your form rules could be more involved.
+
+These instructions are in two parts. You first create a form, and then second create the form rules.
+
+> **Note:** Form rules are specific to your installation and configuration.
+
+### Create the form
+
+First you must create a form that can be used to configure the form rule:
+
+1. Sign into the Modeling Application and open a Project, click the three dots next to **Forms** and then select the **+** icon.
+
+    > **Note:** You are able to upload already created forms by using the **Upload** button. Any form you upload must be written in the JSON format.
+
+2. Enter a name for the form and then click **Create**.
+
+    In this example the form is called **how-to-address**.
+
+3. Add a [Dropdown](#dropdown-fields) widget with the following configuration:
+
+    * **Label** called Gender
+    * **ID** called genderID
+    * Three options with **Male**, **Female**, and **Other** as their IDs and Labels.
+
+4. Add a [display value field](#display-value-fields) widget with the following configuration:
+
+    * **Label** called Title
+    * **ID** called titleID
+
+5. Select the form again by clicking the area above the word **outcome**, see screen shot.
+
+    ![Form editor]({% link process-automation/images/form-editor.png %})
+
+6. In the **Form Editor** pane click **Edit Form Variables**.
+
+7. Click the **+** icon and create a new variable with the name **title**.
+
+8. From the **Type** dropdown list select **Primitives** and then **string**, and then click **Update**.
+
+9. Select the **Display value** widget, and from the **Field Editor** pane select the **title** variable from the **Variables** dropdown list.
+
+You have created a form where you can create form rules.
+
+### Create form rules within the form  
+
+To create form rules within the form:
+
+1. Select the form again by clicking the area above the word **outcome** and then click **Edit form rules**.
+
+2. Click the green **+** icon to create a new rule.
+
+3. From the **Event source** dropdown list click **Form events** and select **Form loaded**.
+
+4. Click the **+** icon next to **Actions** to create a new action.
+
+5. From the **Action type** dropdown list click **Update variable** and select **Title**.
+
+    You are selecting the display value widget you created earlier.
+
+6. Click the **Edit** button next to the **Event output** dropdown list that is under the **Event output/Value** heading.
+
+7. Select **Value** from the right hand side and enter a value in the **Value** field, for example *Select your gender*, and then click **Update**.
+
+    This message will appear in the blank field of the display value widget before a user has selected their gender from the **Gender** dropdown list.
+
+8. Click the green **+** icon again to create a new rule.
+
+9. From the **Event source** dropdown list click **Field events** and then Click **Gender** and select **Gender - field value changes**.
+
+10. Click the **+** icon next to **Condition** to create a new condition.
+
+11. Select **Gender** from underneath the **title (Form fields)** heading.
+
+12. Select **Equals** and then **Value** from the top right.
+
+13. Enter **Female** into the **Value** field and then click **Save**.  
+
+14. Click the green **+** icon next to **Actions** to create a new action.
+
+15. From the **Action type** dropdown list click **Update variable** and select **Title**.
+
+16. Click the **Edit** button next to the **Event output** dropdown list which is under the **Event output/Value** heading.
+
+17. Select **Value** from the right hand side and enter a value, for example **Ms** and then click **Update**.
+
+    You are configuring the form to display **Ms** in the **Title** display value field widget when a user selects **Female** from the **Gender** dropdown list.  
+
+18. Create a **Gender - fieldValueChanged** form rule for each of the options within your dropdown list. In this example you would create another one for **Male**, and another one for **Other**.
+
+    > **Note:** You must create a **Gender - fieldValueChanged** form rule for each of the elements in your dropdown list.
+
+19. When you have created the relevant form rules click **Save**.
+
+20. Select **Preview** from the **Eye** icon dropdown list and test the responses in the form are correct.  
+
+## Change preview size
+
+You can change the size of the form you want to preview. This is useful because the form size can simulate the different sizes of the devices that will be using the form. You can customize the size of the form or select which device you want to emulate.
+
+To change the size of the preview select **Preview** from the **Eye** icon dropdown list and select how you want to preview your form.
+
+![Form size]({% link process-automation/images/form-size.png %})

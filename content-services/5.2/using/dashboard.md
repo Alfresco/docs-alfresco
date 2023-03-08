@@ -107,7 +107,7 @@ If you want, add multiple copies of each dashlet and then set the filters so tha
 
     >**Tip:** On your dashboard you can resize most dashlets - just click on the bottom of a dashlet then drag up and down to resize it.
 
-## Setting your home page {#setting-your-home-page}
+## Setting your home page {#sethomepage}
 
 Your default Alfresco Share home page is your user dashboard, but you can set it to be any page in Share that you have access to.
 

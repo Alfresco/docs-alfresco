@@ -150,7 +150,7 @@ If you're a Windows user, register Tomcat as a Windows service:
 * From the `/tomcat/bin` directory, run the following command at a command prompt:
 
     ```bash
-    tomcat7w.exe //ES//<alfrescoTomcatnum1>
+    tomcat9w.exe //ES//<alfrescoTomcatnum1>
     ```
 
     where `<alfrescoTomcatnum1>` is the value from your `tomcat_unique_service_name` parameter.
@@ -606,7 +606,7 @@ Here's an example of how to configure Tomcat 8.5 to work with HTTPS for your dev
 
     2. On Windows, you can just use port 443 without any proxy.
 
-    Note that we use the `certificateVerification="none"` setting. See the [official Tomcat 8.5 page](https://tomcat.apache.org/tomcat-8.5-doc/config/http.html#SSL_Support_-_SSLHostConfig){:target="_blank"} to learn more about the HTTPS security settings for the connector.
+    Note that we use the `certificateVerification="none"` setting. See the [official Tomcat 8.5 page](https://tomcat.apache.org/tomcat-8.5-doc/config/http.html#SSL_Support_-_SSLHostConfig){:target="_blank"} or [Tomcat 9.0 page](https://tomcat.apache.org/tomcat-9.0-doc/config/http.html#SSL_Support_-_SSLHostConfig){:target="_blank"} to learn more about the HTTPS security settings for the connector.
 
     If you're using an older version of Tomcat (which we don't recommend and don't support), the security settings are specified in a different format. See example for [Tomcat 7.0](https://tomcat.apache.org/tomcat-7.0-doc/config/http.html#SSL_Support){:target="_blank"}.
 
@@ -784,7 +784,7 @@ The following properties are available for fully-distributed caches and aren't s
 | -------- | ----------- |
 | cluster.type | The `cluster.type` attribute determines what type of cache is created when clustering is available. The acceptable values are: {::nomarkdown}<ul><li>fully-distributed: Uses a Hazelcast IMap backed distributed cache. The cache values can be stored on any member of the cluster, hence the term fully-distributed.</li><li>local: Always use a non-clustered cache. The cache values won't reflect updates made to the equivalent cache on another cluster member.</li><li>invalidating: Uses a local cache, but when an update or a removal is issued to the cache, an invalidation message is broadcast to all members of the cluster, and those members will remove the value from their cache. This value is useful where frequent reads cause performance problems (due to remote reads) or where values are non-serializable.</li></ul>{:/}|
 | backup-count | The `backup-count` attribute controls how many cluster members should hold a backup of the key/value pair. |
-| merge-policy | The `merge-policy` attribute determines how Hazelcast recovers from split brain syndrome, for example: {::nomarkdown}<ul><li>com.hazelcast.map.merge.PassThroughMergePolicy</li><li>com.hazelcast.map.merge.PutIfAbsentMapMergePolicy (the default)</li><li>com.hazelcast.map.merge.HigherHitsMapMergePolicy</li><li>com.hazelcast.map.merge.LatestUpdateMapMergePolicy</li></ul>{:/}<br><br>See [Network Partitioning (Split-Brain Syndrome)](https://docs.hazelcast.org/docs/latest/manual/html-single/#network-partitioning){:target="_blank"} for more information. |
+| merge-policy | The `merge-policy` attribute determines how Hazelcast recovers from split brain syndrome, for example: {::nomarkdown}<ul><li>com.hazelcast.map.merge.PassThroughMergePolicy</li><li>com.hazelcast.map.merge.PutIfAbsentMapMergePolicy (the default)</li><li>com.hazelcast.map.merge.HigherHitsMapMergePolicy</li><li>com.hazelcast.map.merge.LatestUpdateMapMergePolicy</li></ul>{:/}<br><br>See [Network Partitioning (Split-Brain Syndrome)](https://docs.hazelcast.com/imdg/latest/#network-partitioning){:target="_blank"} for more information. |
 
 ## Add a MIME type
 
@@ -826,7 +826,7 @@ Metadata extraction automatically extracts metadata information from inbound and
 
 Metadata extractors offer server-side extraction of values from added or updated content.
 
-For more information see [metadata extraction extension point]({% link content-services/community/develop/repo-ext-points/metadata-extractors.md %}). 
+For more information see [metadata extraction extension point]({% link content-services/latest/develop/repo-ext-points/metadata-extractors.md %}). 
 
 ## About aspects
 

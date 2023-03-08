@@ -6,9 +6,7 @@ Alfresco products are available to customers and partners. Use the links provide
 
 ## Pre-built release artifacts
 
-Access to the Alfresco pre-built release artifacts is from the Alfresco Support Portal at [https://support.alfresco.com](https://support.alfresco.com){:target=_"blank"}
-
-Go to the **Downloads** tab to find links to the latest releases of Alfresco products. To find older releases, use the Search box.
+Access to the Alfresco pre-built release artifacts is from [Hyland Community]() [https://community.hyland.com](https://community.hyland.com){:target=_"blank"}. Navigate to the **Support** tab and select **Alfresco Downloads**.
 
 ## Containerized products
 
@@ -26,7 +24,7 @@ Most SDKs require Maven and access to the Alfresco Nexus repository. Please cont
 
 ## Access to Alfresco product source code
 
-Source code for most Alfresco products, including ACS, APS, and many modules, is available at the Alfresco Nexus repository in the form of a product sources.jar, or available in GitHub:
+Source code for most Alfresco products, including ACS, APS, and many modules, is available at the Alfresco Nexus repository in the form of a product `sources.jar`, or available in GitHub:
 
 [https://github.com/Alfresco](https://github.com/Alfresco){:target=_"blank"}
 

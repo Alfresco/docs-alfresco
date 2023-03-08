@@ -137,3 +137,38 @@ You will see a **Salesforce Community Member Access** message. The result of the
       ![lightning-alfresco-tab]({% link salesforce/images/lightning-alfresco-tab.png %})
 
   Community Members can download and view documents linked to the case. They can also upload documents to the case that will get stored in Alfresco.
+  
+## Community Visualforce Page Configuration and Setup
+
+To expose the connector in a Salesforce Community (Digital Workspace) we need to add a visualforce page for the connector. 
+Visualforce Page must be added to your Salesforce organization using the following template:
+
+```xml
+<apex:page docType="html-5.0" standardController="<Object API Name>">
+ <apex:canvasApp id="AlfrescoConnector" applicationName="<Connected APP API Name>" width="100%" height="450px" scrolling="auto" parameters="{'community':'simple'}"/>  
+</apex:page>
+```
+
+The connector is tied to a Standard or Custom Salesforce object. 
+
+Insert your Object API Name as the value of the `standardController` attribute. For Example : Case or Opportunity
+
+The `id` attribute is required and can be set to any non-empty, non-null value.
+
+The `applicationName` attribute must be set to the API Name of the connected app created for the connector during the initial setup.
+
+The `width`, `height`, and `scrolling` attributes can be set to values that meet the use case.
+
+The most important attribute is the `parameters` attribute.  The value must be set to `{'community':'simple'}`.Without this value, the connector will surface the standard connector view. 
+
+The Visualforce page will need to have the appropriate profiles added for it to be visible to the correct community users.
+
+**Example 1:**
+
+```xml
+<apex:page docType="html-5.0" standardController="Case">
+  <apex:canvasApp id="AlfCanvas3" applicationName="ACS_Salesforce" width="100%" height="450px" scrolling="auto" parameters="{'community':'simple'}"/>
+</apex:page>
+```
+
+Add the new Visualforce Page to the desired record detail in your Salesforce Community.

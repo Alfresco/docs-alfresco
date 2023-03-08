@@ -177,4 +177,6 @@ This configuration is already provided in `solrconfig.xml`.
 </requestHandler>
 ```
 
-To specify the backup location, set `solr.backup.dir` in `solrcore.properties`.
+To specify the backup location you must configure a parameter called `solr.backup.dir` in the `solrcore.properties` file. The parameter determines the root backup directory and one must be created for each core, in advance of when you start Solr.
+
+For example, if you have one core then the parameter might be set to `/var/data/solr/backup` and you must create that directory before starting Solr. If you have two cores, called `alfresco` and `archive`, then the parameter might be set to `/var/data/solr/backup/alfresco`, `/var/data/solr/backup/archive` and you must create those directories before starting Solr.

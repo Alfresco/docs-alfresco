@@ -71,9 +71,9 @@ This button is available in the **Alfresco Client** tab when you’re composing 
 
 ![This image shows the Send and Archive button in the Alfresco Client tab]({% link microsoft-outlook/images/2-8-ribbon.png %}){:width="600px"}
 
-**Note:** The standard **Send** button inside your email is not affected.
+> **Note:** The standard **Send** button inside your email is not affected.
 
-**Note:** This functionality is only supported for Microsoft Exchange accounts.
+> **Note:** This functionality is only supported for Microsoft Exchange accounts.
 
 ## Archiving folders in Outlook
 
@@ -131,9 +131,11 @@ Work with your files and folders using the Alfresco sidebar.
 
 1. Click the **Explore** tab from the **Alfresco Outlook Client** sidebar, or navigate through the list view.
 
-    ![]({% link microsoft-outlook/images/outlook-sidebar-annotated.png %})
+    ![Outlook Client sidebar - 2.9.2+]({% link microsoft-outlook/images/2-9-2-outlook-sidebar-annotated.png %})
 
     >**Note:** In Alfresco Outlook Integration 2.7, the **Explore** tab is only available if the **Workflow** tab is also enabled to save space for more content. The **Workflow** tab is hidden by default.
+
+    >**Note:** In Alfresco Outlook Integration 2.9.2, the **Explore** tab includes a Simple Search Filter that allows you to filter the simple search results via options **Exclude folders** or to show **Folders only**. The default option is to show **All content**.
 
 2. Repo location selector: choose which sites and content you wish to see. You can see the full repository in this view, or limit the view to certain sites only (**All Sites**, **My Sites** or **Favorite Sites**).
 

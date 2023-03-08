@@ -263,15 +263,15 @@ The Bulk Import tool has a number of entry and display fields that are shown in 
 
 |Field label (from Bulk Import status web page)|Field entry (from status.xml file)|Possible values|Summary|
 |------------------------------------------------|------------------------------------|---------------|-------|
-|Current status|`<CurrentStatus>Idle</CurrentStatus>`|Idle | In Progress|Status of the bulk import|
-|Successful|`<ResultOfLastExecution>Yes</ResultOfLastExecution>`|Yes | No | n/a|Result of the bulk import|
+|Current status|`<CurrentStatus>Idle</CurrentStatus>`|Idle \| In Progress|Status of the bulk import|
+|Successful|`<ResultOfLastExecution>Yes</ResultOfLastExecution>`|Yes \| No \| n/a|Result of the bulk import|
 |Batch Size|`<batchSize>20</batchSize>`|Numeric|The batch size (number of directories and files to import at a time) specified for the bulk import|
 |Number of threads|`<numThreads>4</numThreads>`|Numeric|The number of threads specified for the bulk import|
 |Source Directory|`<SourceDirectory>importdirectory</SourceDirectory>`|Alphanumeric|The absolute path of the filesystem directory being imported|
-|Target Space|`<TargetSpace>/Company Home</TargetSpace>`|Alphanumeric|The path of the Alfresco space where the content is being loaded, starting with /Company Home|
-|Start Date|`<StartDate>2014-05-15 01:30:11.912PM</StartDate>`|Date and timestamp|Start of the bulk import. Format is YYYY-MM-DD HH:MM:SS.sss AM | PM|
-|End Date|`<EndDate>2014-05-15 01:30:12.009PM</EndDate>`|Date and timestamp|End of the bulk import. Format is YYYY-MM-DD HH:MM:SS.sss AM | PM|
-|Duration|`<DurationInNS>0d 0h 0m 0s 96.941ms</DurationInNS>`|Alphanumeric|Time taken for the bulk import to complete. Format is xd xh xm xxs xx.xxxms where x is a number|
+|Target Space|`<TargetSpace>/Company Home</TargetSpace>`|Alphanumeric|The path of the Alfresco space where the content is being loaded, starting with `/Company Home`|
+|Start Date|`<StartDate>2014-05-15 01:30:11.912PM</StartDate>`|Date and timestamp|Start of the bulk import. Format is YYYY-MM-DD HH:MM:SS.sss AM \| PM|
+|End Date|`<EndDate>2014-05-15 01:30:12.009PM</EndDate>`|Date and timestamp|End of the bulk import. Format is YYYY-MM-DD HH:MM:SS.sss AM \| PM|
+|Duration|`<DurationInNS>0d 0h 0m 0s 96.941ms</DurationInNS>`|Alphanumeric|Time taken for the bulk import to complete. Format is `xd xh xm xxs xx.xxxms` where `x` is a number|
 |Number of Completed Batches|`<CompletedBatches>0</CompletedBatches>`|Numeric|Number of batches completed in the bulk import|
 |Source (read) Statistics|`<SourceStatistics>`|
 |Scanned: Folders|`<FoldersScanned>0</FoldersScanned>`|Numeric|Number of source folders scanned|
@@ -314,7 +314,7 @@ It supports sync mode transfer, so it can also be used by the replication servic
 
 The File System Transfer Receiver is delivered as a compressed zip file.
 
-1. Download the following file from the Alfresco Support Portal:
+1. Download the following file from the Support Portal:
 
     `alfresco-file-transfer-receiver-7.0.x.zip`
 

@@ -20,19 +20,31 @@ You also need to [install a valid license](#install-license) for the SAP Cloud C
 
 The SAP Cloud Connector is packaged as an {% include tooltip.html word="AMP" text="AMP" %} file. These steps describe how to install the SAP Cloud Connector to an instance of Content Services.
 
-1. Go to the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}, and then download Alfresco Content Connector for SAP Cloud:
+1. Go to [Hyland Community](https://community.hyland.com/){:target="_blank"}, and then download the Alfresco Content Connector for SAP Cloud delivery package. It is provided as a ZIP file and contains at least the following files:
 
-    * `sap-content-connector-cmis-repo-1.1.x.amp` for Content Services.
+    * Module `sap-content-connector-cmis-repo-1.2.x.amp` for Content Services:
+        * This contains the business logic for the SAP Cloud Connector.
+    * Module `sap-content-connector-genericXchange-1.x.x.amp` for Content Services:
+        * This contains the business logic for additional data exchange.
+        * See [Configure GenericXchange]({% link sap-cloud/latest/config/genericxchange.md %}) for more details.
+    * `alfresco-global.properties_append` template:
+        * This is only required if using GenericXchange, and contains required keys/properties to add to the current `alfresco-global.properties` file.
+    * `sap-content-connector-jco-packer-x.x`:
+        * This is only required if using GenericXchange with RFC (SAP JavaConnector).
+        * See [Re-package the repository AMP]({% link sap/latest/install/index.md %}#re-package-the-repository-amp) for more details.
 
-2. Use the Module Management Tool (MMT) to install the repository AMP file into the repository WAR (`alfresco.war`).
+2. To install the two {% include tooltip.html word="AMP" text="AMP" %} files from the delivery package:
 
-    For more information, see [Using the Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) and [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).
+    * Use the Module Management Tool (MMT) to install both repository AMP files into the repository WAR (`alfresco.war`). For more information, see:
+
+        * [Using the Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt)
+        * [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %})
 
 3. Start Content Services.
 
 ## Install the license {#install-license}
 
-The access and use of the SAP Cloud Connector is managed by a license. If you don't have a license yet, you can request a trial license from the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}.
+The access and use of the SAP Cloud Connector is managed by a license. If you don't have a license yet, you can request a trial license from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 > **Note:** Make sure you have a valid license file before continuing. The name of the license file is `content-connector-for-sap-cloud.l4j`.
 

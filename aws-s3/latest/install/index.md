@@ -6,7 +6,7 @@ Use this information to install and configure the Content Connector for AWS S3 a
 
 Using an Alfresco Module Package (AMP), the connector supplies a new content store which replaces the default file 
 system-based implementation for the standard and (optionally) the deleted content stores. 
-The content store implementation is responsible for reading and writing content streams using the S3 API, 
+The content store implementation is responsible for reading and writing content streams (i.e. files) using the S3 API, 
 however, in order to improve performance a local Caching Content Store is used which uses the local disk to 
 cache recently-used content items.
 
@@ -24,27 +24,25 @@ You have two options for installing the S3 Connector:
 The steps for both options are very similar, but the second allows you to add `S3MultipleBuckets` as a third alternative 
 for the S3 content store subsystem.
 
-## Prerequisites 
+## Prerequisites
 
-There are a number of software requirements for installing Content Connector for AWS S3 version 4.0.
+There are a number of software requirements for installing Content Connector for AWS S3.
 
->**Important:** You are unable to use the S3 Connector with the Glacier Connector if you are already using Amazon S3 with WORM storage. Amazon S3 with WORM storage requires that you use multiple buckets which is not supported by the Glacier Connector.
+### Alfresco requirements
 
-**Alfresco requirements**
+* Alfresco Content Services 
 
-* Alfresco Content Services 6.2 or later releases. See [Alfresco Supported Platforms](https://www.alfresco.com/services/subscription/supported-platforms) for more information.
+### Java requirements
 
-**Java requirements**
+* OpenJDK 11 or 17.
 
-* OpenJDK 11.
-
-**AWS related requirements**
+### AWS related requirements
 
 In order to use the S3 Connector, you will need an AWS account so that you can configure the S3 Connector successfully. This includes having an admin account to set up an S3 bucket, or have access to a bucket that's already set up.
 
 >**Note:** The bucket name must be unique among all AWS users globally. See [S3 bucket restrictions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html) for more information on bucket naming.
 
-**Summary of features**
+### Summary of features
 
 If you want to use the functionality introduced in S3 Connector 2.0, you can configure the following:
 
@@ -62,7 +60,7 @@ If you want to use the functionality introduced in S3 Connector 3.1, you can con
 * For S3MultipleBuckets subsystem configuration, see [Configuring multiple buckets using S3 Connector]({% link aws-s3/latest/config/index.md %}#multibucketconfig).
 * For changes to the S3 Connector configuration, see [Properties reference]({% link aws-s3/latest/config/index.md %}#properties-reference) and [Properties behaviour changes]({% link aws-s3/latest/config/index.md %}#properties-behavior-changes).
 
-## Installing 
+## Installing
 
 These steps describe how to install the Content Connector for AWS S3 to an instance of Alfresco Content Services.
 
@@ -70,9 +68,9 @@ The S3 Connector is packaged as an Alfresco Module Package (AMP) file.
 
 >**Note:** Ensure that you don't start Alfresco Content Services before installing the S3 Connector AMP.
 
-1.  Go to the [Alfresco Support Portal](https://support.alfresco.com).
+1.  Go to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
-2.  Download the `alfresco-s3-connector-4.0.x.amp` file.
+2.  Download the `alfresco-s3-connector-5.1.x.amp` file.
 
 3.  Use the Module Management Tool (MMT) to install the AMP into the repository WAR (`alfresco.war`).
 
@@ -95,22 +93,22 @@ The S3 Connector is packaged as an Alfresco Module Package (AMP) file.
 
 >**Note:** Ensure that you don't start Alfresco Content Services before installing the S3 Connector AMP.
 
-1.  Go to the [Alfresco Support Portal](https://support.alfresco.com).
+1.  Go to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
-2.  Download the `alfresco-s3-connector-4.0.x.amp` file.
+2.  Download the `alfresco-s3-connector-5.1.x.amp` file.
 
 3.  Use the Module Management Tool (MMT) to install the AMP into the repository WAR (`alfresco.war`).
 
     For more information, see [Using the Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) and [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).
 
-4.  Unzip the `alfresco-s3-connector-4.0.x.amp` file.
+4.  Unzip the `alfresco-s3-connector-5.1.x.amp` file.
 
 5.  Copy the three sample files and rename them by removing the `.sample` extension.
 
     The sample files are located under:
 
     ```text
-    alfresco-s3-connector-4.0.x.amp/config/alfresco/extension/...
+    alfresco-s3-connector-5.1.x.amp/config/alfresco/extension/...
     ```
 
     They need to be copied to the relevant paths under the following folder:
@@ -172,4 +170,3 @@ The S3 Connector is packaged as an Alfresco Module Package (AMP) file.
 7.  Check that any other [configuration]({% link aws-s3/latest/config/index.md %}) is set up correctly for your environment and specifically check the [multiple bucket config]({% link aws-s3/latest/config/index.md %}#multibucketconfig).
 
 8.  Start Alfresco Content Services.
-

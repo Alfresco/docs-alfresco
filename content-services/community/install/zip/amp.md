@@ -5,7 +5,7 @@ nav: false
 
 An Alfresco Module Package (AMP) is a bundle of code, content model, content, and the directory structure that is used to distribute additional functionality for Community Edition. Use the Module Management Tool (MMT) to install and manage AMP files. You can install an AMP in an Alfresco WAR using the MMT, or by using the `apply_amps` tool.
 
-The MMT is available as a JAR file from the distribution zip (`alfresco-content-services-community-distribution-7.0.x.zip`), in the zip's `/bin` directory. Place the `/bin` directory and its contents in the same location where you extracted the Community Edition distribution zip; for example `<installLocation>/bin`.
+The MMT is available as a JAR file from the distribution zip (`alfresco-content-services-community-distribution-7.3.x.zip`), in the zip's `/bin` directory. Place the `/bin` directory and its contents in the same location where you extracted the Community Edition distribution zip; for example `<installLocation>/bin`.
 
 1. Browse to the `/bin` directory, for example:
 
@@ -88,7 +88,7 @@ AMPs are used to package customizations and extensions for deployment. Use the *
 
 Use the Module Management Tool (MMT) to uninstall one or more AMP files.
 
-The MMT program, `alfresco-mmt.jar`, is available in the `bin` directory of the installation. MMT uninstalls an AMP file by removing content from the `alfresco.war` and `share.war` files. See [Using the Module Management Tool (MMT)]({% link content-services/community/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) for more.
+The MMT program, `alfresco-mmt.jar`, is available in the `bin` directory of the installation. MMT uninstalls an AMP file by removing content from the `alfresco.war` and `share.war` files. See [Using the Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) for more.
 
 MMT is a command line tool. The syntax for uninstalling an AMP file using MMT is:
 

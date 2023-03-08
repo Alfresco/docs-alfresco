@@ -139,7 +139,7 @@ You can make basic configuration updates to customize Community Edition, or modi
 
   You can configure Community Edition for your specific environment by editing the `alfresco-global.properties` file.
 
-* [Configuring Alfresco Share]({% link content-services/community/develop/share-ext-points/index.md %})
+* [Configuring Alfresco Share]({% link content-services/latest/develop/share-ext-points/index.md %})
 
   A number of options are available to customize Share. To configure Share, use the configuration file, `share-config-custom.xml` .
 

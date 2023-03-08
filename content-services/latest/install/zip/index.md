@@ -12,16 +12,12 @@ For a description of the system paths used within this documentation, see [Syste
 
 To install Content Services using the distribution zip (which also contains the WAR files), make sure that the required software is available on your system:
 
-* Java: OpenJDK 11 is recommended
+* Java: OpenJDK 17 is recommended
 * Application server: Apache Tomcat
 * Database: PostgreSQL or MySQL
 * Message broker: ActiveMQ
 
 For a list of other supported components and versions, refer to the `VERSIONS.md` file in the distribution zip.
-
->**Note:** If you are using Alfresco Transform Service 1.4 or newer, and you want to do IPTC metadata extraction,
-then you need to [bootstrap the IPTC Content Model]({% link content-services/latest/install/containers/index.md %}#iptc-model-bootstrap) manually
-into Content Services. If you follow the link you will find the necessary content model files.
 
 ## Install overview
 
@@ -35,7 +31,7 @@ Before you start, validate that you have access to the prerequisite software so 
 
 To get started, prepare your production server by installing the prerequisite software (JRE, database, and message broker) before continuing.
 
-1. Download the distribution zip file by accessing the Alfresco Support Portal.
+1. Download the distribution zip file by accessing the Support Portal.
 2. Generate certificates for mutual TLS.
 3. Download Tomcat and review the installation steps required.
 4. Set up Tomcat.
@@ -44,7 +40,7 @@ To get started, prepare your production server by installing the prerequisite so
 7. Set up ActiveMQ.
 8. Install third-party software used by Content Services.
 
-> **Note:** Starting from Content Services 7.0, the `alfresco-pdf-renderer` binaries are no longer included in the distribution zip. LibreOffice, ImageMagick, and Alfresco PDF Renderer are no longer part of the Content Services zip installation, as they've moved to the [Alfresco Transform Service installation]({% link transform-service/latest/install/index.md %}) for non-containerized deployment.
+> **Note:** Starting from Content Services 7.0, the `alfresco-pdf-renderer` binaries are no longer included in the distribution zip. LibreOffice, ImageMagick, and Alfresco PDF Renderer are no longer part of the Content Services zip installation, as they've moved to the [Alfresco Transform Service installation]({% link transform-service/latest/install/index.md %}#prereq-non-containerized-deploy) for non-containerized deployment. You must install LibreOffice, ImageMagick, and Alfresco PDF Renderer with the Transform Service for transformations to be fully functional. For non-containerized deployment, you are also required to install Exiftool. Exiftool will be utilized by the TIKAAuto metadata extraction parser.
 
 Review and test your setup to check that all the installation steps are complete:
 
@@ -60,7 +56,7 @@ There are a number of different installation files available to you, each of whi
 
 For new installations or upgrades, use the distribution zip. Use the Alfresco WAR file to install Content Services within an existing Tomcat. The WAR file is included in the distribution zip. In addition, you must install all the required additional components manually.
 
-All files are available from the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}. Click **Product Downloads**, and then select the version of the product you require.
+All files are available from [Hyland Community](https://community.hyland.com/products/alfresco){:target="_blank"}. Sign in, select **Product downloads**, and search for the version of the product you require.
 
 See the [Supported platforms]({% link content-services/latest/support/index.md %}) for more.
 
@@ -68,7 +64,7 @@ Here's a list of the files to download and install.
 
 | File | Description |
 | ---- | ----------- |
-| alfresco-content-services-distribution-7.0.x.zip | Content Services distribution zip for new installations or upgrades. Alfresco WAR files (in distribution zip) for a manual install into an existing Tomcat application server. This distribution zip also contains the Module Management Tool (MMT) and the sample extension files, such as `alfresco-global.properties`. |
+| alfresco-content-services-distribution-7.3.x.zip | Content Services distribution zip for new installations or upgrades. Alfresco WAR files (in distribution zip) for a manual install into an existing Tomcat application server. This distribution zip also contains the Module Management Tool (MMT) and the sample extension files, such as `alfresco-global.properties`. |
 |alfresco-search-services-2.0.x.zip | Alfresco Search Services distribution zip.<br><br>See [Install Alfresco Search Services]({% link search-services/latest/install/index.md %}) for more information. |
 
 ## Preparing the filesystem and database

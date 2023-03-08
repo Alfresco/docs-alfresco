@@ -95,7 +95,7 @@ Tutorial implementation steps:
     . . .
     ```
 
-    What we should be looking for here are so called [LESS](http://lesscss.org/features/){:target="_blank"} variables. These are our way into customizing the Header component style.
+    What we should be looking for here are so called [LESS](https://lesscss.org/features/){:target="_blank"} variables. These are our way into customizing the Header component style.
 
     **Warning:** It might be tempting to override these CSS classes with a custom CSS file, such as this:
 

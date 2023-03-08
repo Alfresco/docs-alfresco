@@ -52,6 +52,8 @@ A single-page application needs to be registered in your Microsoft Azure Active 
 8. Select **Delegated permissions** and search for **Files.ReadWrite.All** in the **Select permissions** search box.
 
 9. Expand **Files** and select **Files.ReadWrite.All** and then click **Add permissions**.
+ 
+10. Select **Grant admin consent for `<your-app-name>`**.
 
 ## Install with zip
 
@@ -121,7 +123,7 @@ Installations using Docker Compose should only be used for development and test 
 
     ```yaml
     ooi-service:
-        image: quay.io/alfresco/alfresco-ooi-service:1.1.0
+        image: quay.io/alfresco/alfresco-ooi-service:1.1.2
         mem_limit: 768m
         environment:
             JAVA_OPTS: "
@@ -132,7 +134,7 @@ Installations using Docker Compose should only be used for development and test 
             - 9095:9095
 
     digital-workspace:
-        image: quay.io/alfresco/alfresco-digital-workspace:2.0.0-adw
+        image: quay.io/alfresco/alfresco-digital-workspace:2.7.0
         mem_limit: 128m
         environment:
             BASE_PATH: ./
@@ -157,17 +159,19 @@ Installations using Docker Compose should only be used for development and test 
 
     ```yaml
     proxy:
-        image: alfresco/alfresco-acs-nginx:3.0.1
+        image: alfresco/alfresco-acs-nginx:3.3.0
         mem_limit: 128m
         depends_on:
-          - alfresco
-          - digital-workspace
+            - alfresco
+            - digital-workspace
+            - control-center
         ports:
-          - 8080:8080
+            - "8080:8080"
         links:
-          - digital-workspace
-          - alfresco
-          - share
+            - digital-workspace
+            - alfresco
+            - share
+            - control-center
     ```
 
     with:
@@ -177,22 +181,24 @@ Installations using Docker Compose should only be used for development and test 
         image: nginx:stable-alpine
         mem_limit: 256m
         depends_on:
-          - alfresco
-          - digital-workspace
+            - alfresco
+            - digital-workspace
+            - control-center
         ports:
-          - 8080:8080
+            - "8080:8080"
         links:
-          - digital-workspace
-          - alfresco
-          - share
-          - ooi-service
+            - digital-workspace
+            - alfresco
+            - share
+            - control-center
+            - ooi-service
         volumes:
           - ./nginx.conf:/etc/nginx/nginx.conf
     ```
 
 4. If you want to add an additional location, add the following to your local copy of the `nginx.conf`:
 
-    ```bash
+    ```text
     location /ooi-service/ {
                 proxy_pass http://ooi-service:9095;
 

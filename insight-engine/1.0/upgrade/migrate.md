@@ -27,7 +27,7 @@ Use this information to migrate from Search Services 1.2 to Search and Insight E
 
 2. Backup or move the existing `alfresco-search-services` folder to a preferred location. For example, `alfresco-search-services-1.2`.
 
-3. Browse to the [Support Portal](https://support.alfresco.com/){:target="_blank"}.
+3. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 4. Download and unzip the Search and Insight Engine distribution zip file to a preferred location:
 

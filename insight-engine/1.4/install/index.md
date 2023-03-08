@@ -12,7 +12,7 @@ You may choose to secure Search and Insight Engine with SSL.
 
 > **Important:** Alfresco strongly recommends that you use firewalls and other infrastructure means to ensure that the Search and Insight Engine server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search and Insight Engine.
 
-You can download the Search and Insight Engine installation file from the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}. Click **Downloads**, and then select the version of the product you require.
+You can download the Search and Insight Engine installation file from [Hyland Community](https://community.hyland.com/products/alfresco){:target="_blank"}. Click **Product downloads**, and then select the version of the product you require.
 
 ## Prerequisites
 

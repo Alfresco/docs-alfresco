@@ -49,6 +49,8 @@ data models, or the stencils tab. The App Designer editor provides features such
 
 In the above example, the App Designer editor was opened for an app definition called publisher. The editor always displays the details of the selected item on the top panel along with a set of buttons on the top right. The right-most button opens the editor corresponding to the item displayed. So in the example, the right-most button opens the app editor. If a process definition created via the step editor is opened in the App Designer editor, then the App Editor would open the step editor.
 
+> **Note:** An asterisk (*) appears before the page title in your browser when there are unsaved processes in your **My Processes** list.
+
 ## Create your first process
 
 In Process Services, you create a process models to represent a series of tasks in your business process. This tutorial guides you through creating a simple process model.

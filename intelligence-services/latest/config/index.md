@@ -60,7 +60,7 @@ A number of environment variables allow you to specify the configuration options
 
     ```yaml
     aws-ai:
-        image: quay.io/alfresco/alfresco-ai-docker-engine:1.3.0
+        image: quay.io/alfresco/alfresco-ai-docker-engine:1.4.x
         environment:
             JAVA_OPTS: " -Xms256m -Xmx768m"
             # JAVA_OPTS: " -Xms256m -Xmx512m -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 "
@@ -86,7 +86,7 @@ A number of environment variables allow you to specify the configuration options
 
     ```yaml
     transform-router:
-        image: quay.io/alfresco/alfresco-transform-router:1.3.0
+        image: quay.io/alfresco/alfresco-transform-router:1.5.x
         environment:
             JAVA_OPTS: " -Xms256m -Xmx512m"
             FILE_STORE_URL: "http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file"
@@ -111,14 +111,15 @@ A number of environment variables allow you to specify the configuration options
 4. Add the following configuration to override the settings for Digital Workspace in your deployment.
 
     ```yaml
-  digital-workspace:
-    image: quay.io/alfresco/alfresco-digital-workspace:2.1.0-adw
-    environment:
-      BASE_PATH: ./
-      APP_CONFIG_PLUGIN_AI_SERVICE: "true"
-    volumes:
-      - ./ai-view-extension.json:/usr/share/nginx/html/assets/plugins/ai-view-extension.json
+    digital-workspace:
+        image: quay.io/alfresco/alfresco-digital-workspace:2.8
+        environment:
+        BASE_PATH: ./
+        APP_CONFIG_PLUGIN_AI_SERVICE: "true"
+        volumes:
+        - ./ai-view-extension.json:/usr/share/nginx/html/assets/plugins/ai-view-extension.json
     ```
+
     > **Note:** The Digital Workspace configuration file, `ai-view-extension.json`, is also included in the Intelligence Services distribution zip.
 
     For more details on extending the features of Digital Workspace, see the Alfresco Content Application documentation: [Extending](https://alfresco-content-app.netlify.com/#/extending/){:target="_blank"}.

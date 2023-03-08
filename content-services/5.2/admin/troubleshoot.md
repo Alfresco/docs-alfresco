@@ -6,7 +6,7 @@ Help for diagnosing and resolving any Alfresco Content Services issues that you 
 
 For additional help, refer to the following:
 
--   [Support Portal](https://support.alfresco.com){:target="_blank"}
+-   [Hyland Community](https://community.hyland.com/){:target="_blank"}
 -   [Alfresco Hub](https://hub.alfresco.com/){:target="_blank"}
 -   **Admin Console**: see [Launching the Admin Console]({% link content-services/5.2/admin/admin-console.md %}#launching-the-admin-console) for more information
 -   **Admin Tools** in Alfresco Share to view various installation and setup information

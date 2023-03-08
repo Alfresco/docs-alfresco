@@ -150,7 +150,7 @@ Best practice is to put the file in a directory that explains what the file is f
 ## Tutorials
 
 * [Adding new AMD packages for Aikau Widgets]({% link content-services/6.1/tutorial/share/amd.md %})
-* [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters){:target="_blank"}
+* [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/tree/master/tutorial/chapters){:target="_blank"}
 
 ## Developer Blogs
 

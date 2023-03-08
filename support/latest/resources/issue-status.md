@@ -2,17 +2,22 @@
 title: Case Status Definitions
 ---
 
-Alfresco Support use these status definitions when working on your issue.
+Hyland Technical Support use these status definitions when working on your case.
 
-|Status|Definition|
-|------|----------|
-|Pending Customer|The case has been responded to by the support team and is either awaiting additional information from the customer or a possible resolution has been provided to the customer.|
-|Alfresco - In Progress|The case is being researched and investigated. More information is being gathered from available sources or testing to help identify the problem. The case is awaiting a response from the support team.|
-|Pending Engineering|The case is with the Alfresco Engineering team and being investigated as a product bug or enhancement.|
-|Pending Release|This case has been identified, resolved, and/or identified for a future service pack and/or product release. As soon as that product update is released, the customer is notified and the case is pushed to the Resolved state.|
-|New|The case has been created and entered into the system. The case is awaiting assignment to the appropriate support team member.|
-|Open|The case has been responded to by the customer/partner and is awaiting a response from Alfresco. The last public response on the case is from the customer.|
-|Re-Opened|The case has been closed in the past and the customer has added a new comment or attachment. The case is awaiting a response from the support team.|
-|On Hold|The customer who reported this issue/question requires more time to test or gather information.|
-|Resolved|The issue has been resolved to the customer's satisfaction.|
-|Closed|The issue has been addressed or there has not been a customer case response following the standard support update sequence of contacting the customer via the phone and email.|
+| Status | Definition |
+| ------ | ---------- |
+| New | This is the initial status for a newly submitted support case while it's awaiting assignment to an appropriate Technical Support resource. |
+| Scheduled Call | A remote desktop troubleshooting session is scheduled, and no requests for information are pending. |
+| Awaiting Analyst | The case is awaiting action by Technical Support, which could include research, information gathering from Hyland resources or testing to recreate the behavior being experienced. |
+| Awaiting Customer | The case has been responded to by Technical Support and is waiting on engagement, additional information, or action from the Customer. |
+| Awaiting Reseller | The case has been responded to by Technical Support and is waiting on engagement, additional information, or action from the Reseller. |
+| Awaiting Cloud | Technical Support is waiting on engagement, additional information, or action from Hyland Cloud Platform Engineering. |
+| Awaiting Customer Care | Technical Support is waiting on engagement, additional information, or action from a Customer Care Advocate. |
+| Awaiting Services | Technical Support is waiting on engagement, additional information, or action from Hyland Global Services. |
+| Awaiting Sales | Technical Support is waiting on engagement, additional information, or action from Hyland Sales. |
+| Awaiting Legal | Technical Support is waiting on engagement, additional information, or action from Hyland Legal. |
+| Awaiting OS/DB/API | Technical Support is waiting on engagement, additional information, or action from Hyland Global Services. |
+| Awaiting R&D | Technical Support is waiting on R&D to provide troubleshooting assistance or to confirm a potential product defect. |
+| Defect Verified | The issue being experienced has been verified as a product defect by Technical Support, and confirmed by R&D. |
+| Resolution Delivered | A resolution has been provided to the Customer or Reseller by Technical Support which is believed to resolve the issue, but the Customer or Reseller has not yet confirmed that the resolution has fixed the issue being experienced. |
+| Closed | The issue being experienced has been resolved or there has not been a response from the Customer following the standard case engagement process. |

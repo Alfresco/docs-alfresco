@@ -140,10 +140,16 @@ nav.navbar .navbar-lang {
 }
 
 .navbar-item .icon-logo {
-    display: block;
-    width: 345px;
-    height: 66px;
-    padding: 0;
+  display: block;
+  width: 345px;
+  height: auto;
+  padding: 0;
+}
+
+@media (max-width: 345px) {
+  .icon-logo img {
+    transform: scale(0.5);
+  }
 }
 
 .navbar-dropdown .column h1,

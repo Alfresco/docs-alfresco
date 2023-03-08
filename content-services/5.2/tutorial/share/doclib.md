@@ -51,7 +51,7 @@ This tutorial assumes that you are familiar with the Document Library in Share. 
 
 **Source Code**: [Go to code](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-action-doclib-share){:target="_blank"}
 
-This tutorial assumes you have generated an [All-In-One SDK 3 project]({% link content-services/5.2/develop/sdk.md %}#workingaio). To try out the Send-As-Email DocLib action in this tutorial you will need to install a local SMTP server such as [Fake SMTP](https://nilhcem.github.io/FakeSMTP){:target="_blank"}.
+This tutorial assumes you have generated an [All-In-One SDK 3 project]({% link content-services/5.2/develop/sdk.md %}#workingaio). To try out the Send-As-Email DocLib action in this tutorial you will need to install a local SMTP server such as [Fake SMTP](http://nilhcem.com/FakeSMTP/){:target="_blank"}.
 
 This tutorial will demonstrate the following:
 

@@ -116,7 +116,7 @@ to `false`.
 
 The application uses SLF4J bounded to Log4j. The `log4j.properties` configuration file can be found in the `WEB-INF/classes` folder of the WAR file.
 
-See [SLF4J](http://www.slf4j.org/){:target="_blank"} and [Log4j](http://logging.apache.org/log4j/)(:target="_blank") for more information.
+See [SLF4J](http://www.slf4j.org/){:target="_blank"} and [Log4j](http://logging.apache.org/log4j/){:target="_blank"} for more information.
 
 For all REST API endpoints available in the application, metrics are gathered about run-time performance. These statistics can be written to the log.
 

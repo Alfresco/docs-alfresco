@@ -163,17 +163,13 @@ The language used switches according to the browser locale. Ensure that your bro
 
 Use this information to review the components or modules that integrate Content Services with other applications.
 
-### Services
-
-| Services | Notes |
+| Name     | Notes |
 | -------- | ----- |
+| **Services** | |
 | Process Services | |
 | Governance Services | |
-
-### Integrations
-
-| Integrations | Notes |
-| ------------ | ----- |
+| | |
+| **Integrations** | |
 | Sync Service | |
 | Desktop Sync | |
 | Transform Service | |
@@ -184,21 +180,20 @@ Use this information to review the components or modules that integrate Content 
 | Federation Services | |
 | Identity Service | |
 | SAML Module for Alfresco Content Services | |
-| Intelligence Services |  |
+| Intelligence Services | Paid add-on module |
 | Content Connector for AWS S3 | Paid add-on module |
 | Content Connector for Azure | Paid add-on module |
 | Content Connector for AWS Glacier | |
 | Content Connector for EMC Centera | Paid add-on module and requires additional software |
 | Content Connector for Salesforce | |
-| Content Connector for SAP | Paid add-on module |
+| Content Connector for SAP applications | Paid add-on module |
+| Content Connector for SAP Cloud | Paid add-on module |
+| Collaboration Connector for Microsoft 365 | |
 | Outlook Integration | Paid add-on module |
 | Office Services | |
 | Google Docs Integration | |
-
-### Applications
-
-| Applications | Notes |
-| ------------ | ----- |
+| | |
+| **Applications** | |
 | Digital Workspace | |
 
 ## Test installation

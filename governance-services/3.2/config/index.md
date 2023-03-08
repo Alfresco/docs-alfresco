@@ -30,7 +30,7 @@ rm.autocompletesuggestion.nodeParameterSuggester.aspectsAndTypes=rma:record,cm:c
 rm.dispositionlifecycletrigger.cronexpression=0 0/5 * * * ?
 ```
 
->**Note:** These settings supplement any settings in the `<classpathRoot>/alfresco-global.properties` file. If a property appears in both files, the Governance Services property overrides the `<classpathRoot>/alfresco-global.properties` value.
+> **Note:** These settings supplement any settings in the `<classpathRoot>/alfresco-global.properties` file. If a property appears in both files, the Governance Services property overrides the `<classpathRoot>/alfresco-global.properties` value.
 
 Any property that is `false` by default, is not shown in the `alfresco-global.properties` file.
 
@@ -50,7 +50,7 @@ A full listing of the properties and their values is shown in this table:
 |rm.autocompletesuggestion.maxsuggestions.path|Auto-complete suggestions: maximum number of path suggestions to provide. Default is `5`.|
 |rm.autocompletesuggestion.minfragmentsize|Auto-complete suggestions: Minimum size of fragment to trigger a search. Default is `2`.|
 |rm.autocompletesuggestion.nodeParameterSuggester.aspectsAndTypes|Auto-complete suggestions: Comma-separated list of types and aspects used by the node parameter autocomplete suggester. Default is `rma:record,cm:content`.|
-|rm.completerecord.mandatorypropertiescheck.enabled|This setting is used to ensure completion of records. When it is set to true, Governance Services will only complete a record if all the mandatory properties have a value. When it is set to false you can complete a record with mandatory properties missing. <br><br>**Note:** This setting should be set to false when using Governance Services with Outlook Integration.|
+|rm.completerecord.mandatorypropertiescheck.enabled|This setting is used to ensure completion of records. When it is set to true, Governance Services will only complete a record if all the mandatory properties have a value. When it is set to false you can complete a record with mandatory properties missing. <br><br> **Note:** This setting should be set to false when using Governance Services with Outlook Integration.|
 |rm.content.cleaner|This setting is used in conjunction with `rm.content.cleansing.enabled=true`. Default is `contentCleanser.522022M`.<br><br>When content is sent for deletion, it is cleansed using the default 5220.22-M algorithm. The content is then destroyed, and the node is deleted (if ghosting is not enabled).<br><br>If you add a custom content cleaner bean, this can be specified using this property.|
 |rm.content.cleansing.enabled|Set whether content can be deleted immediately (data cleansing). This applies to deleted (destroyed) classified records and classified documents.<br><br>The default setting of `false` allows deleted (destroyed) files to be restored (from the Trashcan if they are documents, or by using a recovery tool, if they are records).<br><br>This approach is only effective for installations with a single magnetic disk. In other situations, such as RAID or SSD, hardware techniques or process ensure that the content is non-recoverable.|
 |rm.dispositionlifecycletrigger.cronexpression|Disposition lifecycle trigger cron job expression. Default is `0 0/5 * * * ?`.|
@@ -64,7 +64,7 @@ A full listing of the properties and their values is shown in this table:
 
 You can set the end date of the financial year and the end of the financial quarter.
 
->**Important:** If you make adjustments to your financial year as per the instructions below, it is important you carry out the same procedure on your new installation every time you upgrade to a new version of Governance Services.
+> **Important:** If you make adjustments to your financial year as per the instructions below, it is important you carry out the same procedure on your new installation every time you upgrade to a new version of Governance Services.
 
 1. Navigate to the `<TOMCAT_HOME>/webapps/alfresco/WEB-INF/lib/alfresco-repository-xxx.jar` file in your installation.
 

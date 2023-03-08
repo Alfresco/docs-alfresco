@@ -44,13 +44,13 @@ store your data using WORM storage.
                                                         
 For more on creating rules see [Creating a rule]({% link governance-services/3.4/using/automate-fileplan.md %}#creating-a-rule).
 
->**Note:** Ensure you have the required AWS login credentials before you begin.
+> **Note:** Ensure you have the required AWS login credentials before you begin.
 
 This task assumes you have:
 
 * Installed Alfresco Content Services 6.2 and above.
 * Installed Alfresco Content Connector for AWS S3 3.1 with multiple bucket support enabled. For more see [Configuring multiple buckets using S3 Connector]({% link aws-s3/latest/config/index.md %}#multibucketconfig).
-    >**Note:** When using multiple buckets for WORM storage with Amazon S3 you are unable to use Alfresco Content Connector for AWS Glacier because it only supports being used with one bucket.
+    > **Note:** When using multiple buckets for WORM storage with Amazon S3 you are unable to use Alfresco Content Connector for AWS Glacier because it only supports being used with one bucket.
 * Set the following properties in the `<TOMCAT\_HOME\>/shared/classes/alfresco-global.properties` file:
 
     |Property|Description|

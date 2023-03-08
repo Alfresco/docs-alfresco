@@ -45,9 +45,9 @@ A security issue is Medium if either of the following are true:
 
 The severity of the issue and the Product Support Status determines which versions will be fixed.
 
-For support status of your version please refer to the [Alfresco Product Support Status](https://www.alfresco.com/services/subscription/technical-support/product-support-status){:target="_blank"} page.
+For the support status of your version, refer to the [Alfresco Product Support Status](https://www.alfresco.com/services/subscription/technical-support/product-support-status){:target="_blank"} page.
 
-For definitions and glossary please refer to the [Product Support Lifecycle]({% link support/latest/policies/product-lifecycle.md %}) page.
+For definitions and glossary, refer to the [Product Support Lifecycle]({% link support/latest/policies/product-lifecycle.md %}) page.
 
 Follows the fix version policy Alfresco Software will apply for security issues:
 
@@ -59,10 +59,10 @@ Follows the fix version policy Alfresco Software will apply for security issues:
 
 Alfresco notifies customers and partners in the following manner:
 
-* For **High** severity issues, Alfresco releases the version containing the fix and then sends a security alert email to all customers and partners. And then, publishes a security alert on the Alfresco Support Portal with details of the issue and of the fixed versions. Full details of the vulnerability and attack vector will be publicly released but only after customers and partners have been given reasonable time to install the fixed version.
-* For **Medium** severity issues, Alfresco releases the version containing the fix and publishes a security alert on the Alfresco Support Portal with details of the issue and of the fixed versions.
+* For **High** severity issues, Alfresco releases the version containing the fix and then sends a security alert email to all customers and partners. And then, publishes a security alert on Hyland Community with details of the issue and of the fixed versions. Full details of the vulnerability and attack vector will be publicly released but only after customers and partners have been given reasonable time to install the fixed version.
+* For **Medium** severity issues, Alfresco releases the version containing the fix and publishes a security alert on Hyland Community with details of the issue and of the fixed versions.
 * For **Low** severity issues, the fix is documented as part of the release notes for the service pack which includes the fix.
 
-## Reporting a security issue to Alfresco
+## Reporting a security issue to Hyland
 
-Please report all security issues by logging a support case via the [Support Portal](https://support.alfresco.com){:target="_blank"} or by sending an email to [security@alfresco.com](mailto:security@alfresco.com) to ensure that the information does not enter the public domain prematurely.
+Please report all security issues by logging a support case via [Hyland Community](https://community.hyland.com/){:target="_blank"}. See the [Contact Hyland Support]({% link support/latest/contact.md %}) page for more details. Support will assist in connecting you with the right resource to ensure that the information does not enter the public domain prematurely.
