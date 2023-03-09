@@ -8,7 +8,11 @@
     - title: 'Upgrade'
       path: '/search-enterprise/latest/upgrade/'
     - title: 'Configure'
-      path: '/search-enterprise/latest/config/'
+      pages:
+        - title: 'Overview'
+          path: '/search-enterprise/latest/config/'
+        - title: 'Transactional metadata query'
+          path: '/search-enterprise/latest/config/transactional/'
     - title: 'Administer'
       path: '/search-enterprise/latest/admin/'
     - title: 'Using'
