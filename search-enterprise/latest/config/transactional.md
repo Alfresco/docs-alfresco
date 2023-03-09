@@ -122,7 +122,7 @@ The following AFTS exact matches and patterns are supported:
 * EXACTTYPE
 * EXACTASPECT
 
-> **Note:** CMIS QL does not support any use of CONTAINS() using the database.
+> **Note:** CMIS QL does not support any use of `CONTAINS()` using the database.
 
 Transactional Metadata Query and the Elasticsearch index queries are intended to support different use cases. They differ in queries and options that they support and in the results they generate with respect to collation and scoring.
 
@@ -130,7 +130,7 @@ Transactional Metadata Query and the Elasticsearch index queries are intended to
 
 Use this information to understand the queries supported by the database.
 
-The Alfresco Full Text Search (FTS) query text can be used standalone or it can be embedded in CMIS-SQL using the `contains()` predicate function. The CMIS specification supports a subset of Alfresco FTS. For more information on search syntax, see [Alfresco Full Text Search Reference]({% link search-services/latest/using/index.md %}).
+The Alfresco Full Text Search (FTS) query text can be used standalone or it can be embedded in CMIS-SQL using the `CONTAINS()` predicate function. The CMIS specification supports a subset of Alfresco FTS. For more information on search syntax, see [Alfresco Full Text Search Reference]({% link search-services/latest/using/index.md %}).
 
 **CMIS QL**
 
@@ -191,11 +191,13 @@ The `WHERE` and `ORDER BY` clauses support the following property data types and
      cmis:creationDate ASC
     ```
 
-> **Note:** While the CMIS URI data type is not supported, multi-valued properties and multi-valued predicates as defined in the CMIS specification are supported. For example,
+While the CMIS URI data type is not supported, multi-valued properties and multi-valued predicates as defined in the CMIS specification are supported.
 
-```sql
-select * from ext:doc where 'test' = ANY ext:multiValuedStringProperty
-```
+  For example:
+
+  ```sql
+  select * from ext:doc where 'test' = ANY ext:multiValuedStringProperty
+  ```
 
 ## Supported predicates
 
@@ -214,7 +216,7 @@ A predicate specifies a condition that is true or false about a given row or gr
 
 The following predicates are not supported by TMDQ:
 
-* TEXT search predicate, such as `CONTAINS()` and `SCORE()` 
+* TEXT search predicate, such as `CONTAINS()` and `SCORE()`
 * `IN_TREE()` predicate
 
 ## Supported logical operators
