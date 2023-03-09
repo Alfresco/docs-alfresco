@@ -169,29 +169,7 @@ The properties listed that need to be set for Alfresco Content Services (ACS) ar
         <config evaluator="string-compare" condition="CSRFPolicy" replace="true">
         ```
 
-    * Add the following two rules to allow for signing out via SAML:
-
-        ```xml
-        <rule>
-          <request>
-            <method>GET</method>
-            <path>/res/.*</path>
-          </request>
-        </rule>
-        ```
-
-        ```xml
-        <rule>
-          <request>
-            <method>POST</method>
-            <path>/page/saml-authnresponse|/page/saml-logoutresponse|/page/saml-logoutrequest</path>
-          </request>
-        </rule>
-        ```
-
-        > **Note:** Incoming public GET requests will be caught avoiding them being evaluated by other rules. Incoming POST requests from identity providers do not need a token.
-
-3. Set a session timeout in both web.xml files located by default in `$ALFRESCO_HOME/tomcat/webapps/share/WEB-INF` and `$ALFRESCO_HOME/tomcat/webapps/alfresco/WEB-INF`. This should match the value [configured for the realm](#step-1-configure-a-realm-and-clients).
+3. Set a session timeout in both `web.xml` files located by default in `$ALFRESCO_HOME/tomcat/webapps/share/WEB-INF` and `$ALFRESCO_HOME/tomcat/webapps/alfresco/WEB-INF`. This should match the value [configured for the realm](#step-1-configure-a-realm-and-clients).
 
     The following is an example of the property to add:
 

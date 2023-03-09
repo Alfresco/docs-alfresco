@@ -157,6 +157,25 @@ Property fields evaluate the search term against a particular property, special 
 |Fully qualified data type|Data Type, `http://www.alfresco.org/model/dictionary/1.0}content:apple`|
 |prefixed data type|Data Type, d:content:apple|
 
+## Search in multi-value fields
+
+When you search in multi-value fields there are additional options available than for [Search in fields](#search-in-fields). To search in multi-value fields your properties must have `Multiple` values enabled, for more see [Create a property
+]({% link content-services/latest/config/models.md %}#create-a-property).
+
+The following example queries are executed using a sample multi-valued property `"mul:os"` that stores values `"MacOS"` and `"Linux"`.
+
+`mul:os:"MacOS"`
+
+Returns the document because `"MacOS"` is one of the values of the property.
+
+`mul:os:("MacOS" AND "Windows")`
+
+Does not return a document because the property doesn't contain the value `"Windows"`.
+
+`mul:os:("MacOS" OR "Windows")`
+
+Returns the document because `"MacOS"` is one of the values of the property, even though `"Windows"` is not.
+
 ## Mixed FTS ID behavior
 
 This relates to the priority defined on properties in the data dictionary, which can be both tokenized or untokenized.

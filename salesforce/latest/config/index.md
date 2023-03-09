@@ -164,3 +164,17 @@ Internal Salesforce users added to this group will be allowed to share content e
 7. Click the **Add** button next to the user.
 
 You will see the user you have added will appear in the middle column.
+
+### Add trustedOrigin configuration for Salesforce Communities
+
+Add the `sfdc.config.trustedOrigins` property to allow the connector to be displayed within a Salesforce Community page, for example, `alfresco-content-connector.my.site.com`. This property accepts multiple values, where each value is separated by the pipe character, `|`, for example, `alfresco-content-connector.my.site.com|alfresco-sales.my.site.com`.
+
+1. Stop Alfresco Content Services.
+
+2. Set `JAVA_OPTS=%JAVA_OPTS% -Dsfdc.config.trustedOrigins=<Community domain name>` in:
+
+    For Linux based users: `<TOMCAT_HOME>/bin/catalina.sh`
+
+    For Microsoft Windows users: `<TOMCAT_HOME>/bin/catalina.bat`
+
+    Example: `-Dsfdc.config.trustedOrigins=alfresco-content-connector.my.site.com`

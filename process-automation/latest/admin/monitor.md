@@ -133,6 +133,10 @@ Cancelling a process instance will change the status to `CANCELLED`.
 
 ### Delete
 
+Use the **Delete** option to delete a process instance. When you delete a process instance a new audit event is created that indicates the process instance once existed but is now deleted.
+
+### Audit {#process-instance-audit}
+
 Use the **Delete** option to delete a process instance. When you delete a process instance you will permanently delete it and all of its data and the operation cannot be undone. You can delete one or more selected process instances, regardless of what state they are in. You can delete more than one at the same time by using the **Select multiple** check box on the top right. Once you have selected multiple process instances, click **Delete** from the top right.
 
 ## User tasks
