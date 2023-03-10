@@ -46,7 +46,9 @@ To change the theme using the **UI** properties in the modelling application.
 
 1. Sign into the modeling application.
 
-2. Select the **UI** you want to change and enter the new configuration properties under the **Theme** heading.
+2. Select the **UI** you want to change and enter the new configuration properties under the **Theme** heading. 
+
+    > **Note:** You can only change the **Theme** of the **Default UI**.
 
 3. Save the **UI**.
 
@@ -58,7 +60,7 @@ The properties of the UI theme are:
 | ----------- |----------- |
 | Primary color | The color is used to highlight important parts of your application, for example the text for the selected link in the left pane. |
 | Accent color | The color is used to accent highlight areas of your UI and make parts of it stand out more, for example it can be used for floating action buttons, selection controls such as sliders and switches, highlighting selected text or Progress bars, and some links. |
-| Text color | The color of text that is not as important as other text, for example the text **File Libraries** on the left pane. |
+| Text color | The default text color used for the application. |
 | Background color | The color of the background, for example the color of the background of the left pane. |
 | Font size | The base font size in pixels. Other font sizes are calculated depending on the base size|
 | Font family | The family the font belongs to, for example Cursive. |
@@ -75,52 +77,12 @@ For example:
 
 ```javascript
 "theme": {
-           "primaryColor": "#d92ea8",
-	       "accentColor": "#2eb7d9",
-	       "textColor": "#672ed9",
-	       "backgroundColor": "#c7b4ed",
-	       "baseFontSize": "19px",
-	       "fontFamily": "cursive"
-         }
-```
+   "primaryColor": "#d92ea8",
+   "accentColor": "#2eb7d9",
+   "textColor": "#672ed9",
+   ```
 
 Once you have deployed your application using the admin app, the values from the the `theme` javascript are used for generating the `custom.css` file. If using Docker compose the `custom.css` file is generated during the Docker startup process. The `custom.css` file is used for altering the application theme and the new theme can be found under the `customCssPath` value.
-
-### Generate theme manually
-
-If you are not deploying your application using the modeling application or a Docker compose, you can generate a theme running a Docker container locally using a bash script. The locally generated theme can be included in any application distribution, for example using Tomcat. To do this you set the URL in the `app.config.json` file or include the `custom.css` manually, for example:
-
-`{"application":{"name":"my-app"}, "customCssPath": "./assets/theme/custom.css"}`
-
-#### Generate CSS file during Docker startup
-
-Run Docker compose with your theme environment, for example:
-
-```bash
-docker run -e APP_CONFIG_CUSTOM_MODELED_EXTENSION='{"$id":"ui-f6bbda13-093a-47c6-b222-4feaa1cf1465","$name":"test","$description":"","$version":"0.0.2","$vendor":"","$license":"","appConfig":{"theme":{"accentColor": "#e7752e", "primaryColor":"#00ffbb", "backgroundColor":"#a3f0db", "baseFontSize":"20px", "fontFamily":"SyneTactile"},"application":{"name":"test"}},"features":{}}' -p 8080:8080 quay.io/alfresco/alfresco-digital-workspace:latest
-```
-
-Once Docker is up and running, you can access the theme by navigating to `http://localhost:8080/assets/theme/custom.css`. Alternatively the `custom.css` file can be found by accessing the Docker container in the following directory `/usr/share/nginx/html/assets/`.
-
-#### Generate custom theme locally
-
-To generate the theme locally without using Docker.
-
-1. Download [Alfresco modeler and admin apps](https://github.com/Alfresco/alfresco-apps){:target="_blank"}.
-
-2. Edit `alfresco-apps/package.json` and add `"sass-math-pow": "^0.2.0"`
-
-3. Run `npm install`.
-
-4. Start the application `npm start content-ee-apa`.
-
-5. Remove the `.tpl` file extension from `apps/content-ce/app/src/app/ui/dynamic-theme/theme-configuration.scss.tpl`.
-
-6. Edit the file to remove all the variables in it, except `$theme-config`.
-
-7. Copy the content of the file `apps/content-ce/app/src/app/ui/dynamic-theme/custom-theme.scss.tpl` to `apps/content-ce/app/src/app/ui/custom-theme.scss`.
-
-The application will reload automatically and the new theme will display.
 
 ## User interface modeling
 
