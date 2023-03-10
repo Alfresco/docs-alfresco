@@ -52,7 +52,7 @@ The columns for each application are:
 
 ## Process Instances
 
-The **Process Instances** section is for monitoring all active, completed, and suspended process instances that are running in each application. You can delete one or more selected process instances, regardless of what state they are in. Use the **Delete** button for a specific instance to delete it. You can delete more than one at the same time by using the **Select multiple** check box on the top right. Once you have selected multiple process instances, click delete from the top right.
+The **Process Instances** section is for monitoring all active, completed, and suspended process instances that are running in each application.
 
 ### Properties {#process-properties}
 
@@ -78,9 +78,13 @@ The status of process instances are:
 | SUSPENDED | The process instance is currently suspended and cannot continue until it is reactivated. |
 | CANCELLED | The process instance has been cancelled and cannot be completed. |
 
-### Diagram
+### User tasks
 
-Use the **Diagram** option to view which stage the process is currently at and the path that the process instance has taken to get there. The currently active task or activity is highlighted in bold red. The process flow taken is highlighted in red.
+Use the **User Tasks** option to monitor all active, assigned, completed, and suspended tasks that are running for the process instance.
+
+### Service tasks
+
+Use the **Service Tasks** option to monitor all [service tasks]({% link process-automation/latest/model/processes/bpmn.md %}#service-task) that are running for the process instance.
 
 ### Variables
 
@@ -95,15 +99,29 @@ The properties for variables are:
 | Value | The current value of the variable. The word `json` will be displayed for JSON variables. Click it to view the full JSON value. |
 | Edit | If the process instance status is `RUNNING` then the `Value` of a process variable can be updated. |
 
-### Suspend and activate
+### Audit {#process-instance-audit}
+
+Use the **Audit** option to view all audit logs for the selected process instance. This will open the [audit](#audit) section with the filter restricted to the application and process instance ID of the selected process instance.
+
+### Activate
+
+Use the **Activate** option to resume a suspended process instance.
+
+Activating a process instance will change the status to `RUNNING`.
+
+> **Note:** The **Activate** option is only available to process instances with a status of `SUSPENDED`.
+
+### Suspend
 
 Use the **Suspend** option to pause a process instance. This will stop any action from completing in the process instance. Use the **Activate** option to resume a suspended process instance.
 
 Suspending a process instance will change the status to `SUSPENDED`.
 
-Activating a process instance will change the status to `RUNNING`.
+> **Note:** The **Suspend** option is only available to process instances with a status of `RUNNING`.
 
-> **Note:** The **Suspend** option is only available to process instances with a status of `RUNNING` and the **Activate** option is only available to process instances with a status of `SUSPENDED`.
+### Diagram
+
+Use the **Diagram** option to view which stage the process is currently at and the path that the process instance has taken to get there. The currently active task or activity is highlighted in bold red. The process flow taken is highlighted in red.
 
 ### Cancel
 
@@ -119,7 +137,7 @@ Use the **Delete** option to delete a process instance. When you delete a proces
 
 ### Audit {#process-instance-audit}
 
-Use the **Audit** option to view all audit logs for the selected process instance. This will open the [audit](#audit) section with the filter restricted to the application and process instance ID of the selected process instance.
+Use the **Delete** option to delete a process instance. When you delete a process instance you will permanently delete it and all of its data and the operation cannot be undone. You can delete one or more selected process instances, regardless of what state they are in. You can delete more than one at the same time by using the **Select multiple** check box on the top right. Once you have selected multiple process instances, click **Delete** from the top right.
 
 ## User tasks
 
