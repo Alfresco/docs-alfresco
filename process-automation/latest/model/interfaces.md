@@ -60,7 +60,7 @@ The properties of the UI theme are:
 | Accent color | The color is used to accent highlight areas of your UI and make parts of it stand out more, for example it can be used for floating action buttons, selection controls such as sliders and switches, highlighting selected text or Progress bars, and some links. |
 | Text color | The color of text that is not as important as other text, for example the text **File Libraries** on the left pane. |
 | Background color | The color of the background, for example the color of the background of the left pane. |
-| Font size | The size of the font, in pixels. |
+| Font size | The base font size in pixels. Other font sizes are calculated depending on the base size|
 | Font family | The family the font belongs to, for example Cursive. |
 | Web font URL | Where the specific information about the font used is gathered from, for [example](https://fonts.googleapis.com/css2?family=Inspiration&display=swap){:target="_blank"}.  |
 
