@@ -38,7 +38,7 @@ To create a user interface:
 
 ## Theme
 
-You can add a theme to the Digital Workspace. There are several different ways of doing this and how you do it will depend on the type of user you are.
+You can add a theme to the Digital Workspace.
 
 ### Use the modelling application to change the theme
 
