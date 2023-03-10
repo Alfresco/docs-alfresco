@@ -56,7 +56,7 @@ The properties of the UI theme are:
 
 | Property | Description |
 | ----------- |----------- |
-| Primary color | The color is used to hightlight important parts of your application, for example the text for the **Personal Files** link in the left pane. |
+| Primary color | The color is used to highlight important parts of your application, for example the text for the selected link in the left pane. |
 | Accent color | The color is used to accent highlight areas of your UI and make parts of it stand out more, for example it can be used for floating action buttons, selection controls such as sliders and switches, highlighting selected text or Progress bars, and some links. |
 | Text color | The color of text that is not as important as other text, for example the text **File Libraries** on the left pane. |
 | Background color | The color of the background, for example the color of the background of the left pane. |
