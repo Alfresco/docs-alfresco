@@ -2,7 +2,7 @@
 title: User interfaces
 ---
 
-The user interfaces (UI) section sets an end user interface for users to interact with content, tasks and processes for the project using the [Alfresco Digital Workspace]({% link process-automation/latest/using/index.md %}).
+The user interfaces (UI) section sets an end user interface for users to interact with content, tasks, and processes for the project using the [Alfresco Digital Workspace]({% link process-automation/latest/using/index.md %}).
 
 ## Properties
 
@@ -36,6 +36,54 @@ To create a user interface:
     Alternatively use the **+** or **Upload** buttons next to **UI** in the left-hand menu.
 
 4. Enter a name and optional description.
+
+## Theme
+
+You can add a theme to the Digital Workspace.
+
+### Use the modelling application to change the theme
+
+To change the theme using the **UI** properties in the modelling application.  
+
+1. Sign into the modeling application.
+
+2. Select the **UI** you want to change and enter the new configuration properties under the **Theme** heading. 
+
+    > **Note:** You can only change the **Theme** of the **Default UI**.
+
+3. Save the **UI**.
+
+The properties of the UI theme are:
+
+> **Note:** See example image below.
+
+| Property | Description |
+| ----------- |----------- |
+| Primary color | The color is used to highlight important parts of your application, for example the text for the selected link in the left pane. |
+| Accent color | The color is used to accent highlight areas of your UI and make parts of it stand out more, for example it can be used for floating action buttons, selection controls such as sliders and switches, highlighting selected text or Progress bars, and some links. |
+| Text color | The default text color used for the application. |
+| Background color | The color of the background, for example the color of the background of the left pane. |
+| Font size | The base font size in pixels. Other font sizes are calculated depending on the base size|
+| Font family | The family the font belongs to, for example Cursive. |
+| Web font URL | Where the specific information about the font used is gathered from, for [example](https://fonts.googleapis.com/css2?family=Inspiration&display=swap){:target="_blank"}.  |
+
+![ADW Colors]({% link process-automation/images/ADW-colors.png %})
+
+### Deploy the theme
+
+If you are deploying using the modelling application or Docker compose you must provide the correct configuration and the theme will be generated at startup.
+After updating the properties for the custom theme in the modelling application, new entries for the **UI** are added to this file: `"customCssPath": "./assets/theme/custom.css" (i.e. /[app-name]/ui/[ui-name]/assets/theme/custom.css)`
+
+For example:
+
+```javascript
+"theme": {
+   "primaryColor": "#d92ea8",
+   "accentColor": "#2eb7d9",
+   "textColor": "#672ed9",
+   ```
+
+Once you have deployed your application using the admin app, the values from the the `theme` javascript are used for generating the `custom.css` file. If using Docker compose the `custom.css` file is generated during the Docker startup process. The `custom.css` file is used for altering the application theme and the new theme can be found under the `customCssPath` value.
 
 ## User interface modeling
 
