@@ -7,7 +7,7 @@ title: Using Mobile Workspace
 * You can search globally from all of the main/top level screens which means you can search at any time.
 * The Mobile Workspace keeps a recent history of search terms so that previous searches can be quickly repeated.
 * Contextual search is available within folders. This search mode will only search within that folder but can be converted to a global search using the quick filter. You can also filter by files and folders within the contextual folder search.
-* Search is available when the device is offline.
+* Search is also available when the device is offline.
 
 ## Recent Files
 
