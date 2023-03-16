@@ -973,7 +973,7 @@ Creating a folder means creating a node with metadata.
 
 **See also:** 
 
-* [How to update metadata](#updatemetadatanode) - includes information about multi-value properties.
+* [How to update metadata](#updatemetadatanode) - includes information about multi-value properties
 * [How to add aspects](#addaspectnode)
 * [How to manage associations (contains examples of creating folder)](#workingwithrelbetweennodes)
 
@@ -1047,7 +1047,7 @@ Uploading a file to the Repository means creating a node with metadata and conte
 
 **See also:**
 
-* [How to update metadata](#updatemetadatanode) - includes information about multi-value properties.
+* [How to update metadata](#updatemetadatanode) - includes information about multi-value properties
 * [How to add aspects](#addaspectnode)
 * [How to manage associations (contains examples of uploading files)](#workingwithrelbetweennodes)
 
@@ -1190,7 +1190,7 @@ Uploading a file with a custom type to the Repository means creating a node with
 
 **See also:**
 
-* [How to update metadata](#updatemetadatanode) - includes information about multi-value properties. 
+* [How to update metadata](#updatemetadatanode) - includes information about multi-value properties 
 * [How to add aspects](#addaspectnode)
 * [How to manage associations (contains examples of uploading files)](#workingwithrelbetweennodes)
 
@@ -2202,7 +2202,7 @@ node the whole complete array has to be provided. Any aspects the node has appli
 be removed. Conversely, any aspects in the array that the node does not have applied are added. See the link at the 
 beginning of this page to a section about adding aspects.
 
-The type of the node can also be changed by updating the `nodeType` property, for example to change our node 
+The type of the node can also be changed by updating the `nodeType` property, for example, to change the node 
 type to `cm:savedquery` use the following body:
 
 ```json
@@ -2245,7 +2245,7 @@ Adding aspects to a folder or file is a bit more complicated than just updating 
 
 **See also:**
 
-* [How to update metadata](#updatemetadatanode) - includes information about multi-value properties.  
+* [How to update metadata](#updatemetadatanode) - includes information about multi-value properties  
 * [How to remove aspects](#removeaspectsnode) 
 
 >**Note:** It is not possible to include aspects or properties that are part of the `systemModel` (i.e. namespace `sys:`) in API calls.
