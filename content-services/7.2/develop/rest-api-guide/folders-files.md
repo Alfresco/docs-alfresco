@@ -973,7 +973,7 @@ Creating a folder means creating a node with metadata.
 
 **See also:** 
 
-* [How to update metadata](#updatemetadatanode) 
+* [How to update metadata](#updatemetadatanode) - includes information about multi-value properties
 * [How to add aspects](#addaspectnode)
 * [How to manage associations (contains examples of creating folder)](#workingwithrelbetweennodes)
 
@@ -1047,7 +1047,7 @@ Uploading a file to the Repository means creating a node with metadata and conte
 
 **See also:**
 
-* [How to update metadata](#updatemetadatanode) 
+* [How to update metadata](#updatemetadatanode) - includes information about multi-value properties
 * [How to add aspects](#addaspectnode)
 * [How to manage associations (contains examples of uploading files)](#workingwithrelbetweennodes)
 
@@ -1190,7 +1190,7 @@ Uploading a file with a custom type to the Repository means creating a node with
 
 **See also:**
 
-* [How to update metadata](#updatemetadatanode) 
+* [How to update metadata](#updatemetadatanode) - includes information about multi-value properties
 * [How to add aspects](#addaspectnode)
 * [How to manage associations (contains examples of uploading files)](#workingwithrelbetweennodes)
 
@@ -2202,13 +2202,37 @@ node the whole complete array has to be provided. Any aspects the node has appli
 be removed. Conversely, any aspects in the array that the node does not have applied are added. See the link at the 
 beginning of this page to a section about adding aspects.
 
-Finally, the type of the node can also be changed by updating the `nodeType` property, for example to change our node 
+The type of the node can also be changed by updating the `nodeType` property, for example, to change the node 
 type to `cm:savedquery` use the following body:
 
 ```json
 {
   "nodeType":"cm:savedquery"
 }‍‍‍
+```
+
+To update and set value(s) for a multi-value property first read this 
+[background information]({% link content-services/7.2/develop/reference/java-foundation-ref.md %}#manage-multi-value-props).
+
+The POST data for a multi-value property is an array as follows:
+
+```json
+{
+  "properties":
+  {
+     "acme:campaign": [
+       "Campaign A",
+       "Campaign D"
+     ]
+  }
+}
+```
+
+There's support for setting multi-valued properties on node creation and update. Here's a curl example of how to do it 
+on update:
+
+```bash
+$ curl -X PUT -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "properties": { "acme:campaign": ["Campaign A", "Campaign D"]}}' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/d8f561cc-e208-4c63-a316-1ea3d3a4e10e'  | jq
 ```
 
 In the examples above we've used a file, everything can obviously also be done for folders.
@@ -2221,7 +2245,7 @@ Adding aspects to a folder or file is a bit more complicated than just updating 
 
 **See also:**
 
-* [How to update metadata](#updatemetadatanode)  
+* [How to update metadata](#updatemetadatanode) - includes information about multi-value properties 
 * [How to remove aspects](#removeaspectsnode) 
 
 >**Note:** It is not possible to include aspects or properties that are part of the `systemModel` (i.e. namespace `sys:`) in API calls.

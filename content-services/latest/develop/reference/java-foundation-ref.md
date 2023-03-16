@@ -1612,6 +1612,73 @@ which has a mandatory association to the original source node. When either the s
 to be removed. See `org.alfresco.repo.copy.CopyServiceImpl.beforeDeleteOriginalAssociation` for how the association 
 deletion is detected in order to ensure that the aspect is removed from the copied node.
 
+### Managing multi-value properties {#manage-multi-value-props}
+By default, a property supports a single value, but this may be changed to support multiple values via the `multiple` 
+element in the content model definition. Multiple values are rendered as lists in the various Alfresco APIs. A `d:text` 
+property with `multiple` set to `true` will allow you to store multiple string values for the property and the document, 
+and search for them using advanced search capabilities.
+
+The following content model shows an example of a text property (`acme:campaign`) defined as having multiple values.
+The possible values are restricted by the values defined in the `acme:campaignList` constraint. If you wanted to allow any 
+campaign name, then remove this constraint definition. 
+
+```xml
+<constraints>
+    <constraint name="acme:campaignList" type="LIST">
+        <parameter name="allowedValues">
+            <list>
+                <value>Campaign A</value>
+                <value>Campaign B</value>
+                <value>Campaign C</value>
+                <value>Campaign D</value>
+                <value>Campaign E</value>
+            </list>
+        </parameter>
+    </constraint>
+</constraints>
+
+<types>
+<type name="acme:marketingDoc">
+    <title>Acme Marketing Document</title>
+    <parent>acme:doc</parent>
+    <properties>
+        <property name="acme:campaign">
+            <type>d:text</type>
+            <multiple>true</multiple>
+            <constraints>
+                <constraint ref="acme:campaignList" />
+            </constraints>
+        </property>
+    </properties>
+</type>
+</types>
+```
+
+>**Note:** The `default` element in the content model can be used to set a single value, it's not designed to set multiple values. 
+>However, you can achieve this by implementing a rule/behavior, which can set the multiple values at the time of node creation.
+
+The data structure to use for multiple values in Java is a list:
+
+```java
+ArrayList<Serializable> values = new ArrayList<Serializable>();
+values.add("Campaign A");
+values.add("Campaign D");
+nodeService.setProperty(nodeRef, "cm:campaign", values);
+```
+
+The data structure to use for multiple values in JavaScript is an array:
+
+```javascript
+document.properties["acme:campaign"] = ["Campaign A","Campaign D"];
+```
+
+>**Note:** As long as you are using a simple text data type for the property value, you do not need to use associations.
+>An association will become necessary when you want to store additional data relating to the document, and want to
+>avoid data redundancy. In that case you might want to create individual nodes per document (with a docID + other metadata)
+> and link documents to those nodes via associations.<br/> Keep in mind that searching via associations is not as easy
+> as simple metadata search. You can search for the document via the docID, and then use the association
+> (in a second step) to navigate to all documents associated with that particular metadata.
+
 ## NodeLocatorService
 The `NodeLocatorService` looks up node locators registered via Spring configuration by name. The service provides a way 
 to lookup one node from another. This Spring configuration file defines a base bean that can be used to define new node 
