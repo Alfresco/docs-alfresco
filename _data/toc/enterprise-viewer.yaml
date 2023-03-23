@@ -29,6 +29,8 @@
           path: '/enterprise-viewer/latest/config/performance/'
         - title: 'Configure overlays'
           path: '/enterprise-viewer/latest/config/overlay/'
+        - title: 'Configuring Suggested Redaction'
+          path: '/enterprise-viewer/latest/config/suggestedredact/'
         - title: 'FAQ'
           path: '/enterprise-viewer/latest/config/faq/'
         - title: 'Supported languages'
