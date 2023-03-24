@@ -1,11 +1,11 @@
 ---
 title: Limitations
 ---
-The general Limitations of ACA
+This section describes some general limitations of Alfresco Content Accelerator, such as CMIS Mode, Folder Terms Action, and Folder Redact Action.
 
 ## CMIS Mode
 
-CMIS Mode is experimental and should not be enabled from Application Config options.It may be removed in a future release.
+CMIS Mode is experimental and should not be enabled from Application Config options. It may be removed in a future release.
 
 ## Folder Terms Action
 
