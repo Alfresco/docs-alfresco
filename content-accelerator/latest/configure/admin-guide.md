@@ -79,7 +79,7 @@ Add all types that will be used in the Content Accelerator (all repo types will 
 * Available filters include User Display Name, Date, Date Time, Time, Content Size, Mimetype, and Picklist.
 * Date and Date Time filters will honor the application config date format.
 * Picklist filtered values will utilize a single picklist named `OTCFilterPicklist` to filter the value. If the value is not found in the picklist, the original value will be displayed. For example, configuring the `Picklist` filter on the `objectTypeReadOnly` property can format `dm_document` as Document or `tsg:qualityDocument` as `Quality Document` for the end user to see when searching, viewing properties, etc.
-* There is the ability to create a `Composite Type`, which is a type that can include multiple Types. This is used only for types with overlapping attributes and there is a requirement to search on multiple types at once through the search interface.
+* **Deprecated (will be removed in a future release)** There is the ability to create a `Composite Type`, which is a type that can include multiple Types. This is used only for types with overlapping attributes and there is a requirement to search on multiple types at once through the search interface.
 
 ### Non-Mandatory Aspect
 
