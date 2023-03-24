@@ -330,14 +330,16 @@ Sidebar settings relate to the left-hand search tools beyond the Advanced Search
 
 The Attribute Search section covers the configuration of the property-based search form. To configure, for each type in the selected form:
 
-1. Toggle the "Enabled" switch under Attribute Search Controls
+1. Toggle the "Enabled" switch under Attribute Search Controls.
 
-2. Configure the default sort attribute
+2. Configure the default sort attribute.
 
-3. Configure sort attribute and order
+3. Configure sort attribute and order.
 
-4. Configure whether to allow search on all versions, which determines whether all versions or just the current version are brought back in the search results
+4. Configure whether to allow search on all versions, which determines whether all versions or just the current version are brought back in the search results.
 
+  > Search on all versions will only work for ACS documents that utilize the Chain Versionable Module.  Out of the box, this is only the `Controlled Document` and `Quality Document` types that are included in Policy and Procedure Accelerator. If search on all versions is configured for a type that does not use Chain Versioning, the slider will appear but will not search across versions when enabled.
+  
 5. If search on all versions is allowed, select whether it should be the default method
 
 #### Search Results
