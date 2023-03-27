@@ -287,7 +287,7 @@ In a custom Alfresco AMP ( [See](/content-accelerator/latest/develop/extension-c
 
     ```
 
-5. Once the updates to the custom amp have been deployed, you can now add your custom type to the Object Type Config in the ACA admin. Locate the Object Type Config in the ACA Admin interface, click `Add Type`, and select your new object type from the list (ex: `hy_psi`). Once selected, change the `container` to `Wizard`. Save the config.
+5. Once the updates to the custom amp have been deployed, you can now add your custom type to the Object Type Config in the ACA admin. Locate the Object Type Config in the ACA Admin interface, click **Add Type**, and select your new object type from the list (ex: `hy_psi`). Once selected, change the `container` to `Wizard`. Save the config.
 
 6. You can now use this type as the Instance type for a wizard form. Login to the Wizard Admin interface. Create a new form. You will be prompted for an Instance Type. Select your new type.
 
