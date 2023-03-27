@@ -291,6 +291,8 @@ In a custom Alfresco AMP ( [See](/content-accelerator/latest/develop/extension-c
 
 6. You can now use this type as the Instance type for a wizard form. Login to the Wizard Admin interface. Create a new form. You will be prompted for an Instance Type. Select your new type.
 
+You can find additional info on configuring Active Wizard forms [here](/content-accelerator/latest/configure/activewizard)
+
 ### Modify Default Security Settings
 
 The Policy and Procedure solution includes a dynamic security model that allows documents to be secured independently based on lifecycle state. To override the existing security settings, override the following beans in the `opencontent-override-module-context.xml` (or the `opencontent-extension-override-module-ctx.xml` if using ACA 3.5 and above). This example extends the above `acme:document` example of a custom object type extending the `tsg:qualityDocument` object type, so please follow those steps above first.
