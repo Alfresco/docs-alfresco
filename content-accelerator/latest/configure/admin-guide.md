@@ -491,6 +491,7 @@ Available Viewers (RE-ORG W/ PRIORITY)
 |HTML Viewer|HTML Viewer allows HTML files to be streamed in a standardized viewing platform. If configured with another viewer, it will be automatically launched if XML format is detected.<br/><br/>Supported formats:<br/>*.html*|
 |`PDF.js` Viewer|A standard PDF viewer using Mozilla's `PDF.js` library. This should only be configured if Alfresco Enterprise Viewer is not available.|
 |`Video.js` Viewer|A standard video viewer using the `video.js` library. This should only be configured if Alfresco Enterprise Viewer Video is not available.|
+|DICOM viewer| The DICOM viewer allows `.dcm` files to be displayed and interacted with via a DICOM specific viewer. The DICOM viewer includes a slider bar for interacting with images. As the slider bar is moved, the images move accordingly.  To use the slider bar, first use your mouse to select the bar, then use your mouse or arrow keys to move left or right and see the image progress.|
 
 Additional Viewer Configurations:
 
