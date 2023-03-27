@@ -385,26 +385,38 @@ services:
       - ./exactTermSearch.properties:/usr/local/tomcat/webapps/alfresco/WEB-INF/classes/alfresco/search/elasticsearch/config/exactTermSearch.properties
 ```
 
-## Different databases support
-Based on the DataSource configuration an implementation for accessing the repo database is created.
-Actually supported types of databases are PostgreSQL, MySQL, MariaDB, SQL Server and Oracle Database.
-Supported versions are sames as for ACS. 
+## Support for different databases
 
-| Property                                  | Description                                                                                                                                                                     |
-|-------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| spring.datasource.url=                    | Specify Database URL.                                                                                                                                                           |                                                                                                                                                              |
-| spring.datasource.username=               | Specify Database username.                                                                                                                                                      |
-| spring.datasource.password=               | Specify Database password.                                                                                                                                                      |
-| spring.datasource.hikari.maximumPoolSize= | Sets the maximum size of connections in HikariCP.                                                                                                                               |
-| alfresco.dbType=                          | This optional property allows you to disable the auto-detection and to specify the database type directly. Supported values: **postgresql, mysql, mariadb, sqlserver, oracle**. |
+PostgreSQL is the default database for Elasticsearch. You can use different databases with Elasticsearch, but they must be configured within your system and must match the database used by Content Services. The other types of databses supported by Elasticsearch are: MySQL, MariaDB, Microsoft Sql Server, and Oracle.
 
-PostgreSQL is used as a default database. 
-To use different database properties should be changed accordingly to database used in ACS. 
+Edit the `alfresco-global.properties` file using the following properties to change the Elasticsearch database.
 
-Moreover, JDBC driver should be added inside docker container on `/opt/db-drivers/` for specific used database different from PostgreSQL.
+| Property | Description |
+| -------- | ------------|  
+| spring.datasource.url | *Required*. The database name. |
+| spring.datasource.username | *Required*. Enter the username for the database. |
+| spring.datasource.password | *Required*. Enter the password for the username. |
+| spring.datasource.hikari.maximumpoolsize | *Optional*. Sets the maximum size of the connections in HikariCP. |
+| alfresco.dbtype | *Optional*. Use this property to set your database type. When you set the type of database you are using the database auto-detection type is turned off. The supported values are: `postgresql`, `mysql`, `mariadb`, `sqlserver`, and `oracle`. |
 
-For example docker-compose using volume:
-```docker
+### Provide custom JDBC Drivers
+
+Elasticsearch only provides the PostgreSQL driver by default and it is bundled with the Elasticsearch executable components. If you want to use a different database to PostgreSQL you must provide the correct JDBC configuration and corresponding driver.
+The drivers are loaded from a directory called `db-drivers` that must be present at the same directory level as the executable `.jar` file.
+
+For example:
+
+```text
+├── `alfresco-elasticsearch-reindexing-x.x.x-app.jar`
+└── `db-drivers`
+    └── `mydb-driver.jar`
+```
+
+If you are using Docker Compose to install Elasticsearch you must add the JDBC driver information inside the docker container.
+
+For example:
+
+```yaml
 services:
     reindexing-service:
         image: quay.io/alfresco/alfresco-elasticsearch-reindexing:latest
@@ -412,7 +424,5 @@ services:
         environment:
         - ...
         volumes:
-            - ./yours/path/to/jdbc/drivers:/opt/db-drivers:ro
+            - ./<location>/jdbc/drivers:/opt/db-drivers:ro
 ```
-
-
