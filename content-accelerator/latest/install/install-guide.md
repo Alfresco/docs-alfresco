@@ -156,7 +156,7 @@ When installing a proxy please note that you are not limited to using apache or 
 </VirtualHost>
 ```
 
-1. ACA has some routes that are formatted like the following:
+5. ACA has some routes that are formatted like the following:
 
    `/ocms/{aca-module}/{object-id}`
 
@@ -166,11 +166,11 @@ When installing a proxy please note that you are not limited to using apache or 
 
    `AllowEncodedSlashes On`
 
-2. (Re)start the proxy
+6. (Re)start the proxy
 
    Go to `${apache.home}`/bin, open a command prompt, and run `httpd.exe`
 
-3. Test by hitting `http://{server}/alfresco`
+7. Test by hitting `http://{server}/alfresco`
 
 ### Example Proxy Install 2 -  Nginx install on Amazon Linux
 
@@ -358,9 +358,9 @@ In this section we ensure that all components of the Content Accelerator are ins
 
     In the `opencontent-override-placeholders.properties` file deployed in the last step, update the following environment variables:
 
-    There are many configurations that [can] [be] overridden in this file later on.
+    There are many configurations that *can be* overridden in this file later on.
 
-    There are a few you will [need] to set for OpenContent to work correctly listed below:
+    There are a few you will *need* to set for OpenContent to work correctly listed below:
 
     * `application.root.url={Application Base URL}` (ex: `http://localhost:9090`)
     * `oc.email.smtp.host={SMTP host}`
