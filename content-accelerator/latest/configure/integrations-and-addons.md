@@ -456,3 +456,39 @@ Reference: [https://developers.google.com/identity/protocols/OAuth2UserAgent](ht
 4. For Google Drive, enter the Application ID and choose "Alfresco"
 
 5. Click Save Config.
+
+## Install Workshare Compare
+
+1. Download and install CompareService-(version).exe
+
+2. During installing, you will be prompted to set an HTTP and TCP port.
+
+    * If choosing the default (8080) continue to the next section.
+    * If choosing anything but the default, finish the installation then navigate to the installation directory and edit `/Workshare/Compare Service/bin/Workshare.CompareService.ServiceHost.exe.config`. Make changes to the below lines.
+        * `<serviceMetadata httpGetEnabled="true" httpGetUrl="http://localhost:8080/Comparer" />`. Update `localhost` to the server name and `8080` to your port chosen in the installation wizard.
+        * `<endpoint address="http://localhost:8080/Comparer/Compare5" binding="basicHttpBinding" bindingConfiguration="UnsecureBindingC5" contract="Workshare.Document.Services.Compare.IComparer" bindingNamespace="http://workshare.com/compareservices/5.0/comparewebservice/" name="CompareWebServiceWCF">`.  Update `localhost` to the server name and `8080` to your port chosen in the installation wizard.
+        * `<endpoint address="net.tcp://localhost:8090/Comparer/Compare5" binding="netTcpBinding" bindingConfiguration="NetTcpBinding_IComparer" bindingNamespace="http://workshare.com/compareservices/5.0/comparewebservice/" contract="Workshare.Document.Services.Compare.IComparer" name="NetTcpBinding_IComparer">`. Update `localhost` to the server name and `8090` to the tcp port chosen in the installation wizard.
+        * `<endpoint address="net.pipe://localhost/Comparer/Compare5" binding="netNamedPipeBinding" bindingNamespace="http://workshare.com/compareservices/5.0/comparewebservice/" bindingConfiguration="NetNamedPipeBinding_IComparer" contract="Workshare.Document.Services.Compare.IComparer" name="NetNamedPipeBinding_IComparer">`. Update `localhost` to the server name.
+        * `<endpoint address="http://localhost:8080/Comparer/Chunked" binding="wsHttpBinding" bindingConfiguration="WSHttpBinding_IComparerChunked" contract="Workshare.Document.Services.Compare.IComparerChunked" bindingNamespace="http://workshare.com/compareservices/5.2/comparewebservice/" name="WSHttpBinding_IComparerChunked">`. Update `localhost` to the server name and `8080` to your port chosen in the installation wizard.
+        * `<endpoint address="net.tcp://localhost:8090/Comparer/Chunked" binding="netTcpBinding" bindingConfiguration="NetTcpBinding_IComparerChunked" contract="Workshare.Document.Services.Compare.IComparerChunked" bindingNamespace="http://workshare.com/compareservices/5.2/comparewebservice/" name="NetTcpBinding_IComparerChunked">`. Update `localhost` to the server name and `8090` to the tcp port chosen in the installation wizard.
+        * `<endpoint address="net.pipe://localhost/Comparer/Chunked" binding="netNamedPipeBinding" bindingConfiguration="NetNamedPipeBinding_IComparerChunked" contract="Workshare.Document.Services.Compare.IComparerChunked" bindingNamespace="http://workshare.com/compareservices/5.2/comparewebservice/" name="NetNamedPipeBinding_IComparerChunked">`. Update `localhost` to the server name.
+        * `<endpoint address="http://localhost:8080/Comparer/mex" binding="mexHttpBinding" bindingNamespace="http://workshare.com/compareservices/1.1/comparewebservice/" contract="IMetadataExchange" />`. Update `localhost` to the server name and `8080` to your port chosen in the installation wizard.
+        * `<add key="http_port" value="8080" />`. Update `8080` to the http port chosen in the installation wizard.
+        * `<add key="tcp_port" value="8090" />`. Update `8090` to the tcp port chosen in the installation wizard.
+
+## Setup OpenContent
+
+Override the applicable applicable Workshare Compare properties (see below) in a `project-placeholders.properties` or `override-placeholders.properties` file in OC for your project.  See the `hpi-edge-alf` project for an example.
+
+## Workshare Compare Properties
+
+* `oc.workshare.wsdl` - The URL of the Workshare Compare service. The base is the `httpGetUrl `from the previous section with `?wsd` appended to the end. Ex. `"http://server:8781/Comparer?wsd"`
+* `oc.workshare.domain` - The domain of the machine/server the Workshare Compare server is installed on.
+* `oc.workshare.user`- Username to login to the machine/server the Workshare Compare server is installed on.
+* `oc.workshare.password` - Password to login to the machine/server the Workshare Compare server is installed on.
+* `oc.workshare.setfile` - Path the the "set file" (ex. WorkshareStandard.set) on the machine/server the Workshare Compare server is installed on **or** local machine. By default, this file is included in the classpath and can be set to `WorkshareStandard.set`
+* `oc.workshare.password.encrypted` - Set whether the workshare password has been [encrypted with the TSGEncrypter](/content-accelerator/latest/configure/oc-property-overrides/#encrypting-property-values). This only needs to be set if the password is encrypted.
+
+## Configure ACA
+
+In ACA Admin, update the View Versions document action to set "Compare Versions?" to yes.
