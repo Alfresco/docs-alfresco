@@ -362,7 +362,7 @@ In this section we ensure that all components of the Content Accelerator are ins
 
     There are a few you will [need] to set for OpenContent to work correctly listed below:
 
-    * `application.root.url={Application Base URL}/ocms`
+    * `application.root.url={Application Base URL}` (ex: `http://localhost:9090`)
     * `oc.email.smtp.host={SMTP host}`
     * `imageMagick.path=IMAGEMAGICK_HOME` (if installed, get IMAGEMAGICK_HOME value from [ImageMagic Installation](/content-accelerator/latest/install/install-guide/#im))
 
