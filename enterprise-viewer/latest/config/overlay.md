@@ -347,9 +347,6 @@ There are two ways that the overlay configuration override files are used within
 
 ### Override overlay configuration files - first time use
 
-
-#### INTRO .. todo
-
 #### Turn on override
 
 In order to let AEVT know that you want to override the overlay configuration files, simply switch the property `optimus.enableOverlayConfigOverride` to `true`, within the `application.properties`. To override the `application.properties`, place a file called `application.properties` (that will contain all the properties you want to override) on the Tomcat classpath (for example, in the `tomcatHome/shared/classes` directory).

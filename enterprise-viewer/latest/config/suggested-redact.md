@@ -6,7 +6,7 @@ The suggested redaction functionality uses regular expression (RegEx) patterns. 
 
 1. Create an Extension Content Accelerator AMP.
 
-    See [Extension Content Accelerator]({% link content-accelerator/latest/develop/extension-content-accelerator.md %}) for more details.
+    Follow the steps in [Extension Content Accelerator]({% link content-accelerator/latest/develop/extension-content-accelerator.md %}) in the Content Accelerator documentation, and then return to this page.
 
 2. Locate or create the `alfresco/module/com.tsgrp.opencontent` path.
 
@@ -28,8 +28,8 @@ The suggested redaction functionality uses regular expression (RegEx) patterns. 
     </bean>
     ```
 
-5. You can override the pattern to include for suggested redactions by modifying the bean in `opencontent-override-overlay-spring-config.xml`.
+4. You can override the pattern to include for suggested redactions by modifying the bean in `opencontent-override-overlay-spring-config.xml`.
 
     Add or remove as many patterns are you need.
 
-6. Provide a key-value pair similar to the above example to set your own custom redaction suggestion based on your RegEx pattern setup.
+5. Provide a key-value pair similar to the above example to set your own custom redaction suggestion based on your RegEx pattern setup.

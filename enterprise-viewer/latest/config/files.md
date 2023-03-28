@@ -1,610 +1,641 @@
 ---
-title: Alfresco Enterprise Viewer Configuration Files
+title: AEV configuration files
 ---
 
 When installing and setting up Alfresco Enterprise Viewer it's important to understand how configuration settings work.
 
-### Spring Properties Files
+## Spring properties files
 
-### AEV Web Application Properties
+## AEV web application properties
 
-Spring loads properties files into the system in a specific order to allow overriding.  Properties are loaded in the following order (last wins):
+Spring loads properties files into the system in a specific order to allow overriding. Properties are loaded in the following order (last wins):
 
 1. `defaults.properties` (sensible defaults for every property)
-1. `project-placeholders.properties` (project specific properties)
-1. `openannotate-override-placeholders.properties` (Optional. Tomcat Specific properties)
-1. `override-placeholders.properties` (environment specific properties)
+2. `project-placeholders.properties` (project specific properties)
+3. `openannotate-override-placeholders.properties` (Optional. Tomcat-specific properties)
+4. `override-placeholders.properties` (environment-specific properties)
 
-In general, use the `openannotate-override-placeholders.properties` to override any of the default properties.  This file must be placed on the tomcat classpath (for example, in the `<TOMCAT_HOME>/shared/classes` folder), and will override all properties located in the OpenAnnotate.war.  Properties defined here can still be overridden by `override-placeholders.properties`, but if for example server urls are all that needs to be defined, these can be left in `openannotate-override-placeholders.properties`, allowing WARs to be promoted through various environments without needing to be re-built / configured.
+In general, use the `openannotate-override-placeholders.properties` to override any of the default properties. This file must be placed on the Tomcat classpath (for example, in the `<TOMCAT_HOME>/shared/classes` folder), and will override all properties located in the `OpenAnnotate.war`. Properties defined here can still be overridden by `override-placeholders.properties`, but if for example server URLs are all that needs to be defined, these can be left in `openannotate-override-placeholders.properties`, allowing WARs to be promoted through various environments without needing to be re-built / configured.
 
-### OpenContent Properties
+## OpenContent properties
 
-OpenContent properties related to AEV are located in the `universal-defaults.properties` file.  Any of these properties can be overridden if desired in the `opencontent-override-placeholders.properties` file.   
+OpenContent properties related to AEV are located in the `universal-defaults.properties` file. Any of these properties can be overridden if desired in the `opencontent-override-placeholders.properties` file.
 
-### Default Properties
+## Default properties
 
-The following are the configurable properties for Alfresco Enterprise Viewer:
+The following are the configurable properties for Enterprise Viewer:
 
-#### serviceAccountUsername
+### serviceAccountUsername
 
-This is the service account username to use when logging in using the "stored" endpoint. The stored endpoint allows you to log in using the configured service account and provide a displayName to identify the user you are logging in for. **NOTE: This property must be overridden if you're using the "stored" endpoint.**
+This is the service account username to use when logging in using the "stored" endpoint. The stored endpoint allows you to log in using the configured service account and provide a displayName to identify the user you are logging in for.
 
-Default Value: `""`
+> **Note:**  This property must be overridden if you're using the "stored" endpoint.
 
-#### serviceAccountPassword
+Default value: `""`
 
-This is the service account password to use when logging in using the "stored" endpoint. The stored endpoint allows you to log in using the configured service account and provide a displayName to identify the user you are logging in for. **NOTE: This property must be overridden if you're using the "stored" endpoint.**
+### serviceAccountPassword
 
-Default Value: `""`
+This is the service account password to use when logging in using the "stored" endpoint. The stored endpoint allows you to log in using the configured service account and provide a displayName to identify the user you are logging in for.
 
-#### isServiceAccountPasswordEncrypted
+> **Note:** This property must be overridden if you're using the "stored" endpoint.
 
-True if the password for the service account for the stored login endpoint is encrypted, false otherwise.
+Default value: `""`
 
-Default Value: `false`
+### isServiceAccountPasswordEncrypted
 
-#### serviceAccountDocbase
+Set to `true` if the password for the service account for the stored login endpoint is encrypted, or `false` if otherwise.
 
-The docbase the service account should login to
+Default value: `false`
 
-Default Value: `""`
+### serviceAccountDocbase
 
-#### emailInviteUrl
+The docbase the service account should login to.
+
+Default value: `""`
+
+### emailInviteUrl
 
 This URL is the URL to use in the invitation to collaborate email. If the `[docId]` placeholder is specified, it will be replaced by the `objectId` of the document being viewed when the invitation is sent.
 
-Default Value: `http://localhost:8080/OpenAnnotate/viewer.htm?docId=[docId]&presenterMode=true&mode=readOnly`
+Default value: `http://localhost:8080/OpenAnnotate/viewer.htm?docId=[docId]&presenterMode=true&mode=readOnly`
 
-#### ocRestEndpointAddress
+### ocRestEndpointAddress
 
-This URL is the REST endpoint for the running instance of OpenContent. If Alfresco Enterprise Viewer is being used in a load balancing setup and the instances of Alfresco Enterprise Viewer and OpenContent are on the same server, this property should be the **non-load balanced url**, to ensure that the requests to OpenContent are always directed to the same OpenContent instance.
+This URL is the REST endpoint for the running instance of OpenContent. If Enterprise Viewer is being used in a load balancing setup and the instances of Enterprise Viewer and OpenContent are on the same server, this property should be the **non-load balanced url**, to ensure that the requests to OpenContent are always directed to the same OpenContent instance.
 
-Default Value: `http://localhost:8080/OpenContent/rest`
+Default value: `http://localhost:8080/OpenContent/rest`
 
-#### clientRequestUrl
+### clientRequestUrl
 
-The URL that client requests from Alfresco Enterprise Viewer to OpenContent should be made to. This generally will only be change if OpenContent has a different rest root, `/alfresco/OpenContent` for example used when OC is an Alfresco subsystem.
+The URL that client requests from Enterprise Viewer to OpenContent should be made to. Generally, this only changes if OpenContent <!--(OC?)-->has a different REST root, `/alfresco/OpenContent` for example used when OC is an Alfresco subsystem.
 
-Default Value: `/OpenContent/rest`
+Default value: `/OpenContent/rest`
 
-#### collaborationEndpoint
+### collaborationEndpoint
 
-This URL is the endpoint on which the web socket server is listening for a connection. This should be used when Alfresco Enterprise Viewer is being run in collaboration mode. If collaboration mode is enabled but this property is not specified, collaboration mode will not work properly.
-For load balanced setups, there should only be a single collaboration server. So this should point to the **single, non-load balanced url**.
+This URL is the endpoint on which the web socket server is listening for a connection. This should be used when Enterprise Viewer is being run in collaboration mode. If collaboration mode is enabled but this property is not specified, collaboration mode will not work properly.
+For load balanced setups, there should only be a single collaboration server. So this should point to the **single, non-load balanced URL**.
 
-Default Value: `http://localhost:3000`
+Default value: `http://localhost:3000`
 
-#### collaborationModeEnabled
+### collaborationModeEnabled
 
-This property represents whether or not Alfresco Enterprise Viewer is being run in collaboration mode to take advantage of features like real-time annotations and chat functionality.
+This property represents whether or not Enterprise Viewer is being run in collaboration mode to take advantage of features like real-time annotations and chat functionality.
 
-Default Value: `false`
+Default value: `false`
 
-#### forceNonModalNotifications
+### forceNonModalNotifications
 
-This property represents whether or not Alfresco Enterprise Viewer will force non modal notifications.
-
-Default Value: `true`
-
-#### singleAnnotationDialog
-
-True if only ever one annotation dialog should be open at a time, false otherwise.
-
-Default Value: `true`
-
-#### excludeEmbeddedAnnotations
-
-True if annotations embedded on the pdf should not be fetched, false otherwise.
-
-Default Value: `true`
-
-#### serverAnnotationsEditable
-
-True if server annotations can be edited. Setting this to false prevents users from editing their annotations after their session ends.
+This property represents whether or not Enterprise Viewer will force non modal notifications.
 
 Default value: `true`
 
-#### sidebarDefaultOpen
+### singleAnnotationDialog
 
-This property represents whether or not Alfresco Enterprise Viewer  should start up with its sidebar (which contains other modules like summary, search and collaboration) showing.
+Set to `true` if only one annotation dialog should ever be open at a time, or `false` otherwise.
 
-Default Value: `true`
+Default value: `true`
 
-#### helpUrl
+### excludeEmbeddedAnnotations
 
-This URL points to a "help" website for using Alfresco Enterprise Viewer. **This is not recommended to be overridden.**
+Set to `true` if annotations embedded in the PDF should not be fetched, or `false` otherwise.
 
-Default Value: `https://docs.alfresco.com/`
+Default value: `true`
 
-#### printSummaryBaseType
+### serverAnnotationsEditable
 
-This is the base type to use when fetching the attributes for the print summary window. If the attributes specified are not attributes on this type, Alfresco Enterprise Viewer will fail to initialize properly.
+Set to `true` if server annotations can be edited. Setting this to false prevents users from editing their annotations after their session ends.
 
-Default Value: `Document`
+Default value: `true`
 
-#### oaLogoPath
+### sidebarDefaultOpen
 
-The path for the logo to display at the top left corner on the toolbar in the Alfresco Enterprise Viewer interface. Useful to override for different logos. This path is relative to the `src/main/webapp` directory.
+This property represents whether or not Enterprise Viewer should start up with its sidebar (which contains other modules like summary, search and collaboration) showing.
 
-Default Value: `images/logos`
+Default value: `true`
 
-#### oaIconPath
+### helpUrl
 
-The path for the icons to display in the Alfresco Enterprise Viewer interface. This path is relative to the `src/main/webapp` directory.
+This URL points to a "help" website for using Enterprise Viewer. **This is not recommended to be overridden.**
 
-Default Value: `images/icons`
+Default value: `https://docs.alfresco.com/`
 
-#### targetMimetype
+### printSummaryBaseType
+
+This is the base type to use when fetching the attributes for the print summary window. If the attributes specified are not attributes on this type, Enterprise Viewer will fail to initialize properly.
+
+Default value: `Document`
+
+### oaLogoPath
+
+The path for the logo to display at the top left corner on the toolbar in the Enterprise Viewer interface. Useful to override for different logos. This path is relative to the `src/main/webapp` directory.
+
+Default value: `images/logos`
+
+### oaIconPath
+
+The path for the icons to display in the Enterprise Viewer interface. This path is relative to the `src/main/webapp` directory.
+
+Default value: `images/icons`
+
+### targetMimetype
 
 The target mimetype to use when transforming documents. Defaulted to PNG, but support JPG (image/jpeg) as well.
 
-Default Value: `image/png`
+Default value: `image/png`
 
-#### imageFullResolution
+### imageFullResolution
 
 The final resolution to use when transforming image pages to PNG or JPG. Lower resolutions may be loaded first.
 
-Default Value: `64`
+Default value: `64`
 
-#### imageMinimumResolution
+### imageMinimumResolution
 
-The minimum resolution to load the image when progressively loading the image
+The minimum resolution to load the image when progressively loading the image.
 
-Default Value: `16`
+Default value: `16`
 
-#### pdfFullResolution
+### pdfFullResolution
 
 The final resolution to use when transforming PDF pages to PNG or JPG. Lower resolutions may be loaded first.
 
-Default Value: `244`
+Default value: `244`
 
-#### pdfMinimumResolution
+### pdfMinimumResolution
 
-The minimum resolution to load the image when progressively loading the image
+The minimum resolution to load the image when progressively loading the image.
 
-Default Value: `64`
+Default value: `64`
 
-#### progressiveReloadSteps
+### progressiveReloadSteps
 
 The number of reloads to make between the minimum resolution image, and the full resolution.
 
-Default Value: `1`
+Default value: `1`
 
-#### pageZoom
+### pageZoom
 
 The initial page zoom to use when loading a document. The allowed values are either `fitHeight` or `fitWidth`. Fit height will adjust the document so the entire height is visible. Fit width will adjust the document so the entire width is visible.
 
-Default Value: `fitWidth`
+Default value: `fitWidth`
 
-#### numPreloadPages
+### numPreloadPages
 
 The number of pages to preload. Preloading works by making requests to fetch pages close to the current page the user is viewing in order to cache the image, which results in shorter load times when the page is changed. The allowed values are the following:
 
 * `0`: This tells AEV to preload all the pages of the document
 * `-1`: This tells AEV to not use preloading at all
-* Any other positive integer: This integer specifies the total number of pages to preload - half will be pages forward from the current page and the other half will be behind the current page. **The configured value should therefore be a multiple of 2. Because the number of pages to preload is divided in half, specifying `1` and `2` accomplishes the same thing.** Once the number of preloaded pages equals the configured value, no more pages will be preloaded until the page is changed.
+* Any other positive integer: This integer specifies the total number of pages to preload - half will be pages forward from the current page and the other half will be behind the current page.
 
-Default Value: `10`
+   > **Note:**
+   >
+   > * The configured value should be a multiple of 2 because the number of pages to preload is divided in half.
+   > * Specifying `1` and `2` accomplishes the same thing.
+   >
+   > * Once the number of preloaded pages equals the configured value, no more pages will be preloaded until the page is changed.
 
-#### enhancedColorMode
+Default value: `10`
+
+### enhancedColorMode
 
 This flag controls the colors that are displayed and allowed to be chosen for annotations. If set to `true` there is no limit on the color of created annotations and the downloaded annotations will maintain their colors. If set to `false` the user may not choose different colors for annotations and instead, all of the user's annotations will be red (or yellow if it's a highlight) and all other annotations will be blue (the same is true for the downloaded annotated PDF).
 
-Default Value: `true`
+Default value: `true`
 
-#### dateFormat
+### dateFormat
 
-The format to use when displaying dates in annotation dialog boxes. The formatting uses the open source library Moment.js, so any formats found on the Moment.js [formatting docs](http://momentjs.com/docs/#/displaying/format/) may be used.
+The format to use when displaying dates in annotation dialog boxes. The formatting uses the open source library `Moment.js`, so any formats found in the [Moment.js formatting docs](http://momentjs.com/docs/#/displaying/format/){:target="_blank"} may be used.
 
-Default Value: `MM/DD/YYYY`
+Default value: `MM/DD/YYYY`
 
-#### enabledActions & Modes
+### enabledActions & Modes
 
-Configuring what Buttons / Actions appear in Alfresco Enterprise Viewer is a little more in-depth than the average config option.  See
-[Configuring Alfresco Enterprise Viewer Actions Buttons and Modes](/enterprise-viewer/latest/config/aev-actions-and-modes-config) for more details.
+Configuring what Buttons / Actions appear in Enterprise Viewer is a little more in-depth than the average config option.
 
-#### quillEnabledButtons
+See [Configure Enterprise Viewer actions and modes]({% link enterprise-viewer/latest/config/actions.md %}) for more details.
+
+### quillEnabledButtons
 
 A comma separated list of buttons that are visible in the quill toolbar. Currently, only Italic and Bold are supported. All currently supported quill buttons are bold, italic, and underline.
 
-Default Value: `bold,italic`
+Default value: `bold,italic`
 
-#### leftSidebarModules
+### leftSidebarModules
 
 A comma separated list of views to be enabled in the left sidebar.
 
-Default Value: `bookmarks,attachedDocs,thumbnails,sections,documentList`
+Default value: `bookmarks,attachedDocs,thumbnails,sections,documentList`
 
-#### rightSidebarModules
+### rightSidebarModules
 
 A comma separated list of views to be enabled in the right sidebar.
 
-Default Value: `summary,search,participants,suggestedRedactions`
+Default value: `summary,search,participants,suggestedRedactions`
 
-#### redactionType
+### redactionType
 
 What type of redaction should be made when entering redaction mode via the dropdown.
 Possible values include `redactInPlace`, `redactedAsCopy`, and `unredactedAsCopy`
 
-Default Value: `redactInPlace`
+Default value: `redactInPlace`
 
-#### initialDrawingTool
+### initialDrawingTool
 
-A comma separated list of drawing buttons that should be selected when Alfresco Enterprise Viewer loads.  The first valid button on the list will be selected when Alfresco Enterprise Viewer first loads.
+A comma separated list of drawing buttons that should be selected when Enterprise Viewer loads. The first valid button on the list will be selected when Enterprise Viewer first loads.
 
-Default Value: `drawRedaction, signature, mouse`
+Default value: `drawRedaction, signature, mouse`
 
-#### autosaveInterval
+### autosaveInterval
 
-The number of milliseconds Alfresco Enterprise Viewer will wait between each autosave.
+The number of milliseconds Enterprise Viewer will wait between each autosave.
 
 * `0`: This tells AEV to NOT autosave.
-* Any other positive integer: The number of milliseconds Alfresco Enterprise Viewer will wait between each autosave.  This should not be set to a number below 5000 - 10000 (five to ten seconds), as it could cause undefined behavior.
+* Any other positive integer: The number of milliseconds Enterprise Viewer will wait between each autosave. This should not be set to a number below 5000 - 10000 (5 - 10 seconds), as it could cause undefined behavior.
 
-Default Value: `60000`
+Default value: `60000`
 
-#### autosaveBeforeExit
+### autosaveBeforeExit
 
-True if Alfresco Enterprise Viewer should automatically save before exiting, false otherwise.
+Set to `true` if Enterprise Viewer should automatically save before exiting, or `false` otherwise.
 
-Default Value: `true`
+Default value: `true`
 
-#### enabledPopupNotifications
+### enabledPopupNotifications
 
-This is the list of the Collaboration mode notifications that are enabled and will therefore appear on the on internal popups when the Participants tab is close. To disable a type of notification, remove it from the list of notification in this property.  The default is that all notification are enabled.
+This is the list of the Collaboration mode notifications that are enabled and will therefore appear on the on internal popups when the Participants tab is close. To disable a type of notification, remove it from the list of notification in this property. The default is that all notification are enabled.
 
-Default Value: `chat,userJoined,userLeft,serverConnection,checkInAnnotations,checkInAnnotationsFailed,burnInRedactionFailed,checkinAnnotationsFinished,pageSelectMode,welcomeBackPage,save,loadedAnnotations,saveFinished,copyPaste,copyPasteNotReady,tooLargeForThumbnails,closeSave,closeCopyPaste,pageRangeInvalid,logstashFailed,portfolioContainsNonPdf,docHasAnnotations,afterPageLoad,textLocationDataFailed,enterSectioningMode,sectionNameInvalid,displayDocumentListFailed`
+Default value:
 
-#### slideViewerTileDirectoryRoot
+```text
+chat,userJoined,userLeft,serverConnection,checkInAnnotations,checkInAnnotationsFailed,burnInRedactionFailed,checkinAnnotationsFinished,pageSelectMode,welcomeBackPage,save,loadedAnnotations,saveFinished,copyPaste,copyPasteNotReady,tooLargeForThumbnails,closeSave,closeCopyPaste,pageRangeInvalid,logstashFailed,portfolioContainsNonPdf,docHasAnnotations,afterPageLoad,textLocationDataFailed,enterSectioningMode,sectionNameInvalid,displayDocumentListFailed
+```
 
-This is the root directory on the server filesystem where the slide viewer "tiles" should be served from. It is commonly a URL that is redirected through Apache to request files from the server. 
+### slideViewerTileDirectoryRoot
 
-Default Value: `http://localhost:8080/OpenAnnotate/images/seadragon/`
+This is the root directory on the server filesystem where the slide viewer "tiles" should be served from. It is commonly a URL that is redirected through Apache to request files from the server.
 
-#### sessionCookieName
+Default value: `http://localhost:8080/OpenAnnotate/images/seadragon/`
 
-The name of the session cookie which is used to track sticky sessions in load balanced environments.  For load balanced environments, sticky sessions are required to ensure Alfresco Enterprise Viewer always hits the correct correct OpenContent with all its internal requests.
+### sessionCookieName
 
-Default Value: `JSESSIONID`
+The name of the session cookie which is used to track sticky sessions in load balanced environments. For load balanced environments, sticky sessions are required to ensure Enterprise Viewer always hits the correct correct OpenContent with all its internal requests.
 
-#### checkServletRequestForSessionId
+Default value: `JSESSIONID`
 
-True if we should check for the sessionId on the Servlet requests from Alfresco Enterprise Viewer's frontend and append it to the requests to OC, false otherwise.  This sessionId is used to maintain sticky sessions in load balanced environment.  If both this property and checkServletCookieForSessionId are both set, the sessionId set on the Servlet request will override any sessionId set on the cookie.
+### checkServletRequestForSessionId
 
-Default Value: `true`
+Set to `true` if we should check for the sessionId on the Servlet requests from Enterprise Viewer's frontend and append it to the requests to OC, or `false` otherwise. This sessionId is used to maintain sticky sessions in load balanced environment. If both this property and `checkServletCookieForSessionId` are both set, the sessionId set on the Servlet request will override any sessionId set on the cookie.
 
-#### checkServletCookieForSessionId
+Default value: `true`
 
-True if we should check for the sessionId on a cookie and append it to the requests to OC, false otherwise.  This sessionId is used to maintain sticky sessions in load balanced environment.  If both this property and checkServletRequestForSessionId are both set, the sessionId set on the Servlet request will override any sessionId set on the cookie.
+### checkServletCookieForSessionId
 
-Default Value: `true`
+Set to `true` if we should check for the sessionId on a cookie and append it to the requests to OC, or `false` otherwise. This sessionId is used to maintain sticky sessions in load balanced environment. If both this property and `checkServletRequestForSessionId` are both set, the sessionId set on the Servlet request will override any sessionId set on the cookie.
 
-#### snapThreshold
+Default value: `true`
 
-This value is the % of a highlight must overlap a word for it to be detected as a word.  Highlights will snap to the detected words and get the underlying text.  If no highlight snapping is desired, this should be set to a value over 100% (i.e. < 1.0).  The gifs below show the results of different values of snapThreshold:
+### snapThreshold
 
-10% ( =0.1)
+This value is the percentage of a highlight that must overlap a word for it to be detected as a word. Highlights will snap to the detected words and get the underlying text. If no highlight snapping is desired, this should be set to a value over 100% (i.e. < 1.0).
+
+Default value: `0.15`
+
+The GIFs below show the results of different values of `snapThreshold`:
+
+#### Example snap threshold = 10% (`0.1`)
 
 ![Highlight Snap Threshold 10%]({% link enterprise-viewer/images/snap-threshold_10.gif %})
 
-40% ( =0.4)
+#### Example snap threshold = 40% (`0.4`)
 
 ![Highlight Snap Threshold 40%]({% link enterprise-viewer/images/snap-threshold_40.gif %})
 
-100% or more (greater than 1.0)
+#### Example snap threshold 100% or more (greater than `1.0`)
 
 ![Highlight Snap Threshold 100% or more (greater than 1.0)]({% link enterprise-viewer/images/snap-threshold_gt_100.gif %})
 
-Default Value: `0.15`
+### rerenderPageOnResize
 
-#### rerenderPageOnResize
-
-True if we should send new requests to OC every time we zoom in or out on a page. False otherwise.
+Set to `true` if we should send new requests to OC every time we zoom in or out on a page, or `false` otherwise.
 
 Default value: `true`
 
-#### quickSearch
+### quickSearch
 
-True if we want to allow the user to immediately search selected text when a user presses Ctrl+F. False otherwise.
+Set to `true` if we want to allow the user to immediately search selected text when a user presses Ctrl+F, or `false` otherwise.
 
 Default value: `false`
 
-#### numberOfPagesForLargeDocuments
+### numberOfPagesForLargeDocuments
 
-The number of pages needed to be considered a "large" document. If the value is 0, there is no bounds for large documents. If a document has more pages than the value here, text search data will not be loaded initially, and thumbnails will be disabled.  Text Search data can still be manually loaded by the user later, after they answer 'yes' to a modal informing them of the delay.
+The number of pages that are considered as a "large" document.
+
+* If the value is `0`, there is no bounds for large documents.
+* If a document has more pages than the value here, text search data will not be loaded initially, and thumbnails will be disabled.
+* Text search data can still be manually loaded by the user later, after answering `yes` to a modal informing them of the delay.
 
 Default value: `200`
 
-#### sizeOfLargeFiles
+### sizeOfLargeFiles
 
-The size (in bytes) needed to be considered a "large" document. If a document's size is bigger than the value here, a user will be prompted with a modal to confirm calls that require a lot of resources to limit memory usage.
+The size (in bytes) needed to be considered a "large" document. If a document's size is bigger than the value here, a user is prompted with a modal to confirm calls that require a lot of resources to limit memory usage.
 
 Default value: `104857600`(100MB)
 
-#### maxDocumentSize
+### maxDocumentSize
 
-The max size of a document (in bytes) that we allow to be loaded. If the value is 0, there is no bounds for large documents. Otherwise, if a document's size is bigger than the value here, a modal will appear to let the user know that their document is too large to open.
+The max size of a document (in bytes) that we allow to be loaded.
+
+* If the value is `0`, there are no bounds for large documents.
+* Otherwise, if a document's size is bigger than the value here, a modal will appear to let the user know that their document is too large to open.
 
 Default value: `2147483648`(2GB)
 
-#### enableCommentBox
+### enableCommentBox
 
-True if the comment box is enabled in the annotation dialog box, false otherwise.
+Set to `true` if the comment box is enabled in the annotation dialog box, or `false` otherwise.
 
 Default value: `true`
 
-#### enablePicklist
+### enablePicklist
 
-True if picklist features are enabled for Alfresco Enterprise Viewer, false otherwise.  If picklists are enabled, picklistUrl MUST have a parameter to work.
+Set to `true` if picklist features are enabled for Enterprise Viewer, or `false` otherwise.
 
-NOTE: Picklists are only used for annotation dialog boxes at this point in time.
+If picklists are enabled, `picklistUrl` must have a parameter to work.
 
-Default value: `false`
-
-#### enableStatuses
-
-True if annotations can be statused and have previous statuses appear.
-
-Default value: 'true'
-
-#### showSmallActionName
-
-True if the actions dropdown shown at small resolutions should reflected the currently selected tool, false otherwise.
-
-Default value: 'true'
-
-#### asyncPicklist
-
-True if picklists used for Alfresco Enterprise Viewer are asynchronous, false otherwise.
+> **Note:** Currently, picklists are only used for annotation dialog boxes.
 
 Default value: `false`
 
-#### picklistUrl
+### enableStatuses
+
+Set to `true` if annotations can have a status and previous statuses appear.
+
+Default value: `true`
+
+### showSmallActionName
+
+Set to `true` if the actions dropdown shown at small resolutions should reflected the currently selected tool, or `false` otherwise.
+
+Default value: `true`
+
+### asyncPicklist
+
+Set to `true` if picklists used for Enterprise Viewer are asynchronous, or `false` otherwise.
+
+Default value: `false`
+
+### picklistUrl
 
 The picklist information needed to retrieve picklist data. This will either be a picklist name to reference a configured picklist in OpenContent or this will be a URL to retrieve picklist data from an external source.
 
 Default value: `""`
 
-#### externalPicklist
+### externalPicklist
 
-True if the picklist we are using is from an external source, false otherwise.
-
-Default value: `false`
-
-#### searchPagesPerRequest
-
-The number of pages we fetch search data for in a single request.
-
-Default value: `200`
-
-#### textDataPagesPerRequest
-
-The number of pages we fetch text select data for in a single request.
-
-Default value: `200`
-
-#### enableMacroMetadataFetching
-
->**NOTE: UNIMPLEMENTED - DO NOT USE -**
-
-Gets all PDF MetaData (wordmaps, text select, bookmarks, etc.) in a sinlge request if set to true.  Otherwise each will be fetched via its own server request.
+Set to `true` if the picklist we are using is from an external source, or `false` otherwise.
 
 Default value: `false`
 
-#### macroMetadataFetchingBatchSize
+### searchPagesPerRequest
 
->**NOTE: UNIMPLEMENTED - DO NOT USE -**
-
-Number of pages to fetch ALL pdf metadata for  per request.  REQUIRES 'enableMacroMetadataFetching' to be set to 'true', or does nothing.
+The number of pages to fetch search data for in a single request.
 
 Default value: `200`
 
-#### maxUserPageCookieSize
+### textDataPagesPerRequest
+
+The number of pages to fetch text select data for in a single request.
+
+Default value: `200`
+
+### enableMacroMetadataFetching
+
+> **Note: UNIMPLEMENTED - DO NOT USE -**
+
+Gets all PDF MetaData (wordmaps, text select, bookmarks, etc.) in a single request if set to `true`. Otherwise each one is fetched via its own server request.
+
+Default value: `false`
+
+### macroMetadataFetchingBatchSize
+
+> **Note: UNIMPLEMENTED - DO NOT USE -**
+
+The number of pages to fetch ALL PDF metadata for per request.
+
+Requires `enableMacroMetadataFetching` to be set to `true`, or otherwise does nothing.
+
+Default value: `200`
+
+### maxUserPageCookieSize
 
 The maximum number of user page cookie objects to store.
 
 Default value: `50`
 
-#### annotationSummaryDefaultSort
+### annotationSummaryDefaultSort
 
-The xfdf fields to sort the annotation summaries on, ordered from most important to least important.
+The XFDF fields to sort the annotation summaries on, ordered from most important to least important.
 
 Default value: `page,!p4`
 
-#### warnBeforeSaveModifications
+### warnBeforeSaveModifications
 
 Whether or not the user wants a modal to appear asking them to confirm that they want to save page modifications when in edit mode.
 
 Default value: `false`
 
-#### controlledPrint
+### controlledPrint
 
 Whether or not we want a controlled print to be enabled. Controlled print only allows certain people to print a document, and controls the number of times it can be printed.
 
 Default value: `false`
 
-#### thumbnailResolution
+### thumbnailResolution
 
 The minimum resolution to load the thumbnail images for the document.
 
 Default value: `32`
 
-#### initialThumbnailLoad
+### initialThumbnailLoad
 
 Amount of thumbnails to initially load.
 
 Default value: `25`
 
-#### newVersionOnModification
+### newVersionOnModification
 
-True if the a new version of the document will be created when the document is modified. if false, the document in the repository will remain the same version when modified
+Set to `true` if a new version of the document should be created when the document is modified. If `false`, the document in the repository remains the same version when modified.
 
 Default value: `true`
 
-#### majorVersionOnModification
+### majorVersionOnModification
 
-True if the a major version of the document will be created when the document is modified. If false, the document in the repository will default to a minor version when modified.
+Set to `true` if a major version of the document should be created when the document is modified. If `false`, the document in the repository defaults to a minor version when modified.
 
 Default value: `false`
 
-#### alertDocumentHasAnnotations
+### alertDocumentHasAnnotations
 
-True if the user will be alerted that the current document in OpenViewer has annotations.
+Set to `true` if the user will be alerted that the current document in OpenViewer has annotations.
 
 Default value: `true`
 
-#### keepToolSelectedDefault
+### keepToolSelectedDefault
 
 Whether the keep tool selected feature should be on by default.
 
 Default value: `false`
 
-#### annotationTypesToShowDialogForWithKeepToolSelected
+### annotationTypesToShowDialogForWithKeepToolSelected
 
-Which annotation type(s) dialogs that we wish to show when the annotation is created.
+Which annotation type(s) dialogs to show when the annotation is created.
 
 Different annotation types:
+
+```text
 Line,Oval,Rectangle,Highlight,Cross-Out,Inserted Text,Replacement Text,Reply,Sticky Note,Signature,Approved Stamp,Accept Stamp,Reject Stamp,Reviewed Stamp,PageSizedCheckmark Stamp,Status,Freetext,File Attachment,Free Draw,Redaction
+```
 
 Default value: `""`
 
-#### thumbnailBatchSize
+### thumbnailBatchSize
 
 The number of thumbnails to load for every subsequent batch after the first.
 
 Default value: `200`
 
-#### thumbnailWidth
+### thumbnailWidth
 
 The width of the sidebar thumbnail previews.
 
 Default value: `150`
 
-#### configuredLocales
+### configuredLocales
 
-All locales we currently have configured. German is actually "half" configured currently. We have a localization json file, but are missing the bundle.
+All locales we currently have configured. German is actually "half" configured currently. We have a localization JSON file, but are missing the bundle.
 
 Default value: `en,fr,de`
 
-#### defaultLocale
+### defaultLocale
 
-The default locale we will go to if the user has no configured locales. This value must be in the configured locales.
+The default locale to use if the user has no configured locales. This value must already be in the configured locales.
 
 Default value: `en`
 
-#### checkRenditioningDelay
+### checkRenditioningDelay
 
-The default time between checks for whether a document has a rendition
+The default time between checks for whether a document has a rendition.
 
 Default value: `10000`
 
-#### loadAnnotationsWithDocInfo
+### loadAnnotationsWithDocInfo
 
-Load annotations simultaneous with document info. Do not let the user into the document until the annotations are loaded
-
-Default value: `false`
-
-#### displayAnnotationModifyDate
-
-Display an annotations modified date instead of its creation date throughout AEV
+Load annotations simultaneous with document information. Do not let the user into the document until the annotations are loaded
 
 Default value: `false`
 
-#### minPagesToDefafultSectionModeOn
+### displayAnnotationModifyDate
 
-The minimum number of pages to default into sectionining mode. Override this to 0 to never default into sectioning mode.
+Display an annotation modified date instead of the creation date throughout AEV.
+
+Default value: `false`
+
+### minPagesToDefafultSectionModeOn
+
+The minimum number of pages to default into sectioning mode. Set to `0` to prevent sectioning mode.
 
 Default value: `10`
 
-#### determineSectionsFromProperty
+### determineSectionsFromProperty
 
-Whether we want to determine sections automatically from a property ("false" by default, should be the property name if you want to use it).
+Whether to determine sections automatically from a property property name or keep the default value.
 
 Default value: `false`
 
-#### saveSectionsAsBookmarks
+### saveSectionsAsBookmarks
 
-Whether or not to save sections as bookmarks. Overriding this to false will ONLY save the page reordering and rotating when done sectioning.
+Whether or not to save sections as bookmarks. Overriding this to `false` will ONLY save the page reordering and rotating when sectioning is done.
 
 Default value: `true`
 
-#### enablePageObfuscation
+### enablePageObfuscation
 
-Whether or not OpenContent should Obfuscate pages when transforming them. This is to prevent users from viewing a secure document through the network calls
-
-Default value: `false`
-
-#### enableSecureViewingOverlay
-
-Whether or not we should apply the secure viewing overlay to pages when viewing them. This overlay will show the display name of the user viewing. Displays on the document the current username and the Date when they were viewing it
+Whether or not OpenContent should Obfuscate pages when transforming them. This is to prevent users from viewing a secure document through the network calls.
 
 Default value: `false`
 
-#### enableAEVTOverlays
+### enableSecureViewingOverlay
 
-Whether or not to enable functionality for AEVT (Optimus Transformations) overlays. Defaulting to false no functionality added. When true, additional parameters are passed on the MAV and sent on the transform and getThumbnails requests providing necessary properties to OpenOverlay.
+Whether or not to apply the secure viewing overlay to pages when viewing them. This overlay shows the display name of the user viewing. Displays the current username on the document and the date when they were viewing it.
 
 Default value: `false`
 
-#### zoomClientID
+### enableAEVTOverlays
 
-Client ID property for sending off a zoom authorization call that will eventually send off a request that creates a meeting. Defaulting to nothing as you will need to create a zoom app to get this value and use this feature
+Whether or not to enable functionality for AEVT (Optimus Transformations) overlays. When `true`, additional parameters are passed on the MAV and sent to the transform and `getThumbnails` requests, providing the necessary properties to OpenOverlay. With the default setting, `false`, no functionality is added.
+
+Default value: `false`
+
+### zoomClientID
+
+Client ID property for sending a Zoom authorization call that eventually sends a request that creates a meeting. Blank by default, as you'll need to create a Zoom app to get this value and use this feature.
 
 Default value: ``
 
-#### clientKey
+### clientKey
 
-The optional OC client key to be used in OAUtil.oaRestTemplateGet/oaRestTemplatePost calls.  This key, if configured, will be set as a request header and eventually used OC side for some SSO implementations
+The optional OC client key to be used in `OAUtil.oaRestTemplateGet/oaRestTemplatePost` calls. This key, if configured, sets as a request header and eventually used OC side for some SSO implementations.
 
 Default value: ``
 
-#### aevChatAuthor
+### aevChatAuthor
 
-The chat author name that will be posting in the chat from OpenContent
+The chat author name that's posting in the chat from OpenContent.
 
 Default value: `AEV Chat Bot`
 
-A fully qualified Rest URL for client side use
+A fully qualified REST URL for client side use.
 
 Default value: `http://localhost:8080/OpenContent/rest`
 
-### OpenContent - Default Properties
+## OpenContent - default properties
 
-#### license.doSendWarningEmail
+### license.doSendWarningEmail
 
-Whether or not to send a warning email when the current OpenContent license is approaching an invalid state (i.e - expiring or almost at the max user or group user limit)
+Whether or not to send a warning email when the current OpenContent license is approaching an invalid state. For example:  expiring, or almost at the maximum user or group user limit.
 
 Default value: `true`
 
-#### license.expiringSoonCounter
+### license.expiringSoonCounter
 
-The amount of days before the license expires in which OpenContent will set a warning state for the active license.
+The amount of days before the license expires in which OpenContent sets a warning state for the active license.
 
 Default value: `30`
 
-#### license.systemUserLimitCounter
+### license.systemUserLimitCounter
 
-Used with a user based license - this property configures how close to the maximum allowed users the system can get before setting a warning state on the active license.
+Used with a user-based license: this property configures how close to the maximum allowed users the system can get before setting a warning state on the active license.
 
 Default value: `25`
 
-#### license.groupUserLimitCounter
+### license.groupUserLimitCounter
 
-Used with a group based license - this property configures how close to the maximum allowed users the license group(s) can get before setting a warning state on the active license.
+Used with a group-based license: this property configures how close to the maximum allowed users the license group(s) can get before setting a warning state on the active license.
 
 Default value: `5`
 
-#### license.warning.email.recipients
+### license.warning.email.recipients
 
-When in a warning state and configured to do so - OpenContent will send a license warning email to all of the recipients listed in this property.
+When in a warning state and configured to do so, OpenContent sends a license warning email to all of the recipients listed in this property.
 
 Default value: ``
 
-#### fail.loud.on.errored.embedded.annotations
+### fail.loud.on.errored.embedded.annotations
 
-Fail loudly on errors that occur with embedded annotations. This is
-defaulted to true so that the user will be notified of errors loading annotations.
-This is an experimental feature. If set to false, users may be able to load, download, print
-previously erroring annotated pdfs but some annotations may be missing.
+Fail loudly on errors that occur with embedded annotations. This defaults to `true` so that the user is notified of errors loading annotations.
+
+This is an experimental feature. If set to `false`, users may be able to load, download, print previously erroring annotated PDFs but some annotations may be missing.
 
 Default value: `true`
