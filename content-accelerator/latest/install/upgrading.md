@@ -94,7 +94,11 @@ For each instance of the Bulk Upload action (either as a header action or Stage 
 
      * Determine if users would like saved session functionality.  Saved sessions is useful when Bulk Upload actions regularly take users a non-trivial amount of effort.  If users generally fill out Bulk Upload forms in less than 5 minutes, Saved Sessions may not be needed.
 
-3. Whether or not any updates were made, re-save the config. This will activate the new configurations.
+3. If you are ever going to enable Saved Sessions, re-run the hpi-setup script.
+
+    * Open a browser window and navigate to the following URL: `{Alfresco Base URL}/alfresco/s/hpi/setup`
+
+4. Whether or not any updates were made, re-save the config. This will activate the new configurations.
 
 ### Policy and Procedure Updates
 
