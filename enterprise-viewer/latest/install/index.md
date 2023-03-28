@@ -1,5 +1,5 @@
 ---
-title: Enterprise Viewer Installation Guide
+title: Install Enterprise Viewer
 ---
 
 > **Important:** If you're installing both Alfresco Content Accelerator (ACA) and Alfresco Enterprise Viewer (AEV), we recommend that you start with the ACA install guide.
@@ -14,14 +14,13 @@ The Enterprise Viewer can be installed using a distribution zip. You'll need to 
 
 ### Java
 
-Alfresco Enterprise Viewer requires Java 11 or above. Consult your repository of choice for more detailed requirements.
+Enterprise Viewer requires Java 11 or above. Consult your repository of choice for more detailed requirements.
 
 ### Alfresco repository version
 
 See the [Supported Platforms]({% link enterprise-viewer/latest/support/index.md %}) for more information.
 
-Make sure you have the correct version of the Alfresco Enterprise Viewer package for your Alfresco Content Services version.
-If you are unsure, please contact Hyland Support.
+Make sure you have the correct version of the Enterprise Viewer package for your Content Services version. If you are unsure, please contact Hyland Support.
 
 ### Operating system requirements
 
@@ -295,11 +294,12 @@ You only need to follow these steps if installing AEV without ACA {#installoc}
 
    By default, Apache Tomcat doesn't support UTF-8 characters for languages other than English. To enable support, the `web.xml` and `server.xml` files need to be modified in the deployed Tomcat.
 
-   * When running OpenContent on Tomcat 8+, the `relaxedQueryChars` and `relaxedPathChars` parameters are required on the Connector.* If you are using Tomcat older than version 8.5, you may need to add this to `catalina.properties` in your `tomcat/conf` folder: `tomcat.util.http.parser.HttpParser.requestTargetAllow=|{}`
+   * When running OpenContent on Tomcat 8+, the `relaxedQueryChars` and `relaxedPathChars` parameters are required on the Connector.
+   * If you are using Tomcat older than version 8.5, you may need to add this to `catalina.properties` in your `tomcat/conf` folder: `tomcat.util.http.parser.HttpParser.requestTargetAllow=|{}`.
 
-   The following will need to be updated:
+   Update the following files:
 
-   1. In **${tomcat.home}/conf/web.xml**:
+   1. In `${tomcat.home}/conf/web.xml`:
 
         Uncomment the `setCharacterEncodingFilter` and its mapping in `web.xml` (if not already uncommented):
 
@@ -327,7 +327,7 @@ You only need to follow these steps if installing AEV without ACA {#installoc}
         </filter-mapping>
         ```
 
-   2. In the **${tomcat.home}/conf/server.xml**
+   2. In `${tomcat.home}/conf/server.xml`:
 
         Add the following to the connector if not already present:
 
@@ -353,15 +353,17 @@ You only need to follow these steps if installing AEV without ACA {#installoc}
     1. Navigate to the `SOLR_HOME/solrhome/conf` folder.
 
     2. In the file `shared.properties`, uncomment the following properties (if not already uncommented):
-       *`alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text`
-       *`alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content`
-       *`alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext`
+
+       * `alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text`
+       * `alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content`
+       * `alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext`
 
     3. Once the above changes have been made, Solr must be reindexed.
 
        Stop the Solr process if it is running.
 
        Clear out the following folder paths:
+
         * `SOLR_HOME/solrhome/alfresco/index`
         * `SOLR_HOME/solrhome/archive/index`
         * `SOLR_HOME/solrhome/alfrescoModels`
@@ -376,9 +378,9 @@ You only need to follow these steps if installing AEV without ACA {#installoc}
 
 ### Install PDFium (optional) {#pdfium}
 
-> **Note:** This step is only needed if using Alfresco Enterprise Viewer on Linux.
+> **Note:** This step is only needed if using Enterprise Viewer on Linux.
 
-1. Locate the`pdfium.tar.gz` in the `Third Party` folder of the alfresco-enterprise-viewer-package zip
+1. Locate the`pdfium.tar.gz` in the `Third Party` folder of the `alfresco-enterprise-viewer-package` ZIP.
 
 2. Unpack the `pdfium.tar.gz` source to a location on your server.
 
@@ -396,7 +398,7 @@ You only need to follow these steps if installing AEV without ACA {#installoc}
 
 ### Install FFMPEG (optional)  {#ffmpeg}
 
-> **Note:** This step is only needed if using Alfresco Enterprise Viewer Video.
+> **Note:** This step is only needed if using Enterprise Viewer Video.
 
 1. Download and install an official FFMPEG package from [here](https://ffmpeg.org/download.html){:target="_blank"}.
 
@@ -418,9 +420,9 @@ You only need to follow these steps if installing AEV without ACA {#installoc}
 
 > **Note:** You only need to complete this section if you've installed FFMPEG and/or PDFium above.
 
-1. Stop Alfresco
+1. Stop Alfresco.
 
-2. Configure OpenConnect
+2. Configure OpenConnect.
 
     Update the environment variables in the provided `opencontent-override-placeholders.properties`. Deploy the updated file to the `/alfresco` classpath, for example, the `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` directory:
 
@@ -429,7 +431,7 @@ You only need to follow these steps if installing AEV without ACA {#installoc}
     * `FFMPEG.path=FFMPEG_HOME` (if installed, get the `FFMPEG_HOME` value from [Install FFMPEG](#ffmpeg))
     * `pdfium.path=PDFIUM_HOME` (if installed, get the `PDFIUM_HOME` value from [Install PDFium](#pdfium))
 
-3. Delete current Alfresco deployed WAR files
+3. Delete current Alfresco deployed WAR files.
 
    Navigate to the `ALFRESCO_HOME/tomcat/webapps` directory and delete the `alfresco` folder (if it exists).
 
@@ -437,7 +439,7 @@ You only need to follow these steps if installing AEV without ACA {#installoc}
 
 ## Install collaboration (optional)  {#collab}
 
-In this section the Alfresco Enterprise Viewer collaboration features Socket.IO server is installed.
+In this section the Enterprise Viewer collaboration features Socket.IO server is installed.
 
 > **Note:** that this installation is only required if the collaboration features are desired.
 
@@ -448,7 +450,7 @@ In this section the Alfresco Enterprise Viewer collaboration features Socket.IO 
    * `Node.js` - use the latest version your OS supports
    * `npm` - Node package manager, included with `Node.js`
 
-2. Install Socket Server:
+2. Install Socket Server.
 
    Locate the `socket-server.zip` in the `Collaboration` folder of the `alfresco-enterprise-viewer-package` zip.
 
@@ -485,15 +487,15 @@ In this section the Alfresco Enterprise Viewer collaboration features Socket.IO 
 
 ## Install webapps
 
-This sections walks through how to install the Alfresco Enterprise Viewer web application.
+This sections walks through how to install the Enterprise Viewer web application.
 
 > **Note:**
 >
-> * If you installed a proxy then follow the steps in [Install Web Applications on separate Tomcat](#install-webapps-separate-tomcat-oa).
+> * If you installed a proxy then follow the steps in [Install web applications on separate Tomcat](#separate-tomcat-oa).
 >
-> * If no proxy was installed then follow the steps in [Install Web Applications on Alfresco Tomcat](#install-webapps-alfresco-tomcat-oa).
+> * If no proxy was installed then follow the steps to [Install web applications on Alfresco Tomcat](#alfresco-tomcat-oa).
 
-### Install web applications on separate Tomcat {#install-webapps-separate-tomcat-oa}
+### Install web applications on separate Tomcat {#separate-tomcat-oa}
 
 This section walks through how to install the web applications on a separate Tomcat instance (meaning, you must have a proxy setup).
 
@@ -505,13 +507,13 @@ This section walks through how to install the web applications on a separate Tom
 
    You'll find the WAR file in the `Web Applications` folder of the alfresco-enterprise-viewer-package zip.
 
-3. (If not already configured in the aca install) - Configure Tomcat for shared classpath loader as well as encoded slashes:
+3. Configure Tomcat for shared classpath loader as well as encoded slashes (if not already configured in the Content Accelerator installation):
 
    Edit the `TOMCAT_HOME/conf/catalina.properties` file and enable the `shared.loader` by adding the following line (if not already there):
 
    `shared.loader=${catalina.base}/shared/classes,${catalina.base}/shared/lib/*.jar`
 
-   ACA has some routes that are formatted like the following:
+   ACA has some routes that are formatted like:
 
     ```text
     /hpi/{aca-module}/{object-id}
@@ -529,9 +531,9 @@ This section walks through how to install the web applications on a separate Tom
 
    Configure the connector, server, and redirect ports to not conflict with Alfresco Tomcat’s (example below):
 
-   * Set Connector - `port="9090"` (default will be 8080)
-   * Set Connector - `redirectPort="9443"` (default will be 8443)
-   * Set Server - `port="9005"` (default will be 8005)
+   * Set Connector - `port="9090"` (defaults to `8080`)
+   * Set Connector - `redirectPort="9443"` (defaults to `8443`)
+   * Set Server - `port="9005"` (defaults to `8005`)
 
    Note that you will need to ensure that the port chosen (ie 9090) is open to the end user
 
@@ -547,10 +549,10 @@ This section walks through how to install the web applications on a separate Tom
 
    `{Application Base URL}/alfresco/OpenContent`
 
-   > **Note:** if the Alfresco Enterprise Viewer and the Alfresco Repository are located on the same server, then the
+   > **Note:** If the Enterprise Viewer and the Alfresco Repository are located on the same server, then the
    >URL can be: `http://localhost:<alfrescoPort>/alfresco/OpenContent`
 
-   (OPTIONAL) This step is only required if using the Alfresco Enterprise Viewer AND leveraging the “Collaboration Server”  functionality for collaborative annotation functionality:
+   (OPTIONAL) This step is only required if using the Enterprise Viewer and leveraging the "Collaboration Server"  functionality for collaborative annotation functionality:
 
     Update the following properties:
 
@@ -559,13 +561,13 @@ This section walks through how to install the web applications on a separate Tom
 
     Replace the `${server}` and `${port}` placeholders in the above URL with the correct server and port values for the environment being installed to (See the section [Install collaboration features]({% link enterprise-viewer/latest/install/index.md %}#collab))
 
-8. Copy the `openannotate-override-placeholders.properties` file to the tomcat classpath, for example, in the `TOMCAT_HOME/shared/classes` directory.
+8. Copy the `openannotate-override-placeholders.properties` file to the Tomcat classpath, for example, in the `TOMCAT_HOME/shared/classes` directory.
 
 9. Start Tomcat
 
 10. Confirm you can access AEV at `http://{server}/OpenAnnotate`.
 
-### Install web applications on Alfresco Tomcat {#install-webapps-alfresco-tomcat-oa}
+### Install web applications on Alfresco Tomcat {#alfresco-tomcat-oa}
 
 This section walks through how to install the web applications on Alfresco Tomcat (recommended for easier non-Production environment installation).
 
@@ -589,7 +591,7 @@ This section walks through how to install the web applications on Alfresco Tomca
 
    > **Note:** The URL can also be: `http://localhost:<alfrescoPort>/alfresco/OpenContent`
 
-6. (Optional) This step is only required if using the Alfresco Enterprise Viewer and leveraging the "Collaboration Server" functionality for collaborative annotation functionality:
+6. (Optional) This step is only required if using the Enterprise Viewer and leveraging the "Collaboration Server" functionality for collaborative annotation functionality:
 
    Update the provided `openannotate-override-placeholders.properties` file:
 
@@ -609,8 +611,8 @@ This section walks through how to install the web applications on Alfresco Tomca
 
 > **Note:** These steps are only required if you wish to accomplish one or both of the following:
 >
-> * Use the Alfresco Enterprise Viewer as the document viewer in the Share interface.
-> * Include an action in the Share interface to launch a document in the Alfresco Enterprise Viewer in a new tab.
+> * Use the Enterprise Viewer as the document viewer in the Share interface.
+> * Include an action in the Share interface to launch a document in the Enterprise Viewer in a new tab.
 
 1. Stop Alfresco
 
@@ -618,7 +620,7 @@ This section walks through how to install the web applications on Alfresco Tomca
 
    Copy the AMP to the `ALFRESCO_HOME/amps` directory.
 
-   From the directory where your alfresco tomcat lives, run this command (replacing {ALFRESCO_HOME} with the location of your `ALFRESCO_HOME`):
+   From the directory where your alfresco Tomcat lives, run this command (replacing {ALFRESCO_HOME} with the location of your `ALFRESCO_HOME`):
 
     Linux:
 
@@ -632,7 +634,7 @@ This section walks through how to install the web applications on Alfresco Tomca
     java\{javaVersion}\bin\java -jar {ALFRESCO_HOME}\bin\alfresco-mmt.jar install {ALFRESCO_HOME}\amps\oa-alfresco.amp tomcat\webapps\alfresco.war -force 
     ```
 
-3. (Optional) This step is only required if using the Alfresco Enterprise Viewer External Launcher action in Share. This adds a Share action to launch a document in the Alfresco Enterprise Viewer in a new tab.
+3. (Optional) This step is only required if using the Enterprise Viewer External Launcher action in Share. This adds a Share action to launch a document in the Enterprise Viewer in a new tab.
 
    Locate the `oa-share-external-launcher.amp` in the `Share Artifacts` folder of the `alfresco-enterprise-viewer-package` zip.
 
@@ -643,7 +645,7 @@ This section walks through how to install the web applications on Alfresco Tomca
    >
    > Update the `Alfresco.constants.EXTERNAL_LAUNCHER_ANNOTATION_URL` variable within these files.
    >
-   >    This variable needs to be updated with the URL of the server that Alfresco Enterprise Viewer is going to be deployed on (even if Alfresco Enterprise Viewer is deployed on the same server as the Share web application).
+   >    This variable needs to be updated with the URL of the server that Enterprise Viewer is going to be deployed on (even if Enterprise Viewer is deployed on the same server as the Share web application).
    >
    >    For example:
    >
@@ -669,7 +671,7 @@ This section walks through how to install the web applications on Alfresco Tomca
     java\{javaVersion}\bin\java -jar {ALFRESCO_HOME}\bin\alfresco-mmt.jar install {ALFRESCO_HOME}\amps_share\oa-share-external-launcher.amp tomcat\webapps\share.war -force 
         ```
 
-4. (Optional) This step is only required if using the Alfresco Enterprise Viewer Web Preview in Share. It replaces the OOB Share viewer with the Alfresco Enterprise Viewer.
+4. (Optional) This step is only required if using the Enterprise Viewer Web Preview in Share. It replaces the OOB Share viewer with the Enterprise Viewer.
 
    Locate the `oa-share-webpreview.amp` in the `Share Artifacts` folder of the alfresco-enterprise-viewer-package zip.
 
@@ -680,7 +682,7 @@ This section walks through how to install the web applications on Alfresco Tomca
    >
    > In both cases, you need to update the `Alfresco.constants.WEBPREVIEW_ANNOTATION_URL` variable within these files.
    >
-   >    This variable needs to be updated with the URL of the server that Alfresco Enterprise Viewer is going to be deployed on (even if Alfresco Enterprise Viewer is deployed on the same server as the Share web application).
+   >    This variable needs to be updated with the URL of the server that Enterprise Viewer is going to be deployed on (even if Enterprise Viewer is deployed on the same server as the Share web application).
    >
    >   For example:
    >
@@ -692,7 +694,7 @@ This section walks through how to install the web applications on Alfresco Tomca
 
    Then, copy the AMP to the `ALFRESCO_HOME/amps_share` directory (create the directory if it doesn't exist).
 
-   From the directory where your alfresco tomcat lives, run this command (replacing {ALFRESCO_HOME} with the location of your `ALFRESCO_HOME`):
+   From the directory where your alfresco Tomcat lives, run this command (replacing {ALFRESCO_HOME} with the location of your `ALFRESCO_HOME`):
 
    Linux:
 
@@ -714,6 +716,6 @@ This section walks through how to install the web applications on Alfresco Tomca
 
 7. (Optional) You can verify these AMPs were deployed correctly by doing the following:
 
-    * `oa-share-external-launcher.amp` - open an asset in Share and look at the Document Actions panel on the right-hand side of the screen. Ensure that the asset has a PDF rendition or a suitable image rendition available for Alfresco Enterprise Viewer. If you installed the `oa-share-external-launcher.amp`, the "Alfresco Enterprise Viewer" action should be available.
+    * `oa-share-external-launcher.amp` - open an asset in Share and look at the Document Actions panel on the right-hand side of the screen. Ensure that the asset has a PDF rendition or a suitable image rendition available for Enterprise Viewer. If you installed the `oa-share-external-launcher.amp`, the "Enterprise Viewer" action should be available.
 
-    * `oa-share-webpreview.amp` - open an asset in Share. If you installed the `oa-share-webpreview.amp` and the asset has a PDF rendition or a suitable image rendition available for Alfresco Enterprise Viewer, the asset should appear in "Alfresco Enterprise Viewer" directly in the Share application screen.
+    * `oa-share-webpreview.amp` - open an asset in Share. If you installed the `oa-share-webpreview.amp` and the asset has a PDF rendition or a suitable image rendition available for Enterprise Viewer, the asset should appear in "Alfresco Enterprise Viewer" directly in the Share application screen.

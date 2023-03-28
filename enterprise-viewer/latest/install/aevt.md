@@ -6,7 +6,7 @@ title: Install Alfresco Enterprise Viewer Transformer (optional)
 
 ## What is AEVT
 
-AEV requires individualized PDF->PNG page transformations, which is something beyond the capabilities of the current feature set of the Alfresco Transformation<!--Transform?--> Service. The OpenContent Alfresco Module Package (AMP) module supports performing these types of transformations, but the downside is that those transformations occur on the ACS container (similar to legacy Alfresco Transformation Services). For the vast majority of deployments, this is sufficient from a performance and infrastructure perspective.
+AEV requires individualized PDF->PNG page transformations, which is something beyond the capabilities of the current feature set of the Alfresco Transform Service. The OpenContent Alfresco Module Package (AMP) module supports performing these types of transformations, but the downside is that those transformations occur on the ACS container (similar to legacy Alfresco Transformation Services). For the vast majority of deployments, this is sufficient from a performance and infrastructure perspective.
 
 AEVT divorces the page transformation load from the ACS container by installing a completely separate component (or components) based on Spring Boot that is horizontally and vertically scalable. A reverse proxy is required to intercept and redirect requests to the separate components when the AEV application makes a request to the `alfresco/OpenContent/openannotate/transform*` URL. There are significant security, architecture, scalability, and general complexity concerns that all must be answered when deploying AEVT.
 
@@ -16,7 +16,7 @@ AEVT is recommended when:
 
 * There is a need to scale AEV page transformation process separately from ACS instance(s)
 
-* There are large amounts of concurrent users viewing documents, which would put CPU pressure on the ACS instance if AEVT is not utilized
+* There are large amounts of concurrent users viewing documents, which would put CPU pressure on the ACS instance if AEVT is not used
 
 > **Note:** Customers can always skip using AEVT, monitor usage and CPU on the ACS server, and add AEVT into the environment if needed at a later time. This is recommended over installing out without a firm need.
 
@@ -30,33 +30,37 @@ See the below graphic for how AEVT can be added to an AEV installation.
 
 ### Install webapps
 
-This sections walks through how to install the Alfresco Enterprise Viewer Transformer web application.
+This sections walks through how to install the Enterprise Viewer Transformer web application.
 
-1. Install Apache Tomcat. See [https://archive.apache.org/dist/tomcat](https://archive.apache.org/dist/tomcat)
+1. Install Apache Tomcat.
+
+    See [https://archive.apache.org/dist/tomcat](https://archive.apache.org/dist/tomcat){:target="_blank"}.
 
 2. Copy the `oat.war` file into the `TOMCAT_HOME/webapps` directory.
 
-   You can find this WAR file in the `Web Applications` folder of the alfresco-enterprise-viewer-package zip.
+   You can find this WAR file in the `Web Applications` folder of the `alfresco-enterprise-viewer-package` ZIP file.
 
 3. Configure Tomcat for shared classpath loader as well as encoded slashes:
 
-   Edit the `TOMCAT_HOME/conf/catalina.properties` file and enable the `shared.loader` by adding the following line (if not already there):
+   * Edit the `TOMCAT_HOME/conf/catalina.properties` file and enable the `shared.loader` by adding the following line (if not already there):
 
-   `shared.loader=${catalina.base}/shared/classes,${catalina.base}/shared/lib/*.jar`
+   ```text
+   shared.loader=${catalina.base}/shared/classes,${catalina.base}/shared/lib/*.jar
+   ```
 
 4. Configure Tomcat ports in the `TOMCAT_HOME/conf/server.xml`:
 
    Configure the connector, server, and redirect ports to not conflict with the Alfresco Tomcat or any other Tomcats (example below):
 
-   * Set Connector - `port="9090"` (default will be 8080)
-   * Set Connector - `redirectPort="9443"` (default will be 8443)
-   * Set Server - `port="9005"` (default will be 8005)
+   * Set Connector - `port="9090"` (defaults to `8080`)
+   * Set Connector - `redirectPort="9443"` (defaults to `8443`)
+   * Set Server - `port="9005"` (defaults to `8005`)
 
-5. Start Tomcat
+5. Start Tomcat.
 
 ### Configure OpenContent to Pass the contentPath
 
-AEVT is enabled by setting up a property in OpenContent that tells OC to pass back the `contentPath` of the file on the `getDocumentInfo` call that Alfresco Enterprise Viewer makes. The property in OpenContent to enable is `annotation.useContentFilepathForTransformations=true`. Once that property is enabled, the AEV frontend has access to the contentPath since it will be returned in the getDocumentInfo call (ex: `/mnt/nas/alf_data/contentstore/2019/05/15/8/3/26/d38b7e22-816e-4bbd-b7ff-f9b164edcfee.bin)`.
+AEVT is enabled by setting up a property in OpenContent that tells OC to pass back the `contentPath` of the file on the `getDocumentInfo` call that Enterprise Viewer makes. The property in OpenContent to enable is `annotation.useContentFilepathForTransformations=true`. Once that property is enabled, the AEV frontend has access to the contentPath since it will be returned in the getDocumentInfo call (for example, `/mnt/nas/alf_data/contentstore/2019/05/15/8/3/26/d38b7e22-816e-4bbd-b7ff-f9b164edcfee.bin`).
 
 To enable this property:
 
