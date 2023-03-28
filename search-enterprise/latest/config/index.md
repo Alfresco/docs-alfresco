@@ -387,9 +387,9 @@ services:
 
 ## Support for different databases
 
-PostgreSQL is the default database for Elasticsearch. You can use different databases with Elasticsearch, but they must be configured within your system and must match the database used by Content Services. The other types of databses supported by Elasticsearch are: MySQL, MariaDB, Microsoft Sql Server, and Oracle.
+PostgreSQL is the default database for Search Enterprise. You can use different databases with Search Enterprise, but they must be configured within your system and must match the database used by Content Services. The other types of databses supported by Search Enterprise are: MySQL, MariaDB, Microsoft Sql Server, and Oracle.
 
-Edit the `alfresco-global.properties` file using the following properties to change the Elasticsearch database.
+Edit the `alfresco-global.properties` file using the following properties to change the Search Enterprise database.
 
 | Property | Description |
 | -------- | ------------|  
@@ -401,7 +401,7 @@ Edit the `alfresco-global.properties` file using the following properties to cha
 
 ### Provide custom JDBC Drivers
 
-Elasticsearch only provides the PostgreSQL driver by default and it is bundled with the Elasticsearch executable components. If you want to use a different database to PostgreSQL you must provide the correct JDBC configuration and corresponding driver.
+Search Enterprise only provides the PostgreSQL driver by default and it is bundled with the Search Enterprise executable components. If you want to use a different database to PostgreSQL you must provide the correct JDBC configuration and corresponding driver.
 The drivers are loaded from a directory called `db-drivers` that must be present at the same directory level as the executable `.jar` file.
 
 For example:
@@ -412,7 +412,7 @@ For example:
     └── `mydb-driver.jar`
 ```
 
-If you are using Docker Compose to install Elasticsearch you must add the JDBC driver information inside the docker container.
+If you are using Docker Compose to install Search Enterprise you must add the JDBC driver information inside the docker container.
 
 For example:
 
