@@ -457,7 +457,9 @@ Reference: [https://developers.google.com/identity/protocols/OAuth2UserAgent](ht
 
 5. Click Save Config.
 
-## Install Workshare Compare
+## Integration with Workshare Compare
+
+### Install Workshare Compare
 
 1. Download and install CompareService-(version).exe
 
@@ -476,11 +478,11 @@ Reference: [https://developers.google.com/identity/protocols/OAuth2UserAgent](ht
         * `<add key="http_port" value="8080" />`. Update `8080` to the http port chosen in the installation wizard.
         * `<add key="tcp_port" value="8090" />`. Update `8090` to the tcp port chosen in the installation wizard.
 
-## Setup OpenContent
+### Setup OpenContent
 
-Override the applicable applicable Workshare Compare properties (see below) in a `project-placeholders.properties` or `override-placeholders.properties` file in OC for your project.  See the `hpi-edge-alf` project for an example.
+3. Override the applicable Workshare Compare properties (see below) in a `project-placeholders.properties` or `override-placeholders.properties` file in OC or a custom amp.
 
-## Workshare Compare Properties
+### Workshare Compare Properties
 
 * `oc.workshare.wsdl` - The URL of the Workshare Compare service. The base is the `httpGetUrl `from the previous section with `?wsd` appended to the end. Ex. `"http://server:8781/Comparer?wsd"`
 * `oc.workshare.domain` - The domain of the machine/server the Workshare Compare server is installed on.
@@ -489,6 +491,6 @@ Override the applicable applicable Workshare Compare properties (see below) in a
 * `oc.workshare.setfile` - Path the the "set file" (ex. WorkshareStandard.set) on the machine/server the Workshare Compare server is installed on **or** local machine. By default, this file is included in the classpath and can be set to `WorkshareStandard.set`
 * `oc.workshare.password.encrypted` - Set whether the workshare password has been [encrypted with the TSGEncrypter](/content-accelerator/latest/configure/oc-property-overrides/#encrypting-property-values). This only needs to be set if the password is encrypted.
 
-## Configure ACA
+### Configure ACA
 
-In ACA Admin, update the View Versions document action to set "Compare Versions?" to yes.
+4. In ACA Admin, update the View Versions document action to set "Compare Versions?" to yes.
