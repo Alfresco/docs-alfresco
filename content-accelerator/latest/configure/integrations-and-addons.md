@@ -8,89 +8,89 @@ title: Integrations and Addons
 
 1. If needed, create a DEV sandbox with [DocuSign](https://www.docusign.com/developer-center).
 
-2. Once you are in, setup your DocuSign account and go to Admin -> Account -> API and Keys
+2. Once you are in, setup your DocuSign account and go to Admin -> Account -> API and Keys.
 
-3. Click Add Integrator Key button to add an integrator key
+3. Click Add Integrator Key button to add an integrator key.
 
 ### Setup OpenContent
 
-1. Locate the `opencontent-override-placeholders.properties` file. It will be located on the /alfresco classpath, for example, `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent`
+1. Locate the `opencontent-override-placeholders.properties` file. It will be located on the /alfresco classpath, for example, `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent`.
 
 2. Add the following properties:
 
-* `docusign.username` - DocuSign user name (which should be the same as the user's email address)
-* `docusign.password` - DocuSign user password, should be [encrypted with the TSGEncrypter](/content-accelerator/latest/configure/oc-property-overrides/#encrypting-property-values) and enclosed with the encryption indicator like: `@{theEncPassword}`
-* `docusign.integratorKey` - see setup step above
-* `docusign.login.url` - the login URL is defaulted to the DocuSign dev sandbox URL in `universal-defaults.properties`.  You will want to override this for production environments
-* `docusign.hpi.dataPath` - The folder where DocuSign data objects should be stored.  Defaults to `/hpi/docuSignData`
-* `docusign.completed.version.policy` - When a document is completed in docusign, it is versioned in the repository.  This property controls whether the version is a major or minor version.
+    * `docusign.username` - DocuSign user name (which should be the same as the user's email address)
+    * `docusign.password` - DocuSign user password, should be [encrypted with the TSGEncrypter](/content-accelerator/latest/configure/oc-property-overrides/#encrypting-property-values) and enclosed with the encryption indicator like: `@{theEncPassword}`
+    * `docusign.integratorKey` - see setup step above
+    * `docusign.login.url` - the login URL is defaulted to the DocuSign dev sandbox URL in `universal-defaults.properties`.  You will want to override this for production environments
+    * `docusign.hpi.dataPath` - The folder where DocuSign data objects should be stored.  Defaults to `/hpi/docuSignData`
+    * `docusign.completed.version.policy` - When a document is completed in docusign, it is versioned in the repository.  This property controls whether the version is a major or minor version.
 
-  > **Note:** Versioning is not possible for TSG Controlled Documents.  If a controlled document is sent out for DocuSign, the PDF rendition is replaced in the repository when DocuSign completes it's process.  The object is *not* versioned in the repository.
+      > **Note:** Versioning is not possible for TSG Controlled Documents.  If a controlled document is sent out for DocuSign, the PDF rendition is replaced in the repository when DocuSign completes it's process.  The object is *not* versioned in the repository.
 
 3. Update the module-context in order for the Retrieve job to run. Adding the following to the `opencontent-override-module-context.xml`:
 
-```xml
-<!-- Retrieve Content from Docusign Job -->
-<bean id="hpi-docusign-retrieve-trigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
-    <!-- Run every hour -->
-    <property name="cronExpression" value="0 0 * * * ?"/>
-    <property name="jobDetail">
-        <bean id="com.tsgrp.opencontent.alfresco.job.retrieveDocusignContentJob"
-                class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
-            <property name="jobClass" value="com.tsgrp.opencontent.alfresco.job.RetrieveDocusignContentJob"/>
-            <property name="jobDataAsMap">
-                <map>
-                    <entry key="serviceRegistry" value-ref="ServiceRegistry"/>
-                    <entry key="version" value="${docusign.completed.version.policy}"/>
-                    <entry key="docuSignUsername" value="${docusign.username}"/>
-                    <entry key="docuSignPassword" value="${docusign.password}"/>
-                    <entry key="integratorKey" value="${docusign.integratorKey}"/>
-                    <entry key="docuSignLoginURL" value="${docusign.login.url}"/>
-                    <entry key="dataPath" value="${docusign.hpi.dataPath}"/>
-                    <entry key="folderNotesEnabled" value="${docusign.folderNotesEnabled}"/>
-                </map>
-            </property>
-        </bean>
-    </property>
-</bean>
-```
+    ```xml
+    <!-- Retrieve Content from Docusign Job -->
+    <bean id="hpi-docusign-retrieve-trigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <!-- Run every hour -->
+        <property name="cronExpression" value="0 0 * * * ?"/>
+        <property name="jobDetail">
+            <bean id="com.tsgrp.opencontent.alfresco.job.retrieveDocusignContentJob"
+                    class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+                <property name="jobClass" value="com.tsgrp.opencontent.alfresco.job.RetrieveDocusignContentJob"/>
+                <property name="jobDataAsMap">
+                    <map>
+                        <entry key="serviceRegistry" value-ref="ServiceRegistry"/>
+                        <entry key="version" value="${docusign.completed.version.policy}"/>
+                        <entry key="docuSignUsername" value="${docusign.username}"/>
+                        <entry key="docuSignPassword" value="${docusign.password}"/>
+                        <entry key="integratorKey" value="${docusign.integratorKey}"/>
+                        <entry key="docuSignLoginURL" value="${docusign.login.url}"/>
+                        <entry key="dataPath" value="${docusign.hpi.dataPath}"/>
+                        <entry key="folderNotesEnabled" value="${docusign.folderNotesEnabled}"/>
+                    </map>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    ```
 
-4. Ensure that the job is scheduled to run
+4. Ensure that the job is scheduled to run.
 
-Ensure that the `tsgSchedulerAccessor` bean has the docusign retrieve job configured in the `triggers` list.  This can be overriden in the `opencontent-override-module-context.xml`.
+    Ensure that the `tsgSchedulerAccessor` bean has the docusign retrieve job configured in the `triggers` list.  This can be overriden in the `opencontent-override-module-context.xml`.
 
-```xml
-<bean id="tsgSchedulerAccessor" class="org.springframework.scheduling.quartz.SchedulerAccessorBean">
-    <property name="scheduler" ref="schedulerFactory"/>
-    <property name="triggers">
-        <list>
-            <ref bean="hpi-docusign-retrieve-trigger"/>
-            <ref bean="index-queue-document-unlock-reset-trigger"/>
-            <ref bean="indexer-temp-cleanup-trigger"/>
-        </list>
-    </property>
-</bean>
-```
+    ```xml
+    <bean id="tsgSchedulerAccessor" class="org.springframework.scheduling.quartz.SchedulerAccessorBean">
+        <property name="scheduler" ref="schedulerFactory"/>
+        <property name="triggers">
+            <list>
+                <ref bean="hpi-docusign-retrieve-trigger"/>
+                <ref bean="index-queue-document-unlock-reset-trigger"/>
+                <ref bean="indexer-temp-cleanup-trigger"/>
+            </list>
+        </property>
+    </bean>
+    ```
 
-5. After making these changes you will need to restart alfresco
+5. After making these changes you will need to restart Alfresco.
 
 ### Setup the Repository
 
-1. Add a folder to the repository to store DocuSign data
+1. Add a folder to the repository to store DocuSign data.
 
    * Defaults to `/hpi/docuSignData`
 
-2. Set the permissions on the folder to - HPI Administrators - Coordinator, EVERYONE - Contributor
+2. Set the permissions on the folder to - HPI Administrators - Coordinator, EVERYONE - Contributor.
 
 ### Run Job Immediately
 
-Since the job is typically configured to run every hour, it's sometimes necessary to force the job to run for testing.  Navigate to the Alfresco Admin Console -> Scheduled Jobs.  Run the `com.tsgrp.opencontent.alfresco.job.retrieveDocusignContentJob`
+Since the job is typically configured to run every hour, it's sometimes necessary to force the job to run for testing.  Navigate to the Alfresco Admin Console -> Scheduled Jobs.  Run the `com.tsgrp.opencontent.alfresco.job.retrieveDocusignContentJob`.
 
-## Integrating Controlled Documents Solution with Alfresco Goverance Services
+## Integrating Controlled Documents Solution with Alfresco Governance Services
 
 ### Background
 
-* When utilizing ACA Controlled Docs and Alfresco Goverance Services, a common desired result is that as soon as a doc becomes effective it should become an ags record.
+* When utilizing ACA Controlled Docs and Alfresco Governance Services, a common desired result is that as soon as a doc becomes effective it should become an ags record.
 * If we were just to declare that effective controlled doc a record, it could no longer be able to be checked out and checked back in since records are immutable (the controlled doc version chain would essentially be dead)
 * Therefore, enabling the controlled docs with AGS solution will actually create a copy of the controlled document when it becomes effective so that that copy can be declared an AGS record and the controlled doc itself will still be able to be checked out and checked back in
 
@@ -100,14 +100,14 @@ Since the job is typically configured to run every hour, it's sometimes necessar
   * A record copy is created of that controlled doc
 * Disposition
   * When the record copy is deleted, a behavior will now run and delete the associated controlled document version
-* superceded/obsolete
+* Superceded/obsolete
   * When a controlled doc becomes superceded or obsoleted, the record copy status will also be updated to show the change
 
 ### Configuring the solution
 
 #### Prerequisites
 
-* You will need AGS installed in alfresco
+* You will need AGS installed in Alfresco
 * You will need a working controlled docs solutions such that documents are moved to the effective state
 * You will need 2 separate object types - 1 for your controlled doc (for example hy:controlledDoc) and 1 type that your record should be copied to (for example hy:record)
 
@@ -137,7 +137,7 @@ Since the job is typically configured to run every hour, it's sometimes necessar
 
 ##### 2. Setup a folder rule to declare the created copy as an AGS record
 
-Setup the folder Rule to declare our record copy as an AGS Record
+Setup the folder Rule to declare our record copy as an AGS Record.
 
   1. In the share site, on the folder where your record copy will get created (or moved to if autofile is configured), under folder rules -> add rule.
 
@@ -232,21 +232,21 @@ Another important feature to note: (If configured) there will be an option to st
 ![Stage Collab Calls]({% link content-accelerator/images/stage_collab_calls.png %})
 
 ### Configuration Steps
-The stage collaboration features are configured in the ACA admin. 
-Under the Application configuration, find the Collaboration Setting section: 
+
+The stage collaboration features are configured in the ACA admin.
+Under the Application configuration, find the Collaboration Setting section:
 ![Content Accelerator Stage Collab Stage Settings]({% link content-accelerator/images/stage-collab-2.png %})
 Here you will have the option to turn on zoom or teams integrations, or both.
 This area holds the high level configurations for these integrations.
 
-
 #### Application Config
 
-1. Set the collaboration url. These collaboration features require the AEV socket server to be installed. If you installed the defaults according to the installation guide then the socket server will be running on port 3000. Update the url to have the correct host and port. (ex: `http://localhost:3000`)
+1. Set the collaboration url. These collaboration features require the AEV socket server to be installed. If you installed the defaults according to the installation guide then the socket server will be running on port 3000. Update the url to have the correct host and port (ex: `http://localhost:3000`).
 
 2. Enable Zoom integration if desired by toggling the switch to on
 
    * Once toggled on you will be prompted for a Client Id and authentication endpoint
-   * For the client Id, if you already have a zoom account setup with your application registered then go ahead and add the clientId and auth url from that account. If you need to set it up still, see the **Zoom Setup via Zoom MarketPlace** section below. 
+   * For the client Id, if you already have a zoom account setup with your application registered then go ahead and add the clientId and auth url from that account. If you need to set it up still, see the **Zoom Setup via Zoom MarketPlace** section below.
 
 3. Enable Teams integration if desired by toggling the switch to on
 
@@ -258,7 +258,7 @@ This area holds the high level configurations for these integrations.
 
 Now that the collaboration connection details are configured, we need to enable it for the individual stage configurations.
 
-To do so, in the ACA admin interface, navigate to the Stage configuration you wish to enable collaboration for. Select the Stage Info section of the config in the dropdown. Then navigate to the Collaboration Settings section of this config. Flip the switch to enable overall collaboration then choose to enable zoom, teams, or both via the individual toggles. 
+To do so, in the ACA admin interface, navigate to the Stage configuration you wish to enable collaboration for. Select the Stage Info section of the config in the dropdown. Then navigate to the Collaboration Settings section of this config. Flip the switch to enable overall collaboration then choose to enable zoom, teams, or both via the individual toggles.
 
 ![Content Accelerator Stage Collab]({% link content-accelerator/images/stage-collab-1.png %})
 
@@ -293,18 +293,27 @@ The final piece is to configure the teams integration information that Open Cont
 * `zoom.createMeetingRecordingObject=false`
 
 ### Teams Setup via Azure
-1. Sign in to the **Azure Portal**
+
+1. Sign in to the **Azure Portal**.
+
 2. If your account gives you access to more than one tenant, select your account in the upper right hand corner. Set your portal session to the Azure AD tenant that you want.
+
 3. Search for and select **Azure Active Directory**. Under Manage, select **App Registrations** and then click **New registration**.
+
 4. When the **Register an application** page appears, enter your application’s registration information:
+
      * **Name**: any name you want
      * **Supported Account Types**: Select **Accounts in any organizational directory**
      * **Redirect URI**: Choose **Web** and fill out the url of the path to your OpenContent plus the Teams endpoint name. ex: `http://localhost:8080/alfresco/OpenContent/annotation/teamsAuth`
+
 5. When finished, click **Register** and you will be taken to the Overview display. Copy and save the **Application (client) ID** so you can use it in the ACA configuration.
+
 6. Go to **Certificates & secrets** and create a new client secret. Copy and save this secret because you will need it to use as an injectable in OC.
-7. Go to **API Permissions**
+
+7. Go to **API Permissions**.
+
      * You should already have the **User.Read** permission. Keep it.
-     * Select **Add a permission**. 
+     * Select **Add a permission**.
      * Navigate to **Microsoft Graph** -> **Delegated Permissions** -> **OnlineMeetings** -> Select and add the **OnlineMeetings.ReadWrite** permission
 
 ### Zoom Setup via Zoom MarketPlace
@@ -317,13 +326,13 @@ The app must be made by the _zoom owner_ that has all the users added to their z
 
 1. Create an application in the [zoom marketplace](https://marketplace.zoom.us/).
 
-2. Pull open the dropdown that says Develop and click build app - select the OAuth for the app type
+2. Pull open the dropdown that says Develop and click build app - select the OAuth for the app type.
 
-3. Name it whatever you would like, make it an account-level app and do not publish to the Marketplace
+3. Name it whatever you would like, make it an account-level app and do not publish to the Marketplace.
 
 4. Now your app has been created. A few items to note here on the first page:
      * You will need the clientID and Client Secret Key to use as injectables in OC and to fill in the application config in ACA. 
-     * Then you will also need to fill out the redirect URL and whitelist URL with the url of the path to the your OpenContent plus the zoom endpoint name. 
+     * Then you will also need to fill out the redirect URL and whitelist URL with the url of the path to the your OpenContent plus the zoom endpoint name.
 
         Ex: `http://localhost:8080/alfresco/OpenContent/annotation/zoomAuth`
 
@@ -336,11 +345,11 @@ The app must be made by the _zoom owner_ that has all the users added to their z
 
  Here we are adding users to a role, so they have permission to interact with the zoom application and start calls from Alfresco Enterprise Viewer.
 
-1. Log in as the zoom owner
+1. Log in as the zoom owner.
 
-2. Head to the [role management section](https://zoom.us/role)
+2. Head to the [role management section](https://zoom.us/role).
 
-3. Add a role called developer
+3. Add a role called developer.
 
 4. Go to the Role Settings section for the developer role we created in step 3 as we will need to set a few of the roles:
 
@@ -352,15 +361,15 @@ The app must be made by the _zoom owner_ that has all the users added to their z
 
 You will need to import the SSL certificate into the truststore of the Java that is running OpenContent.
 
-1. Get your SSL certificate
+1. Get your SSL certificate.
     * The is the same certificate you have pointed your Collaboration Server at in the collaborationConfig.js file
 
-2. Find the Java home for the Java which is running OpenContent
+2. Find the Java home for the Java which is running OpenContent.
 
-3. Find the truststore for this Java
+3. Find the truststore for this Java.
     * If this is a JDK the default should be at `{JAVA_HOME}/jre/lib/security/cacerts`, if it is a JRE the default should be at `{JAVA_HOME}/lib/security/cacerts`
 
-4. Import the certficate into the truststore using the java keytool command line tool
+4. Import the certficate into the truststore using the java keytool command line tool.
 
     * `{JAVA_HOME}/bin/keytool -import -trustcacerts -alias collaborationServerCertificate -file {THE_CERTIFICATE}.cer -keystore {TRUSTSTORE_LOCATION}`
     * The default password for the truststore should be `changeit`
@@ -377,18 +386,18 @@ Once your cloud solution has been chosen, the following steps must be completed 
 
 1. Navigate to the [Azure Portal](https://portal.azure.com) and login.
 
-2. Search for `App registrations`
+2. Search for `App registrations`.
 
-3. Create a new App Registration
+3. Create a new App Registration.
 
-4. Make sure the audience is set to `Accounts in any organizational directory and personal Microsoft accounts`
+4. Make sure the audience is set to `Accounts in any organizational directory and personal Microsoft accounts`.
 
-5. Select the Authentication section
+5. Select the Authentication section.
 
    1. Set up Redirect url(s) (example: `https://{server}/ocms/dummy/path`).
       > **Note:** For development, a redirect URL starting with `http://localhost` is acceptable.  All other URLs must start with `https://`.
 
-   2. Under `Implicit grant`, ensure the `Access tokens` and `ID tokens` checkboxes are checked
+   2. Under `Implicit grant`, ensure the `Access tokens` and `ID tokens` checkboxes are checked.
 
 6. Select the API Permissions section.  Ensure the following permissions are granted:
 
@@ -399,8 +408,8 @@ Once your cloud solution has been chosen, the following steps must be completed 
 
 8. Follow these steps if your version of Java runs into issues with the SSL Certificate, usually manifesting in `PKIX` errors in the log files:
 
-     * Download and install OpenSSL
-     * Ensure you are on the same network as the target server
+     * Download and install OpenSSL.
+     * Ensure you are on the same network as the target server.
      * From a command prompt, run this command:
 
        `openssl s_client -showcerts -host graph.microsoft.com -port 443`
@@ -410,10 +419,10 @@ Once your cloud solution has been chosen, the following steps must be completed 
 
        `<ALFRESCO_HOME>\java\bin\keytool.exe -import -trustcacerts -alias <give the certificate an alias> -file <path to file from the previous step> -keystore <ALFRESCO_HOME>\java\lib\security\cacerts`
 
-    - The alias can be anything as long as it's unique
-     * When prompted, enter the default keystore password
-     * When prompted, type yes to trust the certificate
-     * Restart Alfresco
+     * The alias can be anything as long as it's unique.
+        * When prompted, enter the default keystore password.
+        * When prompted, type yes to trust the certificate.
+        * Restart Alfresco.
 
 ### Google Drive
 
@@ -422,16 +431,19 @@ Once your cloud solution has been chosen, the following steps must be completed 
 Reference: [https://developers.google.com/identity/protocols/OAuth2UserAgent](https://developers.google.com/identity/protocols/OAuth2UserAgent)
 
 1. Create a Google Project:
+
    * Access the [Google Developers Console](https://console.developers.google.com/apis/dashboard)
    * If not already, sign-in to your Google Drive account associated with your ACA application.
-    * Click on `Select a Project` and create a new project from the menu that appears.
+   * Click on `Select a Project` and create a new project from the menu that appears.
 
 2. Enable Drive within your newly created Google Project:
+
     * Navigate back to the Google API Library
     * From the list of Google APIs, choose `Google Drive API.`
     * Click `Enable` on the menu screen that appears.
 
 3. Create a Client ID:
+
     * Click on the Credentials tab from the Google API Library home.
     * Click on `Create Credentials` and select `OAuth client ID` from the dropdown that appears.
     * Select `Web Application` as the Application Type.
