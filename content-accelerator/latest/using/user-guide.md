@@ -83,7 +83,8 @@ A "Form" in the Content Accelerator provides an interface for completing and sub
 An example of a business scenario that utilizes the Content Accelerator Forms is the Policy and Procedure (PnP) scenario. Check out the PnP's action to Create a Change Form and or the Typical Use Case Scenarios for more information about a real world example using this Content Accelerator feature.
 
 ### Form Fields
-This area will help you understand the various form controls that you'll encounter when filling out forms in Content Accelerator
+
+This area will help you understand the various form controls that you'll encounter when filling out forms in Content Accelerator.
 
 #### Auto Complete
 
