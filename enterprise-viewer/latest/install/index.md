@@ -8,7 +8,7 @@ title: Install Enterprise Viewer
 
 ### Distribution zips
 
-The Enterprise Viewer can be installed using a distribution zip. You'll need to download the following zip file from Hyland Community in order to install AEV:
+You can install the Enterprise Viewer using a distribution ZIP. Download the following ZIP file from Hyland Community:
 
 * `alfresco-enterprise-viewer-package-3.5.0.zip`
 
@@ -89,8 +89,8 @@ When installing a proxy please note that you are not limited to using apache or 
 
 4. Add a new virtual host to your `vhosts` configuration file that points to the Alfresco Tomcat and Tomcat running AEV by adding the following lines.
 
-    * Make sure to update server names and paths as needed (aka replace anything surrounded by `${})`.
-    * Make sure to also update the `proxyPass` sections at the bottom to proxy the appropriate routes.
+    * Make sure to update server names and paths as needed (for example, replace anything surrounded by `${})`).
+    * Make sure you also update the `proxyPass` sections at the bottom to proxy the appropriate routes.
 
         ```xml
         <VirtualHost *:80>
@@ -137,7 +137,7 @@ When installing a proxy please note that you are not limited to using apache or 
             </VirtualHost>
         ```
 
-5. (Re)start the proxy
+5. (Re)start the proxy.
 
    Go to `${apache.home}/bin`, open a command prompt, and run `httpd.exe`.
 
@@ -233,13 +233,15 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
     sudo systemctl status nginx.service
     ```
 
-5. Make sure whatever port your proxy is listening on is open to the end user (example: you will need to open port 80 if you are using the configs in our example above)
+5. Make sure whatever port your proxy is listening on is open to the end user.
+
+   For example: open port `80` if you're using the configuration in our example above.
 
 6. Test the proxy is working properly by opening `http://{server}/share`.
 
-## Install OpenContent
+## Install OpenContent {#installoc}
 
-You only need to follow these steps if installing AEV without ACA {#installoc}
+You only need to follow these steps if installing AEV without ACA:
 
 1. Stop the Alfresco server
 
@@ -275,19 +277,18 @@ You only need to follow these steps if installing AEV without ACA {#installoc}
 
 5. Install license file for OpenConnect:
 
-   Create the `module/com.tsgrp.opencontent/license` folder structure on the /alfresco classpath, for example, at `ALFRESCO_HOME/tomcat/shared/classes/alfresco`
+   Create the `module/com.tsgrp.opencontent/license` folder structure on the `/alfresco` classpath, for example, at `ALFRESCO_HOME/tomcat/shared/classes/alfresco`
 
    Place a `TextLicense.l4j` file in the `license` directory.
 
 6. Deploy the OpenConnect configuration:
 
-    Create a file called `opencontent-override-placeholders.properties` and put it onto the /alfresco classpath, for example, in the `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` folder.
+    Create a file called `opencontent-override-placeholders.properties` and put it onto the `/alfresco` classpath, for example, in the `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` folder.
   
     Update the necessary environment variables in the `opencontent-override-placeholders.properties`.
 
-    There are many configurations that [can] [be] overridden in this file later on.
+    There are many configurations that can be overridden. These are described later. To start, set the follow property:
 
-    To start, set the follow property:
      * `oc.email.smtp.host={SMTP host}`
 
 7. Update Tomcat server configuration:

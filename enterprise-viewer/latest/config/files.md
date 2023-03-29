@@ -15,7 +15,7 @@ Spring loads properties files into the system in a specific order to allow overr
 3. `openannotate-override-placeholders.properties` (Optional. Tomcat-specific properties)
 4. `override-placeholders.properties` (environment-specific properties)
 
-In general, use the `openannotate-override-placeholders.properties` to override any of the default properties. This file must be placed on the Tomcat classpath (for example, in the `<TOMCAT_HOME>/shared/classes` folder), and will override all properties located in the `OpenAnnotate.war`. Properties defined here can still be overridden by `override-placeholders.properties`, but if for example server URLs are all that needs to be defined, these can be left in `openannotate-override-placeholders.properties`, allowing WARs to be promoted through various environments without needing to be re-built / configured.
+In general, use the `openannotate-override-placeholders.properties` to override any of the default properties. This file must be placed on the Tomcat classpath (for example, in the `<TOMCAT_HOME>/shared/classes` folder), and overrides all properties located in `OpenAnnotate.war`. Properties defined here can still be overridden by `override-placeholders.properties`, but if for example server URLs are all that need to be defined, these can be left in `openannotate-override-placeholders.properties`, allowing WARs to be promoted through various environments without needing to be re-built / configured.
 
 ## OpenContent properties
 
@@ -55,7 +55,7 @@ Default value: `""`
 
 ### emailInviteUrl
 
-This URL is the URL to use in the invitation to collaborate email. If the `[docId]` placeholder is specified, it will be replaced by the `objectId` of the document being viewed when the invitation is sent.
+This URL is used in the invitation to collaborate email. If the `[docId]` placeholder is specified, it is replaced by the `objectId` of the document being viewed when the invitation is sent.
 
 Default value: `http://localhost:8080/OpenAnnotate/viewer.htm?docId=[docId]&presenterMode=true&mode=readOnly`
 
@@ -67,13 +67,14 @@ Default value: `http://localhost:8080/OpenContent/rest`
 
 ### clientRequestUrl
 
-The URL that client requests from Enterprise Viewer to OpenContent should be made to. Generally, this only changes if OpenContent <!--(OC?)-->has a different REST root, `/alfresco/OpenContent` for example used when OC is an Alfresco subsystem.
+The URL that client requests from Enterprise Viewer to OpenContent should be made to. Generally, this only changes if OpenContent has a different REST root, `/alfresco/OpenContent` for example used when OC is an Alfresco subsystem.
 
 Default value: `/OpenContent/rest`
 
 ### collaborationEndpoint
 
-This URL is the endpoint on which the web socket server is listening for a connection. This should be used when Enterprise Viewer is being run in collaboration mode. If collaboration mode is enabled but this property is not specified, collaboration mode will not work properly.
+This URL is the endpoint on which the web socket server is listening for a connection. This should be used when Enterprise Viewer is run in collaboration mode. If collaboration mode is enabled but this property is not specified, collaboration mode will not work properly.
+
 For load balanced setups, there should only be a single collaboration server. So this should point to the **single, non-load balanced URL**.
 
 Default value: `http://localhost:3000`
@@ -86,7 +87,7 @@ Default value: `false`
 
 ### forceNonModalNotifications
 
-This property represents whether or not Enterprise Viewer will force non modal notifications.
+This property represents whether or not Enterprise Viewer forces non-modal notifications.
 
 Default value: `true`
 
@@ -122,7 +123,7 @@ Default value: `https://docs.alfresco.com/`
 
 ### printSummaryBaseType
 
-This is the base type to use when fetching the attributes for the print summary window. If the attributes specified are not attributes on this type, Enterprise Viewer will fail to initialize properly.
+This is the base type to use when fetching the attributes for the print summary window. If the attributes specified are not attributes on this type, Enterprise Viewer fails to initialize properly.
 
 Default value: `Document`
 
@@ -140,7 +141,7 @@ Default value: `images/icons`
 
 ### targetMimetype
 
-The target mimetype to use when transforming documents. Defaulted to PNG, but support JPG (image/jpeg) as well.
+The target MIME type to use when transforming documents. Defaults to PNG, but supports JPG (`image/jpeg`) as well.
 
 Default value: `image/png`
 
@@ -170,13 +171,13 @@ Default value: `64`
 
 ### progressiveReloadSteps
 
-The number of reloads to make between the minimum resolution image, and the full resolution.
+The number of reloads to make between the minimum resolution image and the full resolution.
 
 Default value: `1`
 
 ### pageZoom
 
-The initial page zoom to use when loading a document. The allowed values are either `fitHeight` or `fitWidth`. Fit height will adjust the document so the entire height is visible. Fit width will adjust the document so the entire width is visible.
+The initial page zoom to use when loading a document. The allowed values are either `fitHeight` or `fitWidth`. Fit height adjusts the document so the entire height is visible. Fit width adjusts the document so the entire width is visible.
 
 Default value: `fitWidth`
 
@@ -186,38 +187,41 @@ The number of pages to preload. Preloading works by making requests to fetch pag
 
 * `0`: This tells AEV to preload all the pages of the document
 * `-1`: This tells AEV to not use preloading at all
-* Any other positive integer: This integer specifies the total number of pages to preload - half will be pages forward from the current page and the other half will be behind the current page.
+* Any other positive integer: This integer specifies the total number of pages to preload - half are pages forward from the current page and the other half are behind the current page.
 
    > **Note:**
    >
    > * The configured value should be a multiple of 2 because the number of pages to preload is divided in half.
    > * Specifying `1` and `2` accomplishes the same thing.
    >
-   > * Once the number of preloaded pages equals the configured value, no more pages will be preloaded until the page is changed.
+   > * Once the number of preloaded pages equals the configured value, no more pages are preloaded until the page is changed.
 
 Default value: `10`
 
 ### enhancedColorMode
 
-This flag controls the colors that are displayed and allowed to be chosen for annotations. If set to `true` there is no limit on the color of created annotations and the downloaded annotations will maintain their colors. If set to `false` the user may not choose different colors for annotations and instead, all of the user's annotations will be red (or yellow if it's a highlight) and all other annotations will be blue (the same is true for the downloaded annotated PDF).
+This flag controls the colors that are displayed and allowed to be chosen for annotations.
+
+* If set to `true` there is no limit on the color of created annotations and the downloaded annotations maintain their colors.
+* If set to `false` the user may not choose different colors for annotations and instead, all of the user's annotations are either red, yellow for a highlight, and all other annotations are blue (the same is true for the downloaded annotated PDF).
 
 Default value: `true`
 
 ### dateFormat
 
-The format to use when displaying dates in annotation dialog boxes. The formatting uses the open source library `Moment.js`, so any formats found in the [Moment.js formatting docs](http://momentjs.com/docs/#/displaying/format/){:target="_blank"} may be used.
+The format to use when displaying dates in annotation dialog boxes. The formatting uses the open source library `Moment.js`, so any formats found in the [Moment.js formatting Documentation](http://momentjs.com/docs/#/displaying/format/){:target="_blank"} may be used.
 
 Default value: `MM/DD/YYYY`
 
-### enabledActions & Modes
+### enabledActions and Modes
 
-Configuring what Buttons / Actions appear in Enterprise Viewer is a little more in-depth than the average config option.
+Configuring what Buttons and Actions appear in Enterprise Viewer is a little more in-depth than the average configuration option.
 
 See [Configure Enterprise Viewer actions and modes]({% link enterprise-viewer/latest/config/actions.md %}) for more details.
 
 ### quillEnabledButtons
 
-A comma separated list of buttons that are visible in the quill toolbar. Currently, only Italic and Bold are supported. All currently supported quill buttons are bold, italic, and underline.
+A comma separated list of buttons that's visible in the quill toolbar. Currently, only Italic and Bold are supported. All currently supported quill buttons are bold, italic, and underline.
 
 Default value: `bold,italic`
 
@@ -236,22 +240,22 @@ Default value: `summary,search,participants,suggestedRedactions`
 ### redactionType
 
 What type of redaction should be made when entering redaction mode via the dropdown.
-Possible values include `redactInPlace`, `redactedAsCopy`, and `unredactedAsCopy`
+Possible values include `redactInPlace`, `redactedAsCopy`, and `unredactedAsCopy`.
 
 Default value: `redactInPlace`
 
 ### initialDrawingTool
 
-A comma separated list of drawing buttons that should be selected when Enterprise Viewer loads. The first valid button on the list will be selected when Enterprise Viewer first loads.
+A comma separated list of drawing buttons that should be selected when Enterprise Viewer loads. The first valid button on the list is selected when Enterprise Viewer first loads.
 
 Default value: `drawRedaction, signature, mouse`
 
 ### autosaveInterval
 
-The number of milliseconds Enterprise Viewer will wait between each autosave.
+The number of milliseconds Enterprise Viewer waits between each autosave.
 
 * `0`: This tells AEV to NOT autosave.
-* Any other positive integer: The number of milliseconds Enterprise Viewer will wait between each autosave. This should not be set to a number below 5000 - 10000 (5 - 10 seconds), as it could cause undefined behavior.
+* Any other positive integer: The number of milliseconds Enterprise Viewer waits for between each autosave. This should not be set to a number below 5000 - 10000 (5 - 10 seconds), as it could cause undefined behavior.
 
 Default value: `60000`
 
@@ -263,7 +267,7 @@ Default value: `true`
 
 ### enabledPopupNotifications
 
-This is the list of the Collaboration mode notifications that are enabled and will therefore appear on the on internal popups when the Participants tab is close. To disable a type of notification, remove it from the list of notification in this property. The default is that all notification are enabled.
+The list of the Collaboration mode notifications that are enabled and appear on internal popups when the **Participants** tab is closed. To disable a type of notification, remove it from the list of notification in this property. The default is that all notification are enabled.
 
 Default value:
 
@@ -273,7 +277,7 @@ chat,userJoined,userLeft,serverConnection,checkInAnnotations,checkInAnnotationsF
 
 ### slideViewerTileDirectoryRoot
 
-This is the root directory on the server filesystem where the slide viewer "tiles" should be served from. It is commonly a URL that is redirected through Apache to request files from the server.
+The root directory on the server filesystem where the slide viewer "tiles" should be served from. It is commonly a URL that is redirected through Apache to request files from the server.
 
 Default value: `http://localhost:8080/OpenAnnotate/images/seadragon/`
 
@@ -285,19 +289,19 @@ Default value: `JSESSIONID`
 
 ### checkServletRequestForSessionId
 
-Set to `true` if we should check for the sessionId on the Servlet requests from Enterprise Viewer's frontend and append it to the requests to OC, or `false` otherwise. This sessionId is used to maintain sticky sessions in load balanced environment. If both this property and `checkServletCookieForSessionId` are both set, the sessionId set on the Servlet request will override any sessionId set on the cookie.
+Set to `true` if a check should be made for the sessionId on the Servlet requests from Enterprise Viewer's front-end and append it to the requests to OC, or `false` otherwise. This sessionId is used to maintain sticky sessions in load-balanced environments. If this property and `checkServletCookieForSessionId` are both set, the sessionId set on the Servlet request overrides any sessionId set on the cookie.
 
 Default value: `true`
 
 ### checkServletCookieForSessionId
 
-Set to `true` if we should check for the sessionId on a cookie and append it to the requests to OC, or `false` otherwise. This sessionId is used to maintain sticky sessions in load balanced environment. If both this property and `checkServletRequestForSessionId` are both set, the sessionId set on the Servlet request will override any sessionId set on the cookie.
+Set to `true` if a check should be made for the sessionId on a cookie and append it to the requests to OC, or `false` otherwise. This sessionId is used to maintain sticky sessions in load-balanced environments. If this property and `checkServletRequestForSessionId` are both set, the sessionId set on the Servlet request overrides any sessionId set on the cookie.
 
 Default value: `true`
 
 ### snapThreshold
 
-This value is the percentage of a highlight that must overlap a word for it to be detected as a word. Highlights will snap to the detected words and get the underlying text. If no highlight snapping is desired, this should be set to a value over 100% (i.e. < 1.0).
+The percentage of a highlight that must overlap a word for it to be detected as a word. Highlights snap to the detected words and get the underlying text. If no highlight snapping is desired, set to a value over 100% (i.e. < 1.0).
 
 Default value: `0.15`
 
@@ -317,13 +321,13 @@ The GIFs below show the results of different values of `snapThreshold`:
 
 ### rerenderPageOnResize
 
-Set to `true` if we should send new requests to OC every time we zoom in or out on a page, or `false` otherwise.
+Set to `true` to send new requests to OC every time you zoom in or out on a page, or `false` otherwise.
 
 Default value: `true`
 
 ### quickSearch
 
-Set to `true` if we want to allow the user to immediately search selected text when a user presses Ctrl+F, or `false` otherwise.
+Set to `true` to allow the user to immediately search selected text when  Ctrl+F is pressed, or `false` otherwise.
 
 Default value: `false`
 
@@ -332,25 +336,25 @@ Default value: `false`
 The number of pages that are considered as a "large" document.
 
 * If the value is `0`, there is no bounds for large documents.
-* If a document has more pages than the value here, text search data will not be loaded initially, and thumbnails will be disabled.
-* Text search data can still be manually loaded by the user later, after answering `yes` to a modal informing them of the delay.
+* If a document has more pages than the value here, text search data isn't loaded initially, and thumbnails are disabled.
+* Text search data can still be manually loaded by the user later, after answering `yes` to a modal dialog box informing them of the delay.
 
 Default value: `200`
 
 ### sizeOfLargeFiles
 
-The size (in bytes) needed to be considered a "large" document. If a document's size is bigger than the value here, a user is prompted with a modal to confirm calls that require a lot of resources to limit memory usage.
+The size (in bytes) to consider a document as "large". If a document's size is bigger than the value here, a user is prompted with a modal dialog box to confirm calls that require a lot of resources to limit memory usage.
 
-Default value: `104857600`(100MB)
+Default value: `104857600`(100 MB)
 
 ### maxDocumentSize
 
-The max size of a document (in bytes) that we allow to be loaded.
+The maximum size of a document (in bytes) that is loaded.
 
 * If the value is `0`, there are no bounds for large documents.
-* Otherwise, if a document's size is bigger than the value here, a modal will appear to let the user know that their document is too large to open.
+* Otherwise, if a document's size is bigger than the defined value, a modal dialog box appears to let the user know that their document is too large to open.
 
-Default value: `2147483648`(2GB)
+Default value: `2147483648`(2 GB)
 
 ### enableCommentBox
 
@@ -388,13 +392,13 @@ Default value: `false`
 
 ### picklistUrl
 
-The picklist information needed to retrieve picklist data. This will either be a picklist name to reference a configured picklist in OpenContent or this will be a URL to retrieve picklist data from an external source.
+The picklist information needed to retrieve picklist data. This is either a picklist name to reference a configured picklist in OpenContent or a URL to retrieve picklist data from an external source.
 
 Default value: `""`
 
 ### externalPicklist
 
-Set to `true` if the picklist we are using is from an external source, or `false` otherwise.
+Set to `true` if the picklist is from an external source, or `false` otherwise.
 
 Default value: `false`
 
@@ -442,13 +446,13 @@ Default value: `page,!p4`
 
 ### warnBeforeSaveModifications
 
-Whether or not the user wants a modal to appear asking them to confirm that they want to save page modifications when in edit mode.
+Whether or not the user wants a modal dialog box to appear asking them to confirm that they want to save page modifications when in edit mode.
 
 Default value: `false`
 
 ### controlledPrint
 
-Whether or not we want a controlled print to be enabled. Controlled print only allows certain people to print a document, and controls the number of times it can be printed.
+Whether or not controlled printing ia enabled. Controlled print only allows certain people to print a document, and controls the number of times it can be printed.
 
 Default value: `false`
 
@@ -478,7 +482,7 @@ Default value: `false`
 
 ### alertDocumentHasAnnotations
 
-Set to `true` if the user will be alerted that the current document in OpenViewer has annotations.
+Set to `true` if the user is alerted that the current document in OpenViewer has annotations.
 
 Default value: `true`
 
@@ -514,13 +518,13 @@ Default value: `150`
 
 ### configuredLocales
 
-All locales we currently have configured. German is actually "half" configured currently. We have a localization JSON file, but are missing the bundle.
+All locales that are currently configured. German is actually "half" configured currently. There's a localization JSON file, but are missing the bundle.
 
 Default value: `en,fr,de`
 
 ### defaultLocale
 
-The default locale to use if the user has no configured locales. This value must already be in the configured locales.
+The default locale to use if the user has no configured locales. This value must already be available in the configured locales.
 
 Default value: `en`
 
@@ -532,13 +536,13 @@ Default value: `10000`
 
 ### loadAnnotationsWithDocInfo
 
-Load annotations simultaneous with document information. Do not let the user into the document until the annotations are loaded
+Load annotations simultaneous with document information. Prevents the user from viewing the document until the annotations are loaded.
 
 Default value: `false`
 
 ### displayAnnotationModifyDate
 
-Display an annotation modified date instead of the creation date throughout AEV.
+Display an annotation modified date instead of the creation date throughout Enterprise Viewer.
 
 Default value: `false`
 
@@ -556,25 +560,25 @@ Default value: `false`
 
 ### saveSectionsAsBookmarks
 
-Whether or not to save sections as bookmarks. Overriding this to `false` will ONLY save the page reordering and rotating when sectioning is done.
+Whether or not to save sections as bookmarks. Overriding this to `false` only saves the page reordering and rotating when sectioning is done.
 
 Default value: `true`
 
 ### enablePageObfuscation
 
-Whether or not OpenContent should Obfuscate pages when transforming them. This is to prevent users from viewing a secure document through the network calls.
+Whether or not OpenContent should obfuscate pages when transforming them. This is to prevent users from viewing a secure document through network calls.
 
 Default value: `false`
 
 ### enableSecureViewingOverlay
 
-Whether or not to apply the secure viewing overlay to pages when viewing them. This overlay shows the display name of the user viewing. Displays the current username on the document and the date when they were viewing it.
+Whether or not to apply the secure viewing overlay to pages when viewing them. This overlay shows the display name of the user viewing the page. Displays the current username on the document and the date when they viewed it.
 
 Default value: `false`
 
 ### enableAEVTOverlays
 
-Whether or not to enable functionality for AEVT (Optimus Transformations) overlays. When `true`, additional parameters are passed on the MAV and sent to the transform and `getThumbnails` requests, providing the necessary properties to OpenOverlay. With the default setting, `false`, no functionality is added.
+Whether or not to enable functionality for AEVT (Optimus Transformations) overlays. When `true` (and AEVT is enabled), overlays are applied where configured.
 
 Default value: `false`
 
@@ -604,13 +608,13 @@ Default value: `http://localhost:8080/OpenContent/rest`
 
 ### license.doSendWarningEmail
 
-Whether or not to send a warning email when the current OpenContent license is approaching an invalid state. For example:  expiring, or almost at the maximum user or group user limit.
+Whether or not to send a warning email when the current OpenContent license is approaching an invalid state. For example: expiring, or almost at the maximum user or group user limit.
 
 Default value: `true`
 
 ### license.expiringSoonCounter
 
-The amount of days before the license expires in which OpenContent sets a warning state for the active license.
+The number of days before the license expires in which OpenContent sets a warning state for the active license.
 
 Default value: `30`
 
