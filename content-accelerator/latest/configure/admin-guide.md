@@ -112,49 +112,47 @@ Add types to a form config by selecting the type from the available options. All
 
 #### Editable/Required/Repeating Checkboxes
 
-* The editable checkbox allows an attribute to be editable.
-  **Not all attributes can be editable, i.e. internal attributes that cannot be changed.**
-* The required checkbox makes an attribute required on the form, giving the ability to make an attribute required that is not required on the ACS model.
-  **ACA will default the checkbox if the attr is required, but doesn’t know the backend ACS constraints.  Make sure not to mark an attribute as not required in an ACA form when the attribute on the ACS model is required.**
-  * The repeating checkbox allows an attribute to have repeating values.
-    *Defaults to checked when the underlying ACS attribute is repeating.
-    *If unchecked for a repeating attr - the attribute will appear single to the user.  The resulting value the user enters will be stored as the only value in the repeating list.
-    * If checked for a non-repeating attribute:
-      **This setup is not recommended.**
-      *The first value entered by the user will be stored in ACS.
+* **Editable Checkbox:** Enables an attribute to be editable.
+   >**Note that not all attributes may be editable, such as internal attributes that cannot be changed.**
+
+* **Required Checkbox:** Makes an attribute required on the form, providing the ability to require an attribute that may not be required in the underlying ACS model. Keep in mind that the ACA will default the checkbox to checked if the attribute is required in the ACS model, but it may not be aware of all backend constraints. Avoid marking an attribute as not required in an ACA form if it is required in the underlying ACS model.
+
+* **Repeating Checkbox:** Allows an attribute to have multiple values. By default, this checkbox is checked for attributes that are repeating in the underlying ACS model. If unchecked for a repeating attribute, the attribute will appear as single to the user, and the resulting value entered will be stored as the only value in the repeating list. However, marking a non-repeating attribute as repeating is not recommended as the first value entered by the user will be the only value stored in ACS.
 
 #### Control Types
 
 * ApproveOrReject is reserved for use within services.
 * Authentication is reserved for use within services.
-* AutoComplete allows autocompletion input text based on a picklist.
+* AutoComplete allows for input text autocompletion based on a picklist.
 * CheckBox provides a selection of checkboxes based on a picklist.
-* Computed created a field based on a pattern. Attributes and other hard-coded tokens can be used in making the value.
-* DateBox is a field allowing users to enter a date. This can be restricted to before or after the current day.
-* DatetimeBox is a field allowing users to enter a date and time. This can be restricted to before or after the current day.
-* Dropdown provides a dropdown list based on a picklist.
-* NumericRange defines a control for a numeric range
-* ProximityDateSearch
-* RadioButton a group of buttons defined by a picklist.
-* TextArea allows the input of text.
-* TestAreaList
-  * **TestareaList is deprecated and should not be used**
-* TestBox
-* ReadOnly sets a control to an attribute that cannot be edited.
+* Computed creates a field based on a predefined pattern, utilizing attributes and hard-coded tokens in value calculation.
+* DateBox is a field for entering dates, with the option to restrict input to dates before or after the current day.
+* DatetimeBox is a field allowing users to enter a date and time, with the option to restrict input to dates before or after the current day.
+* Dropdown provides a dropdown menu based on a picklist.
+* NumericRange defines a control for a numeric range. The underlying datatype must to be a number to work properly.
+* ProximityDateSearch enables searching based on proximity to a specified date.
+* RadioButton offers a group of buttons defined by a picklist.
+* TextArea allows for text input.
+* TestAreaList is **deprecated** and should not be used
+* TextBox is a text form control.
+* ReadOnly is reserved for use within services. If read only functionality is needed, a textbox configured as Not Editable is recommended.
 
 #### Rules
 
-Rules are all contained within the front end and can not have more added.
+**Rules:** All rules are contained within the front-end and cannot be expanded.
+**External Rules:** Utilize an extension amp and can be expanded by calling out to OpenContent.
 
-External Rules call out to OpenContent with an extension amp and could have more added.
+**Rule Types:**
 
-Rule Types:
+| Rule Type | Description |
+|-----------|-------------|
+| Hidden | Hides the field |
+| Remember Last Search Term | Remembers the last search term used |
+| Visibility Dependent | Makes a field visible based on specified criteria |
+| Enable Dependent | Enables a field only when specified criteria is met |
+| Lock | Locks down fields by group |
 
-* Hidden will hide the field.
-* Remember Last Search Term will remember the last term used. 
-* Visibility Dependent makes a field visible if the specified criteria is met.
-* Enable Dependent enables a field only if the specified criteria is met.
-* Lock allows fields to be locked down by group.
+**Note:** All rules are contained within the front-end and cannot be expanded. External rules utilize an extension amp and can be expanded by calling out to OpenContent.
 
 #### Recommended Forms
 

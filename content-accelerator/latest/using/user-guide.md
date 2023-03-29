@@ -82,6 +82,58 @@ A "Form" in the Content Accelerator provides an interface for completing and sub
 
 An example of a business scenario that utilizes the Content Accelerator Forms is the Policy and Procedure (PnP) scenario. Check out the PnP's action to Create a Change Form and or the Typical Use Case Scenarios for more information about a real world example using this Content Accelerator feature.
 
+### Form Fields
+This area will help you understand the various form controls that you'll encounter when filling out forms in Content Accelerator
+
+#### Auto Complete
+
+Auto Complete is a text field that will give you completed text after you type a certain amount of characters. Below is an example of a participants list being filled in after typing 3 characters.
+
+![Autocomplete Field]({% link content-accelerator/images/aca-userguide-autocomplete-field.png %})
+
+#### Proximity Date Range
+
+The Proximity Date Range control allows you to select a date range that is relative to the current day. You can choose to search for items within a certain time frame, past the time frame, or in the next time frame.
+To use it, select the desired option from the dropdown list. Next, enter a number for the desired unit of measurement, such as days, weeks, or months. Finally, select the appropriate unit of measure from the list. This will define the range of dates you're searching for. Here's an example:
+
+![Proximity Date Range]({% link content-accelerator/images/aca-userguide-proximity-date-range.png %})
+
+### Form Field Attributes
+
+This section outlines the various attributes that can be assigned to form fields within the Content Accelerator platform.
+
+#### Repeating Field
+
+A Repeating Field is a field that allows you to provide multiple values. This type of field has an "Add" button next to the input to allow you to enter additional values. To remove a previously entered entry, click on the X next to it. Here's an example:
+
+![Repeating Field]({% link content-accelerator/images/aca-userguide-repeating-field.png %})
+
+#### Required Field
+
+A Required Field is a field that must be completed before the form can be submitted. These fields are marked with a red asterisk next to the field label. If you attempt to submit a form without completing all required fields, an error message will appear indicating which fields need to be completed. Here's an example of a Required Field:
+
+![Required Field]({% link content-accelerator/images/aca-userguide-required-field.png %})
+
+A submit button will not be able to be clicked until a required field is satisfied see below:
+
+![Required Field Needed]({% link content-accelerator/images/aca-userguide-still-needs-required-fields-or-validation.png %})
+
+Once a required field has been filled the button to submit the form will be available to be clicked again. See below:
+
+![Required Field Satisfied]({% link content-accelerator/images/aca-userguide-required-fields-statisfied.png %})
+
+#### Uneditable Field
+
+An Uneditable Field is a field that cannot be edited by the user. These fields are displayed in a grayed-out or disabled state to indicate that they are read-only. Additionally, you may notice a cancel icon over the field when highlighted, indicating that it cannot be edited. Here's an example:
+
+![Uneditable Field]({% link content-accelerator/images/aca-userguide-uneditable-field.png %})
+
+#### Validation Error
+
+A Validation Error may appear when a field has been filled out with an incorrect value. This is indicated by red text above the field, warning you of the issue. To correct the error, update the value in the field to satisfy the validation criteria. Here's an example:
+
+![Validation Error]({% link content-accelerator/images/aca-userguide-validation-error.png %})
+
 ### Navigation Bar
 
 The Content Accelerator Navigation Bar provides a user with links to important areas of the application, ability to execute commonly used actions quickly, notifications to allow for communication, and user preferences to customize the user experience. The Content Accelerator Navigation Bar comes with the following default areas detailed below, but can be customized by the administrator for the application.
