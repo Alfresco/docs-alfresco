@@ -106,6 +106,56 @@ Create forms for the types users will interact with. Examples of parts of the ap
 
 **Note:** Forms can be reused. For example, the same form can be used for View/Edit Properties and Bulk Edit Properties.
 
+#### Types
+
+Add types to a form config by selecting the type from the available options. All types configured in the Object Type Config will be shown as options. Once a type is selected, you will be given further configuration options available for that type (i.e. what properties for that type should be included in the form). Adding a type to a form config means that the type specific configurations will be shown whenever that form is being filled out for that particular object type.
+
+#### Editable/Required/Repeating Checkboxes
+
+* The editable checkbox allows an attribute to be editable.
+  **Not all attributes can be editable, i.e. internal attributes that cannot be changed.**
+* The required checkbox makes an attribute required on the form, giving the ability to make an attribute required that is not required on the ACS model.
+  **ACA will default the checkbox if the attr is required, but doesn’t know the backend ACS constraints.  Make sure not to mark an attribute as not required in an ACA form when the attribute on the ACS model is required.**
+  * The repeating checkbox allows an attribute to have repeating values.
+    *Defaults to checked when the underlying ACS attribute is repeating.
+    *If unchecked for a repeating attr - the attribute will appear single to the user.  The resulting value the user enters will be stored as the only value in the repeating list.
+    * If checked for a non-repeating attribute:
+      **This setup is not recommended.**
+      *The first value entered by the user will be stored in ACS.
+
+#### Control Types
+
+* ApproveOrReject is reserved for use within services.
+* Authentication is reserved for use within services.
+* AutoComplete allows autocompletion input text based on a picklist.
+* CheckBox provides a selection of checkboxes based on a picklist.
+* Computed created a field based on a pattern. Attributes and other hard-coded tokens can be used in making the value.
+* DateBox is a field allowing users to enter a date. This can be restricted to before or after the current day.
+* DatetimeBox is a field allowing users to enter a date and time. This can be restricted to before or after the current day.
+* Dropdown provides a dropdown list based on a picklist.
+* NumericRange defines a control for a numeric range
+* ProximityDateSearch
+* RadioButton a group of buttons defined by a picklist.
+* TextArea allows the input of text.
+* TestAreaList
+  * **TestareaList is deprecated and should not be used**
+* TestBox
+* ReadOnly sets a control to an attribute that cannot be edited.
+
+#### Rules
+
+Rules are all contained within the front end and can not have more added.
+
+External Rules call out to OpenContent with an extension amp and could have more added.
+
+Rule Types:
+
+* Hidden will hide the field.
+* Remember Last Search Term will remember the last term used. 
+* Visibility Dependent makes a field visible if the specified criteria is met.
+* Enable Dependent enables a field only if the specified criteria is met.
+* Lock allows fields to be locked down by group.
+
 #### Recommended Forms
 
 Forms allow for a broad range of flexibility in the Content Accelerator. The below forms are recommended:
