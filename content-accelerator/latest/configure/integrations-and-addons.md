@@ -90,7 +90,7 @@ Since the job is typically configured to run every hour, it's sometimes necessar
 
 ### Background
 
-* When utilizing ACA Controlled Docs and Alfresco Governance Services, a common desired result is that as soon as a doc becomes effective it should become an ags record.
+* When utilizing ACA Controlled Docs and Alfresco Governance Services, a common desired result is that as soon as a doc becomes effective it should become an AGS record.
 * If we were just to declare that effective controlled doc a record, it could no longer be able to be checked out and checked back in since records are immutable (the controlled doc version chain would essentially be dead)
 * Therefore, enabling the controlled docs with AGS solution will actually create a copy of the controlled document when it becomes effective so that that copy can be declared an AGS record and the controlled doc itself will still be able to be checked out and checked back in
 
@@ -492,7 +492,7 @@ Reference: [https://developers.google.com/identity/protocols/OAuth2UserAgent](ht
 
 ### Setup OpenContent
 
-3. Override the applicable Workshare Compare properties (see below) in a `project-placeholders.properties` or `override-placeholders.properties` file in OC or a custom amp.
+Override the applicable Workshare Compare properties (see below) in a `project-placeholders.properties` or `override-placeholders.properties` file in OC or a custom amp.
 
 ### Workshare Compare Properties
 
@@ -505,4 +505,4 @@ Reference: [https://developers.google.com/identity/protocols/OAuth2UserAgent](ht
 
 ### Configure ACA
 
-4. In ACA Admin, update the View Versions document action to set "Compare Versions?" to yes.
+In ACA Admin, update the View Versions document action to set "Compare Versions?" to yes.
