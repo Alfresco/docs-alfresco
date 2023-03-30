@@ -296,7 +296,7 @@ So far we have talked about defining pipelines and failover transforms in the Re
 
 Generally it is better to add them to T-Engines to avoid having to add an identical entry to both the Repository and ATS Router pipeline files.
 
-Since Alfresco Transform Core 3.0.0, config files with additional pipelines or overrides can be provided directly to a T-Engine image through additional config files (which may be resources on the classpath or external files) that are specified with Spring Boot properties such as `transform.config.file.<filename>` or environment variables like `TRANSFORM_CONFIG_FILE_<filename>`. In case of issues with changing configuration of transform-core-aio T-Engine such approach may be necessary.
+Since Alfresco Transform Core 3.0.0, config files with additional pipelines or overrides can be provided directly to a T-Engine image through additional config files (which may be resources on the classpath or external files) that are specified with Spring Boot properties such as `transform.config.file.<filename>` or environment variables like `TRANSFORM_CONFIG_FILE_<filename>`. You can use this approach if you have issues with changing the configuration of the transform-core-aio T-Engine.
 
 #### Modifying existing configuration
 
