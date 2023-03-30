@@ -207,7 +207,7 @@ The columns that are visible can be adjusted.
 
 ### Column width
 
-You can adjust the width of the columns of the **Process Management** section. To do this select the edge of the columns and adjust them to the desired width. Once you have changed one column, all the columns with the same name are also adjusted.
+You can adjust the width of the columns of the **Process Management** section. To do this select the edge of the columns and adjust them to the desired width. Once you have changed one column, all the columns with the same name are also adjusted. If you log out and then log back in again the new column widths will be preserved.
 
 This feature is enabled by default for the **Process Management** section. If you want to adjust the column widths in the same way for the **Personal Files** or **File Libraries** sections of the Digital Workspace, you must turn it on by editing the `libs/content-ee/process-services-cloud-extension/assets/process-services-cloud.extension.json` file and adding the following:
 
