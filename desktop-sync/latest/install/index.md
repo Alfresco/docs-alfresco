@@ -55,7 +55,7 @@ All your favorite Alfresco content, My Files, Shared Files, and your Alfresco si
 
 If you want to use Desktop Sync on Mac, you'll need:
 
-* Mac OS version 10.11 or later
+* Mac OS version 10.13 or later
 
 1. Download the Mac installation file: `Alfresco-Desktop-Sync-v1.15.x.dmg`
 
