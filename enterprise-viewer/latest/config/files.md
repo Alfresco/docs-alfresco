@@ -27,7 +27,7 @@ The following are the configurable properties for Enterprise Viewer:
 
 ### serviceAccountUsername
 
-This is the service account username to use when logging in using the "stored" endpoint. The stored endpoint allows you to log in using the configured service account and provide a displayName to identify the user you are logging in for.
+This is the service account user name to use when logging in using the "stored" endpoint. The stored endpoint allows you to log in using the configured service account and provide a display name (`displayName`) to identify the user you are logging in for.
 
 > **Note:**  This property must be overridden if you're using the "stored" endpoint.
 
@@ -35,7 +35,7 @@ Default value: `""`
 
 ### serviceAccountPassword
 
-This is the service account password to use when logging in using the "stored" endpoint. The stored endpoint allows you to log in using the configured service account and provide a displayName to identify the user you are logging in for.
+This is the service account password to use when logging in using the "stored" endpoint. The stored endpoint allows you to log in using the configured service account and provide a display name to identify the user you are logging in for.
 
 > **Note:** This property must be overridden if you're using the "stored" endpoint.
 
@@ -187,12 +187,12 @@ The number of pages to preload. Preloading works by making requests to fetch pag
 
 * `0`: This tells AEV to preload all the pages of the document
 * `-1`: This tells AEV to not use preloading at all
-* Any other positive integer: This integer specifies the total number of pages to preload - half are pages forward from the current page and the other half are behind the current page.
+* Any other positive integer: This integer specifies the total number of pages to preload - half are pages before the current page and the other half are after the current page.
 
    > **Note:**
    >
-   > * The configured value should be a multiple of 2 because the number of pages to preload is divided in half.
-   > * Specifying `1` and `2` accomplishes the same thing.
+   > * The configured value should be a multiple of 2 because the number of pages to preload is divided by 2.
+   > * Specifying `1` and `2` accomplishes the same result.
    >
    > * Once the number of preloaded pages equals the configured value, no more pages are preloaded until the page is changed.
 
@@ -221,7 +221,7 @@ See [Configure Enterprise Viewer actions and modes]({% link enterprise-viewer/la
 
 ### quillEnabledButtons
 
-A comma separated list of buttons that's visible in the quill toolbar. Currently, only Italic and Bold are supported. All currently supported quill buttons are bold, italic, and underline.
+A comma separated list of buttons that's visible in the quill toolbar. All currently supported quill buttons are bold, italic, and underline.
 
 Default value: `bold,italic`
 
@@ -518,7 +518,9 @@ Default value: `150`
 
 ### configuredLocales
 
-All locales that are currently configured. German is actually "half" configured currently. There's a localization JSON file, but are missing the bundle.
+Enterprise Viewer takes a list of locales from the browser and returns the first configured locale from this list as the language to display in AEV. If none of the locales from the list are configured in the users' browser, the `defaultLocale` is used regardless.
+
+You'll find a list of all locales AEV supports in [Supported Platforms]({% link enterprise-viewer/latest/config/supported-languages.md %}).
 
 Default value: `en,fr,de`
 
@@ -546,7 +548,7 @@ Display an annotation modified date instead of the creation date throughout Ente
 
 Default value: `false`
 
-### minPagesToDefafultSectionModeOn
+### minPagesToDefaultSectionModeOn
 
 The minimum number of pages to default into sectioning mode. Set to `0` to prevent sectioning mode.
 

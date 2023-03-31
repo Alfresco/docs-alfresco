@@ -20,33 +20,35 @@ Users can be launched directly into any of these modes. By default, a document i
 
 ### Add Annotations
 
-Add Annotations mode allows the user to annotate the document. More information on this mode can be found in
-[Section 4](TODO #Section_4) of this guide.
+Add Annotations mode allows the user to annotate the document.
+
+See the [Add Annotations Interface section]({% link enterprise-viewer/latest/using/index.md %}#add-annotations-interface) for more information.
 
 ### Redact Content
 
-Redact Content mode allows the user to redact text and images in the document. More information on this mode can be
-found in [Section 5](TODO #Section_5) of this guide.
+Redact Content mode allows the user to redact text and images in the document.
+
+See the [Redact Content Interface section]({% link enterprise-viewer/latest/using/index.md %}#redact-content-interface) for more information.
 
 ### Edit Pages
 
-Edit Pages mode allows the user to edit pages by reordering, splitting, rotating, or sectioning them. More information
-on this mode can be found in [Section 6](TODO #Section_6) of this guide.
+Edit Pages mode allows the user to edit pages by reordering, splitting, rotating, or sectioning them.
+
+See the [Edit Pages Interface section]({% link enterprise-viewer/latest/using/index.md %}#edit-pages-interface) for more information.
 
 ### Add Signatures
 
-Add Signatures mode allows the user to add a signature to the document. More information on this mode can be found in
-[Section 7](TODO #Section_7) of this guide.
+Add Signatures mode allows the user to add a signature to the document.
+
+See the [Add Signatures Interface section]({% link enterprise-viewer/latest/using/index.md %}#add-signatures-interface) for more information.
 
 ## Add Annotations Interface
 
-This section walks through the interface used to add annotations .
+This section walks through the interface used to add annotations.
 
 ### Toolbar
 
-The toolbar contains all the core functionality of the Enterprise Viewer in Annotation mode. This is where document
-navigation and zooming occur, and where annotations can be created, saved, and more information on Enterprise Viewer is
-found.
+The toolbar contains all the core functionality of the Enterprise Viewer in Annotation mode. This is where document navigation and zooming occur, and where annotations can be created, saved, and more information on Enterprise Viewer is found.
 
 It is located at the top of the Enterprise Viewer window:
 
@@ -106,8 +108,7 @@ Clicking this button takes the user to the previous page of the document. The bu
 
 #### Zoom Out
 
-The **Zoom Out** button is located to the right of the **Previous Page** button and to the left of the **Zoom In** button. The
-**Zoom Out** button is to the right of the **Fit to Width** button if the **Previous Page** button is not displayed in the toolbar.
+The **Zoom Out** button is located to the right of the **Previous Page** button and to the left of the **Zoom In** button. The **Zoom Out** button is to the right of the **Fit to Width** button if the **Previous Page** button is not displayed in the toolbar.
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar7.png %})
 
@@ -161,8 +162,7 @@ Clicking the following button will allow the user to choose which pages to downl
 
 ##### Annotated PDF Download
 
-Similar to Offline Annotated PDF Download, but this is not meant for annotating documents offline and checking them back
-in. This is simply for downloading. Other users' annotations will not be locked:
+Similar to Offline Annotated PDF Download, but this is not meant for annotating documents offline and checking them back in. This is simply for downloading. Other users' annotations will not be locked:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar14.png %})
 
@@ -174,8 +174,7 @@ Clicking the following button will download a version of the PDF without annotat
 
 #### Save
 
-Clicking the following button will save any new or modified annotations to the server, as well as refresh any unmodified
-annotations from other users that have been updated:
+Clicking the following button will save any new or modified annotations to the server, as well as refresh any unmodified annotations from other users that have been updated:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar16.png %})
 
@@ -183,8 +182,7 @@ The **Save** button is located to the right of the **Download** dropdown and to 
 
 #### Undo Last Change
 
-Clicking the following button will undo the last modification that was made to the document prior to the last save of
-the document:
+Clicking the following button will undo the last modification that was made to the document prior to the last save of the document:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar17.png %})
 
@@ -196,76 +194,59 @@ Clicking the following button will redo the last change made to the document pri
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar18.png %})
 
-The **Redo** button is located to the right of the **Undo** button and to the left of the **Refresh** button. The **Redo**
-button is to the left of the **Show/Hide Annotations** button if the **Refresh** button is not displayed in the toolbar.
+The **Redo** button is located to the right of the **Undo** button and to the left of the **Refresh** button. The **Redo** button is to the left of the **Show/Hide Annotations** button if the **Refresh** button is not displayed in the toolbar.
 
 #### Refresh Annotations
 
-Clicking the following button will refresh any unmodified annotations from the server from other users that have been
-updated:
+Clicking the following button will refresh any unmodified annotations from the server from other users that have been updated:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar19.png %})
 
 The **Refresh Annotations** button is located to the right of the **Redo** button and to the left of **Show/Hide Annotations** button.
 
-> **Note:** This feature will not appear if "Collaboration Mode" is active, as annotation refreshes will happen in real-time.
+> **Note:** This feature will not appear if "Collaboration Mode" is active, as annotation refreshes happen in real-time.
 
 #### Show/Hide Annotations
 
-Clicking the following button will show or hide the annotations made to the document. If the button is active the annotations can
-be seen. Annotations cannot be seen if the button is deactivated:
+Clicking the following button will show or hide the annotations made to the document. If the button is active the annotations can be seen. Annotations cannot be seen if the button is deactivated:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar20.png %})
 
-The **Show/Hide Annotations** button is located to the right of the **Refresh Annotations** button and to the left of
-the **Keep Tool Selected** button. The **Show/Hide Annotations** button is to the right of the **Redo** button if the
-**Refresh Annotations button** is not displayed in the toolbar.
+The **Show/Hide Annotations** button is located to the right of the **Refresh Annotations** button and to the left of the **Keep Tool Selected** button. The **Show/Hide Annotations** button is to the right of the **Redo** button if the **Refresh Annotations button** is not displayed in the toolbar.
 
 #### Keep Tool Selected
 
-Clicking the following button will keep the currently selected annotation tool selected. This allows users to be able to
-make multiple annotations of the same type without having to select their chosen tool multiple times:
+Clicking the following button will keep the currently selected annotation tool selected. This allows users to be able to make multiple annotations of the same type without having to select their chosen tool multiple times:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar21.png %})
 
-The **Keep Tool Selected** button is located to the right of the **Show/Hide Annotations** button and to the left of
-the **Selection Tool** button.
+The **Keep Tool Selected** button is located to the right of the **Show/Hide Annotations** button and to the left of the **Selection Tool** button.
 
 #### Annotation Tools
 
-The buttons listed below denote the different types of interactions the user can have with the document itself, as
-opposed to single events of the previous toolbar items. The selections will persist until another selection is made,
-or they are unselected due to a particular event:
+The buttons listed below denote the different types of interactions the user can have with the document itself, as opposed to single events of the previous toolbar items. The selections will persist until another selection is made, or they are unselected due to a particular event:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar22.png %})
 
-All of the annotation tools can be used for clicking a toolbar button, dragging annotations around a page, dragging and
-resizing annotation dialogs. The user can also set the status of the annotation to None, Accepted, Cancelled, Completed,
-or Rejected. If the user does not set the status of the annotation, then it is set to None by default.
+All of the annotation tools can be used for clicking a toolbar button, dragging annotations around a page, dragging and resizing annotation dialogs. The user can also set the status of the annotation to `None`, `Accepted`, `Cancelled`, `Completed`, or `Rejected`. If the user does not set the status of the annotation, then it is set to `None` by default.
 
 After an annotation is created, the annotation tool returns to its default cursor.
 
 ##### Selection Tool
 
-The selection tool button is the default cursor when opening Enterprise Viewer and signifies that the mouse does not
-do anything out of the ordinary:
+The selection tool button is the default cursor when opening Enterprise Viewer and signifies that the mouse does not do anything out of the ordinary:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar23.png %})
 
-The **Selection Tool** button is located to the right of the **Keep Tool Selected** button and to the left of the
-**Sticky Note** button.
+The **Selection Tool** button is located to the right of the **Keep Tool Selected** button and to the left of the **Sticky Note** button.
 
 ##### Sticky Note
 
-The sticky note button is used when a sticky note needs to be added to a page. Once the cursor is selected, the user
-can click anywhere on the page to add a sticky note. The sticky note will set its top left corner to where the user
-clicked, and an annotation dialog will pop up to allow the user to edit the text. The user can also use the Color
-Selection menu to change the color of the sticky note annotation:
+The sticky note button is used when a sticky note needs to be added to a page. Once the cursor is selected, the user can click anywhere on the page to add a sticky note. The sticky note will set its top left corner to where the user clicked, and an annotation dialog will pop up to allow the user to edit the text. The user can also use the Color Selection menu to change the color of the sticky note annotation:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar24.png %})
 
-The **Sticky Note** button is located to the right of the **Selection Tool** button and to the left of the
-**Add Attachment** button.
+The **Sticky Note** button is located to the right of the **Selection Tool** button and to the left of the **Add Attachment** button.
 
 ##### Add Attachment
 
@@ -879,8 +860,7 @@ This button is located at the bottom right corner of the **Participants** tab, b
 
 ### Left Sidebar
 
-The left sidebar displays the thumbnails, bookmarks, and the attachments. It is lcoated to the left of the document
-and below the toolbar.
+The left sidebar displays the thumbnails, bookmarks, and the attachments. It is located to the left of the document and below the toolbar.
 
 #### Hide Sidebar
 
@@ -987,8 +967,7 @@ The **Document List** sidebar is located on the left side of the **Enterprise Vi
 
 ## Redact Content Interface
 
-This is where document navigation and zooming occur, and where redactions can be created, saved, and more information
-on Enterprise Viewer is found.
+This is where document navigation and zooming occur, and where redactions can be created, saved, and more information on Enterprise Viewer is found.
 
 ### Toolbar
 
@@ -1339,8 +1318,6 @@ Clicking on an entry in the list will take the user to the section of the docume
 
 It is located on the left side of the **Enterprise Viewer** window.
 
-NEED TO UPDATE HEADERS HERE
-
 ## Edit Pages Interface
 
 This is where document navigation and zooming occur, where the user can split the PDF, delete pages, rotate pages,
@@ -1517,13 +1494,11 @@ Clicking this button will allow the user to split the document into different se
 
 ![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar14.png %})
 
-Sectioning is an efficient way to reorder large documents. A blue notification will appear in the bottom right corner
-where the user can name the section and select the range of pages for the section. The user must then select the create
-section button. The new section will appear in the left sidebar. For more information on how to section a document,
-see this [section](#section-docs).
+Sectioning is an efficient way to reorder large documents. A blue notification will appear in the bottom right corner where the user can name the section and select the range of pages for the section. The user must then select the create section button. The new section will appear in the left sidebar.
 
-The **Section Document** button is located to the right of the **Rotate Page Clockwise** button and to the left of the
-**Help** button.
+See [how to section a document]({% link enterprise-viewer/latest/using/index.md %}#section-docs).
+
+The **Section Document** button is located to the right of the **Rotate Page Clockwise** button and to the left of the **Help** button.
 
 #### Help
 
@@ -1531,8 +1506,7 @@ The **Help** button is used to give the user more information regarding Enterpri
 
 ![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar15.png %})
 
-When this button is clicked a new tab in the browser will open with Alfresco information regarding services and
-description of Enterprise Viewer.
+When this button is clicked a new tab in the browser will open with Alfresco information regarding services and description of Enterprise Viewer.
 
 The **Help** button is located to the right of the **Section Document** dropdown and to the left of the **Load Time**.
 
@@ -1546,10 +1520,7 @@ The user can see more details when clicking on the text:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar17.png %})
 
-The load time takes into consideration the time it took the user to login, the browser JavaScript load time, the time
-it took to retrieve document information, the time it took to display the document, and the document's size. The user
-can copy the load time information into their clipboard by clicking the **Copy to Clipboard** button found in the load
-time information window.
+The load time takes into consideration the time it took the user to login, the browser JavaScript load time, the time it took to retrieve document information, the time it took to display the document, and the document's size. The user can copy the load time information into their clipboard by clicking the **Copy to Clipboard** button found in the load time information window.
 
 The *Load Time* text is located to the right of the **Help** button.
 
@@ -1563,21 +1534,19 @@ The **Hide Sidebar** button allows the user to hide the sidebar containing the l
 
 ![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar18.png %})
 
-When the button is clicked, the sidebar will collapse into the left side of the Enterprise Viewer window. When the
-button is clicked again, the sidebar will expand back into view.
+When the button is clicked, the sidebar will collapse into the left side of the Enterprise Viewer window. When the button is clicked again, the sidebar will expand back into view.
 
 This button is located in the top right corner of the Sections sidebar.
 
 #### Sections {#section-docs}
 
-The *Sections* sidebar displays all the sections of the document, if available:
+The **Sections** sidebar displays all the sections of the document, if available:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar19.png %})
 
-Sectioning is an efficient way to reorder large documents. Unsectioned pages will be listed under *Unsectioned*. The pages
-belonging to each section are listed under the section's name. Clicking on an entry in the list in *Add Annotations* mode
-will take the user to the first page of the section. For more information on how to activate the *Section Document*
-feature, see [here](#section-doc-activate).
+Sectioning is an efficient way to reorder large documents. Unsectioned pages will be listed under *Unsectioned*. The pages belonging to each section are listed under the section's name. Clicking on an entry in the list in *Add Annotations* mode will take the user to the first page of the section.
+
+See [how to activate the Section Document feature]({% link enterprise-viewer/latest/using/index.md %}#section-doc-activate) for more information.
 
 It is located on the left side of the Enterprise Viewer window.
 
