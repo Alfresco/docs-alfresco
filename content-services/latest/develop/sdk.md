@@ -26,7 +26,7 @@ If you have existing projects that you wish to upgrade to SDK 4.5 the recommende
 from the new archetypes and move your code into place.
 
 ## What's new?
-Alfresco SDK 4.5 is a minor update to the SDK and provides support for Alfresco 7.3.x.
+Alfresco SDK 4.5 is a minor update to the SDK and provides support for Alfresco 7.3.x and later.
 
 ### Embracing containers and Docker
 The main change included in SDK 4.0 is the addition of container technologies. Specifically, the new SDK is highly based 
