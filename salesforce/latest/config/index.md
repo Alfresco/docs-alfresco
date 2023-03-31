@@ -8,11 +8,11 @@ Here, you'll use the Identity Service with Salesforce and Alfresco Content Servi
 
 ## SSO prerequisites {#prereqs}
 
-Before you begin ensure you've installed:
+Before you begin ensure you've installed the following - see the [Supported platforms]({% link salesforce/latest/support/index.md %}) page for specific versions:
 
-* [Alfresco Content Services]({% link content-services/latest/install/index.md %}) 6.2.2 or above
-* [Alfresco Content Connector for Salesforce]({% link salesforce/latest/install/index.md %}) 2.2 or above
-* [Identity Service]({% link identity-service/latest/install/index.md %}) 1.3 or above
+* [Alfresco Content Services]({% link content-services/latest/install/index.md %})
+* [Alfresco Content Connector for Salesforce]({% link salesforce/latest/install/index.md %})
+* [Identity Service]({% link identity-service/latest/install/index.md %})
 
 There are two parts to this configuration: [configure SSO between Content Services and the Salesforce Connector](#sso-alfresco) and [configure SSO for Salesforce](#sso-salesforce)
 
