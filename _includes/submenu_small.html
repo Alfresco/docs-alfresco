@@ -2,7 +2,7 @@
     {%for s in include.submenu %}
       {%if s.sub.size > 1%} 
       <div class="container">
-        <h1>{%l {{s.title}}%}</h1>
+        <h1>{{s.title}}</h1>
         {%for ss in s.sub %}
           {%loc_safe_url {{ss.url}} {{page.lang}} class="navbar-item"%}{{ss.title}}{%endloc_safe_url%}
         {%endfor%}
