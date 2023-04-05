@@ -190,7 +190,7 @@ This video shows you how to create content.
 
 As well as creating files from scratch, you can also create files from templates.
 
-> **Note:** Templates are only available if your Alfresco administrator has [set some up for you]({% link content-services/latest/admin/templates.md %}).
+> **Note:** Templates are only available if your Alfresco administrator has [set some up for you]({% link content-services/7.3/admin/templates.md %}).
 
 1. Select the folder where you want to add the content.
 
@@ -288,7 +288,7 @@ While the preview feature lets you view a file in Alfresco Share, you also have 
 
     A new browser window opens displaying the selected file. For some file types, such as Microsoft Office documents, Share launches the file in its associated program.
 
->**Important:** For security reasons, only the following file types are allowed to be viewed in the browser: `.pdf`, `.png`, `.jpeg`, `.gif`, `.tiff`, `.bmp`. All other file types are instead downloaded. This is [configurable]({% link content-services/latest/config/repository.md %}#conf-view-in-browser-mime-types).
+>**Important:** For security reasons, only the following file types are allowed to be viewed in the browser: `.pdf`, `.png`, `.jpeg`, `.gif`, `.tiff`, `.bmp`. All other file types are instead downloaded. This is [configurable]({% link content-services/7.3/config/repository.md %}#conf-view-in-browser-mime-types).
 
 ### View a file on Google Maps
 
@@ -416,7 +416,7 @@ This means that you don't need to download a zip file to see its contents. You c
 
     > **Note:** If you have a zip that contains several thousand files, it might take more than 10 seconds to complete. If this is the case, you might see a message saying that the unzip operation could not be completed. This message is issued because Share has not had confirmation that the unzip operation has completed within 10 seconds. Check the folder where you wanted to unzip the files, to see if the unzip operation completed successfully.
 
-    > **Note:** Alfresco administrators can also use the [Bulk Import tool]({% link content-services/latest/admin/import-transfer.md %}) to import multiple files.
+    > **Note:** Alfresco administrators can also use the [Bulk Import tool]({% link content-services/7.3/admin/import-transfer.md %}) to import multiple files.
 
 ## Renaming content
 
@@ -477,7 +477,7 @@ Unlike tags, which are not in a hierarchy and can be created by anyone, categori
 
 An example of categories, would be to have Regions as a top level category, then sub-categories of Africa, Asia, Europe, Latin America, North America, and Oceania, then further sub-categories of each of their countries.
 
-Categories can only be associated with library items and folders. Content needs to be enabled for categorizing before you can add it to a category, see [Managing Aspects]({% link content-services/latest/using/content/files-folders.md %}#applyaspects).
+Categories can only be associated with library items and folders. Content needs to be enabled for categorizing before you can add it to a category, see [Managing Aspects]({% link content-services/7.3/using/content/files-folders.md %}#applyaspects).
 
 ### Tagging content
 
@@ -506,7 +506,7 @@ You can categorize files and folders to group similar content into pre-defined c
 
 1. Hover over the content you want to categorize.
 
-    > **Note:** You can only categorize content that has the **No Categories** label or displays existing categories. See [Managing Aspects]({% link content-services/latest/using/content/files-folders.md %}#applyaspects) for more details on enabling content to be categorizable with the classifiable aspect.
+    > **Note:** You can only categorize content that has the **No Categories** label or displays existing categories. See [Managing Aspects]({% link content-services/7.3/using/content/files-folders.md %}#applyaspects) for more details on enabling content to be categorizable with the classifiable aspect.
 
 2. Click **Edit Properties**.
 

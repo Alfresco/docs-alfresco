@@ -4,7 +4,7 @@ title: Audit Log Extension Point
 
 Alfresco provides the ability to audit activity in the repository. What to audit log can be customized.
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/7.3/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
@@ -16,7 +16,7 @@ By default auditing is turned off but it can easily be turned on with a property
 Audit Application available out-of-the-box that logs the usual create, read, update, and delete operations by the users. 
 It is also possible to control what events that are written to the Audit log by creating new Audit Applications.
 
-Further information can be found in the [Auditing Guide]({% link content-services/latest/admin/audit.md %}).
+Further information can be found in the [Auditing Guide]({% link content-services/7.3/admin/audit.md %}).
 
 Sometimes it is necessary to implement a custom audit application. Let's define a custom audit application that logs 
 Alfresco Share site operations. However, before doing anything around the new audit application we need to make sure that 
@@ -80,7 +80,7 @@ file according to what the audit application does, such as `share-site-audit-app
 
 The audit configuration file starts with a definition of the Data Extractors that we will be using in our audit application. 
 These components are present to take input data, such as a `NodeRef` object, and provide output data, such as a node name. 
-For further information about Data Extractors [see this page]({% link content-services/latest/admin/audit.md %}#dataextractor).
+For further information about Data Extractors [see this page]({% link content-services/7.3/admin/audit.md %}#dataextractor).
 
 One example of an extractor is the `NodeNameDataExtractor`, which basically extracts the value of `cm:name` for the node. 
 We define it as an extractor for our audit application by using the registered name (i.e. Spring bean id) 
@@ -281,7 +281,7 @@ part need to be included. The query will then for example look like this for the
 
 ## More Information
 
-* [Auditing Alfresco]({% link content-services/latest/admin/audit.md %})
+* [Auditing Alfresco]({% link content-services/7.3/admin/audit.md %})
 
 ## Sample Code
 
@@ -291,4 +291,4 @@ part need to be included. The query will then for example look like this for the
 
 * [Audit API Hints and Tricks](https://www.youtube.com/watch?v=_aP_JYTwZ6Y){:target="_blank"} - Alfresco DevCon presentation by Mehdi Belmekki.
 * [Audit and Reporting with Alfresco and NoSQL](https://www.slideshare.net/zaiziltd/scale-audit-reporting-with-a-nosql-architecture){:target="_blank"} - Alfresco Summit presentation by Zaizi
-* [Audit tutorials]({% link content-services/latest/admin/audit.md %}#audittutorials)
+* [Audit tutorials]({% link content-services/7.3/admin/audit.md %}#audittutorials)

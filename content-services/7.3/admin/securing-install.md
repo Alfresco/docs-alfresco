@@ -27,11 +27,11 @@ first line of defense, so use as strong passwords as possible. Passwords can be 
 them since they can be the difference between staying protected and compromising your security.
 
 * User and admin passwords 
-    * [Cryptographic password hashing]({% link content-services/latest/admin/security.md %}#bcryptoverview) for `alfrescoNTLM` authentication (i.e. users stored in database)
-    * [Admin password in default authentication]({% link content-services/latest/admin/security.md %}#adminpwddefaultauth)
-    * [Mitigate brute force attack on passwords]({% link content-services/latest/admin/security.md %}#mitigatebruteforceattackpwd)
-* [Change the default JMX passwords]({% link content-services/latest/config/index.md %}#connectthrujmx) associated with `controlRole` and `monitorRole` parameters.
-* Check whether the passwords stored in `alfresco-global.properties` config file, such as database password and admin password, are [encrypted]({% link content-services/latest/admin/security.md %}#encryptconfigprops).
+    * [Cryptographic password hashing]({% link content-services/7.3/admin/security.md %}#bcryptoverview) for `alfrescoNTLM` authentication (i.e. users stored in database)
+    * [Admin password in default authentication]({% link content-services/7.3/admin/security.md %}#adminpwddefaultauth)
+    * [Mitigate brute force attack on passwords]({% link content-services/7.3/admin/security.md %}#mitigatebruteforceattackpwd)
+* [Change the default JMX passwords]({% link content-services/7.3/config/index.md %}#connectthrujmx) associated with `controlRole` and `monitorRole` parameters.
+* Check whether the passwords stored in `alfresco-global.properties` config file, such as database password and admin password, are [encrypted]({% link content-services/7.3/admin/security.md %}#encryptconfigprops).
 
 ## Do not run as root
 If someone does compromise Content Services you want to limit the damage they can do. If Content Services is running 
@@ -55,7 +55,7 @@ everyone for free. Yes, you have to renew them more often than paid certificates
 securing your traffic with Let’s Encrypt is as easy as running the certbot script if you have a public-facing server.
 All communication should be over Secure Socket Layer (SSL).
 
-See [Configure SSL for production environment]({% link content-services/latest/config/repository.md %}#ssl-prod).
+See [Configure SSL for production environment]({% link content-services/7.3/config/repository.md %}#ssl-prod).
 
 Note that besides HTTPS traffic (Digital Workspace, Share, WebDAV, ReST API) you need also consider:
 
@@ -89,12 +89,12 @@ To fix this turn on secure communcation between Solr and the Repository and re-g
 Follow the [Search Services security documentation]({% link search-services/latest/config/keys.md %}) for information
 on how to set this up on Windows or Linux.
 
-See also [managing Alfresco keystores]({% link content-services/latest/admin/security.md %}#managealfkeystores) for 
+See also [managing Alfresco keystores]({% link content-services/7.3/admin/security.md %}#managealfkeystores) for 
 introduction and configuration of the different keystores.  
 
 ## Share Web UI security (3)
 The Alfresco Share Web UI is one of the main user interfaces used by Alfresco users. It needs to be configured 
-for secure access. See [Share security policies and filters]({% link content-services/latest/admin/security.md %}#alfresco-share-security-policies-and-filters).
+for secure access. See [Share security policies and filters]({% link content-services/7.3/admin/security.md %}#alfresco-share-security-policies-and-filters).
 
 Share is behind the [web proxy](#addreverseproxy) so it is always accessed via HTTPS. 
 
@@ -108,31 +108,31 @@ ADW is behind the [web proxy](#addreverseproxy) so it is always accessed via HTT
 You can also configure filters in Alfresco Repository to mitigate security attacks when the Content Services ReST API is 
 accessed externally.
 
-See [repository security policies and filters]({% link content-services/latest/admin/security.md %}#reposecuritypolicyandfilters)
+See [repository security policies and filters]({% link content-services/7.3/admin/security.md %}#reposecuritypolicyandfilters)
 
 The ReST API is behind the [web proxy](#addreverseproxy) so it is always accessed via HTTPS.
 
 ## Securing HTML transformations
 HTML pipelines that use LibreOffice are vulnerable to [BSSRF](https://en.wikipedia.org/wiki/Server-side_request_forgery){:target="_blank"}
-attacks. These can be disabled by following these [instructions]({% link content-services/latest/admin/securing-html-transforms.md %}).
+attacks. These can be disabled by following these [instructions]({% link content-services/7.3/admin/securing-html-transforms.md %}).
 
 ## Encrypting metadata 
 It's possible to encrypt node (i.e. file or folder) properties (i.e. metadata). For more information about this see 
-[managing Alfresco keystores]({% link content-services/latest/admin/security.md %}#managealfkeystores).
+[managing Alfresco keystores]({% link content-services/7.3/admin/security.md %}#managealfkeystores).
 
 ## Dedicated user for external system access
-If you are going to integrate Content Services with external systems, then [create a dedicated user]({% link content-services/latest/admin/users-groups.md %}) 
+If you are going to integrate Content Services with external systems, then [create a dedicated user]({% link content-services/7.3/admin/users-groups.md %}) 
 for each external system allowing access to the repository based on what information they need. Instead of giving them 
 access via the admin user that has access to everything. 
 
 ## Disable Guest user
-Read the information on the [Set up authentication and sync]({% link content-services/latest/admin/auth-sync.md %}) page
+Read the information on the [Set up authentication and sync]({% link content-services/7.3/admin/auth-sync.md %}) page
 and specifically search for Guest user config on this page.
 
 ## Disable unused protocols
 This is about reducing your attack surface. One of the nice things about Content Services is the wide number of options 
 you have for getting content in and out of the repository. That’s great, but if you aren’t using, for example, FTP, then 
-why leave [FTP enabled]({% link content-services/latest/config/file-servers.md %})? That’s a potential place an attacker 
+why leave [FTP enabled]({% link content-services/7.3/config/file-servers.md %})? That’s a potential place an attacker 
 could find a toehold. Purposefully review each of the protocols that Alfresco supports and disable those that are not 
 being used.
 

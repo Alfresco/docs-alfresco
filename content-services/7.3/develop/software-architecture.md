@@ -17,7 +17,7 @@ repository where content is stored plus all the associated content services, suc
 Traditionally this component is also referred to as the Repository. There are several so called extension points that
 can be used to build customizations for the platform, they are usually deployed as AMP or JAR modules.
 
-[Alfresco Share]({% link content-services/latest/using/share.md %}) provides a web client interface (that is a User Interface, UI) 
+[Alfresco Share]({% link content-services/7.3/using/share.md %}) provides a web client interface (that is a User Interface, UI) 
 for the repository and is implemented as the `share.war` web application. There is also a newer UI called [Digital Workspace]({% link digital-workspace/latest/index.md %}), 
 based on the Alfresco [Application Development Framework (ADF)](https://www.alfresco.com/abn/adf/docs/){:target="_blank"}, 
 it's also deployed as a WAR. The user interfaces makes it easy for users to manage their sites, folders, documents, 
@@ -43,7 +43,7 @@ Directory Server (LDAP) to be able to sync users and groups with Content Service
 with an SMTP server so the Platform can send emails, such as site invitations.
 
 Extensions to the repository , such as a domain specific content model, and extensions to the UI, such as forms to support 
-custom types, has traditionally been done with [Alfresco Modules Packages (AMP)]({% link content-services/latest/develop/extension-packaging.md %}) 
+custom types, has traditionally been done with [Alfresco Modules Packages (AMP)]({% link content-services/7.3/develop/extension-packaging.md %}) 
 and later on as JARs. These are running in the same process as the repository. This changes with version 7 of Content Services 
 where out-of-process extensions are possible as we will see. 
 
@@ -80,7 +80,7 @@ is easy to download, install, and deploy.
 For more information about the internals of the Platform, and specifically the content repository, see the 
 [concepts](#repoconcepts) section next. After that read more about the extension points.
 
-Content Services provides a number of [extension points]({% link content-services/latest/develop/overview-ext-points.md %})  
+Content Services provides a number of [extension points]({% link content-services/7.3/develop/overview-ext-points.md %})  
 that will allow you to customize the management of content specific to your domain. These extensions points can be divided 
 into platform extensions and user interface extensions:
 
@@ -115,7 +115,7 @@ The repository implements services including:
 * Multilingual
 * Rules/Actions
 
-The repository implements and exposes these services through an [Alfresco ReST API]({% link content-services/latest/develop/rest-api-guide/index.md %}) 
+The repository implements and exposes these services through an [Alfresco ReST API]({% link content-services/7.3/develop/rest-api-guide/index.md %}) 
 and CMIS protocol bindings. The storage engine of the repository stores and retrieves content, metadata, and relationships.
 
 ### Key Concepts
@@ -319,18 +319,18 @@ default document content model:
 The platform architecture consists of the repository and related services. The platform contains the key extension points 
 for building your own extensions.
 
-The following diagram illustrates the platform architecture and the [in-process extension points]({% link content-services/latest/develop/repo-ext-points/index.md %})
-and the [out-of-process extension points]({% link content-services/latest/develop/oop-ext-points/index.md %}).
+The following diagram illustrates the platform architecture and the [in-process extension points]({% link content-services/7.3/develop/repo-ext-points/index.md %})
+and the [out-of-process extension points]({% link content-services/7.3/develop/oop-ext-points/index.md %}).
 Note that this does not represent a complete list of all in-process extension points:
 
 ![acs-platform-architecture-detail]({% link content-services/images/acs-platform-architecture-detail.png %})
 
 The platform consists of the repository and all services, developer extension points,
-and APIs, such as the [ReST API]({% link content-services/latest/develop/rest-api-guide/index.md %}).
+and APIs, such as the [ReST API]({% link content-services/7.3/develop/rest-api-guide/index.md %}).
 The repository provides storage for documents and other content. The content metadata
 is stored in a relational database, while the content itself is stored directly on the file system. The relationships 
 between content items, and their various properties (metadata) are defined in one or more 
-[content models]({% link content-services/latest/develop/repo-ext-points/content-model.md %}).
+[content models]({% link content-services/7.3/develop/repo-ext-points/content-model.md %}).
 
 Content models can be thought of as describing types of content and the relationships between pieces of content. 
 For example, there is a relationship between a content that has a container functionality (that is, folder), and the 
@@ -344,12 +344,12 @@ creating and managing sites in the Share application, and the Tagging Service, w
 content with keywords. The following sections of this documentation provide a brief tour of the available services.
 
 Typically these services are implemented in Java, and expose an API described by the 
-[Public Java API]({% link content-services/latest/develop/reference/java-foundation-ref.md %}).
+[Public Java API]({% link content-services/7.3/develop/reference/java-foundation-ref.md %}).
 
 The platform is highly extensible. You can write extensions in Java, JavaScript, and FreeMarker, and you can write 
-client applications in any language using the [ReST API]({% link content-services/latest/develop/rest-api-guide/index.md %}). You can create new
-[content models]({% link content-services/latest/develop/repo-ext-points/content-model.md %}) that define new content types, metadata,
-and relationships. You can define [custom actions]({% link content-services/latest/develop/repo-ext-points/repo-actions.md %}) that the repository
+client applications in any language using the [ReST API]({% link content-services/7.3/develop/rest-api-guide/index.md %}). You can create new
+[content models]({% link content-services/7.3/develop/repo-ext-points/content-model.md %}) that define new content types, metadata,
+and relationships. You can define [custom actions]({% link content-services/7.3/develop/repo-ext-points/repo-actions.md %}) that the repository
 will carry out when certain events happen (such as when new content is added to the repository). You can even create 
 entirely new services, if required.
 
@@ -398,7 +398,7 @@ Models also define kinds of relationships, property data types, and value constr
 allows a property to hold arbitrary length binary data. Content Services comes prepackaged with several content models. 
 You can define new models for specific use cases from scratch or by inheriting definitions from existing models.
 
-For more information see [content model introduction]({% link content-services/latest/develop/repo-ext-points/content-model.md %}).
+For more information see [content model introduction]({% link content-services/7.3/develop/repo-ext-points/content-model.md %}).
 
 ### Access protocols
 Content Services supports a number of different protocols for accessing the content repository. Their 
@@ -476,7 +476,7 @@ repository. There is also the Application Development Framework that can be used
 ### Customizing the user interface
 Alfresco offers two content management web clients that can be used right out-of-the box:
 
-* **[Alfresco Share]({% link content-services/latest/using/share.md %})** - the traditional web client that are still heavily used, but it is based on some technology that might not be well known among developers.
+* **[Alfresco Share]({% link content-services/7.3/using/share.md %})** - the traditional web client that are still heavily used, but it is based on some technology that might not be well known among developers.
 * **[Digital Workspace]({% link digital-workspace/latest/index.md %})** - the newer web client that are based on the well known Angular JavaScript framework. This web client is also built with components from the Alfresco Application Development Framework (ADF).
  
 When developing (customizing) the user interface for your domain specific content management solution follow this approach:
@@ -617,7 +617,7 @@ top of the Spring Web MVC technology, which in turn uses the Spring Framework.
 
 Developers can also add completely new pages and dashlets to the Share UI when content should be viewed or handled in a 
 specific way. Sometimes it is also required to modify existing pages. To customize the Share UI developers use so called 
-*[Extension Points]({% link content-services/latest/develop/share-ext-points/index.md %})*, which are supported ways of injecting new
+*[Extension Points]({% link content-services/7.3/develop/share-ext-points/index.md %})*, which are supported ways of injecting new
 custom code that should alter the functionality of the Share web application.
 
 The following picture gives an overview of the Alfresco Share application architecture, note that not all available 
@@ -646,7 +646,7 @@ The following sections get into a bit more details around Surf pages and Aikau p
 
 #### Server Side Framework (Surf) {#surf-framework}
 The layout of a Share page is defined with the Surf development framework, which is a server side framework 
-([Surf deep dive]({% link content-services/latest/develop/reference/surf-framework-ref.md %})). This means that the
+([Surf deep dive]({% link content-services/7.3/develop/reference/surf-framework-ref.md %})). This means that the
 involved files are processed on the server side (compared to Browser processing of JavaScript files). Surf is based on
 the Model View Controller (MVC) pattern where the controller(s) is mostly implemented in server side JavaScript
 (The Rhino JavaScript engine is included on the server side). The template is written in FreeMarker, and the model is a
@@ -672,7 +672,7 @@ development framework. It looks like this:
 ![dev-extensions-share-surf-page-model]({% link content-services/images/dev-extensions-share-surf-page-model.png %})
 
 The model is referred to as the `siteData` and has more stuff than just pages and templates 
-([Surf Reference]({% link content-services/latest/develop/reference/surf-framework-ref.md %})). You will however mostly be dealing with component,
+([Surf Reference]({% link content-services/7.3/develop/reference/surf-framework-ref.md %})). You will however mostly be dealing with component,
 page, and template-instance files, which are simple XML files:
 
 ```text
@@ -876,7 +876,7 @@ The following steps are needed to add a Surf Page:
 * Add a properties file (.properties) - Optional but good practice
 * Add Web Script(s) that fetches content to display (if you have `page` scoped regions and use an existing template)
 
-The full tutorial, and introduction to Surf Pages, can be found ([here]({% link content-services/latest/develop/share-ext-points/surf-pages.md %})).
+The full tutorial, and introduction to Surf Pages, can be found ([here]({% link content-services/7.3/develop/share-ext-points/surf-pages.md %})).
 
 Next, have a look at how to implement the same Hello World page with Aikau.
 
@@ -890,7 +890,7 @@ To implement the Hello World page in Aikau we have to go through the following s
 * Add Widget to display content
 * Choose what Surf Page you want to use as a basis (dp, hdp, rdp etc)
 
-For a full tutorial and introduction to Aikau Pages, see ([Introduction to Aikau Pages]({% link content-services/latest/develop/software-architecture.md %}#aikauintro)).
+For a full tutorial and introduction to Aikau Pages, see ([Introduction to Aikau Pages]({% link content-services/7.3/develop/software-architecture.md %}#aikauintro)).
 
 #### Surf Pages introduction {#surfpageintro}
 Use this information for a brief introduction to Spring Surf Pages.
@@ -1285,14 +1285,14 @@ The two main categories of API that are available to use when interacting with t
 and the embedded APIs.
 
 ### Remote APIs
-The main remote Application Programming Interface (API) is the [Alfresco ReST API]({% link content-services/latest/develop/rest-api-guide/index.md %}),
+The main remote Application Programming Interface (API) is the [Alfresco ReST API]({% link content-services/7.3/develop/rest-api-guide/index.md %}),
 which should be the first place you go to when you want to interact with the Alfresco Repository remotely. 
 If portability is very important, than have a look at the CMIS ReST API,
 which is a standard implemented by many ECM vendors.
 
 ### Embedded APIs
 The embedded APIs have traditionally been used a lot to build customizations that run inside the same JVM as the 
-Alfresco Repository. There are both a [Public Java API]({% link content-services/latest/develop/reference/java-foundation-ref.md %}) and a Repository JavaScript API.
+Alfresco Repository. There are both a [Public Java API]({% link content-services/7.3/develop/reference/java-foundation-ref.md %}) and a Repository JavaScript API.
 Before using the embedded APIs a thorough investigation should be done to rule out the possibility of building the extension 
 with a remote API. It is not recommended to build embedded extensions unless it is absolutely necessary.
 They make it difficult during upgrades and can quite easily have unintended side effects on core repository functionality, 

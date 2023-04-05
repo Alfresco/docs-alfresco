@@ -4,7 +4,7 @@ title: Set up security authorization
 
 Content Services security comprises a combination of authentication and authorization.
 
-[Authentication]({% link content-services/latest/admin/auth-sync.md %}) is about validating that a user or principal is who or what they claim to be. A user’s credentials can take many forms and can be validated in a number ways. For example, a password validated against an LDAP directory, or a Kerberos ticket validated against a Microsoft Active Directory Server.
+[Authentication]({% link content-services/7.3/admin/auth-sync.md %}) is about validating that a user or principal is who or what they claim to be. A user’s credentials can take many forms and can be validated in a number ways. For example, a password validated against an LDAP directory, or a Kerberos ticket validated against a Microsoft Active Directory Server.
 
 Content Services includes:
 

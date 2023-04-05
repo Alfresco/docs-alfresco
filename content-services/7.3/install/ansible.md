@@ -277,7 +277,7 @@ transformers_1             : ok=81   changed=10   unreachable=0    failed=0    s
 
 For details about the webapp URLs, location of logs, configuration etc., see [Useful information](#usefulinfo).
 
-If you're deploying a production system, ensure that you review the additional information provided in [Securing your installation]({% link content-services/latest/admin/securing-install.md %}).
+If you're deploying a production system, ensure that you review the additional information provided in [Securing your installation]({% link content-services/7.3/admin/securing-install.md %}).
 
 ## Remote installation
 
@@ -335,7 +335,7 @@ transformers_1             : ok=81   changed=10   unreachable=0    failed=0    s
 
 For details about the webapp URLs, location of logs, configuration etc., see [Useful information](#usefulinfo).
 
-If you're deploying a production system, ensure that you review the additional information provided in [Securing your installation]({% link content-services/latest/admin/securing-install.md %}).
+If you're deploying a production system, ensure that you review the additional information provided in [Securing your installation]({% link content-services/7.3/admin/securing-install.md %}).
 
 ### Multi-machine installation
 
@@ -377,7 +377,7 @@ transformers_1             : ok=81   changed=10   unreachable=0    failed=0    s
 
 For details about the webapp URLs, location of logs, configuration, and more, see [Useful information](#usefulinfo).
 
-If you're deploying a production system, ensure that you review the additional information provided in [Securing your installation]({% link content-services/latest/admin/securing-install.md %}).
+If you're deploying a production system, ensure that you review the additional information provided in [Securing your installation]({% link content-services/7.3/admin/securing-install.md %}).
 
 ### Additional command switches for ansible-playbook
 
@@ -396,7 +396,7 @@ Due to load or high availability needs, you might want to deploy a cluster of se
 * Giving the playbook the location of the shared storage used for the Content Services `contentstore` (See [Shared storage documentation](https://github.com/Alfresco/alfresco-ansible-deployment/blob/master/docs/shared-contentstore.md){:target="_blank"} for details).
 * Specifying several hosts within the `repository` hosts group.
 
-> **Warning:** As mentioned in the [Set up clustering]({% link content-services/latest/admin/cluster.md %}#scenarioredundancycluster) documentation, "*All the servers in a cluster should have static IP addresses assigned to them*". Not meeting this prerequisite won't prevent the playbook from working, but the cluster will most likely stop working if the IP addresses for the servers ever changes.
+> **Warning:** As mentioned in the [Set up clustering]({% link content-services/7.3/admin/cluster.md %}#scenarioredundancycluster) documentation, "*All the servers in a cluster should have static IP addresses assigned to them*". Not meeting this prerequisite won't prevent the playbook from working, but the cluster will most likely stop working if the IP addresses for the servers ever changes.
 
 For example:
 
@@ -523,7 +523,7 @@ This section describes how to configure your installation before running the pla
 
 If you have a valid license, place your `*.lic` file in the `configuration_files/licenses` folder before running the playbook.
 
-> **Note:** You can also [upload a license]({% link content-services/latest/admin/license.md %}) via the Admin Console once the system is running.
+> **Note:** You can also [upload a license]({% link content-services/7.3/admin/license.md %}) via the Admin Console once the system is running.
 
 ### Alfresco/Solr authentication
 
@@ -721,7 +721,7 @@ Along with the URL, the database driver binaries need to be provided for one or 
 
 The default database username (`repo_db_username` and/or `sync_db_username`) and password (`repo_db_password` and/or `sync_db_password`) in the configuration file `group_vars/all.yml` can also be overridden with your custom values.
 
-See [Configuring databases]({% link content-services/latest/config/databases.md %}) for more details.
+See [Configuring databases]({% link content-services/7.3/config/databases.md %}) for more details.
 
 ### External ActiveMQ
 

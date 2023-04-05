@@ -3,11 +3,11 @@ title: Java Foundation API reference
 ---
 
 The Alfresco Java Foundation API provides the ability to build server-side extensions that runs in the same
-process as Content Services. This API is used to build extensions for the [Platform (Repository)]({% link content-services/latest/develop/software-architecture.md %}#platformarch). 
+process as Content Services. This API is used to build extensions for the [Platform (Repository)]({% link content-services/7.3/develop/software-architecture.md %}#platformarch). 
 
 ## Getting started {#gettingstarted}
 When we want to use one of the public Java APIs from an implementation of one of the Platform/Repository 
-[Extension Points]({% link content-services/latest/develop/repo-ext-points/index.md %}), 
+[Extension Points]({% link content-services/7.3/develop/repo-ext-points/index.md %}), 
 it follows a best practice. First acquire a reference to the `ServiceRegistry`. The service registry is 
 basically a database of services, their instances and their locations. 
 
@@ -26,8 +26,8 @@ The following code snippet illustrates how to first inject the `ServiceRegistry`
 ```
 
 In this case the `ServiceRegistry` is injected into a custom Service implementation, but the principle is the same for 
-other implementations, such as for [Repository Actions]({% link content-services/latest/develop/repo-ext-points/repo-actions.md %}) 
-and Java-backed [Web Scripts]({% link content-services/latest/develop/repo-ext-points/web-scripts.md %}). When we got the 
+other implementations, such as for [Repository Actions]({% link content-services/7.3/develop/repo-ext-points/repo-actions.md %}) 
+and Java-backed [Web Scripts]({% link content-services/7.3/develop/repo-ext-points/web-scripts.md %}). When we got the 
 service registry available in our implementation we can start using the Public Java API services such as in the following
 example:
 
@@ -142,7 +142,7 @@ txHelper.doInTransaction(new RetryingTransactionHelper.RetryingTransactionCallba
 If we are using these services in a cluster, then we need to remember that they are not cluster *aware*. So if we for 
 example are using these services in a scheduled job, which will be kicked off on each node in the cluster, then we would 
 have to use the `JobLockService` to lock the cluster so another node does not start executing the same job. For more 
-information about this see [Scheduled jobs]({% link content-services/latest/develop/repo-ext-points/scheduled-jobs.md %}).
+information about this see [Scheduled jobs]({% link content-services/7.3/develop/repo-ext-points/scheduled-jobs.md %}).
 
 To turn on logging so you can get details of 'why' transactions are retried use the following log level:
 
@@ -151,7 +151,7 @@ To turn on logging so you can get details of 'why' transactions are retried use 
 
 ### Deployment
 It is not likely that you will deploy Java extensions directly into a Tomcat application server as classes and Spring 
-context files. You would instead use an [Alfresco In-Process SDK]({% link content-services/latest/develop/sdk.md %}) project.
+context files. You would instead use an [Alfresco In-Process SDK]({% link content-services/7.3/develop/sdk.md %}) project.
 
 Put the Java source code in the `aio/platform-jar/src/main/java/{domain specific directory path}` path. And the 
 Spring bean configuration in `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/context/service-context.xml`
@@ -189,7 +189,7 @@ or a notification email to be sent. There are a number of built-in Actions avail
 
 You can also create custom Actions to do whatever you want when content is added to a folder.
 
-While Actions are typically triggered by [Rules]({% link content-services/latest/using/content/rules.md %}), you can 
+While Actions are typically triggered by [Rules]({% link content-services/7.3/using/content/rules.md %}), you can 
 also invoke them directly by selecting them from a menu item. The `ActionService` also allows you to call them directly 
 from code. Any piece of code that can access the `ActionService` can invoke the Action, for example:
 
@@ -231,7 +231,7 @@ if (action != null) {
 ```
 
 In this example we invoke a custom action with the Spring bean id `send-as-email` (more information about this 
-repository action implementation can be found [here]({% link content-services/latest/develop/repo-ext-points/repo-actions.md %}):
+repository action implementation can be found [here]({% link content-services/7.3/develop/repo-ext-points/repo-actions.md %}):
 
 ```java
 import org.alfresco.service.cmr.action.Action;
@@ -254,7 +254,7 @@ public void sendEmailWithDoc(String to, String subject, String bodyText, NodeRef
 
 See also:
 
-* [Repository Actions platform extension point]({% link content-services/latest/develop/repo-ext-points/repo-actions.md %}).
+* [Repository Actions platform extension point]({% link content-services/7.3/develop/repo-ext-points/repo-actions.md %}).
 * [Jeff Potts Custom Action tutorial](http://ecmarchitect.com/alfresco-developer-series-tutorials/actions/tutorial/tutorial.html){:target="_blank"}
 
 ## ActivityService
@@ -448,8 +448,8 @@ public ObjectList getContentChanges(Holder<String> changeLogToken, BigInteger ma
 
 See also:
 
-* [Audit platform extension point]({% link content-services/latest/develop/repo-ext-points/audit-log.md %}).
-* [Auditing]({% link content-services/latest/admin/audit.md %}) provides a detailed overview of auditing.
+* [Audit platform extension point]({% link content-services/7.3/develop/repo-ext-points/audit-log.md %}).
+* [Auditing]({% link content-services/7.3/admin/audit.md %}) provides a detailed overview of auditing.
 * [Audit API Hints and Tricks](https://www.youtube.com/watch?v=_aP_JYTwZ6Y){:target="_blank"} DevCon presentation by Mehdi Belmekki.
 * [Audit and Reporting with Alfresco and NoSQL by Zaizi](https://www.slideshare.net/zaiziltd/scale-audit-reporting-with-a-nosql-architecture){:target="_blank"}
 
@@ -500,7 +500,7 @@ NodeRef person = personService.getPerson(authService.getCurrentUserName());
 
 See also:
 
-* [Authentication & Sync documentation]({% link content-services/latest/admin/auth-sync.md %})
+* [Authentication & Sync documentation]({% link content-services/7.3/admin/auth-sync.md %})
 
 ## AuthorityService
 The service that encapsulates authorities granted to users. This service will refuse to create any user authorities. 
@@ -547,7 +547,7 @@ serviceRegistry.getAuthorityService().addAuthority(knightGroup, ADMIN_USER_NAME)
 
 See also 
 
-* [Authentication & Sync documentation]({% link content-services/latest/admin/auth-sync.md %})
+* [Authentication & Sync documentation]({% link content-services/7.3/admin/auth-sync.md %})
 
 ## CategoryService
 Provides an API for creating and managing categories of nodes. Categories provide a system for organizing content. 
@@ -576,8 +576,8 @@ NodeRef newCategory = serviceRegistry.getCategoryService().createCategory(newRoo
 
 See also:
 
-* [Tagging and Categorizing Content]({% link content-services/latest/using/content/manage.md %}#tagcategorizecontent)
-* [Category Manager documentation]({% link content-services/latest/admin/share-admin-tools.md %}#cat-manager)
+* [Tagging and Categorizing Content]({% link content-services/7.3/using/content/manage.md %}#tagcategorizecontent)
+* [Category Manager documentation]({% link content-services/7.3/admin/share-admin-tools.md %}#cat-manager)
 
 ## CheckOutCheckInService
 Service to provide document locking. If a document is locked, other users cannot change its content, until it is unlocked.
@@ -797,7 +797,7 @@ public class CopyActionExecuter extends ActionExecuterAbstractBase {
 ```
 
 ## DictionaryService
-This service gives you access to the [Content Model]({% link content-services/latest/develop/repo-ext-points/content-model.md %}) 
+This service gives you access to the [Content Model]({% link content-services/7.3/develop/repo-ext-points/content-model.md %}) 
 Dictionary. This dictionary provides access to content model meta-data, such as Type and Aspect descriptions. Content 
 model metadata is organized into models where each model is given a qualified name. This means that it is safe to develop 
 independent models and bring them together into the same Repository without name clashes (as long their namespace is different).
@@ -857,9 +857,9 @@ With the `FileFolderService` class the following type of operations are availabl
 The methods typically work with a `NodeRef` for the node that represents the target file or folder.
 
 The following example uses the `FileFolderService` to create a folder and then a file in this new folder. The example 
-code is executed inside a [Web Script]({% link content-services/latest/develop/repo-ext-points/web-scripts.md %}) so it 
+code is executed inside a [Web Script]({% link content-services/7.3/develop/repo-ext-points/web-scripts.md %}) so it 
 will automatically be part of a transaction using the `RetryingTransactionHelper`, same thing if the code was executed 
-from a [Repository Action]({% link content-services/latest/develop/repo-ext-points/repo-actions.md %}).
+from a [Repository Action]({% link content-services/7.3/develop/repo-ext-points/repo-actions.md %}).
 
 ```java
 import org.alfresco.model.ContentModel;
@@ -1036,7 +1036,7 @@ used indirectly via the [AbstractScheduledLockedJob](https://github.com/Alfresco
 
 For an example of using the `JobLockService` see the [Content Store Cleaner code](https://github.com/Alfresco/alfresco-community-repo/tree/master/repository/src/main/java/org/alfresco/repo/content/cleanup/ContentStoreCleaner.java){:target="_blank"} on GitHub.
 
-See also the [Scheduled Jobs extension point]({% link content-services/latest/develop/repo-ext-points/scheduled-jobs.md %})
+See also the [Scheduled Jobs extension point]({% link content-services/7.3/develop/repo-ext-points/scheduled-jobs.md %})
 
 ## LockService
 A node-level locking service, used by the `CheckOutCheckIn` service. Does not create a working copy. If you need a 
@@ -1110,7 +1110,7 @@ Before a resource bundle can be used by the repository it must be registered. Su
 service to support this. And more commonly the `org.alfresco.i18n.ResourceBundleBootstrapComponent` class can be used as 
 a Spring bean to register resource bundles.
 
-The following example uses a [Web Script]({% link content-services/latest/develop/repo-ext-points/web-scripts.md %}) 
+The following example uses a [Web Script]({% link content-services/7.3/develop/repo-ext-points/web-scripts.md %}) 
 to test registered resource bundles as follows: 
 
 ```java
@@ -1269,14 +1269,14 @@ contentWriter.setMimetype(serviceRegistry.getMimetypeService().guessMimetype(fil
 contentWriter.putContent(field.getInputStream());
 ```
 
-See also the [Mimetype platform extension point]({% link content-services/latest/develop/repo-ext-points/mimetypes.md %})
+See also the [Mimetype platform extension point]({% link content-services/7.3/develop/repo-ext-points/mimetypes.md %})
 
 ## ModuleService
-A service to control and provide information about the currently-installed [Alfresco Module Packages (AMPs)]({% link content-services/latest/develop/extension-packaging.md %}).
+A service to control and provide information about the currently-installed [Alfresco Module Packages (AMPs)]({% link content-services/7.3/develop/extension-packaging.md %}).
 
 A module is an extension to Content Services that is developed with a particular project structure and packaging. 
 Modules can be registered and loaded as part of the boot process. In Share Admin Tools, you can 
-[view the currently installed Modules]({% link content-services/latest/install/zip/amp.md %}#viewing-module-packages). 
+[view the currently installed Modules]({% link content-services/7.3/install/zip/amp.md %}#viewing-module-packages). 
 The `ModuleService` provides functionality to programmatically start up and shut down modules, and get module information.
 
 Get all modules and shut down:
@@ -1561,7 +1561,7 @@ serviceRegistry.getNodeService().addAspect(nodeRef, ContentModel.ASPECT_TEMPORAR
 serviceRegistry.getNodeService().deleteNode(nodeRef);
 ```
 
-See also [Custom Content Store platform extension point]({% link content-services/latest/develop/repo-ext-points/content-stores.md %})
+See also [Custom Content Store platform extension point]({% link content-services/7.3/develop/repo-ext-points/content-stores.md %})
 
 ### Setting content for node
 Since Content Services 6.2 the `cm:content` property cannot be set using the `NodeService`. Any code that uses 
@@ -1586,7 +1586,7 @@ the `sys:pendingDelete` aspect will be. Any custom code that attempts to modify 
 to be adjusted.
 
 Changes made in 4.1.1 introduced comprehensive behaviour policy callbacks (i.e. event handlers) for all associations 
-during node deletion. The following [node policies]({% link content-services/latest/develop/repo-ext-points/behavior-policies.md %}) 
+during node deletion. The following [node policies]({% link content-services/7.3/develop/repo-ext-points/behavior-policies.md %}) 
 are available for node deletion:
 
 * `BeforeDeleteNodePolicy`
@@ -1850,7 +1850,7 @@ Set `Coordinator` role permissions for a username `john` on a node:
 ```java
 serviceRegistry.getPermissionService().setPermission(nodeRef, "john", PermissionService.COORDINATOR, true);
 ```
-See also [Permissions platform extension point]({% link content-services/latest/develop/repo-ext-points/permissions.md %})
+See also [Permissions platform extension point]({% link content-services/7.3/develop/repo-ext-points/permissions.md %})
 
 ## PersonService
 This service encapsulates the management of people and groups. People and groups may be managed entirely in the 
@@ -2042,8 +2042,8 @@ renditionDef.setExecuteAsynchronously(true);
 
 See also:
 
-* [Content Transformers and Renditions extension point]({% link content-services/latest/develop/repo-ext-points/content-transformers-renditions.md %})
-* [Mimetypes extension point]({% link content-services/latest/develop/repo-ext-points/mimetypes.md %})
+* [Content Transformers and Renditions extension point]({% link content-services/7.3/develop/repo-ext-points/content-transformers-renditions.md %})
+* [Mimetypes extension point]({% link content-services/7.3/develop/repo-ext-points/mimetypes.md %})
 
 ## RetryingTransactionHelper
 A helper that runs a unit of work inside a `UserTransaction`, transparently retrying the unit of work if the cause of 
@@ -2192,11 +2192,11 @@ resultSet.close();
 See also [Alfresco FTS reference]({% link search-services/latest/using/index.md %}).
 
 ## SiteService
-The `SiteService` provides an API for managing [Share Sites]({% link content-services/latest/using/sites/index.md %}). 
+The `SiteService` provides an API for managing [Share Sites]({% link content-services/7.3/using/sites/index.md %}). 
 
 Creating a site is not possible with the `siteService.createSite` method, it only creates a site at the repository 
 level, it does not create a fully functional site. To create a fully functional site use the 
-[ReST API]({% link content-services/latest/develop/rest-api-guide/sites.md %}#createsite).
+[ReST API]({% link content-services/7.3/develop/rest-api-guide/sites.md %}#createsite).
 
 Adding a site manager (member):
 
@@ -2286,7 +2286,7 @@ The `VersionService` provides an API to allow you to do this programmatically:
 * `revert` - reverts the state of a file to that of a previous version.
 * `restore` - restores a previously deleted file from a version in its version history.
 
-Alfresco provides the ability to apply [behavior policies]({% link content-services/latest/develop/repo-ext-points/behavior-policies.md %}) 
+Alfresco provides the ability to apply [behavior policies]({% link content-services/7.3/develop/repo-ext-points/behavior-policies.md %}) 
 to content and metadata within the repository. You can think of these as event listeners, that allow you to take custom 
 actions based on what is happening within the repository.
 
@@ -2364,7 +2364,7 @@ The Spring bean for the `MaxVersionPolicy` class looks like this:
 ```
 
 ## WorkflowService
-Provides an interface to work with built in [workflows and tasks]({% link content-services/latest/using/tasks.md %}). 
+Provides an interface to work with built in [workflows and tasks]({% link content-services/7.3/using/tasks.md %}). 
 The [Activiti](https://www.activiti.org/){:target="_blank"} workflow engine is built into Content Services. You can 
 create and manage workflows directly from your Dashboard. 
 

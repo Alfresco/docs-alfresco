@@ -4,7 +4,7 @@ title: Form Controls Extension Point
 
 When defining a form the form controls for each field controls how the field is displayed and handled.
 
-Architecture Information: [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
+Architecture Information: [Share Architecture]({% link content-services/7.3/develop/software-architecture.md %}#sharearchitecture)
 
 ## Description
 
@@ -50,7 +50,7 @@ as a FreeMarker template, here is the one for a standard Text Field (`textfield.
 These standard form control implementations can be found in the `tomcat/webapps/share/WEB-INF/classes/alfresco/site-webscripts/org/alfresco/components/form/controls` 
 directory. The two FreeMarker root objects that contain most of the information that we need when implementing the 
 control is the `form` object and the `field` object. These objects get their data from the form and field definitions. 
-And you can also implement [Form Filters]({% link content-services/latest/develop/share-ext-points/form-processor-filters.md %}) 
+And you can also implement [Form Filters]({% link content-services/7.3/develop/share-ext-points/form-processor-filters.md %}) 
 to add extra properties that can be used in the form control implementation.
 
 The following form definition shows the use of the Text Field form control:
@@ -99,7 +99,7 @@ that should be editable sometimes and read-only sometimes, it is stored in `org/
 ```
 
 This custom form control uses a custom property called `prop_dueDateReadOnly` that would need to be set up in a 
-[Form Filter]({% link content-services/latest/develop/share-ext-points/form-processor-filters.md %}). This form control would then 
+[Form Filter]({% link content-services/7.3/develop/share-ext-points/form-processor-filters.md %}). This form control would then 
 be used as follows:
 
 ```xml
@@ -138,11 +138,11 @@ Best practice is to put the file in a directory that explains what the file is f
 
 ## More Information
 
-* [Customizing Form Controls]({% link content-services/latest/develop/reference/share-document-library-ref.md %}#customizeformcontrols)
-* [Form Control Reference]({% link content-services/latest/develop/reference/share-document-library-ref.md %}#formref)
-* [Forms config]({% link content-services/latest/develop/share-ext-points/share-config.md %}#shareformsconfig)
+* [Customizing Form Controls]({% link content-services/7.3/develop/reference/share-document-library-ref.md %}#customizeformcontrols)
+* [Form Control Reference]({% link content-services/7.3/develop/reference/share-document-library-ref.md %}#formref)
+* [Forms config]({% link content-services/7.3/develop/share-ext-points/share-config.md %}#shareformsconfig)
 
 ## Tutorials
 
-* [Adding a custom Form Control]({% link content-services/latest/develop/share-ext-points/share-config.md %}#customformcontrol)
-* [Configuring a Form Control]({% link content-services/latest/develop/share-ext-points/share-config.md %}#formcontrolconfig)
+* [Adding a custom Form Control]({% link content-services/7.3/develop/share-ext-points/share-config.md %}#customformcontrol)
+* [Configuring a Form Control]({% link content-services/7.3/develop/share-ext-points/share-config.md %}#formcontrolconfig)

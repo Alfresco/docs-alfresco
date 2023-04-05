@@ -105,7 +105,7 @@ and not the `FlashUpload` that we might think. So it is important to debug into 
 ## SurfBug
 
 SurfBug is a debugging tool built into Spring Surf that displays a variety of information about the various components 
-on a Surf page. If you are not up to speed on Surf, see [Surf framework]({% link content-services/latest/develop/software-architecture.md %}#surf-framework).
+on a Surf page. If you are not up to speed on Surf, see [Surf framework]({% link content-services/7.3/develop/software-architecture.md %}#surf-framework).
 
 ### SurfBug introduction
 

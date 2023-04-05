@@ -4,7 +4,7 @@ title: Content models
 
 Use this information to create and manage custom models in Alfresco Share using the Model Manager.
 
-> **Note:** A [tutorial]({% link content-services/latest/tutorial/model.md %}) for using the Model Manager is also available.
+> **Note:** A [tutorial]({% link content-services/7.3/tutorial/model.md %}) for using the Model Manager is also available.
 
 ## Introduction
 
@@ -31,7 +31,7 @@ A custom type enumerates the properties and relationships that a file of that ty
 
 ### Aspects
 
-An [aspect]({% link content-services/latest/config/repository.md %}#about-aspects) is a collection of properties that can encapsulate both data and behavior, providing a flexible tool for modeling content. Aspects add extra functionality and properties to the models by attaching them to custom types. A file must be of a single type, but may have one or more aspects attached to it. By default, the content repository comprises of some out-of-the-box aspects, such as Classifiable, Versionable, and so on.
+An [aspect]({% link content-services/7.3/config/repository.md %}#about-aspects) is a collection of properties that can encapsulate both data and behavior, providing a flexible tool for modeling content. Aspects add extra functionality and properties to the models by attaching them to custom types. A file must be of a single type, but may have one or more aspects attached to it. By default, the content repository comprises of some out-of-the-box aspects, such as Classifiable, Versionable, and so on.
 
 ### Properties
 
@@ -151,7 +151,7 @@ To deactivate a content model:
 
 3. Once you have deactivated a content model, it can optionally be deleted by selecting **Delete** from the **Actions** dropdown.
 
-    > **Note:** If you delete a content model, remember to remove any filters that use it from the [Search Manager]({% link content-services/latest/using/permissions.md %}#search-manager).
+    > **Note:** If you delete a content model, remember to remove any filters that use it from the [Search Manager]({% link content-services/7.3/using/permissions.md %}#search-manager).
 
 ### Import a content model
 
@@ -441,7 +441,7 @@ The options for the indexing of properties are:
 | Pattern - unique matches | This option enables you to use unique identifiers which are searched on the basis of the full value of the property. The property itself will not be shown as a filter in the search results. The supported data types are `text`, `mltext` and `content`. |
 | Pattern - many matches | This option enables you to use identifiers which could be searched on the basis of the full value or via the wild card characters. The property itself will not be shown as a filter in the search results. The supported data types are `text`, `mltext` and `content`. |
 
-> **Note:** Different values can have an impact on the search performance, memory requirement, and disk storage requirement for your installation. For very large repositories, the values can have a significant impact. For most installations the default settings are fine. For properties that will be used for [search filters]({% link content-services/latest/using/permissions.md %}#search-manager), it is important to use the correct values as shown in the table.
+> **Note:** Different values can have an impact on the search performance, memory requirement, and disk storage requirement for your installation. For very large repositories, the values can have a significant impact. For most installations the default settings are fine. For properties that will be used for [search filters]({% link content-services/7.3/using/permissions.md %}#search-manager), it is important to use the correct values as shown in the table.
 
 #### Edit a property
 

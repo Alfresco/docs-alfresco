@@ -4,7 +4,7 @@ title: Work with licenses
 
 Access to Content Services is licensed on a per user basis.
 
-You can register any number of users (see [Setting up authentication and sync]({% link content-services/latest/admin/auth-sync.md %})) and a license is only consumed when the registered user logs in and is authorized.
+You can register any number of users (see [Setting up authentication and sync]({% link content-services/7.3/admin/auth-sync.md %})) and a license is only consumed when the registered user logs in and is authorized.
 
 You can see a list of users along with their authorization states on the **Admin Console > Users and Groups > Users** page. A registered user can have any one of the following states:
 
@@ -22,7 +22,7 @@ The access and use of Content Services is managed by your license. The license i
 
 You will receive an email confirming the purchase of your license, and a license file is attached to the email. The license file has a filename of `<license-name>.lic`. You use this license file to upload the license restrictions into your system.
 
-Before you upload a new license, ensure that Content Services is running and that you can access the [Repository Admin Console]({% link content-services/latest/admin/admin-console.md %}). When you first run Content Services, it defaults to using a trial license. You must upload your purchased license to run the server before the trial period has expired.
+Before you upload a new license, ensure that Content Services is running and that you can access the [Repository Admin Console]({% link content-services/7.3/admin/admin-console.md %}). When you first run Content Services, it defaults to using a trial license. You must upload your purchased license to run the server before the trial period has expired.
 
 1. Open the Repository **Admin Console**.
 

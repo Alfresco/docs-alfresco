@@ -37,7 +37,7 @@ The `server.allowWrite` property specifies that the repository will allow write 
 
 Follow these steps to check if Content Services is set to read-only mode or not:
 
-1. Launch the [Admin Console]({% link content-services/latest/admin/admin-console.md %}#launchadminconsole).
+1. Launch the [Admin Console]({% link content-services/7.3/admin/admin-console.md %}#launchadminconsole).
 2. Under **General**, click **System Settings**.
 3. Under **Repository Settings**, check the value of **Server Allow Writes**.
 
@@ -59,7 +59,7 @@ Follow these steps if you want to deploy to a context path that's not `/alfresco
 
 2. Update `alfresco-global.properties` with the name of the context path: `alfresco.context=new-context-path`.
 
-3. Update `share-config-custom.xml` as described in [Configuring the Share default port]({% link content-services/latest/develop/share-ext-points/share-config.md %}#setting-default-port).
+3. Update `share-config-custom.xml` as described in [Configuring the Share default port]({% link content-services/7.3/develop/share-ext-points/share-config.md %}#setting-default-port).
 
 4. Update the context path setting in the `_vti_bin` application:
 
@@ -686,13 +686,13 @@ If you're configuring SSL in a development or test environment, you can edit som
 Here's an example of how to configure Tomcat 9 to work with HTTPS for your development or test system. At this point, we assume that:
 
 * You've already set up Content Service with Tomcat 9, running HTTP on port 8080.
-  * Follow the steps in [Install using distribution zip]({% link content-services/latest/install/zip/index.md %}) if you haven't already done so.
+  * Follow the steps in [Install using distribution zip]({% link content-services/7.3/install/zip/index.md %}) if you haven't already done so.
 * You may have already setup HTTPS on port 8443 for Content Service to communicate with [Alfresco Search Services]({% link search-services/latest/index.md %}).
 * In our documentation, such as [Secure Sockets Layer (SSL) and the repository](#ssl-repo), port 8443 is generally provided as an example when setting up secure HTTPS connections. This is recommended only for use with Alfresco Search Services as it should use real client certificates, where `certificateVerification="required"`. For this development or test setup, we won't necessarily use client certificates, so we'll setup a separate HTTPS connector on a different port. You can have multiple connectors in Tomcat that use HTTPS and different ports.
 
 1. Copy the `alf_data/keystore` folder from the distribution zip to `<CATALINA_BASE>/alf_data/keystore`.
 
-    See [Install Alfresco WARs]({% link content-services/latest/install/zip/tomcat.md %}) to review the structure of the distribution zip.
+    See [Install Alfresco WARs]({% link content-services/7.3/install/zip/tomcat.md %}) to review the structure of the distribution zip.
 
     In the `alf_data/keystore` folder, you'll find sample self-signed generated certificates that you can use to configure an HTTPS connection for development or test purpose.
 
@@ -978,7 +978,7 @@ This property can be overridden, but it's discouraged since it might cause a sec
 Metadata extraction automatically extracts metadata information from inbound and/or updated content and updates the
 corresponding nodes properties with the metadata values.
 
-For more information see [metadata extraction extension point]({% link content-services/latest/develop/repo-ext-points/metadata-extractors.md %}).
+For more information see [metadata extraction extension point]({% link content-services/7.3/develop/repo-ext-points/metadata-extractors.md %}).
 
 ## About aspects
 
@@ -1176,7 +1176,7 @@ The following table shows the possible combinations of settings along with the b
 | False | True | No indexing at all. |
 | False | False | No indexing at all. |
 
-See [Managing aspects]({% link content-services/latest/using/content/files-folders.md %}#applyaspects) for more information.
+See [Managing aspects]({% link content-services/7.3/using/content/files-folders.md %}#applyaspects) for more information.
 
 ## Defer the start of CRON based jobs
 
@@ -1188,7 +1188,7 @@ You can set a delay for all cron based jobs; in other words, jobs that use the `
 
 2. Locate and edit the `alfresco-global.properties` file in the `<classpathRoot>` directory.
 
-    See [Modifying the global properties file]({% link content-services/latest/config/index.md %}#modify-global-props) for more information.
+    See [Modifying the global properties file]({% link content-services/7.3/config/index.md %}#modify-global-props) for more information.
 
 3. Add two configurations to the `alfresco-global.properties` file, where the number in `startDelayMins=` is the number of minutes you want to delay your job. In this example, the delay length is 2 minutes:
 

@@ -89,16 +89,16 @@ Here are some tips to familiarize yourself.
 
 > **Note:** We recommend that you create a test site for testing purpose and put all your test data in that site.
 
-* Can you login using your user name and password. See [Signing in]({% link content-services/latest/using/share.md %}#signing-in).
-* Can you create a site. See [Creating a new site]({% link content-services/latest/using/sites/index.md %}#creating-a-site).
-* Can you add new users to the site. See [Adding users to a site]({% link content-services/latest/using/sites/index.md %}#adding-users-to-a-site).
-* Can you add pages to the site. See [Adding pages to a site]({% link content-services/latest/using/sites/index.md %}#customizesite).
-* Can you add content to a site library. See [Adding content items]({% link content-services/latest/using/content/manage.md %}).
-* Can you copy or move content from its current location to another folder or any other site. See [Copying content]({% link content-services/latest/using/content/manage.md %}#copying-content) and [Moving content]({% link content-services/latest/using/content/manage.md %}#moving-content).
-* Can you update content. See [Updating content]({% link content-services/latest/using/content/manage.md %}#uploading-files).
-* Can you manage permissions for a user or a group for accessing content. See [Managing content permissions]({% link content-services/latest/using/permissions.md %}).
-* Can you add a new rule to a folder in the site library and check if it works. See [Adding a new rule]({% link content-services/latest/using/content/rules.md %}#createrule).
-* Can you schedule events, such as meeting, for your team. See [Scheduling events]({% link content-services/latest/using/sites/features.md %}#calendar).
+* Can you login using your user name and password. See [Signing in]({% link content-services/7.3/using/share.md %}#signing-in).
+* Can you create a site. See [Creating a new site]({% link content-services/7.3/using/sites/index.md %}#creating-a-site).
+* Can you add new users to the site. See [Adding users to a site]({% link content-services/7.3/using/sites/index.md %}#adding-users-to-a-site).
+* Can you add pages to the site. See [Adding pages to a site]({% link content-services/7.3/using/sites/index.md %}#customizesite).
+* Can you add content to a site library. See [Adding content items]({% link content-services/7.3/using/content/manage.md %}).
+* Can you copy or move content from its current location to another folder or any other site. See [Copying content]({% link content-services/7.3/using/content/manage.md %}#copying-content) and [Moving content]({% link content-services/7.3/using/content/manage.md %}#moving-content).
+* Can you update content. See [Updating content]({% link content-services/7.3/using/content/manage.md %}#uploading-files).
+* Can you manage permissions for a user or a group for accessing content. See [Managing content permissions]({% link content-services/7.3/using/permissions.md %}).
+* Can you add a new rule to a folder in the site library and check if it works. See [Adding a new rule]({% link content-services/7.3/using/content/rules.md %}#createrule).
+* Can you schedule events, such as meeting, for your team. See [Scheduling events]({% link content-services/7.3/using/sites/features.md %}#calendar).
 
 ### Post-installation checks (clustered environment)
 
@@ -109,10 +109,10 @@ Here are some of the tips to help you test your customizations.
 > **Note:** We recommend that you create a test site for testing purposes, and put all your test data in that site.
 
 * Check that the application server is running.
-* Can you login using your user name and password. See [Signing in]({% link content-services/latest/using/share.md %}#signing-in).
+* Can you login using your user name and password. See [Signing in]({% link content-services/7.3/using/share.md %}#signing-in).
 * Check that various components are communicating with each other.
 * For a clustered installation, check if when one node is down, the request is forwarded to the next available node.
-* Check if clustering is working properly by running the [cluster validation tool]({% link content-services/latest/admin/cluster.md %}#managecluster) in the Admin Console.
+* Check if clustering is working properly by running the [cluster validation tool]({% link content-services/7.3/admin/cluster.md %}#managecluster) in the Admin Console.
 * Check if you are using a clustering-enabled license.
 * Change the cluster-related properties in the `alfresco-global.properties` file, and check if all the nodes are up and running.
 

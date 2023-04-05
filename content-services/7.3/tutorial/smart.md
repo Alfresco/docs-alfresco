@@ -18,17 +18,17 @@ In the tutorial, you will:
 6. Apply a System Smart Folder to your Claims Application folder, to see how you can use different Smart Folder Templates together
 7. Link your claim to related policy files
 
-See [Plan and implement Smart Folders]({% link content-services/latest/config/smart-folders/index.md %}#plan) and [Type-based, System, and Custom Smart Folders]({% link content-services/latest/config/smart-folders/index.md %}#sf-type) for more information about the Smart Folders workflow and types.
+See [Plan and implement Smart Folders]({% link content-services/7.3/config/smart-folders/index.md %}#plan) and [Type-based, System, and Custom Smart Folders]({% link content-services/7.3/config/smart-folders/index.md %}#sf-type) for more information about the Smart Folders workflow and types.
 
 The diagram shows the final folder structure that you will create during this tutorial: ![Smart Folder structure that you've created, including claims and policy folders]({% link content-services/images/sf-tutorial.png %})
 
-For background information on Smart Folder Templates, see [What's a Smart Folder?]({% link content-services/latest/config/smart-folders/index.md %}#sf-whatis)
+For background information on Smart Folder Templates, see [What's a Smart Folder?]({% link content-services/7.3/config/smart-folders/index.md %}#sf-whatis)
 
 ### Step 1: Set up claims management {#sf-tutorial-1}
 
 To set up the claims framework, you need to create a custom content model, then create a folder structure for your content.
 
-You need a custom content model to specify the metadata that the claims solution requires. You need to be in the ALFRESCO\_MODEL\_ADMINISTRATORS group to create a content model. For detailed information about Model Manager, see [Content modeling with Model Manager]({% link content-services/latest/config/models.md %}).
+You need a custom content model to specify the metadata that the claims solution requires. You need to be in the ALFRESCO\_MODEL\_ADMINISTRATORS group to create a content model. For detailed information about Model Manager, see [Content modeling with Model Manager]({% link content-services/7.3/config/models.md %}).
 
 1. Download the [Smart Folders tutorial files](https://github.com/vhemmert/smartfolders/tree/master/tutorial){:target="_blank"} from the `smartfolders-master/tutorial` directory.
 

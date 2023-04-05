@@ -16,7 +16,7 @@ and Test Driven Development (TDD).
 
 The Alfresco SDK is released under [Apache License version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html){:target="_blank"} 
 and supports Content Services both in Community Edition and Enterprise Edition. If you're an Enterprise customer, 
-check the [Alfresco SDK Support status]({% link content-services/latest/support/index.md %}) 
+check the [Alfresco SDK Support status]({% link content-services/7.3/support/index.md %}) 
 for the version you're using. If your version is in Limited or Full Support and you need help, contact our [Support team](https://support.alfresco.com/){:target="_blank"}.
 
 The 4.0 release took advantage of Semantic Versioning ([SEMVER](https://semver.org/){:target="_blank"}), which means 
@@ -406,7 +406,7 @@ still listed.
 
 After generating a project using one of the Alfresco SDK Maven archetypes, it is important to know how to build / run / test these projects.
 
-The Alfresco Platform 6+ [deployment]({% link content-services/latest/install/containers/index.md %}) architecture is highly based on container technologies, specifically in Docker. 
+The Alfresco Platform 6+ [deployment]({% link content-services/7.3/install/containers/index.md %}) architecture is highly based on container technologies, specifically in Docker. 
 Due to that, the projects generated using the Alfresco SDK archetypes set up their local environment making an intensive use of Docker and Docker Compose 
 technologies.
 
@@ -466,8 +466,8 @@ Maven archetype when generating the project.
 
 #### Introduction
 
-An AIO SDK project is used to build extensions for both [Content Services (ACS) Repository]({% link content-services/latest/develop/repo-ext-points/index.md %}) 
-and [Alfresco Share UI]({% link content-services/latest/develop/share-ext-points/index.md %}). The runtime environment
+An AIO SDK project is used to build extensions for both [Content Services (ACS) Repository]({% link content-services/7.3/develop/repo-ext-points/index.md %}) 
+and [Alfresco Share UI]({% link content-services/7.3/develop/share-ext-points/index.md %}). The runtime environment
 for ACS is Docker so not only is this project building the source code for your extensions but also the 
 custom Docker images for the Alfresco Repository and Alfresco Share. The custom Docker images includes the 
 JARs, or AMPs, with your extension code.
@@ -713,7 +713,7 @@ which means selecting the `org.alfresco.maven.archetype:alfresco-platform-jar-ar
 
 #### Introduction
 
-A Platform project is used to build extensions for the [Content Services (ACS) Repository]({% link content-services/latest/develop/repo-ext-points/index.md %}). 
+A Platform project is used to build extensions for the [Content Services (ACS) Repository]({% link content-services/7.3/develop/repo-ext-points/index.md %}). 
 The runtime environment for ACS is Docker so not only is this project building the source code for your extensions but also the 
 custom Docker image for the Alfresco Repository. The custom Docker images includes the JARs, or AMPs, with your extension code. 
 
@@ -947,7 +947,7 @@ Maven archetype when generating the project
 
 #### Introduction
 
-An Alfresco Share project is used to build extensions for [Alfresco Share UI]({% link content-services/latest/develop/share-ext-points/index.md %}). 
+An Alfresco Share project is used to build extensions for [Alfresco Share UI]({% link content-services/7.3/develop/share-ext-points/index.md %}). 
 The runtime environment for ACS is Docker so not only is this project building the source code for your extensions but also the 
 custom Docker image for Alfresco Share. The custom Docker images includes the 
 JARs, or AMPs, with your extension code. 
@@ -1410,7 +1410,7 @@ Content | Description
 `src/main/resources/alfresco/module/<artifactId>` | This folder contains all the configuration files and settings for the Alfresco Share module. Here you can find the property file for the module.
 `src/main/resources/alfresco/web-extension` | In this folder you can find the extensions to the web client (Alfresco Share) and it's where you store Spring configurations that extend and override the system Share configuration. There are two important sub-directories here: `site-data` and `site-webscripts`.
 `src/main/resources/alfresco/META-INF/resources` | This folder hosts the content that will be placed in the `META-INF` folder of a standard Java web application. It is best practice to use a further subdirectory based on the module name. This allows you to manage multiple modules, so that their web resources don't conflict with each other.
-`src/main/resources/alfresco/META-INF/share-config-custom.xml` | This file is a relevant Alfresco Share file used to configure the sub-project with the correct settings, depending on your environment. For more details, see [Share configuration]({% link content-services/latest/develop/share-ext-points/index.md %}).
+`src/main/resources/alfresco/META-INF/share-config-custom.xml` | This file is a relevant Alfresco Share file used to configure the sub-project with the correct settings, depending on your environment. For more details, see [Share configuration]({% link content-services/7.3/develop/share-ext-points/index.md %}).
 `src/test/java/<groupId>...` | This folder contains the same content you can find in a regular Java project, i.e. the Java source code for tests. Here you should put all the custom classes, interfaces, and Java source code related to tests.
 
 #### my-all-in-one-project-share-docker
@@ -1655,7 +1655,7 @@ Content | Description
 `src/main/resources/alfresco/module/<artifactId>` | This folder contains all the configuration files and settings for the Alfresco Share module. Here you can find the property file for the module.
 `src/main/resources/alfresco/web-extension` | In this folder you can find the extensions to the web client (Alfresco Share) and it's where you store Spring configurations that extend and override the system Share configuration. There are two important sub-directories here: `site-data` and `site-webscripts`.
 `src/main/resources/alfresco/META-INF/resources` | This folder hosts the content that will be placed in the `META-INF` folder of a standard Java web application. It is best practice to use a further subdirectory based on the module name. This allows you to manage multiple modules, so that their web resources don't conflict with each other.
-`src/main/resources/alfresco/META-INF/share-config-custom.xml` | This file is a relevant Alfresco Share file used to configure the sub-project with the correct settings, depending on your environment. For more details, see [Share configuration]({% link content-services/latest/develop/share-ext-points/index.md %}).
+`src/main/resources/alfresco/META-INF/share-config-custom.xml` | This file is a relevant Alfresco Share file used to configure the sub-project with the correct settings, depending on your environment. For more details, see [Share configuration]({% link content-services/7.3/develop/share-ext-points/index.md %}).
 `src/test/java/<groupId>...` | This folder contains the same content you can find in a regular Java project, i.e. the Java source code for tests. Here you should put all the custom classes, interfaces, and Java source code related to tests.
 
 
@@ -3197,7 +3197,7 @@ By changing the code and compiling it again, the changes have been dynamically r
 By default, the projects generated making use of the archetypes provided by the Alfresco SDK 4 are pre-configured to work with a specific database, which is 
 PostgreSQL. 
 
-Anyway, ACS is developed and tested to [support a wide range of platforms and languages]({% link content-services/latest/support/index.md %}). 
+Anyway, ACS is developed and tested to [support a wide range of platforms and languages]({% link content-services/7.3/support/index.md %}). 
 That includes a set of supported databases.
 
 In this article, we are going to detail the process to modify a project generated from the SDK's archetypes to use a different database. In this case, we're 

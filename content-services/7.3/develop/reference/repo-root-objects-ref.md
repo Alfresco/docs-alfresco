@@ -16,8 +16,8 @@ which properties can be accessed and a variety of methods called as dictated by 
 The root objects available to your JavaScript code will depend on the context in which the code is invoked. Different 
 contexts will have access to a different set of root objects. There are several contexts to be considered:
 
-* Repository Web scripts (see this [reference]({% link content-services/latest/develop/reference/repo-root-objects-ref.md %}))
-* Surf Web Scripts (see this [reference]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#surfrootobjects))
+* Repository Web scripts (see this [reference]({% link content-services/7.3/develop/reference/repo-root-objects-ref.md %}))
+* Surf Web Scripts (see this [reference]({% link content-services/7.3/develop/reference/surf-framework-ref.md %}#surfrootobjects))
 * Rules/actions
 * Workflow
 * Share
@@ -70,7 +70,7 @@ The following table lists root objects that expose additional APIs:
 
 |Root Object|Type in Script Runtime|Description|
 |-----------|----------------------|-----------|
-|`actions`|`org.alfresco.repo.jscript.Actions`|Root object providing invocation of registered [actions]({% link content-services/latest/develop/repo-ext-points/repo-actions.md %})|
+|`actions`|`org.alfresco.repo.jscript.Actions`|Root object providing invocation of registered [actions]({% link content-services/7.3/develop/repo-ext-points/repo-actions.md %})|
 |`activities`|`org.alfresco.repo.activities.script.Activity`|Root object providing access to the Alfresco Process Services API.|
 |`appUtils`|`org.alfresco.repo.jscript.ApplicationScriptUtils`|Root object providing access to methods specifically for external application use|
 |`bulkFSImport`|`org.alfresco.repo.bulkimport.script.BulkImport`|Bulk Import object|

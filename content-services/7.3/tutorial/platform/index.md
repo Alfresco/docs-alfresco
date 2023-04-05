@@ -11,10 +11,10 @@ hand, if you are working for a client and are developing a whole solution, which
 Alfresco Share, and Search (Solr), then use the so called All-in-One (AIO) project type.
 
 The following list has links to both of the project types 
-([SDK archetypes introduction]({% link content-services/latest/develop/sdk.md %}#mvnarchetypes)):
+([SDK archetypes introduction]({% link content-services/7.3/develop/sdk.md %}#mvnarchetypes)):
 
-* **Platform JAR**: [Project Structure]({% link content-services/latest/develop/sdk.md %}#structureplatform), [Generate Project]({% link content-services/latest/develop/sdk.md %}#workingplatform)
-* **All-in-One**: [Project Structure]({% link content-services/latest/develop/sdk.md %}#structureaio), [Generate Project]({% link content-services/latest/develop/sdk.md %}#workingaio)
+* **Platform JAR**: [Project Structure]({% link content-services/7.3/develop/sdk.md %}#structureplatform), [Generate Project]({% link content-services/7.3/develop/sdk.md %}#workingplatform)
+* **All-in-One**: [Project Structure]({% link content-services/7.3/develop/sdk.md %}#structureaio), [Generate Project]({% link content-services/7.3/develop/sdk.md %}#workingaio)
 
 When going through the tutorials and doing other proof-of-concept work it might be easiest to use an 
 All-in-One project as it has everything included. 

@@ -5,7 +5,7 @@ title: Aikau Menus Extension Point
 The main menu of Share is implemented with the new Aikau UI development framework. It is possible to customize this menu, 
 so you can navigate to new custom pages for example.
 
-Architecture Information: [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
+Architecture Information: [Share Architecture]({% link content-services/7.3/develop/software-architecture.md %}#sharearchitecture)
 
 ## Description
 
@@ -14,7 +14,7 @@ The main menu and title in Share is implemented in Aikau, it looks like this:
 ![dev-extensions-share-main-menu]({% link content-services/images/dev-extensions-share-main-menu.png %})
 
 Adding and removing menu items from the menu is a common task. To do this we use a 
-[Surf Extension Module]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %}). 
+[Surf Extension Module]({% link content-services/7.3/develop/share-ext-points/surf-extension-modules.md %}). 
 It will look something like this:
 
 ```xml
@@ -71,14 +71,14 @@ widget. Once we have it, we simply push a widget into it.
 
 ## More Information
 
-* [Creating an Aikau page with Menus]({% link content-services/latest/develop/share-ext-points/aikau-pages.md %}#createpagewithmenu)
+* [Creating an Aikau page with Menus]({% link content-services/7.3/develop/share-ext-points/aikau-pages.md %}#createpagewithmenu)
 * [Aikau Widget Reference](http://dev.alfresco.com/resource/docs/aikau-jsdoc/){:target="_blank"} - this is the place to look for menu widgets that you can use.
 
 ## Tutorials
 
-* [Customizing the Admin Tools Menu]({% link content-services/latest/tutorial/share/header.md %}#customizeadmintoolsmenu)
-* [Customizing the Sites Menu]({% link content-services/latest/tutorial/share/header.md %}#customsitesmenu)
-* [Removing Menu Items]({% link content-services/latest/tutorial/share/header.md %}#removemenuitem)
+* [Customizing the Admin Tools Menu]({% link content-services/7.3/tutorial/share/header.md %}#customizeadmintoolsmenu)
+* [Customizing the Sites Menu]({% link content-services/7.3/tutorial/share/header.md %}#customsitesmenu)
+* [Removing Menu Items]({% link content-services/7.3/tutorial/share/header.md %}#removemenuitem)
 * [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/tree/master/tutorial/chapters){:target="_blank"}
 
 ## Developer Blogs

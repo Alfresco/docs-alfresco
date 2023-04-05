@@ -6,7 +6,7 @@ Subsystems are configurable modules responsible for a piece of functionality in 
 possible to implement an extension as a custom subsystem.
 
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/7.3/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
@@ -370,7 +370,7 @@ call any method in the `NamedEntitiesService` interface.
 
 ## More Information
 
-* [Configure subsystems]({% link content-services/latest/config/subsystems.md %})
+* [Configure subsystems]({% link content-services/7.3/config/subsystems.md %})
 
 ## Sample Code
 

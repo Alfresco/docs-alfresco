@@ -5,7 +5,7 @@ title: Repository Actions Extension Point
 Repository actions are reusable units of work that can be invoked from the User Interface (UI). Examples include 
 Workflow and web scripts. Much of the functionality in the Share UI is backed by an Action.
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/7.3/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
@@ -16,7 +16,7 @@ Check-Out, Check-In, Update, Add Aspect, Copy, Cut, Paste, Send Email, Move, Spe
 An action can contain both a back-end part (business logic) and a front-end part (UI widgets). The back-end implementation 
 is usually done by extending the `alfresco.war` with what is known as a Repository Action. This Extension Point documentation 
 describes the back end. The front-end implementation is usually achieved by extending the Alfresco `share.war` with a 
-[Document Library Action]({% link content-services/latest/develop/share-ext-points/doclib.md %}).
+[Document Library Action]({% link content-services/7.3/develop/share-ext-points/doclib.md %}).
 
 Actions are Spring beans that act upon a content node. You develop actions using Java and register them with the 
 repository through a Spring configuration file. Actions provide the ideal place to put your common, highly reusable 

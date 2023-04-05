@@ -6,21 +6,21 @@ The Alfresco Share web application is built up of a main menu from which you can
 pages are implemented with the Surf development framework. However, note that some pages have been converted and 
 implemented with the Aikau development framework, see architecture section.
 
-Architecture Information: [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
+Architecture Information: [Share Architecture]({% link content-services/7.3/develop/software-architecture.md %}#sharearchitecture)
 
 ## Description
 
 Surf pages are the "old school" pages that most of the Share UI is built up around. But more and more pages are converted 
-to [Aikau pages]({% link content-services/latest/develop/share-ext-points/aikau-pages.md %}). All files involved in defining a Surf page are stored under 
+to [Aikau pages]({% link content-services/7.3/develop/share-ext-points/aikau-pages.md %}). All files involved in defining a Surf page are stored under 
 `/site-data` and `/templates`.
 
 Putting together a Surf page involves a lot of objects, such as page, template-instance, component, and so on. 
-This is called the [siteData]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#surfobjsitedata) model and the following picture illustrates 
+This is called the [siteData]({% link content-services/7.3/develop/reference/surf-framework-ref.md %}#surfobjsitedata) model and the following picture illustrates 
 how these objects play together:
 
 ![dev-extensions-share-surf-page-model]({% link content-services/images/dev-extensions-share-surf-page-model.png %}) 
  
-The definition of a [Surf page]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#surfpagexml) is done in XML and looks like this in a Hello World example:
+The definition of a [Surf page]({% link content-services/7.3/develop/reference/surf-framework-ref.md %}#surfpagexml) is done in XML and looks like this in a Hello World example:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -37,7 +37,7 @@ The definition of a [Surf page]({% link content-services/latest/develop/referenc
 Page definition file names follow a naming convention: `<page-id>.xml`, the above page definition could be stored in a 
 file called `helloworld.xml` under `site-data/pages`.
 
-The page definition refers to a [template instance]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#surftemplateinstancexml) that 
+The page definition refers to a [template instance]({% link content-services/7.3/develop/reference/surf-framework-ref.md %}#surftemplateinstancexml) that 
 links to the physical template, it is defined in XML:
 
 ```xml
@@ -83,7 +83,7 @@ Template files are stored under `/templates`.
 
 The page is built up of different regions, and each `region` is defined for a specific `scope`, such as `global` or `page`. 
 If the scope is page then we always need to implement the rendition for the region. This is done via a 
-[component]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#surfcomponentxml), which is defined in XML:
+[component]({% link content-services/7.3/develop/reference/surf-framework-ref.md %}#surfcomponentxml), which is defined in XML:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -94,7 +94,7 @@ If the scope is page then we always need to implement the rendition for the regi
 
 Page definition file names follow a naming convention: `<scope[global|template|page]>.<region-id>.<[template-instance-id|page-id]>.xml`, 
 the above component definition could be stored in a file called `page.body.helloworld.xml` under `site-data/components`. The 
-component just points to a [Surf Web Script]({% link content-services/latest/develop/share-ext-points/web-scripts.md %}) that should render the HTML for 
+component just points to a [Surf Web Script]({% link content-services/7.3/develop/share-ext-points/web-scripts.md %}) that should render the HTML for 
 the page region.
 
 A Surf page is processed and generated via the Spring MVC framework. The following picture gives an overview of how it works:
@@ -108,7 +108,7 @@ which can get the content from either the Alfresco Repository or from some other
 
 There are a number of additional FreeMarker template directives.
 
-In the [widget instantiation customization tutorial]({% link content-services/latest/tutorial/share/doclib.md %}#customizesurfwidget) 
+In the [widget instantiation customization tutorial]({% link content-services/7.3/tutorial/share/doclib.md %}#customizesurfwidget) 
 the `documentlist.get.html.ftl` and `documentlist.get.js` files were modified to instantiate a custom JavaScript widget 
 that extends the default `Alfresco.DocumentList`. This is a fragment from the `webview.get.html.ftl` file:
 
@@ -172,7 +172,7 @@ widget instantiation metadata, and the reason for the "pre" and "post" `<@markup
 * `tomcat/shared/classes/alfresco/web-extension/templates` - FreeMarker template location
 
 These paths are untouched by re-deployments and upgrades) For component Web Script file locations see: 
-[Web Script]({% link content-services/latest/develop/share-ext-points/web-scripts.md %}) section.
+[Web Script]({% link content-services/7.3/develop/share-ext-points/web-scripts.md %}) section.
 
 ## Deployment All-in-One SDK project
 
@@ -181,12 +181,12 @@ These paths are untouched by re-deployments and upgrades) For component Web Scri
 * `aio/share-jar/src/main/resources/alfresco/web-extension/site-data/components`
 * `aio/share-jar/src/main/resources/alfresco/web-extension/templates`
 
-For component web script file locations see: [Web Script]({% link content-services/latest/develop/share-ext-points/web-scripts.md %}) section.
+For component web script file locations see: [Web Script]({% link content-services/7.3/develop/share-ext-points/web-scripts.md %}) section.
 
 ## More Information
 
-* [Introduction to Surf Pages]({% link content-services/latest/develop/software-architecture.md %}#surfpageintro) - This page contains a walk-through on how to create a Surf page, and it also has links to a page that shows how to create the same page with Aikau.
-* [Spring Surf Framework Guide]({% link content-services/latest/develop/reference/surf-framework-ref.md %}) - Deep dive into the Surf framework
+* [Introduction to Surf Pages]({% link content-services/7.3/develop/software-architecture.md %}#surfpageintro) - This page contains a walk-through on how to create a Surf page, and it also has links to a page that shows how to create the same page with Aikau.
+* [Spring Surf Framework Guide]({% link content-services/7.3/develop/reference/surf-framework-ref.md %}) - Deep dive into the Surf framework
 
 ## Sample Code
 
@@ -194,7 +194,7 @@ For component web script file locations see: [Web Script]({% link content-servic
 
 ## Tutorials
 
-* [Page tutorials]({% link content-services/latest/tutorial/share/pages.md %})
+* [Page tutorials]({% link content-services/7.3/tutorial/share/pages.md %})
 
 ## Developer Blogs
 

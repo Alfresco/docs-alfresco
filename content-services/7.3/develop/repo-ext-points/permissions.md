@@ -6,7 +6,7 @@ Permissions and their groupings are defined in XML configuration files. The defa
 configuration directory as `permissionDefinitions.xml` and `sitePermissionDefinitions.xml`. This configuration can be 
 replaced or extended to create new permissions and roles.
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/7.3/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
@@ -227,7 +227,7 @@ Here we can see that the site permissions (roles) basically just re-uses the sta
 `Editor` role will not be available when working with site content.
 
 Now, let's **define a custom permission** for publishing web content classified with the ACME Content Model 
-([more info]({% link content-services/latest/develop/repo-ext-points/content-model.md %})). We will assume we have a document library 
+([more info]({% link content-services/7.3/develop/repo-ext-points/content-model.md %})). We will assume we have a document library 
 action that can be used to publish web content as follows:
 
 ```xml
@@ -381,7 +381,7 @@ That is all that is needed to add new custom permissions.
 
 ## More Information
 
-* [Some more info around defining permissions]({% link content-services/latest/admin/security.md %}#definingpermissions)
+* [Some more info around defining permissions]({% link content-services/7.3/admin/security.md %}#definingpermissions)
 
 ## Sample Code
 

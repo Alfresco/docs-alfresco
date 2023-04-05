@@ -5,14 +5,14 @@ title: Mimetypes Extension Point
 Content Services supports, and can detect, a wide range of MIME types out-of-the-box. It is also possible to 
 add support for other custom MIME types.
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/7.3/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
 Content Services is able to automatically identify most file types and establish MIME type accordingly. 
 However, if you have custom file types it is possible to add support for these by adding custom MIME types. 
-You will typically also need to provide custom [content transformations]({% link content-services/latest/develop/repo-ext-points/content-transformers-renditions.md %}) 
-and [metadata extraction]({% link content-services/latest/develop/repo-ext-points/metadata-extractors.md %}) to fully support the content type. To find 
+You will typically also need to provide custom [content transformations]({% link content-services/7.3/develop/repo-ext-points/content-transformers-renditions.md %}) 
+and [metadata extraction]({% link content-services/7.3/develop/repo-ext-points/metadata-extractors.md %}) to fully support the content type. To find 
 out what MIME types that are currently registered and active within an Content Services installation, you can 
 use an admin Web Script. This is available at `http://localhost:8080/alfresco/service/mimetypes`.
 This will list all the currently registered MIME types, and provide a details link for each one. Selecting the details 
@@ -64,7 +64,7 @@ the mimetype Web Script we should see the following for the newly registered MIM
 
 The `.fo` files themselves will by default be transformable to text, which means that they will be indexed and searchable 
 without having to add a custom transformer. But to actually use the formatting objects to transform XML files into PDF 
-files you would have to add a [custom transformer]({% link content-services/latest/develop/repo-ext-points/content-transformers-renditions.md %}). 
+files you would have to add a [custom transformer]({% link content-services/7.3/develop/repo-ext-points/content-transformers-renditions.md %}). 
 Out of the box it will use the following transformer:
 
 ```text
@@ -90,4 +90,4 @@ Out of the box it will use the following transformer:
 
 ## Tutorials
 
-* [Adding a custom MIME type]({% link content-services/latest/config/repository.md %}#add-a-mime-type)
+* [Adding a custom MIME type]({% link content-services/7.3/config/repository.md %}#add-a-mime-type)

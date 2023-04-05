@@ -9,8 +9,8 @@ Architecture Information:
 
 >**Note**: The form processor is implemented on the platform side but invoked from the UI side.
 
-[Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
-[Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
+[Platform Architecture]({% link content-services/7.3/develop/software-architecture.md %}#platformarch)
+[Share Architecture]({% link content-services/7.3/develop/software-architecture.md %}#sharearchitecture)
 
 ## Description
 
@@ -27,12 +27,12 @@ need to be persisted into the repository. For example, the repository action ite
 that will execute the action when the persist method is called.
 
 When the persist and generate methods are called via web scripts then these calls can be intercepted by so called 
-[Form Filters]({% link content-services/latest/develop/share-ext-points/form-processor-filters.md %}). These can be used to for example alter the form data 
+[Form Filters]({% link content-services/7.3/develop/share-ext-points/form-processor-filters.md %}). These can be used to for example alter the form data 
 before it is persisted, add a form field before form generation etc.
 
 Custom form processors can be implemented in Java with a small amount of Spring configuration. Typically you will do this 
 to support a new type of item form. However, if you simply wish to add a few extra fields to a form, or want to support a 
-new type of field, then you should probably consider using a [Form Filter]({% link content-services/latest/develop/share-ext-points/form-processor-filters.md %}) 
+new type of field, then you should probably consider using a [Form Filter]({% link content-services/7.3/develop/share-ext-points/form-processor-filters.md %}) 
 or a Field Processor rather than implementing a new form processor.
 
 Form processors have two primary functions:
@@ -540,9 +540,9 @@ installation. Use a platform/repository JAR project instead.
 
 ## More Information
 
-* [Form Processor Filters]({% link content-services/latest/develop/share-ext-points/form-processor-filters.md %})
-* [Form Controls]({% link content-services/latest/develop/share-ext-points/form-controls.md %})
-* [Forms config]({% link content-services/latest/develop/share-ext-points/share-config.md %}#shareformsconfig)
+* [Form Processor Filters]({% link content-services/7.3/develop/share-ext-points/form-processor-filters.md %})
+* [Form Controls]({% link content-services/7.3/develop/share-ext-points/form-controls.md %})
+* [Forms config]({% link content-services/7.3/develop/share-ext-points/share-config.md %}#shareformsconfig)
 
 ## Sample Code
 

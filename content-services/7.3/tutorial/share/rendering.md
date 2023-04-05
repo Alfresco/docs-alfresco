@@ -8,7 +8,7 @@ Tutorials related to conditional rendering of content and operations. We call th
 
 This tutorial explores Evaluations and introduces Evaluators, demonstrating how they are defined and used.
 
-This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) project.
+This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/7.3/develop/sdk.md %}#workingaio) project.
 
 This tutorial creates a module that **conditionally** renders the Site Members component on the site dashboard. If the 
 site has a certain name the Site Members component will not be rendered.

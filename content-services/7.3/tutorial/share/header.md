@@ -8,7 +8,7 @@ The Share Header is fully implemented in Aikau.
 
 ## Customizing the Share Header style
 
-**Extension Point**: [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %})
+**Extension Point**: [Surf Extension Modules]({% link content-services/7.3/develop/share-ext-points/surf-extension-modules.md %})
 
 **Description**: 
 
@@ -39,7 +39,7 @@ widgets via LESS variables.
 
 **Source Code**: [Go to code](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/change-header-style-share){:target="_blank"}
 
-This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) project.
+This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/7.3/develop/sdk.md %}#workingaio) project.
 
 Tutorial implementation steps:
 
@@ -125,7 +125,7 @@ Tutorial implementation steps:
 
 2.  Decide if you want to customize an existing theme or use a custom theme.
 
-    Customizing the style of the header can be done either by overriding an existing theme, such as the Green Theme, or by creating a new custom theme. In this exercise we will customize the out-of-the-box Green Theme. If we are just customization LESS variables, and we don't need to change anything else in the Green Theme, then it is enough to just create a Green Theme XML file and override the LESS variables. There is no need to copy over the complete theme directory like when [creating a custom theme]({% link content-services/latest/tutorial/share/style.md %}#addcustomtheme).
+    Customizing the style of the header can be done either by overriding an existing theme, such as the Green Theme, or by creating a new custom theme. In this exercise we will customize the out-of-the-box Green Theme. If we are just customization LESS variables, and we don't need to change anything else in the Green Theme, then it is enough to just create a Green Theme XML file and override the LESS variables. There is no need to copy over the complete theme directory like when [creating a custom theme]({% link content-services/7.3/tutorial/share/style.md %}#addcustomtheme).
 
 3.  Create a new themes directory under the `aio/aio-share-jar/src/main/resources/alfresco/web-extension/site-data` directory.
 
@@ -174,9 +174,9 @@ Tutorial implementation steps:
 
 The Share header menu can be readily customized. For example, you can add or remove menu items.
 
-In this tutorial you use the [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) project. 
+In this tutorial you use the [SDK All-In-One]({% link content-services/7.3/develop/sdk.md %}#workingaio) project. 
 The tutorial assumes you are using an IDE to edit the Maven project files. You should also be familiar with 
-the [Introducing SurfBug]({% link content-services/latest/develop/tools.md %}#surfbug) topic.
+the [Introducing SurfBug]({% link content-services/7.3/develop/tools.md %}#surfbug) topic.
 
 You are going to add several customizations to the Share header menu. The tutorial is split into several parts.
 
@@ -185,7 +185,7 @@ You are going to add several customizations to the Share header menu. The tutori
 This tutorial shows you how to customize the Share header admin tools menu item.
 
 In this tutorial you add several customizations to the Share Header Menu. Your customization will be implemented as a 
-[Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %}).
+[Surf Extension Modules]({% link content-services/7.3/develop/share-ext-points/surf-extension-modules.md %}).
 
 1.  Create a new SDK All-In-One project.
 
@@ -343,7 +343,7 @@ In this tutorial you add several customizations to the Share Header Menu. Your c
     </extension>
     ```
 
-5.  To build and run the new Surf extension module see [working with an AIO project]({% link content-services/latest/develop/sdk.md %}#workingaio).
+5.  To build and run the new Surf extension module see [working with an AIO project]({% link content-services/7.3/develop/sdk.md %}#workingaio).
 
 6.  >**Note:** The extension module needs to be deployed before it will be visible. In your browser, go to `http://localhost:8080/share/service/modules/deploy`.
 
@@ -599,7 +599,7 @@ pages displayed include **Site Dashboard**, **Document Library** and **Site Memb
 
     You have now created the three essential pieces of the web script - the JavaScript code, the FreeMarker template and the web script definition file.
 
-7.  To build and run the updated Surf extension module see [working with an AIO project]({% link content-services/latest/develop/sdk.md %}#workingaio).
+7.  To build and run the updated Surf extension module see [working with an AIO project]({% link content-services/7.3/develop/sdk.md %}#workingaio).
 
 8.  Now log back in to Share and select the **Sites** menu item. Click a site under **Recent Sites**. You will see that there are now additional menu items including **Site Dashboard**, **Document Library**, and **Site Members**. Click on one of these menu items to test it. For example, if you click on the **Site Members** items you will be taken to the **Site Members** page for that site.
 
@@ -638,7 +638,7 @@ the `alfresco/header/AlfSitesMenu` widget.
 
     Save the file.
 
-4.  To build and run the updated Surf extension module see [working with an AIO project]({% link content-services/latest/develop/sdk.md %}#workingaio).
+4.  To build and run the updated Surf extension module see [working with an AIO project]({% link content-services/7.3/develop/sdk.md %}#workingaio).
 
 5.  Log in to Share, you will see that the **My Files** menu item is no longer present on the main menu.
 
@@ -693,7 +693,7 @@ the `alfresco/header/AlfSitesMenu` widget.
 
     Save the file.
 
-9.  To build and run the updated Surf extension module see [working with an AIO project]({% link content-services/latest/develop/sdk.md %}#workingaio).
+9.  To build and run the updated Surf extension module see [working with an AIO project]({% link content-services/7.3/develop/sdk.md %}#workingaio).
 
 10. Log in to Share. Select the **Sites** menu item from the main menu bar, you will see that the Site Finder is no longer present on the drop-down menu.
 

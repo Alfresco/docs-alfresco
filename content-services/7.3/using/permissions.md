@@ -18,7 +18,7 @@ The following sections describe these permissions. In general:
 
 Your Alfresco Administrator can also add additional roles.
 
-Site managers can [change a site role]({% link content-services/latest/using/sites/index.md %}#changesiterole) for the site users.
+Site managers can [change a site role]({% link content-services/7.3/using/sites/index.md %}#changesiterole) for the site users.
 
 If you're a member of two user groups which have different permissions then you will get the sum total of all the permissions. For example, if Group 1 has permission to view a file and Group 2 has permission to view and edit a file, then you would have view and edit permission for the file.
 

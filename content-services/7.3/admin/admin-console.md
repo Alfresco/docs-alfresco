@@ -15,34 +15,34 @@ The Admin Console is a tool comprising separate pages that identify a particular
 * System Summary: [Viewing the System Summary](#systemsummary)
 * Consoles:
   * GoogleDocs: [Configuring Google Docs using Admin Tools]({% link google-drive/latest/config/index.md %}#configure-using-the-admin-console)
-  * Model and Messages: [Managing models using the Admin Console]({% link content-services/latest/develop/repo-ext-points/content-model.md %})
-  * Workflow: [The Workflow Console]({% link content-services/latest/admin/workflows.md %}#workflowconsole)
+  * Model and Messages: [Managing models using the Admin Console]({% link content-services/7.3/develop/repo-ext-points/content-model.md %})
+  * Workflow: [The Workflow Console]({% link content-services/7.3/admin/workflows.md %}#workflowconsole)
 * Email Services:
-  * Inbound Email: [Managing inbound emails]({% link content-services/latest/config/email.md %})
-  * Outbound Email: [Managing outbound emails]({% link content-services/latest/config/email.md %})
+  * Inbound Email: [Managing inbound emails]({% link content-services/7.3/config/email.md %})
+  * Outbound Email: [Managing outbound emails]({% link content-services/7.3/config/email.md %})
 * General:
-  * License: [Uploading a new license]({% link content-services/latest/admin/license.md %}#uploadlicense)
+  * License: [Uploading a new license]({% link content-services/7.3/admin/license.md %}#uploadlicense)
   * Repository Information: [Viewing Repository Information](#viewrepoinfo)
-  * System Settings: [Configuring server administration settings]({% link content-services/latest/config/repository.md %}#sysadmin)
+  * System Settings: [Configuring server administration settings]({% link content-services/7.3/config/repository.md %}#sysadmin)
 * Repository Services:
-  * Activities Feed: [Configuring the Activities Feed]({% link content-services/latest/config/email.md %}#configure-activities-feed)
-  * Repository Server Clustering: [Managing members of a cluster]({% link content-services/latest/admin/cluster.md %}#managecluster)
+  * Activities Feed: [Configuring the Activities Feed]({% link content-services/7.3/config/email.md %}#configure-activities-feed)
+  * Repository Server Clustering: [Managing members of a cluster]({% link content-services/7.3/admin/cluster.md %}#managecluster)
   * Search Service Sharding: [Configuring sharding using the Admin Console]({% link insight-engine/latest/config/sharding/index.md %})
-  * Process Engines: [Enabling workflow process engines]({% link content-services/latest/admin/workflows.md %}#enableprocessengines)
-  * Query Accelerator: [View and manage query set configuration files]({% link content-services/latest/admin/query-accelerator.md %})
-  * Replication Service: [Enabling the Replication Service]({% link content-services/latest/admin/replication.md %}#enablereplication)
+  * Process Engines: [Enabling workflow process engines]({% link content-services/7.3/admin/workflows.md %}#enableprocessengines)
+  * Query Accelerator: [View and manage query set configuration files]({% link content-services/7.3/admin/query-accelerator.md %})
+  * Replication Service: [Enabling the Replication Service]({% link content-services/7.3/admin/replication.md %}#enablereplication)
   * Search Service: [Configuring Search Services using Admin Console]({% link search-services/latest/config/index.md %}#configure-using-the-admin-console)
-  * Subscription Service: [Enabling the Subscription Service]({% link content-services/latest/config/email.md %}#enable-subscription-service)
+  * Subscription Service: [Enabling the Subscription Service]({% link content-services/7.3/config/email.md %}#enable-subscription-service)
 
     > **Note:** Use **Repository Services** to manage individual repository servers. This function can't be accessed through a load balancer.
 
 * Support Tools:
-  * Download JMX Dump: [JMX Settings]({% link content-services/latest/admin/support-tools.md %}#jmxsettings)
-  * Node Browser: [Using the Node Browser]({% link content-services/latest/admin/troubleshoot.md %}#using-the-node-browser)
-* Directory Management: [Managing authentication directories]({% link content-services/latest/admin/auth-sync.md %}#manageauthdirs)
+  * Download JMX Dump: [JMX Settings]({% link content-services/7.3/admin/support-tools.md %}#jmxsettings)
+  * Node Browser: [Using the Node Browser]({% link content-services/7.3/admin/troubleshoot.md %}#using-the-node-browser)
+* Directory Management: [Managing authentication directories]({% link content-services/7.3/admin/auth-sync.md %}#manageauthdirs)
 * Virtual File Systems:
-  * File Servers: [Enabling file servers]({% link content-services/latest/config/file-servers.md %})
-  * IMAP Service: [Enabling the IMAP Service using the Admin Console]({% link content-services/latest/config/email.md %}#configure-imap)
+  * File Servers: [Enabling file servers]({% link content-services/7.3/config/file-servers.md %})
+  * IMAP Service: [Enabling the IMAP Service using the Admin Console]({% link content-services/7.3/config/email.md %}#configure-imap)
 
 The links provide more information on configuring these activities.
 
@@ -102,7 +102,7 @@ The System Information summary shows the general details of the installation. Th
 
 ### File Systems
 
-The File Systems summary shows the settings from the File Servers page. See [Enabling File Servers]({% link content-services/latest/config/file-servers.md %}) for more information.
+The File Systems summary shows the settings from the File Servers page. See [Enabling File Servers]({% link content-services/7.3/config/file-servers.md %}) for more information.
 
 ### Indexing Subsystem
 
@@ -110,19 +110,19 @@ The Indexing Subsystem summary shows the settings from the Search Service page. 
 
 ### Repository Clustering
 
-The Repository Clustering summary shows the settings from the Repository Server Clustering page. See [Repository Server Clustering]({% link content-services/latest/admin/cluster.md %}#managecluster) for more information.
+The Repository Clustering summary shows the settings from the Repository Server Clustering page. See [Repository Server Clustering]({% link content-services/7.3/admin/cluster.md %}#managecluster) for more information.
 
 ### Activities Feed
 
-The Activities Feed summary shows the settings from the Activities Feed page. See [Setting the Activities Feed]({% link content-services/latest/config/email.md %}#configure-activities-feed) for more information.
+The Activities Feed summary shows the settings from the Activities Feed page. See [Setting the Activities Feed]({% link content-services/7.3/config/email.md %}#configure-activities-feed) for more information.
 
 ### Authentication
 
-The Authentication summary shows the settings from the Directory Management page, in particular, the current authentication chain. See [Managing authentication directories]({% link content-services/latest/admin/auth-sync.md %}#manageauthdirs) for more information.
+The Authentication summary shows the settings from the Directory Management page, in particular, the current authentication chain. See [Managing authentication directories]({% link content-services/7.3/admin/auth-sync.md %}#manageauthdirs) for more information.
 
 ### Email
 
-The Email summary shows the settings from the Inbound Email and Outbound Email pages. See [Managing inbound and outbound emails]({% link content-services/latest/config/email.md %}) for more information.
+The Email summary shows the settings from the Inbound Email and Outbound Email pages. See [Managing inbound and outbound emails]({% link content-services/7.3/config/email.md %}) for more information.
 
 ### Auditing Services
 
@@ -174,7 +174,7 @@ The files that you use for working with the example Admin Console page are:
 * [admin-example.get.desc.xml](http://dev.alfresco.com/resource/AlfrescoOne/5.1/configuration/alfresco/enterprise/webscripts/org/alfresco/enterprise/repository/admin/admin-example.get.desc.xml){:target="_blank"}
 * [admin-example.get.properties](http://dev.alfresco.com/resource/AlfrescoOne/5.1/configuration/alfresco/enterprise/webscripts/org/alfresco/enterprise/repository/admin/admin-example.get.properties){:target="_blank"}
 
-See the [Web script components]({% link content-services/latest/develop/reference/web-scripts-ref.md %}#wscomponents) section for more information on these files.
+See the [Web script components]({% link content-services/7.3/develop/reference/web-scripts-ref.md %}#wscomponents) section for more information on these files.
 
 There are also additional properties files that contain the associated strings for localized content in the supported languages.
 

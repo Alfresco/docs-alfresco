@@ -2,11 +2,11 @@
 title: Content Model Tutorials
 ---
 
-Learn how to create a custom content model using the [Alfresco SDK]({% link content-services/latest/develop/sdk.md %}).
+Learn how to create a custom content model using the [Alfresco SDK]({% link content-services/7.3/develop/sdk.md %}).
 Defining and implementing a custom content model for a specific domain is one of the first thing you need to do in most
 digital transformation projects.
 
-See also [Content Model]({% link content-services/latest/develop/repo-ext-points/content-model.md %}) extension point.
+See also [Content Model]({% link content-services/7.3/develop/repo-ext-points/content-model.md %}) extension point.
 
 ## Creating a content model {#createcontentmodel}
 
@@ -14,7 +14,7 @@ You can create new content model using the Alfresco SDK.
 
 Use the Alfresco SDK to build and deploy a new content model. In this tutorial you will see how to implement a bootstrap deployment.
 
-1.  Create a new [All-In-One SDK Project]({% link content-services/latest/develop/sdk.md %}#gettingstarted).
+1.  Create a new [All-In-One SDK Project]({% link content-services/7.3/develop/sdk.md %}#gettingstarted).
 
     The new project already contains a sample model that you can change to suit your needs.
 
@@ -93,7 +93,7 @@ Use the Alfresco SDK to build and deploy a new content model. In this tutorial y
 
     This is the custom model that will extend the existing core model framework. The model adds three new types of document, a generic company document, a marketing document, and a whitepaper.
 
-4.  To build and run the project see [working with an AIO project]({% link content-services/latest/develop/sdk.md %}#workingaio).
+4.  To build and run the project see [working with an AIO project]({% link content-services/7.3/develop/sdk.md %}#workingaio).
 
 5.  Check for any errors in the log file.
 
@@ -107,7 +107,7 @@ In this tutorial you create some content of one of the custom types defined in y
 simple web script so that the type can be conveniently specified.
 
 It is assumed that you are familiar with web scripts. If not, you might want to look at the 
-[Repo Web Script Extension Point]({% link content-services/latest/develop/repo-ext-points/web-scripts.md %}).
+[Repo Web Script Extension Point]({% link content-services/7.3/develop/repo-ext-points/web-scripts.md %}).
 
 Using the model defined in the [previous section](#createcontentmodel), you run a simple web script to create content of 
 type `my:whitepaper`.
@@ -297,7 +297,7 @@ using a type and property.
 
     This model is an extended version of the previously used model. It adds a new property to the MyCompany Marketing Document type. A constraint is also defined for this property to restrict its value to one of three possible product names. The new property itself is called `my:product`. Note that although the property is added to the type `my:marketingDoc`, the property will also apply to content of the type `my:whitepaper` as whitepaper has the marketing document as its parent type. In other words properties are inherited from the parent content type.
 
-3.  To build and restart the project see [working with an AIO project]({% link content-services/latest/develop/sdk.md %}#workingaio).
+3.  To build and restart the project see [working with an AIO project]({% link content-services/7.3/develop/sdk.md %}#workingaio).
 
 4.  Check that Content Services has restarted without errors (either through checking the logs or logging into Share).
 
@@ -429,7 +429,7 @@ and properties. The custom configuration will be done in the usual file for cust
     type.my_whitepaper=Whitepaper
     ```
 
-6.  To build and restart the project see [working with an AIO project]({% link content-services/latest/develop/sdk.md %}#workingaio).
+6.  To build and restart the project see [working with an AIO project]({% link content-services/7.3/develop/sdk.md %}#workingaio).
 
 7.  Log into Share.
 
@@ -484,7 +484,7 @@ Complete the previous tutorials in this series before attempting this one.
     </type>
     ```
 
-3.  To build and restart the project see [working with an AIO project]({% link content-services/latest/develop/sdk.md %}#workingaio).
+3.  To build and restart the project see [working with an AIO project]({% link content-services/7.3/develop/sdk.md %}#workingaio).
 
 The association has been created and deployed.
 
@@ -609,7 +609,7 @@ you add is called `cm:generalClassifiable`.
     </mandatory-aspects>
     ```
     
-3.  To build and restart the project so the modified model is picked up see [working with an AIO project]({% link content-services/latest/develop/sdk.md %}#workingaio).
+3.  To build and restart the project so the modified model is picked up see [working with an AIO project]({% link content-services/7.3/develop/sdk.md %}#workingaio).
 
 4.  Log back into Share and create a new piece of content. Add the type `Whitepaper` to the content.
 

@@ -4,7 +4,7 @@ title: Form Field Validation Handlers Extension Point
 
 A validation handler is a small JavaScript function that gets called by the forms runtime when a field value needs to be validated.
 
-Architecture Information: [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
+Architecture Information: [Share Architecture]({% link content-services/7.3/develop/software-architecture.md %}#sharearchitecture)
 
 ## Description
 
@@ -99,5 +99,5 @@ upgraded. It is better to use a Share JAR project.
 
 ## More Information
 
-* [Forms Reference]({% link content-services/latest/develop/reference/share-document-library-ref.md %}#formsconfigsyntax): see the `constraint-handlers` description
-* [Forms config]({% link content-services/latest/develop/share-ext-points/share-config.md %}#shareformsconfig)
+* [Forms Reference]({% link content-services/7.3/develop/reference/share-document-library-ref.md %}#formsconfigsyntax): see the `constraint-handlers` description
+* [Forms config]({% link content-services/7.3/develop/share-ext-points/share-config.md %}#shareformsconfig)

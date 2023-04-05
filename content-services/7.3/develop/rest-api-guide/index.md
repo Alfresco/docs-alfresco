@@ -34,11 +34,11 @@ This section provides information about Alfresco ReST API version 1.0 and how to
 To get started with the API follow these steps:
 
 1. [Read things to know before you start](#things-to-know)
-2. [Install the ReST API Explorer]({% link content-services/latest/develop/rest-api-guide/install.md %})
-3. [Install a tool for making API calls]({% link content-services/latest/develop/rest-api-guide/install.md %}#http)
-4. [Install a tool to format JSON responses]({% link content-services/latest/develop/rest-api-guide/install.md %}#json)
-5. [Authenticate with the Repository to get a token]({% link content-services/latest/develop/rest-api-guide/install.md %}#auth)
-6. [Get Repository Info to see what is supported]({% link content-services/latest/develop/rest-api-guide/get-repo-info.md %}) - which uses and tests the auth token
+2. [Install the ReST API Explorer]({% link content-services/7.3/develop/rest-api-guide/install.md %})
+3. [Install a tool for making API calls]({% link content-services/7.3/develop/rest-api-guide/install.md %}#http)
+4. [Install a tool to format JSON responses]({% link content-services/7.3/develop/rest-api-guide/install.md %}#json)
+5. [Authenticate with the Repository to get a token]({% link content-services/7.3/develop/rest-api-guide/install.md %}#auth)
+6. [Get Repository Info to see what is supported]({% link content-services/7.3/develop/rest-api-guide/get-repo-info.md %}) - which uses and tests the auth token
 
 ## Things to know before you start {#things-to-know}
 
@@ -57,7 +57,7 @@ If you are confused about what API endpoints that are supported for a specific v
 associated API Explorer and check if the API endpoint is available. If you are wondering about specific API endpoint 
 details, and you cannot find any information about it anywhere, consult the API Explorer.
 
-You can find more information about the API Explorer on [this page]({% link content-services/latest/develop/rest-api-guide/install.md %}), 
+You can find more information about the API Explorer on [this page]({% link content-services/7.3/develop/rest-api-guide/install.md %}), 
 which also has information on how to install it for your specific version of ACS.
 
 If you want to know what the API Explorer looks like right now, then have a look at the online version at 
@@ -115,7 +115,7 @@ query parameter, we do not recommend using it, a more secure approach is to use 
 is still used i.e. sending an `Authorisation` header. However, the base64 encoded username/password is replaced with 
 the base64 encoded ticket.
 
-How to get a ticket and how to use it is explained [here]({% link content-services/latest/develop/rest-api-guide/install.md %}#auth) 
+How to get a ticket and how to use it is explained [here]({% link content-services/7.3/develop/rest-api-guide/install.md %}#auth) 
 in the ReST API user guide.
 
 ### JSON with Padding (JSONP)

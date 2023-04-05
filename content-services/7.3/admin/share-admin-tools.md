@@ -6,7 +6,7 @@ Share Admin Tools help you to manage your administration operations.
 
 Administrators can use the Share Admin Tools to create and manage users and groups directly in Share, set application preferences, manage categories and tags, and browse the system information in the node browser.
 
->**Note:** You can find additional admin tools in the [Repository Admin Console]({% link content-services/latest/admin/admin-console.md %}).
+>**Note:** You can find additional admin tools in the [Repository Admin Console]({% link content-services/7.3/admin/admin-console.md %}).
 
 **Admin Tools** is visible on the toolbar if you're an Administrator or a user who is a member of the `ALFRESCO_ADMINISTRATORS` or `ALFRESCO_MODEL_ADMINISTRATORS` groups. If you're a member of `SITES_ADMINISTRATORS`, you'll have an additional **Sites Manager** option on the toolbar instead of **Admin Tools**.
 
@@ -20,22 +20,22 @@ You can see the **Admin Tools** option on the menu bar if you're an administrato
 
     * Application: [Share theme and logo](#theme-logo)
     * Category Manager: [Managing categories](#cat-manager)
-    * Module Browser: [Viewing module packages]({% link content-services/latest/install/zip/amp.md %}#viewing-module-packages)
-    * Node Browser: [Using the Node Browser in Share Admin Tools]({% link content-services/latest/admin/troubleshoot.md %}#using-the-node-browser)
+    * Module Browser: [Viewing module packages]({% link content-services/7.3/install/zip/amp.md %}#viewing-module-packages)
+    * Node Browser: [Using the Node Browser in Share Admin Tools]({% link content-services/7.3/admin/troubleshoot.md %}#using-the-node-browser)
     * Search Manager: [Manage search filters](#search-manager)
     * Tag Manager: [Managing tags](#tag-manager)
-    * Model Manager: [Content modeling with Model Manager]({% link content-services/latest/config/models.md %})
+    * Model Manager: [Content modeling with Model Manager]({% link content-services/7.3/config/models.md %})
     * Sites Manager: [Sites Manager](#sites-manager)
 
     The remaining tools are grouped into the following categories:
 
     * Repository:
-        * Replication Jobs: [Managing replication jobs]({% link content-services/latest/admin/replication.md %})
+        * Replication Jobs: [Managing replication jobs]({% link content-services/7.3/admin/replication.md %})
     * Users and Groups:
-        * Groups: [Managing groups]({% link content-services/latest/admin/users-groups.md %}#manage-groups)
-        * Users: [Managing users]({% link content-services/latest/admin/users-groups.md %}#manage-users)
+        * Groups: [Managing groups]({% link content-services/7.3/admin/users-groups.md %}#manage-groups)
+        * Users: [Managing users]({% link content-services/7.3/admin/users-groups.md %}#manage-users)
 
-        > **Note:** You can also test an alternative way of managing users and groups using containerized deployment. See [Alfresco Control Center]({% link content-services/latest/admin/control-center.md %}).
+        > **Note:** You can also test an alternative way of managing users and groups using containerized deployment. See [Alfresco Control Center]({% link content-services/7.3/admin/control-center.md %}).
 
 2. Select an Admin Tool from the left side to see the page for each tool.
 
@@ -164,7 +164,7 @@ You can delete any of the sites in the Site Manager list by selecting **Delete S
 
 The `I'm a Site Manager` column shows the sites where you have the Site Manager permission. If you'ren't already a manager of a site, then select **Become Site Manager** from the **Actions** menu.
 
-Take a look at this video to learn more: [Site Manager]({% link content-services/latest/tutorial/video/sites.md %}#use-sites-manager)
+Take a look at this video to learn more: [Site Manager]({% link content-services/7.3/tutorial/video/sites.md %}#use-sites-manager)
 
 ## Search Manager
 
@@ -174,7 +174,7 @@ Filtered search is a powerful search feature that allows users to filter and cus
 
 You can configure filtered search either by using [configuration files](#configfilteredsearch) or by using the Search Manager.
 
-Take a look at this video to learn more: [Search Manager]({% link content-services/latest/tutorial/video/content.md %}#use-search-manager)
+Take a look at this video to learn more: [Search Manager]({% link content-services/7.3/tutorial/video/content.md %}#use-search-manager)
 
 ### Configure filtered search using configuration files {#configfilteredsearch}
 

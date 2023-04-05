@@ -5,7 +5,7 @@ title: Web Scripts Extension Point
 Repository Web Scripts are the fundamental building blocks used for extending the ReST API in Content Services 
 to support domain specific content types.
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/7.3/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
@@ -15,7 +15,7 @@ defined in XML, JavaScript, and FreeMarker files and stored under alfresco/exten
 Repository Web Scripts are referred to as *Data Web Scripts* as they usually return JSON or XML. Before embarking on 
 implementing a Repository web scripts it is recommended that you establish if the required functionality is already 
 available out-of-the-box. Many operations that you might want to perform may be available, see 
-[Alfresco REST API]({% link content-services/latest/develop/rest-api-guide/index.md %}).
+[Alfresco REST API]({% link content-services/7.3/develop/rest-api-guide/index.md %}).
 
  The simplest Web Script you can write consists of a *descriptor* and a *template*. The descriptor will tell you what 
  URL that should be used to invoke the Web Script. The template is used to assemble the output returned from the 
@@ -31,7 +31,7 @@ available out-of-the-box. Many operations that you might want to perform may be 
 ![dev-extensions-repo-web-scripts-architecture]({% link content-services/images/dev-extensions-repo-web-scripts-architecture.png %})
 
 The controller can fetch content from different sources, such as the repository, or a remote Web Service on the Internet. 
-Note that the special root object called [remote]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#connectorsendpoints), which is available for 
+Note that the special root object called [remote]({% link content-services/7.3/develop/reference/surf-framework-ref.md %}#connectorsendpoints), which is available for 
 Surf web scripts to fetch remote data on the internet, is not available when implementing a Repository Web Script 
 JavaScript controller. To fetch remote data on the Internet from a Repository Web Script, a Java controller is needed.
 
@@ -321,7 +321,7 @@ public class JSONResponseWebScript extends AbstractWebScript {
 The Hello World Web Script demonstrates most of the features available to us when implementing web scripts. However, 
 it might not be the most realistic Web Script implementation, it is not something we would need to do in a "real" project. 
 It is more likely that we will have to implement a ReST API based on a custom content model, such as the 
-[ACME sample content model]({% link content-services/latest/develop/repo-ext-points/content-model.md %}).
+[ACME sample content model]({% link content-services/7.3/develop/repo-ext-points/content-model.md %}).
 
 The key principles of REST involve separating your API into logical resources. These resources are manipulated using 
 HTTP requests where the method (GET, POST, PUT, DELETE) has specific meaning.
@@ -559,13 +559,13 @@ The template file should be called `acme-documents.post.html.ftl` to be associat
 
 ## More Information
 
-* [Web Script Reference]({% link content-services/latest/develop/reference/web-scripts-ref.md %})
-* [Admin Console Component Web Script]({% link content-services/latest/develop/repo-ext-points/admin-console-components.md %})
-* [Out-of-the-box JavaScript root objects]({% link content-services/latest/develop/reference/repo-root-objects-ref.md %}) - for use in a JavaScript controller
-* [Custom JavaScript root objects]({% link content-services/latest/develop/repo-ext-points/javascript-root-objects.md %}) - for use in a JavaScript controller
-* [Out-of-the-box FreeMarker root objects]({% link content-services/latest/develop/reference/freemarker-ref.md %}) - for use in a template
-* [Presentation Tier web scripts]({% link content-services/latest/develop/share-ext-points/web-scripts.md %}) - i.e. Surf web scripts
-* [Web Script examples that create Data Lists]({% link content-services/latest/develop/repo-ext-points/data-lists.md %})
+* [Web Script Reference]({% link content-services/7.3/develop/reference/web-scripts-ref.md %})
+* [Admin Console Component Web Script]({% link content-services/7.3/develop/repo-ext-points/admin-console-components.md %})
+* [Out-of-the-box JavaScript root objects]({% link content-services/7.3/develop/reference/repo-root-objects-ref.md %}) - for use in a JavaScript controller
+* [Custom JavaScript root objects]({% link content-services/7.3/develop/repo-ext-points/javascript-root-objects.md %}) - for use in a JavaScript controller
+* [Out-of-the-box FreeMarker root objects]({% link content-services/7.3/develop/reference/freemarker-ref.md %}) - for use in a template
+* [Presentation Tier web scripts]({% link content-services/7.3/develop/share-ext-points/web-scripts.md %}) - i.e. Surf web scripts
+* [Web Script examples that create Data Lists]({% link content-services/7.3/develop/repo-ext-points/data-lists.md %})
 
 ## Sample Code
 
@@ -575,5 +575,5 @@ The template file should be called `acme-documents.post.html.ftl` to be associat
 ## Tutorials
 
 * [Jeff Potts web scripts tutorial](http://ecmarchitect.com/alfresco-developer-series-tutorials/webscripts/tutorial/tutorial.html){:target="_blank"} - a must read
-* [XML Configuration]({% link content-services/latest/develop/reference/web-scripts-ref.md %}#wscomponents) - Additional XML configuration for Web Script
-* [Cache Control]({% link content-services/latest/develop/reference/web-scripts-ref.md %}#cachecontrols) - Additional Cache control configuration for Web Script
+* [XML Configuration]({% link content-services/7.3/develop/reference/web-scripts-ref.md %}#wscomponents) - Additional XML configuration for Web Script
+* [Cache Control]({% link content-services/7.3/develop/reference/web-scripts-ref.md %}#cachecontrols) - Additional Cache control configuration for Web Script

@@ -4,11 +4,11 @@ title: Admin Console Component Extension Point
 
 Extension modules that needs some form of administration interface can be supported by a custom Admin Console Component.
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/7.3/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
-The [Repo Admin Console]({% link content-services/latest/admin/admin-console.md %}) provides a way of managing services integrated into Alfresco, 
+The [Repo Admin Console]({% link content-services/7.3/admin/admin-console.md %}) provides a way of managing services integrated into Alfresco, 
 or built on as extensions. Installed modules can have a custom Admin Console component, so that they can be managed 
 from the well-known interface of the Admin Console. You will see how to create a custom Admin Console component that 
 displays already available MBean data but in a different layout. Displaying custom MBean data will be done in the same way.
@@ -20,7 +20,7 @@ The finished result will look something like this:
 Here you have added a new section called **Custom Stuff** and as a sub-section we have **Customized Admin Console - Tutorial**. 
 The custom page displays information already available in other sections, but is laid out differently.
 
-A custom component is added by implementing a [Repository web scripts]({% link content-services/latest/develop/repo-ext-points/web-scripts.md %}). 
+A custom component is added by implementing a [Repository web scripts]({% link content-services/7.3/develop/repo-ext-points/web-scripts.md %}). 
 The descriptor is as follows:
 
 ```xml
@@ -145,7 +145,7 @@ and control them in a similar way, just change the controller to point to the MB
 
 ## More Information
 
-* [Using the Repo Admin Console]({% link content-services/latest/admin/admin-console.md %})
+* [Using the Repo Admin Console]({% link content-services/7.3/admin/admin-console.md %})
 
 ## Sample Code
 

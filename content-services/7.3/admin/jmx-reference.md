@@ -1351,7 +1351,7 @@ If `Type=MonitoredSimpleTrigger`, the following additional properties are availa
 | RepeatInterval | The time interval in milliseconds between job executions. |
 | TimesTriggered | The number of times the job has been run. |
 
-To run the database cleanup activities, schedule the `propTablesCleanupTrigger` attribute. For more information, see [Scheduling cleanup of database tables]({% link content-services/latest/admin/db-cleanup.md %}#schedulerdbcleanup).
+To run the database cleanup activities, schedule the `propTablesCleanupTrigger` attribute. For more information, see [Scheduling cleanup of database tables]({% link content-services/7.3/admin/db-cleanup.md %}#schedulerdbcleanup).
 
 ### Alfresco:Name=SolrIndexes
 
@@ -1443,7 +1443,7 @@ See the Admin Console Directories - Directory Management for information about t
 
 Object Type = `ContentStore$managed$encrypted` or `ContentStore$managed$unencrypted`
 
-This MBean provides information about the type of `ContentStore` used and its configuration. For more information, see [Set up encryption properties using JMX client]({% link content-services/latest/admin/content-stores.md %}#configencryptedcs) and [Encrypted Content Store properties]({% link content-services/latest/admin/content-stores.md %}#encryptedcsprops).
+This MBean provides information about the type of `ContentStore` used and its configuration. For more information, see [Set up encryption properties using JMX client]({% link content-services/7.3/admin/content-stores.md %}#configencryptedcs) and [Encrypted Content Store properties]({% link content-services/7.3/admin/content-stores.md %}#encryptedcsprops).
 
 ### Alfresco:Type=Configuration, Category=Events
 

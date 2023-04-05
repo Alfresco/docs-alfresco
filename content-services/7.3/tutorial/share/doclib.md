@@ -6,7 +6,7 @@ These are tutorials for the Document Library in an Alfresco Share site.
 
 ## Adding new actions {#adddoclibaction}
 
-**Extension Point**: [Document Library]({% link content-services/latest/develop/share-ext-points/doclib.md %})
+**Extension Point**: [Document Library]({% link content-services/7.3/develop/share-ext-points/doclib.md %})
 
 **Description**:
 
@@ -46,12 +46,12 @@ very simple as we will see with our DocLib action example that navigates to the 
 **Related Information**:
 
 This tutorial assumes that you are familiar with the Document Library in Share. If you are new to it read up on it
-[here]({% link content-services/latest/develop/share-ext-points/share-config.md %}#sharedoclib) before starting this tutorial. Also, familiar yourself with how
-[Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %}) work as we will be creating one of those.
+[here]({% link content-services/7.3/develop/share-ext-points/share-config.md %}#sharedoclib) before starting this tutorial. Also, familiar yourself with how
+[Surf Extension Modules]({% link content-services/7.3/develop/share-ext-points/surf-extension-modules.md %}) work as we will be creating one of those.
 
 **Source Code**: [Go to code](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-action-doclib-share){:target="_blank"}
 
-This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio)
+This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/7.3/develop/sdk.md %}#workingaio)
 project. To try out the Send-As-Email DocLib action in this tutorial you will need to install a local SMTP server such
 as [Fake SMTP](http://nilhcem.com/FakeSMTP/){:target="_blank"}.
 
@@ -962,7 +962,7 @@ Tutorial implementation steps:
 
 ## Adding new metadata templates
 
-**Extension Point**: [Document Library]({% link content-services/latest/develop/share-ext-points/doclib.md %})
+**Extension Point**: [Document Library]({% link content-services/7.3/develop/share-ext-points/doclib.md %})
 
 **Description**:
 
@@ -1011,12 +1011,12 @@ Adding a new Metadata Template to the Document Library involves the following st
 **Related Information**:
 
 This tutorial assumes that you are familiar with the Document Library in Share. If you are new to it read up on it
-[here]({% link content-services/latest/develop/share-ext-points/share-config.md %}#sharedoclib) before starting this tutorial. Also, familiar yourself with how
-[Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %}) work as we will be creating one of those.
+[here]({% link content-services/7.3/develop/share-ext-points/share-config.md %}#sharedoclib) before starting this tutorial. Also, familiar yourself with how
+[Surf Extension Modules]({% link content-services/7.3/develop/share-ext-points/surf-extension-modules.md %}) work as we will be creating one of those.
 
 **Source Code**: [Go to code](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-metadata-template-doclib-share){:target="_blank"}
 
-This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio)
+This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/7.3/develop/sdk.md %}#workingaio)
 project.
 
 This tutorial will demonstrate the following:
@@ -1228,7 +1228,7 @@ Tutorial implementation steps:
 
 ## Adding a menu item to the "Create..." menu {#addmenuitem2createmenu}
 
-**Extension Point**: [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %})
+**Extension Point**: [Surf Extension Modules]({% link content-services/7.3/develop/share-ext-points/surf-extension-modules.md %})
 
 **Description**:
 
@@ -1252,13 +1252,13 @@ Adding a new content create item in the Document Library usually involves the fo
 **Related Information**:
 
 This tutorial assumes that you are familiar with the Document Library in Share. If you are new to it read up on it
-[here]({% link content-services/latest/develop/share-ext-points/share-config.md %}#sharedoclib)
+[here]({% link content-services/7.3/develop/share-ext-points/share-config.md %}#sharedoclib)
 before starting this tutorial. Also, familiar yourself with how you can create a text document via the
 **Create... > Plain Text...** menu item as it is similar to what we are going to do in this tutorial.
 
 **Source Code**: [Go to code](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-create-menuitem-doclib-share){:target="_blank"}
 
-This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) project.
+This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/7.3/develop/sdk.md %}#workingaio) project.
 
 Sometimes when you have a custom content model it is useful to be able to create new documents with a custom type set
 automatically, and at the same time also collect values for the type's custom properties. All directly from the Share
@@ -1447,13 +1447,13 @@ Tutorial implementation steps:
         </content>...
     ```
 
-    See [here]({% link content-services/latest/develop/repo-ext-points/permissions.md %}) for more information about how to create custom permissions.
+    See [here]({% link content-services/7.3/develop/repo-ext-points/permissions.md %}) for more information about how to create custom permissions.
 
     >**Note:** A Surf Extension module like this can be deployed and undeployed during runtime. And this means that an Administrator can control when different customizations should be visible or hidden. This is managed via the Module deployment page that can be found at: `http://localhost:8080/share/service/modules/deploy`.
 
 ## Customizing a Surf JavaScript Widget {#customizesurfwidget}
 
-**Extension Points**: [Surf Widgets]({% link content-services/latest/develop/share-ext-points/surf-widgets.md %}) and [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %})
+**Extension Points**: [Surf Widgets]({% link content-services/7.3/develop/share-ext-points/surf-widgets.md %}) and [Surf Extension Modules]({% link content-services/7.3/develop/share-ext-points/surf-extension-modules.md %})
 
 **Description**:
 
@@ -1469,7 +1469,7 @@ model, which is then processed by a new custom directive in the FreeMarker templ
 necessary to instantiate the specified widgets.
 
 Existing JavaScript controller extension capabilities can be used so that
-[Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %})
+[Surf Extension Modules]({% link content-services/7.3/develop/share-ext-points/surf-extension-modules.md %})
 can modify the default metadata object(s) to change the following:
 
 * The name of the JavaScript widget to be instantiated
@@ -1500,11 +1500,11 @@ Customizing the Documentlist Widget in the Document Library involves the followi
 **Related Information**:
 
 This tutorial assumes that you are familiar with the Document Library in Share. If you are new to it,
-see [Share Document Library]({% link content-services/latest/develop/share-ext-points/share-config.md %}#sharedoclib) before starting this tutorial. Also, familiar yourself
+see [Share Document Library]({% link content-services/7.3/develop/share-ext-points/share-config.md %}#sharedoclib) before starting this tutorial. Also, familiar yourself
 with how you can switch between different filters in the Document Library (that is, the navigation menu to the left in
 the DocLib).
 
-This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) project.
+This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/7.3/develop/sdk.md %}#workingaio) project.
 
 Tutorial implementation steps:
 

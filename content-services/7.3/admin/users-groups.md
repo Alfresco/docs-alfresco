@@ -4,15 +4,15 @@ title: Manage users and groups
 
 Before you can set up any security you need users and groups to work with. Use this information to administer your users and groups in Content Services.
 
-> **Note:** The Content Services repository would normally be connected to a directory service to sync users and groups into the database, see [Setting up authentication and sync]({% link content-services/latest/admin/auth-sync.md %})
+> **Note:** The Content Services repository would normally be connected to a directory service to sync users and groups into the database, see [Setting up authentication and sync]({% link content-services/7.3/admin/auth-sync.md %})
 
-> **Note:** You can also test an alternative way of managing users and groups using containerized deployment. See [Alfresco Control Center]({% link content-services/latest/admin/control-center.md %}).
+> **Note:** You can also test an alternative way of managing users and groups using containerized deployment. See [Alfresco Control Center]({% link content-services/7.3/admin/control-center.md %}).
 
 ## Manage users
 
 The **Users** tool in the Share **Admin Tools** lets you create and manage the user accounts.
 
-See also Users tool [video tutorial]({% link content-services/latest/tutorial/video/index.md %}#create-users)
+See also Users tool [video tutorial]({% link content-services/7.3/tutorial/video/index.md %}#create-users)
 
 ### Create new user
 
@@ -247,7 +247,7 @@ Within a user account, you can manage the user's membership in existing user gro
 
 The **Groups** tool in the Share **Admin Tools** lets you create and manage user groups.
 
-See also Groups tool [video tutorial]({% link content-services/latest/tutorial/video/index.md %}#create-groups).
+See also Groups tool [video tutorial]({% link content-services/7.3/tutorial/video/index.md %}#create-groups).
 
 ### Browse user groups
 

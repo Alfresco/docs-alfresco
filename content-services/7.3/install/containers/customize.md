@@ -72,7 +72,7 @@ You now need to install the AMP files into the Alfresco Content Repository image
     USER alfresco
     ```
 
-    > **Note:** In the example RUN Docker command, the Alfresco MMT JAR is run with `-directory`, `-nobackup` and `-verbose` options. Make sure these options are suitable for your requirements. See the [Alfresco MMT documentation]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) for more.
+    > **Note:** In the example RUN Docker command, the Alfresco MMT JAR is run with `-directory`, `-nobackup` and `-verbose` options. Make sure these options are suitable for your requirements. See the [Alfresco MMT documentation]({% link content-services/7.3/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) for more.
 
 4. Build the image, making sure you give the image an appropriate name and tag, so you can easily identify it later.
 
@@ -121,7 +121,7 @@ Let's repeat the process for the Alfresco Share image.
         ${TOMCAT_DIR}/amps_share ${TOMCAT_DIR}/webapps/share -directory -nobackup -verbose
     ```
 
-    > **Note:** In the example RUN docker command, `alfresco-mmt jar` is run with `-directory`, `-nobackup` and `-verbose` options. Make sure these options are suitable for your requirements. See the [Alfresco MMT documentation]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt).
+    > **Note:** In the example RUN docker command, `alfresco-mmt jar` is run with `-directory`, `-nobackup` and `-verbose` options. Make sure these options are suitable for your requirements. See the [Alfresco MMT documentation]({% link content-services/7.3/develop/extension-packaging.md %}#using-the-module-management-tool-mmt).
 
 3. Build the image, making sure you give the image an appropriate name and tag, so you can easily identify it later.
 
@@ -157,5 +157,5 @@ docker-compose -f <your-modified-docker-compose.yml> up
 
 You'll find more information in the following pages:
 
-* Docker Compose - [start up, configure, and troubleshoot]({% link content-services/latest/install/containers/docker-compose.md %})
+* Docker Compose - [start up, configure, and troubleshoot]({% link content-services/7.3/install/containers/docker-compose.md %})
 * Advanced configuration example - [building a custom image with configuration](https://github.com/Alfresco/acs-packaging/blob/master/docs/create-custom-image-using-existing-docker-image.md#applying-amps-that-require-additional-configuration-advanced){:target="_blank"}.

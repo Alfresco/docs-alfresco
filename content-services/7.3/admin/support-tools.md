@@ -2,7 +2,7 @@
 title: Support Tools
 ---
 
-With the **Support Tools** in the [Repo Admin Console]({% link content-services/latest/admin/admin-console.md %}) you can monitor your Content Services system and diagnose performance, communication, and memory issues.
+With the **Support Tools** in the [Repo Admin Console]({% link content-services/7.3/admin/admin-console.md %}) you can monitor your Content Services system and diagnose performance, communication, and memory issues.
 
 You can also export information and reports for further analysis, or to send to the Alfresco Support Team.
 
@@ -101,7 +101,7 @@ If you've changed settings using JMX, then these are persisted through sessions,
 
 You can also click **Export** to download a JMX dump.
 
-See [JMX monitoring and management extensions]({% link content-services/latest/config/index.md %}#jmx-monitoring-and-management-extensions) for more information.
+See [JMX monitoring and management extensions]({% link content-services/7.3/config/index.md %}#jmx-monitoring-and-management-extensions) for more information.
 
 ## Log Settings
 
@@ -123,7 +123,7 @@ You can:
 
 Use this tool to view details of all software patches applied to the Content Services database schema.
 
-See [Troubleshooting schema-related problems]({% link content-services/latest/admin/troubleshoot.md %}#troubleshoot-database-scheme-problems) for more information on how to manage schema-related issues.
+See [Troubleshooting schema-related problems]({% link content-services/7.3/admin/troubleshoot.md %}#troubleshoot-database-scheme-problems) for more information on how to manage schema-related issues.
 
 ## System Performance
 
@@ -153,7 +153,7 @@ You can see details of memory usage, CPU usage, and the number of threads runnin
 
 Use this tool to view all the currently scheduled jobs on your system.
 
-You have the option to click **Run** to manually run individual scheduled jobs to ensure they're functioning correctly. See [Scheduled Jobs]({% link content-services/latest/develop/repo-ext-points/scheduled-jobs.md %}) for more details.
+You have the option to click **Run** to manually run individual scheduled jobs to ensure they're functioning correctly. See [Scheduled Jobs]({% link content-services/7.3/develop/repo-ext-points/scheduled-jobs.md %}) for more details.
 
 > **Note:** Be careful when running a job manually. Triggering a Lucene backup for example may cause a system outage for a few minutes.
 

@@ -7,7 +7,7 @@ Use these hands-on tutorials to help get you up and running with repository web 
 These tutorials assume you have Content Services installed locally at `http://localhost:8080`. If this is not 
 the case you will need to amend the URLs used in the tutorials accordingly.
 
-See also [Repo Web Script]({% link content-services/latest/develop/repo-ext-points/web-scripts.md %}) extension point.
+See also [Repo Web Script]({% link content-services/7.3/develop/repo-ext-points/web-scripts.md %}) extension point.
 
 ## Listing pre-built web scripts
 

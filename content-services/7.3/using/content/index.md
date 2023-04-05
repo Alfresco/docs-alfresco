@@ -98,7 +98,7 @@ If you select one of the more visually rich views, the way you interact with con
 
 In the **Options** menu you can also show and hide folders or the breadcrumb trail, switch to full screen or full window view
 
-You can even set up an **RSS Feed** for the folder, see [Subscribing to an RSS feed]({% link content-services/latest/using/index.md %}#subtorssfeed).
+You can even set up an **RSS Feed** for the folder, see [Subscribing to an RSS feed]({% link content-services/7.3/using/index.md %}#subtorssfeed).
 
 ## Content outside the Document Library
 
@@ -120,7 +120,7 @@ So rather than saving content on your laptop or tablet, you can save it in Share
 
 You can access the **My Files** area from anywhere in Share by clicking **My Files** at the top of the screen.
 
-The functionality available in the **My Files** area is identical to what you find in the Document Library, see [Working with content in a library]({% link content-services/latest/using/content/manage.md %}#adding-content) for details.
+The functionality available in the **My Files** area is identical to what you find in the Document Library, see [Working with content in a library]({% link content-services/7.3/using/content/manage.md %}#adding-content) for details.
 
 ### Shared Files
 
@@ -130,7 +130,7 @@ Any content that you create or add to **Shared Files** is visible to all other u
 
 You can access the **Shared Files** area from anywhere in Share by clicking **Shared Files** at the top of the screen.
 
-The functionality available in the **Shared Files** area is identical to what you find in the Document Library, see [Working with content in a library]({% link content-services/latest/using/content/manage.md %}#adding-content) for details.
+The functionality available in the **Shared Files** area is identical to what you find in the Document Library, see [Working with content in a library]({% link content-services/7.3/using/content/manage.md %}#adding-content) for details.
 
 ### Repository
 
@@ -142,4 +142,4 @@ The **Repository** includes all of the usual document library functionality with
 
 Just as in a document library, the explorer panel includes navigation and filtering options. This lets you filter the repository contents by category or tag, or you can browse the repository file structure. You can also choose to view the content items currently checked out to you (**I'm Editing** view) or those that you've specifically flagged as favorites (**My Favorites** view).
 
-The functionality available within the Repository library is identical to what you find in a site library. See [Working with content in a library]({% link content-services/latest/using/content/manage.md %}#adding-content) for details on performing specific actions within the **Repository**.
+The functionality available within the Repository library is identical to what you find in a site library. See [Working with content in a library]({% link content-services/7.3/using/content/manage.md %}#adding-content) for details on performing specific actions within the **Repository**.

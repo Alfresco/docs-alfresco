@@ -8,8 +8,8 @@ For additional help, refer to the following:
 
 * [Alfresco Support](https://support.alfresco.com/){:target="_blank"}
 * [Alfresco Hub](https://hub.alfresco.com/){:target="_blank"}
-* [Repo Admin Console]({% link content-services/latest/admin/admin-console.md %}) for more information, specifically [support tools]({% link content-services/latest/admin/support-tools.md %})
-* [Share Admin Tools]({% link content-services/latest/admin/share-admin-tools.md %}) to view various installation and setup information
+* [Repo Admin Console]({% link content-services/7.3/admin/admin-console.md %}) for more information, specifically [support tools]({% link content-services/7.3/admin/support-tools.md %})
+* [Share Admin Tools]({% link content-services/7.3/admin/share-admin-tools.md %}) to view various installation and setup information
 
 ## Set log levels
 
@@ -98,7 +98,7 @@ Use Node Browser in the Repo Admin Console or in Share Admin Tools as a debuggin
 
 This is a read-only feature with basic search capability.
 
-1. Open the [Repo Admin Console]({% link content-services/latest/admin/admin-console.md %}#launch-admin-console).
+1. Open the [Repo Admin Console]({% link content-services/7.3/admin/admin-console.md %}#launch-admin-console).
 
 2. In the **Support Tools** section, click **Node Browser**. You see the **Node Browser Console** page.
 
@@ -127,7 +127,7 @@ This is a read-only feature with basic search capability.
 
 ### Using the Node Browser in Share Admin Tools
 
-1. Go to [Share Admin Tools]({% link content-services/latest/admin/share-admin-tools.md %}), and then click **Node Browser**.
+1. Go to [Share Admin Tools]({% link content-services/7.3/admin/share-admin-tools.md %}), and then click **Node Browser**.
 
     By default, the search criteria `PATH:"/"` is shown in the Node Browser field for the `workspace://SpacesStore` repository store. Each store is an area of the repository. The nodes contained within each store are organized hierarchically. The node displayed is the root node of the selected store.
 
@@ -262,7 +262,7 @@ tomcat/scripts/serviceinstall.bat INSTALL
 
 to re-register the service with the new option.
 
-See [Setting up clustering]({% link content-services/latest/admin/cluster.md %}) for more information on the process of initiating clustering and the options available for configuring clustering.
+See [Setting up clustering]({% link content-services/7.3/admin/cluster.md %}) for more information on the process of initiating clustering and the options available for configuring clustering.
 
 ## Troubleshoot JMX Dumper
 

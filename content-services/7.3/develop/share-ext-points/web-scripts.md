@@ -5,7 +5,7 @@ title: Surf Web Scripts Extension Point
 When you look under the covers of the Share web application you will notice that most of the functionality is 
 implemented as Surf Web Scripts. This is true for both Pages and Dashlets.
 
-Architecture Information: [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
+Architecture Information: [Share Architecture]({% link content-services/7.3/develop/software-architecture.md %}#sharearchitecture)
 
 ## Description
 
@@ -29,15 +29,15 @@ user interface (this is how most of the Share user interface is generated):
 ![dev-extensions-share-web-scripts-architecture]({% link content-services/images/dev-extensions-share-web-scripts-architecture.png %})
 
 As we can see in the above figure a Surf Web Script is not called directly from the browser (with `http://localhost:8080/share/service/...`) 
-but instead indirectly via either a [Surf Page]({% link content-services/latest/develop/share-ext-points/surf-pages.md %}) 
-or a [Surf Dashlet]({% link content-services/latest/develop/share-ext-points/surf-dashlets.md %}). 
-Surf web scripts are also used when constructing [Aikau Pages]({% link content-services/latest/develop/share-ext-points/aikau-pages.md %}) 
-and [Aikau Dashlets]({% link content-services/latest/develop/share-ext-points/aikau-dashlets.md %}).
+but instead indirectly via either a [Surf Page]({% link content-services/7.3/develop/share-ext-points/surf-pages.md %}) 
+or a [Surf Dashlet]({% link content-services/7.3/develop/share-ext-points/surf-dashlets.md %}). 
+Surf web scripts are also used when constructing [Aikau Pages]({% link content-services/7.3/develop/share-ext-points/aikau-pages.md %}) 
+and [Aikau Dashlets]({% link content-services/7.3/develop/share-ext-points/aikau-dashlets.md %}).
 
 >**Note:** For a Surf application such as Alfresco Share, or an application created from the Aikau archetype, the authentication is handled at the page level. And any Web Script components or Aikau pages that run within that context will be authenticated. A Share dashlet is already running within an authenticated page so will also be authenticated. On the other hand, if you call a Surf Web Script URL directly in a browser address bar there is no authentication (that is, no context). You would need to have a `JSESSIONID` that is already authenticated (that is, by the page). Surf ties the given `JSESSIONID` to the TICKET that is stored in the session for that user for that connector (`alfresco`, `alfresco-api`). When a client-side library on an authenticated page makes an XHR call to a `/service` URL it will be passing the `JSESSIONID` automatically.
 
 The JavaScript controller can fetch content from different remote sources, such as the repository and Web Services on 
-the Internet. To do this the controller uses a special root object called [remote]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#surfrootobjects), which 
+the Internet. To do this the controller uses a special root object called [remote]({% link content-services/7.3/develop/reference/surf-framework-ref.md %}#surfrootobjects), which 
 can be used to authenticate and connect to a remote service.
 
 To connect to a Remote Service on the Internet the controller will look something like this:
@@ -59,7 +59,7 @@ model.weather = londonWeatherJSON["weather"];
 Web Script controller file names follow a naming convention: `<web script id>.<http method>.js`, the above controller 
 could be stored in a file called `londonweather.get.js`.
 
-Note the use of the `http` [connector]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#connectorsandcreds) 
+Note the use of the `http` [connector]({% link content-services/7.3/develop/reference/surf-framework-ref.md %}#connectorsandcreds) 
 when communicating with external Web Services. Now, to create a Web Script you also need a descriptor, which is defined 
 in XML and looks something like this:
 
@@ -97,7 +97,7 @@ similar to:
 
 **light rain**
 
-It is more likely though that we would use this Web Scrip as a basis for a [Surf Dashlet]({% link content-services/latest/develop/share-ext-points/surf-dashlets.md %}).
+It is more likely though that we would use this Web Scrip as a basis for a [Surf Dashlet]({% link content-services/7.3/develop/share-ext-points/surf-dashlets.md %}).
 
 If we instead want to fetch and present data from the repository, we will most likely call an out-of-the-box repository 
 web script, although it is common to implement and use your own repository web scripts. To connect and call an Alfresco 
@@ -117,13 +117,13 @@ model.filterValue = filterValue;
 ```
 
 For this controller to successfully pass on authentication information when making the repository web script call it 
-need to be called in context of a [Surf Page]({% link content-services/latest/develop/share-ext-points/surf-pages.md %}) or a 
-[Surf Dashlet]({% link content-services/latest/develop/share-ext-points/surf-dashlets.md %}). Note the use of the `alfresco` 
-[connector]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#connectorsandcreds) when communicating 
+need to be called in context of a [Surf Page]({% link content-services/7.3/develop/share-ext-points/surf-pages.md %}) or a 
+[Surf Dashlet]({% link content-services/7.3/develop/share-ext-points/surf-dashlets.md %}). Note the use of the `alfresco` 
+[connector]({% link content-services/7.3/develop/reference/surf-framework-ref.md %}#connectorsandcreds) when communicating 
 with a repository, This connector assumes that you will call the older **deprecated** v0 REST API
 (`http://localhost:8080/alfresco/service`). We use it here as the feature of searching for people is not yet available in the v1 REST API.
 
-We should use the [v1 REST API]({% link content-services/latest/develop/rest-api-guide/index.md %}) as much as possible, which requires a 
+We should use the [v1 REST API]({% link content-services/7.3/develop/rest-api-guide/index.md %}) as much as possible, which requires a 
 different connector called `alfresco-api`. Here is an example controller that uses the v1 API to get all the sites in the Repository:
 
 ```javascript
@@ -228,8 +228,8 @@ available in the presentation tier. Likewise, some root objects that are availab
 repository tier are not available to web scripts running in the presentation tier. For example, objects associated with 
 core repository concepts, such as nodes, are not directly available to web scripts running in the presentation tier.
 
-* [Surf root objects - controller]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#surfrootobjects) 
-* [FreeMarker root objects - template]({% link content-services/latest/develop/reference/freemarker-ref.md %})
+* [Surf root objects - controller]({% link content-services/7.3/develop/reference/surf-framework-ref.md %}#surfrootobjects) 
+* [FreeMarker root objects - template]({% link content-services/7.3/develop/reference/freemarker-ref.md %})
 
 ## Deployment - App Server
 
@@ -243,8 +243,8 @@ core repository concepts, such as nodes, are not directly available to web scrip
 
 ## More Information
 
-* [Web Script Reference]({% link content-services/latest/develop/reference/web-scripts-ref.md %})
-* [Surf root objects]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#surfrootobjects)
+* [Web Script Reference]({% link content-services/7.3/develop/reference/web-scripts-ref.md %})
+* [Surf root objects]({% link content-services/7.3/develop/reference/surf-framework-ref.md %}#surfrootobjects)
 
 ## Sample Code
 
@@ -252,4 +252,4 @@ core repository concepts, such as nodes, are not directly available to web scrip
 
 ## Tutorials
 
-* [Web Script tutorials]({% link content-services/latest/tutorial/platform/web-scripts.md %})
+* [Web Script tutorials]({% link content-services/7.3/tutorial/platform/web-scripts.md %})

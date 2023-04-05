@@ -4,7 +4,7 @@ title: Document Library Extension Point
 
 The Document Library page has several extension points that can be used to customize its behavior, such as actions.
 
-Architecture Information: [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
+Architecture Information: [Share Architecture]({% link content-services/7.3/develop/software-architecture.md %}#sharearchitecture)
 
 ## Description
 
@@ -19,7 +19,7 @@ The following list describes the different Document Library sub-extension points
 * **Metadata templates** - Whenever you view a list of folders or files in the Browse view there is a small number of metadata properties displayed. You can define custom metadata templates to control what metadata is displayed for a specific content type.
 * **Views** - When you are browsing the Document Library it is possible to select how to view it. By default the Detailed View will be active, but you can also select from the following views: "Simple", "Gallery", "Filmstrip", "Table", "Audio", and "Media". If none of these views fit your needs it is possible to define custom views.
 
-Most of these sub-extension points are actually part of the [Share Configuration]({% link content-services/latest/develop/share-ext-points/share-config.md %}) 
+Most of these sub-extension points are actually part of the [Share Configuration]({% link content-services/7.3/develop/share-ext-points/share-config.md %}) 
 extension point as they are applied via XML configuration in share-config-custom.xml. It is really just the Actions 
 sub-extension point that will involve coding.
 
@@ -52,7 +52,7 @@ In this case a workflow was started, and there is a little icon indicating that 
 ## Deployment - App Server
 
 * `tomcat/shared/classes/alfresco/web-extension/share-config-custom.xml` (Untouched by re-deployments and upgrades)
-* The following locations are inside the exploded Share WAR, so **not** recommended, use a [Share JAR Module]({% link content-services/latest/develop/sdk.md %}#workingshare)) SDK project instead:
+* The following locations are inside the exploded Share WAR, so **not** recommended, use a [Share JAR Module]({% link content-services/7.3/develop/sdk.md %}#workingshare)) SDK project instead:
 * `tomcat/webapps/share/components/documentlibrary/actions` - DocLib Action JavaScript implementation and icon go here
 * `tomcat/webapps/share/components/documentlibrary/indicators` - status indicators icons go here
 
@@ -67,10 +67,10 @@ In this case a workflow was started, and there is a little icon indicating that 
 
 ## More Information
 
-* [Evaluators Extension Point]({% link content-services/latest/develop/share-ext-points/evaluators.md %})
-* [Configure Document Library]({% link content-services/latest/develop/share-ext-points/share-config.md %}#doclibconfig)
-* [See the Rating Extension Point for example DocLib action, form, and evaluator]({% link content-services/latest/develop/repo-ext-points/ratings.md %})
-* [The Site Document Library]({% link content-services/latest/using/content/index.md %}#document-library)
+* [Evaluators Extension Point]({% link content-services/7.3/develop/share-ext-points/evaluators.md %})
+* [Configure Document Library]({% link content-services/7.3/develop/share-ext-points/share-config.md %}#doclibconfig)
+* [See the Rating Extension Point for example DocLib action, form, and evaluator]({% link content-services/7.3/develop/repo-ext-points/ratings.md %})
+* [The Site Document Library]({% link content-services/7.3/using/content/index.md %}#document-library)
 
 ## Sample Code
 
@@ -78,10 +78,10 @@ In this case a workflow was started, and there is a little icon indicating that 
 
 ## Tutorials
 
-* [Adding a new Document Library action]({% link content-services/latest/tutorial/share/doclib.md %}#adddoclibaction)
-* [Adding a menu item to the "Create..." menu in DocLib]({% link content-services/latest/tutorial/share/doclib.md %}#addmenuitem2createmenu)
-* [Customizing document library views]({% link content-services/latest/develop/share-ext-points/share-config.md %}#customizedoclibviews)
-* [Configure aspect visibility]({% link content-services/latest/develop/share-ext-points/share-config.md %}#configaspects)
+* [Adding a new Document Library action]({% link content-services/7.3/tutorial/share/doclib.md %}#adddoclibaction)
+* [Adding a menu item to the "Create..." menu in DocLib]({% link content-services/7.3/tutorial/share/doclib.md %}#addmenuitem2createmenu)
+* [Customizing document library views]({% link content-services/7.3/develop/share-ext-points/share-config.md %}#customizedoclibviews)
+* [Configure aspect visibility]({% link content-services/7.3/develop/share-ext-points/share-config.md %}#configaspects)
 * [Jeff Potts Alfresco Developer Series: Adding Repo and DocLib actions](http://ecmarchitect.com/alfresco-developer-series-tutorials/actions/tutorial/tutorial.html){:target="_blank"} - a very thorough walk-through of how to develop Repository Actions and Document Library actions, a must read.
 
 ## Developer Blogs

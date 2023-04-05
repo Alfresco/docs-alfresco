@@ -272,9 +272,9 @@ This can be achieved in one of two ways:
 
 2. If Kerberos authentication is enabled with SSO, then Share will use cookie-based sessions and you can configure your load balancer to use sticky routing using the `JSESSIONID` cookie.
 
-    To enable Kerberos with SSO, refer to the instructions in [Configuring authentication]({% link content-services/latest/admin/auth-sync.md %}#configauthsubsystems) to configure `alfrescoNtlm` or Kerberos authentication, and set (`kerberos.authentication.sso.enabled=true`).
+    To enable Kerberos with SSO, refer to the instructions in [Configuring authentication]({% link content-services/7.3/admin/auth-sync.md %}#configauthsubsystems) to configure `alfrescoNtlm` or Kerberos authentication, and set (`kerberos.authentication.sso.enabled=true`).
 
-    > **Note:** If you're configuring a cluster, refer to [Setting up clustering]({% link content-services/latest/admin/cluster.md %}).
+    > **Note:** If you're configuring a cluster, refer to [Setting up clustering]({% link content-services/7.3/admin/cluster.md %}).
 
 ## Set up repository server cluster {#setuprepocluster}
 
@@ -293,11 +293,11 @@ Use this information to install and configure nodes in a cluster based on the sc
 
 1. Install the Content Services nodes.
 
-    See [Installing using distribution zip]({% link content-services/latest/install/zip/index.md %}) for more information.
+    See [Installing using distribution zip]({% link content-services/7.3/install/zip/index.md %}) for more information.
 
 2. Set up multiple Content Services instances in a clustered environment.
 
-    See [Setting up clustering]({% link content-services/latest/admin/cluster.md %}) for more information.
+    See [Setting up clustering]({% link content-services/7.3/admin/cluster.md %}) for more information.
 
 ### Install and configure Solr nodes
 
@@ -510,7 +510,7 @@ Ensure that the Content Services server is running.
 
     Your user name and password must be for an account with administrator permissions.
 
-    The Admin Console displays in a browser window. The first page you see is the [System Summary]({% link content-services/latest/admin/admin-console.md %}#systemsummary).
+    The Admin Console displays in a browser window. The first page you see is the [System Summary]({% link content-services/7.3/admin/admin-console.md %}#systemsummary).
 
 3. In the **Repository Services** section, click **Repository Server Clustering**.
 

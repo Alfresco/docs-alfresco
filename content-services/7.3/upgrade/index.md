@@ -8,10 +8,10 @@ Before performing an upgrade or applying a Service Pack, make sure you check the
 
 Care should be taken when upgrading from any previous releases of Content Services or Community Edition. There are some steps that should be reviewed and planned before you upgrade. Familiarize yourself with the guidance below and then plan your upgrade. In particular, ensure that the following steps are completed before you start:
 
-* Ensure that you have a functional [backup of your Alfresco repository and database]({% link content-services/latest/admin/backup-restore.md %}), before starting the upgrade process.
-* Download and run the [Alfresco Extension Inspector]({% link content-services/latest/develop/extension-inspector.md %}) to understand which customization or library items need to be reviewed or updated to support the upgrade.
+* Ensure that you have a functional [backup of your Alfresco repository and database]({% link content-services/7.3/admin/backup-restore.md %}), before starting the upgrade process.
+* Download and run the [Alfresco Extension Inspector]({% link content-services/7.3/develop/extension-inspector.md %}) to understand which customization or library items need to be reviewed or updated to support the upgrade.
 * Review all new and deprecated features included in the Release Notes. Customers can access these from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
-* Review and implement the new [Supported platforms]({% link content-services/latest/support/index.md %}) options, and update as necessary for the new deployment. Also, check the general advice about [Supported Platforms and Languages](https://www.alfresco.com/services/subscription/supported-platforms){:target="_blank"} on our website.
+* Review and implement the new [Supported platforms]({% link content-services/7.3/support/index.md %}) options, and update as necessary for the new deployment. Also, check the general advice about [Supported Platforms and Languages](https://www.alfresco.com/services/subscription/supported-platforms){:target="_blank"} on our website.
 
 To upgrade from a previous version of Content Services to a later version, see the [upgrade process](#upgrade-process).
 
@@ -26,7 +26,7 @@ The following diagram shows the upgrade paths for major versions:
 The upgrade path recommendations are:
 
 * Direct upgrades to Content Services 7.3 are supported only from 5.2.x and later.
-* Content Services 7.3 introduces changes that require new releases of some modules. To upgrade to 7.3, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/latest/support/index.md %}) for more details on the associated versions.
+* Content Services 7.3 introduces changes that require new releases of some modules. To upgrade to 7.3, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/7.3/support/index.md %}) for more details on the associated versions.
 * You must upgrade to a supported version of Alfresco Search Services before upgrading the repository to 7.3. See [Upgrade Search Services]({% link search-services/latest/upgrade/index.md %}) for more information.
   * Upgrades from Content Services 5.2 must first upgrade from Solr 4 to Alfresco Search Services.
 
@@ -56,7 +56,7 @@ You can then follow the [upgrade path](#upgrade-paths) to Content Services to up
 
 ## Upgrade process
 
-Use this procedure to upgrade from a previous version of Content Services using one of the supported [installation methods]({% link content-services/latest/install/index.md %}). The process involves a new installation of the Content Services binaries and configuration, and an in-place upgrade of a copy of the repository.
+Use this procedure to upgrade from a previous version of Content Services using one of the supported [installation methods]({% link content-services/7.3/install/index.md %}). The process involves a new installation of the Content Services binaries and configuration, and an in-place upgrade of a copy of the repository.
 
 In-place upgrade of the binaries and configuration isn't recommended. Creating a new installation ensures that if anything goes wrong during the upgrade, the original (not upgraded) system is still intact and available for immediate restart.
 
@@ -71,7 +71,7 @@ These steps assume that you've got an existing Content Services installation (`a
 
     1. Shut down your existing instance.
 
-    2. [Back up your existing repository]({% link content-services/latest/admin/backup-restore.md %}) (`alfresco-v.1`) and the database.
+    2. [Back up your existing repository]({% link content-services/7.3/admin/backup-restore.md %}) (`alfresco-v.1`) and the database.
 
         > **Note:** Back up any configuration overrides from the `<extension>` directory.
 
@@ -96,27 +96,27 @@ These steps assume that you've got an existing Content Services installation (`a
 
     1. Configure the new installation with a new repository and database (not the existing one).
 
-    2. [Start the server]({% link content-services/latest/install/zip/additions.md %}#start-server) and [validate](#validate-upgrade) that the system works correctly.
+    2. [Start the server]({% link content-services/7.3/install/zip/additions.md %}#start-server) and [validate](#validate-upgrade) that the system works correctly.
 
 3. Apply all customizations to the new 7.3 installation.
 
-    1. [Stop]({% link content-services/latest/install/zip/additions.md %}#stop-server) the server.
+    1. [Stop]({% link content-services/7.3/install/zip/additions.md %}#stop-server) the server.
 
-    2. [Remove]({% link content-services/latest/install/zip/tomcat.md %}#tailor-your-installation) any unwanted applications.
+    2. [Remove]({% link content-services/7.3/install/zip/tomcat.md %}#tailor-your-installation) any unwanted applications.
 
-    3. [Modify]({% link content-services/latest/config/index.md %}#customize-applications) applications.
+    3. [Modify]({% link content-services/7.3/config/index.md %}#customize-applications) applications.
 
-    4. Install the required AMP files. See [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).
+    4. Install the required AMP files. See [Installing an Alfresco Module Package]({% link content-services/7.3/install/zip/amp.md %}).
 
     5. Don't copy the files. Copy only the override settings, so that you won't overwrite the new extension files in the upgraded version.
 
-    6. [Start]({% link content-services/latest/install/zip/additions.md %}#start-server) the server.
+    6. [Start]({% link content-services/7.3/install/zip/additions.md %}#start-server) the server.
 
         Monitor the startup log messages for information on the status of the upgrade. If any issues occur in the logs during startup, you'll need to rollback the whole repository to fix the issue and then try again.
 
     7. Fully [test](#test-after-customizing-upgrade) your customizations and configuration.
 
-    8. [Stop]({% link content-services/latest/install/zip/additions.md %}#stop-server) the server.
+    8. [Stop]({% link content-services/7.3/install/zip/additions.md %}#stop-server) the server.
 
 4. Restore production data.
 
@@ -126,7 +126,7 @@ These steps assume that you've got an existing Content Services installation (`a
 
     3. Restore the backup of the indexes, `contentstore` directory, files, and database from your previous installation into the new installation. See [Restore production data](#restore-production-data).
 
-    4. [Start]({% link content-services/latest/install/zip/additions.md %}#start-server) the server.
+    4. [Start]({% link content-services/7.3/install/zip/additions.md %}#start-server) the server.
 
         If any issue(s) occur in the logs during startup, you need to rollback the whole repository to fix the issue(s) and then try again.
 
@@ -134,7 +134,7 @@ These steps assume that you've got an existing Content Services installation (`a
 
 6. (Optional) Note that multi-tenancy is not supported from Content Services 6.x and newer.
 
-    If upgrading to the latest version from 5.2, then the existing multi-tenancy (MT) extension files are no longer 
+    If upgrading to the 7.3 version from 5.2, then the existing multi-tenancy (MT) extension files are no longer 
     relevant and must not be migrated to the new version. It's recommended that you backup your existing MT files.
    
 7. (Optional) Perform this step if you're working in a clustered environment:
@@ -234,7 +234,7 @@ Here are some of the tips to help you test your customizations.
 * Check if the users or groups created previously still exist.
 * Check if all the dashboards created previously still exist.
 * Check if the folders in the document library that were created prior to the upgrade still exist.
-* Check if clustering is working properly by running the [cluster validation tool]({% link content-services/latest/admin/cluster.md %}#managecluster) in the Admin Console.
+* Check if clustering is working properly by running the [cluster validation tool]({% link content-services/7.3/admin/cluster.md %}#managecluster) in the Admin Console.
 
 ## Restore production data
 

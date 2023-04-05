@@ -11,7 +11,7 @@ You can configure supported databases for use with Content Services:
 * PostgreSQL
 * Microsoft SQL Server
 
-Before continuing, check the [Supported platforms]({% link content-services/latest/support/index.md %}) page for the correct driver version for your chosen database.
+Before continuing, check the [Supported platforms]({% link content-services/7.3/support/index.md %}) page for the correct driver version for your chosen database.
 
 ## Amazon RDS
 
@@ -46,11 +46,11 @@ To configure the database:
 
 2. Execute `sudo su` to change to root.
 
-3. [Install Content Services]({% link content-services/latest/install/containers/index.md %})on your Amazon EC2 instance.
+3. [Install Content Services]({% link content-services/7.3/install/containers/index.md %})on your Amazon EC2 instance.
 
 4. Install the Aurora database connector.
 
-    This release requires `mysql-connector-java-5.x.x.jar` for compatibility with the SQL Server database. Check the [Supported platforms]({% link content-services/latest/support/index.md %}) page for the correct driver.
+    This release requires `mysql-connector-java-5.x.x.jar` for compatibility with the SQL Server database. Check the [Supported platforms]({% link content-services/7.3/support/index.md %}) page for the correct driver.
 
     1. Download the driver from the [MySQL site](https://dev.mysql.com/){:target="_blank"}.
 
@@ -110,11 +110,11 @@ You can configure a MySQL database on Amazon RDS for use with Content Services, 
 
 2. Execute `sudo su` to change to root.
 
-3. Install Content Services using one of the [options]({% link content-services/latest/install/containers/index.md %}) provided.
+3. Install Content Services using one of the [options]({% link content-services/7.3/install/containers/index.md %}) provided.
 
 4. Install the MySQL database connector.
 
-    The MySQL database connector is required when installing with MySQL, and allows the MySQL database to talk to the server. Check the [Supported platforms]({% link content-services/latest/support/index.md %}) page for the correct driver.
+    The MySQL database connector is required when installing with MySQL, and allows the MySQL database to talk to the server. Check the [Supported platforms]({% link content-services/7.3/support/index.md %}) page for the correct driver.
 
     1. Download `mysql-connector-java-5.x.x` from the [MySQL download site](https://dev.mysql.com/){:target="_blank"}.
 
@@ -175,7 +175,7 @@ The Oracle database is case sensitive, so any configuration setting that you add
 
 2. Execute `sudo su` to change to root.
 
-3. Install Content Services using one of the [options]({% link content-services/latest/install/containers/index.md %}) provided.
+3. Install Content Services using one of the [options]({% link content-services/7.3/install/containers/index.md %}) provided.
 
 4. Install the Oracle database connector to allow the database to talk to the server.
 
@@ -253,7 +253,7 @@ To configure the database:
 
 2. Execute `sudo su` to change to root.
 
-3. Install Content Services using one of the [options]({% link content-services/latest/install/containers/index.md %}) provided.
+3. Install Content Services using one of the [options]({% link content-services/7.3/install/containers/index.md %}) provided.
 
 4. Install the PostgreSQL database connector to allow the database to talk to the server.
 
@@ -324,11 +324,11 @@ To configure the database:
 
 2. Execute `sudo su` to change to root.
 
-3. Install Content Services using one of the [options]({% link content-services/latest/install/containers/index.md %}) provided.
+3. Install Content Services using one of the [options]({% link content-services/7.3/install/containers/index.md %}) provided.
 
 4. Install the Microsoft SQL Server database connector to allow the database to talk to the server.
 
-    Check the [Supported platforms]({% link content-services/latest/support/index.md %}) page for the correct driver version.
+    Check the [Supported platforms]({% link content-services/7.3/support/index.md %}) page for the correct driver version.
 
     1. Download `sqljdbc4.jar` from the Microsoft SQL Server download site.
 
@@ -387,7 +387,7 @@ You can configure a MySQL or MariaDB database connection (with a MySQL JDBC driv
 
     The connector is a JAR file, for example, `mysql-connector-java-5.x.x`.
 
-    Check the [Supported platforms]({% link content-services/latest/support/index.md %}) page for the correct driver version.
+    Check the [Supported platforms]({% link content-services/7.3/support/index.md %}) page for the correct driver version.
 
     1. Download the database connector from the [MySQL site](https://dev.mysql.com/){:target="_blank"}.
 
@@ -509,7 +509,7 @@ You can configure an Oracle RDBMS database for use with Content Services. The Or
 
 > **Note:** Alfresco supports RAC as a single instance Oracle database as the customers will benefit from high availability and resiliency. As Content Services requires a sequentially ordered transaction ID, customers will not see a performance improvement from deploying on Oracle RAC.
 
-> **Note:** The Oracle Thin driver is recommended. Check the [Supported platforms]({% link content-services/latest/support/index.md %}) page for the correct driver.
+> **Note:** The Oracle Thin driver is recommended. Check the [Supported platforms]({% link content-services/7.3/support/index.md %}) page for the correct driver.
 
 1. Create a database named `alfresco`.
 
@@ -603,7 +603,7 @@ You can configure a PostgreSQL database for use with Content Services.
 
     The database connector is a JAR file, for example, `postgresql-x.x.jar`.
 
-    Check the [Supported platforms]({% link content-services/latest/support/index.md %}) page for the correct driver.
+    Check the [Supported platforms]({% link content-services/7.3/support/index.md %}) page for the correct driver.
 
     1. Download the latest database connector from the [PostgreSQL download site](https://jdbc.postgresql.org/download.html){:target="_blank"}.
 
@@ -686,7 +686,7 @@ You can configure a Microsoft SQL Server database for use with Content Services.
 
 1. Install the Microsoft SQL Server database connector to allow the database to talk to the Content Services server.
 
-    Check the [Supported platforms]({% link content-services/latest/support/index.md %}) page for the correct driver version.
+    Check the [Supported platforms]({% link content-services/7.3/support/index.md %}) page for the correct driver version.
 
     1. Download the JDBC driver from the Microsoft SQL Server download site.
 

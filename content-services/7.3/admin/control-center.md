@@ -15,11 +15,11 @@ When you expand the **Identity** section, you'll see the two main areas the Cont
 * A **Users** section used to manage your users.
 * A **Groups** section used to manage the groups to which your users may be added.
 
-> **Note:** This provides an alternative way of managing users and groups in [Share Admin Tools]({% link content-services/latest/admin/share-admin-tools.md %}).
+> **Note:** This provides an alternative way of managing users and groups in [Share Admin Tools]({% link content-services/7.3/admin/share-admin-tools.md %}).
 
 ## Prerequisites
 
-There are a number of software requirements for installing the Control Center. These are the same as for deploying [Alfresco Content Services]({% link content-services/latest/install/containers/docker-compose.md %}#prerequisites). However, the same details are provided here for easy reference.
+There are a number of software requirements for installing the Control Center. These are the same as for deploying [Alfresco Content Services]({% link content-services/7.3/install/containers/docker-compose.md %}#prerequisites). However, the same details are provided here for easy reference.
 
 ### Containerized deployment
 
@@ -50,7 +50,7 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
 
 1. Download the `docker-compose.yml` file by accessing the Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"} page, which will give you a 30-day license.
 
-    If you already have a valid license file for Content Services 7.3, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/latest/admin/license.md %}) for more details.
+    If you already have a valid license file for Content Services 7.3, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/7.3/admin/license.md %}) for more details.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 

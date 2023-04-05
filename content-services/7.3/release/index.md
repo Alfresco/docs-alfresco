@@ -40,7 +40,7 @@ As part of the gradual decommissioning of the embedded workflow engine, the embe
 
 In the Alfresco Content Services 7.3.0.1 release, configuration options were introduced to control the execution of JavaScript by the repository. With the release of Service Pack 7.3.1, these configuration options have changed.
 
-See the [JavaScript execution]({% link content-services/latest/config/repository.md %}#javascript-execution) section for the new configuration options.
+See the [JavaScript execution]({% link content-services/7.3/config/repository.md %}#javascript-execution) section for the new configuration options.
 
 ## Deprecated software
 
@@ -50,7 +50,7 @@ We are ending support for the Alfresco SAML SSO module, previously used to confi
 
 Alfresco Content Services 7.3 is available as a distribution zip file for manual installation, or it can be installed using an Ansible playbook (Linux only) for non-containerized environments. It's also available as a set of Docker images that can be deployed in containerized environments using Docker Compose or Helm charts (for Kubernetes).
 
-See the [Install]({% link content-services/latest/install/index.md %}) documentation for more details.
+See the [Install]({% link content-services/7.3/install/index.md %}) documentation for more details.
 
 ### Azure and Glacier Connector Customers
 
@@ -65,7 +65,7 @@ ACS 7.3.0 will be released with optional connectors:
 
 Care should be taken when upgrading from any previous version of Content Services. There are steps that should be reviewed and planned before you upgrade. Familiarize yourself with the guidance provided and plan your upgrade carefully.
 
-See the detailed [Upgrade]({% link content-services/latest/upgrade/index.md %}) documentation, including the Content Services [upgrade paths]({% link content-services/latest/upgrade/index.md %}#upgrade-paths).
+See the detailed [Upgrade]({% link content-services/7.3/upgrade/index.md %}) documentation, including the Content Services [upgrade paths]({% link content-services/7.3/upgrade/index.md %}#upgrade-paths).
 
 ## Upgraded integrations
 
@@ -73,10 +73,10 @@ Alfresco Content Services 7.3 introduces changes that require new releases of so
 
 To upgrade to Content Services 7.3, you'll also need to update any of the module artifacts to which you're entitled.
 
-See the [Supported Platforms]({% link content-services/latest/support/index.md %}) for more details.
+See the [Supported Platforms]({% link content-services/7.3/support/index.md %}) for more details.
 
 ## SDK
 
-The latest release of the [Alfresco in-process SDK]({% link content-services/latest/develop/sdk.md %}) is SDK 4.5, which is compatible with this release.
+The latest release of the [Alfresco in-process SDK]({% link content-services/7.3/develop/sdk.md %}) is SDK 4.5, which is compatible with this release.
 
-The latest release of the [Alfresco out-of-process Event SDK]({% link content-services/latest/develop/oop-sdk.md %}) is SDK 5.2, which is compatible with this release and the new [SDK Event Gateway]({% link content-services/latest/develop/oop-ext-points/event-gateway.md %}).
+The latest release of the [Alfresco out-of-process Event SDK]({% link content-services/7.3/develop/oop-sdk.md %}) is SDK 5.2, which is compatible with this release and the new [SDK Event Gateway]({% link content-services/7.3/develop/oop-ext-points/event-gateway.md %}).

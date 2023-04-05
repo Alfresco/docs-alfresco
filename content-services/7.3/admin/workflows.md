@@ -300,7 +300,7 @@ With the Activiti Workflow Console you can:
 
 To start the Activiti Workflow Console:
 
-1. Launch the [Repo Admin Console]({% link content-services/latest/admin/admin-console.md %}#launch-admin-console)
+1. Launch the [Repo Admin Console]({% link content-services/7.3/admin/admin-console.md %}#launch-admin-console)
 2. In the **Repository Services** section, click **Process Engines**
 3. In the bottom right panel, click **Activiti Workflow Console**
 

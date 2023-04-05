@@ -5,7 +5,7 @@ title: Aikau Dashlets Extension Point
 The Share web application has a special page called Dashboard, which contains windows of content called dashlets. 
 Currently most of these dashlets are Spring Surf dashlets, but they will eventually be converted to Aikau dashlets.
 
-Architecture Information: [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
+Architecture Information: [Share Architecture]({% link content-services/7.3/develop/software-architecture.md %}#sharearchitecture)
 
 ## Description
 
@@ -18,9 +18,9 @@ Let's say we wanted to implement a simple Hello World dashlet in Aikau that look
 
 ![dev-extension-points-aikau-dashlet-hello-world-dashlet]({% link content-services/images/dev-extension-points-aikau-dashlet-hello-world-dashlet.png %})
 
-This dashlet contains the following [Aikau Widgets]({% link content-services/latest/develop/share-ext-points/aikau-widgets.md %}): the dashlet itself, 
+This dashlet contains the following [Aikau Widgets]({% link content-services/7.3/develop/share-ext-points/aikau-widgets.md %}): the dashlet itself, 
 two toolbar widgets, a vertical layout widget, a logo widget, and a Hello widget. To implement it start with the 
-[Surf Web Script]({% link content-services/latest/develop/share-ext-points/web-scripts.md %}).
+[Surf Web Script]({% link content-services/7.3/develop/share-ext-points/web-scripts.md %}).
 
 The web script controller is where we specify what Aikau Widget that is implementing the dashlet, it is called 
 `acmedashlet/HelloDashlet` in this case. The controller will look something like this for the above Hello World dashlet:
@@ -259,7 +259,7 @@ This widget will be loaded by the Dojo AMD loader as we defined the package for 
 
 ## More Information
 
-* [Introduction to Aikau]({% link content-services/latest/develop/reference/aikau-intro-ref.md %})
+* [Introduction to Aikau]({% link content-services/7.3/develop/reference/aikau-intro-ref.md %})
 * [Aikau Widget Reference](http://dev.alfresco.com/resource/docs/aikau-jsdoc/){:target="_blank"} - this is the place to look for widgets that you can use in your dashlets.
 
 ## Sample Code
@@ -268,7 +268,7 @@ This widget will be loaded by the Dojo AMD loader as we defined the package for 
 
 ## Tutorials
 
-* [Adding new AMD packages for Aikau Widgets]({% link content-services/latest/tutorial/share/amd.md %})
+* [Adding new AMD packages for Aikau Widgets]({% link content-services/7.3/tutorial/share/amd.md %})
 * [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/tree/master/tutorial/chapters){:target="_blank"}
 
 ## Alfresco Developer Blogs

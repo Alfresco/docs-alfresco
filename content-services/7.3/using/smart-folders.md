@@ -22,9 +22,9 @@ The Smart Folder itself can't be edited in Content Services, except through the 
 
 Your system administrator creates templates that you can load for different purposes, for example; a structure for a claim, or to file PDF files separately from video or audio files, or just to personalise the folder structure by user.
 
-Take a look at the videos to learn more: [Smart Folders videos]({% link content-services/latest/tutorial/video/content.md%}#smart-folder-overview)
+Take a look at the videos to learn more: [Smart Folders videos]({% link content-services/7.3/tutorial/video/content.md%}#smart-folder-overview)
 
-System administrators and business analysts can find more information here: [Configuring Smart Folders]({% link content-services/latest/config/smart-folders/index.md %}).
+System administrators and business analysts can find more information here: [Configuring Smart Folders]({% link content-services/7.3/config/smart-folders/index.md %}).
 
 > **Note:** The videos and labels within images are in English.
 
@@ -48,7 +48,7 @@ You can apply a Smart Folder structure to a physical folder by using aspects.
 
     If your system administrator has created templates for your organization, you can find these by drilling down to `Data Dictionary/Smart Folder Templates`.
 
-    System administrators can find more information about the templates here: [Enabling Smart Folders]({% link content-services/latest/config/smart-folders/index.md %}).
+    System administrators can find more information about the templates here: [Enabling Smart Folders]({% link content-services/7.3/config/smart-folders/index.md %}).
 
     The physical folder that you selected now has a Smart Folder structure under it, containing files that apply to the search criteria in the Smart Folders Template. For example, if you apply the standard smartFoldersExample.json template, you have a number of folders:
 

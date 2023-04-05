@@ -28,9 +28,9 @@ Between versions 4.0 to 4.2 there were significant enhancements to the Surf fram
 from the FreeMarker template into the JavaScript controller of the Share web scripts. Improvements to page load
 performance were achieved by reducing HTTP requests through the following methods:
 
-* Using [MD5 checksums]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#surf-checksums) to allow browsers to safely cache resources indefinitely
-* [Dynamically aggregating]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#aggregate) JavaScript and CSS dependencies into fewer resources
-* [Encoding images]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#css) directly into CSS files.
+* Using [MD5 checksums]({% link content-services/7.3/develop/reference/surf-framework-ref.md %}#surf-checksums) to allow browsers to safely cache resources indefinitely
+* [Dynamically aggregating]({% link content-services/7.3/develop/reference/surf-framework-ref.md %}#aggregate) JavaScript and CSS dependencies into fewer resources
+* [Encoding images]({% link content-services/7.3/develop/reference/surf-framework-ref.md %}#css) directly into CSS files.
 
 All of these features are leveraged in the improvements and this makes it easier to produce faster, more reliable pages,
 in less time for Alfresco Share web applications.
@@ -68,7 +68,7 @@ a combination of the YUI2, JQuery and Dojo libraries.
 
 One of Share's greatest strengths is its ability to be easily customized. This is something that has been enhanced over
 the last few releases. A significant improvement was to make it easier to
-[customize the client-side widgets that are instantiated]({% link content-services/latest/develop/share-ext-points/surf-widgets.md %}#customizesurfwidgetinit)
+[customize the client-side widgets that are instantiated]({% link content-services/7.3/develop/share-ext-points/surf-widgets.md %}#customizesurfwidgetinit)
 on each page by customizing the JavaScript controller of a Component's web script. It is also possible to customize
 the numerous fine-grained widgets that comprise a page or Component. Widgets can be reconfigured, added or removed
 easily and because the widgets are decoupled (such that they do not rely on the existence of other widgets) making

@@ -14,7 +14,7 @@ The diagram below shows the deployment produced by this example:
 
 ### Prerequisites (AWS Services)
 
-Follow the [EKS deployment]({% link content-services/latest/install/containers/helm.md %}#helm-deployment-with-aws-eks) guide up to the [Choose Content Services version]({% link content-services/latest/install/containers/helm.md %}#choose-content-services-version) section. Return to this page once the Docker registry secret is installed.
+Follow the [EKS deployment]({% link content-services/7.3/install/containers/helm.md %}#helm-deployment-with-aws-eks) guide up to the [Choose Content Services version]({% link content-services/7.3/install/containers/helm.md %}#choose-content-services-version) section. Return to this page once the Docker registry secret is installed.
 
 ### Set up AWS Services
 
@@ -221,7 +221,7 @@ This example demonstrates how to enable Alfresco Search Services (`/solr`) for e
 
 ### Deploy (Search)
 
-Follow the [EKS deployment]({% link content-services/latest/install/containers/helm.md %}#helm-deployment-with-aws-eks) guide up to the [Choose Content Services version]({% link content-services/latest/install/containers/helm.md %}#choose-content-services-version) section. Return to this page once the Docker registry secret is installed.
+Follow the [EKS deployment]({% link content-services/7.3/install/containers/helm.md %}#helm-deployment-with-aws-eks) guide up to the [Choose Content Services version]({% link content-services/7.3/install/containers/helm.md %}#choose-content-services-version) section. Return to this page once the Docker registry secret is installed.
 
 Deploy the latest version of Content Services (Enterprise) by running the command below. You'll need to replace `YOUR-DOMAIN-NAME` with the hosted zone you created previously, and replace `YOUR-BASIC-AUTH` and `YOUR-IPS` with the encoded basic authentication string and list of whitelisted IP addresses you prepared in the previous section.
 
@@ -281,7 +281,7 @@ This example demonstrates how to enable Inbound and Outbound email when installi
 
 ### Prerequisites (email)
 
-Follow the [EKS deployment]({% link content-services/latest/install/containers/helm.md %}#helm-deployment-with-aws-eks) guide up to the [Choose Content Services version]({% link content-services/latest/install/containers/helm.md %}#choose-content-services-version) section. Return to this page once the Docker registry secret is installed.
+Follow the [EKS deployment]({% link content-services/7.3/install/containers/helm.md %}#helm-deployment-with-aws-eks) guide up to the [Choose Content Services version]({% link content-services/7.3/install/containers/helm.md %}#choose-content-services-version) section. Return to this page once the Docker registry secret is installed.
 
 ### Deploy (email)
 
@@ -300,7 +300,7 @@ For example, if your Content Services email server name is `smtps-myacs.example.
 kubectl create secret tls your-cert-secret --key privkey.pem --cert fullchain.pem --namespace=alfresco
 ```
 
-Deploy the latest version of Content Services Enterprise by running the command below (replace `YOUR-DOMAIN-NAME` with the hosted zone you created, and replace the email values accordingly). See the table of [configuration options]({% link content-services/latest/install/containers/helm.md %}#configuration-options) for the full list of available options.
+Deploy the latest version of Content Services Enterprise by running the command below (replace `YOUR-DOMAIN-NAME` with the hosted zone you created, and replace the email values accordingly). See the table of [configuration options]({% link content-services/7.3/install/containers/helm.md %}#configuration-options) for the full list of available options.
 
 ```bash
 helm install acs alfresco/alfresco-content-services \
@@ -365,12 +365,12 @@ alert-fly-alfresco-cs-email   LoadBalancer   100.XX.33.188   a1dXXXXXab11eaac670
 
 For more information, see:
 
-* [Configure email]({% link content-services/latest/config/email.md %})
+* [Configure email]({% link content-services/7.3/config/email.md %})
 * [Kubernetes ingress-nginx: Exposing TCP and UDP services](https://github.com/kubernetes/ingress-nginx/blob/master/docs/user-guide/exposing-tcp-udp-services.md#exposing-tcp-and-udp-services){:target="_blank"}
 
 ## Using a custom metadata keystore {#custom-metadata-keystore}
 
-The Alfresco content repository Docker image comes with a pre-created default keystore that contains a secret key. For more information, see [Managing Alfresco keystores]({% link content-services/latest/admin/security.md %}#managealfkeystores) and [Dockerfile](https://github.com/Alfresco/acs-packaging/blob/master/docker-alfresco/Dockerfile#L81-L85){:target="_blank"}.
+The Alfresco content repository Docker image comes with a pre-created default keystore that contains a secret key. For more information, see [Managing Alfresco keystores]({% link content-services/7.3/admin/security.md %}#managealfkeystores) and [Dockerfile](https://github.com/Alfresco/acs-packaging/blob/master/docker-alfresco/Dockerfile#L81-L85){:target="_blank"}.
 
 It is recommended to generate a new keystore in production systems. You can mount it to the `content-repository` docker image to location `/usr/local/tomcat/shared/classes/alfresco/keystore/`. If the standard names of the keystore and the key are used, you only need to change the password values in [values.yaml](https://github.com/Alfresco/acs-deployment/tree/master/helm/alfresco-content-services/values.yaml){:target="_blank"}:
 
@@ -380,4 +380,4 @@ metadataKeystore:
   keyPassword: ""
 ```
 
-Otherwise, refer to the full list of configuration options in [Keystore configuration]({% link content-services/latest/admin/security.md %}#keystore-configuration).
+Otherwise, refer to the full list of configuration options in [Keystore configuration]({% link content-services/7.3/admin/security.md %}#keystore-configuration).

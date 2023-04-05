@@ -9,7 +9,7 @@ and their logs.
 
 The ReST API supports listing audit applications, listing audit entries (logs), deleting audit entries etc.
 
-If you are not familiar with audit logging in ACS, then have a look at this [page]({% link content-services/latest/admin/audit.md %}).
+If you are not familiar with audit logging in ACS, then have a look at this [page]({% link content-services/7.3/admin/audit.md %}).
 
 ## Enable auditing and Alfresco Access audit application {#enableauditing}
 
@@ -19,7 +19,7 @@ This section has a lot of examples where the "Alfresco Access" audit application
 better feeling for how the Audit ReST API works, it make sense to enable this audit application before moving on with 
 the examples in this section.
 
-This [page]({% link content-services/latest/admin/audit.md %}#enableauditing) has all the info you need to enable this 
+This [page]({% link content-services/7.3/admin/audit.md %}#enableauditing) has all the info you need to enable this 
 audit application.
 
 ## List audit applications {#listauditapps}

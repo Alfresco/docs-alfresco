@@ -60,8 +60,8 @@ A web script is a service bound to a URI that responds to HTTP methods such as G
 
 There are two kinds of web scripts that use the same underlying code:
 
-1. [Data web scripts]({% link content-services/latest/develop/repo-ext-points/web-scripts.md %})
-2. [Presentation web scripts]({% link content-services/latest/develop/share-ext-points/web-scripts.md %})
+1. [Data web scripts]({% link content-services/7.3/develop/repo-ext-points/web-scripts.md %})
+2. [Presentation web scripts]({% link content-services/7.3/develop/share-ext-points/web-scripts.md %})
 
 ![webscript-types]({% link content-services/images/webscript-types.png %})
 

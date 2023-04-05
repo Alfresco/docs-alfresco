@@ -5,7 +5,7 @@ title: Install using Helm
 Alfresco Content Services (ACS) is an Enterprise Content Management (ECM) system that's used for document and case management, project collaboration, web content publishing, and compliant records management.  The flexible compute, storage, and database services that Kubernetes offers make it an ideal platform for Content Services. This Helm chart presents an enterprise-grade Content Services configuration that you can adapt to virtually any scenario with the ability to scale up, down or out, depending on your use case.
 
 >Before starting a production installation make sure you are familiar with
-[how to secure your installation]({% link content-services/latest/admin/securing-install.md %}).
+[how to secure your installation]({% link content-services/7.3/admin/securing-install.md %}).
 
 The Helm chart in this repository supports deploying the Enterprise or Community Edition of Content Services.
 
@@ -27,13 +27,13 @@ Another typical change is the integration of your company-wide monitoring and lo
 
 For the best results, we recommend deploying Content Services to AWS EKS.
 
-There are also several [Helm examples]({% link content-services/latest/install/containers/helm-examples.md %}) that show you how to deploy with various configurations:
+There are also several [Helm examples]({% link content-services/7.3/install/containers/helm-examples.md %}) that show you how to deploy with various configurations:
 
-* [Deploy with AWS Services (S3, RDS and MQ)]({% link content-services/latest/install/containers/helm-examples.md %}#with-aws-services)
-* [Deploy with Alfresco Intelligence Services]({% link content-services/latest/install/containers/helm-examples.md %}#with-ai)
-* [Enable access to Alfresco Search Services]({% link content-services/latest/install/containers/helm-examples.md %}#search-external-access)
-* [Enable Email Services]({% link content-services/latest/install/containers/helm-examples.md %}#email-enabled)
-* [Use a custom metadata keystore]({% link content-services/latest/install/containers/helm-examples.md %}#custom-metadata-keystore)
+* [Deploy with AWS Services (S3, RDS and MQ)]({% link content-services/7.3/install/containers/helm-examples.md %}#with-aws-services)
+* [Deploy with Alfresco Intelligence Services]({% link content-services/7.3/install/containers/helm-examples.md %}#with-ai)
+* [Enable access to Alfresco Search Services]({% link content-services/7.3/install/containers/helm-examples.md %}#search-external-access)
+* [Enable Email Services]({% link content-services/7.3/install/containers/helm-examples.md %}#email-enabled)
+* [Use a custom metadata keystore]({% link content-services/7.3/install/containers/helm-examples.md %}#custom-metadata-keystore)
 
 ## Customize
 
@@ -45,7 +45,7 @@ The Helm chart configuration customization should only include environment-speci
 
 ### Creating custom Docker images
 
-The [Docker Compose customization guidelines]({% link content-services/latest/install/containers/customize.md %}) provides a detailed example of how to apply an AMP in a custom image. There's also a more advanced example of [building a custom image with configuration](https://github.com/Alfresco/acs-packaging/blob/master/docs/create-custom-image-using-existing-docker-image.md#applying-amps-that-require-additional-configuration-advanced){:target="_blank"}.
+The [Docker Compose customization guidelines]({% link content-services/7.3/install/containers/customize.md %}) provides a detailed example of how to apply an AMP in a custom image. There's also a more advanced example of [building a custom image with configuration](https://github.com/Alfresco/acs-packaging/blob/master/docs/create-custom-image-using-existing-docker-image.md#applying-amps-that-require-additional-configuration-advanced){:target="_blank"}.
 
 ### Using custom Docker images
 
@@ -385,15 +385,15 @@ Since you deployed Enterprise, you'll also have access to:
 * Alfresco Digital Workspace: `https://acs.YOUR-DOMAIN-NAME/workspace/`
 * Alfresco Sync Service: `https://acs.YOUR-DOMAIN-NAME/syncservice/healthcheck`
 
-If you're running Content Services 7.3 (i.e. the latest version) and already have a valid license file for this version, you can apply it directly to the running system. Navigate to the Admin Console and apply your license:
+If you're running Content Services 7.3 (or the latest version) and already have a valid license file for this version, you can apply it directly to the running system. Navigate to the Admin Console and apply your license:
 
 * [https://acs.YOUR-DOMAIN-NAME/alfresco/service/enterprise/admin/admin-license](http://localhost:8080/alfresco/service/enterprise/admin/admin-license){:target="_blank"} (this only applies for the Enterprise Download Trial)
 * Default username and password is `admin`
-* See [Uploading a new license]({% link content-services/latest/admin/license.md %}) for more details
+* See [Uploading a new license]({% link content-services/7.3/admin/license.md %}) for more details
 
 ### Configuration options
 
-By default, this tutorial installs an out-of-the-box setup, however there are many configuration options shown in the table below. There are also several [examples]({% link content-services/latest/install/containers/helm-examples.md %}) covering various use cases.
+By default, this tutorial installs an out-of-the-box setup, however there are many configuration options shown in the table below. There are also several [examples]({% link content-services/7.3/install/containers/helm-examples.md %}) covering various use cases.
 
 The following table lists the configurable parameters of the Content Services chart and their default values.
 
@@ -521,7 +521,7 @@ You can change the log levels for the specific Java packages in the content-repo
 
 > **Note:** Changes are only applied to the `content-repository` node from which the Admin Console is launched.
 
-* You can change the log levels by modifying `log4j.properties` in the content-repository image and doing a rolling update to the deployment. In this case the settings will be applied system-wide. See the [customization guidelines]({% link content-services/latest/install/containers/customize.md %}) for more.
+* You can change the log levels by modifying `log4j.properties` in the content-repository image and doing a rolling update to the deployment. In this case the settings will be applied system-wide. See the [customization guidelines]({% link content-services/7.3/install/containers/customize.md %}) for more.
 * The Content Services deployment doesn't include any log aggregation tools. The logs generated by pods will be lost once the pods are terminated.
 
 ### JMX dump

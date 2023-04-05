@@ -16,7 +16,7 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
 
 1. Download and install Tomcat following the instructions from [http://tomcat.apache.org](https://tomcat.apache.org){:target="_blank"}.
 
-    See the [supported platforms]({% link content-services/latest/support/index.md %}) page for the supported versions.
+    See the [supported platforms]({% link content-services/7.3/support/index.md %}) page for the supported versions.
 
 2. Create an additional classpath to Tomcat, which will be shared among all web applications.
 
@@ -181,7 +181,7 @@ The Content Services distribution file is a zip containing the required WAR file
 
     See [Install Alfresco Search Services]({% link search-services/latest/install/index.md %}) for more information.
 
-You're now ready to [install any additional software]({% link content-services/latest/install/zip/additions.md %}) that you require, and [install integrations]({% link content-services/latest/install/zip/additions.md %}#install-integrations).
+You're now ready to [install any additional software]({% link content-services/7.3/install/zip/additions.md %}) that you require, and [install integrations]({% link content-services/7.3/install/zip/additions.md %}#install-integrations).
 
 > **Note:** If you deployed previous versions of Content Services, you must remove any temporary files created by your application server. Use the `clean_tomcat.bat` or `clean_tomcat.sh` command.
 
@@ -225,7 +225,7 @@ After you've extracted the Content Services distribution zip, several directorie
 ## Move keystore files to your installation
 
 The new keystore configuration implementation requires it to be configured with
-[JAVA parameters]({% link content-services/latest/admin/security.md %}#alfresco-keystore-configuration).
+[JAVA parameters]({% link content-services/7.3/admin/security.md %}#alfresco-keystore-configuration).
 
 1. Move the default keystore files to your installation
 
@@ -278,9 +278,9 @@ Alfresco Share user interface. Use this information to remove the `share.war` fi
 
 You've successfully removed the Alfresco Share UI Webapp from your application server.
 
-Next, you can [customize applications]({% link content-services/latest/config/index.md %}#customize-applications) such as the configuration for Content Services, Alfresco Share, and Alfresco Search Services.
+Next, you can [customize applications]({% link content-services/7.3/config/index.md %}#customize-applications) such as the configuration for Content Services, Alfresco Share, and Alfresco Search Services.
 
 ### Adding a reverse proxy in front of Content Services
 
-See [adding a reverse proxy]({% link content-services/latest/admin/securing-install.md %}#addreverseproxy)
+See [adding a reverse proxy]({% link content-services/7.3/admin/securing-install.md %}#addreverseproxy)
 for more information.

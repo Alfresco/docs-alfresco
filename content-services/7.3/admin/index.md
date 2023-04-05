@@ -101,7 +101,7 @@ Here are some best practice guidelines for Content Services administrators. Use 
 3. Ensure customizations occur using the `<extensions>` and `<web-extensions>` directories, and/or AMP files to help smooth upgrade and debugging processes.
 4. Discover more about FreeMarker templates. You can create custom views for your spaces, and email templates to fit your organization, among other things.
 5. Discover more about web scripts. This requires some, but not extensive, technical knowledge, and is very powerful.
-6. Use [File and Folder Templates]({% link content-services/latest/admin/templates.md %}) to create reusable components and enable business processes.
+6. Use [File and Folder Templates]({% link content-services/7.3/admin/templates.md %}) to create reusable components and enable business processes.
 7. Microsoft Office integration makes adoption of Content Services seamless.
 8. Email integration provides simple and safe way to store emails inside the repository.
 9. Coordinate with Alfresco on short-term consulting. This allows you and/or your System Integrator to work with Alfresco on architecture and planning.
@@ -114,7 +114,7 @@ Also, use these tips to help you manage your environment:
 1. Make sure you use a transactional database.
 2. Keep your Search indexes on your fastest local disk.
 3. Version only what and when you need to.
-4. If you find yourself constantly creating the same space hierarchy as well as rules and aspects to them, consider creating [File and Folder Templates]({% link content-services/latest/admin/templates.md %}) instead.
+4. If you find yourself constantly creating the same space hierarchy as well as rules and aspects to them, consider creating [File and Folder Templates]({% link content-services/7.3/admin/templates.md %}) instead.
 5. Increase the database connection pool size for large numbers of concurrent users or sessions.
 6. Use the System Information to view system properties, such as schema and server versions.
 7. Use the Node Browser (searchable by node reference, xpath, or lucene) to view all properties, parent and child nodes, aspects applied, permissions, and associations.

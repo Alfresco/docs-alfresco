@@ -5,12 +5,12 @@ title: Surf Extension Modules Extension Point
 Surf Extension Modules are the main tool to use when adding, updating, or hiding content in the Share User Interface (UI). 
 They can be deployed and un-deployed during runtime. A module is defined in XML and stored in the `site-data/extensions` directory.
 
-Architecture Information: [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
+Architecture Information: [Share Architecture]({% link content-services/7.3/develop/software-architecture.md %}#sharearchitecture)
 
 ## Description
 
 Working with Surf extension modules assume a certain knowledge of the Surf UI development framework. Make sure that you 
-have read through the [Surf framework]({% link content-services/latest/develop/software-architecture.md %}#surf-framework) 
+have read through the [Surf framework]({% link content-services/7.3/develop/software-architecture.md %}#surf-framework) 
 information in the software architecture section.
 
 This section covers the following:
@@ -48,7 +48,7 @@ so it is easy for an Administrator to deploy and un-deploy different configurati
 
 Each module is processed for every request that comes into the Share web application to determine what configuration that 
 should be applied. If a module should only be processed for certain requests, then 
-[evaluators]({% link content-services/latest/develop/share-ext-points/evaluators.md %}) can be used to determine when a 
+[evaluators]({% link content-services/7.3/develop/share-ext-points/evaluators.md %}) can be used to determine when a 
 module should be processed. This is an improvement to how the `share-config-custom.xml` configuration works, which is 
 applied to all requests and you cannot add any evaluators.
 
@@ -61,7 +61,7 @@ the External User Invite functionality in a site. The following picture illustra
 
 To hide this component, find out the `region-id`, `source-id`, and `scope` so it can be used when defining the 
 extension module. You can find this information by using a tool called SurfBug 
-([more info on how to enable this tool]({% link content-services/latest/develop/tools.md %})#surfbug). When this 
+([more info on how to enable this tool]({% link content-services/7.3/develop/tools.md %})#surfbug). When this 
 tool is enabled, after refreshing the page, red lines will show up and mark the different components on the page:
 
 ![dev-extensions-share-module-sample-hide-external-user-invite-surfbug]({% link content-services/images/dev-extensions-share-module-sample-hide-external-user-invite-surfbug.png %})
@@ -101,7 +101,7 @@ When we know the Surf component information it is easy to define an extension mo
 ```
 
 For more information about this module configuration see 
-[controlling rendering of components]({% link content-services/latest/tutorial/share/pages.md %}#removecontent).
+[controlling rendering of components]({% link content-services/7.3/tutorial/share/pages.md %}#removecontent).
 
 Besides manipulating the components of a Web Page you can also do the following with Surf Extension Modules:
 
@@ -420,8 +420,8 @@ In this case the second `<adobe-flash-enabled>` element would be ignored as only
 
 ## Tutorials
 
-* [Surf page tutorials]({% link content-services/latest/tutorial/share/pages.md %})
-* [Extend an out-of-the-box Surf Widget (YUI)]({% link content-services/latest/tutorial/share/doclib.md %}#customizesurfwidget)
-* [Add a new menu item to "Create..." menu in DocLib]({% link content-services/latest/tutorial/share/doclib.md %}#addmenuitem2createmenu)
-* [Customizing the Share Header Style (Aikau)]({% link content-services/latest/tutorial/share/style.md %}#customizeshareheaderstyle)
-* [Adding JS packages (Aikau)]({% link content-services/latest/tutorial/share/amd.md %})
+* [Surf page tutorials]({% link content-services/7.3/tutorial/share/pages.md %})
+* [Extend an out-of-the-box Surf Widget (YUI)]({% link content-services/7.3/tutorial/share/doclib.md %}#customizesurfwidget)
+* [Add a new menu item to "Create..." menu in DocLib]({% link content-services/7.3/tutorial/share/doclib.md %}#addmenuitem2createmenu)
+* [Customizing the Share Header Style (Aikau)]({% link content-services/7.3/tutorial/share/style.md %}#customizeshareheaderstyle)
+* [Adding JS packages (Aikau)]({% link content-services/7.3/tutorial/share/amd.md %})

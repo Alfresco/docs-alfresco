@@ -7,7 +7,7 @@ on the server side as web scripts. When client side processing is needed in the 
 this is contained in Widgets. The Surf Widgets uses the Yahoo UI library as JavaScript framework and widget library. 
 These widgets will eventually be replaced by Aikau Widgets.
 
-Architecture Information: [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
+Architecture Information: [Share Architecture]({% link content-services/7.3/develop/software-architecture.md %}#sharearchitecture)
 
 ## Description
 
@@ -15,7 +15,7 @@ We are going to look at implementing a custom Surf widget. To do this we will im
 that uses a Surf Widget.
 
 Creating a Surf Dashlet is the same thing as creating a Surf Web Script. Before continuing read through the 
-[Surf Web Scripts section]({% link content-services/latest/develop/share-ext-points/web-scripts.md %}). The Dashlet will contain a Button that when clicked 
+[Surf Web Scripts section]({% link content-services/7.3/develop/share-ext-points/web-scripts.md %}). The Dashlet will contain a Button that when clicked 
 shows a message. The click handler and pop-up message will be handled by the Surf widget.
 
 The finished Dashlet will look something like this:
@@ -426,7 +426,7 @@ into the FreeMarker template.
 
 ## Tutorials
 
-* [Customizing Surf Widget Instantiation]({% link content-services/latest/tutorial/share/doclib.md %}#customizesurfwidget)
+* [Customizing Surf Widget Instantiation]({% link content-services/7.3/tutorial/share/doclib.md %}#customizesurfwidget)
 
 ## Alfresco Developer Blogs
 

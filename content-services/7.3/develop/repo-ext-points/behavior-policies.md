@@ -4,7 +4,7 @@ title: Behavior Policies Extension Point
 
 Behavior Policies can be used to run custom code when an event, such as adding a content item or deleting a content item, happens.
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/7.3/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
