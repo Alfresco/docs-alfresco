@@ -194,6 +194,13 @@ If you deselect a previously synced folder and click **Sync**, then the synced c
 
 #### Manage Your Account {#manage-your-account-mac}
 
+* **Account Information**
+
+    View the account information for Desktop Sync:
+
+    * **User Name** for the currently logged in user.
+    * **Storage Used** by the `Alfresco` sync folder on your hard drive.
+
 * **Remove Local Content**
 
     Removes all the synced content from Desktop Sync without the need to remove the user account. This provides support for a customer policy where content is only kept on a device when users are actively working on that content and using Desktop Sync.
