@@ -79,7 +79,7 @@ You can manage which folders and sites get synced on your desktop and other acco
 
 * **Consistency Check**: Performs a consistency check on Desktop Sync. This is typically used in collaboration with your IT team when you need support.
 
-* **Enter Your New Password...**: If you have recently changed your Alfresco password, use this option to update the same password in Desktop Sync.
+* **Enter Your New Password**: If you have recently changed your Alfresco password, use this option to update the same password in Desktop Sync.
 
     The **Have you recently changed your password in Alfresco?** window appears. Specify the updated password to resume syncing and click **Update**.
 
@@ -192,17 +192,19 @@ Selecting **Manage Sync Folder** opens the Select sites and folders to sync dial
 
 If you deselect a previously synced folder and click **Sync**, then the synced content from your desktop is removed. In case you have any unsynced or conflicted files, they will be orphaned in `/<userHome>/Alfresco/orphaned`.
 
-#### Remove Local Content
+#### Manage Your Account {#manage-your-account-mac}
 
-Removes all the synced content from Desktop Sync without the need to remove the user account. This provides support for a customer policy where content is only kept on a device when users are actively working on that content and using Desktop Sync.
+* **Remove Local Content**
 
-To start using Desktop Sync again, you'll need to set up your synced files via the **Manage Sync Folder** menu option. See [Select content to sync]({% link desktop-sync/latest/using/select-to-sync.md %}#sync/mac).
+    Removes all the synced content from Desktop Sync without the need to remove the user account. This provides support for a customer policy where content is only kept on a device when users are actively working on that content and using Desktop Sync.
 
-#### Remove Account
+    To start using Desktop Sync again, you'll need to set up your synced files via the **Manage Sync Folder** menu option. See [Select content to sync]({% link desktop-sync/latest/using/select-to-sync.md %}#sync/mac).
 
-Removes the synced user from Desktop Sync and deletes all the synced content from the desktop. Use this option as the first stage of uninstalling Desktop Sync.
+* **Remove Account**
 
-You can still access your files in Alfresco. Any content that can't be removed from your desktop is orphaned. On removing your account you are taken back to the Desktop Sync login dialog. Close the login dialog to quit the application. See [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#faq/mac).
+    Removes the synced user from Desktop Sync and deletes all the synced content from the desktop. Use this option as the first stage of uninstalling Desktop Sync.
+
+    You can still access your files in Alfresco. Any content that can't be removed from your desktop is orphaned. On removing your account you are taken back to the Desktop Sync login dialog. Close the login dialog to quit the application. See [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#faq/mac).
 
 #### Help
 
