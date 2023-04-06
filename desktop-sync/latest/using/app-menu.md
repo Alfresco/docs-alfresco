@@ -79,6 +79,11 @@ You can manage which folders and sites get synced on your desktop and other acco
 
 * **Consistency Check**: Performs a consistency check on Desktop Sync. This is typically used in collaboration with your IT team when you need support.
 
+* **Account Information**: View the account information for Desktop Sync:
+
+    * **User Name** for the currently logged in user.
+    * **Storage Used** by the `Alfresco` sync folder on your hard drive.
+
 * **Enter Your New Password**: If you have recently changed your Alfresco password, use this option to update the same password in Desktop Sync.
 
     The **Have you recently changed your password in Alfresco?** window appears. Specify the updated password to resume syncing and click **Update**.
