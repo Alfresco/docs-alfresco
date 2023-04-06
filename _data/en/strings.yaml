@@ -22,7 +22,12 @@ What's New: What's New
 # index
 Documentation: Documentation
 What can we help you find?: What can we help you find?
+
+Search for references, tutorials...: Search for references, tutorials...
+"In: ": "In: "
+"In: All docs": "In: All docs"
 Start typing to search...: Start typing to search...
+Close: Close
 
 Read documentation: Read documentation
 Table of contents: Table of contents
@@ -35,3 +40,10 @@ Cookies: Cookies
 Privacy: Privacy
 CCPA: CCPA
 Documentation Notice: Documentation Notice
+
+# ADD cookie notice
+#This website uses
+#cookies
+#in order to offer you the most relevant information. Please accept cookies for optimal performance. This documentation is subject to the
+#Documentation Notice
+#Accept cookies
