@@ -71,24 +71,23 @@ Pauses Sync if you don't wish to synchronize files from the server, for example 
 
 #### Manage Your Account
 
-You can manage which folders and sites get synced on your desktop and other account details 
-using **Manage Your Account**. The available options are:
+You can manage which folders and sites get synced on your desktop and other account details using **Manage Your Account**. The available options are:
 
-* **Manage Folders...**: Opens Choose folders and sites to sync screen. See [Select content to sync]({% link desktop-sync/latest/using/select-to-sync.md %}#sync/windows).
+* **Manage Folders**: Opens Choose folders and sites to sync screen. See [Select content to sync]({% link desktop-sync/latest/using/select-to-sync.md %}#sync/windows).
 
     If you deselect a previously synced folder and click **Sync**, then the synced content from your desktop is removed. In case you have any unsynced or conflicted files, they will be orphaned in `C:\Users\<username>\Alfresco\`orphaned.
 
-* **Remove Local Content**: Removes all the synced content from Desktop Sync without the need to remove the user account. This provides support for a customer policy where content is only kept on a device when users are actively working on that content and using Desktop Sync.
-
-    To start using Desktop Sync again, you'll need to set up your synced files via the **Manage Your Account > Manage Folders** menu option. See [Select content to sync]({% link desktop-sync/latest/using/select-to-sync.md %}#sync/windows).
-
-* **Remove Account...**: Removes the synced user from Desktop Sync and deletes all the synced content from the desktop. You can still access your files in Alfresco. On removing your account you are taken back to the Desktop Sync login screen. See [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#setting-up-desktop-sync-on-windows).
+* **Consistency Check**: Performs a consistency check on Desktop Sync. This is typically used in collaboration with your IT team when you need support.
 
 * **Enter Your New Password...**: If you have recently changed your Alfresco password, use this option to update the same password in Desktop Sync.
 
     The **Have you recently changed your password in Alfresco?** window appears. Specify the updated password to resume syncing and click **Update**.
 
-* **Consistency Check**: Performs a consistency check on Desktop Sync. This is typically used in collaboration with your IT team when you need support.
+* **Remove Local Content**: Removes all the synced content from Desktop Sync without the need to remove the user account. This provides support for a customer policy where content is only kept on a device when users are actively working on that content and using Desktop Sync.
+
+    To start using Desktop Sync again, you'll need to set up your synced files via the **Manage Your Account > Manage Folders** menu option. See [Select content to sync]({% link desktop-sync/latest/using/select-to-sync.md %}#sync/windows).
+
+* **Remove Account**: Removes the synced user from Desktop Sync and deletes all the synced content from the desktop. You can still access your files in Alfresco. On removing your account you are taken back to the Desktop Sync login screen. See [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#setting-up-desktop-sync-on-windows).
 
 #### About
 
