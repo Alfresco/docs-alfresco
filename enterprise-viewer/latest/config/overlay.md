@@ -13,7 +13,7 @@ OpenOverlay can apply overlays to document PDF renditions. These overlays includ
 ## Overlay limitations
 
 * OpenOverlay applies images directly at the pixel location specified, and does not wrap text or images.
-* OpenOverlay is limited to working with the fonts that are installed on the operating system running OpenOverlay (either the Alfresco Content Services system or the AEVT system depending on your configuration)
+* OpenOverlay is limited to working with the fonts that are installed on the operating system running OpenOverlay (either the Alfresco Content Services system or the AEVT system depending on your configuration).
 
 ## Set up application to display overlays
 
@@ -112,7 +112,7 @@ Properties:
 * rotation: degrees, defaults to 0 (0, 90, 180, 270)  
 * opacity: float between 0-1.0 (defaults to 1.0)  
 
-The following example has a rectangle placed within this parent block):  
+The following example has a rectangle placed within this parent block:  
 
 ```xml
 <block id="1" x="30" y="720" alignment="left" rotation="0" opacity="1">
