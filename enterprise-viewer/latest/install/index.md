@@ -47,7 +47,7 @@ The following routes must be proxied to their respective ports and applications 
 * `{Application Base URL}/OpenAnnotate`
 * `{Application Base URL}/oat` (if installed)
 
-When installing a proxy please note that you are not limited to using apache or Nginx. These are just two common options which we cover example installs of below. As long as the above routes are proxied appropriately you can move onto the [AEV install]({% link enterprise-viewer/latest/install/index.md %}#install).
+When installing a proxy please note that you are not limited to using Apache or NGINX. These are just two common options which we cover example installs of below. As long as the above routes are proxied appropriately you can move onto the [AEV install]({% link enterprise-viewer/latest/install/index.md %}#install).
 
 > **Important:** If you've already completed the ACA install guide and setup a proxy as part of that installation, you can just add the following routes to that proxy configuration and restart the proxy:
 >
@@ -143,11 +143,11 @@ When installing a proxy please note that you are not limited to using apache or 
 
 6. Test the proxy is working properly by opening `http://{server}/alfresco`.
 
-### Example proxy install 2 -  Nginx install on Amazon Linux
+### Example proxy install 2 -  NGINX install on Amazon Linux
 
-Here are some sample steps of installing nginx as a proxy (steps are done on amazon-linux and may need to be adjusted for other distributions)
+Here are some sample steps of installing NGINX as a proxy (steps are done on amazon-linux and may need to be adjusted for other distributions)
 
-1. Install nginx on the server, for example:
+1. Install NGINX on the server, for example:
 
     * `sudo amazon-linux-extras list | grep nginx`
     * `sudo amazon-linux-extras enable nginx1`
@@ -155,7 +155,7 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
     * `sudo yum -y install nginx`
     * `nginx -v`
 
-2. Confirm you can startup nginx:
+2. Confirm you can startup NGINX:
 
     * `sudo systemctl start nginx.service` (start the service)
     * `sudo systemctl reload nginx.service` (reload the service)
@@ -223,7 +223,7 @@ Here are some sample steps of installing nginx as a proxy (steps are done on ama
         }
         ```
 
-4. Start the nginx proxy and confirm it started up correctly:
+4. Start the NGINX proxy and confirm it started up correctly:
 
     ```bash
     sudo systemctl start nginx.service
@@ -442,7 +442,7 @@ You only need to follow these steps if installing AEV without ACA:
 
 In this section the Enterprise Viewer collaboration features Socket.IO server is installed.
 
-> **Note:** that this installation is only required if the collaboration features are desired.
+> **Note:** This installation is only needed if the collaboration features are required.
 
 1. Install `Node.js`.
 
@@ -483,7 +483,7 @@ In this section the Enterprise Viewer collaboration features Socket.IO server is
    Start the collaboration server using forever by running the following command:
 
     ```text
-    forever start server.js`
+    forever start server.js
     ```
 
 ## Install webapps
@@ -506,7 +506,7 @@ This section walks through how to install the web applications on a separate Tom
 
 2. Copy the `OpenAnnotate.war` file into the `TOMCAT_HOME/webapps` directory.
 
-   You'll find the WAR file in the `Web Applications` folder of the alfresco-enterprise-viewer-package zip.
+   You'll find the WAR file in the `Web Applications` folder of the `alfresco-enterprise-viewer-package` zip.
 
 3. Configure Tomcat for shared classpath loader as well as encoded slashes (if not already configured in the Content Accelerator installation):
 
@@ -536,13 +536,13 @@ This section walks through how to install the web applications on a separate Tom
    * Set Connector - `redirectPort="9443"` (defaults to `8443`)
    * Set Server - `port="9005"` (defaults to `8005`)
 
-   Note that you will need to ensure that the port chosen (ie 9090) is open to the end user
+   Note that you will need to ensure that the port chosen (i.e. `9090`) is open to the end user.
 
 5. (If not already configured in the ACA install) - Create a `classes` directory:
 
    Create the path `TOMCAT_HOME/shared/classes`, if it does not already exist.
 
-6. Locate the `openannotate-override-placeholders.properties` file in the `Web Applications` folder of the alfresco-enterprise-viewer-package zip.
+6. Locate the `openannotate-override-placeholders.properties` file in the `Web Applications` folder of the `alfresco-enterprise-viewer-package` zip.
 
 7. Update the provided `openannotate-override-placeholders.properties` file:
 
@@ -550,10 +550,9 @@ This section walks through how to install the web applications on a separate Tom
 
    `{Application Base URL}/alfresco/OpenContent`
 
-   > **Note:** If the Enterprise Viewer and the Alfresco Repository are located on the same server, then the
-   >URL can be: `http://localhost:<alfrescoPort>/alfresco/OpenContent`
+   > **Note:** If the Enterprise Viewer and the Alfresco Repository are located on the same server, then the URL can be: `http://localhost:<alfrescoPort>/alfresco/OpenContent`.
 
-   (OPTIONAL) This step is only required if using the Enterprise Viewer and leveraging the "Collaboration Server"  functionality for collaborative annotation functionality:
+   (OPTIONAL) This step is only required if using the Enterprise Viewer and leveraging the "Collaboration Server" functionality for collaborative annotation functionality:
 
     Update the following properties:
 
@@ -564,7 +563,7 @@ This section walks through how to install the web applications on a separate Tom
 
 8. Copy the `openannotate-override-placeholders.properties` file to the Tomcat classpath, for example, in the `TOMCAT_HOME/shared/classes` directory.
 
-9. Start Tomcat
+9. Start Tomcat.
 
 10. Confirm you can access AEV at `http://{server}/OpenAnnotate`.
 
@@ -604,7 +603,7 @@ This section walks through how to install the web applications on Alfresco Tomca
 
 7. Copy the `openannotate-override-placeholders.properties` file to the `/alfresco` classpath, for example, in the `ALFRESCO_HOME/tomcat/shared/classes` directory.
 
-8. Start Alfresco Tomcat
+8. Start Alfresco Tomcat.
 
 9. Confirm you can access AEV at `http://{server}/OpenAnnotate`.
 
@@ -615,13 +614,13 @@ This section walks through how to install the web applications on Alfresco Tomca
 > * Use the Enterprise Viewer as the document viewer in the Share interface.
 > * Include an action in the Share interface to launch a document in the Enterprise Viewer in a new tab.
 
-1. Stop Alfresco
+1. Stop Alfresco.
 
 2. Locate the `oa-alfresco.amp` in the `Alfresco Artifacts` folder of the `alfresco-enterprise-viewer-package` zip.
 
    Copy the AMP to the `ALFRESCO_HOME/amps` directory.
 
-   From the directory where your alfresco Tomcat lives, run this command (replacing {ALFRESCO_HOME} with the location of your `ALFRESCO_HOME`):
+   From the directory where your Alfresco Tomcat lives, run this command (replacing `{ALFRESCO_HOME}` with the location of your `ALFRESCO_HOME`):
 
     Linux:
 
@@ -670,7 +669,7 @@ This section walks through how to install the web applications on Alfresco Tomca
 
     ```bash
     java\{javaVersion}\bin\java -jar {ALFRESCO_HOME}\bin\alfresco-mmt.jar install {ALFRESCO_HOME}\amps_share\oa-share-external-launcher.amp tomcat\webapps\share.war -force 
-        ```
+    ```
 
 4. (Optional) This step is only required if using the Enterprise Viewer Web Preview in Share. It replaces the OOB Share viewer with the Enterprise Viewer.
 
@@ -695,7 +694,7 @@ This section walks through how to install the web applications on Alfresco Tomca
 
    Then, copy the AMP to the `ALFRESCO_HOME/amps_share` directory (create the directory if it doesn't exist).
 
-   From the directory where your alfresco Tomcat lives, run this command (replacing {ALFRESCO_HOME} with the location of your `ALFRESCO_HOME`):
+   From the directory where your Alfresco Tomcat lives, run this command (replacing `{ALFRESCO_HOME}` with the location of your `ALFRESCO_HOME`):
 
    Linux:
 
@@ -709,11 +708,11 @@ This section walks through how to install the web applications on Alfresco Tomca
     java\{javaVersion}\bin\java -jar {ALFRESCO_HOME}\bin\alfresco-mmt.jar install {ALFRESCO_HOME}\amps_share\oa-share-webpreview.amp tomcat\webapps\share.war -force 
     ```
 
-5. Delete current Share deployed WAR files
+5. Delete current Share deployed WAR files.
 
-   Navigate to the `ALFRESCO_HOME/tomcat/webapps` directory and delete the `share` folder (if it exists)
+   Navigate to the `ALFRESCO_HOME/tomcat/webapps` directory and delete the `share` folder (if it exists).
 
-6. Start alfresco
+6. Start Alfresco.
 
 7. (Optional) You can verify these AMPs were deployed correctly by doing the following:
 
