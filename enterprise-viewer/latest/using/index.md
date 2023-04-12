@@ -198,7 +198,7 @@ The **Redo** button is located to the right of the **Undo** button and to the le
 
 #### Refresh Annotations
 
-Clicking the following button will refresh any unmodified annotations from the server from other users that have been updated:
+Clicking the following button will refresh any unmodified annotations from the server that have been updated by other users:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar19.png %})
 
@@ -234,7 +234,7 @@ After an annotation is created, the annotation tool returns to its default curso
 
 ##### Selection Tool
 
-The selection tool button is the default cursor when opening Enterprise Viewer and signifies that the mouse does not do anything out of the ordinary:
+The **Selection Tool** button is the default cursor when opening Enterprise Viewer and signifies that the mouse does not do anything out of the ordinary:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar23.png %})
 
@@ -242,7 +242,7 @@ The **Selection Tool** button is located to the right of the **Keep Tool Selecte
 
 ##### Sticky Note
 
-The sticky note button is used when a sticky note needs to be added to a page. Once the cursor is selected, the user can click anywhere on the page to add a sticky note. The sticky note will set its top left corner to where the user clicked, and an annotation dialog will pop up to allow the user to edit the text. The user can also use the Color Selection menu to change the color of the sticky note annotation:
+The **Sticky Note** button is used when a sticky note needs to be added to a page. Once the cursor is selected, the user can click anywhere on the page to add a sticky note. The sticky note will set its top left corner to where the user clicked, and an annotation dialog will pop up to allow the user to edit the text. The user can also use the Color Selection menu to change the color of the sticky note annotation:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar24.png %})
 
@@ -538,7 +538,7 @@ of Enterprise Viewer:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar50.png %})
 
-The **Help** button is located to the right of the **Stamp Tools** dropdown and to the left of the Active Users box.
+The **Help** button is located to the right of the **Stamp Tools** dropdown and to the left of the **Active Users** box.
 
 #### Active Users
 
@@ -547,13 +547,13 @@ will change the tab in the sidebar to the **Participants** tab:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar51.png %})
 
-The **Active Users** box is located to the right of the **Help** button and to the left of the Load Time.
+The **Active Users** box is located to the right of the **Help** button and to the left of the **Load Time** text.
 
-> **Note:** The Active Users box is only displayed if "Collaboration Mode" is active.
+> **Note:** The **Active Users** box is only displayed if "Collaboration Mode" is active.
 
 #### Load Time
 
-The **Load Time** shows the user how many seconds it took to load the document:
+The **Load Time** text shows the user how many seconds it took to load the document:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar52.png %})
 
@@ -767,7 +767,7 @@ a chat box that allows the user to chat with the other users viewing the documen
 
 ![Img Txt]({% link enterprise-viewer/images/aev-right-sidebar18.png %})
 
-> **Note:** The Participants tab only appears when "Collaboration Mode" is active, and the user is connected to the Collaboration Server.
+> **Note:** The **Participants** tab only appears when "Collaboration Mode" is active, and the user is connected to the collaboration server.
 
 ##### Participants List
 
@@ -1146,11 +1146,11 @@ The **Help** button is used to give the user more information regarding Enterpri
 When this button is clicked a new tab in the browser will open with Alfresco information regarding services and
 description of the Enterprise Viewer.
 
-The **Help** button is located to the right of the **Text Redaction** button and to the left of the **Load Time**.
+The **Help** button is located to the right of the **Text Redaction** button and to the left of the **Load Time** text.
 
 #### Load Time
 
-The **Load Time** shows the user how many seconds it took to load the document:
+The **Load Time** text shows the user how many seconds it took to load the document:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-redact-content-interface-toolbar17.png %})
 
@@ -1494,7 +1494,7 @@ Clicking this button will allow the user to split the document into different se
 
 ![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar14.png %})
 
-Sectioning is an efficient way to reorder large documents. A blue notification will appear in the bottom right corner where the user can name the section and select the range of pages for the section. The user must then select the create section button. The new section will appear in the left sidebar.
+Sectioning is an efficient way to reorder large documents. A blue notification will appear in the bottom right corner where the user can name the section and select the range of pages for the section. The user must then select the **Create Section** button. The new section will appear in the left sidebar.
 
 See [how to section a document]({% link enterprise-viewer/latest/using/index.md %}#section-docs).
 
@@ -1512,7 +1512,7 @@ The **Help** button is located to the right of the **Section Document** dropdown
 
 #### Load Time
 
-The load time shows the user how many seconds it took to load the document:
+The **Load Time** text shows the user how many seconds it took to load the document:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-edit-pages-interface-toolbar16.png %})
 
@@ -1522,7 +1522,7 @@ The user can see more details when clicking on the text:
 
 The load time takes into consideration the time it took the user to login, the browser JavaScript load time, the time it took to retrieve document information, the time it took to display the document, and the document's size. The user can copy the load time information into their clipboard by clicking the **Copy to Clipboard** button found in the load time information window.
 
-The *Load Time* text is located to the right of the **Help** button.
+The **Load Time** text is located to the right of the **Help** button.
 
 ### Left Sidebar
 
@@ -1589,7 +1589,7 @@ Thumbnails in new position with the pages reordered:
 
 The user must click the button again to exit thumbnail view.
 
-This button is located to the left of the **Deleting a Section**& button and below the **Clear All** button.
+This button is located to the left of the **Deleting a Section** button and below the **Clear All** button.
 
 ##### Deleting a Section
 
@@ -1775,7 +1775,7 @@ The **Help** button is located to the right of the **Draw Signature** button and
 
 #### Load Time
 
-The load time shows the user how many seconds it took to load the document:
+The **Load Time** text shows the user how many seconds it took to load the document:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-add-sign-interface-toolbar13.png %})
 
@@ -1788,4 +1788,4 @@ it took to retrieve document information, the time it took to display the docume
 can copy the load time information into their clipboard by clicking the Copy to Clipboard button found in the load time
 information window.
 
-The *Load Time* text is located to the right of the **Help** button.
+The **Load Time** text is located to the right of the **Help** button.

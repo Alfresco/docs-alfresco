@@ -64,7 +64,7 @@ AEVT is enabled by setting up a property in OpenContent that tells OC to pass ba
 
 To enable this property:
 
-1. Stop Alfresco
+1. Stop Alfresco.
 
 2. Set the following property in the `opencontent-override-placeholders.properties` found on the `/alfresco` classpath, for example, in the `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` directory:
 
@@ -74,7 +74,7 @@ To enable this property:
 
    Navigate to the `ALFRESCO_HOME/tomcat/webapps` directory and delete the `alfresco` folder.
 
-4. Start alfresco
+4. Start Alfresco.
 
 ### Proxy calls to go to AEVT
 

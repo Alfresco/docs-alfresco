@@ -455,7 +455,7 @@ In this section the Enterprise Viewer collaboration features Socket.IO server is
 
    Locate the `socket-server.zip` in the `Collaboration` folder of the `alfresco-enterprise-viewer-package` zip.
 
-   Place the `socket-servers.zip` in the directory where the Collaboration server is to be installed, and unzip it. This location will be known as `SOCKET_HOME`.
+   Place the `socket-servers.zip` in the directory where the collaboration server is to be installed, and unzip it. This location will be known as `SOCKET_HOME`.
 
    This directory will now contain `server.js`, `Dockerfile`, `windows-service.js`, `package.json`, etc.
 
