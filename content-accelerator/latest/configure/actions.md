@@ -124,7 +124,7 @@ Note that you can always get back to your Client ID by going to the Credentials 
 3. When asked what type of app you are building, choose `Partner Integration`.
 4. Within an application, under the configuration tab, we can see the Client ID that we will need to use in the bulk upload admin (picture below).
 5. Below the client ID will also be the redirect URI that will need to redirect back to ACA
-(ex. `https://localhost:8080/hpi/dummy/path`):
+(for example, `https://localhost:8080/hpi/dummy/path`):
 
 ![Bulk Client ID]({% link content-accelerator/images/bulkupload-box-clientid.png %})
 
