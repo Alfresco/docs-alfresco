@@ -380,7 +380,7 @@ The Attribute Search section covers the configuration of the property-based sear
 
   > Search on all versions will only work for ACS documents that utilize the Chain Versionable Module.  Out of the box, this is only the `Controlled Document` and `Quality Document` types that are included in Policy and Procedure Accelerator. If search on all versions is configured for a type that does not use Chain Versioning, the slider will appear but will not search across versions when enabled.
   
-5. If search on all versions is allowed, select whether it should be the default method
+5. If search on all versions is allowed, select whether it should be the default method.
 
 #### Search Results
 
