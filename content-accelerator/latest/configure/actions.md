@@ -89,22 +89,22 @@ The Bulk Upload action provides support for pulling in emails/threads and their 
 
 1. Go to [https://console.developers.google.com/](https://console.developers.google.com/){:target="_blank"}.
 2. Click the **Create Project** button.
-1. Give it whatever name you want and click the ‘Create’ button.
-1. Once it has been created, you should be taken to the Project Overview page. In the lefthand column, click on Credentials, and then click the 'OAuth consent screen' tab.
-1. Fill out Product name. This will be shown to the user when they authenticate when importing docs from their gmail. You can fill out the other sections if you want, but it is not necessary.
-1. Save your changes.
-1. Go to the Library by clicking the menu item on the left.  
-1. Under Google Apps APIs, click on Gmail API.
-1. Click the 'Enable' button at the top.
-1. Once the API has been enabled, an option will appear to create a new Client ID.
-1. When creating the client ID:
+3. Give it whatever name you want and click the **Create** button.
+4. Once it has been created, you should be taken to the Project Overview page. In the lefthand column, click on **Credentials**, and then click the **OAuth consent screen** tab.
+5. Fill out Product name. This will be shown to the user when they authenticate when importing docs from their gmail. You can fill out the other sections if you want, but it is not necessary.
+6. Save your changes.
+7. Go to the Library by clicking the menu item on the left.  
+8. Under Google Apps APIs, click on Gmail API.
+9. Click the **Enable** button at the top.
+10. Once the API has been enabled, an option will appear to create a new Client ID.
+11. When creating the client ID:
 
 * Make sure Web application is selected
 * In the Authorized JavaScript origins section, put in the url for that is hosting ACA. For example, if ACA was accessed by `http://www.mysite.com/hpi`, you would use `http://www.mysite.com`.  Note that multiple domains can be entered here if you have multiple HPIs that you would like to access the Gmail API.
 
-1. Click Create Client ID
-1. Copy the Client ID
-1. In the bulk upload config, paste the Client ID from 14 into the 'Gmail Client Id' textbox
+1. Click **Create Client ID**
+2. Copy the Client ID
+3. In the bulk upload config, paste the Client ID from 14 into the 'Gmail Client Id' textbox
 
 Note that you can always get back to your Client ID by going to the Credentials section.
 
@@ -119,29 +119,29 @@ Note that you can always get back to your Client ID by going to the Credentials 
 1. Create an application in Box or use an existing one.
 2. Go to [https://app.box.com/developers/console](https://app.box.com/developers/console){:target="_blank"} to view existing apps or create a new one.
 
-![Box Application]({% link content-accelerator/images/bulkupload-box-apps.png %})
+    ![Box Application]({% link content-accelerator/images/bulkupload-box-apps.png %})
 
 3. When asked what type of app you are building, choose `Partner Integration`.
 4. Within an application, under the configuration tab, we can see the Client ID that we will need to use in the bulk upload admin (picture below).
 5. Below the client ID will also be the redirect URI that will need to redirect back to ACA
 (for example, `https://localhost:8080/hpi/dummy/path`):
 
-![Bulk Client ID]({% link content-accelerator/images/bulkupload-box-clientid.png %})
+    ![Bulk Client ID]({% link content-accelerator/images/bulkupload-box-clientid.png %})
 
 ##### Bulk Upload Config for Box
 
 1. Select Bulk Upload Action.
-2. Set 'Enable Cloud Integration' slider to Yes
-3. Choose 'Box' from dropdown selecting which application to integrate with (Box is the only one at the moment)
-4. Set Client ID (Explained above)
-5. Set Link Type to 'direct'
+2. Set 'Enable Cloud Integration' slider to Yes.
+3. Choose 'Box' from dropdown selecting which application to integrate with (Box is the only one at the moment).
+4. Set Client ID (Explained above).
+5. Set Link Type to 'direct'.
 6. Choose whether to allow a user to select multiple documents to upload:
 
-![Box Upload]({% link content-accelerator/images/bulkupload-box-config.png %})
+    ![Box Upload]({% link content-accelerator/images/bulkupload-box-config.png %})
 
 ##### Separate Bulk Upload View for Box
 
-1. When configured, Box upload will be a button next to the other upload buttons:
+When configured, Box upload will be a button next to the other upload buttons:
 
 ![Bulk Upload View]({% link content-accelerator/images/bulkupload-box-upload.png %})
 
@@ -169,15 +169,15 @@ The action can be configured to use a pattern for the downloaded file name based
 
 Export folder must be configured as a folder action - it will throw an error if it is a document action.
 
-The zip created will be the {_folder name_}.zip
+The ZIP created will be the {_folder name_}.zip
 
-If any child objects are subfolders or empty documents, they'll be omitted from the zip.
+If any child objects are subfolders or empty documents, they'll be omitted from the ZIP.
 
 #### Download With Tags
 
 When enabled (defaults to false), a user can download a folder with folder tags enabled - creating individual folders for each tag and populating each folder with any child documents that share the same tag.
 
-If a child document lacks a tag, or Download With Tags is disabled, all docs will be at the root of the zip.
+If a child document lacks a tag, or Download With Tags is disabled, all docs will be at the root of the ZIP.
 
 ## Send Email
 
@@ -197,11 +197,11 @@ The subfolder of all correspondence sent from the parent folder. If left blank, 
   
 #### Email Object Type
 
-This is the object type for Send Email. The default object type is _HPIEmailMessage_. It can be overridden with a custom object type.
+This is the object type for Send Email. The default object type is `HPIEmailMessage`. It can be overridden with a custom object type.
 
 #### Email Relationship
 
-Is the relationship between an email and its attachments. For example, in a related objects view, it would show the attachments of an email and vice versa. THis should be set to "hpi:emailed (alfresco)".
+Is the relationship between an email and its attachments. For example, in a related objects view, it would show the attachments of an email and vice versa. This should be set to `hpi:emailed (alfresco)`.
 
 #### Folder Tags
 
@@ -211,7 +211,7 @@ You can optionally add a tag to the email object after it's created, typically s
 
 ### Folder Notes Integration
 
-Users can toggle attaching a folder note in addition to the rest of their email (default is Off). When a user turns on Folder Notes Integration, they must configure a chained action for Send Email to fire Folder Notes. Just like regular folder notes, a note requires a Note Object Type (defaults to _hpi_note_) and a Note Type (defaults to _Correspondence_). When Folder Notes Integration is enabled, a second editor will appear under the email body called Folder Note. If the note is sent without any content, the email's subject line will be substituted. The note that is created will be linked to the email being sent.
+Users can toggle attaching a folder note in addition to the rest of their email (default is Off). When a user turns on Folder Notes Integration, they must configure a chained action for Send Email to fire Folder Notes. Just like regular folder notes, a note requires a Note Object Type (defaults to `hpi_note`) and a Note Type (defaults to `Correspondence`). When Folder Notes Integration is enabled, a second editor will appear under the email body called Folder Note. If the note is sent without any content, the email's subject line will be substituted. The note that is created will be linked to the email being sent.
 
 ## View All Documents Refined Search {#refined-search}
 
@@ -234,4 +234,6 @@ After searching, the pane will off the screen. The displayed results are those o
 
 ### Configuration for Refined Search
 
-To enable this feature, go to Admin -> Stage -> (desired trac) -> Folder Actions -> View All Documents. Scroll to Additional Configurations and turn the "Enable Additional Searching" switch to "ON". Once active, this feature uses the View All Documents search configuration and the configured query type. This feature allows the user to select one document object type to perform the refined search on. The object types available are selected from the search config's attribute search. The displayed form for each object type can be set in the attribute search config. **Additional Searching is not supported for the getChildren query type and does not support searching on folder object types**
+To enable this feature, go to Admin -> Stage -> (desired trac) -> Folder Actions -> View All Documents. Scroll to Additional Configurations and turn the "Enable Additional Searching" switch to "ON". Once active, this feature uses the View All Documents search configuration and the configured query type. This feature allows the user to select one document object type to perform the refined search on. The object types available are selected from the search config's attribute search. The displayed form for each object type can be set in the attribute search config.
+
+**Note:** Additional Searching is not supported for the getChildren query type and does not support searching on folder object types.
