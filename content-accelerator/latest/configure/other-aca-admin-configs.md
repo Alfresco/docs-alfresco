@@ -261,9 +261,9 @@ If you want to list all users in a group and ignore any queries(in other words, 
 <entry key="wizardContributors" value="usersInGroup|GROUP_wizard_contributors"/>
 ```
 
-Note that the currently supported tokens are $firstName$, $lastName$, and $userName$ for the format.
+The currently supported tokens are `$firstName$`, `$lastName$`, and `$userName$` for the format.
 
-Note also that there is currently no control over the picklist label/value or sorting.  The defaults are:
+There is currently no control over the picklist label/value or sorting.  The defaults are:
 
 * Label = `FirstName LastName`
 * Value = `userId`
@@ -274,7 +274,7 @@ Note also that there is currently no control over the picklist label/value or so
 
 DataDictionary picklists will get their values from the underlying data model.  
 
-**Note:** DataDictionary picklists are reserved for future use and are not currently supported.
+> **Note:** DataDictionary picklists are reserved for future use and are not currently supported.
 
 ### Configuring Picklists in ACA
 
@@ -323,7 +323,9 @@ Since the user is forced to type characters into the Autocomplete box before the
 
 In the above query, we are filtering vendors with the name that *starts with* whatever the user has typed.  We can easily change this to a *contains* search by updating the query to: `... vendor name like '%$query$%'`.
 
-**Dropdown Arrow:** By default, the Autocomplete field that loads an async picklist will not have a dropdown arrow that allows the user to load all values.  ACA defaults this way since typically an async picklist has a lot of values (10,000+).  In this case, there is never a time where you want the user to load all values in a dropdown since it would be a) slow, and b) not all that helpful. However, there are some cases where you would want the dropdown arrow.  One example would be a form in ACA that has many medium-size queries.  Rather than having all of them fire on page load, or cached in memory upon login, it may be better to make these async picklists.  In this case, it's not harmful or user-unfriendly to load all values.  To enable this, check the 'Allow Dropdown' checkbox in the Options section.  Note that this checkbox only affects the control if it is an Autocomplete. It is also worth noting that for performance reasons, when 'Allow Dropdown' is enabled, we only load the async picklist the first time the dropdown arrow is clicked.
+**Dropdown Arrow:** By default, the Autocomplete field that loads an async picklist will not have a dropdown arrow that allows the user to load all values.  ACA defaults this way since typically an async picklist has a lot of values (10,000+).  
+
+In this case, there is never a time where you want the user to load all values in a dropdown since it would be a) slow, and b) not all that helpful. However, there are some cases where you would want the dropdown arrow.  One example would be a form in ACA that has many medium-size queries.  Rather than having all of them fire on page load, or cached in memory upon login, it may be better to make these async picklists.  In this case, it's not harmful or user-unfriendly to load all values.  To enable this, check the 'Allow Dropdown' checkbox in the Options section.  This checkbox only affects the control if it is an Autocomplete. For performance reasons, when 'Allow Dropdown' is enabled, the async picklist the only loads first time the dropdown arrow is clicked.
 
 ##### Configuring Growable Picklists
 
