@@ -99,14 +99,14 @@ The Bulk Upload action provides support for pulling in emails/threads and their 
 10. Once the API has been enabled, an option will appear to create a new Client ID.
 11. When creating the client ID:
 
-* Make sure Web application is selected
-* In the Authorized JavaScript origins section, put in the url for that is hosting ACA. For example, if ACA was accessed by `http://www.mysite.com/hpi`, you would use `http://www.mysite.com`.  Note that multiple domains can be entered here if you have multiple HPIs that you would like to access the Gmail API.
+    * Make sure Web application is selected
+    * In the Authorized JavaScript origins section, put in the url for that is hosting ACA. For example, if ACA was accessed by `http://www.mysite.com/hpi`, you would use `http://www.mysite.com`.  Note that multiple domains can be entered here if you have multiple HPIs that you would like to access the Gmail API.
 
-1. Click **Create Client ID**
-2. Copy the Client ID
-3. In the bulk upload config, paste the Client ID from 14 into the 'Gmail Client Id' textbox
+12. Click **Create Client ID**.
+13. Copy the Client ID.
+14. In the bulk upload config, paste the Client ID into the 'Gmail Client Id' textbox.
 
-Note that you can always get back to your Client ID by going to the Credentials section.
+**Note:** you can always get back to your Client ID by going to the Credentials section.
 
 ##### Configuration Options for Ingest from Gmail
 
