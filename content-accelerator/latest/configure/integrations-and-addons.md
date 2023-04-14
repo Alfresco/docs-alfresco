@@ -362,7 +362,8 @@ The app must be made by the _zoom owner_ that has all the users added to their z
 You will need to import the SSL certificate into the truststore of the Java that is running OpenContent.
 
 1. Get your SSL certificate.
-    * The is the same certificate you have pointed your Collaboration Server at in the collaborationConfig.js file
+
+    * This is the same certificate you have pointed your Collaboration Server at in the `collaborationConfig.js` file
 
 2. Find the Java home for the Java which is running OpenContent.
 
