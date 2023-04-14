@@ -272,9 +272,9 @@ Note also that there is currently no control over the picklist label/value or so
 
 ### DataDictionary Picklist
 
-> **Note:** DataDictionary picklists are reserved for future use and are not currently supported.
-
 DataDictionary picklists will get their values from the underlying data model.  
+
+**Note:** DataDictionary picklists are reserved for future use and are not currently supported.
 
 ### Configuring Picklists in ACA
 
@@ -282,7 +282,7 @@ DataDictionary picklists will get their values from the underlying data model.
 
 1. In the aca admin under the Picklist configuration section, enter the name for your new picklist. This name is not visible to the user and must be unique across all picklists in ACA.  This name *can* match the name of your OC picklist.
 
-2. In the dropdown, choose the type of picklist you would like to create.  
+2. In the dropdown, choose the type of picklist you would like to create.
 
 * Simple Picklist - your picklist will be added immediately to the list of picklists.  Click it to begin configuring your picklist.
 * OpenContent Picklist - you will now see a dropdown appear with the name of the keys in your `ProjectPicklists` bean you created (see above).  Select the picklist and click 'Add'.
@@ -323,7 +323,7 @@ Since the user is forced to type characters into the Autocomplete box before the
 
 In the above query, we are filtering vendors with the name that *starts with* whatever the user has typed.  We can easily change this to a *contains* search by updating the query to: `... vendor name like '%$query$%'`.
 
->**Dropdown Arrow:** By default, the Autocomplete field that loads an async picklist will not have a dropdown arrow that allows the user to load all values.  ACA defaults this way since typically an async picklist has a lot of values (10,000+).  In this case, there is never a time where you want the user to load all values in a dropdown since it would be a) slow, and b) not all that helpful. However, there are some cases where you would want the dropdown arrow.  One example would be a form in ACA that has many medium-size queries.  Rather than having all of them fire on page load, or cached in memory upon login, it may be better to make these async picklists.  In this case, it's not harmful or user-unfriendly to load all values.  To enable this, check the 'Allow Dropdown' checkbox in the Options section.  Note that this checkbox only affects the control if it is an Autocomplete. It is also worth noting that for performance reasons, when 'Allow Dropdown' is enabled, we only load the async picklist the first time the dropdown arrow is clicked.
+**Dropdown Arrow:** By default, the Autocomplete field that loads an async picklist will not have a dropdown arrow that allows the user to load all values.  ACA defaults this way since typically an async picklist has a lot of values (10,000+).  In this case, there is never a time where you want the user to load all values in a dropdown since it would be a) slow, and b) not all that helpful. However, there are some cases where you would want the dropdown arrow.  One example would be a form in ACA that has many medium-size queries.  Rather than having all of them fire on page load, or cached in memory upon login, it may be better to make these async picklists.  In this case, it's not harmful or user-unfriendly to load all values.  To enable this, check the 'Allow Dropdown' checkbox in the Options section.  Note that this checkbox only affects the control if it is an Autocomplete. It is also worth noting that for performance reasons, when 'Allow Dropdown' is enabled, we only load the async picklist the first time the dropdown arrow is clicked.
 
 ##### Configuring Growable Picklists
 
