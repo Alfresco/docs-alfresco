@@ -38,7 +38,7 @@ Folder tags (also known as categories) sort child documents on the stage based o
 
 If you want to change the folder tags attribute from the default attribute, edit your property overrides file in OC and set the attribute `hpi.tags.trackingattr` to the desired attribute.
 
-**Note** - to get Folder Tags to work properly:
+**Notes** To get Folder Tags to work properly:
 
 * The base `Folder` type must be configured in the Object Type Config (OTC)
 * The base `Folder` (or whatever folder type you are using in your trac) must be configured to be a container in the OTC.  This defaults to false for all types.
@@ -272,7 +272,7 @@ Note also that there is currently no control over the picklist label/value or so
 
 ### DataDictionary Picklist
 
-**NOTE** - DataDictionary picklists are reserved for future use and are not currently supported.
+> **Note:** DataDictionary picklists are reserved for future use and are not currently supported.
 
 DataDictionary picklists will get their values from the underlying data model.  
 

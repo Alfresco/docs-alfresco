@@ -49,7 +49,7 @@ notificationType | Notification Type | AutoComplete | Dropdown notification clas
 bpm_workflowDueDate | Due Date | DateBox | Suggested due date for the notification.  Suggested to configure that the date must be today or in the future.
 bpm_comment | Comment | Textarea | Suggested to configure with WYSIWYG option on.
 
-**Note:** Only bpm_assignees and bpm_groupAssignee are required for notification to work. However, if not present in the form the ACA notification interface will still show columns for Notification Type, Due Date and Comment.  Any values missing on the form will result in a column that only contains blank values.
+> **Note:** Only `bpm_assignees` and `bpm_groupAssignee` are required for notification to work. However, if not present in the form the ACA notification interface will still show columns for Notification Type, Due Date and Comment.  Any values missing on the form will result in a column that only contains blank values.
 
 **Notification Type** - if the name of the Notification Type field is not properly configured as described above, follow these steps:
 

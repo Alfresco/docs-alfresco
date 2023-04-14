@@ -2,11 +2,11 @@
 title: Integrations and Addons
 ---
 
-## Integration with Docusign
+## Integration with DocuSign
 
 ### Setup a DocuSign Account
 
-1. If needed, create a DEV sandbox with [DocuSign](https://www.docusign.com/developer-center).
+1. If needed, create a DEV sandbox with [DocuSign](https://www.docusign.com/developer-center){:target="_blank"}.
 
 2. Once you are in, setup your DocuSign account and go to Admin -> Account -> API and Keys.
 
@@ -19,7 +19,7 @@ title: Integrations and Addons
 2. Add the following properties:
 
     * `docusign.username` - DocuSign user name (which should be the same as the user's email address)
-    * `docusign.password` - DocuSign user password, should be [encrypted with the TSGEncrypter](/content-accelerator/latest/configure/oc-property-overrides/#encrypting-property-values) and enclosed with the encryption indicator like: `@{theEncPassword}`
+    * `docusign.password` - DocuSign user password, should be [encrypted with the TSGEncrypter]({% link content-accelerator/latest/configure/oc-property-overrides.md %}#encrypting-property-values) and enclosed with the encryption indicator like: `@{theEncPassword}`
     * `docusign.integratorKey` - see setup step above
     * `docusign.login.url` - the login URL is defaulted to the DocuSign dev sandbox URL in `universal-defaults.properties`.  You will want to override this for production environments
     * `docusign.hpi.dataPath` - The folder where DocuSign data objects should be stored.  Defaults to `/hpi/docuSignData`
@@ -30,7 +30,7 @@ title: Integrations and Addons
 3. Update the module-context in order for the Retrieve job to run. Adding the following to the `opencontent-override-module-context.xml`:
 
     ```xml
-    <!-- Retrieve Content from Docusign Job -->
+    <!-- Retrieve Content from DocuSign Job -->
     <bean id="hpi-docusign-retrieve-trigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <!-- Run every hour -->
         <property name="cronExpression" value="0 0 * * * ?"/>
@@ -324,7 +324,7 @@ The app must be made by the _zoom owner_ that has all the users added to their z
 
  Here we are creating a zoom app that will allow us to access their APIs as well as interact with users zoom accounts.
 
-1. Create an application in the [zoom marketplace](https://marketplace.zoom.us/).
+1. Create an application in the [Zoom Marketplace](https://marketplace.zoom.us/){:target="_blank"}.
 
 2. Pull open the dropdown that says Develop and click build app - select the OAuth for the app type.
 
@@ -347,7 +347,7 @@ The app must be made by the _zoom owner_ that has all the users added to their z
 
 1. Log in as the zoom owner.
 
-2. Head to the [role management section](https://zoom.us/role).
+2. Head to the [role management section](https://zoom.us/role){:target="_blank"}.
 
 3. Add a role called developer.
 
@@ -384,7 +384,7 @@ Once your cloud solution has been chosen, the following steps must be completed 
 
 ### Microsoft OneDrive
 
-1. Navigate to the [Azure Portal](https://portal.azure.com) and login.
+1. Navigate to the [Azure Portal](https://portal.azure.com){:target="_blank"} and login.
 
 2. Search for `App registrations`.
 
@@ -428,18 +428,18 @@ Once your cloud solution has been chosen, the following steps must be completed 
 
 > **Note:** Google Docs is an experimental action and may not work properly.
 
-Reference: [https://developers.google.com/identity/protocols/OAuth2UserAgent](https://developers.google.com/identity/protocols/OAuth2UserAgent)
+Reference: [https://developers.google.com/identity/protocols/OAuth2UserAgent](https://developers.google.com/identity/protocols/OAuth2UserAgent){:target="_blank"}
 
 1. Create a Google Project:
 
-   * Access the [Google Developers Console](https://console.developers.google.com/apis/dashboard)
+   * Access the [Google Developers Console](https://console.developers.google.com/apis/dashboard){:target="_blank"}.
    * If not already, sign-in to your Google Drive account associated with your ACA application.
    * Click on `Select a Project` and create a new project from the menu that appears.
 
 2. Enable Drive within your newly created Google Project:
 
-    * Navigate back to the Google API Library
-    * From the list of Google APIs, choose `Google Drive API.`
+    * Navigate back to the Google API Library.
+    * From the list of Google APIs, choose `Google Drive API`.
     * Click `Enable` on the menu screen that appears.
 
 3. Create a Client ID:
@@ -501,7 +501,7 @@ Override the applicable Workshare Compare properties (see below) in a `project-p
 * `oc.workshare.user`- Username to login to the machine/server the Workshare Compare server is installed on.
 * `oc.workshare.password` - Password to login to the machine/server the Workshare Compare server is installed on.
 * `oc.workshare.setfile` - Path the the "set file" (ex. WorkshareStandard.set) on the machine/server the Workshare Compare server is installed on **or** local machine. By default, this file is included in the classpath and can be set to `WorkshareStandard.set`
-* `oc.workshare.password.encrypted` - Set whether the workshare password has been [encrypted with the TSGEncrypter](/content-accelerator/latest/configure/oc-property-overrides/#encrypting-property-values). This only needs to be set if the password is encrypted.
+* `oc.workshare.password.encrypted` - Set whether the workshare password has been [encrypted with the TSGEncrypter]({% link content-accelerator/latest/configure/oc-property-overrides.md %}#encrypting-property-values). This only needs to be set if the password is encrypted.
 
 ### Configure ACA
 

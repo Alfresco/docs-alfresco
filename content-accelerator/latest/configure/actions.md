@@ -87,15 +87,15 @@ The Bulk Upload action provides support for pulling in emails/threads and their 
 
 ##### Enabling Gmail API
 
-1. Go to [https://console.developers.google.com/](https://console.developers.google.com/)
-1. Click the ‘Create Project’ button
-1. Give it whatever name you want and click the ‘Create’ button
-1. Once it has been created, you should be taken to the Project Overview page. In the lefthand column, click on Credentials, and then click the 'OAuth consent screen' tab
+1. Go to [https://console.developers.google.com/](https://console.developers.google.com/){:target="_blank"}.
+1. Click the ‘Create Project’ button.
+1. Give it whatever name you want and click the ‘Create’ button.
+1. Once it has been created, you should be taken to the Project Overview page. In the lefthand column, click on Credentials, and then click the 'OAuth consent screen' tab.
 1. Fill out Product name. This will be shown to the user when they authenticate when importing docs from their gmail. You can fill out the other sections if you want, but it is not necessary.
-1. Save your changes
+1. Save your changes.
 1. Go to the Library by clicking the menu item on the left.  
-1. Under Google Apps APIs, click on Gmail API
-1. Click the 'Enable' button at the top
+1. Under Google Apps APIs, click on Gmail API.
+1. Click the 'Enable' button at the top.
 1. Once the API has been enabled, an option will appear to create a new Client ID.
 1. When creating the client ID:
 
@@ -116,28 +116,33 @@ Note that you can always get back to your Client ID by going to the Credentials 
 
 ##### Box Application
 
-1. Create an application in Box or use an existing one
-2. Go to [https://app.box.com/developers/console](https://app.box.com/developers/console) to view existing apps or create a new one
+1. Create an application in Box or use an existing one.
+2. Go to [https://app.box.com/developers/console](https://app.box.com/developers/console){:target="_blank"} to view existing apps or create a new one.
+
 ![Box Application]({% link content-accelerator/images/bulkupload-box-apps.png %})
-3. When asked what type of app you are building, choose `Partner Integration`
-4. Within an application, under the configuration tab, we can see the Client ID that we will need to use in the bulk upload admin (picture below)
+
+3. When asked what type of app you are building, choose `Partner Integration`.
+4. Within an application, under the configuration tab, we can see the Client ID that we will need to use in the bulk upload admin (picture below).
 5. Below the client ID will also be the redirect URI that will need to redirect back to ACA
-(ex. `https://localhost:8080/hpi/dummy/path`)
+(ex. `https://localhost:8080/hpi/dummy/path`):
+
 ![Bulk Client ID]({% link content-accelerator/images/bulkupload-box-clientid.png %})
 
 ##### Bulk Upload Config for Box
 
-1. Select Bulk Upload Action
+1. Select Bulk Upload Action.
 2. Set 'Enable Cloud Integration' slider to Yes
 3. Choose 'Box' from dropdown selecting which application to integrate with (Box is the only one at the moment)
 4. Set Client ID (Explained above)
 5. Set Link Type to 'direct'
-6. Choose whether to allow a user to select multiple documents to upload
+6. Choose whether to allow a user to select multiple documents to upload:
+
 ![Box Upload]({% link content-accelerator/images/bulkupload-box-config.png %})
 
 ##### Separate Bulk Upload View for Box
 
-1. When configured, Box upload will be a button next to the other upload buttons
+1. When configured, Box upload will be a button next to the other upload buttons:
+
 ![Bulk Upload View]({% link content-accelerator/images/bulkupload-box-upload.png %})
 
 #### Saved Sessions
@@ -200,7 +205,7 @@ Is the relationship between an email and its attachments. For example, in a rela
 
 #### Folder Tags
 
-You can optionally add a tag to the email object after it's created, typically set to 'Correspondence'.  Usually, this is set when the folder is displayed using [Folder Tags](/content-accelerator/latest/configure/actions/#folder-tags).  If this is the case, you will typically want to set the Email Storage Location to empty.  This way, the email will be stored in the parent folder, but displayed in a 'Correspondence' tag in the folder.
+You can optionally add a tag to the email object after it's created, typically set to 'Correspondence'.  Usually, this is set when the folder is displayed using [Folder Tags]({% link content-accelerator/latest/configure/actions.md %}#folder-tags).  If this is the case, you will typically want to set the Email Storage Location to empty.  This way, the email will be stored in the parent folder, but displayed in a 'Correspondence' tag in the folder.
 
 >**Note:** If you have both the folder and document action configured for send email, you will want to have the same tags in both configurations.
 

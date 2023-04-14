@@ -102,7 +102,7 @@ Some common endpoints are (using `ocAudit` application in examples below, but co
   * verbose=true
   * user={userId}
   * limit=1000 (defaults to 100)
-  * Date based queries work with Epoch timestamps.  Use something like [https://www.epochconverter.com/](https://www.epochconverter.com/).  Many online converters use epoch time in **seconds**, whereas Alfresco is expecting **milliseconds**.  
+  * Date based queries work with Epoch timestamps.  Use something like [https://www.epochconverter.com/](https://www.epochconverter.com/){:target="_blank"}.  Many online converters use epoch time in **seconds**, whereas Alfresco is expecting **milliseconds**.  
     * fromTime=timestamp
     * toTime=timestamp
   * forward={forward}
@@ -113,7 +113,7 @@ Some common endpoints are (using `ocAudit` application in examples below, but co
   * valueType={valueType}
     * Defines Java type of the value you are searching on, must be the fully qualified class name! (Ex. when searching on NodeRef, *valueType* must be `org.alfresco.service.cmr.repository.NodeRef`)
 
-For more information regarding Alfresco Audits, please visit the [Alfresco Audit Documentation Page](https://docs.alfresco.com/content-services/latest/admin/audit/)
+For more information regarding Alfresco Audits, see the [Alfresco Auditing documentation]({% link content-services/latest/admin/audit.md %}).
 
 ## Configuring Action Audits in ACA
 
