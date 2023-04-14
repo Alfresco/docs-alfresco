@@ -207,7 +207,7 @@ const setupSearchBar = () => {
     );
 
     localScopeHint.dataset.url += s + "/";
-    localScopeHint.querySelector(".hint").innerHTML = `In: ${scope.product}`;
+    localScopeHint.querySelector(".hint").innerHTML = `${scope.product}`; //`In: ${scope.product}`
   })(document.getElementById("localscope"), window.searchScope);
 
   document.documentElement.style.setProperty("--search-bar", 0);
