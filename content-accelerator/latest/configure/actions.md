@@ -88,7 +88,7 @@ The Bulk Upload action provides support for pulling in emails/threads and their 
 ##### Enabling Gmail API
 
 1. Go to [https://console.developers.google.com/](https://console.developers.google.com/){:target="_blank"}.
-1. Click the ‘Create Project’ button.
+2. Click the **Create Project** button.
 1. Give it whatever name you want and click the ‘Create’ button.
 1. Once it has been created, you should be taken to the Project Overview page. In the lefthand column, click on Credentials, and then click the 'OAuth consent screen' tab.
 1. Fill out Product name. This will be shown to the user when they authenticate when importing docs from their gmail. You can fill out the other sections if you want, but it is not necessary.
