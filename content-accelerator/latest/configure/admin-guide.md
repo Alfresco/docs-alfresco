@@ -1554,7 +1554,7 @@ While many actions require little to no configuration beyond enabling the action
 |[Send External Notification]({% link content-accelerator/latest/configure/notifications-and-notes.md %}#external-notifications)(MS Teams/ Slack)|Document Workflow|
 |[Export Folder]({% link content-accelerator/latest/configure/actions.md %}#export-folder)|Folder Action|
 |[Bulk Upload]({% link content-accelerator/latest/configure/actions.md %}#bulk-upload)|Folder or Contextless Action|
-|[Download Document]({% link content-accelerator/latest/configure/actions.md %}#download-document){:target="_blank"}|Document Action|
+|[Download Document]({% link content-accelerator/latest/configure/actions.md %}#download-document)|Document Action|
 |[Edit Online]({% link content-accelerator/latest/configure/integrations-and-addons.md %}#google-drive-and-onedrive-integrations)|Document Action|
 |[Sign with DocuSign]({% link content-accelerator/latest/configure/integrations-and-addons.md %}#integration-with-docusign)|Document Action|
 |[Document Info View]({% link content-accelerator/latest/configure/other-aca-admin-configs.md %}#docinfo-view)|Document Action|
