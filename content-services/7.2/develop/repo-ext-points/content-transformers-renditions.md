@@ -218,7 +218,7 @@ changed by resetting the following Alfresco global property.
 local.transform.pipeline.config.dir=shared/classes/alfresco/extension/transform/pipelines
 ```
 
-Direct override is only possible in the 3.0.0 version of alfresco-transform-core and higher. To override local transform-core-aio T-Engine configuration, the docker image needs a newer version of the image and follow this approach providing configuration directly to the T-Engine: [Adding pipelines and failover transforms to a T-engine](#adding-pipelines-and-failover-transforms-to-a-t-engine).
+To override local transform-core-aio T-Engine configuration, the docker image needs to be version 3.0.0 or higher and the following approach providing configuration directly to the T-Engine should be used: [Adding pipelines and failover transforms to a T-engine](#adding-pipelines-and-failover-transforms-to-a-t-engine).
 
 On startup this location is checked every minute, but then switches to once an hour if successful. After a problem, it 
 tries every minute again. These are the same properties use to decide when to read T-Engine configurations, 
