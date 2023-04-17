@@ -6,7 +6,7 @@ Here is a list of the individual components that have been through the complete 
 
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact [Support](https://support.alfresco.com){:target="_blank"}.
 
-{% capture seven-four %}
+{% capture seven-four-zero %}
 
 | Version | Notes |
 | ------- | ----- |
@@ -101,4 +101,4 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 {% endcapture %}
 
-{% include tabs.html tableid="supported-platforms" opt1="7.4" content1=seven-four %}
+{% include tabs.html tableid="supported-platforms" opt1="7.4.0" content1=seven-four-zero %}
