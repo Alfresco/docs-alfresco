@@ -106,7 +106,7 @@ The Bulk Upload action provides support for pulling in emails/threads and their 
 13. Copy the Client ID.
 14. In the bulk upload config, paste the Client ID into the 'Gmail Client Id' textbox.
 
-**Note:** you can always get back to your Client ID by going to the Credentials section.
+>**Note:** You can always get back to your Client ID by going to the Credentials section.
 
 ##### Configuration Options for Ingest from Gmail
 
@@ -236,4 +236,4 @@ After searching, the pane will off the screen. The displayed results are those o
 
 To enable this feature, go to Admin -> Stage -> (desired trac) -> Folder Actions -> View All Documents. Scroll to Additional Configurations and turn the "Enable Additional Searching" switch to "ON". Once active, this feature uses the View All Documents search configuration and the configured query type. This feature allows the user to select one document object type to perform the refined search on. The object types available are selected from the search config's attribute search. The displayed form for each object type can be set in the attribute search config.
 
-**Note:** Additional Searching is not supported for the getChildren query type and does not support searching on folder object types.
+>**Note:** Additional Searching is not supported for the getChildren query type and does not support searching on folder object types.
