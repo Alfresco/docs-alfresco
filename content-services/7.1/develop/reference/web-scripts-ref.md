@@ -8,7 +8,7 @@ The REST (Representational State Transfer) web architecture is based on HTTP req
 (Uniform Resource Identifiers), and document types.
 
 Web scripts let you implement your own RESTful API without tooling or Java knowledge, requiring only a text editor. 
-This approach to developing an Content Services API means that web scripts offer many advantages over existing 
+This approach to developing a Content Services API means that web scripts offer many advantages over existing 
 technologies, including ease and speed of development, and flexibility in API design. By focusing on the RESTful 
 architectural style, web scripts let you build custom URI-identified and HTTP accessible content management web services 
 backed by the Content Services server.

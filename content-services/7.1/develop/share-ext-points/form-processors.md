@@ -528,7 +528,7 @@ For a full sample implementation of this `AttributeFormProcessor` see code links
 
 ## Deployment - App Server
 
-A custom form processor is implemented in Java, which is not suitable for manual installation into an Content Services 
+A custom form processor is implemented in Java, which is not suitable for manual installation into a Content Services 
 installation. Use a platform/repository JAR project instead.
 
 ## Deployment All-in-One SDK project

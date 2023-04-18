@@ -12,7 +12,7 @@ Architecture Information: [Platform Architecture]({% link content-services/7.2/d
 An Content Services module, such as an AMP or a JAR, can have tightly coupled components (that is, Java classes) 
 that are part of its implementation. When a module is loaded it will also execute the code for each one of its registered 
 components. One component can depend on another component, so it is possible to set up the required execution order. 
-A component can also be associated with an Content Services version range for which it is valid, which means 
+A component can also be associated with a Content Services version range for which it is valid, which means 
 that it will only be invoked if current Content Services version is in this version range. By default each one 
 of the components will be executed only once when the module is deployed for the first time. To implement a module 
 component you first need a [Repository AMP](https://github.com/Alfresco/alfresco-sdk/blob/master/docs/working-with-generated-projects/working-with-platform.md){:target="_blank"} 
