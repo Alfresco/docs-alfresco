@@ -49,7 +49,7 @@ notificationType | Notification Type | AutoComplete | Dropdown notification clas
 bpm_workflowDueDate | Due Date | DateBox | Suggested due date for the notification.  Suggested to configure that the date must be today or in the future.
 bpm_comment | Comment | Textarea | Suggested to configure with WYSIWYG option on.
 
-**Note:** Only bpm_assignees and bpm_groupAssignee are required for notification to work. However, if not present in the form the ACA notification interface will still show columns for Notification Type, Due Date and Comment.  Any values missing on the form will result in a column that only contains blank values.
+> **Note:** Only `bpm_assignees` and `bpm_groupAssignee` are required for notification to work. However, if not present in the form the ACA notification interface will still show columns for Notification Type, Due Date and Comment.  Any values missing on the form will result in a column that only contains blank values.
 
 **Notification Type** - if the name of the Notification Type field is not properly configured as described above, follow these steps:
 
@@ -94,7 +94,11 @@ For each instance of the Bulk Upload action (either as a header action or Stage 
 
      * Determine if users would like saved session functionality.  Saved sessions is useful when Bulk Upload actions regularly take users a non-trivial amount of effort.  If users generally fill out Bulk Upload forms in less than 5 minutes, Saved Sessions may not be needed.
 
-3. Whether or not any updates were made, re-save the config. This will activate the new configurations.
+3. If you are ever going to enable Saved Sessions, re-run the hpi-setup script.
+
+    * Open a browser window and navigate to the following URL: `{Alfresco Base URL}/alfresco/s/hpi/setup`
+
+4. Whether or not any updates were made, re-save the config. This will activate the new configurations.
 
 ### Policy and Procedure Updates
 

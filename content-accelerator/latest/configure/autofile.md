@@ -54,7 +54,7 @@ http://{server}:{port}/alfresco/service/tsgrp/autofile/createAutofileConfig?para
 "criteriaRegexes":["A","B"]}
    ```
 
-**Note:** Authorization for an admin user must be included. In Postman, switch to the `Authorization` tab. In the `TYPE` dropdown, select `Basic Auth` and then enter in an admin user's credentials.
+> **Note:** Authorization for an admin user must be included. In Postman, switch to the `Authorization` tab. In the `TYPE` dropdown, select `Basic Auth` and then enter in an admin user's credentials.
 
 ## Utilizing Autofile
 

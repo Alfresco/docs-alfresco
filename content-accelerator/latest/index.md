@@ -2,8 +2,6 @@
 title: Alfresco Content Accelerator
 ---
 
-## Overview
-
 Alfresco Content Accelerator (ACA) provides a **no-code**, **streamlined interface for fast implementations**. It focuses on quickly building out **business-specific use cases** with reduced reliance on scarce IT and technical support resources, enabling efficient document processing on Alfresco Content Services (ACS).
 
 ACA enables customers to view, search, and manage their content from a friendly and simple modern front-end interface.
@@ -12,8 +10,8 @@ There are pre-configured “accelerators” on top of ACA that act as default co
 
 These accelerators are:
 
-* [Claims Management](/content-accelerator/latest/#claims-management)
-* [Policy and Procedure Management](/content-accelerator/latest/#policy-management)
+* [Claims Management]({% link content-accelerator/latest/index.md %}#claims-management)
+* [Policy and Procedure Management]({% link content-accelerator/latest/index.md %}#policy-management)
 
 More information is included below for the available accelerators. ACA is available for on-premises customers as well as customers in the Alfresco Cloud PaaS.
 
@@ -34,7 +32,7 @@ See the picture below for a visual representation of how these products fit toge
 
 ![Content Accelerator and Enterprise Viewer overview]({% link content-accelerator/images/aca-aev-overview.png %})
 
->**Note:** the name Alfresco Content Accelerator (ACA) has been chosen by Alfresco when productizing the OpenContent Management Suite.
+>**Note:** The name Alfresco Content Accelerator (ACA) has been chosen by Alfresco when productizing the OpenContent Management Suite.
 
 ## Benefits
 
@@ -119,4 +117,4 @@ A wizard-style form is utilized to capture change request information. The form 
 ![ACA intro policy management3]({% link content-accelerator/images/aca-intro-policy-management-03.png %})
 ![ACA intro policy management4]({% link content-accelerator/images/aca-intro-policy-management-04.png %})
 
-**Note:** AEV Edit and Redaction Modes are not supported with documents managed by the PnP Accelerator (Controlled Docs, Quality Docs, Wizard Forms)
+> **Note:** AEV Edit and Redaction Modes are not supported with documents managed by the PnP Accelerator (Controlled Docs, Quality Docs, Wizard Forms)
