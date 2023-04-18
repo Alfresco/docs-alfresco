@@ -542,7 +542,7 @@ Surf's default credential vault is runtime-only; it is populated and used at run
 credentials are lost and the user must provide their credentials again the next time the connector is used. Surf lets 
 you override the credential vault implementation. It provides a number of additional credential vaults out of the box 
 you can use or base your implementations on. These include a filesystem– persistent credential vault and a credential 
-vault (where your credentials are stored in an Content Services-managed file).
+vault (where your credentials are stored in a Content Services-managed file).
 
 To use the credential vault, you inform the endpoint that its identity is driven from the current user. You can make 
 this change to your endpoint definition:
@@ -605,7 +605,7 @@ You can then bind them to connectors using configuration, or you can write your 
 ```
 
 The `alfresco-ticket` authenticator and the `alfresco` connector are both available to Surf developers out of the box 
-to connect to an Content Services instance. All you need to do is define an endpoint that points to an 
+to connect to a Content Services instance. All you need to do is define an endpoint that points to an 
 Content Services instance and uses the `alfresco` connector. Content Services connectors use an 
 authenticator to perform a handshake ahead of any actual interaction. The handshake establishes who the user is and 
 then sets up the connector session so that subsequent requests contain the appropriate connection information 
