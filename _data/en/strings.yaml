@@ -41,9 +41,11 @@ Privacy: Privacy
 CCPA: CCPA
 Documentation Notice: Documentation Notice
 
-# ADD cookie notice
-#This website uses
-#cookies
-#in order to offer you the most relevant information. Please accept cookies for optimal performance. This documentation is subject to the
-#Documentation Notice
-#Accept cookies
+# cookie notice
+"This website uses <a href=\"https://www.alfresco.com/cookie-statement\" target=\"_blank\">cookies</a> in order to offer you the most relevant information.": "This website uses <a href=\"https://www.alfresco.com/cookie-statement\" target=\"_blank\">cookies</a> in order to offer you the most relevant information."
+
+Please accept cookies for optimal performance: Please accept cookies for optimal performance
+
+"This documentation is subject to the <a href=\"/documentation-notice/\">Documentation Notice</a>.": "This documentation is subject to the <a href=\"/documentation-notice/\">Documentation Notice</a>."
+
+Accept cookies: Accept cookies
