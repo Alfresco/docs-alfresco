@@ -96,7 +96,7 @@ in user. Here is the controller implementation:
 model.message = "Hello World " + person.properties.firstName + ' ' + person.properties.lastName + "!";
 ```
 
-Here we use an Content Services-specific JavaScript root object called `person` to get first and last name of 
+Here we use a Content Services-specific JavaScript root object called `person` to get first and last name of 
 the logged in user. The `model` variable is automatically available to us in the controller and we can put whatever data 
 we want in it for later use in the template.
 

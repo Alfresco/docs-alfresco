@@ -461,7 +461,7 @@ in through Spring AOP behind the service interface. This means that service impl
 It also means the cross-cutting concerns can be configured independently or even switched off across the server if, for example, 
 performance is the top-most requirement and the feature is not necessary.
 
-Multiple services are aggregated into an Content Services subsystem where a subsystem represents a complete 
+Multiple services are aggregated into a Content Services subsystem where a subsystem represents a complete 
 coherent capability of the Content Services server, such as authentication, transformation, and protocols. 
 As a unit, subsystems have their own lifecycle where they can be shut down and restarted while the server is running. 
 This is useful to disable aspects of the server, or reconfigure parts of it, such as how LDAP synchronization is mapped. 
