@@ -507,6 +507,7 @@ defaults:
       tutorial: true
       support: true
       versions:
+        - 7.4
         - 7.3
         - 7.2
         - 7.1
@@ -519,10 +520,18 @@ defaults:
   - scope:
       path: "governance-services/latest"
     values:
-      version: 7.3
+      version: 7.4
       latest: true
   - scope:
       path: "governance-services/latest/tutorial"
+    values:
+      toc: "governance-services-tutorial"
+  - scope:
+      path: "governance-services/7.3"
+    values:
+      version: 7.3
+  - scope:
+      path: "governance-services/7.3/tutorial"
     values:
       toc: "governance-services-tutorial"
   - scope:
