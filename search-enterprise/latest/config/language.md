@@ -2,16 +2,20 @@
 title: Multiple language support
 ---
 
-Search Enterprise supports multiple language. The support is provided using a JSON configuration files located in the alfresco-enterprise-repo at `src/main/resources/alfresco/search/elasticsearch/config/locale`.
+## Plug-in
 
-The configuration files are intended to provide a basic configuration which the customer can adjust and customise as necessary. 
+Some supported languages require installation of a plug-in and some Asian languages may also require installation of the ICU analysis plug-in.
 
-Configuration files are provided for the following languages:
+Search Enterprise supports multiple languages. You can configure other language using the `src/main/resources/alfresco/search/elasticsearch/config/locale` configuration file.
 
-| language | Search Enterprise language | Plug in required |
+The following languages are supported.
+
+> **Note:** Where there is a plug-in required, you must install it on every node in the cluster. For more see [plug-in](#plug-in).
+
+| Language | Search Enterprise language | Plug-in required |
 |--------|-----------|
   | fr |  light_french | Not required |
-
+`
   | de |  light_german | Not required |
 
   | it | light_italian | Not required |
@@ -20,15 +24,15 @@ Configuration files are provided for the following languages:
 
   | nl | Dutch  | Not required |
 
-  | pl | Polish  | [Stempel Polish analysis plugin](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-stempel.html) |
+  | pl | Polish  | [Stempel Polish analysis plug-in](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-stempel.html). For more see [plug-in](#plug-in). |
 
-  | ja |  Japanese | [Japanese (kuromoji) analysis plugin](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-kuromoji.html) and [ICU analysis plugin](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-icu.html) |
+  | ja |  Japanese | [Japanese (kuromoji) analysis plugin](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-kuromoji.html) and [ICU analysis plug-in](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-icu.html). For more see [plug-in](#plug-in). |
 
   | ru | Russian  | Not required |
 
   | pt | light_Portugese  | Not required |
 
-  | zh | Simplified Chinese  | [Smart Chinese analysis plugin](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-smartcn.html) and [ICU analysis plugin](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-icu.html) |
+  | zh | Simplified Chinese  | [Smart Chinese analysis plugin](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-smartcn.html) and [ICU analysis plug-in](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-icu.html)For more see [plug-in](#plug-in). |
 
   | cs | Czech  | Not required |
 
@@ -40,30 +44,31 @@ Configuration files are provided for the following languages:
 
   | nb | Norwegian  | Not required |
 
-To use the configuration for a specific locale, set the Java options elasticsearch locale in the docker-compose file for the alfresco service environment, for example:
+## Add language
 
-```java
+You must update the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` configuration file to enable the language you want to use with Search Enterprise. For example to use French you must add `-Delasticsearch.index.locale=fr`, and `-Dfile.encoding=utf-8`.
+
+### Docker Compose
+
+If are installing Search Enterprise using a Docker Compose file you must instruct Alfresco that you are using an alternative language to English. For example to use French you must add the following environment variable to the Alfresco service, for example:
+
+```yml
 JAVA_OPTS: "
   -Delasticsearch.index.locale=fr
 "
 ```
 
-You may also need to set the file encoding to `UTF-8`. This applies to alfresco service environment as well as the elasticsearch live-indexing and full-indexing services:
+You must also instruct Alfresco and Search Enterprise to use `UTF-8` encoding. This applies to the Alfresco service as well as the Elasticsearch live-indexing and Full-indexing services:
 
-```java
+```yml
 JAVA_OPTS: "
   -Dfile.encoding=utf-8
 "
 ```
 
-Some supported languages also require installation of a plug-in. Note that Asian languages may additionally require installation of the analysis-icu plug-in.
+## Custom configuration
 
-A list of ElasticSearch analysis plug-ins can be found here.
-
-How to provide a custom configuration
-Add a custom configuration JSON file to the locale configuration directory src/main/resources/alfresco/search/elasticsearch/config/locale, following the naming convention of xx_locale.json where xx is the two character locale code. 
-
-Below is a sample JSON configuration file for the French language:
+To create a custom configuration you must create a `JSON` file in the to the locale configuration directory: `src/main/resources/alfresco/search/elasticsearch/config/locale`. The file must follow the naming convention of `xx_locale.json` where `xx` is the two character locale code. Use the following code example to create your own configuration file. In this case the example is for the French language.
 
 ```JSON
 {
@@ -101,9 +106,9 @@ Below is a sample JSON configuration file for the French language:
 
 The Analysis section contains 3 analyzers and any custom defined filters. Every analyzer must contain at least one tokenizer, and can optionally include a number of filters which can then modify the tokens, such as the direction to convert text to lowercase for the index.
 
-locale_content is a symmetric content analyzer, which in this example is set to french.
+`locale_content` is a symmetric content analyzer, which in this example is set to french.
 
-locale_text_index is an asymmetric text analyzer, which is set to use whitespace as the delimiter, and has several filters including a custom defined filter french_stemmer
+`locale_text_index` is an asymmetric text analyzer, which is set to use whitespace as the delimiter, and has several filters including a custom defined filter french_stemmer
 
 locale_text_query is an asymmetric text query analyzer, which is also set to use whitespace as the delimiter, and has several filters including the custom defined filter french_stemmer
 
