@@ -27,7 +27,7 @@ Close: RU Close
 Read documentation: RU Read documentation
 Table of contents: RU Table of contents
 
-# footer
+# footer text
 Hyland Software, Inc. and its affiliates. All rights reserved. All Hyland product names are registered or unregistered trademarks of Hyland Software, Inc. or its affiliates.: RU Hyland Software, Inc. и ее дочерние компании. Все права защищены. Все названия продуктов Hyland являются зарегистрированными или незарегистрированными товарными знаками Hyland Software, Inc. или ее дочерних компаний.
 
 Terms of Use: RU Условия эксплуатации
@@ -44,3 +44,10 @@ Please accept cookies for optimal performance: RU Please accept cookies for opti
 "This documentation is subject to the <a href=\"/documentation-notice/\">Documentation Notice</a>.": "RU This documentation is subject to the <a href=\"/documentation-notice/\">Documentation Notice</a>."
 
 Accept cookies: RU Accept cookies
+
+# footer links - DO NOT MODIFY  
+"<a href=\"https://www.alfresco.com/terms-use\" target=\"_blank\">": "<a href=\"https://www.alfresco.com/terms-use\" target=\"_blank\">"
+"<a href=\"https://www.alfresco.com/cookie-statement\" target=\"_blank\">": "<a href=\"https://www.alfresco.com/cookie-statement\" target=\"_blank\">"
+"<a href=\"https://www.alfresco.com/privacy-statement\" target=\"_blank\">": "<a href=\"https://www.alfresco.com/privacy-statement\" target=\"_blank\">"
+"<a href=\"https://www.alfresco.com/legal/ccpa\" target=\"_blank\">": "<a href=\"https://www.alfresco.com/legal/ccpa\" target=\"_blank\">"
+"<a href=\"/documentation-notice/\" target=\"_blank\">": "<a href=\"/documentation-notice/\" target=\"_blank\">"
