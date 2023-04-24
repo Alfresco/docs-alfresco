@@ -455,7 +455,8 @@ You can add transfer targets by creating new transfer folders.
 
 3. On the source repository, create a replication job to test the target setup.
 
-    1. From the toolbar, click Admin Tools and select Replication Jobs from the menu.
+    1. From the toolbar, click **Admin Tools** and select **Replication Jobs** from the menu.
+
 
     2. Click **Create Job**.
 
