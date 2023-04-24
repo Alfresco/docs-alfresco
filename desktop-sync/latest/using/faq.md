@@ -160,7 +160,7 @@ Additionally, you can use applications, such as DebugView to monitor debug outpu
 
 ### I no longer need a site. How do I remove the site and its contents from my desktop?
 
-Go to **Manage Folders...** and deselect the sites you no longer need. Click **Sync** to remove the selected files and folders from your desktop.
+Go to **Manage Folders** and deselect the sites you no longer need. Click **Sync** to remove the selected files and folders from your desktop.
 
 ### Can I use Desktop Sync while I am offline?
 
