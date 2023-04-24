@@ -415,7 +415,8 @@ You can add transfer targets by creating new transfer folders.
 
 1. In the source repository, create a new folder in **Company Home > Data Dictionary > Transfers > Transfer Target Groups > Default Group**.
 
-    1. In the **New Folder** window specify a name, for example, Replica. You can add a title and description, if you wish.
+    1. In the **New Folder** window specify a name, for example, `Replica`. You can add a title and description, if you wish.
+
 
         A rule defined on the **Default Group** folder specializes the type of any folder created in it.
 
