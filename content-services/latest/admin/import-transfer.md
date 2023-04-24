@@ -461,9 +461,10 @@ You can add transfer targets by creating new transfer folders.
 
     2. Click **Create Job**.
 
-    3. Specify properties for Name, Payload, Transfer Target.
+    3. Specify properties for **Name**, **Payload**, and **Transfer Target**.
 
-        Name is a new folder name; for example, Replication Job. Payload is the source content directory, and Transfer Target is the folder name that you set up in step 1 (Replica).
+        **Name** is a new folder name; for example, `Replication Job`. **Payload** is the source content directory, and **Transfer Target** is the folder name that you set up in step 1 (Replica).
+
 
     4. Click **Enabled**.
 
