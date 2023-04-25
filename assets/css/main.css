@@ -1148,7 +1148,7 @@ a.github-link::after {
   .dropdown-content
   a.dropdown-item.special
   .query:empty:after {
-  content: "Start typing to search..."; /* L10N Need to localize content */
+  content: ""; /* Removed placeholder */
   height: 30px;
   font-style: italic;
   color: gray;
