@@ -12,9 +12,9 @@
       <h1>{{s.title}}</h1>
 
       {%for ss in s.sub %}
-        {%loc_safe_url {{ss.url}} {{page.lang}} class="navbar-item"%}{{ss.title}}{%endloc_safe_url%}
+        {%loc_safe_url no-transform-title {{ss.url}} {{page.lang}} class="navbar-item"%}{{ss.title}}{%endloc_safe_url%}
       {%else%}
-        {%loc_safe_url {{s.url}} {{page.lang}} class="navbar-item"%}{{s.title}}{%endloc_safe_url%}
+        {%loc_safe_url no-transform-title {{s.url}} {{page.lang}} class="navbar-item"%}{{s.title}}{%endloc_safe_url%}
       {%endfor%}
       </div>
     </div>
@@ -26,3 +26,4 @@
     {% endfor %}
     {%endif%}
  </div>
+ 
