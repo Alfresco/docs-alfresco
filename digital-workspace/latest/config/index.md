@@ -42,6 +42,12 @@ The following settings can be configured in `../digital-workspace/app.config.jso
 | sidenav/preserveState | Remember the users choice of sidenav minimized or expanded, `true` or `false`.|
 | sideNav/expandedSidenav | Side navigation expanded by default, `true` or `false`.|
 | viewer.maxRetries | The preview mechanism used to view a file tries to open it and if its unsuccessful it waits 20 seconds and then tries again. The process involves converting the file (multiple file formats are supported depending on content type) and if it takes more than 20 seconds the system will say that the content isn't supported. This time out can be increased by adding a value for this property. If you enter 2 the wait time before time out will be 40 seconds|
+| APP_CONFIG_ENABLE_FILE_AUTO_DOWNLOAD | Specify if a large file is automatically downloaded. Use either `true` or `false`. |
+| APP_CONFIG_ENABLE_DOWNLOAD_PROMPT | Specify if the Digital Workspace user is prompted before downloading a large file. Use either `true` or `false`. |
+| APP_CONFIG_DOWNLOAD_PROMPT_DELAY | In milliseconds, specify the amount of time to delay a prompt to the Digital Workspace user, before displaying a download large file message. For example `30`. |
+| APP_CONFIG_ENABLE_DOWNLOAD_PROMPT_REMINDERS | Specify if the Digital Workspace user is prompted with a reminder, before downloading a large file. Use either `true` or `false`. |
+| APP_CONFIG_DOWNLOAD_PROMPT_REMINDER_DELAY | In milliseconds, specify the amount of time to delay a reminder prompt, to the Digital Workspace user, before displaying another download large file message. For example `50`. |
+| APP_CONFIG_FILE_AUTO_DOWNLOAD_SIZE_THRESHOLD_IN_MB | In megabytes, specify the largest file size a file can be, before the Digital Workspace does not download it automatically. For example `15`. |
 
 ## Permissions
 
