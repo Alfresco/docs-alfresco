@@ -337,37 +337,35 @@ This topic describes the instructions for installing and configuring Solr nodes 
 
 ### Install and configure Hazelcast
 
-In order to meet high availability deployment requirements, the product takes leverage of Hazelcast, an open-source distributed In-memory object store supporting a wide variety of data structures such as Map, Set, List etc.
-
-It is important to harden the cluster that might otherwise expose sensitive data, including user session information, from the application layer to the network layer.
+In order to meet high availability deployment requirements, Content Services uses Hazelcast, an open-source distributed in-memory object store that supports a wide variety of data structures such as Map, Set, and List. It is important to harden (improve the security) of the cluster because it may expose sensitive data, including user session information, from the application layer to the network layer if the default configuration is not changed.
 
 **Note:** Hazelcast Community Edition security features are limited, thus the mitigations are mainly related to the network layer plus application layer checks, where Alfresco programmatically permits only to database stored nodes the access to the cluster.
 
 #### Secure Hazelcast Community Edition
 
-Please follow the mentioned steps as soon as you create your cluster:
+Follow the steps below as soon as you create your cluster:
 
-* Don’t allow Hazelcast to bind to all network interfaces (Deactivated by default, defined via the `alfresco.hazelcast.bind.any=false` property).
+* Don’t allow Hazelcast to bind to all network interfaces (deactivated by default, defined via the `alfresco.hazelcast.bind.any=false` property).
 * Specify which network interfaces should be used by Hazelcast for clustering purposes, see [Step 3: Set up repository server cluster]({% link content-services/latest/admin/cluster.md %}#setuprepocluster) for more information (the interface specification is disabled by default).
 * Specify the Hazelcast port and don’t enable the port auto-increment feature, see [Clustering properties]({% link content-services/latest/admin/cluster.md %}#clustering-properties) for more information.
 * Configure the network appropriately within the cluster, so that Hazelcast ports are only reachable within the boundaries of the internal network that connects the cluster members within each other.
 
-Optionally, the default Alfresco Hazelcast XML configuration can be completely overridden for fine-tuning purposes. To gain control over the configuration file, override the `alfresco.hazelcast.configLocation` property and provide your own configuration file.
+Optionally, the default Alfresco Hazelcast XML configuration can be completely overridden for fine-tuning purposes. To change the configuration file, override the `alfresco.hazelcast.configLocation` property and provide your own configuration file.
 
 #### Secure Hazelcast Enterprise Edition
 
-Depending on your organization security policies and guidelines, an Hazelcast Enterprise license might be required to implement further hardening on the cluster. Alfresco does not provide this license so please refer to the [Hazelcast Security Suite](https://hazelcast.com/product-features/security-suite/){target="_blank"} for details.
+Depending on your organization security policies and guidelines, a Hazelcast Enterprise license might be required to implement further hardening on the cluster. Alfresco does not provide this license so please refer to the [Hazelcast Security Suite](https://hazelcast.com/product-features/security-suite/){target="_blank"} for details.
 
 We recommend to enable:
 
-* TLS to encrypt the data transmission among the nodes of the cluster in case a malicious user risks gain access to the network layer
+* TLS to encrypt the data transmission among the nodes of the cluster in case a malicious user gains access to the network layer
 * mTLS to authenticate nodes with certificates so that their identity can be cryptographically verified
 
 #### Use a unique random UUID as cluster name
 
-This compensating control applies to Alfresco Content Services up to (including) version 7.3.X. From ACS 7.4.0 onwards, this procedure is applied automatically.
+Given that the Hazelcast cluster name consists of the Repository name and the Repository ID, you should consider changing this value to one that can’t be easily guessed.
 
-Given that the Hazelcast cluster name consists of the Repository name and the Repository id, you should consider changing this value to one that can’t be easily guessed.
+> **Note:** This compensating control applies to Content Services up to (and including) version 7.3.X. From Content Services 7.4.0 onwards, this procedure is applied automatically.
 
 1. Open the Admin Console.
 
@@ -377,7 +375,7 @@ Given that the Hazelcast cluster name consists of the Repository name and the Re
 
 4. Shut down all nodes in the cluster.
 
-5. You will need to generate a random UUID. You can use any tool of your choosing to do so, here is an example with JShell:
+5. You will need to generate a random UUID. Choose your preferred tool, below is an example with JShell:
 
     ```JShell
     jshell> UUID.randomUUID()
@@ -395,7 +393,7 @@ Given that the Hazelcast cluster name consists of the Repository name and the Re
     $2 ==> 2144787869
     ```
 
-8. Get the last 16 characters from the new cluster name (according to the current example, it would be: `822-f0d80db0abba`).
+8. Get the last 16 characters from the new cluster name (in the current example, it would be: `822-f0d80db0abba`).
 
 9. Prepare the SQL statement to replace the legacy cluster according to the following template:
 
@@ -416,7 +414,7 @@ Given that the Hazelcast cluster name consists of the Repository name and the Re
             string_value =[LEGACY CLUSTER NAME])
     ```
 
-    Make sure to replace the values within the square brackets, in the context of the current example the prepared statement would look like this:
+    Replace the values within the square brackets, in the context of the current example the prepared statement would look like this:
 
     ```SQL
     UPDATE
@@ -437,7 +435,7 @@ Given that the Hazelcast cluster name consists of the Repository name and the Re
 
 10. Execute the prepared SQL statement.
 
-11. Ensure that each node is fully started, before starting the next one.
+11. Ensure that each node is fully started before starting the next one.
 
 ### Set up repository server cluster
 
