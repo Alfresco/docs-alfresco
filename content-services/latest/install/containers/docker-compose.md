@@ -281,7 +281,7 @@ Use this information to verify that the system started correctly, and to clean u
         Removing image alfresco/alfresco-transform-core-aio:3.0.0
         Removing image quay.io/alfresco/alfresco-transform-router:2.0.0
         Removing image quay.io/alfresco/alfresco-digital-workspace:3.1.0
-        Removing image quay.io/alfresco/alfresco-admin-app:7.6.0
+        Removing image quay.io/alfresco/alfresco-control-center:7.10.0
         Removing image alfresco/alfresco-acs-nginx:3.4.2
         Removing image quay.io/alfresco/service-sync:3.8.0
         ```
