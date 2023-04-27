@@ -316,7 +316,7 @@ The File System Transfer Receiver is delivered as a compressed zip file.
 
 1. Download the following file from the Support Portal:
 
-    `alfresco-file-transfer-receiver-7.0.x.zip`
+    `alfresco-file-transfer-receiver-7.1.x.zip`
 
 2. Extract the zip file into a relevant directory.
 
@@ -359,7 +359,7 @@ Use this information to start the File System Transfer Receiver.
 
 1. Ensure that you've expanded the File System Transfer Receiver zip file:
 
-    `alfresco-file-transfer-receiver-7.0.x.zip`
+    `alfresco-file-transfer-receiver-7.1.x.zip`
 
 2. To run the File System Transfer Receiver, enter the following command:
 
@@ -415,7 +415,8 @@ You can add transfer targets by creating new transfer folders.
 
 1. In the source repository, create a new folder in **Company Home > Data Dictionary > Transfers > Transfer Target Groups > Default Group**.
 
-    1. In the **New Folder** window specify a name, for example, Replica. You can add a title and description, if you wish.
+    1. In the **New Folder** window specify a name, for example, `Replica`. You can add a title and description, if you wish.
+
 
         A rule defined on the **Default Group** folder specializes the type of any folder created in it.
 
@@ -455,13 +456,15 @@ You can add transfer targets by creating new transfer folders.
 
 3. On the source repository, create a replication job to test the target setup.
 
-    1. From the toolbar, click Admin Tools and select Replication Jobs from the menu.
+    1. From the toolbar, click **Admin Tools** and select **Replication Jobs** from the menu.
+
 
     2. Click **Create Job**.
 
-    3. Specify properties for Name, Payload, Transfer Target.
+    3. Specify properties for **Name**, **Payload**, and **Transfer Target**.
 
-        Name is a new folder name; for example, Replication Job. Payload is the source content directory, and Transfer Target is the folder name that you set up in step 1 (Replica).
+        **Name** is a new folder name; for example, `Replication Job`. **Payload** is the source content directory, and **Transfer Target** is the folder name that you set up in step 1 (Replica).
+
 
     4. Click **Enabled**.
 
