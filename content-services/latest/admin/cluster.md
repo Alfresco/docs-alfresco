@@ -337,7 +337,9 @@ This topic describes the instructions for installing and configuring Solr nodes 
 
 ### Install and configure Hazelcast
 
-The goal of this page is to describe important actions required to harden the cluster that might otherwise expose sensitive data, including user session information, from the application layer to the network layer.
+In order to meet high availability deployment requirements, the product takes leverage of Hazelcast, an open-source distributed In-memory object store supporting a wide variety of data structures such as Map, Set, List etc.
+
+It is important to harden the cluster that might otherwise expose sensitive data, including user session information, from the application layer to the network layer.
 
 **Note:** Hazelcast Community Edition security features are limited, thus the mitigations are mainly related to the network layer plus application layer checks, where Alfresco programmatically permits only to database stored nodes the access to the cluster.
 
@@ -346,8 +348,8 @@ The goal of this page is to describe important actions required to harden the cl
 Please follow the mentioned steps as soon as you create your cluster:
 
 * Don’t allow Hazelcast to bind to all network interfaces (Deactivated by default, defined via the `alfresco.hazelcast.bind.any=false` property).
-* Specify which network interfaces should be used by Hazelcast for clustering purposes, see [Step 3: Set up repository server cluster]({% link #setuprepocluster %}) for more information (the interface specification is disabled by default).
-* Specify the Hazelcast port and don’t enable the port auto-increment feature, see [Clustering properties]({% link content-services/latest/admin/cluster/#clustering-properties.md %}) for more information.
+* Specify which network interfaces should be used by Hazelcast for clustering purposes, see [Step 3: Set up repository server cluster]({% link content-services/latest/admin/cluster.md %}#setuprepocluster) for more information (the interface specification is disabled by default).
+* Specify the Hazelcast port and don’t enable the port auto-increment feature, see [Clustering properties]({% link content-services/latest/admin/cluster.md %}#clustering-properties) for more information.
 * Configure the network appropriately within the cluster, so that Hazelcast ports are only reachable within the boundaries of the internal network that connects the cluster members within each other.
 
 Optionally, the default Alfresco Hazelcast XML configuration can be completely overridden for fine-tuning purposes. To gain control over the configuration file, override the `alfresco.hazelcast.configLocation` property and provide your own configuration file.
