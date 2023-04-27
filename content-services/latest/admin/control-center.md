@@ -84,7 +84,7 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
 
     | Service | Endpoint |
     | ------- | -------- |
-    | Control Center | `http://localhost:8080/admin` |
+    | Control Center | `http://localhost:8080/control-center` |
     | Digital Workspace | `http://localhost:8080/workspace` |
     | Share | `http://localhost:8080/share` |
     | Administration and REST APIs | `http://localhost:8080/alfresco` |
