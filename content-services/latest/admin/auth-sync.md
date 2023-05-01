@@ -1448,13 +1448,9 @@ Once the Identity Service has been deployed, there are two steps to configure Co
 
 #### Identity Service configuration properties {#isprops}
 
-Use this information to configure Content Services to authenticate using Identity Service. The Keycloak Adapters have been deprecated and are no longer maintained. See [Deprecation of Keycloak adapters - Keycloak](https://www.keycloak.org/2022/02/adapter-deprecation). To move Content Services forward there was a decision made to migrate the Repository from using the Keycloak Adapter to the Spring Security components.
-
-The main affected area was the communication with the Alfresco Identity Service (Keycloak). The focus is to minimize the impact on existing customers using the Alfresco Identity Service by preserving the key features and behaviors of the previously used Keycloak Adapter.
+Use this information to configure Content Services to authenticate using Identity Service. Content Services uses Spring Security components because the Keycloak Adapters have been deprecated. Key features and behaviors of the Keycloak Adapter, such as the communication with the Alfresco Identity Service, are preserved. For more information, see the Keycloak documentation [Deprecation of Keycloak adapters](https://www.keycloak.org/2022/02/adapter-deprecation).
 
 Configure the `alfresco-global.properties` file using the below properties:
-
-> **Note:** See the Keycloak documentation for a [full list of possible properties](https://www.keycloak.org/docs/4.8/securing_apps/index.html#_java_adapter_config).
 
 Alfresco Identity Service Authentication options:
 
