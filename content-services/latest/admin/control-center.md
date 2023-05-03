@@ -173,6 +173,52 @@ Once the group has been created, click the vertical ellipsis (**&vellip;**) at e
 
 > **Note:** You can only modify the group `Name` once a group has been created.
 
+## Tags
+
+A tag is a marker that you can assign to related content to help categorize it. This makes it easier to view related content. You can create tags in the Control Center that can be used in the Digital Workspace. For example, you may create tags called **proposal-one**, and  **proposal-two** to help you identify all the content that has been created for two different versions of a design. In the Digital Workspace you can search your content that has specific tags.
+For more on their use in the Digital Workspace, see [tags]({% link content-services/latest/using/content/tags-categories.md %}#tags).
+
+To create a tag:
+
+1. Log into the Control Center.
+
+2. Expand **Content Structuring** in the left pane and then select **Tags**.
+
+3. Click the **Create** button on the top right.
+
+4. Click the **+** symbol and enter a **Name** for the new tag.
+
+    When you are entering a name for a tag, the Control Center searches at the same time to ensure there is not already a tag with that name.
+    If the name for the tag already exists you must create it with a unique name that is not already being used.
+
+5. Click **Create: your-tag-name** and then click **Save**.
+
+    You can create more than one tag during this process. To do this continue by clicking the **+** symbol again to create another tag and then click **Save**.
+
+You can see the new tag you created. If you click the three dots on the right hand side of your tag you are able to **Edit** or **Delete** it.  
+
+**Note:** Deleting a tag removes it from all the files it has been assigned to in the Digital Workspace.
+
+## Categories
+
+A category is a group of files, or other categories, that all relate to a project or concept. Content can be a part of more than one category, for example, a category called **language** may include a language file called **english**, and the file may also exist within a category called **country**. For more on their use in the Digital Workspace, see [categories]({% link content-services/latest/using/content/tags-categories.md %}#categories)
+
+To create a category:
+
+1. Log into the Control Center.
+
+2. Expand **Content Structuring** in the left pane and then select **Categories**.
+
+3. Click the **Create** button on the top right.
+
+4. Click the **+** symbol and enter a **Name** for the new category.
+
+    You can create more than one category during this process. To do this continue by clicking the **+** symbol again to create another category and then click **Save**.
+
+You can see the new category you created. If you click the three dots on the right hand side of your category you are able to **Create a subcategory**, **Edit** it, or **Delete** it.  
+
+A category name does not need to be unique to the Control Center, it only needs to be unique within the level it sits in within the Control Center.
+
 ## Troubleshooting
 
 1. If you have issues running `docker-compose up` after deleting a previous Docker Compose cluster, try replacing step 4 in the initial Docker Compose instructions with:
@@ -206,3 +252,4 @@ Once the group has been created, click the vertical ellipsis (**&vellip;**) at e
     Go back to step 4 in the initial Docker Compose instructions to start the deployment again.
 
 > **Note:** You'll need a machine with at least 13 GB of memory to distribute among the Docker containers.
+
