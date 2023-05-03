@@ -16,7 +16,7 @@ There are a number of software requirements for installing Azure Connector.
 
 ### Alfresco requirements
 
-See [Supported Platforms]({% link microsoft-azure/latest/support/index.md %}).
+See [Supported Platforms]({% link microsoft-azure/3.1/support/index.md %}).
 
 ### Azure related requirements
 
@@ -47,7 +47,7 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
 
     > **Note:** You must install the Azure Connector AMP using `-force`.
 
-4. Check that the [configuration]({% link microsoft-azure/latest/config/index.md %}) is set up correctly for your environment.
+4. Check that the [configuration]({% link microsoft-azure/3.1/config/index.md %}) is set up correctly for your environment.
 
     > **Note:** Starting from version 1.2, the Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services. For details on how to re-enable it, see [Azure Connector deleted content store](#azure-connector-deleted-content-store).
 
@@ -103,7 +103,7 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
         -Dconnector.az.deleted.containerName=${AZURE_DELETED_CONTAINER_NAME}
         ```
 
-        See [Configure the Azure Connector]({% link microsoft-azure/latest/config/index.md %}) for the supported authentication modes.
+        See [Configure the Azure Connector]({% link microsoft-azure/3.1/config/index.md %}) for the supported authentication modes.
 
     2. Check the Azure Connector properties for store 2 (for example, `connector.az.store2.*`).
 
@@ -121,7 +121,7 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
         -Dfilecontentstore.subsystem.name=AzMultipleStorageContainers
         ```
 
-7. Check that the [Configuration]({% link microsoft-azure/latest/config/index.md %} is set up correctly for your environment.
+7. Check that the [Configuration]({% link microsoft-azure/3.1/config/index.md %} is set up correctly for your environment.
 
 8. Start Content Services.
 
@@ -199,11 +199,11 @@ Use this information to upgrade the Azure Connector from a previous version for 
 
     > **Note:** You must install the Azure Connector AMP using `-force`.
 
-9. Check that the [Configuration]({% link microsoft-azure/latest/config/index.md %}) is set up correctly for your environment.
+9. Check that the [Configuration]({% link microsoft-azure/3.1/config/index.md %}) is set up correctly for your environment.
 
     > **Note:** When upgrading from Azure Connector 1.0, make sure you define the Azure authentication mode and a supported value in your `alfresco-global.properties` file.
 
-     > **Note:** To upgrade a system that's never used the file system (for example, an on-premises installation without locally saved binaries), we recommend that you choose a pure Azure content store. See [Azure content store subsystems]({% link microsoft-azure/latest/config/index.md %}#azure-subsystems) for more details.
+     > **Note:** To upgrade a system that's never used the file system (for example, an on-premises installation without locally saved binaries), we recommend that you choose a pure Azure content store. See [Azure content store subsystems]({% link microsoft-azure/3.1/config/index.md %}#azure-subsystems) for more details.
 
 10. Start the server.
 
