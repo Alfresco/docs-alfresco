@@ -211,7 +211,7 @@ You can adjust the width of the columns of the **Process Management** section. T
 
 This feature is enabled by default for the **Process Management** section. If you want to adjust the column widths in the same way for the **Personal Files** or **File Libraries** sections of the Digital Workspace, you must turn it on by editing the `libs/content-ee/process-services-cloud-extension/assets/process-services-cloud.extension.json` file and adding the following:
 
-```JSON
+```json
 "column-resizing": [
                     {
                         "id": "column-resizing",
