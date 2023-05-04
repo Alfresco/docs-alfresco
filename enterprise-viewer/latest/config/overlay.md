@@ -1,24 +1,55 @@
 ---
-title: Configuring Overlays 
+title: Configuring overlays 
 ---
 
-## What is an Overlay?
+## What is an overlay?
 
-An overlay, also known as a watermark, is applied to the surface of the image and bonded to it preventing the user from moving or modifying the overlay. The overlay is applied using OpenOverlay and requires a few files to get it functioning. Below will detail how to wire up a new overlay configuration file and how to assemble it.  
+An overlay, also known as a watermark, is applied to the surface of the PDF and bonded to it, preventing the user from moving or modifying the overlay. The overlay is applied using OpenOverlay, a Java-based tool embedded within Alfresco Content Services. Out of the box overlays are supplied as part of some base Accelerator configurations. Configuration is required to customize overlay behavior in Alfresco Content Accelerator and Alfresco Enterprise Viewer. Below are the details of how to wire up a new overlay configuration file and how to assemble it.  
 
-## Creating a new Overlay
+## Overlay capabilities
 
-### The Overlay Configuration xml Components
+OpenOverlay can apply overlays to document PDF renditions. These overlays include static text, a static image file, a dynamic property value (such as a value set on the document node), and/or one of a few special keywords tokens including `pageNum`, `isFirstPage` and `isLastPage`. For example, you can stamp `cm:createdDate` or `cm:title` on the document, with pixel precision at any location on the page. You can configure different overlays to be applied based on dynamic criteria, including Object Type, node property value, and page layout. You can also configure dynamically generated overlays upon document view time (most common use case), or permanently applied upon initial PDF creation. For instance, many customers use OpenOverlay to dynamically apply the `Viewed On` date to the document to ensure the date extracted is known, should the document be printed or sent outside the system. You can specify the text as any font, color, and size.
+
+## Overlay limitations
+
+* OpenOverlay applies images directly at the pixel location specified, and does not wrap text or images.
+* OpenOverlay is limited to working with the fonts that are installed on the operating system running OpenOverlay (either the Alfresco Content Services system or the AEVT system depending on your configuration).
+
+## Set up application to display overlays
+
+There are a few configurations that need to be set up to view overlays on documents.
+
+1. `annotation.shouldUseOverlays=true/false`
+
+    This property tells the application that it should display configured overlays on documents. This should be set to true in order to see any configured overlays on viewing of documents.
+
+    Out of the Box, this is set to `false` by default. If you installed an accelerator (PnP or Claims) which included installing the `opencontent-override-placeholders.properties` file packaged with the release, then the configuration will by default be set to `true`.
+
+    You can override this property in the `opencontent-extension-override-placeholders.properties` file in your [custom AMP]({% link content-accelerator/latest/develop/extension-content-accelerator.md %}).
+
+2. `enableAEVTOverlays=true/false`
+
+    This property enables AEVT (OAT) to handle the overlays. If you have AEVT installed and overlays should be displayed, then this should be set to `true`, or else it should be set to `false`. The default value is `false`.
+
+    You can override this property in the `openannotate-override-placeholders.properties` file in the `/alfresco` classpath, for example, `ALFRESCO_HOME/tomcat/shared/classes`.
+
+## Creating a new overlay
+
+You can configure a new overlay using XML. The following section walks through the different components of an example XML overlay configuration and provides additional sample overlays. These same principles apply when modifying existing overlay configurations by overriding existing XML overlay beans.
+
+### Overlay configuration XML components
+
+Below are the XML components for overlay configuration.
 
 #### Text Templates
 
-The text template allows for reuse of certain text formatting within overlays.  
+The text template allows for the reuse of certain text formatting within overlays.  
 
 `<text-templates />`  
 
 Properties:
 
-* name: unique id used as a reference for the template  
+* name: unique id used as a reference for the template.
 
 Example:
 
@@ -36,13 +67,13 @@ The tag within a text Template.
 
 Properties:  
 
-* template: template to use for the overlay. If not specified the template named 'default' will be used. (not required for tags within `<text-template>`  
+* template: template to use for the overlay. If not specified the template named `default` is used. **Note:** Not required for tags within `<text-template>`.
 * font-size: the size of the font in points  
 * font-family: the font/font-family to use  
 * font-weight: bold is the currently the only supported option  
-* font-style: italic is the currently the only supported option  
-* color: color of font as a hex (i.e. #FFFFFF) or string (i.e. "red")  
-* embed-font: true if the font should be embedded (defaults to false if not specified)  
+* font-style: italic is currently the only supported option  
+* color: color of font as a hex (i.e. `#FFFFFF`) or string (i.e. `"red"`)  
+* embed-font: `true` if the font should be embedded (defaults to `false` if not specified)  
 
 Example:  
 
@@ -58,7 +89,7 @@ Specifies the configuration for an overlay.
 
 Properties:  
 
-* id: unique identifier for this overlay  
+* id: unique identifier for this overlay.
 
 Example:  
 
@@ -75,19 +106,21 @@ A Tag within the overlay tag. It is used as a container for a aspects of the ove
 Properties:  
 
 * id: unique id for the overlay  
-* x: x position  
-* y: y position  
+* x: x position (0 is right)
+* y: y position (0 is bottom)
 * alignment: defaults to left (right, left, center)  
 * rotation: degrees, defaults to 0 (0, 90, 180, 270)  
 * opacity: float between 0-1.0 (defaults to 1.0)  
 
-Example (The following example has a rectangle placed within this parent block):  
+The following example has a rectangle placed within this parent block:  
 
 ```xml
 <block id="1" x="30" y="720" alignment="left" rotation="0" opacity="1">
     <rectangle x-offset="550" y-offset="0.5" background-color="black" border-width="0"/>
 </block>
 ```
+
+>**Note:** x="0" y="0" specifies the BOTTOM RIGHT corner of the page.
 
 ##### Text Tag
 
@@ -154,7 +187,9 @@ A Tag within the overlay tag. These tags are used to limit which documents/scena
 
 Properties:  
 
-* key: the oc name/variable key which the restriction will be applied to.  
+* key: the OpenContent name-variable key which the restriction will be applied to.
+* Hint: OpenContent names are "Alfresco Short Namespace" followed by `_` followed by "Local Property Name. For example, for `cm:name`, it would be `cm_name`.
+
 * value: which specific value that needs to match for the overlay to be applied.  
 
 Example:  
@@ -172,9 +207,9 @@ Example:
 
  `<actions />`
 
-### Using Property Values in an XML Overlay Configuration  
+### Using property values in XML overlay configuration  
 
-Below are examples of properties that can be used throughout the configuration file. These keys are the OpenContent names related to each property. Depending on the environment, and even object type, these keys will change.  
+Below are examples of properties that you can use throughout the configuration file. These keys are the OpenContent names related to each property. Depending on the environment, and even object type, these keys will change.  
 
 ```xml
 <block id="0" x="30" y="30" alignment="left" rotation="0">
@@ -183,7 +218,7 @@ Below are examples of properties that can be used throughout the configuration f
 
 ```
 
-#### Built-In Properties
+#### Built-in properties
 
 There are also built in properties that do not need to relate to the specific object. Below are examples of these:  
 `${currentDate}` resolves to the datetime that the overlay was created for the user. Ex: May 20th, 2020 11:10AM CST. It can also accept a formatting along with other datetime properties. `${currentDate~dd-MMM-yyyy}`  
@@ -194,7 +229,7 @@ There are also built in properties that do not need to relate to the specific ob
 </block>
 ```
 
-### Useful XML Overlay Configuration Examples
+### Useful XML overlay configuration Examples
 
 ```xml
 <overlay id="headerOnView">
@@ -262,76 +297,119 @@ There are also built in properties that do not need to relate to the specific ob
 </overlay-configs>
 ```
 
-## Overriding Overlay Config Files
+## Override overlay configuration files - AEVT not installed
 
-This section will explain how to override the overlay configuration files within our AEVT application (formerly OAT).
+When AEVT is not installed, you can override the overlay configurations in your [custom AMP].
 
-The way AEVT will get these overlay config override files will be to utilize the GET rest endpoint called `/configs/assetFile` within the `RESTConfigService`. This will return the `.zip` file that holds all the overlay config override files. These files will be placed within the temporary directory of whatever tomcat is running AEVT. They the will be pointed to so that OpenOverlay knows to use these files instead of the `oc-overlay-config.xml` file within the tomcat classpath (ex: `tomcatHome/shared/classes`), if there is one.
+Follow the steps in [Extension Content Accelerator]({% link content-accelerator/latest/develop/extension-content-accelerator.md %}) in the Content Accelerator documentation.
 
-The two ways that the overlay config override files can be gotten and used within AEVT:
+### How to override overlay configurations in the custom AMP
 
-1. On startup of AEVT, there is a scheduled job to only run on startup.
-2. Calling an AEVT rest endpoint called `optimus/refreshOverlayConfigOverrides` [Make Updates or Version Existing Overlay Config Overrides](#make-updates-or-version-existing-overlay-config-overrides)
+To override the default overlay configurations, the custom AMP will need to inject a file called `opencontent-override-overlay-spring-config.xml` into the `alfresco/module/com.tsgrp.opencontent` location. This file should contain similar looking beans to this:
 
-## Override Overlay Config Files for The First Time
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
 
-### Turn on Override
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
-In order to let AEVT know that you want to override the overlay configuration files, simply switch the property `optimus.enableOverlayConfigOverride` to `true`, within the `application.properties`. To override the `application.properties`, place a file called `application.properties` (that will contain all the properties you want to override) on the tomcat classpath (for example, in the `tomcatHome/shared/classes` directory).
+  <bean id="overlayConfigBean" class="com.tsgrp.openoverlay.core.XmlConfigFactory" factory-method="createInstance">
+    <!-- Spring note - even though these elements are 'constructor-arg' elements, they are really params for the createInstance factory method -->
+    <constructor-arg value="path to custom oc overlay configurations.xml" />
+    <constructor-arg value="default" />
+  </bean>
+
+<!-- iText Overlay Engine-->
+  <bean id="openPdfEngine" name="overlayEngine" class="com.tsgrp.openoverlay.openpdf.OpenPdfOverlayEngine" init-method="onInit">
+    <property name="overlayConfig">
+      <ref bean="overlayConfigBean" />
+    </property>
+  </bean>
+</beans>
+```
+
+See the above section [Creating a new Overlay](#creating-a-new-overlay) for instructions on building new overlay beans as well as additional overlay examples. To override an existing overlay configuration and make changes to it, just make a copy of the overlay bean you wish to override and maintain the bean id of the original overlay bean. Then, make any desired changes and this override file will override the existing overlay configurations.
+
+## Override overlay configuration files - AEVT installed
+
+This section only applies to installations that include AEVT (most do not). This section explains how to override the overlay configuration files within our AEVT application (formerly OAT).
+
+AEVT loads these overlay configuration override files via the GET REST endpoint `/configs/assetFile` within the `RESTConfigService`. This returns the `.zip` file that holds all the overlay configuration override files. These files are placed within the temporary directory of whatever Tomcat is running AEVT, and reference (or pointed to) so that OpenOverlay knows to use these files instead of the `oc-overlay-config.xml` file within the Tomcat classpath (ex: `tomcatHome/shared/classes`), if there is one.
+
+There are two ways that the overlay configuration override files are used within AEVT:
+
+1. On startup of AEVT, there is a scheduled job that runs only on startup.
+
+    See [Override overlay configuration files - first time use](#override-overlay-config-files-for-the-first-time)
+
+2. Calling an AEVT REST endpoint called `optimus/refreshOverlayConfigOverrides`.
+
+    See [Update or version existing overlay configuration overrides](#update-or-version-existing-overlay-config-overrides)
+
+### Override overlay configuration files - first time use
+
+#### Turn on override
+
+In order to let AEVT know that you want to override the overlay configuration files, simply switch the property `optimus.enableOverlayConfigOverride` to `true`, within the `application.properties`. To override the `application.properties`, place a file called `application.properties` (that will contain all the properties you want to override) on the Tomcat classpath (for example, in the `tomcatHome/shared/classes` directory).
 
 ```xml
 optimus.enableOverlayConfigOverride=true
 ```
 
-In order for AEVT to use your overrides you will also need to set useOverrideOverlayConfigs to `true` in the application.properties.
+In order for AEVT to use your overrides, you also need to set useOverrideOverlayConfigs to `true` in the `application.properties` file.
 
 ```xml
 optimus.useOverrideOverlayConfigs=true
 ```
 
-### Configure Overlays Overrides
+#### Configure overlay overrides
 
-Once you enable the overlay config override, you have to add the overlay override zip file in the correct place within the Alfresco Content Accelerator (ACA) configs by following these steps.
+Once you enable the overlay configuration override, you have to add the overlay override ZIP file in the correct place within the repository by following these steps.
 
-1. Create the `oc-overlay-config-override.xml`
+1. Create the `oc-overlay-config-override.xml`:
 
-    * **The naming here of this file is crucial as the new enhancements to AEVT specifically looks for this overlay configuration xml to have this name.**
-    * The `oc-overlay-config-override.xml` can be created like any other `oc-overlay-config.xml`. See the OpenOverlay XML configuration section above for additional details on configuring your overlay.
-    * However, remember anything in the `oc-overlay-config-override.xml` will be used instead of `oc-overlay-config.xml` entirely (since it overrides this file).
+    > **Note:** The naming of this file is crucial as the new enhancements to AEVT specifically look for this specific file name overlay configuration XML.
 
-1. Change any `classPath` with `tempPath` in overlay config xml file
+    * You can create the `oc-overlay-config-override.xml` like any other `oc-overlay-config.xml`.
+
+      See the OpenOverlay XML configuration section above for additional details on configuring your overlay.
+
+    * However, remember anything in the `oc-overlay-config-override.xml` will be used instead of `oc-overlay-config.xml` entirely, since it overrides this file.
+
+2. Change any `classPath` with `tempPath` in the overlay configuration XML file:
 
     * One important change within the `oc-overlay-config-override.xml` is the for pointing to the location of the image files. Typically, in the `oc-overlay-config.xml` this would be denoted by `classpath:@imagesBase@ocforms-header-logo.png`.
-    * Now, use the `tempPath` followed by whatever you named the overlay config override zip file then the name of the asset/image like normal. Here is an example of what is should look like:
+    * Now, use the `tempPath` followed by whatever you named the overlay configuration override ZIP file then the name of the asset/image like normal. Here is an example of what is should look like:
 
     ```xml
     <image file="tempPath:oc-overlay-override-files/ocforms-header-logo.png" scale="23%"/>
     ```
 
-1. Find or create the assets folder
+3. Find or create the assets folder:
 
-    * The ACA configs have the ability to configure different asset files within the application that are placed under within an `Assets` folder.
-    * However, only assets that will override the default assets will be placed within this folder. So, it is possibly to not have this `Assets` folder. Please create that folder now if not already created.
+    * We have the ability to configure different asset files within the application when they are placed under an `Assets` folder.
+    * However, only assets that will override the default assets will be placed within this folder. So, it is possibly to not have this `Assets` folder. 
+    * If the folder path does not exist in the repository, create it now. The folder path needed in the repository is `hpi > default > Assets`
+        * Note that this path assumes the appId is configured to the default (`optimus.overlayConfigOverrideAppId=default`) if you are overriding this value, you will need to update this path to reflect that.
 
-1. Name the overlay config override zip file
+4. Name the overlay configuration override ZIP file:
 
-    * Naming is important within the `Assets` folder as AEVT will look for a particular zip name. This zip name is configurable within the `application.properties`. The default zip name is `oc-overlay-override-files`.
+    * Naming is important within the `Assets` folder as AEVT will look for a particular ZIP name. This ZIP name is configurable within the `application.properties`. The default ZIP name is `oc-overlay-override-files`.
 
     ```xml
     optimus.overlayConfigOverrideZipName=oc-overlay-override-files
     ```
 
-1. Upload overlay config override zip file
+5. Upload overlay configuration override ZIP file:
 
-    * Under the `Assets` folder, upload the overlay config override file by moving or copying it to the `Assets` folder locally. Then, you can use the Config Archiver within the Admin section of ACA to upload these updated configs.
-    * A second option would be Alfresco specific. You can navigate in share to find the ACA config `Asset` folder (Refer Step 3 above for Find or create the assets folder). Then you can simply upload the overlay config override zip file here.
+    * Upload the overlay configuration override ZIP file into the Assets folder in the repository.
 
-1. Check other notable configuration properties
+6. Check other notable configuration properties:
 
-    * There are a couple other notable configuration properties that I will highlight here that need to be set.
-    * **overlayConfigOverrideAppId** : the asset file endpoint that is used within AEVT needs to know of an `appId`. This `appId` is what the outer folder is named within the ACA configs. Most of the time this `appId` will be set to `default`.
-    * **openContentUrl**: the openContentUrl will be exactly what the name indicates, the url that points to OpenContent (EX: `http://localhost:8080/alfresco/OpenContent`). This is important for how AEVT needs to communicate with OpenContent.
-    * **tempDirForFilesCachedFromNas**: the name is a little deceiving for how we are using it here, but it is defining what directory should we use as the temp directory (EX: C:/apacheHome/temp). The temp directory is where these overridden overlay config files will be placed.
+    * There are a couple other notable configuration properties that need to be set.
+
+    * **openContentUrl**: the openContentUrl will be exactly what the name indicates, the URLthat points to OpenContent (for example, `http://localhost:8080/alfresco/OpenContent`). This is important for how AEVT needs to communicate with OpenContent.
+
+    * **tempDirForFilesCachedFromNas**: the name is a little deceiving for how we are using it here, but it is defining what directory should we use as the temporary directory (for example, `C:/apacheHome/temp`). The `temp` directory is where these overridden overlay configuration files are placed.
 
     ```xml
     optimus.tempDirForFilesCachedFromNas=C:/Apache/apache-tomcat-8.5.45-oat/temp
@@ -339,21 +417,25 @@ Once you enable the overlay config override, you have to add the overlay overrid
     optimus.overlayConfigOverrideZipName=oc-overlay-override-files
     ```
 
-## Make Updates or Version Existing Overlay Config Overrides
+7. Restart ACS:
 
-The overlay config override file has been set and at this point you want to make changes to it. Follow the steps below.
+    A job runs on startup to pull in the updated overlay configurations.
 
-1. Update Overlay Config Override Zip File
+### Update or version existing overlay configuration overrides
 
-    * To make changes, simply follow step above ([Refer Step 5 from Configure Overlays Overrides](#configure-overlays-overrides)) to re-upload the configs or re-upload the overlay config override file within Share, if you are in Alfresco.
+The overlay configuration override file has been set and at this point you want to make changes to it. Follow the steps below.
 
-1. Clear OC Cache
+1. Update the overlay configuration override ZIP file:
 
-    * The asset files are cached for faster retrieval time. This is an issue when an update needs to be made to the overlay config override zip file, though.
+    * To make changes, simply follow ([step 5 in Configure Overlay Overrides](#configure-overlay-overrides)) to re-upload the configurations or re-upload the overlay configuration override file within the repository.
+
+2. Clear the OC cache:
+
+    * The asset files are cached for faster retrieval time. This is an issue when an update needs to be made to the overlay configuration override ZIP file, though.
     * Run this OC endpoint to refresh the caches: `/cache/refreshEagerCaches` by supplying an **administrator's ticket**
     * Example of endpoint call: `http://localhost:8080/alfresco/OpenContent/cache/refreshEagerCaches?ticket=`
 
-1. Run the AEVT Refresh Endpoint
+3. Run the AEVT refresh endpoint:
 
-    * Once the following update was made to the overlay config override zip file within the `Assets` folder of the ACA configs, you can run the AEVT GET endpoint `/optimus/refreshOverlayConfigOverrides` to refresh the overlay config override files. If successful, this will delete out any existing overlay config override files within the temp directory and put these updated ones in the temp directory.
+    * Once the following update was made to the overlay configuration override ZIP file within the `Assets` folder, you can run the AEVT GET endpoint `/optimus/refreshOverlayConfigOverrides` to refresh the overlay configuration override files. If successful, this deletes any existing overlay configuration override files within the temp directory and put these updated ones in the temp directory.
     * The GET endpoint has no parameters. Here is an example of the endpoint: `http://localhost:7080/oat/optimus/refreshOverlayConfigOverrides`.

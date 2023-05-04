@@ -63,7 +63,7 @@ openAnnotateVideoURL=
 
 SSO, Recipient, Destination URLs: `http://{server}/ocms/saml/SSO`
 
-Audience: `http://{server}/ocms/saml/metadata`
+Audience: `{server}`
 
 #### ACA Properties
 

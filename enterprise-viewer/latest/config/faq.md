@@ -1,10 +1,10 @@
 ---
-title: Alfresco Enterprise Viewer FAQ
+title: Enterprise Viewer FAQ
 ---
 
-### Is Alfresco Enterprise Viewer based on OpenAnnotation (`http://www.openannotation.org/`)?
+### Is Enterprise Viewer based on OpenAnnotation (`http://www.openannotation.org/`)?
 
-No, Alfresco Enterprise Viewer is based on the open Adobe XFDF standard for annotating PDFs - [https://www.iso.org/obp/ui/#iso:std:iso:19444:-1:ed-1:v1:en](https://www.iso.org/obp/ui/#iso:std:iso:19444:-1:ed-1:v1:en>){:target="_blank"}.
+No, Enterprise Viewer is based on the open Adobe XFDF standard for annotating PDFs - [https://www.iso.org/obp/ui/#iso:std:iso:19444:-1:ed-1:v1:en](https://www.iso.org/obp/ui/#iso:std:iso:19444:-1:ed-1:v1:en>){:target="_blank"}.
 
 ### Where are annotations stored?
 
@@ -14,11 +14,11 @@ Annotations are stored in the ECM repository as related objects to the document 
 
 The front-end uses jQuery and Dojo.
 
-### Does Alfresco Enterprise Viewer allow concurrent access to annotate the same document by several users?
+### Does Enterprise Viewer allow concurrent access to annotate the same document by several users?
 
-Alfresco Enterprise Viewer allows any number of users to concurrently annotate a document since each users' annotations are stored as separate objects.
+Enterprise Viewer allows any number of users to concurrently annotate a document since each users' annotations are stored as separate objects.
 
-### I am seeing stale page images, does Alfresco Enterprise Viewer Cache?  How can I clear this cache?
+### I am seeing stale page images, does Enterprise Viewer Cache?  How can I clear this cache?
 
 Yes. Enterprise Viewer makes heavy use of caching at both the Server and Browser level. To see totally fresh document pages, clear out AEV's server caches, as well as your browser cache to see your changes take effect. To clear a running instance of AEV's server cache, you can simply hit these endpoints:
 
@@ -34,6 +34,6 @@ Finally:
 
 After those two steps and browser cache clear, you should see fresh images.
 
-### How does Alfresco Enterprise Viewer scale for large deployments?
+### How does Enterprise Viewer scale for large deployments?
 
-Alfresco Enterprise Viewer easily scales to multiple instances with load balancing to allow scaling to any number of users.
+Enterprise Viewer easily scales to multiple instances with load balancing to allow scaling to any number of users.

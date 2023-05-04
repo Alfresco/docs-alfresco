@@ -2,7 +2,7 @@
 title: AEV performance tuning
 ---
 
-AEV relies heavily on progressive transformations of PDF to PNG content to generate its premium user experience. These transformations incur the vast majority of system load, therefore, performance tuning generally focuses on the load use cases below:
+Alfresco Enterprise Viewer (AEV) relies heavily on progressive transformations of PDF to PNG content to generate its premium user experience. These transformations incur the vast majority of system load, therefore, performance tuning generally focuses on the load use cases below:
 
 * Loading native or renditioned content from the repository (full binary)
 * Transformation of individual page(s) of PDF to PNG at specific resolution
@@ -12,7 +12,7 @@ To understand what requires performance tuning, here is a step by step descripti
 * The browser makes a request to OpenContent for binary content, properties, associated annotation information.
 * If the binary content is cached (keyed on object id and modify date), return cached binary content.
 * If the binary content is not cached, fetch using ECM API.
-* Once user has loaded Alfresco Enterprise Viewer, individual pages are viewed in the browser as PNGs. These PNGs are transformed on demand as the user scrolls through the document pages. The application requests individual page transformations at the following times:
+* Once a user has loaded Enterprise Viewer, individual pages are viewed in the browser as PNGs. These PNGs are transformed on demand as the user scrolls through the document pages. The application requests individual page transformations at the following times:
   * Viewing current page
   * Precaching nearby pages (within a preconfigured range)
   * Progressively scaled different resolution images for gracefully degraded view experience
@@ -124,21 +124,20 @@ Optionally, in the case of "single view" usage of document, local storage can be
 </ehcache>
 ```
 
-## Pdfium / Ghostscript / MuPDF
+## PdFium / GhostScript / MuPDF
 
-Every page of a document is transformed using either Pdfium, Ghostscript, or MuPDF, so anything that can be done to improve the performance of this process will help.
+Every page of a document is transformed using either PdFium, GhostScript, or MuPDF. So anything that can be done to improve the performance of this process will help.
 
-* By default, AEV utilizes PDFium. For utilizing MuPDF or Ghostscript, a third party license may be required.
-* Use an SSD for your temporary directories
-* Even better, leverage a [RAM Disk/tempfs](https://en.wikipedia.org/wiki/Tmpfs) like `/dev/shm` as that is WAY faster than even an SSD
+* By default, AEV uses PDFium. A third-party license may be required for using MuPDF or GhostScript.
+* Use a solid state drive (SSD) for your temporary directories.
+* Even better performance, use a [RAM Disk/tempfs](https://en.wikipedia.org/wiki/Tmpfs){:target="_blank"} like `/dev/shm` as that is faster than even an SSD.
 
-## Alfresco Enterprise Viewer performance
+## AEV performance
 
-Alfresco Enterprise Viewer has a configuration to toggle if a "low-res" and a "high-res" image are requested for a page. Toggle the below property to make there be less load on the system and only load the high-resolution rather than both. There are times that the high-res call could complete before the other call if the system is really bogged down, so the less load that can be triggered in general has been found to have a positive impact at peak usage.
-```progressiveReloadSteps=0```
+Enterprise Viewer has a configuration to toggle if a "low-res" and a "high-res" image are requested for a page. Toggle the `progressiveReloadSteps=0` property to reduce the load on the system and only load the high-resolution rather than both. There are times that the high-res call could complete before the other call if the system is really bogged down, so the less load that can be triggered in general has been found to have a positive impact at peak usage.
 
-## Alfresco Enterprise Viewer transformations
+## AEV transformations
 
-Should the embedded OpenContent transformations not scale to the level necessary for your implementation, the "Alfresco Enterprise Viewer Transformation" application can operate at scale. This application is also known as "Alfresco Enterprise Viewer Transformations", or AEVT for short. Here is some information on AEVT. [Installing Alfresco Enterprise Viewer Transformer](/enterprise-viewer/latest/install/aevt)
+Should the embedded OpenContent transformations not scale to the level necessary for your implementation, the "Alfresco Enterprise Viewer Transformation" application can operate at scale. This application is also known as "Alfresco Enterprise Viewer Transformations", or AEVT for short. See [Installing Alfresco Enterprise Viewer Transformer]({% link enterprise-viewer/latest/install/aevt.md %})
 
-AEVT/OAT is utilized on Alfresco PaaS.
+AEVT/OAT is used on Alfresco PaaS.

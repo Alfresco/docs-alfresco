@@ -79,7 +79,6 @@ In the examples above, filter queries must be executed using the REST API and no
 
 * Alfresco Search and Insight Engine
 * Alfresco Governance Services
-* Alfresco Federation Services
 * Alfresco Enterprise Viewer
 * Alfresco Content Accelerator
 

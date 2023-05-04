@@ -4,9 +4,9 @@ title: Alfresco Enterprise Viewer
 
 Alfresco Enterprise Viewer (AEV), formerly OpenAnnotate,  provides high-speed and secure viewing of document, video and audio content with team collaborative annotation, redaction and other modern document capabilities for Alfresco Content Services (ACS). It features collaboration and lightweight PDF editing features.
 
-Alfresco Enterprise Viewer can be utilized as a standalone viewer or within applications such as the Alfresco Content Accelerator.
+Enterprise Viewer can be used as a standalone viewer or within applications such as the Alfresco Content Accelerator.
 
-Alfresco Enterprise Viewer is configured out of the box to allow Annotations on documents that have either their native content or a rendition in the following formats:
+Enterprise Viewer is configured out of the box to allow Annotations on documents that have either their native content or a rendition in the following formats:
 
 * PDF
 * JPEG

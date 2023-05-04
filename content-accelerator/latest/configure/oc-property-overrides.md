@@ -36,7 +36,7 @@ Once you've retrieved the encrypted property value, set it in the properties fil
 my.property=@{the-tsg-encrypted-value}
 ```
 
-**Note:** When utilizing this token strategy with a custom property in an extension AMP, the property must be injected via Spring for the value to be read properly by the extension code.
+> **Note:** When utilizing this token strategy with a custom property in an extension AMP, the property must be injected via Spring for the value to be read properly by the extension code.
 
 Example:
 

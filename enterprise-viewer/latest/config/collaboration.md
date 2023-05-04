@@ -1,24 +1,33 @@
 ---
-title: Alfresco Enterprise Viewer Collaboration Features
+title: AEV collaboration features
 ---
 
-Alfresco Enterprise Viewer has support for real-time collaboration features including real-time annotations, chat functionality and presentation mode. In order to take advantage of these collaboration features, a web socket server must be installed and configured. Currently the only web socket implementation of Alfresco Enterprise Viewer is one that uses [Socket.IO](http://socket.io/){:target="_blank"} built on a Node server (for more information on Node, visit their [website](https://nodejs.org/){:target="_blank"}. A screen capture of the collaboration features can be seen [here](https://www.youtube.com/watch?v=yUOtGXHnxXo){:target="_blank"}.
+Alfresco Enterprise Viewer has support for real-time collaboration features including real-time annotations, chat functionality, and presentation mode. To take advantage of these collaboration features, a web socket server must be installed and configured. Currently, the only web socket implementation of Enterprise Viewer is one that uses [Socket.IO](http://socket.io/){:target="_blank"} built on a Node server. See the [Node website](https://nodejs.org/){:target="_blank"} for more information.
 
-## Install Node
+You can see a [screen capture of the collaboration features](https://www.youtube.com/watch?v=yUOtGXHnxXo){:target="_blank"} in YouTube.
 
-In order to use the collaboration features, you must first install Node on the server that will act as the collaboration server. Download the appropriate installer from the [NodeJS website](https://nodejs.org/download/){:target="_blank"} or use [Nodist](https://github.com/marcelklehr/nodist){:target="_blank"} to easily manage NodeJS installations on Windows. On Linux, follow the [instructions](https://github.com/nodesource/distributions){:target="_blank"} to install from the command line. Run the installer to completion. You must ensure that the path to your installed instance of Node is on the system PATH.
+## Install NodeJS
 
-To verify that Node was installed successfully and has been added to the system PATH, open a command prompt from any directory and type the following commands (pressing the ENTER key after each command):
+In order to use the collaboration features, you must first install Node on the server that will act as the collaboration server.
 
-    ```bash
-    node -v
-    ```
+1. Download the appropriate installer from the [NodeJS website](https://nodejs.org/download/){:target="_blank"}.
 
-    ```bash
-    npm -v
-    ```
+    On Windows, use [Nodist](https://github.com/marcelklehr/nodist){:target="_blank"} to easily manage NodeJS installations.
 
-After each command, the version of Node and npm should be output on the command line. `npm` is a command line tool for installing Node packages.
+    On Linux, follow the [instructions](https://github.com/nodesource/distributions){:target="_blank"} to install from the command-line.
+
+2. Run the installer to completion.
+
+    Make sure that the path to your installed instance of Node is on the system `PATH`.
+
+To verify that Node is installed successfully and has been added to the system `PATH`, open a command prompt from any directory, type each command, and press the ENTER key after each one:
+
+  ```bash
+  node -v
+  npm -v
+  ```
+
+The version of Node and `npm` are output on the command-line. `npm` is a command-line tool for installing Node packages.
 
 ## Collaboration server port
 
@@ -26,31 +35,31 @@ The node server port is configured in the `config/collaborationConfig.js` file. 
 
 The HTTP port can be configured by modifying the following line:
 
-    ```text
-    config.httpPort = 3000;
-    ```
+```text
+config.httpPort = 3000;
+```
 
-The collaboration server can support listening on an HTTPS port as well.  Note that you can configure HTTP _and_ HTTPS, as well as one or the other. To listen on a port with SSL, configure the following properties (example values shown):
+The collaboration server can support listening on an HTTPS port as well. Note that you can configure HTTP _and_ HTTPS, as well as one or the other. To listen on a port with SSL, configure the following properties (example values shown):
 
-    ```text
-    config.httpsPort = 3000;
-    config.sslKeyPath = "../../../Apache/Apache24/conf/certificates/{my-key}.key";
-    config.sslCertPath = "../../../Apache/Apache24/conf/certificates/{my-cert}.crt";
-    ```
+  ```text
+  config.httpsPort = 3000;
+  config.sslKeyPath = "../../../Apache/Apache24/conf/certificates/{my-key}.key";
+  config.sslCertPath = "../../../Apache/Apache24/conf/certificates/{my-cert}.crt";
+  ```
 
 Note that the file path properties are relative to wherever the `server.js` file is located.
 
-## Configure Alfresco Enterprise Viewer to connect to the Node server
+## Configure Enterprise Viewer to connect to the Node server
 
-In order to utilize the Node server, you must configure Alfresco Enterprise Viewer to use it. The two properties that must be set are the `collaborationEndpoint` and `collaborationModeEnabled` properties. For more information on these properties and how to set these properties, read [AEV Configuration Files]({% link enterprise-viewer/latest/config/files.md %}).
+In order to use the Node server, you must configure Enterprise Viewer to use it. The two properties that must be set are the `collaborationEndpoint` and `collaborationModeEnabled` properties. For more information on these properties and how to set these properties, read [AEV configuration files]({% link enterprise-viewer/latest/config/files.md %}).
 
 ## Collaboration modes
 
-With collaboration features enabled, Alfresco Enterprise Viewer can be run in: normal mode or collaboration mode.
+With collaboration features enabled, Enterprise Viewer can be run in: normal mode or collaboration mode.
 
 ### Normal mode
 
-Normal mode is the default mode for Alfresco Enterprise Viewer. This mode does not include any collaboration features. It is configured by setting the `collaborationModeEnabled` property to `false`.
+Normal mode is the default mode for Enterprise Viewer. This mode does not include any collaboration features. It is configured by setting the `collaborationModeEnabled` property to `false`.
 
 ### Collaboration mode
 

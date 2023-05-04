@@ -18,7 +18,7 @@ You will need to download the following distribution zips in order to install AC
 
 ### Alfresco repository version
 
-See the [Supported Platforms](/content-accelerator/latest/support/) for more information.
+See the [Supported Platforms]({% link content-accelerator/latest/support/index.md %}) for more information.
 
 Please ensure you have the correct version of the Content Accelerator package for your Alfresco Content Services version. If you are unsure, please contact Alfresco Support.
 
@@ -56,7 +56,7 @@ Since ACA executes as a JavaScript application in the browser and communicates w
    * `http://{server3}/OpenContent` routes to `http://{server2}:8080/OpenContent`
    * In the above example, ACA would be configured to access OpenContent at `http://{server3}/OpenContent`.  Now, to the browser all communication is on the same protocol, server, and port so the Same Origin Policy is upheld.
 
-If using option 1 (deploying ACA to the Alfresco Tomcat), you can skip to [Install libraries](/content-accelerator/latest/install/install-guide/#install-libraries) since no proxy will need to be installed.
+If using option 1 (deploying ACA to the Alfresco Tomcat), you can skip to [Install libraries]({% link content-accelerator/latest/install/install-guide.md %}#install-libraries) since no proxy will need to be installed.
 
 If using option 2 (preferred for a production deployment), you must complete the following steps to setup a proxy.
 
@@ -83,7 +83,7 @@ When installing a proxy please note that you are not limited to using apache or 
 
 1. Install Apache httpd
 
-   Obtain binaries from [https://www.apachelounge.com/download/](https://www.apachelounge.com/download/)
+   Obtain binaries from [https://www.apachelounge.com/download/](https://www.apachelounge.com/download/){:target="_blank"}.
 
    Install Apache to `C:\Apache\Apache24` (change to your desired version as appropriate).  This is referred to as `${apache.home}` below.
 
@@ -156,7 +156,7 @@ When installing a proxy please note that you are not limited to using apache or 
 </VirtualHost>
 ```
 
-1. ACA has some routes that are formatted like the following:
+5. ACA has some routes that are formatted like the following:
 
    `/ocms/{aca-module}/{object-id}`
 
@@ -166,11 +166,11 @@ When installing a proxy please note that you are not limited to using apache or 
 
    `AllowEncodedSlashes On`
 
-2. (Re)start the proxy
+6. (Re)start the proxy
 
    Go to `${apache.home}`/bin, open a command prompt, and run `httpd.exe`
 
-3. Test by hitting `http://{server}/alfresco`
+7. Test by hitting `http://{server}/alfresco`
 
 ### Example Proxy Install 2 -  Nginx install on Amazon Linux
 
@@ -358,13 +358,13 @@ In this section we ensure that all components of the Content Accelerator are ins
 
     In the `opencontent-override-placeholders.properties` file deployed in the last step, update the following environment variables:
 
-    There are many configurations that [can] [be] overridden in this file later on.
+    There are many configurations that *can be* overridden in this file later on.
 
-    There are a few you will [need] to set for OpenContent to work correctly listed below:
+    There are a few you will *need* to set for OpenContent to work correctly listed below:
 
-    * `application.root.url={Application Base URL}/ocms`
+    * `application.root.url={Application Base URL}` (ex: `http://localhost:9090`)
     * `oc.email.smtp.host={SMTP host}`
-    * `imageMagick.path=IMAGEMAGICK_HOME` (if installed, get IMAGEMAGICK_HOME value from [ImageMagic Installation](/content-accelerator/latest/install/install-guide/#im))
+    * `imageMagick.path=IMAGEMAGICK_HOME` (if installed, get IMAGEMAGICK_HOME value from [ImageMagick Installation]({% link content-accelerator/latest/install/install-guide.md %}#im))
 
 10. Update Tomcat server configuration:
 
@@ -448,20 +448,20 @@ In this section we ensure that all components of the Content Accelerator are ins
 
 12. Start up Alfresco server.
 
-13. Confirm OpenContent has been installed correctly by accessing `http://{server}/alfresco/OpenContent`
+13. Confirm OpenContent has been installed correctly by accessing `http://{server}/alfresco/OpenContent`.
 
 ## Install webapps
 
 This sections walks through how to install the Alfresco Content Accelerator web application (including the WizardAdmin if installing the Policy and Procedure Content Accelerator solution).
 
->**Note:** If you installed a proxy then follow the [Install Web Applications on Separate Tomcat](/content-accelerator/latest/install/install-guide/#install-webapps-separate-tomcat) Instructions.
-> If no proxy was installed then follow the [Install Web Applications on Alfresco Tomcat](/content-accelerator/latest/install/install-guide/#install-webapps-alfresco-tomcat) instructions.
+>**Note:** If you installed a proxy then follow the [Install Web Applications on Separate Tomcat]({% link content-accelerator/latest/install/install-guide.md %}#install-webapps-separate-tomcat) Instructions.
+> If no proxy was installed then follow the [Install Web Applications on Alfresco Tomcat]({% link content-accelerator/latest/install/install-guide.md %}#install-webapps-alfresco-tomcat) instructions.
 
 ### Install web applications on separate Tomcat {#install-webapps-separate-tomcat}
 
 This section walks through how to install the web applications on a separate Tomcat instance (Meaning, you must have a proxy setup).
 
-1. Install Apache Tomcat. See [https://archive.apache.org/dist/tomcat](https://archive.apache.org/dist/tomcat)
+1. Install Apache Tomcat. See [https://archive.apache.org/dist/tomcat](https://archive.apache.org/dist/tomcat){:target="_blank"}.
 
 2. Copy the `ocms.war` file into the `TOMCAT_HOME/webapps` directory.
 

@@ -8,7 +8,7 @@ While the Content Accelerator administration console provides powerful UI-based 
 
 ### Update the Change Request Form and Workflow
 
-Form and workflow updates are made in the WizardAdmin application.  See the [Admin Guide](/content-accelerator/latest/configure/admin-guide/#activewizard) for more information.
+Form and workflow updates are made in the WizardAdmin application.  See the [Admin Guide]({% link content-accelerator/latest/configure/admin-guide.md %}#activewizard) for more information.
 
 ### Extend Quality Document Type
 
@@ -111,7 +111,7 @@ For the three steps above, see the below for example configuration:
 
 The default Quality Document object type is the out-of-the-box available controlled document type. If you wish to add additional properties or aspects to your Policy and Procedure solution, you can extend the quality document type using the following steps.
 
-In a custom Alfresco AMP ( [See](/content-accelerator/latest/develop/extension-content-accelerator/) ) on what is expected of a custom ACA amp and how to set it up properly), define your custom Alfresco object model, then do the following:
+In a [custom Alfresco AMP]({% link content-accelerator/latest/develop/extension-content-accelerator.md %}) (see what is expected of a custom ACA amp and how to set it up properly), define your custom Alfresco object model, then do the following:
 
 1. Extend the `aw:qualityDocument` type in your object model.
 
@@ -126,7 +126,7 @@ You can define whatever additional properties, aspects, associations etc that yo
 
 1. You'll need to import the `aw` namespace - `<import uri="http://www.activewizard.com/model/content/1.0" prefix="aw" />`
 
-1. In the custom Amps module-context, override the `com.tsgrp.openContent.dictionaryBootstrap` bean and add your custom model [here](/content-accelerator/latest/develop/extension-content-accelerator/)
+1. In the custom Amps module-context, override the `com.tsgrp.openContent.dictionaryBootstrap` bean and add your custom model [here]({% link content-accelerator/latest/develop/extension-content-accelerator.md %})
 
 Next in your custom amps opencontent-extension-override-module-ctx.xml file
 
@@ -196,6 +196,102 @@ For the three steps above, see the below for example configuration:
            </constructor-arg>
 </bean>
 ```
+
+### Extend AW PSI Type
+
+The default Page Set Instance object type is the out-of-the-box available type for documents created via wizard form. If you wish to add additional properties or aspects to the ootb PSI for the Policy and Procedure solution, you can extend the aw:psi type using the following steps.
+
+In a custom Alfresco AMP ( [See]({% link content-accelerator/latest/develop/extension-content-accelerator.md %}) on what is expected of a custom ACA amp and how to set it up properly), setup a custom Alfresco object model, then do the following:
+
+1. Extend the `aw:psi` type in your object model. Example:
+
+    ```xml
+    <type name="hy:psi">
+    <title>Sample Page Set Instance Type</title>
+    <parent>aw:psi</parent>
+    </type>
+    ```
+
+    You can define whatever additional properties, aspects, associations etc that you wish on your custom object type.
+
+    You'll need to import the `aw` namespace - `<import uri="http://www.activewizard.com/model/content/1.0" prefix="aw" />`
+
+2. In your custom amps `opencontent-extension-override-module-ctx.xml`, define the `tsgQualityDocBehaviours` and `tsgControlledDocVersionPolicies` beans and add your custom object type to the `validDoctypesForTSGVersionControl` property list for each bean. Example:
+
+    ```xml
+    <!-- Behaviour to applied to Quality Documents in order to update aspects, tsg:status, and remove minor versions upon promotion. -->
+    <bean id="tsgQualityDocBehaviours" class="com.tsgrp.alfresco.behaviour.TSGQualityDocumentBehaviors" init-method="init" depends-on="com.tsgrp.openContent.dictionaryBootstrap">
+        <property name="policyComponent" ref="policyComponent" />
+        <property name="serviceRegistry" ref="ServiceRegistry" />
+        <property name="behaviorFilter" ref="policyBehaviourFilter" />
+        <property name="newTSGControlledDocPermissionAspect" value="{http://www.tsgrp.com/model/tsg/1.0}qualityDraft" />
+        <property name="controlledDocOwnerName" value="admin" />
+        <property name="namespacePrefixResolver">
+            <ref bean="namespaceService" />
+        </property>
+        <property name="validDoctypesForTSGVersionControl">
+            <list>
+                <value>aw:psi</value>
+                <value>aw:controlledDocument</value>
+                <value>aw:qualityDocument</value>
+                <value>hy:psi</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Contains the version policy and related necessary behaviors to control document versioning schema -->
+    <bean id="tsgControlledDocVersionPolicies" class="com.tsgrp.alfresco.behaviour.ControlledDocumentVersionPolicy" init-method="init" depends-on="com.tsgrp.openContent.dictionaryBootstrap">
+        <property name="policyComponent" ref="policyComponent" />
+        <property name="serviceRegistry" ref="ServiceRegistry" />
+        <property name="behaviorFilter" ref="policyBehaviourFilter" />
+        <property name="namespacePrefixResolver">
+            <ref bean="namespaceService" />
+        </property>
+        <property name="validDoctypesForTSGVersionControl">
+            <list>
+                <value>aw:psi</value>
+                <value>aw:qualityDocument</value>
+                <value>aw:controlledDocument</value>
+                <value>hy:psi</value>
+            </list>
+        </property>
+    </bean>
+    
+    ```
+
+3. In your custom amps `opencontent-extension-override-module-ctx.xml`, define the `permissionsModel` bean and add your custom type to the bean. Example:
+
+    ```xml
+    <util:map id="permissionsModel">
+        <entry key="aw:qualityDocument"                         value-ref="permissions_aw_quality_document"/>
+        <entry key="aw:controlledDocument"                      value-ref="permissions_aw_controlled_document"/>
+        <entry key="aw:psi"                                     value-ref="permissions_aw_psi"/>
+        <entry key="hy:psi"                              value-ref="permissions_aw_quality_document"/>
+    </util:map>
+
+    ```
+
+4. In the `opencontent-extension-override-config.xml` add your custom type to the `WizardFormLifecycleApplicableTypes` list bean. Example:
+
+    ```xml
+    <!-- Override this bean to enable different types to be subject to the WizardFormLifecycle. -->
+    <bean id="WizardFormLifecycleApplicableTypes" class="java.util.ArrayList" >
+        <constructor-arg index="0">
+            <list>
+            <value>Page Set Instance</value>
+            <value>simple_cr</value>
+            <value>hy_psi</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    ```
+
+5. Once the updates to the custom amp have been deployed, you can now add your custom type to the Object Type Config in the ACA admin. Locate the Object Type Config in the ACA Admin interface, click **Add Type**, and select your new object type from the list (ex: `hy_psi`). Once selected, change the `container` to `Wizard`. Save the config.
+
+6. You can now use this type as the Instance type for a wizard form. Login to the Wizard Admin interface. Create a new form. You will be prompted for an Instance Type. Select your new type.
+
+You can find additional information on [configuring Active Wizard forms]({% link content-accelerator/latest/configure/activewizard.md %})
 
 ### Modify Default Security Settings
 
@@ -566,7 +662,7 @@ A full reference of the permission sets granted is listed here:
 
 ```
 
-If you wish to define your own custom permissionSets and permissionGroups, please see [Permissions and roles Extension Point](https://docs.alfresco.com/content-services/latest/develop/repo-ext-points/permissions/) for more information.
+If you wish to define your own custom permissionSets and permissionGroups, see [Permissions and roles Extension Point]({% link content-services/latest/develop/repo-ext-points/permissions.md %}) for more information.
 
 Once a custom permissionSet is defined and enabled via your custom AMP, it can be referenced in the customized ACA permission configuration.
 
