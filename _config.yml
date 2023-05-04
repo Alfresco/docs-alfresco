@@ -220,14 +220,19 @@ defaults:
       toc: "google-drive"
       support: true
       versions:
+        - 3.4
         - 3.3
         - 3.2
         - 3.1
   - scope:
       path: "google-drive/latest"
     values:
-      version: 3.3
+      version: 3.4
       latest: true
+  - scope:
+      path: "google-drive/3.3"
+    values:
+      version: 3.3
   - scope:
       path: "google-drive/3.2"
     values:
