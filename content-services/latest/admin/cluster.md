@@ -354,7 +354,8 @@ Optionally, the default Alfresco Hazelcast XML configuration can be completely o
 
 #### Secure Hazelcast Enterprise Edition
 
-Depending on your organization security policies and guidelines, a Hazelcast Enterprise license might be required to implement further hardening on the cluster. Alfresco does not provide this license so please refer to the [Hazelcast Security Suite](https://hazelcast.com/product-features/security-suite/){target="_blank"} for details.
+Depending on your organization security policies and guidelines, a Hazelcast Enterprise license might be required to implement further hardening on the cluster. Alfresco does not provide this license so please refer to the [Hazelcast Security Suite](https://hazelcast.com/product-features/security-suite/){:target="_blank"} for details.
+
 
 We recommend to enable:
 
