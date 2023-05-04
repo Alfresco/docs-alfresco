@@ -43,9 +43,10 @@ Expected Result - claim folder created/updated for claim number 111111 and the u
   * reportDate
   * closeDate
 
-**Note:**
-  * Dates should be passed in in the following format: YYYY-MM-DD
-  * Custom fields in your object model that extend the "claimDocument" can also be passed in. Example: customModel:myCustomAttribute would be passed in as `&myCustomAttribute=MyValue`
+> **Note:**
+>
+> * Dates should be passed in in the following format: YYYY-MM-DD.
+> * Custom fields in your object model that extend the "claimDocument" can also be passed in. Example: `customModel:myCustomAttribute` would be passed in as `&myCustomAttribute=MyValue`.
 
 ### Default Claim Properties
 
@@ -63,9 +64,9 @@ insurance.folder.requiredProperties=claimNumber
 
 #### Modify these Properties
 
-To do this, create the file `opencontent-override-placeholders.properties`. It will need to be located on the /alfresco classpath, for example, `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent`. Put the updated properties in there.
+To do this, create the file `opencontent-override-placeholders.properties`. It will need to be located on the `/alfresco` classpath, for example, `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent`. Put the updated properties in there.
 
 Two things to note with this:
 
-1. This file will win out on any other property files, even ones in the custom amp. For this reason, if you are using a custom amp, it is better to override the properties in the amp than this file
-2. You will likely need to create the `module/com.tsgrp.opencontent/` folders
+1. This file will win out on any other property files, even ones in the custom amp. For this reason, if you are using a custom amp, it is better to override the properties in the amp than this file.
+2. You will likely need to create the `module/com.tsgrp.opencontent/` folders.

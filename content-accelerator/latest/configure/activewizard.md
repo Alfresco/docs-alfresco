@@ -8,7 +8,7 @@ Active Wizard is ACA's tool for configuring workflows and is included in the Pol
 
 It's possible to write Java code in Alfresco Content Accelerator to execute a query.  Alfresco Content Accelerator queries all have a Parameters textbox that allows the administrator to pass information to the ACA query code.  This parameter value can either be simple text typed into the admin or a query variable that is resolved at runtime before the query is executed.
 
-**Note:** As of ACA 2.5, ACA queries can either generate answers, or execute special functionality to return data to the front end form.
+> **Note:** As of ACA 2.5, ACA queries can either generate answers, or execute special functionality to return data to the front end form.
 
 All parameters are formatted as: `${paramName}`.
 
@@ -41,7 +41,7 @@ It is possible to set up an Active Wizard query to use an ACA picklist.  When ch
 
 `${picklistName}`
 
-**Note:** It is not recommended to hardcode the picklist name.  It's more flexible to let the question configuration specify the picklist ID.
+> **Note:** It is not recommended to hardcode the picklist name.  It's more flexible to let the question configuration specify the picklist ID.
 
 ### Creating a new ACA Query
 

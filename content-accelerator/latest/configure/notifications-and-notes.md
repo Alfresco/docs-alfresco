@@ -28,7 +28,7 @@ notificationType | Notification Type | AutoComplete | Dropdown notification clas
 bpm_workflowDueDate | Due Date | DateBox | Suggested due date for the notification.  Suggested to configure that the date must be today or in the future.
 bpm_comment | Comment | Textarea | Suggested to configure with WYSIWYG option on.
 
-**Note:** Only bpm_assignees and bpm_groupAssignee are required for notification to work. However, if not present in the form the ACA notification interface will still show columns for Notification Type, Due Date and Comment.  Any values missing on the form will result in a column that only contains blank values.
+> **Note:** Only `bpm_assignees` and `bpm_groupAssignee` are required for notification to work. However, if not present in the form the ACA notification interface will still show columns for Notification Type, Due Date and Comment.  Any values missing on the form will result in a column that only contains blank values.
 
 #### Step 2: Setup the Workflow Config
 
@@ -52,9 +52,9 @@ send.external.notifications=true
 
 ### Slack Setup
 
-#### Step 1: Navigate to Slack Api and sign in
+#### Step 1: Navigate to Slack API and sign in
 
-Link to Slack Api: [https://api.slack.com](https://api.slack.com)
+Link to Slack API: [https://api.slack.com](https://api.slack.com){:target="_blank"}
 
 Click on the tab **_Your Apps_** in the top right corner. If you have not created an app yet, then hit the **_Create New App_** button. Give it a name and select the workspace where you want the application to live. If you already have an app created, then click on it.
 
@@ -90,7 +90,7 @@ Now that we have the bot user set up, you can now successfully override the prop
 
 #### Step 1: Navigate to Azure Portal and sign in
 
-Link to Azure Portal: [https://portal.azure.com/](https://portal.azure.com/)
+Link to Azure Portal: [https://portal.azure.com/](https://portal.azure.com/){:target="_blank"}
 
 In the search bar, search for **_App Registrations_**. Click on the **_New registration_** plus button in the top left corner of the view.
 
@@ -120,7 +120,7 @@ Navigate to the **_API permissions_** tab on the left menu bar. Click the plus b
 
 #### Step 5: Grant/Request Admin Consent
 
-You may notice there are some permissions that need Admin Consent. These are the permissions of `Group.Read.All`, `Group.ReadWrite.All`, `User.Read.All`, `User.ReadWrite.All`. If you are not the admin, you will have to get them to grant these permissions. To grant the permissions, follow this [Azure Active Directory documentation link](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/grant-admin-consent#grant-admin-consent-in-app-registrations).
+You may notice there are some permissions that need Admin Consent. These are the permissions of `Group.Read.All`, `Group.ReadWrite.All`, `User.Read.All`, `User.ReadWrite.All`. If you are not the admin, you will have to get them to grant these permissions. To grant the permissions, follow this [Azure Active Directory documentation link](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/grant-admin-consent#grant-admin-consent-in-app-registrations){:target="_blank"}.
 
 #### Step 6: Authentication
 
@@ -156,15 +156,17 @@ You can tell if you are on the old, if the button to the right of the Discard sa
 
 A service account user is needed to send a direct 1:1 message to the user that is receiving the task notification.
 
-* The admin needs to add an account to the organization/team that should have a name that signifies its purpose, i.e., Service Account. For helping setting up a new account see this [Azure Active Directory link](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory)
-* >**Important:** This user does not need elevated permissions and needs to be apart of the team that the user who is receiving the task notification is in.
- **Note:** The username and password for the account this will be used in the next step.
+* The admin needs to add an account to the organization/team that should have a name that signifies its purpose, i.e. Service Account. To help set up a new account, see this [Azure Active Directory link](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory){:target="_blank"}.
+
+  >**Important:** This user does not need elevated permissions and needs to be apart of the team that the user who is receiving the task notification is in.
+
+  > **Note:** The username and password for the account this will be used in the next step.
 
 #### Step 8: Encrypt the Service Account User's Password
 
 This is a valid user within your organization/team's azure directory. So, we need to encrypt the password before adding it to our override property file.
 
-* The steps to achieving the encryption can be followed [here](/content-accelerator/latest/configure/oc-property-overrides/#encrypting-property-values)
+* The steps to achieving the encryption can be followed [here]({% link content-accelerator/latest/configure/oc-property-overrides.md %}#encrypting-property-values)
 
 #### Step 9: Override the Microsoft Teams Properties
 
@@ -172,7 +174,7 @@ Now that we have the App set up, you can now successfully override the propertie
 
 * Locate the `opencontent-override-placeholders.properties` file. It will be located on the /alfresco classpath, for example, `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent`
 * Put the following properties in this file:
-  * `teams.team.id=` this is the group id for the Microsoft Teams team. Follow this [article](https://teams.handsontek.net/2019/04/09/how-to-get-microsoft-teams-tenant-id/), but instead of tenant id in the article, grab the **GROUP ID** from the url they show you how to get.
+  * `teams.team.id=` this is the group id for the Microsoft Teams team. Follow this [article](https://teams.handsontek.net/2019/04/09/how-to-get-microsoft-teams-tenant-id/){:target="_blank"}, but instead of tenant id in the article, grab the **GROUP ID** from the url they show you how to get.
   * `teams.app.id=` this is the Application (client) ID from [Step 3](#step-3-app-overview) in the **_Overview_** tab.
   * `teams.service.account.username=` this is the username from [Step 7](#step-7-creation-of-a-service-account-user) for the service account user
   * `teams.service.account.password=` this is the encrypted password surrounded by "@{}" from [Step 8](#step-8-encrypt-the-service-account-users-password)
@@ -180,9 +182,9 @@ Now that we have the App set up, you can now successfully override the propertie
 
 #### Microsoft Graph API Limitations
 
-* Currently, the [API calls](https://docs.microsoft.com/en-us/graph/overview?view=graph-rest-beta) utilized within this integration are limited and in beta.
-* The [API call to send a direct message](https://docs.microsoft.com/en-us/graph/api/chat-post-messages?view=graph-rest-beta&tabs=http) is only supported for work/school accounts and is of the permission type delegated.
-  * The "Delegated" permission type defines a [on-behalf-of-user permission](https://docs.microsoft.com/en-us/azure/active-directory/develop/developer-glossary#permissions). Essentially a user can only send a direct message to another user within the team.
+* Currently, the [API calls](https://docs.microsoft.com/en-us/graph/overview?view=graph-rest-beta){:target="_blank"} utilized within this integration are limited and in beta.
+* The [API call to send a direct message](https://docs.microsoft.com/en-us/graph/api/chat-post-messages?view=graph-rest-beta&tabs=http){:target="_blank"} is only supported for work/school accounts and is of the permission type delegated.
+  * The "Delegated" permission type defines a [on-behalf-of-user permission](https://docs.microsoft.com/en-us/azure/active-directory/develop/developer-glossary#permissions){:target="_blank"}. Essentially a user can only send a direct message to another user within the team.
   * In the future, we hope this expands to include the "Application" permission type. The "Application" permission type would allow our application to direct message a user directly, without having to create a Service Account User.
 
 ## Folder Notes and Document Notes

@@ -1,16 +1,14 @@
 ---
-title: Alfresco Development Framework (ADF)
+title: Embed AEV in ADF
 ---
 
-## AEV embedded in ADF
+You can integrate Enterprise Viewer (AEV) into the Alfresco Application Development Framework (ADF) application by replacing or overriding the default ADF Viewer component behavior.
 
-Alfresco Enterprise Viewer (AEV) can be integrated into Alfresco Developer Framework (ADF) applications by replacing or overriding the default ADF Viewer component behavior.
+An ADF application with AEV integrated is provided as part of the AEV deployment artifacts (`content-app-with-aev.war`). This application is based on Alfresco Content App 3.8.
 
-An ADF application with AEV integrated is provided as part of the AEV deployment artifacts (content-app-with-aev.war). This application is based off of Alfresco Content App version 3.8.
+## Sample ADF AEV application configuration
 
-### Sample ADF AEV application configuration
-
-Include the following block in your application's `app.config.json` file and change as needed for your local environment.
+Include the following block in your application's `app.config.json` file and change as needed for your local environment:
 
 ```json
 "alfresco-enterprise-viewer": {
