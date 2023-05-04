@@ -90,6 +90,8 @@ The following table explains the values used to generate the `keytab` and `krb5.
     default_realm = <REALM>
     default_tkt_enctypes = rc4-hmac
     default_tgs_enctypes = rc4-hmac
+    permitted_enctypes = rc4-hmac aes256-cts-hmac-sha1-96 aes128-cts-hmac-sha1-96
+    allow_weak_crypto = true
 
     [realms]
     <REALM> = {
@@ -109,6 +111,8 @@ The following table explains the values used to generate the `keytab` and `krb5.
     default_realm = EXAMPLE.COM
     default_tkt_enctypes = rc4-hmac
     default_tgs_enctypes = rc4-hmac
+    permitted_enctypes = rc4-hmac aes256-cts-hmac-sha1-96 aes128-cts-hmac-sha1-96
+    allow_weak_crypto = true
 
     [realms]
     EXAMPLE.COM = {
