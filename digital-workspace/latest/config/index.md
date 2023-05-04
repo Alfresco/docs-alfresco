@@ -42,7 +42,7 @@ The following settings can be configured in `../digital-workspace/app.config.jso
 | sidenav/preserveState | Remember the users choice of sidenav minimized or expanded, `true` or `false`.|
 | sideNav/expandedSidenav | Side navigation expanded by default, `true` or `false`.|
 | viewer.maxRetries | The preview mechanism used to view a file tries to open it and if its unsuccessful it waits 20 seconds and then tries again. The process involves converting the file (multiple file formats are supported depending on content type) and if it takes more than 20 seconds the system will say that the content isn't supported. This time out can be increased by adding a value for this property. If you enter 2 the wait time before time out will be 40 seconds|
-| viewer.OAD | Specify if a large file is automatically downloaded. Use either `true` or `false`. |
+| viewer.enableFileAutoDownload | Specify if a large file is automatically downloaded. Use either `true` or `false`. |
 | viewer.enableDownloadPrompt | Specify if the Digital Workspace user is prompted before downloading a large file. The default is `true`. |
 | viewer.downloadPromptDelay | In seconds, specify the amount of time to delay a prompt to the Digital Workspace user, before displaying a download large file message. The default is `50`. |
 | viewer.enableDownloadPromptReminder | Specify if the Digital Workspace user is prompted with a reminder, before downloading a large file. The default is `true`. |
