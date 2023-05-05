@@ -1411,13 +1411,15 @@ Configuring cross-domain support for Kerberos SSO requires two-way trust between
 
 If you've configured Share correctly, you should see your user dashboard in Share.
 
-You can debug Kerberos issues using the log4j properties file. This file is located at `<installLocation>/tomcat/shared/classes/alfresco/extension/custom-log4j.properties.sample`.
+You can debug Kerberos issues using the log4j properties file. This file is located at `<installLocation>/tomcat/shared/classes/alfresco/extension/custom-log4j2.properties.sample`.
 
-Rename the `custom-log4j.properties.sample` file to `custom-log4j.properties` file and add the required configuration. For example:
+Rename the `custom-log4j2.properties.sample` file to `custom-log4j2.properties` file and add the required configuration. For example:
 
 ```bash
-log4j.logger.org.alfresco.web.app.servlet.KerberosAuthenticationFilter=debug
-log4j.logger.org.alfresco.repo.webdav.auth.KerberosAuthenticationFilter=debug
+logger.alfresco-web-app-servlet-KerberosAuthenticationFilter.name=org.alfresco.web.app.servlet.KerberosAuthenticationFilter
+logger.alfresco-web-app-servlet-KerberosAuthenticationFilter.level=debug
+logger.alfresco-repo-webdav-auth-KerberosAuthenticationFilter.name=org.alfresco.repo.webdav.auth.KerberosAuthenticationFilter
+logger.alfresco-repo-webdav-auth-KerberosAuthenticationFilter.level=debug
 ```
 
 The following is a sample login output:
@@ -1792,7 +1794,7 @@ The synchronization settings manage the synchronization of Content Services with
     |Sync on Startup|Yes|This triggers synchronization when the subsystem starts up. This ensures that when the user registries are first configured, bulk of synchronization work is done on server startup, rather than on the first login. |
     |Sync When Missing People Login|Yes|This triggers synchronization when a user, who does not yet exist, is successfully authenticated. The default is `true`. |
     |Allow Deletions|Yes|This triggers deletion of the local users and groups during synchronization when handling removals or collision resolution. The default is `true`. If `false`, then no sync job will be allowed to delete users or groups during the handling of removals or collision resolution. |
-    |Logging Interval|100|This specifies the number of user or group entries processed during synchronization before the progress is logged at INFO level. It requires the following default entry in log4j.properties: `log4j.logger.org.alfresco.repo.security.sync=info`<br><br>The default is `100`. |
+    |Logging Interval|100|This specifies the number of user or group entries processed during synchronization before the progress is logged at INFO level. It requires the following default entry in log4j2.properties: `logger.alfresco-repo-security-sync.name=org.alfresco.repo.security.sync` and `logger.alfresco-repo-security-sync.level=info` <br><br>The default is `100`. |
     |Auto Create People On Login|Yes|This specifies whether to create a user with default properties, when a user is successfully authenticated, who does not yet exist, and was not returned by synchronization (if enabled with the **Sync When Missing People Login** property). The default is `true`. |
     |Sync Changes Only|Yes|This triggers a differential synchronization. Deselect this option, to run full synchronization. Regardless of this setting, a differential synchronization can still be triggered when a user, who does not yet exist, is successfully authenticated. |
     |Import CRON Expression|0 0 0 * * ?|This specifies a cron expression which defines when the scheduled synchronization job should run. By default, this is every 24 hours at midnight. |
