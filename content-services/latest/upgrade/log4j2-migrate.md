@@ -2,7 +2,7 @@
 title: Log4j2 Migration Guide
 ---
 
-This guide serves as a compendium of best practices and tips on how to migrate from Log4j 1.x to Log4j 2.x, in the context of Alfresco Content Services and in-process extensions such as custom AMPs.
+This guide serves as a compendium of best practices and tips on how to migrate from Log4j 1.x to Log4j 2.x, in the context of Alfresco Content Services (ACS) and in-process extensions such as custom Alfresco Module Packages (AMPs).
 
 ## Dependencies
 
@@ -25,15 +25,15 @@ Note that these lists are subject to change over time. They're also not fully co
 
 ## Code impacts
 
-The migration's impact on the actual codebase should be fairly small, assuming the best practices have been followed and the underlying logging framework is properly abstracted via, for example, Slf4j (Simple Logging Facade for Java) APIs.
+The migration's impact on the actual codebase should be fairly small, assuming best practices have been followed and the underlying logging framework is properly abstracted, for example, via Simple Logging Facade for Java (Slf4j) APIs.
 
 ### Logger declaration
 
-This section is only useful in cases when the best practices have not been followed, and the loggers have been instantiated directly rather than through a facade such as the one offered by Slf4j. This would then be the best time to actually adapt the codebase to the best practices.
+This section is only useful in case best practices have not been followed, and the loggers have been instantiated directly rather than through a facade such as the one offered by Slf4j. This would then be the best time to actually adapt the codebase to best practices.
 
 **Before (Log4j 1.x)**
 
-```text
+```java
 import org.apache.log4j.Logger;
 ...
 private static final Logger LOGGER = Logger.getLogger(MyClass.class);
@@ -41,7 +41,7 @@ private static final Logger LOGGER = Logger.getLogger(MyClass.class);
 
 **After (Log4j 2.x + Slf4j API)**
 
-```text
+```java
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 ...
@@ -52,21 +52,21 @@ private static final Logger LOGGER = LoggerFactory.getLogger(MyClass.class);
 
 It is fairly common, especially for test purposes, to extend the underlying logging framework by implementing custom logging components (such as Appenders) that better serve our purposes. The extension process has changed significantly since Log4j 1.x, relying on different abstractions and offering an annotation-based approach.
 
-See the official Log4j 2.x documentation, [Extending Log4j](https://logging.apache.org/log4j/2.x/manual/extending.html){:target="_blank"} for more details on how to proceed in this regard.
+See the official Log4j 2.x documentation, [Extending Log4j](https://logging.apache.org/log4j/2.x/manual/extending.html){:target="_blank"}, for more details on how to proceed.
 
 ### Nested Diagnostic Context
 
-The Log4j 1.x Nested Diagnostic Context (NDC) is still available in Log4j 2.x, but it's accessible through a different API (`ThreadContext`) and it's conceptually mapped to the newer Thread Context Stack. If you were relying on the NDC to store thread-based data, you should now adapt your code to use the opportune `ThreadContext` calls instead, as explained in the official Log4j 2.x documentation, [Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html){:target="_blank"}.
+The Log4j 1.x Nested Diagnostic Context (NDC) is still available in Log4j 2.x, but it's accessible through a different API (`ThreadContext`) and it's conceptually mapped to the newer Thread Context Stack. If you were relying on the NDC to store thread-based data, you should now adapt your code to use the `ThreadContext` calls instead, as explained in the official Log4j 2.x documentation, [Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html){:target="_blank"}.
 
 ## Deployment impacts
 
 ### Tomcat + Java Security Manager
 
-If the Java Security Manager is enabled within Tomcat, it might be necessary to grant more permissions to applications that rely on Log4j 2.x. An example of application bundled within Content Services which requires additional permissions is `_vti_bin` (included in Alfresco Office Services). To avoid any `AccessControlException` related to Log4j 2.x operations, the `catalina.policy` file can be extended to allow the required permissions.
+If the Java Security Manager is enabled within Tomcat, you may need to grant more permissions to applications that rely on Log4j 2.x. An example application bundled within Content Services which requires additional permissions is `_vti_bin` (included in Alfresco Office Services). To avoid any `AccessControlException` related to Log4j 2.x operations, the `catalina.policy` file can be extended to allow the required permissions.
 
 Example for the `_vti_bin` web app:
 
-```text
+```java
 grant codeBase "file:${catalina.base}/webapps/_vti_bin/-" {
     permission java.security.AllPermission;
 };
@@ -85,14 +85,14 @@ There are substantial differences in the configuration syntax between Log4j 1.x 
 
 **Before (Log4j 1.x)**
 
-```text
+```bash
 # Set root logger level to error and attach two appenders (console + rolling file)
 log4j.rootLogger=error, Console, File
 ```
 
 **After (Log4j 2.x)**
 
-```text
+```bash
 rootLogger.level=error
 rootLogger.appenderRef.stdout.ref=ConsoleAppender
 rootLogger.appenderRef.rolling.ref=RollingAppender
@@ -102,7 +102,7 @@ rootLogger.appenderRef.rolling.ref=RollingAppender
 
 **Before (Log4j 1.x)**
 
-```text
+```bash
 ###### Console appender definition #######
 log4j.appender.Console=org.apache.log4j.ConsoleAppender
 log4j.appender.Console.layout=org.alfresco.util.log.log4j.SanitizingPatternLayout
@@ -119,7 +119,7 @@ log4j.appender.File.layout.ConversionPattern=%d{yyyy-MM-dd} %d{ABSOLUTE} %-5p [%
 
 **After (Log4j 2.x)**
 
-```text
+```bash
 ###### Console appender definition #######
 appender.console.type=Console
 appender.console.name=ConsoleAppender
@@ -142,44 +142,44 @@ appender.rolling.policies.time.interval=1
 
 **Before (Log4j 1.x)**
 
-```text
+```bash
 # Set the logger for the org.springframework package to WARN
 log4j.logger.org.springframework=warn
 ```
 
 **After (Log4j 2.x)**
 
-```text
+```bash
 logger.springframework.name=org.springframework
 logger.springframework.level=warn
 ```
 
 ### Configuration augmentation/override
 
-The Log4j configuration augmentation and override mechanism provided by ACS still works in the same way, guaranteeing that additional log4j properties files with the appropriate suffix will be imported as augmentations/overrides of the original `log4j2.properties` configuration file.
+The Log4j configuration augmentation and override mechanism provided by Content Services still works in the same way, guaranteeing that additional log4j properties files with the appropriate suffix will be imported as augmentations/overrides of the original `log4j2.properties` configuration file.
 
-It is important to note that the suffix has changed from `-log4j.properties` to `-log4j2.properties`. Therefore, an additional configuration file named, for example `custom-log4j.properties` would have to be migrated to use the Log4j 2.x syntax, and finally be renamed to `custom-log4j2.properties` instead in order to be picked up by the augmentation/override mechanism.
+> **Note:** The suffix has changed from `-log4j.properties` to `-log4j2.properties`. Therefore, an additional configuration file named, for example `custom-log4j.properties` has to be migrated to use the Log4j 2.x syntax, and finally be renamed to `custom-log4j2.properties` instead so it's picked up by the augmentation/override mechanism.
 
 ## SanitizingPatternLayout
 
-`SanitizingPatternLayout` is a class provided by the `alfresco-log-sanitizer` library, which serves as an extension to the Log4j 1.x `PatternLayout` to harden ACS against [CWE-117: Improper Output Neutralization for Logs](https://cwe.mitre.org/data/definitions/117.html){:target="_blank"}.
+`SanitizingPatternLayout` is a class provided by the `alfresco-log-sanitizer` library, which serves as an extension to the Log4j 1.x `PatternLayout` to harden Content Services against [CWE-117: Improper Output Neutralization for Logs](https://cwe.mitre.org/data/definitions/117.html){:target="_blank"}.
 
-This implementation, being specific to Log4j 1.x, serves no purpose anymore and won’t be packaged in ACS 7.4.0.
+This implementation, being specific to Log4j 1.x, serves no purpose anymore and won't be packaged in Content Services 7.4.0.
 
-Log4j 2.x offers regex replacement functionalities for logs out of the box, guaranteeing that ACS is hardened against CWE-117 without needing any custom implementations, but just relying on the `%replace` layout parameter instead.
+Log4j 2.x offers regex replacement functionalities for logs out of the box, guaranteeing that Content Services is hardened against CWE-117 without needing any custom implementations, but just relying on the `%replace` layout parameter instead.
 
 ### Configuration example
 
 **Before (Log4j 1.x)**
 
-```text
+```bash
 log4j.appender.Console.layout=org.alfresco.util.log.log4j.SanitizingPatternLayout
 log4j.appender.Console.layout.ConversionPattern=%d{ISO8601} %x %-5p [%c{3}] [%t] %m%n
 ```
 
 **After (Log4j 2.x)**
 
-```text
+```bash
 appender.console.layout.type=PatternLayout
 appender.console.layout.pattern=%d{ISO8601} %x %-5p [%c{3}] [%t] %replace{%m}{[\r\n]+}{}%n
 ```
@@ -190,7 +190,7 @@ Notice the usage of the `%replace{%m}{[\r\n]+}{}` layout parameter to make sure 
 
 ### Configuring loggers at runtime via JMX
 
-The `Alfresco:Name=Log4jHierarchy` JMX bean has now been replaced by `Alfresco:Name=Log4jManagement`, this new implementation does not expose APIs to change the logger thresholds at runtime since it is unnecessary.
+The `Alfresco:Name=Log4jHierarchy` JMX bean has now been replaced by `Alfresco:Name=Log4jManagement`. This new implementation does not expose APIs to change the logger thresholds at runtime since it is unnecessary.
 
 The very same operation should now be performed instead via the native Log4j 2.x `org.apache.logging.log4j2:type=<LogContextName>,component=Loggers` beans instead (note that the `<LogContextName>` is not a fixed value).
 
@@ -205,15 +205,15 @@ The `Loggers` component contains a dynamic list of beans that allow the reconfig
 
 If you were relying on the `Alfresco:Name=Log4jHierarchy` JMX bean to add new loggers at runtime, you can now use the `Alfresco:Name=Log4jManagement` bean to perform the same operation.
 
-The `Alfresco:Name=Log4jManagement` exposes an `addLoggerMBean` operation which requires the package or class name of the desired logger as input. Once the logger is successfully added, a new JMX bean will be registered under `org.apache.logging.log4j2:type=<LogContextName>,component=Loggers`. This additional bean will be of type `LoggerConfigAdminMBean`, it should match the name of the desired package/class name and it can be reconfigured at runtime as described in the section above.
+The `Alfresco:Name=Log4jManagement` bean exposes an `addLoggerMBean` operation which requires the package or class name of the desired logger as input. Once the logger is successfully added, a new JMX bean will be registered under `org.apache.logging.log4j2:type=<LogContextName>,component=Loggers`. This additional bean will be of type `LoggerConfigAdminMBean` - it should match the name of the desired package/class name, and it can be reconfigured at runtime as described in the section above.
 
 > **Note:** If you have multiple `org.apache.logging.log4j2:type=<LogContextName>,component=Loggers` components with different `<LogContextName>` values, you can identify the correct one to refer to by checking the value of the `Alfresco:Name=Log4jManagement` read-only attribute named `LogContextName`. The value of `LogContextName` should match.
 
 ### Alfresco JMX logger and Alfresco log settings
 
-It’s important to note that there are no changes related to the tailing of the logs via JMX (`jmxlogger:type=LogEmitterAlfresco`), the library that was used for this purpose has been adapted and extended to work with Log4j 2.x instead, guaranteeing full compatibility and exposing the very same JMX APIs to interact with the underlying logging library.
+It's important to note that there are no changes related to the tailing of the logs via JMX (`jmxlogger:type=LogEmitterAlfresco`), the library that was used for this purpose has been adapted and extended to work with Log4j 2.x instead, guaranteeing full compatibility and exposing the very same JMX APIs to interact with the underlying logging library.
 
-This also guarantees that the **Alfresco Admin Console** > **Log Settings** UI works as it used to.
+This also guarantees that the **Admin Console** > **Log Settings** UI works as it used to.
 
 ## Exporting logs in JSON format
 
@@ -221,9 +221,11 @@ Log4j 2.x makes it possible to natively output logs in JSON format, without the 
 
 ### Example configuration
 
-Here is a basic configuration example for outputting logs in JSON format. The presented configuration stores logs in a daily rolling file named `alfresco.json`, with each log statement being represented as an individually valid JSON fragment presented in a single line and separated from the next by a new line. For more fine-grained control over the desired output, see the official Log4j 2.x documentation, [JSON Layout](https://logging.apache.org/log4j/2.x/manual/layouts.html#JSONLayout){:target="_blank"}, which offers an exhaustive explanation regarding all the properties specific to the JSON Layout that can be configured.
+Here is a basic configuration example for outputting logs in JSON format. The presented configuration stores logs in a daily rolling file named `alfresco.json`, with each log statement being represented as an individually valid JSON fragment presented in a single line and separated from the next by a new line.
 
-```text
+For more fine-grained control over the desired output, see the official Log4j 2.x documentation, [JSON Layout](https://logging.apache.org/log4j/2.x/manual/layouts.html#JSONLayout){:target="_blank"}. This offers an exhaustive explanation about all the properties specific to the JSON Layout that can be configured.
+
+```bash
 rootLogger.level=error
 rootLogger.appenderRef.json.ref=JsonAppender
 
