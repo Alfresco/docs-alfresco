@@ -355,6 +355,22 @@ You can limit both the time spent and the number of documents checked before Alf
 
     > **Note:** If you increase these values and have a query that returns a very large number of results, (a) the search results will take longer to be returned to the user, and (b) the system will spend longer to check permissions, leading to the possibility of performance degradation. If you set these values to a low number, you run the risk of inconsistent search results every time you run the same search. These settings are also applied when paging. So paging the results will only go up to the maximum returned results based on these settings.
 
+As of 7.x you can set these limits on a per query basis (overriding the values set in the alfresco.global.properties).  To do this in the REST API you can set values by adding a limits element to the request JSON as shown in the example below:
+```
+"limits": {
+  "permissionEvaluationTime": 20000,
+  "permissionEvaluationCount": 2000
+}
+```
+
+In the Java API the SearchParameters Object has the following "setter" methods:
+* `setMaxPermissionChecks(int)`
+* `setMaxPermissionCheckTimeMillis(long)
+
+    > **Note:** This change was made in conjunction with a change that was made to running search as the system user.  Prior to 7.x searches run as the System user bypassed permission checks.  As of 7.x permission checks are done when run as the System user.
+
+    
+
 ## Controlling search results
 
 Use this information to control the maximum number of items that an Alfresco Share search returns.
