@@ -123,7 +123,7 @@ Installations using Docker Compose should only be used for development and test 
 
     ```yaml
     ooi-service:
-        image: quay.io/alfresco/alfresco-ooi-service:1.1.2
+        image: quay.io/alfresco/alfresco-ooi-service:1.1.3
         mem_limit: 768m
         environment:
             JAVA_OPTS: "
