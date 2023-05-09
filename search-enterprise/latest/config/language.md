@@ -1,5 +1,5 @@
 ---
-title: Multiple language support
+title: Language support
 ---
 
 Search Enterprise supports multiple languages. You can configure other language using the `src/main/resources/alfresco/search/elasticsearch/config/locale` configuration file.

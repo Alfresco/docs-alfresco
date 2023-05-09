@@ -11,7 +11,7 @@
       pages:
         - title: 'Overview'
           path: '/search-enterprise/latest/config/'
-        - title: 'Multiple language support'
+        - title: 'Language support'
           path: '/search-enterprise/latest/config/language/'
         - title: 'Transactional metadata query'
           path: '/search-enterprise/latest/config/transactional/'
