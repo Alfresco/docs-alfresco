@@ -203,7 +203,7 @@ You can see the new tag you created. If you click the three dots on the right ha
 
 A category is a group of files, or other categories, that all relate to a project or concept. Content can be a part of more than one category, for example, a category called **language** may include a language file called **english**, and the file may also exist within a category called **country**. For more on their use in the Digital Workspace, see [categories]({% link content-services/latest/using/content/tags-categories.md %}#categories)
 
-To create a category:
+To create a root level category:
 
 1. Log into the Control Center.
 
