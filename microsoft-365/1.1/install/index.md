@@ -13,7 +13,7 @@ There are a number of software requirements for installing the Microsoft 365 Con
 * Alfresco Content Services 6.2.2 or later.
 * Alfresco Digital Workspace 2.0.0 or later.
 
-See the [Supported Platforms]({% link microsoft-365/latest/support/index.md %}) for more information.
+See the [Supported Platforms]({% link microsoft-365/1.1/support/index.md %}) for more information.
 
 ### Microsoft 365 requirements
 
