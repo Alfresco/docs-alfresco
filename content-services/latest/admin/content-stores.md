@@ -835,7 +835,7 @@ trashcan-cleaner.keepPeriod=P1D
 trashcan-cleaner.deleteBatchCount=1000
 ```
 
-To enable debug logging, set the `log4j.logger.org.alfresco.trashcan` and `logger.alfresco-trashcan.level properties` in the `log4j2.properties` file:
+To enable debug logging, set the `logger.alfresco-trashcan.name` and `logger.alfresco-trashcan.level` properties in the `log4j2.properties` file:
 
 ```text
 logger.alfresco-trashcan.name=org.alfresco.trashcan
