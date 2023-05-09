@@ -188,14 +188,13 @@ To create a tag:
 
 4. Click the **+** symbol and enter a **Name** for the new tag.
 
-    When you are entering a name for a tag, the Control Center searches at the same time to ensure there is not already a tag with that name.
-    If the name for the tag already exists you must create it with a unique name that is not already being used.
+    Each tag created in the Control Center must be unique. When you enter a name for a new tag, the Control Center provides a list of existing tags with similar names. You can check if the tag that you want to create has already been created. If the name for the tag already exists you must create it with another unique name.
 
 5. Click **Create: your-tag-name** and then click **Save**.
 
-    You can create more than one tag during this process. To do this continue by clicking the **+** symbol again to create another tag and then click **Save**.
+    You can create more than one tag during this process. To do this continue by clicking the **+** symbol again to add another tag to the list. After adding all the tags you need to the list, click **Save** to create them.
 
-You can see the new tag you created. If you click the three dots on the right hand side of your tag you are able to **Edit** or **Delete** it.  
+The tag list automatically refreshes and you can see the new tag you created. If you click the three dots on the right hand side of your tag you are able to **Edit** or **Delete** it.  
 
 **Note:** Deleting a tag removes it from all the files it has been assigned to in the Digital Workspace.
 
@@ -215,7 +214,7 @@ To create a category:
 
     You can create more than one category during this process. To do this continue by clicking the **+** symbol again to create another category and then click **Save**.
 
-You can see the new category you created. If you click the three dots on the right hand side of your category you are able to **Create a subcategory**, **Edit** it, or **Delete** it.  
+The category tree automatically refreshes and you can see the new category you created. If you click the three dots on the right hand side of your category you are able to **Create a subcategory**, **Edit** it, or **Delete** it.  
 
 A category name does not need to be unique to the Control Center, it only needs to be unique within the level it sits in within the Control Center.
 
