@@ -1448,7 +1448,8 @@ Once the Identity Service has been deployed, there are two steps to configure Co
 
 #### Identity Service configuration properties {#isprops}
 
-Use this information to configure Content Services to authenticate using Identity Service. Content Services uses Spring Security components because the Keycloak Adapters have been deprecated. Key features and behaviors of the Keycloak Adapter, such as the communication with the Alfresco Identity Service, are preserved. For more information, see the Keycloak documentation [Deprecation of Keycloak adapters](https://www.keycloak.org/2022/02/adapter-deprecation).
+Use this information to configure Content Services to authenticate using Identity Service. Content Services uses Spring Security components because the Keycloak Adapters have been deprecated. Key features and behaviors of the Keycloak Adapter, such as the communication with the Identity Service, are preserved. For more information, see the Keycloak documentation [Deprecation of Keycloak adapters](https://www.keycloak.org/2022/02/adapter-deprecation).
+
 
 Configure the `alfresco-global.properties` file using the below properties:
 
