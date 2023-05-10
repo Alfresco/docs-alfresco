@@ -13,7 +13,6 @@ The following features, which were supported with Search and Insight Engine 2.x 
 * Aspect queries (it works only using exact aspect name)
 * Highlighting
 * Fingerprinting
-* Multi-lingual support (documents will be accepted and searchable with multiple languages, but only English grammar rules will be applied)
 * Template search
 * Resource limiting
 * Scoped search
