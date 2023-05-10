@@ -59,7 +59,7 @@ A single-page application needs to be registered in your Microsoft Azure Active 
 
 The Microsoft 365 connector zip file includes all the files required to install the connector.
 
-1. Browse to the [Alfresco Support Portal](https://community.hyland.com/customer-portal/5097/downloads/alfresco){:target="_blank"}, download `alfresco-onedrive-integration-2.x.x.zip` and extract the contents:
+1. Browse to the [Hyland Community](https://community.hyland.com/customer-portal/5097/downloads/alfresco){:target="_blank"}, download `alfresco-onedrive-integration-2.x.x.zip` and extract the contents:
 
     * `onedrive-springboot-2.x.x.jar`
     * `alfresco-ooi-content-model.xml`
@@ -213,6 +213,6 @@ Installations using Docker Compose should only be used for development and test 
 
 7. Run the command `docker-compose up` to start the Docker containers.
 
-8. Browse to the [Alfresco Support Portal](http://support.alfresco.com/){:target="_blank"}, download `alfresco-onedrive-integration-2.x.x.zip` and extract the contents.
+8. Browse to the [Hyland Community](https://community.hyland.com/customer-portal/5097/downloads/alfresco){:target="_blank"}, download `alfresco-onedrive-integration-2.x.x.zip` and extract the contents.
 
 9. Log into the Digital Workspace as an administrator and place the `alfresco-ooi-content-model.xml` into the `Data Dictionary/Models` folder. View the details of the file, select the **Edit** option and check the **Model Active** box.
