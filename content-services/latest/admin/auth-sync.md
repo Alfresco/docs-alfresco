@@ -1463,7 +1463,8 @@ Identity Service authentication options:
 | identity-service.authentication.allowGuestLogin | Sets whether guest logins are allowed. The default value  is `true`. |
 | identity-service.authentication.enable-username-password-authentication | Enable username and login password authentication. The default value  is `true`. |
 
-Specifying the Alfresco Identity Service (Keycloak) details:
+Specifying the Identity Service (Keycloak) details:
+
 
 | Property | Description |
 | -------- | ----------- |
