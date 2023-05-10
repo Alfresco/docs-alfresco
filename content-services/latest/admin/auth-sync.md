@@ -1478,7 +1478,8 @@ Specifying TLS/mTLS details:
 
 | Property | Description |
 | -------- | ----------- |
-| `identity-service.allow-any-hostname` | If TLS is used this flags allows you to disable host name verification. This might be useful in development environment. The default value is `false`. |
+| identity-service.allow-any-hostname | If TLS is used, this flag allows you to disable host name verification. This might be useful in a development environment. The default value is `false`. |
+
 | `identity-service.disable-trust-manager` | If TLS is used this flag allows you to disable the certificate verification. This might be useful in development environment. The default value is `false`. |
 | `identity-service.truststore` | If TLS is used this flag allows you to specify the path to the `truststore`. |
 | `identity-service.truststore-password` | Password for the `truststore`. |
