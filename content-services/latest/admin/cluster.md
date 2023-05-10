@@ -223,7 +223,8 @@ To enable the Hazelcast cluster messaging, edit this section on each Share Tomca
 </beans>
 ```
 
-This configuration enables the Hazelcast Spring integration, which in turn, starts the Hazelcast server. The Hazelcast server is easily configurable and can use either multicast (default) or TCP-IP direct, if preferred. For more information, see the [Hazelcast Documentation](https://hazelcast.com/products/in-memory-computing/#resources){target="_blank"}.
+This configuration enables the Hazelcast Spring integration, which in turn, starts the Hazelcast server. The Hazelcast server is easily configurable and can use either multicast (default) or TCP-IP direct, if preferred. For more information, see the [Hazelcast Documentation](https://hazelcast.com/products/in-memory-computing/#resources){:target="_blank"}.
+
 
 If this configuration is enabled, the Share instance becomes a cluster node and Hazelcast is started. If this configuration is disabled (such as, for a default install), then Hazelcast is not started. While using Share, only when any of the following actions occur, the cache invalidation messages will be sent from the affected node to other nodes in the cluster:
 
@@ -334,6 +335,109 @@ This topic describes the instructions for installing and configuring Solr nodes 
     ```text
     `solr.secureComms=none`
     ```
+
+### Install and configure Hazelcast
+
+In order to meet high availability deployment requirements, Content Services uses Hazelcast, an open-source distributed in-memory object store that supports a wide variety of data structures such as Map, Set, and List. It is important to harden (improve the security) of the cluster because it may expose sensitive data, including user session information, from the application layer to the network layer if the default configuration is not changed.
+
+**Note:** Hazelcast Community Edition security features are limited, thus the mitigations are mainly related to the network layer plus application layer checks, where Alfresco programmatically permits only to database stored nodes the access to the cluster.
+
+#### Secure Hazelcast Community Edition
+
+Follow the steps below as soon as you create your cluster:
+
+* Don’t allow Hazelcast to bind to all network interfaces (deactivated by default, defined via the `alfresco.hazelcast.bind.any=false` property).
+* Specify which network interfaces should be used by Hazelcast for clustering purposes, see [Step 3: Set up repository server cluster]({% link content-services/latest/admin/cluster.md %}#setuprepocluster) for more information (the interface specification is disabled by default).
+* Specify the Hazelcast port and don’t enable the port auto-increment feature, see [Clustering properties]({% link content-services/latest/admin/cluster.md %}#clustering-properties) for more information.
+* Configure the network appropriately within the cluster, so that Hazelcast ports are only reachable within the boundaries of the internal network that connects the cluster members within each other.
+
+Optionally, the default Alfresco Hazelcast XML configuration can be completely overridden for fine-tuning purposes. To change the configuration file, override the `alfresco.hazelcast.configLocation` property and provide your own configuration file.
+
+#### Secure Hazelcast Enterprise Edition
+
+Depending on your organization security policies and guidelines, a Hazelcast Enterprise license might be required to implement further hardening on the cluster. Alfresco does not provide this license so please refer to the [Hazelcast Security Suite](https://hazelcast.com/product-features/security-suite/){:target="_blank"} for details.
+
+
+We recommend to enable:
+
+* TLS to encrypt the data transmission among the nodes of the cluster in case a malicious user gains access to the network layer
+* mTLS to authenticate nodes with certificates so that their identity can be cryptographically verified
+
+#### Use a unique random UUID as cluster name
+
+Given that the Hazelcast cluster name consists of the Repository name and the Repository ID, you should consider changing this value to one that can’t be easily guessed.
+
+> **Note:** This compensating control applies to Content Services up to (and including) [version 7.3.x]({% link content-services/7.3/admin/cluster.md %}#setuprepocluster). From Content Services 7.4.0 onwards, this procedure is applied automatically.
+
+1. Open the Admin Console.
+
+2. In the Repository Services section, click **Repository Server Clustering**. You should now see the Repository Server Clustering page.
+
+3. Take note of the current Cluster ID (for example: `MainRepository-3c8081c0-8c36-4719-805e-4132f7a4430e`).
+
+4. Shut down all nodes in the cluster.
+
+5. You will need to generate a random UUID. Choose your preferred tool, below is an example with JShell:
+
+    ```JShell
+    jshell> UUID.randomUUID()
+    $1 ==> e1c3e8e5-9e6c-480b-a822-f0d80db0abba
+    ```
+
+6. Create a new cluster name with the generated random UUID according to this formula `{REPOSITORY_NAME}-{RANDOM_UUID}` (according to the current example, the result in this case would be: `MainRepository-e1c3e8e5-9e6c-480b-a822-f0d80db0abba`).
+
+7. Calculate the CRC-32 checksum for the new cluster name. For example, with JShell:
+
+    ```JShell
+    jshell> java.util.zip.CRC32 crc = new java.util.zip.CRC32()
+    jshell> crc.update("MainRepository-e1c3e8e5-9e6c-480b-a822-f0d80db0abba".getBytes("UTF-8"))
+    jshell> crc.getValue()
+    $2 ==> 2144787869
+    ```
+
+8. Get the last 16 characters from the new cluster name (in the current example, it would be: `822-f0d80db0abba`).
+
+9. Prepare the SQL statement to replace the legacy cluster according to the following template:
+
+    ```SQL
+    UPDATE
+        alf_prop_string_value
+    SET
+        string_value = [NEW CLUSTER NAME],
+        string_end_lower = [LAST 16 CHARACTERS],
+        string_crc = [CALCULATED CRC]
+    WHERE
+        id = (
+        SELECT
+            id
+        FROM
+            alf_prop_string_value
+        WHERE
+            string_value =[LEGACY CLUSTER NAME])
+    ```
+
+    Replace the values within the square brackets, in the context of the current example the prepared statement would look like this:
+
+    ```SQL
+    UPDATE
+        alf_prop_string_value
+    SET
+        string_value = 'MainRepository-e1c3e8e5-9e6c-480b-a822-f0d80db0abba',
+        string_end_lower = '822-f0d80db0abba',
+        string_crc = 2144787869
+    WHERE
+        id = (
+        SELECT
+            id
+        FROM
+            alf_prop_string_value
+        WHERE
+            string_value = 'MainRepository-3c8081c0-8c36-4719-805e-4132f7a4430e')
+    ```
+
+10. Execute the prepared SQL statement.
+
+11. Ensure that each node is fully started before starting the next one.
 
 ### Set up repository server cluster
 
