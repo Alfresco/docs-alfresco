@@ -121,6 +121,8 @@ Installations using Docker Compose should only be used for development and test 
 
 2. Edit the `docker-compose.yml` to include the settings for the Microsoft 365 Connector image and update the settings for the Digital Workspace to include the environment variables to run the 365 Connector:
 
+    >**Note:** There is also a newer image for ooi-service: `quay.io/alfresco/alfresco-ooi-service:1.1.3.1`.
+
     ```yaml
     ooi-service:
         image: quay.io/alfresco/alfresco-ooi-service:1.1.3

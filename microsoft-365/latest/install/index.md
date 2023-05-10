@@ -134,7 +134,7 @@ Installations using Docker Compose should only be used for development and test 
             - 9095:9095
 
     digital-workspace:
-        image: quay.io/alfresco/alfresco-digital-workspace:4.0.0-A.3
+        image: quay.io/alfresco/alfresco-digital-workspace:4.0.0
         mem_limit: 128m
         environment:
             BASE_PATH: ./
