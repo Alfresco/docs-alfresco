@@ -32,7 +32,7 @@ You must update the Content Services `<TOMCAT_HOME>/shared/classes/alfresco-glob
 
 ### Docker Compose
 
-If are installing Search Enterprise using a Docker Compose file you must instruct Alfresco that you are using another language in addition to English. For example, to use French you must add the following environment variable to the Alfresco service:
+If you are installing Search Enterprise using a Docker Compose file you must instruct Alfresco that you are using another language in addition to English. For example, to use French you must add the following environment variable to the Alfresco service (`alfresco`):
 
 ```yml
 JAVA_OPTS: "
