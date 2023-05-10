@@ -52,7 +52,7 @@ JAVA_OPTS: "
 
 To create a custom configuration you must create a `JSON` file in the locale configuration directory: `src/main/resources/alfresco/search/elasticsearch/config/locale`. The file must follow the naming convention of `xx_locale.json` where `xx` is the two character locale code. Use the following code example to create your own configuration file. In this case the example is for the French language.
 
-```JSON
+```json
 {
   "settings": {
     "analysis": {
