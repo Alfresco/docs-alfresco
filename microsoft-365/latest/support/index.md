@@ -2,10 +2,12 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for the Alfresco Collaboration Connector for Microsoft 365 version 1.1.3:
+The following are the supported platforms for the Alfresco Collaboration Connector for Microsoft 365 version 2.0.0:
 
 | Version | Notes |
 | ------- | ----- |
+| Alfresco Content Services 7.4.x | |
+| Alfresco Content Services 7.3.x | |
 | Alfresco Content Services 7.2.0 | |
 | Alfresco Content Services 7.1.0 | |
 | Alfresco Content Services 7.0.0 | |
