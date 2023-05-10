@@ -2,7 +2,7 @@
 title: Language support
 ---
 
-Search Enterprise supports multiple languages. You can configure other language using the `src/main/resources/alfresco/search/elasticsearch/config/locale` configuration file.
+Search Enterprise supports multiple languages. You can configure other languages using the `src/main/resources/alfresco/search/elasticsearch/config/locale` configuration file.
 
 > **Note:** Some supported languages require the installation of a plug-in and some Asian languages may also require installation of the [ICU analysis plug-in](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-icu.html){:target="_blank"} Where there is a plug-in required, you must install it on every node in the cluster.
 
