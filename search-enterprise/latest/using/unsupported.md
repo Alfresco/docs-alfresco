@@ -86,8 +86,6 @@ Data types and properties supported in Search and Insight Engine 2.x and Search 
 
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}any
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}assocref
-* http&#65279;://www.alfresco.org/model/dictionary/1.0}category
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}childassocref
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}locale
-* http&#65279;://www.alfresco.org/model/dictionary/1.0}noderef
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}qname
