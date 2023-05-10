@@ -387,7 +387,7 @@ services:
 
 ## Support for different databases
 
-PostgreSQL is the default database for Search Enterprise. You can use different databases with Search Enterprise, but they must be configured within your system and must match the database used by Content Services. The other types of databses supported by Search Enterprise are: MySQL, MariaDB, Microsoft Sql Server, and Oracle.
+PostgreSQL is the default database for Elasticsearch. You can use different databases with Elasticsearch, but they must be configured within your system and must match the database used by Content Services. The other types of databases supported by Elasticsearch are: MySQL, MariaDB, Microsoft SQL Server, and Oracle.
 
 Edit the `alfresco-global.properties` file using the following properties to change the Search Enterprise database.
 
