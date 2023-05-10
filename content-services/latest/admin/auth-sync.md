@@ -1452,7 +1452,8 @@ Use this information to configure Content Services to authenticate using Identit
 
 Configure the `alfresco-global.properties` file using the below properties:
 
-Alfresco Identity Service Authentication options:
+Identity Service authentication options:
+
 
 | Property | Description |
 | -------- | ----------- |
