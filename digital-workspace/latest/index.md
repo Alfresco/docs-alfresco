@@ -20,4 +20,4 @@ The Digital Workspace has been independently tested for its accessibility using 
 * [Understanding WCAG 2.1](https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag){:target="_blank"}
 * [WCAG 2.1 Guidelines](https://www.w3.org/TR/WCAG21){:target="_blank"}
 * [Government-wide Section 508 Assessment](https://www.section508.gov/){:target="_blank"}
-* [EN 301 549 - Accessibility requirements for ICT products and services](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf){:target="_blank"}.
+* [EN 301 549 - Accessibility requirements for ICT products and services](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf){:target="_blank"}
