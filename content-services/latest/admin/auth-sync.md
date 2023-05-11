@@ -1448,11 +1448,11 @@ Once the Identity Service has been deployed, there are two steps to configure Co
 
 #### Identity Service configuration properties {#isprops}
 
-Use this information to configure Content Services to authenticate using Identity Service.
+Use this information to configure Content Services to authenticate using Identity Service. Content Services uses Spring Security components because the Keycloak Adapters have been deprecated. Key features and behaviors of the Keycloak Adapter, such as the communication with the Identity Service, are preserved. For more information, see the Keycloak documentation [Deprecation of Keycloak adapters](https://www.keycloak.org/2022/02/adapter-deprecation){:target="_blank"}.
 
-Configure the `alfresco-global.properties` file using the below properties:
+Configure the `alfresco-global.properties` file using the below properties.
 
-> **Note:** See the Keycloak documentation for a [full list of possible properties](https://www.keycloak.org/docs/4.8/securing_apps/index.html#_java_adapter_config).
+Identity Service authentication options:
 
 | Property | Description |
 | -------- | ----------- |
@@ -1461,12 +1461,53 @@ Configure the `alfresco-global.properties` file using the below properties:
 | identity-service.authentication.defaultAdministratorUserNames | The default administrator user name. The default value  is `admin`. |
 | identity-service.authentication.allowGuestLogin | Sets whether guest logins are allowed. The default value  is `true`. |
 | identity-service.authentication.enable-username-password-authentication | Enable username and login password authentication. The default value  is `true`. |
-| identity-service.enable-basic-auth | Enable or disable basic authentication fallback. If set to `true` then a secret must also be provided. The default value  is `true`. |
-| identity-service.auth-server-url | Base URL of the Identity Service server in the format `https://{server}:{port}/auth`. The default value is `http://localhost:8180/auth`. |
+
+Specifying the Identity Service (Keycloak) details:
+
+| Property | Description |
+| -------- | ----------- |
 | identity-service.realm | Name of the realm configured in the Identity Service. The default value  is `alfresco`. |
-| identity-service.ssl-required | Sets whether communication to and from the Identity Service server is over HTTPS. Possible values are `all` for all requests, `external` for external requests or `none`. This property needs to match the equivalent setting for **Require SSL** in your realm within the Identity Service administration console. The default value  is `none`. |
+| identity-service.auth-server-url | Base URL of the Identity Service server in the format `https://{server}:{port}/auth`. The default value is `http://localhost:8180/auth`. |
 | identity-service.resource | The **Client ID** for the client created within your realm that points to Content Services. The default value  is `alfresco`. |
-| identity-service.public-client | The adapter won't send credentials for the client to the Identity Service if this is set to `true`. The default value  is `true`. |
+| identity-service.credentials.secret | The **Client Secret** for the client. The default value is an empty string. |
+
+Specifying TLS/mTLS details:
+
+| Property | Description |
+| -------- | ----------- |
+| identity-service.allow-any-hostname | If TLS is used, this flag allows you to disable host name verification. This might be useful in a development environment. The default value is `false`. |
+| identity-service.disable-trust-manager | If TLS is used, this flag allows you to disable the certificate verification. This might be useful in a development environment. The default value is `false`. |
+| identity-service.truststore | If TLS is used, this flag allows you to specify the path to the `truststore`. |
+| identity-service.truststore-password | Password for the `truststore`. |
+| identity-service.client-keystore | Location for the `keystore` containing a client certificate in case of the mTLS setup. |
+| identity-service.client-keystore-password | Password for the `keystore`. |
+| identity-service.client-key-password | Password for the client key. |
+
+Specifying underlying HTTP client details:
+
+| Property | Description |
+| -------- | ----------- |
+| identity-service.connection-pool-size | Allows you to specify how many HTTP connections will be used to communicate with the Identity Service. The default value is `20`. |
+| identity-service.client-connection-timeout | Timeout in milliseconds for connecting to the Identity Service. The default value is `2000`. |
+| identity-service.client-socket-timeout | Timeout in milliseconds for reading responses from the Identity Service. The default value is `2000`. |
+
+Specifying provided JWKS Public Key:
+
+| Property | Description |
+| -------- | ----------- |
+| identity-service.realm-public-key | Allows you to specify the Realm public key. The default value is empty which means the Repository will obtain the key directly from the Identity Service. |
+
+Configuring TTL for the cached JWKS Public Key obtained from the `certs` endpoint:
+
+| Property | Description |
+| -------- | ----------- |
+| identity-service.public-key-cache-ttl | `86400` The time in seconds between refreshing the public keys from the JWKS endpoint. |
+
+Respecting Keycloak's public client setting:
+
+| Property | Description |
+| -------- | ----------- |
+| identity-service.public-client | The Repository won’t send credentials for the client to the Identity Service if this is set to true. The default value is `true`. |
 
 ## Configure synchronization
 
