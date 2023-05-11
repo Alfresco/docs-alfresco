@@ -374,6 +374,8 @@ When using a different database you need to add to the Java classpath and to the
    --spring.batch.schema.script=classpath:/org/springframework/batch/core/schema-mysql.sql
 ```
 
+From version 3.3.x you can use a different database, for more see [Support for different databases]({% link search-enterprise/latest/config/index.md %}#support-for-different-databases).
+
 #### Failures handling
 
 If the manager** fails or a worker fails you can check which partitions were indexed in the log and launch them again by restarting the Re-indexing service.

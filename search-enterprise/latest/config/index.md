@@ -387,3 +387,45 @@ services:
     volumes:
       - ./exactTermSearch.properties:/usr/local/tomcat/webapps/alfresco/WEB-INF/classes/alfresco/search/elasticsearch/config/exactTermSearch.properties
 ```
+
+## Support for different databases
+
+PostgreSQL is the default database for Search Enterprise. You can use different databases with Search Enterprise, but they must be configured within your system and must match the database used by Content Services. The other types of databases supported by Search Enterprise are: MySQL, MariaDB, Microsoft SQL Server, and Oracle.
+
+Edit the `alfresco-global.properties` file using the following properties to change the Search Enterprise database.
+
+| Property | Description |
+| -------- | ------------|  
+| spring.datasource.url | *Required*. The database name. |
+| spring.datasource.username | *Required*. Enter the username for the database. |
+| spring.datasource.password | *Required*. Enter the password for the username. |
+| spring.datasource.hikari.maximumpoolsize | *Optional*. Sets the maximum size of the connections in HikariCP. |
+| alfresco.dbtype | *Optional*. Use this property to set your database type. When you set the type of database you are using the database auto-detection type is turned off. The supported values are: `postgresql`, `mysql`, `mariadb`, `sqlserver`, and `oracle`. |
+
+### Provide custom JDBC Drivers
+
+Search Enterprise only provides the PostgreSQL driver by default and it is bundled with the Search Enterprise executable components. If you want to use a different database to PostgreSQL you must provide the correct JDBC configuration and corresponding driver.
+The drivers are loaded from a directory called `db-drivers` that must be present at the same directory level as the executable `.jar` file.
+
+For example:
+
+```text
+├── `alfresco-elasticsearch-reindexing-x.x.x-app.jar`
+└── `db-drivers`
+    └── `mydb-driver.jar`
+```
+
+If you are using Docker Compose to install Search Enterprise you must add the JDBC driver information inside the docker container.
+
+For example:
+
+```yaml
+services:
+    reindexing-service:
+        image: quay.io/alfresco/alfresco-elasticsearch-reindexing:latest
+        mem_limit: 1024m
+        environment:
+        - ...
+        volumes:
+            - ./<location>/jdbc/drivers:/opt/db-drivers:ro
+```
