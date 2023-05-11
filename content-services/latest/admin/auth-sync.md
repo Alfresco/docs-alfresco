@@ -1448,13 +1448,11 @@ Once the Identity Service has been deployed, there are two steps to configure Co
 
 #### Identity Service configuration properties {#isprops}
 
-Use this information to configure Content Services to authenticate using Identity Service. Content Services uses Spring Security components because the Keycloak Adapters have been deprecated. Key features and behaviors of the Keycloak Adapter, such as the communication with the Identity Service, are preserved. For more information, see the Keycloak documentation [Deprecation of Keycloak adapters](https://www.keycloak.org/2022/02/adapter-deprecation).
+Use this information to configure Content Services to authenticate using Identity Service. Content Services uses Spring Security components because the Keycloak Adapters have been deprecated. Key features and behaviors of the Keycloak Adapter, such as the communication with the Identity Service, are preserved. For more information, see the Keycloak documentation [Deprecation of Keycloak adapters](https://www.keycloak.org/2022/02/adapter-deprecation){:target="_blank"}.
 
-
-Configure the `alfresco-global.properties` file using the below properties:
+Configure the `alfresco-global.properties` file using the below properties.
 
 Identity Service authentication options:
-
 
 | Property | Description |
 | -------- | ----------- |
@@ -1465,7 +1463,6 @@ Identity Service authentication options:
 | identity-service.authentication.enable-username-password-authentication | Enable username and login password authentication. The default value  is `true`. |
 
 Specifying the Identity Service (Keycloak) details:
-
 
 | Property | Description |
 | -------- | ----------- |
@@ -1479,39 +1476,38 @@ Specifying TLS/mTLS details:
 | Property | Description |
 | -------- | ----------- |
 | identity-service.allow-any-hostname | If TLS is used, this flag allows you to disable host name verification. This might be useful in a development environment. The default value is `false`. |
-
-| `identity-service.disable-trust-manager` | If TLS is used this flag allows you to disable the certificate verification. This might be useful in development environment. The default value is `false`. |
-| `identity-service.truststore` | If TLS is used this flag allows you to specify the path to the `truststore`. |
-| `identity-service.truststore-password` | Password for the `truststore`. |
-| `identity-service.client-keystore` | Location for the `keystore` containing a client certificate in case of the mTLS setup. |
-| `identity-service.client-keystore-password` | Password for the `keystore`. |
-| `identity-service.client-key-password` | Password for the client key. |
+| identity-service.disable-trust-manager | If TLS is used, this flag allows you to disable the certificate verification. This might be useful in a development environment. The default value is `false`. |
+| identity-service.truststore | If TLS is used, this flag allows you to specify the path to the `truststore`. |
+| identity-service.truststore-password | Password for the `truststore`. |
+| identity-service.client-keystore | Location for the `keystore` containing a client certificate in case of the mTLS setup. |
+| identity-service.client-keystore-password | Password for the `keystore`. |
+| identity-service.client-key-password | Password for the client key. |
 
 Specifying underlying HTTP client details:
 
 | Property | Description |
 | -------- | ----------- |
-| `identity-service.connection-pool-size` | Allows you to specify how many HTTP connections will be used to communicate with the Identity Service. The default value is `20`. |
-| `identity-service.client-connection-timeout` | Timeout in milliseconds for connecting to the Identity Service. The default value is `2000`. |
-| `identity-service.client-socket-timeout` | Timeout in milliseconds for reading responses from the Identity Service. The default value is `2000`. |
+| identity-service.connection-pool-size | Allows you to specify how many HTTP connections will be used to communicate with the Identity Service. The default value is `20`. |
+| identity-service.client-connection-timeout | Timeout in milliseconds for connecting to the Identity Service. The default value is `2000`. |
+| identity-service.client-socket-timeout | Timeout in milliseconds for reading responses from the Identity Service. The default value is `2000`. |
 
 Specifying provided JWKS Public Key:
 
 | Property | Description |
 | -------- | ----------- |
-| `identity-service.realm-public-key` | Allows you to specify the Realm public key. The default value is empty which means the Repository will obtain the key directly from the Identity Service. |
+| identity-service.realm-public-key | Allows you to specify the Realm public key. The default value is empty which means the Repository will obtain the key directly from the Identity Service. |
 
 Configuring TTL for the cached JWKS Public Key obtained from the `certs` endpoint:
 
 | Property | Description |
 | -------- | ----------- |
-| `identity-service.public-key-cache-ttl` | `86400` The time in seconds between refreshing the public keys from the JWKS endpoint. |
+| identity-service.public-key-cache-ttl | `86400` The time in seconds between refreshing the public keys from the JWKS endpoint. |
 
 Respecting Keycloak's public client setting:
 
 | Property | Description |
 | -------- | ----------- |
-| `identity-service.public-client` | The Repository won’t send credentials for the client to the Identity Service if this is set to true. The default value is `true`. |
+| identity-service.public-client | The Repository won’t send credentials for the client to the Identity Service if this is set to true. The default value is `true`. |
 
 ## Configure synchronization
 
