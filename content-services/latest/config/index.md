@@ -172,7 +172,7 @@ The Java Management Extension (JMX) interface allows you to access Content Servi
 * Count user sessions/tickets
 * User session/ticket invalidation
 
-> **CAUTION:** Restrict JMX RMI connections to an internal administration group, due to security vulnerabilities. JMX/RMI deserializes data from a client before authentication, which means that password protection does not provide adequate security.
+> **WARNING:** The JMX connection provides full access to the JVM and the Alfresco system running within it, **including the ability to execute code**. You should consider this connection the same level of access like an SSH connection with the user account running Tomcat.
 
 Example consoles include:
 
@@ -233,7 +233,7 @@ In a new installation, none of these properties are stored in the database. If y
 
 Remote JMX functionality is disabled by default. You can connect to the Content Services MBean server through a JMX client that supports JSR-160 by editing your settings.
 
-> **CAUTION:** Restrict JMX RMI connections to an internal administration group, due to security vulnerabilities. JMX/RMI deserializes data from a client before authentication, which means that password protection does not provide adequate security.
+> **WARNING:** The JMX connection provides full access to the JVM and the Alfresco system running within it, **including the ability to execute code**. You should consider this connection the same level of access like an SSH connection with the user account running Tomcat.
 
 1. Ensure that you have this setting in your `java_opts` file:
 
@@ -430,7 +430,7 @@ Oracle's MBean server also provides a convenient local connection method, allowi
 
 The Oracle JMX agent can also be activated in remote mode (where a connection is made through an RMI lookup). However, since Content Services is always pre-configured to allow a secure remote JMX connection on any JVM, it is most likely that you will choose to activate the Oracle JMX agent in local mode. This means the platform MBean Server is shared by Content Services and still be available for remote connections through the RMI connector.
 
-> **CAUTION:** Restrict JMX RMI connections to an internal administration group, due to security vulnerabilities. JMX/RMI de-serializes data from a client before authentication, which means that password protection does not provide adequate security.
+> **WARNING:** The JMX connection provides full access to the JVM and the Alfresco system running within it, **including the ability to execute code**. You should consider this connection the same level of access like an SSH connection with the user account running Tomcat.
 
 * To activate the Oracle JMX agent in local mode, ensure that the following system property is set:
 
