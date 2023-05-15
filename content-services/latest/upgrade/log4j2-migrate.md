@@ -124,7 +124,7 @@ log4j.appender.File.layout.ConversionPattern=%d{yyyy-MM-dd} %d{ABSOLUTE} %-5p [%
 appender.console.type=Console
 appender.console.name=ConsoleAppender
 appender.console.layout.type=PatternLayout
-appender.console.layout.pattern=%d{ISO8601} %x %-5p [%c{3}] [%t] %replace{%m}{[\r\n]+}{}%n
+{%raw%}appender.console.layout.pattern=%d{ISO8601} %x %-5p [%c{3}] [%t] %replace{%m}{[\r\n]+}{}%n {%endraw%}
 
 ###### File appender definition (daily rolling file) #######
 appender.rolling.type=RollingFile
@@ -132,7 +132,7 @@ appender.rolling.name=RollingAppender
 appender.rolling.fileName=alfresco.log
 appender.rolling.filePattern=alfresco.log.%d{yyyy-MM-dd}
 appender.rolling.layout.type=PatternLayout
-appender.rolling.layout.pattern=%d{yyyy-MM-dd} %d{ABSOLUTE} %-5p [%c] [%t] %replace{%m}{[\r\n]+}{}%n
+{%raw%}appender.rolling.layout.pattern=%d{yyyy-MM-dd} %d{ABSOLUTE} %-5p [%c] [%t] %replace{%m}{[\r\n]+}{}%n {%endraw%}
 appender.rolling.policies.type=Policies
 appender.rolling.policies.time.type=TimeBasedTriggeringPolicy
 appender.rolling.policies.time.interval=1
@@ -181,10 +181,10 @@ log4j.appender.Console.layout.ConversionPattern=%d{ISO8601} %x %-5p [%c{3}] [%t]
 
 ```bash
 appender.console.layout.type=PatternLayout
-appender.console.layout.pattern=%d{ISO8601} %x %-5p [%c{3}] [%t] %replace{%m}{[\r\n]+}{}%n
+{%raw%}appender.console.layout.pattern=%d{ISO8601} %x %-5p [%c{3}] [%t] %replace{%m}{[\r\n]+}{}%n {%endraw%}
 ```
 
-Notice the usage of the `%replace{%m}{[\r\n]+}{}` layout parameter to make sure logs are properly sanitized.
+Notice the usage of the {%raw%}`%replace{%m}{[\r\n]+}{}`{%endraw%} layout parameter to make sure logs are properly sanitized.
 
 ## JMX Management
 
