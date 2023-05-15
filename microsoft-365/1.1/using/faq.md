@@ -58,4 +58,4 @@ You may receive the following error message:
 
 "Access to XMLHttpRequest at `https://login.microsoftonline.com/common/v2.0/oauth2/token` from origin `yourApp.com` has been blocked by CORS policy: No `Access-Control-Allow-Origin` header is present on the requested resource."
 
-This message indicates you have incorrectly selected Web when [registering your single-page application (SPA)]({% link microsoft-365/latest/install/index.md %}#register-a-single-page-application-spa), instead of correctly selecting Single-page application SPA.
+This message indicates you have incorrectly selected Web when [registering your single-page application (SPA)]({% link microsoft-365/1.1/install/index.md %}#register-a-single-page-application-spa), instead of correctly selecting Single-page application SPA.

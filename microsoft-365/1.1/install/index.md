@@ -13,7 +13,7 @@ There are a number of software requirements for installing the Microsoft 365 Con
 * Alfresco Content Services 6.2.2 or later.
 * Alfresco Digital Workspace 2.0.0 or later.
 
-See the [Supported Platforms]({% link microsoft-365/latest/support/index.md %}) for more information.
+See the [Supported Platforms]({% link microsoft-365/1.1/support/index.md %}) for more information.
 
 ### Microsoft 365 requirements
 
@@ -59,16 +59,16 @@ A single-page application needs to be registered in your Microsoft Azure Active 
 
 The Microsoft 365 connector zip file includes all the files required to install the connector.
 
-1. Browse to the [Hyland Community](https://community.hyland.com/customer-portal/5097/downloads/alfresco){:target="_blank"}, download `alfresco-onedrive-integration-2.x.x.zip` and extract the contents:
+1. Browse to the [Alfresco Support Portal](http://support.alfresco.com/){:target="_blank"}, download `alfresco-onedrive-integration-1.x.x.zip` and extract the contents:
 
-    * `onedrive-springboot-2.x.x.jar`
+    * `onedrive-springboot-1.x.x.jar`
     * `alfresco-ooi-content-model.xml`
     * README.md
 
 2. Start the Microsoft 365 connector spring boot app:
 
     ```java
-    java -Dalfresco.base-url=https://<my-alfresco-url> -jar onedrive-springboot-2.x.x.jar
+    java -Dalfresco.base-url=https://<my-alfresco-url> -jar onedrive-springboot-1.x.x.jar
     ```
 
     Where the `base-url` is the base URL of the Content Services installation in the format `<protocol><domain><port>`. For example, `https://mydomain.com/`
@@ -121,9 +121,11 @@ Installations using Docker Compose should only be used for development and test 
 
 2. Edit the `docker-compose.yml` to include the settings for the Microsoft 365 Connector image and update the settings for the Digital Workspace to include the environment variables to run the 365 Connector:
 
+    >**Note:** There is also a newer image for ooi-service: `quay.io/alfresco/alfresco-ooi-service:1.1.3.1`.
+
     ```yaml
     ooi-service:
-        image: quay.io/alfresco/alfresco-ooi-service:2.0.0
+        image: quay.io/alfresco/alfresco-ooi-service:1.1.3
         mem_limit: 768m
         environment:
             JAVA_OPTS: "
@@ -134,7 +136,7 @@ Installations using Docker Compose should only be used for development and test 
             - 9095:9095
 
     digital-workspace:
-        image: quay.io/alfresco/alfresco-digital-workspace:4.0.0
+        image: quay.io/alfresco/alfresco-digital-workspace:2.7.0
         mem_limit: 128m
         environment:
             BASE_PATH: ./
@@ -213,6 +215,6 @@ Installations using Docker Compose should only be used for development and test 
 
 7. Run the command `docker-compose up` to start the Docker containers.
 
-8. Browse to the [Hyland Community](https://community.hyland.com/customer-portal/5097/downloads/alfresco){:target="_blank"}, download `alfresco-onedrive-integration-2.x.x.zip` and extract the contents.
+8. Browse to the [Alfresco Support Portal](http://support.alfresco.com/){:target="_blank"}, download `alfresco-onedrive-integration-1.x.x.zip` and extract the contents.
 
 9. Log into the Digital Workspace as an administrator and place the `alfresco-ooi-content-model.xml` into the `Data Dictionary/Models` folder. View the details of the file, select the **Edit** option and check the **Model Active** box.
