@@ -66,20 +66,20 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
 | Alfresco Sync Service 3.9 | |
 | Alfresco Desktop Sync 1.15 | |
-| Alfresco Transform Service 2.0 | |
+| Alfresco Transform Service 2.1 | |
 | Alfresco Document Transformation Engine 2.3 | |
 | Alfresco Search Enterprise 3.3 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.x upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
-| Alfresco Search and Insight Engine 2.0.5 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
-| Alfresco Search Services 2.0.5 | |
+| Alfresco Search and Insight Engine 2.0.7 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
+| Alfresco Search Services 2.0.7 | |
 | Identity Service 1.8 | |
-| Alfresco Intelligence Services 1.4.5 | |
+| Alfresco Intelligence Services 1.5 | |
 | Alfresco Content Connector for AWS S3 5.1 | Adds support for AWS Glacier using Cloud storage layer. |
 | Alfresco Content Connector for Azure 3.2 | |
 | Alfresco Content Connector for SAP applications 5.2.1 | |
 | Alfresco Content Connector for Salesforce 2.4 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
 | Alfresco Collaboration Connector for Microsoft 365 2.0 | |
-| Alfresco Collaboration Connector for Teams 1.1 | |
+| Alfresco Collaboration Connector for Teams 2.0 | |
 | Alfresco Outlook Integration 2.9 | |
 | Alfresco Office Services 1.6 | |
 | Alfresco Google Docs Integration 3.4 | |
@@ -91,8 +91,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Application Development Framework (ADF) 5.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Mobile Workspace 1.6 | |
 | Alfresco Mobile Workspace 1.5 | |
-| Alfresco Content Accelerator (ACA) 3.5 | |
-| Alfresco Enterprise Viewer (AEV) 3.5 | |
+| Alfresco Content Accelerator (ACA) 3.5.1 | |
+| Alfresco Enterprise Viewer (AEV) 3.5.1 | |
 | | |
 | **Components** | |
 | ImageMagick v7.1.0-16 | |
