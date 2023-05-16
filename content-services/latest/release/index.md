@@ -17,7 +17,7 @@ Here's a quick summary of what's new in the Alfresco Content Services 7.4 releas
   
 ### Change in Logging library
 
-Starting from ACS 7.4, log4jv2 will be the library used for logging capabilities. Please refer to the [Log4j2 Migration Guide]({% content-services/latest/upgrade/log4j2-migrate.md %}) to migrate your current logging configuration from version 1. If you built custom extensions relying on the Slf4j abstraction, no changes will be needed. If you have a direct dependency on log4jv1 instead, please take into consideration updating them.
+Starting from ACS 7.4, log4jv2 will be the library used for logging capabilities. Please refer to the [Log4j2 Migration Guide]({% link content-services/latest/upgrade/log4j2-migrate.md %}) to migrate your current logging configuration from version 1. If you built custom extensions relying on the Slf4j abstraction, no changes will be needed. If you have a direct dependency on log4jv1 instead, please take into consideration updating them.
 
 ### Keycloack client adapter replaced with Spring security
 
