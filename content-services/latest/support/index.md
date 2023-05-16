@@ -87,7 +87,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.5 | |
 | | |
 | **Applications** | |
-| Alfresco Digital Workspace 3.1 | |
+| Alfresco Digital Workspace 4.0 | |
 | Alfresco Application Development Framework (ADF) 5.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Mobile Workspace 1.6 | |
 | Alfresco Mobile Workspace 1.5 | |
