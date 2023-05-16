@@ -700,7 +700,7 @@ all:
           - $JAVA_OPTS
 ```
 
-All the `_environment` variables defined for the roles are dictionaries, and all their keys are added to the relevant components' start script. This allows you to define any number of environment variables. Key values are a list of strings to allow for easier manipulation. When overriding the default environment variables you should make sure you're not retiring important ones, so always take a look at the `https://github.com/Alfresco/alfresco-ansible-deployment/blob/master/ROLE_NAME/defauls/main.yml` file first.
+All the `_environment` variables defined for the roles are dictionaries, and all their keys are added to the relevant components' start script. This allows you to define any number of environment variables. Key values are a list of strings to allow for easier manipulation. When overriding the default environment variables you should make sure you're not retiring important ones, so always take a look at the `https://github.com/Alfresco/alfresco-ansible-deployment/blob/master/ROLE_NAME/defaults/main.yml` file first.
 
 ### External databases
 
