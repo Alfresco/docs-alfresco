@@ -77,9 +77,3 @@ If some nodes are excluded from search indexing, then their children's PATH will
 5. The PATH field cannot be built because there’s at least one member of the `primaryHierarchy` that cannot be dereferenced.
 
 > **Note:** Make sure the live indexing and re-indexing components are pointing to the same blacklist configuration i.e. the same file or different file within the same content, otherwise the runtime filtering applied to nodes will be different depending on which indexing component is executed.
-
-## AFTS category PATH queries
-
-You can search for content within categories when using a `PATH` query. For example, `PATH:"/cm:categoryRoot/cm:general_classifiable/cm:Region/cm:ASIA//*"` will match anything within the `ASIA` category or any of its descendants. It will also match the descendant category nodes, which can be filtered out by type if required.
-
-Solr stores every category path twice, once starting with `/cm:categoryRoot/cm:general_classifiable` and once starting with `/cm:general_classifiable`. Search Enterprise only stores the longer path to reduce the index size. This means that some absolute path queries that work with Solr will need a prefix of `/cm:categoryRoot` to work with Search Enterprise.

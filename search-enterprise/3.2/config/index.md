@@ -15,7 +15,7 @@ To use Search Enterprise with the Alfresco Content Services platform the followi
 
 ## Alfresco Repository
 
-Alfresco Repository provides configuration properties for the Elasticsearch Search subystem that defines the connection to the external Elasticsearch server, for more see [Subsystem]({% link search-enterprise/latest/install/index.md %}#configure-subsystem-in-repository).
+Alfresco Repository provides configuration properties for the Elasticsearch Search subystem that defines the connection to the external Elasticsearch server, for more see [Subsystem]({% link search-enterprise/3.2/install/index.md %}#configure-subsystem-in-repository).
 
 Additional property values can be included in the global configuration file `alfresco-global.properties`
 
@@ -47,7 +47,7 @@ Additionally, these properties can be set as environment variables in Alfresco R
 
 ```docker
 alfresco:
-    image: quay.io/alfresco/alfresco-content-repository:7.4.0
+    image: quay.io/alfresco/alfresco-content-repository:7.3.0
     environment:
         JAVA_OPTS: "
         -Dindex.subsystem.name=elasticsearch
@@ -116,7 +116,7 @@ There are two strategies to fill the gaps in the Elasticsearch server when provo
 Sample invocation for Fetch by IDS.
 
 ```java
-java -jar target/alfresco-elasticsearch-reindexing-3.3.0-app.jar \
+java -jar target/alfresco-elasticsearch-reindexing-3.2.0-app.jar \
   --alfresco.reindex.jobName=reindexByIds \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
@@ -128,7 +128,7 @@ java -jar target/alfresco-elasticsearch-reindexing-3.3.0-app.jar \
 Sample invocation for Fetch by DATE.
 
 ```java
- java -jar target/alfresco-elasticsearch-reindexing-3.3.0-app.jar \
+ java -jar target/alfresco-elasticsearch-reindexing-3.2.0-app.jar \
   --alfresco.reindex.jobName=reindexByDate \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
@@ -217,7 +217,7 @@ To override some of these values command line system properties can be specified
 $ java -DSPRING_ELASTICSEARCH_REST_URIS=http://localhost:9200
  -DSPRING_ACTIVEMQ_BROKERURL=nio://activemq:61616
  -DALFRESCO_SHAREDFILESTORE_BASEURL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file/
- -jar alfresco-elasticsearch-live-indexing-3.3.0-app.jar
+ -jar alfresco-elasticsearch-live-indexing-3.2.0-app.jar
 ```
 
 The same convention can be used when deploying the Elasticsearch connector using the Docker compose template.
@@ -386,46 +386,4 @@ services:
   alfresco:
     volumes:
       - ./exactTermSearch.properties:/usr/local/tomcat/webapps/alfresco/WEB-INF/classes/alfresco/search/elasticsearch/config/exactTermSearch.properties
-```
-
-## Support for different databases
-
-PostgreSQL is the default database for Search Enterprise. You can use different databases with Search Enterprise, but they must be configured within your system and must match the database used by Content Services. The other types of databases supported by Search Enterprise are: MySQL, MariaDB, Microsoft SQL Server, and Oracle.
-
-Edit the `alfresco-global.properties` file using the following properties to change the Search Enterprise database.
-
-| Property | Description |
-| -------- | ------------|  
-| spring.datasource.url | *Required*. The database name. |
-| spring.datasource.username | *Required*. Enter the username for the database. |
-| spring.datasource.password | *Required*. Enter the password for the username. |
-| spring.datasource.hikari.maximumpoolsize | *Optional*. Sets the maximum size of the connections in HikariCP. |
-| alfresco.dbtype | *Optional*. Use this property to set your database type. When you set the type of database you are using the database auto-detection type is turned off. The supported values are: `postgresql`, `mysql`, `mariadb`, `sqlserver`, and `oracle`. |
-
-### Provide custom JDBC Drivers
-
-Search Enterprise only provides the PostgreSQL driver by default and it is bundled with the Search Enterprise executable components. If you want to use a different database to PostgreSQL you must provide the correct JDBC configuration and corresponding driver.
-The drivers are loaded from a directory called `db-drivers` that must be present at the same directory level as the executable `.jar` file.
-
-For example:
-
-```text
-├── `alfresco-elasticsearch-reindexing-x.x.x-app.jar`
-└── `db-drivers`
-    └── `mydb-driver.jar`
-```
-
-If you are using Docker Compose to install Search Enterprise you must add the JDBC driver information inside the docker container.
-
-For example:
-
-```yaml
-services:
-    reindexing-service:
-        image: quay.io/alfresco/alfresco-elasticsearch-reindexing:latest
-        mem_limit: 1024m
-        environment:
-        - ...
-        volumes:
-            - ./<location>/jdbc/drivers:/opt/db-drivers:ro
 ```

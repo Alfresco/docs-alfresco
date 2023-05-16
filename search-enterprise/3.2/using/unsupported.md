@@ -13,6 +13,7 @@ The following features, which were supported with Search and Insight Engine 2.x 
 * Aspect queries (it works only using exact aspect name)
 * Highlighting
 * Fingerprinting
+* Multi-lingual support (documents will be accepted and searchable with multiple languages, but only English grammar rules will be applied)
 * Template search
 * Resource limiting
 * Scoped search
@@ -77,6 +78,8 @@ In the examples above, filter queries must be executed using the REST API and no
 ## Tools & Components
 
 * Alfresco Search and Insight Engine
+* Alfresco Governance Services
+* Alfresco Federation Services
 * Alfresco Enterprise Viewer
 * Alfresco Content Accelerator
 
@@ -86,6 +89,8 @@ Data types and properties supported in Search and Insight Engine 2.x and Search 
 
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}any
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}assocref
+* http&#65279;://www.alfresco.org/model/dictionary/1.0}category
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}childassocref
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}locale
+* http&#65279;://www.alfresco.org/model/dictionary/1.0}noderef
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}qname
