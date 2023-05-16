@@ -3,7 +3,7 @@ title: Security Controls
 ---
 
 You can add Security Controls to files and folders so that only users with the required security level can view or access them.
-These security controls are created and configured using the Admin App and are applied to your files or folders from within the Digital Workspace. The Security Controls you create are made up of Controls created in the Admin App which are in turn made up of one or more Security Marks. You can create as many Security Marks that you require within the different Controls. The names of the Controls and Security Marks you create will be unique to your organization.
+These security controls are created and configured using the Control Center and are applied to your files or folders from within the Digital Workspace. The Security Controls you create are made up of Controls created in the Control Center which are in turn made up of one or more Security Marks. You can create as many Security Marks that you require within the different Controls. The names of the Controls and Security Marks you create will be unique to your organization.
 
 There are three different ways you can configure your Controls:
 
@@ -19,17 +19,17 @@ There are three different ways you can configure your Controls:
 
     Example: The predefined Classification group has marks of Top Secret, Secret, and Classified. To see a file classified as Secret, the user must have Secret or Top Secret clearance.
 
-## Security Controls in the Admin App
+## Security Controls in the Control Center
 
-Use this example to create an **All** Control in the Admin App called Training that has three Security Marks, **Media**, **Data handling**, and **Backend management**.
+Use this example to create an **All** Control in the Control Center called Training that has three Security Marks, **Media**, **Data handling**, and **Backend management**.
 
 > **Important:** All Security Marks you create are visible to all users within the Digital Workspace.
 
 ### Create Controls and Security Marks
 
-Use the Admin App to create Controls.
+Use the Control Center to create Controls.
 
-1. Log into the Admin App as an administrator.
+1. Log into the Control Center as an administrator.
 
 2. Expand the **Security** entry in the left pane and then click **Security Controls**.
 
