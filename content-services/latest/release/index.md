@@ -10,56 +10,36 @@ Here's a quick summary of what's new in the Alfresco Content Services 7.4 releas
 
 ## Highlights
 
-* **Java 17 support**
-* **Support for Alfresco Search Enterprise 3.2 with Elasticsearch and OpenSearch**
-* **New license**
-* **Activiti Console removal**
-* **Changes in JavaScript execution configuration**
+* **Change in Logging library**
+* **Keycloack client adapter replaced with Spring security**
+* **Zero trust principle for communications with the Transform Service**
+* **Images generated from ACS Packaging are now Multi-Architecture**
   
-### Java 17 support
+### Change in Logging library
 
-Alfresco Content Services 7.3 now supports running on Java 17. See the Supported Platforms page for all supported technologies.
+Starting from ACS 7.4, log4jv2 will be the library used for logging capabilities. Please refer to the documentation to migrate your current logging configuration from version 1. If you built custom extensions relying on the Slf4j abstraction, no changes will be needed. If you have a direct dependency on log4jv1 instead, please take into consideration updating them.
 
-### Support for Alfresco Search Enterprise 3.2 with Elasticsearch and OpenSearch
+### Keycloack client adapter replaced with Spring security
 
-Enables organizations to easily deploy, use and scale Elasticsearch or OpenSearch with Alfresco. Content Services 7.3 builds on 7.2 and further extends support to Elasticsearch and OpenSearch.
+Following the deprecation from the Keycloak team, Alfresco Content Services is no longer using the Keycloak client adapter and will rely on Spring Security instead.
 
-### New license
+### Zero trust principle for communications with the Transform Service
 
-Since September 1st 2017, the Alfresco EULA forbids adding workflows to the workflow engine embedded in Alfresco Content Services. With the release of version 7.3, this will be enforced through a check on a flag in the license file.
+Communications between Alfresco Content Services and Alfresco Transform Service can now be secured through mutual TLS. Instructions on how to configure this can be found in the documentation.
 
-Customers who bought Alfresco Content Services before September 1st 2017 will retain the ability to add and modify workflows for the embedded workflow engine.
+### Images generated from ACS Packaging are now Multi-Architecture
 
-Customers who bought Alfresco Content Services on or after September 1st 2017 will not be able to add workflows. They will only be able to change workflows with the following IDs: `activitiReview`, `activitiInvitationNominated`, `activitiReviewPooled`, `activitiParallelReview`, `activitiAdhoc`, `activitiParallelGroupReview`, `activitiInvitationModerated`, `activitiInvitationNominatedAddDirect`, `resetPassword` or `companyRFC`.
-
-### Activiti Console removal
-
-As part of the gradual decommissioning of the embedded workflow engine, the embedded Activiti Workflow Console has been removed from Alfresco Content Services.
-
-### Changes in JavaScript execution configuration
-
-In the Alfresco Content Services 7.3.0.1 release, configuration options were introduced to control the execution of JavaScript by the repository. With the release of Service Pack 7.3.1, these configuration options have changed.
-
-See the [JavaScript execution]({% link content-services/latest/config/repository.md %}#javascript-execution) section for the new configuration options.
+Images from ACS Packaging are now available as multi-architecture (AMD64 + ARM64), with more to come.
 
 ## Deprecated software
 
-We are ending support for the Alfresco SAML SSO module, previously used to configure SAML authentication in Alfresco Office Service (AOS). Coherently with other components in Alfresco, the new solution is now based on an Identity Service (IDS) via OAuth2 that will greatly improve the customer SSO experience. Configuring SAML will still be possible but as part of identity provider configuration.
+Alfresco Content Services is no longer using the Keycloak client adapter and will rely on Spring Security instead.
 
 ## Install
 
 Alfresco Content Services 7.4 is available as a distribution zip file for manual installation, or it can be installed using an Ansible playbook (Linux only) for non-containerized environments. It's also available as a set of Docker images that can be deployed in containerized environments using Docker Compose or Helm charts (for Kubernetes).
 
 See the [Install]({% link content-services/latest/install/index.md %}) documentation for more details.
-
-### Azure and Glacier Connector Customers
-
-ACS 7.3.0 will be released with optional connectors:
-
-* S3 Connector 5.1.0
-* Azure Connector 3.1.0
-
-**Note:** For customers who had previously used the “Archive” action in a folder rule to move content into Glacier this is no longer supported. Customers wishing to continue using this functionality should not upgrade to 7.3. The S3 REST api provides support for moving content to Glacier or content can be manually moved to Glacier via the AWS S3 tools.
 
 ## Upgrade
 
@@ -69,14 +49,8 @@ See the detailed [Upgrade]({% link content-services/latest/upgrade/index.md %}) 
 
 ## Upgraded integrations
 
-Alfresco Content Services 7.3 introduces changes that require new releases of some modules.
+Alfresco Content Services 7.4 introduces changes that require new releases of some modules.
 
-To upgrade to Content Services 7.3, you'll also need to update any of the module artifacts to which you're entitled.
+To upgrade to Content Services 7.4, you'll also need to update any of the module artifacts to which you're entitled.
 
 See the [Supported Platforms]({% link content-services/latest/support/index.md %}) for more details.
-
-## SDK
-
-The latest release of the [Alfresco in-process SDK]({% link content-services/latest/develop/sdk.md %}) is SDK 4.5, which is compatible with this release.
-
-The latest release of the [Alfresco out-of-process Event SDK]({% link content-services/latest/develop/oop-sdk.md %}) is SDK 5.2, which is compatible with this release and the new [SDK Event Gateway]({% link content-services/latest/develop/oop-ext-points/event-gateway.md %}).
