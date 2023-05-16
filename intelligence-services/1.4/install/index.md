@@ -13,7 +13,7 @@ In this section you'll install and set up everything you need to run Intelligenc
 ## Prerequisites
 
 * Make sure that you've tested your deployment with non-AI transforms and everything is working
-* See [Supported platforms]({% link intelligence-services/latest/support/index.md %}) for more
+* See [Supported platforms]({% link intelligence-services/1.4/support/index.md %}) for more
 
 ### Access to Docker images
 
@@ -23,20 +23,20 @@ Some of the Docker images that are used by the Intelligence Services module are 
 alfresco/alfresco-ai-docker-engine
 ```
 
-See [Install Intelligence Services]({% link intelligence-services/latest/install/index.md %}) and [Configure Intelligence Services]({% link intelligence-services/latest/config/index.md %}) for more.
+See [Install Intelligence Services]({% link intelligence-services/1.4/install/index.md %}) and [Configure Intelligence Services]({% link intelligence-services/1.4/config/index.md %}) for more.
 
 * A [Quay.io](https://quay.io/){:target="_blank"} account is needed to pull Docker images that are needed for Intelligence Services.
 
 > **Note:** Alfresco customers can request Quay.io credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/){:target="_blank"}. These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
 
-> **Note:** Make sure that you request credentials for Alfresco Content Services and Alfresco Intelligence Services, so that you can use the additional `alfresco-ai-docker-engine-1.5.x` Docker image.
+> **Note:** Make sure that you request credentials for Alfresco Content Services and Alfresco Intelligence Services, so that you can use the additional `alfresco-ai-docker-engine-1.4.x` Docker image.
 
 ### AWS related requirements
 
 To use Alfresco Intelligence Services, you need:
 
 * An AWS account so that you can configure the Amazon AI services
-* [Set up services in AWS]({% link intelligence-services/latest/install/index.md %}#set-up-services-in-aws)
+* [Set up services in AWS]({% link intelligence-services/1.4/install/index.md %}#set-up-services-in-aws)
 
 ### Limitations
 
@@ -75,7 +75,7 @@ Access to AWS services, such as Amazon Comprehend, requires that you provide cre
 
     > **Note:** The bucket name must be unique among all AWS users globally. See [S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html){:target="_blank"} for more information on bucket naming.
 
-    See [Clean up in S3]({% link intelligence-services/latest/install/index.md %}#clean-up-in-s3) for guidance.
+    See [Clean up in S3]({% link intelligence-services/1.4/install/index.md %}#clean-up-in-s3) for guidance.
 
 3. Go to the **AWS Console** and open the **IAM** console.
 
@@ -255,16 +255,16 @@ See the AWS site for more details on [Object lifecycle management](https://docs.
 
 Use these instructions to install the Intelligence Services AMP files to an instance of Content Services.
 
-The Intelligence Services distribution zip file, `alfresco-ai-distribution-1.5.x.zip`, includes all the files required to provide Intelligence Services. Ensure that you've installed the required software and completed the AWS set up before installing Intelligence Services.
+The Intelligence Services distribution zip file, `alfresco-ai-distribution-1.4.x.zip`, includes all the files required to provide Intelligence Services. Ensure that you've installed the required software and completed the AWS set up before installing Intelligence Services.
 
 1. Download the Intelligence Services distribution zip file.
 
-2. Extract the `alfresco-ai-distribution-1.5.x.zip` file into a system directory; for example, `<installLocation>/`.
+2. Extract the `alfresco-ai-distribution-1.4.x.zip` file into a system directory; for example, `<installLocation>/`.
 
     In this directory you'll see the following content:
 
-    * `alfresco-ai-repo-1.5.x.amp`: AMP to be applied to the Content Services repository
-    * `alfresco-ai-share-1.5.x.amp`: AMP to be applied to Alfresco Share
+    * `alfresco-ai-repo-1.4.x.amp`: AMP to be applied to the Content Services repository
+    * `alfresco-ai-share-1.4.x.amp`: AMP to be applied to Alfresco Share
     * `ai-pipeline-routes.json`: custom Transform Router configuration properties
     * `ai-view.extension.json`: custom extension file for Alfresco Digital Workspace
 
@@ -274,11 +274,11 @@ The Intelligence Services distribution zip file, `alfresco-ai-distribution-1.5.x
 
     Copy the repository AMP file to the `amps` directory:
 
-    * `alfresco-ai-repo-1.5.x.amp`
+    * `alfresco-ai-repo-1.4.x.amp`
 
     Copy the Share AMP file to the `amps_share` directory:
 
-    * `alfresco-ai-share-1.5.x.amp`
+    * `alfresco-ai-share-1.4.x.amp`
 
 5. Delete the `tomcat/webapps/alfresco` and `tomcat/webapps/share` folders in the Content Services installation directory.
 
@@ -287,19 +287,19 @@ The Intelligence Services distribution zip file, `alfresco-ai-distribution-1.5.x
     1. For the Content Services repository:
 
         ```java
-        java -jar <alfrescoInstallLocation>/bin/alfresco-mmt.jar install <installLocation>/amps-repository/alfresco-ai-repo-1.5.x.amp <installLocation>/tomcat/webapps/alfresco.war
+        java -jar <alfrescoInstallLocation>/bin/alfresco-mmt.jar install <installLocation>/amps-repository/alfresco-ai-repo-1.4.x.amp <installLocation>/tomcat/webapps/alfresco.war
         ```
 
     2. For Alfresco Share:
 
         ```java
-        java -jar <alfrescoInstallLocation>/bin/alfresco-mmt.jar install <installLocation>/amps-share/alfresco-ai-share-1.5.x.amp <installLocation>/tomcat/webapps/share.war
+        java -jar <alfrescoInstallLocation>/bin/alfresco-mmt.jar install <installLocation>/amps-share/alfresco-ai-share-1.4.x.amp <installLocation>/tomcat/webapps/share.war
         ```
 
     For more information, see [Using the Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) and [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).
 
     Check the output to ensure that the AMP files have installed successfully.
 
-7. Check that the [configuration]({% link intelligence-services/latest/config/index.md %}) is set up correctly for your environment.
+7. Check that the [configuration]({% link intelligence-services/1.4/config/index.md %}) is set up correctly for your environment.
 
 8. Restart the Content Services server.
