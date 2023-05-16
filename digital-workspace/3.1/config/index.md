@@ -13,7 +13,7 @@ The following settings can be configured in `../digital-workspace/app.config.jso
 | adf-start-process/name | The name of the process as it appears in Alfresco Process Services including the current days date and time. The default setting for this is %{processDefinition} - %{datetime}, which will produce, 'Capital Approval Process - Jun 17, 2020, 11:02:07 AM'.|
 | adf-start-process/processDefinitionName | The name of the definition of the process you are using to create an instance, for example `Capital Approval Process definition`.|
 | adf-versions-manager/allowComments | Toggle version comments on/off.|
-| aosHost | Server address of the AOS endpoint, for example `https://repository.domain.com/alfresco/aos`. **Note:** Server address has to be https.|
+| aosHost | Server address of the AOS endpoint, for example `https://repository.domain.com/alfresco/aos` **Note:** Server address has to be https.|
 | application/name | Application name that will be shown in the header of the application and in the page/tab title, for example `Digital Workspace`|
 | application/copyright | Copyright text shown on the login page, for example `© 2017 - 2020 Alfresco Software, Inc. All rights reserved`.|
 | application/logo | Path to the logo shown in the application header for example, `assets/images/alfresco-logo-flower.svg`|
@@ -31,7 +31,7 @@ The following settings can be configured in `../digital-workspace/app.config.jso
 | languages/label | Label to display in the language picker menu, for example, `English`|
 | pagination/size | Set the default number of items to be displayed on a page, for example `25` |
 | pagination/supportedPageSizes | Change the items available in the pagination control, for example `25`, `50`, `100`. |
-| processService | Toggles the Alfresco Process Services plugin to be on/off, `"true"` or `"false"`. **Note:** You must include the quotation marks. |
+| processService | Toggles the Alfresco Process Services plugin to be on/off, `"true"` or `"false"` **Note:** You must include the quotation marks. |
 | search/include | Specify the node information returned by the API with the search results set. |
 | search/sortng | Search result sorting options available, and which option is the default.|
 | search/filterqueries | Specify what content should, and shouldn’t be returned in the results set.|
@@ -42,12 +42,6 @@ The following settings can be configured in `../digital-workspace/app.config.jso
 | sidenav/preserveState | Remember the users choice of sidenav minimized or expanded, `true` or `false`.|
 | sideNav/expandedSidenav | Side navigation expanded by default, `true` or `false`.|
 | viewer.maxRetries | The preview mechanism used to view a file tries to open it and if its unsuccessful it waits 20 seconds and then tries again. The process involves converting the file (multiple file formats are supported depending on content type) and if it takes more than 20 seconds the system will say that the content isn't supported. This time out can be increased by adding a value for this property. If you enter 2 the wait time before time out will be 40 seconds|
-| viewer.enableFileAutoDownload | Specify if a large file is automatically downloaded. Use either `true` or `false`. |
-| viewer.enableDownloadPrompt | Specify if the Digital Workspace user is prompted before downloading a large file. The default is `true`. |
-| viewer.downloadPromptDelay | In seconds, specify the amount of time to delay a prompt to the Digital Workspace user, before displaying a download large file message. The default is `50`. |
-| viewer.enableDownloadPromptReminder | Specify if the Digital Workspace user is prompted with a reminder, before downloading a large file. The default is `true`. |
-| viewer.downloadPromptReminderDelay | In seconds, specify the amount of time to delay a reminder prompt, to the Digital Workspace user, before displaying another download large file message. The default is `30`. |
-| viewer.fileAutoDownloadSizeThresholdInMB | In megabytes, specify the largest file size a file can be, before the Digital Workspace does not download it automatically. The default is `15`. |
 
 ## Permissions
 

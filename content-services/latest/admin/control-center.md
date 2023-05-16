@@ -206,3 +206,4 @@ Once the group has been created, click the vertical ellipsis (**&vellip;**) at e
     Go back to step 4 in the initial Docker Compose instructions to start the deployment again.
 
 > **Note:** You'll need a machine with at least 13 GB of memory to distribute among the Docker containers.
+

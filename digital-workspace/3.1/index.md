@@ -11,13 +11,6 @@ The Alfresco Digital Workspace simplifies content management and provides compre
 
 The Alfresco Digital Workspace is automatically deployed as part of Alfresco Content Services using Helm charts or a Docker Compose file. You can also manually install Alfresco Content Services using standard WAR files and then configure the installation to include Alfresco Digital Workspace.
 
+See the following video for a quick introduction.
+
 {% include media.html id="giypeO8Q4cs" %}
-
-## Web Content Accessibility Guidelines (WCAG) 2.1
-
-The Digital Workspace has been independently tested for its accessibility using the WCAG 2.1 AA, Section 508, and EN 301 standards. It complies with these regulations that ensure an online computer-based system is completely accessible by all of the general public, including those with disabilities. See the following websites for more details:
-
-* [Understanding WCAG 2.1](https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag){:target="_blank"}
-* [WCAG 2.1 Guidelines](https://www.w3.org/TR/WCAG21){:target="_blank"}
-* [Government-wide Section 508 Assessment](https://www.section508.gov/){:target="_blank"}
-* [EN 301 549 - Accessibility requirements for ICT products and services](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf){:target="_blank"}
