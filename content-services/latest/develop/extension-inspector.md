@@ -24,7 +24,7 @@ The Extension Inspector has two main modules:
 
 ## Download
 
-You can download the [alfresco-extension-inspector-1.5.0.jar](https://artifacts.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/extension-inspector/alfresco-extension-inspector/1.5.0/alfresco-extension-inspector-1.5.0.jar) file from the Alfresco Nexus repository.
+You can download the [alfresco-extension-inspector-1.6.0.jar](https://artifacts.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/extension-inspector/alfresco-extension-inspector/1.6.0/alfresco-extension-inspector-1.6.0.jar) file from the Alfresco Nexus repository.
 
 >**Note:** See the [Alfresco Extension Inspector](https://github.com/Alfresco/alfresco-extension-inspector){:target="_blank"} GitHub repository for more details.
 
@@ -117,7 +117,7 @@ The application analyzes custom extensions against WAR inventories.
 Use the following command to run the application:
 
 ```bash
-java -jar alfresco-extension-inspector-<version>.jar <extension-filename> [--target-version=6.1.0[-7.3.0] | --target-inventory =/path/to/war_inventory.json] [--verbose=[true | false]]
+java -jar alfresco-extension-inspector-<version>.jar <extension-filename> [--target-version=6.1.0[-7.4.0] | --target-inventory =/path/to/war_inventory.json] [--verbose=[true | false]]
 ```
 
 where:

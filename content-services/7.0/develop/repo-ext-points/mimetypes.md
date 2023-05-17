@@ -13,7 +13,7 @@ Content Services is able to automatically identify most file types and establish
 However, if you have custom file types it is possible to add support for these by adding custom MIME types. 
 You will typically also need to provide custom [content transformations]({% link content-services/7.0/develop/repo-ext-points/content-transformers-renditions.md %}) 
 and [metadata extraction]({% link content-services/7.0/develop/repo-ext-points/metadata-extractors.md %}) to fully support the content type. To find 
-out what MIME types that are currently registered and active within an Content Services installation, you can 
+out what MIME types that are currently registered and active within a Content Services installation, you can 
 use an admin Web Script. This is available at `http://localhost:8080/alfresco/service/mimetypes`.
 This will list all the currently registered MIME types, and provide a details link for each one. Selecting the details 
 link will then show metadata extractors, and which transformations are currently supported both to and from that MIME type, 

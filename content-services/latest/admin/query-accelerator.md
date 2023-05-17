@@ -257,7 +257,8 @@ The transition from NEW to INPROGRESS will normally happen almost immediately.
 The Admin Console currently only indicates if updates were detected. For a more complete picture of the query sets configuration DEBUG logging must be used:
 
 ```bash
-log4j.logger.org.alfresco.enterprise.repo.queryaccelerator=debug
+logger.alfresco-enterprise-repo-queryaccelerator.name=org.alfresco.enterprise.repo.queryaccelerator
+logger.alfresco-enterprise-repo-queryaccelerator.level=debug
 ```
 
 Logs when a Query Set Refresh was performed but there are no updates:
@@ -290,7 +291,8 @@ It is also possible to obtain detailed logs for the query engine. The logs provi
 of selecting the query set, based on the query, by activating the DEBUG level, as in this example:
 
 ```bash
-log4j.logger.org.alfresco.repo.search.impl.querymodel.impl.db=debug
+logger.alfresco-repo-search-impl-querymodel-impl-db.name=org.alfresco.repo.search.impl.querymodel.impl.db
+logger.alfresco-repo-search-impl-querymodel-impl-db.level=debug
 ```
 
 Logs when a query is accepted by the engine:

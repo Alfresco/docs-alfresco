@@ -50,7 +50,7 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
 
 1. Download the `docker-compose.yml` file by accessing the Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"} page, which will give you a 30-day license.
 
-    If you already have a valid license file for Content Services 7.3, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/latest/admin/license.md %}) for more details.
+    If you already have a valid license file for Content Services 7.4, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/latest/admin/license.md %}) for more details.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 
@@ -172,6 +172,51 @@ Once the group has been created, click the vertical ellipsis (**&vellip;**) at e
 * **Search** for a group. In the search box, enter the full or partial name (at least 3 characters).
 
 > **Note:** You can only modify the group `Name` once a group has been created.
+
+## Tags
+
+A tag is a marker that you can assign to related content to help categorize it. This makes it easier to view related content. You can create tags in the Control Center that can be used in the Digital Workspace. For example, you may create tags called **proposal-one**, and  **proposal-two** to help you identify all the content that has been created for two different versions of a design. In the Digital Workspace you can search your content that has specific tags.
+For more on their use in the Digital Workspace, see [tags]({% link content-services/latest/using/content/tags-categories.md %}#tags).
+
+To create a tag:
+
+1. Log into the Control Center.
+
+2. Expand **Content Structuring** in the left pane and then select **Tags**.
+
+3. Click the **Create** button on the top right.
+
+4. Click the **+** symbol and enter a **Name** for the new tag.
+
+    Each tag created in the Control Center must be unique. When you enter a name for a new tag, the Control Center provides a list of existing tags with similar names. You can check if the tag that you want to create has already been created. If the name for the tag already exists you must create it with another unique name.
+
+5. Click **Create: your-tag-name** and then click **Save**.
+
+    You can create more than one tag during this process. To do this continue by clicking the **+** symbol again to add another tag to the list. After adding all the tags you need to the list, click **Save** to create them.
+
+The tag list automatically refreshes and you can see the new tag you created. If you click the three dots on the right hand side of your tag you are able to **Edit** or **Delete** it.  
+
+**Note:** Deleting a tag removes it from all the files it has been assigned to in the Digital Workspace.
+
+## Categories
+
+A category is a group of files, or other categories, that all relate to a project or concept. Content can be a part of more than one category, for example, a category called **language** may include a language file called **english**, and the file may also exist within a category called **country**. For more on their use in the Digital Workspace, see [categories]({% link content-services/latest/using/content/tags-categories.md %}#categories)
+
+To create a root level category:
+
+1. Log into the Control Center.
+
+2. Expand **Content Structuring** in the left pane and then select **Categories**.
+
+3. Click the **Create** button on the top right.
+
+4. Click the **+** symbol and enter a **Name** for the new category.
+
+    You can create more than one category during this process. To do this continue by clicking the **+** symbol again to create another category and then click **Save**.
+
+The category tree automatically refreshes and you can see the new category you created. If you click the three dots on the right hand side of your category you are able to **Create a subcategory**, **Edit** it, or **Delete** it.  
+
+A category name does not need to be unique to the Control Center, it only needs to be unique within the level it sits in within the Control Center.
 
 ## Troubleshooting
 

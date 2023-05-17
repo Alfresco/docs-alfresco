@@ -21,13 +21,13 @@ When you upgrade Content Services, it's recommended that you follow a structured
 
 The following diagram shows the upgrade paths for major versions:
 
-![Upgrade paths to 7.3]({% link content-services/images/upgrade-path-7.3.png %})
+![Upgrade paths to 7.4]({% link content-services/images/upgrade-path-7.4.png %})
 
 The upgrade path recommendations are:
 
-* Direct upgrades to Content Services 7.3 are supported only from 5.2.x and later.
-* Content Services 7.3 introduces changes that require new releases of some modules. To upgrade to 7.3, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/latest/support/index.md %}) for more details on the associated versions.
-* You must upgrade to a supported version of Alfresco Search Services before upgrading the repository to 7.3. See [Upgrade Search Services]({% link search-services/latest/upgrade/index.md %}) for more information.
+* Direct upgrades to Content Services 7.4 are supported only from 5.2.x and later.
+* Content Services 7.4 introduces changes that require new releases of some modules. To upgrade to 7.4, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/latest/support/index.md %}) for more details on the associated versions.
+* You must upgrade to a supported version of Alfresco Search Services before upgrading the repository to 7.4. See [Upgrade Search Services]({% link search-services/latest/upgrade/index.md %}) for more information.
   * Upgrades from Content Services 5.2 must first upgrade from Solr 4 to Alfresco Search Services.
 
 > **Note:** If you're upgrading from an earlier release that's not shown on this diagram, contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"}.
@@ -47,6 +47,7 @@ The following table shows the upgrade path for major versions:
 | Community Edition 7.1 | Content Services 7.1 |
 | Community Edition 7.2 | Content Services 7.2 |
 | Community Edition 7.3 | Content Services 7.3 |
+| Community Edition 7.4 | Content Services 7.4 |
 
 Please contact Alfresco Support for upgrade advice that's specific to your environment.
 
@@ -92,13 +93,13 @@ These steps assume that you've got an existing Content Services installation (`a
         data.dir.root:/alfresco-v.2/solr/myindexes
         ```
 
-2. Validate the new 7.3 installation to check that it's working correctly.
+2. Validate the new 7.4 installation to check that it's working correctly.
 
     1. Configure the new installation with a new repository and database (not the existing one).
 
     2. [Start the server]({% link content-services/latest/install/zip/additions.md %}#start-server) and [validate](#validate-upgrade) that the system works correctly.
 
-3. Apply all customizations to the new 7.3 installation.
+3. Apply all customizations to the new 7.4 installation.
 
     1. [Stop]({% link content-services/latest/install/zip/additions.md %}#stop-server) the server.
 

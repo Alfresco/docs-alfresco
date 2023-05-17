@@ -26,7 +26,7 @@ If you have existing projects that you wish to upgrade to SDK 4.5 the recommende
 from the new archetypes and move your code into place.
 
 ## What's new?
-Alfresco SDK 4.5 is a minor update to the SDK and provides support for Alfresco 7.3.x.
+Alfresco SDK 4.5 is a minor update to the SDK and provides support for Alfresco 7.3.x and later.
 
 ### Embracing containers and Docker
 The main change included in SDK 4.0 is the addition of container technologies. Specifically, the new SDK is highly based 
@@ -1228,7 +1228,7 @@ my-all-in-one-project
 │       └── main
 │           └── docker
 │               ├── alfresco-global.properties
-│               ├── dev-log4j.properties
+│               ├── dev-log4j2.properties
 │               ├── disable-webscript-caching-context.xml
 │               ├── Dockerfile
 │               ├── hotswap-agent.properties
@@ -1293,7 +1293,7 @@ my-all-in-one-project
 │           └── docker
 │               ├── Dockerfile
 │               ├── hotswap-agent.properties
-│               ├── log4j.properties
+│               ├── log4j2.properties
 │               └── share-config-custom.xml
 └── my-all-in-one-project-share
     ├── pom.xml
@@ -1462,7 +1462,7 @@ my-platform-jar-project
     │   ├── docker
     │   │   ├── Dockerfile
     │   │   ├── alfresco-global.properties
-    │   │   ├── dev-log4j.properties
+    │   │   ├── dev-log4j2.properties
     │   │   ├── disable-webscript-caching-context.xml
     │   │   ├── hotswap-agent.properties
     │   │   └── license
@@ -1494,7 +1494,7 @@ my-platform-jar-project
     │                   │   ├── bootstrap-context.xml
     │                   │   ├── service-context.xml
     │                   │   └── webscript-context.xml
-    │                   ├── log4j.properties
+    │                   ├── log4j2.properties
     │                   ├── messages
     │                   │   ├── content-model.properties
     │                   │   └── workflow-messages.properties
@@ -1576,7 +1576,7 @@ my-share-jar-project
     │   ├── docker
     │   │   ├── Dockerfile
     │   │   ├── hotswap-agent.properties
-    │   │   ├── log4j.properties
+    │   │   ├── log4j2.properties
     │   │   └── share-config-custom.xml
     │   ├── java
     │   │   └── com
