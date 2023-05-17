@@ -47,6 +47,7 @@ The following table shows the upgrade path for major versions:
 | Community Edition 7.1 | Content Services 7.1 |
 | Community Edition 7.2 | Content Services 7.2 |
 | Community Edition 7.3 | Content Services 7.3 |
+| Community Edition 7.4 | Content Services 7.4 |
 
 Please contact Alfresco Support for upgrade advice that's specific to your environment.
 
