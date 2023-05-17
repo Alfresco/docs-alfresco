@@ -3,17 +3,13 @@ title: Java Foundation API reference
 ---
 
 The Alfresco Java Foundation API provides the ability to build server-side extensions that runs in the same
-process as Content Services. This API is used to build extensions for the [Platform (Repository)]({% link content-services/latest/develop/software-architecture.md %}#platformarch). 
+process as Content Services. This API is used to build extensions for the [Platform (Repository)]({% link content-services/latest/develop/software-architecture.md %}#platformarch).
 
 ## Getting started {#gettingstarted}
-When we want to use one of the public Java APIs from an implementation of one of the Platform/Repository 
-[Extension Points]({% link content-services/latest/develop/repo-ext-points/index.md %}), 
-it follows a best practice. First acquire a reference to the `ServiceRegistry`. The service registry is 
-basically a database of services, their instances and their locations. 
 
-Clients of a service, such as the `NodeService`, then query the service registry to find the available instance of 
-that service. When making calls to the `NodeService` we use the `RetryingTransactionHelper` for transaction management 
-and redundancy.
+When we want to use one of the public Java APIs from an implementation of one of the Platform/Repository [Extension Points]({% link content-services/latest/develop/repo-ext-points/index.md %}), it follows a best practice. First acquire a reference to the `ServiceRegistry`. The service registry is basically a database of services, their instances and their locations.
+
+Clients of a service, such as the `NodeService`, then query the service registry to find the available instance of that service. When making calls to the `NodeService` we use the `RetryingTransactionHelper` for transaction management and redundancy.
 
 The following code snippet illustrates how to first inject the `ServiceRegistry` into a Spring bean:
 
@@ -146,8 +142,19 @@ information about this see [Scheduled jobs]({% link content-services/latest/deve
 
 To turn on logging so you can get details of 'why' transactions are retried use the following log level:
 
-* Summary: `log4j.logger.org.alfresco.repo.transaction.RetryingTransactionHelper=INFO`
-* Details: `log4j.logger.org.alfresco.repo.transaction.RetryingTransactionHelper=DEBUG`
+* Summary:
+
+    ```text
+    logger.alfresco-repo-transaction-RetryingTransactionHelper.name=org.alfresco.repo.transaction.RetryingTransactionHelper
+    logger.alfresco-repo-transaction-RetryingTransactionHelper.level=info
+    ```
+
+* Details:
+
+    ```text
+    logger.alfresco-repo-transaction-RetryingTransactionHelper.name=org.alfresco.repo.transaction.RetryingTransactionHelper
+    logger.alfresco-repo-transaction-RetryingTransactionHelper.level=debug
+    ```
 
 ### Deployment
 It is not likely that you will deploy Java extensions directly into a Tomcat application server as classes and Spring 

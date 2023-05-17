@@ -225,7 +225,6 @@ To enable the Hazelcast cluster messaging, edit this section on each Share Tomca
 
 This configuration enables the Hazelcast Spring integration, which in turn, starts the Hazelcast server. The Hazelcast server is easily configurable and can use either multicast (default) or TCP-IP direct, if preferred. For more information, see the [Hazelcast Documentation](https://hazelcast.com/products/in-memory-computing/#resources){:target="_blank"}.
 
-
 If this configuration is enabled, the Share instance becomes a cluster node and Hazelcast is started. If this configuration is disabled (such as, for a default install), then Hazelcast is not started. While using Share, only when any of the following actions occur, the cache invalidation messages will be sent from the affected node to other nodes in the cluster:
 
 * an existing site/user dashboard layout is modified
@@ -648,7 +647,8 @@ Use this information to track clustering issues.
 * The main clustering debug information can be customized using the following log4j setting (default value is `INFO`):  
 
     ```text
-    log4j.logger.org.alfresco.enterprise.repo.cluster=info
+    logger.alfresco-enterprise-repo-cluster.name=org.alfresco.enterprise.repo.cluster
+    logger.alfresco-enterprise-repo-cluster.level=info
     ```
 
 * For a better control and more detailed clustering debug information, the following category can be configured:  
@@ -692,20 +692,24 @@ Use this information to track clustering issues.
 * An important aspect of clustering is caching. To log cache creation (for example, increase the cache related logging to DEBUG level), enable the following log categories:
 
     ```text
-    log4j.logger.org.alfresco.enterprise.repo.cluster.cache=DEBUG
-    log4j.logger.org.alfresco.repo.cache=DEBUG
+    logger.alfresco-enterprise-repo-cluster-cache.name=org.alfresco.enterprise.repo.cluster.cache
+    logger.alfresco-enterprise-repo-cluster-cache.level=info
+    logger.alfresco-repo-cache.name=org.alfresco.repo.cache
+    logger.alfresco-repo-cache.level=info
     ```
 
 * The underlying clustering technology, Hazelcast, is configured to use `log4j` for logging. Therefore, you can configure logging for the whole Hazelcast top-level package, as shown:
 
     ```text
-    log4j.logger.com.hazelcast=info
+    logger.hazelcast.name=com.hazelcast
+    logger.hazelcast.level=info
     ```
 
     To increase logging from Hazelcast’s member joining mechanism, enable the following log category:
 
     ```text
-    log4j.logger.com.hazelcast.impl.TcpIpJoiner=debug
+    logger.hazelcast-impl-TcpIpJoiner.name=com.hazelcast.impl.TcpIpJoiner
+    logger.hazelcast-impl-TcpIpJoiner.level=debug
     ```
 
 * Alfresco uses the Hazelcast library internally for clustering synchronization of data. With the addition of Java 11 modules, there is a warning in the application startup log for the repository app, as shown:
