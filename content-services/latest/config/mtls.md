@@ -10,7 +10,7 @@ You can create the keystores, truststores and certificates required to configure
 
 The diagram shown is an overview of mTLS structure:
 
-![mTLS diagram]({% link content-services/images/mtls_diagram.png %})
+![mTLS diagram]({% link content-services/images/mtls-diagram.png %})
 
 ## Generate secure keys for SSL communication
 
