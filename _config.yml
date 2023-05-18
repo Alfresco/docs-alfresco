@@ -865,6 +865,7 @@ defaults:
       toc: "transform-service"
       support: true
       versions:
+        - 2.1
         - 2.0
         - 1.5
         - 1.4
@@ -875,8 +876,12 @@ defaults:
   - scope:
       path: "transform-service/latest"
     values:
-      version: 2.0
+      version: 2.1
       latest: true
+  - scope:
+      path: "transform-service/2.0"
+    values:
+      version: 2.0
   - scope:
       path: "transform-service/1.5"
     values:
