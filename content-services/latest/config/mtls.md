@@ -48,7 +48,7 @@ Before you start, you must already have OpenSSL and `keytool` available in your 
 
     > **Note:** If the `keystores` folder isn't empty, the script exits without producing any keystore or truststore. You can safely, remove the `keystores` folder if you need to re-run the script.
 
-See [Keystore directory structure]({% link search-services/latest/config/keys.md %}#keystore-directory-structure) for more and [Customize certificate generation]({% link search-services/latest/config/keys.md %}#customizing-certificate-generation) for a full list of parameters that allow you to customize your certificates. It is recommended that you set your own passwords when generating certificates.
+See [Keystore directory structure]({% link search-services/latest/config/keys.md %}#keystore-directory-structure) for more and [Customize certificate generation]({% link search-services/latest/config/keys.md %}#customize-certificate-generation) for a full list of parameters that allow you to customize your certificates. It is recommended that you set your own passwords when generating certificates.
 
 ## Customize certificate generation
 
