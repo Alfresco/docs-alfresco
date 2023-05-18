@@ -48,7 +48,7 @@ Before you start, you must already have OpenSSL and `keytool` available in your 
 
     > **Note:** If the `keystores` folder isn't empty, the script exits without producing any keystore or truststore. You can safely, remove the `keystores` folder if you need to re-run the script.
 
-See [Keystore directory structure](#keystore-directory-structure) for more and [Customize certificate generation](#customizing-certificate-generation) for a full list of parameters that allow you to customize your certificates. It is recommended that you set your own passwords when generating certificates.
+See [Keystore directory structure]({% link search-services/latest/config/keys.md %}#keystore-directory-structure) for more and [Customize certificate generation]({% link search-services/latest/config/keys.md %}#customizing-certificate-generation) for a full list of parameters that allow you to customize your certificates. It is recommended that you set your own passwords when generating certificates.
 
 ## Customize certificate generation
 
@@ -75,8 +75,7 @@ Here is a full list of parameters that allow you to customize your certificates.
 
 ### New scripts summary
 
-**Script: run_ca**
-Generates the Root CA.
+**Script: run_ca**: Generates the Root CA.
 
 |Parameter|Value|Description|
 |---------|-----|-----------|
@@ -86,8 +85,7 @@ Generates the Root CA.
 |servername|Any string|DNS Names for Root CA. Multiple values can be provided, split by “,”. For example: `localhost`,`additional`. In Windows variant these have to be enclosed in double quotes. The default value is `localhost`.|
 |validityduration|Positive integer|Duration of Root CA validity in days. The default value is `365`.|
 
-**Script: run_encryption**
-Generates keystore for Repository metadata encryption.
+**Script: run_encryption**: Generates keystore for Repository metadata encryption.
 
 |Parameter|Value|Description|
 |---------|-----|-----------|
@@ -97,8 +95,7 @@ Generates keystore for Repository metadata encryption.
 |encmetadatapass|Any string between 6 and 1023 characters|Specifies the password for the encryption key. Key alias: metadata. A prompt will be shown for the default value.|
 |alfrescoformat|classic/current|Default format for certificates: current for IE SS 2.0.0+ and classic for previous versions. The default value is `current`. `classic` value settings: Keystore type: JCEKS. Key algorithm: DESede. Creates a password file. `current` value settings: Keystore type: PKCS12, Key algorithm: AES, Keysize: 256, No password file created.|
 
-**Script: run_additional**
-Generates a keystore and truststore for a service. Can be ran with assignment of role (client/server) to generate 2 separate sets of those.
+**Script: run_additional**: Generates a keystore and truststore for a service. Can be ran with assignment of role (client/server) to generate 2 separate sets of those.
 
 |Parameter|Value|Description|
 |---------|-----|-----------|
@@ -179,7 +176,7 @@ keystores
 
 Use this information to set up your generated certificates in their correct locations.
 
-Configuration set up for both server side and client side of Repository can be found at [Alfresco Docs - Secure keys](https://docs.alfresco.com/search-services/1.3/config/keys/#set-up-certificates).
+Configuration set up for both server side and client side of Repository can be found at [Alfresco Docs - Secure keys]({% link search-services/latest/config/keys.md %}#set-up-certificates).
 
 ### Set httpclient properties
 
@@ -251,36 +248,36 @@ Below is an example providing values through docker image variables:
 
 1. Add the keystore and truststore files as volumes
 
-```text
-volumes:
-      - ${WORKSPACE}/keystores/tengineAIO/tengineAIO.truststore:/tengineAIO.truststore
-      - ${WORKSPACE}/keystores/tengineAIO/tengineAIO.keystore:/tengineAIO.keystore
-```
+    ```text
+    volumes:
+        - ${WORKSPACE}/keystores/tengineAIO/tengineAIO.truststore:/tengineAIO.truststore
+        - ${WORKSPACE}/keystores/tengineAIO/tengineAIO.keystore:/tengineAIO.keystore
+    ```
 
 2. Set environment variables for the docker image
 
-```text
-#Enable SSL
-SERVER_SSL_ENABLED: "true"
+    ```text
+    #Enable SSL
+    SERVER_SSL_ENABLED: "true"
 
-#Server behaviour keystore
-SERVER_SSL_KEY_PASSWORD: "password"
-SERVER_SSL_KEY_STORE: "file:/tengineAIO.keystore"
-SERVER_SSL_KEY_STORE_PASSWORD: "password"
-SERVER_SSL_KEY_STORE_TYPE: "JCEKS"
-#Server behaviour truststore
-SERVER_SSL_TRUST_STORE: "file:/tengineAIO.truststore"
-SERVER_SSL_TRUST_STORE_PASSWORD: "password"
-SERVER_SSL_TRUST_STORE_TYPE: "JCEKS"
-#Require inbound communication to provide a certificate
-SERVER_SSL_CLIENT_AUTH: "need"
+    #Server behaviour keystore
+    SERVER_SSL_KEY_PASSWORD: "password"
+    SERVER_SSL_KEY_STORE: "file:/tengineAIO.keystore"
+    SERVER_SSL_KEY_STORE_PASSWORD: "password"
+    SERVER_SSL_KEY_STORE_TYPE: "JCEKS"
+    #Server behaviour truststore
+    SERVER_SSL_TRUST_STORE: "file:/tengineAIO.truststore"
+    SERVER_SSL_TRUST_STORE_PASSWORD: "password"
+    SERVER_SSL_TRUST_STORE_TYPE: "JCEKS"
+    #Require inbound communication to provide a certificate
+    SERVER_SSL_CLIENT_AUTH: "need"
 
-#Client behaviour keystore
-CLIENT_SSL_KEY_STORE: "file:/tengineAIO.keystore"
-CLIENT_SSL_KEY_STORE_PASSWORD: "password"
-CLIENT_SSL_KEY_STORE_TYPE: "JCEKS"
-#Client behaviour truststore
-CLIENT_SSL_TRUST_STORE: "file:/tengineAIO.truststore"
-CLIENT_SSL_TRUST_STORE_PASSWORD: "password"
-CLIENT_SSL_TRUST_STORE_TYPE: "JCEKS"
-```
+    #Client behaviour keystore
+    CLIENT_SSL_KEY_STORE: "file:/tengineAIO.keystore"
+    CLIENT_SSL_KEY_STORE_PASSWORD: "password"
+    CLIENT_SSL_KEY_STORE_TYPE: "JCEKS"
+    #Client behaviour truststore
+    CLIENT_SSL_TRUST_STORE: "file:/tengineAIO.truststore"
+    CLIENT_SSL_TRUST_STORE_PASSWORD: "password"
+    CLIENT_SSL_TRUST_STORE_TYPE: "JCEKS"
+    ```
