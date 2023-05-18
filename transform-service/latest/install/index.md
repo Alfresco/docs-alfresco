@@ -269,7 +269,7 @@ from the left column that corresponds to the required Content Services version y
     ```
 
     > **Note:** Replace the version number `x.y.z` with the tag that matches the Content Services version you want to 
-    > deploy. For example, if you want Content Services 7.3.0, then select tag `5.3.0`.
+    > deploy. For example, if you want Content Services 7.3.0, then select tag `7.3.0`.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to 
     > determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 
@@ -313,7 +313,7 @@ from the left column that corresponds to the required Content Services version y
        - activemq
    
    shared-file-store:
-     image: quay.io/alfresco/alfresco-shared-file-store:2.0.0
+     image: quay.io/alfresco/alfresco-shared-file-store:2.1.0
      mem_limit: 512m
      environment:
        JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
@@ -416,11 +416,11 @@ Use this information to verify that the system started correctly, and to clean u
         docker-compose-postgres-1             postgres                                       14.4                       e09e90144645     376MB
         docker-compose-proxy-1                alfresco/alfresco-acs-nginx                    3.4.2                      f9c4519b7920     23.5MB
         docker-compose-share-1                quay.io/alfresco/alfresco-share                7.3.0                      e77a380ab703     720MB
-        docker-compose-shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    2.0.0                      32d64489f2b6     607MB
-        docker-compose-solr6-1                alfresco/alfresco-search-services              2.0.5                      936f6335d2e5     920MB
+        docker-compose-shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    2.1.0                      32d64489f2b6     607MB
+        docker-compose-solr6-1                alfresco/alfresco-search-services              2.0.7                      936f6335d2e5     920MB
         docker-compose-sync-service-1         quay.io/alfresco/service-sync                  3.8.0                      0418d131e179     629MB
         docker-compose-transform-core-aio-1   alfresco/alfresco-transform-core-aio           3.0.0                      c97305a9232a     1.69GB
-        docker-compose-transform-router-1     quay.io/alfresco/alfresco-transform-router     2.0.0                      c084269f2c47     597MB       
+        docker-compose-transform-router-1     quay.io/alfresco/alfresco-transform-router     2.1.0                      c084269f2c47     597MB       
         ```
 
     2. List the running containers:
@@ -542,9 +542,9 @@ before continuing.
 
     In this directory you'll see the following content including three runnable JAR files:
 
-    * `alfresco-shared-file-store-controller-2.0.x.jar`
-    * `alfresco-transform-core-aio-boot-3.0.x.jar`
-    * `alfresco-transform-router-2.0.x.jar`
+    * `alfresco-shared-file-store-controller-2.1.x.jar`
+    * `alfresco-transform-core-aio-boot-3.1.x.jar`
+    * `alfresco-transform-router-2.1.x.jar`
     * `README.md`
     * IPTC Content Model (needs to be bootstrapped into Alfresco Content Services for IPTC Metadata extraction to work, 
       unless you are using Alfresco Content Services version 7.1.0+. See [Supported platforms]({% link transform-service/latest/support/index.md %}) 
@@ -571,7 +571,7 @@ before continuing.
 
     ```java
     java -DfileStorePath=/path/to/your/AlfrescoFileStore -Dscheduler.contract.path=/path/to/tempdir/scheduler.json
-     -jar alfresco-shared-file-store-controller-2.0.x.jar
+     -jar alfresco-shared-file-store-controller-2.1.x.jar
     ```
 
     Check the output to ensure that it starts successfully.
@@ -627,7 +627,7 @@ before continuing.
      -DCORE_AIO_QUEUE=org.alfresco.transform.engine.aio.acs
      -DACTIVEMQ_URL=failover:(tcp://server:61616)?timeout=3000
      -DFILE_STORE_URL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file
-     -jar alfresco-transform-router-2.0.x.jar
+     -jar alfresco-transform-router-2.1.x.jar
     ```
 
     Check the output to ensure that it starts successfully.
