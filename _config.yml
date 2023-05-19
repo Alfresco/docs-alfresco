@@ -1343,12 +1343,18 @@ defaults:
       toc: "content-accelerator"
       support: true
       versions:
+        - 3.5.1
         - 3.5
   - scope:
       path: "content-accelerator/latest"
     values:
-      version: 3.5
+      version: 3.5.1
       latest: true
+  - scope:
+      path: "content-accelerator/3.5"
+    values:
+      version: 3.5
+
 
 sass:
   sass_dir: assets/include/scss
