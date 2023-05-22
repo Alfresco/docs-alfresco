@@ -227,3 +227,11 @@ Follow these steps to add the above (optional) features to existing Policy and P
         - Enable Info Block: `No`
       - Additional Options:
         - Defaults acceptable.  Update as desired
+
+## If upgrading to 3.5.1 and above
+
+If you previously had the power promote action configured, navigate to the ACA admin and locate the action configuration for periodic review. Set the sliders for **Require Authentication** and **Add ESignature Page** appropriately for the results you desire.
+
+Refer to the image below of the UI:
+
+![Power Promote]({% link content-accelerator/images/power_promote_options.png %})
