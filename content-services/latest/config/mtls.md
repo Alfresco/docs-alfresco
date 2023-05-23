@@ -99,7 +99,7 @@ Here is a full list of parameters that allow you to customize your certificates.
 |encmetadatapass|Any string between 6 and 1023 characters|Specifies the password for the encryption key. Key alias: metadata. A prompt will be shown for the default value.|
 |alfrescoformat|classic/current|Default format for certificates: current for IE SS 2.0.0+ and classic for previous versions. The default value is `current`. `classic` value settings: Keystore type: JCEKS. Key algorithm: DESede. Creates a password file. `current` value settings: Keystore type: PKCS12, Key algorithm: AES, Keysize: 256, No password file created.|
 
-**Script: run_additional**: Generates a keystore and truststore for a service. Can be ran with assignment of role (client/server) to generate 2 separate sets of those.
+**Script: run_additional**: Generates a keystore and truststore for a service. Can be ran with assignment of role (client/server) to generate two separate sets of those.
 
 |Parameter|Value|Description|
 |---------|-----|-----------|
@@ -152,7 +152,7 @@ Find sample scripts in [alfresco-ssl-generator](https://github.com/Alfresco/alfr
 
 ## Keystore directory structure
 
-For new scripts, `run_encryption` or `run_additional`, the folders within `keystores` folder can be specified through `subfoldername` parameter. The keystore and truststore name will use the `servicename` parameter value to create files. For existing (`run.sh` or `run.cmd`) scripts, the `keystores` directory contains the following structure and files:
+For new scripts (`run_ca`, `run_encryption`, or `run_additional`), the folders within `keystores` folder can be specified through `subfoldername` parameter. The keystore and truststore name will use the `servicename` parameter value to create files. For existing scripts (`run.sh` or `run.cmd`), the `keystores` directory contains the following structure and files:
 
 ```bash
 keystores
