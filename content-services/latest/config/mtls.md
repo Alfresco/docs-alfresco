@@ -1,12 +1,12 @@
 ---
-title: mTLS
+title: Mutual TLS
 ---
 
 This section describes a recommended approach for generating secure keys and setting up certificates. It is not required that you use this approach if you have an alternative solution that you already use.
 
 If you're installing Content Services using the distribution zip, you need to generate certificates for the repository and Solr. By default, the distribution zips are configured to use SSL, so you'll need to generate these certificates to get your system to run successfully.
 
-You can create the keystores, truststores and certificates required to configure SSL/mutual TLS authentication between different services in Content Services, such as the repository and Solr.
+You can create the keystores, truststores and certificates required to configure SSL/mutual TLS authentication between different services in Content Services, such as the repository, Solr, and Transform Services.
 
 The diagram shown is an overview of mTLS structure:
 
@@ -51,6 +51,10 @@ Before you start, you must already have OpenSSL and `keytool` available in your 
 See [Keystore directory structure]({% link search-services/latest/config/keys.md %}#keystore-directory-structure) for more and [Customize certificate generation]({% link search-services/latest/config/keys.md %}#customize-certificate-generation) for a full list of parameters that allow you to customize your certificates. It is recommended that you set your own passwords when generating certificates.
 
 ## Customize certificate generation
+
+The existing scripts using `run.sh` and `run.cmd` are non-configurable though still viable for usage. The new scripts (`run_ca`, `run_encryption`, and `run_additional`) are configurable.
+
+### Existing script summary
 
 Here is a full list of parameters that allow you to customize your certificates. These parameters will override the default values listed in the `run.sh` and `run.cmd` scripts.
 
@@ -137,9 +141,9 @@ It is recommended that you set your own passwords when generating certificates. 
 run.cmd -keystorepass "password" -truststorepass "password"
 ```
 
-### Additional script examples
+### Script usage examples
 
-Find more sample scripts in [alfresco-ssl-generator](https://github.com/Alfresco/alfresco-ssl-generator) repository [for Linux](https://github.com/Alfresco/alfresco-ssl-generator/tree/master/ssl-tool/samples) and [for Windows](https://github.com/Alfresco/alfresco-ssl-generator/tree/master/ssl-tool-win/samples).
+Find sample scripts in [alfresco-ssl-generator](https://github.com/Alfresco/alfresco-ssl-generator) repository [for Linux](https://github.com/Alfresco/alfresco-ssl-generator/tree/master/ssl-tool/samples) and [for Windows](https://github.com/Alfresco/alfresco-ssl-generator/tree/master/ssl-tool-win/samples).
 
 > **Note:** In Windows:
 >    * To run sample scripts you’ll need to move them 1 directory upwards
@@ -148,7 +152,7 @@ Find more sample scripts in [alfresco-ssl-generator](https://github.com/Alfresco
 
 ## Keystore directory structure
 
-The `keystores` directory contains the following structure and files:
+For new scripts, `run_encryption` or `run_additional`, the folders within `keystores` folder can be specified through `subfoldername` parameter. The keystore and truststore name will use the `servicename` parameter value to create files. For existing (`run.sh` or `run.cmd`) scripts, the `keystores` directory contains the following structure and files:
 
 ```bash
 keystores
