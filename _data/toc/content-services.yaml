@@ -65,8 +65,8 @@
           path: '/content-services/latest/config/mobile/'
         - title: 'Process Services actions'
           path: '/content-services/latest/config/action/'
-        - title: 'mTLS'
-          path: '/content-services/latest/config/mtls'
+        - title: 'Mutual TLS'
+          path: '/content-services/latest/config/mtls/'
     - title: 'Administer'
       pages:
         - title: 'Overview'
