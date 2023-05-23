@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for the Alfresco Enterprise Viewer 3.5.1:
+The following are the supported platforms for the Alfresco Enterprise Viewer 3.5:
 
 | Version | Notes |
 | ------- | ----- |
