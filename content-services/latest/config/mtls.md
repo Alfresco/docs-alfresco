@@ -181,7 +181,7 @@ keystores
 Use this information to set up your generated certificates in their correct locations.
 
 Configuration set up for both server side and client side of Repository can be found at [Alfresco Docs - Secure keys]({% link search-services/latest/config/keys.md %}#set-up-certificates).
-When using new scripts, make sure the folder path provided in instruction is replaced with what has been provided in subfoldername parameter of a script.
+When using new scripts, make sure the folder path provided in the instruction is replaced with what has been provided in the subfoldername parameter of a script.
 
 ### Set httpclient properties
 
