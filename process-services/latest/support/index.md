@@ -9,6 +9,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Version | Notes |
 | ------- | ----- |
 | **Operating systems** | |
+| Red Hat Enterprise Linux 8 | |
 | Red Hat Enterprise Linux 7.7 | |
 | Red Hat Enterprise Linux 7.6 | |
 | Windows Server 2019 | |

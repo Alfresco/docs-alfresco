@@ -11,6 +11,7 @@ our Support team - submit a case via [Hyland Community]({% link support/latest/c
 | Version | Notes |
 | ------- | ----- |
 | **Operating systems** | |
+| Red Hat Enterprise Linux 8 | |
 | Red Hat Enterprise Linux 7.7 | |
 | Red Hat Enterprise Linux 7.6 | |
 | Windows Server 2019 | |
