@@ -235,3 +235,5 @@ If you previously had the Power Promote action configured, navigate to the ACA a
 Refer to the image below of the UI:
 
 ![Power Promote]({% link content-accelerator/images/power-promote-options.png %})
+
+If you previously had the Periodic Review action configured, navigate to the ACA admin and locate the action configuration for periodic review. Set the sliders for **Require Authentication** and **Add ESignature Page** appropriately for the results you desire.
