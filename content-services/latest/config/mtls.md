@@ -52,9 +52,9 @@ See [Keystore directory structure]({% link search-services/latest/config/keys.md
 
 ## Customize certificate generation
 
-The existing scripts using `run.sh` and `run.cmd` are non-configurable though still viable for usage. The new scripts (`run_ca`, `run_encryption`, and `run_additional`) are configurable.
+The legacy scripts `run.sh` and `run.cmd` have a more rigid structure allowing for less control, though still viable for usage. The new scripts (`run_ca`, `run_encryption`, and `run_additional`) provide a lot more flexibility. They can replace or add onto the previous scripts.
 
-### Existing script summary
+### Legacy script summary
 
 Here is a full list of parameters that allow you to customize your certificates. These parameters will override the default values listed in the `run.sh` and `run.cmd` scripts.
 
@@ -181,12 +181,13 @@ keystores
 Use this information to set up your generated certificates in their correct locations.
 
 Configuration set up for both server side and client side of Repository can be found at [Alfresco Docs - Secure keys]({% link search-services/latest/config/keys.md %}#set-up-certificates).
+When using new scripts, make sure the folder path provided in the instruction is replaced with what has been provided in the subfoldername parameter of a script.
 
 ### Set httpclient properties
 
-There is also new type of configuration, for Repository HttpClients that is used for communicating with Transform Services. Solr configuration is unchanged. If you want to enable mTLS, then after setting the properties related to keystore and truststore, just one additional property change is enough.
+There is also a new type of configuration, for Repository HttpClients that are used for communicating with Transform Services. Solr configuration stays unchanged. If you just want to enable mTLS for Transform Services, then after setting the properties related to keystore and truststore, one additional property change will be enough, since all of them have their default values.
 
-Below are httpClient properties, where valid substitutes for <service> are: `transform` (T-Router, T-Engines, Transform Aspose, AI Renditions; in enterprise: Shared File Store).
+Below are all httpClient properties, where valid substitutes for <service> are: `transform` (T-Router, T-Engines, Transform Aspose, AI Renditions; in enterprise: Shared File Store).
 
 ```text
 httpclient.config.<service>.mTLSEnabled
@@ -216,11 +217,11 @@ Hostname verification can be disabled for verifying responses to requests made w
 
 ### Configuration for Transform Services
 
-Additional configuration can be set for Transform Router, Transform Engines, Transform Aspose, AI Renditions, and Shared File Store.
+To enable mTLS, additional configuration must be set for Transform Router, Transform Engines, Transform Aspose, AI Renditions, and Shared File Store.
 
-The following example is for simple transform-core-aio, where only one keystore and truststore is used. If there is a need for separation between server/client behavior,  generate an additional set of keystore + truststore pair while determining a specific role for that pair (look up sample usages “client_server”).
+The following example is for simple transform-core-aio, where only one keystore and truststore is used. If there is a need for separation between server/client behavior,  generate an additional set of keystore + truststore pair while determining a specific role for that pair (look up sample usages placed in scripts named “client_server”).
 
-Below is an example providing values through properties:
+Below is an example of providing values through properties:
 
 ```text
 #Enable SSL
@@ -248,7 +249,7 @@ client.ssl.trust-store-password=password
 client.ssl.trust-store-type=JCEKS
 ```
 
-Below is an example providing values through docker image variables:
+Below is an example of providing values through docker image variables:
 
 1. Add the keystore and truststore files as volumes
 
