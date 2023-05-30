@@ -63,6 +63,8 @@
           path: '/content-services/latest/config/models/'
         - title: 'Process Services actions'
           path: '/content-services/latest/config/action/'
+        - title: 'Mutual TLS'
+          path: '/content-services/latest/config/mtls/'
     - title: 'Administer'
       pages:
         - title: 'Overview'
