@@ -111,18 +111,18 @@ Use this information to verify that the system started correctly, and to clean u
         ```text
         Container                        Repository                                     Tag                       Image Id       Size
         ---------------------------------------------------------------------------------------------------------------------------------
-        acs-trial_activemq_1              alfresco/alfresco-activemq                     5.17.1-jre11-rockylinux8  0cd1a9629a85   631.6 MB
-        acs-trial_alfresco_1              quay.io/alfresco/alfresco-content-repository   7.3.0                     13fbb0267e48   1.349 GB
-        acs-trial_control-center_1        quay.io/alfresco/alfresco-admin-app            7.6.0                     f64bca8ae242   44.64 MB
-        acs-trial_digital-workspace_1     quay.io/alfresco/alfresco-digital-workspace    3.1.0                     5842196a4fb4   376.4 MB
-        acs-trial_postgres_1              postgres                                       14.4                      e09e90144645   376.1 MB
-        acs-trial_proxy_1                 alfresco/alfresco-acs-nginx                    3.4.2                     f9c4519b7920   23.45 MB
-        acs-trial_share_1                 quay.io/alfresco/alfresco-share                7.3.0                     e77a380ab703   720.4 MB
-        acs-trial_shared-file-store_1     quay.io/alfresco/alfresco-shared-file-store    2.0.0                     32d64489f2b6   607.2 MB
-        acs-trial_solr6_1                 alfresco/alfresco-search-services              2.0.5                     936f6335d2e5   919.5 MB
-        acs-trial_sync-service_1          quay.io/alfresco/service-sync                  3.8.0                     0418d131e179   629.2 MB
-        acs-trial_transform-core-aio_1    alfresco/alfresco-transform-core-aio           3.0.0                     c97305a9232a   1.687 GB
-        acs-trial_transform-router_1      quay.io/alfresco/alfresco-transform-router     2.0.0                     c084269f2c47   596.7 MB
+        acs-trial_activemq_1              alfresco/alfresco-activemq                     5.17.1-jre11-rockylinux8  0cd1a9629a85   632 MB
+        acs-trial_alfresco_1              quay.io/alfresco/alfresco-content-repository   7.4.0.1                   d46dfa317b0f   1.17 GB
+        acs-trial_control-center_1        quay.io/alfresco/alfresco-control-center       8.0.0                     00b19f0d2244   85.1 MB
+        acs-trial_digital-workspace_1     quay.io/alfresco/alfresco-digital-workspace    4.0.0                     07ca60ecd152   93.2 MB
+        acs-trial_postgres_1              postgres                                       14.4                      e09e90144645   376 MB
+        acs-trial_proxy_1                 alfresco/alfresco-acs-nginx                    3.4.2                     f9c4519b7920   23.4 MB
+        acs-trial_share_1                 quay.io/alfresco/alfresco-share                7.4.0.1                   c3dc5af44b20   738 MB
+        acs-trial_shared-file-store_1     quay.io/alfresco/alfresco-shared-file-store    2.1.0                     4ea78d0abf13   587 MB
+        acs-trial_solr6_1                 alfresco/alfresco-search-services              2.0.7                     8c828de69496   791 MB
+        acs-trial_sync-service_1          quay.io/alfresco/service-sync                  3.9.0                     0d717fce2b8d   688 MB
+        acs-trial_transform-core-aio_1    alfresco/alfresco-transform-core-aio           3.1.0                     db73d71dc7d8   1.72 GB
+        acs-trial_transform-router_1      quay.io/alfresco/alfresco-transform-router     2.1.0                     76695adf9e9f   621 MB
         ```
 
     2. List the running containers:
@@ -272,18 +272,18 @@ Use this information to verify that the system started correctly, and to clean u
         Removing acs-trial_shared-file-store_1  ... done
         Removing acs-trial_activemq_1           ... done
         Removing network acs-trial_default
-        Removing image quay.io/alfresco/alfresco-content-repository:7.3.0
-        Removing image quay.io/alfresco/alfresco-shared-file-store:2.0.0
-        Removing image quay.io/alfresco/alfresco-share:7.3.0
+        Removing image quay.io/alfresco/alfresco-content-repository:7.4.0.1
+        Removing image quay.io/alfresco/alfresco-shared-file-store:2.1.0
+        Removing image quay.io/alfresco/alfresco-share:7.4.0.1
         Removing image postgres:14.4
-        Removing image quay.io/alfresco/search-services:2.0.5
+        Removing image quay.io/alfresco/search-services:2.0.7
         Removing image alfresco/alfresco-activemq:5.17.1-jre11-rockylinux8
-        Removing image alfresco/alfresco-transform-core-aio:3.0.0
-        Removing image quay.io/alfresco/alfresco-transform-router:2.0.0
-        Removing image quay.io/alfresco/alfresco-digital-workspace:3.1.0
-        Removing image quay.io/alfresco/alfresco-admin-app:7.6.0
+        Removing image alfresco/alfresco-transform-core-aio:3.1.0
+        Removing image quay.io/alfresco/alfresco-transform-router:2.1.0
+        Removing image quay.io/alfresco/alfresco-digital-workspace:4.0.0
+        Removing image quay.io/alfresco/alfresco-control-center:8.0.0
         Removing image alfresco/alfresco-acs-nginx:3.4.2
-        Removing image quay.io/alfresco/service-sync:3.8.0
+        Removing image quay.io/alfresco/service-sync:3.9.0
         ```
 
 See the [Docker documentation](https://docs.docker.com/){:target="_blank"} for more on using Docker.
