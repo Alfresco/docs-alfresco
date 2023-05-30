@@ -6,7 +6,7 @@ This section describes a recommended approach for generating secure keys and set
 
 If you're installing Content Services using the distribution zip, you need to generate certificates for the repository and Solr. By default, the distribution zips are configured to use SSL, so you'll need to generate these certificates to get your system to run successfully.
 
-You can create the keystores, truststores and certificates required to configure SSL/mutual TLS authentication between different services in Content Services, such as the repository, Solr, and Transform Services.
+You can create the keystores, truststores and certificates required to configure SSL/mutual TLS authentication between different services in Content Services, such as the repository, Solr, and Alfresco Transform Service.
 
 The diagram shown is an overview of mTLS structure:
 
@@ -16,15 +16,15 @@ The diagram shown is an overview of mTLS structure:
 
 Use this information to generate certificates for SSL/mutual TLS authentication between the repository and Content Services, using secure keys specific to your installation.
 
-The old script version can still be used and its description is placed here [Alfresco Docs - Secure keys]({% link search-services/latest/config/keys.md %}), it can be replaced with executions of new scripts, that allow for more granularity and control (for example, excluding Solr).
+The old script version can still be used and its description is provided in the Alfresco Search Services page, [Secure keys]({% link search-services/latest/config/keys.md %}). It can be replaced with executions of new scripts, that allow for more granularity and control (for example, excluding Solr).
 
-For both approaches run_additional script can be used to generate additional sets of keystores/truststores to be used by other services. So adding mTLS set up for Transform Services with mTLS already present for Solr is possible with run_additional scripts usage.
+For both approaches, the `run_additional` script can be used to generate additional sets of keystores/truststores to be used by other services. So adding mTLS set up for the Transform Service with mTLS already present for Solr is possible with the `run_additional` scripts usage.
 
 A certificates generator script, `run.sh` (for Linux) and `run.cmd` (for Windows) is provided in a GitHub project. The script consists of two parts - the first part is based on OpenSSL (to generate the certificates), and the second part is based on the Java `keytool` (to build the keystores and truststores). Here, we'll focus on running the script for a standalone Linux or Windows operating system.
 
 Before you start, you must already have OpenSSL and `keytool` available in your system path.
 
-1. Browse to the [https://github.com/Alfresco/alfresco-ssl-generator](https://github.com/Alfresco/alfresco-ssl-generator) GitHub project and click **Clone** or **Download**.
+1. Browse to the [https://github.com/Alfresco/alfresco-ssl-generator](https://github.com/Alfresco/alfresco-ssl-generator){:target="_blank"} GitHub project and click **Clone** or **Download**.
 
     If you downloaded the project, extract the files to a suitable location.
 
@@ -75,7 +75,7 @@ Here is a full list of parameters that allow you to customize your certificates.
 |caservername|Any string, localhost by default.|DNS Name of CA Server.|
 |alfrescoservername|Any string, localhost by default.|DNS Name for Alfresco Server.|
 |solrservername|Any string, localhost by default.|DNS Name For Solr Server.|
-|alfrescoformat|classic, current|Default format for certificates: current for IE SS 2.0.0+ and classic for previous versions.|
+|alfrescoformat|classic, current|Default format for certificates: `current` for Alfresco Search and Insight Engine or Alfresco Search Services 2.0.0+, and `classic` for previous versions.|
 
 ### New scripts summary
 
@@ -97,7 +97,7 @@ Here is a full list of parameters that allow you to customize your certificates.
 |subfoldername|String|Subfolder name to generate the encryption keystore in. The default value is the same as `servicename`.|
 |encstorepass|Any string between 6 and 1023 characters|Specifies the password for the encryption keystore. A prompt will be shown for the default value.|
 |encmetadatapass|Any string between 6 and 1023 characters|Specifies the password for the encryption key. Key alias: metadata. A prompt will be shown for the default value.|
-|alfrescoformat|classic/current|Default format for certificates: current for IE SS 2.0.0+ and classic for previous versions. The default value is `current`. `classic` value settings: Keystore type: JCEKS. Key algorithm: DESede. Creates a password file. `current` value settings: Keystore type: PKCS12, Key algorithm: AES, Keysize: 256, No password file created.|
+|alfrescoformat|classic/current|Default format for certificates: `current` for Search and Insight Engine or Search Services 2.0.0+, and `classic` for previous versions. The default value is `current`. `classic` value settings: Keystore type: JCEKS. Key algorithm: DESede. Creates a password file. `current` value settings: Keystore type: PKCS12, Key algorithm: AES, Keysize: 256, No password file created.|
 
 **Script: run_additional**: Generates a keystore and truststore for a service. Can be ran with assignment of role (client/server) to generate two separate sets of those.
 
@@ -116,7 +116,7 @@ Here is a full list of parameters that allow you to customize your certificates.
 |truststorepass|Any string between 6 and 1023 characters|Specifies the password for the truststore. A prompt will be shown for the default value.|
 |certdname|String|Sets the Distinguished Name of the CA certificate, starting with a forward-slash. The default value is `/C=GB/ST=UK/L=Maidenhead/O=Alfresco Software Ltd./OU=Unknown/CN=Custom Service`.|
 |servername|String|DNS Names for Service. Multiple values can be provided, split by “,”. For example: `localhost`,`additional`. In Windows, these have to be enclosed in double quotes. The default value is `localhost`.|
-|alfrescoformat|classic/current|The default format for certificates is `current` for IE SS 2.0.0+ and `classic` for previous versions. The main difference is that classic format generates text files containing keystore/truststore password, private key/public key alias, and in case of keystore, also the private key password (which currently has to be the same as the keystore). The default value is `current`.|
+|alfrescoformat|classic/current|The default format for certificates is `current` for Search and Insight Engine or Search Services 2.0.0+, and `classic` for previous versions. The main difference is that classic format generates text files containing keystore/truststore password, private key/public key alias, and in case of keystore, also the private key password (which currently has to be the same as the keystore). The default value is `current`.|
 
 > **Note:** If you plan to use custom DNames in your certificates, you must use double quotes around the values. For example:
 
@@ -146,13 +146,16 @@ run.cmd -keystorepass "password" -truststorepass "password"
 Find sample scripts in [alfresco-ssl-generator](https://github.com/Alfresco/alfresco-ssl-generator) repository [for Linux](https://github.com/Alfresco/alfresco-ssl-generator/tree/master/ssl-tool/samples) and [for Windows](https://github.com/Alfresco/alfresco-ssl-generator/tree/master/ssl-tool-win/samples).
 
 > **Note:** In Windows:
->    * To run sample scripts you’ll need to move them 1 directory upwards
->    * Add keytool to PATH system variable
->    * Set 2 environment variables: `SET OPENSSL_CONF=<path_to_project>\alfresco-ssl-generator\ssl-tool-win\openssl.cnf` and `SET RANDFILE=.rnd`
+>
+> * To run sample scripts you’ll need to move them 1 directory upwards
+> * Add keytool to PATH system variable
+> * Set 2 environment variables:
+>   * `SET OPENSSL_CONF=<path_to_project>\alfresco-ssl-generator\ssl-tool-win\openssl.cnf`
+>   * `SET RANDFILE=.rnd`
 
 ## Keystore directory structure
 
-For new scripts (`run_ca`, `run_encryption`, or `run_additional`), the folders within `keystores` folder can be specified through `subfoldername` parameter. The keystore and truststore name will use the `servicename` parameter value to create files. For existing scripts (`run.sh` or `run.cmd`), the `keystores` directory contains the following structure and files:
+For new scripts (`run_ca`, `run_encryption`, or `run_additional`), the folders within `keystores` folder can be specified through the `subfoldername` parameter. The keystore and truststore name will use the `servicename` parameter value to create files. For existing scripts (`run.sh` or `run.cmd`), the `keystores` directory contains the following structure and files:
 
 ```bash
 keystores
@@ -180,14 +183,14 @@ keystores
 
 Use this information to set up your generated certificates in their correct locations.
 
-Configuration set up for both server side and client side of Repository can be found at [Alfresco Docs - Secure keys]({% link search-services/latest/config/keys.md %}#set-up-certificates).
-When using new scripts, make sure the folder path provided in the instruction is replaced with what has been provided in the subfoldername parameter of a script.
+Configuration set up for both the server-side and client-side of the repository is provided in the Alfresco Search Services page, [Secure keys]({% link search-services/latest/config/keys.md %}#set-up-certificates).
+When using new scripts, make sure the folder path provided in the instruction is replaced with what has been provided in the `subfoldername` parameter of a script.
 
 ### Set httpclient properties
 
-There is also a new type of configuration, for Repository HttpClients that are used for communicating with Transform Services. Solr configuration stays unchanged. If you just want to enable mTLS for Transform Services, then after setting the properties related to keystore and truststore, one additional property change will be enough, since all of them have their default values.
+There is also a new type of configuration, for repository HttpClients that are used for communicating with the Transform Service. Solr configuration stays unchanged. If you just want to enable mTLS for the Transform Service, then after setting the properties related to keystore and truststore, one additional property change will be enough, since all of them have their default values.
 
-Below are all httpClient properties, where valid substitutes for <service> are: `transform` (T-Router, T-Engines, Transform Aspose, AI Renditions; in enterprise: Shared File Store).
+Below are httpClient properties, where valid substitutes for `<service>` are: `transform` (T-Router, T-Engines, Transform Aspose, AI Renditions; in enterprise: Shared File Store).
 
 ```text
 httpclient.config.<service>.mTLSEnabled
@@ -215,11 +218,11 @@ Mutual TLS is disabled by default, to turn it on you have to change the value of
 
 Hostname verification can be disabled for verifying responses to requests made with `httpclient.config.<service>.hostnameVerificationDisabled` by setting it to `true`, though be aware that disabling it poses a significant security risk.
 
-### Configuration for Transform Services
+### Configuration for Transform Service
 
 To enable mTLS, additional configuration must be set for Transform Router, Transform Engines, Transform Aspose, AI Renditions, and Shared File Store.
 
-The following example is for simple transform-core-aio, where only one keystore and truststore is used. If there is a need for separation between server/client behavior,  generate an additional set of keystore + truststore pair while determining a specific role for that pair (look up sample usages placed in scripts named “client_server”).
+The following example is for simple transform-core-aio, where only one keystore and truststore is used. If there is a need for separation between server/client behavior, generate an additional set of keystore + truststore pair while determining a specific role for that pair (look up sample usages placed in scripts named “client_server”).
 
 Below is an example of providing values through properties:
 
@@ -227,31 +230,31 @@ Below is an example of providing values through properties:
 #Enable SSL
 server.ssl.enabled=true
 
-#Server behaviour keystore
+#Server behavior keystore
 server.ssl.key-password=password
 server.ssl.key-store=/keystores/tengineAIO/tengineAIO.keystore 
 server.ssl.key-store-password=password
 server.ssl.key-store-type=JCEKS
-#Server behaviour truststore
+#Server behavior truststore
 server.ssl.trust-store=/keystores/tengineAIO/tengineAIO.truststore
 server.ssl.trust-store-password=password
 server.ssl.trust-store-type=JCEKS
 #Require inbound communication to provide a certificate
 server.ssl.client-auth=need
 
-#Client behaviour keystore
+#Client behavior keystore
 client.ssl.key-store=/keystores/tengineAIO/tengineAIO.keystore
 client.ssl.key-store-password=password
 client.ssl.key-store-type=JCEKS
-#Client behaviour truststore
+#Client behavior truststore
 client.ssl.trust-store=/keystores/tengineAIO/tengineAIO.truststore
 client.ssl.trust-store-password=password
 client.ssl.trust-store-type=JCEKS
 ```
 
-Below is an example of providing values through docker image variables:
+Below is an example providing values through Docker image variables:
 
-1. Add the keystore and truststore files as volumes
+1. Add the keystore and truststore files as volumes:
 
     ```text
     volumes:
@@ -259,29 +262,29 @@ Below is an example of providing values through docker image variables:
         - ${WORKSPACE}/keystores/tengineAIO/tengineAIO.keystore:/tengineAIO.keystore
     ```
 
-2. Set environment variables for the docker image
+2. Set environment variables for the Docker image:
 
     ```text
     #Enable SSL
     SERVER_SSL_ENABLED: "true"
 
-    #Server behaviour keystore
+    #Server behavior keystore
     SERVER_SSL_KEY_PASSWORD: "password"
     SERVER_SSL_KEY_STORE: "file:/tengineAIO.keystore"
     SERVER_SSL_KEY_STORE_PASSWORD: "password"
     SERVER_SSL_KEY_STORE_TYPE: "JCEKS"
-    #Server behaviour truststore
+    #Server behavior truststore
     SERVER_SSL_TRUST_STORE: "file:/tengineAIO.truststore"
     SERVER_SSL_TRUST_STORE_PASSWORD: "password"
     SERVER_SSL_TRUST_STORE_TYPE: "JCEKS"
     #Require inbound communication to provide a certificate
     SERVER_SSL_CLIENT_AUTH: "need"
 
-    #Client behaviour keystore
+    #Client behavior keystore
     CLIENT_SSL_KEY_STORE: "file:/tengineAIO.keystore"
     CLIENT_SSL_KEY_STORE_PASSWORD: "password"
     CLIENT_SSL_KEY_STORE_TYPE: "JCEKS"
-    #Client behaviour truststore
+    #Client behavior truststore
     CLIENT_SSL_TRUST_STORE: "file:/tengineAIO.truststore"
     CLIENT_SSL_TRUST_STORE_PASSWORD: "password"
     CLIENT_SSL_TRUST_STORE_TYPE: "JCEKS"
