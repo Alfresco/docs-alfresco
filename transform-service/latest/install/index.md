@@ -340,6 +340,7 @@ from the left column that corresponds to the required Content Services version y
     Creating docker-compose-shared-file-store-1 ... done
     Creating docker-compose-sync-service-1      ... done
     Creating docker-compose-alfresco-1          ... done
+    Creating docker-compose-control-center-1    ... done
     Creating docker-compose-share-1             ... done
     Creating docker-compose-postgres-1          ... done
     Creating docker-compose-activemq-1          ... done
@@ -410,17 +411,17 @@ Use this information to verify that the system started correctly, and to clean u
         Container                             Repository                                     Tag                        Image Id         Size
         ---------------------------------------------------------------------------------------------------------------------------------------
         docker-compose-activemq-1             alfresco/alfresco-activemq                     5.17.1-jre11-rockylinux8   0cd1a9629a85     632MB
-        docker-compose-alfresco-1             quay.io/alfresco/alfresco-content-repository   7.3.0                      13fbb0267e48     1.3GB
-        docker-compose-control-center-1       quay.io/alfresco/alfresco-admin-app            7.6.0                      f64bca8ae242     44.6MB
-        docker-compose-digital-workspace-1    quay.io/alfresco/alfresco-digital-workspace    3.1.0                      5842196a4fb4     576MB
+        docker-compose-alfresco-1             quay.io/alfresco/alfresco-content-repository   7.4.0.1                    d46dfa317b0f     1.17GB
+        docker-compose-control-center-1       quay.io/alfresco/alfresco-control-center       8.0.0                      00b19f0d2244     85.1MB
+        docker-compose-digital-workspace-1    quay.io/alfresco/alfresco-digital-workspace    4.0.0                      07ca60ecd152     93.2MB
         docker-compose-postgres-1             postgres                                       14.4                       e09e90144645     376MB
         docker-compose-proxy-1                alfresco/alfresco-acs-nginx                    3.4.2                      f9c4519b7920     23.5MB
-        docker-compose-share-1                quay.io/alfresco/alfresco-share                7.3.0                      e77a380ab703     720MB
-        docker-compose-shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    2.1.0                      32d64489f2b6     607MB
-        docker-compose-solr6-1                alfresco/alfresco-search-services              2.0.7                      936f6335d2e5     920MB
-        docker-compose-sync-service-1         quay.io/alfresco/service-sync                  3.8.0                      0418d131e179     629MB
-        docker-compose-transform-core-aio-1   alfresco/alfresco-transform-core-aio           3.0.0                      c97305a9232a     1.69GB
-        docker-compose-transform-router-1     quay.io/alfresco/alfresco-transform-router     2.1.0                      c084269f2c47     597MB       
+        docker-compose-share-1                quay.io/alfresco/alfresco-share                7.4.0.1                    c3dc5af44b20     738MB
+        docker-compose-shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    2.1.0                      4ea78d0abf13     587MB
+        docker-compose-solr6-1                alfresco/alfresco-search-services              2.0.7                      8c828de69496     791MB
+        docker-compose-sync-service-1         quay.io/alfresco/service-sync                  3.9.0                      0d717fce2b8d     688MB
+        docker-compose-transform-core-aio-1   alfresco/alfresco-transform-core-aio           3.1.0                      db73d71dc7d8     1.72GB
+        docker-compose-transform-router-1     quay.io/alfresco/alfresco-transform-router     2.1.0                      76695adf9e9f     621MB       
         ```
 
     2. List the running containers:
@@ -471,6 +472,7 @@ Use this information to verify that the system started correctly, and to clean u
     Stopping docker-compose-shared-file-store-1  ... done
     Stopping docker-compose-postgres-1           ... done
     Stopping docker-compose-activemq-1           ... done
+    Stopping docker-compose-control-center-1     ... done
     Stopping docker-compose-share-1              ... done
     Stopping docker-compose-solr6-1              ... done
     Stopping docker-compose-alfresco-1           ... done
