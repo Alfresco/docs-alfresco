@@ -32,7 +32,7 @@ The images downloaded directly from [Docker Hub](https://hub.docker.com/u/alfres
 
 > **Note:** A [Quay.io](https://quay.io/){:target="_blank"} account is needed to pull the Docker images that are needed:
 >
-> * `quay.io/alfresco/alfresco-admin-app`
+> * `quay.io/alfresco/alfresco-control-center`
 
 > **Note:** Alfresco customers can request Quay.io credentials by logging a support ticket via [Hyland Community](https://community.hyland.com//){:target="_blank"}. These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
 
