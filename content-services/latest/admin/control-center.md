@@ -4,18 +4,23 @@ title: Control Center
 
 Alfresco Control Center is being developed to allow the administration of multiple Alfresco applications from a single, modern interface. It will provide admin functions that are currently only available in Alfresco Share, and will eventually allow the full administration of Alfresco Content Services and Alfresco Governance Services without needing to use the Share application.
 
-The initial release focusses on the basic minimum requirements to configure Content Services (Enterprise Edition) - the creation of users and groups of users. Additional functionality will be added in future releases.
+The initial release focussed on the basic minimum requirements to configure Content Services (Enterprise Edition) - the creation of users and groups of users. Additional functionality will be added in future releases.
 
 ## Overview
 
 The Control Center is provided as a Docker image for containerized deployment. It is recommended for evaluations only (i.e. test and development environments), and accessed using the `/admin` URL.
 
-When you expand the **Identity** section, you'll see the two main areas the Control Center covers:
+When you expand the **User Management** section, you can access the following functionality:
 
 * A **Users** section used to manage your users.
 * A **Groups** section used to manage the groups to which your users may be added.
 
 > **Note:** This provides an alternative way of managing users and groups in [Share Admin Tools]({% link content-services/latest/admin/share-admin-tools.md %}).
+
+When you expand the **Content Structuring** section, you can access the following functionality:
+
+* A **Tags** section used to manage tags for your content.
+* A **Categories** section used to manage categories for your content.
 
 ## Prerequisites
 
@@ -54,7 +59,7 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 
-    > **Note:** The Download Trial is usually updated for *major.minor* versions of Content Services. The latest published version on our website is labelled *Version 7.3 - March 2022)*.
+    > **Note:** The Download Trial is usually updated for *major.minor* versions of Content Services. The latest published version on our website is labelled *Version 7.3 - March 2022*.
 
 2. Save the `docker-compose.yml` file in a local folder.
 
@@ -97,7 +102,7 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
 
 ## Manage users
 
-The **Identity** section of the application is used to create and manage users, and groups. Expand the section to see the two main areas the Control Center covers: **Users** and **Groups**.
+The **User Management** section of the application is used to create and manage users, and groups. Expand the section to see the two main areas the Control Center covers: **Users** and **Groups**.
 
 The **Users** section displays the current list of users in the system.
 
@@ -121,7 +126,7 @@ To add a user:
 
 1. Sign into the application.
 
-2. Expand the **Identity** section and select **Users**.
+2. Expand the **User Management** section and select **Users**.
 
 3. Click the **Add User** icon to display the **Add User** page.
 
@@ -158,7 +163,7 @@ To add a group:
 
 1. Sign into the application.
 
-2. Expand the **Identity** section and select **Groups**.
+2. Expand the **User Management** section and select **Groups**.
 
 3. Click the **Add Group** icon to display the **Add Group** page.
 
@@ -176,7 +181,7 @@ Once the group has been created, click the vertical ellipsis (**&vellip;**) at e
 ## Tags
 
 A tag is a marker that you can assign to related content to help categorize it. This makes it easier to view related content. You can create tags in the Control Center that can be used in the Digital Workspace. For example, you may create tags called **proposal-one**, and  **proposal-two** to help you identify all the content that has been created for two different versions of a design. In the Digital Workspace you can search your content that has specific tags.
-For more on their use in the Digital Workspace, see [tags]({% link content-services/latest/using/content/tags-categories.md %}#tags).
+For more on their use in the Digital Workspace, see [Tags]({% link content-services/latest/using/content/tags-categories.md %}#tags).
 
 To create a tag:
 
@@ -196,11 +201,11 @@ To create a tag:
 
 The tag list automatically refreshes and you can see the new tag you created. If you click the three dots on the right hand side of your tag you are able to **Edit** or **Delete** it.  
 
-**Note:** Deleting a tag removes it from all the files it has been assigned to in the Digital Workspace.
+> **Note:** Deleting a tag removes it from all the files it has been assigned to in the Digital Workspace.
 
 ## Categories
 
-A category is a group of files, or other categories, that all relate to a project or concept. Content can be a part of more than one category, for example, a category called **language** may include a language file called **english**, and the file may also exist within a category called **country**. For more on their use in the Digital Workspace, see [categories]({% link content-services/latest/using/content/tags-categories.md %}#categories)
+A category is a group of files, or other categories, that all relate to a project or concept. Content can be a part of more than one category, for example, a category called **Language** may include a language file called **English**, and the file may also exist within a category called **Country**. For more on their use in the Digital Workspace, see [Categories]({% link content-services/latest/using/content/tags-categories.md %}#categories)
 
 To create a root level category:
 
