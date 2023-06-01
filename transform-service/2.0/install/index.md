@@ -6,11 +6,11 @@ This release provides two main options for deployment:
 
 * [Distribution zip](#prereq-non-containerized-deploy) - The Transform Service zip can be applied when installing 
   Alfresco Content Services using the distribution zip. For an overview of components, see the first picture on this 
-  [page]({% link transform-service/latest/index.md %}). 
+  [page]({% link transform-service/2.0/index.md %}). 
 * [Containerized deployment(Docker or Kubernetes)](#containerized-deployments). The Transform Service is also deployed 
   as part of the Content Services containerized deployment using Docker images that are referenced from Helm charts. 
   These charts are a deployment template that can be used as the basis for your specific deployment needs.
-  For an overview of components, see the second picture on this [page]({% link transform-service/latest/index.md %}).
+  For an overview of components, see the second picture on this [page]({% link transform-service/2.0/index.md %}).
   
 >**Note:** Deployment of Transform Service with Content Services on AWS, such as Amazon EKS (Elastic Kubernetes Service), 
 >is recommended only for customers with a good knowledge of Content Services, and strong competencies in AWS and 
@@ -22,7 +22,7 @@ There are a number of software requirements for installing the Transform Service
 The Transform Service is only deployed by default as part of Content Services for containerized deployments.
 
 However, this is not the case if you're installing Content Services using the distribution zip. 
-See [Supported platforms]({% link transform-service/latest/support/index.md %}) for more information.
+See [Supported platforms]({% link transform-service/2.0/support/index.md %}) for more information.
 
 ### Containerized deployments {#containerized-deployments}
 The images downloaded directly from [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"}, or 
@@ -48,7 +48,7 @@ To use the Content Services deployment (including the Transform Service), you ne
 * [Helm](https://github.com/helm/helm#install){:target="_blank"} - the tool for installing and managing Kubernetes applications.
   * There are Helm charts that allow you to deploy Content Services with Transform Service in a Kubernetes cluster, for example, on AWS.
 
-See [Install with Helm charts]({% link transform-service/latest/install/index.md %}#install-with-helm-charts) for more details.
+See [Install with Helm charts]({% link transform-service/2.0/install/index.md %}#install-with-helm-charts) for more details.
 
 #### Software requirements (Docker)
 This is recommended for evaluations only (i.e. test and development environments).
@@ -61,7 +61,7 @@ This is recommended for evaluations only (i.e. test and development environments
 
 >**Note:** Check the prerequisites for your operating system, both for Docker and Docker Compose.
 
-See [Install with Docker Compose]({% link transform-service/latest/install/index.md %}#install-with-docker-compose) for more details.
+See [Install with Docker Compose]({% link transform-service/2.0/install/index.md %}#install-with-docker-compose) for more details.
 
 ### Non-containerized deployment {#prereq-non-containerized-deploy}
 Before installing Transform Service from the distribution ZIP file, 
@@ -269,7 +269,7 @@ from the left column that corresponds to the required Content Services version y
     ```
 
     > **Note:** Replace the version number `x.y.z` with the tag that matches the Content Services version you want to 
-    > deploy. For example, if you want Content Services 7.4.0, then select tag `6.0.0`.
+    > deploy. For example, if you want Content Services 7.3.0, then select tag `5.3.0`.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to 
     > determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 
@@ -289,7 +289,7 @@ from the left column that corresponds to the required Content Services version y
    ```yaml
    transform-router:
      mem_limit: 512m
-     image: quay.io/alfresco/alfresco-transform-router:2.1.0
+     image: quay.io/alfresco/alfresco-transform-router:2.0.0
      environment:
        JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
        ACTIVEMQ_URL: "nio://activemq:61616"
@@ -313,7 +313,7 @@ from the left column that corresponds to the required Content Services version y
        - activemq
    
    shared-file-store:
-     image: quay.io/alfresco/alfresco-shared-file-store:2.1.0
+     image: quay.io/alfresco/alfresco-shared-file-store:2.0.0
      mem_limit: 512m
      environment:
        JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
@@ -340,14 +340,13 @@ from the left column that corresponds to the required Content Services version y
     Creating docker-compose-shared-file-store-1 ... done
     Creating docker-compose-sync-service-1      ... done
     Creating docker-compose-alfresco-1          ... done
-    Creating docker-compose-control-center-1    ... done
     Creating docker-compose-share-1             ... done
     Creating docker-compose-postgres-1          ... done
     Creating docker-compose-activemq-1          ... done
     Creating docker-compose-proxy-1              ... done
     Creating docker-compose-transform-router-1   ... done
     Creating docker-compose-transform-core-aio-1 ... done
-    Attaching to docker-compose-digital-workspace-1, docker-compose-shared-file-store-1, docker-compose-alfresco-1, ...
+    Attaching to docker-compose-digital-workspace-1, docker-compose-shared-file-store-1, docker-compose-alfresco-1,
     ```
 
     As an alternative, you can also start the containers in the background by running `docker-compose up -d`.
@@ -411,17 +410,17 @@ Use this information to verify that the system started correctly, and to clean u
         Container                             Repository                                     Tag                        Image Id         Size
         ---------------------------------------------------------------------------------------------------------------------------------------
         docker-compose-activemq-1             alfresco/alfresco-activemq                     5.17.1-jre11-rockylinux8   0cd1a9629a85     632MB
-        docker-compose-alfresco-1             quay.io/alfresco/alfresco-content-repository   7.4.0.1                    d46dfa317b0f     1.17GB
-        docker-compose-control-center-1       quay.io/alfresco/alfresco-control-center       8.0.0                      00b19f0d2244     85.1MB
-        docker-compose-digital-workspace-1    quay.io/alfresco/alfresco-digital-workspace    4.0.0                      07ca60ecd152     93.2MB
+        docker-compose-alfresco-1             quay.io/alfresco/alfresco-content-repository   7.3.0                      13fbb0267e48     1.3GB
+        docker-compose-control-center-1       quay.io/alfresco/alfresco-admin-app            7.6.0                      f64bca8ae242     44.6MB
+        docker-compose-digital-workspace-1    quay.io/alfresco/alfresco-digital-workspace    3.1.0                      5842196a4fb4     576MB
         docker-compose-postgres-1             postgres                                       14.4                       e09e90144645     376MB
         docker-compose-proxy-1                alfresco/alfresco-acs-nginx                    3.4.2                      f9c4519b7920     23.5MB
-        docker-compose-share-1                quay.io/alfresco/alfresco-share                7.4.0.1                    c3dc5af44b20     738MB
-        docker-compose-shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    2.1.0                      4ea78d0abf13     587MB
-        docker-compose-solr6-1                alfresco/alfresco-search-services              2.0.7                      8c828de69496     791MB
-        docker-compose-sync-service-1         quay.io/alfresco/service-sync                  3.9.0                      0d717fce2b8d     688MB
-        docker-compose-transform-core-aio-1   alfresco/alfresco-transform-core-aio           3.1.0                      db73d71dc7d8     1.72GB
-        docker-compose-transform-router-1     quay.io/alfresco/alfresco-transform-router     2.1.0                      76695adf9e9f     621MB       
+        docker-compose-share-1                quay.io/alfresco/alfresco-share                7.3.0                      e77a380ab703     720MB
+        docker-compose-shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    2.0.0                      32d64489f2b6     607MB
+        docker-compose-solr6-1                alfresco/alfresco-search-services              2.0.5                      936f6335d2e5     920MB
+        docker-compose-sync-service-1         quay.io/alfresco/service-sync                  3.8.0                      0418d131e179     629MB
+        docker-compose-transform-core-aio-1   alfresco/alfresco-transform-core-aio           3.0.0                      c97305a9232a     1.69GB
+        docker-compose-transform-router-1     quay.io/alfresco/alfresco-transform-router     2.0.0                      c084269f2c47     597MB       
         ```
 
     2. List the running containers:
@@ -472,7 +471,6 @@ Use this information to verify that the system started correctly, and to clean u
     Stopping docker-compose-shared-file-store-1  ... done
     Stopping docker-compose-postgres-1           ... done
     Stopping docker-compose-activemq-1           ... done
-    Stopping docker-compose-control-center-1     ... done
     Stopping docker-compose-share-1              ... done
     Stopping docker-compose-solr6-1              ... done
     Stopping docker-compose-alfresco-1           ... done
@@ -538,18 +536,18 @@ metadata extraction capabilities. Ensure that you've installed the [prerequisite
 before continuing.
 
 1. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"} and download 
-   `alfresco-transform-service-distribution-2.1.x.zip`.
+   `alfresco-transform-service-distribution-2.0.x.zip`.
 
 2. Extract the zip file into a system directory; for example, `<installLocation>/`.
 
     In this directory you'll see the following content including three runnable JAR files:
 
-    * `alfresco-shared-file-store-controller-2.1.x.jar`
-    * `alfresco-transform-core-aio-boot-3.1.x.jar`
-    * `alfresco-transform-router-2.1.x.jar`
+    * `alfresco-shared-file-store-controller-2.0.x.jar`
+    * `alfresco-transform-core-aio-boot-3.0.x.jar`
+    * `alfresco-transform-router-2.0.x.jar`
     * `README.md`
     * IPTC Content Model (needs to be bootstrapped into Alfresco Content Services for IPTC Metadata extraction to work, 
-      unless you are using Alfresco Content Services version 7.1.0+. See [Supported platforms]({% link transform-service/latest/support/index.md %}) 
+      unless you are using Alfresco Content Services version 7.1.0+. See [Supported platforms]({% link transform-service/2.0/support/index.md %}) 
       for more information.
 
 3. Start Active MQ.
@@ -573,7 +571,7 @@ before continuing.
 
     ```java
     java -DfileStorePath=/path/to/your/AlfrescoFileStore -Dscheduler.contract.path=/path/to/tempdir/scheduler.json
-     -jar alfresco-shared-file-store-controller-2.1.x.jar
+     -jar alfresco-shared-file-store-controller-2.0.x.jar
     ```
 
     Check the output to ensure that it starts successfully.
@@ -629,7 +627,7 @@ before continuing.
      -DCORE_AIO_QUEUE=org.alfresco.transform.engine.aio.acs
      -DACTIVEMQ_URL=failover:(tcp://server:61616)?timeout=3000
      -DFILE_STORE_URL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file
-     -jar alfresco-transform-router-2.1.x.jar
+     -jar alfresco-transform-router-2.0.x.jar
     ```
 
     Check the output to ensure that it starts successfully.
@@ -664,7 +662,7 @@ before continuing.
     > the updates. See the Content Services documentation [Using alfresco-global.properties]({% link content-services/latest/config/index.md%}#using-alfresco-globalproperties) 
     > for more information.
 
-8. Check that the [configuration]({% link transform-service/latest/config/index.md %}) is set up correctly for your environment.
+8. Check that the [configuration]({% link transform-service/2.0/config/index.md %}) is set up correctly for your environment.
 
 9. Restart Alfresco Content Services.
 
