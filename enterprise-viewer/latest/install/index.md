@@ -563,7 +563,7 @@ This section walks through how to install the web applications on a separate Tom
 
 8. For AEV 3.5.1 or later, verify the `secureBrowserCookies` configuration. If you are planning to setup SSL then `secureBrowserCookies` should be set to `true`, else it should be `false` (the default).
 
-In the `openannotate-override-placeholders.properties` set the following property accordingly: `secureBrowserCookies=`
+   In the `openannotate-override-placeholders.properties` set the following property accordingly: `secureBrowserCookies=`
 
 9. Copy the `openannotate-override-placeholders.properties` file to the Tomcat classpath, for example, in the `TOMCAT_HOME/shared/classes` directory.
 
@@ -607,7 +607,7 @@ This section walks through how to install the web applications on Alfresco Tomca
 
 7. For AEV 3.5.1 or later, verify the `secureBrowserCookies` configuration. If you are planning to setup SSL then `secureBrowserCookies` should be set to `true`, else it should be `false` (the default).
 
-In the `openannotate-override-placeholders.properties` set the following property accordingly: `secureBrowserCookies=`
+   In the `openannotate-override-placeholders.properties` set the following property accordingly: `secureBrowserCookies=`
 
 8. Copy the `openannotate-override-placeholders.properties` file to the `/alfresco` classpath, for example, in the `ALFRESCO_HOME/tomcat/shared/classes` directory.
 
