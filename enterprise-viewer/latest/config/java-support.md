@@ -4,7 +4,7 @@ title: ACA/AEV Java 17 Support
 
 ## Background
 
-Deploying ACA/AEV in a Java 17 runtime environment is supported with the 3.5.1 release of ACA/AEV via two different approaches. “Illegal reflective accesses” previously generate warnings in older JDK versions, but as of JDK17, reflection is forbidden out of the box, unless the given modules are explicitly requested. See further information on why reflection has become forbidden in the JDK 17 release in the documentation here: ![JEP 403: Strongly Encapsulate JDK Internals]({% link https://openjdk.org/jeps/403 %}).
+Deploying ACA/AEV in a Java 17 runtime environment is supported with the 3.5.1 release of ACA/AEV via two different approaches. “Illegal reflective accesses” previously generate warnings in older JDK versions, but as of JDK17, reflection is forbidden out of the box, unless the given modules are explicitly requested. See further information on why reflection has become forbidden in the JDK 17 release in the documentation here: ![JEP 403: Strongly Encapsulate JDK Internals](https://openjdk.org/jeps/403).
 
 ## How does this impact ACA/AEV?
 
