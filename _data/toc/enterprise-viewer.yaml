@@ -35,6 +35,8 @@
           path: '/enterprise-viewer/latest/config/faq/'
         - title: 'Supported languages'
           path: '/enterprise-viewer/latest/config/supported-languages/'
+        - title: 'Java 17 support'
+          path: '/enterprise-viewer/latest/config/java-support/'
     - title: 'Develop'
       pages:
         - title: 'Integrations'
