@@ -1,18 +1,16 @@
 ---
-title: ACA/AEV Java 17 Support
+title: Java 17 Support
 ---
 
-## Background
+Deploying ACA/AEV in a Java 17 runtime environment is supported with the 3.5.1 release of ACA/AEV via two different approaches. “Illegal reflective accesses” previously generate warnings in older JDK versions, but as of JDK17, reflection is forbidden out of the box, unless the given modules are explicitly requested. See further information on why reflection has become forbidden in the JDK 17 release in the documentation here: [JEP 403: Strongly Encapsulate JDK Internals](https://openjdk.org/jeps/403).
 
-Deploying ACA/AEV in a Java 17 runtime environment is supported with the 3.5.1 release of ACA/AEV via two different approaches. “Illegal reflective accesses” previously generate warnings in older JDK versions, but as of JDK17, reflection is forbidden out of the box, unless the given modules are explicitly requested. See further information on why reflection has become forbidden in the JDK 17 release in the documentation here: ![JEP 403: Strongly Encapsulate JDK Internals](https://openjdk.org/jeps/403).
-
-## How does this impact ACA/AEV?
+### Impact on ACA/AEV
 
 ACA/AEV utilize Ehcache as their caching mechanism. Cache sizes are limited by bytes out of the box in ACA/AEV to prevent caches from growing larger than what the system resources allow. Ehcache manages byte based cache limits by utilizing reflection (which is now forbidden with JDK 17).
 
-## Options for Utilizing ACA/AEV with JDK 17
+### Utilizing ACA/AEV with JDK 17
 
-### Option 1 - Allow reflection
+#### Option 1 - Allow reflection
 
 In order to deploy ACA/AEV in a Java 17 runtime environment, you can add java command line flags in the Java Runtime Environment where ACS is installed to allow reflection to continue to occur in Java 17.
 
@@ -26,7 +24,7 @@ We can add the following flags to the `_JAVA_OPTIONS` Environment Variable:
 
 The `_JAVA_OPTIONS` Environment Variable passes options to any JVM process started on your system. When a JVM starts, it parses the value of `_JAVA_OPTIONS` as if the parameters were at the command line of java.  So adding those options to this environment variable in the system where ACS is installed will allow for reflection to occur on those classes on any JVM process started on the system.
 
-### Option 2 - Limit cache sizes based on entries
+#### Option 2 - Limit cache sizes based on entries
 
 Limiting Ehcache cache sizes by number of entries instead of bytes prevents Ehcache from needing to utilize reflection which keeps us in the bounds of what JDK 17 allows out of the box.  This can be done by overriding the ACA/AEV `ehcache.xml` configuration file in a custom amp and reconfiguring the Ehcache configuration files to limit cache sizes by number of entries.
 
