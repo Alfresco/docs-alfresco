@@ -13,3 +13,9 @@ Follow these steps to upgrade Enterprise Viewer 3.3 to 3.5
 * Start up and verify the application is working as expected.
 
 > **Note:** Video link URLs have changed slightly with the newly embedded AEVV web application. Ensure your network settings or previous direct links are updated if necessary.
+
+## Upgrading to 3.5.1 and above
+
+For AEV 3.5.1 or later, verify the `secureBrowserCookies` configuration. If you have setup SSL then `secureBrowserCookies` should be set to `true`, else it should be `false` (the default).
+
+In the `openannotate-override-placeholders.properties` set the following property accordingly: `secureBrowserCookies=`.
