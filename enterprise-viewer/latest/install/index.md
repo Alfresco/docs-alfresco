@@ -14,7 +14,7 @@ You can install the Enterprise Viewer using a distribution ZIP. Download the fol
 
 ### Java
 
-Enterprise Viewer requires Java 11 or above. Consult your repository of choice for more detailed requirements. If you are using Java 17, refer to our [Java 17 support guide]({% link /enterprise-viewer/latest/config/java-support/ %}).
+Enterprise Viewer requires Java 11 or above. Consult your repository of choice for more detailed requirements. If you are using Java 17, refer to our [Java 17 support guide]({% link enterprise-viewer/latest/install/java-support.md %}).
 
 ### Alfresco repository version
 
