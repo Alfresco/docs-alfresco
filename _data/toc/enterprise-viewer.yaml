@@ -7,6 +7,8 @@
       pages:
         - title: 'Overview'
           path: '/enterprise-viewer/latest/install/'
+        - title: 'Java 17 support'
+          path: '/enterprise-viewer/latest/config/java-support/'
         - title: 'Install Alfresco Enterprise Viewer Transformer (optional)'
           path: '/enterprise-viewer/latest/install/aevt/'
         - title: 'Upgrade'
@@ -35,8 +37,6 @@
           path: '/enterprise-viewer/latest/config/faq/'
         - title: 'Supported languages'
           path: '/enterprise-viewer/latest/config/supported-languages/'
-        - title: 'Java 17 support'
-          path: '/enterprise-viewer/latest/config/java-support/'
     - title: 'Develop'
       pages:
         - title: 'Integrations'
