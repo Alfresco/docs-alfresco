@@ -31,6 +31,7 @@ The following features, which were supported with Search and Insight Engine 2.x 
 
 * PATHWITHREPEATS
 * PNAME
+* ANAME
 * NPATH
 * PARENT
 * PRIMARYPARENT
