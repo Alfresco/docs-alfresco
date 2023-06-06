@@ -16,6 +16,10 @@ You will need to download the following distribution zips in order to install AC
 * (Claims Only) alfresco-content-accelerator-claims-accelerator-3.5.0.zip
 * (Pnp Only) alfresco-content-accelerator-policy-and-procedure-accelerator-3.5.0.zip
 
+### Java
+
+Enterprise Viewer requires Java 11 or above. Consult your repository of choice for more detailed requirements. If you are using Java 17, refer to our [Java 17 support guide]({% link content-accelerator/latest/install/java-support.md %}).
+
 ### Alfresco repository version
 
 See the [Supported Platforms]({% link content-accelerator/latest/support/index.md %}) for more information.
