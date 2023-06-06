@@ -18,7 +18,7 @@ You will need to download the following distribution zips in order to install AC
 
 ### Java
 
-Enterprise Viewer requires Java 11 or above. Consult your repository of choice for more detailed requirements. If you are using Java 17, refer to our [Java 17 support guide]({% link content-accelerator/latest/install/java-support.md %}).
+Content Accelerator requires Java 11 or above. Consult your repository of choice for more detailed requirements. If you are using Java 17, refer to our [Java 17 support guide]({% link content-accelerator/latest/install/java-support.md %}).
 
 ### Alfresco repository version
 
