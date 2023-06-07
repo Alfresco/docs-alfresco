@@ -295,7 +295,7 @@ The expression editor provides helpful information when you place the cursor ove
 
 ## Process Analytics
 
-> **Important:** Process Analytics is a Beta feature. This means it can only be used in a development environment for an experimental use case, and is not intended for production use. It may contain bugs or errors, and may be prone to breaking changes in the future based on Beta testing.
+> **Important:** Process Analytics is only applicable for use by Alfresco Activiti Enterprise customers who are self managed. It is not compatible for use with Process Automation.
 
 Process Analytics exposes a set of APIs that can be used to query business metrics about process instances and user tasks. The query language it uses is GraphQL.
 
