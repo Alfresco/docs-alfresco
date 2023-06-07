@@ -2,7 +2,7 @@
 title: Install with Ansible
 ---
 
-This page describes how to install Content Services using an [Ansible](https://www.ansible.com){:target="_blank"} playbook. Ansible is an open-source software provisioning, configuration management, and application installation tool that enables infrastructure as code. Alfresco provides an Ansible playbook capable of installing Content Services (Enterprise Edition) version 7.3.
+This page describes how to install Content Services using an [Ansible](https://www.ansible.com){:target="_blank"} playbook. Ansible is an open-source software provisioning, configuration management, and application installation tool that enables infrastructure as code. Alfresco provides an Ansible playbook capable of installing Content Services (Enterprise Edition) version .
 
 Before continuing you need to be familiar with some [Ansible concepts](https://docs.ansible.com/ansible/latest/user_guide/basic_concepts.html){:target="_blank"}: and the notion of [idempotency](https://docs.ansible.com/ansible/latest/reference_appendices/glossary.html#term-Idempotency){:target="_blank"}:.
 
@@ -242,7 +242,7 @@ The diagram below shows the result of a local installation.
 
 ![acs-localhost]({% link content-services/images/acs-localhost.png %})
 
-To install Content Services 7.3 (Enterprise) on your local machine, navigate to the folder where you extracted the ZIP, and run the playbook as the current user (the playbook will escalate privileges when required):
+To install Content Services  (Enterprise) on your local machine, navigate to the folder where you extracted the ZIP, and run the playbook as the current user (the playbook will escalate privileges when required):
 
 ```bash
 cd alfresco-ansible-deployment-<version>
