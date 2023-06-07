@@ -106,7 +106,7 @@ Use this information to verify that the system started correctly, and to clean u
         docker-compose images
         ```
 
-        You should see a list of the services defined in your `docker-compose.yml` file (below are the tags used in the latest 7.3.0 release):
+        You should see a list of the services defined in your `docker-compose.yml` file (below are the tags used in the latest 7.4.0 release):
 
         ```text
         Container                        Repository                                     Tag                       Image Id       Size
