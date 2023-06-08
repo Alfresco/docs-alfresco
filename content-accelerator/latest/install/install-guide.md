@@ -8,19 +8,23 @@ There are a number of software requirements for installing the Content Accelerat
 
 ### Distribution Zips
 
-The Content Accelerator can be installed using distribution zips. These zips can be downloaded from Hyland Community.
+The Content Accelerator can be installed using distribution zips. These zips can be downloaded from [Hyland Community](https://community.hyland.com/Products/alfresco/release-notes/release-notes/Alfresco-Content-Accelerators-on-premise-Releases){:target="_blank"}.
 
-You will need to download the following distribution zips in order to install ACA
+You will need to download the following distribution zips in order to install ACA:
 
-* alfresco-content-accelerator-base-package-3.5.0.zip
-* (Claims Only) alfresco-content-accelerator-claims-accelerator-3.5.0.zip
-* (Pnp Only) alfresco-content-accelerator-policy-and-procedure-accelerator-3.5.0.zip
+* alfresco-content-accelerator-base-package-3.5.x.zip
+* (Claims Only) alfresco-content-accelerator-claims-accelerator-3.5.x.zip
+* (Pnp Only) alfresco-content-accelerator-policy-and-procedure-accelerator-3.5.x.zip
+
+### Java
+
+Content Accelerator requires Java 11 or above. Consult your repository of choice for more detailed requirements. If you are using Java 17, refer to our [Java 17 support guide]({% link content-accelerator/latest/install/java-support.md %}).
 
 ### Alfresco repository version
 
 See the [Supported Platforms]({% link content-accelerator/latest/support/index.md %}) for more information.
 
-Please ensure you have the correct version of the Content Accelerator package for your Alfresco Content Services version. If you are unsure, please contact Alfresco Support.
+Please ensure you have the correct version of the Content Accelerator package for your Alfresco Content Services version. If you are unsure, please [contact Hyland Support]({% link support/latest/contact.md %}).
 
 ### Operating System requirements
 
