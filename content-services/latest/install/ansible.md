@@ -85,7 +85,7 @@ If you're using the Enterprise edition of Content Services, then you need creden
 
 ### Control Node
 
-In addition to the requirements mentioned earlier for control nodes in general, the playbook requires Ansible 2.12+, which in turn requires Python 3.8+.
+In addition to the requirements mentioned earlier for control nodes in general, the playbook requires Ansible 2.12+, which in turn requires Python 3.9+.
 
 ### Target O/S
 
@@ -114,23 +114,23 @@ While Content Services supports a wide range of OS, the playbook is only support
 
 The table below shows the version of the components deployed by the playbook for Content Services 7.x and Community.
 
-| Component | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0.N Enterprise | Community |
-|-|-|-|-|-|-|
-| OpenJDK | 17.0.3 | 11.0.13 | 11.0.13 | 11.0.13 | 17.0.03 |
-| Apache Tomcat | 9.0.59 | 9.0.59 | 9.0.59 | 9.0.59 | 9.0.59 |
-| PostgreSQL | 14.x | 13.x | 13.x | 13.x | 13.x |
-| Apache ActiveMQ | 5.16.4 | 5.16.4 | 5.16.4 | 5.16.4 | 5.16.4 |
-| Repository | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 7.2.0 |
-| Share | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 7.2.0 |
-| Search Services | 2.0.5 | 2.0.4 | 2.0.2 | 2.0.1.1 | 2.0.3 |
-| Search Enterprise | 3.2.0 | 3.1.1 | 3.1.1 | - | - |
-| All-In-One Transform Engine | 3.0.0 | 2.5.7 | 2.5.6 | 2.3.10 | 2.5.7 |
-| AOS | 1.5.0 | 1.4.1 | 1.4.0 | 1.4.0 | - |
-| GoogleDocs | 3.3.0 | 3.2.2 | 3.2.1 | 3.2.1 | - |
-| Digital Workspace | 3.1.0 | 2.9.0 | 2.6.0 | 2.1.0 | N/A |
-| Transform Router | 2.0.0 | 1.5.3 | 1.5.1 |1.3.2 | N/A |
-| Shared File Store | 2.0.0 | 0.16.1 | 0.16.1 | 0.13.0 | N/A |
-| Sync Service | 3.8.0 | 3.6.0 | 3.5.0 | 3.4.0 | N/A |
+| Component | 7.4 Enterprise | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0 Enterprise | Community |
+|-|-|-|-|-|-|-|
+| OpenJDK | 17.0.3 | 17.0.3 | 11.0.15 | 11.0.15 | 11.0.15 | 17.0.03 |
+| Apache Tomcat | 9.0.59 | 9.0.59 | 9.0.59 | 9.0.59 | 8.5.76 | 9.0.59 |
+| PostgreSQL | 14.x | 14.x | 13.x | 13.x | 13.x | 14.x |
+| Apache ActiveMQ | 5.16.6 | 5.16.6 | 5.16.6 | 5.16.6 | 5.16.6 | 5.16.6 |
+| Repository | 7.4.0 | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 7.4.0 |
+| Share | 7.4.0 | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 7.4.0 |
+| Search Services | 2.0.6.1 | 2.0.5 | 2.0.4 | 2.0.2 | 2.0.1.1 | 2.0.6.1 |
+| Search Enterprise | 3.3.0 | 3.2.0 | 3.1.1 | 3.1.1 | - | N/A |
+| All-In-One Transform Engine | 3.1.0 | 3.0.0 | 2.5.7 | 2.5.6 | 2.3.10 | 3.1.0 |
+| AOS | 1.6.0 | 1.5.0 | 1.4.1 | 1.4.0 | 1.4.0 | 1.6.0 |
+| GoogleDocs | 3.4.0 | 3.3.0 | 3.2.2 | 3.2.1 | 3.2.1 | 3.4.0 |
+| Digital Workspace | 4.0.0 | 3.1.0 | 2.9.0 | 2.6.0 | 2.1.0 | N/A |
+| Transform Router | 2.1.0 | 2.0.0 | 1.5.3 | 1.5.1 |1.3.2 | N/A |
+| Shared File Store | 2.1.0 | 2.0.0 | 0.16.1 | 0.16.1 | 0.13.0 | N/A |
+| Sync Service | 3.9.0 | 3.8.0 | 3.6.0 | 3.5.0 | 3.4.0 | N/A |
 
 ## Set up Ansible
 
@@ -151,7 +151,7 @@ Not all distributions of Linux may match the version requirements for Ansible an
 2. Check prerequisites and install required tools:
 
     ```bash
-    python --version # must be at least 3.8 in order to use Ansible 2.12
+    python --version # must be at least 3.9 in order to use Ansible 2.12
     sudo apt install virtualenvwrapper unzip # Use your distro's package manager instead of apt if it's not Debian based
     ```
 
@@ -251,6 +251,7 @@ ansible-playbook playbooks/acs.yml -i inventory_local.yml
 
 Alternatively, to deploy other versions of Content Services use one of the following commands:
 
+* **7.3:** `ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@7.3.N-extra-vars.yml"`
 * **7.2:** `ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@7.2.N-extra-vars.yml"`
 * **7.1:** `ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@7.1.N-extra-vars.yml"`
 * **7.0:** `ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@7.0.N-extra-vars.yml"`
@@ -311,6 +312,7 @@ ansible all -m ping -i inventory_ssh.yml
 
 To deploy different versions of Content Services use one of the following commands:
 
+* **7.3:** `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.3.N-extra-vars.yml"`
 * **7.2:** `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.2.N-extra-vars.yml"`
 * **7.1:** `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.1.N-extra-vars.yml"`
 * **7.0:** `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.0.N-extra-vars.yml"`
@@ -353,6 +355,7 @@ ansible all -m ping -i inventory_ssh.yml
 
 To deploy different versions of Content Services use one of the following commands:
 
+* **7.3:** `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.3.N-extra-vars.yml"`
 * **7.2:** `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.2.N-extra-vars.yml"`
 * **7.1:** `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.1.N-extra-vars.yml"`
 * **7.0:** `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.0.N-extra-vars.yml"`
@@ -482,7 +485,7 @@ The following `systemd` services are installed, which you can use to stop and st
 | Service Name | Purpose |
 | ------------ | ------- |
 | `activemq.service` | ActiveMQ Service |
-| `postgresql-<version>.service` | PostgreSQL DB Service (where `<version>` is 13 for Content Services 7.x and 14 for Content Services 7.3) |
+| `postgresql-<version>.service` | PostgreSQL DB Service (where `<version>` is 13 for Content Services 7.x and 14 for Content Services 7.3 or 7.4) |
 | `nginx.service` | NGINX Service |
 | `alfresco-content.service` | Content Service |
 | `alfresco-search.service` | Alfresco Search Services |
@@ -863,7 +866,7 @@ Below are the services, packages & folders we are removing when uninstalling.
    * alfresco-content.service
    * nginx.service
    * activemq.service
-   * postgres-`version`.service (where `version` is 13 for Content Services 7.x and 14 for Content Services 7.3)
+   * postgres-`version`.service (where `version` is 13 for Content Services 7.x and 14 for Content Services 7.3 or 7.4)
 
 2. Remove the following `yum` packages:
 
