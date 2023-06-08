@@ -189,7 +189,7 @@ The order of the columns can be adjusted.
 
 2. Access the six dots on the top right of a column by hovering your mouse over the name of the column.
 
-2. Click and hold the six dots and then move the column on top of another column.
+3. Click and hold the six dots and then move the column on top of another column.
 
     This moves the columns to the left one position and the column you are moving takes the place of the one underneath.
 
@@ -204,6 +204,21 @@ The columns that are visible can be adjusted.
 3. Select which columns you want show and then click **Apply**.
 
 ![Select columns]({% link process-automation/images/select-columns.png %})
+
+### Column width
+
+You can adjust the width of the columns of the **Process Management** section. To do this select the edge of the columns and adjust them to the desired width. Once you change one column, all the columns with the same name are also adjusted. If you log out and then log back in again, the new column widths is preserved.
+
+This feature is enabled by default for the **Process Management** section. If you want to adjust the column widths in the same way for the **Personal Files** or **File Libraries** sections of the Digital Workspace, you must turn it on by editing the `libs/content-ee/process-services-cloud-extension/assets/process-services-cloud.extension.json` file and adding the following:
+
+```json
+"column-resizing": [
+                    {
+                        "id": "column-resizing",
+                        "enabled": true
+                    }
+                ]
+```
 
 ## Condition builder {#condition-builder}
 
