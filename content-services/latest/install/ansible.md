@@ -85,30 +85,37 @@ If you're using the Enterprise edition of Content Services, then you need creden
 
 ### Control Node
 
-In addition to the requirements mentioned earlier for control nodes in general, the playbook requires Ansible 2.12+, which in turn requires Python 3.9+.
+In addition to the requirements mentioned earlier for control nodes in general, the playbook requires Ansible 2.14+, which in turn requires Python 3.9+.
 
 ### Target O/S
 
-While Content Services supports a wide range of OS, the playbook is only supported for a subset of them. The table below gives detailed information on the status of supported OS (additional target environments will be added in future releases):
+While Content Services supports a wide range of OS, the playbook is only supported for a subset of them. The table below gives detailed information on the status of supported OS:
 
-| OS Flavor / version | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0 Enterprise | Community |
+Legend
+* Y platform supported and tested on this playbook
+* [Y] platform supported but not automatically tested on this playbook
+* X platform not supported by this playbook (despite officially supported by Alfresco)
+* - platform not officially supported by Alfresco
+
+| OS Flavor / version | 7.4 Enterprise / Community | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0 Enterprise |
 |-|-|-|-|-|-|
-| Amazon Linux (v2) | - | - | - | - | - |
-| Amazon Linux (v1) | - | - | - | - | - |
-| RHEL 8.6 | [x] | - | - | - | [x] |
-| RHEL 8.5 | [x] | [x] | - | - | [x] |
-| RHEL 8.4 | [x] | [x] | [x] |[x] | [x] |
-| RHEL 8.2 | [x] | [x] | [x] | [x] | [x] |
-| RHEL 7.7 | - | - | [x] | [x] | [x] |
-| RHEL 7.6 | - | - | [x] | [x] | [x] |
-| CentOS 7 x64 | [x] | [x] | [x] |[x] | [x] |
-| Ubuntu 22.04 | [x] | - | - | - | [x] |
-| Ubuntu 20.04 | [x] | [x] | [x] | [x] | [x] |
-| Ubuntu 18.04 | - | - | [x] | [x] | [x] |
-| SUSE 15.0 | - | - | - | - | - |
-| SUSE 12.0 SP1 x64 | - | - | - | - | - |
+| Amazon Linux (v2) | X | X | X | X | X |
+| Amazon Linux (v1) | X | X | X | X | X |
+| RHEL 8.7 | [Y] | - | - | - | - |
+| RHEL 8.6 | Y | Y | - | - | - |
+| RHEL 8.5 | [Y] | Y | Y | - | - |
+| RHEL 8.4 | - | Y | Y | Y | Y |
+| RHEL 8.2 | - | Y | Y | Y | Y |
+| RHEL 7.7 | - | - | - | Y | Y |
+| RHEL 7.6 | - | - | - | Y | Y |
+| CentOS 7 x64 | [Y] | Y | Y | Y | Y |
+| Ubuntu 22.04 | Y | Y | - | - | - |
+| Ubuntu 20.04 | Y | Y | Y | Y | Y |
+| Ubuntu 18.04 | - | - | Y | Y | Y |
+| SUSE 15.0 | - | - | - | - | X |
+| SUSE 12.0 SP1 x64 | - | - | - | - | X |
 
-> **Note:** Ansible version 2.12.x is used for testing this playbook.
+> **Note:** Ansible version 2.14.x is used for testing this playbook.
 
 ### Component versions
 
@@ -151,7 +158,7 @@ Not all distributions of Linux may match the version requirements for Ansible an
 2. Check prerequisites and install required tools:
 
     ```bash
-    python --version # must be at least 3.9 in order to use Ansible 2.12
+    python --version # must be at least 3.9 in order to use Ansible 2.14
     sudo apt install virtualenvwrapper unzip # Use your distro's package manager instead of apt if it's not Debian based
     ```
 
