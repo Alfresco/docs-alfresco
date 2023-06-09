@@ -144,3 +144,9 @@ optimus.openContentUrl=http://alfresco:8080/alfresco/OpenContent
 optimus.defaultTransformer=pdfium
 pdfium-configs.executablePath=/opt/pdfium
 ```
+
+## Limitations
+
+AEVT only supports Content Services installations that have a single content store. If multiple content stores are being used, AEVT will not operate properly.
+
+AEVT reads content directly from a content store or S3. This means that installations where the content is stored elsewhere cannot be implemented for use with AEVT. For example if a document is stored in Content Services as a link, which navigates to another source system, AEVT will not work properly.
