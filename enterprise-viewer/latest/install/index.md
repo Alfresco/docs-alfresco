@@ -2,13 +2,15 @@
 title: Install Enterprise Viewer
 ---
 
-> **Important:** If you're installing both Alfresco Content Accelerator (ACA) and Alfresco Enterprise Viewer (AEV), we recommend that you start with the ACA install guide.
+Use this information to install the Enterprise Viewer. If you're installing both the Content Accelerator and the Enterprise Viewer, its recommended that you start with the Content Accelerator install guide.
 
 ## Prerequisites
 
+> **Important:** If the Enterprise Viewer license you have been issued with is a `GROUP` license you must create a group within Alfresco that contains the people you want to have access to the Enterprise Viewer. This new group must be named: `aev_users`. All the people outside of this group will continue to see the default PDF viewer. If this is done after the installation of the Enterprise Viewer, then you must restart Tomcat for the changes to take effect.
+
 ### Distribution zips
 
-You can install the Enterprise Viewer using a distribution ZIP. Download the following ZIP file from Hyland Community:
+You can install the Enterprise Viewer using a distribution ZIP. Download the following ZIP file from [Hyland Community](https://community.hyland.com/products/alfresco){:target="_blank"}:
 
 * `alfresco-enterprise-viewer-package-3.5.0.zip`
 
