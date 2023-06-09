@@ -95,7 +95,7 @@ Legend
 * Y platform supported and tested on this playbook
 * [Y] platform supported but not automatically tested on this playbook
 * X platform not supported by this playbook (despite officially supported by Alfresco)
-* - platform not officially supported by Alfresco
+* \- platform not officially supported by Alfresco
 
 | OS Flavor / version | 7.4 Enterprise / Community | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0 Enterprise |
 |-|-|-|-|-|-|
