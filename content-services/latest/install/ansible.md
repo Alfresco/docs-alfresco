@@ -147,15 +147,24 @@ The table below shows the version of the components deployed by the playbook for
 
 Not all distributions of Linux may match the version requirements for Ansible and its dependencies. Below we describe how to configure a control node with one of the many ways to set a Python virtual environment. With Python `virtualenvs` you can install the exact same versions of Ansible we use when testing without impacting your system installation of Python. By doing so, you're ensuring the best chances of success.
 
-1. Download the Ansible playbook [zip file](https://nexus.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/alfresco-ansible-deployment/2.2.1/alfresco-ansible-deployment-2.2.1.zip){:target="_blank"}.
+1. Download the Ansible playbook [zip file](https://nexus.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/alfresco-ansible-deployment/2.3.0/alfresco-ansible-deployment-2.3.0.zip){:target="_blank"}.
 
    If you're not working directly on the control node, transfer the ZIP file to the control node together with the SSH private key required to login to the target machines, and SSH into the control node.
 
    ```bash
    scp  alfresco-ansible-deployment-<version>.zip user@controlnode:
-   scp  ~/.ssh/ansible_rsa user@controlnode:.ssh
+   scp  -i ~/.ssh/ansible_rsa user@controlnode:.ssh
    ssh  user@controlnode
+   unzip alfresco-ansible-deployment-<version>.zip
+   cd alfresco-ansible-deployment
    ```
+  
+  You can also use Git to fetch latest sources (or a specific release for example by adding -b v2.1.0) on the control node with:
+
+   ```bash
+  git clone https://github.com/Alfresco/alfresco-ansible-deployment.git
+  cd alfresco-ansible-deployment
+  ```
 
    > **Note:** You may want to generate an SSH key pair locally and use it later for deployment. Whether you use a locally generated key, or copy over a key to the control node, it is your responsibility to deploy it to the target machines so Ansible can use it. Using SSH keys is recommended but not mandatory. If you instead use password, make sure to add the `-k` switch to the `ansible` command, so it prompts you for a password.
 
