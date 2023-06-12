@@ -87,11 +87,6 @@ The `auth` block should look like this:
 }
 ```
 
-### FAQ
-
-<!-- Verify with PM team about inclusion - docs shouldn't have forward-looking statements. Include in Support KB article??
---->
-
 ## Direct SAML configuration steps
 
 The following configuration steps are used to enable Direct SAML SSO integration.
