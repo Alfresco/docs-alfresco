@@ -655,13 +655,13 @@ pipenv run ansible-playbook  -e vault_init=encrypted_file playbooks/secrets-init
 After the first run, you can access the encrypted file vault with:
 
 ```bash
-ansible-vault view vars/secrets.yml
+pipenv run ansible-vault view vars/secrets.yml
 ```
 
 or to add/edit secrets with:
 
 ```bash
-ansible-vault edit vars/secrets.yml
+pipenv run ansible-vault edit vars/secrets.yml
 ```
 
 Please refer to the [official documentation](https://docs.ansible.com/ansible/latest/user_guide/vault.html) to learn how to interact with existing encrypted variables or files.
