@@ -237,3 +237,16 @@ Refer to the image below of the UI:
 ![Power Promote]({% link content-accelerator/images/power-promote-options.png %})
 
 If you previously had the Periodic Review action configured, navigate to the ACA admin and locate the action configuration for periodic review. Set the sliders for **Require Authentication** and **Add ESignature Page** appropriately for the results you desire.
+
+### New Identity Service SSO implementation for ACA 3.5.1
+
+There is an additional option for configuring Single Sign On (SSO) beyond the ACA standard SSO configuration offered in previous releases. This new SSO implementation:
+
+* Is standardized on Identity Service as authentication/authorization provider
+* Supports Logout functionality
+* Is more configurable
+* Only supports implicit flow
+
+If you want to switch your current SSO implementation to the new 3.5.1 SSO implementation, see the additional documentation for this feature in [Installing Single Sign On (SSO)]({% link content-accelerator/latest/install/sso.md %}). <!--TODO: REPLACE LINK-->
+
+Note that this newer SSO implementation is not a replacement for the current SSO offering. The current SSO offering can continue to be used with ACA 3.5.1.
