@@ -12,7 +12,7 @@ Use this information to install the Enterprise Viewer. If you're installing both
 
 You can install the Enterprise Viewer using a distribution ZIP. Download the following ZIP file from [Hyland Community](https://community.hyland.com/products/alfresco){:target="_blank"}:
 
-* `alfresco-enterprise-viewer-package-3.5.0.zip`
+* `alfresco-enterprise-viewer-package-3.5.x.zip`
 
 ### Java
 
