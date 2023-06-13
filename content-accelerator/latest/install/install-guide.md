@@ -509,14 +509,18 @@ This section walks through how to install the web applications on a separate Tom
 
    Copy this `hpi-overrides.properties` file onto the tomcat classpath, for example, into the`TOMCAT_HOME/shared/classes` directory.
 
-8. Verify the secureBrowserCookies configuration. If you are planning to setup SSL then secureBrowserCookies should be set to `true` (this is the default), else it should be `false`.
+8. Verify the `secureBrowserCookies` configuration. If you are planning to setup SSL then `secureBrowserCookies` should be set to `true`, or else it should be `false` (this is the default).
 
    There are two places where this config will need to be updated:
 
    * `hpi-overrides.properties` on the tomcat classpath, for example, `TOMCAT_HOME/shared/classes/` directory.
    * `TOMCAT_HOME/webapps/ocms/assets/config/config-overrides.js`
 
-9. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution AND if `TOMCAT_HOME` is NOT `/opt/ocms-policy/apache-tomcat`
+9. Verify the `application.secureBrowserCookies` configuration. If you are planning to setup SSL then `application.secureBrowserCookies` should be set to `true`, or else it should be `false` (the default).
+
+   * Check `opencontent-override-placeholder.properties` on the Tomcat classpath, for example, `TOMCAT_HOME/shared/classes/` directory.
+
+10. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution AND if `TOMCAT_HOME` is NOT `/opt/ocms-policy/apache-tomcat`
 
     Navigate to `TOMCAT_HOME/webapps` and extract the `WizardAdmin.war`.
 
@@ -529,9 +533,9 @@ This section walks through how to install the web applications on a separate Tom
     * `ImpactAnalysis.properties`:
         * Lines 26, 29, 39, 40, 42, 48, 49
 
-10. Start Tomcat
+11. Start Tomcat
 
-11. Confirm you can access ACA at `http://{server}/ocms`
+12. Confirm you can access ACA at `http://{server}/ocms`
 
 ### Install web applications on Alfresco Tomcat {#install-webapps-alfresco-tomcat}
 
@@ -577,14 +581,18 @@ This section walks through how to install the web applications on Alfresco Tomca
 
    Copy this `hpi-overrides.properties` file onto the tomcat classpath, for example, into the`ALFRESCO_HOME/tomcat/shared/classes` directory.
 
-7. Verify the secureBrowserCookies configuration. If you are planning to setup SSL then secureBrowserCookies should be set to `true` (this is the default), else it should be `false`.
+7. Verify the `secureBrowserCookies` configuration. If you are planning to setup SSL then `secureBrowserCookies` should be set to `true`, else it should be `false` (this is the default).
 
    There are two places where this config will need to be updated:
 
    * `hpi-overrides.properties` on the tomcat classpath, for example, `ALFRESCO_HOME/tomcat/shared/classes/` directory.
    * `ALFRESCO_HOME/tomcat/webapps/ocms/assets/config/config-overrides.js`
 
-8. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution:
+8. Verify the `application.secureBrowserCookies` configuration. If you are planning to setup SSL then `application.secureBrowserCookies` should be set to `true`, or else it should be `false` (the default).
+
+   * Check `opencontent-override-placeholder.properties` on the Tomcat classpath, for example, `TOMCAT_HOME/shared/classes/` directory.
+
+9. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution:
 
     Navigate to `ALFRESCO_HOME/tomcat/webapps` and extract the `WizardAdmin.war`.
 
@@ -598,9 +606,9 @@ This section walks through how to install the web applications on Alfresco Tomca
     * `ImpactAnalysis.properties`:
         * Lines 26, 29, 39, 40, 42, 48, 49
 
-9. Start Alfresco Tomcat
+10. Start Alfresco Tomcat
 
-10. Confirm you can access ACA at `http://{server}/ocms`
+11. Confirm you can access ACA at `http://{server}/ocms`
 
 ## Install Configurations
 
