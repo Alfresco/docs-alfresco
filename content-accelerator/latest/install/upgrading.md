@@ -247,6 +247,6 @@ There is an additional option for configuring Single Sign On (SSO) beyond the AC
 * Is more configurable
 * Only supports implicit flow
 
-If you want to switch your current SSO implementation to the new 3.5.1 SSO implementation, see the additional documentation for this feature in [Installing Single Sign On (SSO)]({% link content-accelerator/latest/install/sso.md %}). <!--TODO: REPLACE LINK-->
+If you want to switch your current SSO implementation to the new 3.5.1 SSO implementation, see the additional documentation for this feature in [Single Sign On Support for Content Accelerator]({% link content-accelerator/latest/install/sso.md %}).
 
 Note that this newer SSO implementation is not a replacement for the current SSO offering. The current SSO offering can continue to be used with ACA 3.5.1.
