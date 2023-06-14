@@ -34,7 +34,7 @@ As of ACA 3.5.1, the Direct SAML SSO component is deprecated. A future release o
 
 To enable and configure Identity Service SSO in ACA:
 
-1. Navigate to the deployed "ocms" web application and edit the file located at `ocms/WEB-INF/assets/config-overrides.js`.
+1. Navigate to the deployed "ocms" web application and edit the file located at `ocms/assets/config-overrides.js`.
 
     This file uses the JSON file format to configure the web application.
 
