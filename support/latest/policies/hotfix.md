@@ -13,7 +13,7 @@ For all requests, it is imperative that a business case is described to the Tech
 
 In exceptional circumstances, if there is a high degree of confidence that the identified fix does not have unwanted side effects, and that it is feasible for Engineering to complete, a request can be made for a Hot Fix.
 
-A Hot Fix is a full production build of the Alfresco product version that you are running, along with the requested fix. Hot fixes cannot be provided as JAR files: they are cumulative fixes of the Service Pack and any previous Hot Fixes. For example, Hot Fix 7.2.1.5 is the second Hot Fix of Service Pack 7.2.1.
+A Hot Fix is a full production build of the Alfresco product version that you are running, along with the requested fix. Hot fixes cannot be provided as JAR files: they are cumulative fixes of the Service Pack and any previous Hot Fixes. For example, Hot Fix 7.2.1.5 is the fifth Hot Fix of Service Pack 7.2.1.
 
 Hot Fixes are provided on the understanding that as soon as a Service Pack with the fix is available, the system will be upgraded.
 
