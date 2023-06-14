@@ -66,8 +66,8 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
 
     ```bash
     ...
-    alfresco_1 | 2022-12-14 14:00:50,707  INFO  ... Starting 'Transformers' subsystem, ID: [Transformers, default]
-    alfresco_1 | 2022-12-14 14:00:50,874  INFO  ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+    alfresco_1 | ...  INFO  ... Starting 'Transformers' subsystem, ID: [Transformers, default]
+    alfresco_1 | ...  INFO  ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
     ...
     ```
 
