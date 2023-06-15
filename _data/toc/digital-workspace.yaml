@@ -23,8 +23,6 @@
           path: '/digital-workspace/latest/governance/security/'
         - title: 'Working with records'
           path: '/digital-workspace/latest/governance/records/'
-        - title: 'Folder rules'
-          path: '/digital-workspace/latest/governance/folder-rules/'
     - title: 'Process Services'
       pages: 
         - title: 'Process Services overview'
@@ -39,6 +37,8 @@
           path: '/digital-workspace/latest/process/config/'
     - title: 'Image Management'
       path: '/digital-workspace/latest/media/'
+    - title: 'Using'
+      path: '/digital-workspace/latest/using/'
     - title: 'Develop'    
       pages: 
         - title: 'Overview'
