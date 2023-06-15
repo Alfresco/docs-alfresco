@@ -565,11 +565,15 @@ This section walks through how to install the web applications on a separate Tom
 
    In the `openannotate-override-placeholders.properties` set the following property accordingly: `secureBrowserCookies=`
 
-9. Copy the `openannotate-override-placeholders.properties` file to the Tomcat classpath, for example, in the `TOMCAT_HOME/shared/classes` directory.
+9. For AEV 3.5.1 or later, verify the `application.secureBrowserCookies` configuration. If you are planning to setup SSL then `application.secureBrowserCookies` should be set to `true`, or else it should be `false` (the default).
 
-10. Start Tomcat.
+   In the `opencontent-override-placeholder.properties` set the following property accordingly: `application.secureBrowserCookies=`
 
-11. Confirm you can access AEV at `http://{server}/OpenAnnotate`.
+10. Copy the `opencontent-override-placeholders.properties` and `openannotate-override-placeholders.properties` files to the Tomcat classpath, for example, in the `TOMCAT_HOME/shared/classes` directory.
+
+11. Start Tomcat.
+
+12. Confirm you can access AEV at `http://{server}/OpenAnnotate`.
 
 ### Install web applications on Alfresco Tomcat {#alfresco-tomcat-oa}
 
@@ -609,11 +613,15 @@ This section walks through how to install the web applications on Alfresco Tomca
 
    In the `openannotate-override-placeholders.properties` set the following property accordingly: `secureBrowserCookies=`
 
-8. Copy the `openannotate-override-placeholders.properties` file to the `/alfresco` classpath, for example, in the `ALFRESCO_HOME/tomcat/shared/classes` directory.
+8. For AEV 3.5.1 or later, verify the `application.secureBrowserCookies` configuration. If you are planning to setup SSL then `application.secureBrowserCookies` should be set to `true`, else it should be `false` (the default).
 
-9. Start Alfresco Tomcat.
+   In the `opencontent-override-placeholders.properties` set the following property accordingly: `application.secureBrowserCookies=`.
 
-10. Confirm you can access AEV at `http://{server}/OpenAnnotate`.
+9. Copy the `opencontent-override-placeholder.properties` and `openannotate-override-placeholders.properties` file to the Tomcat classpath, for example, in the `TOMCAT_HOME/shared/classes` directory.
+
+10. Start Alfresco Tomcat.
+
+11. Confirm you can access AEV at `http://{server}/OpenAnnotate`.
 
 ## Configure Share extensions for AEV (optional)
 
