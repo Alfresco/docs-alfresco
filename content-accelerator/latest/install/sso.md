@@ -1,14 +1,103 @@
 ---
-title: Installing Single Sign On (SSO)
+title: Single Sign On Support for Content Accelerator
 ---
 
-## Configuring Single Sign On (SSO)
+Alfresco Content Accelerator (ACA) supports two major types of Single Sign On integrations:
+
+* Direct SAML (v3.3 and above)
+* Identity Service (v3.5.1 and above)
+
+As of ACA 3.5.1, the Direct SAML SSO component is deprecated. A future release of ACA may drop support for the Direct SAML SSO integration.
+
+## Key differences between supported SSO
+
+* Identity Service only supports implicit flow as of ACA v3.5.1. SAML secret is kept server-side for Direct SAML.
+* Identity Service integration offers the ability for direct Alfresco login and SSO login in the same ACA instance, whereas Direct SAML integration does not.
+* Identity Service integration offers logout functionality, whereas Direct SAML integration does not.
+* Identity Service is based on the Keycloak identity management application. ACA utilizes the official Alfresco Javascript API to support the OAuth2/OICD connection to Identity Service.
+
+## Identity Service configuration steps
+
+### Supported features
+
+* Support all authentication mechanisms supported in Alfresco Identity Service/Keycloak.
+* Allow Direct Login and SSO Login in same instance.
+* Optional prompt to force user to click link to direct to Identity Provider sign-in.
+
+### Preconditions
+
+* Install, deploy, and configure Identity Service.
+* Install, deploy, and configure ACA on ACS.
+* Ensure ACA can network communicate with Identity Service installation.
+
+### Configuration
+
+To enable and configure Identity Service SSO in ACA:
+
+1. Navigate to the deployed "ocms" web application and edit the file located at `ocms/assets/config-overrides.js`.
+
+    This file uses the JSON file format to configure the web application.
+
+2. Uncomment the block titled `auth` and walk through the comments inside the `auth` block.
+
+3. Update the values of the JSON values as needed to enable and configure your ACA SSO.
+
+4. Save the file and open ACA in a web browser to test.
+
+> **Note:** Restarting your Java Web Application server is typically not required for static file updates such as `config-overrides.js`, though this could vary based on your Java Web Application server installation and configuration.
+
+> **Note:** Clearing browser cookies, history, cache, and local storage is recommended between configuration updates.
+
+### Example configuration
+
+For a deployment with the following desired characteristics:
+
+* Identity Service deployed at `https://alfresco.com/myauthservice` with realm name `alfresco`.
+* You wish to enable both direct login and SSO login.
+* Your ACA instance is available at `https://alfresco.com/ocms`.
+
+The `auth` block should look like this:
+
+```js
+"auth" : {
+    // leave this enabled if you wish users to see the option for direct login using username/password directly into Alfresco
+    enableDirectLogin: true,
+    // should always be enabled if you wish to utilize this aisLogin functionality, if not, comment out this full "auth" block
+    enableAisLogin: true,
+    // if false, will prompt user to click link to login. if not, will automatically redirect to authorization provider
+    automaticallyPerformAisLogin: false,
+    // timer (in milliseconds) for redirect page. suggested range of 1000 - 5000. Set to 0 if you want an immediate redirect
+    automaticLoginRedirectTimerMs: 0,
+    // your oauth2 realm host
+    host : 'https://alfresco.com/myauthservice/realms/alfresco',
+    // your oauth2 clientId
+    clientId: 'alfresco',
+    // your oauth2 secret for the realm
+    secret: '**********',
+    // do not change scope - openid only option supported at this time
+    scope: 'openid',
+    // update the redirecturi to your loadbalanced url root
+    redirectUri: 'https://alfresco.com/ocms/',
+    // do not change
+    silentRefreshTimeout: '300', //Optional parameter 10 minutes default value
+    // do not change authType - OAUTH only option supported at this time
+    authType: 'OAUTH',
+    // do not change provider - ECM only option supported at this time
+    provider: 'ECM'
+}
+```
+
+## Direct SAML configuration steps
+
+The following configuration steps are used to enable Direct SAML SSO integration.
+
+> **Note:** The Identity Service and Direct SAML integrations are mutually exclusive, so if Direct SAML is utilized, do not include any Identity Service integrations in your ACA configuration files.
 
 ### SSO settings
 
-Example configuration file below. This file lives on the tomcats classpath, for example, ```TOMCAT_HOME/shared/classes/hpi-overrides.properties```.
+The example configuration file below lives on the Java Web Application classpath, for example, `TOMCAT_HOME/shared/classes/hpi-overrides.properties`.
 
-If one doesn't exist already, place one there and make sure the previous step of adding the shared/classes directory to the classpath was done.
+If one doesn't exist already, place one there and make sure the previous step of adding the `shared/classes` directory to the classpath is done.
 
 ```bash
 # NOTE - this properties file should decribe the default properties for the ACA wrapper.  Project specific settings
@@ -65,9 +154,9 @@ SSO, Recipient, Destination URLs: `http://{server}/ocms/saml/SSO`
 
 Audience: `{server}`
 
-#### ACA Properties
+#### ACA properties
 
-Override the following properties in the `hpi-overrides.properties`:
+Override the following properties in `hpi-overrides.properties`:
 
 ```bash
 #A UUID should be generated for the clientAuthenticationKey
@@ -78,8 +167,10 @@ ssoEndpoint=/authentication/getSessionForUser
 ocURL=http://{server}/alfresco/OpenContent
 entityId=http://{server}/hpi/saml/metadata
 entityBaseURL=http://{server}/ocms
+
 #The metadata file that you want to use (This file should live at the tomcat classpath, for example, TOMCAT_HOME/shared/classes/)
 metadata.file=metadata.xml
+
 # SAML Context for load balanced/proxied environments
 # Properties should define how ACA is accessed via LB/proxy
 scheme=http
@@ -91,7 +182,7 @@ contextPath=/ocms
 
 #### hpi-security-context-override.xml
 
-You will need to create a `hpi-security-context.xml` and place it on the tomcat classpath, for example, `TOMCAT_HOME/shared/classes/`. This file will contain the beans and settings for your SAML configuration. Below is an example of what this file could look like
+You will need to create a `hpi-security-context.xml` file and place it on the Tomcat classpath, for example, `TOMCAT_HOME/shared/classes/`. This file will contain the beans and settings for your SAML configuration. Below is an example of what this file could look like:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -141,13 +232,13 @@ You will need to create a `hpi-security-context.xml` and place it on the tomcat 
     <bean id="samlLogger" class="org.springframework.security.saml.log.SAMLDefaultLogger"/>
        <bean id="keyManager" class="org.springframework.security.saml.key.JKSKeyManager">
             <constructor-arg value="classpath:saml.keystore"/>
-            <constructor-arg type="java.lang.String" value="5msvN9TekV60"/>
+            <constructor-arg type="java.lang.String" value="**********"/>
             <constructor-arg>
             <map>
-                <entry key="paas-saml-key" value="5msvN9TekV60"/>
+                <entry key="my-saml-key" value="**********"/>
             </map>
             </constructor-arg>
-            <constructor-arg type="java.lang.String" value="paas-saml-key"/>
+            <constructor-arg type="java.lang.String" value="my-saml-key"/>
     </bean>
 
     <!-- Entry point to initialize authentication, default values taken from properties file -->
@@ -343,7 +434,7 @@ You will need to create a `hpi-security-context.xml` and place it on the tomcat 
 
 #### OpenContent
 
-In your `opencontent-override-placeholders.properties` set your client authentication key to the same string as the one set in ACA and enableSSO:
+In your `opencontent-override-placeholders.properties` file, set your client authentication key to the same string as the one set in ACA and enable SSO:
 
 ```bash
 client.authentication.key=<UUID>

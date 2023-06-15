@@ -12,7 +12,7 @@
         path: '/content-accelerator/latest/install/install-guide/'
       - title: 'Java 17 support'
         path: '/content-accelerator/latest/install/java-support/'
-      - title: 'Installing Single Sign On (SSO)'
+      - title: 'Single Sign On Support'
         path: '/content-accelerator/latest/install/sso/'
       - title: 'Upgrading from Alfresco Content Accelerator 3.4'
         path: '/content-accelerator/latest/install/upgrading/' 
@@ -59,19 +59,3 @@
         path: '/content-accelerator/latest/configure/activewizard/'
       - title: 'Supported Languages'
         path: '/content-accelerator/latest/configure/supported-languages/'
-
- 
-  
-
-
-
-
-
-
-
-
-
-
-    
-
- 
