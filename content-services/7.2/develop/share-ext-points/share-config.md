@@ -139,11 +139,12 @@ This information describes how to change the minimum length of the Share user na
 2.  Search for the text "username". You see the following configuration:
 
     ```xml
-    <config evaluator="string-compare" condition="Users">
+    <config evaluator="string-compare" condition="Users" replace="true">
       <users>
          <!-- minimum length for username and password -->
          <username-min-length>2</username-min-length>
          <password-min-length>3</password-min-length>
+         <show-authorization-status>true</show-authorization-status>
       </users>
     </config>                                 
     ```
