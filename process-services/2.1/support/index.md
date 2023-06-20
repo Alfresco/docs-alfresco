@@ -6,11 +6,12 @@ Here is a list of the individual components that have been through the complete
 Alfresco Quality Assurance and Certification activities for Alfresco Process Services.
 
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact 
-our Support team - submit a case via [Hyland Community]({% link support/latest/contact/index.md %}).
+our Support team - submit a case via [Hyland Community]({% link support/latest/contact.md %}).
 
 | Version | Notes |
 | ------- | ----- |
 | **Operating systems** | |
+| Red Hat Enterprise Linux 8 | |
 | Red Hat Enterprise Linux 7.7 | |
 | Red Hat Enterprise Linux 7.6 | |
 | Windows Server 2019 | |

@@ -149,7 +149,8 @@ to know a bit about what the complete audit paths look like that the `alfresco-a
 see this by turning on debug log with:
 
 ```text
-log4j.logger.org.alfresco.repo.audit.inbound=DEBUG
+logger.alfresco-repo-audit-inbound.name=org.alfresco.repo.audit.inbound
+logger.alfresco-repo-audit-inbound.level=debug
 ```
 
 Starting up Alfresco with the audit log turned on we will see logs such as:

@@ -6,7 +6,7 @@ Processes are the collection of components that are used to build and represent 
 
 There are three concepts associated with modeling processes to understand and differentiate between:
 
-* **Diagrams** are the container that process definitions are modeled in. A process diagram can contain multiple process definitions when [pools]({% link process-automation/latest/model/processes/bpmn.md %}#pools-and-lanes) are used to separate them. Process diagrams are colour coded with the following definitions:
+* **Diagrams** are the container that process definitions are modeled in. A process diagram can contain multiple process definitions when [pools]({% link process-automation/latest/model/processes/bpmn.md %}#pools-and-lanes) are used to separate them. Process diagrams are color coded with the following definitions:
 
   * Blue indicates completed nodes
   * Green indicates current active nodes
@@ -290,6 +290,32 @@ Any mapping configured in a process is stored in the **Extensions Editor** using
 }
 ```
 
+### Capture assignee of completed task
+
+You can use output mapping and the `sys_task_assignee` pre-defined variable to capture the assignee of a completed task. This is helpful because you could use the assignee information in another process. For example, you could use this in a support context where whoever the assignee of a completed task is could be the contact person for the account for which the task was carried out.
+
+> **Note:** The `sys_task_assignee` variable is a system variable and cannot be edited.
+
+To create a process that captures the assignee of a completed task:
+
+1. Create a [form]({% link process-automation/latest/model/forms.md %}).
+
+2. Create a process that includes a [User task]({% link process-automation/latest/admin/monitor.md %}#user-tasks).
+
+3. From the **Properties** pane select the form you created from the **Form name** dropdown list.  
+
+4. From the **Mapping type** dropdown list select **Map variables**.
+
+5. Deselect the **User task** by clicking anywhere in the white space and then click **Edit Process Variables** from the right pane.
+
+6. Click the **+** icon and enter a name for the process variable in the **Name** field.
+
+7. From the **Type** dropdown list select **Primitives** then select **string** and then click **Update**.
+
+8. Select your **User task** again and from the `sys_task_assignee` dropdown menu under **Output mapping** select the process variable you have just created.
+
+You now have a process that captures the assigned user of a completed task.
+
 ## Errors
 
 Errors are used by error catching events and error throwing events to model business exceptions using [BPMN elements]({% link process-automation/latest/model/processes/bpmn.md %}). They can be created and managed at the individual error event level, or at a diagram level. Unlike process variables, errors can be shared between process definitions in the same diagram.
@@ -321,3 +347,19 @@ The actions that can be run against a process are:
 | Validate | Run validation against the process. Any errors can be seen in the log history at the bottom of the Modeling Application and are flagged in a pop-up box. |
 | Save | Save any changes made on the process diagram. |
 | Delete | Delete the process diagram. |
+
+## Edit User Task Notifications
+
+Use the **Edit User Task Notification** window to edit the default email templates used for processes. You can configure the **From** and **Subject** fields for the selected user task so that at runtime they will send task email notifications that are not the default, to the assignee or candidate.
+
+The fields on the **Assignee** tab and **Candidate** tabs are:
+
+| Action | Description |
+| ------ | ----------- |
+| From | Enter an email address that the task will be sent from. |
+| Subject | Enter a message for the user that will recieve the notification. For example `The task ${taskName} awaits your response.` |
+| Email template | Select the email template you want to use. You can select from the, **Default email template**, **From file**, **From URL**, and **Create new email template**. |
+
+## Edit Process Permissions
+
+Use the **Edit Process Permissions** window to configure who can start a new process. The permission levels available are: **Everyone can start it**, **Nobody can start it**, or **Specific users/groups** can start it.

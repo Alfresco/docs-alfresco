@@ -42,4 +42,4 @@ Use this information to upgrade from Search Services 1.x to Search Services 2.0.
     -Ddata.dir.root="your-preferred-locationsolrhome"
     ```
 
-    > **Note:** To check what version of Search Services or Search Services you have installed go to `http://localhost:8983/solr/`.
+    > **Note:** To check what version of Search Services or Search and Insight Engine you have installed go to `http://localhost:8983/solr/`.

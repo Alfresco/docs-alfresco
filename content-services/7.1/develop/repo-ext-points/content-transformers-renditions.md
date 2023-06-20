@@ -30,7 +30,7 @@ These are just a few of the supported transformations and they can also be combi
 pipelines when it is not possible to go directly from source mimetype to target mimetype. Renditions are related to 
 Transformations and they will be covered at the end of this article.
 
-To find out what transformers are currently registered and active within an Content Services installation, 
+To find out what transformers are currently registered and active within a Content Services installation, 
 you can use an admin Web Script. This is available at 
 [http://localhost:8080/alfresco/service/mimetypes](http://localhost:8080/alfresco/service/mimetypes){:target="_blank"}. 
 This will list all the currently registered mimetypes, and provide a details link for each one. Selecting the details 

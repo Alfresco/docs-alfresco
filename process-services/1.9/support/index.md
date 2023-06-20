@@ -6,7 +6,7 @@ Here is a list of the individual components that have been through the complete
 Alfresco Quality Assurance and Certification activities for Alfresco Process Services.
 
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact 
-our Support team - submit a case via [Hyland Community]({% link support/latest/contact/index.md %}).
+our Support team - submit a case via [Hyland Community]({% link support/latest/contact.md %}).
 
 **Operating systems**
 
@@ -77,6 +77,7 @@ our Support team - submit a case via [Hyland Community]({% link support/latest/c
 
 |Service|1.9|Comment|
 |-------|----|-------|
+|Identity Service 1.2|✓|For use with LDAP and SAML|
 |Identity Service 1.1|✓|For use with LDAP and SAML|
 |Identity Service 1.0|✓|For use with LDAP and SAML|
 |Process Workspace 1.3.4|✓| |

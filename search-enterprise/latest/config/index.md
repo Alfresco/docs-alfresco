@@ -11,6 +11,8 @@ To use Search Enterprise with the Alfresco Content Services platform the followi
 * For *searching* features the Alfresco Repository properties must be configured in the `alfresco-global.properties` file. This can also be done as an environment variable by configuring the Search Subystem.
 * The Elasticsearch connector environment variables related to communication with the Alfresco Repository (Database, ActiveMQ and Transform Service) must be set and the Elasticsearch server for *indexing* features.
 
+> **Note:** To ensure backward compatibility, the exact same property values are used for configuring connection to the Opensearch Search subsystem (*'elasticsearch'* prefixes and aliases shall not change).
+
 ## Alfresco Repository
 
 Alfresco Repository provides configuration properties for the Elasticsearch Search subystem that defines the connection to the external Elasticsearch server, for more see [Subsystem]({% link search-enterprise/latest/install/index.md %}#configure-subsystem-in-repository).
@@ -37,6 +39,7 @@ Additional property values can be included in the global configuration file `alf
 | elasticsearch.lockRetryPeriodSeconds | Number of seconds to wait before retrying the Elasticsearch index initialization in lock mode. The default value is `10`. |
 | elasticsearch.query.includeGroupsForRoleAdmin | Include groups for Role Admin in permission filters when this value is set to `true`. The default value is `false`. |
 | elasticsearch.index.mapping.total_fields.limit | Mapping limit settings: The maximum number of fields in Alfresco index. When working on deployments including a large collection of custom content models, this value may be increased, but it is not recommended. The default value is `7500`. |
+| elasticsearch.index.max_result_window | Maximum number of results that can be returned by a single query. The default value is `10000`. |
 
 Some of the properties above can be edited in the Search Admin Console, but values will be applied only to the Alfresco Repository instance. To update values for the Elasticsearch connector update its property file manually. **Note:** It is important that the Elasticsearch connector and repository configuration match, otherwise the search functionality will be impaired.
 
@@ -44,7 +47,7 @@ Additionally, these properties can be set as environment variables in Alfresco R
 
 ```docker
 alfresco:
-    image: quay.io/alfresco/alfresco-content-repository:7.1.0
+    image: quay.io/alfresco/alfresco-content-repository:7.4.0
     environment:
         JAVA_OPTS: "
         -Dindex.subsystem.name=elasticsearch
@@ -113,7 +116,7 @@ There are two strategies to fill the gaps in the Elasticsearch server when provo
 Sample invocation for Fetch by IDS.
 
 ```java
-java -jar target/alfresco-elasticsearch-reindexing-3.1.0-app.jar \
+java -jar target/alfresco-elasticsearch-reindexing-3.3.0-app.jar \
   --alfresco.reindex.jobName=reindexByIds \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
@@ -125,7 +128,7 @@ java -jar target/alfresco-elasticsearch-reindexing-3.1.0-app.jar \
 Sample invocation for Fetch by DATE.
 
 ```java
- java -jar target/alfresco-elasticsearch-reindexing-3.1.0-app.jar \
+ java -jar target/alfresco-elasticsearch-reindexing-3.3.0-app.jar \
   --alfresco.reindex.jobName=reindexByDate \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
@@ -150,8 +153,10 @@ The table below lists the main configuration properties that can be specified th
 | spring.elasticsearch.rest.uris | Comma-separated list of Elasticsearch endpoints. The default value is `http://localhost:9200`. |
 |elasticsearch.indexName | Name of the index to be used in Elasticsearch server. The default value is `alfresco`.|
 | alfresco.content.refresh.event.queue | The channel where transform requests are re-inserted by the content event aggregator as consequence of a failure. The default value is `org.alfresco.search.contentrefresh.event`. |
-| alfresco.content.event.retry.maxAllowed | Maximum number of retries in case of transient failure processing. The default value is `3`. |
-| alfresco.content.event.retry.delay | Delay in milliseconds between subsequent retries. The default value is `4000`. |
+| alfresco.content.event.retry.maxAllowed | Maximum number of redelivery attempts allowed. `0` is used to disable redelivery, and `-1` will attempt redelivery forever until it succeeds. |
+| alfresco.content.event.retry.backoff | Exponential backoff multiplier that can be used to multiply each consequent redelivery delay. |
+| alfresco.content.event.retry.delay | Initial delay in milliseconds between redelivery attempts. Subsequent delays will be affected by the backoff multiplier. |
+| alfresco.content.event.retry.maxDelay | An upper bound in milliseconds for the computed redelivery delay. This is used when you specify backoff multiplied delays and is used to avoid the delay growing too large. |
 | acs.repo.transform.request.endpoint | Alfresco Repository channel. The default value is `activemq:queue:acs-repo-transform-request?jmsMessageType=Text`. |
 | alfresco.sharedFileStore.baseUrl | Alfresco Shared FileStore endpoint. The default value is `http://127.1.0.1:8099/alfresco/api/-default-/private/sfs/versions/1/file/`. |
 | alfresco.sharedFileStore.timeout | Alfresco Shared FileStore maximum read timeout in milliseconds. The default value is `4000`. |
@@ -212,7 +217,7 @@ To override some of these values command line system properties can be specified
 $ java -DSPRING_ELASTICSEARCH_REST_URIS=http://localhost:9200
  -DSPRING_ACTIVEMQ_BROKERURL=nio://activemq:61616
  -DALFRESCO_SHAREDFILESTORE_BASEURL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file/
- -jar alfresco-elasticsearch-live-indexing-1.0.0-app.jar
+ -jar alfresco-elasticsearch-live-indexing-3.3.0-app.jar
 ```
 
 The same convention can be used when deploying the Elasticsearch connector using the Docker compose template.
@@ -381,4 +386,46 @@ services:
   alfresco:
     volumes:
       - ./exactTermSearch.properties:/usr/local/tomcat/webapps/alfresco/WEB-INF/classes/alfresco/search/elasticsearch/config/exactTermSearch.properties
+```
+
+## Support for different databases
+
+PostgreSQL is the default database for Search Enterprise. You can use different databases with Search Enterprise, but they must be configured within your system and must match the database used by Content Services. The other types of databases supported by Search Enterprise are: MySQL, MariaDB, Microsoft SQL Server, and Oracle.
+
+Edit the `alfresco-global.properties` file using the following properties to change the Search Enterprise database.
+
+| Property | Description |
+| -------- | ------------|  
+| spring.datasource.url | *Required*. The database name. |
+| spring.datasource.username | *Required*. Enter the username for the database. |
+| spring.datasource.password | *Required*. Enter the password for the username. |
+| spring.datasource.hikari.maximumpoolsize | *Optional*. Sets the maximum size of the connections in HikariCP. |
+| alfresco.dbtype | *Optional*. Use this property to set your database type. When you set the type of database you are using the database auto-detection type is turned off. The supported values are: `postgresql`, `mysql`, `mariadb`, `sqlserver`, and `oracle`. |
+
+### Provide custom JDBC Drivers
+
+Search Enterprise only provides the PostgreSQL driver by default and it is bundled with the Search Enterprise executable components. If you want to use a different database to PostgreSQL you must provide the correct JDBC configuration and corresponding driver.
+The drivers are loaded from a directory called `db-drivers` that must be present at the same directory level as the executable `.jar` file.
+
+For example:
+
+```text
+├── `alfresco-elasticsearch-reindexing-x.x.x-app.jar`
+└── `db-drivers`
+    └── `mydb-driver.jar`
+```
+
+If you are using Docker Compose to install Search Enterprise you must add the JDBC driver information inside the docker container.
+
+For example:
+
+```yaml
+services:
+    reindexing-service:
+        image: quay.io/alfresco/alfresco-elasticsearch-reindexing:latest
+        mem_limit: 1024m
+        environment:
+        - ...
+        volumes:
+            - ./<location>/jdbc/drivers:/opt/db-drivers:ro
 ```

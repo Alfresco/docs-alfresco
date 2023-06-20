@@ -187,7 +187,7 @@ If you wish to use a Tomcat application server, you can use the WAR bundle to in
 
 2. Rename the WAR file from `transform-outlook-webapp-${version}.war` to `transform-outlook.war`.
 
-    You'll find the file, `transform-outlook-webapp-1.0.0.war`, in the distribution zip.
+    You'll find the file, `transform-outlook-webapp-1.1.0.war`, in the distribution zip.
 
 3. Copy the WAR file into your `<TOMCAT_HOME>/webapps` folder.
 
@@ -221,7 +221,7 @@ To deploy the Outlook Integration T-Engine with the Transform Service, you'll ne
 
     ```yaml
     transform-outlook:
-        image: quay.io/alfresco/transform-outlook:1.0.0
+        image: quay.io/alfresco/transform-outlook:1.1.0
         mem_limit: 2g
         environment:
             JAVA_OPTS: " -Xms256m -Xmx512m"
@@ -331,6 +331,7 @@ You might need local administrator rights to install .NET 4.5 and Microsoft VS T
     |`SHAREALT`|No default|Sets alternative URL for Alfresco Share.|
     |`AUTH`|`basic|windows|saml`|Sets authentication type.|
     |`APPTITLE`|Default: Alfresco Outlook Plugin|Sets a custom title for Alfresco Outlook Client. Format: `"My Custom Title"`|
+    |`LANGS`|No default|Sets the available languages for the Alfresco Outlook Client. Format: `"en,de,fr"`. See `CULTURE` parameter for available language codes. Added in Outlook Integration 2.9.2.|
 
 4. Verify that Alfresco Outlook Client has installed in Microsoft Outlook.
 

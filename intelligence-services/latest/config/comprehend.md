@@ -446,7 +446,7 @@ In the `docker-compose` snippet, the custom AI configuration files must be mount
 
 ```yaml
 share:
-    image: quay.io/alfresco/alfresco-share-ai-transformers-module:1.4.x
+    image: quay.io/alfresco/alfresco-share-ai-transformers-module:1.5.x
     environment:
       REPO_HOST: "alfresco"
       REPO_PORT: "8080"

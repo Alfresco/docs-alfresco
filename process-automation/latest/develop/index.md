@@ -769,26 +769,14 @@ For example:
 }
 ```
 
-### Clean up using Create cleanup job
+### Replay service task using REST API
 
-You can clean up historical data using the Create cleanup job process from within the Admin App.
+If a service task does not complete due to a Cloud connector failure it's possible to replay the task and send a new integration request. To do this you must provide the execution id and the definition id of the service task:
 
-1. Sign into the Admin App.
+`POST /v1/executions/{executionId}/replay/service-task`
 
-2. Expand **Process Admin** from the left pane.
-
-3. Select **Data Cleanup**.
-
-4. Click the **+** symbol on the top right to create a new cleanup job.
-
-5. Select the application you want to run the Create cleanup job process for from the drop down menu.
-
-6. Select the applications process definition you want to cleanup.
-
-    You can select multiple process definitions. If you do not select a process definition for the application all process definitions are selected.
-
-7. Select the period of time you want to retain any completed or cancelled processes.
-
-8. Click **Yes I agree** to creating the cleanup job and then click **CREATE**.
-
-![Cleanup Job]({% link process-automation/images/cleanup-job.png %})
+```json
+{
+   "flowNodeId": "flowNodeId"
+}
+```

@@ -269,7 +269,7 @@ from the left column that corresponds to the required Content Services version y
     ```
 
     > **Note:** Replace the version number `x.y.z` with the tag that matches the Content Services version you want to 
-    > deploy. For example, if you want Content Services 7.2.0, then select tag `5.2.0`.
+    > deploy. For example, if you want Content Services 7.4.0, then select tag `6.0.0`.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to 
     > determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 
@@ -284,12 +284,12 @@ from the left column that corresponds to the required Content Services version y
     You'll need your [Quay.io](https://quay.io){:target="_blank"} account credentials to access the Docker images. If 
     you don't already have these credentials, contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"}.
    
-3. (OPTIONAL) Make sure the Docker Compose file use the following versions of Transform Router, Transform Core AIO T-Engine, and Shared file store:
+3. (OPTIONAL) Make sure the Docker Compose file uses the following versions of Transform Router, Transform Core AIO T-Engine, and Shared file store:
 
    ```yaml
    transform-router:
      mem_limit: 512m
-     image: quay.io/alfresco/alfresco-transform-router:1.5.3
+     image: quay.io/alfresco/alfresco-transform-router:2.1.0
      environment:
        JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
        ACTIVEMQ_URL: "nio://activemq:61616"
@@ -301,7 +301,7 @@ from the left column that corresponds to the required Content Services version y
        - activemq
 
    transform-core-aio:
-     image: alfresco/alfresco-transform-core-aio:2.6.0
+     image: alfresco/alfresco-transform-core-aio:3.0.0
      mem_limit: 1536m
      environment:
        JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
@@ -313,7 +313,7 @@ from the left column that corresponds to the required Content Services version y
        - activemq
    
    shared-file-store:
-     image: quay.io/alfresco/alfresco-shared-file-store:1.5.3
+     image: quay.io/alfresco/alfresco-shared-file-store:2.1.0
      mem_limit: 512m
      environment:
        JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
@@ -335,18 +335,19 @@ from the left column that corresponds to the required Content Services version y
 
     ```bash
     Creating network "docker-compose_default" with the default driver
-    Creating docker-compose_digital-workspace_1 ... done
-    Creating docker-compose_solr6_1             ... done
-    Creating docker-compose_shared-file-store_1 ... done
-    Creating docker-compose_sync-service_1      ... done
-    Creating docker-compose_alfresco_1          ... done
-    Creating docker-compose_share_1             ... done
-    Creating docker-compose_postgres_1          ... done
-    Creating docker-compose_activemq_1          ... done
-    Creating docker-compose_proxy_1              ... done
-    Creating docker-compose_transform-router_1   ... done
-    Creating docker-compose_transform-core-aio_1 ... done
-    Attaching to docker-compose_digital-workspace_1, docker-compose_shared-file-store_1, docker-compose_alfresco_1,
+    Creating docker-compose-digital-workspace-1 ... done
+    Creating docker-compose-solr6-1             ... done
+    Creating docker-compose-shared-file-store-1 ... done
+    Creating docker-compose-sync-service-1      ... done
+    Creating docker-compose-alfresco-1          ... done
+    Creating docker-compose-control-center-1    ... done
+    Creating docker-compose-share-1             ... done
+    Creating docker-compose-postgres-1          ... done
+    Creating docker-compose-activemq-1          ... done
+    Creating docker-compose-proxy-1              ... done
+    Creating docker-compose-transform-router-1   ... done
+    Creating docker-compose-transform-core-aio-1 ... done
+    Attaching to docker-compose-digital-workspace-1, docker-compose-shared-file-store-1, docker-compose-alfresco-1, ...
     ```
 
     As an alternative, you can also start the containers in the background by running `docker-compose up -d`.
@@ -354,9 +355,12 @@ from the left column that corresponds to the required Content Services version y
 5. Wait for the logs to show messages:
 
     ```bash
-    alfresco_1 | 2022-06-02 11:50:46,808  WARN ... The Alfresco Content Services license will expire in 2 days.
-    alfresco_1 | 2022-06-02 11:50:50,938  INFO ... Starting 'Transformers' subsystem, ID: [Transformers, default]
-    alfresco_1 | 2022-06-02 11:50:50,371  INFO ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+    ...
+    docker-compose-alfresco-1 | ... INFO  [service.descriptor.DescriptorService] [main] Alfresco license: Creating time limited trial license
+    docker-compose-alfresco-1 | ... WARN  [repo.usage.RepoUsageMonitor] [main] The Alfresco Content Services license will expire in 2 days.
+    ...
+    docker-compose-alfresco-1 | ... INFO ... Starting 'Transformers' subsystem, ID: [Transformers, default]
+    docker-compose-alfresco-1 | ... INFO ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
     ```
 
     If you encounter errors whilst the system is starting up:
@@ -404,20 +408,20 @@ Use this information to verify that the system started correctly, and to clean u
         You should see a list of the services defined in your `docker-compose.yaml` file:
 
         ```bash
-        Container                               Repository                       Tag        Image Id       Size
-        --------------------------------------------------------------------------------------------------------------------
-        docker-compose_activemq-1             alfresco/alfresco-activemq                     5.16.4-jre11-centos7   d62db8e1bc78        720MB
-        docker-compose_alfresco-1             quay.io/alfresco/alfresco-content-repository   7.2.0                  ced164010f42        1.4GB
-        docker-compose_control-center-1       quay.io/alfresco/alfresco-admin-app            7.2.0                  6d5dd63cc114        42.1MB
-        docker-compose_digital-workspace-1    quay.io/alfresco/alfresco-digital-workspace    2.6.0                  1a2eaa5bf7a9        573MB
-        docker-compose_postgres-1             postgres                                       13.3                   b2fcd079c1d4        315MB
-        docker-compose_proxy-1                alfresco/alfresco-acs-nginx                    3.3.0                  721f6317863d        23.2MB
-        docker-compose_share-1                quay.io/alfresco/alfresco-share                7.2.0                  2f5acc44fb87        723MB
-        docker-compose_shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    1.5.3                  03872fe68a6a        651MB
-        docker-compose_solr6-1                alfresco/alfresco-search-services              2.0.3                  88743e1bfb84        915MB
-        docker-compose_sync-service-1         quay.io/alfresco/service-sync                  3.6.0                  c0c25de3535c        722MB
-        docker-compose_transform-core-aio-1   alfresco/alfresco-transform-core-aio           2.6.0                  f382083e1ec5        1.74GB
-        docker-compose_transform-router-1     quay.io/alfresco/alfresco-transform-router     1.5.3                  bad174c8b67d        658MB       
+        Container                             Repository                                     Tag                        Image Id         Size
+        ---------------------------------------------------------------------------------------------------------------------------------------
+        docker-compose-activemq-1             alfresco/alfresco-activemq                     5.17.1-jre11-rockylinux8   0cd1a9629a85     632MB
+        docker-compose-alfresco-1             quay.io/alfresco/alfresco-content-repository   7.4.0.1                    d46dfa317b0f     1.17GB
+        docker-compose-control-center-1       quay.io/alfresco/alfresco-control-center       8.0.0                      00b19f0d2244     85.1MB
+        docker-compose-digital-workspace-1    quay.io/alfresco/alfresco-digital-workspace    4.0.0                      07ca60ecd152     93.2MB
+        docker-compose-postgres-1             postgres                                       14.4                       e09e90144645     376MB
+        docker-compose-proxy-1                alfresco/alfresco-acs-nginx                    3.4.2                      f9c4519b7920     23.5MB
+        docker-compose-share-1                quay.io/alfresco/alfresco-share                7.4.0.1                    c3dc5af44b20     738MB
+        docker-compose-shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    2.1.0                      4ea78d0abf13     587MB
+        docker-compose-solr6-1                alfresco/alfresco-search-services              2.0.7                      8c828de69496     791MB
+        docker-compose-sync-service-1         quay.io/alfresco/service-sync                  3.9.0                      0d717fce2b8d     688MB
+        docker-compose-transform-core-aio-1   alfresco/alfresco-transform-core-aio           3.1.0                      db73d71dc7d8     1.72GB
+        docker-compose-transform-router-1     quay.io/alfresco/alfresco-transform-router     2.1.0                      76695adf9e9f     621MB       
         ```
 
     2. List the running containers:
@@ -439,14 +443,14 @@ Use this information to verify that the system started correctly, and to clean u
 
         ```bash
         docker-compose logs share
-        docker container logs docker-compose_share_1
+        docker container logs docker-compose-share-1
         ```
 
         You can add an optional parameter `--tail=25` before `<container-name>` to display the last 25 lines of the 
         logs for the selected container.
 
         ```bash
-        docker container logs --tail=25 docker-compose_share_1
+        docker container logs --tail=25 docker-compose-share-1
         ```
 
         Check for a success message:
@@ -461,17 +465,18 @@ Use this information to verify that the system started correctly, and to clean u
 
     ```bash
     ^CGracefully stopping... (press Ctrl+C again to force)
-    Stopping docker-compose_transform-core-aio_1 ... done
-    Stopping docker-compose_transform-router_1   ... done
-    Stopping docker-compose_proxy_1              ... done
-    Stopping docker-compose_sync-service_1       ... done
-    Stopping docker-compose_shared-file-store_1  ... done
-    Stopping docker-compose_postgres_1           ... done
-    Stopping docker-compose_activemq_1           ... done
-    Stopping docker-compose_share_1              ... done
-    Stopping docker-compose_solr6_1              ... done
-    Stopping docker-compose_alfresco_1           ... done
-    Stopping docker-compose_digital-workspace_1  ... done
+    Stopping docker-compose-transform-core-aio-1 ... done
+    Stopping docker-compose-transform-router-1   ... done
+    Stopping docker-compose-proxy-1              ... done
+    Stopping docker-compose-sync-service-1       ... done
+    Stopping docker-compose-shared-file-store-1  ... done
+    Stopping docker-compose-postgres-1           ... done
+    Stopping docker-compose-activemq-1           ... done
+    Stopping docker-compose-control-center-1     ... done
+    Stopping docker-compose-share-1              ... done
+    Stopping docker-compose-solr6-1              ... done
+    Stopping docker-compose-alfresco-1           ... done
+    Stopping docker-compose-digital-workspace-1  ... done
     ```
 
 5. Alternatively, you can open a new terminal window, change directory to the `docker-compose` folder, and run:
@@ -483,12 +488,12 @@ Use this information to verify that the system started correctly, and to clean u
     This stops the running services, as shown in the previous example, and removes them from memory:
 
     ```bash
-    Stopping docker-compose_transform-core-aio_1 ... done
+    Stopping docker-compose-transform-core-aio-1 ... done
     ...
-    Stopping docker-compose_digital-workspace_1  ... done
-    Removing docker-compose_transform-core-aio_1 ... done
+    Stopping docker-compose-digital-workspace-1  ... done
+    Removing docker-compose-transform-core-aio-1 ... done
     ...
-    Removing docker-compose_digital-workspace_1  ... done
+    Removing docker-compose-digital-workspace-1  ... done
     Removing network docker-compose_default
     ```
 
@@ -533,15 +538,15 @@ metadata extraction capabilities. Ensure that you've installed the [prerequisite
 before continuing.
 
 1. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"} and download 
-   `alfresco-transform-service-distribution-1.5.x.zip`.
+   `alfresco-transform-service-distribution-2.1.x.zip`.
 
 2. Extract the zip file into a system directory; for example, `<installLocation>/`.
 
     In this directory you'll see the following content including three runnable JAR files:
 
-    * `alfresco-shared-file-store-controller-1.5.x.jar`
-    * `alfresco-transform-core-aio-boot-2.6.x.jar`
-    * `alfresco-transform-router-1.5.x.jar`
+    * `alfresco-shared-file-store-controller-2.1.x.jar`
+    * `alfresco-transform-core-aio-boot-3.1.x.jar`
+    * `alfresco-transform-router-2.1.x.jar`
     * `README.md`
     * IPTC Content Model (needs to be bootstrapped into Alfresco Content Services for IPTC Metadata extraction to work, 
       unless you are using Alfresco Content Services version 7.1.0+. See [Supported platforms]({% link transform-service/latest/support/index.md %}) 
@@ -568,7 +573,7 @@ before continuing.
 
     ```java
     java -DfileStorePath=/path/to/your/AlfrescoFileStore -Dscheduler.contract.path=/path/to/tempdir/scheduler.json
-     -jar alfresco-shared-file-store-controller-1.5.x.jar
+     -jar alfresco-shared-file-store-controller-2.1.x.jar
     ```
 
     Check the output to ensure that it starts successfully.
@@ -585,17 +590,21 @@ before continuing.
 
     ```java
     java -DPDFRENDERER_EXE="<alfresco-pdf-renderer_installation_dir>/alfresco-pdf-renderer"
-     -DLIBREOFFICE_HOME="<libreoffice_installation_dir>"
-     -DIMAGEMAGICK_ROOT="<imagemagick_installation_dir>"
-     -DIMAGEMAGICK_DYN="<imagemagick_installation_dir>/lib"
-     -DIMAGEMAGICK_EXE="<imagemagick_installation_dir>/bin/convert"
-     -DACTIVEMQ_URL=failover:(tcp://server:61616)?timeout=3000
-     -DFILE_STORE_URL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file
-     -jar alfresco-transform-core-aio-boot-2.6.x.jar
+       -DLIBREOFFICE_HOME="<libreoffice_installation_dir>"
+       -DIMAGEMAGICK_ROOT="<imagemagick_installation_dir>"
+       -DIMAGEMAGICK_DYN="<imagemagick_installation_dir>/lib"
+       -DIMAGEMAGICK_EXE="<imagemagick_installation_dir>/bin/convert"
+       -DACTIVEMQ_URL=failover:(tcp://server:61616)?timeout=3000
+       -DFILE_STORE_URL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file
+       -jar alfresco-transform-core-aio-boot-3.0.x.jar
     ```
 
-    > **Note:** You may need to change the paths depending on your operating system. For example:
-    > java -DPDFRENDERER_EXE="/usr/local/acs72/alfresco-pdf-renderer/alfresco-pdf-renderer" \
+    > **Note:** LibreOffice, ImageMagick and Alfresco PDF Renderer binaries needs to be installed on the server where the all-in-one core T-Engine is setup. See the [Prerequisites](#prereq-non-containerized-deploy) for more details. You may need to change the paths depending on your operating system.
+
+    For example:
+
+    ```java
+    java -DPDFRENDERER_EXE="/usr/local/acs72/alfresco-pdf-renderer/alfresco-pdf-renderer" \
        -DLIBREOFFICE_HOME="/usr/local/acs72/libreoffice" \
        -DIMAGEMAGICK_ROOT="/usr/local/acs72/imagemagick" \
        -DIMAGEMAGICK_DYN="/usr/local/acs72/imagemagick" \
@@ -603,7 +612,8 @@ before continuing.
        -DIMAGEMAGICK_CODERS="/usr/local/acs72/imagemagick/modules-Q16HDRI/coders" \
        -DIMAGEMAGICK_CONFIG="/usr/local/acs72/imagemagick/config-Q16HDRI" \
        -DACTIVEMQ_URL=failover:(tcp://localhost:61616)?timeout=3000 \
-       -jar /usr/local/acs72/bin/alfresco-transform-core-aio-boot-2.6.0.jar
+       -jar /usr/local/acs72/bin/alfresco-transform-core-aio-boot-3.0.0.jar
+    ```
 
     Check the output to ensure that it starts successfully.
 
@@ -619,7 +629,7 @@ before continuing.
      -DCORE_AIO_QUEUE=org.alfresco.transform.engine.aio.acs
      -DACTIVEMQ_URL=failover:(tcp://server:61616)?timeout=3000
      -DFILE_STORE_URL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file
-     -jar alfresco-transform-router-1.5.x.jar
+     -jar alfresco-transform-router-2.1.x.jar
     ```
 
     Check the output to ensure that it starts successfully.
@@ -660,17 +670,18 @@ before continuing.
 
 10. Ensure that the environment is up and running:
 
-    1.Check the logs for Content Services startup.
+    1. Check the logs for Content Services startup.
 
-    2.Monitor ActiveMQ by accessing the Web Console, e.g. `http://localhost:8161/admin/`.
+    2. Monitor ActiveMQ by accessing the Web Console, e.g. `http://localhost:8161/admin/`.
 
-    3.Temporarily enable `TransformDebug` in the repository if you want to see detailed debug log entries.
+    3. Temporarily enable `TransformDebug` in the repository if you want to see detailed debug log entries.
 
-    4.Navigate to Digital Workspace or Share, and upload a file (such as a `.jpg`, `.png`, `.docx` etc.).
+    4. Navigate to Digital Workspace or Share, and upload a file (such as a `.jpg`, `.png`, `.docx` etc.).
 
-* Check the logs to see the metadata and work performed for the uploaded file. These should be available in the Spring Boot apps:
-  * `alfresco-transform-router`
-  * `alfresco-transform-core-aio`
+    5. Check the logs to see the metadata and work performed for the uploaded file. These should be available in the Spring Boot apps:
+
+        * `alfresco-transform-router`
+        * `alfresco-transform-core-aio`
 
 Files should also be available in the specified path for the `alfresco-shared-file-store`. However, these files will 
 only temporarily appear in the Shared File Store until explicitly deleted by the repository and/or expired and cleaned up.

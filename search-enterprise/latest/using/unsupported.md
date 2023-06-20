@@ -13,7 +13,6 @@ The following features, which were supported with Search and Insight Engine 2.x 
 * Aspect queries (it works only using exact aspect name)
 * Highlighting
 * Fingerprinting
-* Multi-lingual support (documents will be accepted and searchable with multiple languages, but only English grammar rules will be applied)
 * Template search
 * Resource limiting
 * Scoped search
@@ -24,7 +23,6 @@ The following features, which were supported with Search and Insight Engine 2.x 
 * Fuzzy matching
 * Search for spans and positions
 * Search for boosts
-* Wildcards in phrase queries
 * Field Facets Pagination
 * Field Facets Tags Exclusion
 
@@ -39,9 +37,6 @@ The following features, which were supported with Search and Insight Engine 2.x 
 * ANCESTOR
 * PRIMARYASSOCQNAME
 * PRIMARYASSOCTYPEQNAME
-* ISNULL
-* ISNOTNULL
-* ISUNSET
 * FINGERPRINT
 * ISROOT
 * ISCONTAINER
@@ -77,34 +72,20 @@ In the examples above, filter queries must be executed using the REST API and no
 
 ## Query languages
 
-* CMIS query language
 * SQL query language using JDBC Driver
 
 ## Tools & Components
 
 * Alfresco Search and Insight Engine
-* Alfresco Governance Services
-* Alfresco Federation Services
-* Alfresco Intelligence Services
-* Alfresco Content Connector for AWS Glacier
-* Alfresco Content Connector for Salesforce
-* Alfresco Content Connector for SAP applications
-* Alfresco Collaboration Connector for Microsoft 365
-* Alfresco Outlook Integration
-* Alfresco Office Services
-* Alfresco Google Docs Integration
 * Alfresco Enterprise Viewer
 * Alfresco Content Accelerator
 
 ## Unsupported data types and properties
 
-Data types and properties supported in Search and Insight Engine 2.x and Search Services 2.x that are not currently supported for Search Enterprise 3.1.
+Data types and properties supported in Search and Insight Engine 2.x and Search Services 2.x that are not currently supported for Search Enterprise 3.x.
 
-* http&#65279;://www.alfresco.org/model/cmis/1.0/cs01}id
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}any
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}assocref
-* http&#65279;://www.alfresco.org/model/dictionary/1.0}category
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}childassocref
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}locale
-* http&#65279;://www.alfresco.org/model/dictionary/1.0}noderef
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}qname

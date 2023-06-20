@@ -86,7 +86,7 @@ into platform extensions and user interface extensions:
 
 * [Platform extension points and detailed architecture](#platformarch)
 * [Share extension points and detailed architecture](#sharearchitecture)
-* [Digital workspace extension points]({% link digital-workspace/latest/extensions/index.md %})
+* [Digital workspace extension points]({% link digital-workspace/2.6/extensions/index.md %})
 
 ## Content repository concepts {#repoconcepts}
 It is important as a developer to have a good understanding of the fundamental concepts of Content Services 
@@ -461,7 +461,7 @@ in through Spring AOP behind the service interface. This means that service impl
 It also means the cross-cutting concerns can be configured independently or even switched off across the server if, for example, 
 performance is the top-most requirement and the feature is not necessary.
 
-Multiple services are aggregated into an Content Services subsystem where a subsystem represents a complete 
+Multiple services are aggregated into a Content Services subsystem where a subsystem represents a complete 
 coherent capability of the Content Services server, such as authentication, transformation, and protocols. 
 As a unit, subsystems have their own lifecycle where they can be shut down and restarted while the server is running. 
 This is useful to disable aspects of the server, or reconfigure parts of it, such as how LDAP synchronization is mapped. 
@@ -481,7 +481,7 @@ Alfresco offers two content management web clients that can be used right out-of
  
 When developing (customizing) the user interface for your domain specific content management solution follow this approach:
 
-1. Check if your customizations can be done to the [Digital Workspace client]({% link digital-workspace/latest/extensions/index.md %}), this is usually the case when dealing with most customizations.
+1. Check if your customizations can be done to the [Digital Workspace client]({% link digital-workspace/2.6/extensions/index.md %}), this is usually the case when dealing with most customizations.
 2. When faced with more complex UI customizations where you would see that most of the Digital Workspace UI would have to change, develop a custom UI on top of [Alfresco ADF](#adf). 
 
 ### Application Development Framework (ADF) {#adf}

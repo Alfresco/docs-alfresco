@@ -383,7 +383,7 @@ The Transform Service distribution zip file includes all the files required to p
      -jar alfresco-transform-core-aio-boot-x.y.z.jar
     ```
 
-    > **Note:** You may need to change the paths depending on your operating system.
+    > **Note:** LibreOffice, ImageMagick and Alfresco PDF Renderer binaries needs to be installed on the server where the all-in-one core T-Engine is setup. See the [Prerequisites](#prereq-non-containerized-deploy) for more details. You may need to change the paths depending on your operating system.
 
     Check the output to ensure that it starts successfully.
 

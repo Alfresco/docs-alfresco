@@ -189,7 +189,7 @@ The order of the columns can be adjusted.
 
 2. Access the six dots on the top right of a column by hovering your mouse over the name of the column.
 
-2. Click and hold the six dots and then move the column on top of another column.
+3. Click and hold the six dots and then move the column on top of another column.
 
     This moves the columns to the left one position and the column you are moving takes the place of the one underneath.
 
@@ -204,6 +204,21 @@ The columns that are visible can be adjusted.
 3. Select which columns you want show and then click **Apply**.
 
 ![Select columns]({% link process-automation/images/select-columns.png %})
+
+### Column width
+
+You can adjust the width of the columns of the **Process Management** section. To do this select the edge of the columns and adjust them to the desired width. Once you change one column, all the columns with the same name are also adjusted. If you log out and then log back in again, the new column widths is preserved.
+
+This feature is enabled by default for the **Process Management** section. If you want to adjust the column widths in the same way for the **Personal Files** or **File Libraries** sections of the Digital Workspace, you must turn it on by editing the `libs/content-ee/process-services-cloud-extension/assets/process-services-cloud.extension.json` file and adding the following:
+
+```json
+"column-resizing": [
+                    {
+                        "id": "column-resizing",
+                        "enabled": true
+                    }
+                ]
+```
 
 ## Condition builder {#condition-builder}
 
@@ -292,3 +307,111 @@ Autocompletion can also show method suggestions and attributes when using the â€
 The expression editor provides helpful information when you place the cursor over an element of it. For example, in the image the cursor has been placed over the word `event` and a hint is displayed that provides a description of the `event` variable.
 
 ![Hints]({% link process-automation/images/hints.png %})
+
+## Process Analytics
+
+> **Important:** Process Analytics is only applicable for use by Alfresco Activiti Enterprise customers who are self managed. It is not compatible for use with Process Automation.
+
+Process Analytics exposes a set of APIs that can be used to query business metrics about process instances and user tasks. The query language it uses is GraphQL.
+
+> **Note:** You must have the `ACTIVITI_ANALYTICS` role in the Identity Service to be able to execute queries.
+
+### Information available for process instances
+
+* Process instance duration in seconds (minimum, maximum, or average)
+* Total number of process instances (count)
+
+Data can be filtered by:
+
+* date range
+* application name
+* process definition name
+* process status
+
+Grouped by:
+
+* process definition name
+* process instance name
+
+Aggregated by:
+
+* time intervals (minute, hour, day, week, month, quarter, year)
+* process status
+
+### Information available for user tasks
+
+* User task duration in seconds (minimum, maximum or average)
+* Total number of user tasks (count)
+
+Data can be filtered by:
+
+* date range
+* application name
+* process definition name
+* user task status
+
+Grouped by:
+
+* process definition name
+* user task name
+* user task assignee
+
+Aggregated by:
+
+* time intervals (minute, hour, day, week, month, quarter, year)
+* process status
+
+#### To use the process analytics APIs
+
+Before you use the process analytics APIs you must use the Admin app and change the password of the person who will be using them. When using the process analytics playground use incognito mode for your browser. You access the playground by navigating to `https://{domain-name}/analytics/playground/`. Use your new credentials to log into the system and you will see a similar screen to below.
+
+![Process Analytics]({% link process-automation/images/process-analytics.png %})
+
+There are two tabs on the right side of the Playground: **Docs** and **Schema**. You can use them to learn about the structure of the APIs.
+
+#### Example queries
+
+Here are some examples of GraphQL queries that can be used in the Playground.
+
+**Example 1:** Number of user tasks completed in 2022 aggregated by month
+
+```json
+{
+  taskMetrics(
+    query: {
+      range: {
+        from: "2022-01-01T00:00:00Z"
+        to: "2022-12-31T00:00:00Z"
+      } 
+    } 
+  ) 
+  { 
+    timer(name: activiti_user_task_completed) { 
+      count 
+      interval(by: task_completed_date, period: month, format: "yyyy-mm") 
+    } 
+  } 
+} 
+```
+
+**Example 2:** Average process duration of the processes completed in June 2022 aggregated by day and grouped by process definition name
+
+```json
+{
+  processMetrics(
+    query: {
+      range: {
+        from: "2022-06-01T00:00:00Z"
+        to: "2022-06-30T00:00:00Z"
+      }
+    }
+  )
+  {
+    timer(name: activiti_process_instance_completed) {
+      duration (stat: avg)
+      interval(by: process_completed_date, period: day, format: "yyyy-mm-dd")
+      group (by: process_definition_name)
+    }
+  }
+}
+```

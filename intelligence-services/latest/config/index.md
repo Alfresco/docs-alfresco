@@ -60,7 +60,7 @@ A number of environment variables allow you to specify the configuration options
 
     ```yaml
     aws-ai:
-        image: quay.io/alfresco/alfresco-ai-docker-engine:1.4.x
+        image: quay.io/alfresco/alfresco-ai-docker-engine:1.5.x
         environment:
             JAVA_OPTS: " -Xms256m -Xmx768m"
             # JAVA_OPTS: " -Xms256m -Xmx512m -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 "

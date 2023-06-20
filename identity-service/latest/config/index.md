@@ -4,11 +4,6 @@ title: Configure Identity Service
 
 There are two things that can be configured in the Identity Service:
 
-* [Custom realm](#configure-a-custom-realm)  
-A default realm is provided when deploying the Identity Service, and it should be customized.
-* [Custom theme](#configure-a-custom-theme)  
-Deploying the Identity Service will deploy an Alfresco login theme, it can be customized.
-
 ## Configure a custom realm
 
 The Identity Service is installed or deployed with a default realm applied called `Alfresco`. The realm can be customized manually or by using a `JSON` file.
@@ -56,6 +51,36 @@ To set the realm file during deployment:
         --set alfresco-identity-service.keycloak.keycloak.extraArgs="-Dkeycloak.import=/realm/realm.json" \
         --namespace $DESIREDNAMESPACE
     ```
+
+## Run Identity Service with Process Services
+
+You can run the Identity Service with Process Services. You must configure both applications for the logout functionality in Process Services to function correctly.
+
+> **Note:** If you do not configure the Identity Service and Process Services correctly, you will receive an error when you try and logout using Process Services.
+
+To run the Identity Service with Process Services:
+
+1. In your Identity Service installation navigate to `<alfresco-identity-service>/standalone/configuration` and open `standalone.xml`.
+
+2. Edit the `spi` elements section to include:
+
+    ```xml
+    <spi name="login-protocol">
+        <provider name="openid-connect" enabled="true">
+            <properties>
+              <property name="legacy-logout-redirect-uri"   value="true"/>
+            </properties>
+          </provider>    
+    </spi>
+    ```
+
+3. Save the file and restart the Identity Service.
+
+4. Ensure you have set `keycloak.token-store=cookie` in the `activiti-identity-service.properties` file in Process Services. For more see `keycloak.token-store` in the [Process Services properties]({% link process-services/latest/config/authenticate.md %}#properties) table.
+
+5. Restart Process Services.
+
+The Process Services logout functionality will now work with the Identity Service.
 
 ## Configure a custom theme
 

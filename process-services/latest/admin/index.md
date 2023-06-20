@@ -57,7 +57,7 @@ Process Services uses [Logback](https://logback.qos.ch){:target="_blank"} for lo
 
 Process Services installs with the default Logback configuration reading from `<Tomcat install location>/webapps/activiti-app/WEB-INF/classes/logback.xml` and the equivalent location for Process Services Administrator.
 
-The default configuration can be overridden by placing your own `logback.xml` in `<Tomcat install location>/lib`.
+The default configuration can be overridden by placing your own `logback.xml` or `logback-test.xml` in `<Tomcat install location>/lib`.
 
 By default Process Services logs to the console. To log to file, edit the logging configuration file to specify a file appender and location. For example:
 
@@ -282,7 +282,7 @@ You can deploy apps in various ways in the Administrator application. For exampl
 **To redeploy an existing app to a different cluster:**
 
 1. Go to **Admin App** > **Apps** tab.
-2. Select the app that you need to move to a different cluster, and then click **Redploy an app to another cluster**. A dialog box to select a cluster appears.
+2. Select the app that you need to move to a different cluster, and then click **Redeploy an app to another cluster**. A dialog box to select a cluster appears.
 3. Select the cluster that you would like your app to be moved to, and then click **Deploy**. If the process app already exists, it is versioned and updated.
 
 **To download an app:**

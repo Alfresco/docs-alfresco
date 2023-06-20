@@ -4,18 +4,23 @@ title: Control Center
 
 Alfresco Control Center is being developed to allow the administration of multiple Alfresco applications from a single, modern interface. It will provide admin functions that are currently only available in Alfresco Share, and will eventually allow the full administration of Alfresco Content Services and Alfresco Governance Services without needing to use the Share application.
 
-The initial release focusses on the basic minimum requirements to configure Content Services (Enterprise Edition) - the creation of users and groups of users. Additional functionality will be added in future releases.
+The initial release focussed on the basic minimum requirements to configure Content Services (Enterprise Edition) - the creation of users and groups of users. Additional functionality will be added in future releases.
 
 ## Overview
 
 The Control Center is provided as a Docker image for containerized deployment. It is recommended for evaluations only (i.e. test and development environments), and accessed using the `/admin` URL.
 
-When you expand the **Identity** section, you'll see the two main areas the Control Center covers:
+When you expand the **User Management** section, you can access the following functionality:
 
 * A **Users** section used to manage your users.
 * A **Groups** section used to manage the groups to which your users may be added.
 
 > **Note:** This provides an alternative way of managing users and groups in [Share Admin Tools]({% link content-services/latest/admin/share-admin-tools.md %}).
+
+When you expand the **Content Structuring** section, you can access the following functionality:
+
+* A **Tags** section used to manage tags for your content.
+* A **Categories** section used to manage categories for your content.
 
 ## Prerequisites
 
@@ -27,7 +32,7 @@ The images downloaded directly from [Docker Hub](https://hub.docker.com/u/alfres
 
 > **Note:** A [Quay.io](https://quay.io/){:target="_blank"} account is needed to pull the Docker images that are needed:
 >
-> * `quay.io/alfresco/alfresco-admin-app`
+> * `quay.io/alfresco/alfresco-control-center`
 
 > **Note:** Alfresco customers can request Quay.io credentials by logging a support ticket via [Hyland Community](https://community.hyland.com//){:target="_blank"}. These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
 
@@ -50,11 +55,11 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
 
 1. Download the `docker-compose.yml` file by accessing the Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"} page, which will give you a 30-day license.
 
-    If you already have a valid license file for Content Services 7.2, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/latest/admin/license.md %}) for more details.
+    If you already have a valid license file for Content Services 7.4, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/latest/admin/license.md %}) for more details.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 
-    > **Note:** The Download Trial is usually updated for *major.minor* versions of Content Services. The latest published version on our website is labelled *Version 7.2 - March 2022)*.
+    > **Note:** The Download Trial is usually updated for *major.minor* versions of Content Services. The latest published version on our website is labelled *Version 7.3 - March 2022*.
 
 2. Save the `docker-compose.yml` file in a local folder.
 
@@ -97,7 +102,7 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
 
 ## Manage users
 
-The **Identity** section of the application is used to create and manage users, and groups. Expand the section to see the two main areas the Control Center covers: **Users** and **Groups**.
+The **User Management** section of the application is used to create and manage users, and groups. Expand the section to see the two main areas the Control Center covers: **Users** and **Groups**.
 
 The **Users** section displays the current list of users in the system.
 
@@ -121,7 +126,7 @@ To add a user:
 
 1. Sign into the application.
 
-2. Expand the **Identity** section and select **Users**.
+2. Expand the **User Management** section and select **Users**.
 
 3. Click the **Add User** icon to display the **Add User** page.
 
@@ -158,7 +163,7 @@ To add a group:
 
 1. Sign into the application.
 
-2. Expand the **Identity** section and select **Groups**.
+2. Expand the **User Management** section and select **Groups**.
 
 3. Click the **Add Group** icon to display the **Add Group** page.
 
@@ -172,6 +177,51 @@ Once the group has been created, click the vertical ellipsis (**&vellip;**) at e
 * **Search** for a group. In the search box, enter the full or partial name (at least 3 characters).
 
 > **Note:** You can only modify the group `Name` once a group has been created.
+
+## Tags
+
+A tag is a marker that you can assign to related content to help categorize it. This makes it easier to view related content. You can create tags in the Control Center that can be used in the Digital Workspace. For example, you may create tags called **proposal-one**, and  **proposal-two** to help you identify all the content that has been created for two different versions of a design. In the Digital Workspace you can search your content that has specific tags.
+For more on their use in the Digital Workspace, see [Tags]({% link content-services/latest/using/content/tags-categories.md %}#tags).
+
+To create a tag:
+
+1. Log into the Control Center.
+
+2. Expand **Content Structuring** in the left pane and then select **Tags**.
+
+3. Click the **Create** button on the top right.
+
+4. Click the **+** symbol and enter a **Name** for the new tag.
+
+    Each tag created in the Control Center must be unique. When you enter a name for a new tag, the Control Center provides a list of existing tags with similar names. You can check if the tag that you want to create has already been created. If the name for the tag already exists you must create it with another unique name.
+
+5. Click **Create: your-tag-name** and then click **Save**.
+
+    You can create more than one tag during this process. To do this continue by clicking the **+** symbol again to add another tag to the list. After adding all the tags you need to the list, click **Save** to create them.
+
+The tag list automatically refreshes and you can see the new tag you created. If you click the three dots on the right hand side of your tag you are able to **Edit** or **Delete** it.  
+
+> **Note:** Deleting a tag removes it from all the files it has been assigned to in the Digital Workspace.
+
+## Categories
+
+A category is a group of files, or other categories, that all relate to a project or concept. Content can be a part of more than one category, for example, a category called **Language** may include a language file called **English**, and the file may also exist within a category called **Country**. For more on their use in the Digital Workspace, see [Categories]({% link content-services/latest/using/content/tags-categories.md %}#categories)
+
+To create a root level category:
+
+1. Log into the Control Center.
+
+2. Expand **Content Structuring** in the left pane and then select **Categories**.
+
+3. Click the **Create** button on the top right.
+
+4. Click the **+** symbol and enter a **Name** for the new category.
+
+    You can create more than one category during this process. To do this continue by clicking the **+** symbol again to create another category and then click **Save**.
+
+The category tree automatically refreshes and you can see the new category you created. If you click the three dots on the right hand side of your category you are able to **Create a subcategory**, **Edit** it, or **Delete** it.  
+
+A category name does not need to be unique to the Control Center, it only needs to be unique within the level it sits in within the Control Center.
 
 ## Troubleshooting
 
@@ -206,3 +256,4 @@ Once the group has been created, click the vertical ellipsis (**&vellip;**) at e
     Go back to step 4 in the initial Docker Compose instructions to start the deployment again.
 
 > **Note:** You'll need a machine with at least 13 GB of memory to distribute among the Docker containers.
+

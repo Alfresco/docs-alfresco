@@ -2,21 +2,21 @@
 title: Supported platforms
 ---
 
-Here is a list of the individual components that have been through the complete 
-Alfresco Quality Assurance and Certification activities for Alfresco Process Services.
+Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Process Services.
 
-Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact 
-our Support team - submit a case via [Hyland Community]({% link support/latest/contact/index.md %}).
+Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact our Support team - submit a case via [Hyland Community]({% link support/latest/contact.md %}).
 
 | Version | Notes |
 | ------- | ----- |
 | **Operating systems** | |
-| Red Hat Enterprise Linux 7.7 | |
+| Red Hat Enterprise Linux 8 | |
+| Red Hat Enterprise Linux 7.7 | |
 | Red Hat Enterprise Linux 7.6 | |
 | Windows Server 2019 | |
 | Windows Server 2016 | |
-| CentOS 8 x64 | |
-| CentOS 7 x64 | |
+| Rocky Linux 8.7 | |
+| CentOS 8 x64 | |
+| CentOS 7 x64 | |
 | | |
 | **Databases** | |
 | MariaDB 10.5 | 2.7.3 |
@@ -34,24 +34,25 @@ our Support team - submit a case via [Hyland Community]({% link support/latest/c
 | Amazon Aurora | Use of Amazon Aurora is supported only if it is configured to emulate one of the supported versions of PostgreSQL or MySQL listed above, and the listed JDBC driver is used. |
 | | |
 | **Application servers** | |
-| Tomcat 9.0 | |
-| Jetty 9.4 | |
+| Tomcat 9.0 | |
+| Jetty 9.4 | |
 | | |
 | **JDKs** | |
-| OpenJDK 11.0.1 | |
+| OpenJDK 11.0.1 |  |
 | | |
 | **Browsers** | |
-| Mozilla Firefox | |
+| Mozilla Firefox | |
 | Microsoft Edge | Versions based on Chromium only |
-| MS Internet Explorer 11 | |
-| Chrome | |
+| MS Internet Explorer 11 | |
+| Chrome | |
 | | |
 | **Third party integrations** | |
-| Elasticsearch 7.13.2| |
+| Elasticsearch 7.13.2 | |
 | | |
 | **Integrations** | |
 | Identity Service 1.2 | For use with LDAP and SAML |
 | Identity Service 1.1 | For use with LDAP and SAML |
+| Process Workspace 1.3 | |
 | | |
 | **Related components** | |
 | VMWare ESXi 5.1.0 | For supported guest operating systems |

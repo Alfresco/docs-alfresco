@@ -89,7 +89,8 @@ The anonymous data transmitted by the repository includes the Content Services v
 To see the data that's sent to Alfresco, see the following logs:
 
 ```text
-log4j.logger.org.alfresco.heartbeat.datasender.internal.HBDataConsumer=DEBUG
+logger.alfresco-heartbeat-datasender-internal-HBDataConsumer.name=org.alfresco.heartbeat.datasender.internal.HBDataConsumer
+logger.alfresco-heartbeat-datasender-internal-HBDataConsumer.level=debug
 ```
 
 ## Best practices

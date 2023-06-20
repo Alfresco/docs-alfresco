@@ -17,8 +17,8 @@ This task assumes you have:
 
     ```text
     index.subsystem.name=solr6
-    solr.secureComms=none
-    solr.port=8983
+    solr.secureComms=https
+    solr.port.ssl=8983
     ```
 
 > **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search and Insight Engine server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search and Insight Engine.
@@ -185,8 +185,8 @@ This task assumes you have:
 
     ```text
     index.subsystem.name=solr6
-    solr.secureComms=none
-    solr.port=8983
+    solr.secureComms=https
+    solr.port.ssl=8983
     ```
 
 > **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search and Insight Engine server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search and Insight Engine.
@@ -307,8 +307,8 @@ This task assumes you have:
     ```text
     index.subsystem.name=solr6
     solr.secureComms=secret
-    solr.port=8983
-    solr.sharedSecret=password
+    solr.sharedSecret=password    
+    solr.port.ssl=8983
     ```
 
 > **Important:** To ensure the security of your system specify your own custom secret word for the `solr.sharedSecret` property, than the one provided in the example.

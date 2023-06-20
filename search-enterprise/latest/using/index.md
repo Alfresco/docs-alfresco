@@ -75,6 +75,25 @@ Fields fall into three types, property fields, special fields, and fields for da
 |Field for Data Type|Fully qualified Data Type, for example `{http://www.alfresco.org/model/dictionary/1.0}content:apple`.|
 |Field for Data Type|Data Type style property, for example `d:content:apple`.|
 
+## Search in multi-value fields
+
+When you search in multi-value fields there are additional options available than for [Search in fields](#search-in-fields). To search in multi-value fields your properties must have `Multiple` values enabled, for more see [Create a property
+]({% link content-services/latest/config/models.md %}#create-a-property).
+
+The following example queries are executed using a sample multi-valued property `"mul:os"` that stores values `"MacOS"` and `"Linux"`.
+
+`mul:os:"MacOS"`
+
+Returns the document because `"MacOS"` is one of the values of the property.
+
+`mul:os:("MacOS" AND "Windows")`
+
+Does not return a document because the property doesn't contain the value `"Windows"`.
+
+`mul:os:("MacOS" OR "Windows")`
+
+Returns the document because `"MacOS"` is one of the values of the property, even though `"Windows"` is not.
+
 ## Search for a phrase
 
 Phrases are enclosed in double quotes. Any embedded quotes can be escaped using ''. If no field is specified then the default `TEXT` field will be used, as with searches for a single term.
@@ -191,7 +210,7 @@ cm:my\ content:my\ name
 
 Inclusive ranges can be specified in Google-style. There is an extended syntax for more complex ranges. Unbounded ranges can be defined using MIN and MAX for numeric and date types and "u0000" and "FFFF" for text (anything that is invalid).
 
-|Lucene|Google|Description|Example|
+|Lucene/CMIS|Google|Description|Example|
 |------|------|-----------|-------|
 |`[#1 TO #2]`|`#1..#2`|The range #1 to #2 inclusive ``#1 <= x <= #2``|`0..5``[0 TO 5]`|
 |`<#1 TO #2]`| |The range #1 to #2 including #2 but not #1.`#1 < x <= #2`|`<0 TO 5]`|

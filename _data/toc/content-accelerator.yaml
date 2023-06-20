@@ -1,0 +1,61 @@
+# Alfresco Content Accelerator 3.5
+- version: 3.5
+  pages:
+    - title: 'Introduction'
+      path: '/content-accelerator/latest/'
+
+    - title: 'Install'
+      pages:
+      - title: 'Installation Requirements'
+        path: '/content-accelerator/latest/install/installation-requirements/'
+      - title: 'Install Guide'
+        path: '/content-accelerator/latest/install/install-guide/'
+      - title: 'Java 17 support'
+        path: '/content-accelerator/latest/install/java-support/'
+      - title: 'Single Sign On Support'
+        path: '/content-accelerator/latest/install/sso/'
+      - title: 'Upgrading from Alfresco Content Accelerator 3.4'
+        path: '/content-accelerator/latest/install/upgrading/' 
+
+    - title: 'Using'
+      pages:
+      - title: 'User Guide'
+        path: '/content-accelerator/latest/using/user-guide/'
+    
+    - title: 'Develop'
+      pages:
+      - title: 'Extension Content Accelerator (Custom Amp)'
+        path: '/content-accelerator/latest/develop/extension-content-accelerator/'
+      - title: 'Content Accelerator for Claims Management'
+        path: '/content-accelerator/latest/develop/content-accelerator-for-claims-management/'
+      - title: 'Content Accelerator for Policy and Procedure Management'
+        path: '/content-accelerator/latest/develop/content-accelerator-for-pnp-management/'
+
+    - title: 'Configure'
+      pages:
+      - title: 'Admin Guide'
+        path: '/content-accelerator/latest/configure/admin-guide/'
+      - title: 'Importing and Exporting ACA Configs'
+        path: '/content-accelerator/latest/configure/config-archiver/'
+      - title: 'Action Configurations'
+        path: '/content-accelerator/latest/configure/actions/'
+      - title: 'Other ACA Admin Configurations'
+        path: '/content-accelerator/latest/configure/other-aca-admin-configs/'
+      - title: 'Notifications and Notes'
+        path: '/content-accelerator/latest/configure/notifications-and-notes/'
+      - title: 'Integrations and Addons'
+        path: '/content-accelerator/latest/configure/integrations-and-addons/'
+      - title: 'Limitations'
+        path: '/content-accelerator/latest/configure/limitations/'
+      - title: 'OpenContent Property Overrides'
+        path: '/content-accelerator/latest/configure/oc-property-overrides/'
+      - title: 'Alfresco Audit Configuration'
+        path: '/content-accelerator/latest/configure/alfresco-audit-configuration/'
+      - title: 'Email Configuration'
+        path: '/content-accelerator/latest/configure/email-configuration/'
+      - title: 'Autofile'
+        path: '/content-accelerator/latest/configure/autofile/'
+      - title: 'Active Wizard'
+        path: '/content-accelerator/latest/configure/activewizard/'
+      - title: 'Supported Languages'
+        path: '/content-accelerator/latest/configure/supported-languages/'

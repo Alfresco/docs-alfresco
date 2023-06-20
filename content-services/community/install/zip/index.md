@@ -10,7 +10,7 @@ For a description of the system paths used within this documentation, see [Syste
 
 To install Community Edition using the distribution zip (which also contains the WAR files), make sure that the required software is available on your system:
 
-* Java: OpenJDK 11 is recommended
+* Java: OpenJDK 17 is recommended
 * Application server: Apache Tomcat
 * Database: PostgreSQL, MySQL or MariaDB
 * Message broker: ActiveMQ
@@ -38,7 +38,11 @@ To get started, prepare your production server by installing the prerequisite so
 7. Set up ActiveMQ.
 8. Install third-party software used by Community Edition. This includes LibreOffice, ImageMagick, and Alfresco PDF Renderer.
 
-> **Note:** Starting from Content Services 7.0, the `alfresco-pdf-renderer` binaries are no longer included in the distribution zip.
+> **Note:** Starting from Content Services 7.0, the `alfresco-pdf-renderer` binaries are no longer included in the distribution zip. LibreOffice, ImageMagick, and Alfresco PDF Renderer are no longer part of the Content Services zip installation.
+>
+> * You must install LibreOffice, ImageMagick, and Alfresco PDF Renderer with the Transform Service for transformations to be fully functional.
+> * For non-containerized deployment, you are also required to install Exiftool. Exiftool will be utilized by the TIKAAuto metadata extraction parser.
+> * Community users can utilize [alfresco-transform-core-aio](https://github.com/Alfresco/alfresco-transform-core/tree/master/alfresco-transform-core-aio/alfresco-transform-core-aio-boot){:target="_blank"} Spring Boot app for installing transformation services.
 
 Review and test your setup to check that all the installation steps are complete:
 
@@ -60,7 +64,7 @@ Here's a list of the files to download and install.
 
 | File | Description |
 | ---- | ----------- |
-| alfresco-content-services-community-distribution-7.2.x.zip | Community Edition distribution zip for new installations or upgrades. Alfresco WAR files (in distribution zip) for a manual install into an existing Tomcat application server. This distribution zip also contains the Module Management Tool (MMT) and the sample extension files, such as `alfresco-global.properties`. |
+| alfresco-content-services-community-distribution-7.4.x.zip | Community Edition distribution zip for new installations or upgrades. Alfresco WAR files (in distribution zip) for a manual install into an existing Tomcat application server. This distribution zip also contains the Module Management Tool (MMT) and the sample extension files, such as `alfresco-global.properties`. |
 |alfresco-search-services-2.0.x.zip | Alfresco Search Services distribution zip.<br><br>See [Install Alfresco Search Services]({% link search-services/latest/install/index.md %}) for more information. |
 
 ## Preparing the filesystem and database

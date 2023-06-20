@@ -2,31 +2,30 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for Alfresco Sync Service 3.7:
+The following are the supported platforms for Alfresco Sync Service 3.9:
 
 | Version | Notes |
 | ------- | ----- |
-| Alfresco Content Services 7.2 | Optionally with Alfresco Governance Services 7.2 |
-| Alfresco Content Services 7.1 | Optionally with Alfresco Governance Services 7.1 |
-| Alfresco Content Services 7.0 | Optionally with Alfresco Governance Services 3.5 |
-| Identity Service 1.4 or later | Required for SAML authentication |
-| Alfresco Desktop Sync for Windows 1.7 or later | |
-| Alfresco Desktop Sync for Mac 1.7 or later | |
+| Alfresco Content Services 7.4 | Optionally with Alfresco Governance Services 7.4 |
+| Identity Service 1.8 or later | Required for SAML authentication |
+| Alfresco Desktop Sync for Windows 1.15 | |
+| Alfresco Desktop Sync for Mac 1.15 | |
 | | |
-| **Java** |
+| | Check the [Alfresco Content Services Supported platforms]({% link content-services/latest/support/index.md %}) page for specific versions of the individual components. |
+| **Java** | |
+| OpenJDK 17 (64-bit) | |
 | OpenJDK 11 (64-bit) | |
-| Oracle Java 8 onwards | |
 | | |
 | **Message brokers** |
-| Apache ActiveMQ 5.15.8 or later | |
+| Apache ActiveMQ | |
 | Amazon MQ | |
 | | |
 | **Operating systems** | |
-| Window Server 2012 R2 x64 | {::nomarkdown}Not fully tested:<ul><li>Windows Server 2016</li></ul>{:/}|
-| Linux | Tested with Red Hat Enterprise Linux 7.3 x64 {::nomarkdown}<p>Not fully tested:<ul><li>CentOS 7 x64</li><li>Ubuntu 16.04 LTS x64</li></ul></p>{:/} |
+| Windows Server | |
+| Linux | |
 | | |
 | **Databases** |
-| PostgreSQL 11.4 | |
-| MySQL 5.7.17 | |
-| Oracle 12c, 19c | |
+| PostgreSQL | |
+| MySQL | |
+| Oracle | |
 | Amazon Aurora MySQL | Using MariaDB driver |

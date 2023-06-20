@@ -2,7 +2,7 @@
 title: Using the Share Connector
 ---
 
-The Share Connector enables you to start and run processes and and tasks in an Alfresco Share environment. You can create process definitions in Process Services, and deploy them to Share.
+The Share Connector enables you to start and run processes and tasks in an Alfresco Share environment. You can create process definitions in Process Services, and deploy them to Share.
 
 >**Important:** The Share Connector is deprecated and [no longer supported](https://hub.alfresco.com/t5/alfresco-content-services-blog/architecture-changes-for-alfresco-content-services-version-6-0/ba-p/288930){:target="_blank"} in Alfresco Content Services 6.0. Existing deployments are supported throughout the life cycle of Alfresco Content Services 5.x. Deployments should now use the [Application Development Framework](https://www.alfresco.com/ecm-software/application-development-framework){:target="_blank"}.
 

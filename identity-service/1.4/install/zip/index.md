@@ -7,7 +7,7 @@ A default realm called `Alfresco` is installed.
 
 ## Prerequisites
 
--   Java 8 or Java 11 JDK installed
+* Java 8 or Java 11 JDK installed
 
 ## Installation steps
 
@@ -17,13 +17,13 @@ A default realm called `Alfresco` is installed.
 
     For a Linux or Unix environment:
 
-    ```
+    ```bash
     $ unzip alfresco-identity-service-1.4.0.zip
     ```
 
     For a Windows environment:
 
-    ```
+    ```bash
     > unzip alfresco-identity-service-1.4.0.zip
     ```
 
@@ -33,20 +33,20 @@ A default realm called `Alfresco` is installed.
 
     For a Linux or Unix environment:
 
-    ```
+    ```bash
     $ cd alfresco-identity-service-1.4.0/bin
     $ ./standalone.sh -b <IP_ADDRESS>
     ```
 
     For a Windows environment using a bat script:
 
-    ```
+    ```bash
     > ...\alfresco-identity-service-1.4.0\bin\standalone.bat -b <IP_ADDRESS>
     ```
 
     For a Windows environment using a Powershell script:
 
-    ```
+    ```bash
     > ...\alfresco-identity-service-1.4.0\bin\standalone.ps1 -b <IP_ADDRESS>
     ```
 

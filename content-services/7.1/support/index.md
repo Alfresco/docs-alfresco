@@ -70,6 +70,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.7 | |
 | Alfresco Sync Service 3.6 | |
 | Alfresco Sync Service 3.5 | |
+| Alfresco Desktop Sync 1.13.0 | |
+| Alfresco Desktop Sync 1.12 | |
 | Alfresco Desktop Sync 1.11 | |
 | Alfresco Desktop Sync 1.10 | |
 | Alfresco Desktop Sync 1.9 | |
@@ -80,7 +82,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search Enterprise 3.0 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.0 upgrade page]({% link search-enterprise/3.0/upgrade/index.md %}). |
 | Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0 | |
-| Alfresco Federation Services 2.0 | |
+| Alfresco Federation Services 2.1 | |
 | Identity Service 1.7 | |
 | Identity Service 1.6 | |
 | SAML Module for Alfresco Content Services 1.2.2 | |
@@ -97,6 +99,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Outlook Integration 2.9 | |
 | Alfresco Outlook Integration 2.8.1 | |
 | Alfresco Office Services 1.4 | |
+| Alfresco Google Docs Integration 3.2.2 | |
 | Alfresco Google Docs Integration 3.2.1 | |
 | Alfresco Enterprise Viewer 3.3.5 | |
 | Alfresco Content Accelerator 3.4.4 | |
@@ -104,13 +107,12 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.3 | |
 | | |
 | **Applications** | |
-| Alfresco Digital Workspace 2.8 | |
-| Alfresco Digital Workspace 2.7 | |
 | Alfresco Digital Workspace 2.6 | |
 | Alfresco Digital Workspace 2.5 | |
 | Alfresco Digital Workspace 2.4 | |
+| Alfresco Application Development Framework (ADF) 5.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
-| Alfresco Mobile Workspace 1.1 | |
+| Alfresco Mobile Workspace 1.4 | |
 | | |
 | **Components** | |
 | ImageMagick v7.1.0-16 | |
@@ -181,6 +183,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.7 | |
 | Alfresco Sync Service 3.6 | |
 | Alfresco Sync Service 3.5 | |
+| Alfresco Desktop Sync 1.13.0 | |
+| Alfresco Desktop Sync 1.12 | |
 | Alfresco Desktop Sync 1.11 | |
 | Alfresco Desktop Sync 1.10 | |
 | Alfresco Desktop Sync 1.9 | |
@@ -192,7 +196,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search Enterprise 3.0 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.0 upgrade page]({% link search-enterprise/3.0/upgrade/index.md %}). |
 | Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0 | |
-| Alfresco Federation Services 2.0 | |
+| Alfresco Federation Services 2.1 | |
 | Identity Service 1.8 | |
 | Identity Service 1.7 | |
 | Identity Service 1.6 | |
@@ -220,8 +224,9 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Digital Workspace 2.6 | |
 | Alfresco Digital Workspace 2.5 | |
 | Alfresco Digital Workspace 2.4 | |
+| Alfresco Application Development Framework (ADF) 5.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
-| Alfresco Mobile Workspace 1.1 | |
+| Alfresco Mobile Workspace 1.4 | |
 | | |
 | **Components** | |
 | ImageMagick v7.0.10 | |

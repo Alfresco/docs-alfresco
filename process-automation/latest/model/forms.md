@@ -29,6 +29,7 @@ Two additional properties can be set for a form when no form field is selected:
 | -------- | ----------- |
 | Allow form to be used in standalone tasks | Set whether the form can be used in standalone tasks or not. Standalone tasks are tasks not associated with a process instance. |
 | Update form files metadata from fields on submit | If set to `true`, when the form is submitted and it contains files in an [attach file field](#attach-file-fields) that have been sourced from Content Services, the metadata for those files will be updated with the values entered into any other fields on the form. |
+| Set left label for fields | Set all field labels to appear on the left side instead of at the top of the field. |
 | Edit form rules | You can create custom form rules that apply to a form or to the widgets on a form. Form rules are created and run by a user of the form. Each form rule has an event trigger, event conditions, and actions. |
 
 ## Create a form
@@ -157,16 +158,25 @@ The advanced properties for a date field are:
 
 | Property | Description |
 | -------- | ----------- |
+| Default value | Sets the default date of the field. If you want the default date to be 'today' and that is the current day then you can select the **Today** checkbox. |
+| Set dynamic date range | When turned on you can enter a **Minimum** and **Maximum** date range. This forces the date picker to only allow a user to select a date within the configured period, and any dates outside of the date range will be grayed out. **Note:** When using dynamic date range, the **Min Date** and **Max Date** fields are unavailable. |
 | Min date | Sets the earliest date that can be entered into the field. |
 | Max date | Sets the latest date that can be entered into the field. |
 | Date format | Sets the format of how a date is entered into the field. For example: `YYYY-MM-DD` would display as `2001-10-01` for 1st October, 2001. |
-| Default value | Sets the default date of the field. If you want the default date to be 'today' and that is the current day then you can select the **Today** checkbox. |
 
 ### Display text fields
 
 Display text fields allow the form designer to display a line of fixed text to the form filler. This text is not editable by the filler themselves. The `Text to display` property is used to enter the text.
 
 Display text fields do not have the `Read-only`, `Placeholder`, and `Required?` fields, nor do they have an advanced properties tab.
+
+### Display Rich text
+
+Display Rich text allows you to add HTML formatted text to forms. You can test how the text will look at design time by using the preview button, before pushing the form to a live environment. The Display Rich text editor includes standard formatting tools such as headings, font color, hyperlinks, and code blocks.
+
+> **Note:** Once created the form only displays read-only text and does not capture any values.
+
+![payslip]({% link process-automation/images/payslip.png %})
 
 ### Display value fields
 
@@ -315,7 +325,7 @@ The advanced properties for a people field are:
 
 Radio button fields allow the form designer to define a set of options a form filler must choose from. This list can be a manually entered set of options or it can read from a REST service.
 
-The advanced properties for a manual radio button field allow for a set of options to be entered with a `name` and `id` for each option set. Selecting the radio next to an option will set it as the default value.
+The advanced properties for a manual radio button field allow for a set of options to be entered with a `name` and `id` for each option set. You can change the position of the radio buttons by dragging them into the order you want them to appear. You can also set if you want your radio buttons aligned vertically or horizontally.
 
 The advanced properties for a REST radio button field are:
 
