@@ -107,11 +107,13 @@ A data producer generates data that can potentially be audited. Data is generate
        /alfresco-access/transaction/sub-action/01/action=readContent
     ```
 
-    The trace output from this class may be useful to developers as it logs method calls grouped by transaction. The debug output is of the audit records written and full inbound audit data. However, for developers, trace will provide a more readable form. Set the following `dev-log4j.properties`:
+    The trace output from this class may be useful to developers as it logs method calls grouped by transaction. The debug output is of the audit records written and full inbound audit data. However, for developers, trace will provide a more readable form. Set the following `dev-log4j2.properties`:
 
     ```text
-    log4j.appender.File.Threshold=trace
-    log4j.logger.org.alfresco.repo.audit.access.AccessAuditor=trace
+    appender.rolling.filter.threshold.type=ThresholdFilter
+    appender.rolling.filter.threshold.level=trace
+    logger.alfresco-repo-audit-access-AccessAuditor.name=org.alfresco.repo.audit.access.AccessAuditor
+    logger.alfresco-repo-audit-access-AccessAuditor.level=trace
     ```
 
 3. `alfresco-node` - used to audit/track `beforeDeleteNode` policy. The class is `org.alfresco.repo.node.NodeAuditor`.
@@ -292,12 +294,13 @@ Auditing configuration properties can be set in the `tomcat/shared/classes/alfre
 
 ### Log4J configuration
 
-Log4J settings can be added in a file `tomcat/shared/classes/alfresco/extension/audit-log4j.properties` (you could copy `./tomcat/shared/classes/alfresco/extension/custom-log4j.properties.sample` and remove the `.sample`, or create the file from scratch).
+Log4J settings can be added in a file `tomcat/shared/classes/alfresco/extension/audit-log4j2.properties` (you could copy `./tomcat/shared/classes/alfresco/extension/custom-log4j2.properties.sample` and remove the `.sample`, or create the file from scratch).
 
 To see what information is available to audit, enable the following logging:
 
 ```text
-log4j.logger.org.alfresco.repo.audit.inbound=DEBUG
+logger.alfresco-repo-audit-inbound.name=org.alfresco.repo.audit.inbound
+logger.alfresco-repo-audit-inbound.level=debug
 ```
 
 This would generate logging (in alfresco.log) such as:
@@ -379,7 +382,8 @@ locale=en_US_|id=267
 To see which data is being produced, rejected or recorded, switch DEBUG for:
 
 ```text
-log4j.logger.org.alfresco.repo.audit.AuditComponentImpl=DEBUG
+logger.alfresco-repo-audit-AuditComponentImpl.name=org.alfresco.repo.audit.AuditComponentImpl
+logger.alfresco-repo-audit-AuditComponentImpl.level=debug
 ```
 
 This will result in entries such as:
@@ -717,10 +721,12 @@ The `PropertyAuditFilter` provides log4j debug information (in the `alfresco.log
 
 ```text
 # Change file appender to include debug from any source
-log4j.appender.File.Threshold=debug
+appender.rolling.filter.threshold.type=ThresholdFilter
+appender.rolling.filter.threshold.level=debug
 
 # Enable debug from the PropertyAuditFilter
-log4j.logger.org.alfresco.repo.audit.PropertyAuditFilter=debug
+logger.alfresco-repo-audit-PropertyAuditFilter.name=org.alfresco.repo.audit.PropertyAuditFilter
+logger.alfresco-repo-audit-PropertyAuditFilter.level=debug
 ```
 
 ## Audit configuration {#auditconfig}
@@ -1044,9 +1050,11 @@ To create an audit configuration file, it is necessary to know which data can be
 1. Turn on debugging for the inbound data. For a better understanding, you can turn on debug logging for the mapping components as well, although this is more verbose.
 
     ```text
-    $cat tomcat/shared/classes/alfresco/extension/audit-log4j.properties
-    log4j.logger.org.alfresco.repo.audit.AuditComponentImpl=DEBUG
-    log4j.logger.org.alfresco.repo.audit.inbound=DEBUG
+    $cat tomcat/shared/classes/alfresco/extension/audit-log4j2.properties
+    logger.alfresco-repo-audit-AuditComponentImpl.name=org.alfresco.repo.audit.AuditComponentImpl
+    logger.alfresco-repo-audit-AuditComponentImpl.level=debug
+    logger.alfresco-repo-audit-inbound.name=org.alfresco.repo.audit.inbound
+    logger.alfresco-repo-audit-inbound.level=debug
     ```
 
 2. Tail the log file and examine the output.
