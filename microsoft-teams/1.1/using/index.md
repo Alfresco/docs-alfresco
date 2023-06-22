@@ -19,8 +19,8 @@ MS Teams client is to add the *Alfresco for Teams* app.
    ![MS Teams Integration App]({% link microsoft-teams/images/ms-teams-integ-app-in-msg-extensions.png %}){:height="250px" width="200px"}
 
    If the "Alfresco for Teams" app is not available contact an Administrator to have it installed globally for all users.
-   Or install it manually as described [here]({% link microsoft-teams/latest/install/index.md %}#create-teams-integ-app-manifest)
-   and [here]({% link microsoft-teams/latest/install/index.md %}#test-app)
+   Or install it manually as described [here]({% link microsoft-teams/1.1/install/index.md %}#create-teams-integ-app-manifest)
+   and [here]({% link microsoft-teams/1.1/install/index.md %}#test-app)
 
 2. Right-click on the **Alfresco for Teams** app, so a popup menu appears:
 

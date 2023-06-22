@@ -10,7 +10,7 @@ There are a number of software requirements for installing the Collaboration Con
 
 ### Alfresco requirements
 
-See the [Supported Platforms]({% link microsoft-teams/latest/support/index.md %}) for more information.
+See the [Supported Platforms]({% link microsoft-teams/1.1/support/index.md %}) for more information.
 
 ### Microsoft Teams requirements
 

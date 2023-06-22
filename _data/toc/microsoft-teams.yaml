@@ -1,5 +1,5 @@
-# Alfresco Collaboration Connector for Teams 1.1
-- version: 1.1
+# Alfresco Collaboration Connector for Teams 2.0
+- version: 2.0
   pages:
     - title: 'Introduction'
       path: '/microsoft-teams/latest/'
@@ -7,6 +7,16 @@
       path: '/microsoft-teams/latest/install/'
     - title: 'Using'
       path: '/microsoft-teams/latest/using/'
+
+# Alfresco Collaboration Connector for Teams 1.1
+- version: 1.1
+  pages:
+    - title: 'Introduction'
+      path: '/microsoft-teams/1.1/'
+    - title: 'Install'
+      path: '/microsoft-teams/1.1/install/'
+    - title: 'Using'
+      path: '/microsoft-teams/1.1/using/'
 
 # Alfresco Collaboration Connector for Teams 1.0
 - version: 1.0
