@@ -61,7 +61,7 @@ The following Docker images relate to Content Services:
 * `quay.io/alfresco/alfresco-share` - the Share web interface (i.e. `share.war`) running on Apache Tomcat
 * `alfresco/alfresco-search-services` - the Solr 6 based search service running on Jetty
 * `alfresco/alfresco-activemq` - the Alfresco ActiveMQ image
-* `alfresco/alfresco-acs-ngnix` - web proxy
+* `alfresco/alfresco-acs-nginx` - web proxy
 
 There are also other supporting features available, such as Docker images for image and document transformation:
 
