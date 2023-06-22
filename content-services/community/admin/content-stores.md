@@ -425,10 +425,11 @@ trashcan-cleaner.keepPeriod=P1D
 trashcan-cleaner.deleteBatchCount=1000
 ```
 
-To enable debug logging, set the `log4j.logger.org.alfresco.trashcan` property in the `log4j.properties` file:
+To enable debug logging, set the `logger.alfresco-trashcan.name` and `logger.alfresco-trashcan.level` properties in the `log4j2.properties` file:
 
 ```text
-log4j.logger.org.alfresco.trashcan=debug
+logger.alfresco-trashcan.name=org.alfresco.trashcan
+logger.alfresco-trashcan.level=debug
 ```
 
 The trashcan cleaner is a [Simple Module]({% link content-services/latest/develop/extension-packaging.md %}#simplemodule) which appears in the Admin Console under the Module Packages section.
