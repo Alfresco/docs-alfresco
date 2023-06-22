@@ -1030,7 +1030,7 @@ See [Managing aspects]({% link content-services/community/using/content/files-fo
 
 ## Defer the start of CRON based jobs
 
-You can configure `alfresco-global.properties` and `dev-log4j.properties` to implement a global delay to CRON based jobs; for example, until after the server has fully started.
+You can configure `alfresco-global.properties` and `dev-log4j2.properties` to implement a global delay to CRON based jobs; for example, until after the server has fully started.
 
 You can set a delay for all cron based jobs; in other words, jobs that use the `org.alfresco.util.CronTriggerBean` class. The default value is 10 minutes.
 
@@ -1047,10 +1047,11 @@ You can set a delay for all cron based jobs; in other words, jobs that use the `
     activities.feed.cleaner.startDelayMins=2
     ```
 
-4. Extend the `dev-log4j.properties` with a new configuration in the `<classpathRoot>/alfresco/extension` directory:
+4. Extend the `dev-log4j2.properties` with a new configuration in the `<classpathRoot>/alfresco/extension` directory:
 
     ```bash
-    log4j.logger.org.alfresco.repo.activities.feed.cleanup.FeedCleaner=trace
+    logger.alfresco-repo-activities-feed-cleanup-FeedCleaner.name=org.alfresco.repo.activities.feed.cleanup.FeedCleaner
+    logger.alfresco-repo-activities-feed-cleanup-FeedCleaner.level=trace
     ```
 
     This file will override subsystem settings that aren't applicable in `alfresco-global.properties`.
