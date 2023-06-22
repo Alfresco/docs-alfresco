@@ -122,25 +122,28 @@ You can bulk import with a program.
 
 Community Edition web scripts are used for bulk importing. If you choose to code the bulk import, code examples are provided to help you. In both cases, you can use the reference table to determine the fields and data that are required for a successful import.
 
-If you need to troubleshoot or diagnose any issues with a bulk import, you can enable logging. To enable debugging for the Bulk Import tool, add the following command to the `log4j.properties` file before deployment:
+If you need to troubleshoot or diagnose any issues with a bulk import, you can enable logging. To enable debugging for the Bulk Import tool, add the following command to the `log4j2.properties` file before deployment:
 
 ```text
-log4j.logger.org.alfresco.repo.bulkimport=DEBUG
+logger.alfresco-repo-bulkimport.name=org.alfresco.repo.bulkimport
+logger.alfresco-repo-bulkimport.level=debug
 ```
 
 Set the debug statements to at least INFO level:
 
 ```text
-log4j.logger.org.alfresco.repo.batch.BatchProcessor=info
+logger.alfresco-repo-batch-BatchProcessor.name=org.alfresco.repo.batch.BatchProcessor
+logger.alfresco-repo-batch-BatchProcessor.level=info
 ```
 
 You can also enable logging for the transaction handler to identify any transactional issues during the import:
 
 ```text
-log4j.logger.org.alfresco.repo.transaction.RetryingTransactionHelper=info
+logger.alfresco-repo-transaction-RetryingTransactionHelper.name=org.alfresco.repo.transaction.RetryingTransactionHelper
+logger.alfresco-repo-transaction-RetryingTransactionHelper.level=info
 ```
 
-For more information about log4j, see [log4j.properties file]({% link content-services/latest/develop/extension-packaging.md %}#log4jpropsfile).
+For more information about log4j2, see [log4j2.properties file]({% link content-services/latest/develop/extension-packaging.md %}#log4jpropsfile).
 
 #### Bulk import using a program
 
@@ -247,7 +250,7 @@ The File System Transfer Receiver is delivered as a compressed zip file.
     ftr-custom.properties
     ftr-launcher-context.xml
     ftr-launcher.properties
-    log4j.properties
+    log4j2.properties
     ```
 
     `/lib`
@@ -305,13 +308,15 @@ This file is used to configure the operation of FSTR. It contains the settings f
 
 ### Log file properties
 
-You can debug the File System Transfer Receiver issues using the `log4j.properties` file. This section describes the properties that you can set.
+You can debug the File System Transfer Receiver issues using the `log4j2.properties` file. This section describes the properties that you can set.
 
 For example:
 
 ```text
-log4j.logger.org.alfresco.repo.transfer.fsr=warn
-log4j.logger.org.alfresco.repo.web.scripts.transfer=warn
+logger.alfresco-repo-transfer-fsr.name=org.alfresco.repo.transfer.fsr
+logger.alfresco-repo-transfer-fsr.level=warn
+logger.alfresco-repo-web-scripts-transfer.name=org.alfresco.repo.web.scripts.transfer
+logger.alfresco-repo-web-scripts-transfer.level=warn
 ```
 
 ### Create new transfer target for file system content replication {#createnewtransfertarget}
