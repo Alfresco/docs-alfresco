@@ -114,6 +114,7 @@ Once you've upgraded, follow these steps to validate the new installation.
 8. When you are certain the new installation is thoroughly validated, remove the old installation and repository.
 
 ## Apply optional performance database patch
+
 >**Note.** This patch can take hours to run on larger systems.
 
 Content Services 7.0 contains a recommended database patch, which adds two indexes to the `alf_node` table and
@@ -136,3 +137,7 @@ INFO  [org.alfresco.repo.domain.schema.SchemaBootstrap] [...] Ignoring script pa
 ...
 WARN  [org.alfresco.repo.domain.schema.SchemaBootstrap] [...] Schema validation found ... potential problems, results written to ...
 ```
+
+## Log4j2 migration guide
+
+In Content Services 7.4, log4j has been replaced with log4j2. See the [Log4j2 migration guide]({% link content-services/latest/upgrade/log4j2-migrate.md %}) for more information in the Enterprise documentation.

@@ -107,26 +107,29 @@ system.upgradePasswordHash.jobCronExpression=0 0/10 * * * ?
 
 Alternatively, the job can be executed immediately via a JMX console. The job makes use of `JobLockService` so it is safe to run in a clustered environment.
 
-If the password upgrade job is enabled, make sure you enable the `log4j.logger.org.alfresco.repo.security.authentication.UpgradePasswordHashWorker` logging in `log4j.properties`.
+If the password upgrade job is enabled, make sure you enable the `logger.alfresco-repo-security-authentication-UpgradePasswordHashWorker.name=org.alfresco.repo.security.authentication.UpgradePasswordHashWorker` logging in `log4j2.properties`.
 
 You can either set it to `trace` or `debug` as shown below:
 
 ```text
-log4j.logger.org.alfresco.repo.security.authentication.UpgradePasswordHashWorker=trace
+logger.alfresco-repo-security-authentication-UpgradePasswordHashWorker.name=org.alfresco.repo.security.authentication.UpgradePasswordHashWorker
+logger.alfresco-repo-security-authentication-UpgradePasswordHashWorker.level=trace
 ```
 
 OR
 
 ```text
-log4j.logger.org.alfresco.repo.security.authentication.UpgradePasswordHashWorker=debug
+logger.alfresco-repo-security-authentication-UpgradePasswordHashWorker.name=org.alfresco.repo.security.authentication.UpgradePasswordHashWorker
+logger.alfresco-repo-security-authentication-UpgradePasswordHashWorker.level=debug
 ```
 
 `Trace` displays a list of all the processed users. `Debug` is a slightly less verbose output; it displays a list of only those users whose password was changed.
 
-To monitor users that have their passwords upgraded when they log in, add the following in `log4j.properties`:
+To monitor users that have their passwords upgraded when they log in, add the following in `log4j2.properties`:
 
 ```text
-log4j.logger.org.alfresco.repo.security.authentication.HashPasswordTransactionListener=debug
+logger.alfresco-repo-security-authentication-HashPasswordTransactionListener.name=org.alfresco.repo.security.authentication.HashPasswordTransactionListener
+logger.alfresco-repo-security-authentication-HashPasswordTransactionListener.level=debug
 ```
 
 ## Authorities

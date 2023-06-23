@@ -11,39 +11,39 @@ For additional help, refer to the following:
 
 ## Set log levels
 
-The `log4j.properties` file lets you configure logging levels to provide debugging information when troubleshooting. To set up logging policies, you must prepend `log4j.logger` to the class name you want to log to, and set the logging level. You can set the log level dynamically using the JMX client.
+The `log4j2.properties` file lets you configure logging levels to provide debugging information when troubleshooting. You can set the log level dynamically using the JMX client.
 
-When using log4j, you should:
+When using log4j2, you should:
 
 * Keep local customizations and licenses outside of the web application. For example, in the extension directory:
 
     ```text
-    $TOMCAT_HOME/shared/classes/alfresco/extension/...-log4j.properties
+    $TOMCAT_HOME/shared/classes/alfresco/extension/...-log4j2.properties
     ```
 
 * The supplied configuration files should be stored or installed within the web application. For example:
 
     ```text
-    WEB-INF/classes/alfresco/extension/...-log4j.properties
+    WEB-INF/classes/alfresco/extension/...-log4j2.properties
     ```
 
-> **Note:** A `dev-log4j.properties` file should not be packaged as a part of any product.
+> **Note:** A `dev-log4j2.properties` file should not be packaged as a part of any product.
 
-Logging uses the Log4J `HierarchyDynamicMBean`.
+Logging uses the Log4J `LoggerContextAdminMBean`.
 
-* Editable attributes are a dynamic list of loggers with the `logLevel` attribute, which can be changed to OFF, FATAL, ERROR, WARN, INFO, DEBUG or TRACE (editable).
+* The `Loggers` component of the `LoggerContextAdminMBean` is a dynamic list of loggers with the `level` attribute, which can be changed to OFF, FATAL, ERROR, WARN, INFO, DEBUG or TRACE (editable).
 
 * `addLoggerMBean` will be impacted if it has been loaded.
 
     The following steps provide instructions on adding loggers using JConsole:
 
-1. Click **Alfresco > Log4jHierarchy > Operations > addLoggerMBean**.
+1. Click **Alfresco > Log4jManagement > Operations > addLoggerMBean**.
 
 2. Type the full **className** in **Name** on the right hand pane.
 
 3. Click **addLoggerMBean**.
 
-    A dialog box is displayed with the title **Operation return value**. If the operation is successful, the body of the dialog box contains the `className` you provided, preceded by `log4j:logger=`. If the operation is unsuccessful, the body of the dialog box shows `null`.
+    A dialog box is displayed specifying that the method is successfully invoked.
 
 ## Error messages
 
@@ -440,7 +440,7 @@ Tips for using Active Directory with the LDAP synchronization.
 
 For StartTLS support to work for inbound email, you must configure SSL for Java.
 
-To identify whether you're having this problem, enable `DEBUG` logging for the class `org.subethamail` in your `log4j.properties` file.
+To identify whether you're having this problem, enable `DEBUG` logging for the class `org.subethamail` in your `log4j2.properties` file.
 
 ```text
 startTLS() failed: no cipher suites in common
@@ -449,7 +449,8 @@ startTLS() failed: no cipher suites in common
 Also, to enable efficient inbound mail server logging in debug mode, you need a log4j option that allows you to track mails, including the sender details, recipient details, subject and the reason for rejection/acceptance. To do so, enable `DEBUG` logging for the `class org.subethamail.smtp.server.ConnectionHandler` as shown:
 
 ```text
-log4j.logger.org.subethamail.smtp.server.ConnectionHandler=debug  
+logger.subethamail-smtp-server-ConnectionHandler.name=org.subethamail.smtp.server.ConnectionHandler
+logger.subethamail-smtp-server-ConnectionHandler.level=debug  
 ```
 
 The following process outlines one method for creating a self-signed certificate. However, this can differ between JVM vendors, so see the JVM documentation for more information.

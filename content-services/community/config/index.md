@@ -294,3 +294,7 @@ For example, if a core bean has four values, and you want to modify a single val
     ```
 
 4. Save the file.
+
+### Using mutual TLS
+
+Content Services can be configured using mutual TLS for zero-trust security. Please see [Mutual TLS]({% link content-services/latest/config/mtls.md %}) for more information in the Enterprise documentation.

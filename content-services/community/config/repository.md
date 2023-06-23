@@ -1030,7 +1030,7 @@ See [Managing aspects]({% link content-services/community/using/content/files-fo
 
 ## Defer the start of CRON based jobs
 
-You can configure `alfresco-global.properties` and `dev-log4j.properties` to implement a global delay to CRON based jobs; for example, until after the server has fully started.
+You can configure `alfresco-global.properties` and `dev-log4j2.properties` to implement a global delay to CRON based jobs; for example, until after the server has fully started.
 
 You can set a delay for all cron based jobs; in other words, jobs that use the `org.alfresco.util.CronTriggerBean` class. The default value is 10 minutes.
 
@@ -1047,10 +1047,11 @@ You can set a delay for all cron based jobs; in other words, jobs that use the `
     activities.feed.cleaner.startDelayMins=2
     ```
 
-4. Extend the `dev-log4j.properties` with a new configuration in the `<classpathRoot>/alfresco/extension` directory:
+4. Extend the `dev-log4j2.properties` with a new configuration in the `<classpathRoot>/alfresco/extension` directory:
 
     ```bash
-    log4j.logger.org.alfresco.repo.activities.feed.cleanup.FeedCleaner=trace
+    logger.alfresco-repo-activities-feed-cleanup-FeedCleaner.name=org.alfresco.repo.activities.feed.cleanup.FeedCleaner
+    logger.alfresco-repo-activities-feed-cleanup-FeedCleaner.level=trace
     ```
 
     This file will override subsystem settings that aren't applicable in `alfresco-global.properties`.
@@ -1095,3 +1096,17 @@ cors.exposed.headers=Access-Control-Allow-Origin,Access-Control-Allow-Credential
 cors.support.credentials=true
 cors.preflight.maxage=10
 ```
+
+## JavaScript execution
+
+The repository can execute server-side JavaScript from different places as webscripts, workflows, or folder rules. This section shows how to limit these scripts execution regarding duration, memory usage, and call stack depth. This is useful to prevent long running scripts or high memory consumption.
+
+The **memory**, **time** and **call stack depth** limits, if enabled, will only apply to scripts that have been uploaded to the repository by users, all the other scripts deployed at application server level (classpath) won’t be affected by these limits.
+
+| Property | Description |
+| -------- | ----------- |
+| scripts.execution.optimizationLevel | This property allows you to configure the Rhino optimization level: {::nomarkdown}<ul><li>When set to <code>-1</code>, the interpretive mode is used.</li><li>When set to <code>0</code>, no optimizations are performed.</li><li>When set to <code>1-9</code>, optimizations are performed.</li></ul>{:/} The default value is  `0`. <br><br>For more details, see [Mozilla Projects - Rhino Optimization](https://udn.realityripple.com/docs/Mozilla/Projects/Rhino/Optimization){:target="_blank"}. |
+| scripts.execution.maxScriptExecutionSeconds | The number of seconds a script is allowed to run. If script execution exceeds the configured seconds, it will be stopped. <br><br>To enable this limit, set the property with a value bigger than zero. The default value is  `-1` (disabled). |
+| scripts.execution.maxStackDepth | The maximum stack depth (call frames) allowed in a single invocation of the interpreter. <br><br>This configuration only works for scripts compiled with interpretive mode, which means the optimization level will always be `-1`, overriding the value from the `scripts.execution.optimizationLevel` property. <br><br>As the interpreter doesn't use the Java stack but rather manages its own stack in the heap memory, a **runaway recursion** in interpreted code would eventually consume all available memory and cause an error. This setting helps prevent such situations. <br><br>To enable this limit, set the property with a value bigger than zero. The default value is  `-1` (disabled). |
+| scripts.execution.maxMemoryUsedInBytes | The maximum memory (in bytes) a script is allowed to use. If script execution exceeds the configured memory, it will be stopped. <br><br>To enable this limit, set the property with a value bigger than zero. The default value is  `-1` (disabled). <br><br>If you would like to use this setting, 10000000 bytes (10 MB) is a reasonable value for custom scripts. This configuration only works with the supported JVM. |
+| scripts.execution.observerInstructionCount | The number of instructions that will trigger the observer that applies the memory and time limits. <br><br>The value may vary depending on the optimization level. <br><br>This configuration allows you to monitor the script execution and needs to be set to a value bigger than zero so that the time and memory limits work. The default value is `5000` so there is no need to initially change the property when enabling time or memory limits. <br><br>This property is not linear, for example the instruction count here is not the number of Javascript instructions. A Javascript line can correspond to hundreds (or thousands) of lines for the observer. A value between 5000-10000 is suitable for this setting. |

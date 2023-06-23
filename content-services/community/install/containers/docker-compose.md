@@ -92,14 +92,14 @@ Use this information to verify that the system started correctly, and to clean u
         ```text
         Container                             Repository                                       Tag                        Image Id        Size  
         ----------------------------------------------------------------------------------------------------------------------------------------
-        docker-compose-activemq-1             alfresco/alfresco-activemq                       5.17.1-jre11-rockylinux8   0cd1a9629a85    631.6MB
-        docker-compose-alfresco-1             alfresco/alfresco-content-repository-community   7.3.0                      b377cd61b11c    1.165GB
-        docker-compose-content-app-1          alfresco/alfresco-content-app                    3.1.0                      e5dc9193309f    45.18MB
-        docker-compose-postgres-1             postgres                                         14.4                       e09e90144645    376.1MB
-        docker-compose-proxy-1                alfresco/alfresco-acs-nginx                      3.4.2                      f9c4519b7920    23.45MB
-        docker-compose-share-1                alfresco/alfresco-share                          7.3.0                      e77a380ab703    720.4MB
-        docker-compose-solr6-1                alfresco/alfresco-search-services                2.0.5                      936f6335d2e5    919.5MB
-        docker-compose-transform-core-aio-1   alfresco/alfresco-transform-core-aio             3.0.0                      c97305a9232a    1.687GB
+        docker-compose-activemq-1             alfresco/alfresco-activemq                       5.17.1-jre11-rockylinux8   0cd1a9629a85    632MB
+        docker-compose-alfresco-1             alfresco/alfresco-content-repository-community   7.4.0.1                    f006ac55f158    1.04GB
+        docker-compose-content-app-1          alfresco/alfresco-content-app                    4.0.0                      8b5feed50498    83.6MB
+        docker-compose-postgres-1             postgres                                         14.4                       e09e90144645    376MB
+        docker-compose-proxy-1                alfresco/alfresco-acs-nginx                      3.4.2                      f9c4519b7920    23.4MB
+        docker-compose-share-1                alfresco/alfresco-share                          7.4.0.1                    c3dc5af44b20    738MB
+        docker-compose-solr6-1                alfresco/alfresco-search-services                2.0.7                      8c828de69496    791MB
+        docker-compose-transform-core-aio-1   alfresco/alfresco-transform-core-aio             3.1.0                      db73d71dc7d8    1.72GB
         ```
 
     2. List the running containers:
