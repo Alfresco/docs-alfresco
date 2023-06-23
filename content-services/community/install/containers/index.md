@@ -87,6 +87,7 @@ When you deploy Community Edition, a number of containers are started.
   * Alfresco Google Docs Integration Share AMP
 * Alfresco Search Services (Solr 6)
 * A PostgreSQL database
+* Alfresco Control App
 
 ### GitHub projects
 
