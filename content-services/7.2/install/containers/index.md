@@ -63,7 +63,7 @@ The following Docker images relate to Content Services:
 * `quay.io/alfresco/search-services` - the Solr 6 based search service running on Jetty
 * `quay.io/alfresco/service-sync` - synchronizes files between the desktop and repository using web services
 * `alfresco/alfresco-activemq` - the Alfresco ActiveMQ image
-* `alfresco/alfresco-acs-ngnix` - web proxy
+* `alfresco/alfresco-acs-nginx` - web proxy
 
 There are also supporting features available, such as Docker images for image and document transformation:
 
@@ -96,6 +96,7 @@ When you deploy Content Services, a number of containers are started.
 * [Alfresco Transform Service]({% link transform-service/latest/index.md %})
 * [Alfresco Digital Workspace]({% link digital-workspace/latest/index.md %})
 * [Alfresco Sync Service]({% link sync-service/latest/index.md %})
+* [Alfresco Control Center]({% link content-services/7.2/admin/control-center.md %})
 
 ### GitHub projects
 

@@ -96,6 +96,7 @@ When you deploy Content Services, a number of containers are started.
 * [Alfresco Transform Service]({% link transform-service/latest/index.md %})
 * [Alfresco Digital Workspace]({% link digital-workspace/latest/index.md %})
 * [Alfresco Sync Service]({% link sync-service/latest/index.md %})
+* [Alfresco Control Center]({% link content-services/latest/admin/control-center.md %})
 
 ### GitHub projects
 
