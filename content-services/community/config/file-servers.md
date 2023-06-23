@@ -22,7 +22,7 @@ The following properties can be configured for the FTP server.
 | ftp.enabled | Enables or disables the FTP server. |
 | ftp.port | Specifies the port that the FTP server listens for incoming connections on. Defaults to port `21`. On some platforms ports below `1024` require the server to be run under a privileged account. |
 | ftp.bindto | Specifies the network adapter to bind with. If the network adapter isn't specified, the server will bind to all the available adapters/addresses. |
-| ftp.sessionDebug | Enable debug output by setting the `SSL` debug flag using `ftp.sessionDebug=SSL`, and also by enabling the `logger.alfresco-fileserver.name=logger.org.alfresco.fileserver` , `logger.alfresco-fileserver.level=debug` log4j output. |
+| ftp.sessionDebug | Enable debug output by setting the `SSL` debug flag using `ftp.sessionDebug=SSL`, and also by enabling the `logger.alfresco-fileserver.name=logger.org.alfresco.fileserver`, `logger.alfresco-fileserver.level=debug` log4j output. |
 | ftp.dataPortFrom | Limits the data ports to a specific range of ports. This property sets the lower limit. |
 | ftp.dataPortTo | Limits the data ports to a specific range of ports. This property sets the upper limit. |
 | ftp.keyStore | Specifies the path to the keystore file for FTPS support. |

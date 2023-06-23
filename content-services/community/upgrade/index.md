@@ -140,4 +140,4 @@ WARN  [org.alfresco.repo.domain.schema.SchemaBootstrap] [...] Schema validation 
 
 ## Log4j2 migration guide
 
-In Content Services 7.4, log4j has been replaced with log4j2. See the [Log4j2 migration guide]({% link content-services/latest/upgrade/log4j2-migrate.md %}) for more information.
+In Content Services 7.4, log4j has been replaced with log4j2. See the [Log4j2 migration guide]({% link content-services/latest/upgrade/log4j2-migrate.md %}) for more information in the Enterprise documentation.
