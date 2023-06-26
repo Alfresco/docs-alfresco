@@ -61,6 +61,13 @@ You can only search the content that's already synced in the `Alfresco` folder. 
 * You can view the search results listed by *Name*, *Location*, *Modified Date*, and *Size*. You can also search by file name and file extension, for example, by entering `png` or `.png`.
 * To locate a file from the **Search** dialog, double-click the file/folder icon to show the content in Windows Explorer.
 
+#### Recent Files
+
+Click **Recent Files** to open the Recent Files dialog and view your recently used files in the `Alfresco` sync folder.
+
+* The recently used files are listed by *Name*, *Location*, *Modified Date*, and *Size*, where the most recently updated file is at the top.
+* To locate a file from the **Recent Files** dialog, double-click the required file to show the content in Windows Explorer.
+
 #### Sync Now
 
 By default local content is synced to Alfresco immediately and Alfresco content is synced locally every five minutes. Click this if you want content synced immediately.
@@ -220,10 +227,10 @@ If you deselect a previously synced folder and click **Sync**, then the synced c
 
 #### Recent Files
 
-Click **Recent Files** to open the Recent Files dialog and view your recently used files, where the most recently updated file is at the top.
+Click **Recent Files** to open the Recent Files dialog and view your recently used files in the `Alfresco` sync folder.
 
-* The recently used files are listed by Name, Modified Date, and Size.
-* To open a file from the dialog, click the<!-- icon on the right side of the--> required row to show the content in Mac Finder.
+* The recently used files are listed by *Name*, *Modified Date*, and *Size*, where the most recently updated file is at the top.
+* To locate a file from the **Recent Files** dialog, click the<!-- icon on the right side of the--> required row to show the content in Mac Finder.
 
 #### Help
 
