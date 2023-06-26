@@ -1,7 +1,7 @@
 ---
 title: Supported Platforms
 ---
-The following are the supported platforms for Alfresco Digital Workspace 4.1.x:
+The following are the supported platforms for Alfresco Digital Workspace 4.0.x:
 
 | Version | Notes |
 | ------- | ----- |
