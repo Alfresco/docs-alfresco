@@ -564,7 +564,7 @@ This secret should be placed either in the inventory file under the `all` group 
 
 ### Mutual TLS authentication
 
-As of Content Services 7.4 mTLS authentication is supported using Transformation service, see the [security section](https://github.com/Alfresco/alfresco-ansible-deployment/blobs/master/docs/SECURITY.md) in the GitHub repo for more information or read our [mTLS page]({% link content-services/latest/config/mtls.md %}).
+As of Content Services 7.4 mTLS authentication is supported using Transformation service, see the [security section](https://github.com/Alfresco/alfresco-ansible-deployment/blob/master/docs/SECURITY.md) in the GitHub repo for more information or read our [mTLS page]({% link content-services/latest/config/mtls.md %}).
 
 ### Secrets management
 
