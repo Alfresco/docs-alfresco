@@ -562,6 +562,10 @@ This secret should be placed either in the inventory file under the `all` group 
 
 > **Warning:** Should you forget to provide that shared secret, the playbook will generate a random one. While that may sound convenient, keep in mind that doing so will break the idempotency of the playbook, and the shared secret will be updated every time you run the playbook.
 
+### Mutual TLS authentication
+
+As of Content Services 7.4 mTLS authentication is supported using Transformation service, see the [security section](https://github.com/Alfresco/alfresco-ansible-deployment/blobs/master/docs/SECURITY.md) in the GitHub repo for more information or read our [mTLS page]({% link content-services/latest/config/mtls.md %}).
+
 ### Secrets management
 
 This playbook expects that security-relevant secrets are configured within the
