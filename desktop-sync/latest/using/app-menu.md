@@ -225,7 +225,7 @@ If you deselect a previously synced folder and click **Sync**, then the synced c
 
     You can still access your files in Alfresco. Any content that can't be removed from your desktop is orphaned. On removing your account you are taken back to the Desktop Sync login dialog. Close the login dialog to quit the application. See [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#faq/mac).
 
-#### Recent Files
+#### Recent Files {#recent-files-mac}
 
 Click **Recent Files** to open the Recent Files dialog and view your recently used files in the `Alfresco` sync folder.
 
