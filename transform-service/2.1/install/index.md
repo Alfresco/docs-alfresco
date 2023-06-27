@@ -548,8 +548,9 @@ before continuing.
     * `alfresco-transform-core-aio-boot-3.1.x.jar`
     * `alfresco-transform-router-2.1.x.jar`
     * `README.md`
-    * IPTC Content Model
-      * Needs to be bootstrapped into Alfresco Content Services for IPTC Metadata extraction to work, unless you are using Alfresco Content Services version 7.1.0+. See [Supported platforms]({% link transform-service/latest/support/index.md %}) for more information.
+    * IPTC Content Model (needs to be bootstrapped into Alfresco Content Services for IPTC Metadata extraction to work, 
+      unless you are using Alfresco Content Services version 7.1.0+. See [Supported platforms]({% link transform-service/latest/support/index.md %}) 
+      for more information.
 
 3. Start Active MQ.
 
