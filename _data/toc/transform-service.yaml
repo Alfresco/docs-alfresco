@@ -1,6 +1,6 @@
 
-# Transform Service 2.1
-- version: 2.1
+# Transform Service 3.0
+- version: 3.0
   pages:
     - title: 'Introduction'
       path: '/transform-service/latest/'
