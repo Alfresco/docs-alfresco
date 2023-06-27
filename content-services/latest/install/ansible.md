@@ -40,15 +40,14 @@ A Content Services inventory file has the following groups a host can belong to:
 * `elasticsearch`: one or more hosts on which to deploy the ElasticSearch cluster backing Search Enterprise.
 * `external_elasticsearch`: an alternative group to `elasticsearch` in case you don't want to deploy ElasticSearch using the [community ElasticSearch role](https://github.com/buluma/ansible-role-elasticsearch){:target="_blank"} but instead use an ElasticSearch cluster of yours which matches your hosting standards.
 * `nginx`: a single host on which the playbook will deploy an NGINX reverse proxy configured for the numerous http based services, such as Alfresco Share and Alfresco Digital Workspace.
+* `acc`: a single host where you want the Alfresco Control Center UI to be installed.
 * `adw`: a single host where you want the Alfresco Digital Workspace UI to be installed.
 * `transformers`: a single host where the playbook will deploy the Alfresco Transform Service components.
 * `syncservice`: a single host where the Alfresco Sync Service will be deployed.
 
 > **Note:** Ansible also ships with a default group called `all`, which all hosts always belongs to.
 
-Inventory files provided as examples in this playbook are all written in YAML. Groups are always children items of the `all` 
-group itself or of other groups. Hosts are mentioned after a `hosts` key under any group (including the `all` group).
-So a generic example would be:
+Inventory files provided as examples in this playbook are all written in YAML. Groups are always children items of the `all` group itself or of other groups. Hosts are mentioned after a `hosts` key under any group (including the `all` group). So a generic example would be:
 
 ```yaml
 ---
@@ -286,6 +285,7 @@ Once the playbook is complete, Ansible displays a play recap to let you know tha
 
 ```bash
 PLAY RECAP *******************************************************************************************************
+acc_1                      : ok=24   changed=6    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0
 activemq_1                 : ok=24   changed=0    unreachable=0    failed=0    skipped=17   rescued=0    ignored=0
 adw_1                      : ok=24   changed=6    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0
 database_1                 : ok=20   changed=0    unreachable=0    failed=0    skipped=11   rescued=0    ignored=0
@@ -345,6 +345,7 @@ Once the playbook is complete, Ansible displays a play recap to let you know tha
 
 ```bash
 PLAY RECAP *******************************************************************************************************
+acc_1                      : ok=24   changed=6    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0
 activemq_1                 : ok=24   changed=0    unreachable=0    failed=0    skipped=17   rescued=0    ignored=0
 adw_1                      : ok=24   changed=6    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0
 database_1                 : ok=20   changed=0    unreachable=0    failed=0    skipped=11   rescued=0    ignored=0
@@ -388,6 +389,7 @@ Once the playbook is complete, Ansible displays a play recap to let you know tha
 
 ```bash
 PLAY RECAP *******************************************************************************************************
+acc_1                      : ok=24   changed=6    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0
 activemq_1                 : ok=24   changed=0    unreachable=0    failed=0    skipped=17   rescued=0    ignored=0
 adw_1                      : ok=24   changed=6    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0
 database_1                 : ok=20   changed=0    unreachable=0    failed=0    skipped=11   rescued=0    ignored=0
@@ -477,6 +479,8 @@ If you did a [local installation](#local-installation), where the Ansible contro
 * Share: `http://<control-node-ip>/share`
 * Repository: `http://<control-node-ip>/alfresco`
 * API Explorer: `http://<control-node-ip>/api-explorer`
+* Control Center: `http://<control-node-public-ip>/control-center` (Enterprise Only)
+* Sync Service: `http://<control-node-public-ip>/syncservice` (Enterprise Only)
 
 If you did a [remote installation](#remote-installation), where the Ansible control node and Alfresco components are installed on different nodes, then use:
 
@@ -484,6 +488,8 @@ If you did a [remote installation](#remote-installation), where the Ansible cont
 * Share: `http://<nginx-host-ip>/share`
 * Repository: `http://<nginx-host-ip>/alfresco`
 * API Explorer: `http://<nginx-host-ip>/api-explorer`
+* Control Center: `http://<nginx-host-ip>/control-center` (Enterprise Only)
+* Sync Service: `http://<nginx-host-ip>/syncservice` (Enterprise Only)
 
 To login to Digital Workspace and Share, you can use username **admin** and password **admin**.
 
@@ -513,6 +519,7 @@ The following `systemd` services are installed, which you can use to stop and st
 | `alfresco-sync.service` | Alfresco Sync Service |
 | `alfresco-tengine-aio.service` | Alfresco All-In-One (AIO) Transform Core Engine |
 | `alfresco-transform-router.service` | Alfresco Transform Router Service |
+| `elasticsearch-connector.service` | Alfresco Search Enterprise Service |
 | `elasticsearch-connector-reindex.service` | Alfresco Search Enterprise job to force the reindexing of all the contents of the store |
 | `elasticsearch.service` | ElasticSearch Service |
 
@@ -526,7 +533,7 @@ Several roles set up services that listen on TCP ports, and several roles wait f
 | ----------- | ----------- | ------------ | ------------------------- |
 | activemq | 61616 | `repository`, `syncservice`, `transformers`, `search enterprise` | Yes |
 | database | 5432 | `repository`, `syncservice` | Yes |
-| repository | 8080 | `nginx`, `search`, `syncservice` | Yes |
+| repository | 8080 | `nginx`, `search`, `syncservice`, `acc`, `adw` | Yes |
 | search | 8983 | `repository` | No |
 | transformers (aio t-engine) | 8090 | `repository` | No |
 | syncservice | 9090 | `nginx` | No |
@@ -534,7 +541,7 @@ Several roles set up services that listen on TCP ports, and several roles wait f
 | nginx | 80 | `<client-ips>` | No |
 | nginx | 443 | `<client-ips>` | No |
 
-> **Note:** The `transformers` host also contains the Transform Router process running on port `8095`, and the shared file system process running on `8099`, but communication between these components remains local.
+> **Note:** When using the ACS Community, some of these ports do not need to be opened (e.g. transform router/sfs, acc, adw).
 
 ## Configure your installation
 
