@@ -158,12 +158,12 @@ Not all distributions of Linux may match the version requirements for Ansible an
    cd alfresco-ansible-deployment
    ```
   
-  You can also use Git to fetch latest sources (or a specific release for example by adding -b v2.1.0) on the control node with:
+   You can also use Git to fetch latest sources (or a specific release for example by adding -b v2.1.0) on the control node with:
 
    ```bash
-  git clone https://github.com/Alfresco/alfresco-ansible-deployment.git
-  cd alfresco-ansible-deployment
-  ```
+   git clone https://github.com/Alfresco/alfresco-ansible-deployment.git
+   cd alfresco-ansible-deployment
+   ```
 
    > **Note:** You may want to generate an SSH key pair locally and use it later for deployment. Whether you use a locally generated key, or copy over a key to the control node, it is your responsibility to deploy it to the target machines so Ansible can use it. Using SSH keys is recommended but not mandatory. If you instead use password, make sure to add the `-k` switch to the `ansible` command, so it prompts you for a password.
 
