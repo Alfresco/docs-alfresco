@@ -269,7 +269,7 @@ from the left column that corresponds to the required Content Services version y
     ```
 
     > **Note:** Replace the version number `x.y.z` with the tag that matches the Content Services version you want to 
-    > deploy. For example, if you want Content Services 7.4.0, then select tag `6.0.0`.
+    > deploy. For example, if you want Content Services 7.4.0, then select tag `6.0.1`.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to 
     > determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 
@@ -289,7 +289,7 @@ from the left column that corresponds to the required Content Services version y
    ```yaml
    transform-router:
      mem_limit: 512m
-     image: quay.io/alfresco/alfresco-transform-router:2.1.0
+     image: quay.io/alfresco/alfresco-transform-router:3.0.0
      environment:
        JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
        ACTIVEMQ_URL: "nio://activemq:61616"
@@ -301,7 +301,7 @@ from the left column that corresponds to the required Content Services version y
        - activemq
 
    transform-core-aio:
-     image: alfresco/alfresco-transform-core-aio:3.0.0
+     image: alfresco/alfresco-transform-core-aio:4.0.0
      mem_limit: 1536m
      environment:
        JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
@@ -538,15 +538,15 @@ metadata extraction capabilities. Ensure that you've installed the [prerequisite
 before continuing.
 
 1. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"} and download 
-   `alfresco-transform-service-distribution-2.1.x.zip`.
+   `alfresco-transform-service-distribution-3.0.x.zip`.
 
 2. Extract the zip file into a system directory; for example, `<installLocation>/`.
 
     In this directory you'll see the following content including three runnable JAR files:
 
     * `alfresco-shared-file-store-controller-2.1.x.jar`
-    * `alfresco-transform-core-aio-boot-3.1.x.jar`
-    * `alfresco-transform-router-2.1.x.jar`
+    * `alfresco-transform-core-aio-boot-4.0.x.jar`
+    * `alfresco-transform-router-3.0.x.jar`
     * `README.md`
     * IPTC Content Model
       * Needs to be bootstrapped into Alfresco Content Services for IPTC Metadata extraction to work, unless you are using Alfresco Content Services version 7.1.0+. See [Supported platforms]({% link transform-service/latest/support/index.md %}) for more information.
@@ -595,7 +595,7 @@ before continuing.
        -DIMAGEMAGICK_EXE="<imagemagick_installation_dir>/bin/convert"
        -DACTIVEMQ_URL=failover:(tcp://server:61616)?timeout=3000
        -DFILE_STORE_URL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file
-       -jar alfresco-transform-core-aio-boot-3.0.x.jar
+       -jar alfresco-transform-core-aio-boot-4.0.x.jar
     ```
 
     > **Note:** LibreOffice, ImageMagick and Alfresco PDF Renderer binaries needs to be installed on the server where the all-in-one core T-Engine is setup. See the [Prerequisites](#prereq-non-containerized-deploy) for more details. You may need to change the paths depending on your operating system.
@@ -611,7 +611,7 @@ before continuing.
        -DIMAGEMAGICK_CODERS="/usr/local/acs72/imagemagick/modules-Q16HDRI/coders" \
        -DIMAGEMAGICK_CONFIG="/usr/local/acs72/imagemagick/config-Q16HDRI" \
        -DACTIVEMQ_URL=failover:(tcp://localhost:61616)?timeout=3000 \
-       -jar /usr/local/acs72/bin/alfresco-transform-core-aio-boot-3.0.0.jar
+       -jar /usr/local/acs72/bin/alfresco-transform-core-aio-boot-4.0.0.jar
     ```
 
     Check the output to ensure that it starts successfully.
@@ -628,7 +628,7 @@ before continuing.
      -DCORE_AIO_QUEUE=org.alfresco.transform.engine.aio.acs
      -DACTIVEMQ_URL=failover:(tcp://server:61616)?timeout=3000
      -DFILE_STORE_URL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file
-     -jar alfresco-transform-router-2.1.x.jar
+     -jar alfresco-transform-router-3.0.x.jar
     ```
 
     Check the output to ensure that it starts successfully.
