@@ -283,7 +283,7 @@ from the left column that corresponds to the required Content Services version y
 
     You'll need your [Quay.io](https://quay.io){:target="_blank"} account credentials to access the Docker images. If 
     you don't already have these credentials, contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"}.
-   
+
 3. (OPTIONAL) Make sure the Docker Compose file uses the following versions of Transform Router, Transform Core AIO T-Engine, and Shared file store:
 
    ```yaml
@@ -420,9 +420,11 @@ Use this information to verify that the system started correctly, and to clean u
         docker-compose-shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    2.1.0                      4ea78d0abf13     587MB
         docker-compose-solr6-1                alfresco/alfresco-search-services              2.0.7                      8c828de69496     791MB
         docker-compose-sync-service-1         quay.io/alfresco/service-sync                  3.9.0                      0d717fce2b8d     688MB
-        docker-compose-transform-core-aio-1   alfresco/alfresco-transform-core-aio           3.1.0                      db73d71dc7d8     1.72GB
-        docker-compose-transform-router-1     quay.io/alfresco/alfresco-transform-router     2.1.0                      76695adf9e9f     621MB       
+        docker-compose-transform-core-aio-1   alfresco/alfresco-transform-core-aio           4.0.0                      ad7ad3827d2f     1.67GB
+        docker-compose-transform-router-1     quay.io/alfresco/alfresco-transform-router     3.0.0                      9bcc62359c4b     568MB       
         ```
+
+        > **Note:** The Docker images listed above are based on an updated Docker Compose file from step 3 in the initial Docker Compose instructions.
 
     2. List the running containers:
 
