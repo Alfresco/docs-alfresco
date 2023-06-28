@@ -113,7 +113,7 @@ Use this information to verify that the system started correctly, and to clean u
         ---------------------------------------------------------------------------------------------------------------------------------
         acs-trial_activemq_1              alfresco/alfresco-activemq                     5.17.1-jre11-rockylinux8  0cd1a9629a85   632 MB
         acs-trial_alfresco_1              quay.io/alfresco/alfresco-content-repository   7.4.0.1                   d46dfa317b0f   1.17 GB
-        acs-trial_control-center_1        quay.io/alfresco/alfresco-control-center       8.0.0                     00b19f0d2244   85.1 MB
+        acs-trial_control-center_1        quay.io/alfresco/alfresco-control-center       8.1.0                     00b19f0d2244   85.1 MB
         acs-trial_digital-workspace_1     quay.io/alfresco/alfresco-digital-workspace    4.0.0                     07ca60ecd152   93.2 MB
         acs-trial_postgres_1              postgres                                       14.4                      e09e90144645   376 MB
         acs-trial_proxy_1                 alfresco/alfresco-acs-nginx                    3.4.2                     f9c4519b7920   23.4 MB
@@ -281,7 +281,7 @@ Use this information to verify that the system started correctly, and to clean u
         Removing image alfresco/alfresco-transform-core-aio:3.1.0
         Removing image quay.io/alfresco/alfresco-transform-router:2.1.0
         Removing image quay.io/alfresco/alfresco-digital-workspace:4.0.0
-        Removing image quay.io/alfresco/alfresco-control-center:8.0.0
+        Removing image quay.io/alfresco/alfresco-control-center:8.1.0
         Removing image alfresco/alfresco-acs-nginx:3.4.2
         Removing image quay.io/alfresco/service-sync:3.9.0
         ```
