@@ -30,7 +30,7 @@ Salesforce Group is the minimum requirement. See [Salesforce Connected Apps](htt
 
 ### Java requirements
 
-* OpenJDK 11 and above.
+* OpenJDK 17.
 
 ### Other requirements
 
