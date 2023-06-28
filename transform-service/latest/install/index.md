@@ -424,7 +424,7 @@ Use this information to verify that the system started correctly, and to clean u
         docker-compose-transform-router-1     quay.io/alfresco/alfresco-transform-router     3.0.0                      9bcc62359c4b     568MB       
         ```
 
-        > **Note:** The Docker images listed above are based on an updated Docker Compose file from step 3 in the initial Docker Compose instructions.
+        > **Note:** The Docker images listed above are based on an updated Docker Compose file, using the code snippet from step 3 in the initial Docker Compose instructions.
 
     2. List the running containers:
 
