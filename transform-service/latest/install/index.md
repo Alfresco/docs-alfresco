@@ -196,31 +196,31 @@ The steps to install are:
 
 Example installation based on a downloaded `image-exiftool-12.25.tgz` file:
 
-Create a new directory named `exiftool` under your Alfresco installation, such as `/usr/local/acs72` directory.
+Create a new directory named `exiftool` under your Alfresco installation, such as `/usr/local/acs74` directory.
 
 ```bash
-$ sudo mkdir /usr/local/acs72/exiftool
+$ sudo mkdir /usr/local/acs74/exiftool
 ```
 
 Extract `~/Downloads/image-exiftool-12.25.tgz` and copy the contents of `~/Downloads/Image-ExifTool-12.25` into the 
-`/usr/local/acs72/exiftool/` directory:
+`/usr/local/acs74/exiftool/` directory:
 
 ```bash
 $ sudo tar -xvf ~/Downloads/image-exiftool-12.25.tgz --directory ~/Downloads/
-$ sudo cp -R ~/Downloads/Image-ExifTool-12.25/* /usr/local/acs72/exiftool/
+$ sudo cp -R ~/Downloads/Image-ExifTool-12.25/* /usr/local/acs74/exiftool/
 ```
 
 Export the `exiftool` directory to the `PATH` variable:
 
 ```bash
-export PATH=$PATH:/usr/local/acs72/exiftool
+export PATH=$PATH:/usr/local/acs74/exiftool
 ```
 
-Update the file permissions for `/usr/local/acs72/exiftool` directory:
+Update the file permissions for `/usr/local/acs74/exiftool` directory:
 
 ```bash
-$ sudo chgrp -R Alfresco /usr/local/acs72/exiftool
-$ sudo chmod -R 755 /usr/local/acs72/exiftool
+$ sudo chgrp -R Alfresco /usr/local/acs74/exiftool
+$ sudo chmod -R 755 /usr/local/acs74/exiftool
 ```
 
 ## Install with Helm charts
@@ -603,15 +603,15 @@ before continuing.
     For example:
 
     ```java
-    java -DPDFRENDERER_EXE="/usr/local/acs72/alfresco-pdf-renderer/alfresco-pdf-renderer" \
-       -DLIBREOFFICE_HOME="/usr/local/acs72/libreoffice" \
-       -DIMAGEMAGICK_ROOT="/usr/local/acs72/imagemagick" \
-       -DIMAGEMAGICK_DYN="/usr/local/acs72/imagemagick" \
-       -DIMAGEMAGICK_EXE="/usr/local/acs72/imagemagick/convert" \
-       -DIMAGEMAGICK_CODERS="/usr/local/acs72/imagemagick/modules-Q16HDRI/coders" \
-       -DIMAGEMAGICK_CONFIG="/usr/local/acs72/imagemagick/config-Q16HDRI" \
+    java -DPDFRENDERER_EXE="/usr/local/acs74/alfresco-pdf-renderer/alfresco-pdf-renderer" \
+       -DLIBREOFFICE_HOME="/usr/local/acs74/libreoffice" \
+       -DIMAGEMAGICK_ROOT="/usr/local/acs74/imagemagick" \
+       -DIMAGEMAGICK_DYN="/usr/local/acs74/imagemagick" \
+       -DIMAGEMAGICK_EXE="/usr/local/acs74/imagemagick/convert" \
+       -DIMAGEMAGICK_CODERS="/usr/local/acs74/imagemagick/modules-Q16HDRI/coders" \
+       -DIMAGEMAGICK_CONFIG="/usr/local/acs74/imagemagick/config-Q16HDRI" \
        -DACTIVEMQ_URL=failover:(tcp://localhost:61616)?timeout=3000 \
-       -jar /usr/local/acs72/bin/alfresco-transform-core-aio-boot-4.0.0.jar
+       -jar /usr/local/acs74/bin/alfresco-transform-core-aio-boot-4.0.0.jar
     ```
 
     Check the output to ensure that it starts successfully.
