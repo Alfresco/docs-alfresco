@@ -1059,7 +1059,7 @@ $ ^C
 ...
 $ mvn spring-boot:run -Dlicense.skip=true
 ...
-``` 
+```
 
 Add a file via the Share user interface, you should see the following in the logs:
 
@@ -1592,7 +1592,7 @@ $ ^C
 ...
 $ mvn clean package -Dlicense.skip=true
 ...
-``` 
+```
 Create an Alfresco Share site with id `test` as follows:
 
 ```bash
@@ -1609,7 +1609,7 @@ $ java -jar target/rest-api-0.0.1-SNAPSHOT.jar create-site test
     preset: site-dashboard
     role: SiteManager
 }
-``` 
+```
 
 Then create a folder called `folder1` in the site with id `test`:
 
@@ -1648,7 +1648,7 @@ $ java -jar target/rest-api-0.0.1-SNAPSHOT.jar create-folder test folder1
     permissions: null
     definition: null
 }
-``` 
+```
 
 Create a file called `somefile.txt` in the folder called `folder1` (3e16d079-2fdc-4d64-ad76-c65c233165f4):
 
@@ -1719,7 +1719,7 @@ $ java -jar target/rest-api-0.0.1-SNAPSHOT.jar create-file 3e16d079-2fdc-4d64-ad
     permissions: null
     definition: null
 }
-``` 
+```
 Finally, search for content matching text `file` in site with id `test`:
 
 ```bash

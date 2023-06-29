@@ -1,8 +1,8 @@
 ---
-title: Alfresco SDK 4.5 for in-process extensions
+title: Alfresco SDK 4.6 for in-process extensions
 ---
 
-Alfresco SDK 4.5 is a Maven based development kit that provides an easy to use approach to developing applications and 
+Alfresco SDK 4.6 is a Maven based development kit that provides an easy to use approach to developing applications and 
 extensions for Alfresco. With this SDK you can develop, package, test, run, document and release your Alfresco extension project.
 
 The following picture illustrates where SDK 4.x fits into the big picture:
@@ -22,13 +22,15 @@ for the version you're using. If your version is in Limited or Full Support and 
 The 4.0 release took advantage of Semantic Versioning ([SEMVER](https://semver.org/){:target="_blank"}), which means 
 that it isn't directly compatible with the previous releases of the SDK.
 
-If you have existing projects that you wish to upgrade to SDK 4.5 the recommended approach is to generate a new project 
+If you have existing projects that you wish to upgrade to SDK 4.6 the recommended approach is to generate a new project 
 from the new archetypes and move your code into place.
 
 ## What's new?
-Alfresco SDK 4.5 is a minor update to the SDK and provides support for Alfresco 7.3.x and later.
+
+Alfresco SDK 4.6 is a minor update to the SDK and provides support for Alfresco 7.3.x and later.
 
 ### Embracing containers and Docker
+
 The main change included in SDK 4.0 is the addition of container technologies. Specifically, the new SDK is highly based 
 on [Docker](https://www.docker.com/){:target="_blank"} and [Docker Compose](https://docs.docker.com/compose/){:target="_blank"} 
 to offer a solution aligned with the architectural decisions made in Alfresco for version 6: moving towards microservices-oriented 
@@ -38,45 +40,42 @@ Working with Docker images gives the developers the opportunity to easily custom
 Adding, removing and configuring services in the environment is as easy as modifying the Docker Compose descriptor file.
 
 ### Support for Java 17
+
 [Java 17](https://openjdk.org/projects/jdk/17/){:target="_blank"} is the latest Long Term Support (LTS) version that provides support for 3 years. Alfresco 7.3+ already offers support for this version of the Java platform.
 
-Alfresco SDK 4.5 has been modified to add support for Java 17, as well. This way, if you're working as a developer in customizations for Alfresco 7.3 or later, you must now use SDK 4.5 + JDK 17 to work on them. The Apache Maven plugins included in the archetypes has been updated to avoid any issue with Java 17.
+Alfresco SDK 4.6 has been modified to add support for Java 17, as well. This way, if you're working as a developer in customizations for Alfresco 7.3 or later, you must now use SDK 4.6 + JDK 17 to work on them. The Apache Maven plugins included in the archetypes has been updated to avoid any issue with Java 17.
 
 ### Easy dependency configuration
-The configuration of the Maven dependency management has been greatly improved thanks to the addition of a _bill of materials_ (BOM). 
 
-The inclusion of the BOM dependency in the `dependencyManagement` section of the `pom.xml` file of the projects generated using the archetypes imports all 
-artifacts in the selected Alfresco platform version. It is still needed to define dependencies in the POM files, but the version can be omitted as it's 
-enforced by this `dependencyManagement`. 
+The configuration of the Maven dependency management has been greatly improved thanks to the addition of a _bill of materials_ (BOM).
+
+The inclusion of the BOM dependency in the `dependencyManagement` section of the `pom.xml` file of the projects generated using the archetypes imports all artifacts in the selected Alfresco platform version. It is still needed to define dependencies in the POM files, but the version can be omitted as it's enforced by this `dependencyManagement`.
 
 That incredibly eases the management of the versions of the different Alfresco platform's dependencies required in a customization project.
 
 ### Alfresco Maven Plugin no longer needed
-Alfresco SDK 4.0 manages the lifecycle of the generated projects making use of proper [utility scripts](#workingwithrunscript) 
-(`run.sh` / `run.bat`). That avoids the need of using the Alfresco Maven Plugin and eases the process to modify the lifecycle of the customization projects.
+
+Alfresco SDK 4.0 manages the lifecycle of the generated projects making use of proper [utility scripts](#workingwithrunscript) (`run.sh` / `run.bat`). That avoids the need of using the Alfresco Maven Plugin and eases the process to modify the lifecycle of the customization projects.
 
 If a development team has straightforward requirements and doesn't want to worry about the complexity of working with containers, it can use the utility scripts
-as they are. But, if any development team has a requirement or a development process that requires a customization in the project development lifecycle, it is 
-easy to modify the utility scripts, the Docker files or the Docker Compose descriptor to adapt the SDK projects to their needs.
+as they are. But, if any development team has a requirement or a development process that requires a customization in the project development lifecycle, it is easy to modify the utility scripts, the Docker files or the Docker Compose descriptor to adapt the SDK projects to their needs.
 
-The Alfresco Maven Plugin is only required in those cases in which it is required to package the customization project as an AMP. For more information about 
-how to work with AMPs, visit [Working with AMPs](#workingwithamps).
+The Alfresco Maven Plugin is only required in those cases in which it is required to package the customization project as an AMP. For more information about how to work with AMPs, visit [Working with AMPs](#workingwithamps).
 
 ### Integration testing
 
-The integration tests and the mechanisms to execute them in an Alfresco Content Service instance remains the same as in the previous version of the SDK. 
+The integration tests and the mechanisms to execute them in an Alfresco Content Service instance remains the same as in the previous version of the SDK.
 
 However, the inclusion of Docker and the utility scripts provides a different perspective about the environment on which the integration tests are executed.
-In this version, the integration tests are run against the dockerised environment defined using Docker and Docker Compose. By doing so, the integration test
-environment can be more similar to a real one, including whatever other service is required for a full featured integration test execution.
+In this version, the integration tests are run against the dockerised environment defined using Docker and Docker Compose. By doing so, the integration test environment can be more similar to a real one, including whatever other service is required for a full featured integration test execution.
 
 ## Getting started with Alfresco SDK {#gettingstarted}
 
-Use these instructions to get started with using Alfresco SDK 4.5.
+Use these instructions to get started with using Alfresco SDK 4.6.
 
 ### Prerequisites
 
-There are a number of software requirements for using Alfresco SDK 4.5:
+There are a number of software requirements for using Alfresco SDK 4.6:
 
 * Java Development Kit (JDK) - Version 17
 * Maven - Version 3.3
@@ -114,7 +113,7 @@ ACS 6.1 is compiled and executed using Java 11, but it is highly recommended to 
 Alfresco recommends that you keep up-to-date with all the Maven releases. Linux distributions and package managers tend to bundle older releases and this is 
 the most common pitfall.
 
-Alfresco SDK 4.5 requires Maven 3.3.0+, but you are recommended to download the latest version.
+Alfresco SDK 4.6 requires Maven 3.3.0+, but you are recommended to download the latest version.
 
 1. Download and install [Apache Maven](https://maven.apache.org/download.cgi){:target="_blank"} and make sure it is configured correctly on your path.
 
@@ -161,11 +160,9 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     mvn archetype:generate -Dfilter=org.alfresco:
     ```
 
-    You'll be prompted to select the archetype you want. The previously available archetypes, `alfresco-amp-archetype` 
-    and `share-amp-archetype` will still show up as an option, however these archetypes are not part of Alfresco SDK 4.x.
+    You'll be prompted to select the archetype you want. The previously available archetypes, `alfresco-amp-archetype` and `share-amp-archetype` will still show up as an option, however these archetypes are not part of Alfresco SDK 4.x.
 
-    > **Note:** You'll need double quotes around the filter part if you are using Windows PowerShell: 
-    > `mvn archetype:generate "-Dfilter=org.alfresco:"`.
+    > **Note:** You'll need double quotes around the filter part if you are using Windows PowerShell: `mvn archetype:generate "-Dfilter=org.alfresco:"`.
 
     The output looks something like this:
 
@@ -186,7 +183,7 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     * `org.alfresco.maven.archetype:alfresco-platform-jar-archetype`
     * `org.alfresco.maven.archetype:alfresco-share-jar-archetype`
 
-3. Choose the latest version, such as 4.5.0.
+3. Choose the latest version, such as 4.6.0.
 
     ```bash
     Choose org.alfresco.maven.archetype:alfresco-allinone-archetype version:
@@ -206,7 +203,7 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     14: 4.2.0
     15: 4.3.0
     15: 4.4.0
-    16: 4.5.0   
+    16: 4.6.0   
     ```
 
 4. Next you will be prompted for additional values, like `groupId`, `artifactId`, and `package`, as shown below:
@@ -235,7 +232,7 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
 
     ```bash
     [INFO] ----------------------------------------------------------------------------
-    [INFO] Using following parameters for creating project from Archetype: alfresco-allinone-archetype:4.5.0-SNAPSHOT
+    [INFO] Using following parameters for creating project from Archetype: alfresco-allinone-archetype:4.6.0-SNAPSHOT
     [INFO] ----------------------------------------------------------------------------
     [INFO] Parameter: groupId, Value: com.acme
     [INFO] Parameter: artifactId, Value: my-all-in-one
@@ -457,29 +454,18 @@ looks for the `M2_HOME` environment variable to build the path to the `mvn` exec
 
 ### Working with an All-In-One (AIO) project {#workingaio}
 
-Before you continue make sure that you have read and completed the tasks in the 
-[Getting started](#gettingstarted) tutorial to generate an All-In-One (AIO) project, 
-which means selecting the `org.alfresco.maven.archetype:alfresco-allinone-archetype` 
-Maven archetype when generating the project.
+Before you continue make sure that you have read and completed the tasks in the [Getting started](#gettingstarted) tutorial to generate an All-In-One (AIO) project, which means selecting the `org.alfresco.maven.archetype:alfresco-allinone-archetype` Maven archetype when generating the project.
 
 > **Note:** The following information assumes that the AIO project was generated with the name `my-all-in-one-project`.
 
 #### Introduction
 
-An AIO SDK project is used to build extensions for both [Content Services (ACS) Repository]({% link content-services/latest/develop/repo-ext-points/index.md %}) 
-and [Alfresco Share UI]({% link content-services/latest/develop/share-ext-points/index.md %}). The runtime environment
-for ACS is Docker so not only is this project building the source code for your extensions but also the 
-custom Docker images for the Alfresco Repository and Alfresco Share. The custom Docker images includes the 
-JARs, or AMPs, with your extension code.
+An AIO SDK project is used to build extensions for both [Content Services (ACS) Repository]({% link content-services/latest/develop/repo-ext-points/index.md %}) and [Alfresco Share UI]({% link content-services/latest/develop/share-ext-points/index.md %}). The runtime environment for ACS is Docker so not only is this project building the source code for your extensions but also the custom Docker images for the Alfresco Repository and Alfresco Share. The custom Docker images includes the JARs, or AMPs, with your extension code.
 
-Looking into the generated AIO parent project we can see that we got a Docker Compose file (`my-all-in-one-project/docker/docker-compose.yml`) 
-that will be used to build custom Docker images and run the project, one sub-project called `my-all-in-one-project-platform` that will be 
-used to build Repository customizations, and one sub-project called `my-all-in-one-project-share` that can be used to build Alfresco Share UI customizations.
+Looking into the generated AIO parent project we can see that we got a Docker Compose file (`my-all-in-one-project/docker/docker-compose.yml`) that will be used to build custom Docker images and run the project, one sub-project called `my-all-in-one-project-platform` that will be used to build Repository customizations, and one sub-project called `my-all-in-one-project-share` that can be used to build Alfresco Share UI customizations.
 
-There are also the `my-all-in-one-project-platform-docker` and `my-all-in-one-project-share-docker` projects that are 
-used to assemble (aggregate) all the Repository and Share extensions 
-(there are usually more than one of each in a bigger project) and then build the custom Docker images with the 
-extension(s) applied.
+There are also the `my-all-in-one-project-platform-docker` and `my-all-in-one-project-share-docker` projects that are used to assemble (aggregate) all the Repository and Share extensions 
+(there are usually more than one of each in a bigger project) and then build the custom Docker images with the extension(s) applied.
 
 The Repository and Share extensions that are aggregated can either be extensions that you develop locally or extensions that are available in a Maven repository somewhere.
 
@@ -508,13 +494,10 @@ When you first start out you don't need to change any of these properties, just 
 #### Building and running the project
 
 The first thing you need to do before you can run anything is to build the custom ACS Docker images with the custom extensions.
-We can build images and extensions at the same time as we start (run) the project by using the `./run.sh build_start` script 
-(on Windows use the `run.bat build_start` script instead).
+We can build images and extensions at the same time as we start (run) the project by using the `./run.sh build_start` script (on Windows use the `run.bat build_start` script instead).
 
-Note that if you have another Alfresco SDK project running, then you need to stop it first. Also, make sure that the 
-following ports are free: 8180 (Share), 8080 (Alfresco Repo), 9898 (Share Debug), 8888 (Alfresco Repo Debug), 5555 (Postgres).
-If you want to change the ports see the properties section of `my-all-in-one-project/pom.xml`. This project file also 
-contains the versions of Alfresco Repository and Alfresco Share that will be used.  
+Note that if you have another Alfresco SDK project running, then you need to stop it first. Also, make sure that the following ports are free: 8180 (Share), 8080 (Alfresco Repo), 9898 (Share Debug), 8888 (Alfresco Repo Debug), 5555 (Postgres).
+If you want to change the ports see the properties section of `my-all-in-one-project/pom.xml`. This project file also contains the versions of Alfresco Repository and Alfresco Share that will be used.  
 
 ```bash
 $ cd my-all-in-one-project
@@ -525,7 +508,7 @@ my-all-in-one-project mbergljung$ ./run.sh build_start
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Build Order:
 [INFO] 
-[INFO] AIO - SDK 4.5
+[INFO] AIO - SDK 4.6
 [INFO] Alfresco Platform/Repository JAR Module
 [INFO] Alfresco Share JAR Module
 [INFO] Integration Tests Module
@@ -535,7 +518,7 @@ my-all-in-one-project mbergljung$ ./run.sh build_start
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Summary:
 [INFO] 
-[INFO] AIO - SDK 4.5 ...................................... SUCCESS [  0.680 s]
+[INFO] AIO - SDK 4.6 ...................................... SUCCESS [  0.680 s]
 [INFO] Alfresco Platform/Repository JAR Module ............ SUCCESS [  5.461 s]
 [INFO] Alfresco Share JAR Module .......................... SUCCESS [  0.557 s]
 [INFO] Integration Tests Module ........................... SUCCESS [  0.900 s]
@@ -561,11 +544,11 @@ Successfully tagged alfresco-content-services-my-all-in-one-project:development
 my-all-in-one-project-acs_1       | 27-Mar-2019 06:53:39.191 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
 my-all-in-one-project-acs_1       | 27-Mar-2019 06:53:39.233 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
 my-all-in-one-project-acs_1       | 27-Mar-2019 06:53:39.249 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 84022 ms
-``` 
+```
 
 The `./run.sh build_start` script will do the following:
 
-* Stop anything running already with this project's Docker Compose file: `my-all-in-one-project/docker/docker-compose.yml` 
+* Stop anything running already with this project's Docker Compose file: `my-all-in-one-project/docker/docker-compose.yml`
 * Build the Repository and Share Extension JARs so we are sure to get the latest changes
 * Assemble/Aggregate all Repository extension JARs into the `my-all-in-one-project/my-all-in-one-project-platform-docker/target/extensions` directory
 * Assemble/Aggregate all Share extension JARs into the `my-all-in-one-project/my-all-in-one-project-share-docker/target/extensions` directory
@@ -580,7 +563,7 @@ $ docker image ls|more
 REPOSITORY                                                       TAG                                          IMAGE ID            CREATED             SIZE
 alfresco-content-services-my-all-in-one-project                  development                                  48e61e882567        16 hours ago        2.07GB
 alfresco-share-my-all-in-one-project                             development                                  d6cbb6143578        16 hours ago        749MB
-``` 
+```
 
 The different web applications should now be accessible:
 
@@ -589,27 +572,25 @@ The different web applications should now be accessible:
 
 #### Trying out the sample code
 
-The AIO project has some sample extension code that you can try out. There is one Repository extension and one Share extension 
-that you can test to make sure the extension JARs have been applied properly.
+The AIO project has some sample extension code that you can try out. There is one Repository extension and one Share extension that you can test to make sure the extension JARs have been applied properly.
 
 The Repository extension is a Web Script that you can call with the following URL: `http://localhost:8080/alfresco/service/sample/helloworld`.
-The source code for the Web Script is located here: `my-all-in-one-project/my-all-in-one-project-platform/src/main/resources/alfresco/extension/templates/webscripts/alfresco/tutorials` 
+The source code for the Web Script is located here: `my-all-in-one-project/my-all-in-one-project-platform/src/main/resources/alfresco/extension/templates/webscripts/alfresco/tutorials`,
 and here: `my-all-in-one-project/my-all-in-one-project-platform/src/main/java/ com/example/platformsample/HelloWorldWebScript.java`.
 
 The Share extension is a custom Aikau page with a custom widget, that you can reach with the following URL: `http://localhost:8180/share/page/hdp/ws/simple-page`.
-The source code for the Page and Widget is located here: `my-all-in-one-project/my-all-in-one-project-share/src/main/resources/alfresco/web-extension/site-webscripts/com/example/pages` 
+The source code for the Page and Widget is located here: `my-all-in-one-project/my-all-in-one-project-share/src/main/resources/alfresco/web-extension/site-webscripts/com/example/pages`,
 and here: `my-all-in-one-project/my-all-in-one-project-share/src/main/resources/META-INF/resources/my-all-in-one-project-share/js/tutorials/widgets`.
 
 #### Looking inside the containers
 
-Sometimes it's good to be able to look at what has actually been deployed in the containers. For example, how do I 
-access the Repository container and list the custom Repository extension JARs that have been deployed? 
+Sometimes it's good to be able to look at what has actually been deployed in the containers. For example, how do I access the Repository container and list the custom Repository extension JARs that have been deployed?
 
 You can do that as follows:
 
 First **Ctrl-C** out of the log tailing:
 
-```bash 
+```bash
 my-all-in-one-project-acs_1       | 27-Mar-2019 07:26:23.893 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
 my-all-in-one-project-acs_1       | 27-Mar-2019 07:26:23.914 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
 my-all-in-one-project-acs_1       | 27-Mar-2019 07:26:23.940 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 83197 ms
@@ -617,18 +598,18 @@ my-all-in-one-project-acs_1       |  2019-03-27 07:26:24,304  INFO  [management.
 my-all-in-one-project-acs_1       |  2019-03-27 07:26:25,555  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-3] Startup of 'Search' subsystem, ID: [Search, managed, solr6] complete
 ^CERROR: Aborting.
 my-all-in-one-project mbergljung$ 
-``` 
+```
 
 Then check the name of the ACS Repository container:
 
-```bash 
+```bash
 $ docker container ls
 CONTAINER ID        IMAGE                                                         COMMAND                  CREATED             STATUS              PORTS                                                      NAMES
 733867a70117        alfresco-content-services-my-all-in-one-project:development   "catalina.sh run -se…"   5 minutes ago       Up 5 minutes        0.0.0.0:8080->8080/tcp, 0.0.0.0:8888->8888/tcp             docker_my-all-in-one-project-acs_1
 1f197e52b4f2        alfresco/alfresco-search-services:2.0.3                       "/bin/sh -c '$DIST_D…"   5 minutes ago       Up 5 minutes        0.0.0.0:8983->8983/tcp                                     docker_my-all-in-one-project-ass_1
 4eff0cc9cc25        alfresco-share-my-all-in-one-project:development              "/usr/local/tomcat/s…"   5 minutes ago       Up 5 minutes        8000/tcp, 0.0.0.0:8180->8080/tcp, 0.0.0.0:9898->8888/tcp   docker_my-all-in-one-project-share_1
 a7854ff16d72        postgres:9.6                                                  "docker-entrypoint.s…"   5 minutes ago       Up 5 minutes        0.0.0.0:5555->5432/tcp                                     docker_my-all-in-one-project-postgres_1
-``` 
+```
 
 Then open up a shell into the ACS Repository container:
 
@@ -640,7 +621,7 @@ my-all-in-one-project mbergljung$ docker exec -it docker_my-all-in-one-project-a
 -rw-r--r-- 1 root root    17220 Mar 27 07:24 my-all-in-one-project-platform-1.0-SNAPSHOT.jar
 [root@733867a70117 tomcat]# exit
 exit
-``` 
+```
 
 #### Updating extension code
 
@@ -651,14 +632,14 @@ file and change it to look as follows:
 
 ```text
 Message: '${fromJS}' '${fromJava}' UPDATED!
-``` 
+```
 
 To get this code update deployed we just have to run the following command in another console then where we are tailing the logs,
 and stand in the directory where the `run.sh` script is located:
 
 ```bash
 my-all-in-one-project mbergljung$ ./run.sh reload_acs
-``` 
+```
 
 What this will do is the following:
 
@@ -673,7 +654,7 @@ You will be left with the console tailing the logs, but you can **Ctrl-C** out o
 in the initial console where we started things up.
 
 You can now check if the change took effect by accessing the `http://localhost:8080/alfresco/service/sample/helloworld` Web Script.
- 
+
 #### Stopping the project
 
 To stop the solution you need to first `Ctrl-C` out of the log tailing. This does not stop the containers 
@@ -686,7 +667,7 @@ CONTAINER ID        IMAGE                                                       
 edb9ea129a5d        postgres:9.6                                                  "docker-entrypoint.s…"   20 minutes ago      Up 20 minutes       0.0.0.0:5555->5432/tcp                                     docker_my-all-in-one-project-postgres_1
 6992d183986f        alfresco/alfresco-search-services:1.2.0                       "/bin/sh -c '$DIST_D…"   20 minutes ago      Up 20 minutes       0.0.0.0:8983->8983/tcp                                     docker_my-all-in-one-project-ass_1
 107d00733efd        alfresco-share-my-all-in-one-project:development              "/usr/local/tomcat/s…"   20 minutes ago      Up 20 minutes       8000/tcp, 0.0.0.0:8180->8080/tcp, 0.0.0.0:9898->8888/tcp   docker_my-all-in-one-project-share_1
-``` 
+```
 
 Now, standing in the directory where the `run.sh` script is located execute the following command to stop and remove the containers:
 
@@ -701,26 +682,19 @@ Removing docker_my-all-in-one-project-postgres_1 ... done
 Removing docker_my-all-in-one-project-ass_1      ... done
 Removing docker_my-all-in-one-project-share_1    ... done
 Removing network docker_default
-``` 
+```
 
 ### Working with Platform JAR project structure {#workingplatform}
 
-Before you continue make sure that you have read and completed the tasks in the 
-[Getting started](#gettingstarted) tutorial to generate a Platform project, 
-which means selecting the `org.alfresco.maven.archetype:alfresco-platform-jar-archetype` Maven archetype when generating the project.
+Before you continue make sure that you have read and completed the tasks in the [Getting started](#gettingstarted) tutorial to generate a Platform project, which means selecting the `org.alfresco.maven.archetype:alfresco-platform-jar-archetype` Maven archetype when generating the project.
 
 > **Note:** The following information assumes that the Platform project was generated with the name `my-platform-project`.
 
 #### Introduction
 
-A Platform project is used to build extensions for the [Content Services (ACS) Repository]({% link content-services/latest/develop/repo-ext-points/index.md %}). 
-The runtime environment for ACS is Docker so not only is this project building the source code for your extensions but also the 
-custom Docker image for the Alfresco Repository. The custom Docker images includes the JARs, or AMPs, with your extension code. 
+A Platform project is used to build extensions for the [Content Services (ACS) Repository]({% link content-services/latest/develop/repo-ext-points/index.md %}). The runtime environment for ACS is Docker so not only is this project building the source code for your extensions but also the custom Docker image for the Alfresco Repository. The custom Docker images includes the JARs, or AMPs, with your extension code.
 
-Looking into the generated Platform project we can see that we got a Docker Compose file (`my-platform-project/docker/docker-compose.yml`) 
-that will be used to build custom Docker images and run the project. We also got a directory for our extension source code: 
-`my-platform-project/src/main/java` and one directory with the Docker related stuff, such as the `Dockerfile` used to 
-build the custom ACS Repository Docker image: `my-platform-project/src/main/docker`.
+Looking into the generated Platform project we can see that we got a Docker Compose file (`my-platform-project/docker/docker-compose.yml`) that will be used to build custom Docker images and run the project. We also got a directory for our extension source code: `my-platform-project/src/main/java` and one directory with the Docker related stuff, such as the `Dockerfile` used to build the custom ACS Repository Docker image: `my-platform-project/src/main/docker`.
 
 #### Configuration properties
 
@@ -742,22 +716,17 @@ The following table explains some of these properties:
 | acs.debug.port | `number` | 8888 | The external port (i.e. outside container) for ACS Repository remote debugging.|
 | postgres.port | `number` | 5555 | The external port (i.e. outside container) for PostgreSQL database.|
 
-There are some Alfresco Share related properties listed here, but they are not used unless you uncomment some code in the 
-Docker Compose file (`my-platform-project/docker/docker-compose.yml`) to run the Alfresco Share container.
+There are some Alfresco Share related properties listed here, but they are not used unless you uncomment some code in the Docker Compose file (`my-platform-project/docker/docker-compose.yml`) to run the Alfresco Share container.
 
 When you first start out you don't need to change any of these properties, just use the defaults and try it out.
 
 #### Building and running the project
 
 The first thing you need to do before you can run anything is to build the custom ACS Repository Docker image with the custom extensions.
-We can build the image and extensions at the same time as we start (run) the project by using the `./run.sh build_start` script 
-(on Windows use the `run.bat build_start` script instead).
+We can build the image and extensions at the same time as we start (run) the project by using the `./run.sh build_start` script (on Windows use the `run.bat build_start` script instead).
 
-Note that if you have another Alfresco SDK project running, then you need to stop it first. Also, make sure that the 
-following ports are free: 8180 (Share - if enabled in Docker Compose), 8080 (Alfresco Repo), 9898 (Share Debug - if enabled in Docker Compose), 
-8888 (Alfresco Repo Debug), 5555 (Postgres).
-If you want to change the ports see the properties section of `my-platform-project/pom.xml`. This project file also 
-contains the versions of Alfresco Repository and Alfresco Share (if enabled) that will be used.  
+Note that if you have another Alfresco SDK project running, then you need to stop it first. Also, make sure that the following ports are free: 8180 (Share - if enabled in Docker Compose), 8080 (Alfresco Repo), 9898 (Share Debug - if enabled in Docker Compose), 8888 (Alfresco Repo Debug), 5555 (Postgres).
+If you want to change the ports see the properties section of `my-platform-project/pom.xml`. This project file also contains the versions of Alfresco Repository and Alfresco Share (if enabled) that will be used.  
 
 ```bash
 $ cd my-platform-project/
@@ -789,7 +758,7 @@ Attaching to docker_my-platform-project-acs_1, docker_my-platform-project-ass_1,
 ...
 my-platform-project-acs_1       | 27-Mar-2019 09:25:12.923 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
 my-platform-project-acs_1       | 27-Mar-2019 09:25:12.947 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
-my-platform-project-acs_1       | 27-Mar-2019 09:25:12.955 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 91144 ms``` 
+my-platform-project-acs_1       | 27-Mar-2019 09:25:12.955 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 91144 ms```
 ```
 
 The `./run.sh build_start` script will do the following:
@@ -803,11 +772,11 @@ The `./run.sh build_start` script will do the following:
 
 This will build the following Docker image:
 
-```bash 
+```bash
 $ docker image ls|more
 REPOSITORY                                                       TAG                                          IMAGE ID            CREATED             SIZE
 alfresco-content-services-my-platform-project                    development                                  b2b9a7b730f5        5 minutes ago       2.07GB
-``` 
+```
 
 The different web applications should now be accessible:
 
@@ -816,22 +785,20 @@ The different web applications should now be accessible:
 
 #### Trying out the sample code
 
-The Platform project has some sample extension code that you can try out. 
+The Platform project has some sample extension code that you can try out.
 
 The Repository extension is a Web Script that can be called with the following URL: `http://localhost:8080/alfresco/service/sample/helloworld`.
-The source code for the Web Script is located here: `my-platform-project/src/main/resources/alfresco/extension/templates/webscripts/alfresco/tutorials` 
-and here: `my-platform-project/src/main/java/ com/example/platformsample/HelloWorldWebScript.java`.
+The source code for the Web Script is located here: `my-platform-project/src/main/resources/alfresco/extension/templates/webscripts/alfresco/tutorials` and here: `my-platform-project/src/main/java/ com/example/platformsample/HelloWorldWebScript.java`.
 
 #### Looking inside the containers
 
-Sometimes it's good to be able to look at what has actually been deployed in the containers. For example, how do I 
-access the Repository container and list the custom Repository extension JARs that have been deployed? 
+Sometimes it's good to be able to look at what has actually been deployed in the containers. For example, how do I access the Repository container and list the custom Repository extension JARs that have been deployed?
 
 You can do that as follows:
 
 First **Ctrl-C** out of the log tailing:
 
-```text 
+```text
 my-platform-project-acs_1       | 27-Mar-2019 09:25:12.923 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
 my-platform-project-acs_1       | 27-Mar-2019 09:25:12.947 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
 my-platform-project-acs_1       | 27-Mar-2019 09:25:12.955 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 91144 ms
@@ -839,21 +806,21 @@ my-platform-project-acs_1       |  2019-03-27 09:25:40,406  INFO  [management.su
 my-platform-project-acs_1       |  2019-03-27 09:25:40,948  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-6] Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
 ^[[B^CERROR: Aborting.
 my-platform-project mbergljung$
-``` 
+```
 
 Then check the name of the ACS Repository container:
 
-```bash 
+```bash
 $ docker container ls
 CONTAINER ID        IMAGE                                                       COMMAND                  CREATED             STATUS              PORTS                                            NAMES
 ba90b1648470        alfresco-content-services-my-platform-project:development   "catalina.sh run -se…"   8 minutes ago       Up 8 minutes        0.0.0.0:8080->8080/tcp, 0.0.0.0:8888->8888/tcp   docker_my-platform-project-acs_1
 0435b09e687c        alfresco/alfresco-search-services:1.2.0                     "/bin/sh -c '$DIST_D…"   8 minutes ago       Up 8 minutes        0.0.0.0:8983->8983/tcp                           docker_my-platform-project-ass_1
 c9145e7cdb20        postgres:9.6                                                "docker-entrypoint.s…"   8 minutes ago       Up 8 minutes        0.0.0.0:5555->5432/tcp                           docker_my-platform-project-postgres_1
-``` 
+```
 
 Then open up a shell into the ACS Repository container:
 
-```bash 
+```bash
 my-platform-project mbergljung$ docker exec -it docker_my-platform-project-acs_1 /bin/bash
 [root@ba90b1648470 tomcat]# pwd
 /usr/local/tomcat
@@ -862,7 +829,7 @@ my-platform-project mbergljung$ docker exec -it docker_my-platform-project-acs_1
 -rw-r--r-- 1 root root    13692 Mar 27 09:23 my-platform-project-1.0-SNAPSHOT-tests.jar
 [root@ba90b1648470 tomcat]# exit
 exit
-``` 
+```
 
 #### Updating extension code
 
@@ -871,9 +838,9 @@ What do you need to do, restart etc. First just update the code. For example, le
 to return a different message. Open up the `my-platform-project/src/main/resources/alfresco/extension/templates/webscripts/alfresco/tutorials/helloworld.get.html.ftl` 
 file and change it to look as follows:
 
-```text 
+```text
 Message: '${fromJS}' '${fromJava}' UPDATED!
-``` 
+```
 
 To get this code update deployed we have to run the following commands:
 
@@ -881,7 +848,7 @@ First `Ctrl-C` out of the log tailing.
 
 Then stop the project:
 
-```bash 
+```bash
 my-platform-project mbergljung$ ./run.sh stop
 Stopping docker_my-platform-project-acs_1      ... done
 Stopping docker_my-platform-project-ass_1      ... done
@@ -890,14 +857,14 @@ Removing docker_my-platform-project-acs_1      ... done
 Removing docker_my-platform-project-ass_1      ... done
 Removing docker_my-platform-project-postgres_1 ... done
 Removing network docker_default
-``` 
+```
 
 Now build and start again:
 
 ```bash
 my-platform-project mbergljung$ ./run.sh build_start
 ...
-``` 
+```
 
 What this will do is the following:
 
@@ -909,11 +876,10 @@ What this will do is the following:
 * Start up the `my-platform-project-acs` container based on new image  
 
 You can now check if the change took effect by accessing the `http://localhost:8080/alfresco/service/sample/helloworld` Web Script.
- 
+
 #### Stopping the project
 
-To stop the solution you need to first `Ctrl-C` out of the log tailing. This does not stop the containers 
-as they run in daemon mode in the background. Check this by executing the following command that lists running containers:
+To stop the solution you need to first `Ctrl-C` out of the log tailing. This does not stop the containers as they run in daemon mode in the background. Check this by executing the following command that lists running containers:
 
 ```bash
 $ docker container ls
@@ -921,11 +887,11 @@ CONTAINER ID        IMAGE                                                       
 61de829092f3        alfresco-content-services-my-platform-project:development   "catalina.sh run -se…"   3 minutes ago       Up 3 minutes        0.0.0.0:8080->8080/tcp, 0.0.0.0:8888->8888/tcp   docker_my-platform-project-acs_1
 07300ddb6714        alfresco/alfresco-search-services:1.2.0                     "/bin/sh -c '$DIST_D…"   3 minutes ago       Up 3 minutes        0.0.0.0:8983->8983/tcp                           docker_my-platform-project-ass_1
 09922ce36d90        postgres:9.6                                                "docker-entrypoint.s…"   3 minutes ago       Up 3 minutes        0.0.0.0:5555->5432/tcp                           docker_my-platform-project-postgres_1
-``` 
+```
 
 Now, standing in the directory where the `run.sh` script is located execute the following command to stop and remove the containers:
 
-```bash 
+```bash
 my-platform-project mbergljung$ ./run.sh stop
 Stopping docker_my-platform-project-acs_1      ... done
 Stopping docker_my-platform-project-ass_1      ... done
@@ -934,7 +900,7 @@ Removing docker_my-platform-project-acs_1      ... done
 Removing docker_my-platform-project-ass_1      ... done
 Removing docker_my-platform-project-postgres_1 ... done
 Removing network docker_default
-``` 
+```
 
 ### Working with Share JAR project structure {#workingshare}
 
@@ -947,15 +913,11 @@ Maven archetype when generating the project
 
 #### Introduction
 
-An Alfresco Share project is used to build extensions for [Alfresco Share UI]({% link content-services/latest/develop/share-ext-points/index.md %}). 
-The runtime environment for ACS is Docker so not only is this project building the source code for your extensions but also the 
-custom Docker image for Alfresco Share. The custom Docker images includes the 
-JARs, or AMPs, with your extension code. 
+An Alfresco Share project is used to build extensions for [Alfresco Share UI]({% link content-services/latest/develop/share-ext-points/index.md %}).
+The runtime environment for ACS is Docker so not only is this project building the source code for your extensions but also the custom Docker image for Alfresco Share. The custom Docker images includes the 
+JARs, or AMPs, with your extension code.
 
-Looking into the generated Share project we can see that we got a Docker Compose file (`my-share-project/docker/docker-compose.yml`) 
-that will be used to build custom Docker images and run the project. We also got a directory for our extension source code: 
-`my-share-project/src/main/java` and one directory with the Docker related stuff, such as the `Dockerfile` used to 
-build the custom Alfresco Share Docker image: `my-share-project/src/main/docker`.
+Looking into the generated Share project we can see that we got a Docker Compose file (`my-share-project/docker/docker-compose.yml`) that will be used to build custom Docker images and run the project. We also got a directory for our extension source code: `my-share-project/src/main/java` and one directory with the Docker related stuff, such as the `Dockerfile` used to build the custom Alfresco Share Docker image: `my-share-project/src/main/docker`.
 
 #### Configuration properties
 
@@ -979,25 +941,18 @@ The following table explains some of these properties:
 
 There are some ACS Repository related properties listed here, such as `acs.host` and `acs.port`. Alfresco Share will use those
 to connect to the Alfresco Repository. This is however a bit tricky when we are running in a container environment. You cannot
-just start the Repository and make it available on `localhost:8080`. It would not be accessible like that from inside the 
-Share container. For Share to be able to connect to the Repository both containers need to be attached to the same 
-Docker Network. This way you can just use the Docker Compose service name for the Repository, such as `my-share-project-acs`.
-So the best way to test your Share extension is to uncomment the code in the Docker Compose file 
-(`my-share-project/docker/docker-compose.yml`) to also run the ACS Repository container, Search, and Postgres.
+just start the Repository and make it available on `localhost:8080`. It would not be accessible like that from inside the Share container. For Share to be able to connect to the Repository both containers need to be attached to the same Docker Network. This way you can just use the Docker Compose service name for the Repository, such as `my-share-project-acs`.
+So the best way to test your Share extension is to uncomment the code in the Docker Compose file (`my-share-project/docker/docker-compose.yml`) to also run the ACS Repository container, Search, and Postgres.
 
 #### Building and running the project
 
 The first thing you need to do before you can run anything is to build the custom Share Docker image with the custom extensions.
-We can build the image and extensions at the same time as we start (run) the project by using the `./run.sh build_start` script 
-(on Windows use the `run.bat build_start` script instead).
+We can build the image and extensions at the same time as we start (run) the project by using the `./run.sh build_start` script (on Windows use the `run.bat build_start` script instead).
 
-Note that if you have another Alfresco SDK project running, then you need to stop it first. Also, make sure that the 
-following ports are free: 8180 (Share), 8080 (Alfresco Repo - if enabled in Docker Compose), 9898 (Share Debug), 8888 (Alfresco Repo Debug - if enabled), 5555 (Postgres).
-If you want to change the ports see the properties section of `my-share-project/pom.xml`. This project file also 
-contains the versions of Alfresco Repository (if enabled) and Alfresco Share that will be used.  
+Note that if you have another Alfresco SDK project running, then you need to stop it first. Also, make sure that the following ports are free: 8180 (Share), 8080 (Alfresco Repo - if enabled in Docker Compose), 9898 (Share Debug), 8888 (Alfresco Repo Debug - if enabled), 5555 (Postgres).
+If you want to change the ports see the properties section of `my-share-project/pom.xml`. This project file also contains the versions of Alfresco Repository (if enabled) and Alfresco Share that will be used.  
 
-When I run the project I have uncommented the code (make sure to also remove the "# Optional" line) that starts 
-the Repository, Search, and PostgresSQL in the (`my-share-project/docker/docker-compose.yml`) file, so I can test the Share extension:  
+When I run the project I have uncommented the code (make sure to also remove the "# Optional" line) that starts the Repository, Search, and PostgresSQL in the (`my-share-project/docker/docker-compose.yml`) file, so I can test the Share extension:  
 
 ```bash
 $ cd my-share-project
@@ -1025,7 +980,7 @@ Successfully tagged alfresco-share-my-share-project:development...
 my-share-project-acs_1       | 27-Mar-2019 10:09:01.158 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
 my-share-project-acs_1       | 27-Mar-2019 10:09:01.175 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
 my-share-project-acs_1       | 27-Mar-2019 10:09:01.213 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 95189 ms
-``` 
+```
 
 The `./run.sh build_start` script will do the following:
 
@@ -1038,11 +993,11 @@ The `./run.sh build_start` script will do the following:
 
 This will build the following Docker image:
 
-```bash 
+```bash
 $ docker image ls
 REPOSITORY                                                       TAG                                          IMAGE ID            CREATED              SIZE
 alfresco-share-my-share-project                                  development                                  b8b9acdb3425        About a minute ago   749MB
-``` 
+```
 
 The different web applications should now be accessible:
 
@@ -1051,7 +1006,7 @@ The different web applications should now be accessible:
 
 #### Trying out the sample code
 
-The Share project has some sample extension code that you can try out. 
+The Share project has some sample extension code that you can try out.
 
 The Share extension is a custom Aikau page with a custom widget, you reach it with the following URL: `http://localhost:8180/share/page/hdp/ws/simple-page`.
 The source code for the Page and Widget is located here: `my-share-project/src/main/resources/alfresco/web-extension/site-webscripts/com/example/pages` 
@@ -1059,14 +1014,13 @@ and here: `my-share-project/src/main/resources/META-INF/resources/my-share-proje
 
 #### Looking inside the containers
 
-Sometimes it's good to be able to look at what has actually been deployed in the containers. For example, how do I 
-access the Share container and list the custom Share extension JARs that have been deployed? 
+Sometimes it's good to be able to look at what has actually been deployed in the containers. For example, how do I access the Share container and list the custom Share extension JARs that have been deployed? 
 
 You can do that as follows:
 
 First **Ctrl-C** out of the log tailing:
 
-```text 
+```text
 my-share-project-acs_1       | 27-Mar-2019 10:09:01.213 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 95189 ms
 my-share-project-acs_1       |  2019-03-27 10:09:30,278  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-5] Starting 'Transformers' subsystem, ID: [Transformers, default]
 my-share-project-acs_1       |  2019-03-27 10:09:30,618  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-5] Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
@@ -1074,22 +1028,22 @@ my-share-project-share_1     | 2019-03-27 10:11:50,150  INFO  [web.site.EditionI
 my-share-project-share_1     | 2019-03-27 10:12:11,652  INFO  [web.scripts.ImapServerStatus] [http-nio-8080-exec-7] Successfully retrieved IMAP server status from Alfresco: disabled
 ^CERROR: Aborting.
 my-share-project mbergljung$ 
-``` 
+```
 
 Then check the name of the Alfresco Share container:
 
-```bash 
+```bash
 $ docker container ls
 CONTAINER ID        IMAGE                                                     COMMAND                  CREATED             STATUS              PORTS                                                      NAMES
 dda89172506c        alfresco/alfresco-content-repository-community:7.0.0   "catalina.sh run -se…"   6 minutes ago       Up 6 minutes        0.0.0.0:8080->8080/tcp                                     docker_my-share-project-acs_1
 2b4fa4b4a3f6        alfresco-share-my-share-project:development               "/usr/local/tomcat/s…"   6 minutes ago       Up 6 minutes        8000/tcp, 0.0.0.0:8180->8080/tcp, 0.0.0.0:9898->8888/tcp   docker_my-share-project-share_1
 ad8857f3574b        postgres:9.6                                              "docker-entrypoint.s…"   6 minutes ago       Up 6 minutes        0.0.0.0:5555->5432/tcp                                     docker_my-share-project-postgres_1
 92902d7ae624        alfresco/alfresco-search-services:1.2.0                   "/bin/sh -c '$DIST_D…"   6 minutes ago       Up 6 minutes        0.0.0.0:8983->8983/tcp                                     docker_my-share-project-ass_1
-``` 
+```
 
 Then open up a shell into the Alfresco Share container:
 
-```bash 
+```bash
 my-share-project mbergljung$ docker exec -it docker_my-share-project-share_1 /bin/bash
 [root@2b4fa4b4a3f6 tomcat]# pwd
 /usr/local/tomcat
@@ -1097,16 +1051,15 @@ my-share-project mbergljung$ docker exec -it docker_my-share-project-share_1 /bi
 -rw-r--r-- 1 root root    18920 Mar 27 10:07 my-share-project-1.0-SNAPSHOT.jar
 [root@2b4fa4b4a3f6 tomcat]# exit
 exit
-``` 
+```
 
 #### Updating extension code
 
-So now you probably want to write some new code, or update the existing code, and see how that works with the containers running. 
-What do you need to do, restart etc. First just update the code. For example, let's update the Share Page title. 
-Open up the `my-share-project/src/main/resources/alfresco/web-extension/site-webscripts/com/example/pages/simple-page.get.js` 
-file and change it to look as follows:
+So now you probably want to write some new code, or update the existing code, and see how that works with the containers running.
+What do you need to do, restart etc. First just update the code. For example, let's update the Share Page title.
+Open up the `my-share-project/src/main/resources/alfresco/web-extension/site-webscripts/com/example/pages/simple-page.get.js` file and change it to look as follows:
 
-```json 
+```json
 model.jsonModel = {
     widgets: [{
         id: "SET_PAGE_TITLE",
@@ -1136,14 +1089,14 @@ model.jsonModel = {
             }
         }]
 };
-``` 
+```
 
 To get this code update deployed we just have to run the following command in another console then where we are tailing the logs,
 and stand in the directory where the `run.sh` script is located:
 
-```bash 
+```bash
 my-share-project mbergljung$ ./run.sh reload_share
-``` 
+```
 
 What this will do is the following:
 
@@ -1154,15 +1107,13 @@ What this will do is the following:
 * Build a new `alfresco-share-my-share-project:development` image
 * Start up the `my-share-project-acs` container based on new image  
 
-You will be left with the console tailing the logs, but you can **Ctrl-C** out of this as you are already tailing the logs 
-in the initial console where we started things up.
+You will be left with the console tailing the logs, but you can **Ctrl-C** out of this as you are already tailing the logs in the initial console where we started things up.
 
 You can now check if the change took effect by accessing the `http://localhost:8180/share/page/hdp/ws/simple-page` Web Script.
- 
+
 #### Stopping the project
 
-To stop the solution you need to first `Ctrl-C` out of the log tailing. This does not stop the containers 
-as they run in daemon mode in the background. Check this by executing the following command that lists running containers:
+To stop the solution you need to first `Ctrl-C` out of the log tailing. This does not stop the containers as they run in daemon mode in the background. Check this by executing the following command that lists running containers:
 
 ```bash
 $ docker container ls
@@ -1891,7 +1842,7 @@ the project.
 ```bash
 $ ./run.sh purge
 $ ./run.sh build_start
-```  
+``` 
 
 If you're using Windows, you'll need to use the `run.bat` script instead of `run.sh`.
 
@@ -2560,7 +2511,7 @@ So, taking into account the previous section, let's see how the integration test
                         <artifactItem>
                             <groupId>org.apache.httpcomponents</groupId>
                             <artifactId>httpclient</artifactId>
-                            <version>4.5.2</version>
+                            <version>4.6.2</version>
                             <overWrite>false</overWrite>
                             <outputDirectory>${project.build.directory}/extensions</outputDirectory>
                         </artifactItem>
@@ -2570,7 +2521,7 @@ So, taking into account the previous section, let's see how the integration test
             ...
         </executions>
     </plugin>
-    ```  
+    ``` 
 
 * The `integration-tests` maven module include the definition of all the integration test classes to be executed against the existing ACS instance. The test classes are included in the folder `integration-tests/src/test/java`.
 * The `integration-tests` maven `pom.xml` file adds the configuration of the `acs.endpoint.path` in case it is required. This is done using the `maven-failsafe-plugin`:
@@ -3212,7 +3163,7 @@ So, the steps to configure a MySQL database in an All-In-One project are:
     ...
     # Copy MySQL driver to Tomcat lib folder
     RUN curl -L -o $TOMCAT_DIR/lib/mysql-db-connector.jar "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.47/mysql-connector-java-5.1.47.jar"
-    ``` 
+    ```
     
     If you've created a corporate ACS Docker image extending the official one, you can include the download and installation of the MySQL driver in that Docker
     image to avoid this installation on every compilation of the project.
@@ -3268,7 +3219,7 @@ So, the steps to configure a MySQL database in an All-In-One project are:
         depends_on:
           - sample-aio-mysql
     ...
-    ``` 
+    ```
 
 Once all these steps are done, remove all the old data from the project (`run.sh/run.bat purge`) and rebuild and restart the project 
 (`run.sh/run.bat build_start`). That's everything required to switch from a PostgreSQL to a MySQL database. The process is the same with the rest of supported
