@@ -443,7 +443,7 @@ For example:
 
 In some circumstances, you may want to have a repository node that's dedicated to a scheduled task (such as ingesting massive amount of documents). Depending on the nature of the task, and the requirements of your organization, it may be preferable to leave this node out of the cluster. To leave nodes out of the cluster set the `cluster_keepoff` variable to `true` in one of the `repository` group nodes. It will provision the node with the repository and share services but make sure it's not taking part in neither the share, nor the repository cluster realm.
 
-A typical use case is to have a dedicated Solr tracking node. The playbook will then prefer to use that dedicated node, if it finds one, for solr tracking and only use the other as a backup server (no load balancing).
+A typical use case is to have a dedicated Solr tracking node. The playbook will then prefer to use that dedicated node, if it finds one, for Solr tracking and only use the other as a backup server (no load balancing).
 
 ## Useful information {#usefulinfo}
 
@@ -557,7 +557,7 @@ If you have a valid license, place your `*.lic` file in the `configuration_files
 
 ### Alfresco/Solr authentication
 
-As of Content Services 7.2 and/or Search services 2.0.3, the repository <--> solr communication requires authentication. The playbook will set up that authentication scheme using the new `secret` method. This methods need to be passed a shared secret. In order to do so use the variable below:
+As of Content Services 7.2 and/or Search services 2.0.3, the repository <--> Solr communication requires authentication. The playbook will set up that authentication scheme using the new `secret` method. This methods need to be passed a shared secret. In order to do so use the variable below:
 
 ```yaml
 reposearch_shared_secret: dummy
