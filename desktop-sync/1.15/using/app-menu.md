@@ -61,13 +61,6 @@ You can only search the content that's already synced in the `Alfresco` folder. 
 * You can view the search results listed by *Name*, *Location*, *Modified Date*, and *Size*. You can also search by file name and file extension, for example, by entering `png` or `.png`.
 * To locate a file from the **Search** dialog, double-click the file/folder icon to show the content in Windows Explorer.
 
-#### Recent Files
-
-Click **Recent Files** to open the Recent Files dialog and view your recently used files in the `Alfresco` sync folder.
-
-* The recently used files are listed by *Name*, *Location*, *Modified Date*, and *Size*, where the most recently updated file is at the top.
-* To locate a file from the **Recent Files** dialog, double-click the required file to show the content in Windows Explorer.
-
 #### Sync Now
 
 By default local content is synced to Alfresco immediately and Alfresco content is synced locally every five minutes. Click this if you want content synced immediately.
@@ -224,13 +217,6 @@ If you deselect a previously synced folder and click **Sync**, then the synced c
     Removes the synced user from Desktop Sync and deletes all the synced content from the desktop. Use this option as the first stage of uninstalling Desktop Sync.
 
     You can still access your files in Alfresco. Any content that can't be removed from your desktop is orphaned. On removing your account you are taken back to the Desktop Sync login dialog. Close the login dialog to quit the application. See [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#faq/mac).
-
-#### Recent Files {#recent-files-mac}
-
-Click **Recent Files** to open the Recent Files dialog and view your recently used files in the `Alfresco` sync folder.
-
-* The recently used files are listed by *Name*, *Modified Date*, and *Size*, where the most recently updated file is at the top.
-* To locate a file from the **Recent Files** dialog, click the<!-- icon on the right side of the--> required row to show the content in Mac Finder.
 
 #### Help
 
