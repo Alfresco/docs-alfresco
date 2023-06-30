@@ -1,7 +1,6 @@
 ---
 title: Supported platforms
 ---
-v
 The following are the supported platforms for Alfresco Intelligence Services 1.4:
 
 | Version | Notes |
