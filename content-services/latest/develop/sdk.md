@@ -27,7 +27,7 @@ from the new archetypes and move your code into place.
 
 ## What's new?
 
-Alfresco SDK 4.6 is a minor update to the SDK and provides support for Alfresco 7.3.x and later.
+Alfresco SDK 4.6 is a minor update to the SDK and provides support for Alfresco 7.4.x.
 
 ### Embracing containers and Docker
 
