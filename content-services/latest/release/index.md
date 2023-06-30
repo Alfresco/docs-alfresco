@@ -27,6 +27,8 @@ Following the deprecation from the Keycloak team, Alfresco Content Services is n
 
 Communications between Alfresco Content Services and Alfresco Transform Service can now be secured through mutual TLS. Instructions on how to configure this can be found in the documentation.
 
+See the [Mutual TLS]({% link content-services/latest/config/mtls.md %}) documentation for more details.
+
 ### Images generated from ACS Packaging are now Multi-Architecture
 
 Images from ACS Packaging are now available as multi-architecture (AMD64 + ARM64), with more to come.
