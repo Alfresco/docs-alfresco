@@ -90,15 +90,15 @@ In addition to the requirements mentioned earlier for control nodes in general, 
 
 While Content Services supports a wide range of OS, the playbook is only supported for a subset of them. The table below gives detailed information on the status of supported OS:
 
-Legend
+**Legend:**
 
-* Y platform supported and tested on this playbook
+* Y = platform supported and tested on this playbook
 
-* [Y] platform supported but not automatically tested on this playbook
+* [Y] = platform supported but not automatically tested on this playbook
 
-* X platform not supported by this playbook (despite officially supported by Alfresco)
+* X = platform not supported by this playbook (despite officially supported by Alfresco)
 
-* \- platform not officially supported by Alfresco
+* \- = platform not officially supported by Alfresco
 
 | OS Flavor / version | 7.4 Enterprise / Community | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0 Enterprise |
 |-|-|-|-|-|-|
@@ -158,7 +158,7 @@ Not all distributions of Linux may match the version requirements for Ansible an
    cd alfresco-ansible-deployment
    ```
   
-   You can also use Git to fetch latest sources (or a specific release for example by adding -b v2.1.0) on the control node with:
+   You can also use Git to fetch latest sources (or a specific release for example by adding `-b v2.1.0`) on the control node with:
 
    ```bash
    git clone https://github.com/Alfresco/alfresco-ansible-deployment.git
@@ -221,7 +221,7 @@ acs:
   edition: Enterprise
 ```
 
-> **Note:** This assumes that the full URL to your custom artifact looks like `https://your.repo.com/path/to/your/artifacts/7.2.1/alfresco-content-services-distribution-7.2.1.zip`
+> **Note:** This assumes that the full URL to your custom artifact looks like `https://your.repo.com/path/to/your/artifacts/7.2.1/alfresco-content-services-distribution-7.2.1.zip`.
 
 In case you want to install a different ACS version (not latest), you should make similar changes to the respective `*-extra-vars.yml` file.
 
@@ -571,7 +571,7 @@ This secret should be placed either in the inventory file under the `all` group 
 
 ### Mutual TLS authentication
 
-As of Content Services 7.4 mTLS authentication is supported using Transformation service, see the [security section](https://github.com/Alfresco/alfresco-ansible-deployment/blob/master/docs/SECURITY.md) in the GitHub repo for more information or read our [mTLS page]({% link content-services/latest/config/mtls.md %}).
+As of Content Services 7.4 mTLS authentication is supported using Transformation service, see the [security section](https://github.com/Alfresco/alfresco-ansible-deployment/blob/master/docs/SECURITY.md){:target="_blank"} in the GitHub repo for more information or read our [mTLS page]({% link content-services/latest/config/mtls.md %}).
 
 ### Secrets management
 
@@ -579,7 +579,7 @@ This playbook expects that security-relevant secrets are configured within the
 `vars/secrets.yml` file.
 
 It is strongly recommended to enable [Ansible
-Vault](https://docs.ansible.com/ansible/latest/user_guide/vault.html) encryption
+Vault](https://docs.ansible.com/ansible/latest/user_guide/vault.html){:target="_blank"} encryption
 or use [third-party plugins](#third-party-lookup-plugins) to avoid keeping
 secrets in plaintext on the control node file-system.
 
@@ -600,7 +600,7 @@ pipenv run ansible-playbook --ask-vault-pass playbooks/acs.yml
 ```
 
 While we recommend to refer to the official Ansible documentation to properly configure
-[Ansible vault](https://docs.ansible.com/ansible/latest/user_guide/vault.html#managing-vault-passwords),
+[Ansible vault](https://docs.ansible.com/ansible/latest/user_guide/vault.html#managing-vault-passwords){:target="_blank"},
 below is a basic configuration that will help you in quickly installing Alfresco
 without to having to input the Vault password every time.
 
@@ -624,8 +624,8 @@ Now you are ready to start using Ansible Vault.
 
 Ansible Vault provides two alternative ways to protect secrets:
 
-* [Encrypted variables](https://docs.ansible.com/ansible/latest/user_guide/vault.html#encrypting-individual-variables-with-ansible-vault)
-* [Encrypted files](https://docs.ansible.com/ansible/latest/user_guide/vault.html#encrypting-files-with-ansible-vault)
+* [Encrypted variables](https://docs.ansible.com/ansible/latest/user_guide/vault.html#encrypting-individual-variables-with-ansible-vault){:target="_blank"}
+* [Encrypted files](https://docs.ansible.com/ansible/latest/user_guide/vault.html#encrypting-files-with-ansible-vault){:target="_blank"}
 
 In the previous links you can read both advantages and disadvantages of the two approaches.
 
@@ -675,7 +675,7 @@ or to add/edit secrets with:
 pipenv run ansible-vault edit vars/secrets.yml
 ```
 
-Please refer to the [official documentation](https://docs.ansible.com/ansible/latest/user_guide/vault.html) to learn how to interact with existing encrypted variables or files.
+Please refer to the [official Ansible documentation](https://docs.ansible.com/ansible/latest/user_guide/vault.html){:target="_blank"} to learn how to interact with existing encrypted variables or files.
 
 #### Third-party lookup plugins
 
@@ -690,10 +690,10 @@ pipenv run ansible-playbook -e vault_init=plugin playbooks/secrets-init.yml
 
 And then edit `vars/secrets.yml` to fill all the required arguments for the plugin you want to use as described in the plugin documentation pages:
 
-* [HashiCorp Vault](https://docs.ansible.com/ansible/latest/collections/community/hashi_vault/hashi_vault_lookup.html)
-* [AWS Secrets](https://docs.ansible.com/ansible/latest/collections/amazon/aws/aws_secret_lookup.html)
-* [1Password](https://docs.ansible.com/ansible/latest/collections/community/general/onepassword_lookup.html)
-* [CyberArk](https://docs.ansible.com/ansible/latest/collections/community/general/cyberarkpassword_lookup.html) 
+* [HashiCorp Vault](https://docs.ansible.com/ansible/latest/collections/community/hashi_vault/hashi_vault_lookup.html){:target="_blank"}
+* [AWS Secrets](https://docs.ansible.com/ansible/latest/collections/amazon/aws/aws_secret_lookup.html){:target="_blank"}
+* [1Password](https://docs.ansible.com/ansible/latest/collections/community/general/onepassword_lookup.html){:target="_blank"}
+* [CyberArk](https://docs.ansible.com/ansible/latest/collections/community/general/cyberarkpassword_lookup.html){:target="_blank"}
 
 ### Alfresco global properties
 
