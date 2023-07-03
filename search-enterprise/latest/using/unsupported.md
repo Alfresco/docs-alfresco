@@ -73,7 +73,7 @@ Alfresco Search Enterprise has a focus on the most commonly used features and of
 | NPATH:'2/Company Home/Sites/swsdp'             | PATH: '/app:company_home/st:sites/cm:swsdp/*' |
 | ANAME:'0/cdefb3a9-8f55-4771-a9e3-06fa370250f6' | PARENT:'cdefb3a9-8f55-4771-a9e3-06fa370250f6' |
 
-However secondary paths and secondary parents are not yet supported, so there may still be some differences if these are in use.
+However secondary paths and secondary parents are not supported at this time, so there may still be some differences if these are in use.
 
 ## Query languages
 
