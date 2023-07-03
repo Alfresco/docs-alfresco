@@ -1,21 +1,5 @@
 defaults:
 
-# Alfresco Enterprise Viewer
-  - scope:
-      path: "enterprise-viewer"
-    values:
-      layout: "docs"
-      product: "Alfresco Enterprise Viewer"
-      toc: "enterprise-viewer"
-      location: "enterprise-viewer"
-      support: true
-      versions:
-        - 3.5
-  - scope:
-      path: "enterprise-viewer/latest"
-    values:
-      version: 3.5
-      latest: true
 # Alfresco Content Services
   - scope:
       path: "content-services"
@@ -1376,6 +1360,23 @@ defaults:
         - 3.5
   - scope:
       path: "content-accelerator/latest"
+    values:
+      version: 3.5
+      latest: true
+
+# Alfresco Enterprise Viewer
+  - scope:
+      path: "enterprise-viewer"
+    values:
+      layout: "docs"
+      product: "Alfresco Enterprise Viewer"
+      toc: "enterprise-viewer"
+      location: "enterprise-viewer"
+      support: true
+      versions:
+        - 3.5
+  - scope:
+      path: "enterprise-viewer/latest"
     values:
       version: 3.5
       latest: true
