@@ -4,7 +4,7 @@ title: Supported platforms
 
 Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Content Services 7.4.
 
-Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact [Support](https://support.alfresco.com){:target="_blank"}.
+Choose a combination of products to build your own Supported Stack. If anything is unclear then please [contact Support]({% link support/latest/contact.md %}).
 
 {% capture seven-four-zero %}
 
@@ -64,9 +64,11 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Process Services 2.3 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 3.10 | |
 | Alfresco Sync Service 3.9 | |
 | Alfresco Desktop Sync 1.16 | |
 | Alfresco Desktop Sync 1.15 | |
+| Alfresco Transform Service 3.0 | |
 | Alfresco Transform Service 2.1 | |
 | Alfresco Document Transformation Engine 2.3 | |
 | Alfresco Search Enterprise 3.3 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.x upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
@@ -85,13 +87,14 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Office Services 1.6 | |
 | Alfresco Google Docs Integration 3.4 | |
 | Alfresco Content Services SDK 5.2 | |
-| Alfresco Content Services SDK 4.5 | |
+| Alfresco Content Services SDK 4.6 | |
 | | |
 | **Applications** | |
+| Alfresco Digital Workspace 4.1 | |
 | Alfresco Digital Workspace 4.0 | |
-| Alfresco Application Development Framework (ADF) 5.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Mobile Workspace 1.6 | |
-| Alfresco Mobile Workspace 1.5 | |
+| Alfresco Control Center 8.x | |
+| Alfresco Application Development Framework (ADF) 6.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Content Accelerator (ACA) 3.5.1 | |
 | Alfresco Enterprise Viewer (AEV) 3.5.1 | |
 | | |
