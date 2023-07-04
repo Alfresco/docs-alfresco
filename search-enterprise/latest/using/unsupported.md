@@ -66,7 +66,7 @@ The following features, which were supported with Search and Insight Engine 2.x 
 Supplying an unsupported or non-existent field will cause a query to fail. This is a change in behavior from Search and Insight Engine and Search Services, which silently ignore these issues.
 
 Search Enterprise focuses on the most commonly used features, and in some cases allows you to work around unsupported features.
-The following are examples of how to use a different fields for queries:
+The following are examples of how to use different fields for queries:
 
 | Old Query                                      | Replacement Query                             |
 | ---------------------------------------------- | --------------------------------------------- |
