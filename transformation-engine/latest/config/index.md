@@ -101,25 +101,25 @@ Below is a very basic example of how to configure Secure Sockets Layer (SSL) for
 
     1. Comment out this connector:
 
-      ```xml
-      <Connector executor="tomcatThreadPool"
-            port="${https.port}" protocol="org.apache.coyote.http11.Http11NioProtocol"
-            SSLEnabled="true">
-        <SSLHostConfig>
-            <Certificate certificateKeystoreFile="conf/.keystore" certificateKeystorePassword="tomcat" type="RSA" />
-        </SSLHostConfig>
-      </Connector>
-      ```
+        ```xml
+        <Connector executor="tomcatThreadPool"
+                port="${https.port}" protocol="org.apache.coyote.http11.Http11NioProtocol"
+                SSLEnabled="true">
+            <SSLHostConfig>
+                <Certificate certificateKeystoreFile="conf/.keystore" certificateKeystorePassword="tomcat" type="RSA" />
+            </SSLHostConfig>
+        </Connector>
+        ```
 
     2. Uncomment this Connector:
 
-      ```xml
-      <Connector executor="tomcatThreadPool"
-        port="${https.port}" protocol="org.apache.coyote.http11.Http11NioProtocol"
-        SSLEnabled="true" scheme="https" secure="true"
-        clientAuth="false" sslProtocol="TLS"
-        keystoreFile="PATH_TO_KEYSTORE" keystorePass="KEYSTORE_PASSWORD" />
-      ```
+        ```xml
+        <Connector executor="tomcatThreadPool"
+            port="${https.port}" protocol="org.apache.coyote.http11.Http11NioProtocol"
+            SSLEnabled="true" scheme="https" secure="true"
+            clientAuth="false" sslProtocol="TLS"
+            keystoreFile="PATH_TO_KEYSTORE" keystorePass="KEYSTORE_PASSWORD" />
+        ```
 
 2. Check the REST configuration URL under: `https://<dte-hostname>:8443/transformation-server/#/settings`:
 
@@ -127,6 +127,8 @@ Below is a very basic example of how to configure Secure Sockets Layer (SSL) for
 
 3. Edit `alfresco-global.properties`:
 
-    Change `localTransform.transform-dte.url=http:%3Cdte-hostname%3E:8080/transform-dte`
+    Change `localTransform.transform-dte.url=http:<dte-hostname>:8080/transform-dte`
 
-    to `localTransform.transform-dte.url=http:%3Cdte-hostname%3E:8443/transform-dte`
+    to `localTransform.transform-dte.url=http:<dte-hostname>:8443/transform-dte`
+
+For more information on configuring SSL on Tomcat, see the Tomcat documentation [SSL/TLS Configuration How-To](https://tomcat.apache.org/tomcat-9.0-doc/ssl-howto.html){:target="_blank"} for more details.
