@@ -74,7 +74,7 @@ The following are examples of how to use different fields for queries:
 | PNAME:'0/wiki'                                 | PATH:'//cm:wiki/*'                            |
 | NPATH:'2/Company Home/Sites/swsdp'             | PATH: '/app:company_home/st:sites/cm:swsdp/*' |
 
-> **Note:** Secondary paths are not supported, which means there may be some differences if these are in use.
+> **Note:** However secondary paths and secondary parents are not supported at this time, so there may still be some differences if these are in use.
 
 ## Query languages
 
