@@ -2,7 +2,7 @@
 title: Unsupported features
 ---
 
-The following features, which were supported with Search and Insight Engine 2.x and Search Services 2.x (Solr) are not supported in the latest release for Search Enterprise 3.x (Elasticsearch).
+The following features, which were supported with Search and Insight Engine 2.x and Search Services 2.x (Solr) are not supported in the latest release for Search Enterprise 3.x.
 
 ## Indexing
 
@@ -60,11 +60,12 @@ The following features, which were supported with Search and Insight Engine 2.x 
 * Secondary parents
 * Secondary paths (paths including secondary parents)
 
-## Behaviour of Unsupported fields
+## Behavior of unsupported fields
 
-Supplying an unsupported or non-existent field will cause the query to fail. This is a change in behaviour compared with the Search and Insight Engine and Search Services, which silently ignore these issues.
+Supplying an unsupported or non-existent field will cause a query to fail. This is a change in behavior from Search and Insight Engine and Search Services, which silently ignore these issues.
 
-Alfresco Search Enterprise has a focus on the most commonly used features and often it is possible to work around unsupported features. Here are a few examples of how to use a different field for queries:
+Search Enterprise focuses on the most commonly used features, and in some cases allows you to work around unsupported features.
+The following are examples of how to use different fields for queries:
 
 | Old Query                                      | Replacement Query                             |
 | ---------------------------------------------- | --------------------------------------------- |
@@ -73,7 +74,7 @@ Alfresco Search Enterprise has a focus on the most commonly used features and of
 | NPATH:'2/Company Home/Sites/swsdp'             | PATH: '/app:company_home/st:sites/cm:swsdp/*' |
 | ANAME:'0/cdefb3a9-8f55-4771-a9e3-06fa370250f6' | PARENT:'cdefb3a9-8f55-4771-a9e3-06fa370250f6' |
 
-However secondary paths and secondary parents are not supported at this time, so there may still be some differences if these are in use.
+> **Note:** However secondary paths and secondary parents are not supported at this time, so there may still be some differences if these are in use.
 
 ## Query languages
 
