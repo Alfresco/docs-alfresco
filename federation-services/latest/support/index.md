@@ -4,8 +4,6 @@ title: Supported platforms
 
 The following are the supported platforms for Alfresco Federation Services 2.1:
 
-## Alfresco Content Services
-
 | Version | Notes |
 | ------- | ----- |
 | Content Services 7.2 | |
