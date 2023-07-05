@@ -232,3 +232,17 @@ You can add attachments to a task.
     > **Note:** You may need to scroll further down the page to see all the attachments.  
 
 ![Add attachment]({% link mobile-workspace/images/add-attachment.png %})
+
+## Share custom URLs
+
+You can share custom Workspace URLs. The link can go directly to a particular screen, for example **Offline**, **Personal Files**, or **Tasks**.
+
+1. Tap on the custom Workspace URL.
+
+2. You are prompted to open the link with a browser in iOS or Android launches the Mobile Workspace application.
+
+3. The link opens in the browser or application. You may need to log in, if prompted.
+
+    **Note:** File and URL access depends on permissions set in Workspace.
+
+4. If using a browser, you will be asked to open in the Alfresco Mobile application (Alfresco Mobile Workspace) or download Mobile Workspace.
