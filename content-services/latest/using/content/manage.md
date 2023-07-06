@@ -118,8 +118,6 @@ You can upload files in two ways: drag and drop files from your computer directl
 
 The document library displays the uploaded content.
 
-This video show you how to add content.
-
 ### Creating files
 
 With the **Create** feature you can create plain text, HTML, and XML files directly in Alfresco Share.
@@ -184,7 +182,7 @@ Files you edit are temporarily stored in Google Docs, then removed from Google D
 
 6. In Share, click **More** then **Check In Google Doc**.
 
-This video shows you how to create content.
+See the video tutorial on [how to create contents]({% link content-services/latest/tutorial/video/content/index.md %}).
 
 ### Creating files from a template {#createfilefromtemplate}
 
