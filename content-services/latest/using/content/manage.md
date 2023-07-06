@@ -182,8 +182,6 @@ Files you edit are temporarily stored in Google Docs, then removed from Google D
 
 6. In Share, click **More** then **Check In Google Doc**.
 
-See the video tutorial on [how to create contents]({% link content-services/latest/tutorial/video/content/index.md %}).
-
 ### Creating files from a template {#createfilefromtemplate}
 
 As well as creating files from scratch, you can also create files from templates.
