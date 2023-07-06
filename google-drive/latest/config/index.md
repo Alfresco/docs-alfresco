@@ -15,7 +15,7 @@ The following properties can be configured for Google Docs Integration in the `a
 
 ## Configure using the Admin Console
 
-The **Google Docs Console** provides the settings for enabling and controlling Google Docs Integration (in Enterprise-only releases).
+The **Google Docs Console** provides the settings for enabling and controlling Google Docs Integration (in Enterprise-only releases). Launch the **Admin Console** by following the steps in [Launch Admin Console]({% link content-services/latest/admin/admin-console.md %}#launch-admin-console).
 
 1. Open the Admin Console.
 
@@ -76,9 +76,7 @@ When this configuration is added to the Google Docs Integration, you can define 
 
     Next, use the Repository Administration Console to add your custom configuration.
 
-12. Launch the **Admin Console** by following the steps in [Launch Admin Console]({% link content-services/latest/admin/admin-console.md %}#launch-admin-console).
-
-    You'll need to enter your credentials to access the server.
+12. Open the Admin Console.
 
 13. In the Consoles section, click **Google Docs Console**.
 
