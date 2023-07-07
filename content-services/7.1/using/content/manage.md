@@ -118,8 +118,6 @@ You can upload files in two ways: drag and drop files from your computer directl
 
 The document library displays the uploaded content.
 
-This video show you how to add content.
-
 ### Creating files
 
 With the **Create** feature you can create plain text, HTML, and XML files directly in Alfresco Share.
