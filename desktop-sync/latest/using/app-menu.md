@@ -198,6 +198,13 @@ Select Resume Sync to resume syncing with Alfresco Content Services.
 
 Performs a consistency check on Desktop Sync. This is typically used in collaboration with your IT team when you need support.
 
+#### Recent Files {#recent-files-mac}
+
+Click **Recent Files** to open the Recent Files dialog and view your recently used files in the `Alfresco` sync folder.
+
+* The recently used files are listed by *Name*, *Modified Date*, and *Size*, where the most recently updated file is at the top.
+* To locate a file from the **Recent Files** dialog, click the<!-- icon on the right side of the--> required row to show the content in Mac Finder.
+
 #### Manage Sync Folder
 
 Selecting **Manage Sync Folder** opens the Select sites and folders to sync dialog. This allows you to select more content to sync, or deselect content to stop syncing. See [Select content to sync]({% link desktop-sync/latest/using/select-to-sync.md %}#sync/mac) for more.
@@ -224,13 +231,6 @@ If you deselect a previously synced folder and click **Sync**, then the synced c
     Removes the synced user from Desktop Sync and deletes all the synced content from the desktop. Use this option as the first stage of uninstalling Desktop Sync.
 
     You can still access your files in Alfresco. Any content that can't be removed from your desktop is orphaned. On removing your account you are taken back to the Desktop Sync login dialog. Close the login dialog to quit the application. See [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#faq/mac).
-
-#### Recent Files {#recent-files-mac}
-
-Click **Recent Files** to open the Recent Files dialog and view your recently used files in the `Alfresco` sync folder.
-
-* The recently used files are listed by *Name*, *Modified Date*, and *Size*, where the most recently updated file is at the top.
-* To locate a file from the **Recent Files** dialog, click the<!-- icon on the right side of the--> required row to show the content in Mac Finder.
 
 #### Help
 
