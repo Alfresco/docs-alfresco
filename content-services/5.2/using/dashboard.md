@@ -146,8 +146,6 @@ When you click on your name at the top of the screen a menu opens where you can 
 
 When your colleagues view your profile they'll see all the details you've entered and know exactly what you're working on.
 
-This video show you how to edit your user profile.
-
 ## Following people {#following-people}
 
 You can follow users you're interested in so that you can easily keep track of what they've been working on.
