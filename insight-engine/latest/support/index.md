@@ -4,8 +4,6 @@ title: Supported platforms
 
 The following are the supported platforms for Search and Insight Engine:
 
-## Alfresco Content Services
-
 | Version | Notes |
 | ------- | ----- |
 | Content Services 7.3.x | |
