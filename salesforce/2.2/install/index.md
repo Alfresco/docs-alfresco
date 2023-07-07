@@ -42,7 +42,7 @@ Make sure you are running the correct versions of operating system and software 
 
 2. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"}, download and unzip the Salesforce zip package.
 
-3. Copy the provided AMP files to the Alfresco amps and amps_share directories.
+3. Copy the provided AMP files to the Alfresco `amps` and `amps_share` directories.
 
     Copy this file to the `amps` directory:
 

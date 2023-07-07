@@ -76,7 +76,9 @@ When this configuration is added to the Google Docs Integration, you can define 
 
     Next, use the Repository Administration Console to add your custom configuration.
 
-12. Open Alfresco Share, and click Admin Tools on the toolbar, then select **Repository Administration Console**.
+12. Launch the Administration Console by following the steps in [Launch Admin Console]({% link content-services/7.3/admin/admin-console.md %}#launch-admin-console).
+
+    You'll need to enter your credentials to access the server.
 
 13. In the Consoles section, click **Google Docs Console**.
 
@@ -85,6 +87,7 @@ When this configuration is added to the Google Docs Integration, you can define 
 15. Click Save.
 
     > **Note:** Before completing these steps, be aware that if there are files currently being edited in Google Docs when changing this configuration, it will cause users to lose the ability to use the **Check in** action to bring those files back into Alfresco Content Services. We recommend that all files are checked back into Alfresco Content Services before switching the configuration.
+
     > **Note:** Switching the integration repeatedly between different configurations can corrupt the Google authentication store in Alfresco Content Services for your users. If this happens, users will need to remove access to the integration from their Google Account so that their connection can be set up again.
 
 ## Google Docs supported document types

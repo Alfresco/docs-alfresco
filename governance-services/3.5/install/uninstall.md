@@ -18,7 +18,7 @@ The MMT is a command line tool. The syntax for uninstalling an AMP file using MM
 $ java -jar bin\alfresco-mmt.jar uninstall <ModuleId> <WARFileLocation>
 ```
 
-> **Note:** The `apply_amps` command does not uninstall AMP files (even if you remove the AMP files manually from the amps and amps_share directories). Use `apply_amps` to install AMP files only.
+> **Note:** The `apply_amps` command does not uninstall AMP files (even if you remove the AMP files manually from the `amps` and `amps_share` directories). Use `apply_amps` to install AMP files only.
 
 1. Change into the root of the Alfresco installation directory.
 

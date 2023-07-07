@@ -82,7 +82,7 @@ The following steps are example instructions for configuring Active Directory Fe
 
     5. In the **Specify Display Name** window, enter a display name that you'll remember, and any notes that you require. Click **Next**.
 
-    6. In the ** Choose Profile** window, click the ADFS profile radio button and click **Next**.
+    6. In the **Choose Profile** window, click the ADFS profile radio button and click **Next**.
 
     7. In the **Configure Certificate** window, accept the default certificate settings by clicking **Next**.
 
