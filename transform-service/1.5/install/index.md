@@ -269,7 +269,7 @@ from the left column that corresponds to the required Content Services version y
     ```
 
     > **Note:** Replace the version number `x.y.z` with the tag that matches the Content Services version you want to 
-    > deploy. For example, if you want Content Services 7.2.0, then select tag `5.2.0`.
+    > deploy. For example, if you want Content Services 7.2.0, then select tag `v5.2.0`.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to 
     > determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 
