@@ -261,15 +261,9 @@ from the left column that corresponds to the required Content Services version y
 
    > **Note:** Check the prerequisites for your operating system, both for Docker and Docker Compose, using the links provided.
 
-1. Clone the project locally, and then change directory to the project folder:
+1. Download [one of the Docker Compose files](https://github.com/Alfresco/acs-deployment/tree/master/docker-compose/){"target="_blank"} from the `acs-deployment` repository, and navigate to the folder where the file is saved.
 
-   ```bash
-    git clone --branch x.y.z https://github.com/Alfresco/acs-deployment.git
-    cd acs-deployment/docker-compose
-    ```
-
-    > **Note:** Replace the version number `x.y.z` with the tag that matches the Content Services version you want to 
-    > deploy. For example, if you want Content Services 7.4.0, then select tag `6.0.2`.
+    Alternatively, if you want to contribute to the open source code, you can use one of the options provided in the **Code** dropdown of the [main repository page](https://github.com/Alfresco/acs-deployment/tree/master){:target="_blank"}. These options are **Clone** the repository, **Open with GitHub Desktop**, or **Download ZIP** to save a copy of the code. For example, if you want to see the latest release code for Content Services 7.4.0, then select tag `v6.0.2`.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to 
     > determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 
