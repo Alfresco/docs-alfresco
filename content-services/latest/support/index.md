@@ -78,12 +78,10 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Intelligence Services 1.5 | |
 | Alfresco Content Connector for AWS S3 5.1 | Adds support for AWS Glacier using Cloud storage layer. |
 | Alfresco Content Connector for Azure 3.2 | |
-| Alfresco Content Connector for SAP applications 5.2.1 | |
 | Alfresco Content Connector for Salesforce 2.4 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
 | Alfresco Collaboration Connector for Microsoft 365 2.0 | |
 | Alfresco Collaboration Connector for Teams 2.0 | |
-| Alfresco Outlook Integration 2.9 | |
 | Alfresco Office Services 1.6 | |
 | Alfresco Google Docs Integration 3.4 | |
 | Alfresco Content Services SDK 5.2 | |
