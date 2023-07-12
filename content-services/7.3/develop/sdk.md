@@ -205,8 +205,8 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     13: 4.1.0
     14: 4.2.0
     15: 4.3.0
-    15: 4.4.0
-    16: 4.5.0   
+    16: 4.4.0
+    17: 4.5.0   
     ```
 
 4. Next you will be prompted for additional values, like `groupId`, `artifactId`, and `package`, as shown below:

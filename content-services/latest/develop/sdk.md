@@ -38,7 +38,7 @@ Working with Docker images gives the developers the opportunity to easily custom
 Adding, removing and configuring services in the environment is as easy as modifying the Docker Compose descriptor file.
 
 ### Support for Java 17
-[Java 17](https://openjdk.org/projects/jdk/17/){:target="_blank"} is the latest Long Term Support (LTS) version that provides support for 3 years. Alfresco 7.3 or la already offers support for this version of the Java platform.
+[Java 17](https://openjdk.org/projects/jdk/17/){:target="_blank"} is the latest Long Term Support (LTS) version that provides support for 3 years. Alfresco 7.3 or later already offers support for this version of the Java platform.
 
 Alfresco SDK 4.5 or later has been modified to add support for Java 17, as well. This way, if you're working as a developer in customizations for Alfresco 7.3 or later, you must now use SDK 4.5 or later + JDK 17 to work on them. The Apache Maven plugins included in the archetypes has been updated to avoid any issue with Java 17.
 
@@ -205,9 +205,9 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     13: 4.1.0
     14: 4.2.0
     15: 4.3.0
-    15: 4.4.0
-    16: 4.5.0
-    16: 4.6.0     
+    16: 4.4.0
+    17: 4.5.0
+    18: 4.6.0     
     ```
 
 4. Next you will be prompted for additional values, like `groupId`, `artifactId`, and `package`, as shown below:
@@ -259,6 +259,7 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     [INFO] ------------------------------------------------------------------------
     [INFO] Total time: 04:11 min
     [INFO] Finished at: 2023-05-10T16:21:46+01:00
+    [INFO] Finished at: 2023-06-10T16:21:46+01:00
     [INFO] Final Memory: 17M/1024M
     [INFO] ------------------------------------------------------------------------
     ```
@@ -559,9 +560,9 @@ Step 1/9 : FROM alfresco/alfresco-content-repository-community:7.0.0
 ...
 Successfully tagged alfresco-content-services-my-all-in-one-project:development
 ...
-my-all-in-one-project-acs_1       | 27-May-2023 06:53:39.191 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
-my-all-in-one-project-acs_1       | 27-May-2023 06:53:39.233 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
-my-all-in-one-project-acs_1       | 27-May-2023 06:53:39.249 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 84022 ms
+my-all-in-one-project-acs_1       | 27-June-2023 06:53:39.191 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+my-all-in-one-project-acs_1       | 27-June-2023 06:53:39.233 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+my-all-in-one-project-acs_1       | 27-June-2023 06:53:39.249 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 84022 ms
 ``` 
 
 The `./run.sh build_start` script will do the following:
@@ -611,11 +612,11 @@ You can do that as follows:
 First **Ctrl-C** out of the log tailing:
 
 ```bash 
-my-all-in-one-project-acs_1       | 27-May-2023 07:26:23.893 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
-my-all-in-one-project-acs_1       | 27-May-2023 07:26:23.914 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
-my-all-in-one-project-acs_1       | 27-May-2023 07:26:23.940 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 83197 ms
-my-all-in-one-project-acs_1       | 27-May-2023 07:26:24,304  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-3] Starting 'Search' subsystem, ID: [Search, managed, solr6]
-my-all-in-one-project-acs_1       | 27-May-2023:26:25,555  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-3] Startup of 'Search' subsystem, ID: [Search, managed, solr6] complete
+my-all-in-one-project-acs_1       | 27-June-2023 07:26:23.893 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+my-all-in-one-project-acs_1       | 27-June-2023 07:26:23.914 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+my-all-in-one-project-acs_1       | 27-June-2023 07:26:23.940 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 83197 ms
+my-all-in-one-project-acs_1       |  2023-06-27 07:26:24,304  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-3] Starting 'Search' subsystem, ID: [Search, managed, solr6]
+my-all-in-one-project-acs_1       |  2023-06-27 07:26:25,555  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-3] Startup of 'Search' subsystem, ID: [Search, managed, solr6] complete
 ^CERROR: Aborting.
 my-all-in-one-project mbergljung$ 
 ``` 
@@ -773,7 +774,7 @@ MBP512-MBERGLJUNG-0917:my-platform-project mbergljung$ ./run.sh build_start
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time: 8.323 s
-[INFO] Finished at: 2023-05-27T09:23:28Z
+[INFO] Finished at: 2023-06-27T09:23:28Z
 [INFO] Final Memory: 62M/227M
 [INFO] ------------------------------------------------------------------------
 my-platform-project-acs-volume
@@ -788,9 +789,9 @@ Creating docker_my-platform-project-ass_1      ... done
 Creating docker_my-platform-project-acs_1      ... done
 Attaching to docker_my-platform-project-acs_1, docker_my-platform-project-ass_1, docker_my-platform-project-postgres_1
 ...
-my-platform-project-acs_1       | 27-May-2023 09:25:12.923 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
-my-platform-project-acs_1       | 27-May-2023 09:25:12.947 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
-my-platform-project-acs_1       | 27-May-2023 09:25:12.955 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 91144 ms``` 
+my-platform-project-acs_1       | 27-June-2023 09:25:12.923 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+my-platform-project-acs_1       | 27-June-2023 09:25:12.947 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+my-platform-project-acs_1       | 27-June-2023 09:25:12.955 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 91144 ms``` 
 ```
 
 The `./run.sh build_start` script will do the following:
@@ -833,14 +834,14 @@ You can do that as follows:
 First **Ctrl-C** out of the log tailing:
 
 ```text 
-my-platform-project-acs_1       | 27-May-2023 09:25:12.923 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
-my-platform-project-acs_1       | 27-May-2023 09:25:12.947 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
-my-platform-project-acs_1       | 27-May-2023 09:25:12.955 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 91144 ms
-my-platform-project-acs_1       | 27-May-2023 09:25:40,406  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-6] Starting 'Transformers' subsystem, ID: [Transformers, default]
-my-platform-project-acs_1       | 27-May-2023 09:25:40,948  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-6] Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+my-platform-project-acs_1       | 27-June-2023 09:25:12.923 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+my-platform-project-acs_1       | 27-June-2023 09:25:12.947 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+my-platform-project-acs_1       | 27-June-2023 09:25:12.955 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 91144 ms
+my-platform-project-acs_1       |  2023-06-27 09:25:40,406  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-6] Starting 'Transformers' subsystem, ID: [Transformers, default]
+my-platform-project-acs_1       |  2023-06-27 09:25:40,948  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-6] Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
 ^[[B^CERROR: Aborting.
 my-platform-project mbergljung$
-``` 
+```  
 
 Then check the name of the ACS Repository container:
 
@@ -859,8 +860,8 @@ my-platform-project mbergljung$ docker exec -it docker_my-platform-project-acs_1
 [root@ba90b1648470 tomcat]# pwd
 /usr/local/tomcat
 [root@ba90b1648470 tomcat]# ls -l webapps/alfresco/WEB-INF/lib | grep "my-plat"
--rw-r--r-- 1 root root    21180 May 27 09:23 my-platform-project-1.0-SNAPSHOT.jar
--rw-r--r-- 1 root root    13692 May 27 09:23 my-platform-project-1.0-SNAPSHOT-tests.jar
+-rw-r--r-- 1 root root    21180 June 27 09:23 my-platform-project-1.0-SNAPSHOT.jar
+-rw-r--r-- 1 root root    13692 June 27 09:23 my-platform-project-1.0-SNAPSHOT-tests.jar
 [root@ba90b1648470 tomcat]# exit
 exit
 ``` 
@@ -1012,7 +1013,7 @@ my-share-project mbergljung$ ./run.sh build_start
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time: 2.856 s
-[INFO] Finished at: 2023-05-27T10:07:14Z
+[INFO] Finished at: 2023-06-27T10:07:14Z
 [INFO] Final Memory: 29M/104M
 [INFO] ------------------------------------------------------------------------
 my-share-project-acs-volume
@@ -1023,9 +1024,9 @@ Building my-share-project-share
 ...
 Successfully tagged alfresco-share-my-share-project:development...
 ...
-my-share-project-acs_1       | 27-May-2023 10:09:01.158 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
-my-share-project-acs_1       | 27-May-2023 10:09:01.175 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
-my-share-project-acs_1       | 27-May-2023 10:09:01.213 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 95189 ms
+my-share-project-acs_1       | 27-June-2023 10:09:01.158 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+my-share-project-acs_1       | 27-June-2023 10:09:01.175 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+my-share-project-acs_1       | 27-June-2023 10:09:01.213 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 95189 ms
 ``` 
 
 The `./run.sh build_start` script will do the following:
@@ -1068,11 +1069,11 @@ You can do that as follows:
 First **Ctrl-C** out of the log tailing:
 
 ```text 
-my-share-project-acs_1       | 2023-05-27 10:09:01.213 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 95189 ms
-my-share-project-acs_1       | 2023-05-27 10:09:30,278  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-5] Starting 'Transformers' subsystem, ID: [Transformers, default]
-my-share-project-acs_1       | 2023-05-27 10:09:30,618  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-5] Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
-my-share-project-share_1     | 2023-05-27 10:11:50,150  INFO  [web.site.EditionInterceptor] [http-nio-8080-exec-1] Successfully retrieved license information from Alfresco.
-my-share-project-share_1     | 2023-05-27 10:12:11,652  INFO  [web.scripts.ImapServerStatus] [http-nio-8080-exec-7] Successfully retrieved IMAP server status from Alfresco: disabled
+my-share-project-acs_1       | 27-June-2023 10:09:01.213 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 95189 ms
+my-share-project-acs_1       |  2023-06-27 10:09:30,278  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-5] Starting 'Transformers' subsystem, ID: [Transformers, default]
+my-share-project-acs_1       |  2023-06-27 10:09:30,618  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-5] Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+my-share-project-share_1     | 2023-06-27 10:11:50,150  INFO  [web.site.EditionInterceptor] [http-nio-8080-exec-1] Successfully retrieved license information from Alfresco.
+my-share-project-share_1     | 2023-06-27 10:12:11,652  INFO  [web.scripts.ImapServerStatus] [http-nio-8080-exec-7] Successfully retrieved IMAP server status from Alfresco: disabled
 ^CERROR: Aborting.
 my-share-project mbergljung$ 
 ``` 
@@ -1095,7 +1096,7 @@ my-share-project mbergljung$ docker exec -it docker_my-share-project-share_1 /bi
 [root@2b4fa4b4a3f6 tomcat]# pwd
 /usr/local/tomcat
 [root@2b4fa4b4a3f6 tomcat]# ls -l webapps/share/WEB-INF/lib/ | grep "my-sh"
--rw-r--r-- 1 root root    18920 May 27 10:07 my-share-project-1.0-SNAPSHOT.jar
+-rw-r--r-- 1 root root    18920 June 27 10:07 my-share-project-1.0-SNAPSHOT.jar
 [root@2b4fa4b4a3f6 tomcat]# exit
 exit
 ``` 
@@ -2862,32 +2863,32 @@ steps:
     You'll recognize JRebel is working when you see similar log messages:
 
     ```text
-    2023-05-16 15:28:12 JRebel:  Starting logging to file: /home/alfresco/.jrebel/jrebel.log
-    2023-05-16 15:28:12 JRebel:  
-    2023-05-16 15:28:12 JRebel:  #############################################################
-    2023-05-16 15:28:12 JRebel:  
-    2023-05-16 15:28:12 JRebel:  JRebel Agent 7.0.8 (999999999999)
-    2023-05-16 15:28:12 JRebel:  (c) Copyright ZeroTurnaround AS, Estonia, Tartu.
-    2023-05-16 15:28:12 JRebel:  
-    2023-05-16 15:28:12 JRebel:  Over the last 2 days JRebel prevented
-    2023-05-16 15:28:12 JRebel:  at least 1 redeploys/restarts saving you about 0 hours.
-    2023-05-16 15:28:12 JRebel:  
-    2023-05-16 15:28:12 JRebel:  Licensed to XXXX XXXX (XXXX)
-    2023-05-16 15:28:12 JRebel:  
-    2023-05-16 15:28:12 JRebel:  License type: evaluation
-    2023-05-16 15:28:12 JRebel:  Valid from: XXX 99, 9999
-    2023-05-16 15:28:12 JRebel:  Valid until: XXX 99, 9999
-    2023-05-16 15:28:12 JRebel:  
-    2023-05-16 15:28:12 JRebel:  You are using an EVALUATION license.
-    2023-05-16 15:28:12 JRebel:  Days left until license expires: 99
-    2023-05-16 15:28:12 JRebel:  
-    2023-05-16 15:28:12 JRebel:  To extend your evaluation or purchase a license,
-    2023-05-16 15:28:12 JRebel:  contact sales@zeroturnaround.com.
-    2023-05-16 15:28:12 JRebel:  
-    2023-05-16 15:28:12 JRebel:  If you think this is an error, contact support@zeroturnaround.com.
-    2023-05-16 15:28:12 JRebel:  
-    2023-05-16 15:28:12 JRebel:  
-    2023-05-16 15:28:12 JRebel:  #############################################################
+    2023-06-27 15:28:12 JRebel:  Starting logging to file: /home/alfresco/.jrebel/jrebel.log
+    2023-06-27 15:28:12 JRebel:  
+    2023-06-27 15:28:12 JRebel:  #############################################################
+    2023-06-27 15:28:12 JRebel:  
+    2023-06-27 15:28:12 JRebel:  JRebel Agent 7.0.8 (999999999999)
+    2023-06-27 15:28:12 JRebel:  (c) Copyright ZeroTurnaround AS, Estonia, Tartu.
+    2023-06-27 15:28:12 JRebel:  
+    2023-06-27 15:28:12 JRebel:  Over the last 2 days JRebel prevented
+    2023-06-27 15:28:12 JRebel:  at least 1 redeploys/restarts saving you about 0 hours.
+    2023-06-27 15:28:12 JRebel:  
+    2023-06-27 15:28:12 JRebel:  Licensed to XXXX XXXX (XXXX)
+    2023-06-27 15:28:12 JRebel:  
+    2023-06-27 15:28:12 JRebel:  License type: evaluation
+    2023-06-27 15:28:12 JRebel:  Valid from: XXX 99, 9999
+    2023-06-27 15:28:12 JRebel:  Valid until: XXX 99, 9999
+    2023-06-27 15:28:12 JRebel:  
+    2023-06-27 15:28:12 JRebel:  You are using an EVALUATION license.
+    2023-06-27 15:28:12 JRebel:  Days left until license expires: 99
+    2023-06-27 15:28:12 JRebel:  
+    2023-06-27 15:28:12 JRebel:  To extend your evaluation or purchase a license,
+    2023-06-27 15:28:12 JRebel:  contact sales@zeroturnaround.com.
+    2023-06-27 15:28:12 JRebel:  
+    2023-06-27 15:28:12 JRebel:  If you think this is an error, contact support@zeroturnaround.com.
+    2023-06-27 15:28:12 JRebel:  
+    2023-06-27 15:28:12 JRebel:  
+    2023-06-27 15:28:12 JRebel:  #############################################################
     ```
 
 2. Before making any changes, let's run the sample webscript by opening your browser and typing `http://localhost:8080/alfresco/s/sample/helloworld`.
@@ -3309,7 +3310,7 @@ ACS depends on the readiness of the database in order to start properly. If the 
 it fails showing error messages in the log:
 
 ```text
-sample-project-acs_1    | 10-May-2023 10:58:06 AM org.postgresql.core.v3.ConnectionFactoryImpl log
+sample-project-acs_1    | 27-June-2023 10:58:06 AM org.postgresql.core.v3.ConnectionFactoryImpl log
 sample-project-acs_1    | WARNING: IOException occurred while connecting to sample-project-postgres:5432
 sample-project-acs_1    | java.net.UnknownHostException: sample-project-postgres
 sample-project-acs_1    | at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:220)
@@ -3317,8 +3318,8 @@ sample-project-acs_1    | at java.base/java.net.SocksSocketImpl.connect(SocksSoc
 sample-project-acs_1    | at java.base/java.net.Socket.connect(Socket.java:591)
 sample-project-acs_1    | at org.postgresql.core.PGStream.<init>(PGStream.java:69)
 ...
-sample-project-acs_1    | 10-May-2023 10:58:06.281 SEVERE [localhost-startStop-1] org.postgresql.Driver.connect Connection error: 
-sample-project-acs_1    |  org.postgresql.util.PSQLException: The connection attempt failed.
+sample-project-acs_1    | 27-June-2023 10:58:06.281 SEVERE [localhost-startStop-1] org.postgresql.Driver.connect Connection error: 
+sample-project-acs_1    | org.postgresql.util.PSQLException: The connection attempt failed.
 sample-project-acs_1    | at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:259)
 sample-project-acs_1    | at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:49)
 sample-project-acs_1    | at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:195)
