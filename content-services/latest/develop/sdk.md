@@ -258,7 +258,6 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     [INFO] BUILD SUCCESS
     [INFO] ------------------------------------------------------------------------
     [INFO] Total time: 04:11 min
-    [INFO] Finished at: 2023-05-10T16:21:46+01:00
     [INFO] Finished at: 2023-06-10T16:21:46+01:00
     [INFO] Final Memory: 17M/1024M
     [INFO] ------------------------------------------------------------------------
