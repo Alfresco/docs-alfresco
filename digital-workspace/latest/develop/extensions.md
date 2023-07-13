@@ -21,7 +21,7 @@ Use this information to develop a `hello word` extension for the Digital Workspa
     http://localhost:8080/alfresco
     ```
 
-* The latest **LTS** version of `Node.js`.
+* `Node.js` 18.x
 
 * Download the Digital Workspace project from [Nexus](https://nexus.alfresco.com/nexus/#nexus-search;quick~digital%20workspace){:target="_blank"}.
 

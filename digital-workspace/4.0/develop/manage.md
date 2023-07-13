@@ -13,7 +13,7 @@ Learn how to run the Digital Workspace in your local development environment fro
     http://localhost:8080/alfresco
     ```
 
-* The latest **LTS** version of `Node.js`.
+* `Node.js` 14.x
 
 ## Clone and launch the front-end application
 

@@ -16,7 +16,7 @@ To develop a front-end application using the Alfresco Community Edition (the ope
     http://localhost:8080/alfresco
     ```
 
-* The latest **LTS** version of `Node.js`.
+* `Node.js` 14.x
 
 ### Deploy Content App
 
@@ -61,7 +61,7 @@ If you're an Alfresco customer or official partner, you can use the Enterprise a
     http://localhost:8080/alfresco
     ```
 
-* The latest **LTS** version of `Node.js`.
+* `Node.js` 14.x
 
 ### Deploy Digital Workspace
 
@@ -165,7 +165,7 @@ Below are the available tutorials on the most common and requested tasks about d
     http://localhost:8080/alfresco
     ```
 
-* The latest **LTS** version of `Node.js`.
+* `Node.js` 14.x
 
 > **Note:** All Angular development is done using the Typescript language.
 
