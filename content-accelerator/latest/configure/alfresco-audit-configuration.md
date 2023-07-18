@@ -59,15 +59,13 @@ Adding `.*` at the end of a filter will include all values that have not been sp
 
 Filters include:
 
-* default.enabled - specifies whether or not auditing events will be audited. (In ACA version 4.2 and lower, this feature is already enabled, using the filtering settings in `repository.properties`).
-* transaction.user - specifies what users' actions will or will not be audited.
-  * Example: Actions from all users except for 'System' will be audited.
-* transaction.type - actions that are performed against the specified document type will be audited.
-  * Example: Actions occurring on all document types will be audited.
-* default.path - Actions that occur on documents within the specified path will be audited.
-  * Example: Actions that occur on documents anywhere beneath `/app:company_home/cm:Insurance/` will be audited.
-* transaction.action - specifies what actions will and won't be audited.
-  * Example: All actions except for READ events will be audited.
+| Filter | Description |
+| ------ | ----------- |
+| default.enabled | Specifies whether or not auditing events will be audited.  <br><br>In 4.2 and lower, this feature is already enabled, using the filtering settings in `repository.properties`. |
+| transaction.user | Specifies what user actions will or will not be audited. <br><br>Example: Actions from all users except for 'System' will be audited. |
+| transaction.type | Actions that are performed against the specified document type will be audited. <br><br>Example: Actions occurring on all document types will be audited. |
+| default.path | Actions that occur on documents within the specified path will be audited. <br><br>Example: Actions that occur on documents anywhere beneath `/app:company_home/cm:Insurance/` will be audited. |
+| transaction.action | Specifies what actions will and won't be audited. <br><br>Example: All actions except for READ events will be audited. |
 
 List of Audit Events:
 
@@ -79,7 +77,7 @@ Below is a list of some (not all) audit events that are eligible to be enabled/d
 * COPY
 * CHECK IN
 * CHECK OUT
-  * > **Note:** The `CHECK OUT` audit event is placed on the *working copy* node. The primary node simply has an `addNodeAspect` event for the `checkedOut` aspect.
+  > **Note:** The `CHECK OUT` audit event is placed on the *working copy* node. The primary node simply has an `addNodeAspect` event for the `checkedOut` aspect.
 * CANCEL CHECK OUT
 * CREATE VERSION
 * readContent
