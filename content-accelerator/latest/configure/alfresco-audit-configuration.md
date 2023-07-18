@@ -119,7 +119,7 @@ For more information regarding Alfresco Audits, see the [Alfresco Auditing docum
 
 ### Enable/Disable Action Audit
 
-Audits are enabled/disabled on an individual action basis. To toggle the configuration, open your config (stage or search), open your module, and edit your action. A toggle should appear in the Advanced Properties section of the action. Enabling the action audit will tell OC to generate audits when this action is executed. Disabling the action audit will tell OC not to generate audits when the action is executed (The action executor itself will still be run, but the audit generation code will not be executed).
+For certain ACA actions, audits can be enabled/disabled on an individual action basis. To toggle the configuration, open your config (stage or search), open your module, and edit your action. If an audit event is configurable for the action, a toggle will appear in the **Advanced Properties** section of the action. Enabling the action audit will tell OC to generate audits when this action is executed. Disabling the action audit will tell OC not to generate audits when the action is executed (i.e. the action executor itself will still be run, but the audit generation code will not be executed).
 
 ### Configure Audit Event Name and Event Description
 
