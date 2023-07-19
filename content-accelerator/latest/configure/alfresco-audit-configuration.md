@@ -61,7 +61,7 @@ Filters include:
 
 | Filter | Description |
 | ------ | ----------- |
-| default.enabled | Specifies whether or not auditing events will be audited.  <br><br>In 4.2 and lower, this feature is already enabled, using the filtering settings in `repository.properties`. |
+| default.enabled | Specifies whether or not auditing events will be audited.  <br><br>In Content Services 4.2 and earlier versions, this feature was already enabled, using the filtering settings in `repository.properties`. |
 | transaction.user | Specifies what user actions will or will not be audited. <br><br>Example: Actions from all users except for 'System' will be audited. |
 | transaction.type | Actions that are performed against the specified document type will be audited. <br><br>Example: Actions occurring on all document types will be audited. |
 | default.path | Actions that occur on documents within the specified path will be audited. <br><br>Example: Actions that occur on documents anywhere beneath `/app:company_home/cm:Insurance/` will be audited. |
