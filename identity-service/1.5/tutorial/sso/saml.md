@@ -316,7 +316,7 @@ Alfresco Process Services (APS) has two sets of properties that need to be confi
     | keycloak.always-refresh-token |Sets whether a token should be refreshed for every request or not, for example `true`|
     | keycloak.autodetect-bearer-only |This should be set to true to serve both a web application and web services, for example `true`|
     | keycloak.token-store |The location of where account information token should be stored, for example `cookie`|
-    | keycloak.enable-basic-auth |Sets whether basic authentication is also supported by the Identity Service, for example `true`
+    | keycloak.enable-basic-auth |Sets whether basic authentication is also supported by the Identity Service, for example `true`|
 
 ## Step 12: (Optional) Configure a connection between Process Services and Content Services
 

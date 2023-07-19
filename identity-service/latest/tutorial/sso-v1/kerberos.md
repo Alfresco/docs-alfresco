@@ -29,7 +29,7 @@ There are five steps to configuring SSO using Kerberos with Alfresco products. T
 * Active Directory: `ldap.example.com`
 * Load Balancer: `alfresco.example.com`
 
-> **Note**: If using a containerized deployment there are [several amendments and additions](#optional-containerized-deployment) required for certain steps.
+> **Note:** If using a containerized deployment there are [several amendments and additions](#optional-containerized-deployment) required for certain steps.
 
 ## Step 1: Configure Kerberos files
 
@@ -81,7 +81,7 @@ The following table explains the values used to generate the `keytab` and `krb5.
 4. In the **Delegation** tab of the **Properties** of the user account created in the first step, tick the **Trust this user for delegation to any service (Kerberos only)** checkbox.
 5. Copy the key table file created to a protected area on each server such as `C:\etc`.
 
-    > **Note**: The servers to copy the key table file to are Alfresco Content Services, Alfresco Share and Alfresco Process Services.
+    > **Note:** The servers to copy the key table file to are Alfresco Content Services, Alfresco Share and Alfresco Process Services.
 
 6. Configure a `krb5.conf` file that contains details of the authentication server:
 
@@ -205,7 +205,7 @@ The Java login files need to be updated with details of the Kerberos configurati
     };
     ```
 
-    > **Note**: If Alfresco Share is hosted on the same server as Alfresco Content Services then the contents of the `java.login.config` can be merged into a single file.
+    > **Note:** If Alfresco Share is hosted on the same server as Alfresco Content Services then the contents of the `java.login.config` can be merged into a single file.
 
 2. Edit the following line in the Java security configuration file `java.security` by default located in `java/conf/security/`to point to the `java.login.config` file using the full file path:
 
@@ -220,7 +220,7 @@ The Java login files need to be updated with details of the Kerberos configurati
     * Uncomment the **two** sections that begin with: `<config evaluator="string-compare" condition="Remote">`
     * Navigate to the `<!--- Kerberos settings --->` section and replace `condition="KerberosDisabled"` with `condition="Kerberos"`
 
-    > **Note**: For Kerberos to work with user names that contain non-ASCII characters, add the following option to `JAVA_OPTS` for the Share JVM:
+    > **Note:** For Kerberos to work with user names that contain non-ASCII characters, add the following option to `JAVA_OPTS` for the Share JVM:
     >
     > ```bash
     > -Dsun.security.krb5.msinterop.kstring=true

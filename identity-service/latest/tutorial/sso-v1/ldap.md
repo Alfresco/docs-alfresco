@@ -189,7 +189,7 @@ The properties listed that need to be set for Alfresco Content Services (ACS) ar
         </rule>
         ```
 
-        > **Note**: Incoming public GET requests will be caught avoiding them being evaluated by other rules. Incoming POST requests from identity providers do not need a token.
+        > **Note:** Incoming public GET requests will be caught avoiding them being evaluated by other rules. Incoming POST requests from identity providers do not need a token.
 
 3. Sign in to the administrator console of ACS as an administrator. The URL of the administrator console is `https://repo.example.com:443/alfresco/service/enterprise/admin`.
 
@@ -248,7 +248,7 @@ Alfresco Digital Workspace only requires its properties to be updated to enable 
 | redirectUri | APP_CONFIG_OAUTH2_REDIRECT_LOGIN |The URL to redirect to after a user is successfully authenticated|
 | redirectUriLogout | APP_CONFIG_OAUTH2_REDIRECT_LOGOUT |The URL to redirect to after a user successfully signs out|
 
-> **Note**: If `implicitFlow` is set to `false` the grant type `password` will be used instead.
+> **Note:** If `implicitFlow` is set to `false` the grant type `password` will be used instead.
 
 The following is an example `app.config.json` file excerpt. By default this file is located in the `/src` directory.
 
@@ -405,4 +405,4 @@ After configuring SSO with an LDAP directory, the following is an example sequen
 
 3. Create a new tab in the same browser session and navigate to Alfresco Process Services at the URL `http://aps.example.com/activiti-app` and there should be no additional sign in step required.
 
-> **Note**: If timeout is configured in the [Identity Service](#step-1-configure-a-realm-and-client) accessing any of the applications after the specified time will prompt a user to sign in again.
+> **Note:** If timeout is configured in the [Identity Service](#step-1-configure-a-realm-and-client) accessing any of the applications after the specified time will prompt a user to sign in again.

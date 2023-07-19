@@ -27,7 +27,7 @@ The following are the prerequisites needed to configure SSO with LDAP:
 
 ## Configuration
 
-There are eleven steps to configuring SSO using an LDAP directory with Alfresco products. The following are the host names used as examples throughout the configuration:
+There are ten steps to configuring SSO using an LDAP directory with Alfresco products. The following are the host names used as examples throughout the configuration:
 
 * Alfresco Content Services: `repo.example.com`
 * Alfresco Share: `share.example.com`
@@ -138,7 +138,7 @@ Alfresco Digital Workspace only requires its properties to be updated to enable 
 | redirectUri | APP_CONFIG_OAUTH2_REDIRECT_LOGIN |The URL to redirect to after a user is successfully authenticated|
 | redirectUriLogout | APP_CONFIG_OAUTH2_REDIRECT_LOGOUT |The URL to redirect to after a user successfully signs out|
 
-> **Note**: If `implicitFlow` is set to `false` the grant type `password` will be used instead.
+> **Note:** If `implicitFlow` is set to `false` the grant type `password` will be used instead.
 
 The following is an example `app.config.json` file excerpt. By default this file is located in the `/src` directory.
 
@@ -295,4 +295,4 @@ After configuring SSO with an LDAP directory, the following is an example sequen
 
 3. Create a new tab in the same browser session and navigate to Alfresco Process Services at the URL `http://aps.example.com/activiti-app` and there should be no additional sign in step required.
 
-> **Note**: If timeout is configured in the [Identity Service](#step-1-configure-a-realm-and-client) accessing any of the applications after the specified time will prompt a user to sign in again.
+> **Note:** If timeout is configured in the [Identity Service](#step-1-configure-a-realm-and-client) accessing any of the applications after the specified time will prompt a user to sign in again.

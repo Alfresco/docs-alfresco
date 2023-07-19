@@ -27,7 +27,7 @@ The following are the prerequisites needed to configure SSO with SAML:
 
 ## Configuration
 
-There are thirteen steps to configuring SSO using a SAML identity provider with Alfresco products. The following are the host names used as examples throughout the configuration:
+There are fourteen steps to configuring SSO using a SAML identity provider with Alfresco products. The following are the host names used as examples throughout the configuration:
 
 * Alfresco Content Services: `repo.example.com`
 * Alfresco Share: `share.example.com`
