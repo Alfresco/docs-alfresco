@@ -405,4 +405,4 @@ After configuring SSO with an LDAP directory, the following is an example sequen
 
 3. Create a new tab in the same browser session and navigate to Alfresco Process Services at the URL `http://aps.example.com/activiti-app` and there should be no additional sign in step required.
 
-> **Note**: If timeout is configured in the [Identity Service](#step-1-configure-a-realm-and-client) accessing any of the applications after the specified time will prompt a user to sign in again.
+> **Note**: If timeout is configured in the [Identity Service](#step-1-configure-a-realm-and-clients) accessing any of the applications after the specified time will prompt a user to sign in again.
