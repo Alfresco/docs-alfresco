@@ -37,6 +37,8 @@
           path: '/digital-workspace/latest/process/config/'
     - title: 'Image Management'
       path: '/digital-workspace/latest/media/'
+    - title: 'Using'
+      path: '/digital-workspace/latest/using/'
     - title: 'Develop'    
       pages: 
         - title: 'Overview'
