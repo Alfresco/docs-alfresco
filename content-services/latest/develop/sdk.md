@@ -14,7 +14,7 @@ The Alfresco SDK is released under [Apache License version 2.0](http://www.apach
 
 The 4.0 release took advantage of Semantic Versioning ([SEMVER](https://semver.org/){:target="_blank"}), which means that it isn't directly compatible with the previous releases of the SDK.
 
-If you have existing projects that you wish to upgrade to SDK 4.6 the recommended approach is to generate a new project from the new archetypes and move your code into place.
+If you have existing projects that you wish to upgrade to SDK 4.6 the recommended approach is to generate a new project from the new archetypes and move your code over.
 
 ## What's new?
 
@@ -140,36 +140,41 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
 
 ### Generate your project from the archetypes
 
-1. After you've successfully configured Java and Maven, it's time to generate your project.
+1. After you've successfully configured Java and Maven, you can generate your project.
 
     ```bash
     mvn archetype:generate -Dfilter=org.alfresco:
     ```
 
-    You'll be prompted to select the archetype you want. The previously available archetypes, `alfresco-amp-archetype` and `share-amp-archetype` will still show up as an option, however these archetypes are not part of Alfresco SDK 4.x.
+    > **Note:** You need double quotes around the filter if you are using Windows PowerShell: `mvn archetype:generate "-Dfilter=org.alfresco:"`.
 
-    > **Note:** You'll need double quotes around the filter part if you are using Windows PowerShell: `mvn archetype:generate "-Dfilter=org.alfresco:"`.
-
-    The output looks something like this:
+    The output:
 
     ```text
     [INFO] Generating project in Interactive mode
     [INFO] No archetype defined. Using maven-archetype-quickstart (org.apache.maven.archetypes:maven-archetype-quickstart:1.0)
     Choose archetype:
-    1: remote -> org.alfresco.maven.archetype:alfresco-platform-jar-archetype (Sample project with full support for lifecycle and rapid development of Platform/Repository JARs and AMPs (Alfresco Module Packages))
-    2: remote -> org.alfresco.maven.archetype:alfresco-share-jar-archetype (Share project with full support for lifecycle and rapid development of JARs and AMPs (Alfresco Module
-            Packages))
-    3: remote -> org.alfresco.maven.archetype:alfresco-allinone-archetype (Sample multi-module project for All-in-One development on the Alfresco platform. Includes modules for Platform/Repository JAR and Share JAR)
-    ...
-    ```
+    1: remote -> org.alfresco.maven.archetype:activiti-jar-archetype (DEPRECATED - UNSUPPORTED - EXPERIMENTAL)
+    2: remote -> org.alfresco.maven.archetype:alfresco-allinone-archetype (Sample multi-module project for All-in-One development on the Alfresco platform. Includes modules for Platform/Repository JAR and Share JAR)
+    3: remote -> org.alfresco.maven.archetype:alfresco-amp-archetype (Sample project with full support for lifecycle and rapid development of Repository AMPs (Alfresco Module Packages))
+    4: remote -> org.alfresco.maven.archetype:alfresco-platform-jar-archetype (Sample project with full support for lifecycle and rapid development of Platform/Repository JARs and AMPs (Alfresco Module Packages))
+    5: remote -> org.alfresco.maven.archetype:alfresco-share-jar-archetype (Share project with full support for lifecycle and rapid development of JARs and AMPs (Alfresco Module Packages))
+    6: remote -> org.alfresco.maven.archetype:share-amp-archetype (Share project with full support for lifecycle and rapid development of AMPs (Alfresco Module Packages))
+   ```
 
-2. Select one of the following archetypes:
+2. Select one of the archetypes.
 
     * `org.alfresco.maven.archetype:alfresco-allinone-archetype`
+    * `org.alfresco.maven.archetype:alfresco-amp-archetype`
     * `org.alfresco.maven.archetype:alfresco-platform-jar-archetype`
     * `org.alfresco.maven.archetype:alfresco-share-jar-archetype`
+    * `org.alfresco.maven.archetype:share-amp-archetype`
 
-3. Choose the latest version, such as 4.6.0.
+    > **Note:** Archetype `org.alfresco.maven.archetype:activiti-jar-archetype` is deprecated and is not supported.  
+
+    This example uses `org.alfresco.maven.archetype:alfresco-allinone-archetype`.
+
+3. Select the latest version.
 
     ```bash
     Choose org.alfresco.maven.archetype:alfresco-allinone-archetype version:
@@ -184,16 +189,18 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     9: 3.0.0
     10: 3.0.1
     11: 3.1.0
-    12: 4.0.0
-    13: 4.1.0
-    14: 4.2.0
-    15: 4.3.0
-    16: 4.4.0
-    17: 4.5.0
-    18: 4.6.0     
+    12: 4.0.0-beta-1
+    13: 4.0.0
+    14: 4.1.0
+    15: 4.2.0
+    16: 4.3.0
+    17: 4.4.0
+    18: 4.5.0
+    19: 4.6.0
+    Choose a number: 19: 19    
     ```
 
-4. Next you will be prompted for additional values, like `groupId`, `artifactId`, and `package`, as shown below:
+4. You are prompted for additional values, like `groupId`, `artifactId`, and `package`, as shown below:
 
     ```bash
     Define value for property 'groupId':
