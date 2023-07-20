@@ -24,7 +24,7 @@ Here are some examples of how you can use rules to automate repetitive tasks:
 * Content with certain criteria that enter a folder can have aspects added, or removed.
 * Content with certain criteria that enter a folder can execute a script.
 
-### Creating a rule
+## Creating a rule
 
 You can create rules for a folder within the Digital Workspace.
 
