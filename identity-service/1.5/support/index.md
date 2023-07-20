@@ -15,5 +15,4 @@ The following are the supported platforms for the Identity Service version 1.5:
 | Sync Service 3.3 | Not currently supported with Kerberos |
 | Desktop Sync 1.5 | Not currently supported with Kerberos |
 | Process Services 1.11 | |
-| Process Workspace 1.3.4 | |
 | Alfresco iOS APS Mobile App | Not currently supported with Kerberos |

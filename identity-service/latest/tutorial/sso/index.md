@@ -2,7 +2,7 @@
 title: Single Sign On Guide v2 (ACS 7.3+)
 ---
 
-This documentation describes the configuration required to setup Single Sign On (SSO) capabilities for Alfresco products. Single Sign On refers to the ability for users to access Alfresco Share, the Alfresco Digital Workspace, Alfresco Process Services and Alfresco Process Workspace in a single browser session by signing in only once to any of the applications.
+This documentation describes the configuration required to setup Single Sign On (SSO) capabilities for Alfresco products. Single Sign On refers to the ability for users to access Alfresco Share, the Alfresco Digital Workspace, and Alfresco Process Services in a single browser session by signing in only once to any of the applications.
 
 **This guide applies to Alfresco Content Services 7.3 and above.**
 

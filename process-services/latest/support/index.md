@@ -52,7 +52,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Integrations** | |
 | Identity Service 1.2 | For use with LDAP and SAML |
 | Identity Service 1.1 | For use with LDAP and SAML |
-| Process Workspace 1.3 | |
 | | |
 | **Related components** | |
 | VMWare ESXi 5.1.0 | For supported guest operating systems |

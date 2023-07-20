@@ -19,5 +19,5 @@ The following are the supported platforms for the Identity Service version 1.1:
 | Process Services 1.11 | |
 | Process Services 1.10 | |
 | Process Services 1.9 | |
-| Process Workspace 1.3.4 | |
+| Process Workspace 1.3.4 | Process Services 1.9 only |
 | Alfresco iOS APS Mobile App | Not currently supported with Kerberos |
