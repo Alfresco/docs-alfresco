@@ -2,11 +2,11 @@
 title: Alfresco Audit Configuration
 ---
 
-Alfresco has three built-in audit data producers:
+Alfresco Content Services has three built-in audit data producers:
 
-* Alfresco-api - Low level summary of services and methods. Used for auditing workflows, CRUD operations on users, listing search parameters, etc.
-* Alfresco-node - used only to track data from the beforeDeleteNode policy
-* Alfresco-access - High level auditing that encompasses a wide array of events including:
+* `alfresco-api` - Low-level summary of services and methods. Used for auditing workflows, CRUD operations on users, listing search parameters, etc..
+* `alfresco-node` - Used only to track data from the `beforeDeleteNode` policy.
+* `alfresco-access` - High-level auditing that encompasses a wide array of events including:
   * Logins (success and failures)
   * CRUD on nodes
   * Property updates
@@ -15,23 +15,25 @@ Alfresco has three built-in audit data producers:
   * Check in/out and cancel
   * Versioning
 
-This page will walk through how to configure the Alfresco-access audits and send them to the ocAudit application so they will be accessible by ACA and the Alfresco Share dashlet
+This page will walk through how to configure the `alfresco-access` audits and send them to the `ocAudit` application so they will be accessible by ACA and the Alfresco Share dashlet.
 
-In order for these configurations to take effect you must ensure that audits are enabled in alfresco. You can enable audit by adding `audit.enabled = true` to the `alfresco-global.properties` file.
+In order for these configurations to take effect you must ensure that audits are enabled in Alfresco. You can enable audit by adding `audit.enabled = true` to the `alfresco-global.properties` file.
 
 ## Configuring Alfresco-Access Audits
 
 ### Configuring the oc-audit.xml
 
-The first step is to configure the ocAudit application to accept alfresco-access audits. If you have installed the OpenContent amp, the oc-audit.xml should already be configured and installed. It can be found at `${alfrescoHome}/tomcat/webapps/alfresco/WEB-INF/classes/alfresco/extension/audit`. The oc-audit.xml is configured with all possible alfresco-access audit pathmappings, so all data for an enabled event will be stored in the audit.
+The first step is to configure the `ocAudit` application to accept `alfresco-access` audits. If you have installed the OpenContent AMP, the `oc-audit.xml` should already be configured and installed. It can be found at `${alfrescoHome}/tomcat/webapps/alfresco/WEB-INF/classes/alfresco/extension/audit`. The `oc-audit.xml` is configured with all possible `alfresco-access` audit pathmappings, so all data for an enabled event will be stored in the audit.
 
-If you would like to enable Login/Logout audits, copy the oc-audit.xml into your overlay and uncomment the "login", "loginFailure" and "logout" AuditPath configurations.  
+If you would like to enable Login/Logout audits, copy the `oc-audit.xml` into your overlay and uncomment the `login`, `loginFailure` and `logout` AuditPath configurations.  
 
 ### Enabling Audits Using Filters
 
-Once the oc-audit.xml has been configured to accept all alfresco-access audits, we can apply a filter to Alfresco to only capture what we are interested in. Properties in your `alfresco-global.properties` determine audit behavior.  Example:
+Once the `oc-audit.xml` has been configured to accept all `alfresco-access` audits, we can apply a filter to Alfresco to only capture what we are interested in. Properties in your `alfresco-global.properties` determine audit behavior.
 
-```properties
+For example:
+
+```text
 ### Audit Filter Settings ###
 audit.ocaudit.enabled=true
 audit.filter.alfresco-access.default.enabled=true
@@ -57,19 +59,17 @@ Adding `.*` at the end of a filter will include all values that have not been sp
 
 Filters include:
 
-* default.enabled - specifies whether or not auditing events will be audited (In 4.2 and lower, this feature is already enabled, using the filtering settings in repository.properties).
-* transaction.user - specifies what users' actions will or will not be audited
-  * Example: Actions from all users except for 'System' will be audited
-* transaction.type - actions that are performed against the specified document type will be audited
-  * Example: Actions occurring on all document types will be audited  
-* default.path - Actions that occur on documents within the specified path will be audited
-  * Example: Actions that occur on documents anywhere beneath /app:company_home/cm:Insurance/ will be audited
-* transaction.action - specifies what actions will and won't be audited
-  * Example: All actions except for READ events will be audited
+| Filter | Description |
+| ------ | ----------- |
+| default.enabled | Specifies whether or not auditing events will be audited.  <br><br>In Content Services 4.2 and earlier versions, this feature was already enabled, using the filtering settings in `repository.properties`. |
+| transaction.user | Specifies what user actions will or will not be audited. <br><br>Example: Actions from all users except for 'System' will be audited. |
+| transaction.type | Actions that are performed against the specified document type will be audited. <br><br>Example: Actions occurring on all document types will be audited. |
+| default.path | Actions that occur on documents within the specified path will be audited. <br><br>Example: Actions that occur on documents anywhere beneath `/app:company_home/cm:Insurance/` will be audited. |
+| transaction.action | Specifies what actions will and won't be audited. <br><br>Example: All actions except for READ events will be audited. |
 
 List of Audit Events:
 
-Below is a list of some (not all) audit events that are eligible to be enabled/disabled on the transaction.action property of the alfresco-global.properties file:
+Below is a list of some (not all) audit events that are eligible to be enabled/disabled on the `transaction.action` property of the `alfresco-global.properties` file:
 
 * CREATE
 * READ
@@ -77,7 +77,7 @@ Below is a list of some (not all) audit events that are eligible to be enabled/d
 * COPY
 * CHECK IN
 * CHECK OUT
-  * **Note:** The `CHECK OUT` audit event is placed on the *working copy* node.  The primary node simply has an `addNodeAspect` event for the `checkedOut` aspect.
+  > **Note:** The `CHECK OUT` audit event is placed on the *working copy* node. The primary node simply has an `addNodeAspect` event for the `checkedOut` aspect.
 * CANCEL CHECK OUT
 * CREATE VERSION
 * readContent
@@ -93,25 +93,28 @@ This can be handy when dealing with multiple types within your configured path, 
 
 ## Accessing the ocAudit Application
 
-Alfresco contains REST endpoints that allow administrators to access the contents of audit applications, including the ocAudit. The list of REST endpoints can be found at `<HOSTNAME>:<PORT>/alfresco/s/index/package/org/alfresco/repository/audit`
+Alfresco contains REST endpoints that allow administrators to access the contents of audit applications, including the `ocAudit`. The list of REST endpoints can be found at `<HOSTNAME>:<PORT>/alfresco/s/index/package/org/alfresco/repository/audit`.
 
 Some common endpoints are (using `ocAudit` application in examples below, but could be any audit application):
 
 * List of audit applications `/alfresco/s/api/audit/control`
-* Get audit events (only returns 100 by default) `/alfresco/s/api/audit/query/ocAudit` - params are below
+* Get audit events (only returns 100 by default) `/alfresco/s/api/audit/query/ocAudit` - parameters are below:
   * verbose=true
   * user={userId}
   * limit=1000 (defaults to 100)
-  * Date based queries work with Epoch timestamps.  Use something like [https://www.epochconverter.com/](https://www.epochconverter.com/){:target="_blank"}.  Many online converters use epoch time in **seconds**, whereas Alfresco is expecting **milliseconds**.  
+  * Date based queries work with Epoch timestamps:
     * fromTime=timestamp
     * toTime=timestamp
+
+      Use sites like [https://www.epochconverter.com/](https://www.epochconverter.com/){:target="_blank"}. Many online converters use epoch time in **seconds**, whereas Alfresco expects **milliseconds**.
+
   * forward={forward}
   * fromId={fromId}
   * toId={toId}
   * value={value}
-    * Search on any values in the "values" object
+    * Search on any values in the `values` object
   * valueType={valueType}
-    * Defines Java type of the value you are searching on, must be the fully qualified class name! (Ex. when searching on NodeRef, *valueType* must be `org.alfresco.service.cmr.repository.NodeRef`)
+    * Defines the Java type of the value you are searching on, and must be the fully qualified class name (for example, when searching on NodeRef, `valueType` must be `org.alfresco.service.cmr.repository.NodeRef`).
 
 For more information regarding Alfresco Audits, see the [Alfresco Auditing documentation]({% link content-services/latest/admin/audit.md %}).
 
@@ -119,7 +122,7 @@ For more information regarding Alfresco Audits, see the [Alfresco Auditing docum
 
 ### Enable/Disable Action Audit
 
-Audits are enabled/disabled on an individual action basis. To toggle the configuration, open your config (stage or search), open your module, and edit your action. A toggle should appear in the Advanced Properties section of the action. Enabling the action audit will tell OC to generate audits when this action is executed. Disabling the action audit will tell OC not to generate audits when the action is executed (The action executor itself will still be run, but the audit generation code will not be executed).
+For certain ACA actions, audits can be enabled/disabled on an individual action basis. To toggle the configuration, open your config (stage or search), open your module, and edit your action. If an audit event is configurable for the action, a toggle will appear in the **Advanced Properties** section of the action. Enabling the action audit will tell OC to generate audits when this action is executed. Disabling the action audit will tell OC not to generate audits when the action is executed (i.e. the action executor itself will still be run, but the audit generation code will not be executed).
 
 ### Configure Audit Event Name and Event Description
 
