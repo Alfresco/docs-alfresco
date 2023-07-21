@@ -131,7 +131,7 @@ You can move files within the Mobile Workspace.
 
 6. When all documents are scanned, select **Save**.
 
-    * The scan will be saved where you navigated.
+    * The scan is saved where you navigated.
     * If you do not wish to keep the scan, exit without saving. A dialog box will appear to confirm you want to discard the scan, select **Discard**. Select **Cancel** to return to save your scan.
 
 ## Tasks
@@ -235,14 +235,18 @@ You can add attachments to a task.
 
 ## Share custom URLs
 
-You can share custom Workspace URLs. The link can go directly to a particular screen, for example **Offline**, **Personal Files**, or **Tasks**.
+You can share custom Workspace links provided by the URL Schema functionality. The link can go directly to a particular folder or files, for example **Personal Files**, **Custom Folder**, or **File Preview**.
 
-1. Tap on the custom Workspace URL.
+1. Tap on the custom Workspace URL:
 
-2. You are prompted to open the link with a browser in iOS or Android launches the Mobile Workspace application.
+    * If you're using an iOS device, you're prompted to open the link with a browser.
+    * If you're using an Android device, the Mobile Workspace application launches. You may need to log in, if prompted.
 
-3. The link opens in the browser or application. You may need to log in, if prompted.
+2. Select a browser to view the content (for iOS):
 
-    **Note:** File and URL access depends on permissions set in Workspace.
+    * On iOS, you're asked to open the link using the Alfresco Mobile application (Alfresco Mobile Workspace) or download Mobile Workspace from the App Store.
+    * On Android, you're redirected to the Play Store.
 
-4. If using a browser, you will be asked to open in the Alfresco Mobile application (Alfresco Mobile Workspace) or download Mobile Workspace.
+3. Tap **Open in App** to view the content in the Mobile Workspace application (for iOS).
+
+> **Note:** File and URL access depends on permissions set in Mobile Workspace.
