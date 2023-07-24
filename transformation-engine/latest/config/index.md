@@ -90,3 +90,45 @@ transformer.timeout.excel = ${transformer.timeout.default}
 transformer.timeout.powerpoint = ${transformer.timeout.default}
 ```
 -->
+
+## Configure DTE with SSL
+
+Below is a very basic example of how to configure Secure Sockets Layer (SSL) for DTE. It forms a good starting point for customers with experience and competencies in DevOps.
+
+1. Edit `C:\Program Files (x86)\TransformationServer\tomcat\conf\server.xml`:
+
+    For example:
+
+    1. Comment out this connector:
+
+        ```xml
+        <Connector executor="tomcatThreadPool"
+                port="${https.port}" protocol="org.apache.coyote.http11.Http11NioProtocol"
+                SSLEnabled="true">
+            <SSLHostConfig>
+                <Certificate certificateKeystoreFile="conf/.keystore" certificateKeystorePassword="tomcat" type="RSA" />
+            </SSLHostConfig>
+        </Connector>
+        ```
+
+    2. Uncomment this Connector:
+
+        ```xml
+        <Connector executor="tomcatThreadPool"
+            port="${https.port}" protocol="org.apache.coyote.http11.Http11NioProtocol"
+            SSLEnabled="true" scheme="https" secure="true"
+            clientAuth="false" sslProtocol="TLS"
+            keystoreFile="PATH_TO_KEYSTORE" keystorePass="KEYSTORE_PASSWORD" />
+        ```
+
+2. Check the REST configuration URL under: `https://<dte-hostname>:8443/transformation-server/#/settings`:
+
+    This should be set to: `https://<dte-hostname>:8443`.
+
+3. Edit `alfresco-global.properties`:
+
+    Change `localTransform.transform-dte.url=http:<dte-hostname>:8080/transform-dte`
+
+    to `localTransform.transform-dte.url=http:<dte-hostname>:8443/transform-dte`
+
+For more information on configuring SSL on Tomcat, see the Tomcat documentation [SSL/TLS Configuration How-To](https://tomcat.apache.org/tomcat-9.0-doc/ssl-howto.html){:target="_blank"}.
