@@ -1,5 +1,5 @@
 # Identity Service
-- version: 1.8
+- version: 2.0
   pages:
     - title: 'Introduction'
       path: '/identity-service/latest/'
@@ -15,6 +15,22 @@
       path: '/identity-service/latest/upgrade/'
     - title: 'Configure'
       path: '/identity-service/latest/config/'
+- version: 1.8
+  pages:
+    - title: 'Introduction'
+      path: '/identity-service/1.8/'
+    - title: 'Install'
+      pages:
+        - title: 'Overview'
+          path: '/identity-service/1.8/install/'
+        - title: 'Install to Kubernetes cluster'
+          path: '/identity-service/1.8/install/k8s/'
+        - title: 'Install from ZIP file'
+          path: '/identity-service/1.8/install/zip/'
+    - title: 'Upgrade'
+      path: '/identity-service/1.8/upgrade/'
+    - title: 'Configure'
+      path: '/identity-service/1.8/config/'
 - version: 1.7
   pages:
     - title: 'Introduction'
