@@ -37,7 +37,7 @@ If you are currently using the Identity Service 1.2 you must first modify the **
 
 Use the following information to upgrade your ZIP installation:
 
-1. Download the `alfresco-identity-service-1.8.0.zip` file from [Hyland Community](https://community.hyland.com/en/products/alfresco/release-notes/release-notes/alfresco-identity-service-version-170){:target="_blank"}.
+1. Download the `alfresco-identity-service-1.8.0.zip` file from [Hyland Community](https://community.hyland.com/en/products/alfresco/release-notes/release-notes/alfresco-identity-service-version-180){:target="_blank"}.
 
 2. Unzip the ZIP file and configure your installation using the Keycloak documentation: [Upgrading Keycloak](https://www.keycloak.org/docs/18.0/upgrading/#_upgrading){:target="_blank"}.
 
