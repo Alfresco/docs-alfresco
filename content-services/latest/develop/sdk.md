@@ -172,7 +172,7 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
 
     > **Note:** Archetype `org.alfresco.maven.archetype:activiti-jar-archetype` is deprecated and is not supported.  
 
-    This example uses `org.alfresco.maven.archetype:alfresco-allinone-archetype`.
+    This example uses `org.alfresco.maven.archetype:alfresco-allinone-archetype`. For more on archetypes, see [Alfresco SDK Maven archetypes](#mvnarchetypes).
 
 3. Select the latest version.
 
@@ -200,33 +200,33 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     Choose a number: 19: 19    
     ```
 
-4. You are prompted for additional values, like `groupId`, `artifactId`, and `package`, as shown below:
+4. You are prompted to enter additional information:
 
     ```bash
-    Define value for property 'groupId':
-    Define value for property 'artifactId':
     [INFO] Using property: version = 1.0-SNAPSHOT
-    Define value for property 'package':
+    Define value for property 'groupId': com.acme
+    Define value for property 'artifactId': my-all-in-one
+    Define value for property 'package' com.acme: : com.acme
     ```
 
 5. After you have specified the information according to your project, a final confirmation will appear.
 
+    > **Note** The data entered in this example will be different for your installation.
+
     ```bash
     Confirm properties configuration:
+    version: 1.0-SNAPSHOT
     groupId: com.acme
     artifactId: my-all-in-one
-    version: 1.0-SNAPSHOT
     package: com.acme
-    Y: :
+    Y: : y
     ```
 
 6. Press **Y** and then press **Enter**.
 
-    If everything has been configured correctly, you should see something similar to this:
-
     ```bash
     [INFO] ----------------------------------------------------------------------------
-    [INFO] Using following parameters for creating project from Archetype: alfresco-allinone-archetype:4.6.0-SNAPSHOT
+    [INFO] Using following parameters for creating project from Archetype: alfresco-allinone-archetype:4.6.0
     [INFO] ----------------------------------------------------------------------------
     [INFO] Parameter: groupId, Value: com.acme
     [INFO] Parameter: artifactId, Value: my-all-in-one
@@ -237,76 +237,59 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     [INFO] Parameter: groupId, Value: com.acme
     [INFO] Parameter: artifactId, Value: my-all-in-one
     [INFO] Parameter: version, Value: 1.0-SNAPSHOT
-    [INFO] Parent element not overwritten in /Users/Alfresco/my-all-in-one/my-all-in-one-platform/pom.xml
-    [INFO] Parent element not overwritten in /Users/Alfresco/my-all-in-one/my-all-in-one-share/pom.xml
-    [INFO] Parent element not overwritten in /Users/Alfresco/my-all-in-one/my-all-in-one-integration-tests/pom.xml
-    [INFO] Parent element not overwritten in /Users/Alfresco/my-all-in-one/my-all-in-one-platform-docker/pom.xml
-    [INFO] Parent element not overwritten in /Users/Alfresco/my-all-in-one/my-all-in-one-share-docker/pom.xml
+    [INFO] Parent element not overwritten in C:\Users\username\my-all-in-one\my-all-in-one-platform\pom.xml
+    [INFO] Parent element not overwritten in C:\Users\username\my-all-in-one\my-all-in-one-share\pom.xml
+    [INFO] Parent element not overwritten in C:\Users\username\my-all-in-one\my-all-in-one-integration-tests\pom.xml
+    [INFO] Parent element not overwritten in C:\Users\username\my-all-in-one\my-all-in-one-platform-docker\pom.xml
+    [INFO] Parent element not overwritten in C:\Users\username\my-all-in-one\my-all-in-one-share-docker\pom.xml
     [INFO] Executing META-INF/archetype-post-generate.groovy post-generation script
-    [INFO] Project created from Archetype in dir: /Users/Alfresco/my-all-in-one
+    [INFO] Project created from Archetype in dir: C:\Users\username\my-all-in-one
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESS
     [INFO] ------------------------------------------------------------------------
-    [INFO] Total time: 04:11 min
-    [INFO] Finished at: 2023-06-10T16:21:46+01:00
-    [INFO] Final Memory: 17M/1024M
+    [INFO] Total time:  04:14 min
+    [INFO] Finished at: 2023-07-24T15:43:32+01:00
     [INFO] ------------------------------------------------------------------------
     ```
 
 7. You have successfully generated your first SDK project.
 
-Inside the project, you will find the `run.bat` and `run.sh` scripts. These are convenience scripts for you to quickly compile / test / run your project.
+Inside the project you will find the `run.bat` and `run.sh` scripts. These allow you to quickly compile, test, or run your project.
+To run your project, `cd` into your working directory and use:
 
-In the terminal window, use:
-
-* `./run.sh build_start` for Mac OS X or Linux.
+* `./run.sh build_start` for Mac OS X or Linux
 * `run.bat build_start` for Windows.
 
-If this is the first time you are doing this, it will take a while for Maven to download all the required dependencies and for Docker to download all the
-required images.
+If this is the first time you are doing this, it will take a while for Maven to download all the required dependencies and for Docker to download all the required images.
 
-For more information about how to work with the projects, visit [Working with generated projects](#workingwithprojects).
+For more information about how to work with the projects, see [Working with generated projects](#workingwithprojects).
 
 ## Alfresco SDK Maven archetypes {#mvnarchetypes}
 
-The Alfresco SDK comes with a number of Maven archetypes that can be used to generate Alfresco extension projects.
-
-For more details, see [Getting started with Alfresco SDK](#gettingstarted).
-
-These archetypes are available during the creation of a new project. In short, a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html){:target="_blank"} is a project templating toolkit. It's defined as an original pattern or model from which all other things of the same kind are made. Using archetypes provides a great way to enable developers to quickly follow best practice in a consistent way. This is valid for every project built with Apache Maven and it's valid in particular when using Alfresco SDK.
+The Alfresco SDK comes with a number of Maven archetypes that can be used to generate Alfresco extension projects. [Maven archetypes](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html){:target="_blank"} are project template toolkits and are available during the creation of a new SDK project. An archetype is a pattern or model from which all other things of the same kind are made. Using archetypes provides a great way to enable developers to quickly follow best practices in a consistent way. This is valid for every project built with Apache Maven and it's valid in particular when using the Alfresco SDK.
 
 In this section we are going to introduce all the available archetypes in Alfresco SDK, with a brief description of their purpose and main use. After reading this information, you should be able to understand the various possibilities that Alfresco SDK can offer to developers, in terms of projects.
 
-When generating your project, you'll be prompted to select the Maven archetype you want to use through an interactive menu, similar to what you can see below.
+When generating your project, you'll be prompted to select the Maven archetype you want to use through an interactive menu.
 
 ```bash
 [INFO] Generating project in Interactive mode
-[INFO] No archetype defined. Using maven-archetype-quickstart (org.apache.maven.ar
-chetypes:maven-archetype-quickstart:1.0)
+[INFO] No archetype defined. Using maven-archetype-quickstart (org.apache.maven.archetypes:maven-archetype-quickstart:1.0)
 Choose archetype:
-1: remote -> org.alfresco.maven.archetype:activiti-jar-archetype (Sample project w
-ith full support for lifecycle and rapid development of Activiti JARs)
-2: remote -> org.alfresco.maven.archetype:alfresco-allinone-archetype (Sample mult
-i-module project for All-in-One development on the Alfresco platform. Includes mod
-ules for Platform/Repository JAR and Share JAR)
-3: remote -> org.alfresco.maven.archetype:alfresco-amp-archetype (Sample project w
-ith full support for lifecycle and rapid development of Repository AMPs (Alfresco 
-Module Packages))
-4: remote -> org.alfresco.maven.archetype:alfresco-platform-jar-archetype (Sample 
-project with full support for lifecycle and rapid development of Platform/Reposit
-ory JARs and AMPs (Alfresco Module Packages))
-5: remote -> org.alfresco.maven.archetype:alfresco-share-jar-archetype (Share pro
-ject with full support for lifecycle and rapid development of JARs and AMPs (Alfr
-esco Module
-Packages))
-6: remote -> org.alfresco.maven.archetype:share-amp-archetype (Share project with 
-full support for lifecycle and rapid development of AMPs (Alfresco Module
-Packages))
-Choose a number or apply filter (format: [groupId:]artifactId, case sensitive con
-tains): : 
+1: remote -> org.alfresco.maven.archetype:activiti-jar-archetype (DEPRECATED - UNSUPPORTED - EXPERIMENTAL)
+2: remote -> org.alfresco.maven.archetype:alfresco-allinone-archetype (Sample multi-module project for All-in-One development on the Alfresco platform. Includes modules for Platform/Repository JAR and Share JAR)
+3: remote -> org.alfresco.maven.archetype:alfresco-amp-archetype (Sample project with full support for lifecycle and rapid development of Repository AMPs (Alfresco Module Packages))
+4: remote -> org.alfresco.maven.archetype:alfresco-platform-jar-archetype (Sample project with full support for lifecycle and rapid development of Platform/Repository JARs and AMPs (Alfresco Module Packages))
+5: remote -> org.alfresco.maven.archetype:alfresco-share-jar-archetype (Share project with full support for lifecycle and rapid development of JARs and AMPs (Alfresco Module
+        Packages))
+6: remote -> org.alfresco.maven.archetype:share-amp-archetype (Share project with full support for lifecycle and rapid development of AMPs (Alfresco Module
+        Packages))
+Choose a number or apply filter (format: [groupId:]artifactId, case sensitive contains): :
 ```
 
-The menu shows 6 possible options, where each option corresponds to a different Maven archetype that you can select by using the listed numbers. Please note that the numbering is not sequential and some numbers may be skipped.
+The menu displays six Maven archetypes which you can select by entering the corresponding number.
+
+> **Note:** The numbering is not sequential and some numbers may be skipped.
 
 ### org.alfresco.maven.archetype:alfresco-allinone-archetype
 
