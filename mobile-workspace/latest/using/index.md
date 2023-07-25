@@ -235,18 +235,17 @@ You can add attachments to a task.
 
 ## Share custom URLs
 
-You can share custom Workspace links provided by the URL Schema functionality. The link can go directly to a particular folder or files, for example **Personal Files**, **Custom Folder**, or **File Preview**.
+You can share custom Workspace links provided by the URL Schema functionality. The link can go directly to a particular folder or files, for example **Personal Files**, **Custom Folder**, or **File Preview**. You'll first land in the mobile browser, and after that you'll be prompted to log in based on file permissions.
 
 1. Tap on the custom Workspace URL:
 
-    * If you're using an iOS device, you're prompted to open the link with a browser.
-    * If you're using an Android device, the Mobile Workspace application launches. You may need to log in, if prompted.
+    You're prompted to open the link with a browser.
 
-2. Select a browser to view the content (for iOS):
+2. Select a browser to view the content:
 
     * On iOS, you're asked to open the link using the Alfresco Mobile application (Alfresco Mobile Workspace) or download Mobile Workspace from the App Store.
-    * On Android, you're redirected to the Play Store.
+    * On Android, you're asked to open the link using the Alfresco Mobile application (Alfresco Mobile Workspace). Tap the link to open the Mobile app or you'll be redirected to the Play Store if the app is not installed.
 
-3. Tap **Open in App** to view the content in the Mobile Workspace application (for iOS).
+3. Tap **Open in App** to view the content in the Mobile Workspace application.
 
-> **Note:** File and URL access depends on permissions set in Mobile Workspace.
+> **Note:** File and URL access depend on permissions set in Mobile Workspace.
