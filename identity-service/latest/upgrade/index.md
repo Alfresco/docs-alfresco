@@ -13,7 +13,7 @@ Use the following information to upgrade the Identity Service to version 2.0.
 * [Upgrade ZIP installation](#upgrade-zip-installation)  
 * [Upgrade Kubernetes deployment with PostgreSQL database](#upgrade-kubernetes-deployment-with-postgresql-database)  
 
-> **Note:** For Keycloak's upgrade documentation see [upgrade procedure](https://www.keycloak.org/docs/18.0/upgrading/){:target="_blank"}.
+> **Note:** For Keycloak's upgrade documentation see [upgrade procedure](https://www.keycloak.org/docs/21.1.2/upgrading/){:target="_blank"}.
 
 ## Upgrade from version 1.2 {#upgrade-v12}
 
@@ -31,7 +31,7 @@ If you are currently using the Identity Service 1.2 you must first modify the **
 
 ## Remove SmallRye references
 
-> **Important:** You must manually remove all the **_SmallRye_** modules in the `standalone.xml` file before upgrading to version 2.0. From Keycloak 13.0.0 the modules called **_SmallRye_** have been removed from the [WildFly](https://www.wildfly.org/){:target="_blank"} application. The server will not start if your configuration references them. For more information see [Migrating to 13.0.0](https://www.keycloak.org/docs/18.0/upgrading/#migrating-to-13-0-0){:target="_blank"}.
+> **Important:** You must manually remove all the **_SmallRye_** modules in the `standalone.xml` file before upgrading to version 2.0. From Keycloak 13.0.0 the modules called **_SmallRye_** have been removed from the [WildFly](https://www.wildfly.org/){:target="_blank"} application. The server will not start if your configuration references them. For more information see [Migrating to 13.0.0](https://www.keycloak.org/docs/21.1.2/upgrading/#migrating-to-13-0-0){:target="_blank"}.
 
 ## Upgrade from version 1.8
 
