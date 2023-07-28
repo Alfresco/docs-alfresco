@@ -2,16 +2,16 @@
 title: User interfaces
 ---
 
-The user interfaces (UI) section sets an end user interface for users to interact with content, tasks, and processes for the project using the [Alfresco Digital Workspace]({% link process-automation/latest/using/index.md %}).
+The user interfaces (UI) section sets an end user interface for users to interact with content, tasks, and processes for the project using [Alfresco Digital Workspace]({% link process-automation/latest/using/index.md %}).
 
 ## Properties
 
-The basic properties of a user interface are:
+The basic properties of a UI are:
 
 | Property | Description |
 | -------- | ----------- |
 | UI name | *Required.* The name of the interface. Must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically, for example `order-template`. |
-| Content/Process | *Required.* Select **Content** to force all the widgets in the Digital Workspace that refer to content, processes, and tasks to be displayed. Select **Process** when you want only the widgets that refer to processes, and tasks to be displayed. Additionally if **Process** is selected then the landing page can be configured that allows the user who runs the application to be redirected to the list of running processes, or to their list of My Tasks. |
+| Content and Process | *Required.* Select **Content** to force all the widgets in the Digital Workspace that refer to content, processes, and tasks to be displayed. Select **Process** when you want only the widgets that refer to processes, and tasks to be displayed. Additionally if **Process** is selected then the landing page can be configured that allows the user who runs the application to be redirected to the list of running processes, or to their list of My Tasks. |
 | UI description | *Optional.* A description of what the interface should be used for, for example `A template for orders to follow.` |
 | Default System Logo | *Optional.* The default system logo image. The recommended size for the logo is 28x28 px. **Note:** To set a new logo the file must be uploaded in advance with the visibility flag set to public, for more see [Files]({% link process-automation/latest/model/files.md %}). |
 | Application title | *Optional.* The name of the application. This is the name that will appear in the header and on the tab of your browser. |
@@ -19,23 +19,43 @@ The basic properties of a user interface are:
 | Header color HEX code | *Optional.* The color of the header background on the user interface using hexadecimal numbers. For example `#b39oba`. |
 | Default Background Header Image | *Optional.* The default background header image.  **Note:** To set a new background image the file must be uploaded in advance with the visibility flag set to public, for more see [Files]({% link process-automation/latest/model/files.md %}). |
 
-## Create a user interface
+## Create default UI
 
-To create a user interface:
+To create a default UI in JSON format:
 
 1. Sign into the Modeling Application and open a project.
 
-2. Click the **NEW** dropdown.
+2. Click the three dots next to **UI** and then select **Create default UI**.
 
-3. Select how to create the interface:
+3. Enter a name and optional description.
 
-    * **Create > UI** creates a new, empty user interface.
+If you need to reuse the JSON definition of the UI, you can use the download button to download the JSON file created.
 
-    * **Upload > UI** allows for uploading an existing user interface into the Modeling Application.
+## Create custom UI
 
-    Alternatively use the **+** or **Upload** buttons next to **UI** in the left-hand menu.
+To create a custom UI:
 
-4. Enter a name and optional description.
+1. Sign into the Modeling Application and open a project.
+
+2. Click the three dots next to **UI** and then select **Create custom UI**.
+
+3. Enter a name and optional description.
+
+4. Click the **Upload** button and select the `.zip` file that contains your Custom UI.
+
+> **Note:** Your Custom UI must have a valid application entry point, using either an `index.html` or `index.htm` file.
+
+## Upload UI
+
+To upload a JSON definition of a UI.
+
+> **Note:** The definition is normally created using the create default UI tool and downloaded using the download button. You can create your own definition outside of the Modelling Application as long as it .
+
+1. Sign into the Modeling Application and open a project.
+
+2. Click the three dots next to **UI** and then select **Upload**.
+
+3. Select the JSON file that contains the UI definition.  
 
 ## Theme
 
@@ -47,7 +67,7 @@ To change the theme using the **UI** properties in the modelling application.
 
 1. Sign into the modeling application.
 
-2. Select the **UI** you want to change and enter the new configuration properties under the **Theme** heading. 
+2. Select the **UI** you want to change and enter the new configuration properties under the **Theme** heading.
 
     > **Note:** You can only change the **Theme** of the **Default UI**.
 
