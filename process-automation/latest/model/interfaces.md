@@ -29,7 +29,7 @@ To create a default UI in JSON format:
 
 3. Enter a name and optional description.
 
-If you need to reuse the JSON definition of the UI, you can use the download button to download the JSON file created.
+You can reuse the JSON definition of the UI in another project or another UI. To achieve this use the **Download button** to download the JSON file created and then follow the [Upload UI](#upload-ui) instructions.  
 
 ## Create custom UI
 
@@ -49,7 +49,7 @@ To create a custom UI:
 
 To upload a JSON definition of a UI.
 
-> **Note:** The definition is normally created using the create default UI tool and downloaded using the download button. You can create your own definition outside of the Modelling Application as long as it .
+> **Note:** The JSON definition is normally created using the create default UI tool and downloaded using the **Download button**. You can create your own definition outside of the Modelling Application as long as it conforms to the UI schema. To check this, upload your JSON definition and click the **Validate UI** button.
 
 1. Sign into the Modeling Application and open a project.
 
