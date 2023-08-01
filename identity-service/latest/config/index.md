@@ -17,7 +17,7 @@ Customizing a realm manually uses the administrator console of the Identity Serv
 1. Sign into the master realm administrator console using the credentials created on your first sign in.
 2. [Add a new realm](https://www.keycloak.org/docs/21.1.2/server_admin/#proc-creating-a-realm_server_administration_guide){:target="_blank"} or edit the `Alfresco` realm.
 3. [Create a new OIDC client](https://www.keycloak.org/docs/21.1.2/server_admin/index.html#_oidc_clients){:target="_blank"} or edit the existing one.
-4. Configure any [groups](https://www.keycloak.org/docs/21.1.2/server_admin/index.html#proc-managing-groups_server_administration_guidee){:target="_blank"} or users.
+4. Configure any [groups](https://www.keycloak.org/docs/21.1.2/server_admin/index.html#proc-managing-groups_server_administration_guide){:target="_blank"} or users.
 
 ### Customize a realm using a JSON file
 
@@ -41,7 +41,7 @@ To set the realm file during deployment:
 
     > **Important:** The name of the realm file must **not** be set as `alfresco-realm.json`
 
-2. Deploy the Helm chart with the additional argument to use the custom realm file (remember to replace any `<placeholders>`):
+2. Deploy the Helm chart with the additional argument to use the custom realm file (*remember to replace any `<placeholders>`*):
 
     ```bash
     cat > realm-values.yaml << EOL
@@ -74,13 +74,13 @@ You can run the Identity Service with Process Services. You must configure both 
 
 To run the Identity Service with Process Services:
 
-1. Deploy your Identity Service installation with the following additional command parameter defined:
+1. Deploy your Identity Service installation by adding the following command-line parameter:
 
     ```xml
     --spi-login-protocol-openid-connect-legacy-logout-redirect-uri=true
     ```
 
-2. Ensure you have set `keycloak.token-store=cookie` in the `activiti-identity-service.properties` file in Process Services.
+2. Ensure you've set `keycloak.token-store=cookie` in the `activiti-identity-service.properties` file in Process Services.
 
     See `keycloak.token-store` in the [Process Services properties]({% link process-services/latest/config/authenticate.md %}#properties) table for more details.
 

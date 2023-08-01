@@ -59,7 +59,7 @@ The Identity Service can be deployed into a new or existing Kubernetes cluster.
     --set alfresco-identity-service.keycloakx.replicas=3
     ```
 
-7. To successfully deploy Identity Service with the specified realm being automatically imported, whilst preserving the `/auth` root path (remember to set `MY_KEYCLOAK_HOST` appropriately):
+7. To successfully deploy Identity Service with the specified realm being automatically imported, whilst preserving the `/auth` root path (*remember to set `MY_KEYCLOAK_HOST` appropriately*):
 
     ```bash
     --set alfresco-identity-service.keycloakx.command[0]="/opt/keycloak/bin/kc.sh" \
