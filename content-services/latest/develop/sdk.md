@@ -73,7 +73,7 @@ There are a number of software requirements for using Alfresco SDK 4.6:
 
 #### Java
 
-ACS 6.1 is compiled and executed using Java 11, but it is highly recommended to work with ACS 7.3 or later, which uses Java 17.
+Content Services 6.1 is compiled and executed using Java 11, but it is highly recommended to work with Content Services 7.3 or later, which uses Java 17.
 
 1. Download [JDK 17](https://jdk.java.net/archive/){:target="_blank"}, unzip it and configure it as the default Java installation.
 
@@ -262,7 +262,7 @@ To run your project, `cd` into your working directory and use:
 
 If this is the first time you are doing this, it will take a while for Maven to download all the required dependencies and for Docker to download all the required images.
 
-For more information about how to work with the projects, see [Working with generated projects](#workingwithprojects).
+For information on how to work with the projects, see [Working with generated projects](#workingwithprojects).
 
 ## Alfresco SDK Maven archetypes {#mvnarchetypes}
 
@@ -287,29 +287,33 @@ Choose archetype:
 Choose a number or apply filter (format: [groupId:]artifactId, case sensitive contains): :
 ```
 
-The menu displays six Maven archetypes which you can select by entering the corresponding number.
+### org.alfresco.maven.archetype:activiti-jar-archetype (for use with SDK 2.2 only)
 
-> **Note:** The numbering is not sequential and some numbers may be skipped.
+This Maven archetype is related to an older version of the Alfresco SDK and should not be used. For technical reasons this archetype can't be hidden and is still listed.
 
 ### org.alfresco.maven.archetype:alfresco-allinone-archetype
 
-This archetype allows a developer to implement the All-In-One project on Content Services. The All-In-One project (also called AIO) is provided in this and previous versions of Alfresco SDK, but in SDK 4.x it has been reshaped to leverage on Docker.
+This archetype allows a developer to implement the All-In-One project on Content Services. The All-In-One project, also called AIO, is provided in this and previous versions of Alfresco SDK. In SDK 4.x it has been reshaped and uses Docker.
 
-The All-In-One archetype allows a developer to create a multi-module project on Content Services. The All-In-One project mainly includes a module for the core repository in ACS and a module for the Share client. This includes:
+The All-In-One archetype allows a developer to create a multi-module project on Content Services. The All-In-One project includes a module for the core repository in Content Services and a module for the Share client. This includes:
 
-* ACS Repository JAR
-* Alfresco Share JAR
-* ACS Repository Docker image configuration
-* Alfresco Share Docker image configuration
-* Integration tests
-* Docker containers (ACS, Share, Alfresco Search Service, PostgreSQL) configuration and orchestration via Docker Compose
-* (Optional) AMP deployment configuration (JAR is the recommended artifact type and the default)
+* Content Services Repository JAR.
+* Alfresco Share JAR.
+* Content Services Repository Docker image configuration.
+* Alfresco Share Docker image configuration.
+* Integration tests.
+* Docker container configuration and orchestration via Docker Compose for Content Services, Share, Alfresco Search Service, and PostgreSQL.
+* (Optional) AMP deployment configuration. JAR is the recommended artifact type and is the default.
 
-The project created using the All-In-One Maven archetype includes some sample code (by default) to show you how to develop with the Content Services Repository and the Alfresco Share client. The samples included in the project are basic and straightforward, and can help you to take the first steps into Alfresco development.
+The project created using the All-In-One Maven archetype, by default, includes sample code to show you how to develop with the Content Services Repository and the Alfresco Share client. The samples are simple and are only intended to help your initial steps with your Alfresco development.
 
-The All-In-One project is recommended to be used if you have to develop a customization of the Content Services Repository together with customizations on Alfresco Share client. If your plan to develop a project on the Content Services Repository only, use the Platform JAR Maven archetype. If you plan to develop a project on the Alfresco Share client only, use the Share JAR Maven archetype.
+The All-In-One project is recommended to be used if you have to develop a customization of the Content Services Repository together with customizations for the Alfresco Share client. If you intend to develop a project on the Content Services Repository only, use the `org.alfresco.maven.archetype:alfresco-platform-jar-archetype` archetype. If you plan to develop a project on the Alfresco Share client only, use the `org.alfresco.maven.archetype:alfresco-share-jar-archetype` archetype.
 
-For more information about the All-In-One project, see [All-In-One project structure](#structureaio).
+For more information about the All-In-One project, see [All-In-One (AIO) project structure](#structureaio).
+
+### org.alfresco.maven.archetype:alfresco-amp-archetype (for use with SDK 2.2 only)
+
+This Maven archetype is related to an older version of the Alfresco SDK and should not be used. For technical reasons this archetype can't be hidden and is still listed.
 
 ### org.alfresco.maven.archetype:alfresco-platform-jar-archetype
 
@@ -317,9 +321,9 @@ This archetype allows a developer to implement the Platform JAR project on Conte
 
 The Platform JAR Maven archetype allows a developer to create a module on Content Services, in particular on the Repository side, and includes:
 
-* ACS Repository JAR
-* ACS Repository Docker image configuration
-* Docker containers (ACS, Share (optional), Alfresco Search Service, PostgreSQL) configuration and orchestration via Docker Compose
+* Content Services Repository JAR
+* Content Services Repository Docker image configuration
+* Docker containers (Content Services, Share (optional), Alfresco Search Service, PostgreSQL) configuration and orchestration via Docker Compose
 * (Optional) AMP deployment configuration (JAR is the recommended artifact type and the default)
 
 The project created using the Platform JAR Maven archetype includes some sample code (by default) to show you how to develop with the Alfresco Content Services Repository. The samples included in the project are basic and straightforward, and can help you to take the first steps into Alfresco development.
@@ -336,7 +340,7 @@ The Share JAR Maven archetype allows a developer to create a module on an Alfres
 
 * Alfresco Share JAR
 * Alfresco Share Docker image configuration
-* Docker containers (ACS, Share, Alfresco Search Service, PostgreSQL) configuration and orchestration via Docker Compose
+* Docker containers (Content Services, Share, Alfresco Search Service, PostgreSQL) configuration and orchestration via Docker Compose
 * (Optional) AMP deployment configuration (JAR is the recommended artifact type and the default)
 
 The project created using the Share JAR Maven archetype includes some sample code (by default) to show you how to develop with the Alfresco Share client. The samples included in the project are basic and straightforward, and can help you to take the first steps into Alfresco development.
@@ -345,38 +349,29 @@ The Share JAR project is recommended to be used if you have to develop a customi
 
 For more information about the Share JAR project, see [Share JAR project structure](#structureshare).
 
-### org.alfresco.maven.archetype:activiti-jar-archetype (for use with SDK 2.2 only)
-
-This Maven archetype is related to an older version of the Alfresco SDK and should not be used. For technical reasons this archetype can't be hidden and is still listed.
-
-### org.alfresco.maven.archetype:alfresco-amp-archetype (for use with SDK 2.2 only)
-
-This Maven archetype is related to an older version of the Alfresco SDK and should not be used. For technical reasons this archetype can't be hidden and is still listed.
-
 ### org.alfresco.maven.archetype:share-amp-archetype (for use with SDK 2.2 only)
 
 This Maven archetype is related to an older version of the Alfresco SDK and should not be used. For technical reasons this archetype can't be hidden and is still listed.
 
 ## Working with generated projects {#workingwithprojects}
 
-After generating a project using one of the Alfresco SDK Maven archetypes, it is important to know how to build / run / test these projects.
+After generating a project using one of the Alfresco SDK Maven archetypes, it is important to know how to build, run, and test these projects.
 
-The Alfresco Platform 6+ [deployment]({% link content-services/latest/install/containers/index.md %}) architecture is highly based on container technologies, specifically in Docker. Due to that, the projects generated using the Alfresco SDK archetypes set up their local environment making an intensive use of Docker and Docker Compose technologies.
+The Alfresco Platform 7.0 and above architecture is based on container technologies. The projects generated using the Alfresco SDK archetypes, set up their local environment using Docker and Docker Compose.
 
-If you're not familiar with these technologies, it is highly recommended visiting the [Docker documentation website](https://docs.docker.com){:target="_blank"}. This site offers
-a great quantity of training resources about [Docker](https://docs.docker.com/get-started/){:target="_blank"} and [Docker Compose](https://docs.docker.com/compose/gettingstarted/){:target="_blank"}.
+If you're not familiar with these technologies, its highly recommended you visit the [Docker documentation website](https://docs.docker.com){:target="_blank"}. This site offers a great quantity of training resources about [Docker](https://docs.docker.com/get-started/){:target="_blank"} and [Docker Compose](https://docs.docker.com/compose/gettingstarted/){:target="_blank"}.
 
-Before continuing, make sure that you have read and completed the tasks in the [Getting started](#gettingstarted) tutorial.
+Before continuing, make sure that you have read and completed the tasks in the [Getting started with Alfresco SDK](#getting-started-with-alfresco-sdk-gettingstarted) section.
 
-* [Working with an All-In-One project](#workingaio)
-* [Working with a Platform (Repository) JAR project](#workingplatform)
-* [Working with a Share JAR project](#workingshare)
+* [Working with an All-In-One (AIO) project](#workingaio)
+* [Working with Platform JAR project structure](#workingplatform)
+* [Working with Share JAR project structure](#workingshare)
 
-After generating your project, using one of the Maven archetypes, review the project structure. The directory structure and content of each folder and file can help you to understand how to start developing with the Alfresco SDK. 
+After generating your project, using one of the Maven archetypes, review the project structure. The directory structure and content of each folder and file can help you to understand how to start developing with the Alfresco SDK.
 
 The structure of the project and the purpose of the files it contains vary according to the [Maven archetype](#mvnarchetypes) used to generate the project itself. The following links provide detailed descriptions of the different project types.
 
-* [All-In-One project structure](#structureaio)
+* [All-In-One (AIO) project structure](#structureaio)
 * [Platform JAR project structure](#structureplatform)
 * [Share JAR project structure](#structureshare)
 
@@ -389,15 +384,15 @@ The execution of this script must be followed by a parameter that dictates the t
 
 |Task|Description|
 |----|-----------|
-|`build_start` | Build the whole project, recreate the ACS and Share docker images, start the dockerised environment composed by ACS, Share, ASS and PostgreSQL and tail the logs of all the containers.|
-|`build_start_it_supported` | Build the whole project including dependencies required for IT execution, recreate the ACS and Share docker images, start the dockerised environment composed by ACS, Share, ASS and PostgreSQL and tail the logs of all the containers.|
+|`build_start` | Build the whole project, recreate the Content Services and Share docker images, start the dockerised environment composed by Content Services, Share, ASS and PostgreSQL and tail the logs of all the containers.|
+|`build_start_it_supported` | Build the whole project including dependencies required for IT execution, recreate the Content Services and Share docker images, start the dockerised environment composed by Content Services, Share, ASS and PostgreSQL and tail the logs of all the containers.|
 |`start` | Start the dockerised environment without building the project and tail the logs of all the containers.|
 |`stop` | Stop the dockerised environment.|
 |`purge` | Stop the dockerised environment and delete all the persistent data (docker volumes).|
 |`tail` | Tail the logs of all the containers.|
 |`reload_share` | Build the Share module, recreate the Share docker image and restart the Share container (not available in the Alfresco Platform JAR archetype).|
-|`reload_acs` | Build the ACS module, recreate the ACS docker image and restart the ACS container (only available in the All-In-One archetype).|
-|`build_test` | Build the whole project, recreate the ACS and Share docker images, start the dockerised environment, execute the integration tests from the `integration-tests` module and stop the environment.|
+|`reload_acs` | Build the Content Services module, recreate the Content Services docker image and restart the Content Services container (only available in the All-In-One archetype).|
+|`build_test` | Build the whole project, recreate the Content Services and Share docker images, start the dockerised environment, execute the integration tests from the `integration-tests` module and stop the environment.|
 |`test` | Execute the integration tests (the environment must be already started).|
 
 This utility script uses `mvn`, `docker` and `docker-compose` commands, so make sure you have properly installed Maven, Docker and Docker Compose and you have configured them properly to be accessible in the path.
@@ -413,7 +408,7 @@ Before you continue make sure that you have read and completed the tasks in the 
 
 #### Introduction
 
-An AIO SDK project is used to build extensions for both [Content Services (ACS) Repository]({% link content-services/latest/develop/repo-ext-points/index.md %}) and [Alfresco Share UI]({% link content-services/latest/develop/share-ext-points/index.md %}). The runtime environment for ACS is Docker so not only is this project building the source code for your extensions but also the custom Docker images for the Alfresco Repository and Alfresco Share. The custom Docker images includes the JARs, or AMPs, with your extension code.
+An AIO SDK project is used to build extensions for both [Content Services (Content Services) Repository]({% link content-services/latest/develop/repo-ext-points/index.md %}) and [Alfresco Share UI]({% link content-services/latest/develop/share-ext-points/index.md %}). The runtime environment for Content Services is Docker so not only is this project building the source code for your extensions but also the custom Docker images for the Alfresco Repository and Alfresco Share. The custom Docker images includes the JARs, or AMPs, with your extension code.
 
 Looking into the generated AIO parent project we can see that we got a Docker Compose file (`my-all-in-one-project/docker/docker-compose.yml`) that will be used to build custom Docker images and run the project, one sub-project called `my-all-in-one-project-platform` that will be used to build Repository customizations, and one sub-project called `my-all-in-one-project-share` that can be used to build Alfresco Share UI customizations.
 
@@ -423,29 +418,28 @@ The Repository and Share extensions that are aggregated can either be extensions
 
 #### Configuration properties
 
-There are a number of properties that we can customize when we run the Alfresco SDK project.
-These configuration properties are defined in the `my-all-in-one-project/pom.xml` project file.
+There are a number of properties that we can customize when we run the Alfresco SDK project. These configuration properties are defined in the `my-all-in-one-project/pom.xml` project file.
 
 The following table explains some of these properties:
 
 | Name | Type | Default value | Description |
 | ---- | ---- | ------------- | ----------- |
-| alfresco.platform.version | `string` | 7.0.0 | The version of the ACS Repository (i.e. `alfresco.war`) that the Repository Extension should be applied to. This also specifies the version of the ACS Repository Docker Image that the custom built Repository image should be based on. See `my-all-in-one-project-platform-docker/src/main/docker/Dockerfile` |
+| alfresco.platform.version | `string` | 7.0.0 | The version of the Content Services Repository (i.e. `alfresco.war`) that the Repository Extension should be applied to. This also specifies the version of the Content Services Repository Docker Image that the custom built Repository image should be based on. See `my-all-in-one-project-platform-docker/src/main/docker/Dockerfile` |
 | alfresco.share.version | `string` | 7.0.0 | The version of Alfresco Share (i.e. `share.war`) that the Share Extension should be applied to. This also specifies the version of the Alfresco Share Docker Image that the custom built Share image should be based on. See `my-all-in-one-project-share-docker/src/main/docker/Dockerfile`|
-| docker.acs.image | `string` | alfresco/alfresco-content-repository-community | The name of the ACS Repository Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
+| docker.acs.image | `string` | alfresco/alfresco-content-repository-community | The name of the Content Services Repository Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | docker.share.image | `string` | alfresco/alfresco-share | The name of the Alfresco Share Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | share.port | `number` | 8180 | The external port (i.e. outside container) for the Alfresco Share webapp.|
 | share.debug.port | `number` | 9898 | The external port (i.e. outside container) for Alfresco Share remote debugging.|
-| acs.host | `string` | my-all-in-one-project-acs | This is the name (host) that the ACS Repository is available at. This maps to the service name for the ACS Repository in the Docker Compose file `my-all-in-one-project/docker/docker-compose.yml`. The name is only useful for communication between containers on the default Docker network that is created. |
-| acs.port | `number` | 8080 | The external port (i.e. outside container) for the ACS Repository.|
-| acs.debug.port | `number` | 8888 | The external port (i.e. outside container) for ACS Repository remote debugging.|
+| acs.host | `string` | my-all-in-one-project-acs | This is the name (host) that the Content Services Repository is available at. This maps to the service name for the Content Services Repository in the Docker Compose file `my-all-in-one-project/docker/docker-compose.yml`. The name is only useful for communication between containers on the default Docker network that is created. |
+| acs.port | `number` | 8080 | The external port (i.e. outside container) for the Content Services Repository.|
+| acs.debug.port | `number` | 8888 | The external port (i.e. outside container) for Content Services Repository remote debugging.|
 | postgres.port | `number` | 5555 | The external port (i.e. outside container) for PostgreSQL database.|
 
 When you first start out you don't need to change any of these properties, just use the defaults and try it out.
 
 #### Building and running the project
 
-The first thing you need to do before you can run anything is to build the custom ACS Docker images with the custom extensions. We can build images and extensions at the same time as we start (run) the project by using the `./run.sh build_start` script (on Windows use the `run.bat build_start` script instead).
+The first thing you need to do before you can run anything is to build the custom Content Services Docker images with the custom extensions. We can build images and extensions at the same time as we start (run) the project by using the `./run.sh build_start` script (on Windows use the `run.bat build_start` script instead).
 
 Note that if you have another Alfresco SDK project running, then you need to stop it first. Also, make sure that the following ports are free: 8180 (Share), 8080 (Alfresco Repo), 9898 (Share Debug), 8888 (Alfresco Repo Debug), 5555 (Postgres). If you want to change the ports see the properties section of `my-all-in-one-project/pom.xml`. This project file also contains the versions of Alfresco Repository and Alfresco Share that will be used.  
 
@@ -517,8 +511,8 @@ alfresco-share-my-all-in-one-project                             development    
 
 The different web applications should now be accessible:
 
-* **ACS Repository**: http://localhost:8080/alfresco
-* **ACS Share**: http://localhost:8180/share/ - login with admin/admin
+* **Content Services Repository**: http://localhost:8080/alfresco
+* **Content Services Share**: http://localhost:8180/share/ - login with admin/admin
 
 #### Trying out the sample code
 
@@ -546,7 +540,7 @@ my-all-in-one-project-acs_1       |  2023-06-27 07:26:25,555  INFO  [management.
 my-all-in-one-project username$ 
 ```
 
-Then check the name of the ACS Repository container:
+Then check the name of the Content Services Repository container:
 
 ```bash
 $ docker container ls
@@ -557,7 +551,7 @@ CONTAINER ID        IMAGE                                                       
 a7854ff16d72        postgres:9.6                                                  "docker-entrypoint.s…"   5 minutes ago       Up 5 minutes        0.0.0.0:5555->5432/tcp                                     docker_my-all-in-one-project-postgres_1
 ```
 
-Then open up a shell into the ACS Repository container:
+Then open up a shell into the Content Services Repository container:
 
 ```bash
 my-all-in-one-project username$ docker exec -it docker_my-all-in-one-project-acs_1 /bin/bash
@@ -636,9 +630,9 @@ Before you continue make sure that you have read and completed the tasks in the 
 
 #### Introduction
 
-A Platform project is used to build extensions for the [Content Services (ACS) Repository]({% link content-services/latest/develop/repo-ext-points/index.md %}). The runtime environment for ACS is Docker so not only is this project building the source code for your extensions but also the custom Docker image for the Alfresco Repository. The custom Docker images includes the JARs, or AMPs, with your extension code.
+A Platform project is used to build extensions for the [Content Services (Content Services) Repository]({% link content-services/latest/develop/repo-ext-points/index.md %}). The runtime environment for Content Services is Docker so not only is this project building the source code for your extensions but also the custom Docker image for the Alfresco Repository. The custom Docker images includes the JARs, or AMPs, with your extension code.
 
-Looking into the generated Platform project we can see that we got a Docker Compose file (`my-platform-project/docker/docker-compose.yml`) that will be used to build custom Docker images and run the project. We also got a directory for our extension source code: `my-platform-project/src/main/java` and one directory with the Docker related stuff, such as the `Dockerfile` used to build the custom ACS Repository Docker image: `my-platform-project/src/main/docker`.
+Looking into the generated Platform project we can see that we got a Docker Compose file (`my-platform-project/docker/docker-compose.yml`) that will be used to build custom Docker images and run the project. We also got a directory for our extension source code: `my-platform-project/src/main/java` and one directory with the Docker related stuff, such as the `Dockerfile` used to build the custom Content Services Repository Docker image: `my-platform-project/src/main/docker`.
 
 #### Configuration properties
 
@@ -649,15 +643,15 @@ The following table explains some of these properties:
 
 | Name | Type | Default value | Description |
 | ---- | ---- | ------------- | ----------- |
-| alfresco.platform.version | `string` | 7.0.0 | The version of the ACS Repository (i.e. alfresco.war) that the Repository Extension should be applied to. This also specifies the version of the ACS Repository Docker Image that the custom built Repository image should be based on. See `my-platform-project-platform-docker/src/main/docker/Dockerfile` |
+| alfresco.platform.version | `string` | 7.0.0 | The version of the Content Services Repository (i.e. alfresco.war) that the Repository Extension should be applied to. This also specifies the version of the Content Services Repository Docker Image that the custom built Repository image should be based on. See `my-platform-project-platform-docker/src/main/docker/Dockerfile` |
 | alfresco.share.version | `string` | 7.0.0 | The version of Alfresco Share (i.e. share.war) that the Share Extension should be applied to. This also specifies the version of the Alfresco Share Docker Image that the custom built Share image should be based on. See `my-platform-project-share-docker/src/main/docker/Dockerfile`|
-| docker.acs.image | `string` | alfresco/alfresco-content-repository-community | The name of the ACS Repository Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
+| docker.acs.image | `string` | alfresco/alfresco-content-repository-community | The name of the Content Services Repository Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | docker.share.image | `string` | alfresco/alfresco-share | The name of the Alfresco Share Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | share.port | `number` | 8180 | The external port (i.e. outside container) for the Alfresco Share webapp.|
 | share.debug.port | `number` | 9898 | The external port (i.e. outside container) for Alfresco Share remote debugging.|
-| acs.host | `string` | my-platform-project-acs | This is the name (host) that the ACS Repository is available at. This maps to the service name for the ACS Repository in the Docker Compose file `my-platform-project/docker/docker-compose.yml`. The name is only useful for communication between containers on the default Docker network that is created. |
-| acs.port | `number` | 8080 | The external port (i.e. outside container) for the ACS Repository.|
-| acs.debug.port | `number` | 8888 | The external port (i.e. outside container) for ACS Repository remote debugging.|
+| acs.host | `string` | my-platform-project-acs | This is the name (host) that the Content Services Repository is available at. This maps to the service name for the Content Services Repository in the Docker Compose file `my-platform-project/docker/docker-compose.yml`. The name is only useful for communication between containers on the default Docker network that is created. |
+| acs.port | `number` | 8080 | The external port (i.e. outside container) for the Content Services Repository.|
+| acs.debug.port | `number` | 8888 | The external port (i.e. outside container) for Content Services Repository remote debugging.|
 | postgres.port | `number` | 5555 | The external port (i.e. outside container) for PostgreSQL database.|
 
 There are some Alfresco Share related properties listed here, but they are not used unless you uncomment some code in the Docker Compose file (`my-platform-project/docker/docker-compose.yml`) to run the Alfresco Share container.
@@ -666,7 +660,7 @@ When you first start out you don't need to change any of these properties, just 
 
 #### Building and running the project
 
-The first thing you need to do before you can run anything is to build the custom ACS Repository Docker image with the custom extensions. We can build the image and extensions at the same time as we start (run) the project by using the `./run.sh build_start` script (on Windows use the `run.bat build_start` script instead).
+The first thing you need to do before you can run anything is to build the custom Content Services Repository Docker image with the custom extensions. We can build the image and extensions at the same time as we start (run) the project by using the `./run.sh build_start` script (on Windows use the `run.bat build_start` script instead).
 
 Note that if you have another Alfresco SDK project running, then you need to stop it first. Also, make sure that the following ports are free: 8180 (Share - if enabled in Docker Compose), 8080 (Alfresco Repo), 9898 (Share Debug - if enabled in Docker Compose), 8888 (Alfresco Repo Debug), 5555 (Postgres). If you want to change the ports see the properties section of `my-platform-project/pom.xml`. This project file also contains the versions of Alfresco Repository and Alfresco Share (if enabled) that will be used.  
 
@@ -722,8 +716,8 @@ alfresco-content-services-my-platform-project                    development    
 
 The different web applications should now be accessible:
 
-* **ACS Repository**: http://localhost:8080/alfresco
-* And optionally (if enabled in Docker Compose file) **ACS Share**: http://localhost:8180/share/ - login with **admin/admin**
+* **Content Services Repository**: http://localhost:8080/alfresco
+* And optionally (if enabled in Docker Compose file) **Content Services Share**: http://localhost:8180/share/ - login with **admin/admin**
 
 #### Trying out the sample code
 
@@ -752,7 +746,7 @@ my-platform-project-acs_1       |  2023-06-27 09:25:40,948  INFO  [management.su
 my-platform-project username$
 ```
 
-Then check the name of the ACS Repository container:
+Then check the name of the Content Services Repository container:
 
 ```bash
 $ docker container ls
@@ -762,7 +756,7 @@ ba90b1648470        alfresco-content-services-my-platform-project:development   
 c9145e7cdb20        postgres:9.6                                                "docker-entrypoint.s…"   8 minutes ago       Up 8 minutes        0.0.0.0:5555->5432/tcp                           docker_my-platform-project-postgres_1
 ```
 
-Then open up a shell into the ACS Repository container:
+Then open up a shell into the Content Services Repository container:
 
 ```bash
 my-platform-project username$ docker exec -it docker_my-platform-project-acs_1 /bin/bash
@@ -852,7 +846,7 @@ Before you continue make sure that you have read and completed the tasks in the 
 
 #### Introduction
 
-An Alfresco Share project is used to build extensions for [Alfresco Share UI]({% link content-services/latest/develop/share-ext-points/index.md %}). The runtime environment for ACS is Docker so not only is this project building the source code for your extensions but also the custom Docker image for Alfresco Share. The custom Docker images includes the JARs, or AMPs, with your extension code.
+An Alfresco Share project is used to build extensions for [Alfresco Share UI]({% link content-services/latest/develop/share-ext-points/index.md %}). The runtime environment for Content Services is Docker so not only is this project building the source code for your extensions but also the custom Docker image for Alfresco Share. The custom Docker images includes the JARs, or AMPs, with your extension code.
 
 Looking into the generated Share project we can see that we got a Docker Compose file (`my-share-project/docker/docker-compose.yml`) that will be used to build custom Docker images and run the project. We also got a directory for our extension source code: `my-share-project/src/main/java` and one directory with the Docker related stuff, such as the `Dockerfile` used to build the custom Alfresco Share Docker image: `my-share-project/src/main/docker`.
 
@@ -865,24 +859,24 @@ The following table explains some of these properties:
 
 | Name | Type | Default value | Description |
 | ---- | ---- | ------------- | ----------- |
-| alfresco.platform.version | `string` | 7.0.0 | The version of the ACS Repository (i.e. alfresco.war) that the Repository Extension should be applied to. This also specifies the version of the ACS Repository Docker Image that the custom built Repository image should be based on. See `my-share-project-platform-docker/src/main/docker/Dockerfile` |
+| alfresco.platform.version | `string` | 7.0.0 | The version of the Content Services Repository (i.e. alfresco.war) that the Repository Extension should be applied to. This also specifies the version of the Content Services Repository Docker Image that the custom built Repository image should be based on. See `my-share-project-platform-docker/src/main/docker/Dockerfile` |
 | alfresco.share.version | `string` | 7.0.0 | The version of Alfresco Share (i.e. share.war) that the Share Extension should be applied to. This also specifies the version of the Alfresco Share Docker Image that the custom built Share image should be based on. See `my-share-project-share-docker/src/main/docker/Dockerfile`|
-| docker.acs.image | `string` | alfresco/alfresco-content-repository-community | The name of the ACS Repository Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
+| docker.acs.image | `string` | alfresco/alfresco-content-repository-community | The name of the Content Services Repository Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | docker.share.image | `string` | alfresco/alfresco-share | The name of the Alfresco Share Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | share.port | `number` | 8180 | The external port (i.e. outside container) for the Alfresco Share webapp.|
 | share.debug.port | `number` | 9898 | The external port (i.e. outside container) for Alfresco Share remote debugging.|
-| acs.host | `string` | my-share-project-acs | This is the name (host) that the ACS Repository is available at. This maps to the service name for the ACS Repository in the Docker Compose file `my-share-project/docker/docker-compose.yml`. The name is only useful for communication between containers on the default Docker network that is created. |
-| acs.port | `number` | 8080 | The external port (i.e. outside container) for the ACS Repository.|
-| acs.debug.port | `number` | 8888 | The external port (i.e. outside container) for ACS Repository remote debugging.|
+| acs.host | `string` | my-share-project-acs | This is the name (host) that the Content Services Repository is available at. This maps to the service name for the Content Services Repository in the Docker Compose file `my-share-project/docker/docker-compose.yml`. The name is only useful for communication between containers on the default Docker network that is created. |
+| acs.port | `number` | 8080 | The external port (i.e. outside container) for the Content Services Repository.|
+| acs.debug.port | `number` | 8888 | The external port (i.e. outside container) for Content Services Repository remote debugging.|
 | postgres.port | `number` | 5555 | The external port (i.e. outside container) for PostgreSQL database.|
 
-There are some ACS Repository related properties listed here, such as `acs.host` and `acs.port`. Alfresco Share will use those
+There are some Content Services Repository related properties listed here, such as `acs.host` and `acs.port`. Alfresco Share will use those
 to connect to the Alfresco Repository. This is however a bit tricky when we are running in a container environment. You cannot
 just start the Repository and make it available on `localhost:8080`. It would not be accessible like that from inside the 
 Share container. For Share to be able to connect to the Repository both containers need to be attached to the same 
 Docker Network. This way you can just use the Docker Compose service name for the Repository, such as `my-share-project-acs`.
 So the best way to test your Share extension is to uncomment the code in the Docker Compose file 
-(`my-share-project/docker/docker-compose.yml`) to also run the ACS Repository container, Search, and Postgres.
+(`my-share-project/docker/docker-compose.yml`) to also run the Content Services Repository container, Search, and Postgres.
 
 #### Building and running the project
 
@@ -945,8 +939,8 @@ alfresco-share-my-share-project                                  development    
 
 The different web applications should now be accessible:
 
-* **ACS Repository**: http://localhost:8080/alfresco
-* **ACS Share**: http://localhost:8180/share/ - login with **admin/admin**
+* **Content Services Repository**: http://localhost:8080/alfresco
+* **Content Services Share**: http://localhost:8180/share/ - login with **admin/admin**
 
 #### Trying out the sample code
 
@@ -1279,8 +1273,8 @@ Below is a description of the content in the `my-all-in-one-project-platform-doc
 Content | Description
 --- | ---
 `pom.xml` | This XML file contains information about the project and configuration details used by Apache Maven to build the project. It adds the dependency to the `my-all-in-one-project-platform` module and configures the `maven-dependency-plugin` to copy all the artifacts required in the Docker image into the folder `${project.build.directory}/extensions`.
-`src/main/docker` | In this folder you can find everything that's needed to fully configure the custom ACS Docker image.
-`src/main/docker/Dockerfile` | This is the file that define the custom ACS Docker image. The default configuration installs all the existing JARs and AMPs under `${project.build.directory}/extensions` folder and adds custom configuration and license files.
+`src/main/docker` | In this folder you can find everything that's needed to fully configure the custom Content Services Docker image.
+`src/main/docker/Dockerfile` | This is the file that define the custom Content Services Docker image. The default configuration installs all the existing JARs and AMPs under `${project.build.directory}/extensions` folder and adds custom configuration and license files.
 `src/main/docker/license` | This folder contains the licenses required for running an Enterprise project.
 
 #### my-all-in-one-project-share
@@ -1421,8 +1415,8 @@ Below is a description of the content in the `src` folder. This folder contains 
 Content | Description
 --- | ---
 `src/main/assembly` | In this folder you can find everything that's needed to fully control creating the AMP artifact in the platform project. The main file to check is `amp.xml`.
-`src/main/docker` | In this folder you can find everything that's needed to fully configure the custom ACS Docker image.
-`src/main/docker/Dockerfile` | This is the file that define the custom ACS Docker image. The default configuration installs all the existing JARs and AMPs under `${project.build.directory}/extensions` folder and adds custom configuration and license files.
+`src/main/docker` | In this folder you can find everything that's needed to fully configure the custom Content Services Docker image.
+`src/main/docker/Dockerfile` | This is the file that define the custom Content Services Docker image. The default configuration installs all the existing JARs and AMPs under `${project.build.directory}/extensions` folder and adds custom configuration and license files.
 `src/main/docker/license` | This folder contains the licenses required for running an Enterprise project.
 `src/main/java/<groupId>...` | This folder contains the same content you can find in a regular Java project, i.e. the Java source code. Here you should put all the custom classes, interfaces, and Java source code in general.
 `src/main/resources/alfresco/extension/templates/webscripts` | In this folder you can find the extensions to the REST API related to Web Scripts . Repository Web Scripts are defined in XML, JavaScript, and FreeMarker files. These are referred to as Data Web Scripts as they usually return JSON or XML. The default project contains a Hello World example.
@@ -1609,9 +1603,9 @@ This information provides more advanced topics that you might come in contact wi
 
 ### Switching Content Services and Share versions
 
-The latest version of the Alfresco SDK supports different versions for Content Services and Alfresco Share. Since each product is no longer released under one common version number, ACS (i.e. `alfresco.war`) and the Share UI (`share.war`) are now released with individual version numbers.
+The latest version of the Alfresco SDK supports different versions for Content Services and Alfresco Share. Since each product is no longer released under one common version number, Content Services (i.e. `alfresco.war`) and the Share UI (`share.war`) are now released with individual version numbers.
 
-By default, SDK 4 is configured to generate projects using the most recent version of ACS and Share. You can easily change one (or both) versions by simply updating the `pom.xml` file in your project. The compatibility of these versions is up to you, however you should check in advance the right versions to use.
+By default, SDK 4 is configured to generate projects using the most recent version of Content Services and Share. You can easily change one (or both) versions by simply updating the `pom.xml` file in your project. The compatibility of these versions is up to you, however you should check in advance the right versions to use.
 
 When editing `pom.xml` you will see a number of properties that define the Content Services platform version and the Alfresco Share version, such as:
 
@@ -1697,7 +1691,7 @@ If you would like to work with the Alfresco Enterprise Edition, then this requir
 
 The very first task to complete is about installing an enterprise license, otherwise the server will remain in read-only mode. This task is required if and only if you used the All-In-One archetype, or the Platform JAR archetype to generate your project. If you used the Share JAR archetype to generate your project, feel free to ignore this task and move on the next one.
 
-If you are an Alfresco Partner or Customer, you can request an enterprise license by opening a ticket in [Hyland Community](https://community.hyland.com/){:target="_blank"}. The Enterprise license is nothing more and nothing less than a file with `lic` extension. The Enterprise license file goes into the `src/main/docker/license` folder (this folder will be located under the platform JAR submodule if you're using the All-In-One archetype). The license will be copied into the ACS Docker container before it is started. The license file name doesn't matter, but make sure that you keep it simple and maintain the `lic` extension.
+If you are an Alfresco Partner or Customer, you can request an enterprise license by opening a ticket in [Hyland Community](https://community.hyland.com/){:target="_blank"}. The Enterprise license is nothing more and nothing less than a file with `lic` extension. The Enterprise license file goes into the `src/main/docker/license` folder (this folder will be located under the platform JAR submodule if you're using the All-In-One archetype). The license will be copied into the Content Services Docker container before it is started. The license file name doesn't matter, but make sure that you keep it simple and maintain the `lic` extension.
 
 #### Configuring the Enterprise release
 
@@ -1710,7 +1704,7 @@ You'll need to update the following settings in the `pom.xml` file:
 <alfresco.bomDependencyArtifactId>acs-packaging</alfresco.bomDependencyArtifactId>
 ```
 
-* Change the Docker ACS image names for the Alfresco repository and the Alfresco Share UI:
+* Change the Docker Content Services image names for the Alfresco repository and the Alfresco Share UI:
 
 ```xml
 <docker.acs.image>quay.io/alfresco/alfresco-content-repository</docker.acs.image>
@@ -1785,7 +1779,7 @@ At this point you have configured Docker to have access to the Alfresco private 
 
 By default, the _Alfresco Transform Service_ (from now ATS) is not included in the basic configuration of the projects generated making use of the Alfresco SDK archetypes.
 
-ATS is only supported in ACS Enterprise and it is distributed as a composition of Docker containers. The docker images required for ATS are available in the Alfresco private docker registry at [Quay.io](https://quay.io){:target="_blank"}.
+ATS is only supported in Content Services Enterprise and it is distributed as a composition of Docker containers. The docker images required for ATS are available in the Alfresco private docker registry at [Quay.io](https://quay.io){:target="_blank"}.
 For more information, see [How to configure private Alfresco Docker registry](#enterprisedockerregistry).
 
 In order to properly configure ATS in a project generated using the Alfresco SDK archetypes it is required to execute 2 steps:
@@ -1831,7 +1825,7 @@ messaging.broker.url=failover:(nio://activemq:61616)?timeout=3000&jms.useCompres
 
 * Remove the old value of the property `messaging.broker.url` in the same `alfresco-global.properties` file.
 
-Once these 2 modifications are done, rebuild and restart all the services (`run.sh/run.bat build_start`) and ACS will use ATS to execute remote transformations asynchronously whenever possible.
+Once these 2 modifications are done, rebuild and restart all the services (`run.sh/run.bat build_start`) and Content Services will use ATS to execute remote transformations asynchronously whenever possible.
 
 ### Working with AMPs {#workingwithamps}
 
@@ -1879,7 +1873,7 @@ Now you have full control over how your AMPs are built. If you want to change th
 
 #### Installing AMPs with the SDK
 
-The projects created from the Alfresco SDK archetypes are configured to deploy either JARs or AMPs to the ACS / Share docker container. The only thing to do is modify the `pom.xml` file of the corresponding docker module / project in order to properly configure the dependencies and the Maven dependency plugin.
+The projects created from the Alfresco SDK archetypes are configured to deploy either JARs or AMPs to the Content Services / Share docker container. The only thing to do is modify the `pom.xml` file of the corresponding docker module / project in order to properly configure the dependencies and the Maven dependency plugin.
 
 ##### All-In-One project
 
@@ -1942,11 +1936,11 @@ The projects created from the Alfresco SDK archetypes are configured to deploy e
     </execution>
     ```
 
-Once this configuration is in place, you simply need to rebuild and restart the project. The new configuration will make the Docker images automatically install the packaged AMPs in ACS / Share.
+Once this configuration is in place, you simply need to rebuild and restart the project. The new configuration will make the Docker images automatically install the packaged AMPs in Content Services / Share.
 
 #### Installing 3rd party AMPs {#installing3rdpartyamps}
 
-Installing 3rd party AMPs to the projects is pretty simple. The only requirement is adding the dependency to the project. The default configuration installs any AMPs set as a maven dependency in the corresponding Docker image. It is important to remember that ACS and Share are separated containers, so you'll need to add the dependency in the corresponding docker module in case of an All-In-One project.
+Installing 3rd party AMPs to the projects is pretty simple. The only requirement is adding the dependency to the project. The default configuration installs any AMPs set as a maven dependency in the corresponding Docker image. It is important to remember that Content Services and Share are separated containers, so you'll need to add the dependency in the corresponding docker module in case of an All-In-One project.
 
 Here is an example of how to install Florian Maul's Javascript Console.
 
@@ -2054,12 +2048,12 @@ include *.amp in the `copy-and-filter-docker-resources-non-filtered`:
 
 ## Controlling the order AMPs are applied
 
-Under some specific circumstances it is necessary to apply different AMPs in a development project in a precise order. The default configuration of the projects generated using the Alfresco SDK archetypes doesn't specify any concrete order applying the AMPs to the ACS/Share installation.
+Under some specific circumstances it is necessary to apply different AMPs in a development project in a precise order. The default configuration of the projects generated using the Alfresco SDK archetypes doesn't specify any concrete order applying the AMPs to the Content Services/Share installation.
 
 Anyway, that order can be controlled modifying slightly the configuration of the custom Docker images in the project. For instance, let's say we have three third party AMPs that we want to apply in the next order `third-party-amp-01.amp -> third-party-amp-02.amp -> third-party-amp-03.amp`. In this example, we're going to consider we need to apply them to a platform JAR module (the process would be the same for a Share module, simply changing the path of the files).
 
 1. Follow the steps described in the section [Installing 3rd party AMPs](#installing3rdpartyamps) to include all the AMPs dependencies.
-2. Locate the `Dockerfile` under the folder `src/main/docker`. In this file, there is a section that copies and applies the AMPs to the ACS installation.
+2. Locate the `Dockerfile` under the folder `src/main/docker`. In this file, there is a section that copies and applies the AMPs to the Content Services installation.
 
     ```bash
     # Copy Dockerfile to avoid an error if no AMPs exist
@@ -2100,9 +2094,9 @@ Here we assume you have already generated an Alfresco project using the Alfresco
 
 #### Remote debugging using Eclipse
 
-All the projects generated using the Alfresco SDK are pre-configured to listen for remote debug connections. Depending on the selected archetypes you'll have a port for remotely debugging ACS, share or both of them.
+All the projects generated using the Alfresco SDK are pre-configured to listen for remote debug connections. Depending on the selected archetypes you'll have a port for remotely debugging Content Services, share or both of them.
 
-By default, the remote debug port for ACS is **8888** and for share is **9898**. This configuration can be changed through the maven properties `acs.debug.port` and `share.debug.port` in the `pom.xml` file of the main project.
+By default, the remote debug port for Content Services is **8888** and for share is **9898**. This configuration can be changed through the maven properties `acs.debug.port` and `share.debug.port` in the `pom.xml` file of the main project.
 
 ```xml
 <!-- Environment configuration properties -->
@@ -2148,13 +2142,13 @@ For more details on how to import an Alfresco project into your Eclipse IDE, see
 
 2. Click on the green plus sign (top left) and select `Remote Java Application` to add a new configuration for a remote app.
 
-3. Enter a descriptive name for your configuration, for example, `Sample project ACS debug`.
+3. Enter a descriptive name for your configuration, for example, `Sample project Content Services debug`.
 
     ![sdk-debug-eclipse-config]({% link content-services/images/sdk-debug-eclipse-config.png %})
 
-4. Click Browse then locate the platform project JAR if you want to debug ACS or the share project JAR if you want to debug share.
+4. Click Browse then locate the platform project JAR if you want to debug Content Services or the share project JAR if you want to debug share.
 
-5. Check that your settings match the screenshot. This is a sample to debug ACS. If you want to debug share or you have configured custom ports for remote debugging you'll need to modify that configuration. If you're working with _Docker Toolbox_ instead of _Docker Desktop_ the host to access the container won't be `localhost` but a configured _IP_ address (i.e. 192.168.99.100).
+5. Check that your settings match the screenshot. This is a sample to debug Content Services. If you want to debug share or you have configured custom ports for remote debugging you'll need to modify that configuration. If you're working with _Docker Toolbox_ instead of _Docker Desktop_ the host to access the container won't be `localhost` but a configured _IP_ address (i.e. 192.168.99.100).
 
 6. Click `Apply`.
 
@@ -2188,9 +2182,9 @@ From here the management is the same as for a regular Java application using you
 
 #### Remote debugging using IntelliJ
 
-All the projects generated using the Alfresco SDK are pre-configured to listen for remote debug connections. Depending on the selected archetypes you'll have a port for remotely debugging ACS, share or both of them.
+All the projects generated using the Alfresco SDK are pre-configured to listen for remote debug connections. Depending on the selected archetypes you'll have a port for remotely debugging Content Services, share or both of them.
 
-By default, the remote debug port for ACS is **8888** and for share is **9898**. This configuration can be changed through the maven properties `acs.debug.port` and `share.debug.port` in the `pom.xml` file of the main project.
+By default, the remote debug port for Content Services is **8888** and for share is **9898**. This configuration can be changed through the maven properties `acs.debug.port` and `share.debug.port` in the `pom.xml` file of the main project.
 
 ```xml
 <!-- Environment configuration properties -->
@@ -2236,11 +2230,11 @@ For more details on how to import an Alfresco project into your IntelliJ IDEA ID
 
 2. Click on the plus icon (top left) and select `Remote` to add a new configuration for a remote app.
 
-3. Enter a descriptive name for your configuration, for example, `Sample project ACS debug`.
+3. Enter a descriptive name for your configuration, for example, `Sample project Content Services debug`.
 
     ![sdk-debug-intellij-config]({% link content-services/images/sdk-debug-intellij-config.png %})
 
-4. Check that your settings match the screenshot. This is a sample to debug ACS. If you want to debug share or you have configured custom ports for remote debugging you'll need to modify that configuration. If you're working with _Docker Toolbox_ instead of _Docker Desktop_ the host to access the container won't be `localhost` but a configured _IP_ address (i.e. 192.168.99.100).
+4. Check that your settings match the screenshot. This is a sample to debug Content Services. If you want to debug share or you have configured custom ports for remote debugging you'll need to modify that configuration. If you're working with _Docker Toolbox_ instead of _Docker Desktop_ the host to access the container won't be `localhost` but a configured _IP_ address (i.e. 192.168.99.100).
 
 5. Click `OK`.
 
@@ -2280,35 +2274,35 @@ Even if the definition of integration testing is a general description, the conc
 
 Here are the basics to understanding and using integration testing in the context of projects created with the SDK, from a technical perspective:
 
-* SDK 4.x develops integration tests for the platform only. Currently, the integration tests that the SDK is able to manage by default is related to Content Services (ACS) only.
-* Integration tests require an ACS instance to be up and running. You will see that all the scripts and commands are designed to easily manage this requirement, but the prerequisite for the SDK is that an ACS instance is available.
+* SDK 4.x develops integration tests for the platform only. Currently, the integration tests that the SDK is able to manage by default is related to Content Services (Content Services) only.
+* Integration tests require an Content Services instance to be up and running. You will see that all the scripts and commands are designed to easily manage this requirement, but the prerequisite for the SDK is that an Content Services instance is available.
 * If you're running a project created with a Platform JAR archetype, integration tests are not provided by default. However, you can copy them from your All-In-One project.
 
 #### How SDK's integration tests work
 
-The Alfresco SDK's integration tests are primarily supported by a utility module included in the SDK called [Alfresco Rapid Application Development](https://github.com/Alfresco/alfresco-sdk/tree/master/modules/alfresco-rad){:target="_blank"} (alfresco-rad). This module basically enables the execution of the integration tests within the context of a running Alfresco Content Service (ACS) instance.
+The Alfresco SDK's integration tests are primarily supported by a utility module included in the SDK called [Alfresco Rapid Application Development](https://github.com/Alfresco/alfresco-sdk/tree/master/modules/alfresco-rad){:target="_blank"} (alfresco-rad). This module basically enables the execution of the integration tests within the context of a running Alfresco Content Service (Content Services) instance.
 
 ##### Alfresco Rapid Application Development (Alfresco RAD)
 
-The Alfresco RAD is an Alfresco module which main functionality is offering the ability to execute integration tests in a real ACS context. The core classes
+The Alfresco RAD is an Alfresco module which main functionality is offering the ability to execute integration tests in a real Content Services context. The core classes
 that conforms the Alfresco RAD module are:
 
-* [AlfrescoTestRunner](https://github.com/Alfresco/alfresco-sdk/blob/master/modules/alfresco-rad/src/main/java/org/alfresco/rad/test/AlfrescoTestRunner.java){:target="_blank"}. A JUnit test runner that is designed to work with an ACS instance. It detects if it's executing a test inside of a running ACS instance. If that is the case the tests are all run normally. If the test is being run from outside the repository, then, instead of running the actual test, an HTTP request is made to a Web Script (`RunTestWebScript`) in a running Alfresco instance.
+* [AlfrescoTestRunner](https://github.com/Alfresco/alfresco-sdk/blob/master/modules/alfresco-rad/src/main/java/org/alfresco/rad/test/AlfrescoTestRunner.java){:target="_blank"}. A JUnit test runner that is designed to work with an Content Services instance. It detects if it's executing a test inside of a running Content Services instance. If that is the case the tests are all run normally. If the test is being run from outside the repository, then, instead of running the actual test, an HTTP request is made to a Web Script (`RunTestWebScript`) in a running Alfresco instance.
 * [RunTestWebScript](https://github.com/Alfresco/alfresco-sdk/blob/master/modules/alfresco-rad/src/main/java/org/alfresco/rad/test/RunTestWebScript.java){:target="_blank"}. This Web Script works in consort with the `AlfrescoTestRunner`. When a test is run from outside the repository, the Alfresco test runner sends a proxied request to perform the test to this script. This runs the test and wraps the results up so that the test initiator can be fooled into thinking they are running the tests locally.
 * [AbstractAlfrescoIT](https://github.com/Alfresco/alfresco-sdk/blob/master/modules/alfresco-rad/src/main/java/org/alfresco/rad/test/AbstractAlfrescoIT.java){:target="_blank"}. Abstract integration test class that gives access to the Alfresco Spring Application context and the `ServiceRegistry` that should be used when accessing Alfresco Services.
-* [Remote](https://github.com/Alfresco/alfresco-sdk/blob/master/modules/alfresco-rad/src/main/java/org/alfresco/rad/test/Remote.java){:target="_blank"}. The `AlfrescoTestRunner` class has to determine where the ACS instance endpoint is exposed to send the proxied request to the `RunTestWebScript`. It uses, in order, the next three mechanisms:
+* [Remote](https://github.com/Alfresco/alfresco-sdk/blob/master/modules/alfresco-rad/src/main/java/org/alfresco/rad/test/Remote.java){:target="_blank"}. The `AlfrescoTestRunner` class has to determine where the Content Services instance endpoint is exposed to send the proxied request to the `RunTestWebScript`. It uses, in order, the next three mechanisms:
 
-  * The `Remote` annotation. If the test is annotated with `@Remote`, then it uses the `endpoint` property to determine the ACS endpoint.
-  * The `acs.endpoint.path` Java system property. If the Java system property is set, then its value is used as the ACS endpoint.
+  * The `Remote` annotation. If the test is annotated with `@Remote`, then it uses the `endpoint` property to determine the Content Services endpoint.
+  * The `acs.endpoint.path` Java system property. If the Java system property is set, then its value is used as the Content Services endpoint.
   * A default value. If none of the previous mechanisms returned a value, then the default value `http://localhost:8080/alfresco` is used.
 
-In summary, if you want to execute your integration tests inside an existing ACS instance, you'll need to annotate them with the JUnit `RunWith` annotation and set the value to `AlfrescoTestRunner.class`. If you want to customize the default ACS endpoint location, you can either annotate your tests with `Remote` or set the Java system property `acs.endpoint.path`.
+In summary, if you want to execute your integration tests inside an existing Content Services instance, you'll need to annotate them with the JUnit `RunWith` annotation and set the value to `AlfrescoTestRunner.class`. If you want to customize the default Content Services endpoint location, you can either annotate your tests with `Remote` or set the Java system property `acs.endpoint.path`.
 
 ##### Integration tests configuration in the All-In-One project
 
 So, taking into account the previous section, let's see how the integration tests are configured in a project generated from the SDK All-In-One archetype.
 
-* The maven dependencies required to execute the integration tests are deployed to the ACS Docker image in the `PROJECT_ARTEFACTID-platform-docker` maven module using the `maven-dependency-plugin`. The configuration is done in the file `PROJECT_ARTEFACTID-platform-docker/pom.xml`:
+* The maven dependencies required to execute the integration tests are deployed to the Content Services Docker image in the `PROJECT_ARTEFACTID-platform-docker` maven module using the `maven-dependency-plugin`. The configuration is done in the file `PROJECT_ARTEFACTID-platform-docker/pom.xml`:
 
     ```xml
     <plugin>
@@ -2326,7 +2320,7 @@ So, taking into account the previous section, let's see how the integration test
                     <artifactItems>
                         ...
                         <!-- Test dependencies -->
-                        <!-- We need these dependencies installed in ACS in order to execute the test remotely making use of the Alfresco RAD module -->
+                        <!-- We need these dependencies installed in Content Services in order to execute the test remotely making use of the Alfresco RAD module -->
                         <artifactItem>
                             <groupId>org.alfresco.maven</groupId>
                             <artifactId>alfresco-rad</artifactId>
@@ -2371,7 +2365,7 @@ So, taking into account the previous section, let's see how the integration test
     </plugin>
     ```
 
-* The `integration-tests` maven module include the definition of all the integration test classes to be executed against the existing ACS instance. The test classes are included in the folder `integration-tests/src/test/java`.
+* The `integration-tests` maven module include the definition of all the integration test classes to be executed against the existing Content Services instance. The test classes are included in the folder `integration-tests/src/test/java`.
 * The `integration-tests` maven `pom.xml` file adds the configuration of the `acs.endpoint.path` in case it is required. This is done using the `maven-failsafe-plugin`:
 
     ```xml
@@ -2386,11 +2380,11 @@ So, taking into account the previous section, let's see how the integration test
     </plugin>
     ```
 
-    This is specially useful when the ACS endpoint is not exposed at the default location (`http://localhost:8080/alfresco`). This property is important when the
+    This is specially useful when the Content Services endpoint is not exposed at the default location (`http://localhost:8080/alfresco`). This property is important when the
     development environment is run using Docker Toolbox (old Windows and MacOS versions). In this case, the container exposed ports are not mapped to `localhost`, but to a custom IP provided by the Virtual Box virtual machine (i.e. `http://192.168.99.100:8080/alfresco`).
 
 * The All-In-One project utility scripts (`run.sh` / `run.bat`) offer two different tasks to execute the integration tests:
-  * `build_test`. It builds the whole project, recreates the ACS and Share docker images, starts the dockerised environment, executes the integration tests from the `integration-tests` module and stops the environment.
+  * `build_test`. It builds the whole project, recreates the Content Services and Share docker images, starts the dockerised environment, executes the integration tests from the `integration-tests` module and stops the environment.
   * `test`. It simply executes the integration tests (the environment must be already started).
 
 ##### Sample tests included in the generated project
@@ -2426,7 +2420,7 @@ Running the integration tests of a project generated from the Alfresco SDK arche
 
 If you want to run the integration tests from the command line you'll have to use the utility scripts provided by all the projects generated from the archetypes. These are `run.sh` if you're on Unix systems or `run.bat` if you're on Windows systems.
 
-If you want to spin up a new dockerised environment with ACS, run the integration tests and stop that environment, you'll use the `build_test` goal:
+If you want to spin up a new dockerised environment with Content Services, run the integration tests and stop that environment, you'll use the `build_test` goal:
 
 ```bash
 $ ./run.sh build_test
@@ -2450,18 +2444,18 @@ The `build_test` goal will execute the next list of tasks:
 * Show the logs of the docker containers during the tests execution.
 * Stop the dockerised environment.
 
-If your dockerised environment is already started and you simply want to execute the integration tests against that existing ACS instance, then use the `test`
+If your dockerised environment is already started and you simply want to execute the integration tests against that existing Content Services instance, then use the `test`
 goal:
 
 ```bash
 $ ./run.sh test
 ```
 
-##### Configuring a custom ACS endpoint location
+##### Configuring a custom Content Services endpoint location
 
-If you want to run your integration tests against an ACS instance not exposed in `http://localhost:8080/alfresco` you'll need to modify a maven property before executing the tests.
+If you want to run your integration tests against an Content Services instance not exposed in `http://localhost:8080/alfresco` you'll need to modify a maven property before executing the tests.
 
-The maven property for the test ACS instance endpoint location is `acs.endpoint.path` and you can configure it in the `pom.xml` file in the root folder of your project:
+The maven property for the test Content Services instance endpoint location is `acs.endpoint.path` and you can configure it in the `pom.xml` file in the root folder of your project:
 
 ```xml
 <properties>
@@ -2530,7 +2524,7 @@ Both have advantages and disadvantages, so it's up to you to make the right choi
 
 #### How to configure and use JRebel {#hotreloadingjrebel}
 
-[JRebel](https://www.jrebel.com/products/jrebel/){:target="_blank"} is the agent that enables you to do hot reloading. This allows you to modify the application code, and view the changes without having to restart Alfresco Tomcat (or the ACS Docker container).
+[JRebel](https://www.jrebel.com/products/jrebel/){:target="_blank"} is the agent that enables you to do hot reloading. This allows you to modify the application code, and view the changes without having to restart Alfresco Tomcat (or the Content Services Docker container).
 
 A prerequisite to this tutorial is having an Alfresco project created with Alfresco SDK, using the All-In-One archetype, or the Platform JAR archetype. It's worth noting that hot reloading is only supported on the platform, and not in Alfresco Share.
 
@@ -2697,13 +2691,13 @@ By changing the code and compiling it again, the changes have been dynamically r
 
 #### How to configure and use Hotswap Agent {#hotreloadinghotswapagent}
 
-[HotSwapAgent](http://hotswapagent.org/index.html){:target="_blank"} is the agent that enables you to do hot reloading. This allows you to modify the application code, and view the changes without having to restart Alfresco Tomcat (or the ACS Docker container).
+[HotSwapAgent](http://hotswapagent.org/index.html){:target="_blank"} is the agent that enables you to do hot reloading. This allows you to modify the application code, and view the changes without having to restart Alfresco Tomcat (or the Content Services Docker container).
 
 A prerequisite for this tutorial is to have a project created with the Alfresco SDK, using the All-In-One archetype or the Platform JAR archetype. It's worth noting that hot reloading is only supported on the platform, and not in Alfresco Share.
 
 As an alternative to the HotSwapAgent you can also try out JRebel. It has more features but isn't free.
 
-The way to configure HotSwapAgent in case of using Java 11 or Java 17 is pretty different. By default, ACS 6.1+ uses Java 11 and ACS 7.3+ uses Java 17.
+The way to configure HotSwapAgent in case of using Java 11 or Java 17 is pretty different. By default, Content Services 6.1+ uses Java 11 and Content Services 7.3+ uses Java 17.
 
 ##### Issue with Docker Toolbox
 
@@ -2716,14 +2710,14 @@ You can track the evolution of this issue [here](https://github.com/moby/moby/is
 
 ##### Configuring HotSwapAgent in the project (Java 8)
 
-1. Modify the file `PROJECT_ARTIFACT_ID-platform-docker/src/main/docker/Dockerfile` to copy the HotSwapAgent configuration file into the ACS container classpath:
+1. Modify the file `PROJECT_ARTIFACT_ID-platform-docker/src/main/docker/Dockerfile` to copy the HotSwapAgent configuration file into the Content Services container classpath:
 
     ```bash
     # Hot reload - Hotswap agent
     COPY hotswap-agent.properties $TOMCAT_DIR/webapps/alfresco/WEB-INF/classes
     ```
 
-2. Modify the file `PROJECT_ARTIFACT_ID-platform-docker/src/main/docker/Dockerfile` to append the commands to install and configure [DCEVM](http://dcevm.github.io/){:target="_blank"} and the HotSwapAgent java agent in the ACS container:
+2. Modify the file `PROJECT_ARTIFACT_ID-platform-docker/src/main/docker/Dockerfile` to append the commands to install and configure [DCEVM](http://dcevm.github.io/){:target="_blank"} and the HotSwapAgent java agent in the Content Services container:
 
     ```bash
     # Download and Install the more capable DCEVM, which will allow more changes to classes, such as new methods
@@ -2739,7 +2733,7 @@ You can track the evolution of this issue [here](https://github.com/moby/moby/is
         && curl -L -o lib/hotswap-agent-1.3.0.jar "https://github.com/HotswapProjects/HotswapAgent/releases/download/RELEASE-1.3.0/hotswap-agent-1.3.0.jar"
     ```
 
-3. Modify the file `docker/docker-compose.yml` to change the ACS container `CATALINA_OPTS` environment property to use the HotSwap java agent:
+3. Modify the file `docker/docker-compose.yml` to change the Content Services container `CATALINA_OPTS` environment property to use the HotSwap java agent:
 
     ```text
       sample-project-acs:
@@ -2752,7 +2746,7 @@ You can track the evolution of this issue [here](https://github.com/moby/moby/is
     ...
     ```
 
-4. Modify the file `docker/docker-compose.yml` to change the ACS container command to avoid the execution of Tomcat with the Security Manager enabled (it makes the hot reloading tools fail):
+4. Modify the file `docker/docker-compose.yml` to change the Content Services container command to avoid the execution of Tomcat with the Security Manager enabled (it makes the hot reloading tools fail):
 
     ```text
       sample-project-acs:
@@ -2766,7 +2760,7 @@ You can track the evolution of this issue [here](https://github.com/moby/moby/is
     ...
     ```
 
-5. Modify the file `docker/docker-compose.yml` to mount the target folders into the folder `/usr/local/tomcat/hotswap-agent` inside the ACS container:
+5. Modify the file `docker/docker-compose.yml` to mount the target folders into the folder `/usr/local/tomcat/hotswap-agent` inside the Content Services container:
 
     ```text
       sample-project-acs:
@@ -2793,7 +2787,7 @@ For more information about HotSwapAgent configuration for Java 8, check the [Hot
 
 Using Java 11 and HotSwapAgent, it isn't necessary to configure the java agent and the alternative JVM as in previous versions. Instead, it is required to use an alternative pre-built JDK distribution. That JDK is based on OpenJDK and includes all the required modifications to run the HotSwapAgent properly.
 
-In the context of the Alfresco SDK, this change is an issue because the JDK installation is inherited from the [Alfresco java docker image](https://github.com/Alfresco/alfresco-docker-base-java){:target="_blank"}. It is necessary to modify the project ACS docker image to change the default java installation of the container's OS to the one provided by HotSwapAgent.
+In the context of the Alfresco SDK, this change is an issue because the JDK installation is inherited from the [Alfresco java docker image](https://github.com/Alfresco/alfresco-docker-base-java){:target="_blank"}. It is necessary to modify the project Content Services docker image to change the default java installation of the container's OS to the one provided by HotSwapAgent.
 
 A way to implement the required modifications would be:
 
@@ -2817,14 +2811,14 @@ A way to implement the required modifications would be:
         ln -sfn /usr/java/dcevm-11.0.1+7 /usr/java/default
     ```
 
-3. Modify the file `PROJECT_ARTIFACT_ID-platform-docker/src/main/docker/Dockerfile` to copy the HotSwapAgent configuration file into the ACS container classpath:
+3. Modify the file `PROJECT_ARTIFACT_ID-platform-docker/src/main/docker/Dockerfile` to copy the HotSwapAgent configuration file into the Content Services container classpath:
 
     ```bash
     # Copy the configuration properties file in the classpath
     COPY hotswap-agent.properties $TOMCAT_DIR/webapps/alfresco/WEB-INF/classes
     ```
 
-4. Modify the file `docker/docker-compose.yml` to change the ACS container command to avoid the execution of Tomcat with the Security Manager enabled (it makes the hot reloading tools fail):
+4. Modify the file `docker/docker-compose.yml` to change the Content Services container command to avoid the execution of Tomcat with the Security Manager enabled (it makes the hot reloading tools fail):
 
     ```text
       sample-project-acs:
@@ -2838,7 +2832,7 @@ A way to implement the required modifications would be:
     ...
     ```
 
-5. Modify the file `docker/docker-compose.yml` to mount the target folders into the folder `/usr/local/tomcat/hotswap-agent` inside the ACS container:
+5. Modify the file `docker/docker-compose.yml` to mount the target folders into the folder `/usr/local/tomcat/hotswap-agent` inside the Content Services container:
 
     ```text
       sample-project-acs:
@@ -2859,13 +2853,13 @@ A way to implement the required modifications would be:
     ...
     ```
 
-Instead of downloading the Trava OpenJDK distribution file and copying it to the container, the Dockerfile script could include directly the download of the file (via `curl` for instance), but that would slow down the creation of the ACS image each time it is rebuilt.
+Instead of downloading the Trava OpenJDK distribution file and copying it to the container, the Dockerfile script could include directly the download of the file (via `curl` for instance), but that would slow down the creation of the Content Services image each time it is rebuilt.
 
-###### Creating a custom HotSwapAgent ACS docker image
+###### Creating a custom HotSwapAgent Content Services docker image
 
 Another alternative to avoid this time overhead, due to the installation of the Trava OpenJDK distribution, is to create a custom docker image that installs and sets that custom JDK up.
 
-A sample `Dockerfile` for that custom image for ACS 6.0 Community could be:
+A sample `Dockerfile` for that custom image for Content Services 6.0 Community could be:
 
 ```bash
 FROM alfresco/alfresco-content-repository-community:6.0.7-ga
@@ -2961,7 +2955,7 @@ By changing the code and compiling it again, the changes have been dynamically r
 
 By default, the projects generated making use of the archetypes provided by the Alfresco SDK 4 are pre-configured to work with a specific database, which is PostgreSQL.
 
-Anyway, ACS is developed and tested to [support a wide range of platforms and languages]({% link content-services/latest/support/index.md %}).
+Anyway, Content Services is developed and tested to [support a wide range of platforms and languages]({% link content-services/latest/support/index.md %}).
 That includes a set of supported databases.
 
 In this article, we are going to detail the process to modify a project generated from the SDK's archetypes to use a different database. In this case, we're going to show how to configure a project to work with MySQL instead of PostgreSQL.
@@ -2977,10 +2971,10 @@ So, the steps to configure a MySQL database in an All-In-One project are:
     RUN curl -L -o $TOMCAT_DIR/lib/mysql-db-connector.jar "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.47/mysql-connector-java-5.1.47.jar"
     ```
 
-    If you've created a corporate ACS Docker image extending the official one, you can include the download and installation of the MySQL driver in that Docker
+    If you've created a corporate Content Services Docker image extending the official one, you can include the download and installation of the MySQL driver in that Docker
     image to avoid this installation on every compilation of the project.
 
-2. Modify the ACS configuration to use the MySQL driver and connection URL. This configuration is set in the file `PROJECT_ROOT_PATH/PROJECT_ARTIFACT_ID-platform-docker/src/main/docker/alfresco-global.properties`:
+2. Modify the Content Services configuration to use the MySQL driver and connection URL. This configuration is set in the file `PROJECT_ROOT_PATH/PROJECT_ARTIFACT_ID-platform-docker/src/main/docker/alfresco-global.properties`:
 
     ```text
     db.driver=com.mysql.jdbc.Driver
@@ -3010,7 +3004,7 @@ So, the steps to configure a MySQL database in an All-In-One project are:
     ...
     ```
 
-4. Modify the Docker Compose file (`PROJECT_ROOT_PATH/docker/docker-compose.yml`) to change the dependency of ACS container from the PostgreSQL container to the MySQL container:
+4. Modify the Docker Compose file (`PROJECT_ROOT_PATH/docker/docker-compose.yml`) to change the dependency of Content Services container from the PostgreSQL container to the MySQL container:
 
     ```text
     version: '3.4'
@@ -3041,7 +3035,7 @@ This section describes a list of common issues with the projects generated from 
 
 ### Incorrect JDK version
 
-The ACS container is not starting properly and it is showing Java compatibility errors in the logs:
+The Content Services container is not starting properly and it is showing Java compatibility errors in the logs:
 
 ```text
 org.springframework.beans.factory.CannotLoadBeanClassException: 
@@ -3052,19 +3046,19 @@ com/example/platformsample/Demo has been compiled by a more recent version of th
 this version of the Java Runtime only recognizes class file versions up to 52.0 (unable to load class [com.example.platformsample.Demo])
 ```
 
-This error represents that the source code was compiled using the wrong version of the JDK. This issue can happen if the generated project is compiled using JDK 11 and it is deployed in an ACS 6.0 container (which uses JRE 8).
+This error represents that the source code was compiled using the wrong version of the JDK. This issue can happen if the generated project is compiled using JDK 11 and it is deployed in an Content Services 6.0 container (which uses JRE 8).
 
 #### Solution
 
 To solve this issue you can follow several approaches:
 
 * Compile the project using a JDK version lower than 11 (and equal to or newer than 8).
-* Remove the `java11` profile in the `pom.xml` file of the base project (this is not recommended if you plan to move to ACS 6.1+).
-* Move to ACS 6.1+. This is highly recommended due to the fact that it uses JRE 11 (JDK 8 has already reached its end of support time).
+* Remove the `java11` profile in the `pom.xml` file of the base project (this is not recommended if you plan to move to Content Services 6.1+).
+* Move to Content Services 6.1+. This is highly recommended due to the fact that it uses JRE 11 (JDK 8 has already reached its end of support time).
 
 ### Containers synchronization
 
-ACS depends on the readiness of the database in order to start properly. If the database is not ready when ACS reaches the startup phase that requires it, then
+Content Services depends on the readiness of the database in order to start properly. If the database is not ready when Content Services reaches the startup phase that requires it, then
 it fails showing error messages in the log:
 
 ```text
@@ -3084,7 +3078,7 @@ sample-project-acs_1    | at org.postgresql.jdbc.PgConnection.<init>(PgConnectio
 ...
 ```
 
-The projects generated using the Alfresco SDK archetypes are configured in a way that the ACS container _depends on_ the database container (PostgreSQL). 
+The projects generated using the Alfresco SDK archetypes are configured in a way that the Content Services container _depends on_ the database container (PostgreSQL). 
 
 ```text
 services:
@@ -3098,19 +3092,19 @@ services:
     ...
 ```
 
-The problem is Docker Compose only ensures that the dependant container will be started before the one that declares the dependency. But that doesn't ensure that the PostgreSQL (or any other database) service will be ready when the ACS script reaches the point in which the database is required.
+The problem is Docker Compose only ensures that the dependant container will be started before the one that declares the dependency. But that doesn't ensure that the PostgreSQL (or any other database) service will be ready when the Content Services script reaches the point in which the database is required.
 
-Usually, the database service starts before ACS requires it, but there are some infrequent cases (an environment with low resources or high load) in which this synchronization issue appears.
+Usually, the database service starts before Content Services requires it, but there are some infrequent cases (an environment with low resources or high load) in which this synchronization issue appears.
 
 #### Solution
 
 In these cases, you can follow the [recommendation in the official Docker documentation](https://docs.docker.com/compose/startup-order/){:target="_blank"}, which is to use a scripting sync solution like `_wait-for-it_` or `_dockerize_`.
 
-Let's see how you can configure the ACS container to use [wait-for-it](https://github.com/vishnubob/wait-for-it){:target="_blank"} to wait for the database service to be ready to accept connections:
+Let's see how you can configure the Content Services container to use [wait-for-it](https://github.com/vishnubob/wait-for-it){:target="_blank"} to wait for the database service to be ready to accept connections:
 
 1. Download the last version of the [wait-for-it](https://github.com/vishnubob/wait-for-it){:target="_blank"} bash script and save it into the folder `PROJECT_ARTIFACT_ID-platform-docker/src/main/docker`.
 
-2. Modify the file `PROJECT_ARTIFACT_ID-platform-docker/src/main/docker/Dockerfile` to include the addition of the script to the ACS container and granting execution permission to it.
+2. Modify the file `PROJECT_ARTIFACT_ID-platform-docker/src/main/docker/Dockerfile` to include the addition of the script to the Content Services container and granting execution permission to it.
 
     ```bash
     # Copy wait-for-it.sh script to wait for other services
@@ -3118,7 +3112,7 @@ Let's see how you can configure the ACS container to use [wait-for-it](https://g
     RUN chmod +x /tmp/wait-for-it.sh
     ```
 
-3. Modify the file `docker/docker-compose.yml` to change the ACS container command to use the _wait-for-it_ script to wait for the PostgreSQL service to be ready.
+3. Modify the file `docker/docker-compose.yml` to change the Content Services container command to use the _wait-for-it_ script to wait for the PostgreSQL service to be ready.
 
     ```text
       sample-project-acs:
@@ -3134,11 +3128,11 @@ Let's see how you can configure the ACS container to use [wait-for-it](https://g
           - "${acs.debug.port}:8888"
     ```
 
-With this configuration in place, when the project is rebuilt and restarted the ACS container will wait for the database service to be ready.
+With this configuration in place, when the project is rebuilt and restarted the Content Services container will wait for the database service to be ready.
 
 ### Ports conflict
 
-The docker-based development environment started by a project generated using the Alfresco SDK archetypes exposes a set of different ports to the hosted machine (i.e. ACS http port, ACS debug port or PostgreSQL port).
+The docker-based development environment started by a project generated using the Alfresco SDK archetypes exposes a set of different ports to the hosted machine (i.e. Content Services http port, Content Services debug port or PostgreSQL port).
 
 If one of these ports is already in use in the hosted machine (by another service) when you start the development environment, then the startup process will fail and the container that wanted to expose the busy port won't start.
 
