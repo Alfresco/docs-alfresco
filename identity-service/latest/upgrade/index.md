@@ -4,20 +4,23 @@ title: Upgrade Identity Service
 
 Use the following information to upgrade the Identity Service to version 2.0.
 
-> **Note:** After the upgrade the database will no longer be compatible with the old server.
+> **Important:**
+>
+> * Upgrading the Identity Service requires downtime and should be performed in a test environment before being attempted in a production environment.
+> * After the upgrade the database will no longer be compatible with the old server.
 
-> **Important:** Upgrading the Identity Service requires downtime and should be performed in a test environment before being attempted in a production environment.
+Before performing an upgrade, make sure you review the recommended guidelines in the following sections:
 
 * [Upgrade from version 1.2](#upgrade-v12)
 * [Remove SmallRye references](#remove-smallrye-references)
 * [Upgrade ZIP installation](#upgrade-zip-installation)  
-* [Upgrade Kubernetes deployment with PostgreSQL database](#upgrade-kubernetes-deployment-with-postgresql-database)  
+  * [Upgrade Kubernetes deployment with PostgreSQL database](#upgrade-kubernetes-deployment-with-postgresql-database)  
 
-> **Note:** For Keycloak's upgrade documentation see [upgrade procedure](https://www.keycloak.org/docs/21.1.2/upgrading/){:target="_blank"}.
+For Keycloak's upgrade documentation, see the [Upgrading Guide](https://www.keycloak.org/docs/21.1.2/upgrading/){:target="_blank"}.
 
 ## Upgrade from version 1.2 {#upgrade-v12}
 
-If you are currently using the Identity Service 1.2 you must first modify the **_First Broker Login_** authentication before upgrading to version 2.0.
+If you are currently using the Identity Service 1.2 you must first modify the **_First Broker Login_** authentication before upgrading to version 1.8.
 
 1. Log into the Keycloak administration console and select the **Alfresco** realm.
 
@@ -27,11 +30,15 @@ If you are currently using the Identity Service 1.2 you must first modify the **
 
 4. Ensure **Create User If Unique (create unique user config)** flow is set to **ALTERNATIVE**.
 
-**Result:** You can now upgrade directly to version 2.0.
+**Result:** You can now upgrade directly to version 1.8.
 
 ## Remove SmallRye references
 
-> **Important:** You must manually remove all the **_SmallRye_** modules in the `standalone.xml` file before upgrading to version 2.0. From Keycloak 13.0.0 the modules called **_SmallRye_** have been removed from the [WildFly](https://www.wildfly.org/){:target="_blank"} application. The server will not start if your configuration references them. For more information see [Migrating to 13.0.0](https://www.keycloak.org/docs/21.1.2/upgrading/#migrating-to-13-0-0){:target="_blank"}.
+You must manually remove all the **_SmallRye_** modules in the `standalone.xml` file before upgrading to version 1.8.
+
+> **Important:** From Keycloak 13.0.0 the modules called **_SmallRye_** have been removed from the [WildFly](https://www.wildfly.org/){:target="_blank"} application. The server will not start if your configuration references them.
+
+See the Keycloak documentation [Migrating to 13.0.0](https://www.keycloak.org/docs/18.0/upgrading/#migrating-to-13-0-0){:target="_blank"} for more information.
 
 ## Upgrade from version 1.8
 
