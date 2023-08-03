@@ -57,7 +57,7 @@ In previous versions the installation files were contained within a `.zip` file.
 11. Add the following property to `alfresco-global.properties`:
 
     ```bash
-    localTransform.transform-dte.url=http:<dte-hostname>:8080/transform-dte
+    localTransform.transform-dte.url=http://<dte-hostname>:8080/transform-dte
     ```
 
 <!-- (Will be commented back in once 2.4 is released)

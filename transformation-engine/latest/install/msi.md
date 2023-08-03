@@ -19,7 +19,7 @@ In previous versions the installation files were contained within a `.zip` file.
 > * If your old version is earlier than 1.3.1, use the Control Panel **Uninstall a program** option to remove the old version, and then manually remove the Document Transformation Engine directory. By default, the Document Transformation Engine directory is `C:\Program Files (x86)\Transformation Engine\`.
 > * If your old version is 1.3.1 or later, the new Document Transformation Engine MSI prompts you to uninstall the previous version. When the uninstall is complete, you can run the MSI package again to install the new version. There is no need to manually remove anything.
 
-1. Download `alfresco-document-transformation-engine-server-2.3.1.msi` from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
+1. Download `alfresco-document-transformation-engine-server-2.4.x.msi` from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 2. Log into the Microsoft Windows Server as an administrator.
 
@@ -57,7 +57,7 @@ In previous versions the installation files were contained within a `.zip` file.
 11. Add the following property to `alfresco-global.properties`:
 
     ```bash
-    localTransform.transform-dte.url=http:<dte-hostname>:8080/transform-dte
+    localTransform.transform-dte.url=http://<dte-hostname>:8080/transform-dte
     ```
 
 <!-- (Will be commented back in once 2.4 is released)

@@ -9,7 +9,7 @@ Download the Document Transformation Engine SDK from [Hyland Community](https://
 To invoke the Document Transformation Engine SDK jar file, use the following syntax:
 
 ```java
-java -jar alfresco-document-transformation-engine-sdk-2.3.0-plain.jar -in input.doc -out output.pdf -url http://trafo-url:8080/transformation-server
+java -jar alfresco-document-transformation-engine-sdk-2.4.x-plain.jar -in input.doc -out output.pdf -url http://trafo-url:8080/transformation-server
 ```
 
 An API usage example is available at `com.westernacher.transformationserver.demo.ApiUsageExample`. You can copy, modify, and use this code in your own product.
