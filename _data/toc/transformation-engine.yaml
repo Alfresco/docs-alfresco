@@ -1,5 +1,5 @@
 # Document Transformation Engine
-- version: 2.3
+- version: 2.4
   pages:
     - title: 'Introduction'
       path: '/transformation-engine/latest/'
@@ -17,6 +17,24 @@
       path: '/transformation-engine/latest/admin/'
     - title: 'Using'
       path: '/transformation-engine/latest/using/'
+- version: 2.3
+  pages:
+    - title: 'Introduction'
+      path: '/transformation-engine/2.3/'
+    - title: 'Install'
+      pages: 
+        - title: 'Overview'
+          path: '/transformation-engine/2.3/install/'
+        - title: 'Install with MSI'
+          path: '/transformation-engine/2.3/install/msi/'
+        - title: 'Install the SDK'
+          path: '/transformation-engine/2.3/install/sdk/'
+    - title: 'Configure'
+      path: '/transformation-engine/2.3/config/'
+    - title: 'Administer'
+      path: '/transformation-engine/2.3/admin/'
+    - title: 'Using'
+      path: '/transformation-engine/2.3/using/'
 - version: 2.2
   pages:
     - title: 'Introduction'
