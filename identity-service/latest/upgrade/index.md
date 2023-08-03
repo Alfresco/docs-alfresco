@@ -13,8 +13,8 @@ Before performing an upgrade, make sure you review the recommended guidelines in
 
 * [Upgrade from version 1.2](#upgrade-v12)
 * [Remove SmallRye references](#remove-smallrye-references)
-* [Upgrade ZIP installation](#upgrade-zip-installation)  
-  * [Upgrade Kubernetes deployment with PostgreSQL database](#upgrade-kubernetes-deployment-with-postgresql-database)  
+* [Upgrade ZIP installation](#upgrade-zip-installation)
+* [Upgrade Kubernetes deployment with PostgreSQL database](#upgrade-kubernetes-deployment-with-postgresql-database)  
 
 For Keycloak's upgrade documentation, see the [Upgrading Guide](https://www.keycloak.org/docs/21.1.2/upgrading/){:target="_blank"}.
 
@@ -64,13 +64,13 @@ Use the following information to upgrade your ZIP installation:
 
 2. Unzip the ZIP file and configure your installation using the Keycloak documentation: [Upgrading Keycloak](https://www.keycloak.org/docs/21.1.2/upgrading/){:target="_blank"}.
 
-### Upgrade Kubernetes deployment with PostgreSQL database
+## Upgrade Kubernetes deployment with PostgreSQL database
 
-#### Upgrade from chart `>=1.1.0` to `2.1.0`
+### Upgrade from chart `>=1.1.0` to `2.1.0`
 
 The upgrade should be seamless.
 
-#### Upgrade to chart `>=3.0.0`
+### Upgrade to chart `>=3.0.0`
 
 1. Identify your chart release name and namespace and save them into variables.
 
@@ -97,7 +97,7 @@ The upgrade should be seamless.
     kubectl delete pod $RELEASENAME-postgresql-id-0 --namespace $RELEASENAMESPACE
     ```
 
-#### Upgrade to chart `>=8.0.0`
+### Upgrade to chart `>=8.0.0`
 
 The Helm charts are now based on the newer [keycloakx](https://github.com/codecentric/helm-charts/tree/keycloakx-2.2.1/charts/keycloakx){:target="_blank"} codecentric charts which are significantly different from the previous version and include several breaking changes. Refer to the [Keycloak-X documentation](https://github.com/codecentric/helm-charts/blob/keycloakx-2.2.1/charts/keycloakx/README.md){:target="_blank"} to get a clearer understanding of the structure of the new charts. It's also recommended to go through some of the examples to get familiar with the new way of [enabling persistence](https://github.com/codecentric/helm-charts/tree/keycloakx-2.2.1/charts/keycloakx/examples/postgresql){:target="_blank"}.
 
