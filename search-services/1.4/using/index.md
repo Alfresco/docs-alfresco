@@ -16,6 +16,8 @@ When FTS is embedded in CMIS-SQL, only the CMIS-SQL-style property identifiers (
 
 When FTS is used standalone, fields can also be identified using `prefix:local-name` and `{uri}local-name` styles.
 
+## Query time boosts
+
 Query time boosts allow matches on certain parts of the query to influence the score more than others.
 
 All query elements can be boosted: terms, phrases, exact terms, expanded terms, proximity (only in filed groups), ranges, and groups.
