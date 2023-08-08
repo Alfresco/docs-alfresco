@@ -6,10 +6,9 @@ This documentation describes the configuration required to setup Single Sign On 
 
 **This guide applies to Alfresco Content Services 7.3 and above.**
 
-> **Note:** There are two versions of the SSO Guide. Choose the version that applies to your installed version of Alfresco Content Services:
+> **Note:** If you've installed Content Services 7.2 or older versions, you'll need to use the SSO Guide v1 provided in the previous version of the Identity Service (v1.8):
 >
-> * [Single Sign On Guide v2 (ACS 7.3+)]({% link identity-service/latest/tutorial/sso/index.md %}) - use for Content Services 7.3 and above (i.e. this guide)
-> * [Single Sign On Guide v1 (ACS 7.2 and older)]({% link identity-service/latest/tutorial/sso-v1/index.md %}) - use for Content Services 7.2 and older versions
+> * [Single Sign On Guide v1 (ACS 7.2 and older)]({% link identity-service/1.8/tutorial/sso-v1/index.md %})
 
 ## Before you begin
 
