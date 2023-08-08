@@ -33,7 +33,7 @@ In previous versions the installation files were contained within a `.zip` file.
 
     > **Note:**
     >
-    >* For Alfresco Content Services 7.x, you can only use the T-Engine approach for now. Installing the Alfresco Module Packages (AMP) files is not possible.
+    >* For Alfresco Content Services 7.x, you can only use the T-Engine approach. Installing the Alfresco Module Packages (AMP) files is no longer supported.
     >* You can use Content Services 6.x with the T-Engine approach and with the old approach (i.e. installing the AMP files in Content Services).
 
 6. Click **Next** and the license information screen displays.
