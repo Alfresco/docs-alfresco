@@ -177,6 +177,7 @@ The table below lists the main configuration properties that can be specified th
 | alfresco.path.retry.delay | Delay in milliseconds to retry a Path indexing operation. The default value is `1000`. |
 | alfresco.path.retry.maxAttempts | Maximum number of attempts to retry a Path indexing operation. The default value is `3`. |
 | alfresco.path-indexing-component.enabled | Index Path property. The default value is `true`. |
+| alfresco.content-indexing-component.enabled | Index content property. The default value is `true`. |
 
 Within the Elasticsearch connector there is a subset of components that index data. A component called Mediation subscribes to the channel indicated by the `alfresco.event.topic` attribute, as seen in the table above, and processes the incoming node events. The configuration of that component allows you to declare three blacklist sets for filtering out nodes or attributes to be indexed. These blacklists can be specified in the file using the `alfresco.mediation.filter-file` attribute, as seen in the table above. The default file is called `mediation-filter.yml` that must be in the module classpath, see the sample content of that file:
 
