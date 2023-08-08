@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for Document Transformation Engine 2.3.1:
+The following are the supported platforms for Document Transformation Engine 2.4:
 
 | Version | Notes |  
 | ------- | ----- |
