@@ -32,7 +32,7 @@ Below are the environment/software prerequisites for installing and using the SA
 
 ### Alfresco requirements
 
-* Content Services 5.2.1 or later
+* Content Services 6.2.x or later
 * Alfresco server system architecture must be one of the following (for these architectures, SAP offers native Java Connector versions):
   * Linux 64bit x86
   * Windows 64bit x86
