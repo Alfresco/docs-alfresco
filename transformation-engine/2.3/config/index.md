@@ -127,8 +127,8 @@ Below is a very basic example of how to configure Secure Sockets Layer (SSL) for
 
 3. Edit `alfresco-global.properties`:
 
-    Change `localTransform.transform-dte.url=http:<dte-hostname>:8080/transform-dte`
+    Change `localTransform.transform-dte.url=http://<dte-hostname>:8080/transform-dte`
 
-    to `localTransform.transform-dte.url=http:<dte-hostname>:8443/transform-dte`
+    to `localTransform.transform-dte.url=http://<dte-hostname>:8443/transform-dte`
 
 For more information on configuring SSL on Tomcat, see the Tomcat documentation [SSL/TLS Configuration How-To](https://tomcat.apache.org/tomcat-9.0-doc/ssl-howto.html){:target="_blank"}.
