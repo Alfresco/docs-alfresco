@@ -6,25 +6,23 @@ The standalone Document Transformation Engine runs on Microsoft Windows and prov
 
 ## Prerequisites
 
-There are a number of important notes to consider when installing the Document Transformation Engine in addition to the [Supported platforms]({% link transformation-engine/latest/support/index.md %}).
+There are a number of important notes to consider when installing the Document Transformation Engine in addition to the [supported platforms]({% link transformation-engine/2.3/support/index.md %}).
 
 * The Document Transformation Engine requires an installation of [Alfresco Transform Service]({% link transform-service/latest/install/index.md %}).
 
 * The standalone Document Transformation Engine requires the software components to be installed and available on the same machine.
 
-* Only install the English versions of Microsoft Windows Server, and Microsoft Office because other languages cause encoding issues resulting in unpredictable behavior.
+* Only install the English versions of Microsoft Windows Server 2012, Microsoft Windows Server 2016 or Microsoft Windows Server 2019, and Microsoft Office because other languages cause encoding issues resulting in unpredictable behavior.
 
     > **Note:** Although the engine must be configured in English, this has no impact on the transformation language used for documents.
 
-* Microsoft Office (32-bit and 64-bit).
+* Microsoft Office 2016 or 2019 32-bit & 64-bit.
 
 * To enable the Document Transformation Engine to work with non-English documents you must install the desired Microsoft Office language pack of the language you want to work with.
 
 * The Document Transformation Engine does not work with Windows non-English regional settings.
 
 * Make sure that the Windows print spooler service is running.
-
-See [Supported platforms]({% link transformation-engine/latest/support/index.md %}) for more information.
 
 ### Sizing
 
@@ -44,7 +42,7 @@ Microsoft Office transformations are I/O-heavy, and so on some solutions, I/O co
 
 ## Installation
 
-The Document Transformation Engine is installed using an `msi` file where you can select to install a T-Engine at the same time. Alternatively you can install the Document Transformation Engine using the `msi` and use Docker Compose to install the T-Engine. See [Install with MSI]({% link transformation-engine/latest/install/msi.md %}) for more details. There is also an [SDK that can be installed]({% link transformation-engine/latest/install/sdk.md %}).
+The Document Transformation Engine is installed using an `msi` file where you can select to install a T-Engine at the same time. Alternatively you can install the Document Transformation Engine using the `msi` and use Docker Compose to install the T-Engine. See [Install with MSI]({% link transformation-engine/2.3/install/msi.md %}) for more details. There is also an [SDK that can be installed]({% link transformation-engine/2.3/install/sdk.md %}).
 
 ### Set `JAVA_HOME`
 

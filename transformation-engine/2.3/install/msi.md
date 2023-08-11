@@ -19,7 +19,7 @@ In previous versions the installation files were contained within a `.zip` file.
 > * If your old version is earlier than 1.3.1, use the Control Panel **Uninstall a program** option to remove the old version, and then manually remove the Document Transformation Engine directory. By default, the Document Transformation Engine directory is `C:\Program Files (x86)\Transformation Engine\`.
 > * If your old version is 1.3.1 or later, the new Document Transformation Engine MSI prompts you to uninstall the previous version. When the uninstall is complete, you can run the MSI package again to install the new version. There is no need to manually remove anything.
 
-1. Download `alfresco-document-transformation-engine-server-2.4.x.msi` from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
+1. Download `alfresco-document-transformation-engine-server-2.3.1.msi` from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 2. Log into the Microsoft Windows Server as an administrator.
 
@@ -33,7 +33,7 @@ In previous versions the installation files were contained within a `.zip` file.
 
     > **Note:**
     >
-    >* For Alfresco Content Services 7.x, you can only use the T-Engine approach. Installing the Alfresco Module Packages (AMP) files is no longer supported.
+    >* For Alfresco Content Services 7.x, you can only use the T-Engine approach for now. Installing the Alfresco Module Packages (AMP) files is not possible.
     >* You can use Content Services 6.x with the T-Engine approach and with the old approach (i.e. installing the AMP files in Content Services).
 
 6. Click **Next** and the license information screen displays.
