@@ -32,12 +32,14 @@ By default, the following property is defined:
 
 By default, the following properties are defined:
 
+**Important:** If you set the property `security.sanitize-element-names.enabled` to `false` it will make Process Services less secure. Ensure you read the description for more information.  
+
 |Property|Description|
 |--------|-----------|
 |security.rememberme.key|Used for cookie validation. In a multi-node setup, all nodes must have the same value for this property.|
 |security.csrf.disabled|When `true`, the cross-site forgery (CSRF) protection is disabled. The default value is `false`. |
 |security.signup.disabled|When `true`, the Process Services sign up functionality is disabled. An error message sign up is not possible will be displayed. The default value is `false`. |
-|security.sanitize-element-names.enabled|In some instances, you may need to use the `<`, `>`, `'`, `"`, `+` special characters in your process names. To do this however you must deactivate sanitation and set this property to `false`. The default is `true`. **Important:** If you deactivate sanitation, by setting this property to `false`, you will render Process Services to be less secure and potentially make your code subject to XSS vulnerability attacks. You can minimize the risk by utilizing the HTTPS security protocol.  |
+|security.sanitize-element-names.enabled|In some instances, you may need to use the `<`, `>`, `'`, `"`, `+` special characters for the elements that make up your processes. To do this however you must deactivate sanitation and set this property to `false`. The default is `true`. **Important:** If you deactivate sanitation, by setting this property to `false`, you will render Process Services to be less secure and potentially make your code subject to XSS vulnerability attacks. You can minimize the risk by utilizing the HTTPS security protocol.  |
 
 ## Encrypt configuration properties
 
