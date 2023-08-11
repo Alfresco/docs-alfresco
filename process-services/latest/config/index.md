@@ -32,7 +32,7 @@ By default, the following property is defined:
 
 By default, the following properties are defined:
 
-**Important:** If you set the property `security.sanitize-element-names.enabled` to `false` it will make Process Services less secure. Ensure you read the description for more information.  
+> **Important:** If you set the property `security.sanitize-element-names.enabled` to `false` it will make Process Services less secure. Ensure you read the description for more information.  
 
 |Property|Description|
 |--------|-----------|
