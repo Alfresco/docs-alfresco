@@ -6,4 +6,8 @@ The following are the supported platforms and software requirements for Alfresco
 
 |Version|Notes|
 |-------|-----|
+|Content Services 7.0.x||
+|Content Services 7.1.x||
+|Content Services 7.2.x||
+|Content Services 7.3.x||
 |Content Services 7.4.x||
