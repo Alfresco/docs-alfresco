@@ -18,7 +18,7 @@ The LDAP directory is used for user and group management and is configured to sy
 
 The following are the prerequisites needed to configure SSO with SAML:
 
-* The [correct product versions]({% link identity-service/latest/support/index.md %}) of the Alfresco software you are using.
+* The [correct product versions]({% link identity-service/1.8/support/index.md %}) of the Alfresco software you are using.
 * The Identity Service is installed.
 * The SAML Module for Content Services 1.2 is installed into Alfresco Content Services.
 * A SAML identity provider

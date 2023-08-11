@@ -10,7 +10,7 @@ Use the following information to upgrade the Identity Service to version 1.7.
 
 * [Upgrade from version 1.2](#upgrade-v12)
 * [Remove SmallRye references](#remove-smallrye-references)
-* [Upgrade ZIP installation](#upgrade-zip-installation)  
+* [Upgrade ZIP installation](#upgrade-zip-installation)
 * [Upgrade Kubernetes deployment with PostgreSQL database](#upgrade-kubernetes-deployment-with-postgresql-database)  
 
 > **Note:** For Keycloak's upgrade documentation see [upgrade procedure](https://www.keycloak.org/docs/16.1/upgrading/){:target="_blank"}.
@@ -41,13 +41,13 @@ Use the following information to upgrade your ZIP installation:
 
 2. Unzip the ZIP file and configure your installation using the Keycloak documentation: [Upgrading Keycloak](https://www.keycloak.org/docs/16.1/upgrading/#_upgrading){:target="_blank"}.
 
-### Upgrade Kubernetes deployment with PostgreSQL database
+## Upgrade Kubernetes deployment with PostgreSQL database
 
-#### Upgrade from chart `>=1.1.0` to `2.1.0`
+### Upgrade from chart `>=1.1.0` to `2.1.0`
 
 The upgrade should be seamless.
 
-#### Upgrade to chart `>=3.0.0`
+### Upgrade to chart `>=3.0.0`
 
 1. Identify your chart release name and namespace and save them into variables.
 

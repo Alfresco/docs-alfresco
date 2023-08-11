@@ -20,7 +20,7 @@ The LDAP directory is used for user and group management and is configured to sy
 
 The following are the prerequisites needed to configure SSO with LDAP:
 
-* The [correct product versions]({% link identity-service/latest/support/index.md %}) of the Alfresco software you are using.
+* The [correct product versions]({% link identity-service/1.8/support/index.md %}) of the Alfresco software you are using.
 * The Identity Service is installed.
 * An LDAP directory.
 * Administrator access to all systems.
@@ -230,7 +230,7 @@ An SSO connection can be configured between Process Services and Content Service
     | alfresco.content.sso.client_id |The **Client ID** within the realm that points to Process Services, for example `${keycloak.resource}`|
     | alfresco.content.sso.client_secret |The secret key for the Process Services client, for example `${keycloak.credentials.secret}`|
     | alfresco.content.sso.realm |The realm that is configured for the Content Services and Process Services clients, for example `${keycloak.realm}`|
-    | alfresco.content.sso.scope |Sets the duration that tokens are valid for. For example using the value `offline_access` a token is valid even after a user logs out as long as the token is used at least once every 30 days. See the [Keycloak documentation](https://www.keycloak.org/docs/21.1.2/server_admin/#_offline-access){:target="_blank"} for further information, for example `offline_access`|
+    | alfresco.content.sso.scope |Sets the duration that tokens are valid for. For example using the value `offline_access` a token is valid even after a user logs out as long as the token is used at least once every 30 days. See the [Keycloak documentation](https://www.keycloak.org/docs/18.0/server_admin/#_offline-access){:target="_blank"} for further information, for example `offline_access`|
     | alfresco.content.sso.javascript_origins |The base URL for the Javascript origins of the Process Services instance, for example `https://aps.example.com`|
     | alfresco.content.sso.auth_uri |The authorization URL, for example `https://ids.example.com/realms/alfresco/protocol/openid-connect/auth`|
     | alfresco.content.sso.token_uri |The authorization token URL, for example `https://ids.example.com/realms/alfresco/protocol/openid-connect/token`|
