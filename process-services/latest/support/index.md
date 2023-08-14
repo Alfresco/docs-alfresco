@@ -38,6 +38,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Jetty 9.4 | |
 | | |
 | **JDKs** | |
+| OpenJDK 17.0.2 |  |
 | OpenJDK 11.0.1 |  |
 | | |
 | **Browsers** | |
