@@ -16,32 +16,28 @@ The actions that can be executed using the Outlook connector are:
 
 ## Configuration
 
-For the Outlook connector to function specifc properties must be defined in the `application.properties` file of the Spring Boot application. By default, these properties are set to environment variables.
+### Outlook connector configuration parameters
 
-The following is a set of standard properties that define the use of the connector:
+The configuration parameters for the Outlook connector are:
 
-```bash
-teams.connector.client.id=${TEAMS_CLIENT_ID}
-teams.connector.client.secret=${TEAMS_CLIENT_SECRET}
-teams.connector.scope=${TEAMS_SCOPE}
-teams.connector.username=${TEAMS_USERNAME}
-teams.connector.password=${TEAMS_PASSWORD}
-teams.connector.tenant=${TEAMS_TENANT}
-```
+| Parameter           | Description                                                             |
+|---------------------|-------------------------------------------------------------------------|
+| TEAMS_CLIENT_ID     | *Required.* The client identifier to be used for authentication.        |
+| TEAMS_CLIENT_SECRET | *Required.* The client secret to be used for authentication.            |
+| TEAMS_SCOPE         | Scopes requested by the connector in the Teams instance OAuth protocol. |
+| TEAMS_TENANT        | Teams tenant to be used by the connector.                               |
 
-The connector uses a stream mechanism to send and receive information between Process Services and the connector. For this to occur you need to configure the following properties so the connector can be identified:
+### Outlook connector errors
 
-```bash
-spring.cloud.stream.bindings.createTeamsEventCalendar.destination=${teams.connector.name}${spring.application.name}.CREATE_CALENDAR_EVENT
-spring.cloud.stream.bindings.createTeamsEventCalendar.contentType=application/json
-spring.cloud.stream.bindings.createTeamsEventCalendar.group=${CONSUMER_GROUP:${spring.application.name}}
-spring.cloud.stream.bindings.getScheduleAvailability.destination=${teams.connector.name}${spring.application.name}.GET_SCHEDULE_AVAILABILITY
-spring.cloud.stream.bindings.getScheduleAvailability.contentType=application/json
-spring.cloud.stream.bindings.getScheduleAvailability.group=${CONSUMER_GROUP:${spring.application.name}}
-spring.cloud.stream.bindings.updateTeamsEventCalendar.destination=${teams.connector.name}${spring.application.name}.UPDATE_CALENDAR_EVENT
-spring.cloud.stream.bindings.updateTeamsEventCalendar.contentType=application/json
-spring.cloud.stream.bindings.updateTeamsEventCalendar.group=${CONSUMER_GROUP:${spring.application.name}}
-```
+The possible [errors]({% link process-automation/latest/model/connectors/index.md %}#errors) that can be handled by the Outlook connector are:
+
+| Error           | Description                                                      |
+|-----------------|------------------------------------------------------------------|
+| MISSING_INPUT   | A mandatory input variable was not provided.                     |
+| INVALID_INPUT   | The input variable has an invalid type.                          |
+| INVALID_REQUEST | An invalid request is received.                                  |
+| SCHEDULE_ERROR  | An error occurred from attempting to get the availability.       |
+| UNKNOWN_ERROR   | An unexpected error occurred during the execution of the action. |
 
 In addition to the above configuration the following properties are required to perform Outlook operations:
 
