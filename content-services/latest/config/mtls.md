@@ -190,7 +190,7 @@ When using new scripts, make sure the folder path provided in the instruction is
 
 There is also a new type of configuration, for repository HttpClients that are used for communicating with the Transform Service. Solr configuration stays unchanged. If you just want to enable mTLS for the Transform Service, then after setting the properties related to keystore and truststore, one additional property change will be enough, since all of them have their default values.
 
-Below are httpClient properties, where valid substitutes for `<service>` are: `transform` (T-Router, T-Engines, Transform Aspose, AI Renditions; in enterprise: Shared File Store).
+Below are httpClient properties, where valid substitutes for `<service>` are: `transform` (T-Router, T-Engines, Transform Aspose, AI Renditions).
 
 ```text
 httpclient.config.<service>.mTLSEnabled
@@ -208,10 +208,19 @@ The default settings for `transform` are shown below:
 httpclient.config.transform.mTLSEnabled=false
 httpclient.config.transform.maxTotalConnections=20
 httpclient.config.transform.maxHostConnections=20
-httpclient.config.transform.socketTimeout=5000
-httpclient.config.transform.connectionRequestTimeout=5000
-httpclient.config.transform.connectionTimeout=5000
 httpclient.config.transform.hostnameVerificationDisabled=false
+```
+
+Below are httpClient properties, where valid substitutes for `<service>` are: `sharedfilestore` (in enterprise: Shared File Store)
+
+```text
+httpclient.config.sharedfilestore.mTLSEnabled=false
+httpclient.config.sharedfilestore.maxTotalConnections=20
+httpclient.config.sharedfilestore.maxHostConnections=20
+httpclient.config.sharedfilestore.socketTimeout=5000
+httpclient.config.sharedfilestore.connectionRequestTimeout=5000
+httpclient.config.sharedfilestore.connectionTimeout=5000
+httpclient.config.sharedfilestore.hostnameVerificationDisabled=false
 ```
 
 Mutual TLS is disabled by default, to turn it on you have to change the value of property `httpclient.config.<service>.mTLSEnabled` to `true`.
