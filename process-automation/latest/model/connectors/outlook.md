@@ -20,24 +20,24 @@ The actions that can be executed using the Outlook connector are:
 
 The configuration parameters for the Outlook connector are:
 
-| Parameter           | Description                                                             |
-|---------------------|-------------------------------------------------------------------------|
-| TEAMS_CLIENT_ID     | *Required.* The client identifier to be used for authentication.        |
-| TEAMS_CLIENT_SECRET | *Required.* The client secret to be used for authentication.            |
-| TEAMS_SCOPE         | Scopes requested by the connector in the Teams instance OAuth protocol. |
-| TEAMS_TENANT        | Teams tenant to be used by the connector.                               |
+| Parameter | Description |
+|-----------|-------------|
+| TEAMS_CLIENT_ID | *Required.* The client identifier to be used for authentication. |
+| TEAMS_CLIENT_SECRET | *Required.* The client secret to be used for authentication. |
+| TEAMS_SCOPE | Scopes requested by the connector in the Teams instance OAuth protocol. |
+| TEAMS_TENANT | Teams tenant to be used by the connector. |
 
 ### Outlook connector errors
 
 The possible [errors]({% link process-automation/latest/model/connectors/index.md %}#errors) that can be handled by the Outlook connector are:
 
-| Error           | Description                                                      |
-|-----------------|------------------------------------------------------------------|
-| MISSING_INPUT   | A mandatory input variable was not provided.                     |
-| INVALID_INPUT   | The input variable has an invalid type.                          |
-| INVALID_REQUEST | An invalid request is received.                                  |
-| SCHEDULE_ERROR  | An error occurred from attempting to get the availability.       |
-| UNKNOWN_ERROR   | An unexpected error occurred during the execution of the action. |
+| Error | Description |
+|-------|-------------|
+| MISSING_INPUT | A mandatory input variable was not provided. |
+| INVALID_INPUT | The input variable has an invalid type. |
+| INVALID_REQUEST | An invalid request is received. |
+| SCHEDULE_ERROR | An error occurred from attempting to get the availability. |
+| UNKNOWN_ERROR | An unexpected error occurred during the execution of the action. |
 
 In addition to the above configuration the following properties are required to perform Outlook operations:
 

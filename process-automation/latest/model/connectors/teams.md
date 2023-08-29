@@ -2,15 +2,11 @@
 title: Microsoft Teams connector
 ---
 
-The Microsoft Teams connector uses
-the [Microsoft Graph](https://docs.microsoft.com/en-us/graph/use-the-api){:target="_blank"} API to
-intergrate with Microsfot Teams.
+The Microsoft Teams connector uses the [Microsoft Graph](https://docs.microsoft.com/en-us/graph/use-the-api){:target="_blank"} API to integrate with Microsoft Teams.
 
 The Teams connector is displayed on the process diagram with the Teams logo.
 
-> **Important**: The Teams connector and user both require a Microsoft Teams client. The Teams
-> connector requires a Microsoft Teams account. The account is separate to the Alfresco hosted
-> environment and should be created and managed by an administrator.
+> **Important**: The Teams connector and user both require a Microsoft Teams client. The Teams connector requires a Microsoft Teams account. The account is separate to the Alfresco hosted environment and should be created and managed by an administrator.
 
 The actions that can be executed using the Teams connector are:
 
@@ -24,28 +20,27 @@ The actions that can be executed using the Teams connector are:
 
 The configuration parameters for the Teams connector are:
 
-| Parameter           | Description                                                             |
-|---------------------|-------------------------------------------------------------------------|
-| TEAMS_CLIENT_ID     | *Required.* The client identifier to be used for authentication.        |
-| TEAMS_CLIENT_SECRET | *Required.* The client secret to be used for authentication.            |
-| TEAMS_USERNAME      | *Required.* The MS Teams user to impersonate in:wq the connector        |
-| TEAMS_SCOPE         | Scopes requested by the connector in the Teams instance OAuth protocol. |
-| TEAMS_TENANT        | Teams tenant to be used by the connector.                               |
+| Parameter | Description |
+|-----------|-------------|
+| TEAMS_CLIENT_ID | *Required.* The client identifier to be used for authentication. |
+| TEAMS_CLIENT_SECRET | *Required.* The client secret to be used for authentication. |
+| TEAMS_USERNAME | *Required.* The MS Teams user to impersonate in:wq the connector. |
+| TEAMS_SCOPE | Scopes requested by the connector in the Teams instance OAuth protocol. |
+| TEAMS_TENANT | Teams tenant to be used by the connector. |
 
 ### Teams connector errors
 
 The possible [errors]({% link process-automation/latest/model/connectors/index.md %}#errors) that
 can be handled by the Teams connector are:
 
-| Error           | Description                                                      |
-|-----------------|------------------------------------------------------------------|
-| MISSING_INPUT   | A mandatory input variable was not provided.                     |
-| INVALID_INPUT   | The input variable has an invalid type.                          |
-| INVALID_REQUEST | An invalid request is received.                                  |
-| UNKNOWN_ERROR   | An unexpected error occurred during the execution of the action. |
+| Error | Description |
+|-------|-------------|
+| MISSING_INPUT | A mandatory input variable was not provided. |
+| INVALID_INPUT | The input variable has an invalid type. |
+| INVALID_REQUEST | An invalid request is received. |
+| UNKNOWN_ERROR | An unexpected error occurred during the execution of the action. |
 
-In addition to the above configuration the following properties are required to perform Teams
-operations:
+In addition to the above configuration the following properties are required to perform Teams operations:
 
 ## Get Teams
 
