@@ -39,9 +39,9 @@ The configuration parameters for the Lambda connector are:
 
 | Parameter | Description |
 | --------- | ----------- |
-| AWS_LAMBDA_AWS_ACCESS_KEY | *Required.* The access key to authenticate against AWS with. |
-| AWS_LAMBDA_AWS_SECRET_KEY | *Required.* The secret key to authenticate against AWS with. |
-| AWS_LAMBDA_AWS_REGION | *Required.* The region of AWS to invoke the Lambda functions in. |
+| AWS_LAMBDA_AWS_ACCESS_KEY | *Required.* The access key to authenticate against AWS. |
+| AWS_LAMBDA_AWS_SECRET_KEY | *Required.* The secret key to authenticate against AWS. |
+| AWS_LAMBDA_AWS_REGION | *Required.* The region of AWS to invoke the Lambda functions. |
 
 ### Lambda errors
 
@@ -352,9 +352,9 @@ The configuration parameters for the Comprehend connector are:
 
 | Parameter | Description |
 | --------- | ----------- |
-| AWS_ACCESS_KEY_ID | *Required.* The access key to authenticate against AWS with. |
-| AWS_SECRET_KEY | *Required.* The secret key to authenticate against AWS with. |
-| AWS_REGION | *Required.* The region of AWS to use the Comprehend service in. |
+| AWS_ACCESS_KEY_ID | *Required.* The access key to authenticate against AWS. |
+| AWS_SECRET_KEY | *Required.* The secret key to authenticate against AWS. |
+| AWS_REGION | *Required.* The region of AWS to use the Comprehend service. |
 | AWS_S3_BUCKET | *Required.* The name of the S3 bucket to use. |
 | AWS_COMPREHEND_ROLE_ARN | *Required.* The Amazon Resource Name for Comprehend to use. |
 
@@ -426,8 +426,8 @@ The configuration parameters for the Rekognition connector are:
 
 | Parameter | Description |
 | --------- | ----------- |
-| AWS_ACCESS_KEY_ID | *Required.* The access key to authenticate against AWS with. |
-| AWS_SECRET_KEY | *Required.* The secret key to authenticate against AWS with. |
+| AWS_ACCESS_KEY_ID | *Required.* The access key to authenticate against AWS. |
+| AWS_SECRET_KEY | *Required.* The secret key to authenticate against AWS. |
 | AWS_REGION | *Required.* The region of AWS to use the Rekognition service in. |
 | AWS_S3_BUCKET | *Required.* The name of the S3 bucket to use. |
 
@@ -494,9 +494,9 @@ The configuration parameters for the Textract connector are:
 
 | Parameter | Description |
 | --------- | ----------- |
-| AWS_ACCESS_KEY_ID | *Required.* The access key to authenticate against AWS with. |
-| AWS_SECRET_KEY | *Required.* The secret key to authenticate against AWS with. |
-| AWS_REGION | *Required.* The region of AWS to use the Textract service in. |
+| AWS_ACCESS_KEY_ID | *Required.* The access key to authenticate against AWS. |
+| AWS_SECRET_KEY | *Required.* The secret key to authenticate against AWS. |
+| AWS_REGION | *Required.* The region of AWS to use the Textract service. |
 | AWS_S3_BUCKET | *Required.* The name of the S3 bucket to use. |
 
 ### Textract errors
