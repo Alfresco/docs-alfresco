@@ -193,8 +193,9 @@ To allow the library to use this IAM user when communicating with the Comprehend
 
 You need to supply the calls that detect the language of the text document that is going to be processed. To do this, the connector calls the `DetectDominantLanguage` API. The `DetectDominantLanguage` call only works on text smaller than a configurable limit, the default is 5000 bytes. The connector uses the first bytes/characters of the document to determine what language to use when making calls to AWS Comprehend to determine which language is being used.
 
-As the `DetectDominantLanguage` service currently supports a greater set of languages than the entity detection services we check the returned language against a configurable list of available languages.
-> **Note:** Currently only EN and ES are supported by AWS entity detection. If the detected language is not in this list we use a configurable default language instead, which is EN by default.
+The `DetectDominantLanguage` service currently supports a greater set of languages than the entity detection services. It does thi by checking the returned language against a configurable list of available languages.
+
+> **Note:** Currently only EN and ES are supported by AWS entity detection. If the detected language is not in this list a configurable default language is used instead, which is EN by default.
 
 #### Entities
 
@@ -572,11 +573,11 @@ The configuration parameters for the Transcribe connector are:
 
 | Parameter | Description |
 |-----------|-------------|
-| AWS_ACCESS_KEY_ID | *Required.* The access key to authenticate against AWS with. |
-| AWS_SECRET_KEY | *Required.* The secret key to authenticate against AWS with. |
+| AWS_ACCESS_KEY_ID | *Required.* The access key to authenticate against AWS. |
+| AWS_SECRET_KEY | *Required.* The secret key to authenticate against AWS. |
 | AWS_REGION | *Required.* The region of AWS to use the Textract service in. |
 | AWS_S3_BUCKET | *Required.* The name of the S3 bucket to use. |
-| AWS_TRANSCRIBE_LANGUAGES | List of the languages (comma-separated) that are spoken in the audio/video file. |
+| AWS_TRANSCRIBE_LANGUAGES | List of comma separated languages that are spoken in the audio/video file. |
 
 ### Transcribe errors
 
@@ -593,17 +594,17 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 | UNKNOWN_ERROR | Unexpected runtime error. |
 | BAD_REQUEST | The server could not understand the request due to invalid syntax. |
 | UNAUTHORIZED | The request has not been applied because it lacks valid authentication. |
-| FORBIDDEN | The server understood the request but refuses to authorize it. |
+| FORBIDDEN | The server understood the request but refused to authorize it. |
 | NOT_FOUND | The server could not find what was requested. |
 | METHOD_NOT_ALLOWED | The request method is known by the server but is not supported. |
 | NOT_ACCEPTABLE | The server cannot produce a response matching the list of acceptable values. |
 | REQUEST_TIMEOUT | The server would like to shut down this unused connection. |
-| CONFLICT | The request conflicts with current state of the server. |
+| CONFLICT | The request conflicts with the current state of the server. |
 | GONE | No longer available. |
 | UNPROCESSABLE_ENTITY | The server understands the content type of the request entity, and the syntax of the request entity is correct, but it was unable to process the contained instructions. |
 | LOCKED | The resource that is being accessed is locked. |
 | FAILED_DEPENDENCY | The request failed due to failure of a previous request. |
-| INTERNAL_SERVER_ERROR | The server has encountered a situation it doesn't know how to handle. |
+| INTERNAL_SERVER_ERROR | The server has encountered a situation and does not know how to handle it. |
 | NOT_IMPLEMENTED | The request method is not supported by the server and cannot be handled. |
 | BAD_GATEWAY | The server got an invalid response. |
 | SERVICE_UNAVAILABLE | The server is not ready to handle the request. |

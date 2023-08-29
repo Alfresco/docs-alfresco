@@ -24,7 +24,7 @@ The configuration parameters for the Teams connector are:
 |-----------|-------------|
 | TEAMS_CLIENT_ID | *Required.* The client identifier to be used for authentication. |
 | TEAMS_CLIENT_SECRET | *Required.* The client secret to be used for authentication. |
-| TEAMS_USERNAME | *Required.* The MS Teams user to impersonate in:wq the connector. |
+| TEAMS_USERNAME | *Required.* The MS Teams user to impersonate `in:wq` the connector. |
 | TEAMS_SCOPE | Scopes requested by the connector in the Teams instance OAuth protocol. |
 | TEAMS_TENANT | Teams tenant to be used by the connector. |
 
@@ -44,41 +44,38 @@ In addition to the above configuration the following properties are required to 
 
 ## Get Teams
 
-The `getTeams` action is used by the Teams connector and retrieves all of the visible teams of the
-organization.
+The `getTeams` action is used by the Teams connector and retrieves all of the visible teams of the organization.
 
 The input parameter to retrieve all of the visible teams is:
 
-| Property | Type   | Description                                                                                   |
-|----------|--------|-----------------------------------------------------------------------------------------------|
+| Property | Type | Description |
+|----------|------|-------------|
 | teamName | String | *Optional.* Name of the team. If this property is null, the action will return all the teams. |
 
 The output parameter to retrieve all of the visible teams is:
 
-| Property | Type | Description                                                                           |
-|----------|------|---------------------------------------------------------------------------------------|
-| result   | JSON | *Optional.* Response with the team name and the identifier returned by the Teams API. |
+| Property | Type | Description |
+|----------|------|-------------|
+| result | JSON | *Optional.* Response with the team name and the identifier returned by the Teams API. |
 
 ## Create Teams Channel
 
-The `createTeamsChannel` action is used by the Teams connector to create a new public or private
-channel in Teams.
+The `createTeamsChannel` action is used by the Teams connector to create a new public or privatechannel in Teams.
 
 The input parameters to create a new private or public channel are:
 
-| Property           | Type   | Description                                                              |
-|--------------------|--------|--------------------------------------------------------------------------|
-| teamId             | String | *Required.* Identifier of the team in which the channel will be created. |
-| channelName        | String | *Required.* Name of the channel.                                         |
-| channelDescription | String | *Optional.* Description of the channel.                                  |
-| channelType        | String | *Optional.* Type of the channel.                                         |
+| Property | Type | Description |
+|----------|------|-------------|
+| teamId | String | *Required.* Identifier of the team in which the channel will be created. |
+| channelName | String | *Required.* Name of the channel. |
+| channelType | String | *Optional.* Type of the channel. |
 
 The output parameters to create a new private or public channel are:
 
-| Property  | Type   | Description                                                                               |
-|-----------|--------|-------------------------------------------------------------------------------------------|
-| result    | JSON   | *Optional.* Response with the channel name and the description returned by the Teams API. |
-| channelId | String | *Optional.* Identifier of the channel created.                                            |
+| Property | Type | Description |
+|----------|------|-------------|
+| result | JSON | *Optional.* Response with the channel name and the description returned by the Teams API. |
+| channelId | String | *Optional.* Identifier of the channel created. |
 
 ## Get channels
 
@@ -87,13 +84,13 @@ specific team.
 
 The input parameters to retrieve all the existing channels from a specific team are:
 
-| Property    | Type   | Description                                                                                         |
-|-------------|--------|-----------------------------------------------------------------------------------------------------|
-| teamId      | String | *Required.* Identifier of the team.                                                                 |
+| Property | Type | Description |
+|----------|------|-------------|
+| teamId | String | *Required.* Identifier of the team. |
 | channelName | String | *Optional.* Name of the channel. If this property is null, the action will return all the channels. |
 
 The output parameter to retrieve all the existing channels from a specific team is:
 
-| Property | Type | Description                                                                                                         |
-|----------|------|---------------------------------------------------------------------------------------------------------------------|
-| result   | JSON | *Optional.* Response with the identifier, the name, the membership type, and the web url returned by the Teams API. |
+| Property | Type | Description |
+|----------|------|-------------|
+| result   | JSON | *Optional.* Response with the identifier, the name, the membership type, and the web url returned by the Teams API. |   
