@@ -13,7 +13,7 @@
       path: '/microsoft-outlook/latest/admin/'
     - title: 'Using'
       path: '/microsoft-outlook/latest/using/'
-  - version: 2.9
+- version: 2.9
   pages:
     - title: 'Introduction'
       path: '/microsoft-outlook/2.9/'
