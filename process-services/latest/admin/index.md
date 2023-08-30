@@ -71,13 +71,7 @@ By default Process Services logs to the console. To log to file, edit the loggin
 </appender>
 ```
 
-It is possible to configure Logback to rescan the configuration file for any modifications made at regular intervals, without having to restart the application server by adding the following line to your custom logback.xml file:
-
-```xml
-<configuration scan="true" scanPeriod="45 seconds">
-```
-
-[Additional configuration options](http://logback.qos.ch/manual/){:target="_blank"} are also available for customizing logging.
+See [Welcome to Log4j 2!](https://logging.apache.org/log4j/2.x/manual/) for additional ways to customize logging.
 
 ## Process Services Administrator
 
