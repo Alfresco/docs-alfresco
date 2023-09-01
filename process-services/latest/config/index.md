@@ -45,7 +45,7 @@ By default, the following properties are defined:
 
 You can encrypt sensitive properties in the `activiti-app.properties`, `activiti-admin.properties` and `activiti-ldap.properties` configuration files.
 
-**Note:** The generation of `ENCRYPTEDPASSWORD` should be done on the JVM of Process Services.
+> **Note:** The generation of `ENCRYPTEDPASSWORD` should be done on the JVM of Process Services.
 
 1. Choose an algorithm.
 
@@ -59,11 +59,11 @@ You can encrypt sensitive properties in the `activiti-app.properties`, `activiti
 
     Move into your working directory `cd /usr/local/tomcat/webapps/activiti-app/WEB-INF/lib` and then run `java -cp jasypt-1.9.3.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI input=<database password> password=secretpassword algorithm=PBEWithMD5AndDES`.
 
-    **Note:** You should try and avoid using quotes. Also check that you can decrypt the value, preferably using the intended JRE.
+    > **Note:** You should try and avoid using quotes. Also check that you can decrypt the value, preferably using the intended JRE.
 
 3. Configure your application server to set the encryption algorithm and secret encryption password.
 
-    If, for example, you are using Tomcat on Unix then you could include a shell script called `setenv.sh` in tomcat_home/bin with the following content:
+    If, for example, you are using Tomcat on Unix then you could include a shell script called `setenv.sh` in `tomcat_home/bin` with the following content:
 
     ```text
     export JAVA_OPTS="$JAVA_OPTS -Djasypt.encryptor.password=secretpassword -Djasypt.encryptor.algorithm=PBEWITHSHA1ANDDESEDE -Djasypt.encryptor.iv-generator-classname=org.jasypt.iv.NoIvGenerator"
