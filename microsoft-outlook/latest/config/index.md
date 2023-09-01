@@ -1088,10 +1088,10 @@ Set the configuration template to import when the configuration dialog is called
 
 Use the Alfresco Client Settings XML file for advanced configuration of Alfresco Microsoft Outlook client.
 
-The `AlfrescoClientSettings-2.9.x.xml` file contains advanced configuration properties.
+The `AlfrescoClientSettings-2.10.x.xml` file contains advanced configuration properties.
 Use this file to set up attributes and metadata settings.
 
-1. Locate and open `AlfrescoClientSettings-2.9.x.xml` in the `C:\Users\<username>` directory, where `<username>` is your Windows user name.
+1. Locate and open `AlfrescoClientSettings-2.10.x.xml` in the `C:\Users\<username>` directory, where `<username>` is your Windows user name.
 
     The `<outlook>` section contains elements that you can configure to customize the Alfresco Outlook Client, and also additional `<storage>`, `<connection>`, `<logging>`, `<restrictions>`, and `<tabs>` sections:
 

@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for Outlook Integration 2.9:
+The following are the supported platforms for Outlook Integration 2.10:
 
 | Version | Notes |
 | ------- | ----- |

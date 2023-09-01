@@ -4,7 +4,7 @@ title: Alfresco Outlook Integration
 
 Alfresco Outlook Integration allows you to use email and repository management without having to leave Microsoft Outlook.
 
-New features introduced in v2.9 are:
+New features introduced in v2.10 are:
 
 * Adds configuration option to display Alfresco Outlook Integration in dark mode
 * Adds configuration option to extract attachments from files
