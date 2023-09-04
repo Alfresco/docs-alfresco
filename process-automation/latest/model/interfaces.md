@@ -21,41 +21,47 @@ The basic properties of a UI are:
 
 ## Create default UI
 
-To create a default UI in JSON format:
+To create a default UI:
 
-1. Sign into the Modeling Application and open a project.
+1. Sign in to the Modeling Application and open a project.
 
-2. Click the three dots next to **UI** and then select **Create default UI**.
+2. Click the three dots next to **UI** and then select **Create Default UI**.
 
 3. Enter a name and optional description.
 
-You can reuse the JSON definition of the UI in another project or another UI. To achieve this use the **Download button** to download the JSON file created and then follow the [Upload UI](#upload-ui) instructions.  
+4. Click **Create UI**.  
+
+## Upload default UI
+
+The UI definition is normally created using the [create default UI tool](#create-default-ui) and downloaded as a `.json` file by clicking **Download UI**. You can follow the steps in this section to reuse a default UI definition in another project or UI.
+
+>**Note**: To upload a custom UI, follow the steps in [Create custom UI](#create-custom-ui) instead.
+
+To upload a default UI definition:
+
+1. Sign in to the Modeling Application and open a project.
+
+2. Click the three dots next to **UI** and then select **Upload**.
+
+3. Select the JSON file that contains the UI definition.
 
 ## Create custom UI
 
+You can create a custom UI outside of the Modeling Application. The custom UI can be an Application Development Framework (ADF) application, or it can be any single page application (such as React or Vanilla HTML, CSS, or JavaScript) that conforms to the UI schema. To verify this, upload your JSON definition and click the **Validate UI** button.
+
+> **Note**: ADF comes with a JavaScript library for managing bearer token authentication handling and renewal, which solution builders using other Custom UI implementations will have to manage.
+
+> **Important:** Before uploading your custom UI, ensure that it has a valid application entry point in either an `index.html` or `index.htm` file. The custom UI must be contained in a `.zip` archive with the `index.html` or `index.htm` file at its root. The archive size cannot exceed 50 mb.
+
 To create a custom UI:
 
-1. Sign into the Modeling Application and open a project.
+1. Sign in to the Modeling Application and open a project.
 
 2. Click the three dots next to **UI** and then select **Create custom UI**.
 
 3. Enter a name and optional description.
 
 4. Click the **Upload** button and select the `.zip` file that contains your Custom UI.
-
-> **Note:** Your Custom UI must have a valid application entry point, using either an `index.html` or `index.htm` file.
-
-## Upload UI
-
-To upload a JSON definition of a UI.
-
-> **Note:** The JSON definition is normally created using the create default UI tool and downloaded using the **Download button**. You can create your own definition outside of the Modelling Application as long as it conforms to the UI schema. To check this, upload your JSON definition and click the **Validate UI** button.
-
-1. Sign into the Modeling Application and open a project.
-
-2. Click the three dots next to **UI** and then select **Upload**.
-
-3. Select the JSON file that contains the UI definition.  
 
 ## Theme
 
