@@ -57,7 +57,7 @@ You can encrypt sensitive properties in the `activiti-app.properties`, `activiti
 
 2. Use the JVM of APS.
 
-    Move into your working directory `cd /usr/local/tomcat/webapps/activiti-app/WEB-INF/lib` and then run `java -cp jasypt-1.9.3.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI input=<database password> password=secretpassword algorithm=PBEWithMD5AndDES`.
+    Move into your working directory. For example, if you are using Tomcat on Unix, `CD` to `tomcat_home/webapps/activiti-app/WEB-INF/lib` and then run `java -cp jasypt-1.9.3.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI input=<database password> password=secretpassword algorithm=PBEWithMD5AndDES`.
 
     > **Note:** You should try and avoid using quotes. Also check that you can decrypt the value, preferably using the intended JRE.
 
