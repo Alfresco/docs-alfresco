@@ -15,4 +15,4 @@ The following are the supported platforms for Outlook Integration 2.10:
 | Apache Tomcat | Check the supported Tomcat version based on your Content Services version |
 | | |
 | **Java** | |
-| JDK 11 | Check the supported JDKs based on your Content Services version |
+| JDK 17 | Check the supported JDKs based on your Content Services version |

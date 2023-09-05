@@ -75,7 +75,7 @@ where `#` is an ascending index number that hasn't been used.
 
 ### Java requirements
 
-* Java: OpenJDK 11 is recommended. This needs to be installed on the server only (i.e. not the Outlook clients). See the Content Services [Supported Platforms]({% link content-services/latest/support/index.md %}) for more information.
+* Java: OpenJDK 17 is recommended. This needs to be installed on the server only (i.e. not the Outlook clients). See the Content Services [Supported Platforms]({% link content-services/latest/support/index.md %}) for more information.
 
 ### Access to Docker image
 
