@@ -55,7 +55,7 @@ A shard is a small chunk of memory where indexed data is stored. Before you inde
 curl -XPUT '<Search Enterprise URL>:<port>/<index name>?pretty' -H 'Content-Type: application/json' -d'
 {
   "settings" :{
-    "number_of_shards":<expected number of Shards>,
+    "number_of_shards":<expected number of shards>,
     "number_of_replicas":<0 for no replica, 1 for 1 replica of each shards and so on>
   }
 }
