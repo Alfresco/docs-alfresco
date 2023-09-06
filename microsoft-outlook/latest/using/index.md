@@ -210,8 +210,6 @@ Start workflows using the Alfresco sidebar.
 
         >**Note:** In Alfresco Outlook Integration 2.7, the **Workflow** tab is disabled by default. Contact your IT team for further help.
 
-    >**Note:** If your IT team has configured SAML authentication without single-sign on (SSO), when you select the **Workflow** dialog, you'll be prompted to enter your login credentials even though you've already logged in successfully.
-
 ## Managing file versions in Outlook
 
 You can create new versions of files that already exist in Alfresco Outlook Client. There are two ways to trigger versioning for one or more files: implicit and explicit versioning.
@@ -400,10 +398,3 @@ The Alfresco Outlook Client no longer permits direct write access to a Records M
 ### Error when declaring a record from within Alfresco Outlook Client
 
 In the Alfresco Outlook Client, you might see a message stating that you can't declare a record from within the client. This action is no longer supported. However, you can declare content in a collaboration site as a record (i.e. create an inline record).
-
-### Drag and drop as a PDF link doesn't work with SAML authentication
-
-There's a known issue when using drag and drop from Alfresco to convert an Office file to PDF format, and adding it to an email as a link, where there's an option to automatically link to a PDF version of that document. This feature doesn't currently work with SAML authentication. However, there's a workaround to achieve the same functionality:
-
-* Convert the document you want to link to as a PDF first, using the available context menu action
-* Drag and drop the PDF version as a link to the email

@@ -936,11 +936,7 @@ Configure Microsoft Outlook to find and connect to the correct Alfresco server.
 
     If you select standard authentication, enter your Alfresco user name and password. If you select Windows authentication, the `passthru` authentication is used. For more information about authentication subsystem types, see [Authentication subsystem types]({% link content-services/latest/admin/auth-sync.md %}#Authentication subsystem types).
 
-    >**Note:** By default, SAML authentication is enabled. Use the Client Settings XML file to disable SAML authentication, and remove the SAML authentication radio button in this panel. See [Setting SAML in AlfrescoClientSettings]({% link microsoft-outlook/latest/config/index.md %}#configure-connection-settings) for more information.
-
 6. Click **Check connection** to test the connection to the Alfresco server.
-
-    >**Note:** If your IT team has configured SAML authentication without single-sign on (SSO), then you may notice the following behavior when you change the Outlook configuration. When you select **Check connection**, you'll see an authentication window, where you'll need to enter your Alfresco user name and password. If you choose to close the window without entering your login details, the Outlook Integration considers this to be a failed authentication attempt and will try again. When the authentication window is displayed for a 2nd time and you close the window, there'll be no further authentication attempts. The Alfresco Outlook Client displays a message to indicate that SAML authentication failed. Click **OK** to dismiss the message.
 
 ### Configure email archive settings
 
@@ -1159,13 +1155,12 @@ Use this file to set up attributes and metadata settings.
     |`password`|Password for Alfresco server (encrypted)|This is your Alfresco password.|
     |`shareUrl`|Path to Alfresco Share|`share`: this is the default setting. Specify a text string for an alternative path.|
     |`alfrescoUrl`|Path to Alfresco repository|`alfresco`: this is the default setting. Specify a text string for an alternative path.|
-    |`authentication`|Authentication type for connection to Alfresco|`basic`: basic authentication is used to connect to Alfresco. This also works out-of-the-box if using the Identity Service.<br><br>`windows`: Kerberos authentication is used to connect to Alfresco<br><br>`saml`: SAML authentication is used to connect to Alfresco<br><br>**Note:** Contact Alfresco support before using these settings.|
+    |`authentication`|Authentication type for connection to Alfresco|`basic`: basic authentication is used to connect to Alfresco. This also works out-of-the-box if using the Identity Service.<br><br>`windows`: Kerberos authentication is used to connect to Alfresco<br><br>**Note:** Contact Alfresco support before using these settings.|
     |`webApp`|Which Alfresco web application is used to display details, links, etc. outside of the Outlook Integration.|`2`: Share. This is the default setting.<br><br>`3`: ADF|
     |`shareAlterUrl=""`|Sets alternative URL for Alfresco Share|Specify your alternative URL.<br><br>|
     |`checkCertificate`|Specifies whether to check for a server certificate|`true`: certificate is checked and if it is not correct then the connection fails. This is the default setting.<br><br>`false`: certificate is not checked|
     |`checkVersion`|Specifies whether to check the Alfresco server version|`true`: version is checked and if it is not correct then the connection fails. This is the default setting.<br><br>`false`: version is not checked|
     |`settingsCheckInterval`|Specifies the interval, in seconds, between checks to determine if the central settings have changed|`480`: 480 seconds is the default setting.|
-    |`samlFallbackTimeout`|Sets a time, in seconds, for the Alfresco Outlook Client to wait before the SAML authentication window appears. This should only be required for slower networks to reduce the number of times that the authentication window reappears due to a delay from the server.<br><br>Added in Outlook Integration 2.4.7. Supported in versions 2.4.7 onwards and 2.6.|`7`: 7 seconds is the default setting.|
     |`writeStreamBuffering`|Sets the `AllowWriteStreamBuffering` parameter of the HttpWebRequest.<br><br>**Note:** In a clustered Alfresco environment, you may encounter the error message _“This request requires buffering data to succeed”_ while uploading emails or files. Setting `writeStreamBuffering` to `true` will prevent this error from happening.<br><br>Added in Outlook Integration 2.7.|`true`: `AllowWriteStreamBuffering` is enabled.<br><br>`false`: `AllowWriteStreamBuffering` is disabled. This is the default setting.|
 
 5. Configure the attributes that you need for the `<feature>` element:

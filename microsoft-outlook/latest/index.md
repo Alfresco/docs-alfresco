@@ -5,7 +5,7 @@ title: Alfresco Outlook Integration
 Alfresco Outlook Integration allows you to use email and repository management without having to leave Microsoft Outlook.
 
 New features introduced in v2.10 are:
-
+<!--FIXME: update summary-->
 * Adds configuration option to display Alfresco Outlook Integration in dark mode
 * Adds configuration option to extract attachments from files
 * Adds the ability to configure a dependency constraint between lists of values (via a dependent picklist)
@@ -17,5 +17,3 @@ Features of Outlook Integration include the ability to archive content (i.e. ema
 For information about using the Outlook Integration, see [Using Alfresco from Microsoft Outlook]({% link microsoft-outlook/latest/using/index.md %}).
 
 For information about installing and configuring the Outlook Integration, see [Install and configure Outlook Integration]({% link microsoft-outlook/latest/install/index.md %}).
-
-If you plan to use SAML Module for Alfresco Content Services authentication, see [Using SAML SSO with Outlook Integration]({% link microsoft-outlook/latest/admin/index.md %}#usingsaml).

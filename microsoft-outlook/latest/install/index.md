@@ -26,8 +26,6 @@ The software you need to install Outlook Integration is as follows:
 * Client licenses that can be applied in Alfresco Share or in Microsoft Outlook
 * A zip file that provides an addition to the Microsoft Outlook toolbar, which you unzip and install before you start up Microsoft Outlook
 
-If you plan to use SAML Module for Alfresco Content Services authentication, you need to install and configure the SAML Module for Alfresco Content Services.
-
 If you plan to enable the transformation of MSG and EML files into PDF format, you need to install and configure Alfresco Transform Service.
 
 You can download the Outlook Integration software from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
@@ -99,7 +97,7 @@ transform-outlook
 
 > **Note:** Alfresco customers can request Quay.io credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/){:target="_blank"}. These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
 
-> **Note:** Make sure that you request credentials for Alfresco Content Services and Alfresco Outlook Integration, so that you can use the additional `transform-outlook-1.2.x` Docker image. Version 1.2.0 of the Outlook T-Engine can also be used for the previous Outlook Integration releases (version 2.9.x).
+> **Note:** Make sure that you request credentials for Alfresco Content Services and Alfresco Outlook Integration, so that you can use the additional `transform-outlook-1.2.x` Docker image. Version 1.2.0 of the Outlook T-Engine can also be used for the previous Outlook Integration releases (version 2.9.x).<!--FIXME: verify this-->
 
 > **Note:** It is recommended that you familiarize yourself with the concepts of [containerized deployment]({% link content-services/latest/install/containers/index.md %}) before working with Docker.
 
@@ -113,7 +111,6 @@ There are three steps to installing Outlook Integration:
 
 Make sure you are running the correct versions of operating system and software before you install the AMP files.
 
-* If you plan to use SAML Module for Alfresco Content Services authentication, check the requirements in [SAML prerequisites]({% link saml-module/latest/install/index.md %}#prerequisites).
 * If you plan to transform MSG and EML files into PDF format, check the requirements in [Transform Service prerequisites]({% link transform-service/latest/install/index.md %}#prerequisites).
 
 1. Stop the Alfresco server.
@@ -143,8 +140,6 @@ Make sure you are running the correct versions of operating system and software 
     The URL is: `http://localhost:8080/share/page/console/admin-console/mail-customization-config`
 
     where `localhost:8080` is your Alfresco server and port number.
-
-If you plan to use SAML SSO, you need to install and configure the Alfresco SAML module. See [Install with Zip]({% link saml-module/latest/install/index.md %}) and [Configure SAML SSO]({% link saml-module/latest/config/index.md %}) for more information.
 
 If you plan to transform MSG and EML files into PDF format, you need to install and configure the Transform Service, and then select an installation method under [Install Transform Engine](#install-transform-engine) for more information.
 
@@ -302,8 +297,6 @@ You can automate the Alfresco Outlook Client installation by using the `msiexec`
 
 You might need local administrator rights to install .NET 4.5 and Microsoft VS Tools for Office Runtime. Ensure you have already installed the required AMP files in your Alfresco instance ([see Install Outlook Integration AMPs](#install-amps)).
 
->**Note:** If you plan to use SAML Module for Alfresco Content Services authentication, ensure you have already installed and configured the Alfresco SAML module. See [Install with zip]({% link saml-module/latest/install/index.md %}) and [Configure SAML SSO]({% link saml-module/latest/config/index.md %}) for more information.
-
 1. Extract the contents of the `alfresco-outlook-client-2.10.x.zip` file using a standard unzip tool.
 
 2. Locate `x64/AlfrescoOutlookClient_x64_2.10.x.msi` or `x86/AlfrescoOutlookClient_x86_2.10.x.msi`, depending on whether you are running a 64-bit or 32-bit version of Windows.
@@ -320,13 +313,7 @@ You might need local administrator rights to install .NET 4.5 and Microsoft VS T
     msiexec /i AlfrescoOutlookClient_x86_2.10.x.msi HOST=127.0.0.1:8080 AUTH=basic /quiet
     ```
 
-    for an installation with no interaction, or:
-
-    ```bash
-    msiexec /i AlfrescoOutlookClient_x86_2.10.x.msi HOST=127.0.0.1:8080 AUTH=saml /quiet
-    ```
-
-    for a non-interactive installation with SAML authentication enabled.
+    for an installation with no interaction.
 
     >**Note:** Microsoft Office Primary Interop Assemblies are also installed, if they do not already exist in your version of Microsoft Office.
 
@@ -339,7 +326,7 @@ You might need local administrator rights to install .NET 4.5 and Microsoft VS T
     |`ALFRESCO`|Default: `alfresco`|Sets context to the Alfresco repository.|
     |`CULTURE`|`en|de|es|it|fr|ja|ru|zh-cn|pt-br|nl|nb-no|cs|da|fi|pl|sv` Default: `en`|Sets language for Alfresco Outlook Client.|
     |`SHAREALT`|No default|Sets alternative URL for Alfresco Share.|
-    |`AUTH`|`basic|windows|saml`|Sets authentication type.|
+    |`AUTH`|`basic|windows`|Sets authentication type.|
     |`APPTITLE`|Default: Alfresco Outlook Plugin|Sets a custom title for Alfresco Outlook Client. Format: `"My Custom Title"`|
     |`LANGS`|No default|Sets the available languages for the Alfresco Outlook Client. Format: `"en,de,fr"`. See `CULTURE` parameter for available language codes. Added in Outlook Integration 2.9.2.|
 
