@@ -60,7 +60,10 @@ You can use one of the following Outlook releases:
 
 #### Alfresco Search Services 2.0 and above
 
-If you're using Alfresco Search Services or Alfresco Search and Insight Engine 2.0 and above in combination with Outlook Integration 2.9 and above, you must add the `messageId` property to the `shared.properties` file for SOLR. See the [Alfresco indexing recommendations]({% link search-services/latest/config/indexing.md %}#cross-locale) to locate this file.
+If you're using Alfresco Search Services or Alfresco Search and Insight Engine 2.0 and above in combination with Outlook Integration 2.10 and above, you must add the `messageId` property to the `shared.properties` file for SOLR. See the Indexing recommendations (Cross locale section) for the product you're using to locate this file:
+
+* Search Services: [Indexing recommendations - Cross locale]({% link search-services/latest/config/indexing.md %}#cross-locale)
+* Search and Insight Engine: [Indexing recommendations - Cross locale]({% link insight-engine/latest/config/indexing.md %}#cross-locale)
 
 Add the following lines to the configuration:
 
@@ -71,7 +74,14 @@ alfresco.cross.locale.property.#={http://www.westernacher.com/alfresco/models/wp
 
 where `#` is an ascending index number that hasn't been used.
 
-> **Note:** This change requires a SOLR restart, but no reindex.
+Starting from Outlook Integration 2.10, you must also enable cross-locale data types in Alfresco Search Services or Alfresco Search and Insight Engine 2.0 and above.
+
+Follow the steps in the Indexing recommendations (Cross locale section) for the product you're using to enable this configuration. This applies for both the `messageId` property addition and enabling cross-locale data types:
+
+* Search Services: [Indexing recommendations - Cross locale]({% link search-services/latest/config/indexing.md %}#cross-locale)
+* Search and Insight Engine: [Indexing recommendations - Cross locale]({% link insight-engine/latest/config/indexing.md %}#cross-locale)
+
+> **Note:** These changes require a SOLR restart, but no reindex.
 
 ### Java requirements
 

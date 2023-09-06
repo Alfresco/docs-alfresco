@@ -1159,7 +1159,7 @@ Use this file to set up attributes and metadata settings.
     |`password`|Password for Alfresco server (encrypted)|This is your Alfresco password.|
     |`shareUrl`|Path to Alfresco Share|`share`: this is the default setting. Specify a text string for an alternative path.|
     |`alfrescoUrl`|Path to Alfresco repository|`alfresco`: this is the default setting. Specify a text string for an alternative path.|
-    |`authentication`|Authentication type for connection to Alfresco|`basic`: basic authentication is used to connect to Alfresco<br><br>`windows`: Kerberos authentication is used to connect to Alfresco<br><br>`saml`: SAML authentication is used to connect to Alfresco<br><br>**Note:** Contact Alfresco support before using these settings.|
+    |`authentication`|Authentication type for connection to Alfresco|`basic`: basic authentication is used to connect to Alfresco. This also works out-of-the-box if using the Identity Service.<br><br>`windows`: Kerberos authentication is used to connect to Alfresco<br><br>`saml`: SAML authentication is used to connect to Alfresco<br><br>**Note:** Contact Alfresco support before using these settings.|
     |`webApp`|Which Alfresco web application is used to display details, links, etc. outside of the Outlook Integration.|`2`: Share. This is the default setting.<br><br>`3`: ADF|
     |`shareAlterUrl=""`|Sets alternative URL for Alfresco Share|Specify your alternative URL.<br><br>|
     |`checkCertificate`|Specifies whether to check for a server certificate|`true`: certificate is checked and if it is not correct then the connection fails. This is the default setting.<br><br>`false`: certificate is not checked|
