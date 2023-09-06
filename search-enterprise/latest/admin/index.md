@@ -34,6 +34,49 @@ services:
 
 > **Note:** Once complete you must perform a re-index. It is recommended you enable the exact term feature before you start creating an index.
 
+### Mapping
+
+When you index a document that contains a new field, Search Enterprise adds the field dynamically to the document, or to the inner objects within a document. Inner objects inherit the dynamic setting from their parent object or from the mapping type. A dynamic parameter controls whether new fields are added dynamically. The default value is `true` and should be disabled to avoid a large index, unless a large index is necessary. This can be done when you create the index, using the following command:
+
+```bash
+curl -XPUT '<Search Enterprise URL>:<port>/<index name>?pretty' -H 'Content-Type: application/json' -d'
+{
+  "mappings": {
+        "dynamic": "false"
+    }
+}'
+```
+
+### Sharding
+
+A shard is a small chunk of memory where indexed data is stored. Before you index Search Enterprise you can configure how many shards and replicas you want to use. How you configure the shards will depend on your intended data volume and the size of each shard. Here's the command to use:
+
+```bash
+curl -XPUT '<Search Enterprise URL>:<port>/<index name>?pretty' -H 'Content-Type: application/json' -d'
+{
+  "settings" :{
+    "number_of_shards":<expected number of shards>,
+    "number_of_replicas":<0 for no replica, 1 for 1 replica of each shards and so on>
+  }
+}
+```
+
+### Near real-time search
+
+Per-segment searching has decreased the delay between indexing a document and when it is able to be visible to your search queries. In Search Enterprise, the lightweight process of writing and opening a new segment is called a refresh. By default, each shard is automatically refreshed every second. Using parameters you can increase the refresh rate to increase the speed of the indexing process, or you can disable it completely.
+
+To speed up the process:
+
+```bash
+curl -XPUT "<Search Enterprise URL>:<port>/<index name>/_settings" -H 'Content-Type: application/json' -d '{ "index" : { "refresh_interval" : "60s"  }}'
+```
+
+To disable the refresh rate:
+
+```bash
+curl -XPUT "<Search Enterprise URL>:<port>/<index name>/_settings" -H 'Content-Type: application/json' -d '{ "index" : { "refresh_interval" : "-1"  }}'
+```
+
 ## Alfresco Elasticsearch connector
 
 **Indexing** is provided by a Spring boot application called the Elasticsearch connector. This application contains two main components that build and maintain the index in Elasticsearch.
