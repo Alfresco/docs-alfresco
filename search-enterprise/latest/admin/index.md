@@ -49,7 +49,7 @@ curl -XPUT '<Search Enterprise URL>:<port>/<index name>?pretty' -H 'Content-Type
 
 ### Sharding
 
-A shard is a small chunk of memory where indexed data is stored. Before you index Search Enterprise you can configure how many shards and replicas you want to use. How you configure the shards will depend on your intended data volume and the size of each Shard. Command to use:
+A shard is a small chunk of memory where indexed data is stored. Before you index Search Enterprise you can configure how many shards and replicas you want to use. How you configure the shards will depend on your intended data volume and the size of each shard. Here's the command to use:
 
 ```bash
 curl -XPUT '<Search Enterprise URL>:<port>/<index name>?pretty' -H 'Content-Type: application/json' -d'
