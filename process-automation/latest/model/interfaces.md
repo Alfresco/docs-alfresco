@@ -47,11 +47,11 @@ To upload a default UI definition:
 
 ## Create custom UI
 
-You can create a custom UI outside of the Modeling Application. The custom UI can be an Application Development Framework (ADF) application, or it can be any single page application (such as React or Vanilla HTML, CSS, or JavaScript) that conforms to the UI schema. To verify this, upload your JSON definition and click the **Validate UI** button.
-
-> **Note**: ADF comes with a JavaScript library for managing bearer token authentication handling and renewal, which solution builders using other Custom UI implementations will have to manage.
+You can create a custom UI outside of the Modeling Application. The custom UI can be an Application Development Framework (ADF) application. It can also be any single page application, such as React or Vanilla HTML, CSS, or JavaScript, that conforms to the UI schema. To verify this, upload your JSON definition and click the **Validate UI** button.
 
 > **Important:** Before uploading your custom UI, ensure that it has a valid application entry point in either an `index.html` or `index.htm` file. The custom UI must be contained in a `.zip` archive with the `index.html` or `index.htm` file at its root. The archive size cannot exceed 50 mb.
+
+> **Note**: ADF comes with a JavaScript library for managing bearer token authentication handling and renewal, which solution builders using other Custom UI implementations will have to manage.
 
 To create a custom UI:
 
@@ -67,11 +67,11 @@ To create a custom UI:
 
 You can add a theme to the Digital Workspace.
 
-### Use the modelling application to change the theme
+### Use the Modeling Application to change the theme
 
-To change the theme using the **UI** properties in the modelling application.  
+To change the theme using the **UI** properties in the Modeling Application.  
 
-1. Sign into the modeling application.
+1. Sign in to the Modeling Application.
 
 2. Select the **UI** you want to change and enter the new configuration properties under the **Theme** heading.
 
@@ -97,8 +97,8 @@ The properties of the UI theme are:
 
 ### Deploy the theme
 
-If you are deploying using the modelling application or Docker compose you must provide the correct configuration and the theme will be generated at startup.
-After updating the properties for the custom theme in the modelling application, new entries for the **UI** are added to this file: `"customCssPath": "./assets/theme/custom.css" (i.e. /[app-name]/ui/[ui-name]/assets/theme/custom.css)`
+If you are deploying using the Modeling Application or Docker compose you must provide the correct configuration and the theme will be generated at startup.
+After updating the properties for the custom theme in the Modeling Application, new entries for the **UI** are added to this file: `"customCssPath": "./assets/theme/custom.css" (i.e. /[app-name]/ui/[ui-name]/assets/theme/custom.css)`
 
 For example:
 
