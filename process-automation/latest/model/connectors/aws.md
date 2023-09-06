@@ -193,7 +193,7 @@ To allow the library to use this IAM user when communicating with the Comprehend
 
 You need to supply the calls that detect the language of the text document that is going to be processed. To do this, the connector calls the `DetectDominantLanguage` API. The `DetectDominantLanguage` call only works on text smaller than a configurable limit, the default is 5000 bytes. The connector uses the first bytes/characters of the document to determine what language to use when making calls to AWS Comprehend to determine which language is being used.
 
-The `DetectDominantLanguage` service currently supports a greater set of languages than the entity detection services. It does thi by checking the returned language against a configurable list of available languages.
+The `DetectDominantLanguage` service currently supports a greater set of languages than the entity detection services. It does this by checking the returned language against a configurable list of available languages.
 
 > **Note:** Currently only EN and ES are supported by AWS entity detection. If the detected language is not in this list a configurable default language is used instead, which is EN by default.
 
@@ -575,7 +575,7 @@ The configuration parameters for the Transcribe connector are:
 |-----------|-------------|
 | AWS_ACCESS_KEY_ID | *Required.* The access key to authenticate against AWS. |
 | AWS_SECRET_KEY | *Required.* The secret key to authenticate against AWS. |
-| AWS_REGION | *Required.* The region of AWS to use the Textract service in. |
+| AWS_REGION | *Required.* The region of AWS to use the Textract service. |
 | AWS_S3_BUCKET | *Required.* The name of the S3 bucket to use. |
 | AWS_TRANSCRIBE_LANGUAGES | List of comma separated languages that are spoken in the audio/video file. |
 
@@ -598,7 +598,7 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 | NOT_FOUND | The server could not find what was requested. |
 | METHOD_NOT_ALLOWED | The request method is known by the server but is not supported. |
 | NOT_ACCEPTABLE | The server cannot produce a response matching the list of acceptable values. |
-| REQUEST_TIMEOUT | The server would like to shut down this unused connection. |
+| REQUEST_TIMEOUT | The server is requesting to shut down this unused connection. |
 | CONFLICT | The request conflicts with the current state of the server. |
 | GONE | No longer available. |
 | UNPROCESSABLE_ENTITY | The server understands the content type of the request entity, and the syntax of the request entity is correct, but it was unable to process the contained instructions. |

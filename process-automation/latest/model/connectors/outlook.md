@@ -24,8 +24,8 @@ The configuration parameters for the Outlook connector are:
 |-----------|-------------|
 | TEAMS_CLIENT_ID | *Required.* The client identifier to be used for authentication. |
 | TEAMS_CLIENT_SECRET | *Required.* The client secret to be used for authentication. |
-| TEAMS_SCOPE | Scopes requested by the connector in the Teams instance OAuth protocol. |
-| TEAMS_TENANT | Teams tenant to be used by the connector. |
+| TEAMS_SCOPE | The scopes requested by the connector in the Teams instance OAuth protocol. |
+| TEAMS_TENANT | The Teams tenant to be used by the connector. |
 
 ### Outlook connector errors
 

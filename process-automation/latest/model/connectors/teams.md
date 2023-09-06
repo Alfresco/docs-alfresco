@@ -25,8 +25,8 @@ The configuration parameters for the Teams connector are:
 | TEAMS_CLIENT_ID | *Required.* The client identifier to be used for authentication. |
 | TEAMS_CLIENT_SECRET | *Required.* The client secret to be used for authentication. |
 | TEAMS_USERNAME | *Required.* The MS Teams user to impersonate `in:wq` the connector. |
-| TEAMS_SCOPE | Scopes requested by the connector in the Teams instance OAuth protocol. |
-| TEAMS_TENANT | Teams tenant to be used by the connector. |
+| TEAMS_SCOPE | Thr scopes requested by the connector in the Teams instance OAuth protocol. |
+| TEAMS_TENANT | The Teams tenant to be used by the connector. |
 
 ### Teams connector errors
 
@@ -60,7 +60,7 @@ The output parameter to retrieve all of the visible teams is:
 
 ## Create Teams Channel
 
-The `createTeamsChannel` action is used by the Teams connector to create a new public or privatechannel in Teams.
+The `createTeamsChannel` action is used by the Teams connector to create a new public or private channel in Teams.
 
 The input parameters to create a new private or public channel are:
 
