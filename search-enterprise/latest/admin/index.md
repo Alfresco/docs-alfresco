@@ -61,7 +61,7 @@ curl -XPUT '<Search Enterprise URL>:<port>/<index name>?pretty' -H 'Content-Type
 }
 ```
 
-### Near Real-Time Search
+### Near real-time search
 
 Per-segment searching has decreased the delay between indexing a document and when it is able to be visible to your search queries. In Search Enterprise, the lightweight process of writing and opening a new segment is called a refresh. By default, each shard is automatically refreshed every second. Using parameters you can increase the refresh rate to increase the speed of the indexing process, or you can disable it completely.
 
