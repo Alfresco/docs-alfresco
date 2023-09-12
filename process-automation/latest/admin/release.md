@@ -12,7 +12,7 @@ The **Project Releases** section displays a list of all [released projects]({% l
 
 To release a project:
 
-1. Sign into the Modeling Application.
+1. Sign in to the Modeling Application.
 
 2. Find or search for your project in the list of projects.
 
@@ -185,7 +185,7 @@ You can monitor the health of your installation by using the Monitoring dashboar
 
 To access the dashboard.
 
-1. Log into the Alfresco Admin App.
+1. Log in to the Alfresco Admin App.
 
 2. Expand **Devops** from the left pane and select **Application Instances**.
 
@@ -214,9 +214,9 @@ The version of an application is incremental and independent of the released pro
 
 The upgrade process displays the same configuration as [deploying](#deployment) an application. The only field that cannot be changed when upgrading is the application name.
 
-To upgrade an application.
+To upgrade an application:
 
-1. Log into the Alfresco Admin App.
+1. Log in to the Alfresco Admin App.
 
 2. Expand **Devops** from the left pane and select **Application Instances**.
 
@@ -226,15 +226,15 @@ To upgrade an application.
 
 5. Select the details you want to upgrade and click **Upgrade**.
 
-![upgrade application]({% link process-automation/images/upgrade-application.png %})
-
 ### Update runtime version
 
-You can update the runtime version of an application from when it was originally deployed.
+You can update the runtime version of an application. This is useful when an application has been deployed for some time and no longer has the most recent runtime version. You can only update the runtime to the latest version. Downgrading the runtime version is not possible.
 
-To update the runtime version.
+> **Note:** You can also update the runtime version of an application when you upgrade. For more see [Upgrade](#upgrade).
 
-1. Log into the Alfresco Admin App.
+To update the runtime to the latest version:
+
+1. Log in to the Alfresco Admin App.
 
 2. Expand **Devops** from the left pane and select **Application Instances**.
 
@@ -242,19 +242,13 @@ To update the runtime version.
 
 4. Select **Update runtime version**.
 
-5. Select the runtime version you want to upgrade to and click **Update runtime version**.
-
-> **Note:** You can also update the runtime version of an application when you upgrade. For more see [Upgrade](#upgrade).
-
-![update runtime]({% link process-automation/images/update-runtime.png %})
-
 ### Logs
 
 You can view Deployment Service Logs, Runtime Bundle Logs, and Process Storage Logs to help understand any errors you may be having with your installation. The Deployment Service Logs are always available because they belong to a shared service. The logs use different blue highlighting to indicate the app being viewed. The Runtime Bundle Logs and the Storage Logs are unavailable if the app is not deployed correctly.
 
 To view the logs:
 
-1. Log into the Alfresco Admin App.
+1. Log in to the Alfresco Admin App.
 
 2. Expand **Devops** from the left pane and select **Application Instances**.
 
