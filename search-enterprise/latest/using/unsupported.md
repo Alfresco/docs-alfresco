@@ -58,6 +58,7 @@ The following features, which were supported with Search and Insight Engine 2.x 
 ### Path Indexing
 
 * Secondary paths (paths including secondary parents)
+* The "member" keyword for category paths
 
 ## Behavior of unsupported fields
 
@@ -66,11 +67,12 @@ Supplying an unsupported or non-existent field will cause a query to fail. This 
 Search Enterprise focuses on the most commonly used features, and in some cases allows you to work around unsupported features.
 The following are examples of how to use different fields for queries:
 
-| Old Query                                      | Replacement Query                             |
-| ---------------------------------------------- | --------------------------------------------- |
-| QNAME:'comment'                                | TYPE:'fm:post'                                |
-| PNAME:'0/wiki'                                 | PATH:'//cm:wiki/*'                            |
-| NPATH:'2/Company Home/Sites/swsdp'             | PATH: '/app:company_home/st:sites/cm:swsdp/*' |
+| Old Query                                      | Replacement Query                                |
+| ---------------------------------------------- | ------------------------------------------------ |
+| QNAME:'comment'                                | TYPE:'fm:post'                                   |
+| PNAME:'0/wiki'                                 | PATH:'//cm:wiki/*'                               |
+| NPATH:'2/Company Home/Sites/swsdp'             | PATH: '/app:company_home/st:sites/cm:swsdp//*'   |
+| PATH:'//cm:CategoryA/member'                   | PATH: '//cm:CategoryA/*' AND !TYPE:'cm:category' |
 
 > **Note:** Secondary paths and secondary parents are not supported at this time, so there may still be some differences if these are in use.
 
