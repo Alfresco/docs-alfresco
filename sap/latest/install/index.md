@@ -70,7 +70,7 @@ Use the following steps to download the files required to install the SAP Connec
     * `sap-content-connector-repo-5.3.x.amp` for Content Services.
     * `sap-content-connector-share-5.3.x.amp` for Alfresco Share.
     * `sap-content-connector-jco-packer-1.x.jar` - the **SAP JCo Packer tool** for merging the native SAP Java Connector libraries into the repository AMP file.
-    * `sap-content-connector-encryptor-1.x.jar` to [encrypt plain-text passwords]({% link sap/latest/admin/reference.md %}#encryptpwd) for all SAP Connector related properties in the `alfresco-global.properties` file.
+    * `sap-content-connector-encryptor-1.1.jar` to [encrypt plain-text passwords]({% link sap/latest/admin/reference.md %}#encryptpwd) for all SAP Connector related properties in the `alfresco-global.properties` file.
     * `alfresco-global.properties_append` contains all required property keys to be added in the `alfresco-global.properties` for an SAP connection.
 
 2. Log in to the [SAP Support Portal](https://support.sap.com/){:target="_blank"} with your SAP Universal ID:
