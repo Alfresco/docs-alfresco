@@ -66,6 +66,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Process Services 2.3 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 3.11 | |
 | Alfresco Sync Service 3.10 | |
 | Alfresco Sync Service 3.9 | |
 | Alfresco Desktop Sync 1.16 | |
