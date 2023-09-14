@@ -1211,6 +1211,7 @@ defaults:
       toc: "sync-service"
       support: true
       versions:
+        - 3.11
         - "3.10"
         - 3.9
         - 3.8
@@ -1225,8 +1226,12 @@ defaults:
   - scope:
       path: "sync-service/latest"
     values:
-      version: "3.10"
+      version: 3.11
       latest: true
+  - scope:
+      path: "sync-service/3.10"
+    values:
+      version: "3.10"
   - scope:
       path: "sync-service/3.9"
     values:
