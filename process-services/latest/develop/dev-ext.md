@@ -1431,7 +1431,7 @@ Assuming that you have started to see some data show up in the ElasticSearch sto
             );
     ```
 
-    The log4j configuration required to log queries being sent to ElasticSearch via `executeSearch()` is as follows
+    The log4j 2 configuration required to log queries being sent to ElasticSearch via `executeSearch()` is as follows
 
     ```text
     log4j.logger.com.activiti.service.reporting.AbstractReportGenerator=DEBUG
