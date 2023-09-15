@@ -228,11 +228,9 @@ To upgrade an application:
 
 ### Update runtime version
 
-You can update the runtime version of an application. This is useful when an application has been deployed for some time and no longer has the most recent runtime version. You can only update the runtime to the latest version. Downgrading the runtime version is not possible.
+Regularly updating your application to the latest runtime version is a best practice.
 
-> **Note:** You can also update the runtime version of an application when you upgrade. For more see [Upgrade](#upgrade).
-
-To update the runtime to the latest version:
+To update the runtime version:
 
 1. Log in to the Alfresco Admin App.
 
