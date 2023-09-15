@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for Alfresco Sync Service 3.11:
+The following are the supported platforms for Alfresco Sync Service 3.10:
 
 | Version | Notes |
 | ------- | ----- |
@@ -14,7 +14,6 @@ The following are the supported platforms for Alfresco Sync Service 3.11:
 | | Check the [Alfresco Content Services Supported platforms]({% link content-services/latest/support/index.md %}) page for specific versions of the individual components. |
 | **Java** | |
 | OpenJDK 17 (64-bit) | |
-| OpenJDK 11 (64-bit) | |
 | | |
 | **Message brokers** |
 | Apache ActiveMQ | |
