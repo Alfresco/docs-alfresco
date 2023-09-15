@@ -33,9 +33,9 @@ To create a default UI:
 
 ## Upload default UI
 
-The UI definition is normally created using the [create default UI tool](#create-default-ui) and downloaded as a `.json` file by clicking **Download UI**. You can follow the steps in this section to reuse a default UI definition in another project or UI.
+The UI definition is normally created using the [create default UI tool](#create-default-ui) and downloaded as a JSON file by clicking **Download UI**. You can follow the steps in this section to reuse a default UI definition in another project or UI.
 
->**Note**: To upload a custom UI, follow the steps in [Create custom UI](#create-custom-ui) instead.
+> **Note**: To upload a custom UI, follow the steps in [Create custom UI](#create-custom-ui) instead.
 
 To upload a default UI definition:
 
@@ -49,7 +49,7 @@ To upload a default UI definition:
 
 You can create a custom UI outside of the Modeling Application. The custom UI can be an Application Development Framework (ADF) application. It can also be any single page application, such as React or Vanilla HTML, CSS, or JavaScript, that conforms to the UI schema. To verify this, upload your JSON definition and click the **Validate UI** button.
 
-> **Important:** Before uploading your custom UI, ensure that it has a valid application entry point in either an `index.html` or `index.htm` file. The custom UI must be contained in a `.zip` archive with the `index.html` or `index.htm` file at its root. The archive size cannot exceed 50 mb.
+> **Important:** Before uploading your custom UI, ensure that it has a valid application entry point in either an `index.html` or `index.htm` file. The custom UI must be contained in a zip archive with the `index.html` or `index.htm` file at its root. The archive size cannot exceed 50 mb.
 
 > **Note**: ADF comes with a JavaScript library for managing bearer token authentication handling and renewal, which solution builders using other Custom UI implementations will have to manage.
 
@@ -61,7 +61,7 @@ To create a custom UI:
 
 3. Enter a name and optional description.
 
-4. Click the **Upload** button and select the `.zip` file that contains your Custom UI.
+4. Click the **Upload** button and select the zip file that contains your Custom UI.
 
 ## Theme
 
