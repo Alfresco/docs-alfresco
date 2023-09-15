@@ -264,6 +264,7 @@ By default, the Docker compose template deploys the Elasticsearch connector serv
 * `live-indexing-mediation` the service manages ActiveMQ messages from Alfresco Repository and Alfresco Transform Service
 * `live-indexing-content` the service indexes content in Search Enterprise
 * `live-indexing-metadata` the service indexes metadata in Search Enterprise
+* `live-indexing-path` the service indexes path queries in Search Enterprise
 
 The `docker-compose.yml` file you generated includes:
 
@@ -283,6 +284,12 @@ live-indexing-content:
 
 live-indexing-metadata:
     image: quay.io/alfresco/alfresco-elasticsearch-live-indexing-metadata:${LIVE_INDEXING_METADATA_TAG}
+    environment:
+        SPRING_ELASTICSEARCH_REST_URIS: http://elasticsearch:9200
+        SPRING_ACTIVEMQ_BROKERURL: nio://activemq:61616
+
+live-indexing-path:
+    image: quay.io/alfresco/alfresco-elasticsearch-live-indexing-path:${LIVE_INDEXING_PATH_TAG}
     environment:
         SPRING_ELASTICSEARCH_REST_URIS: http://elasticsearch:9200
         SPRING_ACTIVEMQ_BROKERURL: nio://activemq:61616
