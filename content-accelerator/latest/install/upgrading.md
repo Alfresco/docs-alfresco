@@ -238,6 +238,10 @@ Refer to the image below of the UI:
 
 If you previously had the Periodic Review action configured, navigate to the ACA admin and locate the action configuration for periodic review. Set the sliders for **Require Authentication** and **Add ESignature Page** appropriately for the results you desire.
 
+**Note:** If the ACA configurations for your environment were created prior to ACA 3.5.1, the Download Document action must be reconfigured and re-saved in all ACA admin locations where it is referenced.
+
+This is because new functionality was added to the Download Document action and re-saving loads the correct configuration for the action. If this step is not taken, the Download Document action will cause an error for the user, and fail to download the document.
+
 ### New Identity Service SSO implementation for ACA 3.5.1
 
 There is an additional option for configuring Single Sign On (SSO) beyond the ACA standard SSO configuration offered in previous releases. This new SSO implementation:
