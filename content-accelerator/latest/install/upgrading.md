@@ -18,7 +18,7 @@ Here is the recommended upgrade path:
 
    * Verify startup without errors in logs
 
-   **Note:** If upgrading to the latest released version is not possible, upgrade to the latest patch release. While ACA 3.4.5 will run on Alfresco 7.3, some functionality may be impacted. An upgrade to Alfresco 7.3 requires an upgrade to ACA 3.5 for full support.
+   > **Note:** If upgrading to the latest released version is not possible, upgrade to the latest patch release. While ACA 3.4.5 will run on Alfresco 7.3, some functionality may be impacted. An upgrade to Alfresco 7.3 requires an upgrade to ACA 3.5 for full support.
 
 3. Upgrade ACA infrastructure components (AMPs, WARs, Tomcat changes, property files)
 
@@ -45,7 +45,7 @@ Name | Label | Control Type | Notes |
 --- | --- | --- | --- |
 bpm_assignees | Users | AutoComplete | Repeating dropdown of all users.  Can be set to `allUsers` picklist or another if desired
 bpm_groupAssignee | Groups | AutoComplete | Repeating dropdown of all groups.  Optional, can be omitted if desired.
-notificationType | Notification Type | AutoComplete | Dropdown notification classification type.  **Note:** If the configuration contains a Notification Type field with `name = notification_type` (use the More button next to the field name to check) or any other value other than `notificationType`, it is recommended to follow the steps outlined below this table.
+notificationType | Notification Type | AutoComplete | Dropdown notification classification type. <br><br>**Note:** If the configuration contains a Notification Type field with `name = notification_type` (use the More button next to the field name to check) or any other value other than `notificationType`, it is recommended to follow the steps outlined below this table.
 bpm_workflowDueDate | Due Date | DateBox | Suggested due date for the notification.  Suggested to configure that the date must be today or in the future.
 bpm_comment | Comment | Textarea | Suggested to configure with WYSIWYG option on.
 
@@ -146,7 +146,7 @@ Follow these steps to add the above (optional) features to existing Policy and P
       - Control Type: Autocomplete
       - Suggested Options Settings:
         - Picklist: `allGroups`
-          **Note:** you may want to configure a more restrictive group depending on your repository and use case
+          > **Note:** You may want to configure a more restrictive group depending on your repository and use case
         - Help Text: `Groups selected here will receive a notification when this document is Approved, Effective or Obsolete.`
       - Editable, Not Required, Repeating
 
@@ -237,6 +237,10 @@ Refer to the image below of the UI:
 ![Power Promote]({% link content-accelerator/images/power-promote-options.png %})
 
 If you previously had the Periodic Review action configured, navigate to the ACA admin and locate the action configuration for periodic review. Set the sliders for **Require Authentication** and **Add ESignature Page** appropriately for the results you desire.
+
+> **Note:** If the ACA configurations for your environment were created prior to ACA 3.5.1, the Download Document action must be reconfigured and re-saved in all ACA admin locations where it is referenced.
+
+This is because new functionality was added to the Download Document action and re-saving loads the correct configuration for the action. If this step is not taken, the Download Document action will cause an error for the user, and fail to download the document.
 
 ### New Identity Service SSO implementation for ACA 3.5.1
 
