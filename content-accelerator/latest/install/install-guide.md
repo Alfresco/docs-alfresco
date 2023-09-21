@@ -312,11 +312,14 @@ In this section we ensure that all components of the Content Accelerator are ins
    * If using Alfresco Content Services 7.2.x, use the `tsgrp-opencontent-3.5-for-acs7.2.amp`.
    * If using Alfresco Content Services 7.3.x, use the `tsgrp-opencontent-3.5-for-acs7.3.amp`.
 
-3. (Pnp and HR ONLY) This step is only required if using the Policy and Procedure Content Accelerator or HR Content Accelerator solution:
+3. (Pnp ONLY) This step is only required if installing the Policy and Procedure Content Accelerator solution:
 
-   Copy the `WizardAdmin.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
+   Navigate to the `ALFRESCO_HOME/amps` directory and copy the following amps there:
 
-   You'll find this WAR file in the `Web Applications` folder of the `alfresco-content-accelerator-policy-and-procedure-accelerator` zip or `alfresco-content-accelerator-sehr-accelerator` zip.
+   * `tsgrp-alfresco-chain-versioning.amp`
+   * `pnp-platform-3.5.amp`
+
+   These amps can be found in the alfresco-content-accelerator-policy-and-procedure-accelerator distribution zip under `Alfresco Artifacts` folder.
 
 4. (Claims ONLY) This step is only required if installing the Claims Content Accelerator solution:
 
@@ -333,24 +336,24 @@ In this section we ensure that all components of the Content Accelerator are ins
    * `tsgrp-cascading-value-assistance.amp`
    * `tsgrp-alfresco-chain-versioning.amp`
 
-   Navigate to `ALFRESCO_HOME/amps_share` directory and copy the following amps there:
+   Navigate to `ALFRESCO_HOME/amps_share` directory and copy the following amp there:
 
    * `tsgrp-cascading-value-assistance-share.amp`
 
-   This amps can be found in the `alfresco-content-accelerator-sehr-accelerator` distribution zip under `Alfresco Artifacts` folder.
+   This amp can be found in the `alfresco-content-accelerator-sehr-accelerator` distribution zip under the `Alfresco Artifacts` folder.
 
-6. (HR Tier-2 ONLY) This step is only required if installing the HR (Tier-2) Content Accelerator solution:
+6. (HR Tier-2 ONLY) This step is only required if installing the HR Tier-2 Content Accelerator solution:
 
-   Navigate to the ALFRESCO_HOME/amps directory and copy the following amps there:
+   Navigate to the `ALFRESCO_HOME/amps` directory and copy the following amps there:
 
    * `sehr-rm-platform-1.0-SNAPSHOT.amp`
    * `alfresco-governance-services-enterprise-repo-12.21.amp`
 
-   Navigate to ALFRESCO_HOME/amps_share directory and copy the following amps there:
+   Navigate to `ALFRESCO_HOME/amps_share` directory and copy the following amp there:
 
    * `alfresco-governance-services-enterprise-share-12.19.amp`
 
-    This amps can be found in the alfresco-content-accelerator-sehr-rm-accelerator distribution zip under `Alfresco Artifacts` folder.
+    This amp can be found in the `alfresco-content-accelerator-sehr-rm-accelerator` distribution zip under the `Alfresco Artifacts` folder.
 
 7. Apply the AMPs
 
@@ -500,11 +503,11 @@ This section walks through how to install the web applications on a separate Tom
 
    This war can be found in the `Web Applications` folder of the alfresco-content-accelerator-base-package zip.
 
-3. (Pnp ONLY) This step is only required if using the Policy and Procedure Content Accelerator solution:
+3. (Pnp and HR ONLY) This step is only required if using the Policy and Procedure Content Accelerator or HR Content Accelerator solution:
 
-   Copy the `WizardAdmin.war` file into the `TOMCAT_HOME/webapps` directory.
+   Copy the `WizardAdmin.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
 
-   This war can be found in the `Web Applications` folder of the alfresco-content-accelerator-policy-and-procedure-accelerator zip.
+   You'll find this WAR file in the `Web Applications` folder of the `alfresco-content-accelerator-policy-and-procedure-accelerator` zip or `alfresco-content-accelerator-sehr-accelerator` zip.
 
 4. Configure Tomcat for shared classpath loader as well as encoded slashes:
 
@@ -667,6 +670,8 @@ This section walks through how to install the web applications on Alfresco Tomca
 
    * For Pnp, the file will be named `default-pnp.zip` and can be found in the `Configuration` folder of the alfresco-content-accelerator-policy-and-procedure-accelerator zip.
    * For Claims, the file will be named `default-claims.zip` and can be found in the `Configuration` folder of the alfresco-content-accelerator-claims-accelerator zip.
+   * For HR, the file will be named `default-sehr.zip` and can be found in the `Configuration` folder of the alfresco-content-accelerator-sehr-accelerator zip.
+   * For HR Tier-2, the file will be named `default-sehr-rm.zip` and can be found in the `Configuration` folder of the alfresco-content-accelerator-sehr-rm-accelerator zip.
 
    Obtain the `default-{accelerator}.zip` for your accelerator and rename the zip to `default.zip`.
 
@@ -698,6 +703,6 @@ This section walks through how to install the web applications on Alfresco Tomca
     3. Turn on `PDF.js` and `Video.js`
     4. Click **Save Config**
 
-7. This step is only required if you are installing the HR (Tier-2) solution:
+7. (HR Tier-2 ONLY) This step is only required if you are installing the HR Tier-2 solution:
 
-   Follow the installation steps to configure Alfresco Governance Services for the [HR (Tier-2) solution]({% link content-accelerator/latest/configure/hr-tier2.md %}).
+   Follow the installation steps to configure Alfresco Governance Services for the [HR Tier-2 solution]({% link content-accelerator/latest/configure/hr-tier2.md %}).

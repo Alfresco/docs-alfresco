@@ -145,6 +145,6 @@ Dashboards provide faster and easier access to employee information and visual r
 ![ACA HREFM example dashboard 1]({% link content-accelerator/images/hrefm-intro-dashboard1.png %})
 ![ACA HREFM example dashboard 2]({% link content-accelerator/images/hrefm-intro-dashboard2.png %})
 
-View all pending **Required Documents** in the `Employee` folder. Fields highlighted with a red border need attention, i.e. employee documents that are yet to be uploaded.
+View all pending **Required Documents** in the employee folder. Fields highlighted with a red border need attention, i.e. employee documents that are yet to be uploaded.
 
 ![ACA HREFM Required Documents]({% link content-accelerator/images/hrefm-required-documents.png %})

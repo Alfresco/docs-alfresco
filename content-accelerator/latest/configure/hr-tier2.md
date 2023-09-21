@@ -1,12 +1,12 @@
 ---
-title: HR (Tier-2) Configuration
+title: HR Tier-2 Configuration
 ---
 
 Use this information to configure the HR Employee File Management solution (HREFM).
 
 ## Prerequisites
 
-Make sure the HR (Tier-2) solution is [installed]({% link content-accelerator/latest/install/install-guide.md %}) before implementing the configuration steps below.
+Make sure the HR Tier-2 solution is [installed]({% link content-accelerator/latest/install/install-guide.md %}) before implementing the configuration steps below.
 
 ## Configuration
 
