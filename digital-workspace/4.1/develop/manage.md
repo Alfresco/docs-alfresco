@@ -35,7 +35,7 @@ Once Content Services is up and running, you must make the source code of the pr
     APP_CONFIG_PLUGIN_AI_SERVICE=false
     ```
 
-    > **Note:** The Digital Workspace 4.2.x uses the Content Application version 4.0.0.
+    > **Note:** The Digital Workspace 4.1.x uses the Content Application version 4.0.0.
 
 2. Run the following commands to start the application:
 
@@ -150,7 +150,7 @@ The compiled application is available as a collection of files in the `dist` dir
 
 ## Testing
 
-Unit tests on the Content Application or the Digital Workspace are developed and executed using Karma - for more see [Karma](https://karma-runner.github.io/latest/index.html){:target="_blank"}.
+Unit tests on the Content Application or the Digital Workspace are developed and executed using Karma - for more see [Karma](https://karma-runner.github.io/4.1/index.html){:target="_blank"}.
 
 Unit tests are developed in files with extension `specs.ts`. Almost every component has a related `specs.ts` file stored directly in the same folder as the component. A unit test can look like:
 
