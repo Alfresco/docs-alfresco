@@ -300,18 +300,19 @@ In this section we ensure that all components of the Content Accelerator are ins
 
 2. Copy the AMPs to the Alfresco Content Services installation:
 
-   Navigate to the `ALFRESCO_HOME/amps` directory and copy the following amps to this directory (these are amps that should be applied to the repository aka [alfresco.war]):
+   Navigate to the `ALFRESCO_HOME/amps` directory and copy the following amps to this directory (these are amps that should be applied to the repository a.k.a `alfresco.war`):
+
     * `tsgrp-opencontent-{version_info}.amp`
     * `tsgrp-autofile.amp`
 
    These amps can be found in the alfresco-content-accelerator-base-package distribution zip under `Alfresco Artifacts` folder.
 
-   >**Note:** make sure you are using the correct `tsgrp-opencontent.amp` for your version of Alfresco.
+   >**Note:** Make sure you are using the correct `tsgrp-opencontent.amp` for your version of Alfresco.
 
    * If using Alfresco Content Services 7.1.x, use the `tsgrp-opencontent-3.5-for-acs7.1.amp`.
    * If using Alfresco Content Services 7.2.x, use the `tsgrp-opencontent-3.5-for-acs7.2.amp`.
    * If using Alfresco Content Services 7.3.x, use the `tsgrp-opencontent-3.5-for-acs7.3.amp`.
-   * If using Alfresco Content Services 7.4.x, use the `tsgrp-opencontent-3.5-for-acs7.4.amp`.
+   * If using Alfresco Content Services 7.4.x, use the `tsgrp-opencontent-3.5.1-for-acs7.4.amp`.
 
 3. (Pnp ONLY) This step is only required if installing the Policy and Procedure Content Accelerator solution:
 
