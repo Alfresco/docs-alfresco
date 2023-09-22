@@ -190,73 +190,30 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 
 
 
-# APS DocuSign Connector Service
 
-## Overview
 
-The DocuSign connector is designed to provide a standard mechanism in APS to send documents for digital signing in
-[DocuSign](https://www.docusign.com).
 
-## Installation
 
-The APS connector is a Spring Boot application which is expected to be included as a separate service as part of an APS deployment.
 
-## Configuration
 
-The connector has to be configured in the `application.properties` file of the Spring Boot application. By default, these properties are set to environment variables.
 
-The connector also requires a DocuSign account and App to be configured. The DocuSign demo environment [(Developer Centre)](https://appdemo.docusign.com) can be used for that.
 
-The following properties are needed to set up content service (Alfresco) connection:
 
-```
-alfresco.identity.service.grant-type=${CONTENT_GRANT_TYPE:client_credentials}
-alfresco.identity.service.resource=${CONTENT_CLIENT_ID:}
-alfresco.identity.service.credentials-secret=${CONTENT_CLIENT_SECRET:}
-alfresco.identity.service.auth-server-url=${ALFRESCO_IDENTITY_SERVICE_AUTH_SERVER_URL:https://identity.aps2demo.envalfresco.com/auth}
-alfresco.service.process.storage.url=${PROCESS_STORAGE_GATEWAY:https://gateway.aps2dev.envalfresco.com}
-alfresco.service.process.storage.path=${PROCESS_STORAGE_PATH:/docgen/process-storage}
-```
+The DocuSign connector provides a standard mechanism in Alfresco Process Automation to send documents for digital signing in
+[DocuSign](https://www.docusign.com){:target="_blank"}.
 
-The following properties are needed to configure the DocuSign REST API:
+The DocuSign connector is displayed on the process diagram as a pen.
 
-```
-# The DocuSign REST API location
-docusign.apilocation=${DOCUSIGN_APILOCATION:https://demo.docusign.net/restapi}
-# The DocuSign Account ID under which the app operates
-docusign.accountId=${DOCUSIGN_ACCOUNT_ID:}
-# The App Integration Key from DocuSign (Admin > Integrations > Apps & Keys)
-docusign.clientId=${DOCUSIGN_CLIENT_ID:}
-# The DocuSign User GUID whom the app impersonates (Admin > Users)
-docusign.impersonatedUserGuid=${DOCUSIGN_IMPERSONATED_USER_ID:}
-# The DocuSign OAuth server location
-docusign.authServer=${DOCUSIGN_AUTH_SERVER:account-d.docusign.com}
-# DocuSign JWT token lifetime
-docusign.jwtTokenExpirationInSeconds=${DOCUSIGN_JWT_LIFETIME:3600}
-# Private RSA key of the DocuSign App for JWT authentication (Admin > Integrations > Apps & Keys)
-docusign.privateKey=${DOCUSIGN_RSA_KEY:}
+> **Important**: The DocuSign connector requires a [DocuSign](https://www.docusign.com/){:target="_blank"} account to handle document signing. This account is separate to the Alfresco hosted environment and should be created and managed by customers.
 
-# DocuSign defaults
-# Default email subject (of email that DocuSign sends to signer)
-docusign.email.subject=${DOCUSIGN_DEFAULT_EMAIL_SUBJECT:Please sign this document}
-# DocuSign "Sign Here" box - an invisible tab label
-docusign.signhere.label=${DOCUSIGN_DEFAULT_SIGNHERE_LABEL:SignHereTab}
-# Default page in document where DocuSign "Sign Here" box should go
-docusign.signhere.page=${DOCUSIGN_DEFAULT_SIGNHERE_PAGE:1}
-# Default X position in page for "Sign Here"
-docusign.signhere.posx=${DOCUSIGN_DEFAULT_SIGNHERE_POSX:1}
-# Default Y position in page for "Sign Here"
-docusign.signhere.posy=${DOCUSIGN_DEFAULT_SIGNHERE_POSY:1}
-```
+The actions that can be executed using the DocuSign connector are:
 
-As the connector uses a stream mechanism to send/receive information between APS and the connector, the following properties are used to identify the connector actions:
+* [SEND_FOR_SIGNATURE](#send_for_signature)
+* [DOWNLOAD_DOCUMENT](#download_document)
 
-```
-spring.cloud.stream.bindings.sendForSignatureConsumer.destination=docusignconnector.SEND_FOR_SIGNATURE
-spring.cloud.stream.bindings.downloadDocumentConsumer.destination=${docusign.connector.name}.DOWNLOAD_DOCUMENT
-```
+As part of the BPMN definition process, any service task that is responsible for sending or downloading the document needs to set the `docusignconnector.SEND_FOR_SIGNATURE` or `docusignconnector.DOWNLOAD_DOCUMENT` properties as the value for its implementation attribute.
 
-The name of the channel requires to match the implementation value defined in the Service Task as part of the BPMN definition.
+The following input parameters must also be provided for the DocuSign API in the Service task depending on the implementation.
 
 ### BPMN Tasks Configuration
 
@@ -405,18 +362,3 @@ See the above page for detailed instructions how to configure an app in the Docu
    same user account can be used that was created in step 1 (or a new one can be created).
 
 Configuration for production is similar. See DocuSign documentation for details.
-
-## Testing
-
-- Deploy the Activiti and the connector following the documentation in https://activiti.gitbook.io/activiti-7-developers-guide/
-- Add the example process definition to an Activiti runtime bundle
-- Upload content to the Alfresco instance used by the connector. This can be of any type supported by DocuSign (e.g. PDF, Word etc).
-  See [DocuSign documentation for details](https://support.docusign.com/en/guides/ndse-user-guide-supported-file-formats)
-- Using an API client like Postman, set the function and payload variables as described above. Use your email for the `recipientEmail` and
-  the UUID of previously uploaded node for `nodeId`.
-- Start the process with the Activiti REST API `v1/process-instances` endpoint with `StartProcessPayload`
-- The service task will execute automatically
-- An email will be sent by DocuSign with a link to the document to be signed. Open it and sign it in DocuSign.
-- The service task will now automatically complete.
-- The result will be UUID of the node in Alfresco that now contains the signed document
-- The `getVarsTask` will be created if no error ocurred
