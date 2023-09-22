@@ -579,11 +579,11 @@ This section walks through how to install the web applications on Alfresco Tomca
 
    This war can be found in the `Web Applications` folder of the alfresco-content-accelerator-base-package zip.
 
-3. (Pnp ONLY) This step is only required if using the Policy and Procedure Content Accelerator solution:
+3. (Pnp and HR ONLY) This step is only required if using the Policy and Procedure Content Accelerator or HR Content Accelerator solution:
 
    Copy the `WizardAdmin.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
 
-   This war can be found in the `Web Applications` folder of the alfresco-content-accelerator-policy-and-procedure-accelerator zip.
+   You'll find this WAR file in the `Web Applications` folder of the `alfresco-content-accelerator-policy-and-procedure-accelerator` zip or `alfresco-content-accelerator-sehr-accelerator` zip.
 
 4. Configure Tomcat for shared classpath loader as well as encoded slashes:
 
