@@ -93,6 +93,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.6 | |
 | | |
 | **Applications** | |
+| Alfresco Digital Workspace 4.2 | |
 | Alfresco Digital Workspace 4.1 | |
 | Alfresco Digital Workspace 4.0 | |
 | Alfresco Mobile Workspace 1.6 | |
@@ -193,6 +194,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.6 | |
 | | |
 | **Applications** | |
+| Alfresco Digital Workspace 4.2 | |
 | Alfresco Digital Workspace 4.1 | |
 | Alfresco Digital Workspace 4.0 | |
 | Alfresco Mobile Workspace 1.6 | |
