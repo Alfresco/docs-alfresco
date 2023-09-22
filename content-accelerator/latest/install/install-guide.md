@@ -311,6 +311,7 @@ In this section we ensure that all components of the Content Accelerator are ins
    * If using Alfresco Content Services 7.1.x, use the `tsgrp-opencontent-3.5-for-acs7.1.amp`.
    * If using Alfresco Content Services 7.2.x, use the `tsgrp-opencontent-3.5-for-acs7.2.amp`.
    * If using Alfresco Content Services 7.3.x, use the `tsgrp-opencontent-3.5-for-acs7.3.amp`.
+   * If using Alfresco Content Services 7.4.x, use the `tsgrp-opencontent-3.5-for-acs7.4.amp`.
 
 3. (Pnp ONLY) This step is only required if installing the Policy and Procedure Content Accelerator solution:
 
@@ -705,4 +706,4 @@ This section walks through how to install the web applications on Alfresco Tomca
 
 7. (HR Tier-2 ONLY) This step is only required if you are installing the HR Tier-2 solution:
 
-   Follow the installation steps to configure Alfresco Governance Services for the [HR Tier-2 solution]({% link content-accelerator/latest/configure/hr-tier2.md %}).
+   Follow the installation steps to configure Alfresco Governance Services for the [HR Tier-2 solution]({% link content-accelerator/latest/configure/hr-management.md %}).
