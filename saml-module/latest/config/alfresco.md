@@ -556,7 +556,7 @@ Use the following to authenticate a user via SAML:
 
     * Use the `alf_ticket` contained in the JSON file returned by the `/authenticate-response`. A desktop or mobile application that is running the SAML authentication in a webview can access the content of this webview and grab the `alf_ticket` from the JSON file. This can then be used to make requests, such as `curl https://localhost:8443/alfresco/api/-default-/public/alfresco/versions/1/sites?alf_ticket=TICKET_ed6db2aca17e94864799c9849780f66c0a738e9b`
 
-    * Use the authentication cookie. A web application has typically no access to the content of an iframe. So you are not able to read the `alf_ticket` from the `/authenticate-response`. However the repository has established a security context with the current session, which means you can start making requests such as `https://localhost:8443/alfresco/api/-default-/public/alfresco/versions/1/sites` in the same browser.dfg
+    * Use the authentication cookie. A web application has typically no access to the content of an iframe. So you are not able to read the `alf_ticket` from the `/authenticate-response`.
 
 To logout from using REST API, use the following `/logout-request`:
 
