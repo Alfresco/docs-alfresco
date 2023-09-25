@@ -71,7 +71,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.9 | |
 | Alfresco Desktop Sync 1.16 | |
 | Alfresco Desktop Sync 1.15 | |
-| Alfresco Transform Service 3.0 | |
+| Alfresco Transform Service 3.0 | Compatible with Java 17 only |
 | Alfresco Transform Service 2.1 | |
 | Alfresco Document Transformation Engine 2.4 | |
 | Alfresco Search Enterprise 3.3 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.x upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
@@ -174,7 +174,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.9 | |
 | Alfresco Desktop Sync 1.16 | |
 | Alfresco Desktop Sync 1.15 | |
-| Alfresco Transform Service 3.0 | |
+| Alfresco Transform Service 3.0 | Compatible with Java 17 only |
 | Alfresco Transform Service 2.1 | |
 | Alfresco Document Transformation Engine 2.4 | |
 | Alfresco Search Enterprise 3.3 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.x upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
