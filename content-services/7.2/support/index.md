@@ -97,6 +97,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for Azure 3.1 | |
 | Alfresco Content Connector for Azure 3.0 | |
 | Alfresco Content Connector for Salesforce 2.3.4 and later | |
+| Alfresco Content Connector for SAP applications 5.3 | |
 | Alfresco Content Connector for SAP applications 5.2 | |
 | Alfresco Content Connector for SAP applications 5.1.1 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
@@ -114,6 +115,10 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Digital Workspace 2.9 | |
 | Alfresco Digital Workspace 2.8 | |
 | Alfresco Digital Workspace 2.7 | |
+| Alfresco Control Center 7.5 | |
+| Alfresco Control Center 7.4 | |
+| Alfresco Control Center 7.3 | |
+| Alfresco Control Center 7.2 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Mobile Workspace 1.4 | |
 | Alfresco Content Accelerator (ACA) 3.4.5 | |
@@ -215,6 +220,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for Azure 3.1 | |
 | Alfresco Content Connector for Azure 3.0 | |
 | Alfresco Content Connector for Salesforce 2.3.4 and later | |
+| Alfresco Content Connector for SAP applications 5.3 | |
 | Alfresco Content Connector for SAP applications 5.2 | |
 | Alfresco Content Connector for SAP applications 5.1.1 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
@@ -232,6 +238,10 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Digital Workspace 2.9 | |
 | Alfresco Digital Workspace 2.8 | |
 | Alfresco Digital Workspace 2.7 | |
+| Alfresco Control Center 7.5 | |
+| Alfresco Control Center 7.4 | |
+| Alfresco Control Center 7.3 | |
+| Alfresco Control Center 7.2 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Mobile Workspace 1.4 | |
 | Alfresco Content Accelerator (ACA) 3.4.5 | |
