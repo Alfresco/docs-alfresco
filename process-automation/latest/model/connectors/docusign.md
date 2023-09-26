@@ -154,11 +154,9 @@ The basic steps to achieve this are:
 
 
 
-
-
-
-
-
+---
+title: DocuSign connector
+---
 
 The DocuSign connector provides a standard mechanism in Alfresco Process Automation to send documents for digital signing in
 [DocuSign](https://www.docusign.com){:target="_blank"}.
@@ -178,7 +176,7 @@ The following input parameters must also be provided for the DocuSign API in the
 
 ### BPMN Tasks Configuration
 
-The following [process definition](docuSignProcess.bpmn20.xml) was created to show an example of how to set up the connector in APS:
+This [process definition](docuSignProcess.bpmn20.xml) shows an example of how to set up the connector in APS:
 
 ![BPMN](docuSignProcess.png)
 
