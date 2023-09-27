@@ -9,8 +9,8 @@ There are a number of processes and procedures for maintaining and administering
 The Exact Term search feature that allows searching using the equals operator `=`, is disabled by default to save index space.
 It's possible to enable it for specific properties and property types using the `/alfresco/search/elasticsearch/config/exactTermSearch.properties` configuration file located in the Alfresco Repository.
 
-|Property|Description|
-|--------|-----------|
+| Property | Description |
+| -------- | ----------- |
 | alfresco.cross.locale.datatype.0 | A new cross locale field is added for any property of this data-type to enable exact term search. For example, {http://www.alfresco.org/model/dictionary/1.0}text. The Exact Term search is disabled by default. |
 | alfresco.cross.locale.property.0 | A new cross locale field is added for the property to enable exact term search. For example, {http://www.alfresco.org/model/content/1.0}content. The Exact Term search is disabled by default. |
 
@@ -33,6 +33,24 @@ services:
 ```
 
 > **Note:** Once complete you must perform a re-index. It is recommended you enable the exact term feature before you start creating an index.
+
+You can also add these environment variables directly to the Alfresco `JAVA_OPTS` section of your Docker compose file.
+
+```yml
+services:
+    alfresco:
+        image: quay.io/alfresco/alfresco-content-repository:7.4.0
+        mem_limit: 1900m
+        environment:
+            JAVA_TOOL_OPTIONS: -Dencryption.keystore.type=JCEKS -Dencryption.cipherAlgorithm=DESede/CBC/PKCS5Padding -Dencryption.keyAlgorithm=DESede -Dencryption.keystore.location=/usr/local/tomcat/shared/classes/alfresco/extension/keystore/keystore -Dmetadata-keystore.password=mp6yc0UD9e -Dmetadata-keystore.aliases=metadata -Dmetadata-keystore.metadata.password=oKIWzVdEdA -Dmetadata-keystore.metadata.algorithm=DESede
+            JAVA_OPTS: -Ddb.driver=org.postgresql.Driver
+                ...
+                -alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text
+                -alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content
+                -alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext
+                -alfresco.cross.locale.property.0={http://www.alfresco.org/model/content/1.0}content
+                ...
+```
 
 ### Mapping
 
