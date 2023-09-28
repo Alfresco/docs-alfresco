@@ -567,8 +567,9 @@ before continuing.
 4. Start the Shared File Store (SFS) controller:
 
     ```java
-    java -DfileStorePath="/path/to/your/AlfrescoFileStore" -Dscheduler.contract.path="/path/to/tempdir/scheduler.json"
-     -jar alfresco-shared-file-store-controller-2.1.x.jar
+    java -DfileStorePath="/path/to/your/AlfrescoFileStore" \
+       -Dscheduler.contract.path="/path/to/tempdir/scheduler.json" \
+       -jar alfresco-shared-file-store-controller-2.1.x.jar
     ```
 
     Check the output to ensure that it starts successfully.
@@ -590,7 +591,7 @@ before continuing.
        -DIMAGEMAGICK_DYN="<imagemagick_installation_dir>/lib" \
        -DIMAGEMAGICK_EXE="<imagemagick_installation_dir>/bin/convert" \
        -DACTIVEMQ_URL="failover:(tcp://<server>:61616)?timeout=3000" \
-       -DFILE_STORE_URL="http://<server>:8099/alfresco/api/-default-/private/sfs/versions/1/file"
+       -DFILE_STORE_URL="http://<server>:8099/alfresco/api/-default-/private/sfs/versions/1/file" \
        -jar alfresco-transform-core-aio-boot-4.0.x.jar
     ```
 
