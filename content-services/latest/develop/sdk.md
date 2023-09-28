@@ -666,7 +666,7 @@ Note that if you have another Alfresco SDK project running, then you need to sto
 
 ```bash
 $ cd my-platform-project/
-MBP512-MBERGLJUNG-0917:my-platform-project username$ ./run.sh build_start
+MBP512-USERNAME-0917:my-platform-project username$ ./run.sh build_start
 [INFO] Scanning for projects...
 [INFO] 
 [INFO] ------------------------------------------------------------------------
