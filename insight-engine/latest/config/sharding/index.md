@@ -222,8 +222,6 @@ where:
 
 `<CORE_NAME>` specifies the name of the core you are working with.
 
-`location` specifies the path where the backup will be created. If the path is not absolute then the backup path will be relative to Solr's instance directory.
-
 `numberToKeep` specifies the number of backups to keep.
 
 > **Note:** The `location` parameter used for previous versions is no longer accepted. To specify a backup folder, use the `solr.backup.dir` parameter in the `solrcore.properties` file .
