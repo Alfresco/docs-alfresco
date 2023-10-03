@@ -13,6 +13,7 @@ integrations:
     transform-service: "Transform Service"
     transformation-engine: "Document Transformation Engine"
     media-management: "Media Management"
+    search-enterprise: "Search Enterprise"
     insight-engine: "Search and Insight Engine"
     search-services: "Search Services"
     federation-services: "Federation Services"
@@ -25,7 +26,9 @@ integrations:
     centera: "Content Connector for EMC Centera"
     salesforce: "Content Connector for Salesforce"
     sap: "Content Connector for SAP"
+    sap-cloud: "Content Connector for SAP Cloud"
     microsoft-365: "Collaboration Connector for Microsoft 365"
+    microsoft-teams: "Collaboration Connector for Microsoft Teams"
     microsoft-outlook: "Outlook Integration"
     microsoft-office: "Office Services"
     google-drive: "Google Docs Integration"
@@ -34,4 +37,9 @@ applications:
   scopes:
     digital-workspace: "Digital Workspace"
     mobile-workspace: "Mobile Workspace"
-    content-mobile: "Content Services for Mobile"
+    content-accelerator: "Content Accelerator"
+    enterprise-viewer: "Enterprise Viewer"
+support:
+  title: "Support"
+  scopes:
+    support: "Support Handbook"

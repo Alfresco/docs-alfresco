@@ -446,7 +446,7 @@ In the `docker-compose` snippet, the custom AI configuration files must be mount
 
 ```yaml
 share:
-    image: quay.io/alfresco/alfresco-share-ai-transformers-module:1.3.0
+    image: quay.io/alfresco/alfresco-share-ai-transformers-module:1.5.x
     environment:
       REPO_HOST: "alfresco"
       REPO_PORT: "8080"
@@ -525,7 +525,7 @@ For more details on extending the features of Digital Workspace, see the Alfresc
 
 ```yaml
   digital-workspace:
-    image: quay.io/alfresco/alfresco-digital-workspace:2.1.0-adw
+    image: quay.io/alfresco/alfresco-digital-workspace:2.8
     environment:
       BASE_PATH: ./
       APP_CONFIG_PLUGIN_AI_SERVICE: "true"

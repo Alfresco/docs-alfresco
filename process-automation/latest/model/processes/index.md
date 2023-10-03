@@ -6,7 +6,7 @@ Processes are the collection of components that are used to build and represent 
 
 There are three concepts associated with modeling processes to understand and differentiate between:
 
-* **Diagrams** are the container that process definitions are modeled in. A process diagram can contain multiple process definitions when [pools]({% link process-automation/latest/model/processes/bpmn.md %}#pools-and-lanes) are used to separate them. Process diagrams are colour coded with the following definitions:
+* **Diagrams** are the container that process definitions are modeled in. A process diagram can contain multiple process definitions when [pools]({% link process-automation/latest/model/processes/bpmn.md %}#pools-and-lanes) are used to separate them. Process diagrams are color coded with the following definitions:
 
   * Blue indicates completed nodes
   * Green indicates current active nodes
@@ -32,7 +32,9 @@ To create a process:
 
     Alternatively use the **+** or **Upload** buttons next to **Processes** in the left-hand menu.
 
-4. Enter a name and optional description. By default the name will be shared between the diagram and process definition and the description will apply to the process definition.
+4. Enter a name, optional description, and optional process category.
+
+	By default the name will be shared between the diagram and process definition and the description will apply to the process definition. If you enter a process category the process will be added under the process category heading in the left pane, and if the process category does not already exist it will be created. If you do not enter a process category name it will appear under the uncategorized heading.
 
 ### Import a process from Process Services
 
@@ -44,7 +46,7 @@ The Process Service element types that are supported for import are:
 | --------------------- | ----------------------- | ----- |
 | Script task | [Script task]({% link process-automation/latest/model/processes/bpmn.md %}#script-task) | A script and a script task will be created for each script. {::nomarkdown}<ul><li>Only Javascript is supported.</li><li>Multi-instance is not supported.</li><li>Execution listeners removed.</li><li> Asynchronous option removed.</li><li>Exclusive option removed.</li><li>Is for compensation option removed.</li><li>A script task is created as a service task in Process Automation.</ul>{:/} |
 | User task | [User task]({% link process-automation/latest/model/processes/bpmn.md %}#user-task) | A user task will be created for each user task. {::nomarkdown}<ul><li>Forms are not supported.</li><li>Date format is a fixed date.</li><li>Due date is not supported.</li><li><code>Initiator</code> is set as the assignee in Process Automation.</li><li>Category option removed.</li><li>Exclusive option removed.</li><li>Allow email notifications option removed.</li><li>Email template option removed.</li><li>Task and execution listeners removed.</li><li>Asynchronous option removed.</li></ul>{:/} |
-| Mail task | [Email connector]({% link process-automation/latest/model/connectors/email.md %}) | An instance of the email connector is created and an email connector task is created for each mail task. {::nomarkdown}<ul><li>A single email connector instance is created for all mail tasks that are imported.</li><li>Some connector parameters are imported from Process Services, whilst others need to be set.</li><li>All parameters will need to be mapped between process variables.</li><li>Connector needs to be configured.</li><li>Multi-instance is not supported.</li><li>Execution listeners removed.</li><li> Asynchronous option removed.</li><li>Exclusive option removed.</li><li>Is for compensation option removed.</li><li>Any JSON templates will not be imported.</li></ul>{:/} |
+| Mail task | [Email service]({% link process-automation/latest/model/connectors/email.md %}) | An instance of the email service is created and an email service task is created for each mail task. {::nomarkdown}<ul><li>A single email service instance is created for all mail tasks that are imported.</li><li>Some connector parameters are imported from Process Services, whilst others need to be set.</li><li>All parameters will need to be mapped between process variables.</li><li>Connector needs to be configured.</li><li>Multi-instance is not supported.</li><li>Execution listeners removed.</li><li> Asynchronous option removed.</li><li>Exclusive option removed.</li><li>Is for compensation option removed.</li><li>Any JSON templates will not be imported.</li></ul>{:/} |
 | REST call task | [REST connector]({% link process-automation/latest/model/connectors/rest.md %}) | An instance of the REST connector is created and a REST connector task is created for each REST call task. {::nomarkdown}<ul><li>A single REST connector instance is created for all REST call tasks that are imported.</li><li>Some connector parameters are imported from Process Services, whilst others need to be set.</li><li>All parameters will need to be mapped between process variables.</li><li>Connector needs to be configured.</li><li>Multi-instance is not supported.</li><li>Execution listeners removed.</li><li> Asynchronous option removed.</li><li>Exclusive option removed.</li><li>Is for compensation option removed.</li></ul>{:/} |
 
 ## Diagrams
@@ -81,9 +83,10 @@ The properties for a process definition are:
 | Property | Description |
 | -------- | ----------- |
 | Process ID | *Required.* The unique identifier for a process definition. This is system generated and cannot be altered, for example `Process_1w18m9x`. |
-| Process definition name | *Required.* The name of the process definition. Process definition names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically, for example `request-process` |
+| Process definition name | *Required.* The name of the process definition. Process definition names must be between 1 and 26 characters in length, they can also contain spaces, numbers, and consist of lower and upper case letters, for example `Request Process`. |
 | Executable | *Required.* If set as `false` then the process definition will be deployed at runtime but it will not be possible to create any process instances using it. The default value is `true`. |
 | Documentation | *Optional.* A free text description of what the process definition does, for example `A process to request stock orders`. |
+| Process Category | *Optional.* Enter a free text description of your process categories. When creating a process you can either create a new process category or select one you have already created that appears in the dropdown list. When you use the **Diagram Editor** you can see the process category a process is assigned to under the Category property heading.  |
 
 ### Process definition XML
 
@@ -149,15 +152,15 @@ The data types that a process variable can be set as are:
 
 | Type | Description |
 | ---- | ----------- |
-| String | A sequence of characters, for example `#Mint-Ice-Cream-4!` |
-| Integer | A positive whole number, for example `642` |
-| Boolean | A value of either `true` or `false` |
-| Date | A specific date in the format `YYYY-MM-DD`, for example `2020-04-22` |
-| Datetime | A specific date and time in the format `YYYY-MM-DD HH:mm:ss`, for example `2020-09-10 22:30:00` |
-| File | A [file]({% link process-automation/latest/model/files.md %}) uploaded into a process definition or as part of a process instance or task |
-| JSON | A JSON object, for example `{"flavor" : "caramel"}` |
-| Folder | A folder object described as JSON, for example `"name": "mint-folder"` |
-| Array | A comma separated list of entries, for example `mint, strawberry, vanilla` that will be formatted to `["mint","strawberry","vanilla"]` |
+| String | A sequence of characters, for example `#Mint-Ice-Cream-4!`. |
+| Integer | A positive whole number, for example `642`. |
+| Boolean | A value of either `true` or `false`. |
+| Date | A specific date in the format `YYYY-MM-DD`, for example `2020-04-22`. You can also select `Today` from the Value column, which will take the form `${now()}` in the Expression column. |
+| Datetime | A specific date and time in the format `YYYY-MM-DD HH:mm:ss`, for example `2020-09-10 22:30:00`. |
+| File | A [file]({% link process-automation/latest/model/files.md %}) uploaded into a process definition or as part of a process instance or task. |
+| JSON | A JSON object, for example `{"flavor" : "caramel"}`. |
+| Folder | A folder object described as JSON, for example `"name": "mint-folder"`. |
+| Array | A comma separated list of entries, for example `mint, strawberry, vanilla` that will be formatted to `["mint","strawberry","vanilla"]`. |
 
 ### Create a process variable
 
@@ -170,7 +173,11 @@ To create a process variable:
     * If the diagram contains only one process definition, make sure no BPMN element is selected by clicking on a blank section of the canvas and the **Edit Process Variables** button will be visible in the right-hand properties panel.
     * If the diagram contains more than one process definition then click on the individual [pools]({% link process-automation/latest/model/processes/bpmn.md %}#pools-and-lanes) to view the **Edit Process Variables** button for each definition.
 
-3. Use the **+** symbol to add new variables and enter a name, type, optional value and select whether it is required or not.
+3. Use the **+** symbol to add new variables and enter a name, type, optional value, and select whether it is required or not.
+
+	If you want the variable to be available in the Processes, and Tasks lists of the Digital Workspace click **Yes** below **Available in the web application**, and enter a display name. Once added to the Digital workspace you can select the new column by accessing the three dots on the top right.
+
+	 ![Process variable digital workspace]({% link process-automation/images/process-variable-digital.png %})
 
 > **Note**: The details of any process variables can be viewed in the properties section of the [extensions editor](#extensions-editor), for example:
 
@@ -239,7 +246,7 @@ At runtime, the value for the process variable `Total` will be sent as the input
 
 **Map all input variables** will automatically map the values of process variables to values or variables within a model if their names are identical. Outputs are not mapped at all, so there will be no transfer of data from the model, back to process variables.
 
-For example, if **Map all input variables** is selected for an instance of the email connector, process variables named `to`, `subject` and `text` can be used to automatically set the values for the recipient, subject and message in the connector. No output variables are required to be sent back to the process as the execution of the email connector is always treated as successful.
+For example, if **Map all input variables** is selected for an instance of the email service, process variables named `to`, `subject` and `text` can be used to automatically set the values for the recipient, subject and message in the connector. No output variables are required to be sent back to the process as the execution of the email service is always treated as successful.
 
 {% endcapture %}
 {% capture outputs %}
@@ -283,6 +290,32 @@ Any mapping configured in a process is stored in the **Extensions Editor** using
 }
 ```
 
+### Capture assignee of completed task
+
+You can use output mapping and the `sys_task_assignee` pre-defined variable to capture the assignee of a completed task. This is helpful because you could use the assignee information in another process. For example, you could use this in a support context where whoever the assignee of a completed task is could be the contact person for the account for which the task was carried out.
+
+> **Note:** The `sys_task_assignee` variable is a system variable and cannot be edited.
+
+To create a process that captures the assignee of a completed task:
+
+1. Create a [form]({% link process-automation/latest/model/forms.md %}).
+
+2. Create a process that includes a [User task]({% link process-automation/latest/admin/monitor.md %}#user-tasks).
+
+3. From the **Properties** pane select the form you created from the **Form name** dropdown list.  
+
+4. From the **Mapping type** dropdown list select **Map variables**.
+
+5. Deselect the **User task** by clicking anywhere in the white space and then click **Edit Process Variables** from the right pane.
+
+6. Click the **+** icon and enter a name for the process variable in the **Name** field.
+
+7. From the **Type** dropdown list select **Primitives** then select **string** and then click **Update**.
+
+8. Select your **User task** again and from the `sys_task_assignee` dropdown menu under **Output mapping** select the process variable you have just created.
+
+You now have a process that captures the assigned user of a completed task.
+
 ## Errors
 
 Errors are used by error catching events and error throwing events to model business exceptions using [BPMN elements]({% link process-automation/latest/model/processes/bpmn.md %}). They can be created and managed at the individual error event level, or at a diagram level. Unlike process variables, errors can be shared between process definitions in the same diagram.
@@ -314,3 +347,19 @@ The actions that can be run against a process are:
 | Validate | Run validation against the process. Any errors can be seen in the log history at the bottom of the Modeling Application and are flagged in a pop-up box. |
 | Save | Save any changes made on the process diagram. |
 | Delete | Delete the process diagram. |
+
+## Edit User Task Notifications
+
+Use the **Edit User Task Notification** window to edit the default email templates used for processes. You can configure the **From** and **Subject** fields for the selected user task so that at runtime they will send task email notifications that are not the default, to the assignee or candidate.
+
+The fields on the **Assignee** tab and **Candidate** tabs are:
+
+| Action | Description |
+| ------ | ----------- |
+| From | Enter an email address that the task will be sent from. |
+| Subject | Enter a message for the user that will recieve the notification. For example `The task ${taskName} awaits your response.` |
+| Email template | Select the email template you want to use. You can select from the, **Default email template**, **From file**, **From URL**, and **Create new email template**. |
+
+## Edit Process Permissions
+
+Use the **Edit Process Permissions** window to configure who can start a new process. The permission levels available are: **Everyone can start it**, **Nobody can start it**, or **Specific users/groups** can start it.

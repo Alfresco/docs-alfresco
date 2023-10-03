@@ -42,7 +42,7 @@ The `solrcore.properties` configuration file is the property configuration file 
 |alfresco.metadata.tracker.maxParallelism|Defines the number of threads used when indexing documents using the Metadata Tracker, for example `32`.|
 |alfresco.port|This property specifies the HTTP port for the instance that Solr should track and index, for example `8080`.|
 |alfresco.port.ssl|This property specifies the HTTPS port for the instance that Solr should track and index, for example `8443`.|
-|alfresco.secureComms|This property instructs Solr if it should talk over HTTP or HTTPS. Set to none if a plain HTTP connection should be used, for example `https`.|
+|alfresco.secureComms|This property enables Shared Secret authentication or mTLS authentication with HTTPS. Set to `secret` if a Shared Secret HTTP header should be used for authentication, for example `https`.|
 |alfresco.socketTimeout|This property specifies the amount of time Solr tracker will take to notice if the Alfresco Content Services web app shuts down first, if Alfresco Content Services and Solr are running on the same web application, for example `60000`.|
 |alfresco.stores|This property specifies the repository store that this core should index, for example `workspace://SpacesStore`.|
 |alfresco.threadDaemon|This property sets whether the threads run as daemon threads or not. If set to `false`, shut down is blocked else it is left unblocked, for example `true`.|
@@ -86,6 +86,7 @@ The `solrcore.properties` configuration file is the property configuration file 
 |solr.readerCache.initialSize|This property configures the Solr result cache, for example `1024`.|
 |solr.readerCache.size|This property configures the Solr result cache, for example `4096`.|
 |solr.request.content.compress|This property when set to `true` will compress the content that is sent back from the repository during system communication, for example `false`.|
+|solr.backup.dir| This property specifies the directory for backup files. If the path is not absolute then the backup path will be relative to Solr’s instance directory.|
 
 ## Full text search configuration properties
 

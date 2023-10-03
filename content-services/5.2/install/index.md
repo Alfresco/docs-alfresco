@@ -1862,7 +1862,7 @@ Use this method of installing if you've already installed a JRE, a supported dat
 
 The Alfresco Content Services Distribution file is a zip containing the required WAR files, in addition to the additional commands, and configuration files for a manual installation.
 
-1.  Browse to the [Support Portal](https://support.alfresco.com){:target="_blank"}.
+1.  Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 2.  Download the following file:
 
@@ -3148,7 +3148,7 @@ Before you start:
 
 The following instructions use `<Oracle_Home>` to refer to the Oracle home directory where WebLogic is installed on your system.
 
-1.  Browse to the [Support Portal](https://support.alfresco.com){:target="_blank"}.
+1.  Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 2.  Download and extract the Enterprise EAR file alfresco-content-services-ear-distribution-5.2.7.zip.
 
@@ -3566,7 +3566,7 @@ Use this information to install Alfresco Content Services on WebSphere 8.5.5.
 Before you start:
 
 -   These instructions are valid for installing on Linux (SUSE 11.3 and SUSE 12) and Windows 2008
--   See the [Support Portal](http://support.alfresco.com) for the currently required Service Pack to ensure that both the application server and JDK components are applied
+-   See [Hyland Community](https://community.hyland.com/) for the currently required Service Pack to ensure that both the application server and JDK components are applied
 -   Install IBM WebSphere 8.5.5
 
 1.  Download the Enterprise EAR file `alfresco-content-services-ear-distribution-5.2.7.zip` from the Support Portal and extract it to an empty directory.
@@ -4365,7 +4365,7 @@ If you wish to use a translation that is not supplied with Alfresco Content Serv
 
 If you installed Alfresco Content Services using one of the setup wizards, the default language packs are already installed. If you installed manually, you must install the supported language pack manually.
 
-1.  Browse to the TinyMCE website: [TinyMCE](http://tinymce.moxiecode.com/download_i18n.php).
+1.  Browse to the TinyMCE website: [TinyMCE](https://www.tiny.cloud/?ctrl=lang&act=download&pr_id=1){:target="_blank"}.
 
 2.  Download the required TinyMCE language pack.
 
@@ -5110,7 +5110,7 @@ These steps describe how to install the Centera Connector module to an instance 
 
 The Centera Connector is packaged as an Alfresco Module Package (AMP) file.
 
-1.  Browse to the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}.
+1.  Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 2.  Download the alfresco-centera-connector-2.1.1.amp file.
 
@@ -5447,7 +5447,7 @@ The following steps describe how to install the binaries required to set up and 
 
 The following describes how to install the Kofax Integration AMP file on your Alfresco Content Services server.
 
-1.  Browse to the [Support Portal](https://support.alfresco.com){:target="_blank"}.
+1.  Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 2.  Download the `alfresco-kofax-integration-2.0.0-13.zip` file.
 
@@ -5820,30 +5820,16 @@ For more information about installing and configuring Alfresco Outlook Integrati
 
 Use this information to install and configure the Document Transformation Engine.
 
--   **[Document Transformation Engine overview](#document-transformation-engine-overview)**  
-The Document Transformation Engine is a stable, fast, and scalable solution for high-quality transformations of Microsoft Office documents. It is an enterprise alternative to LibreOffice.
--   **[Document Transformation Engine setup](#document-transformation-engine-setup)**  
-The Document Transformation Engine consists of two software modules: the standalone Document Transformation Engine and the Alfresco Transformation client.
--   **[Installing the Document Transformation Engine](#installing-the-document-transformation-engine)**  
-Use this information to install all the components required for the Document Transformation Engine.
--   **[Configuring the Document Transformation Engine](#configuring-the-document-transformation-engine)**  
-Configuring the Document Transformation Engine consists of two parts: configuring the standalone Transformation Engine using the Web Console, and configuring the Alfresco Transformation client using a properties file or JMX.
--   **[Using the Document Transformation Engine](#using-the-document-transformation-engine)**  
-The Document Transformation Engine is used when you upload files to Alfresco Content Services, and you can see results in the Alfresco Share preview.
--   **[Integrating with monitoring tools](#integrating-with-monitoring-tools)**  
-You can integrate the Document Transformation Engine with monitoring tools; for example, Nagios or Hyperic, by using HTTP REST calls.
-
-
 
 #### Document Transformation Engine overview {#document-transformation-engine-overview}
 
-The Document Transformation Engine is a stable, fast, and scalable solution for high-quality transformations of Microsoft Office documents. It is an enterprise alternative to LibreOffice.
+The Document Transformation Engine is a stable, fast, and scalable solution for high-quality transformations of Microsoft Office documents (Word, Excel, and PowerPoint only) to PDF. It is an enterprise alternative to LibreOffice.
 
 The engine features an open architecture, and it offers the following features:
 
 -   **High quality**
 
-    The Document Transformation Engine uses genuine Microsoft Office software to transform MS Word, Excel, and PowerPoint documents to PDF. This guarantees the handling of all Office files and pixel-perfect transformations, and it corrects previous layout issues in the Share preview feature.
+    The Document Transformation Engine uses genuine Microsoft Office software to transform Word, Excel, and PowerPoint documents to PDF. This guarantees the handling of the supported file types and pixel-perfect transformations, and it corrects previous layout issues in the Share preview feature.
 
     The Document Transformation Engine can also be used to convert emails to PDFs. This is a useful feature in conjunction with the Outlook Plugin.
 
@@ -5876,13 +5862,6 @@ The Document Transformation Engine is sold as an Alfresco Content Services modul
 **Disc I/O bandwidth**
 
 Microsoft Office transformations are I/O-heavy, and so on some solutions, I/O contention can be a performance bottleneck. When multiple Word conversions occur in parallel, performance can suffer heavily from poor random read and write speeds.
-
-Using an Amazon EC2 instance c3.2xlarge, the I/O metrics are as follows:
-
--   sequential read speed: 131 MB/s
--   sequential write speed: 83 MB/s
--   random qd32 read speed: 10,4 MB/s
--   random qd32 write speed: 3,8 MB/s
 
 -   **[Standalone Document Transformation Engine prerequisites](#standalone-document-transformation-engine-prerequisites)**  
 The standalone Document Transformation Engine requires prerequisite software components to be installed and available on the same machine.
@@ -6011,7 +5990,7 @@ Before you start, make sure that you verify that:
 
 -   Your Alfresco Content Services server is correctly configured and tested
 -   You have the correct Document Transformation Engine ZIP file for the version of Alfresco Content Services that you are running
--   You have an updated license file (a `*.lic` file). You can request a license from the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}
+-   You have an updated license file (a `*.lic` file). You can request a license from [Hyland Community](https://community.hyland.com/){:target="_blank"}
 
 1.  Stop the Alfresco Content Services server.
 
@@ -6072,8 +6051,6 @@ Use this information to install the Document Transformation Engine SDK.
         -   OCR
         -   Resizing an image, which is necessary to produce thumbnails
         -   PDF/A as a target format
-    > **Note:** The Document Transformation Engine SDK source code is available on request. Contact [Customer Support](https://support.alfresco.com){:target="_blank"} for the SDK source code.
-
 
 
 ##### Installing GhostScript and pdf2swf {#installing-ghostscript-and-pdf2swf}
@@ -7052,7 +7029,7 @@ Google Docs restricts the formats of files or documents that can be uploaded or 
 
 Google Docs Integration is installed by default when you install Alfresco Content Services using the setup wizards. If you are installing manually, use these steps to install Google Docs Integration.
 
-1.  Browse to the [Support Portal](https://support.alfresco.com){:target="_blank"}, and download the following files:
+1.  Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"}, and download the following files:
 
     |alfresco-googledocs-repo-3.0.4.x-ent.amp|This AMP contains the Google Docs functionality that is applied to the core repository. The AMP should be applied to the `tomcat/webapps/alfresco` directory.|
     |alfresco-googledocs-share-3.0.4.x-ent.amp|This AMP file contains the additional Google Docs functionality that is applied to an existing Alfresco Share user interface. The AMP should be applied to the `tomcat/webapps/share` directory.|

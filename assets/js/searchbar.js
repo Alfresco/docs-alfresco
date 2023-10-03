@@ -134,7 +134,7 @@ const autocompleteInput = (idInput, idMenu, idClear, onChanged) => {
           optionsContainer.appendChild(n);
         });
 
-      // check dropdownIndex on out of bounds and fix if neeeded
+      // check dropdownIndex on out of bounds and fix if needed
       if (dropdownIndex >= result.length + specialItems.length) {
         dropdownIndex = result.length + specialItems.length - 1;
       }

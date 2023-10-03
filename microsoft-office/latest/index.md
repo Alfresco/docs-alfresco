@@ -1,5 +1,5 @@
 ---
-title: Alfresco Office Services 1.4
+title: Alfresco Office Services
 ---
 
 Alfresco Office Services (AOS) allows you to access Alfresco directly from your Microsoft Office applications.
@@ -23,16 +23,18 @@ AOS replaces and enhances the Microsoft SharePoint Protocol Support that was ava
 There are some dependencies that you might encounter when using Alfresco Office Services (AOS).
 
 * AOS relies on SSL to allow communication with the repository:
-  * You must activate SSL when using Alfresco Office Services 1.4. For more information, see [Configuring SSL]({% link content-services/latest/config/repository.md %}).
-     If you are using a proxy server to handle SSL, make sure that the proxy is not filtering requests to Alfresco. For more information on proxy SSL configurations, see [Configuring SSL in a production environment]({% link content-services/latest/config/repository.md %}#ssl-prod).
+  * You must activate SSL when using Alfresco Office Services. For more information, see [Configuring SSL]({% link content-services/latest/config/repository.md %}).
+
+    If you are using a proxy server to handle SSL, make sure that the proxy is not filtering requests to Alfresco. For more information on proxy SSL configurations, see [Configuring SSL in a production environment]({% link content-services/latest/config/repository.md %}#ssl-prod).
+
   * There are some limitations when using the Alfresco `external` authentication subsystem. External authentication can work well when using a web browser client, but not when using the MS Office client. This is because no authentication information is sent with the file URL, and MS Office does not store authentication information, so starts a new authentication process. An example of this is when using CAS. CAS authenticates using an HTML form and a web browser that follows an HTTP redirect. The web authentication works correctly, but MS Office authentication will not work because it does not permit completion of the form. This problem is caused by the limited set of authentication protocols that MS Office supports.
 
     MS Office supports the following authentication mechanisms:
 
-        * HTTP Basic
-        * HTTP Digest (NTLM, Kerberos)
+    * HTTP Basic
+    * HTTP Digest (NTLM, Kerberos)
 
-        NTLM and Kerberos can be used in an SSO environment.
+    NTLM and Kerberos can be used in an SSO environment.
 
   * There is limited support for AOS with Microsoft Office for Mac. It is a known problem that there is no property mapping function in Microsoft Office for Mac.
 * AOS is installed by default during the standard Alfresco installation:
@@ -41,9 +43,9 @@ There are some dependencies that you might encounter when using Alfresco Office 
 * AOS interacts very closely with Microsoft Office, and there are some implications as a result:
   * Alfresco simulates a SharePoint Site in the `/alfresco/aos` directory and uses the child folder to represent the SharePoint document library. As a result, Office does not check out documents in the repository root; that is, if your document is located in `/alfresco/aos`. Make sure that you add a child folder in the `/alfresco/aos` directory and place documents there. For example:
 
-        ```bash
-        http://localhost:8080/alfresco/aos/documents/doc1.docx
-        ```
+    ```bash
+    http://localhost:8080/alfresco/aos/documents/doc1.docx
+    ```
 
 * Alfresco and Office handle property mapping and time values differently:
   * Alfresco and Microsoft use different mechanisms to calculate Daylight Saving Time (DST). In Alfresco, DST is applied to dates; for example, a time in August is displayed in DST, but a time in November is displayed without DST. Microsoft applies DST to all dates depending on the current date. For example, if today is in August, the time values of all dates are displayed in DST, even a time in November. This means that if you are looking at a date six months away, there is a one-hour difference between the time value displayed by Alfresco and the time displayed in Microsoft Office. This mechanism is used across Microsoft products; for example, the same behavior is visible in the last modified timestamp in Windows Explorer.

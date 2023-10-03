@@ -16,6 +16,8 @@ When FTS is embedded in CMIS-SQL, only the CMIS-SQL-style property identifiers (
 
 When FTS is used standalone, fields can also be identified using `prefix:local-name` and `{uri}local-name` styles.
 
+## Query time boosts
+
 Query time boosts allow matches on certain parts of the query to influence the score more than others.
 
 All query elements can be boosted: terms, phrases, exact terms, expanded terms, proximity (only in filed groups), ranges, and groups.
@@ -145,7 +147,7 @@ Property fields evaluate the search term against a particular property, special 
 |Type|Description|
 |-----------|----|
 |Property|Fully qualified property, for example `{http://www.alfresco.org/model/content/1.0}name:apple`|
-|Poroperty|Fully qualified property, for example `@{http://www.alfresco.org/model/content/1.0}name:apple`|
+|Property|Fully qualified property, for example `@{http://www.alfresco.org/model/content/1.0}name:apple`|
 |Property|CMIS style property, for example `cm_name:apple`.|
 |Property|Prefix style property, for example `cm:name:apple`.|
 |Property|Prefix style property, for example `@cm:name:apple`.|
@@ -170,6 +172,25 @@ Property fields evaluate the search term against a particular property, special 
 |Special|TAG. TAG: "name of the tag" **Note:** `TAG` must be in upper case.|
 |Fully qualified data type|Data Type, `http://www.alfresco.org/model/dictionary/1.0}content:apple`|
 |prefixed data type|Data Type, d:content:apple|
+
+## Search in multi-value fields
+
+When you search in multi-value fields there are additional options available than for [Search in fields](#search-in-fields). To search in multi-value fields your properties must have `Multiple` values enabled, for more see [Create a property
+]({% link content-services/latest/config/models.md %}#create-a-property).
+
+The following example queries are executed using a sample multi-valued property `"mul:os"` that stores values `"MacOS"` and `"Linux"`.
+
+`mul:os:"MacOS"`
+
+Returns the document because `"MacOS"` is one of the values of the property.
+
+`mul:os:("MacOS" AND "Windows")`
+
+Does not return a document because the property doesn't contain the value `"Windows"`.
+
+`mul:os:("MacOS" OR "Windows")`
+
+Returns the document because `"MacOS"` is one of the values of the property, even though `"Windows"` is not.
 
 ## Mixed FTS ID behavior
 
@@ -325,30 +346,30 @@ OR
 
 |AND (no prefix is the same as +)|Description|
 |----------------------------------|-----------|
-|big AND dog|big and dog must occur|
-|+big AND +dog|big and dog must occur|
-|big AND +dog|big and dog must occur|
-|+big AND dog|big and dog must occur|
-|big AND dog|big must occur and dog should occur|
-|big AND dog|big should occur and dog must occur|
-|big AND dog|both big and dog should occur, and at least one must match|
-|big AND -dog|big must occur and dog must not occur|
-|-big AND dog|big must not occur and dog must occur|
-|-big AND -dog|both big and dog must not occur|
-|big AND -dog|big should occur and dog must not occur|
+|`big AND dog`|big and dog must occur|
+|`+big AND +dog`|big and dog must occur|
+|`big AND +dog`|big and dog must occur|
+|`+big AND dog`|big and dog must occur|
+|`big AND \|dog`|big must occur and dog should occur|
+|`\|big AND dog`|big should occur and dog must occur|
+|`\|big AND \|dog`|both big and dog should occur, and at least one must match|
+|`big AND -dog`|big must occur and dog must not occur|
+|`-big AND dog`|big must not occur and dog must occur|
+|`-big AND -dog`|both big and dog must not occur|
+|`\|big AND -dog`|big should occur and dog must not occur|
 
 |OR (no prefix is the same as +)|Description|
 |---------------------------------|-----------|
-|dog OR wolf|dog and wolf should occur, and at least one must match|
-|+dog OR +wolf|dog and wolf should occur, and at least one must match|
-|dog OR +wolf|dog and wolf should occur, and at least one must match|
-|+dog OR wolf|dog and wolf should occur, and at least one must match|
-|dog OR wolf|dog and wolf should occur, and at least one must match|
-|dog OR wolf|dog and wolf should occur, and at least one must match|
-|dog OR wolf|dog and wolf should occur, and at least one must match|
-|dog OR -wolf|dog should occur and wolf should not occur, one of the clauses must be valid for any result|
-|-dog OR wolf|dog should not occur and wolf should occur, one of the clauses must be valid for any result|
-|-dog OR -wolf|dog and wolf should not occur, one of the clauses must be valid for any result|
+|`dog OR wolf`|dog and wolf should occur, and at least one must match|
+|`+dog OR +wolf`|dog and wolf should occur, and at least one must match|
+|`dog OR +wolf`|dog and wolf should occur, and at least one must match|
+|`+dog OR wolf`|dog and wolf should occur, and at least one must match|
+|`dog OR \|wolf`|dog and wolf should occur, and at least one must match|
+|`\|dog OR wolf`|dog and wolf should occur, and at least one must match|
+|`\|dog OR \|wolf`|dog and wolf should occur, and at least one must match|
+|`dog OR -wolf`|dog should occur and wolf should not occur, one of the clauses must be valid for any result|
+|`-dog OR wolf`|dog should not occur and wolf should occur, one of the clauses must be valid for any result|
+|`-dog OR -wolf`|dog and wolf should not occur, one of the clauses must be valid for any result|
 
 ## Embed queries in CMIS
 
@@ -362,8 +383,8 @@ SELECT * FROM Document WHERE CONTAINS("zebra")
 SELECT * FROM Document WHERE CONTAINS("quick")
 
 - Alfresco extensions
-SELECT * FROM Document D WHERE CONTAINS(D, 'cmis:name:'Tutorial")
-SELECT cmis:name as BOO FROM Document D WHERE CONTAINS('BOO:'Tutorial")
+SELECT * FROM Document D WHERE CONTAINS(D, 'cmis:name:\'Tutorial\'')
+SELECT cmis:name as BOO FROM Document D WHERE CONTAINS('BOO:\'Tutorial\'')
 ```
 
 ## Search Service

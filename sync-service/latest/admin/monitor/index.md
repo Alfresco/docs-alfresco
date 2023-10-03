@@ -67,37 +67,53 @@ The output is something like:
 
 ```json
 {
-  "versionCheck" : {
-    "healthy" : true,
-    "message" : "3.2 (1077)"
- },
-   "eventsHealthCheck" : {
-    "healthy" : true,
-    "message" : "Ok"
- },
-   "minimumClientVersion" : {
-    "healthy" : true,
-    "message" : "1.0.1"
- },
-   "activeMQConnection" : {
-    "healthy" : true,
-    "message" : "ActiveMQ connection Ok"
- },
-   "deadlocks" : {
-    "healthy" : true
- },
-   "repositoryConnection" : {
-    "healthy" : true,
-    "message" : "Repository connection Ok"
- },
-   "databaseConnection" : {
-    "healthy" : true,
-    "message" : "Database connection Ok"
- },
-   "syncServiceIdCheck" : {
-    "healthy" : true,
-    "message" : "00f51927-12d5-4f1b-9979-287fa6fe2771"
- }
+  "activeMQConnection": {
+    "healthy": true,
+    "message": "ActiveMQ connection Ok",
+    "duration": 0,
+    "timestamp": "2023-06-27T13:42:12.250Z"
+  },
+  "databaseConnection": {
+    "healthy": true,
+    "message": "Database connection Ok",
+    "duration": 0,
+    "timestamp": "2023-06-27T13:42:12.250Z"
+  },
+  "deadlocks": {
+    "healthy": true,
+    "duration": 3,
+    "timestamp": "2023-06-27T13:42:12.454Z"
+  },
+  "eventsHealthCheck": {
+    "healthy": true,
+    "message": "Ok",
+    "duration": 4,
+    "timestamp": "2023-06-27T13:42:12.450Z"
+  },
+  "minimumClientVersion": {
+    "healthy": true,
+    "message": "1.0.1",
+    "duration": 0,
+    "timestamp": "2023-06-27T13:42:12.250Z"
+  },
+  "repositoryConnection": {
+    "healthy": true,
+    "message": "Repository connection Ok",
+    "duration": 194,
+    "timestamp": "2023-06-27T13:42:12.445Z"
+  },
+  "syncServiceIdCheck": {
+    "healthy": true,
+    "message": "0abd879e-bdc0-30be-8622-86e3f71f59a6",
+    "duration": 7,
+    "timestamp": "2023-06-27T13:42:12.250Z"
+  },
+  "versionCheck": {
+    "healthy": true,
+    "message": "    3.10.0 (2023-04-28T12:18:27Z)",
+    "duration": 0,
+    "timestamp": "2023-06-27T13:42:12.250Z"
+  }
 }
 ```
 
@@ -105,7 +121,7 @@ This table describes each part of the health check.
 
 | Elements | Description |
 | -------- | ----------- |
-| "eventsHealthCheck" : { "healthy" : true, "message" : "Ok" }, | This specifies the health of the repository event tracking mechanism. It relies on the `nodeEventLag.99thPercentile` metric. This defines the time taken for events sent by the repository to be consumed by the Sync Service. It returns `false` if `nodeEventLag.99thPercentile/``1000000000` \> `sync.health.events.eventLagTolerance` (default value is 5000ms). If `false` this could mean that is flooded with more events than the Sync Service can consume. It may take more than 5s for an event to travel from Alfresco Content Services to Sync Service (via ActiveMQ). Also check, for clues in the Sync Service logs, to see if it's unable to consume specific events. This makes ActiveMQ retry delivery, hence the increased `nodeEventLag`. |
+| "eventsHealthCheck" : { "healthy" : true, "message" : "Ok" }, | This specifies the health of the repository events tracking mechanism. It relies on the `nodeEventLag.99thPercentile` metric. This defines the time taken for events sent by the repository to be consumed by the Sync Service. It returns `false` if `nodeEventLag.99thPercentile/1000000000` > `sync.health.events.eventLagTolerance` (default value is 5000ms). If `false` this could mean that it's flooded with more events than the Sync Service can consume. It may take more than 5 seconds for an event to travel from Alfresco Content Services to Sync Service (via ActiveMQ). Also, check for clues in the Sync Service logs to see if it's unable to consume specific events. This makes ActiveMQ retry delivery, hence the increased `nodeEventLag`. |
 | "activeMQConnection" : { "healthy" : true, "message" : "ActiveMQ connection Ok" }, | This specifies that the connection to ActiveMQ is healthy. |
 | "repositoryConnection" : { "healthy" : true,         "message" : "Repository connection Ok" }, | This specifies that the Sync Service can connect to Alfresco, for example, hostname and port in config.yml. |
 | "databaseConnection" : { "healthy" : true, "message" : "Database connection Ok" }, | This specifies that the Sync Service is connected to the database and making successful SQL calls. |

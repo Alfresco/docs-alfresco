@@ -297,7 +297,7 @@ The current certificate used by the Content Services webserver must be known (an
 
 > **Important:** The Content Services webserver must be up and running on a secure connection. This documentation does not cover the installation and configuration of the SSL connection on Content Services side. It only covers how to get the existing certificate.
 
-1. Open Content Services (either Alfresco Share or Alfresco Digital Workspace login page) in a web-browser and view the details of the current certificate.
+1. Open Content Services (either the Alfresco Share or Alfresco Digital Workspace login page) in a web-browser and view the details of the current certificate.
 
     ![sap_inst_004_https_002_alf_certificate]({% link sap/images/sap_inst_004_https_002_alf_certificate.png %})
 
@@ -305,7 +305,7 @@ The current certificate used by the Content Services webserver must be known (an
 
     ![sap_inst_004_https_002_alf_certificate_export]({% link sap/images/sap_inst_004_https_002_alf_certificate_export.png %})
 
-3. Make sure to use `DER encoded binary X.509 (.CER)` as export format.
+3. Make sure you use `DER encoded binary X.509 (.CER)` as the export format.
 
     ![sap_inst_004_https_002_alf_certificate_export_format]({% link sap/images/sap_inst_004_https_002_alf_certificate_export_format.png %})
 
@@ -329,15 +329,15 @@ To prepare the SAP Content Repository to use a secure connection, follow these s
 
     2. Add the `SSL Port Number`.
 
-    3. Select choice `HTTPS possible` as value for **HTTPS on frontend**.
+    3. Select `HTTPS required` as a value for **HTTPS on frontend**.
 
-    4. Select choice `HTTPS required` as value for **HTTPs on backend**.
+    4. Select `HTTPS required` as a value for **HTTPs on backend**.
 
 4. Save the settings for the SAP Content Repository.
 
 ![sap_inst_004_https_001]({% link sap/images/sap_inst_004_https_001.png %})
 
-> **Note:** Make sure to remove the non-SSL Port Number, otherwise the connection will fail.
+> **Note:** Make sure you remove the non-SSL Port Number, otherwise the connection will fail.
 
 Import the certificate from Content Services to the Personal Security Environment (PSE) in SAP.
 
@@ -345,7 +345,7 @@ Import the certificate from Content Services to the Personal Security Environmen
 
 Import the certificate to the SAP Personal Security Environment.
 
-Make sure to have the certificate from Content Services webserver available.
+Make sure you have the certificate from Content Services webserver available.
 
 To import the certificate to the SAP {% include tooltip.html word="SAP_PSE" text="PSE" %} follow these steps:
 
@@ -421,12 +421,12 @@ The communication via HTTPS should work fine between the SAP system and Content 
 
 Encrypt all passwords used in the `alfresco-global.properties` by the SAP Connector instead of storing it as plain-text. Make sure the SAP Connector is configured properly and working as expected.
 
-1. Go to the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}.
+1. Go to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 2. Download the related JAR file:
 
     ```text
-    sap-content-connector-encryptor-1.0.jar
+    sap-content-connector-encryptor-1.1.jar
     ```
 
 3. Create a public key and private key:
@@ -434,7 +434,7 @@ Encrypt all passwords used in the `alfresco-global.properties` by the SAP Connec
     Navigate to the folder of the downloaded JAR and run the following command to create the key pair in the current path:
 
     ```bash
-    java –jar sap-content-connector-encryptor-1.0.jar init -path .
+    java –jar sap-content-connector-encryptor-1.1.jar init -path .
     ```
 
     Two files are created:
@@ -445,7 +445,7 @@ Encrypt all passwords used in the `alfresco-global.properties` by the SAP Connec
 4. Create an encrypted password:
 
     ```bash
-    java -jar sap-content-connector-encryptor-1.0.jar encrypt -password H3ll0W0rlD112! -publicKey ./sapContentConnectorPublicKey.pub
+    java -jar sap-content-connector-encryptor-1.1.jar encrypt -password H3ll0W0rlD112! -publicKey ./sapContentConnectorPublicKey.pub
     ```
 
     The encrypted password will be printed to the console, for example:

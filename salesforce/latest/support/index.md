@@ -2,11 +2,11 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for the Content Connector for Salesforce:
+The following are the supported platforms for the Content Connector for Salesforce 2.4:
 
 | Version | Notes |
 | ------- | ----- |
-| Content Services 7.0.x | |
-| Content Services 6.2.2 | |
-| Content Services 6.2.1 | |
-| Identity Service 1.3 or above | If using Single Sign On (SSO) |
+| Content Services 7.4.x | |
+| Identity Service 1.8 | If using Single Sign On (SSO) |
+
+> **Note:** Support for Salesforce Community is only available when using Alfresco Cloud (PaaS).

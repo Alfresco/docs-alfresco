@@ -1,50 +1,67 @@
 ---
-title: Form Processors
+title: Form Processors Extension Point
 ---
 
-Custom Form Processor implementations can be implemented and integrated via a small amount of Spring configuration. Typically you will do this to support a new "kind" of form.
+Custom Form Processor implementations can be implemented and integrated via a small amount of Spring configuration. 
+Typically you will do this to support a new "kind" of form.
 
-|Information|Form Processors|
-|-----------|---------------|
-|Support Status|[Full Support]({% link support/latest/policies/product-lifecycle.md %})|
-|Architecture Information|[Platform Architecture]({% link content-services/5.2/develop/software-architecture.md %}#platform-architecture)|
-|Description|A form processor is a component that lives on the server side (that is, in the alfresco.war) even though it has to do with the user interface. It is responsible for persisting submitted form data and for generating the form template that is the basis for the form view.
+Architecture Information: 
 
- The following figure illustrates:
+>**Note**: The form processor is implemented on the platform side but invoked from the UI side.
 
- ![]({% link content-services/images/dev-extensions-repo-form-processor-with-filters.png %})
+[Platform Architecture]({% link content-services/6.0/develop/software-architecture.md %}#platformarch)
+[Share Architecture]({% link content-services/6.0/develop/software-architecture.md %}#sharearchitecture)
 
- A form processor is associated with a specific item, such as a node, type, task, action etc. The item does not necessarily need to be persisted into the repository. For example, the repository action item is associated with a form processor that will execute the action when the persist method is called.
+## Description
 
- When the persist and generate methods are called via web scripts then these calls can be intercepted by so called [Form Filters]({% link content-services/5.2/develop/share-ext-points/form-processor-filters.md %}#form-processor-filters). These can be used to for example alter the form data before it is persisted, add a form field before form generation etc.
+A form processor is a component that lives on the server side (that is, in the `alfresco.war`) even though it has to do 
+with the user interface. It is responsible for persisting submitted form data and for generating the form template that 
+is the basis for the form view.
 
- Custom form processors can be implemented in Java with a small amount of Spring configuration. Typically you will do this to support a new type of item form. However, if you simply wish to add a few extra fields to a form, or want to support a new type of field, then you should probably consider using a [Form Filter]({% link content-services/5.2/develop/share-ext-points/form-processor-filters.md %}#form-processor-filters) or a Field Processor rather than implementing a new form processor.
+The following figure illustrates:
 
- Form processors have two primary functions:
+![dev-extensions-repo-form-processor-with-filters]({% link content-services/images/dev-extensions-repo-form-processor-with-filters.png %})
 
- -   To **generate a form** representing an item of a certain kind. This is implemented through the `generate(Item, List<String>, List<String>, Map<String, Object>)` method.
--   To **create or update an item** of a certain kind (for example, node, type, task) based on a form submission. This is implemented through the `persist(Item, FormData)` method.
+A form processor is associated with a specific item, such as a node, type, task, action etc. The item does not necessarily 
+need to be persisted into the repository. For example, the repository action item is associated with a form processor 
+that will execute the action when the persist method is called.
 
- The `org.alfresco.repo.forms.processor.FormProcessor` interface has two other methods that are required by the `org.alfresco.repo.forms.FormService`, which is used under the hood to get the form template and save the submitted form data:
+When the persist and generate methods are called via web scripts then these calls can be intercepted by so called 
+[Form Filters]({% link content-services/6.0/develop/share-ext-points/form-processor-filters.md %}). These can be used to for example alter the form data 
+before it is persisted, add a form field before form generation etc.
 
- -   The `isApplicable(Item)` method is used to determine whether a `FormProcessor` is able to generate a form template and persist form data for a given item.
--   The `isActive()` method is used to determine if a `FormProcessor` is currently active and available to generate or persist forms.
+Custom form processors can be implemented in Java with a small amount of Spring configuration. Typically you will do this 
+to support a new type of item form. However, if you simply wish to add a few extra fields to a form, or want to support a 
+new type of field, then you should probably consider using a [Form Filter]({% link content-services/6.0/develop/share-ext-points/form-processor-filters.md %}) 
+or a Field Processor rather than implementing a new form processor.
 
- Several extensible `FormProcessor` implementations are provided out-of-the-box and can be used as the basis for new custom form processor implementations:
+Form processors have two primary functions:
 
- -   `TaskFormProcessor` - extends `AbstractWorkflowFormProcessor`
--   `WorkflowFormProcessor` - extends `AbstractWorkflowFormProcessor`
--   `AbstractWorkflowFormProcessor` - extends `ContentModelFormProcessor`
--   `TypeFormProcessor` - extends `ContentModelFormProcessor`
--   `NodeFormProcessor` - extends `ContentModelFormProcessor`
--   `ContentModelFormProcessor` - extends `FilteredFormProcessor`
--   `ActionFormProcessor` - extends `FilteredFormProcessor`
--   `FilteredFormProcessor` - extends `AbstractFormProcessor`
--   `AbstractFormProcessor` - **note.** extending this form processor class does not give access to filters
+* To **generate a form** representing an item of a certain kind. This is implemented through the `generate(Item, List<String>, List<String>, Map<String, Object>)` method.
+* To **create or update an item** of a certain kind (for example, node, type, task) based on a form submission. This is implemented through the `persist(Item, FormData)` method.
 
- As an example of a custom form processor we will implement one that can handle forms that manage global [key-value attributes]({% link content-services/5.2/develop/api-reference.md %}#attributeservice). To represent an attribute item in the form processor we will use the following new class:
+The `org.alfresco.repo.forms.processor.FormProcessor` interface has two other methods that are required by the 
+`org.alfresco.repo.forms.FormService`, which is used under the hood to get the form template and save the submitted form data:
 
- ```
+* The `isApplicable(Item)` method is used to determine whether a `FormProcessor` is able to generate a form template and persist form data for a given item.
+* The `isActive()` method is used to determine if a `FormProcessor` is currently active and available to generate or persist forms.
+
+Several extensible `FormProcessor` implementations are provided out-of-the-box and can be used as the basis for new 
+custom form processor implementations:
+
+* `TaskFormProcessor` - extends `AbstractWorkflowFormProcessor`
+* `WorkflowFormProcessor` - extends `AbstractWorkflowFormProcessor`
+* `AbstractWorkflowFormProcessor` - extends `ContentModelFormProcessor`
+* `TypeFormProcessor` - extends `ContentModelFormProcessor`
+* `NodeFormProcessor` - extends `ContentModelFormProcessor`
+* `ContentModelFormProcessor` - extends `FilteredFormProcessor`
+* `ActionFormProcessor` - extends `FilteredFormProcessor`
+* `FilteredFormProcessor` - extends `AbstractFormProcessor`
+* `AbstractFormProcessor` - **note.** extending this form processor class does not give access to filters
+
+As an example of a custom form processor we will implement one that can handle forms that manage global key-value attributes. To represent an attribute item in the form processor we will use the following new class:
+
+```java
 public class AttributeItem {
     public static final String TYPE = "attribute";
 
@@ -66,9 +83,11 @@ public class AttributeItem {
 }
 ```
 
- This class can be used to store all three keys and the value. It also keeps a constant with the item type, which we have set up as "attribute". The item type is also known as the `itemKind` in the form processor world. Now when we got something representing the attribute item type we can define the new attribute form processor as follows:
+This class can be used to store all three keys and the value. It also keeps a constant with the item type, which we 
+have set up as "attribute". The item type is also known as the `itemKind` in the form processor world. Now when we got 
+something representing the attribute item type we can define the new attribute form processor as follows:
 
- ```
+```java
 import org.alfresco.repo.forms.*;
 import org.alfresco.repo.forms.processor.FilteredFormProcessor;
 import org.alfresco.repo.forms.processor.FormCreationData;
@@ -306,43 +325,49 @@ public class AttributeFormProcessor extends FilteredFormProcessor<AttributeItem,
         return Collections.emptyList();
     }
 }
+```
+
+The custom attribute form processor extends the out-of-the-box `FilteredFormProcessor`, which means that users of 
+the `AttributeFormProcessor` could extend it with more processing via custom filters.
+
+We then define four constants with the form field names that we will need, three keys and a value. These field names 
+need to match what we use in the form configuration in `share-config-custom.xml`:
+
+```xml
+<config>
+    <forms>
+        <form id="attributeForm">
+            <field-visibility>
+                <show id="attribute_key1"/>
+                <show id="attribute_key2"/>
+                <show id="attribute_key3"/>
+                <show id="attribute_value"/>
+            </field-visibility>
+            <appearance>
+                <field id="attribute_key1" label-id="alfresco.tutorials.doclib.action.createAttribute.form.field.key1"
+                       mandatory="true"/>
+                <field id="attribute_key2" label-id="alfresco.tutorials.doclib.action.createAttribute.form.field.key2"/>
+                <field id="attribute_key3" label-id="alfresco.tutorials.doclib.action.createAttribute.form.field.key3"/>
+                <field id="attribute_value" label-id="alfresco.tutorials.doclib.action.createAttribute.form.field.value" />
+            </appearance>
+        </form>
+    </forms>
+</config>
 
 ```
 
- The custom attribute form processor extends the out-of-the-box `FilteredFormProcessor`, which means that users of the `AttributeFormProcessor` could extend it with more processing via custom filters.
+This form configuration does not have an evaluator and condition so the form configuration will always be read and 
+available. Note the form id, which is set to `attributeForm`, and will be used when we POST a call to generate the 
+attribute form.
 
- We then define four constants with the form field names that we will need, three keys and a value. These field names need to match what we use in the form configuration in share-config-custom.xml:
+The significant methods in the custom form processor implementation starts with the `internalPersist` method that will 
+fish out the values for each field in the submitted form field data and then either create a new attribute or update an 
+existing attribute depending on if the key(s) exists or not.
 
- ```
-    <config>
-        <forms>
-            <form id="attributeForm">
-                <field-visibility>
-                    <show id="attribute_key1"/>
-                    <show id="attribute_key2"/>
-                    <show id="attribute_key3"/>
-                    <show id="attribute_value"/>
-                </field-visibility>
-                <appearance>
-                    <field id="attribute_key1" label-id="alfresco.tutorials.doclib.action.createAttribute.form.field.key1"
-                           mandatory="true"/>
-                    <field id="attribute_key2" label-id="alfresco.tutorials.doclib.action.createAttribute.form.field.key2"/>
-                    <field id="attribute_key3" label-id="alfresco.tutorials.doclib.action.createAttribute.form.field.key3"/>
-                    <field id="attribute_value" label-id="alfresco.tutorials.doclib.action.createAttribute.form.field.value" />
-                </appearance>
-            </form>
-        </forms>
-    </config>
+Then we have the `generateDefaultFields` method that will set up the four fields that we need. A custom field class 
+called `AttributeField` is used and it looks like this:
 
-```
-
- This form configuration does not have an evaluator and condition so the form configuration will always be read and available. Note the form id, which is set to `attributeForm`, and will be used when we POST a call to generate the attribute form.
-
- The significant methods in the custom form processor implementation starts with the `internalPersist` method that will fish out the values for each field in the submitted form field data and then either create a new attribute or update an existing attribute depending on if the key(s) exists or not.
-
- Then we have the `generateDefaultFields` method that will set up the four fields that we need. A custom field class called `AttributeField` is used and it looks like this:
-
- ```
+```java
 public class AttributeField implements Field {
     private FieldDefinition fieldDef;
     private String name;
@@ -382,11 +407,13 @@ public class AttributeField implements Field {
 }
 ```
 
- As a field definition we reuse the out-of-the-box `PropertyFieldDefinition`. The `generateDefaultFields` method is also where we would set default values for the fields if we would generate a form in `edit` or `view` mode.
+As a field definition we reuse the out-of-the-box `PropertyFieldDefinition`. The `generateDefaultFields` method is also 
+where we would set default values for the fields if we would generate a form in `edit` or `view` mode.
 
- When we are finished with the custom form processor it need to be registered with the forms system. This is done via a Spring bean definition as follows:
+When we are finished with the custom form processor it need to be registered with the forms system. This is done via a 
+Spring bean definition as follows:
 
- ```
+```xml
 <bean id="org.alfresco.tutorial.formprocessor.attributeFormProcessor"
 	  class="org.alfresco.tutorial.formprocessor.AttributeFormProcessor"
 	  init-method="register">
@@ -399,15 +426,18 @@ public class AttributeField implements Field {
 </bean>
 ```
 
- Note here the `init-method` is set to `register` and we inject the `processorRegistry` bean to get the custom processor properly registered. It will be active for any form generation requires with `itemKind` that matches the `matchPattern` "attribute".
+Note here the `init-method` is set to `register` and we inject the `processorRegistry` bean to get the custom processor 
+properly registered. It will be active for any form generation requires with `itemKind` that matches the `matchPattern` 
+"attribute".
 
- To kick off the attribute form a JavaScript based Document Library action will be used and it will look like this in Share:
+To kick off the attribute form a JavaScript based Document Library action will be used and it will look like this in Share:
 
- ![]({% link content-services/images/dev-extensions-repo-attribute-form-processor-create-form.png %})
+![dev-extensions-repo-attribute-form-processor-create-form]({% link content-services/images/dev-extensions-repo-attribute-form-processor-create-form.png %})
 
- When the "Create Attribute" action is clicked the form is displayed as above according to the form configuration. The JavaScript code that POST the call to generate the form looks like this:
+When the **Create Attribute** action is clicked the form is displayed as above according to the form configuration. 
+The JavaScript code that POST the call to generate the form looks like this:
 
- ```
+```javascript
 (function () {
     YAHOO.Bubbling.fire("registerAction",
         {
@@ -475,11 +505,12 @@ public class AttributeField implements Field {
 })();
 ```
 
- The **components/form** web script call has the important properties `itemKind` and `formId` that will get the `AttributeFormProcessor` invoked and the form configuration that we defined used.
+The **components/form** web script call has the important properties `itemKind` and `formId` that will get the 
+`AttributeFormProcessor` invoked and the form configuration that we defined used.
 
- The document library action that calls the JavaScript function above is defined like this in share-config-custom.xml:
+The document library action that calls the JavaScript function above is defined like this in `share-config-custom.xml`:
 
- ```
+```xml
 config evaluator="string-compare" condition="DocLibActions">
 <actions>
    <action id="alfresco.tutorials.doclib.action.createAttribute"
@@ -491,23 +522,29 @@ config evaluator="string-compare" condition="DocLibActions">
 </actions>
 ```
 
- Note the function parameter, which has to be set to the same name as actionName in the JavaScript code above.
+Note the function parameter, which has to be set to the same name as `actionName` in the JavaScript code above.
 
- For a full sample implementation of this `AttributeFormProcessor` see code links below.
+For a full sample implementation of this `AttributeFormProcessor` see code links below.
 
-|
-|Deployment - App Server|A custom form processor is implemented in Java, which is not suitable for manual installation into an Alfresco Content Services installation. Use a repository JAR project instead.|
-|[Deployment All-in-One SDK project]({% link content-services/5.2/develop/sdk.md %}#getting-started-with-alfresco-content-services-sdk-3).|-   aio/platform-jar/src/main/java/{custom package path} - Java form processor implementation, including supporting classes for field, item etc.
--   aio/platform-jar/src/main/resources/alfresco/module/platform-jar/context/service-context.xml - Form Processor Spring Bean definition
+## Deployment - App Server
 
- Note. invocation of a form processor is done from the Share side, see sample code links below.|
-|More Information|-   [Form Processor Filters]({% link content-services/5.2/develop/share-ext-points/form-processor-filters.md %}#form-processor-filters)
--   [Form Controls]({% link content-services/5.2/develop/share-ext-points/form-controls.md %}#form-controls)
--   [Forms]({% link content-services/5.2/develop/share-ext-points/share-config.md %}#share-forms)
+A custom form processor is implemented in Java, which is not suitable for manual installation into an Content Services 
+installation. Use a platform/repository JAR project instead.
 
-|
-|Sample Code|-   [Attribute Form Processor implementation.](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/custom-form-processor-repo)
--   [Share UI DocLib action implementation that displays form generated via the Attribute Form Processor.](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/custom-form-processor-share)
+## Deployment All-in-One SDK project
 
-|
+* `aio/platform-jar/src/main/java/{custom package path}` - Java form processor implementation, including supporting classes for field, item etc.
+* `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/context/service-context.xml` - Form Processor Spring Bean definition
 
+>**Note**. invocation of a form processor is done from the Share side, see sample code links below.
+
+## More Information
+
+* [Form Processor Filters]({% link content-services/6.0/develop/share-ext-points/form-processor-filters.md %})
+* [Form Controls]({% link content-services/6.0/develop/share-ext-points/form-controls.md %})
+* [Forms config]({% link content-services/6.0/develop/share-ext-points/share-config.md %}#shareformsconfig)
+
+## Sample Code
+
+* [Attribute Form Processor implementation.](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/custom-form-processor-repo){:target="_blank"}
+* [Share UI DocLib action implementation that displays form generated via the Attribute Form Processor.](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/custom-form-processor-share){:target="_blank"}

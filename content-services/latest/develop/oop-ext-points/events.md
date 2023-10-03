@@ -55,6 +55,8 @@ repo.event2.topic.endpoint=amqp:topic:alfresco.repo.event2
 
 Any custom configuration, to for example the default event filtering, can be done in `alfresco-global.properties`.
 
+It is possible to disable the events from being triggered and sent to ActiveMQ by setting `repo.event2.enabled=false`. This setting prevents any behaviors from being bound to the node creation/update/delete and permission changes.
+
 ### CloudEvent attributes
 Standard CloudEvent attributes in the context of Content Services events:
 

@@ -139,7 +139,7 @@ You can make basic configuration updates to customize Community Edition, or modi
 
   You can configure Community Edition for your specific environment by editing the `alfresco-global.properties` file.
 
-* [Configuring Alfresco Share]({% link content-services/community/develop/share-ext-points/index.md %})
+* [Configuring Alfresco Share]({% link content-services/latest/develop/share-ext-points/index.md %})
 
   A number of options are available to customize Share. To configure Share, use the configuration file, `share-config-custom.xml` .
 
@@ -211,7 +211,7 @@ The Spring bean definitions are within configuration files in the following dire
 
 The Activity Email Summary ignores certain activity types by default. Use this information to override the Spring bean definition to include these activity types.
 
-The Spring bean definition for the ActivitiesFeed subsystem is called `activities-feed-context.xml` and can be downloaded from the Alfresco SVN: [`activities-feed-context.xml`](https://github.com/Alfresco/alfresco-community-repo/blob/release/6.2.2/repository/src/main/resources/alfresco/subsystems/ActivitiesFeed/default/activities-feed-context.xml){:target="_blank"}.
+The Spring bean definition for the ActivitiesFeed subsystem is called `activities-feed-context.xml` and can be downloaded from the Alfresco SVN: [`activities-feed-context.xml`](https://github.com/Alfresco/alfresco-community-repo/blob/release/7.0.0/repository/src/main/resources/alfresco/subsystems/ActivitiesFeed/default/activities-feed-context.xml){:target="_blank"}.
 
 1. Download the file and save to the `<subsystems/ActivitiesFeed/default>` directory.
 
@@ -294,3 +294,7 @@ For example, if a core bean has four values, and you want to modify a single val
     ```
 
 4. Save the file.
+
+### Using mutual TLS
+
+Content Services can be configured using mutual TLS for zero-trust security. Please see [Mutual TLS]({% link content-services/latest/config/mtls.md %}) for more information in the Enterprise documentation.

@@ -10,7 +10,7 @@ Background information on the content store and content binary life cycle.
 
 A content store (`ContentStore`) or combinations of content stores can be used to control how and where the binary files are physically stored. Binary streams can be stored across a range of locations and can be encrypted/decrypted, as necessary. Also, fast versus slow storage options can be wired up together for efficient storage and access.
 
-Content Services supports a number of different content stores. These are the File content store (default content store), Content store selector, S3 content store, Caching content store, Aggregating content store, Encrypted content store, and Centera content store. For more information on each content store, see [Content store types](#cstypes).
+Content Services supports a number of different content stores. These are the File content store (default content store), Content store selector, S3 content store, Caching content store, Aggregating content store, and Encrypted content store. For more information on each content store, see [Content store types](#cstypes).
 
 Common behavior of different content stores:
 
@@ -429,7 +429,7 @@ Set these properties in the `alfresco-global.properties` file.
 | cryptodoc.jce.keystore.password | Specifies the keystore password, for example, `password`. |
 | cryptodoc.jce.key.aliases | Specifies a comma-separated list of the aliases/names of the master keys in the master keystore, for example, `mkey1,mkey2`. These are the aliases used with the keygen tool, for example, encstore. |
 | cryptodoc.jce.key.passwords | Specifies a comma-separated list of passwords used to load the keys from the master key store. The position of the password matches the position of the corresponding key alias in the `cryptodoc.jce.key.aliases` property. This password is used with the keytool command and can be different from the master password. For example, `password,password`. |
-| cryptodoc.jce.keygen.defaultSymmetricKeySize | Specifies the key size to use for the symmetric keys that are used to encrypt/decrypt document content.<br><br>**Note:** The default symmetric key size is 128 bits. Users who want better key strength should download and install the [Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files](http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html) for the JRE. |
+| cryptodoc.jce.keygen.defaultSymmetricKeySize | Specifies the key size to use for the symmetric keys that are used to encrypt/decrypt document content.<br><br>**Note:** The default symmetric key size is 128 bits. Users who want better key strength should download and install the [Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files](https://www.oracle.com/java/technologies/javase-jce7-downloads.html){:target="_blank"} for the JRE. |
 | cryptodoc.jce.keygen.defaultSymmetricAlgorithm | Specifies the symmetric key algorithm.<br><br>The following properties are used to re-encrypt symmetric keys (for master key revocation). |
 | cryptodoc.symmetricKey.reencryption.batch.size | Specifies the number of symmetric keys re-encrypted in each batch, for example, `200`. |
 | cryptodoc.symmetricKey.reencryption.numThreads | Specifies the number of threads to use to perform re-encryption, for example, `4`. |
@@ -526,10 +526,6 @@ The Encrypted content store subsystem does not support automatic expiry of the m
 
 The [Alfresco Content Connector for AWS S3]({% link aws-s3/latest/index.md %}) is an add-on module that provides an alternative content store. It uses Amazon's Simple Storage Service (S3) as the storage mechanism for Content Services, allowing for virtually unlimited and inexpensive storage.
 
-### Alfresco Content Connector for AWS Glacier
-
-The [Alfresco Content Connector for AWS Glacier]({% link aws-glacier/latest/index.md %}) is an add-on module that provides an alternative content store that's optimized for infrequently used data, and suits the long term storage of archive and backup data. It works in conjunction with Alfresco Content Connector for AWS S3 and enables access to Amazon S3 Glacier.
-
 ### Alfresco Content Connector for Azure
 
 The [Alfresco Content Connector for Azure]({% link microsoft-azure/latest/index.md %}) is an add-on module that provides an alternative content store. It uses Microsoft's Azure Blob Storage as the storage mechanism for Content Services, allowing for virtually unlimited and inexpensive storage.
@@ -537,22 +533,6 @@ The [Alfresco Content Connector for Azure]({% link microsoft-azure/latest/index.
 ### Alfresco Content Connector for SAP applications
 
 [Alfresco Content Connector for SAP applications]({% link sap/latest/index.md %}) is an add-on module that offers seamless integration between Content Services and SAP (R/3, S/4HANA). It connects the structured data in SAP with the unstructured data in Content Services.
-
-### Alfresco Content Connector for EMC Centera
-
-The [Alfresco Content Connector for EMC Centera]({% link centera/latest/index.md %}) module provides integration between Content Services and Content Addressable Storage (CAS) systems.
-
-CAS systems store and locate files using addresses based on the file's content, rather than a physical location address. CAS systems are typically used for long-term storage of content that does not require frequent access or where it is stored for regulatory purposes.
-
-When a CAS system stores content, it generates a unique key or hash, which is based on the content. The hash is generated from the content properties, such as the name, date, or content itself.
-
-An example hash might be `EQM2GC012MC77e72B24N2MMFU59G418ACSAIE70BAS340TN3E1JJL`. This hash is then used as the address of the stored content, and which is then used to retrieve the content. When a request is made to the CAS using this address, it returns the associated content.
-
-The benefits of using CAS systems are:
-
-* Content can be located easily even in large volumes of data
-* Content integrity: if stored content has been altered then there is a mismatch between the hash passed as the address and hash computed on the fly
-* Avoids redundancy by recognizing that the hash is already present and so does not store it again
 
 ## Content store selector {#cs-selector}
 
@@ -855,10 +835,11 @@ trashcan-cleaner.keepPeriod=P1D
 trashcan-cleaner.deleteBatchCount=1000
 ```
 
-To enable debug logging, set the `log4j.logger.org.alfresco.trashcan` property in the `log4j.properties` file:
+To enable debug logging, set the `logger.alfresco-trashcan.name` and `logger.alfresco-trashcan.level` properties in the `log4j2.properties` file:
 
 ```text
-log4j.logger.org.alfresco.trashcan=debug
+logger.alfresco-trashcan.name=org.alfresco.trashcan
+logger.alfresco-trashcan.level=debug
 ```
 
 The trashcan cleaner is a [Simple Module]({% link content-services/latest/develop/extension-packaging.md %}#simplemodule) which appears in the Admin Console under the Module Packages section.

@@ -4,52 +4,40 @@ title: Install using Docker Compose
 
 Use this information to quickly start up Community Edition using Docker Compose.
 
-> **Note:** While Docker Compose is often used for production deployments, the Docker Compose file provided here is recommended for development and test environments only. Customers are expected to adapt this file to their own requirements, if they intend to use Docker Compose to deploy a production environment.
+> **Note:** While Docker Compose is often used for production deployments, the Docker Compose file provided is recommended for development and test environments only. Customers are expected to adapt this file to their own requirements, if they intend to use Docker Compose to deploy a production environment.
 
 To deploy Community Edition using Docker Compose, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites]({% link content-services/community/install/containers/index.md %}#prerequisites) before continuing.
 
-1. Clone the project locally, change directory to the project folder, and switch to the release branch:
+1. Clone the project locally, and change directory to the project's `docker-compose` folder:
 
     ```bash
     git clone https://github.com/Alfresco/acs-deployment.git
-    cd acs-deployment
+    cd acs-deployment/docker-compose
     ```
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 
-2. Save the `docker-compose.yml` file in a local folder.
-
-    For example, you can create a folder `docker-compose`.
-
-3. Change directory to the location of your `docker-compose.yml` file.
-
-4. Deploy Community Edition, including the repository, Share, Postgres database, Search Services, etc.:
+2. Deploy Community Edition, including the repository, Share, Postgres database, Search Services, etc.:
 
     ```bash
-    docker-compose up
+    docker-compose -f community-docker-compose.yml up
     ```
 
     This downloads the images, fetches all the dependencies, creates each container, and then starts the system:
 
     ```text
     ...
-    Creating network "docker-compose_default" with the default driver
-    ...
-    Creating docker-compose_share_1 ...
-    Creating docker-compose_solr6_1 ...
-    Creating docker-compose_alfresco_1 ...
-    Creating docker-compose_postgres_1 ...
-    Creating docker-compose_transform-core-aio_1 ...
-    Creating docker-compose_activemq_1           ...
-    Creating docker-compose_alfresco_1           ... done
-    Creating docker-compose_share_1              ... done
-    Creating docker-compose_proxy_1              ...
-    Creating docker-compose_postgres_1           ... done
-    Creating docker-compose_solr6_1              ... done
-    Creating docker-compose_transform-core-aio_1 ... done
-    Creating docker-compose_activemq_1           ... done
-    Creating docker-compose_proxy_1              ... done
-    Attaching to docker-compose_alfresco_1, docker-compose_share_1, docker-compose_postgres_1, docker-compose_solr6_1, docker-compose_transform-core-aio_1, docker-compose_activemq_1, docker-compose_proxy_1
+    ⠿ Network docker-compose_default                 Created        ...        0.2s
+    ⠿ Container docker-compose-alfresco-1            Created        ...        1.7s
+    ⠿ Container docker-compose-postgres-1            Created        ...        1.8s
+    ⠿ Container docker-compose-share-1               Created        ...        1.7s
+    ⠿ Container docker-compose-activemq-1            Created        ...        1.8s
+    ⠿ Container docker-compose-transform-core-aio-1  Created        ...        1.7s
+    ⠿ Container docker-compose-solr6-1               Created        ...        1.8s
+    ⠿ Container docker-compose-content-app-1         Created        ...        1.7s
+    ⠿ Container docker-compose-proxy-1               Created        ...        0.1s
+    Attaching to docker-compose-activemq-1, docker-compose-alfresco-1, docker-compose-content-app-1, docker-compose-postgres-1, docker-compose-proxy-1, docker-compose-share-1, docker-compose-solr6-1, docker-compose-transform-core-aio-1
+    d
     ...
     ```
 
@@ -57,34 +45,31 @@ To deploy Community Edition using Docker Compose, download and install [Docker](
 
     As an alternative, you can also start the containers in the background by running `docker-compose up -d`.
 
-5. Wait for the logs to complete, showing messages:
+3. Wait for the logs to complete, showing messages:
 
     ```bash
     ...
-    alfresco_1 | 2021-03-18 15:57:50,740  INFO  ... Starting 'Transformers' subsystem, ID: [Transformers, default]
-    alfresco_1 | 2021-03-18 15:57:50,935  INFO  ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+    docker-compose-alfresco-1            | 2022-11-23 17:45:10,889  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-3] Starting 'Transformers' subsystem, ID: [Transformers, default]
+    docker-compose-alfresco-1            | 2022-11-23 17:45:11,234  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-3] Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
     ...
     ```
 
     See [Troubleshooting](#troubleshooting) if you encounter errors whilst the system is starting up.
 
-6. Open your browser and check everything starts up correctly:
+4. Open your browser and check everything starts up correctly:
 
     | Service | Endpoint |
     | ------- | -------- |
     | Administration and REST APIs | `http://localhost:8080/alfresco` |
     | Share | `http://localhost:8080/share` |
+    | Alfresco Content App | `http://localhost:8080/content-app` |
     | Search Services administration | `http://localhost:8083/solr` |
 
     If Docker is running on your local machine, the IP address will be just `localhost`.
 
-    If you're using the [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/){:target="_blank"}, run the following command to find the IP address:
+    If you're still using the [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/){:target="_blank"}, you'll need to switch to [Docker Desktop](https://docs.docker.com/install/){:target="_blank"} as Docker Toolbox is deprecated.
 
-    ```bash
-    docker-machine ip
-    ```
-
-7. Log in as the `admin` user. Enter the default administrator password `admin`.
+5. Log in as the `admin` user. Enter the default administrator password `admin`.
 
 ## Check system start up
 
@@ -105,15 +90,16 @@ Use this information to verify that the system started correctly, and to clean u
         You should see a list of the services defined in your `docker-compose.yaml` file:
 
         ```text
-                Container                           Repository                                 ...     Size
-        -----------------------------------------------------------------------------------------------------
-        docker-compose_activemq_1             alfresco/alfresco-activemq                       ...   716.3 MB
-        docker-compose_alfresco_1             alfresco/alfresco-content-repository-community   ...   1.272 GB
-        docker-compose_postgres_1             postgres                                         ...   314.2 MB
-        docker-compose_proxy_1                alfresco/alfresco-acs-nginx                      ...   21.86 MB
-        docker-compose_share_1                alfresco/alfresco-share                          ...   743.2 MB
-        docker-compose_solr6_1                alfresco/alfresco-search-services                ...   1.148 GB
-        docker-compose_transform-core-aio_1   alfresco/alfresco-transform-core-aio             ...   1.579 GB
+        Container                             Repository                                       Tag                        Image Id        Size  
+        ----------------------------------------------------------------------------------------------------------------------------------------
+        docker-compose-activemq-1             alfresco/alfresco-activemq                       5.17.1-jre11-rockylinux8   0cd1a9629a85    632MB
+        docker-compose-alfresco-1             alfresco/alfresco-content-repository-community   7.4.0.1                    f006ac55f158    1.04GB
+        docker-compose-content-app-1          alfresco/alfresco-content-app                    4.0.0                      8b5feed50498    83.6MB
+        docker-compose-postgres-1             postgres                                         14.4                       e09e90144645    376MB
+        docker-compose-proxy-1                alfresco/alfresco-acs-nginx                      3.4.2                      f9c4519b7920    23.4MB
+        docker-compose-share-1                alfresco/alfresco-share                          7.4.0.1                    c3dc5af44b20    738MB
+        docker-compose-solr6-1                alfresco/alfresco-search-services                2.0.7                      8c828de69496    791MB
+        docker-compose-transform-core-aio-1   alfresco/alfresco-transform-core-aio             3.1.0                      db73d71dc7d8    1.72GB
         ```
 
     2. List the running containers:
@@ -135,14 +121,14 @@ Use this information to verify that the system started correctly, and to clean u
 
         ```bash
         docker-compose logs share
-        docker container logs docker-compose_share_1
+        docker container logs docker-compose-share-1
         ```
 
         You can add an optional parameter `--tail=25` before `<container-name>` to display the last 25 lines of the logs for the selected container.
 
         ```bash
         docker-compose logs --tail=25 share
-        docker container logs --tail=25 docker-compose_share_1
+        docker container logs --tail=25 docker-compose-share-1
         ```
 
         Check for a success message:
@@ -157,13 +143,15 @@ Use this information to verify that the system started correctly, and to clean u
 
     ```text
     ^CGracefully stopping... (press Ctrl+C again to force)
-    Stopping docker-compose_proxy_1              ... done
-    Stopping docker-compose_alfresco_1           ... done
-    Stopping docker-compose_share_1              ... done
-    Stopping docker-compose_solr6_1              ... done
-    Stopping docker-compose_transform-core-aio_1 ... done
-    Stopping docker-compose_postgres_1           ... done
-    Stopping docker-compose_activemq_1           ... done
+    [+] Running 8/8
+     ⠿ Container docker-compose-transform-core-aio-1  Stopped    ...
+     ⠿ Container docker-compose-solr6-1               Stopped    ...
+     ⠿ Container docker-compose-postgres-1            Stopped    ...
+     ⠿ Container docker-compose-proxy-1               Stopped    ...
+     ⠿ Container docker-compose-activemq-1            Stopped    ...
+     ⠿ Container docker-compose-alfresco-1            Stopped    ...
+     ⠿ Container docker-compose-share-1               Stopped    ...
+     ⠿ Container docker-compose-content-app-1         Stopped    ...
     ```
 
 5. Alternatively, you can open a new terminal window, change directory to the `docker-compose` folder, and run:
@@ -175,17 +163,17 @@ Use this information to verify that the system started correctly, and to clean u
     This stops the running services, as shown in the previous example, and removes them from memory:
 
     ```text
-    Stopping docker-compose_proxy_1              ... done
-    Stopping docker-compose_alfresco_1           ... done
     ...
-    Removing docker-compose_proxy_1              ... done
-    Removing docker-compose_alfresco_1           ... done
-    Removing docker-compose_share_1              ... done
-    Removing docker-compose_solr6_1              ... done
-    Removing docker-compose_transform-core-aio_1 ... done
-    Removing docker-compose_postgres_1           ... done
-    Removing docker-compose_activemq_1           ... done
-    Removing network docker-compose_default
+    ⠿ Container docker-compose-transform-core-aio-1  Removed    ...
+    ⠿ Container docker-compose-solr6-1               Removed    ...
+    ⠿ Container docker-compose-postgres-1            Removed    ...
+    ⠿ Container docker-compose-proxy-1               Removed    ...
+    ⠿ Container docker-compose-activemq-1            Removed    ...
+    ⠿ Container docker-compose-alfresco-1            Removed    ...
+    ⠿ Container docker-compose-share-1               Removed    ...
+    ⠿ Container docker-compose-content-app-1         Removed    ...
+    ⠿ Network docker-compose_default                 Removed    ...
+    ...
     ```
 
 6. You can use a few more commands to explore the services when they're running. Change directory to `docker-compose` before running these:
@@ -211,19 +199,23 @@ Use this information to verify that the system started correctly, and to clean u
     4. Stop all running containers, and remove them and the network:
 
         ```bash
-        docker-compose down [--rmi all]
+        docker-compose down --rmi all
         ```
 
         The `--rmi all` option also removes the images created by `docker-compose up`, and the images used by any service. You can use this, for example, if any containers fail and you need to remove them:
 
         ```text
-        Stopping docker-compose_proxy_1
         ...
-        Removing docker-compose_proxy_1
+        ⠿ Container docker-compose-solr6-1                              Removed        ...        10.6s
+        ⠿ Container docker-compose-transform-core-aio-1                 Removed        ...        1.6s
+        ⠿ Container docker-compose-proxy-1                              Removed        ...        10.4s
+        ⠿ Container docker-compose-postgres-1                           Removed        ...         0.5s
+        ⠿ Container docker-compose-activemq-1                           Removed        ...        10.7s
+        ⠿ Container docker-compose-share-1                              Removed        ...        10.7s
+        ⠿ Container docker-compose-alfresco-1                           Removed        ...         1.3s
+        ⠿ Network docker-compose_default
+        ⠿ Image alfresco/alfresco-activemq:5.17.1-jre11-rockylinux8     Removed        ...
         ...
-        Removing network docker-compose_default
-        Removing image alfresco/alfresco-content-repository-community:7.0.0
-        Removing image ...
         ```
 
 See the [Docker documentation](https://docs.docker.com/){:target="_blank"} for more on using Docker.
@@ -238,7 +230,7 @@ See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment){:t
 
 Using the Community Compose file in this project deploys the following system:
 
-![Docker Compose - Community]({% link content-services/images/compose-community.png %}){:width="460" height="380px"}
+![Docker Compose - Community]({% link content-services/images/compose-community.png %}){:width="750" height="346px"}
 
 ## Cleanup
 
@@ -250,13 +242,13 @@ docker-compose down
 
 ## Troubleshooting
 
-1. If you have issues running ```docker-compose up``` after deleting a previous Docker Compose cluster, try replacing step 4 in the initial Docker Compose instructions with:
+1. If you have issues running `docker-compose up` after deleting a previous Docker Compose cluster, try replacing step 2 in the initial Docker Compose instructions with:
 
     ```bash
-    docker-compose down && docker-compose build --no-cache && docker-compose up
+    docker-compose down && docker-compose build --no-cache && docker-compose -f community-docker-compose.yml up
     ```
 
-    > **Note:** Make sure that the `docker-compose up` part of the command uses the format you chose in step 4.
+    > **Note:** Make sure that the `docker-compose up` part of the command uses the format you chose in step 2.
 
 2. Stop the session by using `CONTROL+C`.
 
@@ -270,6 +262,6 @@ docker-compose down
 
     For example, in Docker, change the memory setting in **Preferences** (or **Settings**) **Resources** > **Advanced** > **Memory** to at least 8GB. Make sure you restart Docker and wait for the process to finish before continuing.
 
-    Go back to step 4 in the initial Docker Compose instructions to start the deployment again.
+    Go back to step 2 in the initial Docker Compose instructions to start the deployment again.
 
-> **Note:** Keep in mind that 8GB is much lower than the required minimum, and may need to be adapted for your environment. You'll need a machine with at least 13GB of memory to distribute among the Docker containers.
+> **Note:** You'll need a machine with at least 13GB of memory to distribute among the Docker containers.

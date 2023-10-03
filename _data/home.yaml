@@ -49,7 +49,6 @@ integrations:
       - title: "Document Transformation Engine"
         text: "Alfresco Document Transformation Engine is a stable, fast, and scalable solution for high-quality transformations of Microsoft Office documents."
         url: /transformation-engine/latest/
-
       - title: "Media Management"
         text: "Alfresco Media Management provides the capability to transform and add metadata and relationships to your digital media."
         url: /media-management/latest/
@@ -58,12 +57,15 @@ integrations:
     url:
     image: /assets/img/ic_search_80px.svg
     sub:
-      - title: "Search and Insight Engine"
-        text: "Alfresco Search and Insight Engine is our new generation of analytics using Alfresco Search Services."
-        url: /insight-engine/latest/
+      - title: "Search Enterprise"
+        text: "Alfresco Search Enterprise enables enterprise customers to use Elasticsearch with Alfresco Content Services."
+        url: /search-enterprise/latest/
       - title: "Search Services"
         text: "Alfresco Search Services provides the default search service index for Alfresco Content Services and Alfresco Community Edition."
         url: /search-services/latest/
+      - title: "Search and Insight Engine"
+        text: "Alfresco Search and Insight Engine is our new generation of analytics using Alfresco Search Services."
+        url: /insight-engine/latest/
   - title: "Federation"
     text: "Alfresco Federation Service provides a powerful and easy way to search and manage content federated from leading business systems and content management applications."
     url: /federation-services/latest/
@@ -111,9 +113,15 @@ integrations:
       - title: "SAP"
         text: "Alfresco Content Connector for SAP applications offers seamless integration between Alfresco Content Services and SAP systems (R/3, S/4HANA)."
         url: /sap/latest/
+      - title: "SAP Cloud"
+        text: "Alfresco Content Connector for SAP Cloud is an add-on module that offers seamless integration between Alfresco Content Services and SAP S/4HANA Cloud as well as on-premises through the SAP Document Management Service."
+        url: /sap-cloud/latest/
       - title: "Microsoft 365"
         text: "Alfresco Collaboration Connector for Microsoft 365 allows you to integrate with Microsoft Office Online applications from the Alfresco Digital Workspace."
         url: /microsoft-365/latest/
+      - title: "Microsoft Teams"
+        text: "Alfresco Collaboration Connector for Teams enable users within the Microsoft Teams Client to search for and share content in Alfresco Content Services."
+        url: /microsoft-teams/latest/
       - title: "Microsoft Outlook"
         text: "Alfresco Outlook Integration allows you to use email and repository management without having to leave Microsoft Outlook."
         url: /microsoft-outlook/latest/
@@ -123,6 +131,7 @@ integrations:
       - title: "Google Docs"
         text: "Alfresco Google Docs Integration allows you to use Google Docs to edit document content stored in Alfresco Content Services, as an alternative to the online and offline editing capabilities in Alfresco Share."
         url: /google-drive/latest/
+
 applications:
   - title: "Digital Workspace"
     text: "Alfresco Digital Workspace is a content management application built with the Alfresco Application Development Framework (ADF).
@@ -140,11 +149,14 @@ applications:
     text: "Alfresco Application Development Framework makes it easy to build custom web applications to manage and view content in the repository."
     url: 'https://www.alfresco.com/abn/adf/docs/'
     image: /assets/img/logo_adf_72px.svg
-  - title: "Content Mobile"
-    text: "Alfresco Content Services for mobile allows you to view, edit, and share information in and out of the office via the mobile app."
-    url: /content-mobile/latest/
-    image: /assets/img/logo_cm_72px.svg
-
+  - title: "Content Accelerator"
+    image: /assets/img/aca-logo.svg
+    text: "Alfresco Content Accelerator is a content management application that can be used to build domain specific user interfaces."
+    url: /content-accelerator/latest/
+  - title: "Enterprise Viewer"
+    text: "Alfresco Enterprise Viewer (AEV) provides high-speed and secure viewing of document, video and audio content with team collaborative annotation, redaction and other modern document capabilities for Alfresco Content Services."
+    url: /enterprise-viewer/latest/
+    image: /assets/img/aev-logo.svg
 #  - title: "Process for iOS"
 #    text: "Alfresco Process Services for mobile allows you to start new processes and interact with related content #via the mobile app."
 #    url:
@@ -154,4 +166,3 @@ applications:
 #        url:
 #      - title: "Android"
 #        url:
-

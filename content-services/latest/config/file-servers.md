@@ -47,7 +47,7 @@ The following properties can be configured for the FTP server.
 | ftp.enabled | Enables or disables the FTP server. |
 | ftp.port | Specifies the port that the FTP server listens for incoming connections on. Defaults to port `21`. On some platforms ports below `1024` require the server to be run under a privileged account. |
 | ftp.bindto | Specifies the network adapter to bind with. If the network adapter isn't specified, the server will bind to all the available adapters/addresses. |
-| ftp.sessionDebug | Enable debug output by setting the `SSL` debug flag using `ftp.sessionDebug=SSL`, and also by enabling the `log4j.logger.org.alfresco.fileserver=debug` log4j output. |
+| ftp.sessionDebug | Enable debug output by setting the `SSL` debug flag using `ftp.sessionDebug=SSL`, and also by enabling the `logger.alfresco-fileserver.name=logger.org.alfresco.fileserver`, `logger.alfresco-fileserver.level=debug` log4j output. |
 | ftp.dataPortFrom | Limits the data ports to a specific range of ports. This property sets the lower limit. |
 | ftp.dataPortTo | Limits the data ports to a specific range of ports. This property sets the upper limit. |
 | ftp.keyStore | Specifies the path to the keystore file for FTPS support. |
@@ -82,24 +82,26 @@ The following properties can be overridden on the `ftpServerConfig` bean.
 
   Specifies the address the FTP server binds to. If it's not specified, the server binds to all available addresses.
 
-      1. The `debugFlags` property enables debug output levels for FTP server debugging. The value should be a comma-separated list of flag names from the following table:
+1. The `debugFlags` property enables debug output levels for FTP server debugging. The value should be a comma-separated list of flag names from the following table:
 
-        | Flag | Description |
-        | ---- | ----------- |
-        | State | Session state changes |
-        | Search | Folder searches |
-        | Info | File information requests |
-        | File | File open/close |
-        | FileIO | File read/write |
-        | Error | Errors |
-        | Pkttype | Received packet type |
-        | Timing | Time packet processing |
-        | Dataport | Data port |
-        | Directory | Directory commands |
+    | Flag | Description |
+    | ---- | ----------- |
+    | State | Session state changes |
+    | Search | Folder searches |
+    | Info | File information requests |
+    | File | File open/close |
+    | FileIO | File read/write |
+    | Error | Errors |
+    | Pkttype | Received packet type |
+    | Timing | Time packet processing |
+    | Dataport | Data port |
+    | Directory | Directory commands |
 
-      2. Configure logging levels for the FTP server in `$ALF_HOME/tomcat/webapps/alfresco/WEB-INF/classes/log4j.properties` using:
+2. Configure logging levels for the FTP server in `$ALF_HOME/tomcat/webapps/alfresco/WEB-INF/classes/log4j2.properties` using:
 
-      ```bash
-      log4j.logger.org.alfresco.ftp.protocol=debug
-      log4j.logger.org.alfresco.ftp.server=debug
-      ```
+    ```bash
+    logger.alfresco-ftp-protocol.name=org.alfresco.ftp.protocol
+    logger.alfresco-ftp-protocol.level=debug
+    logger.alfresco-ftp-server.name=org.alfresco.ftp.server
+    logger.alfresco-ftp-server.level=debug
+    ```

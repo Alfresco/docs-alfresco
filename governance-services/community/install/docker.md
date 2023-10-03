@@ -11,7 +11,7 @@ Use this information to quickly deploy Governance Services using Docker Compose.
 * [Docker Compose](https://docs.docker.com/compose/install/)
   * Docker Compose is included as part of some Docker installers. If it's not part of your installation, then install it separately after you've installed Docker.
 
->**Note:** Make sure that the following ports are free on your computer: 5432, 8080, 8082, 8083. These ports are set in the `docker-compose.yml` file.
+> **Note:** Make sure that the following ports are free on your computer: 5432, 8080, 8082, 8083. These ports are set in the `docker-compose.yml` file.
 
 ## Installation steps
 
@@ -26,15 +26,15 @@ Use this information to quickly deploy Governance Services using Docker Compose.
     ```text
     services:
         alfresco:
-            #image: alfresco/alfresco-content-repository-community:7.0.0
-            image: alfresco/alfresco-governance-repository-community:3.5.a
+            #image: alfresco/alfresco-content-repository-community:7.4.0
+            image: alfresco/alfresco-governance-repository-community:7.4.0
             ... 
     ```
 
     ```text
         share:
-            #image: alfresco/alfresco-share:7.0.0
-            image: alfresco/alfresco-governance-share-community
+            #image: alfresco/alfresco-share:7.4.0
+            image: alfresco/alfresco-governance-share-community:7.4.0
             ... 
     ```
 
@@ -56,9 +56,9 @@ Use this information to quickly deploy Governance Services using Docker Compose.
 
     ```text
     ...
-    alfresco_1  | 2021-04-07 13:59:36,469 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
-    alfresco_1  | 2021-04-07 13:59:36,469 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
-    alfresco_1  | 2021-04-07 13:59:36,903 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 226026 ms
+    alfresco_1  | 15-May-2023 13:59:36,469 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+    alfresco_1  | 15-May-2023 13:59:36,469 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+    alfresco_1  | 15-May-2023 13:59:36,903 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 226026 ms
     ```
 
     If you encounter errors whilst the system is starting up:
@@ -73,7 +73,7 @@ Use this information to quickly deploy Governance Services using Docker Compose.
     * Try allocating more memory resources, as advised in `docker-compose.yml`. For example, in Docker, change the memory setting in **Preferences** (or **Settings**) > **Advanced** > **Memory**, to at least 6 GB. Make sure you restart Docker and wait for the process to finish before continuing.
     * Go back and retry the deployment.
 
-    >**Note:** Although 16 GB is the required minimum memory setting, keep in mind that 6 GB is much lower than the required minimum, and may need to be adapted for your environment.
+    > **Note:** Although 16 GB is the required minimum memory setting, keep in mind that 6 GB is much lower than the required minimum, and may need to be adapted for your environment.
 
 6. Open your browser and check everything starts up correctly:
 

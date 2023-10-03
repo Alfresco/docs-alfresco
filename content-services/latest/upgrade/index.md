@@ -10,7 +10,7 @@ Care should be taken when upgrading from any previous releases of Content Servic
 
 * Ensure that you have a functional [backup of your Alfresco repository and database]({% link content-services/latest/admin/backup-restore.md %}), before starting the upgrade process.
 * Download and run the [Alfresco Extension Inspector]({% link content-services/latest/develop/extension-inspector.md %}) to understand which customization or library items need to be reviewed or updated to support the upgrade.
-* Review all new and deprecated features included in the Release Notes. Customers can access these from the [Support Portal](https://support.alfresco.com/){:target="_blank"}.
+* Review all new and deprecated features included in the Release Notes. Customers can access these from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 * Review and implement the new [Supported platforms]({% link content-services/latest/support/index.md %}) options, and update as necessary for the new deployment. Also, check the general advice about [Supported Platforms and Languages](https://www.alfresco.com/services/subscription/supported-platforms){:target="_blank"} on our website.
 
 To upgrade from a previous version of Content Services to a later version, see the [upgrade process](#upgrade-process).
@@ -21,13 +21,13 @@ When you upgrade Content Services, it's recommended that you follow a structured
 
 The following diagram shows the upgrade paths for major versions:
 
-![Upgrade paths to 7.0]({% link content-services/images/upgrade-path-7-0.png %})
+![Upgrade paths to 7.4]({% link content-services/images/upgrade-path-7.4.png %})
 
 The upgrade path recommendations are:
 
-* Direct upgrades to Content Services 7.0 are supported from only 5.2.x and later.
-* Content Services 7.0 introduces changes that require new releases of all modules. To upgrade to 7.0, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/latest/support/index.md %}) for more details on the associated versions.
-* You must upgrade to a supported version of Alfresco Search Services before upgrading the repository to 7.0. See [Upgrade Search Services]({% link search-services/latest/upgrade/index.md %}) for more information.
+* Direct upgrades to Content Services 7.4 are supported only from 5.2.x and later.
+* Content Services 7.4 introduces changes that require new releases of some modules. To upgrade to 7.4, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/latest/support/index.md %}) for more details on the associated versions.
+* You must upgrade to a supported version of Alfresco Search Services before upgrading the repository to 7.4. See [Upgrade Search Services]({% link search-services/latest/upgrade/index.md %}) for more information.
   * Upgrades from Content Services 5.2 must first upgrade from Solr 4 to Alfresco Search Services.
 
 > **Note:** If you're upgrading from an earlier release that's not shown on this diagram, contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"}.
@@ -44,6 +44,10 @@ The following table shows the upgrade path for major versions:
 | Community Edition 201901 GA | Content Services 6.1 |
 | Community Edition 201911 GA | Content Services 6.2 |
 | Community Edition 7.0 | Content Services 7.0 |
+| Community Edition 7.1 | Content Services 7.1 |
+| Community Edition 7.2 | Content Services 7.2 |
+| Community Edition 7.3 | Content Services 7.3 |
+| Community Edition 7.4 | Content Services 7.4 |
 
 Please contact Alfresco Support for upgrade advice that's specific to your environment.
 
@@ -89,13 +93,13 @@ These steps assume that you've got an existing Content Services installation (`a
         data.dir.root:/alfresco-v.2/solr/myindexes
         ```
 
-2. Validate the new 7.0 installation to check that it's working correctly.
+2. Validate the new 7.4 installation to check that it's working correctly.
 
     1. Configure the new installation with a new repository and database (not the existing one).
 
     2. [Start the server]({% link content-services/latest/install/zip/additions.md %}#start-server) and [validate](#validate-upgrade) that the system works correctly.
 
-3. Apply all customizations to the new 7.0 installation.
+3. Apply all customizations to the new 7.4 installation.
 
     1. [Stop]({% link content-services/latest/install/zip/additions.md %}#stop-server) the server.
 
@@ -129,30 +133,29 @@ These steps assume that you've got an existing Content Services installation (`a
 
 5. If you're happy with the upgraded system, remove the old installation and repository.
 
-6. (Optional) Perform this additional step only if you've configured multi-tenancy and are upgrading.
+6. (Optional) Note that multi-tenancy is not supported from Content Services 6.x and newer.
 
-    If upgrading to the latest version, your existing multi-tenancy (MT) sample extension files are no longer relevant and must be deleted. It's also recommended that you backup your existing MT files.
-
-    1. Take a backup of the following three existing MT extension files and delete them from the existing MT extension directory:
-
-        * `alfresco/extension/mt/mt-context.xml` to `alfresco/extension/mt/mt-context.xml`
-        * `alfresco/extension/mt/mt-admin-context.xml` to `alfresco/extension/mt/mt-admin-context.xml`
-        * `alfresco/extension/mt/mt-contentstore-context.xml` to `alfresco/extension/mt/mt-contentstore-context.xml`
-
+    If upgrading to the latest version from 5.2, then the existing multi-tenancy (MT) extension files are no longer 
+    relevant and must not be migrated to the new version. It's recommended that you backup your existing MT files.
+   
 7. (Optional) Perform this step if you're working in a clustered environment:
 
     1. Shut down all nodes in the cluster.
 
     2. Perform steps 1 to 5 on each additional node in turn, ensuring that each node starts fully before restarting the next one.
 
-        You need to copy the database once only, as it's upgraded by the first node that's upgraded. The other nodes detect it's been upgraded and skip the database upgrade step.
+        You need to copy the database once only, as it's upgraded by the first node that's upgraded. The other nodes 
+        detect it's been upgraded and skip the database upgrade step.
 
         > **CAUTION:**
-        > In a clustered environment, when the cloned nodes are restarted with a cluster license, the nodes may try to join the existing production cluster, and point to a cloned database instead of the production cluster database. This can lead to corrupted data.
+        > In a clustered environment, when the cloned nodes are restarted with a cluster license, the nodes may try to 
+        > join the existing production cluster, and point to a cloned database instead of the production cluster database. 
+        > This can lead to corrupted data.
         >
         > **Cause**: This occurs because the cloned node contains the cluster id from production and tries to join that cluster.
         >
-        > **Solution**: To avoid this problem, you should ensure any cloned nodes required for upgrade testing are network isolated from the production nodes.
+        > **Solution**: To avoid this problem, you should ensure any cloned nodes required for upgrade testing are 
+        > network isolated from the production nodes.
 
 ## Validate upgrade
 
@@ -247,17 +250,24 @@ The `dir.root` directory is defined in the `alfresco-global.properties` file. By
     * `solr/archive` directory (optional)
     * `contentstore.deleted` directory
 
-    Some of the above mentioned directories are optional. This is because if the indexes are not copied over from the previous installation, Solr will query Content Services and rebuild its index in background after start up. It may take more time to rebuild indexes on large repositories. Applications will be accessible during the reindex process.
+    Some directories are optional. This is because if the indexes are not copied over from the previous installation, 
+    Solr will query Content Services and rebuild its index in the background after start up. It may take more time to 
+    rebuild indexes on large repositories. Applications will be accessible during the reindex process.
 
 2. Point the new deployment to the old database using the `db.*` properties in the `alfresco-global.properties` file by providing the JDBC URL, database name, log in credentials, and any other relevant configuration options.
 
     Remember to specify the relevant JDBC driver into your application server's classpath.
 
-## Apply recommended database patch
+## Apply optional performance database patch
 
-Alfresco Content Services 7.0 contains a recommended database patch, which adds two indexes to the `alf_node` table and three to `alf_transaction`. This patch is optional, but recommended for larger implementations as it can have a big positive performance impact. These indexes are not automatically applied during upgrade, as the amount of time needed to create them might be considerable. They should be run manually after the upgrade process completes.
+>**Note:** This patch can take hours to run on larger systems.
 
-To apply the patch, an admin should set the following Alfresco global property to `true`:
+Content Services 7.0 contains a recommended database patch, which adds two indexes to the `alf_node` table and 
+three to `alf_transaction`. This patch is optional, but recommended for larger implementations as it can have a big 
+positive performance impact. These indexes are not automatically applied during upgrade, as the amount of time needed to 
+create them might be considerable. They should be run manually after the upgrade process completes.
+
+To apply the patch, an admin should set the following Alfresco global property to `false`:
 
 ```text
 system.new-node-transaction-indexes.ignored=false

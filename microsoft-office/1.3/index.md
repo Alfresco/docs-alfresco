@@ -1,5 +1,5 @@
 ---
-title: Alfresco Office Services 1.3
+title: Alfresco Office Services
 ---
 
 Alfresco Office Services (AOS) allows you to access Alfresco directly from your Microsoft Office applications.
@@ -29,10 +29,10 @@ There are some dependencies that you might encounter when using Alfresco Office 
 
     MS Office supports the following authentication mechanisms:
 
-        * HTTP Basic
-        * HTTP Digest (NTLM, Kerberos)
+    * HTTP Basic
+    * HTTP Digest (NTLM, Kerberos)
 
-        NTLM and Kerberos can be used in an SSO environment.
+    NTLM and Kerberos can be used in an SSO environment.
 
   * There is limited support for AOS with Microsoft Office for Mac. It is a known problem that there is no property mapping function in Microsoft Office for Mac.
 * AOS is installed by default during the standard Alfresco installation:
@@ -41,9 +41,9 @@ There are some dependencies that you might encounter when using Alfresco Office 
 * AOS interacts very closely with Microsoft Office, and there are some implications as a result:
   * Alfresco simulates a SharePoint Site in the `/alfresco/aos` directory and uses the child folder to represent the SharePoint document library. As a result, Office does not check out documents in the repository root; that is, if your document is located in `/alfresco/aos`. Make sure that you add a child folder in the `/alfresco/aos` directory and place documents there. For example:
 
-        ```bash
-        http://localhost:8080/alfresco/aos/documents/doc1.docx
-        ```
+    ```bash
+    http://localhost:8080/alfresco/aos/documents/doc1.docx
+    ```
 
 * Alfresco and Office handle property mapping and time values differently:
   * Alfresco and Microsoft use different mechanisms to calculate Daylight Saving Time (DST). In Alfresco, DST is applied to dates; for example, a time in August is displayed in DST, but a time in November is displayed without DST. Microsoft applies DST to all dates depending on the current date. For example, if today is in August, the time values of all dates are displayed in DST, even a time in November. This means that if you are looking at a date six months away, there is a one-hour difference between the time value displayed by Alfresco and the time displayed in Microsoft Office. This mechanism is used across Microsoft products; for example, the same behavior is visible in the last modified timestamp in Windows Explorer.

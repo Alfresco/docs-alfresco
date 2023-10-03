@@ -2,20 +2,21 @@
 title: Installation overview
 ---
 
-The Document Transformation Engine consists of two software modules; the standalone Document Transformation Engine and the Alfresco Transformation client.
-
-* The standalone Document Transformation Engine runs on Windows and takes care of the file transformations.
-* The Alfresco Transformation client runs as part of Alfresco Content Services and communicates between Alfresco Content Services and the standalone Document Transformation Engine.
+The standalone Document Transformation Engine runs on Microsoft Windows and provides file transformations.
 
 ## Prerequisites
 
-There are a number of important notes to consider when installing the Document Transformation Engine in addition to the [supported platforms]({% link transformation-engine/latest/support/index.md %}).
+There are a number of important notes to consider when installing the Document Transformation Engine in addition to the [Supported platforms]({% link transformation-engine/latest/support/index.md %}).
+
+* The Document Transformation Engine requires an installation of [Alfresco Transform Service]({% link transform-service/latest/install/index.md %}).
 
 * The standalone Document Transformation Engine requires the software components to be installed and available on the same machine.
 
-* Only install the English versions of Microsoft Windows Server 2012 R2, and Microsoft Office 2016 32 bit because other languages cause encoding issues resulting in unpredictable behavior.
+* Only install the English versions of Microsoft Windows Server, and Microsoft Office because other languages cause encoding issues resulting in unpredictable behavior.
 
     > **Note:** Although the engine must be configured in English, this has no impact on the transformation language used for documents.
+
+* Microsoft Office (32-bit and 64-bit).
 
 * To enable the Document Transformation Engine to work with non-English documents you must install the desired Microsoft Office language pack of the language you want to work with.
 
@@ -23,7 +24,7 @@ There are a number of important notes to consider when installing the Document T
 
 * Make sure that the Windows print spooler service is running.
 
-* GhostScript v8.64 and pdf2swf are no longer distributed along with Document Transformation Engine. Make sure you install both these tools manually.
+See [Supported platforms]({% link transformation-engine/latest/support/index.md %}) for more information.
 
 ### Sizing
 
@@ -41,13 +42,21 @@ There are a number of recommendations for calculating sizing. You will need:
 
 Microsoft Office transformations are I/O-heavy, and so on some solutions, I/O contention can be a performance bottleneck. When multiple Word conversions occur in parallel, performance can suffer heavily from poor random read and write speeds.
 
-Using an Amazon EC2 instance c3.2xlarge, the I/O metrics are as follows:
-
-* sequential read speed: 131 MB/s
-* sequential write speed: 83 MB/s
-* random qd32 read speed: 10,4 MB/s
-* random qd32 write speed: 3,8 MB/s
-
 ## Installation
 
-The Document Transformation Engine is [installed in three parts]({% link transformation-engine/latest/install/zip.md %}) and also has an [SDK that can be installed]({% link transformation-engine/latest/install/sdk.md %}).
+The Document Transformation Engine is installed using an `msi` file where you can select to install a T-Engine at the same time. Alternatively you can install the Document Transformation Engine using the `msi` and use Docker Compose to install the T-Engine. See [Install with MSI]({% link transformation-engine/latest/install/msi.md %}) for more details. There is also an [SDK that can be installed]({% link transformation-engine/latest/install/sdk.md %}).
+
+### Set `JAVA_HOME`
+
+If you're using any JDK which does not set a registry key, you need to manually set the `JAVA_HOME` system variable. This mostly happens when using a `zip` package installation of the JDK.
+
+1. Locate your JDK installation (it's most likely in a directory such as `C:\Program Files\jdk-11.x.x`).
+2. Search for **Advanced system settings**.
+3. Select **View advanced system settings > Environment Variables**.
+4. In the **System variables** section, click **New** (or **User variables** for a single user setting).
+5. Add the following settings:
+
+    * Variable name = `JAVA_HOME`
+    * Variable value = path to the JDK installation (from step 1).
+
+6. Click **OK** (twice) and finally click **Apply** to save the changes.

@@ -4,8 +4,6 @@ title: Supported platforms
 
 Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Content Services.
 
-Last modified: **December 10 2020**
-
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact [Support](https://support.alfresco.com){:target="_blank"}.
 
 {% capture six-two-two %}
@@ -67,15 +65,22 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
 | Alfresco Sync Service 3.3 | |
+| Alfresco Desktop Sync 1.10 | |
+| Alfresco Desktop Sync 1.9 | |
+| Alfresco Desktop Sync 1.8 | |
+| Alfresco Desktop Sync 1.7 | |
 | Alfresco Desktop Sync 1.6 | |
+| Alfresco Transform Service 1.4 | |
 | Alfresco Transform Service 1.3 | |
 | Alfresco Document Transformation Engine 2.2.2 | |
 | Alfresco Media Management 1.4.3 | |
 | Alfresco Media Management 1.4.2 | |
-| Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
-| Alfresco Search and Insight Engine 1.4 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
+| Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. Nb. Java 11.0.9.1 and other four part Java versions are not currently compatible due to a bug in Jetty. |
+| Alfresco Search and Insight Engine 1.4 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. Nb. Java 11.0.9.1 and other four part Java versions are not currently compatible due to a bug in Jetty. |
 | Alfresco Search Services 2.0 | |
 | Alfresco Search Services 1.4 | |
+| Alfresco Federation Services 2.0 | |
+| Alfresco Federation Services 1.1 | |
 | Alfresco Federation Services 1.0 | |
 | Identity Service 1.3 | Alfresco Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
 | SAML Module for Alfresco Content Services 1.2.1 | |
@@ -87,10 +92,15 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for AWS Glacier 2.1 | Only compatible with Alfresco Content Connector for AWS S3 3.1 or above. |
 | Alfresco Content Connector for AWS Glacier 2.0 | Only compatible with Alfresco Content Connector for AWS S3 3.0 and below. |
 | Alfresco Content Connector for EMC Centera 2.2.1 | |
+| Alfresco Content Connector for Salesforce 2.3 | |
 | Alfresco Content Connector for Salesforce 2.2 | |
 | Alfresco Content Connector for Salesforce 2.1 | |
+| Alfresco Content Connector for SAP applications 5.2 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP applications 5.0 | |
+| Alfresco Content Connector for SAP Cloud 1.2 | |
+| Alfresco Content Connector for SAP Cloud 1.1 | |
+| Alfresco Content Connector for SAP Cloud 1.0 | |
 | Alfresco Collaboration Connector for Microsoft 365 1.0 | |
 | Alfresco Outlook Integration 2.7 | |
 | Alfresco Office Services 1.3.2 | |
@@ -105,8 +115,11 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Digital Workspace 2.0 | |
 | Alfresco Digital Workspace 1.6 | |
 | Alfresco Digital Workspace 1.5 | |
+| Alfresco Digital Workspace 1.4 | |
+| Alfresco Digital Workspace 1.3 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Application Development Framework (ADF) 3.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
+| Alfresco Mobile Workspace 1.4 | |
 | | |
 | **Components** | |
 | ImageMagick v7.0.10 | |
@@ -172,6 +185,10 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
 | Alfresco Sync Service 3.3 | |
 | Alfresco Sync Service 3.2 | |
+| Alfresco Desktop Sync 1.10 | |
+| Alfresco Desktop Sync 1.9 | |
+| Alfresco Desktop Sync 1.8 | |
+| Alfresco Desktop Sync 1.7 | |
 | Alfresco Desktop Sync 1.6 | |
 | Alfresco Desktop Sync 1.5 | |
 | Alfresco Desktop Sync 1.4 | |
@@ -179,10 +196,12 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Transform Service 1.2 | |
 | Alfresco Transform Service 1.1 | |
 | Alfresco Document Transformation Engine 2.2.2 | |
-| Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
-| Alfresco Search and Insight Engine 1.4 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
+| Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. Nb. Java 11.0.9.1 and other four part Java versions are not currently compatible due to a bug in Jetty. |
+| Alfresco Search and Insight Engine 1.4 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. Nb. Java 11.0.9.1 and other four part Java versions are not currently compatible due to a bug in Jetty. |
 | Alfresco Search Services 2.0 | |
 | Alfresco Search Services 1.4 | |
+| Alfresco Federation Services 2.0 | |
+| Alfresco Federation Services 1.1 | |
 | Alfresco Federation Services 1.0 | |
 | Identity Service 1.3 | Alfresco Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
 | Identity Service 1.2 | Alfresco Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
@@ -198,8 +217,12 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Content Connector for EMC Centera 2.2.1 | |
 | Alfresco Content Connector for Salesforce 2.2 | |
 | Alfresco Content Connector for Salesforce 2.1 | |
+| Alfresco Content Connector for SAP applications 5.2 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP applications 5.0 | |
+| Alfresco Content Connector for SAP Cloud 1.2 | |
+| Alfresco Content Connector for SAP Cloud 1.1 | |
+| Alfresco Content Connector for SAP Cloud 1.0 | |
 | Alfresco Outlook Integration 2.7 | |
 | Alfresco Outlook Integration 2.6.1 | |
 | Alfresco Office Services 1.3 | |
@@ -215,7 +238,6 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Digital Workspace 1.5 | |
 | Alfresco Digital Workspace 1.4 | |
 | Alfresco Digital Workspace 1.3 | |
-| Alfresco Digital Workspace 1.2 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Application Development Framework (ADF) 3.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | | |
@@ -282,6 +304,10 @@ Alfresco Content Connector for Azure 1.1 | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
 | Alfresco Sync Service 3.3 | |
 | Alfresco Sync Service 3.2 | |
+| Alfresco Desktop Sync 1.10 | |
+| Alfresco Desktop Sync 1.9 | |
+| Alfresco Desktop Sync 1.8 | |
+| Alfresco Desktop Sync 1.7 | |
 | Alfresco Desktop Sync 1.6 | |
 | Alfresco Desktop Sync 1.5 | |
 | Alfresco Desktop Sync 1.4 | |
@@ -289,8 +315,10 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Transform Service 1.1 | |
 | Alfresco Document Transformation Engine 2.2.2 | |
 | Alfresco Media Management 1.4.0 | |
-| Alfresco Search and Insight Engine 1.4 | Search and Insight Engine 1.4 is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
+| Alfresco Search and Insight Engine 1.4 | Search and Insight Engine 1.4 is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. Nb. Java 11.0.9.1 and other four part Java versions are not currently compatible due to a bug in Jetty. |
 | Alfresco Search Services 1.4 | |
+| Alfresco Federation Services 2.0 | |
+| Alfresco Federation Services 1.1 | |
 | Alfresco Federation Services 1.0 | |
 | Identity Service 1.2 | Alfresco Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
 | Identity Service 1.1 | Alfresco Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
@@ -303,8 +331,12 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Content Connector for AWS Glacier 2.0 | Only compatible with Alfresco Content Connector for AWS S3 3.0 and below. |
 | Alfresco Content Connector for EMC Centera 2.2.1 | |
 | Alfresco Content Connector for Salesforce 2.1 | |
+| Alfresco Content Connector for SAP applications 5.2 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP applications 5.0 | |
+| Alfresco Content Connector for SAP Cloud 1.2 | |
+| Alfresco Content Connector for SAP Cloud 1.1 | |
+| Alfresco Content Connector for SAP Cloud 1.0 | |
 | Alfresco Outlook Integration 2.7 | |
 | Alfresco Outlook Integration 2.6.1 | |
 | Alfresco Office Services 1.3 | |
@@ -319,7 +351,6 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Digital Workspace 1.5 | |
 | Alfresco Digital Workspace 1.4 | |
 | Alfresco Digital Workspace 1.3 | |
-| Alfresco Digital Workspace 1.2 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Application Development Framework (ADF) 3.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | | |

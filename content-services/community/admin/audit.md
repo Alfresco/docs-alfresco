@@ -107,11 +107,13 @@ A data producer generates data that can potentially be audited. Data is generate
        /alfresco-access/transaction/sub-action/01/action=readContent
     ```
 
-    The trace output from this class may be useful to developers as it logs method calls grouped by transaction. The debug output is of the audit records written and full inbound audit data. However, for developers, trace will provide a more readable form. Set the following `dev-log4j.properties`:
+    The trace output from this class may be useful to developers as it logs method calls grouped by transaction. The debug output is of the audit records written and full inbound audit data. However, for developers, trace will provide a more readable form. Set the following `dev-log4j2.properties`:
 
     ```text
-    log4j.appender.File.Threshold=trace
-    log4j.logger.org.alfresco.repo.audit.access.AccessAuditor=trace
+    appender.rolling.filter.threshold.type=ThresholdFilter
+    appender.rolling.filter.threshold.level=trace
+    logger.alfresco-repo-audit-access-AccessAuditor.name=org.alfresco.repo.audit.access.AccessAuditor
+    logger.alfresco-repo-audit-access-AccessAuditor.level=trace
     ```
 
 3. `alfresco-node` - used to audit/track `beforeDeleteNode` policy. The class is `org.alfresco.repo.node.NodeAuditor`.
@@ -292,12 +294,13 @@ Auditing configuration properties can be set in the `tomcat/shared/classes/alfre
 
 ### Log4J configuration
 
-Log4J settings can be added in a file `tomcat/shared/classes/alfresco/extension/audit-log4j.properties` (you could copy `./tomcat/shared/classes/alfresco/extension/custom-log4j.properties.sample` and remove the `.sample`, or create the file from scratch).
+Log4J settings can be added in a file `tomcat/shared/classes/alfresco/extension/audit-log4j2.properties` (you could copy `./tomcat/shared/classes/alfresco/extension/custom-log4j2.properties.sample` and remove the `.sample`, or create the file from scratch).
 
 To see what information is available to audit, enable the following logging:
 
 ```text
-log4j.logger.org.alfresco.repo.audit.inbound=DEBUG
+logger.alfresco-repo-audit-inbound.name=org.alfresco.repo.audit.inbound
+logger.alfresco-repo-audit-inbound.level=debug
 ```
 
 This would generate logging (in alfresco.log) such as:
@@ -379,7 +382,8 @@ locale=en_US_|id=267
 To see which data is being produced, rejected or recorded, switch DEBUG for:
 
 ```text
-log4j.logger.org.alfresco.repo.audit.AuditComponentImpl=DEBUG
+logger.alfresco-repo-audit-AuditComponentImpl.name=org.alfresco.repo.audit.AuditComponentImpl
+logger.alfresco-repo-audit-AuditComponentImpl.level=debug
 ```
 
 This will result in entries such as:
@@ -551,13 +555,13 @@ It is useful to check the current audit status of a Community Edition installati
 
 You can check the status of auditing conveniently from the command line by using a tool such as `curl` to access the Audit Applications ReST endpoint.
 
-For more information about `curl` and where to find it see this [page]({% link content-services/community/develop/rest-api-guide/install.md %}#http).
+For more information about `curl` and where to find it see this [page]({% link content-services/latest/develop/rest-api-guide/install.md %}#http).
 
-To check the global status of auditing, such as what audit applications that are enabled, see this [page]({% link content-services/community/develop/rest-api-guide/audit-apps.md %}#listauditapps).
+To check the global status of auditing, such as what audit applications that are enabled, see this [page]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#listauditapps).
 
 While this does return the global status of the auditing framework, audit data will only be generated if the `audit.alfresco-access.enabled` property is `true`.
 
-Auditing can also be globally enabled or disabled for Audit applications, see this [page]({% link content-services/community/develop/rest-api-guide/audit-apps.md %}#enabledisableapp) for more info.
+Auditing can also be globally enabled or disabled for Audit applications, see this [page]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#enabledisableapp) for more info.
 
 ## How to use the auditing sample files {#how2useauditsamplefiles}
 
@@ -570,7 +574,7 @@ There are two sample files in `./tomcat/shared/classes/alfresco/extension/audit`
 
 In order to use a sample file, remove the `.sample` extension. It is also assumed you've [enabled auditing](#enableauditing). You will also need to restart the server so the examples are loaded.
 
-Once the sample files are enabled you can check that the new example audit applications are enabled via the ReST API, see this [page]({% link content-services/community/develop/rest-api-guide/audit-apps.md %}#listauditapps) for more information.
+Once the sample files are enabled you can check that the new example audit applications are enabled via the ReST API, see this [page]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#listauditapps) for more information.
 
 You should see that the *AuditExampleExtractors* and *AuditExample Login* applications have been enabled.
 
@@ -578,7 +582,7 @@ You should see that the *AuditExampleExtractors* and *AuditExample Login* applic
 
 You can use the ReST API to control auditing and also run queries against the audit data for specific audit applications. It is also possible to clear auditing data using the API.
 
-The Audit ReST API covers most of the audit functionality, check it out here in the [user guide]({% link content-services/community/develop/rest-api-guide/audit-apps.md %}).
+The Audit ReST API covers most of the audit functionality, check it out here in the [user guide]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}).
 
 ## Default auditing global properties {#auditconfigdefaults}
 
@@ -717,10 +721,12 @@ The `PropertyAuditFilter` provides log4j debug information (in the `alfresco.log
 
 ```text
 # Change file appender to include debug from any source
-log4j.appender.File.Threshold=debug
+appender.rolling.filter.threshold.type=ThresholdFilter
+appender.rolling.filter.threshold.level=debug
 
 # Enable debug from the PropertyAuditFilter
-log4j.logger.org.alfresco.repo.audit.PropertyAuditFilter=debug
+logger.alfresco-repo-audit-PropertyAuditFilter.name=org.alfresco.repo.audit.PropertyAuditFilter
+logger.alfresco-repo-audit-PropertyAuditFilter.level=debug
 ```
 
 ## Audit configuration {#auditconfig}
@@ -1035,7 +1041,7 @@ The data extractors sample is provided in `alfresco-audit-example-extractors.xml
 
 ## Audit Tutorials
 
-The [Audit ReST API User Guide]({% link content-services/community/develop/rest-api-guide/audit-apps.md %}) contains a lot of example tutorials.
+The [Audit ReST API User Guide]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}) contains a lot of example tutorials.
 
 ### Understanding PathMappings
 
@@ -1044,9 +1050,11 @@ To create an audit configuration file, it is necessary to know which data can be
 1. Turn on debugging for the inbound data. For a better understanding, you can turn on debug logging for the mapping components as well, although this is more verbose.
 
     ```text
-    $cat tomcat/shared/classes/alfresco/extension/audit-log4j.properties
-    log4j.logger.org.alfresco.repo.audit.AuditComponentImpl=DEBUG
-    log4j.logger.org.alfresco.repo.audit.inbound=DEBUG
+    $cat tomcat/shared/classes/alfresco/extension/audit-log4j2.properties
+    logger.alfresco-repo-audit-AuditComponentImpl.name=org.alfresco.repo.audit.AuditComponentImpl
+    logger.alfresco-repo-audit-AuditComponentImpl.level=debug
+    logger.alfresco-repo-audit-inbound.name=org.alfresco.repo.audit.inbound
+    logger.alfresco-repo-audit-inbound.level=debug
     ```
 
 2. Tail the log file and examine the output.

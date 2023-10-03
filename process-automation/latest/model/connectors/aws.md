@@ -39,9 +39,9 @@ The configuration parameters for the Lambda connector are:
 
 | Parameter | Description |
 | --------- | ----------- |
-| AWS_LAMBDA_AWS_ACCESS_KEY | *Required.* The access key to authenticate against AWS with. |
-| AWS_LAMBDA_AWS_SECRET_KEY | *Required.* The secret key to authenticate against AWS with. |
-| AWS_LAMBDA_AWS_REGION | *Required.* The region of AWS to invoke the Lambda functions in. |
+| AWS_LAMBDA_AWS_ACCESS_KEY | *Required.* The access key to authenticate against AWS. |
+| AWS_LAMBDA_AWS_SECRET_KEY | *Required.* The secret key to authenticate against AWS. |
+| AWS_LAMBDA_AWS_REGION | *Required.* The region of AWS to invoke the Lambda functions. |
 
 ### Lambda errors
 
@@ -75,7 +75,7 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 
 ## Comprehend
 
-The Comprehend connector provides a standard mechanism to extract entities and Personally identifiable information (PII) entities from text in your documents. The **ENTITY** action is used by the Comprehend connector to execute [Amazon Comprehend](https://aws.amazon.com/comprehend/){:target="_blank"} natural language processing (NLP) services and identify and analyze text from specific plain text files.
+The Comprehend connector provides a standard mechanism to extract entities and Personally identifiable information (PII) entities from text in your documents. The **ENTITY** action is used by the Comprehend connector to execute [Amazon Comprehend](https://aws.amazon.com/comprehend/){:target="_blank"} natural language processing (NLP) services and identify and analyze text from specific plain text files. The Comprehend connector supports default entity recognition, custom entity recognition, and custom document classification.
 
 > **Note:** The Comprehend connector can only receive either **files** or **text** but not both at the same time.
 
@@ -167,120 +167,19 @@ The Comprehend connector can extract entities and PII from the following file fo
 * `text/csv`
 * `/msword`
 
-### Installation
-
-The connector is a Spring Boot application that is included as a separate service of your AAE deployment.
-
-### Configuration
-
-The Comprehend connector requires certain properties to be defined in the `application.properties` file of the Spring Boot application. By default, these properties are set to your environment variables.
-The following are a set of properties that define the standard use of the connector:
-
-```bash
-aws.region=${AWS_REGION}
-aws.s3.bucket=${AWS_S3_BUCKET}
-aws.accessKeyId=${AWS_ACCESS_KEY_ID}
-aws.secretKey=${AWS_SECRET_KEY}
-aws.comprehend.defaultConfidence=0.75f
-aws.comprehend.defaultMaxResults=1000
-aws.comprehend.entitydetection.batchSplitSize=5000
-aws.comprehend.entitydetection.asynchSplitSize=90000
-aws.comprehend.piidetection.asynchSplitSize=90000
-aws.comprehend.languagedetection.splitSize=5000
-aws.comprehend.totalBatchSize=125000
-aws.comprehend.pollWait=10
-aws.comprehend.pollIncrement=1000
-aws.comprehend.asynchTimeout=910000
-aws.comprehend.defaultLanguage=en
-aws.comprehend.role_arn=${AWS_COMPREHEND_ROLE_ARN}
-aws.comprehend.allowableLanguages=en,es
-aws.comprehend.inputFileSizeLimit=5000000000
-```
-
-The connector uses a stream mechanism to send and receive information from it and AAE. The following variables are used to identify the connector:
-
-```bash
-spring.cloud.stream.bindings.textAnalysisConnectorConsumer.destination=comprehend.ENTITY
-spring.cloud.stream.bindings.textAnalysisPiiConnectorConsumer.destination=comprehend.PII_DETECTION
-```
-
-> **Note:** The name of the channel must match the implementation value defined in the service task as part of the [BPMN Tasks Configuration](#bpmn-tasks-configuration).
-
-The connector requires a connection to Alfresco in order to obtain the file containing the text to be analysed. This is achieved by setting the url to the Alfresco instance and user credentials using the following variables:
-
-```bash 
-alfresco.identity.service.tokenUrl=${ALFRESCO_IDENTITY_SERVICE_AUTH_SERVER_URL}
-alfresco.identity.service.grant-type=${CONTENT_GRANT_TYPE:client_credentials}
-alfresco.identity.service.resource=${CONTENT_CLIENT_ID}
-alfresco.identity.service.credentials-secret=${CONTENT_CLIENT_SECRET}
-```
-
-The response of the analysis is a file that must be stored temporarily. This path is set using the following variable:
-
-```bash
-file.content.reference.directory.path=${ACT_TEMPORARY_FOLDER}
-```
-
-For extracting the content of the file when it is not in plain text, the existing [Tika transformer](https://github.com/Alfresco/alfresco-transform-core/tree/master/alfresco-transform-tika) is consumed by the connector via http request. Use the `ats.transformer.tika.wait` property to set whether the APA connector should wait until the Tika transformer request is complete before consuming another message from Spring Cloud Stream.
-
-```bash
-ats.transformer.tika.url=http://tika.aae/transform
-ats.transformer.tika.wait=true
-ats.transformer.tika.timeout=10000
-```
-
-### Deployment configuration
-
-When deploying you are asked to input the image of the connector.
-
-```docker
-quay.io/alfresco/alfresco-process-comprehend-connector-service
-```
-
-The image and environment variables must be the same that were previously registered. The following is an example of the environment variables that could be set for the connector:
-
-```text
-{
-	"JAVA_OPTS": "-Xmx512m -Xms512m",
-	"ACT_KEYCLOAK_PATTERNS": "/v1/*",
-	"ACT_KEYCLOAK_USER_ROLE": "ACTIVITI_USER",
-	"ACTIVITI.CLOUD.SERVICES.METADATA.EUREKA.DYNAMIC.ENABLED":"false",
-	"ACT_KEYCLOAK_URL": "https://identity.aps2dev.envalfresco.com/auth",
-	"ACT_RB_DB_PLATFORM": "org.hibernate.dialect.PostgreSQLDialect",
-	"SPRING_PROFILES_ACTIVE": "default",
-	"ACT_CLOUD_CONFIG_SERVER_ENABLED": "false",
-	"SPRING_RABBITMQ_USERNAME": "guest",
-	"SPRING_RABBITMQ_HOST": "rabbitmq",
-	"ACT_KEYCLOAK_REALM": "alfresco",
-	"COMPREHEND_DESTINATION": "comprehend.ENTITY",
-	"COMPREHEND_PII_DESTINATION": "comprehend.PII_DETECTION",
-	"ACT_TEMPORARY_FOLDER": "./",
-	"AWS_REGION": "eu-west-1",
-	"AWS_S3_BUCKET": "a-bucket-name",
-	"AWS_COMPREHEND_ROLE_ARN": "arn:aws:iam::**********:role/**********",
-	"AWS_ACCESS_KEY_ID": "******************",
-	"AWS_SECRET_KEY": "********************",
-	"ALFRESCO_IDENTITY_SERVICE_AUTH_SERVER_URL": "https://identity.aps2dev.envalfresco.com/auth",
-	"CONTENT_GRANT_TYPE": "client_credentials",
-	"CONTENT_CLIENT_ID": "a-client-id",
-	"CONTENT_CLIENT_SECRET": "***************************",
-	"PROCESS_STORAGE_GATEWAY": "https://gateway.aps2dev.envalfresco.com",
-	"PROCESS_STORAGE_PATH": "/comprehend/process-storage"
-}
-```
-
 ### AWS Configuration
 
 The Amazon Comprehend APIs that are called using the connector are:
 
-* [Detect Dominant Language API](https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectDominantLanguage.html){:target="_blank"}
-* [Detect Entities API](https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectEntities.html){:target="_blank"}
-* [Batch Detect Entities API](https://docs.aws.amazon.com/comprehend/latest/dg/API_BatchDetectEntities.html){:target="_blank"}
-* [Start Entities Detection Job API](https://docs.aws.amazon.com/comprehend/latest/dg/API_StartEntitiesDetectionJob.html){:target="_blank"}
-* [Describe Entities Detection Job API](https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribeEntitiesDetectionJob.html){:target="_blank"}
+* [DetectDominantLanguage](https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectDominantLanguage.html){:target="_blank"}
+* [DetectEntities](https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectEntities.html){:target="_blank"}
+* [BatchDetectEntities](https://docs.aws.amazon.com/comprehend/latest/dg/API_BatchDetectEntities.html){:target="_blank"}
+* [StartEntitiesDetectionJob](https://docs.aws.amazon.com/comprehend/latest/dg/API_StartEntitiesDetectionJob.html){:target="_blank"}
+* [DescribeEntitiesDetectionJob](https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribeEntitiesDetectionJob.html){:target="_blank"}
 * [DetectPiiEntities](https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectPiiEntities.html){:target="_blank"}
 * [StartPiiEntitiesDetectionJob](https://docs.aws.amazon.com/comprehend/latest/dg/API_StartPiiEntitiesDetectionJob.html){:target="_blank"}
 * [DescribePiiEntitiesDetectionJob](https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribePiiEntitiesDetectionJob.html){:target="_blank"}
+* [StartDocumentClassificationJob](https://docs.aws.amazon.com/comprehend/latest/dg/API_StartDocumentClassificationJob.html)
 
 To perform these calls it uses the AWS Comprehend SDK. This requires IAM users with the correct permissions to be created. The easiest way to do this is to give an IAM user the AWS managed policy `ComprehendFullAccess`. If you want to be stricter with access rights see [the list of all comprehend API permissions.](https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-api-permissions-ref.html)
 
@@ -294,9 +193,9 @@ To allow the library to use this IAM user when communicating with the Comprehend
 
 You need to supply the calls that detect the language of the text document that is going to be processed. To do this, the connector calls the `DetectDominantLanguage` API. The `DetectDominantLanguage` call only works on text smaller than a configurable limit, the default is 5000 bytes. The connector uses the first bytes/characters of the document to determine what language to use when making calls to AWS Comprehend to determine which language is being used.
 
-As the `DetectDominantLanguage` service currently supports a greater set of languages than the entity detection services we check the returned language against a configurable list of available languages.
-> **Note:** Currently only EN and ES are supported by AWS entity detection.
-If the detected language is not in this list we use a configurable default language instead, which is EN by default.
+The `DetectDominantLanguage` service currently supports a greater set of languages than the entity detection services. It does this by checking the returned language against a configurable list of available languages.
+
+> **Note:** Currently only EN and ES are supported by AWS entity detection. If the detected language is not in this list a configurable default language is used instead, which is EN by default.
 
 #### Entities
 
@@ -341,26 +240,34 @@ The divided files are then uploaded to Amazon S3 using the same key prefix for a
 If the asynchronous job finishes successfully a compressed output file (`output.tar.gz`) with the result will be written by Amazon Comprehend. The file will be saved to the same bucket within a directory that is using the same key prefix. For more see [Asynchronous Batch Processing
 ](https://docs.aws.amazon.com/comprehend/latest/dg/how-async.html). The output file is downloaded from Amazon S3 and parsed into a `BatchDetectPiiResult` object. At the end of the process, all the resource files are cleaned, both locally and at Amazon S3.
 
+The `StartDocumentClassificationJob` operation is always performed asynchronously. It requires a custom model and the classifier ARN must be provided. You can provide the custom classification ARN in two ways:
+
+1. Use the `AWS_COMPREHEND_CUSTOM_CLASSIFICATION_ARN` environment variable when deploying the application.
+
+2. Use the `customClassificationArn` input variable in the connector action. If the variable is not provided the `AWS_COMPREHEND_CUSTOM_CLASSIFICATION_ARN` value is used.
+
 ### BPMN Tasks Configuration
 
-The following [textAnalysisProcess.bpmn20.xml](https://github.com/Alfresco/alfresco-process-connector-services/blob/develop/alfresco-process-comprehend-connector-spring-boot-starter/textAnalysisProcess.bpmn20.xml) describes an example of how the text analysis connector is setup in AAE:
+The following describes an example of how the text analysis connector is setup in AAE:
 
 ![BPMN]({% link process-automation/images/analysis-process.png %})
 
 As part of the BPMN definition process, any service task responsible for triggering the text analysis `comprehend.ENTITY` has to be set as the value for its implementation attribute.
 
-The following variables are required to be configured in order for the text analysis to function.
+The following variables must be configured for the text analysis to function.
 
-The input parameters of the Comprehend connector are:
+The input parameters of Entity detection are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to send for analysis. |
-| text | String | *Requires one.* Raw text to be sent for analysis. |
-| mediaType | String | *Optional.* The media type of the file to be analyzed, for example `/octect-stream`. |
-| maxEntities | Integer | *Optional.* The maximum number of entities to be extracted, for example `5`. |
-| confidenceLevel | String | *Optional.* The confidence level to use in the analysis between 0 and 1, for example `0.75`. |
-| timeout | Integer | *Optional.* The timeout period for calling the Comprehend service in milliseconds, for example `910000`. |
+| files | Array | *Optional.* The file to be analysed. If multiple files are passed, then only the first one will be analysed. |
+| text | String | *Optional.* The Text to be analysed. If the `files` parameter is set, then this should be left blank. |
+| maxEntities | Integer | *Optional.* The maximum number of entities that is returned. The parameter defaults to `${aws.comprehend.defaultMaxResults}`. |
+| confidenceLevel | Float | *Optional.* The minimum confidence level for a entity expressed by a float number between 0 and 1. The parameter defaults to `${aws.comprehend.defaultConfidence}`. |
+| timeout | Integer | *Optional.* The timeout for the remote call to the Comprehend service in milliseconds. The parameter defaults to `${aws.comprehend.asynchTimeout}`. |
+| customRecognizerArn | String | *Optional.* The custom recognizer ARN endpoint. If left blank, the Comprehend service will use the value given to the `AWS_COMPREHEND_CUSTOM_RECOGNIZER_ARN` environment variable. |
+
+> **Note:** The connector must receive either files or text but not both at the same time.
 
 The following is an example of the POST body for the Activiti REST API `http://{{domain}}/{{applicationName}}/rb/v1/process-instances` endpoint:
 
@@ -392,7 +299,32 @@ In the business process definition, the text analysis service task called **text
 </bpmn2:serviceTask>
 ```
 
-The output parameters from the entity analysis are:
+The input parameters of PII Entity detection are:
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| files | Array | *Optional.* The file to be analysed. If multiple files are passed, then only the first one will be analysed. |
+| text | String | *Optional.* The Text to be analysed. If the `files` parameter is set, then this should be left blank. |
+| maxEntities | Integer | *Optional.* The maximum number of entities that is returned. The parameter defaults to `${aws.comprehend.defaultMaxResults}`. |
+| confidenceLevel | Float | *Optional.* The minimum confidence level for a entity expressed by a float number between 0 and 1. The parameter defaults to `${aws.comprehend.defaultConfidence}`. |
+| timeout | Integer | *Optional.* The timeout for the remote call to the Comprehend service in milliseconds. The parameter defaults to `${aws.comprehend.asynchTimeout}`. |
+
+> **Note:** The connector must receive either files or text but not both at the same time.
+
+The input parameters of Document classification are:
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| files | Array | *Optional.* The file to be analysed. If multiple files are passed, then only the first one will be analysed. |
+| text | String | *Optional.* The Text to be analysed. If the `files` parameter is set, then this should be left blank. |
+| maxEntities | Integer | *Optional.* The maximum number of entities that is returned. The parameter defaults to `${aws.comprehend.defaultMaxResults}`. |
+| confidenceLevel | Float | *Optional.* The minimum confidence level for a entity expressed by a float number between 0 and 1. The parameter defaults to `${aws.comprehend.defaultConfidence}`. |
+| timeout | Integer | *Optional.* The timeout for the remote call to the Comprehend service in milliseconds. The parameter defaults to `${aws.comprehend.asynchTimeout}`. |
+| customClassificationArn | String | *Optional.* The custom recognizer ARN endpoint. If left blank, the Comprehend service will use the value given to the `AWS_COMPREHEND_CUSTOM_CLASSIFICATION_ARN` environment variable. **Note:** The `AWS_COMPREHEND_CUSTOM_CLASSIFICATION_ARN` environment variable does not have a default value. If it is being used then you must also set a value for it. |
+
+> **Note:** The connector must receive either files or text but not both at the same time.
+
+The output parameters from the entity detection are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
@@ -400,12 +332,19 @@ The output parameters from the entity analysis are:
 | aisResponse | JSON | *Optional.* The result of the analysis in [Alfresco Intelligence Service]({% link intelligence-services/latest/index.md %}) format. |
 | entities | JSON | *Optional.* The result object containing the entities detected. |
 
-The output parameters from the PII analysis are:
+The output parameters from the PII entity detection are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | awsResponse | JSON | *Optional.* The result of the analysis from the Comprehend service. |
 | piiEntityTypes | JSON | *Optional.* The result object containing the PII entities detected. |
+
+The output parameters from the Document classification are:
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| awsResponse | Object | *Optional.* The object that contains the original result of the text analysis performed by the Comprehend service. |
+| documentClassificationClasses | Array | *Optional.* An array that contains the list of the different classes detected in the analysis. |
 
 ### Comprehend configuration parameters
 
@@ -413,9 +352,9 @@ The configuration parameters for the Comprehend connector are:
 
 | Parameter | Description |
 | --------- | ----------- |
-| AWS_ACCESS_KEY_ID | *Required.* The access key to authenticate against AWS with. |
-| AWS_SECRET_KEY | *Required.* The secret key to authenticate against AWS with. |
-| AWS_REGION | *Required.* The region of AWS to use the Comprehend service in. |
+| AWS_ACCESS_KEY_ID | *Required.* The access key to authenticate against AWS. |
+| AWS_SECRET_KEY | *Required.* The secret key to authenticate against AWS. |
+| AWS_REGION | *Required.* The region of AWS to use the Comprehend service. |
 | AWS_S3_BUCKET | *Required.* The name of the S3 bucket to use. |
 | AWS_COMPREHEND_ROLE_ARN | *Required.* The Amazon Resource Name for Comprehend to use. |
 
@@ -487,8 +426,8 @@ The configuration parameters for the Rekognition connector are:
 
 | Parameter | Description |
 | --------- | ----------- |
-| AWS_ACCESS_KEY_ID | *Required.* The access key to authenticate against AWS with. |
-| AWS_SECRET_KEY | *Required.* The secret key to authenticate against AWS with. |
+| AWS_ACCESS_KEY_ID | *Required.* The access key to authenticate against AWS. |
+| AWS_SECRET_KEY | *Required.* The secret key to authenticate against AWS. |
 | AWS_REGION | *Required.* The region of AWS to use the Rekognition service in. |
 | AWS_S3_BUCKET | *Required.* The name of the S3 bucket to use. |
 
@@ -555,9 +494,9 @@ The configuration parameters for the Textract connector are:
 
 | Parameter | Description |
 | --------- | ----------- |
-| AWS_ACCESS_KEY_ID | *Required.* The access key to authenticate against AWS with. |
-| AWS_SECRET_KEY | *Required.* The secret key to authenticate against AWS with. |
-| AWS_REGION | *Required.* The region of AWS to use the Textract service in. |
+| AWS_ACCESS_KEY_ID | *Required.* The access key to authenticate against AWS. |
+| AWS_SECRET_KEY | *Required.* The secret key to authenticate against AWS. |
+| AWS_REGION | *Required.* The region of AWS to use the Textract service. |
 | AWS_S3_BUCKET | *Required.* The name of the S3 bucket to use. |
 
 ### Textract errors
@@ -602,63 +541,6 @@ The transcribe connector provides a standard mechanism to obtain speech to text 
 
 The connector is a Spring Boot application that is included as a separate service of your AAE deployment.
 
-### Configuration
-
-The transcribe connector requires certain properties to be defined in the `.properties` file of the Spring Boot application `. By default, these properties are set to your environment variables.
-The following are a set of properties that define the standard use of the connector:
-
-```bash
-aws.region=${AWS_REGION}
-aws.s3.bucket=${AWS_S3_BUCKET}
-aws.accessKeyId=${AWS_ACCESS_KEY_ID}
-aws.secretKey=${AWS_SECRET_KEY}
-aws.transcribe.languages=${AWS_TRANSCRIBE_LANGUAGES}
-```
-
-For increased accuracy with language identification, you can enter a list of comma-seperated languages that are spoken. For example, if you your media files are primarily going to be in U.S. English, U.S. Spanish, or French, enter the following into your `AWS_TRANSCRIBE_LANGUAGES` file: `en-US,es-US,fr-FR`.
-
-The connector uses a stream mechanism to send and receive information from it and AAE. The following variable is used to identify the connector:
-
-```bash
-spring.cloud.stream.bindings.transcribeConnectorConsumer.destination=transcribe.TRANSCRIBE
-```
-
-The connector requires a connection to Alfresco in order to obtain the file containing the audio or video to be transcribed. This is achieved by setting the url to the Alfresco instance and user credentials using the following variables:
-
-```bash
-alfresco.identity.service.tokenUrl=${ALFRESCO_IDENTITY_SERVICE_AUTH_SERVER_URL}
-alfresco.identity.service.grant-type=${CONTENT_GRANT_TYPE:client_credentials}
-alfresco.identity.service.resource=${CONTENT_CLIENT_ID}
-alfresco.identity.service.credentials-secret=${CONTENT_CLIENT_SECRET}
-```
-
-The response of the transcription is a file that must be stored temporarily. This path is set using the following variable:
-
-```bash
-file.content.reference.directory.path=${VOLUME_MOUNT_PATH:/tmp}
-```
-
-The input file could be stored in a folder instead of Alfresco. This path is set using the following variable:
-
-```bash
-file.content.tmp.path=${ACT_TEMPORARY_FOLDER:/tmp}
-```
-
-> **Note:** The name of the channel must match the implementation value defined in the Service Task as part of the [BPMN Tasks Configuration](#bpmn-tasks-configuration).
-
-### Deployment Configuration
-
-When deploying you are asked to input the image of the connector. The image and environment variables must be the same that were previously registered. The following is an example of the environment variables that could be set for the connector:
-
-```text
-{
-    "AWS_ACCESS_KEY_ID":"*****************",
-    "AWS_SECRET_KEY":"*****************",
-    "AWS_S3_BUCKET":"aae-data",
-    "AWS_REGION":"eu-west-1",
-}
-```
-
 ### AWS Configuration
 
 Alfresco recommends you access AWS using AWS Identity and Access Management (IAM). To use IAM to access AWS, create an IAM user, add the user to an IAM group with administrative permissions, and then grant administrative permissions to the IAM user. You can then access AWS using a special URL and the IAM user's credentials.
@@ -684,6 +566,49 @@ The output parameters of the Transcribe connector are:
 | awsResult | JSON | *Optional.* Result of the AWS Transcribe speech to text process. |
 | transcription | String | *Required.* Transcription result. |
 | webVTT | JSON | *Optional* Subtitles result in Web Video Text Tracks format. |
+
+### Transcribe configuration parameters
+
+The configuration parameters for the Transcribe connector are:
+
+| Parameter | Description |
+|-----------|-------------|
+| AWS_ACCESS_KEY_ID | *Required.* The access key to authenticate against AWS. |
+| AWS_SECRET_KEY | *Required.* The secret key to authenticate against AWS. |
+| AWS_REGION | *Required.* The region of AWS to use the Textract service. |
+| AWS_S3_BUCKET | *Required.* The name of the S3 bucket to use. |
+| AWS_TRANSCRIBE_LANGUAGES | List of comma separated languages that are spoken in the audio/video file. |
+
+### Transcribe errors
+
+The possible [errors]({% link process-automation/latest/model/connectors/index.md %}#errors) that can be handled by the Transcribe connector are:
+
+| Error | Description  |
+|-------|--------------|
+| MISSING_INPUT | A mandatory input variable was not provided. |
+| INVALID_INPUT | The input variable has an invalid type. |
+| INVALID_RESULT_FORMAT | The REST service result payload cannot be parsed. |
+| LIMIT_EXCEEDED | The service limit was exceeded. |
+| ACCESS_DENIED | The user is not authorized to perform the action. |
+| INTERNAL_FAILURE | An internal Amazon Lex error occurred. |
+| UNKNOWN_ERROR | Unexpected runtime error. |
+| BAD_REQUEST | The server could not understand the request due to invalid syntax. |
+| UNAUTHORIZED | The request has not been applied because it lacks valid authentication. |
+| FORBIDDEN | The server understood the request but refused to authorize it. |
+| NOT_FOUND | The server could not find what was requested. |
+| METHOD_NOT_ALLOWED | The request method is known by the server but is not supported. |
+| NOT_ACCEPTABLE | The server cannot produce a response matching the list of acceptable values. |
+| REQUEST_TIMEOUT | The server is requesting to shut down this unused connection. |
+| CONFLICT | The request conflicts with the current state of the server. |
+| GONE | No longer available. |
+| UNPROCESSABLE_ENTITY | The server understands the content type of the request entity, and the syntax of the request entity is correct, but it was unable to process the contained instructions. |
+| LOCKED | The resource that is being accessed is locked. |
+| FAILED_DEPENDENCY | The request failed due to failure of a previous request. |
+| INTERNAL_SERVER_ERROR | The server has encountered a situation and does not know how to handle it. |
+| NOT_IMPLEMENTED | The request method is not supported by the server and cannot be handled. |
+| BAD_GATEWAY | The server got an invalid response. |
+| SERVICE_UNAVAILABLE | The server is not ready to handle the request. |
+| GATEWAY_TIMEOUT | The server is acting as a gateway and cannot get a response in time. |
 
 ### Limitations
 

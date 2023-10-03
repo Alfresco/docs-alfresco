@@ -53,7 +53,7 @@ This tutorial assumes that you are familiar with the Document Library in Share. 
 
 This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio)
 project. To try out the Send-As-Email DocLib action in this tutorial you will need to install a local SMTP server such
-as [Fake SMTP](https://nilhcem.github.io/FakeSMTP){:target="_blank"}.
+as [Fake SMTP](http://nilhcem.com/FakeSMTP/){:target="_blank"}.
 
 This tutorial will demonstrate the following:
 
@@ -631,7 +631,7 @@ Tutorial implementation steps:
 
     The way we plug-in custom JavaScript action handlers is to call the `YAHOO.Bubbling.fire(“registerAction”…)` method. This will tell the system about the new action JavaScript code, and it will be plugged in after the out- of-the-box code to allow for customization and extensions.
 
-    In the `org_alfresco_training_onActionCallWebScript` function we use the `this.modules.actions.genericAction` function to call a specific custom web script (or an out-of-the-box web script if we wanted to). The `genericAction` function is defined in the `doclib-actions.js` file located in the `alfresco/tomcat/webapps/share/modules/documentlibrary` directory of an Content Services installation. This function sets up the web script call based on the passed in parameters (that is, `success.callback.fn`, `failure.message`, `webscript.name`, and so on). There are a lot more parameters that we can use if we wanted to more stuff when calling the web script, such as firing an event after successful invocation.
+    In the `org_alfresco_training_onActionCallWebScript` function we use the `this.modules.actions.genericAction` function to call a specific custom web script (or an out-of-the-box web script if we wanted to). The `genericAction` function is defined in the `doclib-actions.js` file located in the `alfresco/tomcat/webapps/share/modules/documentlibrary` directory of a Content Services installation. This function sets up the web script call based on the passed in parameters (that is, `success.callback.fn`, `failure.message`, `webscript.name`, and so on). There are a lot more parameters that we can use if we wanted to more stuff when calling the web script, such as firing an event after successful invocation.
 
     Here is a list from the documentation:
 

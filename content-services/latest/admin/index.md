@@ -89,7 +89,8 @@ The anonymous data transmitted by the repository includes the Content Services v
 To see the data that's sent to Alfresco, see the following logs:
 
 ```text
-log4j.logger.org.alfresco.heartbeat.datasender.internal.HBDataConsumer=DEBUG
+logger.alfresco-heartbeat-datasender-internal-HBDataConsumer.name=org.alfresco.heartbeat.datasender.internal.HBDataConsumer
+logger.alfresco-heartbeat-datasender-internal-HBDataConsumer.level=debug
 ```
 
 ## Best practices
@@ -106,7 +107,7 @@ Here are some best practice guidelines for Content Services administrators. Use 
 8. Email integration provides simple and safe way to store emails inside the repository.
 9. Coordinate with Alfresco on short-term consulting. This allows you and/or your System Integrator to work with Alfresco on architecture and planning.
 10. Take advantage of the support for multiple security protocols, which makes it suitable for large enterprises.
-11. Use the [Support Portal](https://support.alfresco.com/){:target="_blank"}, a subscription site that provides downloads, further documentation, and a Knowledge Base.
+11. Use [Hyland Community](https://community.hyland.com/){:target="_blank"}, a subscription site that provides downloads, further documentation, and a Knowledge Base.
 12. Take advantage of Content Services training. Get the knowledge and information you need to make your implementation successful.
 
 Also, use these tips to help you manage your environment:

@@ -15,6 +15,8 @@
           path: '/search-services/latest/upgrade/'
         - title: 'Migrate Solr 4'
           path: '/search-services/latest/upgrade/migrate/'
+        - title: 'Breaking changes from Search Services 1.x'
+          path: '/search-services/latest/upgrade/breaking-changes-1.x/'
     - title: 'Configure'
       pages:
         - title: 'Overview'
@@ -33,6 +35,10 @@
           path: '/search-services/latest/config/filtered/'
         - title: 'Transactional metadata query'
           path: '/search-services/latest/config/transactional/'
+        - title: 'Performance recommendations'
+          path: '/search-services/latest/config/performance/'
+        - title: 'Indexing recommendations'
+          path: '/search-services/latest/config/indexing/'
     - title: 'Administer'
       pages:
         - title: 'Overview'

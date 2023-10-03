@@ -6,7 +6,7 @@ For more complex Community Edition installations, or if you wish to use an exist
 
 Use this method of installing Community Edition if you've already have installed a JRE, a supported database, a supported application server, a message broker, and the additional components.
 
-For information about securing Tomcat, see [Tomcat security considerations](https://tomcat.apache.org/tomcat-8.5-doc/security-howto.html){:target="_blank"}.
+For information about securing Tomcat, see [Tomcat security considerations](https://tomcat.apache.org/tomcat-9.0-doc/security-howto.html){:target="_blank"}.
 
 ## Install application server
 
@@ -28,7 +28,7 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
     3. Change the value of the `shared.loader=` property to the following:
 
         ```bash
-        shared.loader=${catalina.base}/shared/classes
+        shared.loader=${catalina.base}/shared/classes,${catalina.base}/shared/lib/*.jar 
         ```
 
 3. Copy the JDBC drivers for the database you are using to the `lib` directory.
@@ -73,7 +73,7 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
     2. Add the following Connector:
 
         ```xml
-        <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol"
+        <Connector port="8443" protocol="HTTP/1.1"
             SSLEnabled="true" maxThreads="150" scheme="https"
             keystoreFile="xxxxx"
             keystorePass="password" keystoreType="JCEKS"
@@ -86,7 +86,9 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
         > **Note:** The keystore and truststore file locations in the above example will be created later, when you install and configure Alfresco Search Services.
 
         > **Note:** If you're using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file.
-
+ 
+        > **Note:** In Tomcat versions prior to 9 it was possible to use `org.apache.coyote.http11.Http11Protocol` as the protocol value, but now it has been removed. If you are using configuration from an old instance using a Tomcat version before 9, you need to update the connector protocol value.
+       
 8. Save the `server.xml` file.
 
 > **Important:** Remember to review and update the Connector details in `server.xml`, including the keystore and truststore file locations, after installing and configuring Alfresco Search Services.
@@ -99,14 +101,13 @@ Use this method of installing if you've already installed a JRE, a supported dat
 
 The Community Edition distribution file is a zip containing the required WAR files, in addition to the additional commands, and configuration files for a manual installation.
 
-1. Download the file: `alfresco-content-services-community-distribution-6.2.0-ga.zip`
+1. Download the zip file from Alfresco Nexus repository: [alfresco-content-services-community-distribution-7.4.x.zip](https://artifacts.alfresco.com/nexus/#nexus-search;gav~org.alfresco~alfresco-content-services-community*~7.4.0~~){:target="_blank"}
 
 2. Specify a location for the download and extract the file to a system directory; for example `<installLocation>`.
 
     You'll see the following directory structure - details are described [later](#directory-structure).
 
     ```bash
-    alfresco-pdf-renderer
     amps
     bin
     licenses
@@ -189,9 +190,6 @@ After you've extracted the Community Edition distribution zip, several directori
 
 | Folder | File/Sub-folder | Description |
 | ------ | --------------- | ----------- |
-| alfresco-pdf-renderer | `alfresco-pdf-renderer-1.0-linux.tgz` | Binary file for Linux |
-| | `alfresco-pdf-renderer-1.0-win64.tgz` | Binary file for Windows |
-| | | |
 | amps | `alfresco-share-services.amp` | Contains Alfresco Share AMP |
 | | | |
 | bin | `apply_amps.bat` | Windows batch file for Tomcat application server installs, used to apply all AMP files in the `<installLocation>` directory. |

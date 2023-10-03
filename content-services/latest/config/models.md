@@ -12,7 +12,7 @@ The Model Manager is a user-friendly tool that enables you to add custom types, 
 
 The Model Manager is available to users in the `ALFRESCO_MODEL_ADMINISTRATORS` permission group. To create or edit a model you must be a member of this group. By default, the System Administrator is a member of the `ALFRESCO_MODEL_ADMINISTRATORS` group and can create models.
 
-**Note:** The Model Manager does not allow editing existing dynamic models and content models that have been configured in XML and bootstrapped through Spring (static models).
+> **Note:** The Model Manager does not allow editing existing dynamic models and content models that have been configured in XML and bootstrapped through Spring (static models).
 
 ### Models
 
@@ -45,7 +45,7 @@ Constraints control the input property values. For example, you can specify that
 
 You can create new models using the Model Manager.
 
-> **Note:** Field names should not start with a number due to the design of [Solr](https://lucene.apache.org/solr/guide/6_6/defining-fields.html#DefiningFields-FieldPropertiess){:target="_blank"}.
+> **Note:** Field names should not start with a number due to the design of [Solr](https://solr.apache.org/guide/6_6/defining-fields.html#DefiningFields-FieldPropertiess){:target="_blank"}.
 
 1. Log into Alfresco Share as a user that is a member of the `ALFRESCO_MODEL_ADMINISTRATORS` permission group and click **Admin Tools** > **Model Manager**.
 

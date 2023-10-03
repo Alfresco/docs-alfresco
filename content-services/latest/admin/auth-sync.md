@@ -587,10 +587,11 @@ Both the `ldap` and `ldap-ad` subsystem types support the following configurable
 
 **LDAP authentication properties**
 
-> **Note:** The `create.missing.people` property in the Alfresco global properties file is set to true by default in Alfresco. This can have the affect of creating users unexpectedly. To avoid this you can override the default setting by changing the property to `create.missing.people property=false`. You can also deselect **Auto Create People on Login** in the Alfresco Admin Console. To do this navigate to **Synchronization Settings** > **Auto Create People on Login**.
+> **Note:** The `create.missing.people` property in the Alfresco global properties file is set to `true` by default in Alfresco. This can have the affect of creating users unexpectedly. To avoid this you can override the default setting by changing the property to `create.missing.people property=false`. You can also deselect **Auto Create People on Login** in the Alfresco Admin Console. To do this navigate to **Synchronization Settings** > **Auto Create People on Login**.
 
 | Property | Description |
 | -------- | ----------- |
+|ldap.authentication.initial.checks.enabled|This property allows you to enable or disable the initial LDAP checks that are performed during the subsystem start (e.g. on repository bootstrap or when changes are done through the Admin Console). When set to `true`, the following checks are performed against the current LDAP configuration: `anonymous bind`, `simple DN`, `DN` and `principal`. When set to `false`, the checks are not executed in any circumstances. **Note**: In a cluster environment this property allows you to leave the LDAP checks enabled only in one single node, and prevents the checks from running in the other nodes.|
 |ldap.authentication.active|This Boolean flag, when `true` enables use of this LDAP subsystem for authentication. It might be that this subsystem should only be used for user registry export, in which case this flag should be set to `false` and you would have to chain an additional subsystem such kerberos to provide authentication functions. |
 |ldap.authentication.java.naming.referral|This property specifies how the referrals sent by AD in the search results are handled by Alfresco. The recommended values are:<br><br>`ignore`<br><br>If `ldap.authentication.java.naming.referral=ignore`, the following exception will be thrown when a referral is encountered:<br><br>```javax.naming.PartialResultException: Unprocessed Continuation Reference(s); remaining name 'dc=alfness,dc=com'```<br><br>`follow`<br><br>If `ldap.authentication.java.naming.referral=follow`, Alfresco will automatically follow the referral. To be successful, make sure Alfresco can access the referred server. If this property has not been set, then the default is to follow the referrals.<br><br>`throw`<br><br>If `ldap.authentication.java.naming.referral=throw`, the following exception will be thrown:<br><br>```com.sun.jndi.ldap.LdapReferralException: Continuation Reference; remaining name 'dc=alfness,dc=com'```<br><br>For more information, see [Referrals in the JNDI](https://docs.oracle.com/javase/jndi/tutorial/ldap/referral/jndi.html). |
 |ldap.authentication.java.naming.security.authentication|The mechanism to use to authenticate with the LDAP server. This should be set to one of the standard values listed here or one of the values supported by the LDAP provider. Oracle's LDAP provider supports the following SASL mechanisms. The recommended values are:<br><br>`simple`<br><br>The basic LDAP authentication mechanism requiring the user name and password to be passed over the wire unencrypted. You might be able to add SSL for secure access, otherwise this should only be used for testing.<br><br>`DIGEST-MD5`<br><br>More secure RFC 2831 Digest Authentication. Note that with Active Directory, this requires your user accounts to be set up with reversible encryption, not the default setting. |
@@ -612,7 +613,7 @@ Both the `ldap` and `ldap-ad` subsystem types support the following configurable
 | Property | Description |
 | -------- | ----------- |
 |ldap.synchronization.active|This flag enables use of the LDAP subsystem for user registry export functions and decides whether the subsystem will contribute data to the synchronization subsystem. It might be that this subsystem should only be used for authentication, in which case this flag should be set to `false`. |
-|ldap.synchronization.java.naming.security.authentication|The authentication mechanism used to connect to the LDAP server when performing user registry exports. In versions earlier than 3.4 versions, this property was the same as `ldap.authentication.java.naming.security.authentication`. The property should use one of the standard values covered in the [Oracle documentation](https://java.sun.com/javase/6/docs/technotes/guides/jndi/spec/jndi/properties.html#pgfId=999247) or one of the values supported by the LDAP provider. Oracle's LDAP provider supports the [SASL mechanisms](https://download.oracle.com/javase/6/docs/technotes/guides/jndi/jndi-ldap.html#SASL). Recommended values are:<br><br>`none`<br><br>Use this option if your LDAP server supports connection without a password. Set to none to allow synchronization by using anonymous bind (note that you'll not also need to set the following two properties). <br><br>`simple`<br><br>This option is the basic LDAP authentication mechanism requiring the user name and password to be passed over the wire unencrypted. You might be able to add SSL for secure access; otherwise, use this option for testing only.<br><br>`DIGEST-MD5`<br><br>This option provides a more secure ([RFC 2831](https://www.ietf.org/rfc/rfc2831.txt)) digest authentication. With Active Directory, this requires your user accounts to be set up with reversible encryption, not the default setting. |
+|ldap.synchronization.java.naming.security.authentication|The authentication mechanism used to connect to the LDAP server when performing user registry exports. In versions earlier than 3.4 versions, this property was the same as `ldap.authentication.java.naming.security.authentication`. The property should use one of the standard values covered in the [Oracle documentation](https://download.oracle.com/javase/6/docs/technotes/guides/jndi/spec/jndi/properties.html#pgfId=999247){:target="_blank"} or one of the values supported by the LDAP provider. Oracle's LDAP provider supports the [SASL mechanisms](https://download.oracle.com/javase/6/docs/technotes/guides/jndi/jndi-ldap.html#SASL). Recommended values are:<br><br>`none`<br><br>Use this option if your LDAP server supports connection without a password. Set to none to allow synchronization by using anonymous bind (note that you'll not also need to set the following two properties). <br><br>`simple`<br><br>This option is the basic LDAP authentication mechanism requiring the user name and password to be passed over the wire unencrypted. You might be able to add SSL for secure access; otherwise, use this option for testing only.<br><br>`DIGEST-MD5`<br><br>This option provides a more secure ([RFC 2831](https://www.ietf.org/rfc/rfc2831.txt)) digest authentication. With Active Directory, this requires your user accounts to be set up with reversible encryption, not the default setting. |
 |ldap.synchronization.java.naming.security.principal|The LDAP user to connect as for the export operation, if one is required by the `ldap.synchronization.java.naming.security.authentication` authentication mechanism. This should be in the same format as `ldap.authentication.userNameFormat` but with a real user ID instead of `%s`.<br><br>This is the default principal to use (only used for LDAP sync when `ldap.synchronization.java.naming.security.authentication=simple`): `ldap.synchronization.java.naming.security.principal=cn\=Manager,dc\=company,dc\=com` |
 |ldap.synchronization.java.naming.security.credentials|The password for this user, if required. The password for the default principal (only used for LDAP sync when `ldap.synchronization.java.naming.security.authentication=simple`)  ldap.synchronization.java.naming.security.credentials=secret |
 |ldap.synchronization.queryBatchSize|If set to a positive integer, this property indicates that RFC 2696 paged results should be used to split query results into batches of the specified size. This overcomes any size limits imposed by the LDAP server. The default value of 1000 matches the default result limitation imposed by Active Directory. If set to zero or less, paged results won't be used. |
@@ -671,7 +672,7 @@ You can check which Simple Authentication and Security Layer (SASL) authenticati
 
 Use this information to synchronize the enabled or disabled directory user status after an LDAP sync.
 
-Different LDAP directories store data in different formats. For example, Active Directory has an attribute called `userAccountControl` where the second bit (`0x2`) is an [`ACCOUNTDISABLE` flag](https://support.microsoft.com/en-gb/kb/305144), Oracle Directory Server has an attribute called `pwdAccountLockedTime`, and LDAP systems derived from Netscape Directory Server (NDS) have a `nsAccountLock` attribute.
+Different LDAP directories store data in different formats. For example, Active Directory has an attribute called `userAccountControl` where the second bit (`0x2`) is an [`ACCOUNTDISABLE` flag](https://support.microsoft.com/en-gb/help/305144){:target="_blank"}, Oracle Directory Server has an attribute called `pwdAccountLockedTime`, and LDAP systems derived from Netscape Directory Server (NDS) have a `nsAccountLock` attribute.
 
 The values of these attributes need to be mapped onto a boolean property on the `cm:person` node. To do this,
 configure the attributes as follows:
@@ -1233,15 +1234,15 @@ This task can be performed by the enterprise system administrator or the Alfresc
 
 When using Chrome on Windows to access Share, if the command-line switch is not present, the permitted list consists of those servers in the Local Machine or Local Intranet security zone. This is the behavior in Internet Explorer. For example, when the host in the URL includes a "`.`" character, it is outside the Local Intranet security zone. Treating servers that bypass proxies as being in the Intranet zone is currently not supported.
 
-On Windows, HTTP authentication is achieved by adding the Kerberos delegation server whitelist policy, `AuthNegotiateDelegateWhitelist`. Note that the `AuthNegotiateDelegateWhitelist` policy:
+On Windows, HTTP authentication is achieved by adding the Kerberos delegation server allowlist policy, `AuthNegotiateDelegateAllowlist`. Note that the `AuthNegotiateDelegateAllowlist` policy:
 
 * Specifies the servers that Chrome may delegate to
-* Has a Windows registry location of `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AuthNegotiateDelegateWhitelist`
+* Has a Windows registry location of `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AuthNegotiateDelegateAllowlist`
 * Has separate multiple server names with commas
 * Allows wildcards (*)
 * If you do not set this policy, Chrome does not delegate user credentials, even if a server is detected as Intranet
 
-To set the `AuthNegotiateDelegateWhitelist` policy, follow these steps:
+To set the `AuthNegotiateDelegateAllowlist` policy, follow these steps:
 
 1. Download the Administrative policy template from [http://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip](http://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip).
 2. Use the command line, `gpedit.msc` to open the local group policy management.
@@ -1250,9 +1251,9 @@ To set the `AuthNegotiateDelegateWhitelist` policy, follow these steps:
 5. Click **Add/Remove Templates**.
 6. Click the **Add** button.
 7. Select `windows/adm/en-US/chrome.adm` from the `policy_templates.zip` download.
-8. In the **Local Computer Policy Editor** console tree, navigate to **Local Computer Policy > Computer Configuration > Administrative Templates > Classic Administrative Templates (ADM) > Google > Google Chrome > Policies for HTTP Authentication > Kerberos delegation server whitelist**.
-9. On the **Kerberos delegation server whitelist** window, click **Enabled**.
-10. Specify your Share server name(s) as value in **Kerberos delegation server whitelist**.
+8. In the **Local Computer Policy Editor** console tree, navigate to **Local Computer Policy > Computer Configuration > Administrative Templates > Classic Administrative Templates (ADM) > Google > Google Chrome > Policies for HTTP Authentication > Kerberos delegation server allowlist**.
+9. On the **Kerberos delegation server allowlist** window, click **Enabled**.
+10. Specify your Share server name(s) as value in **Kerberos delegation server allowlist**.
 11. To activate the policy, open Chrome.
 12. Type `chrome://policy` to list the settings as viewed by Chrome.
 
@@ -1269,7 +1270,7 @@ When using Chrome on Linux as your client, follow these steps:
 2. To use Alfresco Share, use:
 
     ```bash
-    google-chrome --auth-server-whitelist=madona:8080 --auth-negotiate-delegate-whitelist=madona:8080
+    google-chrome --auth-server-allowlist=madona:8080 --auth-negotiate-delegate-allowlist=madona:8080
     http://madona:8080/alfresco
     ```
 
@@ -1410,13 +1411,15 @@ Configuring cross-domain support for Kerberos SSO requires two-way trust between
 
 If you've configured Share correctly, you should see your user dashboard in Share.
 
-You can debug Kerberos issues using the log4j properties file. This file is located at `<installLocation>/tomcat/shared/classes/alfresco/extension/custom-log4j.properties.sample`.
+You can debug Kerberos issues using the log4j properties file. This file is located at `<installLocation>/tomcat/shared/classes/alfresco/extension/custom-log4j2.properties.sample`.
 
-Rename the `custom-log4j.properties.sample` file to `custom-log4j.properties` file and add the required configuration. For example:
+Rename the `custom-log4j2.properties.sample` file to `custom-log4j2.properties` file and add the required configuration. For example:
 
 ```bash
-log4j.logger.org.alfresco.web.app.servlet.KerberosAuthenticationFilter=debug
-log4j.logger.org.alfresco.repo.webdav.auth.KerberosAuthenticationFilter=debug
+logger.alfresco-web-app-servlet-KerberosAuthenticationFilter.name=org.alfresco.web.app.servlet.KerberosAuthenticationFilter
+logger.alfresco-web-app-servlet-KerberosAuthenticationFilter.level=debug
+logger.alfresco-repo-webdav-auth-KerberosAuthenticationFilter.name=org.alfresco.repo.webdav.auth.KerberosAuthenticationFilter
+logger.alfresco-repo-webdav-auth-KerberosAuthenticationFilter.level=debug
 ```
 
 The following is a sample login output:
@@ -1447,11 +1450,11 @@ Once the Identity Service has been deployed, there are two steps to configure Co
 
 #### Identity Service configuration properties {#isprops}
 
-Use this information to configure Content Services to authenticate using Identity Service.
+Use this information to configure Content Services to authenticate using Identity Service. Content Services uses Spring Security components because the Keycloak Adapters have been deprecated. Key features and behaviors of the Keycloak Adapter, such as the communication with the Identity Service, are preserved. For more information, see the Keycloak documentation [Deprecation of Keycloak adapters](https://www.keycloak.org/2022/02/adapter-deprecation){:target="_blank"}.
 
-Configure the `alfresco-global.properties` file using the below properties:
+Configure the `alfresco-global.properties` file using the below properties.
 
-> **Note:** See the Keycloak documentation for a [full list of possible properties](https://www.keycloak.org/docs/4.8/securing_apps/index.html#_java_adapter_config).
+Identity Service authentication options:
 
 | Property | Description |
 | -------- | ----------- |
@@ -1460,12 +1463,54 @@ Configure the `alfresco-global.properties` file using the below properties:
 | identity-service.authentication.defaultAdministratorUserNames | The default administrator user name. The default value  is `admin`. |
 | identity-service.authentication.allowGuestLogin | Sets whether guest logins are allowed. The default value  is `true`. |
 | identity-service.authentication.enable-username-password-authentication | Enable username and login password authentication. The default value  is `true`. |
-| identity-service.enable-basic-auth | Enable or disable basic authentication fallback. If set to `true` then a secret must also be provided. The default value  is `true`. |
-| identity-service.auth-server-url | Base URL of the Identity Service server in the format `https://{server}:{port}/auth`. The default value is `http://localhost:8180/auth`. |
+
+Specifying the Identity Service (Keycloak) details:
+
+| Property | Description |
+| -------- | ----------- |
 | identity-service.realm | Name of the realm configured in the Identity Service. The default value  is `alfresco`. |
-| identity-service.ssl-required | Sets whether communication to and from the Identity Service server is over HTTPS. Possible values are `all` for all requests, `external` for external requests or `none`. This property needs to match the equivalent setting for **Require SSL** in your realm within the Identity Service administration console. The default value  is `none`. |
+| identity-service.auth-server-url | Base URL of the Identity Service server in the format `https://{server}:{port}/auth`. The default value is `http://localhost:8180/auth`. |
 | identity-service.resource | The **Client ID** for the client created within your realm that points to Content Services. The default value  is `alfresco`. |
-| identity-service.public-client | The adapter won't send credentials for the client to the Identity Service if this is set to `true`. The default value  is `true`. |
+| identity-service.credentials.secret | The **Client Secret** for the client. The default value is an empty string. |
+
+Specifying TLS/mTLS details:
+
+| Property | Description |
+| -------- | ----------- |
+| identity-service.allow-any-hostname | If TLS is used, this flag allows you to disable host name verification. This might be useful in a development environment. The default value is `false`. |
+| identity-service.disable-trust-manager | If TLS is used, this flag allows you to disable the certificate verification. This might be useful in a development environment. The default value is `false`. |
+| identity-service.truststore | If TLS is used, this flag allows you to specify the path to the `truststore`. |
+| identity-service.truststore-password | Password for the `truststore`. |
+| identity-service.client-keystore | Location for the `keystore` containing a client certificate in case of the mTLS setup. |
+| identity-service.client-keystore-password | Password for the `keystore`. |
+| identity-service.client-key-password | Password for the client key. |
+
+Specifying underlying HTTP client details:
+
+| Property | Description |
+| -------- | ----------- |
+| identity-service.connection-pool-size | Allows you to specify how many HTTP connections will be used to communicate with the Identity Service. The default value is `20`. |
+| identity-service.client-connection-timeout | Timeout in milliseconds for connecting to the Identity Service. The default value is `2000`. |
+| identity-service.client-socket-timeout | Timeout in milliseconds for reading responses from the Identity Service. The default value is `2000`. |
+
+Specifying provided JWKS Public Key:
+
+| Property | Description |
+| -------- | ----------- |
+| identity-service.realm-public-key | Allows you to specify the Realm public key. The default value is empty which means the Repository will obtain the key directly from the Identity Service. |
+
+Configuring TTL for the cached JWKS Public Key obtained from the `certs` endpoint:
+
+| Property | Description |
+| -------- | ----------- |
+| identity-service.public-key-cache-ttl | `86400` The time in seconds between refreshing the public keys from the JWKS endpoint. |
+
+Respecting Keycloak's public client setting:
+
+| Property | Description |
+| -------- | ----------- |
+| identity-service.public-client | The Repository won’t send credentials for the client to the Identity Service if this is set to true. The default value is `true`. |
+
 
 ## Configure synchronization
 
@@ -1791,7 +1836,7 @@ The synchronization settings manage the synchronization of Content Services with
     |Sync on Startup|Yes|This triggers synchronization when the subsystem starts up. This ensures that when the user registries are first configured, bulk of synchronization work is done on server startup, rather than on the first login. |
     |Sync When Missing People Login|Yes|This triggers synchronization when a user, who does not yet exist, is successfully authenticated. The default is `true`. |
     |Allow Deletions|Yes|This triggers deletion of the local users and groups during synchronization when handling removals or collision resolution. The default is `true`. If `false`, then no sync job will be allowed to delete users or groups during the handling of removals or collision resolution. |
-    |Logging Interval|100|This specifies the number of user or group entries processed during synchronization before the progress is logged at INFO level. It requires the following default entry in log4j.properties: `log4j.logger.org.alfresco.repo.security.sync=info`<br><br>The default is `100`. |
+    |Logging Interval|100|This specifies the number of user or group entries processed during synchronization before the progress is logged at INFO level. It requires the following default entry in log4j2.properties: `logger.alfresco-repo-security-sync.name=org.alfresco.repo.security.sync` and `logger.alfresco-repo-security-sync.level=info` <br><br>The default is `100`. |
     |Auto Create People On Login|Yes|This specifies whether to create a user with default properties, when a user is successfully authenticated, who does not yet exist, and was not returned by synchronization (if enabled with the **Sync When Missing People Login** property). The default is `true`. |
     |Sync Changes Only|Yes|This triggers a differential synchronization. Deselect this option, to run full synchronization. Regardless of this setting, a differential synchronization can still be triggered when a user, who does not yet exist, is successfully authenticated. |
     |Import CRON Expression|0 0 0 * * ?|This specifies a cron expression which defines when the scheduled synchronization job should run. By default, this is every 24 hours at midnight. |

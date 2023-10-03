@@ -12,7 +12,7 @@ For more advanced configuration, such as security, transport connectors, or memo
 
 Set up Apache ActiveMQ to enable message queuing. If you already have an ActiveMQ instance connected to Community Edition, you don't need to perform these step.
 
-If you don't already have an ActiveMQ instance (version 5.15.x), [install ActiveMQ](https://activemq.apache.org/installation.html){:target="_blank"} and follow the steps below.
+If you don't already have an ActiveMQ instance (version 5.17.x), [install ActiveMQ](https://activemq.apache.org/installation.html){:target="_blank"} and follow the steps below.
 
 1. Stop the server.
 

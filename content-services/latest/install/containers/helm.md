@@ -11,7 +11,7 @@ The Helm chart in this repository supports deploying the Enterprise or Community
 
 The Enterprise configuration deploys the following system:
 
-![Helm Deployment Enterprise]({% link content-services/images/helm-enterprise.png %}){:width="460" height="440px"}
+![Helm Deployment Enterprise]({% link content-services/images/helm-enterprise.png %})
 
 ## Considerations
 
@@ -77,14 +77,7 @@ Follow the [AWS EKS Getting Started Guide](https://docs.aws.amazon.com/eks/lates
 
 As we'll be using Helm to deploy the Content Services chart, follow the [Using Helm with EKS](https://docs.aws.amazon.com/eks/latest/userguide/helm.html){:target="_blank"} instructions to set up Helm on your local machine.
 
-Helm also needs to know where to find charts. Run the following commands to add the Nginx ingress and Alfresco repositories to your machine:
-
-```bash
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-helm repo add alfresco https://kubernetes-charts.alfresco.com/stable
-```
-
-Optionally, follow the tutorial to [deploy the Kubernetes Dashboard](https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html){:target="_blank"}  to your cluster. This can be really useful for troubleshooting issues that you may occur.
+Optionally, to help troubleshoot issues with your cluster either follow the tutorial to [deploy the Kubernetes Dashboard](https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html){:target="_blank"} to your cluster or download and use the [Lens application](https://k8slens.dev){:target="_blank"} from your local machine.
 
 ### Prepare the cluster for Content Services
 
@@ -168,21 +161,30 @@ Now we have an EKS cluster up and running, there are a few one time steps we nee
    kubectl apply -f external-dns.yaml -n kube-system
    ```
 
-5. Find the name of the role used by the nodes by running the following command (replace `YOUR-CLUSTER-NAME` with the name you gave your cluster):
+5. List node groups for your cluster and make note of nodegroup name `YOUR-NODEGROUP` (replace `YOUR-CLUSTER-NAME` with
+   the name you gave your cluster).
+
+   ```bash
+   bash aws eks list-nodegroups --cluster-name YOUR-CLUSTER-NAME
+   ```
+
+6. Find the name of the role used by the nodes by running the following command (replace `YOUR-CLUSTER-NAME` with the
+   name you gave your cluster and `YOUR-NODEGROUP` with your nodegroup name):
 
     ```bash
-    aws eks describe-nodegroup --cluster-name YOUR-CLUSTER-NAME --nodegroup-name linux-nodes --query "nodegroup.nodeRole" --output text
+    aws eks describe-nodegroup --cluster-name YOUR-CLUSTER-NAME --nodegroup-name YOUR-NODEGROUP --query "nodegroup.nodeRole" --output text
     ```
 
-6. In the [IAM console](https://console.aws.amazon.com/iam/home){:target="_blank"} find the role discovered in the previous step and attach the **AmazonRoute53FullAccess** managed policy as shown in the screenshot below:
+7. In the [IAM console](https://console.aws.amazon.com/iam/home){:target="_blank"} find the role discovered in the
+   previous step and attach the **AmazonRoute53FullAccess** managed policy as shown in the screenshot below:
 
-    ![Attach Policy]({% link content-services/images/eks-attach-policy.png %})
+   ![Attach Policy]({% link content-services/images/eks-attach-policy.png %})
 
 #### File system
 
 1. Create an Elastic File System in the VPC created by EKS using [these steps](https://docs.aws.amazon.com/efs/latest/ug/creating-using-create-fs.html){:target="_blank"} ensuring a mount target is created in each subnet. Make a note of the File System ID (circled in the screenshot below):
 
-    ![EFS]({% link content-services/images/eks-efs.png %})
+   ![EFS]({% link content-services/images/eks-efs.png %})
 
 2. Find the ID of the VPC created when your cluster was built (replace `YOUR-CLUSTER-NAME` with the name you gave your cluster):
 
@@ -198,15 +200,18 @@ Now we have an EKS cluster up and running, there are a few one time steps we nee
 
 4. Go to the [Security Groups section of the VPC Console](https://console.aws.amazon.com/vpc/home#SecurityGroups){:target="_blank"} and search for the VPC using the ID retrieved in step 2, as shown in the screenshot below:
 
-    ![VPC Default Security Group]({% link content-services/images/eks-vpc-security-group.png %})
+   ![VPC Default Security Group]({% link content-services/images/eks-vpc-security-group.png %})
 
 5. Click on the default security group for the VPC (highlighted in the screenshot above) and add an inbound rule for NFS traffic from the VPC CIDR range as shown in the screenshot below:
 
-    ![NFS Inbound Rules]({% link content-services/images/eks-nfs-inbound-rules.png %})
+   ![NFS Inbound Rules]({% link content-services/images/eks-nfs-inbound-rules.png %})
 
-6. Deploy an NFS Client Provisioner with Helm using the following command (replace `EFS-DNS-NAME` with the string `file-system-id.efs.aws-region.amazonaws.com` where the `file-system-id` is the ID retrieved in step 1 and `aws-region` is the region you're using, e.g. `fs-72f5e4f1.efs.us-east-1.amazonaws.com`):
+6. Deploy an NFS Client Provisioner with Helm using the following commands (replace `EFS-DNS-NAME` with the string
+   `FILE-SYSTEM-ID.efs.AWS-REGION.amazonaws.com` where the `FILE-SYSTEM-ID` is the ID retrieved in step 1 and
+   `AWS-REGION` is the region you're using, e.g. `fs-72f5e4f1.efs.us-east-1.amazonaws.com`):
 
     ```bash
+    helm repo add stable https://kubernetes-charts.storage.googleapis.com
     helm install alfresco-nfs-provisioner stable/nfs-client-provisioner --set nfs.server="EFS-DNS-NAME" --set nfs.path="/" --set storageClass.name="nfs-client" --set storageClass.archiveOnDelete=false -n kube-system
     ```
 
@@ -280,7 +285,7 @@ kubectl create namespace alfresco
 3. Deploy the ingress (replace `ACM_CERTIFICATE_ARN` and `YOUR-DOMAIN-NAME` with the ARN of the certificate and hosted zone created earlier in the DNS section):
 
     ```bash
-    helm install acs-ingress ingress-nginx/ingress-nginx \
+    helm install acs-ingress ingress-nginx/ingress-nginx --version=3.7.1\
     --set controller.scope.enabled=true \
     --set controller.scope.namespace=alfresco \
     --set rbac.create=true \
@@ -296,7 +301,7 @@ kubectl create namespace alfresco
     --namespace alfresco
     ```
 
-    > **Note:** The command will wait until the deployment is ready.
+   > **Note:** The command will wait until the deployment is ready.
 
 #### Docker registry secret
 
@@ -308,7 +313,21 @@ kubectl create secret docker-registry quay-registry-secret --docker-server=quay.
 
 #### Choose Content Services version
 
-Decide whether you want to install the latest version of Content Services (Enterprise) or a previous version, and follow the steps in the relevant section below.
+This repository allows you to either deploy a system using released stable artefacts or the latest in-progress development artefacts.
+
+To use a released version of the Helm chart add the stable repository using the following command:
+
+```bash
+helm repo add alfresco https://kubernetes-charts.alfresco.com/stable
+```
+
+Alternatively, to use the latest in-progress development version of the Helm chart add the incubator repository using the following command:
+
+```bash
+helm repo add alfresco https://kubernetes-charts.alfresco.com/incubator
+```
+
+Now decide whether you want to install the latest version of Content Services (Enterprise or Community) or a previous version, and follow the steps in the relevant section below.
 
 ##### Latest Enterprise version
 
@@ -351,7 +370,7 @@ helm install acs alfresco/alfresco-content-services \
     --namespace=alfresco
     ```
 
-    > **Note:** The command will wait until the deployment is ready.
+   > **Note:** The command will wait until the deployment is ready.
 
 ### Access
 
@@ -366,7 +385,7 @@ Since you deployed Enterprise, you'll also have access to:
 * Alfresco Digital Workspace: `https://acs.YOUR-DOMAIN-NAME/workspace/`
 * Alfresco Sync Service: `https://acs.YOUR-DOMAIN-NAME/syncservice/healthcheck`
 
-If you're running Content Services 7.0 (i.e. the latest version) and already have a valid license file for this version, you can apply it directly to the running system. Navigate to the Admin Console and apply your license:
+If you're running Content Services 7.4 (i.e. the latest version) and already have a valid license file for this version, you can apply it directly to the running system. Navigate to the Admin Console and apply your license:
 
 * [https://acs.YOUR-DOMAIN-NAME/alfresco/service/enterprise/admin/admin-license](http://localhost:8080/alfresco/service/enterprise/admin/admin-license){:target="_blank"} (this only applies for the Enterprise Download Trial)
 * Default username and password is `admin`
@@ -463,9 +482,9 @@ The easiest way to troubleshoot issues on a Kubernetes deployment is to use the 
 
 5. Select `alfresco` from the **Namespace** menu, click **Pods**, and then the pod name.
 
-    To view the logs, press the **Menu** icon in the toolbar as highlighted below:
+   To view the logs, press the **Menu** icon in the toolbar as highlighted below:
 
-    ![Kubernetes Dashboard]({% link content-services/images/k8s-dashboard.png %})
+   ![Kubernetes Dashboard]({% link content-services/images/k8s-dashboard.png %})
 
 ### Port-forwarding to a pod
 
@@ -502,7 +521,7 @@ You can change the log levels for the specific Java packages in the content-repo
 
 > **Note:** Changes are only applied to the `content-repository` node from which the Admin Console is launched.
 
-* You can change the log levels by modifying `log4j.properties` in the content-repository image and doing a rolling update to the deployment. In this case the settings will be applied system-wide. See the [customization guidelines]({% link content-services/latest/install/containers/customize.md %}) for more.
+* You can change the log levels by modifying `log4j2.properties` in the content-repository image and doing a rolling update to the deployment. In this case the settings will be applied system-wide. See the [customization guidelines]({% link content-services/latest/install/containers/customize.md %}) for more.
 * The Content Services deployment doesn't include any log aggregation tools. The logs generated by pods will be lost once the pods are terminated.
 
 ### JMX dump

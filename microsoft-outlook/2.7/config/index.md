@@ -944,7 +944,7 @@ Use this file to set up attributes and metadata settings.
         <connection url="http://127.0.0.1:8080/" shareUrl="share" alfrescoUrl="alfresco" login="admin" password="7DkTRpO8sfo=" checkCertificate="true" checkVersion="true" authentication="basic" webApp="2" shareAlterUrl="" settingsCheckInterval="480" />
         <logging minLevel="info" />
         <storage archiveOption="0" storeFiles="true" storeLink="true" storeMsg="false" compress="true" />
-        <feature autoPaging="false" highlightTexts="false" collapsible="true" tokenAlterMode="false" messageIcon="false" saml="true" />
+        <feature autoPaging="false" tokenAlterMode="false" messageIcon="false" />
         <explorer-search-properties />
         <search-properties />
       </outlook>
@@ -964,7 +964,7 @@ Use this file to set up attributes and metadata settings.
     |`hoverPreview`|Controls the behavior of the Preview window in the Search tab of the Alfresco sidebar|`true`: preview window is shown when hovering over the found item. This is the default setting.<br><br>`false`: preview window is not shown when hovering over the found item.|
     |`isSitesRoot`|Sets a root folder to show in the Explore tab of the Alfresco sidebar|`true`: root is the Sites folder. This is the default setting.<br><br>`false`: root is the Company Home folder.|
     |`mailNameDisplayPattern=" #subject (#from)"`|Modifies the email appearance in the Explore tab of the Alfresco sidebar|Use these variables to modify the email fields displayed: `#subject`, `#from`, `#to`, `#sent`|
-    |`culture`|Sets the language used in Alfresco Outlook Client|Possible settings:`en`: English<br><br>`de`: German<br><br>`es`: Spanish<br><br>`it`: Italian<br><br>`fr`: French<br><br>`ja`: Japanelse<br><br>`ru`: Russian<br><br>`zh-cn`: Chinese (Simplified)<br><br>`pt-br`: Brazilian Portuguese<br><br>`nl`: Dutch<br><br>`nb-no`: Norwegian (Bokmal)<br><br>`cs`: Czech<br><br>`da`: Danish<br><br>`sv`: Swedish<br><br>`fi`: Finnish<br><br>`pl`: Polish<br><br>|
+    |`culture`|Sets the language used in Alfresco Outlook Client|Possible settings:`en`: English<br><br>`de`: German<br><br>`es`: Spanish<br><br>`it`: Italian<br><br>`fr`: French<br><br>`ja`: Japanese<br><br>`ru`: Russian<br><br>`zh-cn`: Chinese (Simplified)<br><br>`pt-br`: Brazilian Portuguese<br><br>`nl`: Dutch<br><br>`nb-no`: Norwegian (Bokmal)<br><br>`cs`: Czech<br><br>`da`: Danish<br><br>`sv`: Swedish<br><br>`fi`: Finnish<br><br>`pl`: Polish<br><br>|
     |`customAppTitle`|Renames Alfresco Outlook Client sidebar|Enter your chosen title as a text string.|
     |`customRibbonTitle`|Renames the Alfresco Client tab|Enter your chosen title as a text string.|
     |`customMenuTitle`|Renames the Alfresco Client option when right clicking a file|Enter your chosen title as a text string.**Note:** If you set this option, the same value is applied to `customRibbonTitle` if `customRibbonTitle` is blank.|
@@ -1002,19 +1002,19 @@ Use this file to set up attributes and metadata settings.
     |`checkVersion`|Specifies whether to check the Alfresco server version|`true`: version is checked and if it is not correct then the connection fails. This is the default setting.<br><br>`false`: version is not checked|
     |`settingsCheckInterval`|Specifies the interval, in seconds, between checks to determine if the central settings have changed|`480`: 480 seconds is the default setting.|
     |`samlFallbackTimeout`|Sets a time, in seconds, for the Alfresco Outlook Client to wait before the SAML authentication window appears. This should only be required for slower networks to reduce the number of times that the authentication window reappears due to a delay from the server.<br><br>Added in Outlook Integration 2.4.7. Supported in versions 2.4.7 onwards and 2.6.|`7`: 7 seconds is the default setting.|
+    |`writeStreamBuffering`|Sets the `AllowWriteStreamBuffering` parameter of the HttpWebRequest.<br><br>**Note:** In a clustered Alfresco environment, you may encounter the error message _“This request requires buffering data to succeed”_ while uploading emails or files. Setting `writeStreamBuffering` to `true` will prevent this error from happening.<br><br>Added in Outlook Integration 2.7.|`true`: `AllowWriteStreamBuffering` is enabled.<br><br>`false`: `AllowWriteStreamBuffering` is disabled. This is the default setting.|
 
 5. Configure the attributes that you need for the `<feature>` element:
 
     |Attribute|Description|Value|
     |---------|-----------|-----|
     |`autoPaging`|Controls auto paging (for the tree view)|`true`: auto paging is enabled. A refreshed list of files and folders is automatically loaded when scrolling to the bottom of the tree.<br><br>`false`: auto paging is not enabled. This is the default setting. A More button is displayed to allow loading of content.|
-    |`collapsible`|Allows Alfresco sidebar to be expanded or collapsed|`true`: panel is collapsible. This is the default setting.<br><br>`false`: panel is not collapsible.|
-    |`saml`|Controls SAML authentication|`true`: SAML authentication can be used to connect to Alfresco. This is the default setting.<br><br>`false`: SAML authentication cannot be used to connect to Alfresco|
     |`messageIcon`|Controls the appearance of the Alfresco icon for archived mail|`true`: Alfresco icon appears on archived emails. This is the default setting.<br><br>`false`: Alfresco icon appears on archived emails.<br><br>**Note:** There is no visual icon to indicate that the email is archived.|
     |`useFilenameOnUploadMsg`|Controls if Alfresco should use the file name of email files uploaded from the desktop or the subject line to name the document in the repository. This option applies to email files uploaded from the desktop only.<br><br>Added in Outlook Integration 2.4.7. Supported in versions 2.4.7 onwards and 2.6.|`true`: Alfresco uses the file name to name the document in the repository.<br><br>`false`: Alfresco uses the subject line of the email to name the document in the repository.|
     |`useFilenameOnRenderMsg`|Controls if Alfresco should use the `cm:name` or `subjectline` attribute to display in the list/tree view. This option applies to email documents only.<br><br>Added in Outlook Integration 2.4.7. Supported in versions 2.4.7 onwards and 2.6.|`true`: Alfresco uses the `cm:name` instead of the `subjectline` attribute to show the email document in the list/tree view.<br><br>`false`: Alfresco uses the `subjectline` attribute to show the email document in the list/tree view.|
     |`enableWFTab`|Controls the visibility of the Workflow tab in high resolution mode.<br><br>Added in Outlook Integration 2.6.|`true`: Workflow tab is visible.<br><br>`false`: Workflow tab is collapsed. This is the default setting.|
     |`enableWPF`|Enables/disables the use of a high resolution front-end for the Alfresco Outlook Client.<br><br>Added in Outlook Integration 2.6.|`true`: High resolution front-end is enabled. This is the default setting.<br><br>`false`: High resolution front-end is disabled.|
+    |`copyMoveWarningThreshold`|Sets the threshold for when a warning should be displayed, when a large amount of files is being copied/moved inside the repository with the copy/move & paste feature. Warns the user that copying `x` amount of files can take a long time depending on the server.<br><br>Added in Outlook Integration 2.7.|`100` is the default setting.|
 
 6. Configure the attributes that you need for the `<logging>` element:
 

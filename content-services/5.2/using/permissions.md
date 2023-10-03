@@ -24,14 +24,6 @@ If you're a member of two user groups which have different permissions then you 
 
 > **Note:** Site content can be defined as any content created or added to a site. This includes, but is not limited to, wiki pages, blog postings, library folders and items, calendar events, discussion topics, and comments on any content.
 
--   **[Dashboards permissions](#dashboards-permissions)**  
-The following sections detail the user permissions for dashboards (personal and site) and dashlets.
--   **[Content permissions](#content-permissions)**  
-The following sections detail the user permissions for content.
--   **[Member permissions](#member-permissions)**  
-The following section details the member permissions.
-
-
 ## Dashboards permissions
 
 The following sections detail the user permissions for dashboards (personal and site) and dashlets.
@@ -263,12 +255,6 @@ If you have the following permissions you can access the Site Manager through an
 -   Sites Manager is available to users in the `ALFRESCO_ADMINISTRATORS` and `SITES_ADMINISTRATORS` permissions groups.
 -   Search Manager is available to users in the `ALFRESCO_ADMINISTRATORS` and `ALFRESCO_SEARCH_ADMINISTRATORS` permissions groups.
 
--   **[Sites Manager](#sites-manager)**  
-The Sites Manager is used for maintaining sites. You have control over the visibility of all sites as well as deleting sites or making yourself a site manager.
--   **[Search Manager](#search-manager)**  
-With the Search Manager you can see details of existing search filters and create new filters.
-
-
 ### Sites Manager
 
 The Sites Manager is used for maintaining sites. You have control over the visibility of all sites as well as deleting sites or making yourself a site manager.
@@ -285,7 +271,6 @@ With the **Actions** menu, there are two options:
 You can delete any of the sites in the Site Manager list by selecting **Delete Site** from the **Actions** menu. This action deletes all site details and content.
 
 The I'm a Site Manager column shows the sites where you have the Site Manager permission. If you aren't already a manager of a site, then select **Become Site Manager** from the **Actions** menu.
-
 
 ### Search Manager
 
@@ -331,13 +316,6 @@ Most of the filter details are can be edited by hovering over them and clicking 
 
     The site(s) where the filter is available.
 
-
-  
-
--   **[Creating new search filters](#creating-new-search-filters)**  
-In the Search Manager you can quickly create your own custom filters with a wide range of options available.
-
-
 ### Creating new search filters
 
 In the Search Manager you can quickly create your own custom filters with a wide range of options available.
@@ -370,4 +348,5 @@ In the Search Manager you can quickly create your own custom filters with a wide
 
     -   **Everywhere** - shown on all sites
     -   **Selected sited** - only shown on selected sites. Click ![]({% link content-services/images/ico-add.png %}) to add a site then select it from the list and click ![]({% link content-services/images/ico-tick.png %}) to confirm. Click ![]({% link content-services/images/ico-add.png %}) to add more sites if required.
-12. Click **Save**
+
+12. Click **Save**.

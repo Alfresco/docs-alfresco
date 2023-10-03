@@ -11,7 +11,7 @@ When your Alfresco Content Services installation is upgraded, you can apply the 
 
 1. Ensure your current production environment is running a version that is supported for upgrading.
 
-2. Download Alfresco Content Services 6.1 or above and the Governance Services Distribution ZIP from the [Support Portal](http://support.alfresco.com){:target="_blank"}.
+2. Download Alfresco Content Services 6.1 or above and the Governance Services Distribution ZIP from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 3. Download Alfresco Content Services and the Records Management AMP zip.
 
@@ -25,7 +25,7 @@ When your Alfresco Content Services installation is upgraded, you can apply the 
 
     Follow the instructions in [Install using the distribution ZIP]({% link governance-services/3.4/install/zip.md %}).
 
-    >**Note:** If you have {% include tooltip.html word="easyaccessrecords" text="easy access records" %} (previously know as in-place records) that are pre-2.3.0.8 versions of Records Management, then you also need to [run a webscript](#easy_access_upgrade) so that easy access records created in pre-2.3.0.8 sites are shown in the search results of users without Records Management permissions.
+    > **Note:** If you have {% include tooltip.html word="easyaccessrecords" text="easy access records" %} (previously know as in-place records) that are pre-2.3.0.8 versions of Records Management, then you also need to [run a webscript](#easy_access_upgrade) so that easy access records created in pre-2.3.0.8 sites are shown in the search results of users without Records Management permissions.
 
 6. Restart the Alfresco Content Services server, if it is already running.
 
@@ -55,7 +55,7 @@ of users without Records Management permissions.
 It can be run as a one-off operation to convert all existing records or, for better performance on larger repositories, 
 it can also be run on a user-defined number of records.
 
->**Note:** Easy access records created on Records Management 2.3.0.8 and later are shown without running the web script.
+> **Note:** Easy access records created on Records Management 2.3.0.8 and later are shown without running the web script.
 
 There are four parameters available for the web script.
 
@@ -77,9 +77,9 @@ You need Alfresco Administrator permissions to run the web script.
 
 3. Press Enter to run the web script. You may be prompted for your system username and password.
 
-    >**Note:** If you enter a large batch number then your browser may time out. The process will continue running in the background and details will be recorded in the server logs. As such, it's recommended that you set a `maxProcessedRecords` or use `parentNodeRef` to process a folder at a time.
+    > **Note:** If you enter a large batch number then your browser may time out. The process will continue running in the background and details will be recorded in the server logs. As such, it's recommended that you set a `maxProcessedRecords` or use `parentNodeRef` to process a folder at a time.
 
-    >**Tip:** To get the `parentNodeRef` for a folder go to its parent folder, then hover over the folder and select **View Details**. The node ref will be shown in the browser address.
+    > **Tip:** To get the `parentNodeRef` for a folder go to its parent folder, then hover over the folder and select **View Details**. The node ref will be shown in the browser address.
 
     ![Finding a node ref]({% link governance-services/images/finding-node-ref.png %})
 

@@ -22,7 +22,7 @@ jobs:
     if: ${{ github.repository }} == 'Alfresco/docs-alfresco'
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
@@ -36,6 +36,4 @@ jobs:
 
     - name: Run S3 Sync
       uses: ./.github/actions/s3_sync
-
-    - name: Run Redirects S3 Upload
-      uses: ./.github/actions/s3_upload
+      

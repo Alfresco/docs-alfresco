@@ -84,11 +84,11 @@ An example of the JSON for the Slack connector **SEND_MESSAGE** action is:
 
 ### Events
 
-Events are used as part of defining event criteria in a [trigger]({% link process-automation/latest/model/triggers.md %}). When the event criteria specified in a trigger are met, an action is started. Certain connectors can be used for defining event criteria. For example, the email connector event **MESSAGE_RECEIVED** can be used to monitor inbound emails. If a pattern defined in the trigger is met then a trigger action is started.
+Events are used as part of defining event criteria in a [trigger]({% link process-automation/latest/model/triggers.md %}). When the event criteria specified in a trigger are met, an action is started. Certain connectors can be used for defining event criteria. For example, the email service event **MESSAGE_RECEIVED** can be used to monitor inbound emails. If a pattern defined in the trigger is met then a trigger action is started.
 
 See [triggers]({% link process-automation/latest/model/triggers.md %}) for further details on creating event criteria based on connectors.
 
-Connector events contain a set of input and output parameters. Input parameters can be used to define a pattern for when an event should be created and output parameters can be used as values within a trigger action.
+Connector events contain a set of input and output parameters and the definition of the content of the event. Input parameters can be used to define a pattern for when an event should be created and output parameters can be used as values within a trigger action.
 
 The properties for input and output parameters are:
 
@@ -99,7 +99,7 @@ The properties for input and output parameters are:
 | Type | *Required.* The data type of the parameter, for example `String`. |
 | Required | *Optional.* Set whether the parameter requires a value when being used, for example `true`. |
 
-An example of the JSON for the Email connector **MESSAGE_RECEIVED** event is:
+An example of the JSON for the email service **MESSAGE_RECEIVED** event is:
 
 ```json
 "events": {
@@ -124,10 +124,39 @@ An example of the JSON for the Email connector **MESSAGE_RECEIVED** event is:
                     "type": "json"
                 },
 ...
-            ]
+            ],
+            "model": {
+                "$schema": "https://json-schema.org/draft/2019-09/schema",
+                "type": "object",
+                "properties": {
+                  "emailTo": {
+                    "type": "string"
+                  },
+                  "emailFrom": {
+                    "type": "string"
+                  },
+                  "emailSubject": {
+                     "type": "string"
+                  },
+                  "emailBody": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                    "emailTo",
+                    "emailFrom"
+                ]
+            }
         }
     },
 ```
+
+The `model` field describes the information that is included inside the data field of the Cloud Event handled in a trigger, for more see [Trigger events]({% link process-automation/latest/model/triggers.md %}#events). This allows you to create a condition for a [Trigger]({% link process-automation/latest/model/triggers.md %}) using the [Condition Builder]({% link process-automation/latest/using/index.md %}#condition-builder) and that is based on the event information.
+You can add or edit the model of the event in the editor by clicking the **Add Model Schema** or **Edit Model Schema** button.
+
+![Model Schema Editor]({% link process-automation/images/model-schema-editor.png %})
+
+In the editor on the left you can configure a JSON schema to describe an event. In the editor on the right you can enter a JSON object and validate it matches the schema on the left by clicking the `Validate` button. If it matches you will receive a validation success message.
 
 ### Configuration parameters
 
@@ -183,7 +212,7 @@ The properties of errors are:
 | Description | *Optional.* A free text description of what the parameter is for. For example `An input variable had an invalid type.` |
 | Code | *Required.* The error code that will be caught by an error boundary or error start event, for example `INVALID_INPUT`. |
 
-An example of the JSON for the email connector **INVALID_INPUT** error is:
+An example of the JSON for the email service **INVALID_INPUT** error is:
 
 ```json
     "errors": [
@@ -200,4 +229,4 @@ When a project is [deployed]({% link process-automation/latest/admin/release.md 
 
 Read and write access is granted to each service account on the [default storage location]({% link process-automation/latest/admin/release.md %}#deploy-steps/storage). If the connector reads or writes to files and folders held elsewhere in the repository, the service account will need to be manually given explicit permission to those directories otherwise the connector action will fail.
 
-> **Note**: The service accounts for an application are all added to a group named `<application-name>-service-group` so that permissions can be manually assigned for an entire application if required.
+> **Note**: The service accounts for an application are all added to a group named `<application-name>-service-group` so that permissions can be manually assigned for an entire application if required. This also makes it easier when adding permissions because service group can be found by the application name. This approach is useful when granting permissions to a content folder in the Digital Workspace, when using the copy, move, or update actions, for example `MOVE_FILE`.

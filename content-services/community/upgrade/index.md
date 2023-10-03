@@ -9,7 +9,7 @@ Before performing an upgrade or applying a Service Pack, make sure you check the
 Care should be taken when upgrading from any previous releases of Community Edition. There are some steps that should be reviewed and planned before you upgrade. Familiarize yourself with the guidance below and then plan your upgrade. In particular, ensure that the following steps are completed before you start:
 
 * Ensure that you have a functional [backup of your Alfresco repository and database]({% link content-services/community/admin/backup-restore.md %}), before starting the upgrade process.
-* Download and run the [Alfresco Extension Inspector](#LINK-content-services/community/develop/extension-inspector.md) to understand which customization or library items need to be reviewed or updated to support the upgrade.
+* Download and run the [Alfresco Extension Inspector]({% link content-services/latest/develop/extension-inspector.md %}) to understand which customization or library items need to be reviewed or updated to support the upgrade.
 * Review all new and deprecated features included in the Community Release Notes.
 * Review and implement the new supported stack options, and update as necessary for the new deployment.
 
@@ -91,16 +91,6 @@ These steps assume that you've got an existing Community Edition installation (`
 
 5. If you're happy with the upgraded system, remove the old installation and repository.
 
-6. (Optional) Perform this additional step only if you've configured multi-tenancy and are upgrading.
-
-    If upgrading to the latest version, your existing multi-tenancy (MT) sample extension files are no longer relevant and must be deleted. It's also recommended that you backup your existing MT files.
-
-    1. Take a backup of the following three existing MT extension files and delete them from the existing MT extension directory:
-
-        * `alfresco/extension/mt/mt-context.xml` to `alfresco/extension/mt/mt-context.xml`
-        * `alfresco/extension/mt/mt-admin-context.xml` to `alfresco/extension/mt/mt-admin-context.xml`
-        * `alfresco/extension/mt/mt-contentstore-context.xml` to `alfresco/extension/mt/mt-contentstore-context.xml`
-
 ## Validate upgrade
 
 Once you've upgraded, follow these steps to validate the new installation.
@@ -123,9 +113,14 @@ Once you've upgraded, follow these steps to validate the new installation.
 
 8. When you are certain the new installation is thoroughly validated, remove the old installation and repository.
 
-## Apply recommended database patch
+## Apply optional performance database patch
 
-Alfresco Content Services 7.0 contains a recommended database patch, which adds two indexes to the `alf_node` table and three to `alf_transaction`. This patch is optional, but recommended for larger implementations as it can have a big positive performance impact. These indexes are not automatically applied during upgrade, as the amount of time needed to create them might be considerable. They should be run manually after the upgrade process completes.
+>**Note.** This patch can take hours to run on larger systems.
+
+Content Services 7.0 contains a recommended database patch, which adds two indexes to the `alf_node` table and
+three to `alf_transaction`. This patch is optional, but recommended for larger implementations as it can have a big
+positive performance impact. These indexes are not automatically applied during upgrade, as the amount of time needed to
+create them might be considerable. They should be run manually after the upgrade process completes.
 
 To apply the patch, an admin should set the following Alfresco global property to `true`:
 
@@ -142,3 +137,7 @@ INFO  [org.alfresco.repo.domain.schema.SchemaBootstrap] [...] Ignoring script pa
 ...
 WARN  [org.alfresco.repo.domain.schema.SchemaBootstrap] [...] Schema validation found ... potential problems, results written to ...
 ```
+
+## Log4j2 migration guide
+
+In Content Services 7.4, log4j has been replaced with log4j2. See the [Log4j2 migration guide]({% link content-services/latest/upgrade/log4j2-migrate.md %}) for more information in the Enterprise documentation.

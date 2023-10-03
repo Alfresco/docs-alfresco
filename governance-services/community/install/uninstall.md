@@ -6,7 +6,7 @@ The Governance Services AMP files can be uninstalled using the Module Management
 
 Governance Services consists of two AMP files, which are applied during installation. One of the AMP files, representing the core Governance Services functionality, is applied to the Alfresco Repository WAR file, and the other, representing the Governance Services UI component is applied to the Alfresco Share WAR file.
 
-Both of the AMP files need to be removed in order to uninstall Governance Services. Use the Module Management Tool (MMT) to do this. For more information on the tool, see [Module Management Tool (MMT)]({% link content-services/community/develop/extension-packaging.md %}#using-the-module-management-tool-mmt)
+Both of the AMP files need to be removed in order to uninstall Governance Services. Use the Module Management Tool (MMT) to do this. For more information on the tool, see [Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt)
 
 The MMT is a command line tool. The syntax for uninstalling an AMP file using MMT is:
 
@@ -14,7 +14,7 @@ The MMT is a command line tool. The syntax for uninstalling an AMP file using MM
 $ java -jar bin\alfresco-mmt.jar uninstall <ModuleId> <WARFileLocation>
 ```
 
->**Note:** The `apply_amps` command does not uninstall AMP files (even if you remove the AMP files manually from the amps and amps_share directories). Use `apply_amps` to install AMP files only.
+> **Note:** The `apply_amps` command does not uninstall AMP files (even if you remove the AMP files manually from the `amps` and `amps_share` directories). Use `apply_amps` to install AMP files only.
 
 1. Change into the root of the Alfresco installation directory.
 
@@ -29,8 +29,8 @@ $ java -jar bin\alfresco-mmt.jar uninstall <ModuleId> <WARFileLocation>
     ```bash
     Module 'org_alfresco_module_rm' installed in 'tomcat\webapps\alfresco.war'
     -    Title:        Records Management
-    -    Version:      3.0
-    -    Install Date: Sun May 6 12:04:49 BST 2018
+    -    Version:      7.4
+    -    Install Date: Mon May 15 12:04:49 BST 2023
     -    Description:   Alfresco Record Management Extension
    ```
 
@@ -47,8 +47,8 @@ $ java -jar bin\alfresco-mmt.jar uninstall <ModuleId> <WARFileLocation>
     ```bash
     Module 'org_alfresco_module_rm_share' installed in 'tomcat\webapps\share.war'
     -    Title:        Alfresco Record Management Share Extension
-    -    Version:      3.0
-    -    Install Date: Sun May 6 12:05:24 BST 2018
+    -    Version:      7.4
+    -    Install Date: Mon May 15 12:05:24 BST 2023
     -    Description:   Alfresco Record Management Share Extension           
     ```
 

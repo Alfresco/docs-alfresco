@@ -4,9 +4,7 @@ title: Alfresco Content Connector for Azure
 
 The Alfresco Content Connector for Azure is an add-on module that provides an alternative content store. It uses Microsoft's Azure Blob Storage as the storage mechanism for Alfresco Content Services, allowing for virtually unlimited and inexpensive storage.
 
-New features introduced in v2.0 are:
-
-* This release of the Azure Connector is a compatibility release and only new libraries were added to the v1.2 code to support Alfresco Content Services 7.0.  
+This release of the Azure Connector is a compatibility release to support Alfresco Content Services 7.4.
 
 Other features introduced in previous versions include:
 
@@ -14,11 +12,13 @@ Other features introduced in previous versions include:
 * [Multiple Azure storage container configuration]({% link microsoft-azure/latest/config/index.md %}#configuring-multiple-storage-containers)
 * Support for [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction#blob-storage){:target="_blank"} for on-premises or Azure Cloud installation of Content Services
 * Support for hot and cool access tiers (based on storage account)
-* Based on the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java){:target="_blank"} (v12.6.1)
+* Based on the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java){:target="_blank"}
 * Storage path approach optimized for high-throughput reads and writes
 * Configurable retries and timeouts for large file uploads and downloads
+* Accelerate local content download using [Direct Access URLs]({% link microsoft-azure/latest/config/direct-access.md %})
+* [Cloud Storage Properties]({% link microsoft-azure/latest/config/index.md %}#cloud-storage-properties)
 
-> **Note:** The Alfresco Content Connector for Azure module can be applied to Content Services 7.0 or later.
+> **Note:** The Alfresco Content Connector for Azure module can be applied to Content Services 7.2 or later.
 
 > **Note:** For improved performance of the Azure Connector, you may wish to run your Content Services instance on an Azure VM connected to Azure Blob storage.
 

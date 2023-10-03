@@ -40,7 +40,7 @@ Once a form has been selected, it can be edited using the **Open Form** symbol.
 
 #### Mapping type
 
-The mapping type sets how data is passed between the start event and the process. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the start event and the process. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Don't map variables**. For form widgets and form variables you can add static values. For example you can pass a form variable called `path` which can be a file location or URL.
 
 {% endcapture %}
 {% capture start-img %}
@@ -2036,7 +2036,7 @@ An example of the XML of a multi-instance element is:
 
 User tasks represent a stage in the process where human action is required.
 
-Human action is handled by a task being assigned to specific users or groups. The task that is assigned can be modeled using a [form]({% link process-automation/latest/model/forms.md %}). Once a task is completed, the process flow continues on to the next element in the process.
+Human action is handled by a task being assigned to specific users or groups. The task that is assigned can be modeled using a [form]({% link process-automation/latest/model/forms.md %}). Once a task is completed, the process flow continues on to the next element in the process. When a new user task is added to a process diagram, it is automatically assigned to the process initiator.
 
 {% capture user-prop %}
 
@@ -2048,13 +2048,13 @@ The basic properties for a user task are:
 | -------- | ----------- |
 | ID | *Required.* The unique identifier for the user task. This is system generated and cannot be altered, for example `UserTask_0w526j8`. |
 | Name | *Optional.* The name of the user task. This will be displayed on the canvas. |
-| Documentation | *Optional.* A free text description of what the user task does. |
+| Description | *Optional.* A free text description of what the user task does.<br><br>The description can be made dynamic by writing an expression, for example: `${workflowType} for ${dealNumber} Closing Coordinator Task - Review Document`. In the Digital Workspace and the Admin app, the expression is dynamically rendered as a user-friendly task description. For example, the previous expression might render as: **Commitment and Policy for DEA1235385 Closing Coordinator Task - Review Document**. |
 
 #### Assignment
 
 The users or groups that are able to complete a task. A single user can be assigned or candidates can be set. Candidates are a list of users or groups that may claim a task at runtime. A single user or candidates must be set for a user task.  
 
-A single assignee is set in the XML attribute `activiti:assignee` and candidates in the attribute `activiti:candidateGroups`.
+A single assignee is set in the XML attribute `activiti:assignee` and candidates in the attribute `activiti:candidateGroups`. On the **Task Assignment** window use the dropdown menu on the top right to set if the assignment is for a single user or for candidates. If for candidates, from the **Assignment type** dropdown list, select either **Sequential** or **Manual** assignment types. Assigning a task manually means a user is assigned the task by another user or themselves. Assigning tasks sequentially means tasks are assigned automatically in a 'round-robin' scenario.
 
 Users and groups can be set from three different sources:
 
@@ -2072,7 +2072,13 @@ The assignments for user tasks are stored in the `assignments` property of the *
 
 #### Due date
 
-An optional date and time for a user task to be completed by in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601){:target="_blank"} format. A date picker can be used to choose the time and date.
+An optional date and time for a user task to be completed by in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601){:target="_blank"} format. There are three different ways of adding a due date:
+
+* Select **Use static date** then choose the time and date using the date picker.
+
+* Select **Use time duration** then enter a time in Months, Days, Hours, and Minutes.
+
+* Select **Use process variable** then choose a process variable from the dropdown list. This option uses a process variable that must use the type `datetime`.
 
 Checking the **Use process variable** box for due date allows a [process variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) to be used to generate the date. The process variable must be of type `datetime`.
 

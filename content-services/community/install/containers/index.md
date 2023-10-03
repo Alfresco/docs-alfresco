@@ -52,25 +52,17 @@ The public Alfresco Docker images are available in the Docker Hub registry.
 
 Go to [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"} to see a list of images belonging to the `alfresco` user or, alternatively, [search for alfresco](https://hub.docker.com/search?q=alfresco%2F&type=image){:target="_blank"} from the Docker Hub home page:
 
-![Docker images from Alfresco in Docker Hub]({% link content-services/images/dockerhub.png %}){:width="460px" height="595px" style="border:1px solid #d3d3d3"}
-
-> **Note:** This shows a snippet from Docker Hub - not all images are visible.
-
 The following Docker images relate to Community Edition:
 
 * `alfresco/alfresco-content-repository-community` - the repository app (i.e. `alfresco.war`) running on Apache Tomcat
 * `alfresco/alfresco-share` - the Share web interface (i.e. `share.war`) running on Apache Tomcat
 * `alfresco/alfresco-search-services` - the Solr 6 based search service running on Jetty
 * `alfresco/alfresco-activemq` - the Alfresco ActiveMQ image
-* `alfresco/acs-community-ngnix`
+* `alfresco/alfresco-acs-nginx` - web proxy
 
-There are also other supporting features available, such as Docker images for image and document transformation:
+There are also supporting features available, such as Docker images for image and document transformation:
 
-* `alfresco/alfresco-imagemagick`
-* `alfresco/alfresco-libreoffice`
-* `alfresco/alfresco-pdf-renderer`
-* `alfresco/alfresco-tika`
-* `alfresco/alfresco-transform-misc`
+* `alfresco/alfresco-transform-core-aio`
 
 Community Edition provides a number of content transforms, but also allows custom transforms to be added. It's possible to create custom transforms that run in separate processes from the repository, known as Transform Engines (i.e. T-Engines). The same engines may be used in the Community and Enterprise Editions of Community Edition. They may be directly connected to the repository as Local Transforms. Note that in the Enterprise Edition, the default option is to use them as part of Alfresco Transform Service, which provides more balanced throughput and scalability improvements.
 
@@ -78,7 +70,7 @@ See [Custom Transforms and Renditions](https://github.com/Alfresco/acs-packaging
 
 > **Note:** The core Transform Engine images can be used in Community Edition. The open-sourced code for the Transform Engines is available in the [Alfresco/alfresco-transform-core](https://github.com/Alfresco/alfresco-transform-core){:target="_blank"} GitHub project.
 
-To build the `alfresco/alfresco-content-repository-community` image, Alfresco uses the [Alfresco/acs-community-packaging](https://github.com/Alfresco/acs-community-packaging/tree/acs-community-packaging-6.2.0-ga){:target="_blank"} GitHub project. This project doesn't include any deployment templates.
+To build the `alfresco/alfresco-content-repository-community` image, Alfresco uses the [Alfresco/acs-community-packaging](https://github.com/Alfresco/acs-community-packaging){:target="_blank"} GitHub project. This project doesn't include any deployment templates.
 
 The [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment){:target="_blank"} GitHub project contains deployment templates and instructions. It includes a Docker Compose script that's used to launch a demo, test, or PoC of Community Edition. You can customize this script, if you like, in order to run with different versions than those set by default (which are usually the latest versions).
 
@@ -95,6 +87,7 @@ When you deploy Community Edition, a number of containers are started.
   * Alfresco Google Docs Integration Share AMP
 * Alfresco Search Services (Solr 6)
 * A PostgreSQL database
+* Alfresco Content App
 
 ### GitHub projects
 
@@ -118,7 +111,7 @@ The packaging project is used to build the repository artifacts, such as the Doc
 
 Note that the Docker files for Alfresco Share, Alfresco Search Services, and other services are in their own projects:
 
-* Alfresco Share: [https://github.com/Alfresco/share/tree/support/HF/6.2.1](https://github.com/Alfresco/share/tree/support/HF/6.2.1){:target="_blank"}
+* Alfresco Share: [https://github.com/Alfresco/share](https://github.com/Alfresco/share){:target="_blank"}
 * Alfresco Search Services: [https://github.com/Alfresco/SearchServices](https://github.com/Alfresco/SearchServices){:target="_blank"}
 * Alfresco Community Edition Nginx Proxy: [https://github.com/Alfresco/acs-ingress/tree/acs-community-ingress](https://github.com/Alfresco/acs-ingress/tree/acs-community-ingress){:target="_blank"}
 
@@ -133,7 +126,7 @@ You can review the requirements for your chosen deployment method below.
 To deploy Community Edition using Helm charts, you need to install the following software:
 
 * [AWS CLI](https://github.com/aws/aws-cli#installation){:target="_blank"} - the command line interface for Amazon Web Services.
-* [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/){:target="_blank"} - the command line tool for Kubernetes.
+* [Kubectl](https://kubernetes.io/docs/tasks/tools/){:target="_blank"} - the command line tool for Kubernetes.
 * [Helm](https://github.com/helm/helm#install){:target="_blank"} - the tool for installing and managing Kubernetes applications.
   * There are Helm charts that allow you to deploy Community Edition in a Kubernetes cluster, for example, on AWS.
 

@@ -6,11 +6,26 @@ title: Overview
 
 There are a number of ways to back up Search Services. You can set the Solr indexes backup properties either by:
 
-* Using the Admin Console **Note:** This feature is only available when you are using Alfresco Content Services Enterprise.
-* Editing the `alfresco-global.properties` file
+* Editing the 'solrcore.properties' file
 * Using a JMX client, such as JConsole. **Note:** This feature is only available when you are using Alfresco Content Services Enterprise. 
 
-You can only see the Admin Console if you're an administrator.
+This task shows you how to specify the Solr backup directory by using the `<SOLR_HOME>/solrhome/templates/rerank/conf/solrcore.properties`
+
+To set the Solr backup directory using the `solrcore.properties` file, set the value of the following properties to the full path where the backups should be kept after starting solr (remember to make sure it is an exsisting location and the path is the correct format depending on if uisng MAC/Windows/Linux):
+
+```text
+solr.backup.dir=
+```
+
+Then stop solr and repeat the same step for each of the cores created after startup. The above path should have copied the path to the cores at creation but alfresco and archive would need to be specified for each core. 
+
+To set the Solr backup directory for each core use the `<SOLR_HOME>/solrhome/alfresco/conf/solrcore.properties` and `<SOLR_HOME>/solrhome/archive/conf/solrcore.properties` file and edit the same property as above. 
+
+Then restart solr with these properties added and then use the admin console to edit the frequency of the backup. 
+
+You can only see the Admin Console if you're an administrator. 
+
+To edit the frequency of the backup, you can use the Cron Expression via the admin console. 
 
 1. Launch the Admin Console. For information, see [Launch Admin Console]({% link content-services/latest/admin/admin-console.md %}#launch-admin-console).
 2. In the **Repository Services** section, click **Search Service**.
@@ -19,9 +34,8 @@ You can only see the Admin Console if you're an administrator.
 
 3. Scroll down to the **Backup Settings** section. ![]({% link search-services/images/solr6-backupsie.png %})
 
-    Here, you can specify the backup location and edit backup properties for each core of the Solr index: **Main Store** and **Archive Store**.
+    Here, you can edit backup properties for each core of the Solr index: **Main Store** and **Archive Store**.
 
-    * **Backup Location**: Specifies the full-path location for the backup to be stored. This location must be on the machine on which Search Services is installed or it must be a location which is accessible from the Solr host. For example, `/opt/alfresco-search-services/backups/alfresco`.
     * **Backup Cron Expression**: Specifies a Quartz cron expression that defines when backups occur. Solr creates a timestamped sub-directory for each index back up you make.
     * **Backups To Keep**: Specifies the maximum number of index backups that Solr should store.
 4. Click **Save**.
@@ -35,7 +49,7 @@ solr.backup.archive.remoteBackupLocation=
 solr.backup.alfresco.remoteBackupLocation=
 ```
 
-The values set on a subsystem will mean that the property values from configuration files may be ignored. Use the Admin Console or JMX client to set the backup location.
+The values set on a subsystem will mean that the property values from configuration files may be ignored. Use the `solrcore.properties` or JMX client to set the backup location.
 
 If you have installed the Oracle Java SE Development Kit (JDK), you can use the JMX client, JConsole, to backup Solr indexes, edit Solr backup properties and setup the backup directory.
 
@@ -56,7 +70,7 @@ If you have installed the Oracle Java SE Development Kit (JDK), you can use the 
   * `location` specifies the path where the backup will be created. If the path is not absolute then the backup path will be relative to Solr's instance directory.
   * `numberToKeep` specifies the number of backups to keep.
 
-### Solr logging
+## Solr logging
 
 You can set different debug logging levels for Solr components using the Solr log4j properties.
 
@@ -74,9 +88,11 @@ You can set different debug logging levels for Solr components using the Solr lo
     https://<solrHostName>:<solrPort>/solr/admin/cores?action=LOG4J&resource=log4j-solr.properties
     ```
 
-### Document fingerprints
+## Document fingerprints
 
-Alfresco Content Services 6.2 provides support for Document Fingerprints to find related documents. Document Fingerprinting is performed by algorithms that map data, such as documents and files to shorter text strings, also known as fingerprints. This feature is exposed as a part of the Alfresco Full Text Search Query Language.
+Alfresco Content Services 6.2 and above provides support for Document Fingerprints to find related documents. Document Fingerprinting is performed by algorithms that map data, such as documents and files to shorter text strings, also known as fingerprints. This feature is exposed as a part of the Alfresco Full Text Search Query Language.
+
+> **NOTE:** Document fingerprints is disabled by default, for more see [Document Fingerprints]({% link insight-engine/latest/config/performance.md %}#disable-document-fingerprint)
 
 Document Fingerprints can be used to find similar content in general or biased towards containment. The language adds a new `FINGERPRINT` keyword:
 

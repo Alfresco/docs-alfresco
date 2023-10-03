@@ -41,17 +41,16 @@ You are unable to reject a Record that is stored in WORM storage and you can't m
 These steps describe how to use the AWS Management Console to create a bucket for use as WORM storage 
 (Amazon S3 Object Lock) in Amazon S3. Once you have created the bucket you can create rules for a category or folder to 
 store your data using WORM storage.
-                                                        
+
 For more on creating rules see [Creating a rule]({% link governance-services/latest/using/automate-fileplan.md %}#creating-a-rule).
 
->**Note:** Ensure you have the required AWS login credentials before you begin.
+> **Note:** Ensure you have the required AWS login credentials before you begin.
 
 This task assumes you have:
 
 * Installed Alfresco Content Services 7.0 and above.
 * Installed Alfresco Content Connector for AWS S3 3.1 with multiple bucket support enabled. For more see [Configuring multiple buckets using S3 Connector]({% link aws-s3/latest/config/index.md %}#multibucketconfig).
-    >**Note:** When using multiple buckets for WORM storage with Amazon S3 you are unable to use Alfresco Content Connector for AWS Glacier because it only supports being used with one bucket.
-* Set the following properties in the `<TOMCAT\_HOME\>/shared/classes/alfresco-global.properties` file:
+* Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
     |Property|Description|
     |--------|-----------|
@@ -124,7 +123,7 @@ This task assumes you have:
 
 9.  Enter a retention period. In days.
 
-    If you don't enter a retention period the default period used is the one you set for this property `s3.worm.retentionPeriod` in the `<TOMCAT\_HOME\>/shared/classes/alfresco-global.properties` file.
+    If you don't enter a retention period the default period used is the one you set for this property `s3.worm.retentionPeriod` in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file.
 
     **Note:** When using the WORM Lock action you must select **Run in Background** when creating rules for your categories or folders.
 

@@ -17,7 +17,7 @@ The keys and certificates required for mutual TLS on the repository side are set
 1. Modify `<TOMCAT_HOME>/conf/server.xml` and add the following connector:
 
     ```bash
-    <Connector port="8999" protocol="org.apache.coyote.http11.Http11Protocol"
+    <Connector port="8443" protocol="HTTP\1.1"
         connectionTimeout="20000"
         SSLEnabled="true" scheme="https" secure="true"
         sslProtocol="TLS" clientAuth="true"
@@ -157,3 +157,25 @@ On the left-side of the Solr Admin screen, you will see **Core Selector**. Click
 This includes a sub-navigation for the option or text or graphical representation of the requested data.
 
 See [Solr Admin UI left panel](#solr-admin-ui-left-panel) and [Solr Admin UI center panel](#solr-admin-ui-center-panel) to know more about each screen.
+
+## Solr backup directory
+
+To address the security issue [https://nvd.nist.gov/vuln/detail/CVE-2020-13941](https://nvd.nist.gov/vuln/detail/CVE-2020-13941){:target="_blank"}, it is necessary to configure the location parameter of the replication handler to be invariant.
+
+This configuration is already provided in `solrconfig.xml`.
+
+```xml
+<requestHandler name="/replication" class="org.alfresco.solr.handler.AlfrescoReplicationHandler" > 
+    <!--
+    This invariant is needed to prevent the usage of location parameter in the replication handler APIs.
+    There is no validation for location parameter. This results in a vulnerability described in https://nvd.nist.gov/vuln/detail/CVE-2020-13941
+    -->
+    <lst name="invariants">
+        <str name="location">${solr.backup.dir:.}</str>
+    </lst>
+</requestHandler>
+```
+
+To specify the backup location you must configure a parameter called `solr.backup.dir` in the `solrcore.properties` file. The parameter determines the root backup directory and one must be created for each core, in advance of when you start Solr.
+
+For example, if you have one core then the parameter might be set to `/var/data/solr/backup` and you must create that directory before starting Solr. If you have two cores, called `alfresco` and `archive`, then the parameter might be set to `/var/data/solr/backup/alfresco`, `/var/data/solr/backup/archive` and you must create those directories before starting Solr.

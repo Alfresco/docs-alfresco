@@ -16,7 +16,7 @@ Follow the steps to migrate from Alfresco One 5.x with Solr 4 search service to 
 
 3. Make sure you upgrade to Alfresco Search Services 2.0 before upgrading the repository to 6.2.
 
-4. Install and configure Solr 6 to track the repository. For more information, see [Install without mutual TLS (zip)]({% link search-services/latest/install/options.md %}
+4. Install and configure Solr 6 to track the repository. For more information, see [Installation options]({% link search-services/latest/install/options.md %})
 
 5. While Solr 6 builds its indexes, you can monitor progress using the `SUMMARY` report.
 
@@ -60,7 +60,7 @@ For details, see the [Monitor and troubleshoot]({% link search-services/latest/a
 
     The center of the screen shows the detail of the Solr core selected, such as statistics, summary report, and so on.
 
-    ![]({% link search-services/images/solr-webapp.png %})
+    ![Web app]({% link search-services/images/solr-webapp.png %})
 
 7. When the index is updated as reported by the `SUMMARY` report, you can use the `REPORT` option and check the following:
 
@@ -71,7 +71,7 @@ For details, see the [Monitor and troubleshoot]({% link search-services/latest/a
 http://localhost:8080/solr/admin/cores?action=FIX
 ```
 
-For more information, see the [Monitor and troubleshoot]({% link search-services/latest/admin/monitor.md %} topic.
+For more information, see the [Monitor and troubleshoot]({% link search-services/latest/admin/monitor.md %}) topic.
 
 Find errors with specific nodes using `DOC_TYPE:ErrorNode` option.
 
@@ -85,4 +85,4 @@ If there are any issues, use the `REINDEX` option with the relevant node id.
 http://localhost:8080/solr/admin/cores?action=REINDEX&txid=1&acltxid=2&nodeid=3&aclid=4
 ```
 
-For more information, see the [Monitor and troubleshoot]({% link search-services/latest/admin/monitor.md %} topic.
+For more information, see the [Monitor and troubleshoot]({% link search-services/latest/admin/monitor.md %}) topic.

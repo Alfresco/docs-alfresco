@@ -17,7 +17,7 @@ for the version you're using. If your version is in Limited or Full Support and 
 
 Alfresco SDK 4.1 is a minor update to the SDK and provides support for Alfresco 6.2.x.
 
-The 4.0 release takes advantage of Semantic Versioning ([SEMVER](http://semver.org/){:target="_blank"}), which means that 
+The 4.0 release takes advantage of Semantic Versioning ([SEMVER](https://semver.org/){:target="_blank"}), which means that 
 this new release is not directly compatible with the previous releases of the SDK.
 
 If you have existing projects that you wish to upgrade to SDK 4.1.x, the recommended approach is to generate a new project 
@@ -1840,7 +1840,7 @@ The very first task to complete is about installing an enterprise license, other
 only if you used the All-In-One archetype or the Platform JAR archetype to generate your project. If you used the Share JAR archetype to generate your project, 
 feel free to ignore this task and move on the next one.
 
-If you are an Alfresco Partner or Customer, you can request an enterprise license by you opening a ticket on the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}. 
+If you are an Alfresco Partner or Customer, you can request an enterprise license by you opening a ticket in [Hyland Community](https://community.hyland.com/){:target="_blank"}. 
 The Enterprise license is nothing more and nothing less than a file with `lic` extension. The Enterprise license file goes into `src/main/docker/license` 
 folder (this folder will be located under the platform JAR submodule if you're using the All-In-One archetype). The license will be copied into the ACS Docker 
 container before it is started. The license file name doesn't matter, but make sure that you keep it simple and maintain the `lic` extension.
@@ -1898,7 +1898,7 @@ If you're using Windows, you'll need to use the `run.bat` script instead of `run
 
 The first matter to consider is to ensure that you have credentials for the Alfresco Private Repository 
 ([artifacts.alfresco.com](https://artifacts.alfresco.com/nexus/#welcome){:target="_blank"}), where the Alfresco artifacts are stored. Enterprise customers and partners can 
-request these credentials opening a ticket on the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}. 
+request these credentials opening a ticket in [Hyland Community](https://community.hyland.com/){:target="_blank"}. 
 
 Once you have suitable credentials, you need to add support for Alfresco private Maven repository to your configuration. This would typically be done by 
 adding your access credentials to the `settings.xml` contained in your `~/.m2` directory (for Linux and OS X). On Windows this resolves to 
@@ -1928,7 +1928,7 @@ In order to download the Docker images needed to work with Content Services Ente
 hosted at [Quay.io](https://quay.io/){:target="_blank"}. 
 
 The first matter to consider is to ensure that you have credentials for the Alfresco private Docker registry, where the Alfresco images are stored. Customers and partners can 
-request these credentials opening a ticket on the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}. 
+request these credentials opening a ticket in [Hyland Community](https://community.hyland.com/){:target="_blank"}. 
 
 Once you have suitable credentials, you only need to login your docker installation to the Quay.io Docker registry:
 
@@ -2845,13 +2845,13 @@ created with the Alfresco SDK using hot reloading through two different tools:
 * [JRebel](#hotreloadingjrebel)
 * [HotSwapAgent](#hotreloadinghotswapagent)
 
-Both have advantages and disadvantages, so it's up to you to make the right choice for your needs. [JRebel](https://zeroturnaround.com/software/jrebel/){:target="_blank"} is a 
+Both have advantages and disadvantages, so it's up to you to make the right choice for your needs. [JRebel](https://www.jrebel.com/products/jrebel/){:target="_blank"} is a 
 commercial product while [HotSwapAgent](http://hotswapagent.org/index.html){:target="_blank"} is open source. Both products can reload classes and web resources. However, 
 JRebel is more powerful than HotSwapAgent and can also reload changes to the Spring XML context files, for example.
 
 #### How to configure and use JRebel {#hotreloadingjrebel}
 
-[JRebel](https://zeroturnaround.com/software/jrebel/){:target="_blank"} is the agent that enables you to do hot reloading. This allows you to modify the application code, 
+[JRebel](https://www.jrebel.com/products/jrebel/){:target="_blank"} is the agent that enables you to do hot reloading. This allows you to modify the application code, 
 and view the changes without having to restart Alfresco Tomcat (or the ACS Docker container).
 
 A prerequisite to this tutorial is having an Alfresco project created with Alfresco SDK 4.1, using the All-In-One archetype, or the Platform JAR archetype. 
@@ -3033,7 +3033,7 @@ and [Docker for Windows](https://docs.docker.com/docker-for-windows/){:target="_
 This is due to an issue with the component used by HotSwapAgent to notify the changes in the compiled class files. HotSwapAgent uses the class 
 [WatcherNIO2.java](https://github.com/HotswapProjects/HotswapAgent/blob/master/hotswap-agent-core/src/main/java/org/hotswap/agent/watch/nio/WatcherNIO2.java){:target="_blank"} to 
 watch for the changes in the `extraClasspath` folder. That class is based on the Java class [WatchDir.java](https://docs.oracle.com/javase/tutorial/essential/io/examples/WatchDir.java){:target="_blank"} 
-that, in Linux systems, is implemented using [inotify](http://man7.org/linux/man-pages/man7/inotify.7.html){:target="_blank"}. It seems that inotify is not working properly
+that, in Linux systems, is implemented using [inotify](https://man7.org/linux/man-pages/man7/inotify.7.html){:target="_blank"}. It seems that inotify is not working properly
 with mounted volumes over Docker Toolbox (which internally uses VirtualBox).
  
 You can track the evolution of this issue [here](https://github.com/moby/moby/issues/18246){:target="_blank"}. 

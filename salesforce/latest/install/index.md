@@ -15,10 +15,14 @@ To begin, [install the AMP files](#installamps) and then [install the app in Sal
 
 There are a number of software requirements for using the Salesforce Connector.
 
+See [Supported platforms]({% link salesforce/latest/support/index.md %}) for specific versions.
+
 ### Alfresco requirements
 
-* Alfresco Content Services 6.2.1 or later
-* Identity Service 1.3 or later (if you plan to use Single Sign On (SSO))
+* Alfresco Content Services
+* Identity Service (if you plan to use Single Sign On (SSO))
+
+> **Note:** Support for Salesforce Community is only available when using Alfresco Cloud (PaaS).
 
 ### Salesforce requirements
 
@@ -26,7 +30,7 @@ Salesforce Group is the minimum requirement. See [Salesforce Connected Apps](htt
 
 ### Java requirements
 
-* OpenJDK 11 and above.
+* OpenJDK 17.
 
 ### Other requirements
 
@@ -40,17 +44,17 @@ Make sure you are running the correct versions of operating system and software 
 
 1. Stop the Alfresco server.
 
-2. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}, and download and unzip the Salesforce zip package.
+2. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"}, download and unzip the Salesforce zip package.
 
-3. Copy the provided AMP files to the Alfresco amps and amps_share directories.
+3. Copy the provided AMP files to the Alfresco `amps` and `amps_share` directories.
 
     Copy this file to the `amps` directory:
 
-    * `alfresco-content-connector-for-salesforce-repo-2.2.x.amp`
+    * `alfresco-content-connector-for-salesforce-repo-2.4.x.amp`
 
     Copy this file to the `amps_share` directory:
 
-    * `alfresco-content-connector-for-salesforce-share-2.2.x.amp`
+    * `alfresco-content-connector-for-salesforce-share-2.4.x.amp`
 
 4. To install the AMP files, run the `apply_amps.bat` file from the Alfresco `bin` directory.
 

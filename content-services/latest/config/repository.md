@@ -683,9 +683,9 @@ If you're configuring SSL in a development or test environment, you can edit som
 
 > **Note:** These instructions should only be used for configuring a test environment. If you're configuring a production environment, you should use a proxy server to handle all SSL communication. See [Configuring SSL for a production environment](#ssl-repo) for more information.
 
-Here's an example of how to configure Tomcat 8.5 to work with HTTPS for your development or test system. At this point, we assume that:
+Here's an example of how to configure Tomcat 9 to work with HTTPS for your development or test system. At this point, we assume that:
 
-* You've already set up Content Service with Tomcat 8.5, running HTTP on port 8080.
+* You've already set up Content Service with Tomcat 9, running HTTP on port 8080.
   * Follow the steps in [Install using distribution zip]({% link content-services/latest/install/zip/index.md %}) if you haven't already done so.
 * You may have already setup HTTPS on port 8443 for Content Service to communicate with [Alfresco Search Services]({% link search-services/latest/index.md %}).
 * In our documentation, such as [Secure Sockets Layer (SSL) and the repository](#ssl-repo), port 8443 is generally provided as an example when setting up secure HTTPS connections. This is recommended only for use with Alfresco Search Services as it should use real client certificates, where `certificateVerification="required"`. For this development or test setup, we won't necessarily use client certificates, so we'll setup a separate HTTPS connector on a different port. You can have multiple connectors in Tomcat that use HTTPS and different ports.
@@ -753,9 +753,7 @@ Here's an example of how to configure Tomcat 8.5 to work with HTTPS for your dev
 
     2. On Windows, you can just use port 443 without any proxy.
 
-    Note that we use the `certificateVerification="none"` setting. See the [official Tomcat 8.5 page](https://tomcat.apache.org/tomcat-8.5-doc/config/http.html#SSL_Support_-_SSLHostConfig){:target="_blank"} to learn more about the HTTPS security settings for the connector.
-
-    If you're using an older version of Tomcat (which we don't recommend and don't support), the security settings are specified in a different format. See example for [Tomcat 7.0](https://tomcat.apache.org/tomcat-7.0-doc/config/http.html#SSL_Support){:target="_blank"}.
+    Note that we use the `certificateVerification="none"` setting. See the [official Tomcat 9.0 page](https://tomcat.apache.org/tomcat-9.0-doc/config/http.html#SSL_Support_-_SSLHostConfig){:target="_blank"} to learn more about the HTTPS security settings for the connector.
 
 6. Edit `alfresco-global.properties` and replace the relevant values for your case:
 
@@ -931,7 +929,7 @@ The following properties are available for fully-distributed caches and aren't s
 | -------- | ----------- |
 | cluster.type | The `cluster.type` attribute determines what type of cache is created when clustering is available. The acceptable values are: {::nomarkdown}<ul><li>fully-distributed: Uses a Hazelcast IMap backed distributed cache. The cache values can be stored on any member of the cluster, hence the term fully-distributed.</li><li>local: Always use a non-clustered cache. The cache values won't reflect updates made to the equivalent cache on another cluster member.</li><li>invalidating: Uses a local cache, but when an update or a removal is issued to the cache, an invalidation message is broadcast to all members of the cluster, and those members will remove the value from their cache. This value is useful where frequent reads cause performance problems (due to remote reads) or where values are non-serializable.</li></ul>{:/}|
 | backup-count | The `backup-count` attribute controls how many cluster members should hold a backup of the key/value pair. |
-| merge-policy | The `merge-policy` attribute determines how Hazelcast recovers from split brain syndrome, for example: {::nomarkdown}<ul><li>com.hazelcast.map.merge.PassThroughMergePolicy</li><li>com.hazelcast.map.merge.PutIfAbsentMapMergePolicy (the default)</li><li>com.hazelcast.map.merge.HigherHitsMapMergePolicy</li><li>com.hazelcast.map.merge.LatestUpdateMapMergePolicy</li></ul>{:/}<br><br>See [Network Partitioning (Split-Brain Syndrome)](https://docs.hazelcast.org/docs/latest/manual/html-single/#network-partitioning){:target="_blank"} for more information. |
+| merge-policy | The `merge-policy` attribute determines how Hazelcast recovers from split brain syndrome, for example: {::nomarkdown}<ul><li>com.hazelcast.map.merge.PassThroughMergePolicy</li><li>com.hazelcast.map.merge.PutIfAbsentMapMergePolicy (the default)</li><li>com.hazelcast.map.merge.HigherHitsMapMergePolicy</li><li>com.hazelcast.map.merge.LatestUpdateMapMergePolicy</li></ul>{:/}<br><br>See [Network Partitioning (Split-Brain Syndrome)](https://docs.hazelcast.com/imdg/latest/#network-partitioning){:target="_blank"} for more information. |
 
 ## Add a MIME type
 
@@ -966,6 +964,14 @@ The MIME type default definitions are in the [mimetype-map.xml](https://dev.alfr
 4. Restart Content Service.
 
 The MIME type is available in the repository.
+
+## Configure view in browser MIME types {#conf-view-in-browser-mime-types}
+
+The `content.nonAttach.mimetypes` property specifies the MIME types (by default: `application/pdf`, `image/jpeg`,
+`image/gif`, `image/png`, `image/tiff` ,`image/bmp`) that can be viewed in a browser by clicking the Alfresco Share
+button **View in Browser**, all other file types are forced to be downloaded.
+
+This property can be overridden, but it's discouraged since it might cause a security breach.
 
 ## Configure metadata extraction
 
@@ -1174,7 +1180,7 @@ See [Managing aspects]({% link content-services/latest/using/content/files-folde
 
 ## Defer the start of CRON based jobs
 
-You can configure `alfresco-global.properties` and `dev-log4j.properties` to implement a global delay to CRON based jobs; for example, until after the server has fully started.
+You can configure `alfresco-global.properties` and `dev-log4j2.properties` to implement a global delay to CRON based jobs; for example, until after the server has fully started.
 
 You can set a delay for all cron based jobs; in other words, jobs that use the `org.alfresco.util.CronTriggerBean` class. The default value is 10 minutes.
 
@@ -1191,10 +1197,11 @@ You can set a delay for all cron based jobs; in other words, jobs that use the `
     activities.feed.cleaner.startDelayMins=2
     ```
 
-4. Extend the `dev-log4j.properties` with a new configuration in the `<classpathRoot>/alfresco/extension` directory:
+4. Extend the `dev-log4j2.properties` with a new configuration in the `<classpathRoot>/alfresco/extension` directory:
 
     ```bash
-    log4j.logger.org.alfresco.repo.activities.feed.cleanup.FeedCleaner=trace
+    logger.alfresco-repo-activities-feed-cleanup-FeedCleaner.name=org.alfresco.repo.activities.feed.cleanup.FeedCleaner
+    logger.alfresco-repo-activities-feed-cleanup-FeedCleaner.level=trace
     ```
 
     This file will override subsystem settings that aren't applicable in `alfresco-global.properties`.
@@ -1239,3 +1246,17 @@ cors.exposed.headers=Access-Control-Allow-Origin,Access-Control-Allow-Credential
 cors.support.credentials=true
 cors.preflight.maxage=10
 ```
+
+## JavaScript execution
+
+The repository can execute server-side JavaScript from different places as webscripts, workflows, or folder rules. This section shows how to limit these scripts execution regarding duration, memory usage, and call stack depth. This is useful to prevent long running scripts or high memory consumption.
+
+The **memory**, **time** and **call stack depth** limits, if enabled, will only apply to scripts that have been uploaded to the repository by users, all the other scripts deployed at application server level (classpath) won’t be affected by these limits.
+
+| Property | Description |
+| -------- | ----------- |
+| scripts.execution.optimizationLevel | This property allows you to configure the Rhino optimization level: {::nomarkdown}<ul><li>When set to <code>-1</code>, the interpretive mode is used.</li><li>When set to <code>0</code>, no optimizations are performed.</li><li>When set to <code>1-9</code>, optimizations are performed.</li></ul>{:/} The default value is  `0`. <br><br>For more details, see [Mozilla Projects - Rhino Optimization](https://udn.realityripple.com/docs/Mozilla/Projects/Rhino/Optimization){:target="_blank"}. |
+| scripts.execution.maxScriptExecutionSeconds | The number of seconds a script is allowed to run. If script execution exceeds the configured seconds, it will be stopped. <br><br>To enable this limit, set the property with a value bigger than zero. The default value is  `-1` (disabled). |
+| scripts.execution.maxStackDepth | The maximum stack depth (call frames) allowed in a single invocation of the interpreter. <br><br>This configuration only works for scripts compiled with interpretive mode, which means the optimization level will always be `-1`, overriding the value from the `scripts.execution.optimizationLevel` property. <br><br>As the interpreter doesn't use the Java stack but rather manages its own stack in the heap memory, a **runaway recursion** in interpreted code would eventually consume all available memory and cause an error. This setting helps prevent such situations. <br><br>To enable this limit, set the property with a value bigger than zero. The default value is  `-1` (disabled). |
+| scripts.execution.maxMemoryUsedInBytes | The maximum memory (in bytes) a script is allowed to use. If script execution exceeds the configured memory, it will be stopped. <br><br>To enable this limit, set the property with a value bigger than zero. The default value is  `-1` (disabled). <br><br>If you would like to use this setting, 10000000 bytes (10 MB) is a reasonable value for custom scripts. This configuration only works with the supported JVM. |
+| scripts.execution.observerInstructionCount | The number of instructions that will trigger the observer that applies the memory and time limits. <br><br>The value may vary depending on the optimization level. <br><br>This configuration allows you to monitor the script execution and needs to be set to a value bigger than zero so that the time and memory limits work. The default value is `5000` so there is no need to initially change the property when enabling time or memory limits. <br><br>This property is not linear, for example the instruction count here is not the number of Javascript instructions. A Javascript line can correspond to hundreds (or thousands) of lines for the observer. A value between 5000-10000 is suitable for this setting. |

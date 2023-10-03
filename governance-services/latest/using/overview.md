@@ -45,4 +45,4 @@ If you're new to Alfresco then take a look at [Using Alfresco]({% link content-s
 
 For more details on setting up and administering Governance Services see [Administering Records Management]({% link governance-services/latest/admin/index.md %}).
 
->**Note:** It's recommended that you use the File Plan for Governance Services actions rather than going through the repository.
+> **Note:** It's recommended that you use the File Plan for Governance Services actions rather than going through the repository.

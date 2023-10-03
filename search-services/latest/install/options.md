@@ -2,9 +2,11 @@
 title: Installation options
 ---
 
-You can install Search Services using the distribution zip (with or without mutual TLS).
+You can install Search Services in two different ways using the distribution zip, the first is with mutual TLS, and the second is without mutual TLS (HTTP with secret word in request header).
 
-## Install with mutual TLS (zip)
+> **Important:** From version 2.0, you cannot install Search Services without mutual TLS (plain HTTP) because it is no longer supported.
+
+## Install with mutual TLS
 
 Use this information to install Search Services on the same machine as Alfresco Content Services with mutual TLS.
 
@@ -23,7 +25,7 @@ This task assumes you have:
 
 > **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search Services server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search Services.
 
-1. Download `alfresco-search-services-2.0.x.zip` from the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
+1. Download `alfresco-search-services-2.0.x.zip` from the [Hyland Community](https://community.hyland.com/){:target="_blank"} if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
 
 2. Extract the Search Services distribution.
 
@@ -186,27 +188,27 @@ This task assumes you have:
 
     > **Note:** The Admin Console is only available when you are using Alfresco Content Services Enterprise.
 
-## Install without mutual TLS (zip)
+## Install without mutual TLS (HTTP with secret word in request header)
 
-Use this information to install Search Services on the same machine as Alfresco Content Services without mutual TLS.
+Use this information to install Search Services on the same machine as Alfresco Content Services without mutual TLS, using HTTP with a secret word in the request header. This means communication between the Repository and Search Services is protected by a shared secret that is passed in a configurable Request HTTP Header.
 
-Mutual TLS is used for authentication between the Repository and Search Services. Without mutual TLS, internal APIs on both sides will be exposed without any form of authentication, giving full access to the repository data. In such a setup, you need to make sure that external access to these APIs is blocked, for example, with a front-end reverse proxy. See [Adding a reverse proxy in front of Content Services]({% link content-services/latest/install/zip/tomcat.md %}#adding-a-reverse-proxy-in-front-of-content-services)
- for more.
+**Important:** This installation method is only supported when using Content Services 7.2 and above.
 
 This task assumes you have:
 
-* Installed Alfresco Content Services 6.2 or above, see [Supported platforms]({% link search-services/latest/support/index.md %}).
+* Installed Alfresco Content Services 7.2 or above.
 * Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
     ```text
     index.subsystem.name=solr6
-    solr.secureComms=none
+    solr.secureComms=secret
     solr.port=8983
+    solr.sharedSecret=password
     ```
 
-> **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search Services server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search Services.
+> **Important:** To ensure the security of your system specify your own custom secret word for the `solr.sharedSecret` property, than the one provided in the example.
 
-1. Download `alfresco-search-services-2.0.x.zip` from the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
+1. Download `alfresco-search-services-2.0.x.zip` from the [Hyland Community](https://community.hyland.com/){:target="_blank"} if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
 
 2. Extract the Search Services distribution.
 
@@ -219,15 +221,17 @@ This task assumes you have:
     2. Replace `alfresco.secureComms=https` with:
 
         ```bash
-        alfresco.secureComms=none
+        alfresco.secureComms=secret
+        alfresco.secureComms.secret=password
         ```
 
-        This ensures that the Solr cores are created in plain HTTP mode.
+        This ensures that the Solr cores are created in plain HTTP mode with the shared secret communication method. The property `alfresco.secureComms.secret` includes the same word used in the `solr.sharedSecret` property in the Repository configuration.
 
-        Alternatively, you can add this configuration in the system properties (using `-D`) when starting Solr. For example, add the following to the startup parameters in step 7.
+        Alternatively, you can add this configuration in the system properties (using `-D`) when starting Solr. This alternative is safer because the shared secret is not stored in the filesystem. For example, add the following to the startup parameters in step **7**.
 
         ```bash
-        -Dalfresco.secureComms=none
+        -Dalfresco.secureComms=secret
+        -Dalfresco.secureComms.secret=password
         ```
 
 4. If you use several languages across your organization, you **must** enable cross-language search support in all fields. To do this add the following to the `alfresco-search-services/solrhome/conf/shared.properties` file:
@@ -279,14 +283,12 @@ This task assumes you have:
 
     The command line parameter, `-a` passes additional JVM parameters, for example, system properties using `-D`.
 
-    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search Services with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search Services.
-    > **Note:** You should run this application as a dedicated user. For example, you can create a Solr user.
-    > **Note:** To ensure that Search Services connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
+    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search Services with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search Services. In addition, you should run this application as a dedicated user. For example, you can create a Solr user. Finally, to ensure that Search Services connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
 
     Once Search Services is up and running, you should see a message similar to the following:
 
     ```bash
-    Waiting up to 180 seconds to see Solr running on port 8983 []  
+    Waiting up to 180 seconds to see Solr running on port 8983 []
     Started Solr server on port 8983 (pid=24289). Happy searching!
     ```
 
@@ -307,3 +309,4 @@ This task assumes you have:
     1. You see the Solr 6 option in the **Search Service In Use** list.
 
     2. Under **Main (Workspace) Store Tracking Status**, the **Approx Transactions to Index** is **0**.
+    

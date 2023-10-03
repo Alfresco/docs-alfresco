@@ -2,58 +2,53 @@
 title: Install Identity Service from ZIP file
 ---
 
-The Identity Service can be installed using a standalone ZIP distribution. 
+The Identity Service can be installed using a standalone ZIP distribution.
 A default realm called `Alfresco` is installed.
 
 ## Prerequisites
 
--   Java 8 or Java 11 JDK installed
+* Java 11 JDK installed
 
 ## Installation steps
 
-1. Download the zip file for the Identity Service from the [Support Portal](http://support.alfresco.com/).
+1. Download the `alfresco-identity-service-2.0.0.zip` file from [Hyland Community](https://community.hyland.com/en/products/alfresco/release-notes/release-notes/alfresco-identity-service-version-200){:target="_blank"}.
 
 2. Move the downloaded zip file to install location of choice and unzip the contents:
 
     For a Linux or Unix environment:
 
-    ```
-    $ unzip alfresco-identity-service-1.4.0.zip
+    ```bash
+    $ unzip alfresco-identity-service-2.0.0.zip
     ```
 
     For a Windows environment:
 
-    ```
-    > unzip alfresco-identity-service-1.4.0.zip
+    ```bash
+    > unzip alfresco-identity-service-2.0.0.zip
     ```
 
-3. Change directory to the `bin` directory of the unzipped folder and run the standalone start script:
-
-    > **Note:** To bind to all public interfaces use `0.0.0.0` as the value of `IP_ADDRESS` otherwise use the address of a specific interface.
+3. Change directory to the `bin` directory of the unzipped folder and run the start script:
 
     For a Linux or Unix environment:
 
-    ```
-    $ cd alfresco-identity-service-1.4.0/bin
-    $ ./standalone.sh -b <IP_ADDRESS>
+    ```bash
+    $ cd alfresco-identity-service-2.0.0/bin
+    $ ./kc.sh start --import-realm --http-relative-path="/auth" --hostname=<HOSTNAME> --https-certificate-file=<PATH_TO_CERT_FILE> --https-certificate-key-file=<PATH_TO_CERT_KEY_FILE>
+    $ # alternatively, without HTTPS:
+    $ ./kc.sh start --import-realm --http-relative-path="/auth" --hostname=<HOSTNAME> --http-enabled=true --hostname-strict-https=false
     ```
 
     For a Windows environment using a bat script:
 
-    ```
-    > ...\alfresco-identity-service-1.4.0\bin\standalone.bat -b <IP_ADDRESS>
-    ```
-
-    For a Windows environment using a Powershell script:
-
-    ```
-    > ...\alfresco-identity-service-1.4.0\bin\standalone.ps1 -b <IP_ADDRESS>
+    ```bash
+    ...\alfresco-identity-service-2.0.0\bin\kc.bat start --import-realm --http-relative-path="/auth" --hostname=<HOSTNAME> --https-certificate-file=<PATH_TO_CERT_FILE> --https-certificate-key-file=<PATH_TO_CERT_KEY_FILE>
+    :: alternatively, without HTTPS:
+    ...\alfresco-identity-service-2.0.0\bin\kc.bat start --import-realm --http-relative-path="/auth" --hostname=<HOSTNAME> --http-enabled=true --hostname-strict-https=false
     ```
 
 4. Navigate to `http://localhost:8080/auth` once the service has started.
 
 5. Enter a username and password to create an administrator user for the master realm.
-
 
 The administrator console for the `Alfresco` realm can be accessed at `http://localhost:8080/auth/admin/alfresco/console/`. The administrator user for this realm has the following credentials:
 
@@ -67,4 +62,3 @@ The administrator console for the `Alfresco` realm can be accessed at `http://lo
 > **Important:** Reset the administrator password for the `Alfresco` realm when first signing into its administrator console.
 
 The Identity Service can be [configured]({% link identity-service/latest/config/index.md %}) further.
-

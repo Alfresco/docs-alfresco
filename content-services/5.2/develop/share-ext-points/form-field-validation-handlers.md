@@ -1,16 +1,16 @@
 ---
-title: Form Field Validation Handlers
+title: Form Field Validation Handlers Extension Point
 ---
 
 A validation handler is a small JavaScript function that gets called by the forms runtime when a field value needs to be validated.
 
-|Extension Point|Form Field Validation Handlers|
-|---------------|------------------------------|
-|Support Status|[Full Support]({% link support/latest/policies/product-lifecycle.md %})|
-|Architecture Information|[Share Architecture]({% link content-services/5.2/develop/software-architecture.md %}#share-architecture).|
-|Description|The JavaScript function signature for a validation handler looks like this:
+Architecture Information: [Share Architecture]({% link content-services/5.2/develop/software-architecture.md %}#sharearchitecture)
 
- ```
+## Description
+
+The JavaScript function signature for a validation handler looks like this:
+
+```javascript
 /**
  * Validation handler for a field.
  * 
@@ -25,19 +25,23 @@ A validation handler is a small JavaScript function that gets called by the form
 function handler-name(field, args, event, form, silent, message)   
 ```
 
- The built in "mandatory" validation handler is defined as follows:
+The built in "mandatory" validation handler is defined as follows:
 
- ```
+```javascript
 Alfresco.forms.validation.mandatory = function mandatory(field, args, event, form, silent, message)
 ```
 
- The `field` parameter is usually the HTML DOM element representing the field's value, which is normally an HTML input DOM element, so that the value property can be accessed. The structure of the `args` parameter is dependent on the handler being implemented. By default, these will be the parameters of the constraint defined on the field.
+The `field` parameter is usually the HTML DOM element representing the field's value, which is normally an HTML input 
+DOM element, so that the value property can be accessed. The structure of the `args` parameter is dependent on the 
+handler being implemented. By default, these will be the parameters of the constraint defined on the field.
 
-The handler is responsible for taking the value from the field and uses the `args` parameter to calculate whether the current value is valid or not, returning `true` if it is valid and `false` if it is not.
+The handler is responsible for taking the value from the field and uses the `args` parameter to calculate whether the 
+current value is valid or not, returning `true` if it is valid and `false` if it is not.
 
- Now, to implement a validation handler you would need to first create a JavaScript function that does the validation. To do email address validation via RegExp, it could look something like this:
+Now, to implement a validation handler you would need to first create a JavaScript function that does the validation. 
+To do email address validation via RegExp, it could look something like this:
 
- ```
+```javascript
 if (typeof MyCustomNamespace == "undefined" || !MyCustomNamespace) {
     var MyCustomNamespace = {};
 }
@@ -56,9 +60,10 @@ MyCustomNamespace.forms.validation.checkEmailValidity =
 }   
 ```
 
- After this, make sure the JavaScript file is loaded when the form is loaded, which can be set as follows in share-config-custom.xml when defining the form:
+After this, make sure the JavaScript file is loaded when the form is loaded, which can be set as follows in 
+`share-config-custom.xml` when defining the form:
 
- ```
+```xml
 <config>
     <forms>
         <dependencies>
@@ -68,9 +73,9 @@ MyCustomNamespace.forms.validation.checkEmailValidity =
 </config>
 ```
 
- Then, use the field value validation handler as follows in the form definition:
+Then, use the field value validation handler as follows in the form definition:
 
- ```
+```xml
 <config><forms><form>
   ...
   <appearance>
@@ -81,15 +86,18 @@ MyCustomNamespace.forms.validation.checkEmailValidity =
     </field>
 ```
 
-|
-|Deployment - App Server|Deploying field validation handlers directly into and Application server is not recommended as you would have to put files directly under tomcat/webapps/share/, and these files would then be gone as soon as the webapp is re-deployed or upgraded. It is better to use a Share JAR project.|
-|[Deployment All-in-One SDK project]({% link content-services/5.2/develop/sdk.md %}#getting-started-with-alfresco-content-services-sdk-3).|-   aio/share-jar/src/main/resources/META-INF/resources/share-jar/js/{custom path} - validation handler JavaScript files
--   aio/share-jar/src/main/resources/META-INF/share-config-custom.xml - form definitions with validation handlers
+## Deployment - App Server
 
-|
-|More Information|-   [Forms Reference]({% link content-services/5.2/develop/reference/share-document-library-ref.md %}#forms-reference): see the `constraint-handlers` description
--   [Forms]({% link content-services/5.2/develop/share-ext-points/share-config.md %}#share-forms)
+Deploying field validation handlers directly into and Application server is not recommended as you would have to put 
+files directly under tomcat/webapps/share/, and these files would then be gone as soon as the webapp is re-deployed or 
+upgraded. It is better to use a Share JAR project.
 
-|
-|Tutorials| |
-|Alfresco Developer Blogs| |
+## Deployment All-in-One SDK project
+
+* `aio/share-jar/src/main/resources/META-INF/resources/share-jar/js/{custom path}` - validation handler JavaScript files
+* `aio/share-jar/src/main/resources/META-INF/share-config-custom.xml` - form definitions with validation handlers
+
+## More Information
+
+* [Forms Reference]({% link content-services/5.2/develop/reference/share-document-library-ref.md %}#formsconfigsyntax): see the `constraint-handlers` description
+* [Forms config]({% link content-services/6.0/develop/share-ext-points/share-config.md %}#shareformsconfig)

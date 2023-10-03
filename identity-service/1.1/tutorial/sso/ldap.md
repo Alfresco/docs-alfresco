@@ -38,7 +38,7 @@ There are twelve steps to configuring SSO using an LDAP directory with Alfresco 
 * Alfresco Process Workspace: `apw.example.com`
 * Identity Service: `ids.example.com`
 * LDAP Directory: `ldap.example.com`
-    * OpenLDAP was used for testing purposes.
+  * OpenLDAP was used for testing purposes.
 
 It is also assumed that certificates are correctly set up for each host and that each host exposes its service solely via TLS on the default port (443).
 
@@ -99,25 +99,25 @@ Clients also need to be created and configured for Alfresco Office Services (AOS
 
     In the **SAML Keys** tab:
 
-    *   Click the **Import** button:
-        *   Set **Key Alias** to `idpCert`
-        *   Set **Store Password** to `password`
-        *   Select the file `idp.jks` generated in step 3 of this section as the **Import File**.
-        *   **Import** the certificate.
-    
+    * Click the **Import** button:
+        * Set **Key Alias** to `idpCert`
+        * Set **Store Password** to `password`
+        * Select the file `idp.jks` generated in step 3 of this section as the **Import File**.
+        * **Import** the certificate.
+
     In the **Mappers** tab:
 
-    *   Click the **Add Builtin** button and add `X500 email`, `X500 givenName` and `X500 surname`.
-    *   **Edit** each mapper and set **SAML Attribute Name** to match the value of **Property** and set **SAML Attribute NameFormat** to `Basic`.
-    *   **Save** the edits.
+    * Click the **Add Builtin** button and add `X500 email`, `X500 givenName` and `X500 surname`.
+    * **Edit** each mapper and set **SAML Attribute Name** to match the value of **Property** and set **SAML Attribute NameFormat** to `Basic`.
+    * **Save** the edits.
 
 6. Create a new client for Desktop Sync under the `Alfresco` realm or the realm you created in [step 1](#step-1-configure-a-realm-and-client) setting at least the following :
 
     In the **Settings** tab:
 
-    *   A unique and identifiable **Client ID** .
-    *   The **Valid Redirect URI** must be set to `http://127.0.0.1*, http://localhost*`.
-    *   **Implicit Flow Enabled** is switched off.
+    * A unique and identifiable **Client ID** .
+    * The **Valid Redirect URI** must be set to `http://127.0.0.1*, http://localhost*`.
+    * **Implicit Flow Enabled** is switched off.
 
 ## Step 3: Configure LDAP synchronization
 
@@ -366,7 +366,7 @@ An SSO connection can be configured between Process Services and Content Service
     | alfresco.content.sso.client_id |The **Client ID** within the realm that points to Process Services, for example `${keycloak.resource}`|
     | alfresco.content.sso.client_secret |The secret key for the Process Services client, for example `${keycloak.credentials.secret}`|
     | alfresco.content.sso.realm |The realm that is configured for the Content Services and Process Services clients, for example `${keycloak.realm}`|
-    | alfresco.content.sso.scope |Sets the duration that tokens are valid for. For example using the value`offline_access` a token is valid even after a user logs out as long as the token is used at least once every 30 days. See the [Keycloak documentation](https://www.keycloak.org/docs/8.0/server_admin/#_offline-access){:target="_blank"} for further information, for example `offline_access`|
+    | alfresco.content.sso.scope |Sets the duration that tokens are valid for. For example using the value `offline_access` a token is valid even after a user logs out as long as the token is used at least once every 30 days. See the [Keycloak documentation](https://www.keycloak.org/docs/8.0/server_admin/#_offline-access){:target="_blank"} for further information, for example `offline_access`|
     | alfresco.content.sso.javascript_origins |The base URL for the Javascript origins of the Process Services instance, for example `https://aps.example.com`|
     | alfresco.content.sso.auth_uri |The authorization URL, for example `https://ids.example.com/realms/alfresco/protocol/openid-connect/auth`|
     | alfresco.content.sso.token_uri |The authorization token URL, for example `https://ids.example.com/realms/alfresco/protocol/openid-connect/token`|

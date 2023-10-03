@@ -53,31 +53,27 @@ Note that each of the servers will connect to the same relational database. Whil
 
 There are several customization options for logging in Process Services.
 
-Process Services uses [Logback](https://logback.qos.ch){:target="_blank"} for logging.
+Process Services uses [log4j2](https://logging.apache.org/log4j/2.x/manual/){:target="_blank"} for logging.
 
-Process Services installs with the default Logback configuration reading from `<Tomcat install location>/webapps/activiti-app/WEB-INF/classes/logback.xml` and the equivalent location for Process Services Administrator.
+Process Services installs with the default Logback configuration reading from `<Tomcat install location>/webapps/activiti-app/WEB-INF/classes/log4j2.properties` and the equivalent location for Process Services Administrator.
 
-The default configuration can be overridden by placing your own `logback.xml` in `<Tomcat install location>/lib`.
+The default configuration can be overridden by placing your own `log4j2.properties` in `<Tomcat install location>/lib`.
 
-By default Process Services logs to the console. To log to file, edit the logging configuration file to specify a file appender and location. For example:
+By default Process Services logs to the console. If you want to log to a file, you must edit the logging configuration file to specify a file appender, and location. For example, you can use the following file appender definition:
 
-```xml
-<appender name="FILE" class="ch.qos.logback.core.FileAppender">
-  <file>${LOG_DIR}/activiti-app.log</file>
-  <append>true</append>
-    <encoder>
-      <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
-    </encoder>
-</appender>
 ```
+appender.rolling.type=RollingFile
+appender.rolling.name=RollingAppender
+appender.rolling.fileName=share.log
+appender.rolling.filePattern=share.log.%d{yyyy-MM-dd}
+appender.rolling.layout.type=PatternLayout
+{%raw%}appender.rolling.layout.pattern=%d{yyyy-MM-dd} %d{ABSOLUTE} %-5p [%c] [%t] %replace{%m}{[\r\n]+}{}%n{%endraw%}
+appender.rolling.policies.type = Policies
+appender.rolling.policies.time.type=TimeBasedTriggeringPolicy
+appender.rolling.policies.time.interval=1
 
-It is possible to configure Logback to rescan the configuration file for any modifications made at regular intervals, without having to restart the application server by adding the following line to your custom logback.xml file:
-
-```xml
-<configuration scan="true" scanPeriod="45 seconds">
+rootLogger.appenderRef.rolling.ref=RollingAppender 
 ```
-
-[Additional configuration options](http://logback.qos.ch/manual/){:target="_blank"} are also available for customizing logging.
 
 ## Process Services Administrator
 
@@ -96,7 +92,7 @@ The database for the Administrator app is configured using the following propert
 For example (using MySQL):
 
 ```text
-datasource.driver=com.mysql.jdbc.Driver
+com.mysql.cj.jdbc.Driver
 datasource.url=jdbc:mysql://127.0.0.1:3306/activitiadmin?characterEncoding=UTF-8
 datasource.username=alfresco
 datasource.password=alfresco
@@ -282,7 +278,7 @@ You can deploy apps in various ways in the Administrator application. For exampl
 **To redeploy an existing app to a different cluster:**
 
 1. Go to **Admin App** > **Apps** tab.
-2. Select the app that you need to move to a different cluster, and then click **Redploy an app to another cluster**. A dialog box to select a cluster appears.
+2. Select the app that you need to move to a different cluster, and then click **Redeploy an app to another cluster**. A dialog box to select a cluster appears.
 3. Select the cluster that you would like your app to be moved to, and then click **Deploy**. If the process app already exists, it is versioned and updated.
 
 **To download an app:**

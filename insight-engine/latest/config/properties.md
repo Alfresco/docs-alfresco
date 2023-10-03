@@ -44,7 +44,7 @@ The `solrcore.properties` configuration file is the property configuration file 
 |alfresco.metadata.tracker.maxParallelism|Defines the number of threads used when indexing documents using the Metadata Tracker, for example `32`.|
 |alfresco.port|This property specifies the HTTP port for the instance that Solr should track and index, for example `8080`.|
 |alfresco.port.ssl|This property specifies the HTTPS port for the instance that Solr should track and index, for example `8443`.|
-|alfresco.secureComms|This property instructs Solr if it should talk over HTTP or HTTPS. Set to none if a plain HTTP connection should be used, for example `https`.|
+|alfresco.secureComms|This property enables Shared Secret authentication or mTLS authentication with HTTPS. Set to `secret` if a Shared Secret HTTP header should be used for authentication, for example `https`.|
 |alfresco.socketTimeout|This property specifies the amount of time Solr tracker will take to notice if the Alfresco Content Services web app shuts down first, if Alfresco Content Services and Solr are running on the same web application, for example `60000`.|
 |alfresco.stores|This property specifies the repository store that this core should index, for example `workspace://SpacesStore`.|
 |alfresco.threadDaemon|This property sets whether the threads run as daemon threads or not. If set to `false`, shut down is blocked else it is left unblocked, for example `true`.|
@@ -58,7 +58,6 @@ The `solrcore.properties` configuration file is the property configuration file 
 |enable.alfresco.tracking|This property instructs Solr if it should index Alfresco Content Services content in the associated repository store or not, for example `true`.|
 |max.field.length|This property specifies the maximum number of tokens to include for each field. By default, all tokens are added, for example `2147483647`.|
 |maxScheduledTransactions|This optional parameter controls the maximum transactions to schedule for reindexing in the admin fix tool. If the admin fix action specifies a value for `maxScheduledTransactions` then the request parameter that is used in the solrcore.properties configuration file is ignored.|
-|search.solrShardRegistry.dbidRangeRefreshTimeoutInSeconds|This property controls the frequency of synchronisation of the shard information between multiple ACS instances for `DBID_Range` sharding, for example `30`. **Note:** This property is only used when you are using `DBID_Range` sharding with multiple ACS instances.|
 |solr.authorityCache.autowarmCount|This property configures the Solr result cache, for example `0`.|
 |solr.authorityCache.initialSize|This property configures the caches used in authority filter generation, for example `64`.|
 |solr.authorityCache.size|This property configures the caches used in authority filter generation, for example `64`.|

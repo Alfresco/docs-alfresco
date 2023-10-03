@@ -19,7 +19,7 @@ The Smart Folder structure is created by associating a Smart Folder Template wit
 
 The folder structure can be personalised by user, for example, if you create a folder called My Files, you can populate it with files relevant to each user.
 
-Take a look at the videos to learn more: [Smart Folders videos]({% link content-services/community/tutorial/video/content.md %}#smart-folder-overview)
+Take a look at the videos to learn more: [Smart Folders videos]({% link content-services/latest/tutorial/video/content.md %}#smart-folder-overview)
 
 ## What's a Smart Folder? {#sf-whatis}
 
@@ -92,7 +92,7 @@ Before you use Smart Folders, consider the use cases and scenarios that are appr
 
 * Define a custom content model
 
-    To get you started, you can use the example model that is provided with the [Smart Folders tutorial]({% link content-services/community/tutorial/smart.md %}) for more information. See [Content modeling with Model Manager]({% link content-services/community/config/models.md %}) for more information on content models.
+    To get you started, you can use the example model that is provided with the [Smart Folders tutorial]({% link content-services/latest/tutorial/smart.md %}) for more information. See [Content modeling with Model Manager]({% link content-services/community/config/models.md %}) for more information on content models.
 
 * Create a Smart Folder Template
 
@@ -106,7 +106,7 @@ Before you use Smart Folders, consider the use cases and scenarios that are appr
   * Enable Share actions in the `share-config-custom.xml` file. <!--DEV GUIDE: See [Configure Share Actions with Smart Folders](#sf-share-actions.md) for more information.-->
   * Configure other Smart Folders properties in the `alfresco-global.properties` file. See [Smart Folders global properties settings](#sf-props) for more information.
 
-You can then test and deploy your solution. Use the [Smart Folders tutorial]({% link content-services/community/tutorial/smart.md %}) to understand more about the basic Smart Folders setup.
+You can then test and deploy your solution. Use the [Smart Folders tutorial]({% link content-services/latest/tutorial/smart.md %}) to understand more about the basic Smart Folders setup.
 
 This diagram shows the recommended workflow:![Diagram showing four steps - create use cases, define content model, implement Smart Folder and Type, then test. Four arrows specifying implement, deploy, test and adopt.]({% link content-services/images/sf-workflow.png %})
 
@@ -134,7 +134,7 @@ A predefined template is available by selecting the System Smart Folder aspect. 
 
     The default Smart Folders Template is visible: `smartFoldersExample.json`. You can upload your own template here, and can see any other templates that you've already added.
 
-    If you use your own template, make sure that you change the type to Smart Folder Template. See [Apply multiple templates]({% link content-services/community/tutorial/smart.md %}#sf-tutorial-6) for more information.
+    If you use your own template, make sure that you change the type to Smart Folder Template. See [Apply multiple templates]({% link content-services/latest/tutorial/smart.md %}#sf-tutorial-6) for more information.
 
     If you store templates anywhere else in your repository, navigate to the template and select it. You can use them later by selecting the Custom Smart Folder aspect.
 
@@ -176,7 +176,7 @@ The `smart.folders.config.type.templates.qname.filter` property can be set to on
 
 Advanced Smart Folders settings are provided in the `<tomcat>/shared/classes/alfresco-global.properties.sample` file.
 
-The setup of Type-based Smart Folders is somewhat complex, but is explained in detail in the tutorial. See [Configure claims management]({% link content-services/community/tutorial/smart.md %}#sf-tutorial-2) and [Create a new claim]({% link content-services/community/tutorial/smart.md %}#sf-tutorial-4) for more information.
+The setup of Type-based Smart Folders is somewhat complex, but is explained in detail in the tutorial. See [Configure claims management]({% link content-services/latest/tutorial/smart.md %}#sf-tutorial-2) and [Create a new claim]({% link content-services/latest/tutorial/smart.md %}#sf-tutorial-4) for more information.
 
 ### System Smart Folders {#sf-folder-system}
 
@@ -204,7 +204,7 @@ These are the key elements of the Custom Smart Folder:
 * Loaded using the Custom Smart Folder (smf:customConfigSmartFolder) aspect
 * Selected using the Smart Folder Template specific to your custom template
 
-Advanced Smart Folders settings are provided in the `<tomcat>/shared/classes/alfresco-global.properties.sample` file. See [Enable Smart Folders](#enable-smart-folders) and [Apply multiple templates]({% link content-services/community/tutorial/smart.md %}#sf-tutorial-6) for more information.
+Advanced Smart Folders settings are provided in the `<tomcat>/shared/classes/alfresco-global.properties.sample` file. See [Enable Smart Folders](#enable-smart-folders) and [Apply multiple templates]({% link content-services/latest/tutorial/smart.md %}#sf-tutorial-6) for more information.
 
 ## Metadata inheritance
 
@@ -212,9 +212,9 @@ You can set files and folders to inherit metadata using Smart Folders.
 
 One of the most useful features of Smart Folders is the ability to automatically classify new files and inherit or map metadata to the file itself. This is possible by using Type-based Smart Folders, so that when you drag and drop files into your Smart Folder structure, they inherit any properties that you've set up in the Smart Folder Template.
 
-Use the [Smart Folders tutorial]({% link content-services/community/tutorial/smart.md %}) to set up a Smart Folder framework using Type-based Smart Folders, and in [Adding new claim files]({% link content-services/community/tutorial/smart.md %}#sf-tutorial-5) you'll see metadata inheritance in action.
+Use the [Smart Folders tutorial]({% link content-services/latest/tutorial/smart.md %}) to set up a Smart Folder framework using Type-based Smart Folders, and in [Adding new claim files]({% link content-services/latest/tutorial/smart.md %}#sf-tutorial-5) you'll see metadata inheritance in action.
 
-Take a look at the [Metadata Inheritance video]({% link content-services/community/tutorial/video/content.md %}#smart-folder-metadata), and [Type-based Smart Folders](#sf-type) for more information.
+Take a look at the [Metadata Inheritance video]({% link content-services/latest/tutorial/video/content.md %}#smart-folder-metadata), and [Type-based Smart Folders](#sf-type) for more information.
 
 ## Smart Folder Template syntax {#sf-syntax}
 
@@ -222,7 +222,7 @@ You can build your own Smart Folder Template using these guidelines.
 
 A Smart Folder Template is a configuration file that contains one or more queries to define the nodes of a hierarchical tree of "smart" folders. It's a JSON (Java Script Object Notation) file that defines one node object for every Smart Folder.
 
-You can customize a copy of the `smartFoldersExample.json` template, which is available from **Repository > Data Dictionary > Smart Folder Templates** in Alfresco Share. The [Smart Folders tutorial]({% link content-services/community/tutorial/smart.md %}) also provides links to a variety of examples.
+You can customize a copy of the `smartFoldersExample.json` template, which is available from **Repository > Data Dictionary > Smart Folder Templates** in Alfresco Share. The [Smart Folders tutorial]({% link content-services/latest/tutorial/smart.md %}) also provides links to a variety of examples.
 
 For more information about Alfresco Full Text Search (AFTS), see [Alfresco Full Text Search reference]({% link search-services/latest/using/index.md %}).
 
@@ -238,7 +238,7 @@ A node is defined by the following properties:
 | language | Mandatory property, set to `fts-alfresco`. |
 | query | Mandatory FTS query that defines the folder content. |
 | filing | Optional rule that defines the filing action for a new file when it is uploaded to the Smart Folder. If no filing rule is defined, files can't be uploaded to that folder. Parameters include: {::nomarkdown}<ul><li>path: path where a document is physically stored</li><li>classification: type and aspects assigned to the new file</li><li>properties: property values attributed to the new file</li></ul>{:/} |
-| path | Mandatory property in a filing rule. Path to store new documents. This is the [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/6.2.2/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded `QName`. |
+| path | Mandatory property in a filing rule. Path to store new documents. This is the [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/7.0.0/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded `QName`. |
 | classification | Mandatory property in a filing rule. Type and aspects of the new object. |
 | properties | Optional property. Defines property values and inheritance. |
 
@@ -246,13 +246,13 @@ Here are some tips on notation:
 
 * Use percent (%) signs to use predefined placeholders in queries and filing rules
 * For repository path expressions use QNames, for example; `/app:company_home/st:sites/cm:swsdp/cm:documentLibrary`.
-* Special characters and whitespace are [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/6.2.2/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded. Use this notation to encode special characters in repository path names. For example, use `_x0020_` for the whitespace character.
+* Special characters and whitespace are [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/7.0.0/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded. Use this notation to encode special characters in repository path names. For example, use `_x0020_` for the whitespace character.
 
 | Placeholder | Description |
 | ----------- | ----------- |
-| %ACTUAL_PATH% | [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/6.2.2/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded repository path of the physical parent folder. Only the physical parent folder (or next physical folder up the folder tree) can use `%ACTUAL_PATH%`. |
+| %ACTUAL_PATH% | [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/7.0.0/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded repository path of the physical parent folder. Only the physical parent folder (or next physical folder up the folder tree) can use `%ACTUAL_PATH%`. |
 | %CURRENT_USER% | Account name of the user. |
-| \_x0020\_ | [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/6.2.2/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded whitespace character. |
+| \_x0020\_ | [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/7.0.0/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded whitespace character. |
 | <> | Use angle brackets, for example, `<cm:name>`, to inherit property values from the physical parent folder. Used for inheritance in a filing rule and in a query. |
 
 The following code fragments give more information about these properties.
@@ -367,7 +367,7 @@ These define the path where a document uploaded to a Smart Folder should be crea
 
   The path can be an existing folder location, for example:
 
-  * Using an XPath expression, and ensuring the expression is [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/6.2.2/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded:
+  * Using an XPath expression, and ensuring the expression is [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/7.0.0/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded:
 
     ```json
       "path":"/app:company_home/cm:Claims_x0020_Pool"

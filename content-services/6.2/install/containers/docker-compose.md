@@ -110,7 +110,7 @@ Use this information to verify that the system started correctly, and to clean u
                 Container                           Repository                            ...       Size
         --------------------------------------------------------------------------------------------------
         acs-trial_activemq_1                alfresco/alfresco-activemq                    ...   545.9 MB
-        acs-trial_alfresco_1                alfresco/alfresco-content-repository          ...   1.324 GB
+        acs-trial_alfresco_1                quay.io/alfresco/alfresco-content-repository  ...   1.324 GB
         acs-trial_digital-workspace_1       quay.io/alfresco/alfresco-digital-workspace   ...   34.35 MB
         acs-trial_postgres_1                postgres                                      ...   312.5 MB
         acs-trial_proxy_1                   alfresco/alfresco-acs-nginx                   ...   20.42 MB
@@ -264,6 +264,10 @@ The Docker Compose file provides some default configuration. This section lists 
 | -------- | ----------- |
 | JAVA_TOOL_OPTIONS | Adding this environment variable, allows to set sensitive values (like passwords) that are not passed as arguments to the Java Process. |
 | JAVA_OPTS | A set of properties that are picked up by the JVM inside the container. Any Content Services property can be passed to the container using the format `-Dproperty=value` (e.g. `-Ddb.driver=org.postgresql.Driver`). |
+
+>**Note:** If you are using Alfresco Transform Service 1.4 or newer, and you want to do IPTC metadata extraction,
+then you need to [bootstrap the IPTC Content Model]({% link content-services/6.2/install/containers/index.md %}#iptc-model-bootstrap) manually
+into Content Services.
 
 ### Alfresco Share (share)
 

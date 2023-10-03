@@ -150,7 +150,7 @@ If you're a Windows user, register Tomcat as a Windows service:
 * From the `/tomcat/bin` directory, run the following command at a command prompt:
 
     ```bash
-    tomcat7w.exe //ES//<alfrescoTomcatnum1>
+    tomcat9w.exe //ES//<alfrescoTomcatnum1>
     ```
 
     where `<alfrescoTomcatnum1>` is the value from your `tomcat_unique_service_name` parameter.
@@ -606,7 +606,7 @@ Here's an example of how to configure Tomcat 8.5 to work with HTTPS for your dev
 
     2. On Windows, you can just use port 443 without any proxy.
 
-    Note that we use the `certificateVerification="none"` setting. See the [official Tomcat 8.5 page](https://tomcat.apache.org/tomcat-8.5-doc/config/http.html#SSL_Support_-_SSLHostConfig){:target="_blank"} to learn more about the HTTPS security settings for the connector.
+    Note that we use the `certificateVerification="none"` setting. See the [official Tomcat 8.5 page](https://tomcat.apache.org/tomcat-8.5-doc/config/http.html#SSL_Support_-_SSLHostConfig){:target="_blank"} or [Tomcat 9.0 page](https://tomcat.apache.org/tomcat-9.0-doc/config/http.html#SSL_Support_-_SSLHostConfig){:target="_blank"} to learn more about the HTTPS security settings for the connector.
 
     If you're using an older version of Tomcat (which we don't recommend and don't support), the security settings are specified in a different format. See example for [Tomcat 7.0](https://tomcat.apache.org/tomcat-7.0-doc/config/http.html#SSL_Support){:target="_blank"}.
 
@@ -677,7 +677,7 @@ From Alfresco One version 5.0 and later, the caches can be configured by setting
 
 > **Note:** It's advisable not to change the cache values unless you have performance issues.
 
-1. Download the files [tx-cache-context.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/6.2.2/repository/src/main/resources/alfresco/tx-cache-context.xml){:target="_blank"} and [caches.properties](https://github.com/Alfresco/alfresco-community-repo/blob/release/6.2.2/repository/src/main/resources/alfresco/caches.properties){:target="_blank"}.
+1. Download the files [tx-cache-context.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/7.0.0/repository/src/main/resources/alfresco/tx-cache-context.xml){:target="_blank"} and [caches.properties](https://github.com/Alfresco/alfresco-community-repo/blob/release/7.0.0/repository/src/main/resources/alfresco/caches.properties){:target="_blank"}.
 
     The `caches.properties` file lists a series of properties for configuring a cache. The cache properties are used for both clustered and non-clustered configurations.
 
@@ -784,7 +784,7 @@ The following properties are available for fully-distributed caches and aren't s
 | -------- | ----------- |
 | cluster.type | The `cluster.type` attribute determines what type of cache is created when clustering is available. The acceptable values are: {::nomarkdown}<ul><li>fully-distributed: Uses a Hazelcast IMap backed distributed cache. The cache values can be stored on any member of the cluster, hence the term fully-distributed.</li><li>local: Always use a non-clustered cache. The cache values won't reflect updates made to the equivalent cache on another cluster member.</li><li>invalidating: Uses a local cache, but when an update or a removal is issued to the cache, an invalidation message is broadcast to all members of the cluster, and those members will remove the value from their cache. This value is useful where frequent reads cause performance problems (due to remote reads) or where values are non-serializable.</li></ul>{:/}|
 | backup-count | The `backup-count` attribute controls how many cluster members should hold a backup of the key/value pair. |
-| merge-policy | The `merge-policy` attribute determines how Hazelcast recovers from split brain syndrome, for example: {::nomarkdown}<ul><li>com.hazelcast.map.merge.PassThroughMergePolicy</li><li>com.hazelcast.map.merge.PutIfAbsentMapMergePolicy (the default)</li><li>com.hazelcast.map.merge.HigherHitsMapMergePolicy</li><li>com.hazelcast.map.merge.LatestUpdateMapMergePolicy</li></ul>{:/}<br><br>See [Network Partitioning (Split-Brain Syndrome)](https://docs.hazelcast.org/docs/latest/manual/html-single/#network-partitioning){:target="_blank"} for more information. |
+| merge-policy | The `merge-policy` attribute determines how Hazelcast recovers from split brain syndrome, for example: {::nomarkdown}<ul><li>com.hazelcast.map.merge.PassThroughMergePolicy</li><li>com.hazelcast.map.merge.PutIfAbsentMapMergePolicy (the default)</li><li>com.hazelcast.map.merge.HigherHitsMapMergePolicy</li><li>com.hazelcast.map.merge.LatestUpdateMapMergePolicy</li></ul>{:/}<br><br>See [Network Partitioning (Split-Brain Syndrome)](https://docs.hazelcast.com/imdg/latest/#network-partitioning){:target="_blank"} for more information. |
 
 ## Add a MIME type
 
@@ -826,7 +826,7 @@ Metadata extraction automatically extracts metadata information from inbound and
 
 Metadata extractors offer server-side extraction of values from added or updated content.
 
-For more information see [metadata extraction extension point]({% link content-services/community/develop/repo-ext-points/metadata-extractors.md %}). 
+For more information see [metadata extraction extension point]({% link content-services/latest/develop/repo-ext-points/metadata-extractors.md %}). 
 
 ## About aspects
 
@@ -868,7 +868,7 @@ To change this behavior, you can set `cm:autoVersionOnUpdateProps` to `true`.
 
 Edit the `contentModel.xml` file to enable versioning for all content in the repository.
 
-1. Download the [contentModel.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/6.2.2/repository/src/main/resources/alfresco/model/contentModel.xml){:target="_blank"} file.
+1. Download the [contentModel.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/7.0.0/repository/src/main/resources/alfresco/model/contentModel.xml){:target="_blank"} file.
 
     If you're deploying a nightly build, you might prefer to extract the `contentModel.xml` file from the deployed `alfresco.war` file to ensure you have the correct version.
 
@@ -986,7 +986,7 @@ Follow these replication steps for the MySQL database.
 
 This task describes how to customize content transformations.
 
-1. Download the [content-services-context.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/6.2.2/repository/src/main/resources/alfresco/content-services-context.xml){:target="_blank"} file.
+1. Download the [content-services-context.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/7.0.0/repository/src/main/resources/alfresco/content-services-context.xml){:target="_blank"} file.
 
 2. Paste this file into the `<extension>` directory, and open the file.
 
@@ -1030,7 +1030,7 @@ See [Managing aspects]({% link content-services/community/using/content/files-fo
 
 ## Defer the start of CRON based jobs
 
-You can configure `alfresco-global.properties` and `dev-log4j.properties` to implement a global delay to CRON based jobs; for example, until after the server has fully started.
+You can configure `alfresco-global.properties` and `dev-log4j2.properties` to implement a global delay to CRON based jobs; for example, until after the server has fully started.
 
 You can set a delay for all cron based jobs; in other words, jobs that use the `org.alfresco.util.CronTriggerBean` class. The default value is 10 minutes.
 
@@ -1047,10 +1047,11 @@ You can set a delay for all cron based jobs; in other words, jobs that use the `
     activities.feed.cleaner.startDelayMins=2
     ```
 
-4. Extend the `dev-log4j.properties` with a new configuration in the `<classpathRoot>/alfresco/extension` directory:
+4. Extend the `dev-log4j2.properties` with a new configuration in the `<classpathRoot>/alfresco/extension` directory:
 
     ```bash
-    log4j.logger.org.alfresco.repo.activities.feed.cleanup.FeedCleaner=trace
+    logger.alfresco-repo-activities-feed-cleanup-FeedCleaner.name=org.alfresco.repo.activities.feed.cleanup.FeedCleaner
+    logger.alfresco-repo-activities-feed-cleanup-FeedCleaner.level=trace
     ```
 
     This file will override subsystem settings that aren't applicable in `alfresco-global.properties`.
@@ -1095,3 +1096,17 @@ cors.exposed.headers=Access-Control-Allow-Origin,Access-Control-Allow-Credential
 cors.support.credentials=true
 cors.preflight.maxage=10
 ```
+
+## JavaScript execution
+
+The repository can execute server-side JavaScript from different places as webscripts, workflows, or folder rules. This section shows how to limit these scripts execution regarding duration, memory usage, and call stack depth. This is useful to prevent long running scripts or high memory consumption.
+
+The **memory**, **time** and **call stack depth** limits, if enabled, will only apply to scripts that have been uploaded to the repository by users, all the other scripts deployed at application server level (classpath) won’t be affected by these limits.
+
+| Property | Description |
+| -------- | ----------- |
+| scripts.execution.optimizationLevel | This property allows you to configure the Rhino optimization level: {::nomarkdown}<ul><li>When set to <code>-1</code>, the interpretive mode is used.</li><li>When set to <code>0</code>, no optimizations are performed.</li><li>When set to <code>1-9</code>, optimizations are performed.</li></ul>{:/} The default value is  `0`. <br><br>For more details, see [Mozilla Projects - Rhino Optimization](https://udn.realityripple.com/docs/Mozilla/Projects/Rhino/Optimization){:target="_blank"}. |
+| scripts.execution.maxScriptExecutionSeconds | The number of seconds a script is allowed to run. If script execution exceeds the configured seconds, it will be stopped. <br><br>To enable this limit, set the property with a value bigger than zero. The default value is  `-1` (disabled). |
+| scripts.execution.maxStackDepth | The maximum stack depth (call frames) allowed in a single invocation of the interpreter. <br><br>This configuration only works for scripts compiled with interpretive mode, which means the optimization level will always be `-1`, overriding the value from the `scripts.execution.optimizationLevel` property. <br><br>As the interpreter doesn't use the Java stack but rather manages its own stack in the heap memory, a **runaway recursion** in interpreted code would eventually consume all available memory and cause an error. This setting helps prevent such situations. <br><br>To enable this limit, set the property with a value bigger than zero. The default value is  `-1` (disabled). |
+| scripts.execution.maxMemoryUsedInBytes | The maximum memory (in bytes) a script is allowed to use. If script execution exceeds the configured memory, it will be stopped. <br><br>To enable this limit, set the property with a value bigger than zero. The default value is  `-1` (disabled). <br><br>If you would like to use this setting, 10000000 bytes (10 MB) is a reasonable value for custom scripts. This configuration only works with the supported JVM. |
+| scripts.execution.observerInstructionCount | The number of instructions that will trigger the observer that applies the memory and time limits. <br><br>The value may vary depending on the optimization level. <br><br>This configuration allows you to monitor the script execution and needs to be set to a value bigger than zero so that the time and memory limits work. The default value is `5000` so there is no need to initially change the property when enabling time or memory limits. <br><br>This property is not linear, for example the instruction count here is not the number of Javascript instructions. A Javascript line can correspond to hundreds (or thousands) of lines for the observer. A value between 5000-10000 is suitable for this setting. |

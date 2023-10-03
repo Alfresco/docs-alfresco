@@ -75,7 +75,7 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
     2. Add the following Connector:
 
         ```xml
-        <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol"
+        <Connector port="8443" protocol="HTTP/1.1"
             SSLEnabled="true" maxThreads="150" scheme="https"
             keystoreFile="xxxxx"
             keystorePass="password" keystoreType="JCEKS"
@@ -89,6 +89,8 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
 
         > **Note:** If you're using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file.
 
+        > **Note:** In Tomcat versions prior to 9 it was possible to use `org.apache.coyote.http11.Http11Protocol` as the protocol value, but now it has been removed. If you are using configuration from an old instance using a Tomcat version before 9, you need to update the connector protocol value.
+
 8. Save the `server.xml` file.
 
 > **Important:** Remember to review and update the Connector details in `server.xml`, including the keystore and truststore file locations, after installing and configuring Alfresco Search Services.
@@ -101,20 +103,20 @@ Use this method of installing if you've already installed a JRE, a supported dat
 
 The Content Services distribution file is a zip containing the required WAR files, in addition to the additional commands, and configuration files for a manual installation.
 
-1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}.
+1. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
-2. Download the file: `alfresco-content-services-distribution-7.0.x.zip`
+2. Download the file: `alfresco-content-services-distribution-7.4.x.zip`
 
 3. Specify a location for the download and extract the file to a system directory; for example `<installLocation>`.
 
     You'll see the following directory structure - details are described [later](#directory-structure).
 
     ```bash
-    alfresco-pdf-renderer
     amps
-    bin
     licenses
+    keystore
     web-server
+    bin
     ```
 
     > **Important:** If you don't apply the Share Services AMP to the repository, Alfresco Share will not work correctly, and when you start up Share, you will see the message: "*Alfresco Content Services is running without Share Services. See your System Administrator for more details.*"
@@ -193,9 +195,6 @@ After you've extracted the Content Services distribution zip, several directorie
 
 | Folder | File/Sub-folder | Description |
 | ------ | --------------- | ----------- |
-| alfresco-pdf-renderer | `alfresco-pdf-renderer-1.0-linux.tgz` | Binary file for Linux |
-| | `alfresco-pdf-renderer-1.0-win64.tgz` | Binary file for Windows |
-| | | |
 | amps | `alfresco-share-services.amp` | Contains Alfresco Share AMP |
 | | | |
 | bin | `alfresco-spring-encryptor.jar` | Alfresco Encrypted Properties Management Tool |
@@ -204,50 +203,80 @@ After you've extracted the Content Services distribution zip, several directorie
 | | `clean_tomcat.bat` | Windows batch file for cleaning out temporary application server files from previous installations |
 | | `clean_tomcat.sh` | Linux script for cleaning out temporary application server files from previous installations |
 | | `alfresco-mmt.jar` | Alfresco Module Management Tool (MMT) |
-| | | |
+| | `Win32Utilsx64.dll, Win32NetBIOSx64.dll, Win32Utils.dll, Win32NetBIOS.dll` | For a Windows installation these goes into the `C:\WINDOWS\system32` directory |
 | licenses | | Third-party license files |
 | | | |
-| web-server | `/conf` | Contains the Catalina repository and Alfresco Share XML files |
-| | `/lib` | Contains the PostgreSQL JDBC JAR file |
-| | `/shared/classes/alfresco` | Directory structure for the configuration override files, including the `extension` and `web-extension` directories |
-| | `/shared/classes/alfresco-global.properties.sample` | A sample global properties file |
-| | `/shared/classes/alfresco-encrypted.properties.sample` | A sample encrypted properties overlay file |
-| | `/webapps/alfresco.war` | Alfresco WAR file |
-| | `/webapps/share.war` | Alfresco Share WAR file |
+| web-server | `/conf` | Contains the Catalina Alfresco Repository and Alfresco Share XML files, which maps JAR extension directories |
+| | `/lib` | Contains the PostgreSQL JDBC driver JAR file |
+| | `/shared/classes` | Contains sample files for `alfresco-global.properties` and `alfresco-encrypted.properties` config files. |
+| | `/shared/classes/alfresco` | Directory structure for the configuration override files, including the `extension` (Alfresco Repository overrides) and `web-extension` (Alfresco Share overrides) directories |
+| | `/webapps/alfresco.war` | Alfresco Content Repository WAR file |
+| | `/webapps/share.war` | Alfresco Share UI WAR file |
 | | `/webapps/ROOT.war` | Application for the server root. The `ROOT.war` application is required to enable Alfresco Office Services (AOS). See [Install Alfresco Office Services manually into an existing web application]({% link microsoft-office/latest/install/index.md %}#installing-into-an-existing-web-application) |
 | | | |
 | root | `README.txt` | Version information for Content Services and Alfresco Share |
 | | `VERSIONS.md` | List of recommended components for the latest Content Services release |
+| keystore | `readme.txt` | Information for Content Services Search Services SSL connection |
+| | `CreateSSLKeystores.txt` | Information about creating SSL keystores for secure comms between Repo <-> Solr |
+| | `generate_keystores.sh` | Linux version of keystore generation file |
+| | `generate_keystores.bat` | Windows version of keystore generation file |
+| | `/metadata-keystore` | Content metadata keystore information |
 
+## Move keystore files to your installation
+
+The new keystore configuration implementation requires it to be configured with
+[JAVA parameters]({% link content-services/latest/admin/security.md %}#alfresco-keystore-configuration).
+
+1. Move the default keystore files to your installation
+
+    1. Extract from the `alfresco-content-services-distribution-7.4.x.zip` file the following two files:
+
+        * `/keystore/metadata-keystore/keystore`
+        * `/keystore/metadata-keystore/keystore-passwords.properties`
+
+    2. Copy them to your installation at the following location:
+
+        * `<TOMCAT_HOME>/alf_data/keystore/metadata-keystore/keystore`
+        * `<TOMCAT_HOME>/alf_data/keystore/metadata-keystore/keystore-passwords.properties`
+
+2. Configure Tomcat 9 to use the default keystore files
+
+    1. Open `<TOMCAT_HOME>/bin/catalina.bat` in a text editor.
+
+    2. Add the following line to `catalina.bat`:
+
+       ```bash 
+       set “JAVA_TOOL_OPTIONS=-Dencryption.keystore.type=JCEKS -Dencryption.cipherAlgorithm=DESede/CBC/PKCS5Padding -Dencryption.keyAlgorithm=DESede -Dencryption.keystore.location=<TOMCAT_HOME>/alf_data/keystore/metadata-keystore/keystore -Dmetadata-keystore.password=mp6yc0UD9e -Dmetadata-keystore.aliases=metadata -Dmetadata-keystore.metadata.password=oKIWzVdEdA -Dmetadata-keystore.metadata.algorithm=DESede”
+       ```
+
+       Make sure to replace `<TOMCAT_HOME>` with your Tomcat installation directory.
+    
 ## Tailor your installation
 
 When installing Content Services, an important part of the configuration process is the removal of any unused applications. Use this information to determine any applications that you might want to remove from your installation and how to remove them.
 
 For example, if you want a Share-only tier, remove the Alfresco WAR file and any Solr configurations. Likewise, if you want an Alfresco-only tier, remove the Alfresco Share WAR file and any Solr configurations.
 
-### Remove the alfresco.war file
-
-The Alfresco WAR file is a bundle file containing the required WAR files, additional commands, configuration files, and licenses for a manual installation. Use this information to remove the `alfresco.war` file from your application.
-
-If you want a Share-only tier in your application, you will need to delete the `alfresco.war` file from your application server. The `alfresco.war` file is stored in the `<TOMCAT_HOME>` directory.
+### Removing the Alfresco Repository Webapp
+The Alfresco Content Repository Webapp is deployed with the `alfresco.war` file. It contains the implementation of the 
+Content Repository and related content services, additional commands, configuration files, and licenses for a manual 
+installation. Use this information to remove the `alfresco.war` file from your Tomcat application server:
 
 1. Navigate to the `<TOMCAT_HOME>/webapps` directory.
-
 2. Delete the `alfresco.war` file.
+3. Delete the `/alfresco` directory, if it exists (i.e. the exploded and deployed webapp)
 
-You've successfully removed the `alfresco.war` file from your application server.
+You've successfully removed the Alfresco Content Repository Webapp from your application server.
 
-### Remove the share.war file
-
-Use this information to remove the `share.war` file from your application.
-
-If you want a Content Services-only tier in your application, you'll need to delete the `share.war` file from your application server. The `share.war` file is stored in the `<TOMCAT-HOME>` directory.
+### Removing the Alfresco Share UI Webapp
+The Alfresco Share UI Webapp is deployed with the `share.war` file. It contains the implementation of the
+Alfresco Share user interface. Use this information to remove the `share.war` file from your Tomcat application server:
 
 1. Navigate to the `<TOMCAT_HOME>/webapps` directory.
-
 2. Delete the `share.war` file.
+3. Delete the `/share` directory, if it exists (i.e. the exploded and deployed webapp)
 
-You've successfully removed the `share.war` file from your application server.
+You've successfully removed the Alfresco Share UI Webapp from your application server.
 
 Next, you can [customize applications]({% link content-services/latest/config/index.md %}#customize-applications) such as the configuration for Content Services, Alfresco Share, and Alfresco Search Services.
 
