@@ -340,7 +340,7 @@ The Share JAR Maven archetype allows a developer to create a module on an Alfres
 
 * Alfresco Share JAR.
 * Alfresco Share Docker image configuration.
-* Docker container configuration and orchestration via Docker Compose for Content Services, Share (Optional), Alfresco Search Service, and PostgreSQL.
+* Docker container configuration and orchestration via Docker Compose for Content Services, Share (optional), Alfresco Search Services, and PostgreSQL.
 * (Optional) AMP deployment configuration. JAR is the recommended artifact type and is the default.
 
 The project created using the Share JAR Maven archetype includes some sample code (by default) to show you how to develop with the Alfresco Share client. The samples included in the project are basic and straightforward, and can help you to take the first steps into Alfresco development.
