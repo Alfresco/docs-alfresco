@@ -361,7 +361,7 @@ The Alfresco Platform 7.0 and above architecture is based on container technolog
 
 If you're not familiar with these technologies, its highly recommended you visit the [Docker documentation website](https://docs.docker.com){:target="_blank"}. This site offers a great quantity of training resources about [Docker](https://docs.docker.com/get-started/){:target="_blank"} and [Docker Compose](https://docs.docker.com/compose/gettingstarted/){:target="_blank"}.
 
-Before continuing, make sure that you have read and completed the tasks in the [Getting started with Alfresco SDK](#getting-started-with-alfresco-sdk-gettingstarted) section.
+Before continuing, make sure that you have read and completed the tasks in the [Getting started with Alfresco SDK](#gettingstarted) section.
 
 * [Working with an All-In-One (AIO) project](#workingaio)
 * [Working with Platform JAR project structure](#workingplatform)
