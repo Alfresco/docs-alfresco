@@ -302,7 +302,7 @@ The All-In-One archetype allows a developer to create a multi-module project on 
 * Content Services Repository Docker image configuration.
 * Alfresco Share Docker image configuration.
 * Integration tests.
-* Docker container configuration and orchestration via Docker Compose for Content Services, Share, Alfresco Search Service, and PostgreSQL.
+* Docker container configuration and orchestration via Docker Compose for Content Services, Alfresco Share, Alfresco Search Services, and PostgreSQL.
 * (Optional) AMP deployment configuration. JAR is the recommended artifact type and is the default.
 
 The project created using the All-In-One Maven archetype, by default, includes sample code to show you how to develop with the Content Services Repository and the Alfresco Share client. The samples are simple and are only intended to help your initial steps with your Alfresco development.
