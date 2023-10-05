@@ -202,7 +202,7 @@ httpclient.config.<service>.maxHostConnections
 httpclient.config.<service>.hostnameVerificationDisabled
 ```
 
-The default settings for `transform` are shown below (timeouts are infinite):
+The default settings for `transform` are shown below (unset timeouts are infinite):
 
 ```text
 httpclient.config.transform.mTLSEnabled=false
