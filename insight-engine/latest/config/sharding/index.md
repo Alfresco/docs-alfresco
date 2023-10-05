@@ -224,7 +224,7 @@ where:
 
 `numberToKeep` specifies the number of backups to keep.
 
-> **Note:** The `location` parameter used for previous versions is no longer accepted. To specify a backup folder, use the `solr.backup.dir` parameter in the `solrcore.properties` file .
+> **Note:** The `location` parameter used for previous versions is no longer accepted. To specify a backup folder, use the `solr.backup.dir` parameter in the `solrcore.properties` file.
 
 ### Backup status
 
