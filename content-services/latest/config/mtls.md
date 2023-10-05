@@ -190,7 +190,7 @@ When using new scripts, make sure the folder path provided in the instruction is
 
 There is also a new type of configuration, for repository HttpClients that are used for communicating with the Transform Service. Solr configuration stays unchanged. If you just want to enable mTLS for the Transform Service, then after setting the properties related to keystore and truststore, one additional property change will be enough, since all of them have their default values.
 
-Below are httpClient properties, where valid substitutes for `<service>` are: `transform` (T-Router, T-Engines, Transform Aspose, AI Renditions).
+Below are httpClient properties, where valid substitutes for `<service>` are: `transform` (T-Router, T-Engines, Transform Aspose, AI Renditions) and `sharedfilestore` (Shared File Store).
 
 ```text
 httpclient.config.<service>.mTLSEnabled
@@ -202,7 +202,7 @@ httpclient.config.<service>.maxHostConnections
 httpclient.config.<service>.hostnameVerificationDisabled
 ```
 
-The default settings for `transform` are shown below:
+The default settings for `transform` are shown below (timeouts are infinite):
 
 ```text
 httpclient.config.transform.mTLSEnabled=false
@@ -211,7 +211,7 @@ httpclient.config.transform.maxHostConnections=20
 httpclient.config.transform.hostnameVerificationDisabled=false
 ```
 
-Below are httpClient properties, where valid substitutes for `<service>` are: `sharedfilestore` (in enterprise: Shared File Store)
+The default settings for `sharedfilestore` are shown below:
 
 ```text
 httpclient.config.sharedfilestore.mTLSEnabled=false
