@@ -807,9 +807,7 @@ Here's an example of how to configure Tomcat 9 to work with HTTPS for your devel
 
 ## Configure HttpClient settings of repository {#httpclientproperties}
 
-Below are HttpClient properties that allow for turning on [mTLS]({% link content-services/latest/config/mtls.md %}) or fine-tuning of repository outbound communication targeting Transform Services. 
-Valid substitutes for `<service>` are: `transform` (T-Router, T-Engines, Transform Aspose, AI Renditions) and `sharedfilestore` (enterprise: Shared File Store).
-Unset timeouts are infinite.
+Below are HttpClient properties that allow for turning on [mTLS]({% link content-services/latest/config/mtls.md %}) and fine-tuning of repository outbound communication targeting Transform Services.
 
 ```text
 httpclient.config.<service>.mTLSEnabled
@@ -820,6 +818,9 @@ httpclient.config.<service>.maxTotalConnections
 httpclient.config.<service>.maxHostConnections
 httpclient.config.<service>.hostnameVerificationDisabled
 ```
+
+Valid substitutes for `<service>` are: `transform` (T-Router, T-Engines, Transform Aspose, AI Renditions) and `sharedfilestore` (enterprise: Shared File Store).
+Unset timeouts are infinite.
 
 The default settings for `transform` are shown below:
 
