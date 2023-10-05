@@ -215,17 +215,16 @@ To avoid any data loss, you can make backups of one or all the sharded Solr inde
 Trigger a backup with an `HTTP` command which instructs the `/replication` handler to backup the Solr shards, for example:
 
 ```http
-curl http://solrshard20xbm.alfresco.com:9000/solr/<CORE_NAME>/replication?command=backup
-&location=/mnt/solrBackup&numberToKeep=1
+curl http://solrshard20xbm.alfresco.com:9000/solr/<CORE_NAME>/replication?command=backup&numberToKeep=1
 ```
 
 where:
 
 `<CORE_NAME>` specifies the name of the core you are working with.
 
-`location` specifies the path where the backup will be created. If the path is not absolute then the backup path will be relative to Solr's instance directory.
-
 `numberToKeep` specifies the number of backups to keep.
+
+> **Note:** The `location` parameter used for previous versions is no longer accepted. To specify a backup folder, use the `solr.backup.dir` parameter in the `solrcore.properties` file.
 
 ### Backup status
 
