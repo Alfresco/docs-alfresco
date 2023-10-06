@@ -211,7 +211,7 @@ The properties listed that need to be set for Alfresco Content Services (ACS) ar
 6. Sign into Share as an administrator. The URL for Share is `https://share.example.com/share`.
 7. Navigate to **Admin Tools** > **Users** to verify that all user accounts have been synchronized correctly.
 
-## Step 7: Configure service providers for Alfresco Content Services
+## Step 7: Configure service providers for Alfresco Office Services
 
 A Service provider needs to be configured in the SAML identity provider for Alfresco Office services if it is used. This also involves configuring the administrator console in ACS with details from SAML identity provider.
 
