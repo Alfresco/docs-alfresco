@@ -7,7 +7,7 @@ The DocuSign connector provides a standard mechanism in Alfresco Process Automat
 
 The DocuSign connector is displayed on the process diagram as a pen.
 
-> **Important**: The DocuSign connector requires a [DocuSign](https://www.docusign.com/){:target="_blank"} account to handle document signing. This account is separate to the Alfresco hosted environment and should be created and managed by customers.
+> **Important**: The DocuSign connector requires a DocuSign account to handle document signing. This account is separate to the Alfresco hosted environment and should be created and managed by customers.
 
 The actions that can be executed using the DocuSign connector are:
 
@@ -20,7 +20,7 @@ The following input parameters must also be provided for the DocuSign API in the
 
 ### BPMN Tasks Configuration
 
-This [process definition](docuSignProcess.bpmn20.xml) shows an example of how to set up the connector in APS:
+This [process definition](https://github.com/Alfresco/alfresco-process-connector-services/blob/develop/alfresco-process-docusign-connector-spring-boot-starter/docuSignProcess.bpmn20.xml){:target="_blank"} shows an example of how to set up the connector in Process Automation.
 
 As part of BPMN definition process, any Service Task responsible for sending the document needs to set **docusignconnector.SEND_FOR_SIGNATURE** or **docusignconnector.DOWNLOAD_DOCUMENT** as the value for its implementation attribute.
 
@@ -49,7 +49,7 @@ The input parameters for `SEND_FOR_SIGNATURE` are:
 | signHereY | String | *Optional.* The Y position of the `Sign Here` box in the document, when the document is going to be signed by only one signer for example `50`. |
 | timeout | Integer | *Optional.* The timeout period to wait for the document to be signed in milliseconds, for example `910000`. |
 | allowMarkup | Boolean | *Optional.* Allow recipients to make changes to your documents by covering up existing text and replacing it with new text (i.e. markup). Recipients can decide to use a special markup text field which they can place anywhere on the document. It can be scaled and optionally filled in. All changes must be reviewed and approved by all signers. |
-| agents | JSON | *Optional* The list of agents, including email and name, assigned as agents to the document. |
+| agents | JSON | *Optional.* The list of agents, including email and name, assigned as agents to the document. |
 | carbonCopies | JSON | *Optional.* The list of carbon copies (including email, name, sign here page, sign here tab label, position X and position Y) assigned as recipients who should receive a copy of the envelope, but do not need to sign it. |
 | certifiedDeliveries | JSON | *Optional.* The list of certified deliveries, including email and name, assigned as recipients who must receive the completed documents for the envelope to be completed, but do not need to sign it. |
 | editors | JSON | *Optional.* The list of editors, including email and name, assigned as editors on the document. |
