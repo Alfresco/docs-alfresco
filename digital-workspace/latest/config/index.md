@@ -79,7 +79,9 @@ The default search capability in the Digital Workspace contains six filters that
 
 ### Search filters
 
-Use the **Logic** filter to match or exclude words, and phrases. Use the **Properties** filter to limit, exclude or exactly match files of a certain size. Use the **Date** filter to find files created or modified within specific time periods. Use the **Location** filter to include locations of where you would like to focus your search results, for example Europe, or Marketing. Use the **Tags** filter to include content that has been tagged, for more see [Tags]({% link content-services/latest/admin/control-center.md %}#tags). Use the **Categories** filter to include content that has been categorized, for more see [Categories]({% link content-services/latest/admin/control-center.md %}#categories). Use the **People** filter to include content created or modified by certain users.
+Use the **Logic** filter to match or exclude words, and phrases. Use the **Properties** filter to limit, exclude or exactly match files of a certain size. Use the **Date** filter to find files created or modified within specific time periods. Use the **Location** filter to include locations of where you would like to focus your search results, for example Europe, or Marketing. Use the **Tags** filter to include content that has been tagged, for more see [Tags]({% link content-services/latest/admin/control-center.md %}#tags). Use the **Categories** filter to include content that has been categorized, for more see [Categories]({% link content-services/latest/admin/control-center.md %}#categories).
+
+![search]({% link digital-workspace/images/search-user-interface.png %})
 
 ### Search Configuration
 
