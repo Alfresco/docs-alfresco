@@ -121,14 +121,14 @@ If you don’t specify a field the search runs against name, description, title,
 
 The list of default supported Alfresco properties is declared in the `<search_services_home>/solrhome/conf/shared.properties` file:
 
-```bash
+```text
 alfresco.cross.locale.property.0={http://www.alfresco.org/model/content/1.0}name
 alfresco.cross.locale.property.1={http://www.alfresco.org/model/content/1.0}lockOwner
 ```
 
 You can extend that capability by uncommenting the lines below and performing a full reindex. This has the result of enabling cross locale on all properties defined with those property types:
 
-```bash
+```text
 alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text
 alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content
 alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext
