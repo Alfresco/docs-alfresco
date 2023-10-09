@@ -3,9 +3,7 @@ title: DocuSign connector
 ---
 
 The DocuSign connector provides a standard mechanism in Alfresco Process Automation to send documents for digital signing in
-[DocuSign](https://www.docusign.com){:target="_blank"}.
-
-The DocuSign connector is displayed on the process diagram as a pen.
+[DocuSign](https://www.docusign.com){:target="_blank"}. The DocuSign connector is displayed on the process diagram as a pen.
 
 > **Important**: The DocuSign connector requires a DocuSign account to handle document signing. This account is separate to the Alfresco hosted environment and should be created and managed by customers.
 
@@ -14,7 +12,7 @@ The actions that can be executed using the DocuSign connector are:
 * [SEND_FOR_SIGNATURE](#send_for_signature)
 * [DOWNLOAD_DOCUMENT](#download_document)
 
-As part of the BPMN definition process, any service task that is responsible for sending or downloading the document needs to set the `docusignconnector.SEND_FOR_SIGNATURE` or `docusignconnector.DOWNLOAD_DOCUMENT` properties as the value for its implementation attribute.
+As part of the BPMN definition process, any service task that is responsible for sending or downloading a document must set the `docusignconnector.SEND_FOR_SIGNATURE` or `docusignconnector.DOWNLOAD_DOCUMENT` properties as the value for its implementation attribute.
 
 The following input parameters must also be provided for the DocuSign API in the Service task depending on the implementation.
 
@@ -24,21 +22,21 @@ This [process definition](https://github.com/Alfresco/alfresco-process-connector
 
 As part of BPMN definition process, any Service Task responsible for sending the document needs to set **docusignconnector.SEND_FOR_SIGNATURE** or **docusignconnector.DOWNLOAD_DOCUMENT** as the value for its implementation attribute.
 
-In addition to the above, these input variables must be provided for DocuSign API in the Service Task depending on the implementation:
+In addition to the above, these input variables must be provided for the DocuSign API in the Service Task depending on the implementation:
 
 ## SEND_FOR_SIGNATURE
 
 The **SEND_FOR_SIGNATURE** action is used by the DocuSign connector to request a digital signature on a document.
 
-The input parameters for `SEND_FOR_SIGNATURE` are:
+The input parameters for SEND_FOR_SIGNATURE are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| signers | JSON | *Optional.* The list of signers (including email, name, sign here page, sign here tab label, position X and position Y) when the document is going to be signed by more than one signer. |
+| signers | JSON | *Optional.* The list of signers, including email, name, sign here page, sign here tab label, position X and position Y, when the document is going to be signed by more than one signer. |
 | recipientEmail | String | *Required.* The email address of the signer when the document is going to be signed by only one signer. |
-| recipientName | String | *Optional.* The name of the signer i.e. the email recipient, when the document is going to be signed by only one signer. |
+| recipientName | String | *Optional.* The name of the signer, which means the email recipient, when the document is going to be signed by only one signer. |
 | emailSubject | String | *Optional.* The subject line of the email sent with the document to sign. |
-| metadata | JSON | *Optional.* Metadata for the document. |
+| metadata | JSON | *Optional.* Metadata of the document. |
 | file | File | *Required.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file containing the document to be signed. |
 | nodeFormat | String | *Optional.* The format of the document to be signed. Values are `pdf` or `docx`. |
 | outputFileName | String | *Optional.* The name of the file that will be created, for example `invoice.pdf`. |
@@ -46,19 +44,19 @@ The input parameters for `SEND_FOR_SIGNATURE` are:
 | signHereTabLabel | String  | *Optional.* **Sign Here** page in the document when the document is only going to be signed by one signer. |
 | signHerePage | String | *Optional.* The page number in the document the `Sign Here` box will appear on, when the document is going to be signed by only one signer, for example `3`. |
 | signHereX | String | *Optional.* The X position of the `Sign Here` box in the document, when the document is going to be signed by only one signer, for example `100`. |
-| signHereY | String | *Optional.* The Y position of the `Sign Here` box in the document, when the document is going to be signed by only one signer for example `50`. |
+| signHereY | String | *Optional.* The Y position of the `Sign Here` box in the document, when the document is going to be signed by only one signer, for example `50`. |
 | timeout | Integer | *Optional.* The timeout period to wait for the document to be signed in milliseconds, for example `910000`. |
-| allowMarkup | Boolean | *Optional.* Allow recipients to make changes to your documents by covering up existing text and replacing it with new text (i.e. markup). Recipients can decide to use a special markup text field which they can place anywhere on the document. It can be scaled and optionally filled in. All changes must be reviewed and approved by all signers. |
+| allowMarkup | Boolean | *Optional.* Allow recipients to make changes to your documents by covering up existing text and replacing it with new text. Recipients can decide to use a special markup text field which they can place anywhere on the document. It can be scaled and optionally filled in. All changes must be reviewed and approved by all signers. |
 | agents | JSON | *Optional.* The list of agents, including email and name, assigned as agents to the document. |
-| carbonCopies | JSON | *Optional.* The list of carbon copies (including email, name, sign here page, sign here tab label, position X and position Y) assigned as recipients who should receive a copy of the envelope, but do not need to sign it. |
-| certifiedDeliveries | JSON | *Optional.* The list of certified deliveries, including email and name, assigned as recipients who must receive the completed documents for the envelope to be completed, but do not need to sign it. |
+| carbonCopies | JSON | *Optional.* The list of carbon copies, including email, name, sign here page, sign here tab label, position X and position Y, assigned as recipients who should receive a copy of the envelope, but do not need to sign it. |
+| certifiedDeliveries | JSON | *Optional.* The list of certified deliveries, including email, and name, who are assigned as recipients who must receive the completed documents for the envelope to be completed, but do not need to sign it. |
 | editors | JSON | *Optional.* The list of editors, including email and name, assigned as editors on the document. |
-| inPersonSigners | JSON | *Optional.* The list of in person signers,including email, name, signerName, hostName, sign here page, sign here tab label, position X and position Y assigned as signers that are in the same physical location as a DocuSign user who will act as a Signing Host for the transaction. The signer name and the host name are mandatory. Signer name is the full legal name of a signer for the envelope. Host name is the name of the signing host. |
-| intermediaries | JSON | *Optional.* The list of intermediaries, including email, and name assigned as recipients that can, but is not required add name and email information for recipients at the same or subsequent level in the routing order (until subsequent Agents, Editors or Intermediaries recipient types are added). |
-| notaries | JSON | *Optional.* The list of notaries, including email, name, sign here page, sign here tab label, position X and position Y assigned as notaries on the document. |
-| witnesses | JSON | *Optional.* The list of witnesses including email, name, sign here page, sign here tab label, position X and position Y assigned as witnesses on the document. |
+| inPersonSigners | JSON | *Optional.* The list of in person signers, including email, name, signerName, hostName, sign here page, sign here tab label, position X and position Y, assigned as signers that are in the same physical location as a DocuSign user. These users act as a Signing Host for the transaction. The signer name and the host name are mandatory. Signer name is the full legal name of a signer for the envelope. Host name is the name of the signing host. |
+| intermediaries | JSON | *Optional.* The list of intermediaries, including email, and name assigned as recipients. You are not required to add name and email information for recipients at the same level or subsequent level in the routing order, until subsequent agents, editors, or intermediary recipient types are added. |
+| notaries | JSON | *Optional.* The list of notaries, including email, name, sign here page, sign here tab label, position X and position Y, assigned as notaries on the document. |
+| witnesses | JSON | *Optional.* The list of witnesses including email, name, sign here page, sign here tab label, position X and position Y, assigned as witnesses on the document. |
 
-> **Note:** The connector can only receive either **signers** or **recipientEmail** but not both at the same time. The connector must receive either **signHereTabLabel** and **signHerePage** to fixed positioning. If one of them is null the signature can be where the signer selects.
+> **Note:** The connector can only receive either **signers** or **recipientEmail** but not both at the same time. The connector must receive either **signHereTabLabel** or **signHerePage** to fixed the positioning. If one of them is null the signature can be where the signer selects.
 
 The output parameters from SEND_FOR_SIGNATURE are:
 
@@ -71,14 +69,14 @@ The output parameters from SEND_FOR_SIGNATURE are:
 
 ## DOWNLOAD_DOCUMENT
 
-The **DOWNLOAD_DOCUMENT** action is used by the DocuSign connector to download the envelope from DocuSign. It takes into account the envelopeId that is the UUID that relates to the envelope.
+The **DOWNLOAD_DOCUMENT** action is used by the DocuSign connector to download the envelope from DocuSign. It takes into account the `envelopeId` that is the UUID that relates to the envelope.
 
 The input parameters for DOWNLOAD_DOCUMENT are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | outputFileName | String | *Optional.* The name of the file that will be created, for example `invoice.pdf`. |
-| envelopeId | Yes | *Required.* UUID related to the envelope from the DocuSign API. |
+| envelopeId | String | *Required.* UUID related to the envelope from the DocuSign API. |
 | targetFolder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to store the signed document in. |
 | targetFolderId | String | *Optional.* The target folder ID to save the document in Content Services. |
 | targetFolderPath | String | *Requires one.* The location path or relative path of the folder to store the signed document in Content Services. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` or a relative path: `/User Homes/hruser`.  |
@@ -131,7 +129,7 @@ In the business process definition, the service task called **docuSignTask** has
 </bpmn2:serviceTask>
 ```
 
-No exceptions or errors shall be thrown by the connector. All exceptions are caught and logged. The task execution is always successful. Errors will be returned in an error event.
+No exceptions or errors are thrown by the connector. All exceptions are caught and logged. The task execution is always successful, and errors will be returned in an error event.
 
 ### Configuration
 
@@ -220,22 +218,7 @@ When a Process Automation process is instantiated this way, the following variab
 
 The connector is listening for events using the webhook that follows the pattern:
 
-- {domain-name}/{application-name}/connector/{connector_name}/listener
-
-### DocuSign Environment Configuration
-
-The connector uses DocuSign client library that relies on DocuSign REST API. For authentication, the
-[OAuth JWT](https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-jsonwebtoken){:target="_blank"} is used.
-See the above page for detailed instructions how to configure an app in the DocuSign environment.
-
-**Configuration steps on a high level**
-
-1. Create a DocuSign account. Register for a free developer sandbox account.
-2. [Configure an app for JWT](https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-jsonwebtoken){:target="_blank"} in DocuSign. You will need the private RSA key for connector configuration.
-3. [Grant consent](https://developers.docusign.com/esign-rest-api/guides/authentication/obtaining-consent){:target="_blank"} to the app. The
-   same user account can be used that was created in step 1 (or a new one can be created).
-
-Configuration for production is similar. See DocuSign documentation for details.
+`- {domain-name}/{application-name}/connector/{connector_name}/listener`
 
 ## Errors
 
@@ -255,4 +238,4 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 | ENVELOPE_NOT_CREATED | Could not create envelope in DocuSign. |
 | ERROR_WRITING_FILE | Could not create or write result node. |
 | ERROR_RETRIEVING_FILE | Could not retrieve document from DocuSign. |
-| MISSING_ENVELOPE | The envelopeId is missing. |
+| MISSING_ENVELOPE | The `envelopeId` is missing. |
