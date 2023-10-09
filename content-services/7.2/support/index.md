@@ -120,6 +120,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Control Center 7.3 | |
 | Alfresco Control Center 7.2 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
+| Alfresco Mobile Workspace 1.7 | |
 | Alfresco Mobile Workspace 1.4 | |
 | Alfresco Content Accelerator (ACA) 3.4.5 | |
 | Alfresco Enterprise Viewer (AEV) 3.3.6 | |
