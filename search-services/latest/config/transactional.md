@@ -365,7 +365,7 @@ To do this in the REST API you must add a limits element value to the request JS
 }
 ```
 
-In the Java API the search parameters object has the following methods:
+In the Java API the `SearchParameters` object has the following methods:
 
 * `setMaxPermissionChecks(int)`
 * `setMaxPermissionCheckTimeMillis(long)`
