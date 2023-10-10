@@ -71,18 +71,24 @@ The following features, which were supported with Search and Insight Engine 2.x 
 * DENYSET
 * FTSSTATUS
 
-## Alfresco Digital Workspace
+### Path Indexing
 
-To ensure ADW basic functionality the part of a query that contains an unsupported field will be ignored and the REST API will return a 200 HTTP code. A warning message will be produced in the Alfresco Repository log.
+* Secondary paths (paths including secondary parents)
 
-All unsupported fields will be ignored in queries and filters following the schema below:
+## Behavior of unsupported fields
 
-* The query contains only an unsupported field, for example `QNAME:hello` returns an empty result.
-* The query contains a supported field, for example `hello AND QNAME:goodbye` returns only documents containing “hello”.
-* A filter contains only an unsupported field, for example `query=banana`, `filter=QNAME:hello` returns only documents containing “banana”.
-* A filter contains two filters or a filter with a supported field and an unsupported field. For example, `query=banana filter=[QNAME:hello, cm:name:test]`, returns all documents containing “test” and “banana”. Another example, `query=banana filter=QNAME:hello OR cm:name:test`, returns all documents containing “test” and “banana”.
+Supplying an unsupported or non-existent field will cause a query to fail. This is a change in behavior from Search and Insight Engine and Search Services, which silently ignore these issues.
 
-In the examples above, filter queries must be executed using the REST API and not using Alfresco Digital Workspace or Alfresco Share.
+Search Enterprise focuses on the most commonly used features, and in some cases allows you to work around unsupported features.
+The following are examples of how to use different fields for queries:
+
+| Old Query | Replacement Query |
+| --------- | --------------- |
+| QNAME:'comment' | TYPE:'fm:post' |
+| PNAME:'0/wiki' | PATH:'//cm:wiki/*' |
+| NPATH:'2/Company Home/Sites/swsdp' | PATH: '/app:company_home/st:sites/cm:swsdp//*' |
+
+> **Note:** Secondary paths and secondary parents are not supported at this time, so there may still be some differences if these are in use.
 
 ## Query languages
 
