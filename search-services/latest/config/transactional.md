@@ -355,7 +355,8 @@ You can limit both the time spent and the number of documents checked before Alf
 
     > **Note:** If you increase these values and have a query that returns a very large number of results, (a) the search results will take longer to be returned to the user, and (b) the system will spend longer to check permissions, leading to the possibility of performance degradation. If you set these values to a low number, you run the risk of inconsistent search results every time you run the same search. These settings are also applied when paging. So paging the results will only go up to the maximum returned results based on these settings.
 
-From Content Services 7.x you can set these limits on a per query basis which overrides the values set in the `alfresco.global.properties` file. To do this in the REST API you must add a limits element value to the request JSON:
+From Content Services 7.x you can set these limits on a per query basis which overrides the values set in the `alfresco.global.properties` file.
+To do this in the REST API you must add a limits element value to the request JSON:
 
 ```sql
 "limits": {
