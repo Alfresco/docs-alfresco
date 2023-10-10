@@ -116,7 +116,11 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Application Development Framework (ADF) 5.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Mobile Workspace 1.7 | |
+| Alfresco Mobile Workspace 1.6 | |
+| Alfresco Mobile Workspace 1.5 | |
 | Alfresco Mobile Workspace 1.4 | |
+| Alfresco Mobile Workspace 1.2 | |
+| Alfresco Mobile Workspace 1.1 | |
 | | |
 | **Components** | |
 | ImageMagick v7.1.0-16 | |
@@ -233,7 +237,11 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Application Development Framework (ADF) 5.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Mobile Workspace 1.7 | |
+| Alfresco Mobile Workspace 1.6 | |
+| Alfresco Mobile Workspace 1.5 | |
 | Alfresco Mobile Workspace 1.4 | |
+| Alfresco Mobile Workspace 1.2 | |
+| Alfresco Mobile Workspace 1.1 | |
 | | |
 | **Components** | |
 | ImageMagick v7.0.10 | |
