@@ -656,7 +656,7 @@ writer.putContent(file);
 Transforming a PPT to PDF (also works for other file formats):
 
 ```java
-ContentReader pptReader = serviceRegistry.getContentService().getReader(pptNodeRef, ContentModel.PROP_CONTENT);
+ContentReader srcReader = serviceRegistry.getContentService().getReader(srcNodeRef, ContentModel.PROP_CONTENT);
 ContentWriter pdfWriter = serviceRegistry.getContentService().getWriter(pdfNodeRef, ContentModel.PROP_CONTENT, true);
 ContentTransformer pptToPdfTransformer = serviceRegistry.getContentService().getTransformer(MimetypeMap.MIMETYPE_PPT, MimetypeMap.MIMETYPE_PDF);
 pptToPdfTransformer.transform(pptReader, pdfWriter);
