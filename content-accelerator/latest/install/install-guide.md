@@ -16,9 +16,11 @@ You will need to download the following distribution zips in order to install AC
 
 * alfresco-content-accelerator-base-package-3.5.x.zip
 * (Claims Only) alfresco-content-accelerator-claims-accelerator-3.5.x.zip
-* (Pnp Only) alfresco-content-accelerator-policy-and-procedure-accelerator-3.5.x.zip
+* (PnP Only) alfresco-content-accelerator-policy-and-procedure-accelerator-3.5.x.zip
 * (HR Only) alfresco-content-accelerator-sehr-accelerator-3.5.x.zip
 * (HR Tier-2 Only) alfresco-content-accelerator-sehr-rm-accelerator-3.5.x.zip
+
+> **Note:** If you're installing the HR Employee File Management (HR EFM) solution, you will need to get the HR EFM pre-release artifacts from [Hyland Confluence](https://hyland.atlassian.net/wiki/spaces/SESS/pages/687540729/Alfresco+HR+Employee+File+Management){:target="blank"} rather than using the distribution zips in Hyland Community.
 
 ### Java
 
@@ -309,12 +311,12 @@ In this section we ensure that all components of the Content Accelerator are ins
 
    >**Note:** Make sure you are using the correct `tsgrp-opencontent.amp` for your version of Alfresco.
 
-   * If using Alfresco Content Services 7.1.x, use the `tsgrp-opencontent-3.5-for-acs7.1.amp`.
-   * If using Alfresco Content Services 7.2.x, use the `tsgrp-opencontent-3.5-for-acs7.2.amp`.
-   * If using Alfresco Content Services 7.3.x, use the `tsgrp-opencontent-3.5-for-acs7.3.amp`.
-   * If using Alfresco Content Services 7.4.x, use the `tsgrp-opencontent-3.5.1-for-acs7.4.amp`.
+   * If using Alfresco Content Services 7.1.x, use the `tsgrp-opencontent-3.5.x-for-acs7.1.amp`.
+   * If using Alfresco Content Services 7.2.x, use the `tsgrp-opencontent-3.5.x-for-acs7.2.amp`.
+   * If using Alfresco Content Services 7.3.x, use the `tsgrp-opencontent-3.5.x-for-acs7.3.amp`.
+   * If using Alfresco Content Services 7.4.x, use the `tsgrp-opencontent-3.5.x-for-acs7.4.amp`.
 
-3. (Pnp ONLY) This step is only required if installing the Policy and Procedure Content Accelerator solution:
+3. (PnP ONLY) This step is only required if installing the Policy and Procedure Content Accelerator solution:
 
    Navigate to the `ALFRESCO_HOME/amps` directory and copy the following amps there:
 
@@ -505,7 +507,7 @@ This section walks through how to install the web applications on a separate Tom
 
    This war can be found in the `Web Applications` folder of the alfresco-content-accelerator-base-package zip.
 
-3. (Pnp and HR ONLY) This step is only required if using the Policy and Procedure Content Accelerator or HR Content Accelerator solution:
+3. (PnP and HR ONLY) This step is only required if using the Policy and Procedure Content Accelerator or HR Content Accelerator solution:
 
    Copy the `WizardAdmin.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
 
@@ -581,7 +583,7 @@ This section walks through how to install the web applications on Alfresco Tomca
 
    This war can be found in the `Web Applications` folder of the alfresco-content-accelerator-base-package zip.
 
-3. (Pnp and HR ONLY) This step is only required if using the Policy and Procedure Content Accelerator or HR Content Accelerator solution:
+3. (PnP and HR ONLY) This step is only required if using the Policy and Procedure Content Accelerator or HR Content Accelerator solution:
 
    Copy the `WizardAdmin.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
 
@@ -652,7 +654,7 @@ This section walks through how to install the web applications on Alfresco Tomca
 
    This will create the base groups and folder for the application.
 
-2. (Pnp ONLY) This step is only required if using the Policy and Procedure Content Accelerator solution:
+2. (PnP ONLY) This step is only required if using the Policy and Procedure Content Accelerator solution:
 
    Create Policy and Procedure specific groups and folders:
 
@@ -670,7 +672,7 @@ This section walks through how to install the web applications on Alfresco Tomca
 
 4. Locate the `default-{accelerator}.zip` configurations and rename it.
 
-   * For Pnp, the file will be named `default-pnp.zip` and can be found in the `Configuration` folder of the alfresco-content-accelerator-policy-and-procedure-accelerator zip.
+   * For PnP, the file will be named `default-pnp.zip` and can be found in the `Configuration` folder of the alfresco-content-accelerator-policy-and-procedure-accelerator zip.
    * For Claims, the file will be named `default-claims.zip` and can be found in the `Configuration` folder of the alfresco-content-accelerator-claims-accelerator zip.
    * For HR, the file will be named `default-sehr.zip` and can be found in the `Configuration` folder of the alfresco-content-accelerator-sehr-accelerator zip.
    * For HR Tier-2, the file will be named `default-sehr-rm.zip` and can be found in the `Configuration` folder of the alfresco-content-accelerator-sehr-rm-accelerator zip.

@@ -77,7 +77,7 @@ Utilize Alfresco Enterprise Viewer to view, annotate, and redact documents witho
 
 ## Policy and Procedure Management {#policy-management}
 
-The Policy and Procedure Management accelerator helps regulated companies such as life sciences, energy, and manufacturers as well as HR departments **maintain quality processes of essential documents** that require strict control over **content lifecycle, reviews, and approvals**.
+The Policy and Procedure Management (PnP) accelerator helps regulated companies such as life sciences, energy, and manufacturers as well as HR departments **maintain quality processes of essential documents** that require strict control over **content lifecycle, reviews, and approvals**.
 
 The intuitive interface facilitates consistency, **collaboration**, electronic review and approval for knowledge workers and provides electronic signatures including **21 CFR Part 11 compliance for life science companies**. Document annotations are supported through using the built in Alfresco Enterprise Viewer to efficiently facilitate document review and approval.
 
@@ -122,7 +122,7 @@ A wizard-style form is utilized to capture change request information. The form 
 
 ## HR Employee File Management {#hr-file-management}
 
-The HR Employee File Management solution helps to keep track of all relevant documents for each employee at a company. The Alfresco Content Accelerator provides a platform which enables an organization to collect, store, manage, and delete documents within the Alfresco Content Services repository for their employees.
+The HR Employee File Management (HR EFM) solution helps to keep track of all relevant documents for each employee at a company. The Alfresco Content Accelerator provides a platform which enables an organization to collect, store, manage, and delete documents within the Alfresco Content Services repository for their employees.
 
 Benefits of the HR Employee File Management solution:
 
