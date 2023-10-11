@@ -249,3 +249,14 @@ You can share custom Workspace links provided by the URL Schema functionality. T
 3. Tap **Open in App** to view the content in the Mobile Workspace application.
 
 > **Note:** File and URL access depend on permissions set in Mobile Workspace.
+
+## Workflow Management
+
+You can create and manage workflows within the Mobile Workspace. Workflows allow you to expand on the functionality provided by tasks by assigning a set of parameters to them. You can attach files to an existing workflow or create a new one using a file that has been added previously. Workflows can be assigned to an individual user or a group of users. 
+
+You can access workflows in two ways by either creating a workflow from the context menu of an existing file, or using the **Tasks** menu to set up the workflow. The **Tasks** section is divided into two parts: **Tasks** and **Workflows**.
+
+To set up a workflow, you can either:
+
+* Create a new workflow from the context menu of an existing file.
+* Starting from the **Workflows** tab, tap the **+** button, and then select a workflow.
