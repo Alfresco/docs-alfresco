@@ -54,7 +54,7 @@ Make sure the HR Tier-2 solution is [installed]({% link content-accelerator/late
 10. Provide the `HR Manager` group the correct permissions to create Legal Holds:
 
     1. Navigate to `RM Admin Tools` from the top-right of the RM site.
-    2. Click **Define Roles** in the **Tools** section, and then click on `New Role` button to the left of page.
+    2. Click **Define Roles** in the **Tools** section, and then click on the `New Role` button to the left of page.
     3. Create a role with name `HREFM Hold Access` with the following capabilities:
 
       * Add to Hold
