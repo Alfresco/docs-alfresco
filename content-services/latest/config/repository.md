@@ -805,6 +805,44 @@ Here's an example of how to configure Tomcat 9 to work with HTTPS for your devel
 
     See [Considerations when using Alfresco Office Services]({% link microsoft-office/latest/index.md %}) for more details.
 
+## Configure HttpClient settings of repository {#httpclientproperties}
+
+Below are HttpClient properties that allow for turning on [mTLS]({% link content-services/latest/config/mtls.md %}) and fine-tuning of repository outbound communication targeting Transform Services.
+
+```text
+httpclient.config.<service>.mTLSEnabled
+httpclient.config.<service>.connectionTimeout
+httpclient.config.<service>.socketTimeout
+httpclient.config.<service>.connectionRequestTimeout
+httpclient.config.<service>.maxTotalConnections
+httpclient.config.<service>.maxHostConnections
+httpclient.config.<service>.hostnameVerificationDisabled
+```
+
+Valid substitutes for `<service>` are: `transform` (T-Router, T-Engines, Transform Aspose, AI Renditions) and `sharedfilestore` (enterprise: Shared File Store).
+Unset timeouts are infinite.
+
+The default settings for `transform` are shown below:
+
+```text
+httpclient.config.transform.mTLSEnabled=false
+httpclient.config.transform.maxTotalConnections=20
+httpclient.config.transform.maxHostConnections=20
+httpclient.config.transform.hostnameVerificationDisabled=false
+```
+
+The default settings for `sharedfilestore` are shown below:
+
+```text
+httpclient.config.sharedfilestore.mTLSEnabled=false
+httpclient.config.sharedfilestore.maxTotalConnections=20
+httpclient.config.sharedfilestore.maxHostConnections=20
+httpclient.config.sharedfilestore.socketTimeout=5000
+httpclient.config.sharedfilestore.connectionRequestTimeout=5000
+httpclient.config.sharedfilestore.connectionTimeout=5000
+httpclient.config.sharedfilestore.hostnameVerificationDisabled=false
+```
+
 ## Configure the repository cache
 
 The repository provides in-memory caches. These caches are transaction safe and can be clustered. Caches greatly improve repository performance but they use Java heap memory.
