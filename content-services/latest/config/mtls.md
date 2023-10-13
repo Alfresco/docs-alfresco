@@ -192,7 +192,7 @@ For the full list of available HttpClient properties and services that use them,
 
 Mutual TLS is disabled by default, to turn it on you have to change the value of properties `httpclient.config.<service>.mTLSEnabled` to `true` for all services you intend to use with mTLS.
 
-Hostname verification can be disabled for responses with `httpclient.config.<service>.hostnameVerificationDisabled`, by setting it to `true`. Though be aware that disabling it poses a significant security risk.
+> **Note:** Hostname verification can be disabled for responses with `httpclient.config.<service>.hostnameVerificationDisabled`, by setting it to `true`. Though be aware that disabling it poses a significant security risk.
 
 ### Configuration for Transform Service
 
