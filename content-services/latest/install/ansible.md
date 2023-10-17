@@ -127,7 +127,7 @@ The table below shows the version of the components deployed by the playbook for
 | Component | 23.0.0 Enterprise | 7.4 Enterprise | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0 Enterprise | Community |
 |-|-|-|-|-|-|-|-|
 | OpenJDK | | 17.0.3 | 17.0.3 | 11.0.15 | 11.0.15 | 11.0.15 | 17.0.03 |
-| Apache Tomcat | 10.X | 9.0.59 | 9.0.59 | 9.0.59 | 9.0.59 | 8.5.76 | 9.0.59 |
+| Apache Tomcat | 10.1.X | 9.0.59 | 9.0.59 | 9.0.59 | 9.0.59 | 8.5.76 | 9.0.59 |
 | PostgreSQL | 14.x | 14.x | 14.x | 13.x | 13.x | 13.x | 14.x |
 | Apache ActiveMQ | 5.16.6 | 5.16.6 | 5.16.6 | 5.16.6 | 5.16.6 | 5.16.6 | 5.16.6 |
 | Repository | 23.0.0 | 7.4.0 | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 7.4.0 |

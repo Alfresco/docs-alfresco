@@ -36,7 +36,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | ActiveMQ v5.16 | |
 | | |
 | **Application servers** | |
-| Tomcat 10 | |
+| Tomcat 10.1.X | |
 | | |
 | **Clients** | |
 | Windows 10 x64 | |
