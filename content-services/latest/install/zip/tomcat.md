@@ -6,7 +6,7 @@ For more complex Content Services installations, or if you wish to use an existi
 
 Use this method of installing Content Services if you've already have installed a JRE, a supported database, a supported application server, a message broker, and the additional components.
 
-For information about securing Tomcat, see [Tomcat security considerations](https://tomcat.apache.org/tomcat-9.0-doc/security-howto.html){:target="_blank"}.
+For information about securing Tomcat, see [Tomcat security considerations](https://tomcat.apache.org/tomcat-10.1-doc/security-howto.html){:target="_blank"}.
 
 ## Install application server
 
