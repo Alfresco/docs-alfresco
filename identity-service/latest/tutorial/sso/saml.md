@@ -189,16 +189,16 @@ The properties listed that need to be set for Alfresco Content Services (ACS) ar
 
 Alfresco Digital Workspace only requires its properties to be updated to enable SSO. For manual deployments these can be updated in the `app.config.json` file and for Docker and Kubernetes deployments using environment variables.
 
-| Property | Environment variable | Description |
-| -------- | -------------------- | ----------- |
-| authType | APP_CONFIG_AUTH_TYPE |The authentication type. Must be set to `OAUTH`|
-| host | APP_CONFIG_OAUTH2_HOST |The address of the Identity Service including the realm name configured in [step 1](#step-1-configure-a-realm-and-clients). In the example the realm name is *Alfresco*|
-| clientId | APP_CONFIG_OAUTH2_CLIENTID |The name of the client configured in [step 1](#step-1-configure-a-realm-and-clients) for Digital Workspace|
-| implicitFlow | APP_CONFIG_OAUTH2_IMPLICIT_FLOW | |
-| silentLogin | APP_CONFIG_OAUTH2_SILENT_LOGIN |Setting `silentLogin` to true removes a login page from displaying if a user is already authenticated. Setting the value to `false` will display a sign in page even though a user needs to only select the **Sign in** option and not enter any credentials|
-| redirectSilentIframeUri | APP_CONFIG_OAUTH2_REDIRECT_SILENT_IFRAME_URI |The address that Digital Workspace uses to refresh authorization tokens|
-| redirectUri | APP_CONFIG_OAUTH2_REDIRECT_LOGIN |The URL to redirect to after a user is successfully authenticated|
-| redirectUriLogout | APP_CONFIG_OAUTH2_REDIRECT_LOGOUT |The URL to redirect to after a user successfully signs out|
+| Property                       | Environment variable                         | Description                                                                                                                                                                                                                                                  |
+|--------------------------------|----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| authType                       | APP_CONFIG_AUTH_TYPE                         | The authentication type. Must be set to `OAUTH`                                                                                                                                                                                                              |
+| oauth2.host                    | APP_CONFIG_OAUTH2_HOST                       | The address of the Identity Service including the realm name configured in [step 1](#step-1-configure-a-realm-and-clients). In the example the realm name is *Alfresco*                                                                                      |
+| oauth2.clientId                | APP_CONFIG_OAUTH2_CLIENTID                   | The name of the client configured in [step 1](#step-1-configure-a-realm-and-clients) for Digital Workspace                                                                                                                                                   |
+| oauth2.implicitFlow            | APP_CONFIG_OAUTH2_IMPLICIT_FLOW              |                                                                                                                                                                                                                                                              |
+| oauth2.silentLogin             | APP_CONFIG_OAUTH2_SILENT_LOGIN               | Setting `silentLogin` to true removes a login page from displaying if a user is already authenticated. Setting the value to `false` will display a sign in page even though a user needs to only select the **Sign in** option and not enter any credentials |
+| oauth2.redirectSilentIframeUri | APP_CONFIG_OAUTH2_REDIRECT_SILENT_IFRAME_URI | The address that Digital Workspace uses to refresh authorization tokens                                                                                                                                                                                      |
+| oauth2.redirectUri             | APP_CONFIG_OAUTH2_REDIRECT_LOGIN             | The URL to redirect to after a user is successfully authenticated                                                                                                                                                                                            |
+| oauth2.redirectUriLogout       | APP_CONFIG_OAUTH2_REDIRECT_LOGOUT            | The URL to redirect to after a user successfully signs out                                                                                                                                                                                                   |
 
 > **Note:** If `implicitFlow` is set to `false` the grant type `password` will be used instead.
 
