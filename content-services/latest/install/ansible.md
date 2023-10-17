@@ -124,7 +124,7 @@ While Content Services supports a wide range of OS, the playbook is only support
 
 The table below shows the version of the components deployed by the playbook for Content Services 7.x and Community.
 
-| Component | 23.0.0 Enterprise | 7.4 Enterprise | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0 Enterprise | Community |
+| Component | 23.1.0 Enterprise | 7.4 Enterprise | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0 Enterprise | Community |
 |-|-|-|-|-|-|-|-|
 | OpenJDK | | 17.0.3 | 17.0.3 | 11.0.15 | 11.0.15 | 11.0.15 | 17.0.03 |
 | Apache Tomcat | 10.1.X | 9.0.59 | 9.0.59 | 9.0.59 | 9.0.59 | 8.5.76 | 9.0.59 |
