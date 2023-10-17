@@ -36,7 +36,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | ActiveMQ v5.16 | |
 | | |
 | **Application servers** | |
-| Tomcat 9 | |
+| Tomcat 10 | |
 | | |
 | **Clients** | |
 | Windows 10 x64 | |
@@ -86,28 +86,28 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for SAP applications 5.3 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
 | Alfresco Collaboration Connector for Microsoft 365 2.0 | |
-| Alfresco Collaboration Connector for Teams 2.0 | |
-| Alfresco Office Services 1.6 | |
-| Alfresco Google Docs Integration 3.4 | |
-| Alfresco Content Services SDK 5.2 | |
-| Alfresco Content Services SDK 4.6 | |
-| | |
-| **Applications** | |
-| Alfresco Digital Workspace 4.2 | |
-| Alfresco Digital Workspace 4.1 | |
-| Alfresco Digital Workspace 4.0 | |
-| Alfresco Mobile Workspace 1.7 | |
-| Alfresco Mobile Workspace 1.6 | |
-| Alfresco Control Center 8.2 | |
-| Alfresco Control Center 8.1 | |
-| Alfresco Control Center 8.0 | |
-| Alfresco Application Development Framework (ADF) 6.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
-| Alfresco Content Accelerator (ACA) 3.5.1 | |
-| Alfresco Enterprise Viewer (AEV) 3.5.1 | |
-| | |
-| **Components** | |
-| ImageMagick v7.1.0-16 | |
-| LibreOffice v7.2.5 | |
+| Alfresco Collaboration Connector for Teams 2.0         | |
+| Alfresco Office Services 1.6                           | |
+| Alfresco Google Docs Integration 3.4                   | |
+| Alfresco Content Services SDK 5.2                      | |
+| Alfresco Content Services SDK 4.6                      | |
+|                                                        | |
+| **Applications**                                       | |
+| Alfresco Digital Workspace 4.2                         | |
+| Alfresco Digital Workspace 4.1                         | |
+| Alfresco Digital Workspace 4.0                         | |
+| Alfresco Mobile Workspace 1.7                          | |
+| Alfresco Mobile Workspace 1.6                          | |
+| Alfresco Control Center 8.2                            | |
+| Alfresco Control Center 8.1                            | |
+| Alfresco Control Center 8.0                            | |
+| Alfresco Application Development Framework (ADF) 6.x   | Some API functionality may be available only in the latest Alfresco Content Services release. |
+| Alfresco Content Accelerator (ACA) 3.5.1               | |
+| Alfresco Enterprise Viewer (AEV) 3.5.1                 | |
+|                                                        | |
+| **Components**                                         | |
+| ImageMagick v7.1.0-16                                  | |
+| LibreOffice v7.2.5                                     | |
 
 {% endcapture %}
 
