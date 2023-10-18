@@ -92,7 +92,7 @@ Deploy Digital Workspace using the following steps:
     APP_CONFIG_PLUGIN_AI_SERVICE=false
     ```
 
-    > **Note:** The Digital Workspace 4.3.x uses the Content Application version 4.0.0.
+    > **Note:** The Digital Workspace 4.2.x uses the Content Application version 4.0.0.
 
 3. Open a command prompt and run the following command to install all third-party dependencies:
 
@@ -155,7 +155,7 @@ Deploy Digital Workspace using the following steps:
 
 You can develop a custom ADF application that adds features, behaviors, and customizations. Using the [Yeoman](https://yeoman.io/){:target="_blank"} scaffolding tool you can quickly create applications for testing in your development environment. The [Yeoman Generator for Alfresco ADF Applications](https://github.com/Alfresco/generator-alfresco-adf-app){:target="_blank"} is available for free as an open source project on GitHub.
 
-Below are the available tutorials on the most common and requested tasks about developing ADF based applications. To build, debug, test, or troubleshoot the Alfresco Digital Workspace and ADF-based applications see [Manage Digital Workspace]({% link digital-workspace/latest/develop/manage.md %}).
+Below are the available tutorials on the most common and requested tasks about developing ADF based applications. To build, debug, test, or troubleshoot the Alfresco Digital Workspace and ADF-based applications see [Manage Digital Workspace]({% link digital-workspace/4.2/develop/manage.md %}).
 
 ### Prerequisites {#prereqs-adf}
 

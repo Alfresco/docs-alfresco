@@ -117,6 +117,7 @@ defaults:
       toc: "digital-workspace"
       support: true
       versions:
+        - 4.3
         - 4.2
         - 4.1
         - 4.0
@@ -137,8 +138,12 @@ defaults:
   - scope:
       path: "digital-workspace/latest"
     values:
-      version: 4.2
+      version: 4.3
       latest: true
+  - scope:
+      path: "digital-workspace/4.2"
+    values:
+      version: 4.2
   - scope:
       path: "digital-workspace/4.1"
     values:
