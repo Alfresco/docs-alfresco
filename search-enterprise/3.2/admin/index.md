@@ -430,7 +430,12 @@ The main use case to re-index only content or path is a fully metadata indexed r
 
 ## Bulk metadata indexing
 
-This page covers the approach, setup(using AWS cloud solutions) and outcome of bulk indexing (metadata & path) of 1 Billion files for Elasticsearch using Search Enterprise 3.1.1. In our approach we are using independent EC2 instances for indexing different node IDs (data files) running in parallel with multiple threads, another approach is using Master-Worker setup which has bottleneck with crashing Amazon MQ. Also, we were able to achieve ~2x speed as compared to Master-Worker setup and is being detailed out here.
+This example shows how to set up and configure Search Enterprise to bulk index one billion files.
+
+
+ page covers the approach, setup(using AWS cloud solutions) and outcome of bulk metadata indexing (metadata & path) of 1 Billion files for Elasticsearch using Search Enterprise 3.1.1.
+
+In our approach we are using independent EC2 instances for indexing different node IDs (data files) running in parallel with multiple threads, another approach is using Master-Worker setup which has bottleneck with crashing Amazon MQ. Also, we were able to achieve ~2x speed as compared to Master-Worker setup and is being detailed out here.
 
 ![configuration]({% link search-enterprise/images/database-configuration.png %})
 
