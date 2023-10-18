@@ -2,15 +2,15 @@
 title: Overview
 ---
 
-Alfresco Search Enterprise 4.0 consists of Alfresco Content Services, Elasticsearch Server, and the Elasticsearch connector. Use this information to install the Elasticsearch connector, which can be deployed using either JAR files, Docker Compose, or Helm.
+Alfresco Search Enterprise 3.3 consists of Alfresco Content Services, Elasticsearch Server, and the Elasticsearch connector. Use this information to install the Elasticsearch connector, which can be deployed using either JAR files, Docker Compose, or Helm.
 
 ## Prerequisites
 
 * Alfresco Content Services 7.4 that includes Alfresco ActiveMQ, Alfresco Transform Service, and Database, for more see [Install overview]({% link content-services/latest/install/index.md %}).
 * Elasticsearch 7.17.x - any version between 7.10.x and 7.17.x inclusive, is compatible. It may be used as a standard managed service or can be installed with the default configuration, for more see [Install Elasticsearch server](#install-elasticsearch-server).
-* Elasticsearch Connector 4.0
+* Elasticsearch Connector 3.3
 
-See the [Supported platforms]({% link search-enterprise/latest/support/index.md %}) for more.
+See the [Supported platforms]({% link search-enterprise/3.3/support/index.md %}) for more.
 
 ## Configure Subsystem in Repository
 
@@ -42,7 +42,7 @@ If using the Repository Admin Web Console select `Repository Services > Search S
 
 Use this information to install the Elasticsearch connector on the same machine as Content Services using JAR files.
 
-1. Download the `alfresco-elasticsearch-connector-distribution-4.0.0.zip` file from [Hyland Community](https://community.hyland.com/){:target="_blank"} and extract it.  
+1. Download the `alfresco-elasticsearch-connector-distribution-3.3.0.zip` file from [Hyland Community](https://community.hyland.com/){:target="_blank"} and extract it.  
 
 2. Verify all the required services are available:
 
@@ -99,7 +99,7 @@ The Elasticsearch connector *Live Indexing* component listens to messages from A
 > **Note:** Due to this application providing default values for Alfresco Repository Database username and password, it's strongly recommended you set these credentials using the command line. This ensures database credentials won't be stored in the server filesystem.
 
 ```java
-java -jar alfresco-elasticsearch-reindexing-4.0.0-app.jar \
+java -jar alfresco-elasticsearch-reindexing-3.3.0-app.jar \
 --alfresco.reindex.jobName=reindexByIds \
 --spring.elasticsearch.rest.uris=http://localhost:9200 \
 --spring.datasource.url=jdbc:postgresql://localhost:5432/alfresco \
@@ -120,7 +120,7 @@ o.a.r.listeners.JobLifecycleListener     : Current Status: COMPLETED
 
 Once the program has been executed, the existing Alfresco Repository nodes are available in Search Enterprise.
 
-> **Note:** Additional use cases are be covered in the [Administer]({% link search-enterprise/latest/admin/index.md %}) documentation.
+> **Note:** Additional use cases are be covered in the [Administer]({% link search-enterprise/3.3/admin/index.md %}) documentation.
 
 ### Alfresco Live Indexing app
 
@@ -129,13 +129,13 @@ The Elasticsearch connector *Live Indexing* app can be started from the command 
 1. Start the Live Indexing app.
 
 ```java
-java -jar alfresco-elasticsearch-live-indexing-4.0.0-app.jar
+java -jar alfresco-elasticsearch-live-indexing-3.3.0-app.jar
 ```
 
 If your services are deployed on a different server or port the following parameters can be used.
 
 ```java
-java -jar alfresco-elasticsearch-live-indexing-4.0.0-app.jar \
+java -jar alfresco-elasticsearch-live-indexing-3.3.0-app.jar \
 --spring.activemq.broker-url=nio://localhost:61616 \
 --spring.elasticsearch.rest.uris=http://localhost:9200 \
 --alfresco.sharedFileStore.baseUrl=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file/ \
@@ -146,13 +146,13 @@ java -jar alfresco-elasticsearch-live-indexing-4.0.0-app.jar \
 If required additional memory may be assigned to these services using the default JVM options. For instance, to start the Elasticsearch connector with 2 GB of RAM.
 
 ```java
-java -Xmx2G -jar alfresco-elasticsearch-live-indexing-4.0.0-app.jar
+java -Xmx2G -jar alfresco-elasticsearch-live-indexing-3.3.0-app.jar
 ```
 
 By default, the Elasticsearch connector is started using port 8080. This port can be changed using the default Spring Boot command line parameter `server.port`. For instance, to start the Elasticsearch Connector using port `8083`.
 
 ```java
-java -jar alfresco-elasticsearch-live-indexing-4.0.0-app.jar --server.port=8083
+java -jar alfresco-elasticsearch-live-indexing-3.3.0-app.jar --server.port=8083
 ```
 
 Once all services are up and running the Elasticsearch index will be populated and search queries will work as expected when using supported Alfresco applications such as Alfresco Digital Workspace.
@@ -201,7 +201,7 @@ Create the Docker compose file using the source code.
 
 Create the Docker compose file using the distribution zip file.
 
-1. Download the `alfresco-elasticsearch-connector-distribution-4.0.0.zip` file from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
+1. Download the `alfresco-elasticsearch-connector-distribution-3.3.0.zip` file from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 2. Unzip the distribution zip file into a folder:
 
@@ -402,4 +402,4 @@ Other alternatives may be selected for your Elasticsearch installation, for more
 
 Both Alfresco Repository and the Elasticsearch connector support communication with the Elasticsearch server using HTTP or HTTPs protocol with or without HTTP Basic Authentication.
 
-> **Note:** The Elasticsearch server does not require any additional software from Alfresco in order to be used by Alfresco Search Enterprise 4.0.
+> **Note:** The Elasticsearch server does not require any additional software from Alfresco in order to be used by Alfresco Search Enterprise 3.3.

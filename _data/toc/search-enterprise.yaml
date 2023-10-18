@@ -1,5 +1,5 @@
 # Search Enterprise
-- version: 3.3
+- version: 4.0
   pages:
     - title: 'Introduction'
       path: '/search-enterprise/latest/'
@@ -33,6 +33,40 @@
           path: '/search-enterprise/latest/using/unsupported/'
         - title: 'Troubleshooting'
           path: '/search-enterprise/latest/using/troubleshooting/'
+- version: 3.3
+  pages:
+    - title: 'Introduction'
+      path: '/search-enterprise/3.3/'
+    - title: 'Install'
+      path: '/search-enterprise/3.3/install/'
+    - title: 'Upgrade'
+      path: '/search-enterprise/3.3/upgrade/'
+    - title: 'Configure'
+      pages:
+        - title: 'Overview'
+          path: '/search-enterprise/3.3/config/'
+        - title: 'Language support'
+          path: '/search-enterprise/3.3/config/language/'
+        - title: 'Transactional metadata query'
+          path: '/search-enterprise/3.3/config/transactional/'
+    - title: 'Administer'
+      path: '/search-enterprise/3.3/admin/'
+    - title: 'Using'
+      pages:
+        - title: 'Search query syntax'
+          path: '/search-enterprise/3.3/using/'
+        - title: 'Filtering paging and sorting'
+          path: '/search-enterprise/3.3/using/filtering/'
+        - title: 'Field queries'
+          path: '/search-enterprise/3.3/using/field/'
+        - title: 'Path queries'
+          path: '/search-enterprise/3.3/using/path/'
+        - title: 'Query languages'
+          path: '/search-enterprise/3.3/using/languages/'
+        - title: 'Unsupported features'
+          path: '/search-enterprise/3.3/using/unsupported/'
+        - title: 'Troubleshooting'
+          path: '/search-enterprise/3.3/using/troubleshooting/'
           
 - version: 3.2
   pages:
