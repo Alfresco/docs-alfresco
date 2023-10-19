@@ -31,16 +31,16 @@ recommended for development and test environments only.
     ```text
     services:
         alfresco:
-            #image: alfresco/alfresco-content-repository:23.1.x
-            image: quay.io/alfresco/alfresco-governance-repository-enterprise:23.1.x
+            #image: alfresco/alfresco-content-repository:7.4.x
+            image: quay.io/alfresco/alfresco-governance-repository-enterprise:7.4.x
             mem_limit: 1700m
            
     ```
 
     ```text
         share:
-            #image: alfresco/alfresco-share:23.1.x
-            image: quay.io/alfresco/alfresco-governance-share-enterprise:23.1.x
+            #image: alfresco/alfresco-share:7.4.x
+            image: quay.io/alfresco/alfresco-governance-share-enterprise:7.4.x
             mem_limit: 1g
            
     ```
@@ -95,4 +95,4 @@ recommended for development and test environments only.
 
     * Share: `http://localhost:8080/share`
 
-Final step before you can start with Records Management is to [create the Records Management site]({% link governance-services/latest/install/create-rm-site.md %}).
+Final step before you can start with Records Management is to [create the Records Management site]({% link governance-services/7.4/install/create-rm-site.md %}).

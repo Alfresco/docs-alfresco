@@ -1,5 +1,5 @@
-# Alfresco Governance Services 7.3
-- version: 7.4
+# Alfresco Governance Services 23.1
+- version: 23.1
   pages:
     - title: 'Tutorials'
       path: '/governance-services/latest/tutorial/'
@@ -7,6 +7,14 @@
       path: '/governance-services/latest/tutorial/governance-services/'
     - title: 'Security marks and classification'
       path: '/governance-services/latest/tutorial/securitymarks-classify/'
+- version: 7.4
+  pages:
+    - title: 'Tutorials'
+      path: '/governance-services/7.4/tutorial/'
+    - title: 'Records Management'
+      path: '/governance-services/7.4/tutorial/governance-services/'
+    - title: 'Security marks and classification'
+      path: '/governance-services/7.4/tutorial/securitymarks-classify/'
 - version: 7.3
   pages:
     - title: 'Tutorials'
