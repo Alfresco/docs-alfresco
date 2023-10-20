@@ -81,6 +81,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.7 | |
 | Alfresco Transform Service 1.4 | |
 | Alfresco Transform Service 1.3.2 | |
+| Alfresco Document Transformation Engine 2.4 | |
 | Alfresco Document Transformation Engine 2.3 | |
 | Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0 | |
@@ -95,6 +96,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for AWS Glacier 2.1 | Only compatible with Alfresco Content Connector for AWS S3 3.1 or above. |
 | Alfresco Content Connector for Salesforce 2.3 | |
 | Alfresco Content Connector for Salesforce 2.2.1 | |
+| Alfresco Content Connector for SAP applications 5.3 | |
 | Alfresco Content Connector for SAP applications 5.2 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
@@ -119,7 +121,13 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Digital Workspace 2.1 | |
 | Alfresco Application Development Framework (ADF) 5.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
+| Alfresco Mobile Workspace 1.7 | |
+| Alfresco Mobile Workspace 1.6 | |
+| Alfresco Mobile Workspace 1.5 | |
 | Alfresco Mobile Workspace 1.4 | |
+| Alfresco Mobile Workspace 1.2 | |
+| Alfresco Mobile Workspace 1.1 | |
+| Alfresco Mobile Workspace 1.0 | |
 | | |
 | **Components** | |
 | ImageMagick v7.0.10 | |
@@ -200,6 +208,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.7 | |
 | Alfresco Transform Service 1.4 | |
 | Alfresco Transform Service 1.3.2 | |
+| Alfresco Document Transformation Engine 2.4 | |
+| Alfresco Document Transformation Engine 2.3 | |
 | Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. Nb. Java 11.0.9.1 and other four part Java versions are not currently compatible due to a bug in Jetty. |
 | Alfresco Search Services 2.0 | |
 | Alfresco Federation Services 2.1 | |
@@ -212,6 +222,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for AWS Glacier 2.1 | Only compatible with Alfresco Content Connector for AWS S3 3.1 or above. |
 | Alfresco Content Connector for Salesforce 2.3 | |
 | Alfresco Content Connector for Salesforce 2.2.1 | |
+| Alfresco Content Connector for SAP applications 5.3 | |
 | Alfresco Content Connector for SAP applications 5.2 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
@@ -236,7 +247,13 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Digital Workspace 2.1 | |
 | Alfresco Application Development Framework (ADF) 5.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
+| Alfresco Mobile Workspace 1.7 | |
+| Alfresco Mobile Workspace 1.6 | |
+| Alfresco Mobile Workspace 1.5 | |
 | Alfresco Mobile Workspace 1.4 | |
+| Alfresco Mobile Workspace 1.2 | |
+| Alfresco Mobile Workspace 1.1 | |
+| Alfresco Mobile Workspace 1.0 | |
 | | |
 | **Components** | |
 | ImageMagick v7.0.10 | |

@@ -32,7 +32,7 @@ ENV PATH $RUBY_PATH/bin:$PATH
 
 RUN gem update --system
 RUN gem install jekyll
-RUN gem install bundler
+RUN gem install bundler:1.17.2
 RUN gem install jekyll-theme-minimal
 
 WORKDIR /home/user

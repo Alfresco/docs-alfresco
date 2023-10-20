@@ -4,8 +4,6 @@ title: Supported platforms
 
 The following are the supported platforms for Alfresco Content Connector for Azure 3.2:
 
-## Alfresco Content Services
-
 | Version | Notes |
 | ------- | ----- |
 | Content Services 7.4.x | |

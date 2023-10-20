@@ -9,8 +9,8 @@ There are a number of processes and procedures for maintaining and administering
 The Exact Term search feature that allows searching using the equals operator `=`, is disabled by default to save index space.
 It's possible to enable it for specific properties and property types using the `/alfresco/search/elasticsearch/config/exactTermSearch.properties` configuration file located in the Alfresco Repository.
 
-|Property|Description|
-|--------|-----------|
+| Property | Description |
+| -------- | ----------- |
 | alfresco.cross.locale.datatype.0 | A new cross locale field is added for any property of this data-type to enable exact term search. For example, {http://www.alfresco.org/model/dictionary/1.0}text. The Exact Term search is disabled by default. |
 | alfresco.cross.locale.property.0 | A new cross locale field is added for the property to enable exact term search. For example, {http://www.alfresco.org/model/content/1.0}content. The Exact Term search is disabled by default. |
 
@@ -25,7 +25,7 @@ alfresco.cross.locale.property.0={http://www.alfresco.org/model/content/1.0}cont
 
 To overwrite this configuration when using Docker compose you can mount this file as an external volume. The following sample describes a local configuration to be applied to the Elasticsearch Search Subsystem when using Docker compose:
 
-```docker
+```yml
 services:
   alfresco:
     volumes:
@@ -34,13 +34,74 @@ services:
 
 > **Note:** Once complete you must perform a re-index. It is recommended you enable the exact term feature before you start creating an index.
 
+You can also add these environment variables directly to the Alfresco `JAVA_OPTS` section of your Docker compose file.
+
+```yml
+services:
+    alfresco:
+        image: quay.io/alfresco/alfresco-content-repository:7.4.0
+        mem_limit: 1900m
+        environment:
+            JAVA_TOOL_OPTIONS: -Dencryption.keystore.type=JCEKS -Dencryption.cipherAlgorithm=DESede/CBC/PKCS5Padding -Dencryption.keyAlgorithm=DESede -Dencryption.keystore.location=/usr/local/tomcat/shared/classes/alfresco/extension/keystore/keystore -Dmetadata-keystore.password=mp6yc0UD9e -Dmetadata-keystore.aliases=metadata -Dmetadata-keystore.metadata.password=oKIWzVdEdA -Dmetadata-keystore.metadata.algorithm=DESede
+            JAVA_OPTS: -Ddb.driver=org.postgresql.Driver
+                ...
+                -alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text
+                -alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content
+                -alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext
+                -alfresco.cross.locale.property.0={http://www.alfresco.org/model/content/1.0}content
+                ...
+```
+
+### Mapping
+
+When you index a document that contains a new field, Search Enterprise adds the field dynamically to the document, or to the inner objects within a document. Inner objects inherit the dynamic setting from their parent object or from the mapping type. A dynamic parameter controls whether new fields are added dynamically. The default value is `true` and should be disabled to avoid a large index, unless a large index is necessary. This can be done when you create the index, using the following command:
+
+```bash
+curl -XPUT '<Search Enterprise URL>:<port>/<index name>?pretty' -H 'Content-Type: application/json' -d'
+{
+  "mappings": {
+        "dynamic": "false"
+    }
+}'
+```
+
+### Sharding
+
+A shard is a small chunk of memory where indexed data is stored. Before you index Search Enterprise you can configure how many shards and replicas you want to use. How you configure the shards will depend on your intended data volume and the size of each shard. Here's the command to use:
+
+```bash
+curl -XPUT '<Search Enterprise URL>:<port>/<index name>?pretty' -H 'Content-Type: application/json' -d'
+{
+  "settings" :{
+    "number_of_shards":<expected number of shards>,
+    "number_of_replicas":<0 for no replica, 1 for 1 replica of each shards and so on>
+  }
+}
+```
+
+### Near real-time search
+
+Per-segment searching has decreased the delay between indexing a document and when it is able to be visible to your search queries. In Search Enterprise, the lightweight process of writing and opening a new segment is called a refresh. By default, each shard is automatically refreshed every second. Using parameters you can increase the refresh rate to increase the speed of the indexing process, or you can disable it completely.
+
+To speed up the process:
+
+```bash
+curl -XPUT "<Search Enterprise URL>:<port>/<index name>/_settings" -H 'Content-Type: application/json' -d '{ "index" : { "refresh_interval" : "60s"  }}'
+```
+
+To disable the refresh rate:
+
+```bash
+curl -XPUT "<Search Enterprise URL>:<port>/<index name>/_settings" -H 'Content-Type: application/json' -d '{ "index" : { "refresh_interval" : "-1"  }}'
+```
+
 ## Alfresco Elasticsearch connector
 
 **Indexing** is provided by a Spring boot application called the Elasticsearch connector. This application contains two main components that build and maintain the index in Elasticsearch.
 
 * *Live Indexing*: Metadata, and Content and Permissions from Alfresco Repository are consumed using ActiveMQ messages so they can be indexed in the Elasticsearch server. The information created and updated in the Alfresco Repository is not immediately available in Elasticsearch, because it takes time to process the messages coming from the Alfresco Repository. The previous [Eventual consistency]({% link search-services/latest/install/index.md %}#eventual-consistency) approach, based on transactions and used for Solr deployments, has been replaced by this new approach based on ActiveMQ messages.
 
-* *Re-indexing*: Indexing the information of a pre-populated Alfresco Repository or catching up with Alfresco Repositories that have missed some ActiveMQ messages is provided by the re-indexing component. Metadata and Permissions from the Alfresco Repository is retrieved using a direct JDBC connection to the Alfresco Database. **Note:** Only PostgreSQL is supported. The re-indexing application also generates content indexing messages in ActiveMQ in order to get the content indexed. It may take some time to process all these requests after the re-indexing application has finished.
+* *Re-indexing*: Indexing the information of a pre-populated Alfresco Repository or catching up with Alfresco Repositories that have missed some ActiveMQ messages is provided by the re-indexing component. Metadata and Permissions from the Alfresco Repository is retrieved using a direct JDBC connection to the Alfresco Database. The re-indexing application also generates content indexing messages in ActiveMQ in order to get the content indexed. It may take some time to process all these requests after the re-indexing application has finished.
 
 ### New Repository
 
@@ -51,7 +112,7 @@ When creating a new Alfresco Repository you must use the Elasticsearch connector
 3. Run the re-indexing app from the command line replacing the connection details as appropriate:
 
 ```java
-$ java -jar alfresco-elasticsearch-reindexing-3.3.0-app.jar \
+$ java -jar alfresco-elasticsearch-reindexing-4.0.0-app.jar \
 --alfresco.reindex.jobName=reindexByIds \
 --spring.elasticsearch.rest.uris=http://localhost:9200 \
 --spring.datasource.url=jdbc:postgresql://localhost:5432/alfresco \
@@ -81,7 +142,7 @@ When using a pre-populated Alfresco Repository, use the Elasticsearch connector 
 4. Run the re-indexing app and replace the connection details as appropriate:
 
 ```java
-$ java -jar alfresco-elasticsearch-reindexing-3.3.0-app.jar \
+$ java -jar alfresco-elasticsearch-reindexing-4.0.0-app.jar \
 --alfresco.reindex.jobName=reindexByIds \
 --spring.elasticsearch.rest.uris=http://localhost:9200 \
 --spring.datasource.url=jdbc:postgresql://localhost:5432/alfresco \
@@ -114,7 +175,7 @@ Over time some data may not be indexed correctly. This can be caused by prolonge
 The following sample re-indexes all the nodes in the Alfresco Repository which have an `ALF_NODE.id` value between `1` and `10000`.
 
 ```java
-java -jar target/alfresco-elasticsearch-reindexing-3.3.0-app.jar \
+java -jar target/alfresco-elasticsearch-reindexing-4.0.0-app.jar \
   --alfresco.reindex.jobName=reindexByIds \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
@@ -128,7 +189,7 @@ java -jar target/alfresco-elasticsearch-reindexing-3.3.0-app.jar \
 The following sample re-indexes all the nodes in the Alfresco Repository which have a value for `ALF_TRANSACTION.commit_time_ms` between `202001010000` and `202104180000`. Date time values are written in the format `yyyyMMddHHmm`.
 
 ```java
- java -jar target/alfresco-elasticsearch-reindexing-3.3.0-app.jar \
+ java -jar target/alfresco-elasticsearch-reindexing-4.0.0-app.jar \
   --alfresco.reindex.jobName=reindexByDate \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
@@ -313,7 +374,7 @@ Both strategies split the specified range into multiple ranges depending on the 
 _Manager_:
 
 ```shell
-java -jar alfresco-elasticsearch-reindexing-3.3.0-app.jar \
+java -jar alfresco-elasticsearch-reindexing-4.0.0-app.jar \
   --alfresco.reindex.jobName=reindexByIds \
   --alfresco.reindex.partitioning.type=manager \
   --alfresco.reindex.pagesize=100 \
@@ -331,7 +392,7 @@ java -jar alfresco-elasticsearch-reindexing-3.3.0-app.jar \
 _Worker_:
 
 ```shell
-java -jar alfresco-elasticsearch-reindexing-3.3.0-app.jar \
+java -jar alfresco-elasticsearch-reindexing-4.0.0-app.jar \
   --alfresco.reindex.partitioning.type=worker \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100 \
@@ -357,7 +418,7 @@ When using remote partitioning you are required to use a shared database that is
 When using a different database you need to add to the Java classpath and to the right connection driver. The Re-indexing service is a Spring boot application which means you can't add the JAR to the classpath, but instead you need to use a different command, for example:
 
 ```shell
- java -cp alfresco-elasticsearch-reindexing-3.3.0-app.jar:mysql-connector-java-8.0.25.jar
+ java -cp alfresco-elasticsearch-reindexing-4.0.0-app.jar:mysql-connector-java-8.0.25.jar
    -Dloader.main=org.alfresco.reindexing.ReindexingApp org.springframework.boot.loader.PropertiesLauncher
    --alfresco.reindex.jobName=reindexByIds
    --alfresco.reindex.partitioning.type=manager
@@ -405,7 +466,7 @@ The Re-indexing application may be used to index only metadata. You can also exc
 To apply this configuration, set the parameter `alfresco.reindex.contentIndexingEnabled` to `false`:
 
 ```shell
-java -jar alfresco-elasticsearch-reindexing-3.3.0-app.jar \
+java -jar alfresco-elasticsearch-reindexing-4.0.0-app.jar \
     --alfresco.reindex.contentIndexingEnabled=false
 ```
 
@@ -414,7 +475,7 @@ java -jar alfresco-elasticsearch-reindexing-3.3.0-app.jar \
 By default, the re-indexing PATH property is disabled. To enable this feature, set the parameter `alfresco.reindex.pathIndexingEnabled` to `true`.
 
 ```shell
-java -jar alfresco-elasticsearch-reindexing-3.3.0-app.jar \
+java -jar alfresco-elasticsearch-reindexing-4.0.0-app.jar \
     --alfresco.reindex.pathIndexingEnabled=true
 ```
 

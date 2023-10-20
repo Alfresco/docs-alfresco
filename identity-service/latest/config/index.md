@@ -15,9 +15,9 @@ The Identity Service is installed or deployed with a default realm applied calle
 Customizing a realm manually uses the administrator console of the Identity Service to configure realm settings.
 
 1. Sign into the master realm administrator console using the credentials created on your first sign in.
-2. [Add a new realm](https://www.keycloak.org/docs/18.0/server_admin/index.html#proc-creating-a-realm_server_administration_guide){:target="_blank"} or edit the `Alfresco` realm.
-3. [Create a new OIDC client](https://www.keycloak.org/docs/18.0/server_admin/index.html#_oidc_clients){:target="_blank"} or edit the existing one.
-4. Configure any [groups](https://www.keycloak.org/docs/18.0/server_admin/index.html#proc-managing-groups_server_administration_guide){:target="_blank"} or users.
+2. [Add a new realm](https://www.keycloak.org/docs/21.1.2/server_admin/index.html#proc-creating-a-realm_server_administration_guide){:target="_blank"} or edit the `Alfresco` realm.
+3. [Create a new OIDC client](https://www.keycloak.org/docs/21.1.2/server_admin/index.html#_oidc_clients){:target="_blank"} or edit the existing one.
+4. Configure any [groups](https://www.keycloak.org/docs/21.1.2/server_admin/index.html#proc-managing-groups_server_administration_guide){:target="_blank"} or users.
 
 ### Customize a realm using a JSON file
 
@@ -27,7 +27,7 @@ To import the configuration in the administrator console:
 
 1. Edit or use the [default realm file](https://github.com/Alfresco/alfresco-identity-service/blob/master/helm/alfresco-identity-service/alfresco-realm.json){:target="_blank"} provided in the Identity Service GitHub project as a reference to create a custom realm file.
 2. Sign into the master realm administrator console using the credentials created on your first sign in.
-3. Navigate to the **Add Realm** page and use the **Select File** option to import your custom realm file.
+3. Navigate to the **Create Realm** page and use the **Browse...** option to import your custom realm file.
 
 To set the realm file during deployment:
 
@@ -41,14 +41,28 @@ To set the realm file during deployment:
 
     > **Important:** The name of the realm file must **not** be set as `alfresco-realm.json`
 
-2. Deploy the Helm chart with the additional argument to use the custom realm file:
+2. Deploy the Helm chart with the additional argument to use the custom realm file (*remember to replace any `<placeholders>`*):
 
     ```bash
+    cat > realm-values.yaml << EOL
+    keycloakx:
+      extraEnv: |
+        - name: KEYCLOAK_ADMIN
+          value: <placeholder>
+        - name: KEYCLOAK_ADMIN_PASSWORD
+          value: <placeholder>
+        - name: KEYCLOAK_IMPORT
+          value: /data/import/realm.json
+        - name: JAVA_OPTS_APPEND
+          value: >-
+            {%raw%}-Djgroups.dns.query={{ include "keycloak.fullname" . }}-headless{%endraw%}
+    EOL 
+
     helm install alfresco-stable/alfresco-infrastructure \
         --set alfresco-infrastructure.activemq.enabled=false \
         --set alfresco-infrastructure.nginx-ingress.enabled=true \
         --set alfresco-infrastructure.alfresco-identity-service.enabled=true \
-        --set alfresco-identity-service.keycloak.keycloak.extraArgs="-Dkeycloak.import=/realm/realm.json" \
+        --values realm-values.yaml \
         --namespace $DESIREDNAMESPACE
     ```
 
@@ -60,25 +74,17 @@ You can run the Identity Service with Process Services. You must configure both 
 
 To run the Identity Service with Process Services:
 
-1. In your Identity Service installation navigate to `<alfresco-identity-service>/standalone/configuration` and open `standalone.xml`.
-
-2. Edit the `spi` elements section to include:
+1. Deploy your Identity Service installation by adding the following command-line parameter:
 
     ```xml
-    <spi name="login-protocol">
-        <provider name="openid-connect" enabled="true">
-            <properties>
-              <property name="legacy-logout-redirect-uri"   value="true"/>
-            </properties>
-          </provider>    
-    </spi>
+    --spi-login-protocol-openid-connect-legacy-logout-redirect-uri=true
     ```
 
-3. Save the file and restart the Identity Service.
+2. Ensure you've set `keycloak.token-store=cookie` in the `activiti-identity-service.properties` file in Process Services.
 
-4. Ensure you have set `keycloak.token-store=cookie` in the `activiti-identity-service.properties` file in Process Services. For more see `keycloak.token-store` in the [Process Services properties]({% link process-services/latest/config/authenticate.md %}#properties) table.
+    See `keycloak.token-store` in the [Process Services properties]({% link process-services/latest/config/authenticate.md %}#properties) table for more details.
 
-5. Restart Process Services.
+3. Restart Process Services.
 
 The Process Services logout functionality will now work with the Identity Service.
 
@@ -99,7 +105,7 @@ The [Alfresco theme](https://github.com/Alfresco/alfresco-keycloak-theme){:targe
 
 Themes are created using a combination of CSS, HTML [Freemarker templates](https://freemarker.apache.org/){:target="_blank"}, theme properties and images.
 
-Use the [Alfresco theme](https://github.com/Alfresco/alfresco-keycloak-theme){:target="_blank"} or the default [Keycloak theme](https://www.keycloak.org/docs/18.0/server_development/#creating-a-theme){:target="_blank"} as a base to extend and create custom themes from.
+Use the [Alfresco theme](https://github.com/Alfresco/alfresco-keycloak-theme){:target="_blank"} or the default [Keycloak theme](https://www.keycloak.org/docs/21.1.2/server_development/index.html#creating-a-theme){:target="_blank"} as a base to extend and create custom themes from.
 
 ### Importing a theme for a Kubernetes deployment
 
@@ -129,7 +135,7 @@ There are a number of options for importing a theme into a Kubernetes deployment
     
         extraVolumeMounts: |
             - name: theme
-              mountPath: /opt/jboss/keycloak/themes/<theme-folder-name>
+              mountPath: /opt/keycloak/themes/<theme-folder-name>
     
         extraVolumes: |
             - name: theme

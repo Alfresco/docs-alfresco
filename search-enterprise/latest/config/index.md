@@ -116,7 +116,7 @@ There are two strategies to fill the gaps in the Elasticsearch server when provo
 Sample invocation for Fetch by IDS.
 
 ```java
-java -jar target/alfresco-elasticsearch-reindexing-3.3.0-app.jar \
+java -jar target/alfresco-elasticsearch-reindexing-4.0.0-app.jar \
   --alfresco.reindex.jobName=reindexByIds \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
@@ -128,7 +128,7 @@ java -jar target/alfresco-elasticsearch-reindexing-3.3.0-app.jar \
 Sample invocation for Fetch by DATE.
 
 ```java
- java -jar target/alfresco-elasticsearch-reindexing-3.3.0-app.jar \
+ java -jar target/alfresco-elasticsearch-reindexing-4.0.0-app.jar \
   --alfresco.reindex.jobName=reindexByDate \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
@@ -177,6 +177,7 @@ The table below lists the main configuration properties that can be specified th
 | alfresco.path.retry.delay | Delay in milliseconds to retry a Path indexing operation. The default value is `1000`. |
 | alfresco.path.retry.maxAttempts | Maximum number of attempts to retry a Path indexing operation. The default value is `3`. |
 | alfresco.path-indexing-component.enabled | Index Path property. The default value is `true`. |
+| alfresco.content-indexing-component.enabled | Index content property. The default value is `true`. |
 
 Within the Elasticsearch connector there is a subset of components that index data. A component called Mediation subscribes to the channel indicated by the `alfresco.event.topic` attribute, as seen in the table above, and processes the incoming node events. The configuration of that component allows you to declare three blacklist sets for filtering out nodes or attributes to be indexed. These blacklists can be specified in the file using the `alfresco.mediation.filter-file` attribute, as seen in the table above. The default file is called `mediation-filter.yml` that must be in the module classpath, see the sample content of that file:
 
@@ -217,7 +218,7 @@ To override some of these values command line system properties can be specified
 $ java -DSPRING_ELASTICSEARCH_REST_URIS=http://localhost:9200
  -DSPRING_ACTIVEMQ_BROKERURL=nio://activemq:61616
  -DALFRESCO_SHAREDFILESTORE_BASEURL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file/
- -jar alfresco-elasticsearch-live-indexing-3.3.0-app.jar
+ -jar alfresco-elasticsearch-live-indexing-4.0.0-app.jar
 ```
 
 The same convention can be used when deploying the Elasticsearch connector using the Docker compose template.

@@ -203,8 +203,6 @@ You can upload files in two ways: drag and drop files from your computer directl
 
 The document library displays the uploaded content.
 
-This video show you how to add content.
-
   
 
 

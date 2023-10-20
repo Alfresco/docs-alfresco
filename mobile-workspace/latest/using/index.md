@@ -131,7 +131,7 @@ You can move files within the Mobile Workspace.
 
 6. When all documents are scanned, select **Save**.
 
-    * The scan will be saved where you navigated.
+    * The scan is saved where you navigated.
     * If you do not wish to keep the scan, exit without saving. A dialog box will appear to confirm you want to discard the scan, select **Discard**. Select **Cancel** to return to save your scan.
 
 ## Tasks
@@ -232,3 +232,31 @@ You can add attachments to a task.
     > **Note:** You may need to scroll further down the page to see all the attachments.  
 
 ![Add attachment]({% link mobile-workspace/images/add-attachment.png %})
+
+## Share custom URLs
+
+You can share custom Workspace links provided by the URL Schema functionality. The link can go directly to a particular folder or files, for example **Personal Files**, **Custom Folder**, or **File Preview**. You'll first land in the mobile browser, and after that you'll be prompted to log in based on file permissions.
+
+1. Tap on the custom Workspace URL:
+
+    You're prompted to open the link with a browser.
+
+2. Select a browser to view the content:
+
+    * On iOS, you're asked to open the link using the Alfresco Mobile application (Alfresco Mobile Workspace) or download Mobile Workspace from the App Store.
+    * On Android, you're asked to open the link using the Alfresco Mobile application (Alfresco Mobile Workspace). Tap the link to open the Mobile app or you'll be redirected to the Play Store if the app is not installed.
+
+3. Tap **Open in App** to view the content in the Mobile Workspace application.
+
+> **Note:** File and URL access depend on permissions set in Mobile Workspace.
+
+## Workflow Management
+
+You can create and manage workflows within the Mobile Workspace. Workflows allow you to expand on the functionality provided by tasks by assigning a set of parameters to them. You can attach files to an existing workflow or create a new one using a file that has been added previously. Workflows can be assigned to an individual user or a group of users. 
+
+You can access workflows in two ways by either creating a workflow from the context menu of an existing file, or using the **Tasks** menu to set up the workflow. The **Tasks** section is divided into two parts: **Tasks** and **Workflows**.
+
+To set up a workflow, you can either:
+
+* Create a new workflow from the context menu of an existing file.
+* Starting from the **Workflows** tab, tap the **+** button, and then select a workflow.

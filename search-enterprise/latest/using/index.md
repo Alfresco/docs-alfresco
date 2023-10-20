@@ -250,6 +250,24 @@ In the REST API you can specify the timezone to be used in search for date range
 }
 ```
 
+## Query time boosts
+
+Query time boosts allow matches on certain parts of the query to influence the score more than others.
+
+All query elements can be boosted: terms, phrases, exact terms, expanded terms, proximity (only in filed groups), ranges, and groups.
+
+```bash
+term^2.4
+"phrase"^3
+term~0.8^4
+=term^3
+~term^4
+cm:name:(big * yellow)^4
+1..2^2
+[1 TO 2]^2
+yellow AND (car OR bus)^3
+```
+
 ### Search using date math
 
 Date range queries can be more powerful when applying date math functions. AFTS supports adding and subtracting periods, as well as rounding:
@@ -274,7 +292,7 @@ For more details see the [Elasticsearch documentation](https://www.elastic.co/gu
 
 ## Search for an exact term
 
-> **Note:** Exact Term searching is only allowed if default Alfresco Repository configuration has been changed in order to enable this feature.
+> **Note:** Exact Term searching is only allowed if the default Alfresco Repository configuration has been changed in order to enable this feature, for more see [Pre-indexing considerations]({% link search-enterprise/latest/admin/index.md %}#pre-indexing-considerations).
 
 To search for an exact term you must prefix it with "=". The supported syntax:
 
@@ -330,6 +348,36 @@ big * apple
 TEXT:(big * apple)
 big *(3) apple
 TEXT:(big *(3) apple)
+```
+
+## Search query templates
+
+The FTS query language supports query templates. These are intended to help when building application specific searches.
+
+A template is a query but with additional support to specify template substitution.
+
+* **%field**
+
+    Insert the parse tree for the current `ftstest` and replace all references to fields in the current parse tree with the supplied field.
+
+* **%(field1, field2)%(field1 field2)**
+
+    (The comma is optional.) Create a disjunction, and for each field, add the parse tree for the current `ftstest` to the disjunction, and then replace all references to fields in the current parse tree with the current field from the list.
+
+|Name|Template|Example Query|Expanded Query|
+|----|--------|-------------|--------------|
+|t1|%cm:name|t1:n1|cm:name:n1|
+|t1|%cm:name|t1:"n1"|cm:name:"n1"|
+|t1|%cm:name|~t1:n1^4|~cm:name:n1^4|
+|t2|%(cm:name, cm:title)|t2:"woof"|(cm:name:"woof" OR cm:title:"woof")|
+|t2|%(cm:name, cm:title)|~t2:woof^4|(~cm:name:woof OR ~cm:title:woof)^4|
+|t3|%cm:name AND my:boolean:true|t3:banana|(cm:name:banana AND my:boolean:true)|
+
+Templates can refer to other templates.
+
+```sql
+nameAndTitle -> %(cm:name, cm:title)
+nameAndTitleAndDesciption -> %(nameAndTitle, cm:description)
 ```
 
 ## Requesting optional item information

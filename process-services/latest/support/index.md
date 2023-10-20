@@ -38,7 +38,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Jetty 9.4 | |
 | | |
 | **JDKs** | |
-| OpenJDK 11.0.1 |  |
+| OpenJDK 17.0.2 |  |
+| OpenJDK 11.0.2 |  |
 | | |
 | **Browsers** | |
 | Mozilla Firefox | |
@@ -52,7 +53,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Integrations** | |
 | Identity Service 1.2 | For use with LDAP and SAML |
 | Identity Service 1.1 | For use with LDAP and SAML |
-| Process Workspace 1.3 | |
 | | |
 | **Related components** | |
 | VMWare ESXi 5.1.0 | For supported guest operating systems |

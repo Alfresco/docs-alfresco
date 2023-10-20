@@ -24,7 +24,7 @@ The Extension Inspector has two main modules:
 
 ## Download
 
-You can download the [alfresco-extension-inspector-1.6.0.jar](https://artifacts.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/extension-inspector/alfresco-extension-inspector/1.6.0/alfresco-extension-inspector-1.6.0.jar) file from the Alfresco Nexus repository.
+You can download the [alfresco-extension-inspector-1.7.0.jar](https://artifacts.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/extension-inspector/alfresco-extension-inspector/1.7.0/alfresco-extension-inspector-1.7.0.jar) file from the Alfresco Nexus repository.
 
 >**Note:** See the [Alfresco Extension Inspector](https://github.com/Alfresco/alfresco-extension-inspector){:target="_blank"} GitHub repository for more details.
 
@@ -154,7 +154,7 @@ The following conflict types are detected:
 * Classpath conflicts (`CLASSPATH_CONFLICT`)
 * Beans instantiating restricted classes (`BEAN_RESTRICTED_CLASS`)
 * Usage of non @AlfrescoPublicAPI classes (`ALFRESCO_INTERNAL_USAGE`)
-* Usage of 3rd party libraries (`WAR_LIBRARY_USAGE)`
+* Usage of 3rd party libraries (`WAR_LIBRARY_USAGE`)
 
 The output is a report with the following example structure.
 

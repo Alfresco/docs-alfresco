@@ -6,7 +6,7 @@ The configuration for Kerberos authentication will allow users to access Alfresc
 
 The following diagram illustrates the components and authentication flow for a Kerberos setup:
 
-![Kerberos authentication diagram]({% link identity-service/images/kerberos.png %})
+![Kerberos authentication diagram]({% link identity-service/images/1-5-kerberos.png %})
 
 ## Prerequisites
 
@@ -19,17 +19,16 @@ The following are the prerequisites needed to configure SSO with Kerberos:
 
 ## Configuration
 
-There are six steps to configuring SSO using Kerberos with Alfresco products. The following are the host names used as examples throughout the configuration:
+There are five steps to configuring SSO using Kerberos with Alfresco products. The following are the host names used as examples throughout the configuration:
 
 * Alfresco Content Services: `repo.example.com`
 * Alfresco Share: `share.example.com`
 * Alfresco Digital Workspace: `adw.example.com`
 * Alfresco Process Services: `aps.example.com`
-* Alfresco Process Workspace: `apw.example.com`
 * Active Directory: `ldap.example.com`
 * Load Balancer: `alfresco.example.com`
 
-> **Note**: If using a containerized deployment there are [several amendments and additions](#optional-containerized-deployment) required for certain steps.
+> **Note:** If using a containerized deployment there are [several amendments and additions](#optional-containerized-deployment) required for certain steps.
 
 ## Step 1: Configure Kerberos files
 
@@ -81,7 +80,7 @@ The following table explains the values used to generate the `keytab` and `krb5.
 4. In the **Delegation** tab of the **Properties** of the user account created in the first step, tick the **Trust this user for delegation to any service (Kerberos only)** checkbox.
 5. Copy the key table file created to a protected area on each server such as `C:\etc`.
 
-    > **Note**: The servers to copy the key table file to are Alfresco Content Services, Alfresco Share and Alfresco Process Services.
+    > **Note:** The servers to copy the key table file to are Alfresco Content Services, Alfresco Share and Alfresco Process Services.
 
 6. Configure a `krb5.conf` file that contains details of the authentication server:
 
@@ -205,7 +204,7 @@ The Java login files need to be updated with details of the Kerberos configurati
     };
     ```
 
-    > **Note**: If Alfresco Share is hosted on the same server as Alfresco Content Services then the contents of the `java.login.config` can be merged into a single file.
+    > **Note:** If Alfresco Share is hosted on the same server as Alfresco Content Services then the contents of the `java.login.config` can be merged into a single file.
 
 2. Edit the following line in the Java security configuration file `java.security` by default located in `java/conf/security/`to point to the `java.login.config` file using the full file path:
 
@@ -220,7 +219,7 @@ The Java login files need to be updated with details of the Kerberos configurati
     * Uncomment the **two** sections that begin with: `<config evaluator="string-compare" condition="Remote">`
     * Navigate to the `<!--- Kerberos settings --->` section and replace `condition="KerberosDisabled"` with `condition="Kerberos"`
 
-    > **Note**: For Kerberos to work with user names that contain non-ASCII characters, add the following option to `JAVA_OPTS` for the Share JVM:
+    > **Note:** For Kerberos to work with user names that contain non-ASCII characters, add the following option to `JAVA_OPTS` for the Share JVM:
     >
     > ```bash
     > -Dsun.security.krb5.msinterop.kstring=true
@@ -290,23 +289,6 @@ The Java login files need to be updated with details of the Kerberos configurati
     | kerberos.allow.samAccountName.authentication | Sets whether authentication can use the short form such as `username` rather than `username@domain.com`, for example `true` |
     | security.authentication.use-externalid | A setting that enables authentication through Kerberos, for example `true` |
     | ldap.authentication.enabled | Sets whether LDAP authentication is enabled. This setting needs to be set to `true` for SSO to work for Kerberos, for example `true` |
-
-## Step 6: Configure Alfresco Process Workspace
-
-The Alfresco Process Workspace requires three properties added to enable Kerberos SSO. These can be added in the `app.config.json`, located by default in the `/src`directory.
-
-The following are the properties to add to the `app.config.json`:
-
-```json
- "auth": {
-      "withCredentials": true
-}
-```
-
-```json
-"ecmHost": "https://repo.example.com",
-"bpmHost": "https://aps.example.com",
-```
 
 ## (Optional) Containerized deployment
 
@@ -386,8 +368,6 @@ The following files need to be overwritten:
 | | `java.login.config` |
 | | `java.security` |
 | | `activiti-ldap.properties` |
-| | |
-| Alfresco Process Workspace | `app.config.json` |
 
 The following is an example Dockerfile used to overwrite the files in the Alfresco Process Services container assuming the new files are in a directory called `/config/`:
 
@@ -417,4 +397,3 @@ The following is an example sequence to follow to verify that SSO works correctl
 2. Open a new browser session and navigate to the Alfresco Digital Workspace at the URL `http://adw.example.com/workspace` and there should be no additional sign in step required.
 3. Create a new tab in the same browser session and navigate to Alfresco Share at the URL `http://share.example.com/share` and there should be no additional sign in step required.
 4. Create a new tab in the same browser session and navigate to Alfresco Process Services at the URL `http://aps.example.com/activiti-app` and there should be no additional sign in step required.
-5. Create a new tab in the same browser session and navigate to Alfresco Process Workspace at the URL `http://apw.example.com/process-workspace` and there should be no additional sign in step required.

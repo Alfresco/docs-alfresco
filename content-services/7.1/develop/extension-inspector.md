@@ -139,7 +139,7 @@ The following conflict types are detected:
 * Classpath conflicts (`CLASSPATH_CONFLICT`)
 * Beans instantiating restricted classes (`BEAN_RESTRICTED_CLASS`)
 * Usage of non @AlfrescoPublicAPI classes (`ALFRESCO_INTERNAL_USAGE`)
-* Usage of 3rd party libraries (`WAR_LIBRARY_USAGE)`
+* Usage of 3rd party libraries (`WAR_LIBRARY_USAGE`)
 
 The output is a report with the following example structure.
 

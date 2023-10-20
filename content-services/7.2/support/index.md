@@ -65,6 +65,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Services** | |
 | Alfresco Governance Services 7.2 | |
+| Alfresco Process Services 2.4 | |
 | Alfresco Process Services 2.3 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
@@ -81,7 +82,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.9 | |
 | Alfresco Transform Service 2.0 | |
 | Alfresco Transform Service 1.5.2 | |
-| Alfresco Document Transformation Engine 2.3 | |
+| Alfresco Document Transformation Engine 2.4 | |
 | Alfresco Search Enterprise 3.1 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.x upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
 | Alfresco Search and Insight Engine 2.0.3 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0.3 | |
@@ -96,6 +97,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for Azure 3.1 | |
 | Alfresco Content Connector for Azure 3.0 | |
 | Alfresco Content Connector for Salesforce 2.3.4 and later | |
+| Alfresco Content Connector for SAP applications 5.3 | |
 | Alfresco Content Connector for SAP applications 5.2 | |
 | Alfresco Content Connector for SAP applications 5.1.1 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
@@ -113,8 +115,16 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Digital Workspace 2.9 | |
 | Alfresco Digital Workspace 2.8 | |
 | Alfresco Digital Workspace 2.7 | |
+| Alfresco Control Center 7.5 | |
+| Alfresco Control Center 7.4 | |
+| Alfresco Control Center 7.3 | |
+| Alfresco Control Center 7.2 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
+| Alfresco Mobile Workspace 1.7 | |
+| Alfresco Mobile Workspace 1.6 | |
+| Alfresco Mobile Workspace 1.5 | |
 | Alfresco Mobile Workspace 1.4 | |
+| Alfresco Mobile Workspace 1.2 | |
 | Alfresco Content Accelerator (ACA) 3.4.5 | |
 | Alfresco Enterprise Viewer (AEV) 3.3.6 | |
 | | |
@@ -182,6 +192,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Services** | |
 | Alfresco Governance Services 7.2 | |
+| Alfresco Process Services 2.4 | |
 | Alfresco Process Services 2.3 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
@@ -198,7 +209,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.9 | |
 | Alfresco Transform Service 2.0 | |
 | Alfresco Transform Service 1.5.2 | |
-| Alfresco Document Transformation Engine 2.3 | |
+| Alfresco Document Transformation Engine 2.4 | |
 | Alfresco Search Enterprise 3.1 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.x upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
 | Alfresco Search and Insight Engine 2.0.3 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0.3 | |
@@ -213,6 +224,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for Azure 3.1 | |
 | Alfresco Content Connector for Azure 3.0 | |
 | Alfresco Content Connector for Salesforce 2.3.4 and later | |
+| Alfresco Content Connector for SAP applications 5.3 | |
 | Alfresco Content Connector for SAP applications 5.2 | |
 | Alfresco Content Connector for SAP applications 5.1.1 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
@@ -230,8 +242,16 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Digital Workspace 2.9 | |
 | Alfresco Digital Workspace 2.8 | |
 | Alfresco Digital Workspace 2.7 | |
+| Alfresco Control Center 7.5 | |
+| Alfresco Control Center 7.4 | |
+| Alfresco Control Center 7.3 | |
+| Alfresco Control Center 7.2 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
+| Alfresco Mobile Workspace 1.7 | |
+| Alfresco Mobile Workspace 1.6 | |
+| Alfresco Mobile Workspace 1.5 | |
 | Alfresco Mobile Workspace 1.4 | |
+| Alfresco Mobile Workspace 1.2 | |
 | Alfresco Content Accelerator (ACA) 3.4.5 | |
 | Alfresco Enterprise Viewer (AEV) 3.3.6 | |
 | | |

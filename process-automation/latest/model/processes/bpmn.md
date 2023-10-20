@@ -2048,7 +2048,7 @@ The basic properties for a user task are:
 | -------- | ----------- |
 | ID | *Required.* The unique identifier for the user task. This is system generated and cannot be altered, for example `UserTask_0w526j8`. |
 | Name | *Optional.* The name of the user task. This will be displayed on the canvas. |
-| Documentation | *Optional.* A free text description of what the user task does. |
+| Description | *Optional.* A free text description of what the user task does.<br><br>The description can be made dynamic by writing an expression, for example: `${workflowType} for ${dealNumber} Closing Coordinator Task - Review Document`. In the Digital Workspace and the Admin app, the expression is dynamically rendered as a user-friendly task description. For example, the previous expression might render as: **Commitment and Policy for DEA1235385 Closing Coordinator Task - Review Document**. |
 
 #### Assignment
 

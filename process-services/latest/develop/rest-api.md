@@ -1525,7 +1525,7 @@ Where, `processInstanceId` is the Id of the process instance.
 To create process instance variables:
 
 ```bash
-POST api/enterprise/process-instances/{processInstanceId}/variables
+PUT api/enterprise/process-instances/{processInstanceId}/variables
 ```
 
 To update existing variables in a process instance:

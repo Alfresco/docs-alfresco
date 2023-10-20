@@ -2,7 +2,7 @@
 title: Install with Ansible
 ---
 
-This page describes how to install Content Services using an [Ansible](https://www.ansible.com){:target="_blank"} playbook. Ansible is an open-source software provisioning, configuration management, and application installation tool that enables infrastructure as code. Alfresco provides an Ansible playbook capable of installing Content Services (Enterprise Edition) version 7.3.
+This page describes how to install Content Services using an [Ansible](https://www.ansible.com){:target="_blank"} playbook. Ansible is an open-source software provisioning, configuration management, and application installation tool that enables infrastructure as code. Alfresco provides an Ansible playbook capable of installing Content Services (Enterprise Edition).
 
 Before continuing you need to be familiar with some [Ansible concepts](https://docs.ansible.com/ansible/latest/user_guide/basic_concepts.html){:target="_blank"}: and the notion of [idempotency](https://docs.ansible.com/ansible/latest/reference_appendices/glossary.html#term-Idempotency){:target="_blank"}:.
 
@@ -40,15 +40,14 @@ A Content Services inventory file has the following groups a host can belong to:
 * `elasticsearch`: one or more hosts on which to deploy the ElasticSearch cluster backing Search Enterprise.
 * `external_elasticsearch`: an alternative group to `elasticsearch` in case you don't want to deploy ElasticSearch using the [community ElasticSearch role](https://github.com/buluma/ansible-role-elasticsearch){:target="_blank"} but instead use an ElasticSearch cluster of yours which matches your hosting standards.
 * `nginx`: a single host on which the playbook will deploy an NGINX reverse proxy configured for the numerous http based services, such as Alfresco Share and Alfresco Digital Workspace.
+* `acc`: a single host where you want the Alfresco Control Center UI to be installed.
 * `adw`: a single host where you want the Alfresco Digital Workspace UI to be installed.
 * `transformers`: a single host where the playbook will deploy the Alfresco Transform Service components.
 * `syncservice`: a single host where the Alfresco Sync Service will be deployed.
 
 > **Note:** Ansible also ships with a default group called `all`, which all hosts always belongs to.
 
-Inventory files provided as examples in this playbook are all written in YAML. Groups are always children items of the `all` 
-group itself or of other groups. Hosts are mentioned after a `hosts` key under any group (including the `all` group).
-So a generic example would be:
+Inventory files provided as examples in this playbook are all written in YAML. Groups are always children items of the `all` group itself or of other groups. Hosts are mentioned after a `hosts` key under any group (including the `all` group). So a generic example would be:
 
 ```yaml
 ---
@@ -85,65 +84,85 @@ If you're using the Enterprise edition of Content Services, then you need creden
 
 ### Control Node
 
-In addition to the requirements mentioned earlier for control nodes in general, the playbook requires Ansible 2.12+, which in turn requires Python 3.8+.
+In addition to the requirements mentioned earlier for control nodes in general, the playbook requires Ansible 2.14+, which in turn requires Python 3.9+.
 
 ### Target O/S
 
-While Content Services supports a wide range of OS, the playbook is only supported for a subset of them. The table below gives detailed information on the status of supported OS (additional target environments will be added in future releases):
+While Content Services supports a wide range of OS, the playbook is only supported for a subset of them. The table below gives detailed information on the status of supported OS:
 
-| OS Flavor / version | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0 Enterprise | Community |
+**Legend:**
+
+* Y = platform supported and tested on this playbook
+
+* [Y] = platform supported but not automatically tested on this playbook
+
+* X = platform not supported by this playbook (despite officially supported by Alfresco)
+
+* \- = platform not officially supported by Alfresco
+
+| OS Flavor / version | 7.4 Enterprise / Community | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0 Enterprise |
 |-|-|-|-|-|-|
-| Amazon Linux (v2) | - | - | - | - | - |
-| Amazon Linux (v1) | - | - | - | - | - |
-| RHEL 8.6 | [x] | - | - | - | [x] |
-| RHEL 8.5 | [x] | [x] | - | - | [x] |
-| RHEL 8.4 | [x] | [x] | [x] |[x] | [x] |
-| RHEL 8.2 | [x] | [x] | [x] | [x] | [x] |
-| RHEL 7.7 | - | - | [x] | [x] | [x] |
-| RHEL 7.6 | - | - | [x] | [x] | [x] |
-| CentOS 7 x64 | [x] | [x] | [x] |[x] | [x] |
-| Ubuntu 22.04 | [x] | - | - | - | [x] |
-| Ubuntu 20.04 | [x] | [x] | [x] | [x] | [x] |
-| Ubuntu 18.04 | - | - | [x] | [x] | [x] |
-| SUSE 15.0 | - | - | - | - | - |
-| SUSE 12.0 SP1 x64 | - | - | - | - | - |
+| Amazon Linux (v2) | X | X | X | X | X |
+| Amazon Linux (v1) | X | X | X | X | X |
+| RHEL 8.7 | [Y] | - | - | - | - |
+| RHEL 8.6 | Y | Y | - | - | - |
+| RHEL 8.5 | [Y] | Y | Y | - | - |
+| RHEL 8.4 | - | Y | Y | Y | Y |
+| RHEL 8.2 | - | Y | Y | Y | Y |
+| RHEL 7.7 | - | - | - | Y | Y |
+| RHEL 7.6 | - | - | - | Y | Y |
+| CentOS 7 x64 | [Y] | Y | Y | Y | Y |
+| Ubuntu 22.04 | Y | Y | - | - | - |
+| Ubuntu 20.04 | Y | Y | Y | Y | Y |
+| Ubuntu 18.04 | - | - | Y | Y | Y |
+| SUSE 15.0 | - | - | - | - | X |
+| SUSE 12.0 SP1 x64 | - | - | - | - | X |
 
-> **Note:** Ansible version 2.12.x is used for testing this playbook.
+> **Note:** Ansible version 2.14.x is used for testing this playbook.
 
 ### Component versions
 
 The table below shows the version of the components deployed by the playbook for Content Services 7.x and Community.
 
-| Component | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0.N Enterprise | Community |
-|-|-|-|-|-|-|
-| OpenJDK | 17.0.3 | 11.0.13 | 11.0.13 | 11.0.13 | 17.0.03 |
-| Apache Tomcat | 9.0.59 | 9.0.59 | 9.0.59 | 9.0.59 | 9.0.59 |
-| PostgreSQL | 14.x | 13.x | 13.x | 13.x | 13.x |
-| Apache ActiveMQ | 5.16.4 | 5.16.4 | 5.16.4 | 5.16.4 | 5.16.4 |
-| Repository | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 7.2.0 |
-| Share | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 7.2.0 |
-| Search Services | 2.0.5 | 2.0.4 | 2.0.2 | 2.0.1.1 | 2.0.3 |
-| Search Enterprise | 3.2.0 | 3.1.1 | 3.1.1 | - | - |
-| All-In-One Transform Engine | 3.0.0 | 2.5.7 | 2.5.6 | 2.3.10 | 2.5.7 |
-| AOS | 1.5.0 | 1.4.1 | 1.4.0 | 1.4.0 | - |
-| GoogleDocs | 3.3.0 | 3.2.2 | 3.2.1 | 3.2.1 | - |
-| Digital Workspace | 3.1.0 | 2.9.0 | 2.6.0 | 2.1.0 | N/A |
-| Transform Router | 2.0.0 | 1.5.3 | 1.5.1 |1.3.2 | N/A |
-| Shared File Store | 2.0.0 | 0.16.1 | 0.16.1 | 0.13.0 | N/A |
-| Sync Service | 3.8.0 | 3.6.0 | 3.5.0 | 3.4.0 | N/A |
+| Component | 7.4 Enterprise | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0 Enterprise | Community |
+|-|-|-|-|-|-|-|
+| OpenJDK | 17.0.3 | 17.0.3 | 11.0.15 | 11.0.15 | 11.0.15 | 17.0.03 |
+| Apache Tomcat | 9.0.59 | 9.0.59 | 9.0.59 | 9.0.59 | 8.5.76 | 9.0.59 |
+| PostgreSQL | 14.x | 14.x | 13.x | 13.x | 13.x | 14.x |
+| Apache ActiveMQ | 5.16.6 | 5.16.6 | 5.16.6 | 5.16.6 | 5.16.6 | 5.16.6 |
+| Repository | 7.4.0 | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 7.4.0 |
+| Share | 7.4.0 | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 7.4.0 |
+| Search Services | 2.0.6.1 | 2.0.5 | 2.0.4 | 2.0.2 | 2.0.1.1 | 2.0.6.1 |
+| Search Enterprise | 3.3.0 | 3.2.0 | 3.1.1 | 3.1.1 | - | N/A |
+| All-In-One Transform Engine | 3.1.0 | 3.0.0 | 2.5.7 | 2.5.6 | 2.3.10 | 3.1.0 |
+| AOS | 1.6.0 | 1.5.0 | 1.4.1 | 1.4.0 | 1.4.0 | 1.6.0 |
+| GoogleDocs | 3.4.0 | 3.3.0 | 3.2.2 | 3.2.1 | 3.2.1 | 3.4.0 |
+| Digital Workspace | 4.0.0 | 3.1.0 | 2.9.0 | 2.6.0 | 2.1.0 | N/A |
+| Transform Router | 2.1.0 | 2.0.0 | 1.5.3 | 1.5.1 |1.3.2 | N/A |
+| Shared File Store | 2.1.0 | 2.0.0 | 0.16.1 | 0.16.1 | 0.13.0 | N/A |
+| Sync Service | 3.9.0 | 3.8.0 | 3.6.0 | 3.5.0 | 3.4.0 | N/A |
 
 ## Set up Ansible
 
 Not all distributions of Linux may match the version requirements for Ansible and its dependencies. Below we describe how to configure a control node with one of the many ways to set a Python virtual environment. With Python `virtualenvs` you can install the exact same versions of Ansible we use when testing without impacting your system installation of Python. By doing so, you're ensuring the best chances of success.
 
-1. Download the Ansible playbook [zip file](https://nexus.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/alfresco-ansible-deployment/2.2.1/alfresco-ansible-deployment-2.2.1.zip){:target="_blank"}.
+1. Download the Ansible playbook [zip file](https://nexus.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/alfresco-ansible-deployment/2.3.0/alfresco-ansible-deployment-2.3.0.zip){:target="_blank"}.
 
    If you're not working directly on the control node, transfer the ZIP file to the control node together with the SSH private key required to login to the target machines, and SSH into the control node.
 
    ```bash
    scp  alfresco-ansible-deployment-<version>.zip user@controlnode:
-   scp  ~/.ssh/ansible_rsa user@controlnode:.ssh
+   ssh-copy-id -i ~/.ssh/ansible_rsa user@controlnode
    ssh  user@controlnode
+   unzip alfresco-ansible-deployment-<version>.zip
+   cd alfresco-ansible-deployment
+   ```
+  
+   You can also use Git to fetch latest sources (or a specific release for example by adding `-b v2.1.0`) on the control node with:
+
+   ```bash
+   git clone https://github.com/Alfresco/alfresco-ansible-deployment.git
+   cd alfresco-ansible-deployment
    ```
 
    > **Note:** You may want to generate an SSH key pair locally and use it later for deployment. Whether you use a locally generated key, or copy over a key to the control node, it is your responsibility to deploy it to the target machines so Ansible can use it. Using SSH keys is recommended but not mandatory. If you instead use password, make sure to add the `-k` switch to the `ansible` command, so it prompts you for a password.
@@ -151,7 +170,7 @@ Not all distributions of Linux may match the version requirements for Ansible an
 2. Check prerequisites and install required tools:
 
     ```bash
-    python --version # must be at least 3.8 in order to use Ansible 2.12
+    python --version # must be at least 3.9 in order to use Ansible 2.14
     sudo apt install virtualenvwrapper unzip # Use your distro's package manager instead of apt if it's not Debian based
     ```
 
@@ -202,7 +221,7 @@ acs:
   edition: Enterprise
 ```
 
-> **Note:** This assumes that the full URL to your custom artifact looks like `https://your.repo.com/path/to/your/artifacts/7.2.1/alfresco-content-services-distribution-7.2.1.zip`
+> **Note:** This assumes that the full URL to your custom artifact looks like `https://your.repo.com/path/to/your/artifacts/7.2.1/alfresco-content-services-distribution-7.2.1.zip`.
 
 In case you want to install a different ACS version (not latest), you should make similar changes to the respective `*-extra-vars.yml` file.
 
@@ -242,7 +261,7 @@ The diagram below shows the result of a local installation.
 
 ![acs-localhost]({% link content-services/images/acs-localhost.png %})
 
-To install Content Services 7.3 (Enterprise) on your local machine, navigate to the folder where you extracted the ZIP, and run the playbook as the current user (the playbook will escalate privileges when required):
+To install Content Services (Enterprise) on your local machine, navigate to the folder where you extracted the ZIP, and run the playbook as the current user (the playbook will escalate privileges when required):
 
 ```bash
 cd alfresco-ansible-deployment-<version>
@@ -251,6 +270,7 @@ ansible-playbook playbooks/acs.yml -i inventory_local.yml
 
 Alternatively, to deploy other versions of Content Services use one of the following commands:
 
+* **7.3:** `ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@7.3.N-extra-vars.yml"`
 * **7.2:** `ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@7.2.N-extra-vars.yml"`
 * **7.1:** `ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@7.1.N-extra-vars.yml"`
 * **7.0:** `ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@7.0.N-extra-vars.yml"`
@@ -265,6 +285,7 @@ Once the playbook is complete, Ansible displays a play recap to let you know tha
 
 ```bash
 PLAY RECAP *******************************************************************************************************
+acc_1                      : ok=24   changed=6    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0
 activemq_1                 : ok=24   changed=0    unreachable=0    failed=0    skipped=17   rescued=0    ignored=0
 adw_1                      : ok=24   changed=6    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0
 database_1                 : ok=20   changed=0    unreachable=0    failed=0    skipped=11   rescued=0    ignored=0
@@ -311,6 +332,7 @@ ansible all -m ping -i inventory_ssh.yml
 
 To deploy different versions of Content Services use one of the following commands:
 
+* **7.3:** `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.3.N-extra-vars.yml"`
 * **7.2:** `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.2.N-extra-vars.yml"`
 * **7.1:** `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.1.N-extra-vars.yml"`
 * **7.0:** `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.0.N-extra-vars.yml"`
@@ -323,6 +345,7 @@ Once the playbook is complete, Ansible displays a play recap to let you know tha
 
 ```bash
 PLAY RECAP *******************************************************************************************************
+acc_1                      : ok=24   changed=6    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0
 activemq_1                 : ok=24   changed=0    unreachable=0    failed=0    skipped=17   rescued=0    ignored=0
 adw_1                      : ok=24   changed=6    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0
 database_1                 : ok=20   changed=0    unreachable=0    failed=0    skipped=11   rescued=0    ignored=0
@@ -353,6 +376,7 @@ ansible all -m ping -i inventory_ssh.yml
 
 To deploy different versions of Content Services use one of the following commands:
 
+* **7.3:** `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.3.N-extra-vars.yml"`
 * **7.2:** `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.2.N-extra-vars.yml"`
 * **7.1:** `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.1.N-extra-vars.yml"`
 * **7.0:** `ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@7.0.N-extra-vars.yml"`
@@ -365,6 +389,7 @@ Once the playbook is complete, Ansible displays a play recap to let you know tha
 
 ```bash
 PLAY RECAP *******************************************************************************************************
+acc_1                      : ok=24   changed=6    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0
 activemq_1                 : ok=24   changed=0    unreachable=0    failed=0    skipped=17   rescued=0    ignored=0
 adw_1                      : ok=24   changed=6    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0
 database_1                 : ok=20   changed=0    unreachable=0    failed=0    skipped=11   rescued=0    ignored=0
@@ -418,7 +443,7 @@ For example:
 
 In some circumstances, you may want to have a repository node that's dedicated to a scheduled task (such as ingesting massive amount of documents). Depending on the nature of the task, and the requirements of your organization, it may be preferable to leave this node out of the cluster. To leave nodes out of the cluster set the `cluster_keepoff` variable to `true` in one of the `repository` group nodes. It will provision the node with the repository and share services but make sure it's not taking part in neither the share, nor the repository cluster realm.
 
-A typical use case is to have a dedicated Solr tracking node. The playbook will then prefer to use that dedicated node, if it finds one, for solr tracking and only use the other as a backup server (no load balancing).
+A typical use case is to have a dedicated Solr tracking node. The playbook will then prefer to use that dedicated node, if it finds one, for Solr tracking and only use the other as a backup server (no load balancing).
 
 ## Useful information {#usefulinfo}
 
@@ -454,6 +479,8 @@ If you did a [local installation](#local-installation), where the Ansible contro
 * Share: `http://<control-node-ip>/share`
 * Repository: `http://<control-node-ip>/alfresco`
 * API Explorer: `http://<control-node-ip>/api-explorer`
+* Control Center: `http://<control-node-public-ip>/control-center` (Enterprise Only)
+* Sync Service: `http://<control-node-public-ip>/syncservice` (Enterprise Only)
 
 If you did a [remote installation](#remote-installation), where the Ansible control node and Alfresco components are installed on different nodes, then use:
 
@@ -461,6 +488,8 @@ If you did a [remote installation](#remote-installation), where the Ansible cont
 * Share: `http://<nginx-host-ip>/share`
 * Repository: `http://<nginx-host-ip>/alfresco`
 * API Explorer: `http://<nginx-host-ip>/api-explorer`
+* Control Center: `http://<nginx-host-ip>/control-center` (Enterprise Only)
+* Sync Service: `http://<nginx-host-ip>/syncservice` (Enterprise Only)
 
 To login to Digital Workspace and Share, you can use username **admin** and password **admin**.
 
@@ -482,7 +511,7 @@ The following `systemd` services are installed, which you can use to stop and st
 | Service Name | Purpose |
 | ------------ | ------- |
 | `activemq.service` | ActiveMQ Service |
-| `postgresql-<version>.service` | PostgreSQL DB Service (where `<version>` is 13 for Content Services 7.x and 14 for Content Services 7.3) |
+| `postgresql-<version>.service` | PostgreSQL DB Service (where `<version>` is 13 for Content Services 7.x and 14 for Content Services 7.3 or 7.4) |
 | `nginx.service` | NGINX Service |
 | `alfresco-content.service` | Content Service |
 | `alfresco-search.service` | Alfresco Search Services |
@@ -490,6 +519,7 @@ The following `systemd` services are installed, which you can use to stop and st
 | `alfresco-sync.service` | Alfresco Sync Service |
 | `alfresco-tengine-aio.service` | Alfresco All-In-One (AIO) Transform Core Engine |
 | `alfresco-transform-router.service` | Alfresco Transform Router Service |
+| `elasticsearch-connector.service` | Alfresco Search Enterprise Service |
 | `elasticsearch-connector-reindex.service` | Alfresco Search Enterprise job to force the reindexing of all the contents of the store |
 | `elasticsearch.service` | ElasticSearch Service |
 
@@ -503,7 +533,7 @@ Several roles set up services that listen on TCP ports, and several roles wait f
 | ----------- | ----------- | ------------ | ------------------------- |
 | activemq | 61616 | `repository`, `syncservice`, `transformers`, `search enterprise` | Yes |
 | database | 5432 | `repository`, `syncservice` | Yes |
-| repository | 8080 | `nginx`, `search`, `syncservice` | Yes |
+| repository | 8080 | `nginx`, `search`, `syncservice`, `acc`, `adw` | Yes |
 | search | 8983 | `repository` | No |
 | transformers (aio t-engine) | 8090 | `repository` | No |
 | syncservice | 9090 | `nginx` | No |
@@ -511,7 +541,7 @@ Several roles set up services that listen on TCP ports, and several roles wait f
 | nginx | 80 | `<client-ips>` | No |
 | nginx | 443 | `<client-ips>` | No |
 
-> **Note:** The `transformers` host also contains the Transform Router process running on port `8095`, and the shared file system process running on `8099`, but communication between these components remains local.
+> **Note:** When using the ACS Community, some of these ports do not need to be opened (e.g. transform router/sfs, acc, adw).
 
 ## Configure your installation
 
@@ -527,7 +557,7 @@ If you have a valid license, place your `*.lic` file in the `configuration_files
 
 ### Alfresco/Solr authentication
 
-As of Content Services 7.2 and/or Search services 2.0.3, the repository <--> solr communication requires authentication. The playbook will set up that authentication scheme using the new `secret` method. This methods need to be passed a shared secret. In order to do so use the variable below:
+As of Content Services 7.2 and/or Search services 2.0.3, the repository <--> Solr communication requires authentication. The playbook will set up that authentication scheme using the new `secret` method. This methods need to be passed a shared secret. In order to do so use the variable below:
 
 ```yaml
 reposearch_shared_secret: dummy
@@ -539,13 +569,17 @@ This secret should be placed either in the inventory file under the `all` group 
 
 > **Warning:** Should you forget to provide that shared secret, the playbook will generate a random one. While that may sound convenient, keep in mind that doing so will break the idempotency of the playbook, and the shared secret will be updated every time you run the playbook.
 
+### Mutual TLS authentication
+
+As of Content Services 7.4 mTLS authentication is supported using Transformation service, see the [security section](https://github.com/Alfresco/alfresco-ansible-deployment/blob/master/docs/SECURITY.md){:target="_blank"} in the GitHub repo for more information or read our [mTLS page]({% link content-services/latest/config/mtls.md %}).
+
 ### Secrets management
 
 This playbook expects that security-relevant secrets are configured within the
 `vars/secrets.yml` file.
 
 It is strongly recommended to enable [Ansible
-Vault](https://docs.ansible.com/ansible/latest/user_guide/vault.html) encryption
+Vault](https://docs.ansible.com/ansible/latest/user_guide/vault.html){:target="_blank"} encryption
 or use [third-party plugins](#third-party-lookup-plugins) to avoid keeping
 secrets in plaintext on the control node file-system.
 
@@ -566,7 +600,7 @@ pipenv run ansible-playbook --ask-vault-pass playbooks/acs.yml
 ```
 
 While we recommend to refer to the official Ansible documentation to properly configure
-[Ansible vault](https://docs.ansible.com/ansible/latest/user_guide/vault.html#managing-vault-passwords),
+[Ansible vault](https://docs.ansible.com/ansible/latest/user_guide/vault.html#managing-vault-passwords){:target="_blank"},
 below is a basic configuration that will help you in quickly installing Alfresco
 without to having to input the Vault password every time.
 
@@ -590,8 +624,8 @@ Now you are ready to start using Ansible Vault.
 
 Ansible Vault provides two alternative ways to protect secrets:
 
-* [Encrypted variables](https://docs.ansible.com/ansible/latest/user_guide/vault.html#encrypting-individual-variables-with-ansible-vault)
-* [Encrypted files](https://docs.ansible.com/ansible/latest/user_guide/vault.html#encrypting-files-with-ansible-vault)
+* [Encrypted variables](https://docs.ansible.com/ansible/latest/user_guide/vault.html#encrypting-individual-variables-with-ansible-vault){:target="_blank"}
+* [Encrypted files](https://docs.ansible.com/ansible/latest/user_guide/vault.html#encrypting-files-with-ansible-vault){:target="_blank"}
 
 In the previous links you can read both advantages and disadvantages of the two approaches.
 
@@ -632,16 +666,16 @@ pipenv run ansible-playbook  -e vault_init=encrypted_file playbooks/secrets-init
 After the first run, you can access the encrypted file vault with:
 
 ```bash
-ansible-vault view vars/secrets.yml
+pipenv run ansible-vault view vars/secrets.yml
 ```
 
 or to add/edit secrets with:
 
 ```bash
-ansible-vault edit vars/secrets.yml
+pipenv run ansible-vault edit vars/secrets.yml
 ```
 
-Please refer to the [official documentation](https://docs.ansible.com/ansible/latest/user_guide/vault.html) to learn how to interact with existing encrypted variables or files.
+Please refer to the [official Ansible documentation](https://docs.ansible.com/ansible/latest/user_guide/vault.html){:target="_blank"} to learn how to interact with existing encrypted variables or files.
 
 #### Third-party lookup plugins
 
@@ -656,10 +690,10 @@ pipenv run ansible-playbook -e vault_init=plugin playbooks/secrets-init.yml
 
 And then edit `vars/secrets.yml` to fill all the required arguments for the plugin you want to use as described in the plugin documentation pages:
 
-* [HashiCorp Vault](https://docs.ansible.com/ansible/latest/collections/community/hashi_vault/hashi_vault_lookup.html)
-* [AWS Secrets](https://docs.ansible.com/ansible/latest/collections/amazon/aws/aws_secret_lookup.html)
-* [1Password](https://docs.ansible.com/ansible/latest/collections/community/general/onepassword_lookup.html)
-* [CyberArk](https://docs.ansible.com/ansible/latest/collections/community/general/cyberarkpassword_lookup.html) 
+* [HashiCorp Vault](https://docs.ansible.com/ansible/latest/collections/community/hashi_vault/hashi_vault_lookup.html){:target="_blank"}
+* [AWS Secrets](https://docs.ansible.com/ansible/latest/collections/amazon/aws/aws_secret_lookup.html){:target="_blank"}
+* [1Password](https://docs.ansible.com/ansible/latest/collections/community/general/onepassword_lookup.html){:target="_blank"}
+* [CyberArk](https://docs.ansible.com/ansible/latest/collections/community/general/cyberarkpassword_lookup.html){:target="_blank"}
 
 ### Alfresco global properties
 
@@ -863,7 +897,7 @@ Below are the services, packages & folders we are removing when uninstalling.
    * alfresco-content.service
    * nginx.service
    * activemq.service
-   * postgres-`version`.service (where `version` is 13 for Content Services 7.x and 14 for Content Services 7.3)
+   * postgres-`version`.service (where `version` is 13 for Content Services 7.x and 14 for Content Services 7.3 or 7.4)
 
 2. Remove the following `yum` packages:
 

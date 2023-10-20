@@ -1,21 +1,5 @@
 defaults:
 
-# Alfresco Enterprise Viewer
-  - scope:
-      path: "enterprise-viewer"
-    values:
-      layout: "docs"
-      product: "Alfresco Enterprise Viewer"
-      toc: "enterprise-viewer"
-      location: "enterprise-viewer"
-      support: true
-      versions:
-        - 3.5
-  - scope:
-      path: "enterprise-viewer/latest"
-    values:
-      version: 3.5
-      latest: true
 # Alfresco Content Services
   - scope:
       path: "content-services"
@@ -133,6 +117,7 @@ defaults:
       toc: "digital-workspace"
       support: true
       versions:
+        - 4.2
         - 4.1
         - 4.0
         - 3.1
@@ -152,8 +137,12 @@ defaults:
   - scope:
       path: "digital-workspace/latest"
     values:
-      version: 4.1
+      version: 4.2
       latest: true
+  - scope:
+      path: "digital-workspace/4.1"
+    values:
+      version: 4.1
   - scope:
       path: "digital-workspace/4.0"
     values:
@@ -389,6 +378,7 @@ defaults:
       support: true
       tutorial: true
       versions:
+        - 2.0
         - 1.8
         - 1.7
         - 1.6
@@ -401,10 +391,18 @@ defaults:
   - scope:
       path: "identity-service/latest"
     values:
-      version: 1.8
+      version: 2.0
       latest: true
   - scope:
       path: "identity-service/latest/tutorial"
+    values:
+      toc: "identity-service-tutorial"
+  - scope:
+      path: "identity-service/1.8"
+    values:
+      version: 1.8
+  - scope:
+      path: "identity-service/1.8/tutorial"
     values:
       toc: "identity-service-tutorial"
   - scope:
@@ -414,7 +412,7 @@ defaults:
   - scope:
       path: "identity-service/1.7/tutorial"
     values:
-      toc: "identity-service-tutorial"  
+      toc: "identity-service-tutorial"
   - scope:
       path: "identity-service/1.6"
     values:
@@ -663,6 +661,7 @@ defaults:
       toc: "process-services"
       support: true
       versions:
+        - 2.4
         - 2.3
         - 2.2
         - 2.1
@@ -673,8 +672,12 @@ defaults:
   - scope:
       path: "process-services/latest"
     values:
-      version: 2.3
+      version: 2.4
       latest: true
+  - scope:
+      path: "process-services/2.3"
+    values:
+      version: 2.3
   - scope:
       path: "process-services/2.2"
     values:
@@ -710,13 +713,18 @@ defaults:
       toc: "transformation-engine"
       support: true
       versions:
+        - 2.4
         - 2.3
         - 2.2
   - scope:
       path: "transformation-engine/latest"
     values:
-      version: 2.3
+      version: 2.4
       latest: true
+  - scope:
+      path: "transformation-engine/2.3"
+    values:
+      version: 2.3
   - scope:
       path: "transformation-engine/2.2"
     values:
@@ -999,14 +1007,19 @@ defaults:
       toc: "sap"
       support: true
       versions:
+        - 5.3
         - 5.2
         - 5.1
         - 5.0
   - scope:
       path: "sap/latest"
     values:
-      version: 5.2
+      version: 5.3
       latest: true
+  - scope:
+      path: "sap/5.2"
+    values:
+      version: 5.2
   - scope:
       path: "sap/5.1"
     values:
@@ -1117,6 +1130,7 @@ defaults:
       toc: "search-enterprise"
       support: true
       versions:
+        - 4.0
         - 3.3
         - 3.2
         - 3.1
@@ -1124,8 +1138,12 @@ defaults:
   - scope:
       path: "search-enterprise/latest"
     values:
-      version: 3.3
+      version: 4.0
       latest: true
+  - scope:
+      path: "search-enterprise/3.3"
+    values:
+      version: 3.3
   - scope:
       path: "search-enterprise/3.2"
     values:
@@ -1208,6 +1226,7 @@ defaults:
       toc: "sync-service"
       support: true
       versions:
+        - 3.11
         - "3.10"
         - 3.9
         - 3.8
@@ -1222,8 +1241,12 @@ defaults:
   - scope:
       path: "sync-service/latest"
     values:
-      version: "3.10"
+      version: 3.11
       latest: true
+  - scope:
+      path: "sync-service/3.10"
+    values:
+      version: "3.10"
   - scope:
       path: "sync-service/3.9"
     values:
@@ -1376,6 +1399,23 @@ defaults:
         - 3.5
   - scope:
       path: "content-accelerator/latest"
+    values:
+      version: 3.5
+      latest: true
+
+# Alfresco Enterprise Viewer
+  - scope:
+      path: "enterprise-viewer"
+    values:
+      layout: "docs"
+      product: "Alfresco Enterprise Viewer"
+      toc: "enterprise-viewer"
+      location: "enterprise-viewer"
+      support: true
+      versions:
+        - 3.5
+  - scope:
+      path: "enterprise-viewer/latest"
     values:
       version: 3.5
       latest: true

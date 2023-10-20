@@ -77,6 +77,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.9 | |
 | Alfresco Desktop Sync 1.8 | |
 | Alfresco Transform Service 1.5.1 | |
+| Alfresco Document Transformation Engine 2.4 | |
 | Alfresco Document Transformation Engine 2.3 | |
 | Alfresco Search Enterprise 3.1 | For information about migrating from Alfresco Search and Insight Engine 2.x or Alfresco Search Services 2.x, see the [Alfresco Search Enterprise 3.1 upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
 | Alfresco Search Enterprise 3.0 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.0 upgrade page]({% link search-enterprise/3.0/upgrade/index.md %}). |
@@ -91,6 +92,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for Azure 2.1 | |
 | Alfresco Content Connector for AWS Glacier 2.2 | |
 | Alfresco Content Connector for Salesforce 2.3 | |
+| Alfresco Content Connector for SAP applications 5.3 | |
 | Alfresco Content Connector for SAP applications 5.2 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
@@ -113,7 +115,12 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Digital Workspace 2.4 | |
 | Alfresco Application Development Framework (ADF) 5.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
+| Alfresco Mobile Workspace 1.7 | |
+| Alfresco Mobile Workspace 1.6 | |
+| Alfresco Mobile Workspace 1.5 | |
 | Alfresco Mobile Workspace 1.4 | |
+| Alfresco Mobile Workspace 1.2 | |
+| Alfresco Mobile Workspace 1.1 | |
 | | |
 | **Components** | |
 | ImageMagick v7.1.0-16 | |
@@ -192,6 +199,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.8 | |
 | Alfresco Transform Service 1.5.1 | |
 | Alfresco Transform Service 1.4.1 | |
+| Alfresco Document Transformation Engine 2.4 | |
 | Alfresco Document Transformation Engine 2.3 | |
 | Alfresco Search Enterprise 3.1 | For information about migrating from Alfresco Search and Insight Engine 2.x or Alfresco Search Services 2.x, see the [Alfresco Search Enterprise 3.1 upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
 | Alfresco Search Enterprise 3.0 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.0 upgrade page]({% link search-enterprise/3.0/upgrade/index.md %}). |
@@ -207,6 +215,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for Azure 2.1 | |
 | Alfresco Content Connector for AWS Glacier 2.2 | |
 | Alfresco Content Connector for Salesforce 2.3 | |
+| Alfresco Content Connector for SAP applications 5.3 | |
 | Alfresco Content Connector for SAP applications 5.2 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
@@ -227,7 +236,12 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Digital Workspace 2.4 | |
 | Alfresco Application Development Framework (ADF) 5.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
+| Alfresco Mobile Workspace 1.7 | |
+| Alfresco Mobile Workspace 1.6 | |
+| Alfresco Mobile Workspace 1.5 | |
 | Alfresco Mobile Workspace 1.4 | |
+| Alfresco Mobile Workspace 1.2 | |
+| Alfresco Mobile Workspace 1.1 | |
 | | |
 | **Components** | |
 | ImageMagick v7.0.10 | |

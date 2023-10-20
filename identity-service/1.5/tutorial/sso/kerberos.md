@@ -6,7 +6,7 @@ The configuration for Kerberos authentication will allow users to access Alfresc
 
 The following diagram illustrates the components and authentication flow for a Kerberos setup:
 
-![Kerberos authentication diagram]({% link identity-service/images/kerberos.png %})
+![Kerberos authentication diagram]({% link identity-service/images/1-5-kerberos.png %})
 
 ## Prerequisites
 
@@ -19,14 +19,13 @@ The following are the prerequisites needed to configure SSO with Kerberos:
 
 ## Configuration
 
-There are six steps to configuring SSO using Kerberos with Alfresco products. The following are the host names used as examples throughout the configuration:
+There are five steps to configuring SSO using Kerberos with Alfresco products. The following are the host names used as examples throughout the configuration:
 
 * Alfresco Content Services: `repo.example.com`
 * Alfresco Share: `share.example.com`
 * Alfresco Digital Workspace: `adw.example.com`
 * Alfresco Office Services: `repo.example.com/alfresco/aos`
 * Alfresco Process Services: `aps.example.com`
-* Alfresco Process Workspace: `apw.example.com`
 * Active Directory: `ldap.example.com`
 * Load Balancer: `alfresco.example.com`
 
@@ -292,23 +291,6 @@ The Java login files need to be updated with details of the Kerberos configurati
     | security.authentication.use-externalid | A setting that enables authentication through Kerberos, for example `true` |
     | ldap.authentication.enabled | Sets whether LDAP authentication is enabled. This setting needs to be set to `true` for SSO to work for Kerberos, for example `true` |
 
-## Step 6: Configure Alfresco Process Workspace
-
-The Alfresco Process Workspace requires three properties added to enable Kerberos SSO. These can be added in the `app.config.json`, located by default in the `/src`directory.
-
-The following are the properties to add to the `app.config.json`:
-
-```json
- "auth": {
-      "withCredentials": true
-}
-```
-
-```json
-"ecmHost": "https://repo.example.com",
-"bpmHost": "https://aps.example.com",
-```
-
 ## (Optional) Containerized deployment
 
 In a containerized deployment it is assumed that a load balancer is used to route traffic to the relevant applications. The Active Directory instance used to authenticate users with in a containerized Kerberos scenario is also more likely to exist outside of the domain of the Alfresco applications.
@@ -387,8 +369,6 @@ The following files need to be overwritten:
 | | `java.login.config` |
 | | `java.security` |
 | | `activiti-ldap.properties` |
-| | |
-| Alfresco Process Workspace | `app.config.json` |
 
 The following is an example Dockerfile used to overwrite the files in the Alfresco Process Services container assuming the new files are in a directory called `/config/`:
 
@@ -418,4 +398,3 @@ The following is an example sequence to follow to verify that SSO works correctl
 2. Open a new browser session and navigate to the Alfresco Digital Workspace at the URL `http://adw.example.com/workspace` and there should be no additional sign in step required.
 3. Create a new tab in the same browser session and navigate to Alfresco Share at the URL `http://share.example.com/share` and there should be no additional sign in step required.
 4. Create a new tab in the same browser session and navigate to Alfresco Process Services at the URL `http://aps.example.com/activiti-app` and there should be no additional sign in step required.
-5. Create a new tab in the same browser session and navigate to Alfresco Process Workspace at the URL `http://apw.example.com/process-workspace` and there should be no additional sign in step required.

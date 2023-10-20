@@ -19,7 +19,7 @@ In previous versions the installation files were contained within a `.zip` file.
 > * If your old version is earlier than 1.3.1, use the Control Panel **Uninstall a program** option to remove the old version, and then manually remove the Document Transformation Engine directory. By default, the Document Transformation Engine directory is `C:\Program Files (x86)\Transformation Engine\`.
 > * If your old version is 1.3.1 or later, the new Document Transformation Engine MSI prompts you to uninstall the previous version. When the uninstall is complete, you can run the MSI package again to install the new version. There is no need to manually remove anything.
 
-1. Download `alfresco-document-transformation-engine-server-2.3.1.msi` from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
+1. Download `alfresco-document-transformation-engine-server-2.4.x.msi` from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 2. Log into the Microsoft Windows Server as an administrator.
 
@@ -33,7 +33,7 @@ In previous versions the installation files were contained within a `.zip` file.
 
     > **Note:**
     >
-    >* For Alfresco Content Services 7.x, you can only use the T-Engine approach for now. Installing the Alfresco Module Packages (AMP) files is not possible.
+    >* For Alfresco Content Services 7.x, you can only use the T-Engine approach. Installing the Alfresco Module Packages (AMP) files is no longer supported.
     >* You can use Content Services 6.x with the T-Engine approach and with the old approach (i.e. installing the AMP files in Content Services).
 
 6. Click **Next** and the license information screen displays.
@@ -57,41 +57,8 @@ In previous versions the installation files were contained within a `.zip` file.
 11. Add the following property to `alfresco-global.properties`:
 
     ```bash
-    localTransform.transform-dte.url=http:<dte-hostname>:8080/transform-dte
+    localTransform.transform-dte.url=http://<dte-hostname>:8080/transform-dte
     ```
-
-<!-- (Will be commented back in once 2.4 is released)
-
-## Install the Alfresco Transformation client into Alfresco Content Services
-
-The Alfresco Transformation client is installed as two Alfresco Module Packages (AMP) files into Alfresco Content Services and requires the license to be updated.
-
-Before starting verify that:
-
-* Your Alfresco Content Services server is correctly configured and tested.
-* You have the correct Document Transformation Engine ZIP file for the version of Alfresco Content Services that you are running.
-* You have an updated license file (a `*.lic` file). You can request a license from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
-
-1. Stop the Alfresco Content Services server.
-
-2. Open a terminal (Linux) or command line window (Windows).
-
-3. Unzip the `alfresco-document-transformation-engine-2.3.x.zip` file.
-
-4. Copy `alfresco-document-transformation-engine-repo-2.3.x.amp` to the `<ALFRESCO_HOME>/amps` folder, and copy `alfresco-document-transformation-engine-share-2.3.x.amp` to the `<ALFRESCO_HOME>/amps_share` folder.
-
-5. Install the AMP files using the Module Management Tool (MMT).
-
-6. Copy your updated license file into the Alfresco Content Services installation folder.
-
-    Delete all files with the extension `*.installed` in this directory.
-
-7. Start the Alfresco Content Services server.
-
-8. Monitor the Alfresco Content Services log.
-
-    You will see successful log entries about the license installation and the installation of the Alfresco Module Package (depending on the configuration of your log level).
--->
 
 ## Install T-Engine using Docker Compose
 

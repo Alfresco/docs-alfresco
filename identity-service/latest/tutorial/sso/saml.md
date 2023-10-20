@@ -6,9 +6,9 @@ The configuration for SAML authentication allows users to access Alfresco produc
 
 The following diagram illustrates the components and authentication flow for a SAML setup:
 
-![SAML authentication diagram]({% link identity-service/images/1-3-saml.png %})
+![SAML authentication diagram]({% link identity-service/images/1-5-saml.png %})
 
-As shown in the diagram, a connection to the SAML identity provider is configured within Identity Service in order to authenticate Alfresco Share, Alfresco Digital Workspace, Alfresco Process Services, and Alfresco Process Workspace. This also includes setting up a service provider within the SAML identity provider for Identity Service.
+As shown in the diagram, a connection to the SAML identity provider is configured within Identity Service in order to authenticate Alfresco Share, Alfresco Digital Workspace, and Alfresco Process Services. This also includes setting up a service provider within the SAML identity provider for Identity Service.
 
 Alfresco Content Services and Alfresco Process Services are configured directly to the Identity Service instance so that the Identity Service can authenticate a user when it is contacted by the respective web application.
 
@@ -26,13 +26,12 @@ The following are the prerequisites needed to configure SSO with SAML:
 
 ## Configuration
 
-There are fourteen steps to configuring SSO using a SAML identity provider with Alfresco products. The following are the host names used as examples throughout the configuration:
+There are thirteen steps to configuring SSO using a SAML identity provider with Alfresco products. The following are the host names used as examples throughout the configuration:
 
 * Alfresco Content Services: `repo.example.com`
 * Alfresco Share: `share.example.com`
 * Alfresco Digital Workspace: `adw.example.com`
 * Alfresco Process Services: `aps.example.com`
-* Alfresco Process Workspace: `apw.example.com`
 * Identity Service: `ids.example.com`
 * SAML Identity Provider: `saml.example.com`
   * PingFederate was used for testing purposes.
@@ -281,47 +280,7 @@ Alfresco Process Services (APS) has two sets of properties that need to be confi
     | keycloak.token-store |The location of where account information token should be stored, for example `cookie`|
     | keycloak.enable-basic-auth |Sets whether basic authentication is also supported by the Identity Service, for example `true`|
 
-## Step 11: Configure Alfresco Process Workspace
-
-Alfresco Process Workspace requires one set of properties to be configured to enable SSO that can be updated in the `app.config.json` file.
-
-| Property | Description |
-| -------- | ----------- |
-| ecmHost |The address of the Alfresco Content Services instance, for example `https://repo.example.com`|
-| bpmHost |The address of the Alfresco Process Services instance, for example `https://aps.example.com`|
-| identityHost |The address of the Identity Service including the realm name configured in [step 1](#step1-configure-a-realm-and-clients). In the example the realm name is **Alfresco**: `https://ids.example.com/auth/realms/alfresco`|
-| providers |The user database that Alfresco Process Workspace reads from, for example `BPM`|
-| authType |The authentication type. Must be set to `OAUTH`|
-| host |The address of the Identity Service including the realm name configured in [step 1](#step1-configure-a-realm-and-clients). In the example the realm name is **Alfresco**: `https://ids.example.com/auth/realms/alfresco`|
-| clientId |The name of the client configured in [step 1](#step1-configure-a-realm-and-clients) for Alfresco Process Workspace, for example `alfresco`|
-| implicitFlow ||
-| silentLogin |Setting `silentLogin` to true removes a login page from displaying if a user is already authenticated. Setting the value to `false` will display a sign in page even though a user needs to only select the *Sign in* option and not enter any credentials, for example `true`|
-| redirectSilentIframeUri |The address Process Workspace uses to refresh authorization tokens, for example `https://apw.example.com/process-workspace/assets/silent-refresh.html`|
-| redirectUri |The URL to redirect to after a user is successfully authenticated, for example `/process-workspace/`|
-| redirectUriLogout |The URL to redirect to after a user successfully signs out, for example `/process-workspace/logout`|
-
-> **Note:** If `implicitFlow` is set to `false` the grant type `password` will be used instead.
-
-The following is an example `app.config.json` file excerpt. By default this file is located in the `/src` directory.
-
-```json
-"ecmHost": "https://repo.example.com",
-"bpmHost": "https://aps.example.com",
-"identityHost": "https://ids.example.com/auth/realms/alfresco",
-"oauth2": {
-        "host": "https://ids.example.com/auth/realms/alfresco",
-        "clientId": "alfresco",        
-        "scope": "openid",
-        "secret": "",
-        "implicitFlow": true,
-        "silentLogin": true,
-        "redirectSilentIframeUri": "https://apw.example.com/process-workspace/assets/silent-refresh.html",
-        "redirectUri": "/process-workspace/",
-        "redirectUriLogout": "/process-workspace/logout"
-        }
-```
-
-## Step 12: (Optional) Configure a connection between Process Services and Content Services
+## Step 11: (Optional) Configure a connection between Process Services and Content Services
 
 An SSO connection can be configured between Process Services and Content Services so that communication between the two systems is achieved using tokens instead of stored credentials when executing processes.
 
@@ -333,7 +292,7 @@ An SSO connection can be configured between Process Services and Content Service
     | alfresco.content.sso.client_id |The **Client ID** within the realm that points to Process Services, for example `${keycloak.resource}`|
     | alfresco.content.sso.client_secret |The secret key for the Process Services client, for example `${keycloak.credentials.secret}`|
     | alfresco.content.sso.realm |The realm that is configured for the Content Services and Process Services clients, for example `${keycloak.realm}`|
-    | alfresco.content.sso.scope |Sets the duration that tokens are valid for. For example using the value `offline_access` a token is valid even after a user logs out as long as the token is used at least once every 30 days. See the [Keycloak documentation](https://www.keycloak.org/docs/18.0/server_admin/#_offline-access){:target="_blank"} for further information, for example `offline_access`|
+    | alfresco.content.sso.scope |Sets the duration that tokens are valid for. For example using the value `offline_access` a token is valid even after a user logs out as long as the token is used at least once every 30 days. See the [Keycloak documentation](https://www.keycloak.org/docs/21.1.2/server_admin/#_offline-access){:target="_blank"} for further information, for example `offline_access`|
     | alfresco.content.sso.javascript_origins |The base URL for the Javascript origins of the Process Services instance, for example `https://aps.example.com`|
     | alfresco.content.sso.auth_uri |The authorization URL, for example `https://ids.example.com/realms/alfresco/protocol/openid-connect/auth`|
     | alfresco.content.sso.token_uri |The authorization token URL, for example `https://ids.example.com/realms/alfresco/protocol/openid-connect/token`|
@@ -353,7 +312,7 @@ An SSO connection can be configured between Process Services and Content Service
     |Alfresco version|The version of Content Services to connect to.|
     |Authentication type|Select **Identity Service authentication** to use SSO.|
 
-## Step 13: (Optional) Configure a mobile client for Process Services
+## Step 12: (Optional) Configure a mobile client for Process Services
 
 If Process Services for mobile is required then a client needs to be created for it in the Identity Service to enable SSO capability. The redirect URI is preconfigured for the mobile application using the operating system it is installed on, which means that the **Valid Redirect URIs** value in the Identity Service must match this value.
 
@@ -372,7 +331,7 @@ If Process Services for mobile is required then a client needs to be created for
     * The **Valid Redirect URI** must be set to `androidapsapp://aims/auth`.
     * **Implicit Flow Enabled** is switched off.
 
-## Step 14: (Optional) Configure a client for Content Services for iOS
+## Step 13: (Optional) Configure a client for Content Services for iOS
 
 If Content Services for iOS is required then a client needs to be created for it in the Identity Service to enable SSO capability. The redirect URI is preconfigured for the mobile application using the operating system it is installed on, which means that the **Valid Redirect URIs** value in the Identity Service must match this value.
 
@@ -390,6 +349,5 @@ After configuring SSO using SAML, the following is an example sequence to follow
 1. Open a new browser session and navigate to Alfresco Digital Workspace at the URL `http://adw.example.com/workspace`. Sign in to the SAML provider when redirected.
 2. Create a new tab in the same browser session and navigate to Alfresco Share at the URL `http://share.example.com/share` and there should be no additional sign in step required.
 3. Create a new tab in the same browser session and navigate to Alfresco Process Services at the URL `http://aps.example.com/activiti-app` and there should be no additional sign in step required.
-4. Create a new tab in the same browser session and navigate to Alfresco Process Workspace at the URL `http://apw.example.com/process-workspace` and there should be no additional sign in step required.
 
 > **Note:** If timeout is configured using the same value for the Identity Service and ACS, accessing any of the applications after the specified time will prompt a user to sign in again.

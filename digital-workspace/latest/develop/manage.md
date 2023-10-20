@@ -13,7 +13,7 @@ Learn how to run the Digital Workspace in your local development environment fro
     http://localhost:8080/alfresco
     ```
 
-* The latest **LTS** version of `Node.js`.
+* `Node.js` 18.x
 
 ## Clone and launch the front-end application
 
@@ -35,7 +35,7 @@ Once Content Services is up and running, you must make the source code of the pr
     APP_CONFIG_PLUGIN_AI_SERVICE=false
     ```
 
-    > **Note:** The Digital Workspace 4.1.x uses the Content Application version 4.0.0.
+    > **Note:** The Digital Workspace 4.2.x uses the Content Application version 4.0.0.
 
 2. Run the following commands to start the application:
 
