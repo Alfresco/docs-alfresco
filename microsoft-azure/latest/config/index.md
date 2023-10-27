@@ -282,7 +282,7 @@ The Azure multiple storage containers sample is a new store subsystem that is ba
 * `store1.azureBlobContentStore` as the default
 * `store2.azureBlobContentStore` as the second one
 
-The sample files can be found in `alfresco-azure-connector-3.2.x.amp`.
+The sample files can be found in `alfresco-azure-connector-4.0.x.amp`.
 
 * `azure-multiple-storage-containers-context.xml.sample` in `config/alfresco/extension`
 * `azure-mc-contentstore-context.xml.sample` and `azure-mc-contentstore.properties.sample` are in `config/alfresco/extension/subsystems/ContentStore/AzMultipleStorageContainers/AzMultipleStorageContainers`
