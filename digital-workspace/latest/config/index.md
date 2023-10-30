@@ -49,6 +49,30 @@ The following settings can be configured in `../digital-workspace/app.config.jso
 | viewer.downloadPromptReminderDelay | In seconds, specify the amount of time to delay a reminder prompt, to the Digital Workspace user, before displaying another download large file message. The default is `30`. |
 | viewer.fileAutoDownloadSizeThresholdInMB | In megabytes, specify the largest file size a file can be, before the Digital Workspace does not download it automatically. The default is `15`. |
 
+## Dynamic view
+
+You can temporarily edit the columns you want to see in a file view in the Digital Workspace. This change only applies to the view you are in and reverts back to the original view, once you click away and then re-enter the view.
+A system administrator can use the `app.extension.json` file to configure which columns are there by default. 
+
+1. Log in to the Digital workspace.
+
+2. In the view you want to adjust, select the **Three dots** on the top right.
+
+3. DeSelect the columns you do not want to see in the view and then click **Apply**.
+
+    The columns are no longer visible in the view.
+
+> **Note:** When you change and then go back to that  
+
+To do this click the **Three dots** in the view you are in and deselect the columns you do not want to see, then click **Apply**.
+
+### Configure default columns
+
+You can configure the columns that are visible in the views by default. 
+
+1. 
+
+
 ## Permissions
 
 Permissions for folders and files in the Digital Workspace can be assigned and viewed easily.
