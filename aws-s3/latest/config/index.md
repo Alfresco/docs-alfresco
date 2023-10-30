@@ -683,7 +683,7 @@ such as `enable-deleted-content-store-context.xml`, in the `extension` directory
 $CATALINA_HOME/shared/classes/alfresco/extension
 ```
 
-You can find a sample file in `alfresco-s3-connector-5.1.x.amp':
+You can find a sample file in `alfresco-s3-connector-6.0.x.amp':
 
 * `enable-deleted-content-store-context.xml.sample` in `config/alfresco/extension`
 
@@ -723,7 +723,7 @@ The Store selector has two stores (instances of the S3 content store):
 * `store1.s3ContentStore` as the default
 * `store2.s3ContentStore` as the second one
 
-The sample files are found in `alfresco-s3-connector-5.1.x.amp`:
+The sample files are found in `alfresco-s3-connector-6.0.x.amp`:
 
 * `s3-multiple-buckets-context.xml.sample` in `config/alfresco/extension`
 * `s3-mb-contentstore-context.xml.sample` and `s3-mb-contentstore.properties.sample` are in `config/alfresco/extension/subsystems/ContentStore/S3MultipleBuckets/S3MultipleBuckets`
