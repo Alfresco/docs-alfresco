@@ -123,3 +123,8 @@ To deuathorize a user:
     The relevant user's authorization status changes to `Deauthorized`.
 
 To reauthorize a previously deauthorized user, contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"}.
+
+> **Note:**
+>
+> * Deauthorized users don't count towards the number of licensed users.
+> * Once a user is deauthorized, if there's a need to access the user account, then a reauthorization request is required.
