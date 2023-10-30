@@ -740,6 +740,7 @@ defaults:
       toc: "aws-s3"
       support: true
       versions:
+        - 6.0
         - 5.1
         - 5.0
         - 4.1
@@ -751,8 +752,12 @@ defaults:
   - scope:
       path: "aws-s3/latest"
     values:
-      version: 5.1
+      version: 6.0
       latest: true
+  - scope:
+      path: "aws-s3/5.1"
+    values:
+      version: 5.1
   - scope:
       path: "aws-s3/5.0"
     values:
