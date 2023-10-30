@@ -504,34 +504,28 @@ The Healthcheck can be run nightly to ensure that any updates in the last 24 hou
 
 ### Configure Healthcheck in the Repository
 
-The Alfresco Repository includes configuration properties for the Healthcheck. The Property values are included in the `alfresco-global.properties` configuration file. For more on using the Search Enterprise Subsystem, see [Configure Subsystem in Repository]({% link search-enterprise/latest/install/index.md %}#configure-subsystem-in-repository).
+The Alfresco Repository includes configuration properties for the Healthcheck. The property values are included in the `alfresco-global.properties` configuration file. To use these properties you must first activate the Search Enterprise Subsystem, for more see [Configure Subsystem in Repository]({% link search-enterprise/latest/install/index.md %}#configure-subsystem-in-repository). You can also use the [JConsole]({% link content-services/latest/config/index.md %}#configure-with-jconsole) to configure the Healthcheck.  
 
 | Property | Description |
 | -------- | ----------- |
 | elasticsearch.healthcheck.id.minRange | The minimum healthcheck database node ID. A node must have a database ID greater than or equal to the specified value that is included in the healthcheck. |
-| elasticsearch.healthcheck.id.maxRange | The maximum healthcheck database node ID. A node must have a database ID that is less than or equal to the specified value to be included in the healthcheck. |
-| elasticsearch.healthcheck.date.minRange | The minimum healthcheck database node update date. A node must have a database update date that is greater than or equal to the specified value to be included in the healthcheck. The default is `2023-01-01T23:59:00Z`. |
-| elasticsearch.healthcheck.date.maxRange | The maximum healthcheck database node update date. A node must have a database update date that is less than or equal to the specified value to be included in the healthcheck. The default is `2023-01-07T23:59:00Z`. |
+| elasticsearch.healthcheck.id.maxRange | The maximum healthcheck database node ID. A node must have a database ID that is less than or equal to the specified value that is included in the healthcheck. |
+| elasticsearch.healthcheck.date.minRange | The minimum healthcheck database node update date. A node must have a database update date that is greater than or equal to the specified value that is included in the healthcheck. The default is `2023-01-01T23:59:00Z`. |
+| elasticsearch.healthcheck.date.maxRange | The maximum healthcheck database node update date. A node must have a database update date that is less than or equal to the specified value that is included in the healthcheck. The default is `2023-01-07T23:59:00Z`. |
 | elasticsearch.healthcheck.batchSize | The number of nodes aggregated from the database to be checked in Search Enterprise in one go. The property cannot be greater than `10000`. The default is `10000` |
-| elasticsearch.healthcheck.confidenceThresholdInMs | A threshold value in milliseconds that can be used to help you avoid false positives. This can be used in cases where the timestamp difference between the database and Search Enterprise is below the threshold. This is useful when dealing with out of order events or in circumstances where you have expected delays in indexing. The default is `1000`. |
-| elasticsearch.healthcheck.pollingRatio | The distance between nodes to check, for example you could check every 1 in 10 or 1 in 100. For example, if you set this property  to `10`, then every 10th node within the configured range is checked. The default is `1`. |
-| elasticsearch.healthcheck.timeoutInHours | Represents the number of hours the healthcheck is allowed to run. If the time out is exceeded, the healthcheck is stopped and only the results found until the health check is stopped will be displayed. The default is `1`. |
-| elasticsearch.healthcheck.startTime | Scheduled time to automatically start the health check. The default is `2030-12-30T23:59:00Z`. |
-| elasticsearch.healthcheck.intervalPeriod | Represents the period of time the health check should wait between repeated executions after the first scheduled execution. The possible values are: `Month`, `Week`, `Day`, `Hour`, `Minute`, or `Second`. The default is `Week`. |
+| elasticsearch.healthcheck.confidenceThresholdInMs | A threshold value in milliseconds that can be used to help you avoid false positives. It can be used in cases where the timestamp difference between the database and Search Enterprise is below the threshold. An example of this is when you are managing out of order events, or in circumstances where you have expected delays in indexing. The default is `1000`. |
+| elasticsearch.healthcheck.pollingRatio | The distance between nodes to check. For example, if you set this property  to `10`, then every 10th node within the configured range is checked. The default is `1`. |
+| elasticsearch.healthcheck.timeoutInHours | The number of hours the healthcheck is allowed to run. If the time out is exceeded, the healthcheck is stopped and only the results found until the health check is stopped will be displayed. The default is `1`. |
+| elasticsearch.healthcheck.startTime | The scheduled time to automatically start the health check. The default is `2030-12-30T23:59:00Z`. |
+| elasticsearch.healthcheck.intervalPeriod | The period of time the health check should wait between repeated executions after the first scheduled execution. The possible values are: `Month`, `Week`, `Day`, `Hour`, `Minute`, or `Second`. The default is `Week`. |
 | elasticsearch.healthcheck.intervalCount | Sets how many periods should be waited between each scheduled execution. The default is `1`. |
 | elasticsearch.healthcheck.nodeAspectsToExclude | A comma-separated list of node aspects. Nodes with any of the aspects from the specified list will be excluded from the health check. The default is `sys:hidden`. |
 
 > **Note:** You can only set one range format, either ID or Date. This means two properties for one of the range formats must always be empty.
 
-Use any of the following methods to modify the default healthcheck properties:
-
-* JConsole Alfresco:Type=Configuration,Category=Search,id1=managed,id2=elasticsearch.
-* See [Modify global properties file]({% link content-services/latest/config/index.md %}#modify-global-props) for information on how to configure a prepackaged subsystem.
-* Use -D options.
-
 ### Run Healthcheck Job
 
-If you have installed the Oracle Java SE Development Kit (JDK), you can use the JMX client or JConsole.
+Use the JConsole to run the Healthcheck.
 
   **Note:** The MBean `Alfresco:Name=ElasticsearchHealthcheck` is exposed and allows you to manage the Healthcheck.
 
@@ -553,7 +547,7 @@ If you have installed the Oracle Java SE Development Kit (JDK), you can use the 
 6. Select one of the following:
 
   * `triggerHealthcheckJobs()` - run Healthcheck immediately.
-  * `scheduleHealthcheckJob()` - schedule a healthcheck job, according to the `elasticsearch.healthcheck.startTime` and `elasticsearch.healthcheck.intervalPeriod`  properties.
+  * `scheduleHealthcheckJob()` - schedule a healthcheck job, according to the `elasticsearch.healthcheck.startTime` and `elasticsearch.healthcheck.intervalPeriod` properties.
   * `unscheduleHealthcheckJob()` - unschedule a Healthcheck job.
 
 ### The Healthcheck Job results
@@ -566,19 +560,19 @@ If you have installed the Oracle Java SE Development Kit (JDK), you can use the 
 
 ![health]({% link search-enterprise/images/health-check.png %})
 
-The Service Status tab gives information on the status of the latest health check execution, latest health check settings and scheduled health check settings. At the bottom of the page, you can find a list of the latest health check events sorted by date. You can see ranges of nodes where discrepancies in the indexing were found that means the range starts right after the previous correctly indexed node and finishes right before the first next correctly indexed node. You can also see the number of issues found within each range.
+The Service Status tab gives information on the status of the latest Healthcheck execution, latest health check settings, and scheduled health check settings. At the bottom of the page there is a list of the latest Healthcheck events sorted by date. You can see ranges of nodes where discrepancies in the indexing were found. This means the range starts immediately after the previous correctly indexed node and finishes immediately before the first next correctly indexed node. You can also see the number of issues found within each range.
 
 ### Logging
 
-You will see a similar output if the healthcheck has completed and some issues were found:
+You will see a similar output if the Healthcheck has completed and some issues were found:
 
 `2023-10-11 12:57:15 2023-10-11T10:57:15,693 [] INFO  [validator.job.ElasticsearchValidationActionExecutor] [pool-14-thread-1] The Elasticsearch healthcheck job finished with 642 issues in 2 ranges.`
 
-You will see a similar output if the healthcheck is completed without any issues being found:
+You will see a similar output if the Healthcheck is completed without any issues being found:
 
 `2023-10-11 11:40:01 2023-10-11T09:40:01,786 [] INFO  [validator.job.ElasticsearchValidationActionExecutor] [pool-16-thread-1] The Elasticsearch healthcheck job finished with no issues.`
 
-You can obtain detailed logs for the healthcheck that provide all ranges of information to do with any issues according to the current health check execution. You do this by activating the TRACE level for the `org.alfresco.repo.search.impl.elasticsearch.admin.validator.job.ElasticsearchValidationActionExecutor` class, for more see [Set log levels]({% link content-services/latest/admin/troubleshoot.md %}#set-log-levels).
+You can obtain detailed logs for the Healthcheck that provide all ranges of information to do with any issues according to the current Healthcheck execution. You do this by activating the TRACE level for the `org.alfresco.repo.search.impl.elasticsearch.admin.validator.job.ElasticsearchValidationActionExecutor` class, for more see [Set log levels]({% link content-services/latest/admin/troubleshoot.md %}#set-log-levels).
 
 You will see a similar output:
 
