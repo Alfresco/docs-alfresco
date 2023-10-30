@@ -36,10 +36,10 @@ These steps describe how to install Federation Services to an instance of Alfres
     * `AFS-federation.war`
     * `AFS-admin.war`
 
-    <!--FIXME: Describe each artefact and purpose
-    * `t-search-3.0.0.6.war`: Federated search application
-    * `transparent-content-services-platform-3.0.0.6.jar`: Transparent Content Services (TCS) JAR module for Manage-In-Place (to be applied to the Alfresco Content Services repository)
-    * `transparent-content-services-share-3.0.0.6.jar`: Transparent Content Services (TCS) JAR module for Manage-In-Place (to be applied to Alfresco Share)-->
+    <!--FIXME: Describe each artefact and purpose-->
+    <!--* `t-search-3.0.0.6.war`: Federated search application-->
+    <!--* `transparent-content-services-platform-3.0.0.6.jar`: Transparent Content Services (TCS) JAR module for Manage-In-Place (to be applied to the Alfresco Content Services repository)-->
+    <!--* `transparent-content-services-share-3.0.0.6.jar`: Transparent Content Services (TCS) JAR module for Manage-In-Place (to be applied to Alfresco Share)-->
 
 2. Follow the steps in the 3Sixty documentation, [Install 3Sixty](https://helpdocs.objective.com/3sixty_user/Content/get-started/installation.htm){:target="_blank"}.
 
