@@ -30,11 +30,11 @@ There are a number of software requirements for installing Content Connector for
 
 ### Alfresco requirements
 
-* Alfresco Content Services 
+* Alfresco Content Services.
 
 ### Java requirements
 
-* OpenJDK 11 or 17.
+* OpenJDK 17.
 
 ### AWS related requirements
 
