@@ -2,9 +2,8 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for the Content Connector for AWS S3 5.1:
+The following are the supported platforms for the Content Connector for AWS S3 6.0:
 
 | Version | Notes |
 | ------- | ----- |
-| Alfresco Content Services 7.3.x |  |
-| Alfresco Content Services 7.2.x |  |
+| Content Services 23.1.x |  |
