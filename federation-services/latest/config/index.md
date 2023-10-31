@@ -4,13 +4,15 @@ title: Configure Federation Services
 
 The configuration for Federation Services is managed in the Admin app.
 
+<!--FIXME: update all Simflofy text & links to 3Sixty-->
+
 Below is a high-level summary of the configuration process using the menu options in the Admin app. You'll need to follow the links provided in the Simflofy documentation to set up your environment. You can also see the Simflofy [Connectors](https://simflofy.helpdocsonline.com/connectors){:target="_blank"} documentation for a list of supported connectors and configuration details.
 
 Start by accessing the Admin app and then expand the **Connectors** menu option:
 
-1. Open your browser and navigate to: `http://<server>:<port>/simflofy-admin`, where `<server>` is the IP address or DNS address to your Federation Services server and `<port>` is the port to your Federation Services server.
+1. Open your browser and navigate to: `http://<servername>:<port>/3sixty-admin`, where `<server>` is the IP address or DNS address to your Federation Services server and `<port>` is the port to your Federation Services server.
 
-    For example, if installing on your localhost, your URL may be: `http://localhost:6060/simflofy-admin`
+    For example, if installing on your localhost, your URL may be: `http://localhost:6060/3sixty-admin`
 
 2. Enter your user name and password, and then click **Login**.
 
