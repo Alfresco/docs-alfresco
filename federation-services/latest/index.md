@@ -38,7 +38,7 @@ Here's some useful terminology from the Federation Services documentation.
 |Auth Connector|This allows you to authenticate against a repository.|
 |Repository Connector|This is a connector to a repository for getting content, metadata, versions, and renditions.|
 |Output Connector|This is a connector to the output system you want to migrate or index to. to.|
-|Content Service Connector|This connector that allows you to attach a system to the Objective 3Sixty Content Services API for Federation.|
+|Content Service Connector|This connector allows you to attach a system to the Objective 3Sixty Content Services API for Federation.|
 |Discovery Connector|This connector is used to get schema information from a system.|
 |Job|A job is a basic construct used to specify the repository and output used in a migration or index. This is how you connect two systems together with Federation Services.|
 |Mapping|Provides metadata mapping between types/aspects from a source system to an output system. These can be used in a job and in a content services connector.|
