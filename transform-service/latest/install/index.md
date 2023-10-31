@@ -567,8 +567,9 @@ before continuing.
 4. Start the Shared File Store (SFS) controller:
 
     ```java
-    java -DfileStorePath=/path/to/your/AlfrescoFileStore -Dscheduler.contract.path=/path/to/tempdir/scheduler.json
-     -jar alfresco-shared-file-store-controller-2.1.x.jar
+    java -DfileStorePath="/path/to/your/AlfrescoFileStore" \
+         -Dscheduler.contract.path="/path/to/tempdir/scheduler.json" \
+         -jar alfresco-shared-file-store-controller-2.1.x.jar
     ```
 
     Check the output to ensure that it starts successfully.
@@ -584,14 +585,14 @@ before continuing.
 5. Start the all-in-one Transform Core Engine Spring Boot app:
 
     ```java
-    java -DPDFRENDERER_EXE="<alfresco-pdf-renderer_installation_dir>/alfresco-pdf-renderer"
-       -DLIBREOFFICE_HOME="<libreoffice_installation_dir>"
-       -DIMAGEMAGICK_ROOT="<imagemagick_installation_dir>"
-       -DIMAGEMAGICK_DYN="<imagemagick_installation_dir>/lib"
-       -DIMAGEMAGICK_EXE="<imagemagick_installation_dir>/bin/convert"
-       -DACTIVEMQ_URL=failover:(tcp://server:61616)?timeout=3000
-       -DFILE_STORE_URL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file
-       -jar alfresco-transform-core-aio-boot-4.0.x.jar
+    java -DPDFRENDERER_EXE="<alfresco-pdf-renderer_installation_dir>/alfresco-pdf-renderer" \
+         -DLIBREOFFICE_HOME="<libreoffice_installation_dir>" \
+         -DIMAGEMAGICK_ROOT="<imagemagick_installation_dir>" \
+         -DIMAGEMAGICK_DYN="<imagemagick_installation_dir>/lib" \
+         -DIMAGEMAGICK_EXE="<imagemagick_installation_dir>/bin/convert" \
+         -DACTIVEMQ_URL="failover:(tcp://<server>:61616)?timeout=3000" \
+         -DFILE_STORE_URL="http://<server>:8099/alfresco/api/-default-/private/sfs/versions/1/file" \
+         -jar alfresco-transform-core-aio-boot-4.0.x.jar
     ```
 
     > **Note:** LibreOffice, ImageMagick and Alfresco PDF Renderer binaries needs to be installed on the server where the all-in-one core T-Engine is setup. See the [Prerequisites](#prereq-non-containerized-deploy) for more details. You may need to change the paths depending on your operating system.
@@ -600,14 +601,15 @@ before continuing.
 
     ```java
     java -DPDFRENDERER_EXE="/usr/local/acs74/alfresco-pdf-renderer/alfresco-pdf-renderer" \
-       -DLIBREOFFICE_HOME="/usr/local/acs74/libreoffice" \
-       -DIMAGEMAGICK_ROOT="/usr/local/acs74/imagemagick" \
-       -DIMAGEMAGICK_DYN="/usr/local/acs74/imagemagick" \
-       -DIMAGEMAGICK_EXE="/usr/local/acs74/imagemagick/convert" \
-       -DIMAGEMAGICK_CODERS="/usr/local/acs74/imagemagick/modules-Q16HDRI/coders" \
-       -DIMAGEMAGICK_CONFIG="/usr/local/acs74/imagemagick/config-Q16HDRI" \
-       -DACTIVEMQ_URL=failover:(tcp://localhost:61616)?timeout=3000 \
-       -jar /usr/local/acs74/bin/alfresco-transform-core-aio-boot-4.0.0.jar
+         -DLIBREOFFICE_HOME="/usr/local/acs74/libreoffice" \
+         -DIMAGEMAGICK_ROOT="/usr/local/acs74/imagemagick" \
+         -DIMAGEMAGICK_DYN="/usr/local/acs74/imagemagick" \
+         -DIMAGEMAGICK_EXE="/usr/local/acs74/imagemagick/convert" \
+         -DIMAGEMAGICK_CODERS="/usr/local/acs74/imagemagick/modules-Q16HDRI/coders" \
+         -DIMAGEMAGICK_CONFIG="/usr/local/acs74/imagemagick/config-Q16HDRI" \
+         -DACTIVEMQ_URL="failover:(tcp://localhost:61616)?timeout=3000" \
+         -DFILE_STORE_URL="http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file" \
+         -jar /usr/local/acs74/bin/alfresco-transform-core-aio-boot-4.0.0.jar
     ```
 
     Check the output to ensure that it starts successfully.
@@ -620,11 +622,11 @@ before continuing.
 6. Start the Transform Router Spring Boot app:
 
     ```java
-    java -DCORE_AIO_URL=http://localhost:8090
-     -DCORE_AIO_QUEUE=org.alfresco.transform.engine.aio.acs
-     -DACTIVEMQ_URL=failover:(tcp://server:61616)?timeout=3000
-     -DFILE_STORE_URL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file
-     -jar alfresco-transform-router-3.0.x.jar
+    java -DCORE_AIO_QUEUE="org.alfresco.transform.engine.aio.acs" \
+         -DCORE_AIO_URL="http://localhost:8090" \
+         -DACTIVEMQ_URL="failover:(tcp://localhost:61616)?timeout=3000" \
+         -DFILE_STORE_URL="http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file" \
+         -jar alfresco-transform-router-3.0.x.jar
     ```
 
     Check the output to ensure that it starts successfully.
