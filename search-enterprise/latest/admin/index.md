@@ -515,11 +515,11 @@ The Alfresco Repository includes configuration properties for the Healthcheck. T
 | elasticsearch.healthcheck.batchSize | The number of nodes aggregated from the database to be checked in Search Enterprise in one go. The property cannot be greater than `10000`. The default is `10000` |
 | elasticsearch.healthcheck.confidenceThresholdInMs | A threshold value in milliseconds that can be used to help you avoid false positives. It can be used in cases where the timestamp difference between the database and Search Enterprise is below the threshold. An example of this is when you are managing out of order events, or in circumstances where you have expected delays in indexing. The default is `1000`. |
 | elasticsearch.healthcheck.pollingRatio | The distance between nodes to check. For example, if you set this property  to `10`, then every 10th node within the configured range is checked. The default is `1`. |
-| elasticsearch.healthcheck.timeoutInHours | The number of hours the healthcheck is allowed to run. If the time out is exceeded, the healthcheck is stopped and only the results found until the healthcheck is stopped will be displayed. The default is `1`. |
-| elasticsearch.healthcheck.startTime | The scheduled time to automatically start the healthcheck. The default is `2030-12-30T23:59:00Z`. |
-| elasticsearch.healthcheck.intervalPeriod | The period of time the healthcheck should wait between repeated executions after the first scheduled execution. The possible values are: `Month`, `Week`, `Day`, `Hour`, `Minute`, or `Second`. The default is `Week`. |
+| elasticsearch.healthcheck.timeoutInHours | The number of hours the healthcheck is allowed to run. If the time out is exceeded, the healthcheck is stopped and only the results found until the health check is stopped will be displayed. The default is `1`. |
+| elasticsearch.healthcheck.startTime | The scheduled time to automatically start the health check. The default is `2030-12-30T23:59:00Z`. |
+| elasticsearch.healthcheck.intervalPeriod | The period of time the health check should wait between repeated executions after the first scheduled execution. The possible values are: `Month`, `Week`, `Day`, `Hour`, `Minute`, or `Second`. The default is `Week`. |
 | elasticsearch.healthcheck.intervalCount | Sets how many periods should be waited between each scheduled execution. The default is `1`. |
-| elasticsearch.healthcheck.nodeAspectsToExclude | A comma-separated list of node aspects. Nodes with any of the aspects from the specified list will be excluded from the healthcheck. The default is `sys:hidden`. |
+| elasticsearch.healthcheck.nodeAspectsToExclude | A comma-separated list of node aspects. Nodes with any of the aspects from the specified list will be excluded from the health check. The default is `sys:hidden`. |
 
 > **Note:** You can only set one range format, either ID or Date. This means two properties for one of the range formats must always be empty.
 
@@ -527,11 +527,11 @@ The Alfresco Repository includes configuration properties for the Healthcheck. T
 
 Use the JConsole to run the Healthcheck.
 
-  **Note:** The MBean `Alfresco:Name=ElasticsearchHealthcheck` is exposed and allows you to manage the Healthcheck.
+> **Note:** The MBean `Alfresco:Name=ElasticsearchHealthcheck` is exposed and allows you to manage the Healthcheck.
 
 1. Open a command prompt and `cd` to your JDK installation directory.
 
-2. Open the Java Monitoring & management Console window by entering: `jconsole`.
+2. Open the Java Monitoring & Management Console window by entering: `jconsole`.
 
 3. Double click the **Alfresco Content Services Java** process.
 
@@ -560,7 +560,7 @@ Use the JConsole to run the Healthcheck.
 
 ![health]({% link search-enterprise/images/health-check.png %})
 
-The Service Status tab gives information on the status of the latest Healthcheck execution, latest healthcheck settings, and scheduled healthcheck settings. At the bottom of the page there is a list of the latest Healthcheck events sorted by date. You can see ranges of nodes where discrepancies in the indexing were found. This means the range starts immediately after the previous correctly indexed node and finishes immediately before the first next correctly indexed node. You can also see the number of issues found within each range.
+The **Service Status** tab gives information on the status of the latest Healthcheck execution, latest health check settings, and scheduled health check settings. At the bottom of the page there is a list of the latest Healthcheck events sorted by date. You can see ranges of nodes where discrepancies in the indexing were found. This means the range starts immediately after the previous correctly indexed node and finishes immediately before the first next correctly indexed node. You can also see the number of issues found within each range.
 
 ### Logging
 
