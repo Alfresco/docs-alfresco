@@ -51,8 +51,7 @@ The following settings can be configured in `../digital-workspace/app.config.jso
 
 ## Dynamic view
 
-You can temporarily edit the columns you want to see in a file view in the Digital Workspace. This change only applies to the view you are in and reverts back to the original view, once you click away and then re-enter the view.
-A system administrator can use the `app.extension.json` file to configure which columns are there by default. 
+You can temporarily edit the columns you want to see in a file view in the Digital Workspace. This configuration only applies to the view you are in and reverts back to the original view, once you click away and then re-enter the view.
 
 1. Log in to the Digital workspace.
 
@@ -68,9 +67,11 @@ To do this click the **Three dots** in the view you are in and deselect the colu
 
 ### Configure default columns
 
-You can configure the columns that are visible in the views by default. 
+A system administrator can use the `app.extension.json` file to configure which columns are there by default.
 
-1. 
+1. Navigate to 
+
+
 
 
 ## Permissions
