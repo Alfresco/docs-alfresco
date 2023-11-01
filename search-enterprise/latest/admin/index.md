@@ -531,7 +531,7 @@ Use the JConsole to run the Healthcheck.
 
 1. Open a command prompt and `cd` to your JDK installation directory.
 
-2. Open the Java Monitoring & management Console window by entering: `jconsole`.
+2. Open the Java Monitoring & Management Console window by entering: `jconsole`.
 
 3. Double click the **Alfresco Content Services Java** process.
 
