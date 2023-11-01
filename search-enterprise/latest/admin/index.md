@@ -527,7 +527,7 @@ The Alfresco Repository includes configuration properties for the Healthcheck. T
 
 Use the JConsole to run the Healthcheck.
 
-  **Note:** The MBean `Alfresco:Name=ElasticsearchHealthcheck` is exposed and allows you to manage the Healthcheck.
+> **Note:** The MBean `Alfresco:Name=ElasticsearchHealthcheck` is exposed and allows you to manage the Healthcheck.
 
 1. Open a command prompt and `cd` to your JDK installation directory.
 
