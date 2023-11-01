@@ -560,7 +560,7 @@ Use the JConsole to run the Healthcheck.
 
 ![health]({% link search-enterprise/images/health-check.png %})
 
-The Service Status tab gives information on the status of the latest Healthcheck execution, latest health check settings, and scheduled health check settings. At the bottom of the page there is a list of the latest Healthcheck events sorted by date. You can see ranges of nodes where discrepancies in the indexing were found. This means the range starts immediately after the previous correctly indexed node and finishes immediately before the first next correctly indexed node. You can also see the number of issues found within each range.
+The **Service Status** tab gives information on the status of the latest Healthcheck execution, latest health check settings, and scheduled health check settings. At the bottom of the page there is a list of the latest Healthcheck events sorted by date. You can see ranges of nodes where discrepancies in the indexing were found. This means the range starts immediately after the previous correctly indexed node and finishes immediately before the first next correctly indexed node. You can also see the number of issues found within each range.
 
 ### Logging
 
