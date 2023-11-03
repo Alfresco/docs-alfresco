@@ -239,7 +239,7 @@ The new keystore configuration implementation requires it to be configured with
         * `<TOMCAT_HOME>/alf_data/keystore/metadata-keystore/keystore`
         * `<TOMCAT_HOME>/alf_data/keystore/metadata-keystore/keystore-passwords.properties`
 
-2. Configure Tomcat 9 to use the default keystore files
+2. Configure Tomcat 10 to use the default keystore files
 
     1. Open `<TOMCAT_HOME>/bin/catalina.bat` in a text editor.
 
