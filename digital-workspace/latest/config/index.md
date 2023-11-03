@@ -51,7 +51,7 @@ The following settings can be configured in `../digital-workspace/app.config.jso
 
 ## Dynamic view
 
-You can temporarily edit the columns you want to see in any of the file views in the Digital Workspace. This configuration only applies to the view you are in and reverts back to the original view, once you click away and then re-enter the view.
+You can edit the columns you want to see in any of the file views in the Digital Workspace. This configuration applies to the view you are in and any additional pagination part of that view. Currently the selection reverts back to the original view, once you click away.
 
 1. Log in to the Digital workspace.
 
