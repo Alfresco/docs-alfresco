@@ -52,9 +52,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Java** | |
 | OpenJDK 17.0.4 | |
-| OpenJDK 11.0.13 | |
 | Amazon Corretto 17 | |
-| Amazon Corretto 11 | |
 | | |
 | **Third party integrations** | |
 | Microsoft 365 | |
@@ -72,7 +70,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search Enterprise 3.3 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.x upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
 | Alfresco Search and Insight Engine 2.0.7 and later | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0.7 and later | |
-| Alfresco Federation Services 3.0 | |
 | Identity Service 2.0 | |
 | Alfresco Intelligence Services 1.5 | |
 | Alfresco Content Connector for AWS S3 6.0 | Adds support for AWS Glacier using Cloud storage layer. |
@@ -94,8 +91,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Control Center 8.1 | |
 | Alfresco Control Center 8.0 | |
 | Alfresco Application Development Framework (ADF) 6.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
-| Alfresco Content Accelerator (ACA) 3.5.1 | |
-| Alfresco Enterprise Viewer (AEV) 3.5.1 | |
 | | |
 | **Components** | |
 | ImageMagick v7.1.0-16 | |
