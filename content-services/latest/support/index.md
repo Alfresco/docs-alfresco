@@ -61,7 +61,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | MS Office 2016 | Microsoft Office for Mac does not support Kerberos authentication. |
 | | |
 | **Services** | |
-| Alfresco Governance Services 7.4 | |
+| Alfresco Governance Services 23.1 | |
 | Alfresco Process Services 2.4 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
