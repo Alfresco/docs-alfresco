@@ -51,28 +51,40 @@ The following settings can be configured in `../digital-workspace/app.config.jso
 
 ## Dynamic view
 
-You can temporarily edit the columns you want to see in a file view in the Digital Workspace. This configuration only applies to the view you are in and reverts back to the original view, once you click away and then re-enter the view.
+You can temporarily edit the columns you want to see in any of the file views in the Digital Workspace. This configuration only applies to the view you are in and reverts back to the original view, once you click away and then re-enter the view.
 
 1. Log in to the Digital workspace.
 
 2. In the view you want to adjust, select the **Three dots** on the top right.
 
-3. DeSelect the columns you do not want to see in the view and then click **Apply**.
+3. Deselect the columns you don't want to see in the view and then click **Apply**.
 
     The columns are no longer visible in the view.
 
-> **Note:** When you change and then go back to that  
-
-To do this click the **Three dots** in the view you are in and deselect the columns you do not want to see, then click **Apply**.
-
 ### Configure default columns
 
-A system administrator can use the `app.extension.json` file to configure which columns are there by default.
+A system administrator can use the `app.extension.json` file to configure which columns are visible by default. If the file is not adjusted all the columns will show by default.
 
-1. Navigate to 
+1. Open your `../digital-workspace/app.extension.json` file.
 
+2. Add `"isHidden": true` to any of the columns of the `files`, `libraries`, or `trashcan` sections of the file, and then save it. For example, to hide the `role` column in the `libraries` section:
 
+      ```json
+      {
+      "id": "app.libraries.role",
+      "key": "role",
+      "title": "APP.DOCUMENT_LIST.COLUMNS.ROLE",
+      "type": "text",
+      "class": "adf-no-grow-cell",
+      "sortable": true,
+      "template": "app.columns.libraryRole",
+      "desktopOnly": false,
+      "isHidden": true,
+      "order": 40
+    },
+    ```
 
+    The `role` column no longer displays by default.  
 
 ## Permissions
 
