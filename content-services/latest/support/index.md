@@ -36,7 +36,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | ActiveMQ v5.16 | |
 | | |
 | **Application servers** | |
-| Tomcat 9 | |
+| Tomcat 10.1.x | |
 | | |
 | **Clients** | |
 | Windows 10 x64 | |
@@ -65,9 +65,9 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Process Services 2.4 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
-| Alfresco Sync Service 3.11 | |
+| Alfresco Sync Service 4.0 | |
 | Alfresco Desktop Sync 1.16 | |
-| Alfresco Transform Service 3.0 | Compatible with Java 17 only |
+| Alfresco Transform Service 4.0 | |
 | Alfresco Document Transformation Engine 2.4 | |
 | Alfresco Search Enterprise 3.3 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.x upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
 | Alfresco Search and Insight Engine 2.0.7 and later | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
@@ -77,13 +77,13 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Intelligence Services 1.5 | |
 | Alfresco Content Connector for AWS S3 5.1 | Adds support for AWS Glacier using Cloud storage layer. |
 | Alfresco Content Connector for Azure 3.2 | |
-| Alfresco Content Connector for Salesforce 2.4 | |
-| Alfresco Content Connector for SAP applications 5.3 | |
+| Alfresco Content Connector for Salesforce 3.0 | |
+| Alfresco Content Connector for SAP applications 6.0 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
 | Alfresco Collaboration Connector for Microsoft 365 2.0 | |
 | Alfresco Collaboration Connector for Teams 2.0 | |
-| Alfresco Office Services 1.6 | |
-| Alfresco Google Docs Integration 3.4 | |
+| Alfresco Office Services 2.0 | |
+| Alfresco Google Docs Integration 4.0 | |
 | Alfresco Content Services SDK 5.2 | |
 | Alfresco Content Services SDK 4.6 | |
 | | |
@@ -91,8 +91,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Digital Workspace 4.2 | |
 | Alfresco Digital Workspace 4.1 | |
 | Alfresco Digital Workspace 4.0 | |
-| Alfresco Mobile Workspace 1.7 | |
-| Alfresco Mobile Workspace 1.6 | |
+| Alfresco Mobile Workspace 1.8 | |
 | Alfresco Control Center 8.2 | |
 | Alfresco Control Center 8.1 | |
 | Alfresco Control Center 8.0 | |
