@@ -9,7 +9,7 @@ Search Enterprise supports multiple languages. You can configure other languages
 The following languages are supported:
 
 | Language | Search Enterprise language | Plug-in required |
-|--------|-----------|
+| -------- | -------------------------- | ---------------- |
 | fr | light_french | Not required |
 | de | light_german | Not required |
 | it | light_italian | Not required |
