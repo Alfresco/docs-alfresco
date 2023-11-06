@@ -196,7 +196,7 @@ The basic steps to achieve this are:
 
 ### Events
 
-The DocuSign connector produces events when the DocuSign envelope changes its status, the events are:
+The DocuSign connector produces events when the DocuSign envelope changes its status.
 
 > **Note:** These events can be consumed by the process using Triggers. For example, a BPMN catch message event inside a process can be waiting for a trigger event that is set to `ENVELOPE_DECLINED`, and a trigger action set to throw a BPMN message.
 
