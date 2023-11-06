@@ -5,7 +5,7 @@ title: DocuSign connector
 The DocuSign connector provides a standard mechanism in Alfresco Process Automation to send documents for digital signing in
 [DocuSign](https://www.docusign.com){:target="_blank"}. The DocuSign connector is displayed on the process diagram as a pen.
 
-> **Important**: The DocuSign connector requires a DocuSign account to handle document signing. This account is separate to the Alfresco hosted environment and should be created and managed by customers.
+> **Important:** The DocuSign connector requires a DocuSign account to handle document signing. This account is separate to the Alfresco hosted environment and should be created and managed by customers.
 
 The actions that can be executed using the DocuSign connector are:
 
