@@ -53,9 +53,9 @@ The following settings can be configured in `../digital-workspace/app.config.jso
 
 You can edit the columns you want to see in any of the file views in the Digital Workspace. This configuration applies to the view you are in and any additional pagination part of that view. Currently the selection reverts back to the original view, once you click away.
 
-1. Log in to the Digital workspace.
+1. Log in to the Digital Workspace.
 
-2. In the view you want to adjust, select the **Three dots** on the top right.
+2. In the view you want to adjust, select the three dots on the top right.
 
 3. Deselect the columns you don't want to see in the view and then click **Apply**.
 
