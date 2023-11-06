@@ -20,7 +20,7 @@ The following input parameters must also be provided for the DocuSign API in the
 
 This [process definition](https://github.com/Alfresco/alfresco-process-connector-services/blob/develop/alfresco-process-docusign-connector-spring-boot-starter/docuSignProcess.bpmn20.xml){:target="_blank"} shows an example of how to set up the connector in Process Automation.
 
-As part of BPMN definition process, any Service Task responsible for sending the document needs to set **docusignconnector.SEND_FOR_SIGNATURE** or **docusignconnector.DOWNLOAD_DOCUMENT** as the value for its implementation attribute.
+As part of BPMN definition process, any Service Task responsible for sending the document needs to set `docusignconnector.SEND_FOR_SIGNATURE` or `docusignconnector.DOWNLOAD_DOCUMENT` as the value for its implementation attribute.
 
 In addition to the above, these input variables must be provided for the DocuSign API in the Service Task depending on the implementation:
 
