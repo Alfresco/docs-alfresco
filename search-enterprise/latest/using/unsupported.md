@@ -11,7 +11,6 @@ The following features, which were supported with Search and Insight Engine 2.x 
 ## Search features
 
 * Aspect queries (it works only using exact aspect name)
-* Highlighting
 * Fingerprinting
 * Resource limiting
 * Scoped search
@@ -30,8 +29,6 @@ The following features, which were supported with Search and Insight Engine 2.x 
 * PNAME
 * ANAME
 * NPATH
-* PARENT
-* PRIMARYPARENT
 * QNAME
 * PRIMARYASSOCQNAME
 * PRIMARYASSOCTYPEQNAME
@@ -55,11 +52,6 @@ The following features, which were supported with Search and Insight Engine 2.x 
 * DENYSET
 * FTSSTATUS
 
-### Path Indexing
-
-* Secondary paths (paths including secondary parents)
-* The "member" keyword for category paths
-
 ## Behavior of unsupported fields
 
 Supplying an unsupported or non-existent field will cause a query to fail. This is a change in behavior from Search and Insight Engine and Search Services, which silently ignore these issues.
@@ -68,13 +60,11 @@ Search Enterprise focuses on the most commonly used features, and in some cases 
 The following are examples of how to use different fields for queries:
 
 | Old Query | Replacement Query |
-| -------- | ----------------- |
+| --------- | ----------------- |
 | QNAME:'comment' | TYPE:'fm:post' |
 | PNAME:'0/wiki' | PATH:'//cm:wiki/*' |
-| NPATH:'2/Company Home/Sites/swsdp' | PATH: '/app:company_home/st:sites/cm:swsdp//*' |
-| PATH:'//cm:CategoryA/member' | PATH: '//cm:CategoryA/*' AND !TYPE:'cm:category' |
-
-> **Note:** Secondary paths and secondary parents are not supported at this time, so there may still be some differences if these are in use.
+| NPATH:'2/Company Home/Sites/swsdp' | PATH: '/app:company_home/st:sites/cm:swsdp/*' |
+| ANAME:'0/cdefb3a9-8f55-4771-a9e3-06fa370250f6' | PARENT:'cdefb3a9-8f55-4771-a9e3-06fa370250f6' |
 
 ## Query languages
 
