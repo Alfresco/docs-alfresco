@@ -49,6 +49,43 @@ The following settings can be configured in `../digital-workspace/app.config.jso
 | viewer.downloadPromptReminderDelay | In seconds, specify the amount of time to delay a reminder prompt, to the Digital Workspace user, before displaying another download large file message. The default is `30`. |
 | viewer.fileAutoDownloadSizeThresholdInMB | In megabytes, specify the largest file size a file can be, before the Digital Workspace does not download it automatically. The default is `15`. |
 
+## Dynamic view
+
+You can edit the columns you want to see in any of the file views in the Digital Workspace. This configuration applies to the view you are in and any additional pagination part of that view. Currently the selection reverts back to the original view, once you click away.
+
+1. Log in to the Digital Workspace.
+
+2. In the view you want to adjust, select the three dots on the top right.
+
+3. Deselect the columns you don't want to see in the view and then click **Apply**.
+
+    The columns are no longer visible in the view.
+
+### Configure default columns
+
+A system administrator can use the `app.extension.json` file to configure which columns are visible by default. If the file is not adjusted all the columns will show by default.
+
+1. Open your `../digital-workspace/app.extension.json` file.
+
+2. Add `"isHidden": true` to any of the columns of the `files`, `libraries`, or `trashcan` sections of the file, and then save it. For example, to hide the `role` column in the `libraries` section:
+
+      ```json
+      {
+      "id": "app.libraries.role",
+      "key": "role",
+      "title": "APP.DOCUMENT_LIST.COLUMNS.ROLE",
+      "type": "text",
+      "class": "adf-no-grow-cell",
+      "sortable": true,
+      "template": "app.columns.libraryRole",
+      "desktopOnly": false,
+      "isHidden": true,
+      "order": 40
+    },
+    ```
+
+    The `role` column no longer displays by default.  
+
 ## Permissions
 
 Permissions for folders and files in the Digital Workspace can be assigned and viewed easily.
