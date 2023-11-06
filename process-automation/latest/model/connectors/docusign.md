@@ -200,6 +200,8 @@ The DocuSign connector produces events when the DocuSign envelope changes its st
 
 > **Note:** These events can be consumed by the process using Triggers. For example, a BPMN catch message event inside a process can be waiting for a trigger event that is set to `ENVELOPE_DECLINED`, and a trigger action set to throw a BPMN message.
 
+The events are:
+
 * `ENVELOPE_VOIDED` -  The envelope has been voided by the sender or has expired. The void reason indicates whether the envelope was manually voided or expired.
 * `ENVELOPE_DECLINED` - The envelope has been declined by one of the recipients.
 * `ENVELOPE_COMPLETED` - The envelope has been completed by all of the recipients.
