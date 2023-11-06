@@ -31,16 +31,16 @@ recommended for development and test environments only.
     ```text
     services:
         alfresco:
-            #image: alfresco/alfresco-content-repository:23.1.x
-            image: quay.io/alfresco/alfresco-governance-repository-enterprise:23.1.x
+            #image: alfresco/alfresco-content-repository:7.4.x
+            image: quay.io/alfresco/alfresco-governance-repository-enterprise:7.4.x
             mem_limit: 1700m
            
     ```
 
     ```text
         share:
-            #image: alfresco/alfresco-share:23.1.x
-            image: quay.io/alfresco/alfresco-governance-share-enterprise:23.1.x
+            #image: alfresco/alfresco-share:7.4.x
+            image: quay.io/alfresco/alfresco-governance-share-enterprise:7.4.x
             mem_limit: 1g
            
     ```
@@ -72,9 +72,9 @@ recommended for development and test environments only.
 
     ```text
     ...
-    alfresco_1            | 02-Nov-2023 08:41:58.156 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
-    alfresco_1            | 02-Nov-2023 08:41:58.206 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
-    alfresco_1            | 02-Nov-2023 08:41:58.261 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 226026 ms
+    alfresco_1            | 15-May-2023 08:41:58.156 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+    alfresco_1            | 15-May-2023 08:41:58.206 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+    alfresco_1            | 15-May-2023 08:41:58.261 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 226026 ms
     ```
 
     If you encounter errors whilst the system is starting up:
@@ -95,4 +95,4 @@ recommended for development and test environments only.
 
     * Share: `http://localhost:8080/share`
 
-Final step before you can start with Records Management is to [create the Records Management site]({% link governance-services/latest/install/create-rm-site.md %}).
+Final step before you can start with Records Management is to [create the Records Management site]({% link governance-services/7.4/install/create-rm-site.md %}).

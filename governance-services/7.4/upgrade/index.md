@@ -11,7 +11,7 @@ When your Alfresco Content Services installation is upgraded, you can apply the 
 
 1. Ensure your current production environment is running a version that is supported for upgrading.
 
-2. Download Alfresco Content Services 23.1 and the Governance Services Distribution ZIP from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
+2. Download Alfresco Content Services 7.4 and the Governance Services Distribution ZIP from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 3. Upgrade to Alfresco Content Services.
 
@@ -21,7 +21,7 @@ When your Alfresco Content Services installation is upgraded, you can apply the 
 
 4. Apply the Governance Services to the upgraded Alfresco Content Services installation.
 
-    Follow the instructions in [Install using the distribution ZIP]({% link governance-services/latest/install/zip.md %}).
+    Follow the instructions in [Install using the distribution ZIP]({% link governance-services/7.4/install/zip.md %}).
 
     > **Note:** If you have {% include tooltip.html word="easyaccessrecords" text="easy access records" %} (previously know as in-place records) that are pre-2.3.0.8 versions of Records Management, then you also need to [run a webscript](#easy_access_upgrade) so that easy access records created in pre-2.3.0.8 sites are shown in the search results of users without Records Management permissions.
 

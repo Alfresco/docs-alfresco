@@ -555,6 +555,7 @@ defaults:
       tutorial: true
       support: true
       versions:
+        - 23.1
         - 7.4
         - 7.3
         - 7.2
@@ -568,10 +569,18 @@ defaults:
   - scope:
       path: "governance-services/latest"
     values:
-      version: 7.4
+      version: 23.1
       latest: true
   - scope:
       path: "governance-services/latest/tutorial"
+    values:
+      toc: "governance-services-tutorial"
+  - scope:
+      path: "governance-services/7.4"
+    values:
+      version: 7.4
+  - scope:
+      path: "governance-services/7.4/tutorial"
     values:
       toc: "governance-services-tutorial"
   - scope:
