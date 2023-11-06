@@ -216,7 +216,7 @@ When a Process Automation process is instantiated this way, the following variab
 | -------- | ---- | ----------- |
 | envelopeId | String | Envelope ID of the document. |
 | documents | Array | Documents related to the envelope and data related to them like uri, and id. |
-| extendedFields | JSON  | Additional fields like decline reason etc. |
+| extendedFields | JSON | Additional fields like decline reason etc. |
 
 The connector is listening for events using the webhook that follows the pattern:
 
