@@ -6,7 +6,7 @@ Alfresco Search Enterprise 4.0 consists of Alfresco Content Services, Elasticsea
 
 ## Prerequisites
 
-* Alfresco Content Services 7.4 that includes Alfresco ActiveMQ, Alfresco Transform Service, and Database, for more see [Install overview]({% link content-services/latest/install/index.md %}).
+* Alfresco Content Services 23.1 that includes Alfresco ActiveMQ, Alfresco Transform Service, and Database, for more see [Install overview]({% link content-services/latest/install/index.md %}).
 * Elasticsearch 7.17.x - any version between 7.10.x and 7.17.x inclusive, is compatible. It may be used as a standard managed service or can be installed with the default configuration, for more see [Install Elasticsearch server](#install-elasticsearch-server).
 * Elasticsearch Connector 4.0
 

@@ -47,7 +47,7 @@ Additionally, these properties can be set as environment variables in Alfresco R
 
 ```docker
 alfresco:
-    image: quay.io/alfresco/alfresco-content-repository:7.4.0
+    image: quay.io/alfresco/alfresco-content-repository:23.1.0
     environment:
         JAVA_OPTS: "
         -Dindex.subsystem.name=elasticsearch

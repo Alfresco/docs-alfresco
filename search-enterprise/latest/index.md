@@ -14,7 +14,7 @@ The **Indexing** feature is provided by a Spring Boot application called Alfresc
 
 Alfresco Search Enterprise consists of the following components:
 
-* Alfresco Content Services 7.4
+* Alfresco Content Services 23.1
 * Elasticsearch 7.17.x - any version between 7.10.x and 7.17.x inclusive, is compatible. (It can be used as a standard managed service or can be installed using default configuration)
 * Alfresco Elasticsearch Connector 4.0
 

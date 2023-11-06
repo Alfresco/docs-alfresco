@@ -39,7 +39,7 @@ You can also add these environment variables directly to the Alfresco `JAVA_OPTS
 ```yml
 services:
     alfresco:
-        image: quay.io/alfresco/alfresco-content-repository:7.4.0
+        image: quay.io/alfresco/alfresco-content-repository:23.1.0
         mem_limit: 1900m
         environment:
             JAVA_TOOL_OPTIONS: -Dencryption.keystore.type=JCEKS -Dencryption.cipherAlgorithm=DESede/CBC/PKCS5Padding -Dencryption.keyAlgorithm=DESede -Dencryption.keystore.location=/usr/local/tomcat/shared/classes/alfresco/extension/keystore/keystore -Dmetadata-keystore.password=mp6yc0UD9e -Dmetadata-keystore.aliases=metadata -Dmetadata-keystore.metadata.password=oKIWzVdEdA -Dmetadata-keystore.metadata.algorithm=DESede
