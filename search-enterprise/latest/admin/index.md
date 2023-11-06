@@ -112,7 +112,7 @@ When creating a new Alfresco Repository you must use the Elasticsearch connector
 3. Run the re-indexing app from the command line replacing the connection details as appropriate:
 
 ```java
-$ java -jar alfresco-elasticsearch-reindexing-4.0.0-app.jar \
+$ java -jar alfresco-elasticsearch-reindexing-3.3.0-app.jar \
 --alfresco.reindex.jobName=reindexByIds \
 --spring.elasticsearch.rest.uris=http://localhost:9200 \
 --spring.datasource.url=jdbc:postgresql://localhost:5432/alfresco \
@@ -142,7 +142,7 @@ When using a pre-populated Alfresco Repository, use the Elasticsearch connector 
 4. Run the re-indexing app and replace the connection details as appropriate:
 
 ```java
-$ java -jar alfresco-elasticsearch-reindexing-4.0.0-app.jar \
+$ java -jar alfresco-elasticsearch-reindexing-3.3.0-app.jar \
 --alfresco.reindex.jobName=reindexByIds \
 --spring.elasticsearch.rest.uris=http://localhost:9200 \
 --spring.datasource.url=jdbc:postgresql://localhost:5432/alfresco \
@@ -175,7 +175,7 @@ Over time some data may not be indexed correctly. This can be caused by prolonge
 The following sample re-indexes all the nodes in the Alfresco Repository which have an `ALF_NODE.id` value between `1` and `10000`.
 
 ```java
-java -jar target/alfresco-elasticsearch-reindexing-4.0.0-app.jar \
+java -jar target/alfresco-elasticsearch-reindexing-3.3.0-app.jar \
   --alfresco.reindex.jobName=reindexByIds \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
@@ -189,7 +189,7 @@ java -jar target/alfresco-elasticsearch-reindexing-4.0.0-app.jar \
 The following sample re-indexes all the nodes in the Alfresco Repository which have a value for `ALF_TRANSACTION.commit_time_ms` between `202001010000` and `202104180000`. Date time values are written in the format `yyyyMMddHHmm`.
 
 ```java
- java -jar target/alfresco-elasticsearch-reindexing-4.0.0-app.jar \
+ java -jar target/alfresco-elasticsearch-reindexing-3.3.0-app.jar \
   --alfresco.reindex.jobName=reindexByDate \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
@@ -374,7 +374,7 @@ Both strategies split the specified range into multiple ranges depending on the 
 _Manager_:
 
 ```shell
-java -jar alfresco-elasticsearch-reindexing-4.0.0-app.jar \
+java -jar alfresco-elasticsearch-reindexing-3.3.0-app.jar \
   --alfresco.reindex.jobName=reindexByIds \
   --alfresco.reindex.partitioning.type=manager \
   --alfresco.reindex.pagesize=100 \
@@ -392,7 +392,7 @@ java -jar alfresco-elasticsearch-reindexing-4.0.0-app.jar \
 _Worker_:
 
 ```shell
-java -jar alfresco-elasticsearch-reindexing-4.0.0-app.jar \
+java -jar alfresco-elasticsearch-reindexing-3.3.0-app.jar \
   --alfresco.reindex.partitioning.type=worker \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100 \
@@ -418,7 +418,7 @@ When using remote partitioning you are required to use a shared database that is
 When using a different database you need to add to the Java classpath and to the right connection driver. The Re-indexing service is a Spring boot application which means you can't add the JAR to the classpath, but instead you need to use a different command, for example:
 
 ```shell
- java -cp alfresco-elasticsearch-reindexing-4.0.0-app.jar:mysql-connector-java-8.0.25.jar
+ java -cp alfresco-elasticsearch-reindexing-3.3.0-app.jar:mysql-connector-java-8.0.25.jar
    -Dloader.main=org.alfresco.reindexing.ReindexingApp org.springframework.boot.loader.PropertiesLauncher
    --alfresco.reindex.jobName=reindexByIds
    --alfresco.reindex.partitioning.type=manager
@@ -466,7 +466,7 @@ The Re-indexing application may be used to index only metadata. You can also exc
 To apply this configuration, set the parameter `alfresco.reindex.contentIndexingEnabled` to `false`:
 
 ```shell
-java -jar alfresco-elasticsearch-reindexing-4.0.0-app.jar \
+java -jar alfresco-elasticsearch-reindexing-3.3.0-app.jar \
     --alfresco.reindex.contentIndexingEnabled=false
 ```
 
@@ -475,7 +475,7 @@ java -jar alfresco-elasticsearch-reindexing-4.0.0-app.jar \
 By default, the re-indexing PATH property is disabled. To enable this feature, set the parameter `alfresco.reindex.pathIndexingEnabled` to `true`.
 
 ```shell
-java -jar alfresco-elasticsearch-reindexing-4.0.0-app.jar \
+java -jar alfresco-elasticsearch-reindexing-3.3.0-app.jar \
     --alfresco.reindex.pathIndexingEnabled=true
 ```
 

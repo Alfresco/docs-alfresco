@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for Search Enterprise 4.0.x:
+The following are the supported platforms for Search Enterprise 3.3.x:
 
 | Version | Notes |
 | ------- | ----- |
@@ -20,6 +20,6 @@ The following are the supported platforms for Search Enterprise 4.0.x:
 | Elasticsearch server 7.11.x | |
 | Elasticsearch server 7.10.x | |
 | Opensearch server 1.3.x | |
-| Alfresco Elasticsearch Connector 4.0.x | |
+| Alfresco Elasticsearch Connector 3.3.x | |
 
-> **Note:** Elasticsearch/Opensearch does not require any additional software from Alfresco in order to be used by Alfresco Search Enterprise 4.0.
+> **Note:** Elasticsearch/Opensearch does not require any additional software from Alfresco in order to be used by Alfresco Search Enterprise 3.3.

@@ -2,7 +2,7 @@
 title: Alfresco Search Enterprise 
 ---
 
-Alfresco Content Services supports the Elasticsearch platform for searching within the repository using Alfresco Search Enterprise 4.0.
+Alfresco Content Services supports the Elasticsearch platform for searching within the repository using Alfresco Search Enterprise 3.3.
 
 [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html){:target="_blank"} is an open source enterprise search platform that uses the [Lucene](https://lucene.apache.org/){:target="_blank"} engine for indexing and searching. Elasticsearch is written in Java and runs as a standalone search server. The Alfresco Repository sends HTTP requests to the Elasticsearch REST API to search for content and metadata. The Alfresco Elasticsearch connector updates the cores and indexes in Elasticsearch. This consumes ActiveMQ messages produced by the Alfresco Repository when folders, documents, and permissions are created or updated in the repository.
 
@@ -16,7 +16,7 @@ Alfresco Search Enterprise consists of the following components:
 
 * Alfresco Content Services 7.4
 * Elasticsearch 7.17.x - any version between 7.10.x and 7.17.x inclusive, is compatible. (It can be used as a standard managed service or can be installed using default configuration)
-* Alfresco Elasticsearch Connector 4.0
+* Alfresco Elasticsearch Connector 3.3
 
 > **Note:** Elasticsearch 7.10.2 is the last Apache2-licensed version. The Elasticsearch connector can also use [Amazon OpenSearch](https://aws.amazon.com/opensearch-service/the-elk-stack/what-is-opensearch/){:target="_blank"}.
 
