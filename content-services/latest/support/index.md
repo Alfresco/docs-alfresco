@@ -25,7 +25,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | MySQL 8 | `mysql-connector-java-8.0.27.jar` |
 | MS SQL Server 2022 |  |
 | MS SQL Server 2019 | `mssql-jdbc-9.2.1.jre11.jar` |
-| Oracle 19c | `Ojdbc11.jar` – 19.13 and later |
+| Oracle 19c | `Ojdbc11.jar` – 19.3 |
 | PostgreSQL 15.x |  |
 | PostgreSQL 14.x | `Postgresql-42.3.2.jar` |
 | PostgreSQL 13.x | `Postgresql-42.3.2.jar` |
@@ -61,16 +61,16 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Services** | |
 | Alfresco Governance Services 23.1 | |
-| Alfresco Process Services 2.4 | |
+| Alfresco Process Services 2.4.2 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
 | Alfresco Sync Service 4.0 | |
 | Alfresco Desktop Sync 1.16 | |
 | Alfresco Transform Service 4.0 | |
 | Alfresco Document Transformation Engine 2.4 | |
-| Alfresco Search Enterprise 3.3 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.x upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
-| Alfresco Search and Insight Engine 2.0.7 and later | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
-| Alfresco Search Services 2.0.7 and later | |
+| Alfresco Search Enterprise 4.0 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
+| Alfresco Search and Insight Engine 2.0.8 and later | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
+| Alfresco Search Services 2.0.8 and later | |
 | Identity Service 2.0 | |
 | Alfresco Intelligence Services 1.5 | |
 | Alfresco Content Connector for AWS S3 6.0 | Adds support for AWS Glacier using Cloud storage layer. |
@@ -82,15 +82,11 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Collaboration Connector for Teams 2.0 | |
 | Alfresco Office Services 2.0 | |
 | Alfresco Google Docs Integration 4.0 | |
-| Alfresco Content Services SDK 5.2 | |
-| Alfresco Content Services SDK 4.6 | |
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 4.3 | |
 | Alfresco Mobile Workspace 1.8 | |
-| Alfresco Control Center 8.2 | |
-| Alfresco Control Center 8.1 | |
-| Alfresco Control Center 8.0 | |
+| Alfresco Control Center 8.3 | |
 | Alfresco Application Development Framework (ADF) 6.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | | |
 | **Components** | |
