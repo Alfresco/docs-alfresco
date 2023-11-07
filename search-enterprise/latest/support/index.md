@@ -8,8 +8,9 @@ The following are the supported platforms for Search Enterprise 4.0.x:
 | ------- | ----- |
 | Content Services 23.1.x | Including ActiveMQ, Alfresco Transform Service, and PostgreSQL |
 | | Check the [Alfresco Content Services Supported platforms]({% link content-services/latest/support/index.md %}) page for specific versions of the individual components. |
+| | |
 | **Java** | |
-| JDK x or OpenJDK x | |
+| JDK 17 or OpenJDK 17 | |
 | | |
 | Elasticsearch server 7.17.x | |
 | Elasticsearch server 7.16.x | |
