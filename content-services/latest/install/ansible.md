@@ -135,7 +135,7 @@ The table below shows the version of the components deployed by the playbook for
 | Search Services | 2.0.8.2 | 2.0.6.1 | 2.0.5 | 2.0.4 | 2.0.2 | 2.0.1.1 | 2.0.6.1 |
 | Search Enterprise | 4.0.0 | 3.3.0 | 3.2.0 | 3.1.1 | 3.1.1 | - | N/A |
 | All-In-One Transform Engine | 4.0.0 | 3.1.0 | 3.0.0 | 2.5.7 | 2.5.6 | 2.3.10 | 3.1.0 |
-| AOS | 1.6.0 | 1.6.0 | 1.5.0 | 1.4.1 | 1.4.0 | 1.4.0 | 1.6.0 |
+| AOS | 2.0.0 | 1.6.0 | 1.5.0 | 1.4.1 | 1.4.0 | 1.4.0 | 1.6.0 |
 | GoogleDocs | 4.0.0 | 3.4.0 | 3.3.0 | 3.2.2 | 3.2.1 | 3.2.1 | 3.4.0 |
 | Digital Workspace | 4.3.0 | 4.0.0 | 3.1.0 | 2.9.0 | 2.6.0 | 2.1.0 | N/A |
 | Transform Router | 3.0.0 | 2.1.0 | 2.0.0 | 1.5.3 | 1.5.1 |1.3.2 | N/A |
