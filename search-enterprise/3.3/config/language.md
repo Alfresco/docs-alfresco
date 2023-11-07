@@ -9,7 +9,7 @@ Search Enterprise supports multiple languages. You can configure other languages
 The following languages are supported:
 
 | Language | Search Enterprise language | Plug-in required |
-| -------- | -------------------------- | ---------------- |
+|--------|-----------|
 | fr | light_french | Not required |
 | de | light_german | Not required |
 | it | light_italian | Not required |
@@ -58,8 +58,7 @@ To create a custom configuration you must create a `JSON` file in the locale con
     "analysis": {
       "analyzer": {
         "locale_content": {
-          "type": "french"
-        },
+          "type": "french"        },
         "locale_text_index": {
           "tokenizer": "whitespace",
           "filter": [
@@ -67,8 +66,7 @@ To create a custom configuration you must create a `JSON` file in the locale con
             "custom_word_delimiter_graph",
             "lowercase",
             "flatten_graph",
-            "french_stemmer_multiplexer"
-          ]
+            "french_stemmer"          ]
         },
         "locale_text_query": {
           "tokenizer": "whitespace",
@@ -76,26 +74,22 @@ To create a custom configuration you must create a `JSON` file in the locale con
             "asciifolding",
             "custom_word_delimiter_graph",
             "lowercase",
-            "french_stemmer_multiplexer"
-          ]
+            "french_stemmer"          ]
         }
       },
       "filter": {
         "french_stemmer": {
           "type": "stemmer",
-          "language": "light_french"
-        },
-        "french_stemmer_multiplexer": {
-          "type": "multiplexer",
-          "filters": [ "french_stemmer" ]
-        }
+          "language": "light_french"        }
       }
     }
   }
 }
 ```
 
-The `analysis` section contains three analyzers and any custom defined filters. Each analyzer section must contain at least one tokenizer. You can optionally include a number of filters which can then modify the tokens, for example to convert text to lowercase for the index. `locale_content` is a symmetric content analyzer, which in this example is set to `french`. `locale_text_index` is an asymmetric text analyzer, which you set to use whitespace as the delimiter. It has several filters including a custom defined filter, in this instance its called `french_stemmer_multiplexer`. The `locale_text_query` section contains an asymmetric text query analyzer which is also set to use whitespace as the delimiter. It has several filters, including, in this case, one called `french_stemmer_multiplexer`. The filter section contains any custom defined filters that are used by the analyzers. In this case the filter is called `french_stemmer_multiplexer`.
+The `analysis` section contains three analyzers and any custom defined filters. Each analyzer section must contain at least one tokenizer. You can optionally include a number of filters which can then modify the tokens, for example to convert text to lowercase for the index. `locale_content` is a symmetric content analyzer, which in this example is set to `french`. `locale_text_index` is an asymmetric text analyzer, which is set to use whitespace as the delimiter, and has several filters including a custom defined filter, in this case called `french_stemmer`.
+The `locale_text_query` section contains an asymmetric text query analyzer which is also set to use whitespace as the delimiter. It has several filters, including, in this case, one called `french_stemmer`.
+The `filter` section contains any custom defined filters that are to be used by the analyzers. In this case the filter is called `french_stemmer`.
 
 ## Checking configuration
 
