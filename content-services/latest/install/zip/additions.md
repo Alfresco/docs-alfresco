@@ -38,38 +38,7 @@ If you wish to use a translation that is not supplied with Content Services, the
 
 ## Install integrations
 
-Use this information to review the components or modules that integrate Content Services with other applications.
-
-| Name     | Notes |
-| -------- | ----- |
-| **Services** | |
-| Process Services | |
-| Governance Services | |
-| | |
-| **Integrations** | |
-| Sync Service | |
-| Desktop Sync | |
-| Transform Service | |
-| Document Transformation Engine | Paid add-on module |
-| Search and Insight Engine | Paid add-on module |
-| Search Enterprise | |
-| Search Services | |
-| Federation Services | |
-| Identity Service | |
-| Intelligence Services | Paid add-on module |
-| Content Connector for AWS S3 | Paid add-on module |
-| Content Connector for Azure | Paid add-on module |
-| Content Connector for Salesforce | |
-| Content Connector for SAP applications | Paid add-on module |
-| Content Connector for SAP Cloud | Paid add-on module |
-| Collaboration Connector for Microsoft 365 | |
-| Collaboration Connector for Teams | |
-| Outlook Integration | Paid add-on module |
-| Office Services | |
-| Google Docs Integration | |
-| | |
-| **Applications** | |
-| Digital Workspace | |
+You can review the supported components, and modules that integrate Content Services with other applications in the [Supported platforms]({% link content-services/latest/support/index.md %}) page.
 
 ## Test installation
 

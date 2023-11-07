@@ -12,7 +12,7 @@ For a description of the system paths used within this documentation, see [Syste
 
 To install Content Services using the distribution zip (which also contains the WAR files), make sure that the required software is available on your system:
 
-* Java: OpenJDK 17 is recommended
+* Java: OpenJDK 17 is required
 * Application server: Apache Tomcat
 * Database: PostgreSQL or MySQL
 * Message broker: ActiveMQ
@@ -64,8 +64,8 @@ Here's a list of the files to download and install.
 
 | File | Description |
 | ---- | ----------- |
-| alfresco-content-services-distribution-7.4.x.zip | Content Services distribution zip for new installations or upgrades. Alfresco WAR files (in distribution zip) for a manual install into an existing Tomcat application server. This distribution zip also contains the Module Management Tool (MMT) and the sample extension files, such as `alfresco-global.properties`. |
-|alfresco-search-services-2.0.x.zip | Alfresco Search Services distribution zip.<br><br>See [Install Alfresco Search Services]({% link search-services/latest/install/index.md %}) for more information. |
+| alfresco-content-services-distribution-23.1.x.zip | Content Services distribution zip for new installations or upgrades. Alfresco WAR files (in distribution zip) for a manual install into an existing Tomcat application server. This distribution zip also contains the Module Management Tool (MMT) and the sample extension files, such as `alfresco-global.properties`. |
+|alfresco-search-services-4.0.x.zip | Alfresco Search Services distribution zip.<br><br>See [Install Alfresco Search Services]({% link search-services/latest/install/index.md %}) for more information. |
 
 ## Preparing the filesystem and database
 

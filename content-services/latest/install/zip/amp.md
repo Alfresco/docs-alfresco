@@ -5,7 +5,7 @@ nav: false
 
 An Alfresco Module Package (AMP) is a bundle of code, content model, content, and the directory structure that is used to distribute additional functionality for Content Services. Use the Module Management Tool (MMT) to install and manage AMP files. You can install an AMP in an Alfresco WAR using the MMT, or by using the `apply_amps` tool.
 
-The MMT is available as a JAR file from the distribution zip (`alfresco-content-services-distribution-7.4.x.zip`), in the zip's `/bin` directory. Place the `/bin` directory and its contents in the same location where you extracted the Content Services distribution zip; for example `<installLocation>/bin`.
+The MMT is available as a JAR file from the distribution zip (`alfresco-content-services-distribution-23.1.x.zip`), in the zip's `/bin` directory. Place the `/bin` directory and its contents in the same location where you extracted the Content Services distribution zip; for example `<installLocation>/bin`.
 
 1. Browse to the `/bin` directory, for example:
 
