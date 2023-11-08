@@ -98,6 +98,8 @@ The options for the storage location are:
 
 {% include tabs.html tableid="deploy-steps" opt1="Application Name" content1=name opt2="Admin Access" content2=admin opt3="User Access" content3=user opt4="Connectors" content4=connector opt5="Storage" content5=storage %}
 
+You can see the progress of the deployment process. The completed steps are marked with an orange tick, while the uncompleted ones are marked with an empty circle.
+
 After clicking **Create** the deployment descriptor will be created and the application deployed, if **Deploy** was selected.
 
 ### Delete
