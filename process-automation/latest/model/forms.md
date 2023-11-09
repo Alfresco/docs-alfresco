@@ -466,6 +466,7 @@ The advanced properties for the Metadata viewer are:
 | Use chips for multi-value properties | Select the check box to allow the display of multi-value properties as chips. |
 | Display aspect | Select the Aspect you wish to display as an expanded card. |
 | Preset | The name or configuration of the the metadata preset. Click the preset button to configure the metadata you would like visible in your GUI, for more on presets see [Application config presets](https://www.alfresco.com/abn/adf/docs/content-services/components/content-metadata-card.component/#application-config-presets){:target="_blank"}. |
+
 ### Data Table
 
 The Data Table can be used to display data in a table.
