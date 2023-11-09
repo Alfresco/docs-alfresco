@@ -61,7 +61,9 @@ To create a custom UI:
 
 3. Enter a name and optional description.
 
-4. Click the **Upload** button and select the zip file that contains your Custom UI.
+4. If you do not have a customized zip file yet, select **Generate from Template** to generate a custom UI from a UI template. A template zip file can be downloaded and customized in a different application.
+
+5. Once you have a zip file with custom UI, click the **Upload** button and select the zip file that contains your Custom UI.
 
 ## Theme
 
