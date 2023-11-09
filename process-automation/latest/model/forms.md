@@ -467,6 +467,26 @@ The advanced properties for the Metadata viewer are:
 | Display aspect | Select the Aspect you wish to display as an expanded card. |
 | Preset | The name or configuration of the the metadata preset. Click the preset button to configure the metadata you would like visible in your GUI, for more on presets see [Application config presets](https://www.alfresco.com/abn/adf/docs/content-services/components/content-metadata-card.component/#application-config-presets){:target="_blank"}. |
 
+### Data Table
+
+The Data Table can be used to display data in a table.
+
+To create a form that contains the Data Table:
+
+1. Create or edit an existing form, for more see [Create a form](#create-a-form).
+
+2. Add the Data Table widget to the form.
+
+The advanced properties for the Data Table are:
+
+| Property | Description |
+| -------- | ----------- |
+| Rowspan | The number of columns a field spans. |
+| Form variable (JSON) | Displays a drop-down list of all available JSON type form variables. These variables can be used by the application to populate the data table. If there are no JSON variables, the list is empty. You can create one, following instructions in [Create a form variable](#create-a-form-variable). |
+| Path to array in JSON | Configuration of the path where the fetched data belongs. Each nested object is added using a dot as a separator. |
+
+You can edit the schema definition, using the Edit Schema Definition under the Data Table properties pane. The column schema definition is used to specify how the table is displayed in detail, including the column header (title) or sorting. The schema is edited in the JSON editor.
+
 ## Custom form widgets
 
 Form widgets provide the ability to add custom form fields into a form. There are two stages to including a custom form field in a project:
