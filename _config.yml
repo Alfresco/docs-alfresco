@@ -1065,7 +1065,6 @@ defaults:
       path: "sap/5.3"
     values:
       version: 5.3
-      latest: true
   - scope:
       path: "sap/5.2"
     values:
