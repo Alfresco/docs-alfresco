@@ -67,8 +67,8 @@ Use the following steps to download the files required to install the SAP Connec
 
 1. Go to [Hyland Community](https://community.hyland.com/products/alfresco){:target="_blank"}, click **Product downloads**, and then download the SAP Connector distribution zip, which contains the following files:
 
-    * `sap-content-connector-repo-5.3.x.amp` for Content Services.
-    * `sap-content-connector-share-5.3.x.amp` for Alfresco Share.
+    * `sap-content-connector-repo-6.0.x.amp` for Content Services.
+    * `sap-content-connector-share-6.0.x.amp` for Alfresco Share.
     * `sap-content-connector-jco-packer-1.x.jar` - the **SAP JCo Packer tool** for merging the native SAP Java Connector libraries into the repository AMP file.
     * `sap-content-connector-encryptor-1.1.jar` to [encrypt plain-text passwords]({% link sap/latest/admin/reference.md %}#encryptpwd) for all SAP Connector related properties in the `alfresco-global.properties` file.
     * `alfresco-global.properties_append` contains all required property keys to be added in the `alfresco-global.properties` for an SAP connection.
@@ -98,14 +98,14 @@ The re-packaging is done by using the SAP JCo Packer tool (`sap-content-connecto
     1. Create a new temporary directory and copy the following files into it:
 
         * `sap-content-connector-jco-packer-1.x.jar`
-        * `sap-content-connector-repo-5.3.x.amp`
+        * `sap-content-connector-repo-6.0.x.amp`
         * `sapjco31P_3-20009381.zip` (example file name for native Java Connector libraries, downloaded from the SAP Support Portal)
 
             > **Note:** The ZIP name could be different, depending on your chosen system architecture.
 
         ![]({% link sap/images/sap_packer_002.png %})
 
-    2. Verify the `sap-content-connector-repo-5.3.x.amp` file size. It should be less than 1 MB.
+    2. Verify the `sap-content-connector-repo-6.0.x.amp` file size. It should be less than 1 MB.
 
 2. Run the merge tool:
 
@@ -121,7 +121,7 @@ The re-packaging is done by using the SAP JCo Packer tool (`sap-content-connecto
 
 3. Verify the merge:
 
-    Verify that the merge is successful and double-check the file size of the `sap-content-connector-repo-5.3.x.amp` again. This should now be much larger than before.
+    Verify that the merge is successful and double-check the file size of the `sap-content-connector-repo-6.0.x.amp` again. This should now be much larger than before.
 
     > **Note:** Depending on the chosen system architecture of the SAP Java Connector, the repository AMP file may be up to 7 MB. This indicates that the required native SAP libraries are now available inside the AMP file.
 
@@ -129,7 +129,7 @@ The re-packaging is done by using the SAP JCo Packer tool (`sap-content-connecto
 
 4. Copy and save the re-packaged AMP file:
 
-    The re-packaged `sap-content-connector-repo-5.3.x.amp` file should now be saved for the future. This is the final file that's needed to [install](#installsapconnamps) the SAP Connector.
+    The re-packaged `sap-content-connector-repo-6.0.x.amp` file should now be saved for the future. This is the final file that's needed to [install](#installsapconnamps) the SAP Connector.
 
     > **Note:** You only need to merge the native SAP Java Connector libraries once for a specific release of the SAP Connector.
 
@@ -145,11 +145,11 @@ These steps describe how to install the SAP Connector to an instance of Content 
 
 1. You need the following files to apply the SAP Connector:
 
-    * `sap-content-connector-repo-5.3.x.amp` for Content Services
+    * `sap-content-connector-repo-6.0.x.amp` for Content Services
 
         > **Note**: This must be the re-packed file which includes the native SAP Java Connector libraries. Don't use the original file from the delivery package without the required changes.
 
-    * `sap-content-connector-share-5.3.x.amp` for Alfresco Share
+    * `sap-content-connector-share-6.0.x.amp` for Alfresco Share
 
 2. Use the Module Management Tool (MMT) to install the {% include tooltip.html word="AMP" text="AMP" %} files into the Repository WAR (`alfresco.war`) and the Share WAR (`share.war`).
 
