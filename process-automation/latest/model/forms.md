@@ -481,7 +481,7 @@ The advanced properties for the Data Table are:
 
 | Property | Description |
 | -------- | ----------- |
-| Rowspan | The number of columns a field spans. |
+| Rowspan | The number of rows a field spans. |
 | Form variable (JSON) | Displays a drop-down list of all available JSON type form variables. These variables can be used by the application to populate the data table. If there are no JSON variables, the list is empty. You can create one, following instructions in [Create a form variable](#create-a-form-variable). |
 | Path to array in JSON | Configuration of the path where the fetched data belongs. Each nested object is added using a dot as a separator. |
 
