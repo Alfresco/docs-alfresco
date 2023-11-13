@@ -1051,12 +1051,18 @@ defaults:
       toc: "sap"
       support: true
       versions:
+        - 6.0
         - 5.3
         - 5.2
         - 5.1
         - 5.0
   - scope:
       path: "sap/latest"
+    values:
+      version: 6.0
+      latest: true
+  - scope:
+      path: "sap/5.3"
     values:
       version: 5.3
       latest: true

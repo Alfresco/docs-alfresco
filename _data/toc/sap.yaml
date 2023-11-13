@@ -1,5 +1,5 @@
-# Alfresco Content Connector for SAP Applications 5.3
-- version: 5.3
+# Alfresco Content Connector for SAP Applications 6.0
+- version: 6.0
   pages:
     - title: 'Introduction'
       path: '/sap/latest/'
@@ -19,6 +19,28 @@
           path: '/sap/latest/admin/'
         - title: 'Reference'
           path: '/sap/latest/admin/reference/'
+
+# Alfresco Content Connector for SAP Applications 5.3
+- version: 5.3
+  pages:
+    - title: 'Introduction'
+      path: '/sap/5.3/'
+    - title: 'Install'
+      path: '/sap/5.3/install/'
+    - title: 'Configure'
+      pages:
+        - title: 'Overview'
+          path: '/sap/5.3/config/'
+        - title: 'Advanced'
+          path: '/sap/5.3/config/advanced/'
+    - title: 'Upgrade'
+      path: '/sap/5.3/upgrade/'
+    - title: 'Administer'
+      pages:
+        - title: 'Overview'
+          path: '/sap/5.3/admin/'
+        - title: 'Reference'
+          path: '/sap/5.3/admin/reference/'
 
 # Alfresco Content Connector for SAP Applications 5.2
 - version: 5.2
