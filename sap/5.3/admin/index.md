@@ -35,7 +35,7 @@ The header section provides a brief overview of the installed SAP Connector vers
 
 #### License Information
 
-All important information regarding the current applied license (including the maintenance period) are displayed for the SAP Connector. In this section you can also apply a new license by using the **Upload License** button. See [Installing the license]({% link sap/latest/install/index.md %}#installing-the-license) for more.
+All important information regarding the current applied license (including the maintenance period) are displayed for the SAP Connector. In this section you can also apply a new license by using the **Upload License** button. See [Installing the license]({% link sap/5.3/install/index.md %}#installing-the-license) for more.
 
 ![sap_inst_002_adminconsole_002_license]({% link sap/images/sap_inst_002_adminconsole_002_license.png %})
 
@@ -55,7 +55,7 @@ The following sub-sections explains each area shown in the screenshot above in m
 
 * **SAP Java Connector Settings**
 
-    Display important information used for the connection from Content Services to SAP as well as related information for the [Opening associated Business Object in SAP]({% link sap/latest/config/advanced.md %}#openassocbusinessobjinsap) feature.
+    Display important information used for the connection from Content Services to SAP as well as related information for the [Opening associated Business Object in SAP]({% link sap/5.3/config/advanced.md %}#openassocbusinessobjinsap) feature.
 
     > **Note:** The password for the SAP system user used to connect to SAP is never transmitted, hence it is not displayed in the Administration Console.
 
@@ -69,25 +69,25 @@ The following sub-sections explains each area shown in the screenshot above in m
     | ------------ | ----------- |
     | Green | The SAP Content Repository is up and running. |
     | Yellow | The SAP Content Repository exists in Content Services and the certificate was also sent already. However, the certificate still needs to be activated to allow the communication. In this case, a button appears in the **Status** column to enable the certificate. Once enabled, the status color will switch to green. |
-    | Red | There are two options which lead to this state:<br><br>1. The SAP Content Repository was not created yet (see [1. Create SAP Content Repository]({% link sap/latest/config/index.md %}#basic-createsapcontentrepo)).<br>2. The SAP Content Repository exists but the certificate was not sent yet (see [2. Secure connection using a certificate]({% link sap/latest/config/index.md %}#basic-secureconnwithcert)).<br><br>However, the message in the `Status` column in such a case will show the exact reason. |
+    | Red | There are two options which lead to this state:<br><br>1. The SAP Content Repository was not created yet (see [1. Create SAP Content Repository]({% link sap/5.3/config/index.md %}#basic-createsapcontentrepo)).<br>2. The SAP Content Repository exists but the certificate was not sent yet (see [2. Secure connection using a certificate]({% link sap/5.3/config/index.md %}#basic-secureconnwithcert)).<br><br>However, the message in the `Status` column in such a case will show the exact reason. |
 
 * **Jobs**
 
-    This table lists all available jobs and the current state of each SAP Content Repository for it along with the CRON expression used to invoke the job. See [Configuring jobs]({% link sap/latest/config/index.md %}#configure-jobs) to learn more about how to enable or disable jobs for SAP Content Repositories.
+    This table lists all available jobs and the current state of each SAP Content Repository for it along with the CRON expression used to invoke the job. See [Configuring jobs]({% link sap/5.3/config/index.md %}#configure-jobs) to learn more about how to enable or disable jobs for SAP Content Repositories.
 
 * **Behaviors**
 
-    Like for the jobs above, this table lists all available behaviors and the current state of each SAP Content Repository for it. See [Configuring behaviors]({% link sap/latest/config/index.md %}#configure-behaviors) to learn more about how to enable or disable behaviors for SAP Content Repositories.
+    Like for the jobs above, this table lists all available behaviors and the current state of each SAP Content Repository for it. See [Configuring behaviors]({% link sap/5.3/config/index.md %}#configure-behaviors) to learn more about how to enable or disable behaviors for SAP Content Repositories.
 
 * **Feature: Open corresponding SAP Business Object**
 
-    This section only appears if the [Opening associated Business Object in SAP]({% link sap/latest/config/advanced.md %}#openassocbusinessobjinsap) feature is used and the default settings was overridden. See [Advanced configuration]({% link sap/latest/config/advanced.md %}#OpenBusinessObjectSAPAdvancedConfig) for more. It shows the content of related `webClient-config.properties` for the current SAP System Configuration.
+    This section only appears if the [Opening associated Business Object in SAP]({% link sap/5.3/config/advanced.md %}#openassocbusinessobjinsap) feature is used and the default settings was overridden. See [Advanced configuration]({% link sap/5.3/config/advanced.md %}#OpenBusinessObjectSAPAdvancedConfig) for more. It shows the content of related `webClient-config.properties` for the current SAP System Configuration.
 
     ![sap_inst_002_adminconsole_004_openinsap]({% link sap/images/sap_inst_002_adminconsole_004_openinsap.png %})
 
 #### Additional Settings
 
-This section only appears if there are any of the additional settings which override the standard behavior of the SAP Connector. See [Additional repository settings]({% link sap/latest/admin/reference.md %}#additionalrepoconfig) for more. These common settings affect the SAP Connector as they're not related to a particular SAP System Configuration.
+This section only appears if there are any of the additional settings which override the standard behavior of the SAP Connector. See [Additional repository settings]({% link sap/5.3/admin/reference.md %}#additionalrepoconfig) for more. These common settings affect the SAP Connector as they're not related to a particular SAP System Configuration.
 
 This section lists all additional settings available in the `alfresco-global.properties` which are used to override core behavior. The **Name** column shows the property key, including the default value (in brackets), and the **Value** column shows the current value used to override the default.
 
@@ -119,7 +119,7 @@ You call the Web Script with an **empty value** for the `archiveId` parameter to
 http://localhost:8080/alfresco/s/com/alfresco/sap/admin/healthcheck?archiveId=
 ```
 
-In this case, the Web Script returns all settings that affect the global behavior of the SAP Connector (if available). See [Additional repository settings]({% link sap/latest/admin/reference.md %}#additionalrepoconfig) for more details. It also lists the `archiveIds` parameter for each available SAP System Configuration, and displays the values (which are the SAP Content Repository names).
+In this case, the Web Script returns all settings that affect the global behavior of the SAP Connector (if available). See [Additional repository settings]({% link sap/5.3/admin/reference.md %}#additionalrepoconfig) for more details. It also lists the `archiveIds` parameter for each available SAP System Configuration, and displays the values (which are the SAP Content Repository names).
 
 Click an SAP Content Repository name to show the details of the related SAP System Configuration.
 
@@ -133,7 +133,7 @@ You can check the SAP System Configuration for a particular SAP Content Reposito
 http://localhost:8080/alfresco/s/com/alfresco/sap/admin/healthcheck?archiveId=XX
 ```
 
-This prints all settings for the given `archiveId`. It includes all settings of the related SAP System Configuration, and also SAP Connector core settings. See [Additional repository settings]({% link sap/latest/admin/reference.md %}#additionalrepoconfig) for more details. In addition, it may show any detected configuration errors for this `archiveId`.
+This prints all settings for the given `archiveId`. It includes all settings of the related SAP System Configuration, and also SAP Connector core settings. See [Additional repository settings]({% link sap/5.3/admin/reference.md %}#additionalrepoconfig) for more details. In addition, it may show any detected configuration errors for this `archiveId`.
 
 ![sap_inst_003_healthwebscript_003]({% link sap/images/sap_inst_003_healthwebscript_003.png %})
 
@@ -151,7 +151,7 @@ If you receive an error during the connection test in `OAC0` for the SAP Content
 
 ### Payment required (HTTP Response code 402)
 
-If the SAP Connector license becomes invalid or is missing, the SAP user will get a popup which states "Payment required", along with a 402 HTTP response code once they try to store a document in Content Services. In this case, check the SAP Connector license. See [Installing the license]({% link sap/latest/install/index.md %}#installing-the-license) for more.
+If the SAP Connector license becomes invalid or is missing, the SAP user will get a popup which states "Payment required", along with a 402 HTTP response code once they try to store a document in Content Services. In this case, check the SAP Connector license. See [Installing the license]({% link sap/5.3/install/index.md %}#installing-the-license) for more.
 
 ### Content Services fails to start
 
@@ -169,4 +169,4 @@ In this case, the related error message in the log file looks similar to:
 
 > **Note:** The same message also appears if the wrong native files (related to the Content Services target system) of the SAP Java Connector have been applied.
 
-To solve this issue, follow the steps in [Installing SAP Connector]({% link sap/latest/install/index.md %}).
+To solve this issue, follow the steps in [Installing SAP Connector]({% link sap/5.3/install/index.md %}).

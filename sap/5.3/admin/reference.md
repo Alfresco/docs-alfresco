@@ -203,7 +203,7 @@ integrations.sap.system.2.jobs.sapContentConnectorDirReplicate.cronExpression=0 
 
 This is the reference for all supported `SAP Object Types` that are available by default in Alfresco Share to open the associated SAP Business Object along with their related transaction within the SAP Web-GUI.
 
-See the [Opening associated Business Object in SAP]({% link sap/latest/config/advanced.md %}#openassocbusinessobjinsap) feature to learn how to enable and how to customize it.
+See the [Opening associated Business Object in SAP]({% link sap/5.3/config/advanced.md %}#openassocbusinessobjinsap) feature to learn how to enable and how to customize it.
 
 > **Note:** Because the SAP Object Types `BKPF` and `BUS2081` requires a split of the replicated `SAP Object Id` into at least 2 separate parameters, the URL of both SAP Object Types should never be changed (not even the order).
 
@@ -228,7 +228,7 @@ See the [Opening associated Business Object in SAP]({% link sap/latest/config/ad
 
 This reference lists the additional properties (such using Logon Groups) for the SAP JavaConnector that are supported for each available SAP System Configuration.
 
-See [Configure repository properties]({% link sap/latest/install/index.md %}#configrepo) and the [example configurations](#examplesapsysconfigs). The properties in the table below use [SAP system configuration with Archivelink only](#examplesapsysconfig1) as an example.
+See [Configure repository properties]({% link sap/5.3/install/index.md %}#configrepo) and the [example configurations](#examplesapsysconfigs). The properties in the table below use [SAP system configuration with Archivelink only](#examplesapsysconfig1) as an example.
 
 > **Note:** See the SAP JavaConnector documentation to learn more about the available properties and their behaviors in detail.
 

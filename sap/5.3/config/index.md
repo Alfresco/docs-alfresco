@@ -48,7 +48,7 @@ The maintenance screen for creating new SAP Content Repositories can be accessed
     | Version no. | Number of the current SAP content server version. For content server version 4.7 enter 0047. <br>Value: _0047_ |
     | HTTP Server | The IP address of the Content Services server - or the Load Balancer. <br>Value: _85.112.116.117_ |
     | Port Number | The port number where the Content Services is listening - usually 8080. <br>Value: _8080_ |
-    | SSL Port Number | The port number for secure layer. Only required for [Communication via HTTPS]({% link sap/latest/admin/reference.md %}#securecomms). <br>Value: For now, leave empty. |
+    | SSL Port Number | The port number for secure layer. Only required for [Communication via HTTPS]({% link sap/5.3/admin/reference.md %}#securecomms). <br>Value: For now, leave empty. |
     | HTTP Script | The Web Script location in Content Services where all requests from SAP are processed. <br>Value: **alfresco/service/com/alfresco/sap/http** |
     | Transfer drctry | For some ArchiveLink scenarios, files have to be created in a transfer directory (on SAP side) before sending it to the content server. Maintain it, if the default value does not match your company standard. |
 

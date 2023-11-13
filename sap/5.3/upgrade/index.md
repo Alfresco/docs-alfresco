@@ -34,7 +34,7 @@ If the installed core is not *connexas 4.2.x*, contact Support.
 
 ### Prerequisites
 
-Make sure you've fulfilled all prerequisites for the SAP Connector, as described in [Prerequisites]({% link sap/latest/install/index.md %}#prerequisites) and [Supported Platforms]({% link sap/latest/support/index.md %}).
+Make sure you've fulfilled all prerequisites for the SAP Connector, as described in [Prerequisites]({% link sap/5.3/install/index.md %}#prerequisites) and [Supported Platforms]({% link sap/5.3/support/index.md %}).
 
 For the technical upgrade, follow the steps below. Due to the product rebranding from *connexas* to the SAP Connector, the most important part of the upgrade needs to be done in the `alfresco-global.properties` and in the Content Services repository.
 
@@ -51,7 +51,7 @@ Use the following steps to proceed with the technical upgrade of the software mo
 5. Remove the former *connexas* modules from the `amps` and `amps_share` folders.
 6. Download the new SAP Connector {% include tooltip.html word="AMP" text="AMP" %} files from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
-    Follow the instructions in the [Install SAP Connector]({% link sap/latest/install/index.md %}#installsapconnamps) page. After applying the {% include tooltip.html word="AMP" text="AMP" %} files, verify the new SAP Connector version:
+    Follow the instructions in the [Install SAP Connector]({% link sap/5.3/install/index.md %}#installsapconnamps) page. After applying the {% include tooltip.html word="AMP" text="AMP" %} files, verify the new SAP Connector version:
 
     ![sap_upgrade_modules]({% link sap/images/sap_upgrade_modules.png %})
 
@@ -113,7 +113,7 @@ Open the SAP Connector Administration Console:
 2. Navigate to **Admin Tools > SAP Integration**.
     * Note that this menu item was previously shown as *connexas* before the upgrade.
 
-The structure of the UI is similar to what was available in previous releases, with a few changes. See [SAP Connector Administration Console]({% link sap/latest/admin/index.md %}#sapadminconsole) for more details.
+The structure of the UI is similar to what was available in previous releases, with a few changes. See [SAP Connector Administration Console]({% link sap/5.3/admin/index.md %}#sapadminconsole) for more details.
 
 > **Note:** At this point, the Overall-Health-Status should appear red. This is nothing to worry about at this point.
 
@@ -131,7 +131,7 @@ If there are no issues, you can now apply the license.
 
 ### Install new license
 
-Install the license via the **License Information** section. See [Installing the license]({% link sap/latest/install/index.md %}#installing-the-license) for more.
+Install the license via the **License Information** section. See [Installing the license]({% link sap/5.3/install/index.md %}#installing-the-license) for more.
 
 > **Important:** The SAP Connector requires a new license. You can't use the license file of the previous *connexas* version. Contact Support, if you don't have a new license file available.
 
@@ -165,7 +165,7 @@ Due to the product rebranding, the folder structure has also changed how the SAP
 
 Previously, the SAP Content Repository files and certificates were stored in the `connexas` folder of the `Data Dictionary`. Now, the SAP Connector stores the files in the `SAP Content Connector` folder of the `Data Dictionary`.
 
-To recreate the SAP Content Repositories and their certificates, follow the steps in [(1) Create SAP Content Repository]({% link sap/latest/config/index.md %}#basic-createsapcontentrepo) starting from **step 3**. Make sure you follow each required step including the functional test.
+To recreate the SAP Content Repositories and their certificates, follow the steps in [(1) Create SAP Content Repository]({% link sap/5.3/config/index.md %}#basic-createsapcontentrepo) starting from **step 3**. Make sure you follow each required step including the functional test.
 
 Once created, the folder structure in the **Data Dictionary** should look like the following screenshot.
 
@@ -228,13 +228,13 @@ Change any additional configurations, such as for the *Open associated Business 
 
 ### Modify Open associated Business Object in SAP feature
 
-If there's an advanced configuration for [Opening associated Business Object in SAP]({% link sap/latest/config/advanced.md %}#openassocbusinessobjinsap), this must also be merged into the new SAP Connector structure in the **Data Dictionary**. In order to do so, follow these step-by-step instructions:
+If there's an advanced configuration for [Opening associated Business Object in SAP]({% link sap/5.3/config/advanced.md %}#openassocbusinessobjinsap), this must also be merged into the new SAP Connector structure in the **Data Dictionary**. In order to do so, follow these step-by-step instructions:
 
 1. In Alfresco Share navigate to folder **Data Dictionary > connexas > Configuration**.
 
     > **Note:** If the **Configuration** folder does not exist, you don't have any additional configuration. You can skip these steps.
 
-2. Identify all necessary files used to enhance the feature (see [Advanced configuration]({% link sap/latest/config/advanced.md %}#OpenBusinessObjectSAPAdvancedConfig) for more info).
+2. Identify all necessary files used to enhance the feature (see [Advanced configuration]({% link sap/5.3/config/advanced.md %}#OpenBusinessObjectSAPAdvancedConfig) for more info).
 3. Create a new **Configuration** folder under **Data Dictionary > SAP Content Connector** .
 4. Copy (or move) all files from **Data Dictionary > connexas > Configuration** to **Data Dictionary > SAP Content Connector > Configuration**.
 
@@ -272,7 +272,7 @@ To verify the successful upgrade from *connexas* to the SAP Connector, perform e
 
 ### Functional tests
 
-Perform the functional (technical) testing of each recreated SAP Content Repository, as described in the [Basic configuration]({% link sap/latest/config/index.md %}#basic-configuration).
+Perform the functional (technical) testing of each recreated SAP Content Repository, as described in the [Basic configuration]({% link sap/5.3/config/index.md %}#basic-configuration).
 
 ### Accessibility tests
 
@@ -294,7 +294,7 @@ Make sure you delete it from the **Trash** of the administrator user as well.
 
 ### Delete old license file
 
-Delete the former *connexas* license, as it's invalid. The license is stored on the Content Services server, in the folder specified by the `dir.license.external` property in the `alfresco-global.properties`. See [Installing the license]({% link sap/latest/install/index.md %}#installing-the-license) for more.
+Delete the former *connexas* license, as it's invalid. The license is stored on the Content Services server, in the folder specified by the `dir.license.external` property in the `alfresco-global.properties`. See [Installing the license]({% link sap/5.3/install/index.md %}#installing-the-license) for more.
 
 The name of the former license file is `connexas.l4j`. You can safely delete it.
 

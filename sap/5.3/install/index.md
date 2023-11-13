@@ -4,7 +4,7 @@ title: Install SAP Connector
 
 The SAP Connector capability for Content Services is delivered as a distribution zip file containing repository and Share {% include tooltip.html word="AMP" text="AMP" %} files, server files for the SAP Connector, and third-party license information.
 
-In these topics you'll install and set up everything you need to run the SAP Connector. See [Prerequisites]({% link sap/latest/install/index.md %}#prerequisites) and [Supported platforms]({% link sap/latest/support/index.md %}) for information on what you require before you start the installation.
+In these topics you'll install and set up everything you need to run the SAP Connector. See [Prerequisites]({% link sap/5.3/install/index.md %}#prerequisites) and [Supported platforms]({% link sap/5.3/support/index.md %}) for information on what you require before you start the installation.
 
 You can download the Alfresco Content Connector for SAP applications software from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
@@ -32,7 +32,7 @@ Below are the environment/software prerequisites for installing and using the SA
 
 ### Alfresco requirements
 
-* Content Services - see [Supported platforms]({% link sap/latest/support/index.md %}) for compatible versions.
+* Content Services - see [Supported platforms]({% link sap/5.3/support/index.md %}) for compatible versions.
 * Alfresco server system architecture must be one of the following (for these architectures, SAP offers native Java Connector versions):
   * Linux 64bit x86
   * Windows 64bit x86
@@ -70,7 +70,7 @@ Use the following steps to download the files required to install the SAP Connec
     * `sap-content-connector-repo-5.3.x.amp` for Content Services.
     * `sap-content-connector-share-5.3.x.amp` for Alfresco Share.
     * `sap-content-connector-jco-packer-1.x.jar` - the **SAP JCo Packer tool** for merging the native SAP Java Connector libraries into the repository AMP file.
-    * `sap-content-connector-encryptor-1.1.jar` to [encrypt plain-text passwords]({% link sap/latest/admin/reference.md %}#encryptpwd) for all SAP Connector related properties in the `alfresco-global.properties` file.
+    * `sap-content-connector-encryptor-1.1.jar` to [encrypt plain-text passwords]({% link sap/5.3/admin/reference.md %}#encryptpwd) for all SAP Connector related properties in the `alfresco-global.properties` file.
     * `alfresco-global.properties_append` contains all required property keys to be added in the `alfresco-global.properties` for an SAP connection.
 
 2. Log in to the [SAP Support Portal](https://support.sap.com/){:target="_blank"} with your SAP Universal ID:
@@ -161,7 +161,7 @@ These steps describe how to install the SAP Connector to an instance of Content 
 
     You'll need to adapt the related property values to your configuration.
 
-4. Check that the [configuration]({% link sap/latest/config/index.md %}) is set up correctly for your environment.
+4. Check that the [configuration]({% link sap/5.3/config/index.md %}) is set up correctly for your environment.
 
 5. Start Content Services.
 
@@ -169,7 +169,7 @@ These steps describe how to install the SAP Connector to an instance of Content 
 
 These are the minimum required properties that must be appended to the `alfresco-global.properties` in order to establish the connection between Content Services (the Repository) and SAP.
 
-> **Note:** There are additional properties that can be used to login to the SAP system via the SAP JavaConnector (such as using Logon Groups instead of the Gateway). See [Additional SAP JCo properties]({% link sap/latest/admin/reference.md %}#sapjavaconprops) which lists the additional properties that are supported.
+> **Note:** There are additional properties that can be used to login to the SAP system via the SAP JavaConnector (such as using Logon Groups instead of the Gateway). See [Additional SAP JCo properties]({% link sap/5.3/admin/reference.md %}#sapjavaconprops) which lists the additional properties that are supported.
 
 1. Open `alfresco-global.properties` in your Content Services installation.
 
@@ -184,7 +184,7 @@ These are the minimum required properties that must be appended to the `alfresco
 | Property Key | Description |
 | ------------ | ----------- |
 | integrations.sap.system.1.al.alfrescoUser | Username for the connection used to login to Content Services (should have administrator role). <br>Example value: `admin` |
-| integrations.sap.system.1.al.alfrescoPassword | Password for the user. Either plain-text or use encrypted password. See [Encrypting passwords]({% link sap/latest/admin/reference.md %}#encryptpwd) for more. <br>Example value: `H3ll0W0rlD112!` or `ENC(XbfE4Z112==)` |
+| integrations.sap.system.1.al.alfrescoPassword | Password for the user. Either plain-text or use encrypted password. See [Encrypting passwords]({% link sap/5.3/admin/reference.md %}#encryptpwd) for more. <br>Example value: `H3ll0W0rlD112!` or `ENC(XbfE4Z112==)` |
 | integrations.sap.system.1.al.archiveIds | Comma separated list of all connected SAP Content Repositories of this configuration. <br>Example value: `M1` or `M2,M3,M4` |
 | integrations.sap.system.1.al.documentRoot | The document root folder where all documents from the SAP Content Repositories of the current SAP System Configuration are stored. Must exist and must be entered in XPath syntax. <br>Example value: `/app:company_home/st:sites/cm:sap/cm:documentLibrary/cm:SAP_Documents` |
 | integrations.sap.system.1.al.checkSignature | Enables the signature check for the HTTP Content Server interface. If disabled, all requests will be accepted no matter if they are signed or not. <br>Example value: `true` (default) or `false` |
@@ -195,7 +195,7 @@ These are the minimum required properties that must be appended to the `alfresco
 | integrations.sap.system.1.client | The SAP client used to log in to the SAP system. <br>Example value: `100` or `800` |
 | integrations.sap.system.1.systemNumber | The SAP system number. <br>Example value: `00` or `01` |
 | integrations.sap.system.1.user | SAP system user used for the login. <br>Example value: `ALFR3SC0` |
-| integrations.sap.system.1.password | Password for the SAP user. Either plain-text or use encrypted password. See [Encrypting passwords]({% link sap/latest/admin/reference.md %}#encryptpwd) for more. <br>Example value: `H3ll0W0rlD112!` or `ENC(XbfE4Z112==)` |
+| integrations.sap.system.1.password | Password for the SAP user. Either plain-text or use encrypted password. See [Encrypting passwords]({% link sap/5.3/admin/reference.md %}#encryptpwd) for more. <br>Example value: `H3ll0W0rlD112!` or `ENC(XbfE4Z112==)` |
 | integrations.sap.system.1.language | The SAP system language used to login. <br>Example value: `EN` or `DE` |
 | integrations.sap.system.5.webClient.enabled | Enables the document action "Open corresponding business object in SAP" in Alfresco Share to be opened in the SAP Web-GUI. If `true`, the `webclient.url` below must resolve. <br>Example value: `true` or `false` (default) |
 | integrations.sap.system.5.webClient.url | The url to the SAP Web-GUI. <br>Example value: `https://sapserver:port/sap/bc/gui/sap/its/webgui` |
@@ -241,7 +241,7 @@ To set up the SAP Connector in clustered landscapes for high availability:
 
 1. Install the `sap-content-connector-repo-5.x.amp` for Content Services on each node in the cluster.
 
-    >  **Important:** Make sure you only use the merged SAP Connector repository AMP file, which includes the native SAP libraries, as described in [Installing overview]({% link sap/latest/install/index.md %}).
+    >  **Important:** Make sure you only use the merged SAP Connector repository AMP file, which includes the native SAP libraries, as described in [Installing overview]({% link sap/5.3/install/index.md %}).
 
 2. Install the `sap-content-connector-share-5.x.amp` for Alfresco Share on each node in the cluster.
 3. Update the `alfresco-global.properties` with the SAP related properties.

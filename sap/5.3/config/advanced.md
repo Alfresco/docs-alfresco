@@ -20,7 +20,7 @@ This chapter basically describes all additional configuration settings for the S
 
 The SAP Connector takes advantage of the SAP JavaConnector to establish the connection from Content Services to the SAP system. The required connection properties must be provided in the `alfresco-global.properties` file. All related properties are already available in this file, but must still be adapted to your SAP system.
 
-The following property keys are required for the connection - see [Configure repository properties]({% link sap/latest/install/index.md %}#configrepo) for details.
+The following property keys are required for the connection - see [Configure repository properties]({% link sap/5.3/install/index.md %}#configrepo) for details.
 
 * `integrations.sap.system.1.enabled`
 * `integrations.sap.system.1.name`
@@ -41,7 +41,7 @@ The following property keys are required for the connection - see [Configure rep
 * `integrations.sap.system.1.jobs.sapContentConnectorDirReplicate.enabled`
 * `integrations.sap.system.1.jobs.sapContentConnectorDirReplicate.cronExpression`
 
-> **Important:** The properties above are only required to connect from Content Services to SAP. There are still other properties required to specify a valid SAP System Configuration. See [Installing SAP Connector]({% link sap/latest/install/index.md %}).
+> **Important:** The properties above are only required to connect from Content Services to SAP. There are still other properties required to specify a valid SAP System Configuration. See [Installing SAP Connector]({% link sap/5.3/install/index.md %}).
 
 1. SAP Content Repositories
 
@@ -115,7 +115,7 @@ The job can be enabled or disabled at the repository file for each SAP Content R
 
         > **Note:** The changes reflects immediately. There is no restart of Content Services required.
 
-> **Note:** The job is always enabled (present as list value in this field) by default, once a new SAP Content Repository is created (see [1. Create SAP Content Repository]({% link sap/latest/config/index.md%}#basic-createsapcontentrepo)). In contrast the CRON trigger bean in the `alfresco-global.properties` is always disabled by default.
+> **Note:** The job is always enabled (present as list value in this field) by default, once a new SAP Content Repository is created (see [1. Create SAP Content Repository]({% link sap/5.3/config/index.md%}#basic-createsapcontentrepo)). In contrast the CRON trigger bean in the `alfresco-global.properties` is always disabled by default.
 
 ##### Execution time
 
@@ -170,7 +170,7 @@ The job can be enabled or disabled at the repository file for each SAP Content R
 
         > **Note:** The changes reflects immediately. There is no restart of Content Services required.
 
-> **Note:** The job is always enabled (present as list value in this field) by default, once a new SAP Content Repository is created (see [1. Create SAP Content Repository]({% link sap/latest/config/index.md %}#basic-createsapcontentrepo)). In contrast the CRON trigger bean in the `alfresco-global.properties` is always disabled by default.
+> **Note:** The job is always enabled (present as list value in this field) by default, once a new SAP Content Repository is created (see [1. Create SAP Content Repository]({% link sap/5.3/config/index.md %}#basic-createsapcontentrepo)). In contrast the CRON trigger bean in the `alfresco-global.properties` is always disabled by default.
 
 ##### Execution time - sapContentConnectorPlus
 
@@ -228,7 +228,7 @@ The job can be enabled or disabled at the repository file for each SAP Content R
 
         > **Note:** The changes reflects immediately. There is no restart of Content Services required.
 
-> **Note:** The job is always enabled (present as list value in this field) by default, once a new SAP Content Repository is created (see [1. Create SAP Content Repository]({% link sap/latest/config/index.md %}#basic-createsapcontentrepo)). In contrast the CRON trigger bean in the `alfresco-global.properties` is always disabled by default.
+> **Note:** The job is always enabled (present as list value in this field) by default, once a new SAP Content Repository is created (see [1. Create SAP Content Repository]({% link sap/5.3/config/index.md %}#basic-createsapcontentrepo)). In contrast the CRON trigger bean in the `alfresco-global.properties` is always disabled by default.
 
 ##### Execution time - sapContentConnectorBarcode
 
@@ -338,7 +338,7 @@ The job can be enabled or disabled at the repository file for each SAP Content R
 
     2. To disable the job, remove the text `sapContentConnectorDirReplicate` from the field and save the file.
 
-> **Note:** The job is always **disabled** (different than for the other jobs) by default, once a new SAP Content Repository is created (see [1. Create SAP Content Repository]({% link sap/latest/config/index.md %}#basic-createsapcontentrepo)). Like the other jobs, it the CRON trigger bean in the `alfresco-global.properties` is also disabled by default. This means, you have to enable this job on two places.
+> **Note:** The job is always **disabled** (different than for the other jobs) by default, once a new SAP Content Repository is created (see [1. Create SAP Content Repository]({% link sap/5.3/config/index.md %}#basic-createsapcontentrepo)). Like the other jobs, it the CRON trigger bean in the `alfresco-global.properties` is also disabled by default. This means, you have to enable this job on two places.
 
 ##### Execution time - sapContentConnectorDirReplicate
 
@@ -418,7 +418,7 @@ The behavior can be enabled or disabled at the repository file for each SAP Cont
 
         > **Note:** The changes reflects immediately. There is no restart of Content Services required.
 
-> **Note:** The behavior is always enabled (present as list value in this field) by default, once a new SAP Content Repository is created (see [1. Create SAP Content Repository]({% link sap/latest/config/index.md %}#basic-createsapcontentrepo)).
+> **Note:** The behavior is always enabled (present as list value in this field) by default, once a new SAP Content Repository is created (see [1. Create SAP Content Repository]({% link sap/5.3/config/index.md %}#basic-createsapcontentrepo)).
 
 > **Important:** Check with your SAP sales representative if the behavior triggered remote access to SAP is covered by the existing SAP license of your company.
 
@@ -446,7 +446,7 @@ The behavior can be enabled or disabled at the repository file for each SAP Cont
 
         > **Note:** The changes reflects immediately. There is no restart of Content Services required.
 
-> **Note:** The behavior is always enabled (present as list value in this field) by default, once a new SAP Content Repository is created (see [1. Create SAP Content Repository]({% link sap/latest/config/index.md %}#basic-createsapcontentrepo)).
+> **Note:** The behavior is always enabled (present as list value in this field) by default, once a new SAP Content Repository is created (see [1. Create SAP Content Repository]({% link sap/5.3/config/index.md %}#basic-createsapcontentrepo)).
 
 #### Behavior: sapContentConnectorWorkflow {#workflowBehavior}
 
@@ -482,7 +482,7 @@ The behavior can be enabled or disabled at the repository file for each SAP Cont
 
         > **Note:** The changes reflects immediately. There is no restart of Content Services required.
 
-> **Note:** The behavior is always enabled (present as list value in this field) by default, once a new SAP Content Repository is created (see [1. Create SAP Content Repository]({% link sap/latest/config/index.md %}#basic-createsapcontentrepo)).
+> **Note:** The behavior is always enabled (present as list value in this field) by default, once a new SAP Content Repository is created (see [1. Create SAP Content Repository]({% link sap/5.3/config/index.md %}#basic-createsapcontentrepo)).
 
 > **Important:** Check with your SAP sales representative if the behavior triggered remote access to SAP is covered by the existing SAP license of your company.
 
@@ -634,7 +634,7 @@ The following table lists all available `SAP Object Types`, which are supported 
 If you need to to call anything other than the default SAP Object Types, refer to the following:
 
 * [Advanced configuration](#OpenBusinessObjectSAPAdvancedConfig).
-* [Reference for SAP Object Type Mapping]({% link sap/latest/admin/reference.md %}#refsapobjecttypemap).
+* [Reference for SAP Object Type Mapping]({% link sap/5.3/admin/reference.md %}#refsapobjecttypemap).
 
 ### Advanced configuration {#OpenBusinessObjectSAPAdvancedConfig}
 
