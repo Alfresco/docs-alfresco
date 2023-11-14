@@ -286,6 +286,7 @@ The repository server cluster consists of the following components:
 * Content store
 * Solr server
 * Load balancer
+* (Optional) Hazelcast cluster
 
 ### Install and configure Content Services nodes
 
@@ -332,8 +333,57 @@ This topic describes the instructions for installing and configuring Solr nodes 
 5. If you're using HTTP transport, then make sure that the following property is set in `<classpathRoot>/alfresco-global.properties`:
 
     ```text
-    `solr.secureComms=none`
+    solr.secureComms=none
     ```
+
+6. If you wish to proceed with the default embedded Hazelcast clustering mechanism, you're done.
+
+    However, if you wish to manage your own external Hazelcast cluster, you should additionally follow the instructions highlighted in the next section [Set up repository clustering via external Hazelcast](#set-up-repository-clustering-via-external-hazelcast).
+
+### Set up repository clustering via external Hazelcast
+
+Managing your own Hazelcast cluster allows you to scale repository and Hazelcast instances independently, while also allowing you to manage resources allocation on an individual level. This kind of setup provides more fine-grained control at the cost of more necessary preliminary work.
+
+1. Prepare a valid Hazelcast XML configuration file including all caches definitions required by the repository. This can be mostly auto-generated for you by doing the following:
+
+    1. Locate the `caches.properties` file within the `alfresco.war:WEB-INF\lib\alfresco-repository-*.jar` archive.
+    2. Copy the `caches.properties` file to an easily accessible directory.
+    3. Clone the [alfresco-enterprise-repo.git](https://github.com/Alfresco/alfresco-enterprise-repo.git){:target="_blank"} repository locally.
+    4. Move into the previously cloned repository's directory.
+    5. Making sure that Python 3 is installed and available in the `PATH` by running the following command in your terminal of choice, replacing the path to the `caches.properties` file accordingly:
+
+        ```bash
+        python repository/scripts/hazelcast-init/generate-hazelcast-config.py -s </path/to/caches.properties>
+        ```
+
+    6. You should now have an auto-generated `repository/scripts/hazelcast-init/alfresco-hazelcast-config.xml` file including all required caches definitions.
+
+2. Replace the `<cluster-name>` within the `alfresco-hazelcast-config.xml` file with a secure value that is hard to guess. For all intents and purposes this field should be treated as a password, as if matching it allows client-server / member-member connection.
+
+3. Add the desired network configuration to the `alfresco-hazelcast-config.xml` to appropriately define your cluster topology as explained by the [Hazelcast Network Configurations documentation](https://docs.hazelcast.com/hazelcast/5.3/clusters/network-configuration){:target="_blank"}.
+
+4. Apply the generated XML configuration to your Hazelcast nodes according to the [Hazelcast documentation](https://docs.hazelcast.com/hazelcast/5.3/configuration/configuring-declaratively){:target="_blank"}.
+
+5. Configure the repository nodes so that they’re able to connect to your external Hazelcast cluster and won’t spin up an embedded Hazelcast instance. This can be done by setting the following repository properties:
+
+    ```text
+    # turns off the embedded Hazelcast initialization
+    alfresco.hazelcast.embedded=false
+    # points to a single member of the Hazelcast cluster to connect to
+    alfresco.hazelcast.client.address=my-hazelcast-node:5701
+    # should match the cluster-name just specified in the alfresco-hazelcast-config.xml
+    alfresco.cluster.name=MySecureClusterName
+    ```
+
+6. (Optional) If, after having configured all repository nodes, you notice there are Hazelcast cluster members that haven't been configured as the `alfresco.hazelcast.client.address` for any of the repository nodes, then all repository nodes should be additionally configured to have the following property appropriately set:
+
+    ```text
+    # should be a comma-separated list of all external Hazelcast nodes that have not been configured
+    # as the alfresco.hazelcast.client.address for ANY instance within the repository cluster
+    alfresco.cluster.additional-members=some-hazelcast-node:5701,some-other-hazelcast-node:5701
+    ```
+
+This ensures that the cluster information is more appropriately registered and validated via the process explained in [Testing the cluster](#testing-the-cluster). It should only be necessary in the eventuality that there are more Hazelcast nodes than repository nodes, as otherwise it should always be possible to configure the repository nodes to connect to a different member of the external Hazelcast cluster until all such members are exhausted, without the need to configure the `alfresco.cluster.additional-members` property at all.
 
 ### Install and configure Hazelcast
 
@@ -355,7 +405,6 @@ Optionally, the default Alfresco Hazelcast XML configuration can be completely o
 #### Secure Hazelcast Enterprise Edition
 
 Depending on your organization security policies and guidelines, a Hazelcast Enterprise license might be required to implement further hardening on the cluster. Alfresco does not provide this license so please refer to the [Hazelcast Security Suite](https://hazelcast.com/product-features/security-suite/){:target="_blank"} for details.
-
 
 We recommend to enable:
 
@@ -524,7 +573,7 @@ Upon starting the second member, you should see the log message similar to the o
 
 This log message shows that both the servers are now members of the same cluster.
 
-> **Note:** When starting up a clustered environment, the nodes in the cluster should be started in a rolling start, such that each node is fully started before the next is started in the cluster. This prevents any resource/load concurrency conflicts.
+> **Note:** When starting up a clustered environment, the nodes in the cluster should be started in a rolling start, such that each node is fully started before the next is started in the cluster. This prevents any resource/load concurrency conflicts. Additionally, if relying on external Hazelcast nodes for repository clustering purposes, it is recommended to verify that all Hazelcast cluster members are up and running before starting any of the repository instances.
 
 ### Managing members of a cluster {#managecluster}
 
@@ -559,6 +608,8 @@ Servers connected to the same database instance are usually clustered automatica
     | IP | This specifies the IP address of the server, for example `x.x.x.x`. |
     | Port | This specifies the port number of the server, for example `5701`. |
     | Last Registered | This specifies the date and time when the cluster member was last started, for example `02-Oct-2013 12:48:37`. |
+    | Node Type | This specifies the server type, for example `Repository server` / `Hazelcast server`. |
+    | Repository IP | If the Node Type is `Hazelcast server`, this specifies the IP address of the linked Repository instance. Otherwise, it will be blank as the Repository IP is already specified by the `IP` property. |
     | Number of Members | This specifies the total number of members in the cluster, for example `1`. |
 
     **For Offline Cluster Members: Server Details**
@@ -569,6 +620,8 @@ Servers connected to the same database instance are usually clustered automatica
     | IP | This specifies the IP address of the offline server, for example `x.x.x.x`. |
     | Port | This specifies the port number of the offline server, for example `5701`. |
     | Last Registered | This specifies the date and time when the offline cluster server was last started, for example `02-Oct-2013 12:48:37`. |
+    | Node Type | This specifies the server type, for example `Repository server` / `Hazelcast server`. |
+    | Repository IP | If the Node Type is `Hazelcast server`, this specifies the IP address of the linked Repository instance. Otherwise, it will be blank as the Repository IP is already specified by the `IP` property. |
 
 4. Click **Remove from list** to decommission a particular cluster member.
 
@@ -639,6 +692,11 @@ Configure the repository server cluster by setting these properties in the alfre
 | alfresco.hazelcast.port | This specifies the port to use for clustering, for example `5701`. |
 | alfresco.hazelcast.autoinc.port | This enables Hazelcast to make several attempts to find a free port starting at the value of `alfresco.hazelcast.port`.<br><br>**Note:** It's recommended that you do not use this property, for example `false`. |
 | alfresco.hazelcast.max.no.heartbeat.seconds | This specifies the maximum timeout of heartbeat in seconds for a node to assume it is dead, for example `15`. |
+| alfresco.hazelcast.embedded | This specifies if Hazelcast should be embedded or if the repository should rely on an external Hazelcast cluster instead. Default: `true`. |
+| alfresco.hazelcast.client.address | This specifies the address of one of the members of the external Hazelcast cluster to connect to, for example `192.168.1.123:5701`.<br><br>This is only relevant if `alfresco.hazelcast.embedded=false`. |
+| alfresco.hazelcast.client.configLocation | This specifies location of the XML file that is used to configure the Hazelcast client used by Alfresco to connect to the external Hazelcast cluster. Default: `classpath:alfresco/hazelcast/hazelcast-client.xml`.<br><br>This is only relevant if `alfresco.hazelcast.embedded=false`. |
+| alfresco.cluster.name | This needs to match the name of the configured external Hazelcast cluster if `alfresco.hazelcast.embedded=false`. |
+| alfresco.cluster.additional-members | This should be a comma-separated list of all external Hazelcast members that are not already configured as the `alfresco.hazelcast.client.address` for any ACS instance in the cluster, for example `192.168.1.124:5701,192.168.1.125:5701`.<br><br>This is only relevant if `alfresco.hazelcast.embedded=false.` |
 
 ## Tracking clustering issues
 
