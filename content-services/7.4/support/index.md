@@ -100,6 +100,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Digital Workspace 4.0 | |
 | Alfresco Mobile Workspace 1.7 | |
 | Alfresco Mobile Workspace 1.6 | |
+| Alfresco Control Center 8.3 | |
 | Alfresco Control Center 8.2 | |
 | Alfresco Control Center 8.1 | |
 | Alfresco Control Center 8.0 | |
@@ -206,6 +207,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Digital Workspace 4.0 | |
 | Alfresco Mobile Workspace 1.7 | |
 | Alfresco Mobile Workspace 1.6 | |
+| Alfresco Control Center 8.3 | |
 | Alfresco Control Center 8.2 | |
 | Alfresco Control Center 8.1 | |
 | Alfresco Control Center 8.0 | |
