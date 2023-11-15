@@ -14,7 +14,7 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 
-    > **Note:** The Download Trial is usually updated for *major.minor* versions of Content Services. The latest published version on our website is labelled *Version 7.3 - December 2022)*.
+    > **Note:** The Download Trial is usually to the most recent version of Content Services. The latest published version on our website is labelled *Version 7.4 - May 2023*.
 
 2. Save the `docker-compose.yml` file in a local folder.
 
