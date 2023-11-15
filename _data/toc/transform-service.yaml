@@ -30,7 +30,7 @@
         - title: 'Extend'
           pages:
             - title: 'Add T-Engines to T-Router'
-              path: '/transform-service/latest/config/add-tengine-trouter/'
+              path: '/transform-service/3.0/config/add-tengine-trouter/'
     - title: 'Administer'
       path: '/transform-service/3.0/admin/'
 
