@@ -23,7 +23,7 @@ The sequence in which different Sync Service components should be started is:
 
 ## In the event of a conflict, how do I resolve it?
 
-The [conflict resolution matrix]({% link desktop-sync/3.11/using/sync-conflict-guide.md %}) describes how Desktop Sync handles sync conflicts.
+The [conflict resolution matrix]({% link desktop-sync/1.16/using/sync-conflict-guide.md %}) describes how Desktop Sync handles sync conflicts.
 
 ## What authentication do Desktop Sync and Sync Service support?
 
