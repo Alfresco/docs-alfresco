@@ -69,8 +69,8 @@ Use the following steps to download the files required to install the SAP Connec
 
     * `sap-content-connector-repo-6.0.x.amp` for Content Services.
     * `sap-content-connector-share-6.0.x.amp` for Alfresco Share.
-    * `sap-content-connector-jco-packer-1.x.jar` - the **SAP JCo Packer tool** for merging the native SAP Java Connector libraries into the repository AMP file.
-    * `sap-content-connector-encryptor-1.1.jar` to [encrypt plain-text passwords]({% link sap/latest/admin/reference.md %}#encryptpwd) for all SAP Connector related properties in the `alfresco-global.properties` file.
+    * `sap-content-connector-jco-packer-2.x.jar` - the **SAP JCo Packer tool** for merging the native SAP Java Connector libraries into the repository AMP file.
+    * `sap-content-connector-encryptor-2.0.jar` to [encrypt plain-text passwords]({% link sap/latest/admin/reference.md %}#encryptpwd) for all SAP Connector related properties in the `alfresco-global.properties` file.
     * `alfresco-global.properties_append` contains all required property keys to be added in the `alfresco-global.properties` for an SAP connection.
 
 2. Log in to the [SAP Support Portal](https://support.sap.com/){:target="_blank"} with your SAP Universal ID:
@@ -89,7 +89,7 @@ Use the SAP JCo Packer tool provided in the distribution zip to merge the native
 
 Before continuing, make sure you've [downloaded all the required files](#download-files).
 
-The re-packaging is done by using the SAP JCo Packer tool (`sap-content-connector-jco-packer-1.x.jar`), which helps to create a merged AMP file that's used as the foundation for the installation.
+The re-packaging is done by using the SAP JCo Packer tool (`sap-content-connector-jco-packer-2.x.jar`), which helps to create a merged AMP file that's used as the foundation for the installation.
 
 > **Important**: You must have at least **Java Version 8** installed in order to run the distributed SAP JCo Packer tool.
 
@@ -97,7 +97,7 @@ The re-packaging is done by using the SAP JCo Packer tool (`sap-content-connecto
 
     1. Create a new temporary directory and copy the following files into it:
 
-        * `sap-content-connector-jco-packer-1.x.jar`
+        * `sap-content-connector-jco-packer-2.x.jar`
         * `sap-content-connector-repo-6.0.x.amp`
         * `sapjco31P_3-20009381.zip` (example file name for native Java Connector libraries, downloaded from the SAP Support Portal)
 
@@ -112,7 +112,7 @@ The re-packaging is done by using the SAP JCo Packer tool (`sap-content-connecto
     Starting from your temporary folder, run the SAP JCo Packer tool:
 
     ```java
-    java -jar .\sap-content-connector-jco-packer-1.x.jar
+    java -jar .\sap-content-connector-jco-packer-2.x.jar
     ```
 
     ![]({% link sap/images/sap_packer_003.png %})
