@@ -203,7 +203,7 @@ integrations.sap.system.2.jobs.sapContentConnectorDirReplicate.cronExpression=0 
 
 This is the reference for all supported `SAP Object Types` that are available by default in Alfresco Share to open the associated SAP Business Object along with their related transaction within the SAP Web-GUI.
 
-See the [Opening associated Business Object in SAP]({% link sap/latest/config/advanced.md %}#openassocbusinessobjinsap) feature to learn how to enable and how to customize it.
+See the [Opening associated Business Object in SAP]({% link sap/5.3/config/advanced.md %}#openassocbusinessobjinsap) feature to learn how to enable and how to customize it.
 
 > **Note:** Because the SAP Object Types `BKPF` and `BUS2081` requires a split of the replicated `SAP Object Id` into at least 2 separate parameters, the URL of both SAP Object Types should never be changed (not even the order).
 
@@ -228,7 +228,7 @@ See the [Opening associated Business Object in SAP]({% link sap/latest/config/ad
 
 This reference lists the additional properties (such using Logon Groups) for the SAP JavaConnector that are supported for each available SAP System Configuration.
 
-See [Configure repository properties]({% link sap/latest/install/index.md %}#configrepo) and the [example configurations](#examplesapsysconfigs). The properties in the table below use [SAP system configuration with Archivelink only](#examplesapsysconfig1) as an example.
+See [Configure repository properties]({% link sap/5.3/install/index.md %}#configrepo) and the [example configurations](#examplesapsysconfigs). The properties in the table below use [SAP system configuration with Archivelink only](#examplesapsysconfig1) as an example.
 
 > **Note:** See the SAP JavaConnector documentation to learn more about the available properties and their behaviors in detail.
 
@@ -426,7 +426,7 @@ Encrypt all passwords used in the `alfresco-global.properties` by the SAP Connec
 2. Download the related JAR file:
 
     ```text
-    sap-content-connector-encryptor-2.0.jar
+    sap-content-connector-encryptor-1.1.jar
     ```
 
 3. Create a public key and private key:
@@ -434,7 +434,7 @@ Encrypt all passwords used in the `alfresco-global.properties` by the SAP Connec
     Navigate to the folder of the downloaded JAR and run the following command to create the key pair in the current path:
 
     ```bash
-    java –jar sap-content-connector-encryptor-2.0.jar init -path .
+    java –jar sap-content-connector-encryptor-1.1.jar init -path .
     ```
 
     Two files are created:
@@ -445,7 +445,7 @@ Encrypt all passwords used in the `alfresco-global.properties` by the SAP Connec
 4. Create an encrypted password:
 
     ```bash
-    java -jar sap-content-connector-encryptor-2.0.jar encrypt -password H3ll0W0rlD112! -publicKey ./sapContentConnectorPublicKey.pub
+    java -jar sap-content-connector-encryptor-1.1.jar encrypt -password H3ll0W0rlD112! -publicKey ./sapContentConnectorPublicKey.pub
     ```
 
     The encrypted password will be printed to the console, for example:
