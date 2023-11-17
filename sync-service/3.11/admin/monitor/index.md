@@ -194,7 +194,7 @@ The response is JSON and contains all the metrics collected by the Sync Service.
 
 ## Reporting Sync Service metrics to Graphite
 
-In order to visualize the metrics listed above in a graphical manner, Sync Service can be configured to report all its metrics to [Graphite](https://graphite.readthedocs.io/en/3.11/overview.html){:target="_blank"}. See the `sync.metrics.reporter.graphite.*` properties in [Configure the Sync Service]({% link sync-service/3.11/config/index.md%}).
+In order to visualize the metrics listed above in a graphical manner, Sync Service can be configured to report all its metrics to [Graphite](https://graphite.readthedocs.io/en/latest/overview.html){:target="_blank"}. See the `sync.metrics.reporter.graphite.*` properties in [Configure the Sync Service]({% link sync-service/3.11/config/index.md%}).
 
 Here you can see a glimpse of how the `timePerCommit` metric looks like in Graphite:
 

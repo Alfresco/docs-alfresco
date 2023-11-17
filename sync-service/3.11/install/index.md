@@ -15,9 +15,9 @@ See [Supported platforms]({% link sync-service/3.11/support/index.md %}) for m
 ### General requirements
 
 * Messaging broker
-  * See [Setting up ActiveMQ]({% link content-services/3.11/config/activemq.md %}) for more information about installing ActiveMQ.
+  * See [Setting up ActiveMQ]({% link content-services/latest/config/activemq.md %}) for more information about installing ActiveMQ.
 
-* Make sure that search indexing is [enabled]({% link search-services/3.11/index.md %}).
+* Make sure that search indexing is [enabled]({% link search-services/latest/index.md %}).
 
 ## Installation options
 

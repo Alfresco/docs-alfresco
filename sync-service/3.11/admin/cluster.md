@@ -79,7 +79,7 @@ Follow the steps listed in the [aws-lambda-lifecycle-hooks-function](https://git
 
     1. Instead of using the User Data to specify the script to install the AWS Systems Manager (SSM) agent, you can manually install it, and then only afterwards, create the necessary AMI.
 
-        See [Manually Install SSM Agent on Amazon EC2 Linux Instances](https://docs.aws.amazon.com/systems-manager/3.11/userguide/sysman-manual-agent-install.html#agent-install-ubuntu){:target="_blank"} to identify the steps depending on the Linux flavor.
+        See [Manually Install SSM Agent on Amazon EC2 Linux Instances](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-manual-agent-install.html#agent-install-ubuntu){:target="_blank"} to identify the steps depending on the Linux flavor.
 
     2. Add the lifecycle hooks from the user interface.
 
@@ -98,7 +98,7 @@ Follow the steps listed in the [aws-lambda-lifecycle-hooks-function](https://git
 
 4. **Step 5 - Create the SSM document**
 
-    The [EC2 Systems Manager Shared Resources Document](https://docs.aws.amazon.com/systems-manager/3.11/userguide/sysman-ssm-docs.html){:target="_blank"} can be simplified to just execute `./syncservice.sh stop`.
+    The [EC2 Systems Manager Shared Resources Document](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html){:target="_blank"} can be simplified to just execute `./syncservice.sh stop`.
 
     There's no need to bother with adding code to complete the lifecycle hook, since this is done inside the [Python lambda](https://github.com/aws-samples/aws-lambda-lifecycle-hooks-function/blob/master/lambda_backup.py){:target="_blank"} (see the `abandon_lifecycle` method).
 
