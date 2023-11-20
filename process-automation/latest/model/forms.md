@@ -487,6 +487,18 @@ The advanced properties for the Data Table are:
 
 You can edit the schema definition, using the Edit Schema Definition under the Data Table properties pane. The column schema definition is used to specify how the table is displayed in detail, including the column header (title) or sorting. The schema is edited in the JSON editor.
 
+The following Data Table types are available: text, number, amount, date, boolean, json, and icon.
+
+You can define additional properties for:
+
+| Property | Type | Description |
+| -------- | ----------- | ----------- |
+| locale | number, amount, date | Language code in ICU format, for example en_US. It impacts the format of the shown data, such as dates. |
+| digitsInfo | number, amount, date | Decimal places, according to the Angular Decimal Pipe. |
+| decimalConfig | number | Configuration of the displayed decimal number, including properties: locale and digitsInfo. |
+| currencyConfig | amount | Configuration of the displayed currency, including properties: locale (currency formatting), digitsInfo, code (currency code, such as USD or EUR), display (currency symbol, such as $ or €). |
+| dateConfig | date | Configuration of the displayed date, including properties: locale (date formatting), format (selection of pre-defined Angular Date Pipe formats), tooltipFormat (formatting of the displayed tooltip). |
+
 ## Custom form widgets
 
 Form widgets provide the ability to add custom form fields into a form. There are two stages to including a custom form field in a project:
