@@ -160,7 +160,7 @@ It's also possible to implement [custom event filters](#customeventfilters).
 ### Spring Integration Tooling Library
 The Spring Integration tooling library component offers some utility classes that ease the handling of Alfresco events 
 in the context of a Spring Integration application.  
-                                                                              
+
 This component is defined in the module [alfresco-java-event-api-integration](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-integration){:target="_blank"}.
 
 It makes use of the event handling library and the event model to offer integration features, making the assumption that 
@@ -1244,6 +1244,7 @@ familiar with Alfresco ReST API version 1.0, then read through this [introductio
 
 The ReST API wrapper classes have been generated based on the ReST API [Swagger definition](https://swagger.io/){:target="_blank"}. 
 The following main packages exist for the different APIs:
+
 * [alfresco-auth-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-auth-rest-api){:target="_blank"} - Managing Alfresco tickets
 * [alfresco-core-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-core-rest-api){:target="_blank"} - The main API with actions, nodes, audit, renditions, sites, tagging, versioning etc 
 * [alfresco-discovery-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-discovery-rest-api){:target="_blank"} - Repository information, such as license, version, modules 
