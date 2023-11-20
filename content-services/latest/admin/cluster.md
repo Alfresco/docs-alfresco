@@ -348,7 +348,7 @@ Managing your own Hazelcast cluster allows you to scale repository and Hazelcast
 
     1. Locate the `caches.properties` file within the `alfresco.war:WEB-INF\lib\alfresco-repository-*.jar` archive.
     2. Copy the `caches.properties` file to an easily accessible directory.
-    3. Clone the [alfresco-enterprise-repo.git](https://github.com/Alfresco/alfresco-enterprise-repo.git){:target="_blank"} repository locally.
+    3. Clone the [alfresco-community-repo.git](https://github.com/Alfresco/alfresco-community-repo.git){:target="_blank"} repository locally.
     4. Move into the previously cloned repository's directory.
     5. Making sure that Python 3 is installed and available in the `PATH` by running the following command in your terminal of choice, replacing the path to the `caches.properties` file accordingly:
 
