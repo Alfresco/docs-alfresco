@@ -1244,7 +1244,6 @@ familiar with Alfresco ReST API version 1.0, then read through this [introductio
 
 The ReST API wrapper classes have been generated based on the ReST API [Swagger definition](https://swagger.io/){:target="_blank"}. 
 The following main packages exist for the different APIs:
-
 * [alfresco-auth-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-auth-rest-api){:target="_blank"} - Managing Alfresco tickets
 * [alfresco-core-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-core-rest-api){:target="_blank"} - The main API with actions, nodes, audit, renditions, sites, tagging, versioning etc 
 * [alfresco-discovery-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-discovery-rest-api){:target="_blank"} - Repository information, such as license, version, modules 
@@ -1448,7 +1447,7 @@ public class CreateSiteCmd {
 }
 ```
 
-To use one of the ReST API Java wrapper services, such as [`SitesApi`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-core-rest-api/src/main/java/org/alfresco/core/handler/SitesApi.java){:target="_blank"}, 
+To use one of the ReST API Java wrapper services, such as [`SitesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-core-rest-api/src/main/java/org/alfresco/core/handler/SitesApi.java){:target="_blank"}, 
 auto wire it into the component as in the above class. Creating stuff in the repository usually mean making a HTTP POST 
 in the background. In these cases there is always a body class that we can use to fill in POST data, such as `SiteBody` in 
 this case. A successful API call will return a populated result object called `Site`. 
@@ -1497,7 +1496,7 @@ public class CreateFolderCmd {
 }
 ```
 
-The [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-core-rest-api/src/main/java/org/alfresco/core/handler/NodesApi.java){:target="_blank"} 
+The [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-core-rest-api/src/main/java/org/alfresco/core/handler/NodesApi.java){:target="_blank"} 
 is one of the main APIs that we will use a lot to manipulate folders and files. We use it here to create a folder node 
 in the site's document library.
 
