@@ -548,7 +548,7 @@ Display an annotation modified date instead of the creation date throughout Ente
 
 Default value: `false`
 
-### minPagesToDefaultSectionModeOn
+### minPagesToDefafultSectionModeOn
 
 The minimum number of pages to default into sectioning mode. Set to `0` to prevent sectioning mode.
 
