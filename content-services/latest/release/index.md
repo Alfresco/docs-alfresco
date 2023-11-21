@@ -30,11 +30,13 @@ A new background task has been introduced that purges IP addresses of cluster no
 
 This makes it easier to manage auto-scaling clusters, where new nodes are spun up under high load, and brought down when the load decreases.
 
-See [Scheduled Jobs Extension Point]({% link content-services/latest/develop/repo-ext-points/scheduled-jobs.md%}#out-of-the-box-scheduled-jobs-definitions) documentation for more details.
+See [Scheduled Jobs Extension Point]({% link content-services/latest/develop/repo-ext-points/scheduled-jobs.md %}#out-of-the-box-scheduled-jobs-definitions) documentation for more details.
 
 ### Support for external Hazelcast cluster management
 
 Alfresco uses Hazelcast for its clustering management, and it includes cluster management. It is now possible to set up Hazelcast management external to Alfresco and let it manage the Alfresco nodes.
+
+See [Set up repository clustering via external Hazelcast]({% link content-services/latest/admin/cluster.md %}#set-up-repository-clustering-via-external-hazelcast) documentation for more details.
 
 ### ARM64 containers for developers
 

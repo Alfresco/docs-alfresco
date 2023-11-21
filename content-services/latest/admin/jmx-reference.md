@@ -305,10 +305,13 @@ Exposes the default configuration settings that are present in the alfresco-glob
 |alfresco.cluster.hostname|`${localname}`|
 |alfresco.cluster.interface|blank|
 |alfresco.cluster.max.init.retries|`50`|
-|alfresco.cluster.nodetype|`"Repository server"`|
+|alfresco.cluster.name|blank|
+|alfresco.cluster.nodetype|`Repository server`|
 |alfresco.clusterCheck.timeout|`4000`|
 |alfresco.context|`alfresco`|
 |alfresco.hazelcast.autoinc.port|`false`|
+|alfresco.hazelcast.client.address|`127.0.0.1:5701`|
+|alfresco.hazelcast.client.configLocation|`classpath:alfresco/hazelcast/hazelcast-client.xml`|
 |alfresco.hazelcast.configLocation|`classpath:alfresco/hazelcast/hazelcast-tcp.xml`|
 |alfresco.hazelcast.ec2.accesskey|`my-access-key`|
 |alfresco.hazelcast.ec2.region|`us-east-1`|
@@ -316,6 +319,7 @@ Exposes the default configuration settings that are present in the alfresco-glob
 |alfresco.hazelcast.ec2.securitygroup|blank|
 |alfresco.hazelcast.ec2.tagkey|`type`|
 |alfresco.hazelcast.ec2.tagvalue|`hz-nodes`|
+|alfresco.hazelcast.embedded|`true`|
 |alfresco.hazelcast.mancenter.enabled|`false`|
 |alfresco.hazelcast.mancenter.url|`http://localhost:8080/mancenter`|
 |alfresco.hazelcast.port|`5701`|
