@@ -370,6 +370,7 @@ defaults:
       toc: "salesforce"
       support: true
       versions:
+        - 3.0
         - 2.4
         - 2.3
         - 2.2
@@ -377,8 +378,12 @@ defaults:
   - scope:
       path: "salesforce/latest"
     values:
-      version: 2.4
+      version: 3.0
       latest: true
+  - scope:
+      path: "salesforce/2.4"
+    values:
+      version: 2.4
   - scope:
       path: "salesforce/2.3"
     values:
