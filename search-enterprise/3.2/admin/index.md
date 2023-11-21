@@ -430,49 +430,57 @@ The main use case to re-index only content or path is a fully metadata indexed r
 
 ## Bulk metadata indexing
 
-Working with Elasticsearch gives us the flexibility to customize it. One can choose to get the index ready with just the metadata of uploaded files or with content of the files as well. Having content indexed will have time and cost implications and thus is chosen if only necessary. If we consider the data volume of up to 1 billion files, even getting the Metadata indexed can be a lengthy job. Here we will be looking at the approach that was used for indexing and the speed that was achieved with our deployment setup hosted over Amazon Web Service (AWS)
-Alfresco Elasticsearch Connector can be used with multiple threads to perform indexing based on Node ID of the files present in the database, with right set of configurations of Elasticsearch i.e. number of primary and replica shards, refresh time we can achieved better indexing speed. Below is the complete set of infrastructure and configuration that was used.
+You can customize Search Enterprise. You can have the index ready with just the metadata of uploaded files or with the content of the files as well. If you have the content of your files indexed as well there are time and cost implications you must consider and is only recommended when necessary.
+This example describes how to setup Search Enterprise and will show the speed achievable at processing one billion files. Amazon Web Services have been used as the host but your setup will be specific to your requirements.
 
-Elasticsearch Data Node:
+The configuration used in this example:
+
+**Elasticsearch Data Node**
 
 * AWS Elasticsearch v7.10 with Availability Zone: 1-AZ
 * Number of Data Nodes: 3
-Instance Type: r6g.2xlarge.search
-Storage type: EBS
-EBS volume type: Provisioned IOPS (SSD)
-EBS volume size: 1000 GiB per node
-Fielddata cache allocation: 20
-Max clause count: 1024
-Indexing Instance
+* Instance Type: r6g.2xlarge.search
+* Storage type: EBS
+* EBS volume type: Provisioned IOPS (SSD)
+* EBS volume size: 1000 GiB per node
+* Fielddata cache allocation: 20
+* Max clause count: 1024
 
-EC2 Indexing Instance to run alfresco-elasticsearch-connector-distribution-3.1.1
-Indexing Instance type: t2.2xlarge (8vCPUs, 32GiB RAM)
-Number of EC2 Instances for Indexing: 3
-Number of threads running on Instance 1 and 2 is 7 each with 6 threads on instance 3. Total threads running in parallel is 20
-Maximum Heap allocated to each thread is 4GB (-Xmx4G)
-Elasticsearch Master Node:
+**Indexing Instance**
 
-Number Of Master Nodes: 3
-Master Node Instance type: m5.large.search
-Master node is added for resilience, and may be avoided without having significant impact.
-Elasticsearch Settings
+* EC2 Indexing Instance to run alfresco-elasticsearch-connector-distribution-3.1.1
+* Indexing Instance type: t2.2xlarge (8vCPUs, 32GiB RAM)
+* Number of EC2 Instances for Indexing: 3
+* Number of threads running on Instance 1 and 2 is 7 each with 6 threads on instance 3. Total threads running in parallel is 20
+* Maximum Heap allocated to each thread is 4GB (-Xmx4G)
 
-Number of Primary shards: 32
-Number of Replica Shards: 0
-Refresh Time: Disabled
-Translog flush threshold: 2GB
-Other Components
+**Elasticsearch Master Node**
 
-Active MQ: mq.m4.large
-RDS is used as Database with db.r5.2xlarge running PostgreSQL
-EC2 Instance running ACS & Transform Service: m5a.xlarge
-ACS Version used is 7.2.0
-The deployment architecture of the setup looks like this:
-Capture.JPG
+* Number Of Master Nodes: 3
+* Master Node Instance type: m5.large.search
+* Master node is added for resilience, and may be avoided without having significant impact.
 
-## Setting Up Elasticsearch
+**Elasticsearch Settings**
 
-At first, shard creation is performed which depends on the data volume and size of each shard that has to be created. Abiding by AWS recommendations, each shard should be not more than 50GB and after estimating the total indexed data size of to be indexed files, the number of shards can be calculated. Like for 1 Billion, estimated size of metadata indexed data is approximately 1.3TB and keeping each shard at 40GB, we get number of shards as 32. Below command be be run from the same VPC to create such a setup
+* Number of Primary shards: 32
+* Number of Replica Shards: 0
+* Refresh Time: Disabled
+* Translog flush threshold: 2GB
+
+**Other Components**
+
+* Active MQ: mq.m4.large
+* RDS is used as Database with db.r5.2xlarge running PostgreSQL
+* EC2 Instance running ACS & Transform Service: m5a.xlarge
+* ACS Version used is 7.2.0
+* The deployment architecture of the setup looks like this:
+* Capture.JPG
+
+### Configure Search Enterprise
+
+Amazon Web Services recommend each shard should be not more than 50GB. For this example of one billion files the estimated total size of metadata to be indexed is 1.3TB. The shard size here can be set to 40GB which equals 32 shards.
+
+On the same VPC set the number of shards:
 
 curl -XPUT 'https://<Elasticsearch DNS>:443/alfresco?pretty' -H 'Content-Type: application/json' -d'
 {
@@ -482,20 +490,20 @@ curl -XPUT 'https://<Elasticsearch DNS>:443/alfresco?pretty' -H 'Content-Type: a
   }
 }'
 
-Other critical parameters like refresh interval and translog flush threshold can be set. Refresh time is the time in which indexed data gets searchable and should be disabled (by passing -1) or put to a higher value during indexing to avoid unnecessary usage of resources. Translog flush threshold is set to a higher size e.g. 2GB to avoid frequent flushed during indexing. Both can be set using below commands
+You can set other critical parameters such as the refresh interval and the translog flush threshold using curl. The refresh interval is the time in which indexed data is searchable and should be disabled. This is done by setting it to `-1` or by setting it to a higher value during indexing to avoid the unnecessary usage of resources. The translog flush threshold is set to a higher size, for example `2GB`, to avoid it periodically flushing during the indexing process.
 
-// To set the refresh time to -1 for disabling it
+To set the refresh interval to `-1` to disable it:
 
 ```curl
 curl -XPUT "https://<Elasticsearch DNS>:443/alfresco/_settings" -H 'Content-Type: application/json' -d '{ "index" : { "refresh_interval" : "-1"  }}'
 ```
 
-// To set flush threshold at 2GB
+To set the translog flush threshold to `2GB`:
 
 ```curl
 curl -XPUT "https://<Elasticsearch DNS>:443/alfresco/_settings?pretty" -H 'Content-Type: application/json' -d '{"index":{"translog.flush_threshold_size" : "2GB"}}'
 
-//To verify all the setting, run below command
+To verify the settings:
 
 ```curl
 curl -XGET "https://<Elasticsearch DNS>:443/alfresco/_settings?pretty" -H 'Content-Type: application/json' -d '{ "index" : { "refresh_interval" }}'
@@ -545,8 +553,6 @@ Indexing Speed
 
 Below table summarizes different indexing obtained with different data volumes with identical infrastructure and configurations. 
 
-
- 
 
 Conclusion
 
