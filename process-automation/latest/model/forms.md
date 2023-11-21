@@ -485,8 +485,6 @@ The advanced properties for the Data Table are:
 | Form variable (JSON) | Displays a drop-down list of all available JSON type form variables. These variables can be used by the application to populate the data table. If there are no JSON variables, the list is empty. You can create one, following instructions in [Create a form variable](#create-a-form-variable). |
 | Path to array in JSON | Configuration of the path where the fetched data belongs. Each nested object is added using a dot as a separator. |
 
-You can edit the schema definition, using the Edit Schema Definition under the Data Table properties pane. The column schema definition is used to specify how the table is displayed in detail, including the column header (title) or sorting. The schema is edited in the JSON editor.
-
 The following Data Table types are available: text, number, amount, date, boolean, json, and icon.
 
 You can define additional properties for:
@@ -498,6 +496,57 @@ You can define additional properties for:
 | decimalConfig | number | Configuration of the displayed decimal number, including properties: locale and digitsInfo. |
 | currencyConfig | amount | Configuration of the displayed currency, including properties: locale (currency formatting), digitsInfo, code (currency code, such as USD or EUR), display (currency symbol, such as $ or €). |
 | dateConfig | date | Configuration of the displayed date, including properties: locale (date formatting), format (selection of pre-defined Angular Date Pipe formats), tooltipFormat (formatting of the displayed tooltip). |
+
+You can edit the schema definition, using the Edit Schema Definition under the Data Table properties pane. The column schema definition is used to specify how the table is displayed in detail, including the column header (title) or sorting. The schema is edited in the JSON editor.
+
+The following is an example of a schema definition:
+
+```json
+[
+    {
+        "type": "number",
+        "key": "id",
+        "title": "No",
+        "sortable": true,
+        "draggable": true
+    },
+    {
+        "type": "date",
+        "key": "creation_date",
+        "title": "Creation date",
+        "sortable": true,
+        "draggable": true,
+        "dateConfig": {
+            "locale": "en-GB",
+            "format": "full",
+            "tooltipFormat": ""
+        }
+    },
+    {
+        "type": "number",
+        "key": "people",
+        "title": "Numbers of interested people",
+        "sortable": true,
+        "draggable": true,
+        "decimalConfig": {
+            "digitsInfo": "1.0-0",
+            "locale": "pl-PL"
+        }
+    },
+    {
+        "type": "amount",
+        "key": "cost",
+        "title": "Cost of maintenance",
+        "sortable": true,
+        "draggable": true,
+        "currencyConfig": {
+            "code": "EUR",
+            "digitsInfo": "2.2-2",
+            "display": "€",
+            "locale": "de-DE"
+        }
+    }
+]
 
 ## Custom form widgets
 
