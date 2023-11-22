@@ -50,8 +50,8 @@ The key capabilities of the Transform Service include the ability to:
 
 There are two main options for deployment: 
 
-* [Containerized deployment]({% link transform-service/latest/install/index.md %}#containerized-deployments)
-* [Distribution zip install]({% link transform-service/latest/install/index.md %}#prereq-non-containerized-deploy)
+* [Containerized deployment]({% link transform-service/3.0/install/index.md %}#containerized-deployments)
+* [Distribution zip install]({% link transform-service/3.0/install/index.md %}#prereq-non-containerized-deploy)
 
 >**Important:** The Transform Service is deployed as part of the Alfresco Content Services deployment for containerized 
 >deployments only. See [What's deployed in Content Services]({% link content-services/latest/install/containers/index.md %}#whats-deployed-in-content-services) 

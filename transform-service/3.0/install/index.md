@@ -6,11 +6,11 @@ This release provides two main options for deployment:
 
 * [Distribution zip](#prereq-non-containerized-deploy) - The Transform Service zip can be applied when installing 
   Alfresco Content Services using the distribution zip. For an overview of components, see the first picture on this 
-  [page]({% link transform-service/latest/index.md %}). 
+  [page]({% link transform-service/3.0/index.md %}). 
 * [Containerized deployment(Docker or Kubernetes)](#containerized-deployments). The Transform Service is also deployed 
   as part of the Content Services containerized deployment using Docker images that are referenced from Helm charts. 
   These charts are a deployment template that can be used as the basis for your specific deployment needs.
-  For an overview of components, see the second picture on this [page]({% link transform-service/latest/index.md %}).
+  For an overview of components, see the second picture on this [page]({% link transform-service/3.0/index.md %}).
   
 >**Note:** Deployment of Transform Service with Content Services on AWS, such as Amazon EKS (Elastic Kubernetes Service), 
 >is recommended only for customers with a good knowledge of Content Services, and strong competencies in AWS and 
@@ -22,7 +22,7 @@ There are a number of software requirements for installing the Transform Service
 The Transform Service is only deployed by default as part of Content Services for containerized deployments.
 
 However, this is not the case if you're installing Content Services using the distribution zip. 
-See [Supported platforms]({% link transform-service/latest/support/index.md %}) for more information.
+See [Supported platforms]({% link transform-service/3.0/support/index.md %}) for more information.
 
 ### Containerized deployments {#containerized-deployments}
 The images downloaded directly from [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"}, or 
@@ -48,7 +48,7 @@ To use the Content Services deployment (including the Transform Service), you ne
 * [Helm](https://github.com/helm/helm#install){:target="_blank"} - the tool for installing and managing Kubernetes applications.
   * There are Helm charts that allow you to deploy Content Services with Transform Service in a Kubernetes cluster, for example, on AWS.
 
-See [Install with Helm charts]({% link transform-service/latest/install/index.md %}#install-with-helm-charts) for more details.
+See [Install with Helm charts]({% link transform-service/3.0/install/index.md %}#install-with-helm-charts) for more details.
 
 #### Software requirements (Docker)
 This is recommended for evaluations only (i.e. test and development environments).
@@ -61,7 +61,7 @@ This is recommended for evaluations only (i.e. test and development environments
 
 >**Note:** Check the prerequisites for your operating system, both for Docker and Docker Compose.
 
-See [Install with Docker Compose]({% link transform-service/latest/install/index.md %}#install-with-docker-compose) for more details.
+See [Install with Docker Compose]({% link transform-service/3.0/install/index.md %}#install-with-docker-compose) for more details.
 
 ### Non-containerized deployment {#prereq-non-containerized-deploy}
 Before installing Transform Service from the distribution ZIP file, 
@@ -545,7 +545,7 @@ before continuing.
     * `alfresco-transform-router-3.0.x.jar`
     * `README.md`
     * IPTC Content Model
-      * Needs to be bootstrapped into Alfresco Content Services for IPTC Metadata extraction to work, unless you are using Alfresco Content Services version 7.1.0+. See [Supported platforms]({% link transform-service/latest/support/index.md %}) for more information.
+      * Needs to be bootstrapped into Alfresco Content Services for IPTC Metadata extraction to work, unless you are using Alfresco Content Services version 7.1.0+. See [Supported platforms]({% link transform-service/3.0/support/index.md %}) for more information.
 
 3. Start Active MQ.
 
@@ -661,7 +661,7 @@ before continuing.
     > the updates. See the Content Services documentation [Using alfresco-global.properties]({% link content-services/latest/config/index.md%}#using-alfresco-globalproperties) 
     > for more information.
 
-8. Check that the [configuration]({% link transform-service/latest/config/index.md %}) is set up correctly for your environment.
+8. Check that the [configuration]({% link transform-service/3.0/config/index.md %}) is set up correctly for your environment.
 
 9. Restart Alfresco Content Services.
 
