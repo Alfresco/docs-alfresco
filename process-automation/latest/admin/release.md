@@ -256,6 +256,6 @@ To view the logs:
 
 The log text is color coded. White indicates no issue. Yellow indicates a warning, and Red indicates an error.
 
-### Development Configuration
+### Development configuration
 
 If local development is enabled, you can see the variables required for it, such as a client id, after clicking **Development configuration**.
