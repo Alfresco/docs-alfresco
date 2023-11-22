@@ -29,11 +29,11 @@ You can start the Sync Service with JMX remote enabled and all security disabled
     java -Xmx2G -Dcom.sun.management.jmxremote=true -Djava.rmi.server.hostname=34.253.209.238
     -Dcom.sun.management.jmxremote.port=50800 -Dcom.sun.management.jmxremote.rmi.port=50801
     -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false
-    -Djava.io.tmpdir=/var/tmp/dsync -cp postgresql.jar:service-sync-3.11.x.jar
+    -Djava.io.tmpdir=/var/tmp/dsync -cp postgresql.jar:service-sync-4.0.x.jar
     org.alfresco.service.sync.dropwizard.SyncService server config.yml
     ```
 
-    > **Note:** Make sure the ports for `com.sun.management.jmxremote.port` and `com.sun.management.jmxremote.rmi.port` are open. Also, replace `service-sync-3.11.x.jar` with your exact version.
+    > **Note:** Make sure the ports for `com.sun.management.jmxremote.port` and `com.sun.management.jmxremote.rmi.port` are open. Also, replace `service-sync-4.0.x.jar` with your exact version.
 
     > **Note:** For production systems, use both SSL client certificates to authenticate the client host, and password authentication for user management, by enabling `com.sun.management.jmxremote.authenticate` and `com.sun.management.jmxremote.ssl`.
 
@@ -95,11 +95,11 @@ Before enabling the authentication, first you need to create a password file. Th
     -Dcom.sun.management.jmxremote.authenticate=true
     -Dcom.sun.management.jmxremote.password.file=/path/to/jmx.password
     -Dcom.sun.management.jmxremote.ssl=false -Djava.io.tmpdir=/var/tmp/dsync
-    -cp postgresql.jar:service-sync-3.11.x.jar org.alfresco.service.sync.dropwizard.SyncService
+    -cp postgresql.jar:service-sync-4.0.x.jar org.alfresco.service.sync.dropwizard.SyncService
     server config.yml
     ```
 
-    > **Note:** Replace `service-sync-3.11.x.jar` with your exact version.
+    > **Note:** Replace `service-sync-4.0.x.jar` with your exact version.
 
 5. Start JConsole and select **Remote Process**.
 
@@ -146,11 +146,11 @@ The keystore contains a private key and a self-signed certificate for the Sync S
     -Djavax.net.ssl.keyStore=/path/to/sync.jks -Djavax.net.ssl.keyStorePassword=<password>
     -Djavax.net.ssl.keyStoreType=JCEKS -Djavax.net.ssl.trustStore=/path/to/sync.truststore
     -Djavax.net.ssl.trustStoreType=JCEKS -Djavax.net.ssl.trustStorePassword=<password>  
-    -Djava.io.tmpdir=/var/tmp/dsync -cp postgresql.jar:service-sync-3.11.x.jar org.alfresco.service.sync.dropwizard.SyncService
+    -Djava.io.tmpdir=/var/tmp/dsync -cp postgresql.jar:service-sync-4.0.x.jar org.alfresco.service.sync.dropwizard.SyncService
     server config.yml
     ```
 
-    > **Note:** Replace `service-sync-3.11.x.jar` with your exact version.
+    > **Note:** Replace `service-sync-4.0.x.jar` with your exact version.
 
 2. Copy the Sync Service truststore into your local machine or export the Sync Service certificate into a new truststore. See the example steps in [How to export and import SSL certificate](#how-to-export-and-import-ssl-certificate).
 
