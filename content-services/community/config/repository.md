@@ -536,9 +536,9 @@ If you're configuring SSL in a development or test environment, you can edit som
 
 > **Note:** These instructions should only be used for configuring a test environment. If you're configuring a production environment, you should use a proxy server to handle all SSL communication. See [Configuring SSL for a production environment](#ssl-repo) for more information.
 
-Here's an example of how to configure Tomcat 8.5 to work with HTTPS for your development or test system. At this point, we assume that:
+Here's an example of how to configure Tomcat 10 to work with HTTPS for your development or test system. At this point, we assume that:
 
-* You've already set up Content Service with Tomcat 8.5, running HTTP on port 8080.
+* You've already set up Content Service with Tomcat 10, running HTTP on port 8080.
   * Follow the steps in [Install using distribution zip]({% link content-services/community/install/zip/index.md %}) if you haven't already done so.
 * You may have already setup HTTPS on port 8443 for Content Service to communicate with [Alfresco Search Services]({% link search-services/latest/index.md %}).
 * In our documentation, such as [Secure Sockets Layer (SSL) and the repository](#ssl-repo), port 8443 is generally provided as an example when setting up secure HTTPS connections. This is recommended only for use with Alfresco Search Services as it should use real client certificates, where `certificateVerification="required"`. For this development or test setup, we won't necessarily use client certificates, so we'll setup a separate HTTPS connector on a different port. You can have multiple connectors in Tomcat that use HTTPS and different ports.
@@ -606,9 +606,7 @@ Here's an example of how to configure Tomcat 8.5 to work with HTTPS for your dev
 
     2. On Windows, you can just use port 443 without any proxy.
 
-    Note that we use the `certificateVerification="none"` setting. See the [official Tomcat 8.5 page](https://tomcat.apache.org/tomcat-8.5-doc/config/http.html#SSL_Support_-_SSLHostConfig){:target="_blank"} or [Tomcat 9.0 page](https://tomcat.apache.org/tomcat-9.0-doc/config/http.html#SSL_Support_-_SSLHostConfig){:target="_blank"} to learn more about the HTTPS security settings for the connector.
-
-    If you're using an older version of Tomcat (which we don't recommend and don't support), the security settings are specified in a different format. See example for [Tomcat 7.0](https://tomcat.apache.org/tomcat-7.0-doc/config/http.html#SSL_Support){:target="_blank"}.
+    Note that we use the `certificateVerification="none"` setting. See the [official Tomcat 10 page](https://tomcat.apache.org/tomcat-10.1-doc/config/http.html#SSL_Support_-_SSLHostConfig){:target="_blank"} to learn more about the HTTPS security settings for the connector.
 
 6. Edit `alfresco-global.properties` and replace the relevant values for your case:
 
