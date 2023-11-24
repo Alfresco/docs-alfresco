@@ -7,7 +7,7 @@ engine transform configurations from each configured T-Engine. The engine transf
 transformer configuration, including the supported transformers, and their transform options.
 
 For more information on the format of the transform configuration and instructions on how to create a transform
-configuration files for a custom engine, see [Creating a T-Engine](https://github.com/Alfresco/acs-packaging/blob/23.1.0/docs/creating-a-t-engine.md){:target="_blank"}.
+configuration files for a custom engine, see [Creating a T-Engine](https://github.com/Alfresco/acs-packaging/blob/7.1.0.1/docs/creating-a-t-engine.md){:target="_blank"}.
 
 T-Engines are added to the T-Router by adding the engine's URL and JMS queue name used by each and every engine. See
 next section for the URL and JMS queue name property format.
@@ -35,7 +35,7 @@ defined through configuration files in the T-Router. This is described in the la
 
 A T-Engine is intended to be run as a Docker image, but may also be run as a standalone process.
 
-For an overview of the Transform Service, including the T-Router, T-Engines, Local transforms, Legacy transforms etc see [overview]({% link transform-service/latest/index.md %}).
+For an overview of the Transform Service, including the T-Router, T-Engines, Local transforms, Legacy transforms etc see [overview]({% link transform-service/3.0/index.md %}).
 
 ## Repository specific configuration
 This section covers transform configuration on the Alfresco Content Services Repository side. As it is possible to 
@@ -205,7 +205,7 @@ Or by changing the Docker Compose file as shown below:
 ```text
 transform-router:
   mem_limit: 512m
-  image: quay.io/alfresco/alfresco-transform-router:4.0.0
+  image: quay.io/alfresco/alfresco-transform-router:3.0.0
   environment:
     JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
     ACTIVEMQ_URL: "nio://activemq:61616"
@@ -253,7 +253,7 @@ Like any other transformer, it specifies a list of supported source and target M
 all possible combinations are assumed to be available. The definition may reuse the `transformOptions` of transformers in the
 pipeline, but typically will define its own subset of these.
 
-The following example begins with the `helloWorld` Transformer described in [Creating a T-Engine](https://github.com/Alfresco/acs-packaging/blob/23.1.0/docs/creating-a-t-engine.md){:target="_blank"},
+The following example begins with the `helloWorld` Transformer described in [Creating a T-Engine](https://github.com/Alfresco/acs-packaging/blob/7.1.0.1/docs/creating-a-t-engine.md){:target="_blank"},
 which takes a text file containing a name and produces an HTML file with a `*`Hello <name>` message in the body. This is
 then transformed back into a text file.
 
