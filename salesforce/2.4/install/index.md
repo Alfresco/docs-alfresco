@@ -15,7 +15,7 @@ To begin, [install the AMP files](#installamps) and then [install the app in Sal
 
 There are a number of software requirements for using the Salesforce Connector.
 
-See [Supported platforms]({% link salesforce/latest/support/index.md %}) for specific versions.
+See [Supported platforms]({% link salesforce/2.4/support/index.md %}) for specific versions.
 
 ### Alfresco requirements
 
@@ -50,11 +50,11 @@ Make sure you are running the correct versions of operating system and software 
 
     Copy this file to the `amps` directory:
 
-    * `alfresco-content-connector-for-salesforce-repo-3.0.x.amp`
+    * `alfresco-content-connector-for-salesforce-repo-2.4.x.amp`
 
     Copy this file to the `amps_share` directory:
 
-    * `alfresco-content-connector-for-salesforce-share-3.0.x.amp`
+    * `alfresco-content-connector-for-salesforce-share-2.4.x.amp`
 
 4. To install the AMP files, run the `apply_amps.bat` file from the Alfresco `bin` directory.
 
@@ -173,7 +173,7 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
 
         >**Note:** A suggested name is `Alfresco_for_Salesforce`. You'll need to remember the API Name when you configure the Alfresco Setup tab.
 
-        >**Note:** If this is not set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/latest/using/troubleshoot.md %}) for guidance.
+        >**Note:** If this is not set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/2.4/using/troubleshoot.md %}) for guidance.
 
     3. **Contact Email**: Enter an administrator email address.
     4. Check **Enable OAuth Settings**.
@@ -285,7 +285,7 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
 
     If your API name appears as `Alfresco_Content_Connector_for_Salesforce`, then you must to change it to `Alfresco_for_Salesforce`.
 
-    This sets the Alfresco site that you want to use for your content. If this isn't set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/latest/using/troubleshoot.md %}) for guidance.
+    This sets the Alfresco site that you want to use for your content. If this isn't set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/2.4/using/troubleshoot.md %}) for guidance.
 
 3. You'll see two tabs; **Site to Object Mapping** and **Metadata Mapping**. Select a tab and you'll see the Alfresco login screen. Log in to your connected Alfresco instance.
 
@@ -334,7 +334,7 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
 
 To allow the Alfresco Content Connector to appear in the Lightning experience view of Salesforce you need to add a Salesforce lightning component.
 
-Make sure that you've downloaded the Alfresco Content Connector app, as described in [Step 2: Install the app in Salesforce](#installapp). You need administrator rights to make these changes. You also need to have a custom Salesforce domain that has been deployed and activated for your users, for more see [Configure SSO for Salesforce]({% link salesforce/latest/config/index.md %}#prereqs).
+Make sure that you've downloaded the Alfresco Content Connector app, as described in [Step 2: Install the app in Salesforce](#installapp). You need administrator rights to make these changes. You also need to have a custom Salesforce domain that has been deployed and activated for your users, for more see [Configure SSO for Salesforce]({% link salesforce/2.4/config/index.md %}#prereqs).
 
 To create the Lightning Component follow these steps:
 
@@ -424,7 +424,7 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
 
         >**Note:** A suggested name is `Alfresco_for_Salesforce`. You'll need to remember the API Name when you configure the **Alfresco Setup** tab.
 
-        >**Note:** If this is not set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/latest/using/troubleshoot.md %}) for guidance.
+        >**Note:** If this is not set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/2.4/using/troubleshoot.md %}) for guidance.
 
     3. **Contact Email**: Enter an administrator email address.
     4. Check **Enable OAuth Settings**.
@@ -523,7 +523,7 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
 
     If your API name appears as `Alfresco_Content_Connector_for_Salesforce` then you must to change it to `Alfresco_for_Salesforce`.
 
-    This sets the Alfresco site that you want to use for Alfresco content. If this is not set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/latest/using/troubleshoot.md %}) for guidance.
+    This sets the Alfresco site that you want to use for Alfresco content. If this is not set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/2.4/using/troubleshoot.md %}) for guidance.
 
 3. You'll see two tabs; **Site to Object Mapping** and **Metadata Mapping**. Select a tab and you'll see the Alfresco login screen. Log on to your connected Alfresco instance.
 
