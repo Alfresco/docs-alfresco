@@ -27,16 +27,17 @@ To deploy Community Edition using Docker Compose, download and install [Docker](
 
     ```text
     ...
-    ⠿ Network docker-compose_default                 Created        ...        0.2s
-    ⠿ Container docker-compose-alfresco-1            Created        ...        1.7s
-    ⠿ Container docker-compose-postgres-1            Created        ...        1.8s
-    ⠿ Container docker-compose-share-1               Created        ...        1.7s
-    ⠿ Container docker-compose-activemq-1            Created        ...        1.8s
-    ⠿ Container docker-compose-transform-core-aio-1  Created        ...        1.7s
-    ⠿ Container docker-compose-solr6-1               Created        ...        1.8s
-    ⠿ Container docker-compose-content-app-1         Created        ...        1.7s
-    ⠿ Container docker-compose-proxy-1               Created        ...        0.1s
-    Attaching to docker-compose-activemq-1, docker-compose-alfresco-1, docker-compose-content-app-1, docker-compose-postgres-1, docker-compose-proxy-1, docker-compose-share-1, docker-compose-solr6-1, docker-compose-transform-core-aio-1
+    ⠿ Network docker-compose_default                         Created        ...        0.2s
+    Container docker-compose-transform-core-aio-1            Created        ...        0.0s
+    ✔ Container docker-compose-share-1                       Created        ...        0.1s
+    ✔ Container docker-compose-control-center-1              Created        ...        0.0s
+    ✔ Container docker-compose-solr6-1                       Created        ...        0.1s
+    ✔ Container docker-compose-postgres-1                    Created        ...        0.0s
+    ✔ Container docker-compose-activemq-1                    Created        ...        0.1s
+    ✔ Container docker-compose-alfresco-1                    Created        ...        0.1s
+    ✔ Container docker-compose-content-app-1                 Created        ...        0.0s
+    ✔ Container docker-compose-proxy-1                       Created        ...        0.1s
+    Attaching to docker-compose-activemq-1, docker-compose-alfresco-1, docker-compose-content-app-1, docker-compose-control-center-1, docker-compose-postgres-1, docker-compose-proxy-1, docker-compose-share-1, docker-compose-solr6-1, docker-compose-transform-core-aio-1
     d
     ...
     ```
@@ -49,8 +50,8 @@ To deploy Community Edition using Docker Compose, download and install [Docker](
 
     ```bash
     ...
-    docker-compose-alfresco-1            | 2022-11-23 17:45:10,889  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-3] Starting 'Transformers' subsystem, ID: [Transformers, default]
-    docker-compose-alfresco-1            | 2022-11-23 17:45:11,234  INFO  [management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-3] Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+    docker-compose-alfresco-1            ... INFO ... Starting 'Transformers' subsystem, ID: [Transformers, default]
+    docker-compose-alfresco-1            ... INFO ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
     ...
     ```
 
@@ -61,6 +62,7 @@ To deploy Community Edition using Docker Compose, download and install [Docker](
     | Service | Endpoint |
     | ------- | -------- |
     | Administration and REST APIs | `http://localhost:8080/alfresco` |
+    | Control Center | `http://localhost:8080/admin` |
     | Share | `http://localhost:8080/share` |
     | Alfresco Content App | `http://localhost:8080/content-app` |
     | Search Services administration | `http://localhost:8083/solr` |
@@ -69,7 +71,30 @@ To deploy Community Edition using Docker Compose, download and install [Docker](
 
     If you're still using the [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/){:target="_blank"}, you'll need to switch to [Docker Desktop](https://docs.docker.com/install/){:target="_blank"} as Docker Toolbox is deprecated.
 
+    See the Alfresco Content Services - Enterprise documentation for more details about the [Alfresco Control Center UI]({% link content-services/latest/admin/control-center.md %}).
+
 5. Log in as the `admin` user. Enter the default administrator password `admin`.
+
+## Search Services administration
+
+To access the Solr Admin UI, you need to add a header with a secret.
+
+For Safari:
+
+1. Go to **Develop > Show Web Inspector > Sources**.
+2. Click on the **+** next to **Local Overrides** and select **Local Overrides...**.
+3. Configure the URL using a regular expression for the Solr host and port:
+
+    For example, `http://localhost:8983/solr/*`
+
+4. Add the `X-Alfresco-Search-Secret` header with the secret value.
+
+For Chrome, FireFox, Opera, and Edge*:
+
+1. Install the ModHeader extension.
+2. Add the `X-Alfresco-Search-Secret` header with the secret value, as shown in the image.
+
+![Modheader]({% link content-services/images/modheader.png %}){:width="460" height="380px"}
 
 ## Check system start up
 
@@ -92,14 +117,15 @@ Use this information to verify that the system started correctly, and to clean u
         ```text
         Container                             Repository                                       Tag                        Image Id        Size  
         ----------------------------------------------------------------------------------------------------------------------------------------
-        docker-compose-activemq-1             alfresco/alfresco-activemq                       5.17.1-jre11-rockylinux8   0cd1a9629a85    632MB
-        docker-compose-alfresco-1             alfresco/alfresco-content-repository-community   7.4.0.1                    f006ac55f158    1.04GB
-        docker-compose-content-app-1          alfresco/alfresco-content-app                    4.0.0                      8b5feed50498    83.6MB
-        docker-compose-postgres-1             postgres                                         14.4                       e09e90144645    376MB
-        docker-compose-proxy-1                alfresco/alfresco-acs-nginx                      3.4.2                      f9c4519b7920    23.4MB
-        docker-compose-share-1                alfresco/alfresco-share                          7.4.0.1                    c3dc5af44b20    738MB
-        docker-compose-solr6-1                alfresco/alfresco-search-services                2.0.7                      8c828de69496    791MB
-        docker-compose-transform-core-aio-1   alfresco/alfresco-transform-core-aio             3.1.0                      db73d71dc7d8    1.72GB
+        docker-compose-activemq-1             alfresco/alfresco-activemq                       5.18-jre17-rockylinux8   8d025606b35f        686MB
+        docker-compose-alfresco-1             alfresco/alfresco-content-repository-community   23.1.0                   b66ea7d42ad8        1.01GB
+        docker-compose-content-app-1          alfresco/alfresco-content-app                    4.3.0                    a43e40e88c2d        87.4MB
+        docker-compose-control-center-1       quay.io/alfresco/alfresco-control-center         8.3.0                    9f7f1ce0ba60        43.2MB
+        docker-compose-postgres-1             postgres                                         14.4                     fb7289787ade        355MB
+        docker-compose-proxy-1                alfresco/alfresco-acs-nginx                      3.4.2                    f9c4519b7920        23.4MB
+        docker-compose-share-1                alfresco/alfresco-share                          23.1.1                   f4063f4d7a62        715MB
+        docker-compose-solr6-1                alfresco/alfresco-search-services                2.0.8.2                  be4b827d934a        835MB
+        docker-compose-transform-core-aio-1   alfresco/alfresco-transform-core-aio             5.0.1                    448b02b47f7d        1.67GB
         ```
 
     2. List the running containers:
@@ -143,15 +169,16 @@ Use this information to verify that the system started correctly, and to clean u
 
     ```text
     ^CGracefully stopping... (press Ctrl+C again to force)
-    [+] Running 8/8
-     ⠿ Container docker-compose-transform-core-aio-1  Stopped    ...
-     ⠿ Container docker-compose-solr6-1               Stopped    ...
-     ⠿ Container docker-compose-postgres-1            Stopped    ...
-     ⠿ Container docker-compose-proxy-1               Stopped    ...
-     ⠿ Container docker-compose-activemq-1            Stopped    ...
-     ⠿ Container docker-compose-alfresco-1            Stopped    ...
-     ⠿ Container docker-compose-share-1               Stopped    ...
-     ⠿ Container docker-compose-content-app-1         Stopped    ...
+    [+] Running 9/9
+    ✔ Container docker-compose-transform-core-aio-1  Stopped    ...
+    ✔ Container docker-compose-activemq-1            Stopped    ...
+    ✔ Container docker-compose-postgres-1            Stopped    ...
+    ✔ Container docker-compose-solr6-1               Stopped    ...
+    ✔ Container docker-compose-proxy-1               Stopped    ...
+    ✔ Container docker-compose-content-app-1         Stopped    ...
+    ✔ Container docker-compose-share-1               Stopped    ...
+    ✔ Container docker-compose-alfresco-1            Stopped    ...
+    ✔ Container docker-compose-control-center-1      Stopped    ...
     ```
 
 5. Alternatively, you can open a new terminal window, change directory to the `docker-compose` folder, and run:
@@ -165,14 +192,14 @@ Use this information to verify that the system started correctly, and to clean u
     ```text
     ...
     ⠿ Container docker-compose-transform-core-aio-1  Removed    ...
-    ⠿ Container docker-compose-solr6-1               Removed    ...
-    ⠿ Container docker-compose-postgres-1            Removed    ...
-    ⠿ Container docker-compose-proxy-1               Removed    ...
-    ⠿ Container docker-compose-activemq-1            Removed    ...
-    ⠿ Container docker-compose-alfresco-1            Removed    ...
-    ⠿ Container docker-compose-share-1               Removed    ...
-    ⠿ Container docker-compose-content-app-1         Removed    ...
-    ⠿ Network docker-compose_default                 Removed    ...
+    ✔ Container docker-compose-solr6-1               Removed    ...
+    ✔ Container docker-compose-postgres-1            Removed    ...
+    ✔ Container docker-compose-proxy-1               Removed    ...
+    ✔ Container docker-compose-activemq-1            Removed    ...
+    ✔ Container docker-compose-alfresco-1            Removed    ...
+    ✔ Container docker-compose-control-center-1      Removed    ...
+    ✔ Container docker-compose-share-1               Removed    ...
+    ✔ Network docker-compose_default                 Removed    ...
     ...
     ```
 
@@ -206,15 +233,17 @@ Use this information to verify that the system started correctly, and to clean u
 
         ```text
         ...
-        ⠿ Container docker-compose-solr6-1                              Removed        ...        10.6s
-        ⠿ Container docker-compose-transform-core-aio-1                 Removed        ...        1.6s
-        ⠿ Container docker-compose-proxy-1                              Removed        ...        10.4s
-        ⠿ Container docker-compose-postgres-1                           Removed        ...         0.5s
-        ⠿ Container docker-compose-activemq-1                           Removed        ...        10.7s
-        ⠿ Container docker-compose-share-1                              Removed        ...        10.7s
-        ⠿ Container docker-compose-alfresco-1                           Removed        ...         1.3s
-        ⠿ Network docker-compose_default
-        ⠿ Image alfresco/alfresco-activemq:5.17.1-jre11-rockylinux8     Removed        ...
+        ✔ Container docker-compose-transform-core-aio-1                  Removed        ...        0.5s
+        ✔ Container docker-compose-solr6-1                               Removed        ...        10.2s
+        ✔ Container docker-compose-postgres-1                            Removed        ...        0.2s
+        ✔ Container docker-compose-proxy-1                               Removed        ...        10.2s
+        ✔ Container docker-compose-activemq-1                            Removed        ...        2.3s
+        ✔ Container docker-compose-alfresco-1                            Removed        ...        10.2s
+        ✔ Container docker-compose-control-center-1                      Removed        ...        0.1s
+        ✔ Container docker-compose-share-1                               Removed        ...        10.2s
+        ...
+        ✔ Image alfresco/alfresco-transform-core-aio:5.0.1               Removed        ...        1.9s
+
         ...
         ```
 
@@ -260,7 +289,7 @@ docker-compose down
 
 4. Try allocating more memory resources, as advised in `docker-compose.yml`.
 
-    For example, in Docker, change the memory setting in **Preferences** (or **Settings**) **Resources** > **Advanced** > **Memory** to at least 8GB. Make sure you restart Docker and wait for the process to finish before continuing.
+    For example, in Docker, change the memory setting in **Preferences** (or **Settings**) **Resources** > **Advanced** > **Memory** to at least 13 GB. Make sure you restart Docker and wait for the process to finish before continuing.
 
     Go back to step 2 in the initial Docker Compose instructions to start the deployment again.
 
