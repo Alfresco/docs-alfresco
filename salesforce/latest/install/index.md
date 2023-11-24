@@ -50,11 +50,11 @@ Make sure you are running the correct versions of operating system and software 
 
     Copy this file to the `amps` directory:
 
-    * `alfresco-content-connector-for-salesforce-repo-2.4.x.amp`
+    * `alfresco-content-connector-for-salesforce-repo-3.0.x.amp`
 
     Copy this file to the `amps_share` directory:
 
-    * `alfresco-content-connector-for-salesforce-share-2.4.x.amp`
+    * `alfresco-content-connector-for-salesforce-share-3.0.x.amp`
 
 4. To install the AMP files, run the `apply_amps.bat` file from the Alfresco `bin` directory.
 
