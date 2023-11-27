@@ -2,7 +2,7 @@
 title: Unsupported features
 ---
 
-The following features, which were supported with Search and Insight Engine 2.x and Search Services 2.x (Solr) are not supported in the latest release for Search Enterprise 3.x.
+The following features, which were supported with Search and Insight Engine 2.x and Search Services 2.x (Solr) are not supported in the latest release for Search Enterprise 4.x.
 
 ## Indexing
 
@@ -78,7 +78,7 @@ The following are examples of how to use different fields for queries:
 
 ## Unsupported data types and properties
 
-Data types and properties supported in Search and Insight Engine 2.x and Search Services 2.x that are not currently supported for Search Enterprise 3.x.
+Data types and properties supported in Search and Insight Engine 2.x and Search Services 2.x that are not currently supported for Search Enterprise 4.x.
 
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}any
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}assocref
