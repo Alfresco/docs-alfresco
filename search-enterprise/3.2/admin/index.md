@@ -448,9 +448,9 @@ The configuration used in this example:
 
 **Indexing Instance**
 
-* EC2 Indexing Instance to run alfresco-elasticsearch-connector-distribution-3.1.1
+* Amazon EC2 Indexing Instance to run alfresco-elasticsearch-connector-distribution-3.2.1
 * Indexing Instance type: t2.2xlarge (8vCPUs, 32GiB RAM)
-* Number of EC2 Instances for Indexing: 3
+* Number of Amazon EC2 Instances for Indexing: 3
 * Number of threads running on Instance 1 and 2 is 7 each with 6 threads on instance 3. Total threads running in parallel is 20
 * Maximum Heap allocated to each thread is 4GB (-Xmx4G)
 
@@ -471,10 +471,14 @@ The configuration used in this example:
 
 * Active MQ: mq.m4.large
 * RDS is used as Database with db.r5.2xlarge running PostgreSQL
-* EC2 Instance running ACS & Transform Service: m5a.xlarge
+* Amazon EC2 Instance running ACS & Transform Service: m5a.xlarge
 * ACS Version used is 7.2.0
 * The deployment architecture of the setup looks like this:
 * Capture.JPG
+
+The deployment architecture of the system
+
+![architecture]({% link search-enterprise/images/database-configuration.png %})
 
 ### Configure Search Enterprise
 
@@ -502,33 +506,41 @@ To set the translog flush threshold to `2GB`:
 
 ```curl
 curl -XPUT "https://<Elasticsearch DNS>:443/alfresco/_settings?pretty" -H 'Content-Type: application/json' -d '{"index":{"translog.flush_threshold_size" : "2GB"}}'
+```
 
 To verify the settings:
 
 ```curl
 curl -XGET "https://<Elasticsearch DNS>:443/alfresco/_settings?pretty" -H 'Content-Type: application/json' -d '{ "index" : { "refresh_interval" }}'
-Setting Up Re-Indexing Instance
 ```
 
-Deploy 3 EC2 instances using configuration from table above in same VPC as all other services
-Attach these EC2 instances to security group such that all incoming traffic is allowed from other services
-Install Java on all the 3 instances
-Copy alfresco-elasticsearch-connector-distribution-3.1.1 to 3 EC2 Instance
-We were running 7 threads each on two instances and 6 on third to achieve total 20 thread count
-Browse to folder where alfresco-elasticsearch-reindexing-3.1.1-app.jar is located
-Run below code with following necessary modifications.
-server.port: provide unique port numbers to run required number of threads needed from an instance. For example, to run 7 threads from Instance1; copy below code 7 times providing unique port in each of 7 sets of commands. Similarly, update other parameters as below.
-Provide unique nodeID for each thread using parameter alfresco.reindex.fromId and alfresco.reindex.toId. Idea is to equally distribute total file count among the threads. In this case, 1B among 20 threads, each thread getting 50 million each. For example,
-For Thread 1: alfresco.reindex.fromId=0 alfresco.reindex.toId=50000000
-For Thread 2: alfresco.reindex.fromId=50000001 alfresco.reindex.toId=100000000
-For Thread 3: alfresco.reindex.fromId=100000001 alfresco.reindex.toId=150000000
-......
-For Thread 20: alfresco.reindex.fromId=950000001 alfresco.reindex.toId=1000000000
-Running more than 20 threads at this infrastructure has not shown improvement in indexing speed.
+To setup the Re-Indexing Instance:
+
+1. Deploy 3 Amazon EC2 instances in the same VPC as all the other services.
+
+2. Attach the Amazon EC2 instances to a security group that allows all incoming traffic from other services.
+
+3. Install Java on all the 3 instances.
+
+4. Copy `alfresco-elasticsearch-connector-distribution-3.2.1` to the 3 Amazon EC2 instances.
+
+   You can run 7 threads on each on the two instances and 6 on the third instance to achieve a total of a 20 thread count.
+
+5. In a command prompt on the VPC `cd` to where `alfresco-elasticsearch-reindexing-3.1.1-app.jar` is located.
+
+6. Run the code with your specific configuration, where:
+
+    * `server.port` - a unique port number to run the required number of threads needed for an instance. For example, to run 7 threads from instance1, you must copy the code 7 times and provide a unique port in each of the 7 sets of commands.
+    * `alfresco.reindex.fromId` and `alfresco.reindex.toId` - a unique `nodeID` for each thread. You can equally distribute the total file count among the threads. In this example, 1B among 20 threads with each thread receiving 50 million each. For example:
+        * For Thread 1: `alfresco.reindex.fromId=0` and `alfresco.reindex.toId=50000000`
+        * For Thread 2: `alfresco.reindex.fromId=50000001` and `alfresco.reindex.toId=100000000`
+        * For Thread 3: `alfresco.reindex.fromId=100000001` and `alfresco.reindex.toId=150000000`
+        * For Thread 20: `alfresco.reindex.fromId=950000001` and `alfresco.reindex.toId=1000000000`
+
 Indexing Command
 
 ```java
-nohup java -Xmx4G -jar alfresco-elasticsearch-reindexing-3.1.1-app.jar \
+nohup java -Xmx4G -jar alfresco-elasticsearch-reindexing-3.2.1-app.jar \
 --server.port=<unique port> \
 --alfresco.reindex.jobName=reindexByIds \
 --spring.elasticsearch.rest.uris=https://<Elasticsearch DNS>:443 \
@@ -551,9 +563,6 @@ nohup java -Xmx4G -jar alfresco-elasticsearch-reindexing-3.1.1-app.jar \
 Indexing Speed
 ```
 
-Below table summarizes different indexing obtained with different data volumes with identical infrastructure and configurations. 
+The table summarizes different indexing capabilities obtained with different data volumes but with identical infrastructure and configuration as outlined above. 
 
-
-Conclusion
-
-With certain tricks we can customize Elasticsearch to cater to our needs. With right set of infrastructure and configurations, one can achieve greater indexing performance. Here, we have an optimum setup which can be scaled up further to achieve higher indexing speed.
+![statistics]({% link search-enterprise/images/database-statistics.png %})
