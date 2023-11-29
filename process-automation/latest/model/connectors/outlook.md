@@ -1,14 +1,14 @@
 ---
-title: Microsoft Outlook connector
+title: Calendar connector
 ---
 
-The Outlook connector uses the [Microsoft Graph](https://docs.microsoft.com/en-us/graph/use-the-api){:target="_blank"} API to integrate with Microsoft Outlook.
+The Calendar connector uses the [Microsoft Graph](https://docs.microsoft.com/en-us/graph/use-the-api){:target="_blank"} API to integrate with Microsoft Outlook.
 
-The Outlook connector is displayed on the process diagram with the Outlook logo.
+The Calendar connector is displayed on the process diagram with the calendar icon.
 
-> **Important**: The Outlook connector and user both require a Microsoft Outlook client. The Outlook connector requires a Microsoft Outlook account. The account is separate to the Alfresco hosted environment and should be created and managed by an administrator.
+> **Important**: The Calendar connector and user both require a Microsoft Outlook client. The Calendar connector requires a Microsoft Outlook account. The account is separate to the Alfresco hosted environment and should be created and managed by an administrator.
 
-The actions that can be executed using the Outlook connector are:
+The actions that can be executed using the Calendar connector are:
 
 * [Create a calendar event](#create-a-calendar-event) creates an event or appointment in the calendar.
 * [Update a calendar event](#update-a-calendar-event) update an event or appointment in the calendar.
@@ -16,9 +16,10 @@ The actions that can be executed using the Outlook connector are:
 
 ## Configuration
 
-### Outlook connector configuration parameters
+### Calendar connector configuration parameters
 
-The configuration parameters for the Outlook connector are:
+The Calendar connector uses the Microsoft Teams credentials to connect with a Microsoft account.
+The configuration parameters for the Calendar connector are:
 
 | Parameter | Description |
 |-----------|-------------|
@@ -27,9 +28,9 @@ The configuration parameters for the Outlook connector are:
 | TEAMS_SCOPE | The scopes requested by the connector in the Teams instance OAuth protocol. |
 | TEAMS_TENANT | The Teams tenant to be used by the connector. |
 
-### Outlook connector errors
+### Calendar connector errors
 
-The possible [errors]({% link process-automation/latest/model/connectors/index.md %}#errors) that can be handled by the Outlook connector are:
+The possible [errors]({% link process-automation/latest/model/connectors/index.md %}#errors) that can be handled by the Calendar connector are:
 
 | Error | Description |
 |-------|-------------|
@@ -39,11 +40,11 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 | SCHEDULE_ERROR | An error occurred from attempting to get the availability. |
 | UNKNOWN_ERROR | An unexpected error occurred during the execution of the action. |
 
-In addition to the above configuration the following properties are required to perform Outlook operations:
+In addition to the above configuration the following properties are required to perform calendar operations:
 
 ## Create a calendar event
 
-The `createTeamsEventCalendar` action is used by the Outlook connector to create a calendar event in Microsoft Outlook.
+The `createTeamsEventCalendar` action is used by the Calendar connector to create a calendar event in Microsoft Outlook.
 
 The input parameters to create a calendar event in Microsoft Outlook are:
 
