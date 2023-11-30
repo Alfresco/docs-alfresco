@@ -411,7 +411,7 @@ This section dictates the table configurations specific to each search result ty
     * **Enable Reset Button** - Users can order or hide columns for the search results table, and those local configurations are stored under their user preferences. Reset clears out search-related user preferences, and resets the look of the table to the default.
     * **Enable standardized table view** - When enabled, users can click this view and ALL users will see the exact same table sorted the exact same way.
 
-2. Object Title - Configure which attribute in the table should be clickable.
+2. Result Link Display Attribute - Configure which attribute in the table should be clickable.
 
 3. Indicator Icons - Configure icons that are displayed next to the Title attribute in the table if the criteria is met for a particular document. The most common scenario this is used for is displaying a lock icon next to checked out documents. This scenario is so common that its configuration is mapped to a single button click &gt; "Add Lock/Key"
 
