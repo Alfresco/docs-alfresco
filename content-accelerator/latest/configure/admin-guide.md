@@ -1542,7 +1542,7 @@ The Content Accelerator license manager allows an Administrator to view the curr
 
 ## Action Configuration
 
-While many actions require little to no configuration beyond enabling the action, some more complicated actions have additional configuration options. See the [Action Configurations]({% link content-accelerator/latest/configure/actions.md %}) section for further details about how to configure certain commonly used actions in Content Accelerator. Individual action links listed in the table below.
+While many actions require little to no configuration beyond enabling the action (self-documentation can be found under **Admin** > **Tools** > **Actions Information** > **Available Actions**), some more complicated actions have additional configuration options. See the [Action Configurations]({% link content-accelerator/latest/configure/actions.md %}) section for further details about how to configure certain commonly used actions in Content Accelerator. Individual action links listed in the table below.
 
 ### Addition Action Configuration Information
 

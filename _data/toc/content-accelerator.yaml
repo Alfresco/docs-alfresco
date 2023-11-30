@@ -14,7 +14,7 @@
         path: '/content-accelerator/latest/install/java-support/'
       - title: 'Single Sign On Support'
         path: '/content-accelerator/latest/install/sso/'
-      - title: 'Upgrading from Alfresco Content Accelerator 3.4'
+      - title: 'Upgrading from Alfresco Content Accelerator 3.5'
         path: '/content-accelerator/latest/install/upgrading/' 
 
     - title: 'Using'
