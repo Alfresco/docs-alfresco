@@ -430,7 +430,7 @@ The main use case to re-index only content or path is a fully metadata indexed r
 
 ## Bulk metadata indexing
 
-You can customize Search Enterprise and have the index ready with just the metadata of uploaded files or with the content of the files as well. If you have the content of your files indexed there are time and cost implications you must consider and it is only recommended when necessary.
+You can customize Search Enterprise by having the index ready with just the metadata of uploaded files or with the content of the files as well. If you have the content of your files indexed there are time and cost implications you must consider and it is only recommended when necessary.
 This example describes how to setup Search Enterprise to show the speed achievable when processing one billion files. Amazon Web Services have been used as the host but your setup will be specific to your requirements.
 
 The configuration used in this example:
@@ -442,45 +442,45 @@ The configuration used in this example:
 * Instance Type: `r6g.2xlarge.search`.
 * Storage type: EBS.
 * EBS volume type: Provisioned IOPS (SSD).
-* EBS volume size: 1000 GiB per node.
+* EBS volume size: `1000GB` per node.
 * Fielddata cache allocation: `20`.
 * Max clause count: `1024`.
 
 **Indexing Instance**
 
 * Amazon EC2 Indexing instance to run `alfresco-elasticsearch-connector-distribution-3.2.1`.
-* Indexing Instance type: `t2.2xlarge` (8vCPUs, 32GiB RAM).
+* Indexing Instance type: `t2.2xlarge` (8vCPUs, `32GB` RAM).
 * Number of Amazon EC2 Instances for Indexing: `3`.
 * Number of threads running on instance 1 and 2 is `7` each with `6` threads on instance 3. Total threads running in parallel is `20`.
 * Maximum Heap allocated to each thread is `4GB` (-Xmx4G).
 
 **Search Enterprise Master Node**
 
-* Number Of Master Nodes: `3`.
-* Master Node Instance type: `m5.large.search`.
+* Number of Master Nodes: `3`.
+* Master Node instance type: `m5.large.search`.
 * Master node is added for resilience, and can be avoided without having significant impact.
 
 **Search Enterprise Settings**
 
 * Number of Primary shards: `32`.
-* Number of Replica Shards: `0`.
-* Refresh Time: Disabled
+* Number of Replica shards: `0`.
+* Refresh time: Disabled.
 * Translog flush threshold: `2GB`
 
 **Other Components**
 
-* Active MQ: `mq.m4.large`
-* RDS is used as the Database with `db.r5.2xlarge` running PostgreSQL
-* Amazon EC2 Instance running ACS & Transform Service: `m5a.xlarge`
-* ACS Version: `7.2.0`
+* Active MQ: `mq.m4.large`.
+* RDS is used as the Database with `db.r5.2xlarge` running PostgreSQL.
+* Amazon EC2 Instance running Content Services and the Transform Service: `m5a.xlarge`
+* Content Services: `7.2.0`.
 
-The deployment architecture of the system
+The deployment architecture of the system:
 
 ![architecture]({% link search-enterprise/images/database-configuration.png %})
 
 ### Configure Search Enterprise
 
-Amazon Web Services recommend each shard should be not more than 50GB. For this example of one billion files the estimated total size of metadata to be indexed is 1.3TB. The shard size here can be set to 40GB which equals 32 shards.
+Amazon Web Services recommend each shard should be not more than `50GB`. For this example of one billion files the estimated total size of metadata to be indexed is `1.3TB`. The shard size here can be set to `40GB` which equals 32 shards.
 
 On the same VPC set the number of shards:
 
@@ -516,21 +516,21 @@ curl -XGET "https://<Elasticsearch DNS>:443/alfresco/_settings?pretty" -H 'Conte
 
 To setup the Re-Indexing Instance:
 
-1. Deploy 3 Amazon EC2 instances in the same VPC as all the other services.
+1. Deploy three Amazon EC2 instances in the same VPC as all the other services.
 
-2. Attach the Amazon EC2 instances to a security group that allows all incoming traffic from other services.
+2. Attach the Amazon EC2 instances to a security group that allows all incoming traffic from the other services.
 
-3. Install Java 17 on all 3 instances.
+3. Install Java 17 on all three instances.
 
-4. Copy `alfresco-elasticsearch-connector-distribution-3.2.1` to the 3 Amazon EC2 instances.
+4. Copy `alfresco-elasticsearch-connector-distribution-3.2.1` to the three Amazon EC2 instances.
 
-   Run `7` threads on each of the two instances and `6` on the third instance to achieve a total of a `20` thread count.
+   Run `7` threads on each of the two instances and `6` on the third instance to achieve a total of `20` thread count.
 
 5. In a command prompt on the VPC `cd` to where `alfresco-elasticsearch-reindexing-3.1.1-app.jar` is located.
 
-6. Run the code with your specific configuration, where:
+6. Run the following Indexing command with your specific configuration, where:
 
-    * `server.port` - a unique port number to run the required number of threads needed for an instance. For example, to run 7 threads from instance1, you must copy the code 7 times and provide a unique port in each of the 7 sets of commands.
+    * `server.port` - a unique port number to run the required number of threads needed for an instance. For example, to run 7 threads from instance one, you must copy the code 7 times and provide a unique port in each of the 7 sets of commands.
     * `alfresco.reindex.fromId` and `alfresco.reindex.toId` - a unique `nodeID` for each thread. You can equally distribute the total file count among the threads. In this example, 1B among 20 threads with each thread receiving 50 million each. For example:
         * For Thread 1: `alfresco.reindex.fromId=0` and `alfresco.reindex.toId=50000000`
         * For Thread 2: `alfresco.reindex.fromId=50000001` and `alfresco.reindex.toId=100000000`
