@@ -450,12 +450,6 @@ Whether or not the user wants a modal dialog box to appear asking them to confir
 
 Default value: `false`
 
-### controlledPrint
-
-Whether or not controlled printing is enabled. Controlled print only allows certain people to print a document, and controls the number of times it can be printed.
-
-Default value: `false`
-
 ### thumbnailResolution
 
 The minimum resolution to load the thumbnail images for the document.
