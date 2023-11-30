@@ -1476,7 +1476,7 @@ defaults:
       version: 3.6
       latest: true
   - scope:
-      path: "content-accelerator/latest"
+      path: "content-accelerator/3.5"
     values:
       version: 3.5
 
