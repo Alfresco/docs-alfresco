@@ -183,7 +183,7 @@ Ad Hoc Forms are very similar to regular forms with an additional feature to cre
 
 * **Content Template** - allows administrators to create template documents that can be utilized in the Bulk Upload action for users to create documents from a template starting point.
 
-* **FreeMarker Template** - allows administrators to override default FTL templates provided in the ACA deployment.  For example, FTL template overrides can be used to change notification email content.
+* **FreeMarker Template** - allows administrators to override default FTL templates provided in the ACA deployment and create their own FTL templates. For example, FTL template overrides can be used to change notification email content. To override, simply select a template to override in the dropdown of the FTL template management area and upload a new file to replace the existing template. Once overridden, the template can be edited in plain text.
 
 * **Wizard Form Template** - allows administrators to provide a Word document template that is used to apply Wizard form data to create the form PDF rendition and optionally a separate document.
 
