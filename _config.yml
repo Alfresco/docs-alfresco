@@ -1468,12 +1468,17 @@ defaults:
       toc: "content-accelerator"
       support: true
       versions:
+        - 3.6
         - 3.5
   - scope:
       path: "content-accelerator/latest"
     values:
-      version: 3.5
+      version: 3.6
       latest: true
+  - scope:
+      path: "content-accelerator/latest"
+    values:
+      version: 3.5
 
 # Alfresco Enterprise Viewer
   - scope:
