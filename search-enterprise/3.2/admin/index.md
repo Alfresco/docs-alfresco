@@ -430,51 +430,49 @@ The main use case to re-index only content or path is a fully metadata indexed r
 
 ## Bulk metadata indexing
 
-You can customize Search Enterprise. You can have the index ready with just the metadata of uploaded files or with the content of the files as well. If you have the content of your files indexed as well there are time and cost implications you must consider and is only recommended when necessary.
-This example describes how to setup Search Enterprise and will show the speed achievable at processing one billion files. Amazon Web Services have been used as the host but your setup will be specific to your requirements.
+You can customize Search Enterprise and have the index ready with just the metadata of uploaded files or with the content of the files as well. If you have the content of your files indexed there are time and cost implications you must consider and it is only recommended when necessary.
+This example describes how to setup Search Enterprise to show the speed achievable when processing one billion files. Amazon Web Services have been used as the host but your setup will be specific to your requirements.
 
 The configuration used in this example:
 
-**Elasticsearch Data Node**
+**Search Enterprise Data Node**
 
-* AWS Elasticsearch v7.10 with Availability Zone: 1-AZ
-* Number of Data Nodes: 3
-* Instance Type: r6g.2xlarge.search
-* Storage type: EBS
-* EBS volume type: Provisioned IOPS (SSD)
-* EBS volume size: 1000 GiB per node
-* Fielddata cache allocation: 20
-* Max clause count: 1024
+* AWS Elasticsearch `7.10` with Availability Zone: `1-AZ`.
+* Number of Data Nodes: `3`.
+* Instance Type: `r6g.2xlarge.search`.
+* Storage type: EBS.
+* EBS volume type: Provisioned IOPS (SSD).
+* EBS volume size: 1000 GiB per node.
+* Fielddata cache allocation: `20`.
+* Max clause count: `1024`.
 
 **Indexing Instance**
 
-* Amazon EC2 Indexing Instance to run alfresco-elasticsearch-connector-distribution-3.2.1
-* Indexing Instance type: t2.2xlarge (8vCPUs, 32GiB RAM)
-* Number of Amazon EC2 Instances for Indexing: 3
-* Number of threads running on Instance 1 and 2 is 7 each with 6 threads on instance 3. Total threads running in parallel is 20
-* Maximum Heap allocated to each thread is 4GB (-Xmx4G)
+* Amazon EC2 Indexing instance to run `alfresco-elasticsearch-connector-distribution-3.2.1`.
+* Indexing Instance type: `t2.2xlarge` (8vCPUs, 32GiB RAM).
+* Number of Amazon EC2 Instances for Indexing: `3`.
+* Number of threads running on instance 1 and 2 is `7` each with `6` threads on instance 3. Total threads running in parallel is `20`.
+* Maximum Heap allocated to each thread is `4GB` (-Xmx4G).
 
-**Elasticsearch Master Node**
+**Search Enterprise Master Node**
 
-* Number Of Master Nodes: 3
-* Master Node Instance type: m5.large.search
-* Master node is added for resilience, and may be avoided without having significant impact.
+* Number Of Master Nodes: `3`.
+* Master Node Instance type: `m5.large.search`.
+* Master node is added for resilience, and can be avoided without having significant impact.
 
-**Elasticsearch Settings**
+**Search Enterprise Settings**
 
-* Number of Primary shards: 32
-* Number of Replica Shards: 0
+* Number of Primary shards: `32`.
+* Number of Replica Shards: `0`.
 * Refresh Time: Disabled
-* Translog flush threshold: 2GB
+* Translog flush threshold: `2GB`
 
 **Other Components**
 
-* Active MQ: mq.m4.large
-* RDS is used as Database with db.r5.2xlarge running PostgreSQL
-* Amazon EC2 Instance running ACS & Transform Service: m5a.xlarge
-* ACS Version used is 7.2.0
-* The deployment architecture of the setup looks like this:
-* Capture.JPG
+* Active MQ: `mq.m4.large`
+* RDS is used as the Database with `db.r5.2xlarge` running PostgreSQL
+* Amazon EC2 Instance running ACS & Transform Service: `m5a.xlarge`
+* ACS Version: `7.2.0`
 
 The deployment architecture of the system
 
@@ -486,6 +484,7 @@ Amazon Web Services recommend each shard should be not more than 50GB. For this 
 
 On the same VPC set the number of shards:
 
+```curl
 curl -XPUT 'https://<Elasticsearch DNS>:443/alfresco?pretty' -H 'Content-Type: application/json' -d'
 {
   "settings" :{
@@ -493,6 +492,7 @@ curl -XPUT 'https://<Elasticsearch DNS>:443/alfresco?pretty' -H 'Content-Type: a
         "number_of_replicas":0
   }
 }'
+```
 
 You can set other critical parameters such as the refresh interval and the translog flush threshold using curl. The refresh interval is the time in which indexed data is searchable and should be disabled. This is done by setting it to `-1` or by setting it to a higher value during indexing to avoid the unnecessary usage of resources. The translog flush threshold is set to a higher size, for example `2GB`, to avoid it periodically flushing during the indexing process.
 
@@ -520,11 +520,11 @@ To setup the Re-Indexing Instance:
 
 2. Attach the Amazon EC2 instances to a security group that allows all incoming traffic from other services.
 
-3. Install Java on all the 3 instances.
+3. Install Java 17 on all 3 instances.
 
 4. Copy `alfresco-elasticsearch-connector-distribution-3.2.1` to the 3 Amazon EC2 instances.
 
-   You can run 7 threads on each on the two instances and 6 on the third instance to achieve a total of a 20 thread count.
+   Run `7` threads on each of the two instances and `6` on the third instance to achieve a total of a `20` thread count.
 
 5. In a command prompt on the VPC `cd` to where `alfresco-elasticsearch-reindexing-3.1.1-app.jar` is located.
 
@@ -537,7 +537,7 @@ To setup the Re-Indexing Instance:
         * For Thread 3: `alfresco.reindex.fromId=100000001` and `alfresco.reindex.toId=150000000`
         * For Thread 20: `alfresco.reindex.fromId=950000001` and `alfresco.reindex.toId=1000000000`
 
-Indexing Command
+Indexing Command:
 
 ```java
 nohup java -Xmx4G -jar alfresco-elasticsearch-reindexing-3.2.1-app.jar \
@@ -563,6 +563,6 @@ nohup java -Xmx4G -jar alfresco-elasticsearch-reindexing-3.2.1-app.jar \
 Indexing Speed
 ```
 
-The table summarizes different indexing capabilities obtained with different data volumes but with identical infrastructure and configuration as outlined above. 
+The table summarizes different indexing capabilities obtained with different data volumes but with identical infrastructure and configuration as outlined above.
 
 ![statistics]({% link search-enterprise/images/database-statistics.png %})
