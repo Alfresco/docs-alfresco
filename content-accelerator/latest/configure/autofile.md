@@ -42,6 +42,7 @@ Autofiling can be configured using the POST and GET methods.
 
 ### Sample REST Call to Configure Autofiling
 **Method:** POST
+
 **URL:**
 ```bash
 http://{server}:{port}/alfresco/service/tsgrp/autofile/createAutofileConfig
