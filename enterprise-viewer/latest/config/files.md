@@ -335,11 +335,11 @@ Default value: `false`
 
 The number of pages that are considered as a "large" document.
 
-* If the value is `0`, there is no bounds for large documents.
+* If the value is `0`, it ignores considering documents with many pages as a large document.
 * If a document has more pages than the value here, text search data isn't loaded initially, and thumbnails are disabled.
 * Text search data can still be manually loaded by the user later, after answering `yes` to a modal dialog box informing them of the delay.
 
-Default value: `200`
+Default value: `99`
 
 ### sizeOfLargeFiles
 
