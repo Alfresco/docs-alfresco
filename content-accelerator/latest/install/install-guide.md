@@ -679,25 +679,15 @@ This section walks through how to install the web applications on Alfresco Tomca
 
    Obtain the `default-{accelerator}.zip` for your accelerator and rename the zip to `default.zip`.
 
-5. Import default configuration. There are two ways you can do this.
+5. Import default configuration using config import tool.
 
-   OPTION 1 - use the config import tool (This may not be available on initial install):
+      1. In a browser, navigate to {Application Base URL}/ocms and login to the application as the Alfresco Administrator. The screen displays a message that no configurations exist for the application yet.
 
-      * In a browser navigate to `{Application Base URL}/ocms/admin/ConfigArchiver` and login to the application as the Alfresco Administrator.
+      2. Click the button that is included in the message to navigate to the administration interface.
 
-      * Use the *Import Config* function to import the `default.zip` from the last step.
+      3. Navigate to **Tools** > **Config Archiver** from the left menu.
 
-   OPTION 2 - upload the configs via share:
-
-      * In a browser navigate to `{Application Base URL}/share` and login to the application as the Alfresco Administrator.
-
-      * Navigate to the repository and into the folder `hpi`
-
-      * Drag and drop the `default.zip` into this location
-
-      * Delete all contents of the current `default` folder
-
-      * Click on the `default.zip` and choose the "unzip to" action, select the `repository> hpi> default` folder
+      4. Use the Import Config function to import the default.zip from the previous step.
 
 6. (OPTIONAL) This step is only required if **NOT** using the Alfresco Enterprise Viewer:
 
