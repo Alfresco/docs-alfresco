@@ -501,7 +501,7 @@ You can edit the schema definition, using the Edit Schema Definition under the D
 
 The following is an example of a schema definition:
 
-```json
+'''json
 [
     {
         "type": "number",
