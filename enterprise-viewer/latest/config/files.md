@@ -97,15 +97,29 @@ Set to `true` if only one annotation dialog should ever be open at a time, or `f
 
 Default value: `true`
 
+### allowExternalReviewers
+
+When set to `true` annotations from third party applications for both users that do not have an account in Alfresco and users that have corresponding accounts in Alfresco should be accepted. When set to `false`, only annotations from users with a corresponding Alfresco account will be accepted. 
+
+In order to have `allowExternalReviewers` set to `true`, a special license setting must be set in your AEV license by the Hyland License Team with the property `hasExternalOAUsers: true`.
+
+Default value: `false`
+
+### AllowMultipleOfflineReviewers
+
+When set to `false` offline annotations will be owned by the user that checked the annotations in. No matter which user is set on the offline annotation, the annotation will always be displayed as being added by the user who checked in the document.
+
+Default value: `true`
+
 ### excludeEmbeddedAnnotations
 
-Set to `true` if annotations embedded in the PDF should not be fetched, or `false` otherwise.
+Set to `true` if annotations embedded in the PDF should not be fetched, or `false` to allow annotations to be imported from third party systems like Adobe.
 
 Default value: `true`
 
 ### serverAnnotationsEditable
 
-Set to `true` if server annotations can be edited. Setting this to false prevents users from editing their annotations after their session ends.
+Set to `true` if server annotations can be edited. Setting this to `false` prevents users from editing their annotations after their session ends.
 
 Default value: `true`
 
