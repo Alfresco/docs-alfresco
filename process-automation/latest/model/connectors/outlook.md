@@ -11,7 +11,7 @@ The Calendar connector is displayed on the process diagram with the calendar ico
 The actions that can be executed using the Calendar connector are:
 
 * [Create a calendar event](#create-a-calendar-event) creates an event or appointment in the calendar.
-* [Update a calendar event](#update-a-calendar-event) update an event or appointment in the calendar.
+* [Update a calendar event](#update-a-calendar-event) updates an event or appointment in the calendar.
 * [Get schedule availability](#get-schedule-availability) retrieves user availability.
 
 ## Configuration
@@ -40,7 +40,7 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 | SCHEDULE_ERROR | An error occurred from attempting to get the availability. |
 | UNKNOWN_ERROR | An unexpected error occurred during the execution of the action. |
 
-In addition to the above configuration the following properties are required to perform calendar operations:
+In addition to the above configuration the following properties are required to perform calendar operations.
 
 ## Create a calendar event
 
@@ -109,7 +109,7 @@ The output parameters to get the schedule availability in Microsoft Outlook are:
 | Property  | Type | Description |
 | --- | --- | --- |
 | availabilityView | String | *Required.* Merged view of availability for the specific period of time. The merged view is a string that consists of time slots covering that day, with each time slot using the following convention: `n0` - free, `n1` - tentative, `n2` - busy, `n3` - out of office, `n4` - working elsewhere. |
-| availability | String | *Required.* Single value that represents a global availability status for the required period. 0 - a user is free during the whole interval. `1` - all the existing slots in the required period are either free or tentative (at least one of them is tentative). `2` - all the existing slots in the required period are either free or tentative or busy (at least one of them is busy). `3` - all the existing slots in the required period are either free or tentative or busy or out of the office (at least one of them is  out of the office). `4` - all the existing slots in the required period are either free or tentative or busy or out of the office or working elsewhere (at least one of them is working elsewhere). |
+| availability | String | *Required.* Single value that represents a global availability status for the required period. `0` - a user is free during the whole interval. `1` - all the existing slots in the required period are either free or tentative (at least one of them is tentative). `2` - all the existing slots in the required period are either free or tentative or busy (at least one of them is busy). `3` - all the existing slots in the required period are either free or tentative or busy or out of the office (at least one of them is  out of the office). `4` - all the existing slots in the required period are either free or tentative or busy or out of the office or working elsewhere (at least one of them is working elsewhere). |
 | scheduleItems | JSON | *Required.* List of objects containing each of the events in the user`s calendar. |
 | workingHours | JSON | *Required.* Indicates the days of the week and time intervals when the user can be available. |
 
