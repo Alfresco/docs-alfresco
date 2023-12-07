@@ -14,4 +14,4 @@ For Premier Services customers, this team is designated to look after your Hylan
 
 ## Customer Care Advocate (CCA)
 
-Your Customer Care Advocate is available to answer questions about the status of your support cases, and to ensure you have the correct level of support to match your needs.
+Your Customer Care Advocate team is available to answer questions about the status of your support cases, and to ensure you have the correct level of support to match your needs.
