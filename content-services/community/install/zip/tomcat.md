@@ -6,7 +6,7 @@ For more complex Community Edition installations, or if you wish to use an exist
 
 Use this method of installing Community Edition if you've already have installed a JRE, a supported database, a supported application server, a message broker, and the additional components.
 
-For information about securing Tomcat, see [Tomcat security considerations](https://tomcat.apache.org/tomcat-9.0-doc/security-howto.html){:target="_blank"}.
+For information about securing Tomcat, see [Tomcat security considerations](https://tomcat.apache.org/tomcat-10.1-doc/security-howto.html){:target="_blank"}.
 
 ## Install application server
 
@@ -101,7 +101,7 @@ Use this method of installing if you've already installed a JRE, a supported dat
 
 The Community Edition distribution file is a zip containing the required WAR files, in addition to the additional commands, and configuration files for a manual installation.
 
-1. Download the zip file from Alfresco Nexus repository: [alfresco-content-services-community-distribution-7.4.x.zip](https://artifacts.alfresco.com/nexus/#nexus-search;gav~org.alfresco~alfresco-content-services-community*~7.4.0~~){:target="_blank"}
+1. Download the zip file from Alfresco Nexus repository: [alfresco-content-services-community-distribution-23.1.x.zip](https://artifacts.alfresco.com/nexus/#nexus-search;gav~org.alfresco~alfresco-content-services-community*~23.1.0~~){:target="_blank"}
 
 2. Specify a location for the download and extract the file to a system directory; for example `<installLocation>`.
 

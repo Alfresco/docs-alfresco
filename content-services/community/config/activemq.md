@@ -12,7 +12,7 @@ For more advanced configuration, such as security, transport connectors, or memo
 
 Set up Apache ActiveMQ to enable message queuing. If you already have an ActiveMQ instance connected to Community Edition, you don't need to perform these step.
 
-If you don't already have an ActiveMQ instance (version 5.17.x), [install ActiveMQ](https://activemq.apache.org/installation.html){:target="_blank"} and follow the steps below.
+If you don't already have an ActiveMQ instance (version 5.18.x), [install ActiveMQ](https://activemq.apache.org/installation.html){:target="_blank"} and follow the steps below.
 
 1. Stop the server.
 
@@ -40,7 +40,7 @@ ActiveMQ should be clustered to achieve fault tolerance and reliable high perfor
 
 You can secure the repository - ActiveMQ - your module's topic and queue communication using authentication, authorization, and SSL encryption. For more information, see [ActiveMQ - security](https://activemq.apache.org/security.html){:target="_blank"} and [ActiveMQ - using SSL](https://activemq.apache.org/how-do-i-use-ssl.html){:target="_blank"}.
 
-For example, to configure authentication, add the following code snippet under the `broker` element in `sync/activemq/apache-activemq-5.15.8/confactivemq.xml`:
+For example, to configure authentication, add the following code snippet under the `broker` element in `sync/activemq/apache-activemq-5.18.3/confactivemq.xml`:
 
 ```xml
 <broker>
