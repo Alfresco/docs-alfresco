@@ -200,6 +200,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Mobile Workspace 1.7 | |
 | Alfresco Mobile Workspace 1.6 | |
 | Alfresco Mobile Workspace 1.5 | |
+| Alfresco Content Accelerator (ACA) 3.6 | |
 | Alfresco Content Accelerator (ACA) 3.5 | |
 | Alfresco Enterprise Viewer (AEV) 3.5 | |
 | | |
