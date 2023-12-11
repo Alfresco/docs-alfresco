@@ -26,8 +26,12 @@ For AEV 3.6, the Control Document type is set to `aw:qualityDocument` by default
 
 1. Override the bean in `opencontent-extension-override-module-ctx.xml` as follows:
 
-   ```<bean id="paasExtendPermissionModel" parent="permissionModelBootstrap"> <property name="model" value="alfresco/module/com.tsgrp.opencontent/model/ocPermissionDefinitionsOverride.xml"/> </bean>```
+   ```xml
+   <bean id="paasExtendPermissionModel" parent="permissionModelBootstrap">
+     <property name="model" value="alfresco/module/com.tsgrp.opencontent/model/ocPermissionDefinitionsOverride.xml"/>
+   </bean>
+   ```
 
-2. Then create `ocPermissionDefinitionsOverride.xml` at the specified path in your custom AMP with the contents of the original `ocPermissionDefinitions.xml`. 
+3. Then create `ocPermissionDefinitionsOverride.xml` at the specified path in your custom AMP with the contents of the original `ocPermissionDefinitions.xml`. 
 
-3. Replace the type `aw:qualityDocument` with your current or desired control document type. 
+4. Replace the type `aw:qualityDocument` with your current or desired control document type. 
