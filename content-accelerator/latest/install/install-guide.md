@@ -488,16 +488,16 @@ In this section we ensure that all components of the Content Accelerator are ins
 
 14. (OPTIONAL) This step is only required if you are using Alfresco Search Enterprise 3.x or greater:
 
-    a. Enable "Exact Term Search" using the "=" operator. Refer to the [Exact Term Search]({% link search-enterprise/latest/config/index.md %}) section for additional information.
+    a. Enable "Exact Term Search" using the "=" operator. See the [Search Enterprise - Exact Term Search]({% link search-enterprise/latest/config/index.md %}#exact-term-search) section for additional information.
 
-    b. In the config file, add the following lines to enable exact term search:
+    b. In the configuration file, add the following lines to enable exact term search:
        * `alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text`
        * `alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}mltext`
        * `alfresco.cross.locale.property.0={http://www.alfresco.org/model/content/1.0}content`
 
-    c. Reindex Search Enterprise. Refer to the [Alfresco Search Enterprise Overview]({% link search-enterprise/latest/install/index.md %}) page.
+    c. Reindex Search Enterprise. See the [Search Enterprise - Install overview]({% link search-enterprise/latest/install/index.md %}) page.
 
-    Note: During the first system bootstrap for new systems with tsgrp-autofile.amp, Search Enterprise must be reindexed. For additional information, refer to the [Alfresco Search Enterprise Overview]({% link search-enterprise/latest/install/index.md %}) page.
+    >**Note:** During the first system bootstrap for new systems with `tsgrp-autofile.amp`, Search Enterprise must be reindexed. See the [Search Enterprise - Install overview]({% link search-enterprise/latest/install/index.md %}) page for additional information.
 
 15. Start up Alfresco server.
 
