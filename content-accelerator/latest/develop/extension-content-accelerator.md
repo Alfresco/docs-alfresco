@@ -26,3 +26,10 @@ To add custom alfresco models you will need to define a bean that has a parent o
    </property>
 </bean>
 ```
+When you add a new document type extension for use in Alfresco Content Accelerator, we recommend including the `tsg:renditioned`` mandatory aspect.  This aspect provides streamlined handling of PDFs renditions for viewing and includes:
+
+* Immediate renditioning to PDF upon document upload or version
+* Separate renditions for each version of the node in Alfresco
+**Note:** In many ACA Policy and Procedure implementations, dedicated per-version renditions are a regulatory requirement.
+
+If, however, the `tsg:renditioned` aspect is not desired, or the model already exists and cannot be updated, it is possible to turn on view time renditioning in the Document Viewer config in the Stage 
