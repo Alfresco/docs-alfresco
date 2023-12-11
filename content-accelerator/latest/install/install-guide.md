@@ -488,7 +488,7 @@ In this section we ensure that all components of the Content Accelerator are ins
 
 14. (OPTIONAL) This step is only required if you are using Alfresco Search Enterprise 3.x or greater:
 
-    a. Enable "Exact Term Search" using the "=" operator. Refer to the [Exact Term Search]({% link search-enterprise/latest/config/    index.md %}) section for additional information.
+    a. Enable "Exact Term Search" using the "=" operator. Refer to the [Exact Term Search]({% link search-enterprise/latest/config/index.md %}) section for additional information.
 
     b. In the config file, add the following lines to enable exact term search:
        * `alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text`
