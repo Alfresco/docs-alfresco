@@ -99,7 +99,7 @@ Default value: `true`
 
 ### excludeEmbeddedAnnotations
 
-Set to `true` if annotations embedded in the PDF should not be fetched, or `false` otherwise.
+Set to `true` if annotations embedded in the PDF should not be fetched, or `false` otherwise. Any users that are not in Alfresco will not have their annotations show up in AEV.
 
 Default value: `true`
 
