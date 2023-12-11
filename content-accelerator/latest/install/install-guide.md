@@ -465,7 +465,7 @@ In this section we ensure that all components of the Content Accelerator are ins
    >**Note:** that in a typical Alfresco installation, the 8080 connector can be modified for HTTP communications and
    >the 443 connector can be modified for HTTPS connections.
 
-13. (OPTIONAL) This step is only required if using Alfresco Search Services 2.0 or greater:
+13. (OPTIONAL) This step is only required if you are using Alfresco Search Services 2.0 or greater:
 
     a. Navigate to the `SOLR_HOME/solrhome/conf` folder.
 
@@ -486,9 +486,22 @@ In this section we ensure that all components of the Content Accelerator are ins
 
        Start Solr process.
 
-14. Start up Alfresco server.
+14. (OPTIONAL) This step is only required if you are using Alfresco Search Enterprise 3.x or greater:
 
-15. Confirm OpenContent has been installed correctly by accessing `http://{server}/alfresco/OpenContent`.
+    a. Enable "Exact Term Search" using the "=" operator. Refer to the [Exact Term Search]({% link search-enterprise/latest/config/    index.md %}) section for additional information.
+
+    b. In the config file, add the following lines to enable exact term search:
+       * `alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text`
+       * `alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}mltext`
+       * `alfresco.cross.locale.property.0={http://www.alfresco.org/model/content/1.0}content`
+
+    c. Reindex Search Enterprise. Refer to the [Alfresco Search Enterprise Overview]({% link search-enterprise/latest/install/index.md %}) page.
+
+    Note: During the first system bootstrap for new systems with tsgrp-autofile.amp, Search Enterprise must be reindexed. For additional information, refer to the [Alfresco Search Enterprise Overview]({% link search-enterprise/latest/install/index.md %}) page.
+
+15. Start up Alfresco server.
+
+16. Confirm OpenContent has been installed correctly by accessing `http://{server}/alfresco/OpenContent`.
 
 ## Install webapps
 
