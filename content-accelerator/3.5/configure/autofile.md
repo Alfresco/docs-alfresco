@@ -62,9 +62,10 @@ The autofiled aspect, `af:autofiled`, must be applied to content in order for it
 
 ## Disabling Autofile for Specific Aspects
 
-To disable autofile for a specific aspect, complete the following steps.
+To disable autofile for a specific aspect, override the following configuration, in the Alfresco global properties.
 
-1.  Override the following configuration and set it with comma deliminated list of QNames in a String format, in the Alfresco global properties.
-    
-    ```tsgrp.autofile.disableForAspects=
-    ```
+```text
+tsgrp.autofile.disableForAspects=
+```
+
+Set this with comma deliminated list of QNames in a String format (e.g. `{http://www.alfresco.org/model/content/1.0}taggable)`.
