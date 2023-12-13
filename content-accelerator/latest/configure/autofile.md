@@ -84,3 +84,13 @@ http://{server}:{port}/alfresco/service/tsgrp/autofile/createAutofileConfig?para
 ## Utilizing Autofile
 
 The autofiled aspect, `af:autofiled`, must be applied to content in order for it to be autofiled. The easiest way to do this is to make the autofiled aspect mandatory for any content types that are to be autofiled. The aspect can also be applied manually.
+
+## Disabling Autofile for Specific Aspects
+
+To disable autofile for a specific aspect, override the following configuration in the Alfresco global properties:
+
+```text
+tsgrp.autofile.disableForAspects=
+```
+
+Set this to a comma delimited list of QNames in a String format (for example, `{http://www.alfresco.org/model/content/1.0}taggable`).
