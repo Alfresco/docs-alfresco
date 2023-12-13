@@ -80,12 +80,6 @@ The following are examples of how to use different fields for queries:
 
 * SQL query language using JDBC Driver
 
-## Tools & Components
-
-* Alfresco Search and Insight Engine
-* Alfresco Enterprise Viewer
-* Alfresco Content Accelerator
-
 ## Unsupported data types and properties
 
 Data types and properties supported in Search and Insight Engine 2.x and Search Services 2.x that are not currently supported for Search Enterprise 3.x.
