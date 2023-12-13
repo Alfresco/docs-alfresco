@@ -387,7 +387,7 @@ a JavaScript. The script is passed in as the `script-ref` parameter.
 
 Alfresco runs a number of scheduled jobs that assist in the maintenance of a production environment.
 
-These jobs are defined in the [scheduled-jobs-context.xml](https://github.com/Alfresco/alfresco-repository/blob/alfresco-repository-6.8/src/main/resources/alfresco/scheduled-jobs-context.xml){:target="_blank"} file.
+These jobs are defined in the [scheduled-jobs-context.xml](https://github.com/Alfresco/alfresco-enterprise-repo/blob/master/repository/src/main/resources/alfresco/enterprise/cleanup-service-context.xml){:target="_blank"} file.
 
 |Scheduled job|Description|
 |-------------|-----------|
