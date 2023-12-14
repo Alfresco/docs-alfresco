@@ -537,7 +537,7 @@ Additional Viewer Configurations:
 Renditioning:
 
 * Elevate Renditioning Priority for Folder
-* Enable View Time Renditioning
+* Enable View Time Renditioning - Enable this option if types utilized in this trac do not have the `tsg:renditioned` aspect applied and require view time renditioning functionality.  Note that all ACA Accelerator types are pre-configured with the `tsg:renditioned` aspect and do not require view time renditioning. Therefore, you only need to enable this option for out of the box accelerator types.
 * Rendition Check Period
 
 Configure:
