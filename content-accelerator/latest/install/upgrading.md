@@ -271,4 +271,4 @@ To enable advanced capabilities in attribute search, complete the following step
 
     ![Advanced Search additional configuration]({% link content-accelerator/images/aca-show-advanced-search-options-config.png %})
 
-  Note: If the Alfresco CA configuration for your environment was created prior to Alfresco Content Accelerator 3.5.1, the Attribute Search must be reconfigured in all Alfresco Content Accelerator  admin locations where it is referenced.
+  **Note:** If the Alfresco CA configuration for your environment was created prior to Alfresco Content Accelerator 3.5.1, the Attribute Search must be reconfigured in all Alfresco Content Accelerator  admin locations where it is referenced.
