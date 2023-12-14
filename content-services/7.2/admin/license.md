@@ -122,7 +122,7 @@ To deuathorize a user:
 
     The relevant user's authorization status changes to `Deauthorized`.
 
-To reauthorize a previously deauthorized user, submit the request through the Customer Portal on [Hyland Community](https://community.hyland.com/customer-portal/38431/licensing){:target="_blank"}.
+To reauthorize a previously deauthorized user, submit the request through the Customer Portal on [Hyland Community](https://community.hyland.com/customer-portal/licensing){:target="_blank"}.
 
 > **Note:**
 >
