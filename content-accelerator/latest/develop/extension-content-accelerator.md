@@ -33,4 +33,4 @@ When you add a new document type extension for use in Alfresco Content Accelerat
 
 > **Note:** In many ACA Policy and Procedure implementations, dedicated per-version renditions are a regulatory requirement.
 
-If, however, the `tsg:renditioned` aspect is not desired, or the model already exists and cannot be updated, it is possible to turn on view time renditioning in the Document Viewer config in the Stage 
+If, however, the `tsg:renditioned` aspect is not desired, or the model already exists and cannot be updated, it is possible to turn on view time renditioning in the Document Viewer config in the Stage.
