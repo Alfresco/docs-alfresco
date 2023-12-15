@@ -1485,12 +1485,17 @@ defaults:
       location: "enterprise-viewer"
       support: true
       versions:
+        - 3.6
         - 3.5
   - scope:
       path: "enterprise-viewer/latest"
     values:
-      version: 3.5
+      version: 3.6
       latest: true
+  - scope:
+      path: "enterprise-viewer/3.5"
+    values:
+      version: 3.5   
 
 sass:
   sass_dir: assets/include/scss

@@ -273,7 +273,7 @@ Actions that belong to this type: `annotationMode`, `redactMode`, `editMode`, `s
 PDF: "Pdf",
 ```
 
-Actions that belong to this type: `drawRedaction`, `signature`, `rotatePageClockwise`, `rotatePageCounterClockwise`, `selectText`, `strikeout`, `insertText`, `replaceText`, `annotatedPdf`, `unannotatedPdf`, `offlineAnnotatedPdf`, `extractPdfPages`, `printAnnotatedPdf`, `checkinOfflineAnnotatedPdf`.
+Actions that belong to this type: `drawRedaction`, `signature`, `rotatePageClockwise`, `rotatePageCounterClockwise`, `selectText`, `strikeout`, `insertText`, `replaceText`, `annotatedPdf`, `unannotatedPdf`, `offlineAnnotatedPdf`, `extractPdfPages`, `printAnnotatedPdf`, `controlledPrintAnnotatedPdf`, `checkinOfflineAnnotatedPdf`.
 
 ```json
 /**
@@ -329,7 +329,7 @@ Actions that belong to this type: `toggleAnnotations`, `keepToolSelected`,  `com
 DOWNLOAD: "Download",
 ```
 
-Actions that belong to this type: `annotatedPdf`, `unannotatedPdf`, `offlineAnnotatedPdf`, `extractPdfPages`, `printAnnotatedPdf`, `sectionPdfDocument`.
+Actions that belong to this type: `annotatedPdf`, `unannotatedPdf`, `offlineAnnotatedPdf`, `extractPdfPages`, `printAnnotatedPdf`, `controlledPrintAnnotatedPdf`, `sectionPdfDocument`.
 
 ```json
 /**
