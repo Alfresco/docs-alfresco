@@ -16,4 +16,8 @@ This release includes a [`GenericXchange` framework]({% link sap-cloud/latest/co
 
 > **Important:** The SAP Cloud Connector module can be applied to several versions of Content Services. See [Prerequisites]({% link sap-cloud/latest/install/index.md %}#prerequisites) and [Supported Platforms]({% link sap-cloud/latest/support/index.md %}) for more.
 
-> **Note:** This documentation only covers how to use Content Services with the SAP Cloud Connector.
+> **Note:**
+>
+> * This documentation only covers how to use Content Services with the SAP Cloud Connector.
+>
+> * The Alfresco Content Connector for SAP Cloud can be applied to Alfresco Content Services 7.0 - 7.3 only.
