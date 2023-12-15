@@ -1171,13 +1171,14 @@ To enable advanced capabilities in attribute search, complete the following step
 
     ![Advanced Search additional configuration]({% link content-accelerator/images/aca-show-advanced-search-options-config.png %})
 
-When the Enable Any/All Search setting is enabled, you can configure either of the following settings.
+When the **Enable Any/All Search** setting is enabled, you can configure either of the following settings.
 
 | Settings | Search operator |
 | -------- | --------------- |
-| ANY of these values | If you select this option, search is performed based on the OR operator |
-| ALL of these values |	If you select this option, search is performed based on the AND operator |
+| ANY of these values | If you select this option, search is performed based on the `OR` operator |
+| ALL of these values |	If you select this option, search is performed based on the `AND` operator |
 
+If the **Enable Any/All Search** setting is disabled, `AND` operation is the default operation.
 
 When you enable the **Like/Exact/Not Search** setting, an additional control is added to the Attribute Search form. The control includes an advanced operator selection drop-down. This drop-down is only available to properties with control type `TextBox`, `AutoComplete`, and `DropDown`.
 
@@ -1185,20 +1186,18 @@ The list of operators included in the drop-down is based on the associated prope
 
 | Data type | Operators |
 | --------- | --------- |
-| String | LOGIC_LIKE, OPERATOR_EQUALS, OPERATOR_NOT_EQUALS |
-
-| integer or double | OPERATOR_LESS_THAN, OPERATOR_EQUALS, OPERATOR_GREATER_THAN, OPERATOR_NOT_EQUALS |
+| String | `LOGIC_LIKE`, `OPERATOR_EQUALS`, `OPERATOR_NOT_EQUALS` |
+| Integer or Double | `OPERATOR_LESS_THAN`, `OPERATOR_EQUALS`, `OPERATOR_GREATER_THAN`, `OPERATOR_NOT_EQUALS` |
 
 The operators listed above are described below:
 
-* LOGIC_LIKE - Performs a wildcard (%) search 
-* OPERATOR_EQUALS - Performs a exact (=) value search
-* OPERATOR_NOT_EQUALS - Performs a not exact (-) value search
-* OPERATOR_LESS_THAN - The search returns results less than (<) the provided search term.
-* OPERATOR_GREATER_THAN - The search will return results greater than (>) the provided search term.
+* `LOGIC_LIKE` - Performs a wildcard (%) search 
+* `OPERATOR_EQUALS` - Performs a exact (=) value search
+* `OPERATOR_NOT_EQUALS` - Performs a not exact (-) value search
+* `OPERATOR_LESS_THAN` - The search returns results less than (<) the provided search term.
+* `OPERATOR_GREATER_THAN` - The search will return results greater than (>) the provided search term.
 
-If the Like/Exact/Not Search setting is disabled, the default operation depends on the object type. The following table lists the default operation based on the object types.
-
+If the **Like/Exact/Not Search** setting is disabled, the default operation depends on the object type. The following table lists the default operation based on the object types.
 
 | Object | Default operation |
 | ------ | ----------------- |
@@ -1207,6 +1206,8 @@ If the Like/Exact/Not Search setting is disabled, the default operation depends 
 | **TextBox** | The search depends on values set using “Make Search Exact” and “Case Sensitive Search” and if these values are not set, a wildcard search is performed. |
 
 **Notes:**
+
+* Advanced Search is deprecated in Content Accelerator 3.6. Though it is still available, Advanced Search feature in Attribute Search, described above, is expected to replace Advanced Search in future releases.
 
 * By enabling “Like/Exact/Not Search”, you override the settings for “Make Search Exact” and “Case Sensitive Search” for any property (if configured).
 
