@@ -24,11 +24,11 @@ You will need to download the following distribution zips in order to install AC
 
 ### Java
 
-Content Accelerator requires Java 11 or above. Consult your repository of choice for more detailed requirements. If you are using Java 17, refer to our [Java 17 support guide]({% link content-accelerator/latest/install/java-support.md %}).
+Content Accelerator requires Java 11 or above. Consult your repository of choice for more detailed requirements. If you are using Java 17, refer to our [Java 17 support guide]({% link content-accelerator/3.5/install/java-support.md %}).
 
 ### Alfresco repository version
 
-See the [Supported Platforms]({% link content-accelerator/latest/support/index.md %}) for more information.
+See the [Supported Platforms]({% link content-accelerator/3.5/support/index.md %}) for more information.
 
 Please ensure you have the correct version of the Content Accelerator package for your Alfresco Content Services version. If you are unsure, please [contact Hyland Support]({% link support/latest/contact.md %}).
 
@@ -66,7 +66,7 @@ Since ACA executes as a JavaScript application in the browser and communicates w
    * `http://{server3}/OpenContent` routes to `http://{server2}:8080/OpenContent`
    * In the above example, ACA would be configured to access OpenContent at `http://{server3}/OpenContent`.  Now, to the browser all communication is on the same protocol, server, and port so the Same Origin Policy is upheld.
 
-If using option 1 (deploying ACA to the Alfresco Tomcat), you can skip to [Install libraries]({% link content-accelerator/latest/install/install-guide.md %}#install-libraries) since no proxy will need to be installed.
+If using option 1 (deploying ACA to the Alfresco Tomcat), you can skip to [Install libraries]({% link content-accelerator/3.5/install/install-guide.md %}#install-libraries) since no proxy will need to be installed.
 
 If using option 2 (preferred for a production deployment), you must complete the following steps to setup a proxy.
 
@@ -404,7 +404,7 @@ In this section we ensure that all components of the Content Accelerator are ins
 
     * `application.root.url={Application Base URL}` (ex: `http://localhost:9090`)
     * `oc.email.smtp.host={SMTP host}`
-    * `imageMagick.path=IMAGEMAGICK_HOME` (if installed, get IMAGEMAGICK_HOME value from [ImageMagick Installation]({% link content-accelerator/latest/install/install-guide.md %}#im))
+    * `imageMagick.path=IMAGEMAGICK_HOME` (if installed, get IMAGEMAGICK_HOME value from [ImageMagick Installation]({% link content-accelerator/3.5/install/install-guide.md %}#im))
 
 12. Update Tomcat server configuration:
 
@@ -465,7 +465,7 @@ In this section we ensure that all components of the Content Accelerator are ins
    >**Note:** that in a typical Alfresco installation, the 8080 connector can be modified for HTTP communications and
    >the 443 connector can be modified for HTTPS connections.
 
-13. (OPTIONAL) This step is only required if you are using Alfresco Search Services 2.0 or greater:
+13. (OPTIONAL) This step is only required if using Alfresco Search Services 2.0 or greater:
 
     a. Navigate to the `SOLR_HOME/solrhome/conf` folder.
 
@@ -486,29 +486,16 @@ In this section we ensure that all components of the Content Accelerator are ins
 
        Start Solr process.
 
-14. (OPTIONAL) This step is only required if you are using Alfresco Search Enterprise 3.x or greater:
+14. Start up Alfresco server.
 
-    a. Enable "Exact Term Search" using the "=" operator. See the [Search Enterprise - Exact Term Search]({% link search-enterprise/latest/config/index.md %}#exact-term-search) section for additional information.
-
-    b. In the configuration file, add the following lines to enable exact term search:
-       * `alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text`
-       * `alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}mltext`
-       * `alfresco.cross.locale.property.0={http://www.alfresco.org/model/content/1.0}content`
-
-    c. Reindex Search Enterprise. See the [Search Enterprise - Install overview]({% link search-enterprise/latest/install/index.md %}) page.
-
-    >**Note:** During the first system bootstrap for new systems with `tsgrp-autofile.amp`, Search Enterprise must be reindexed. See the [Search Enterprise - Install overview]({% link search-enterprise/latest/install/index.md %}) page for additional information.
-
-15. Start up Alfresco server.
-
-16. Confirm OpenContent has been installed correctly by accessing `http://{server}/alfresco/OpenContent`.
+15. Confirm OpenContent has been installed correctly by accessing `http://{server}/alfresco/OpenContent`.
 
 ## Install webapps
 
 This sections walks through how to install the Alfresco Content Accelerator web application (including the WizardAdmin if installing the Policy and Procedure Content Accelerator solution).
 
->**Note:** If you installed a proxy then follow the [Install Web Applications on Separate Tomcat]({% link content-accelerator/latest/install/install-guide.md %}#install-webapps-separate-tomcat) Instructions.
-> If no proxy was installed then follow the [Install Web Applications on Alfresco Tomcat]({% link content-accelerator/latest/install/install-guide.md %}#install-webapps-alfresco-tomcat) instructions.
+>**Note:** If you installed a proxy then follow the [Install Web Applications on Separate Tomcat]({% link content-accelerator/3.5/install/install-guide.md %}#install-webapps-separate-tomcat) Instructions.
+> If no proxy was installed then follow the [Install Web Applications on Alfresco Tomcat]({% link content-accelerator/3.5/install/install-guide.md %}#install-webapps-alfresco-tomcat) instructions.
 
 ### Install web applications on separate Tomcat {#install-webapps-separate-tomcat}
 
@@ -692,15 +679,25 @@ This section walks through how to install the web applications on Alfresco Tomca
 
    Obtain the `default-{accelerator}.zip` for your accelerator and rename the zip to `default.zip`.
 
-5. Import default configuration using config import tool.
+5. Import default configuration. There are two ways you can do this.
 
-      1. In a browser, navigate to {Application Base URL}/ocms and login to the application as the Alfresco Administrator. The screen displays a message that no configurations exist for the application yet.
+   OPTION 1 - use the config import tool (This may not be available on initial install):
 
-      2. Click the button that is included in the message to navigate to the administration interface.
+      * In a browser navigate to `{Application Base URL}/ocms/admin/ConfigArchiver` and login to the application as the Alfresco Administrator.
 
-      3. Navigate to **Tools** > **Config Archiver** from the left menu.
+      * Use the *Import Config* function to import the `default.zip` from the last step.
 
-      4. Use the Import Config function to import the default.zip from the previous step.
+   OPTION 2 - upload the configs via share:
+
+      * In a browser navigate to `{Application Base URL}/share` and login to the application as the Alfresco Administrator.
+
+      * Navigate to the repository and into the folder `hpi`
+
+      * Drag and drop the `default.zip` into this location
+
+      * Delete all contents of the current `default` folder
+
+      * Click on the `default.zip` and choose the "unzip to" action, select the `repository> hpi> default` folder
 
 6. (OPTIONAL) This step is only required if **NOT** using the Alfresco Enterprise Viewer:
 
@@ -712,4 +709,4 @@ This section walks through how to install the web applications on Alfresco Tomca
 
 7. (HR Tier-2 ONLY) This step is only required if you are installing the HR Tier-2 solution:
 
-   Follow the installation steps to configure Alfresco Governance Services for the [HR Tier-2 solution]({% link content-accelerator/latest/configure/hr-management.md %}).
+   Follow the installation steps to configure Alfresco Governance Services for the [HR Tier-2 solution]({% link content-accelerator/3.5/configure/hr-management.md %}).

@@ -155,35 +155,13 @@ The Download Document (sometimes also referred to as the Export Native Content) 
 
 ### Configuration Options for Download Document
 
+#### Available Rendition Types
+
+The action can be configured to download either the native content or the PDF rendition of the document being viewed in the stage. This configuration applies to all document types.
+
 #### Downloaded File Name
 
 The action can be configured to use a pattern for the downloaded file name based on object type. Each document object type may have its own pattern of its attribute and constant characters to use for the downloaded file name.
-
-#### Configuration Options for Download Document
-
-In the Download Type section, the following settings are available:
-Allow End User to specify Rendition/Native Content on Download
-If you enable this setting using the toggle switch, you can specify the download type every time you download a document.
-
-#### Available Rendition Type default
-
-You can configure the default rendition type to download files in the set rendition by default. You can set the default rendition type to any of the rendition types available in the drop-down, including PDF rendition and native client. 
-
-#### Allow End User to specify whether to include annotations on Download of a pdf
-
-If you enable this setting using the toggle switch, you are prompted to specify whether you want to include annotations every time you download a PDF document.
-
-#### Download with Annotations Default
-
-If you enable this setting using the toggle switch, annotations are included in PDF downloads by default. 
-
-#### Allow End User to specify whether to include overlays on Download of a pdf
-
-If you enable this setting using the toggle switch, you are prompted to specify whether you want to include overlays every time you download a PDF document.
-
-#### Download with Overlays Default
-
-If you enable this setting using the toggle switch, overlays are included in PDF downloads by default. 
 
 ## Export folder
 
@@ -227,7 +205,7 @@ Is the relationship between an email and its attachments. For example, in a rela
 
 #### Folder Tags
 
-You can optionally add a tag to the email object after it's created, typically set to 'Correspondence'.  Usually, this is set when the folder is displayed using [Folder Tags]({% link content-accelerator/latest/configure/actions.md %}#folder-tags).  If this is the case, you will typically want to set the Email Storage Location to empty.  This way, the email will be stored in the parent folder, but displayed in a 'Correspondence' tag in the folder.
+You can optionally add a tag to the email object after it's created, typically set to 'Correspondence'.  Usually, this is set when the folder is displayed using [Folder Tags]({% link content-accelerator/3.5/configure/actions.md %}#folder-tags).  If this is the case, you will typically want to set the Email Storage Location to empty.  This way, the email will be stored in the parent folder, but displayed in a 'Correspondence' tag in the folder.
 
 >**Note:** If you have both the folder and document action configured for send email, you will want to have the same tags in both configurations.
 

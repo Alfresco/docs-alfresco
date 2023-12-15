@@ -251,25 +251,6 @@ There is an additional option for configuring Single Sign On (SSO) beyond the AC
 * Is more configurable
 * Only supports implicit flow
 
-If you want to switch your current SSO implementation to the new 3.5.1 SSO implementation, see the additional documentation for this feature in [Single Sign On Support for Content Accelerator]({% link content-accelerator/latest/install/sso.md %}).
+If you want to switch your current SSO implementation to the new 3.5.1 SSO implementation, see the additional documentation for this feature in [Single Sign On Support for Content Accelerator]({% link content-accelerator/3.5/install/sso.md %}).
 
 Note that this newer SSO implementation is not a replacement for the current SSO offering. The current SSO offering can continue to be used with ACA 3.5.1.
-
-### Upgrading to 3.6
-
-Advanced Search is deprecated in Content Accelerator 3.6. Though it is still available, it is expected to be removed in future releases and replaced with the new Advanced Search capabilities added to attribute search in Content Accelerator 3.6.
-
-To enable advanced capabilities in attribute search, complete the following steps.
-
-1. Navigate to the Attribute Search config in the Alfresco Content Accelerator Admin and set the value of the **Show Advanced Search** parameter to Enabled. By default, the value is set to `Disabled`.
-
-    ![Advanced Search configuration]({% link content-accelerator/images/aca-show-advanced-search-config.png %})
-
-2. After you enable **Advanced Search**, you can enable the following configuration settings:
-
-    * Enable Any/All Search
-    * Enable Like/Exact/Not Search
-
-    ![Advanced Search additional configuration]({% link content-accelerator/images/aca-show-advanced-search-options-config.png %})
-
-> **Note:** If the ACA configuration for your environment was created prior to ACA 3.5.1, the Attribute Search setting must be reconfigured in all ACA admin locations where it is referenced.

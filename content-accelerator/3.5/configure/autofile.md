@@ -37,33 +37,8 @@ The `EVERYONE` authority must have Consumer permissions on this folder in order 
 
 * **sanitizePropValueRegex** (String, optional) - a regex that will be used to sanitize property values that will be used for Autofiling. Any property pulled from an object will run through the regex and a matching string will be used for filing.
 
-### REST Call to Configure Autofiling
-Autofiling can be configured using the POST and GET methods.
-
 ### Sample REST Call to Configure Autofiling
-**Method:** POST
 
-**URL:**
-```bash
-http://{server}:{port}/alfresco/service/tsgrp/autofile/createAutofileConfig
-```
-**Body Content:**
-```bash
-{"name":"Department - Region","rootPath":"Company Home/Sites/tsg-add-ons-demo/documentLibrary/Autofiling","types":["{http://www.tsgrp.com/model/tao/1.0}content"],
-"propertiesList":[
-"{http://www.tsgrp.com/model/tao/1.0}department",
-"{http://www.tsgrp.com/model/tao/1.0}region"
-],
-"autoCreateFolders":"true",
-"autoCreateFolderType":"{http://www.alfresco.org/model/content/1.0}folder",
-"autoRenameDuplicates":"true",
-"priority":"1",
-"criteriaProperties":["{http://www.alfresco.org/model/content/1.0}title",
-"{http://www.alfresco.org/model/content/1.0}description"],
-"criteriaRegexes":["A","B"]}
-```
-
-**Method:** GET
 ```bash
 http://{server}:{port}/alfresco/service/tsgrp/autofile/createAutofileConfig?params={"name":"Department - Region","rootPath":"Company Home/Sites/tsg-add-ons-demo/documentLibrary/Autofiling","types":["{http://www.tsgrp.com/model/tao/1.0}content"],
 "propertiesList":[
@@ -77,9 +52,9 @@ http://{server}:{port}/alfresco/service/tsgrp/autofile/createAutofileConfig?para
 "criteriaProperties":["{http://www.alfresco.org/model/content/1.0}title",
 "{http://www.alfresco.org/model/content/1.0}description"],
 "criteriaRegexes":["A","B"]}
-```
+   ```
 
-> **Note:** Authorization for an admin user must be included. In Postman, switch to the `Authorization` tab. In the `TYPE` dropdown, select `Basic Auth` and then enter in an admin user's credentials. The recommended approach is to use a POST call.
+> **Note:** Authorization for an admin user must be included. In Postman, switch to the `Authorization` tab. In the `TYPE` dropdown, select `Basic Auth` and then enter in an admin user's credentials.
 
 ## Utilizing Autofile
 

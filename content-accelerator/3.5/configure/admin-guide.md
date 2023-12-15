@@ -60,7 +60,7 @@ This section provides the ability to choose which groups that have access to the
 
 #### Header Actions
 
-This section provides the ability to configure global actions for the application. Actions configured here are available to all users in the application's header. See the [Action Configuration]({% link content-accelerator/latest/using/user-guide.md %}#actions) in the User Guide for more details on how to configure specific actions.
+This section provides the ability to configure global actions for the application. Actions configured here are available to all users in the application's header. See the [Action Configuration]({% link content-accelerator/3.5/using/user-guide.md %}#actions) in the User Guide for more details on how to configure specific actions.
 
 #### OC Settings
 
@@ -99,7 +99,7 @@ In the Admin's Picklist Config section, Administrators can configure `Simple` pi
 
 #### OpenContent and Web Service Picklists
 
-Other picklist types are available upon request. See the [picklist documentation]({% link content-accelerator/latest/configure/other-aca-admin-configs.md %}#picklists) for more information.
+Other picklist types are available upon request. See the [picklist documentation]({% link content-accelerator/3.5/configure/other-aca-admin-configs.md %}#picklists) for more information.
 
 ### Forms
 
@@ -183,7 +183,7 @@ Ad Hoc Forms are very similar to regular forms with an additional feature to cre
 
 * **Content Template** - allows administrators to create template documents that can be utilized in the Bulk Upload action for users to create documents from a template starting point.
 
-* **FreeMarker Template** - allows administrators to override default FTL templates provided in the ACA deployment and create their own FTL templates. For example, FTL template overrides can be used to change notification email content. To override, simply select a template to override in the dropdown of the FTL template management area and upload a new file to replace the existing template. Once overridden, the template can be edited in plain text.
+* **FreeMarker Template** - allows administrators to override default FTL templates provided in the ACA deployment.  For example, FTL template overrides can be used to change notification email content.
 
 * **Wizard Form Template** - allows administrators to provide a Word document template that is used to apply Wizard form data to create the form PDF rendition and optionally a separate document.
 
@@ -199,12 +199,12 @@ Select the types this trac will use. This configuration is to tell Content Accel
 1. If coming from a trac-aware module, the document will be sent to the stage on the context trac. For example, searching for a document in the 'Engineering' trac, clicking on the document will take you to the document using the Engineering Trac's stage config.
 2. If coming from a non trac-aware module, the document will be sent to the stage on the trac as configured in the trac config. For example, if the user clicks on an Engineering document in the Dashboard or in a Notification, Content Accelerator will look for any trac configs that contain the Engineering document's type in the "Types used in trac" list. If only one trac is found, the user will be taken to the stage for that trac. If the Engineering document's type is found in more than one trac, the user will be given a choice as to what trac to use.
 
-To limit what users have access to each trac, [see this]({% link content-accelerator/latest/configure/other-aca-admin-configs.md %}#limiting-users-trac-access).
+To limit what users have access to each trac, [see this]({% link content-accelerator/3.5/configure/other-aca-admin-configs.md %}#limiting-users-trac-access).
 
 ### Trac Security
 
 Security can be configured at the trac level to limit what groups are allowed to access each trac.
-See [here]({% link content-accelerator/latest/configure/other-aca-admin-configs.md %}#limiting-users-trac-access) for further information.
+See [here]({% link content-accelerator/3.5/configure/other-aca-admin-configs.md %}#limiting-users-trac-access) for further information.
 
 ### Event Logging
 
@@ -353,6 +353,7 @@ High-level search settings including:
 * **Search form to display** - This is an important configuration, as it is the search form that will be displayed and drives the setup of several other search components.
 * **Limit search results to** - If lower than the repository setting for number of search results returned, this value will restrict search results. If higher than the repository search results settings, the repository value will be used. In other words, this setting cannot allow for more search results than the repository is set up to return.
 * **Enable type-to-path security** - For each type in the selected search form, a user can indicate a repository folder path (generally the path to the folder being searched) to pull the security setup from. Basically, this allows search to use repository folder level security to determine who can perform the configured searches.
+* **Open Content Query Implementation** - Allows queries to be run against a database. This should only be set to "Use Native Search APIs". All other options are deprecated and will be removed from the drop down in future releases.
 
 #### Sidebar Settings
 
@@ -411,7 +412,7 @@ This section dictates the table configurations specific to each search result ty
     * **Enable Reset Button** - Users can order or hide columns for the search results table, and those local configurations are stored under their user preferences. Reset clears out search-related user preferences, and resets the look of the table to the default.
     * **Enable standardized table view** - When enabled, users can click this view and ALL users will see the exact same table sorted the exact same way.
 
-2. Result Link Display Attribute - Configure which attribute in the table should be clickable.
+2. Object Title - Configure which attribute in the table should be clickable.
 
 3. Indicator Icons - Configure icons that are displayed next to the Title attribute in the table if the criteria is met for a particular document. The most common scenario this is used for is displaying a lock icon next to checked out documents. This scenario is so common that its configuration is mapped to a single button click &gt; "Add Lock/Key"
 
@@ -503,7 +504,7 @@ The Related Objects section of the stage allows for organized quick links to rel
 * **Folder Tags** - This is a strategy for organizing content within a folder as opposed to outside a folder. Documents in a folder are tagged on import, generally by subtype or other descriptor, then are grouped by tags in the related objects section.
 * **External Relations** - This is a lesser-used strategy that generally requires some customization. It takes an external endpoint and will display objects returned from the request.
 
-For further information [click here]({% link content-accelerator/latest/configure/other-aca-admin-configs.md %}#related-objects).
+For further information [click here]({% link content-accelerator/3.5/configure/other-aca-admin-configs.md %}#related-objects).
 
 #### Folder Actions
 
@@ -537,7 +538,7 @@ Additional Viewer Configurations:
 Renditioning:
 
 * Elevate Renditioning Priority for Folder
-* Enable View Time Renditioning - Enable this option if types utilized in this trac do not have the `tsg:renditioned` aspect applied and require view time renditioning functionality.  Note that all ACA Accelerator types are pre-configured with the `tsg:renditioned` aspect and do not require view time renditioning. Therefore, you only need to enable this option for out of the box accelerator types.
+* Enable View Time Renditioning
 * Rendition Check Period
 
 Configure:
@@ -674,7 +675,7 @@ Upon clicking continue, you will be taken to the Edit Form Template screen.
 
 Creating Form Templates requires working with the set at two different levels: the Form Template as a whole, and the individual page. To allow contributing users to create instances based on the Form Template it must be published and activated. A set may also be copied into a new set or deleted.
 
-Working with the Form Template can also be thought of as working with a collection of pages. You may create, modify, and rearrange pages. Additionally, you may make certain pages required and others hidden until specific criteria are met. For information on how to work with an individual page including creating and modifying pages, see [Working with an individual Page and its Inputs]({% link content-accelerator/latest/configure/admin-guide.md %}#working-individual-page).
+Working with the Form Template can also be thought of as working with a collection of pages. You may create, modify, and rearrange pages. Additionally, you may make certain pages required and others hidden until specific criteria are met. For information on how to work with an individual page including creating and modifying pages, see [Working with an individual Page and its Inputs]({% link content-accelerator/3.5/configure/admin-guide.md %}#working-individual-page).
 
 ##### Checking out a Form Template
 
@@ -806,7 +807,7 @@ To make a page not required:
 * Select the desired page by checking the box next to its title
 * Click the down arrow located in the top left-hand corner of the Required Pages table
 
-Making a page not required makes it unavailable to users creating Form Templates instances off of the Form Template unless certain criteria are met.  For more on how to use required pages to lead to sub-pages, see [Working with an individual Page and its Inputs]({% link content-accelerator/latest/configure/admin-guide.md %}#working-individual-page).
+Making a page not required makes it unavailable to users creating Form Templates instances off of the Form Template unless certain criteria are met.  For more on how to use required pages to lead to sub-pages, see [Working with an individual Page and its Inputs]({% link content-accelerator/3.5/configure/admin-guide.md %}#working-individual-page).
 
 >**Note:** For users creating Forms to see changes made to the requirement of pages, the changed version of the
 >Form Template must be published and activated.
@@ -1542,19 +1543,19 @@ The Content Accelerator license manager allows an Administrator to view the curr
 
 ## Action Configuration
 
-While many actions require little to no configuration beyond enabling the action (self-documentation can be found under **Admin** > **Tools** > **Actions Information** > **Available Actions**), some more complicated actions have additional configuration options. See the [Action Configurations]({% link content-accelerator/latest/configure/actions.md %}) section for further details about how to configure certain commonly used actions in Content Accelerator. Individual action links listed in the table below.
+While many actions require little to no configuration beyond enabling the action, some more complicated actions have additional configuration options. See the [Action Configurations]({% link content-accelerator/3.5/configure/actions.md %}) section for further details about how to configure certain commonly used actions in Content Accelerator. Individual action links listed in the table below.
 
 ### Addition Action Configuration Information
 
 |Action Name/Link|Type|
 |-----------|---------|
-|[Send Email]({% link content-accelerator/latest/configure/actions.md %}#send-email)|Folder and Document Action|
-|[Send Notification]({% link content-accelerator/latest/configure/notifications-and-notes.md %}#notifications)|Document Workflow|
-|[Send External Notification]({% link content-accelerator/latest/configure/notifications-and-notes.md %}#external-notifications)(MS Teams/ Slack)|Document Workflow|
-|[Export Folder]({% link content-accelerator/latest/configure/actions.md %}#export-folder)|Folder Action|
-|[Bulk Upload]({% link content-accelerator/latest/configure/actions.md %}#bulk-upload)|Folder or Contextless Action|
-|[Download Document]({% link content-accelerator/latest/configure/actions.md %}#download-document)|Document Action|
-|[Edit Online]({% link content-accelerator/latest/configure/integrations-and-addons.md %}#google-drive-and-onedrive-integrations)|Document Action|
-|[Sign with DocuSign]({% link content-accelerator/latest/configure/integrations-and-addons.md %}#integration-with-docusign)|Document Action|
-|[Document Info View]({% link content-accelerator/latest/configure/other-aca-admin-configs.md %}#docinfo-view)|Document Action|
-|[Refined Search in View All Documents]({% link content-accelerator/latest/configure/actions.md %}#refined-search)|Action Add-On|
+|[Send Email]({% link content-accelerator/3.5/configure/actions.md %}#send-email)|Folder and Document Action|
+|[Send Notification]({% link content-accelerator/3.5/configure/notifications-and-notes.md %}#notifications)|Document Workflow|
+|[Send External Notification]({% link content-accelerator/3.5/configure/notifications-and-notes.md %}#external-notifications)(MS Teams/ Slack)|Document Workflow|
+|[Export Folder]({% link content-accelerator/3.5/configure/actions.md %}#export-folder)|Folder Action|
+|[Bulk Upload]({% link content-accelerator/3.5/configure/actions.md %}#bulk-upload)|Folder or Contextless Action|
+|[Download Document]({% link content-accelerator/3.5/configure/actions.md %}#download-document)|Document Action|
+|[Edit Online]({% link content-accelerator/3.5/configure/integrations-and-addons.md %}#google-drive-and-onedrive-integrations)|Document Action|
+|[Sign with DocuSign]({% link content-accelerator/3.5/configure/integrations-and-addons.md %}#integration-with-docusign)|Document Action|
+|[Document Info View]({% link content-accelerator/3.5/configure/other-aca-admin-configs.md %}#docinfo-view)|Document Action|
+|[Refined Search in View All Documents]({% link content-accelerator/3.5/configure/actions.md %}#refined-search)|Action Add-On|
