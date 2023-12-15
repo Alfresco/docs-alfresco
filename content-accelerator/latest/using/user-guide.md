@@ -1145,8 +1145,10 @@ you to search for all possible documents in the repository.
 * The red box labeled `1` outlines the object type selector box. Here, you can choose between searching for Claim Folders or Claim Documents. Currently, we are searching for claim documents, as 'Claim Documents' is selected in the dropdown.
 * The orange box labeled `2` outlines the saved search input box. Before searching, you can select a pre-saved search from the dropdown list. A saved search stores the values of the previous form into an easy-to-remember text the user can define. This can save you from reentering all the criteria for searches you use everyday. To save a new search, type in the criteria for the search, execute the search, click the plus icon within the saved search input box, and input what you would like your search to be called. You can manage your saved searches from the User Preferences page.
 * The dark blue box labeled `3` outlines the full text search box. This field consists of two parts, the input box and the search button. The input box is where you enter any text that could match any property. The returned claims will have at least one property that matches the input text exactly. The button on the right of the box will execute the search. Additionally, the search button at the bottom of the form and the enter key will also execute the search.
-* The pink box labeled `4` outlines the attribute search tab. Within this tab, you can add criteria for properties you wish to search. Some properties' criteria can be selected from a dropdown or date picker. Others, such as Claim Number, need to be entered in manually. The results will return all items that match any part of the criteria for the respective property. If the property you wish to search on does not appear, check the more fields section at the bottom of the attribute search tab. You can enable advance search capabilities in Attribute Search. For additional information on enabling Advanced Search capabilities in Attribute Search, refer to [Advance Search capabilities with Attribute Search](### Advance Search capabilities with Attribute Search) 
-**Note:** Not all claim properties will appear in the form.
+* The pink box labeled `4` outlines the attribute search tab. Within this tab, you can add criteria for properties you wish to search. Some properties' criteria can be selected from a dropdown or date picker. Others, such as Claim Number, need to be entered in manually. The results will return all items that match any part of the criteria for the respective property. If the property you wish to search on does not appear, check the more fields section at the bottom of the attribute search tab. You can enable advance search capabilities in Attribute Search. See the next section for additional information on enabling [Advanced Search capabilities with Attribute Search](#advance-search-capabilities-with-attribute-search).
+
+  > **Note:** Not all claim properties will appear in the form.
+
 * The light blue box labeled `5` outlines the filters tab. After a search has already been run, this tab will populate with filters based on the result.
 
   ![Img Txt]({% link content-accelerator/images/aca-userguide-claims-mgmt7.png %})
@@ -1166,8 +1168,9 @@ To enable advanced capabilities in attribute search, complete the following step
     ![Advanced Search configuration]({% link content-accelerator/images/aca-show-advanced-search-config.png %})
 
 2. After you enable Advanced Search, you can enable the following configuration settings:
-  * Enable Any/All Search
-  * Enable Like/Exact/Not Search
+
+    * Enable Any/All Search
+    * Enable Like/Exact/Not Search
 
     ![Advanced Search additional configuration]({% link content-accelerator/images/aca-show-advanced-search-options-config.png %})
 
@@ -1205,15 +1208,15 @@ If the **Like/Exact/Not Search** setting is disabled, the default operation depe
 | **RadioButton** and **Cascading** | Exact search |
 | **TextBox** | The search depends on values set using “Make Search Exact” and “Case Sensitive Search” and if these values are not set, a wildcard search is performed. |
 
-**Notes:**
-
-* Advanced Search is deprecated in Content Accelerator 3.6. Though it is still available, Advanced Search feature in Attribute Search, described above, is expected to replace Advanced Search in future releases.
-
-* By enabling “Like/Exact/Not Search”, you override the settings for “Make Search Exact” and “Case Sensitive Search” for any property (if configured).
-
-* On a Property or Full text search, when any value is enclosed in double quotes, it is considered an exact search.
-
-* Popular special characters can be searched on Property and  Full text searches. How special characters are treated depends on tokenization and search index configuration. For additional information, refer to [Alfresco Search Services]({% link search-services/latest/index.md %}) and Apache Solr Reference Guide. 
+> **Note:**
+>
+> * Advanced Search is deprecated in Content Accelerator 3.6. Though it is still available, Advanced Search feature in Attribute Search, described above, is expected to replace Advanced Search in future releases.
+>
+> * By enabling “Like/Exact/Not Search”, you override the settings for “Make Search Exact” and “Case Sensitive Search” for any property (if configured).
+>
+> * On a Property or Full text search, when any value is enclosed in double quotes, it is considered an exact search.
+>
+> * Popular special characters can be searched on Property and  Full text searches. How special characters are treated depends on tokenization and search index configuration. For additional information, see the [Alfresco Search Services documentation]({% link search-services/latest/index.md %}) and [Apache Solr Reference Guide](https://solr.apache.org/guide/solr/latest/index.html){:target="_blank"}. 
 
 #### Search Results Pane
 
