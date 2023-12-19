@@ -1159,6 +1159,7 @@ defaults:
       toc: "federation-services"
       support: true
       versions:
+        - 3.1
         - 3.0
         - 2.1
         - 2.0
@@ -1167,8 +1168,12 @@ defaults:
   - scope:
       path: "federation-services/latest"
     values:
-      version: 3.0
+      version: 3.1
       latest: true
+  - scope:
+      path: "federation-services/3.0"
+    values:
+      version: 3.0
   - scope:
       path: "federation-services/2.1"
     values:
