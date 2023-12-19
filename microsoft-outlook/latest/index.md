@@ -19,3 +19,5 @@ For information about using the Outlook Integration, see [Using Alfresco from Mi
 For information about installing and configuring the Outlook Integration, see [Install and configure Outlook Integration]({% link microsoft-outlook/latest/install/index.md %}).
 
 If you plan to use SAML Module for Alfresco Content Services authentication, see [Using SAML SSO with Outlook Integration]({% link microsoft-outlook/latest/admin/index.md %}#usingsaml).
+
+> **Note:** Alfresco Outlook Integration 2.9 can be applied to Alfresco Content Services 7.0 - 7.3 only.

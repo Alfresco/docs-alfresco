@@ -10,6 +10,8 @@ Amazon S3 Glacier is supported with Alfresco Content Services and Alfresco Gover
 
 > **Note:** The Glacier Connector is not available for the Alfresco Community Edition versions of the products.
 
+> **Note:** Alfresco Content Connector for AWS Glacier 2.2 can be applied to Alfresco Content Services 6.2 - 7.1 only.
+
 > **Important:** For customers who've previously used the **Archive** action in a folder rule to move content into AWS Glacier: this is no longer supported. **Customers wishing to continue using this functionality should not upgrade to Alfresco Content Services 7.2.** The S3 REST API provides support for moving content to AWS Glacier or content can be manually moved to Glacier via the AWS S3 tools.
 
 The following diagram shows a simple representation of how Alfresco Content Services, Alfresco Governance Services, the S3 Connector and the Glacier Connector interact with Amazon S3 (Amazon Simple Storage Service). The S3 Connector connects you with Amazon S3 and the Glacier Connector allows you to connect with Amazon S3 Glacier.

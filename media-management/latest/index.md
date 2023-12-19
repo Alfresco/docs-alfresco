@@ -10,6 +10,8 @@ Media Management provides many user interface enhancements for rich media handli
 
 Media Management enables you to optimize the delivery of media to different devices in a more resource effective way.
 
+> **Note:** Alfresco Media Management 1.4 can be applied to Alfresco Content Services 6.2 only.
+
 With Media Management you have flexibility when transforming your content, either on-premise with content transformation nodes that use FFmpeg and ImageMagick, or remotely through Amazon Web Services (AWS) Elastic Transcoder content transformer.
 
 The AWS CloudFront publishing channel is supported to make content available outside your organization.
