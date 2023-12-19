@@ -17,7 +17,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Amazon Linux | v2 |
 | CentOS 7.9 x64 | |
 | Ubuntu 22.04 | |
-| Rocky Linux 9.0 | |
+| Rocky Linux 9.x | |
 | Rocky Linux 8.8 | |
 |  |  |
 | **Databases** | |
