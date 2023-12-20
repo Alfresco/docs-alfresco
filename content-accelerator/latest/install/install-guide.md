@@ -20,7 +20,7 @@ You will need to download the following distribution zips in order to install AC
 * (HR Only) alfresco-content-accelerator-sehr-accelerator-3.6.x.zip
 * (HR Tier-2 Only) alfresco-content-accelerator-sehr-rm-accelerator-3.6.x.zip
 
-> **Note:** If you're installing the HR Employee File Management (HR EFM) solution, you will need to get the HR EFM pre-release artifacts from [Hyland Confluence](https://hyland.atlassian.net/wiki/spaces/SESS/pages/687540729/Alfresco+HR+Employee+File+Management){:target="blank"} rather than using the distribution zips in Hyland Community.
+> **Note:**  If you’re installing the HR Employee File Management (HR EFM) solution, the HR EFM artifacts (solution AMPs and configurations) are stored in [Hyland Confluence](https://hyland.atlassian.net/wiki/spaces/SESS/pages/687540729/Alfresco+HR+Employee+File+Management){:target="blank"}. The rest of the solution deployment resources are in distribution zips in Hyland Community.
 
 ### Java
 
