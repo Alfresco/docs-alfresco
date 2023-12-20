@@ -8,7 +8,7 @@ The Federation Services capability for Alfresco Content Services is delivered in
 
 Check the [supported platforms]({% link federation-services/latest/support/index.md %}) for information on what you require before you start the installation.
 
-> **Note**: A compatible version of Alfresco Governance Services (if you plan to use the Manage in Place capabilities) is required, for example: if using Alfresco Content Services 7.4, make sure that you install Alfresco Governance Services 7.4.
+> **Note**: A compatible version of Alfresco Governance Services (if you plan to use the Manage in Place capabilities) is required, for example: if using Alfresco Content Services 23.1, make sure that you install Alfresco Governance Services 23.1.
 
 You can download the Federation Services software from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
