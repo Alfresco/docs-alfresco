@@ -1,5 +1,5 @@
-# Federation Services 3.0
-- version: 3.0
+# Federation Services 3.1
+- version: 3.1
   pages:
     - title: 'Introduction'
       path: '/federation-services/latest/'
@@ -10,6 +10,17 @@
     - title: 'Administer'
       path: '/federation-services/latest/admin/'
 
+# Federation Services 3.0
+- version: 3.0
+  pages:
+    - title: 'Introduction'
+      path: '/federation-services/3.0/'
+    - title: 'Install'
+      path: '/federation-services/3.0/install/'
+    - title: 'Configure'
+      path: '/federation-services/3.0/config/'
+    - title: 'Administer'
+      path: '/federation-services/3.0/admin/'
 
 # Federation Services 2.1
 - version: 2.1

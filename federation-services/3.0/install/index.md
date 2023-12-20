@@ -6,9 +6,9 @@ The Federation Services capability for Alfresco Content Services is delivered in
 
 ## Prerequisites
 
-Check the [supported platforms]({% link federation-services/latest/support/index.md %}) for information on what you require before you start the installation.
+Check the [supported platforms]({% link federation-services/3.0/support/index.md %}) for information on what you require before you start the installation.
 
-> **Note**: A compatible version of Alfresco Governance Services (if you plan to use the Manage in Place capabilities) is required, for example: if using Alfresco Content Services 23.1, make sure that you install Alfresco Governance Services 23.1.
+> **Note**: A compatible version of Alfresco Governance Services (if you plan to use the Manage in Place capabilities) is required, for example: if using Alfresco Content Services 7.4, make sure that you install Alfresco Governance Services 7.4.
 
 You can download the Federation Services software from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
@@ -43,4 +43,4 @@ These steps describe how to install Federation Services to an instance of Alfres
 
 2. Follow the steps in the 3Sixty documentation, [Install 3Sixty](https://helpdocs.objective.com/3sixty_user/Content/get-started/installation.htm){:target="_blank"}.
 
-3. After completing all the installation steps, you'll need to access the Admin app through your preferred browser to [configure]({% link federation-services/latest/config/index.md %}) your installation.
+3. After completing all the installation steps, you'll need to access the Admin app through your preferred browser to [configure]({% link federation-services/3.0/config/index.md %}) your installation.
