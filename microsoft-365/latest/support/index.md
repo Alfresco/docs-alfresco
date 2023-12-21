@@ -6,5 +6,8 @@ The following are the supported platforms for the Alfresco Collaboration Connect
 
 | Version | Notes |
 | ------- | ----- |
+| Alfresco Content Services 23.1.x | |
 | Alfresco Content Services 7.4.x | |
-| Alfresco Digital Workspace 4.0.x | |
+| | |
+| **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. Check the compatibility of each integration in your installed version of [Alfresco Content Services]({% link content-services/latest/support/index.md %}). |
+| Alfresco Digital Workspace | |
