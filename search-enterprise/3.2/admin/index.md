@@ -431,7 +431,7 @@ The main use case to re-index only content or path is a fully metadata indexed r
 ## Bulk metadata indexing
 
 You can customize Search Enterprise by having the index ready with just the metadata of uploaded files or with the content of the files as well. If you have the content of your files indexed there are time and cost implications you must consider and it is only recommended when necessary.
-This example describes how to setup Search Enterprise to show the speed achievable when processing one billion files. Amazon Web Services have been used as the host but your setup will be specific to your requirements.
+This example describes how to set up Search Enterprise to show the speed achievable when processing one billion files. Amazon Web Services have been used as the host but your setup will be specific to your requirements.
 
 The configuration used in this example:
 
@@ -452,7 +452,7 @@ The configuration used in this example:
 * Indexing Instance type: `t2.2xlarge` (8vCPUs, `32GB` RAM).
 * Number of Amazon EC2 Instances for Indexing: `3`.
 * Number of threads running on instance 1 and 2 is `7` each with `6` threads on instance 3. Total threads running in parallel is `20`.
-* Maximum Heap allocated to each thread is `4GB` (-Xmx4G).
+* Maximum Heap allocated to each thread is `4GB` (`-Xmx4G`).
 
 **Search Enterprise Master Node**
 
