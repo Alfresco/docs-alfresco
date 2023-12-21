@@ -120,9 +120,9 @@ Use the **Logic** filter to match or exclude words, and phrases. Use the **Prope
 
 ![search]({% link digital-workspace/images/search-user-interface.png %})
 
-### Search Configuration
+### Search configuration
 
-The search filters that are available in the Digital Workspace can be refined and tailored to your specific needs by creating custom search forms. Each form can contain a set of filters that are relevant to a particular task or user group within your organization. You can select the most useful search form from the drop-down lists on the search results page. For details on how to create and configure search forms for a more intuitive search experience see [Search Configuration Guide](https://github.com/Alfresco/alfresco-ng2-components/blob/develop/docs/user-guide/search-configuration-guide.md){:target="_blank"}.
+The search filters that are available in the Digital Workspace can be refined and tailored to your specific needs by creating custom search forms. Each form can contain a set of filters that are relevant to a particular task or user group within your organization. You can select the most useful search form from the drop-down lists on the search results page. For details on how to create and configure search forms for a more intuitive search experience, see the [Search Configuration Guide](https://github.com/Alfresco/alfresco-ng2-components/blob/develop/docs/user-guide/search-configuration-guide.md){:target="_blank"}.
 
 ![search]({% link digital-workspace/images/search-integration.png %})
 
