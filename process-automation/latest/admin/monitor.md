@@ -46,7 +46,7 @@ The columns for each application are:
 | Description | A description of the application, if entered when the application was released. |
 | Version | The version of the application. |
 | Release | The amount of times the application has been released. |
-| Digital Workspace | If the application is the Digital Workspace, there is a link to it. |
+| Workspace | If the application is the Workspace, there is a link to it. |
 | Three dots | Right click on the three dots to access the [Process Instances](#process-instances), [User Tasks](#user-tasks), [Service Tasks](#service-tasks), [Audit](#audit), or [Data Cleanup](#data-cleanup) sections. |
 | Star icon | Use the icon to select which application you want to 'favorite'. The application you select will appear first in the search lists, when using the search in the **Process Instances**, **User Tasks**, and **Service Tasks** sections. |
 
