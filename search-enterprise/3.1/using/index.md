@@ -274,7 +274,7 @@ For more details see the [Elasticsearch documentation](https://www.elastic.co/gu
 
 ## Search for an exact term
 
-> **Note:** Exact Term searching is only allowed if default Alfresco Repository configuration has been changed in order to enable this feature.
+> **Note:** Exact Term searching is only allowed if the default Alfresco Repository configuration has been changed in order to enable this feature, for more see [Pre-indexing considerations]({% link search-enterprise/3.1/admin/index.md %}#pre-indexing-considerations).
 
 To search for an exact term you must prefix it with "=". The supported syntax:
 

@@ -1,5 +1,5 @@
-# Alfresco Sync Service 3.11
-- version: 3.11
+# Alfresco Sync Service 4.0
+- version: 4.0
   pages:
     - title: 'Introduction'
       path: '/sync-service/latest/'
@@ -37,6 +37,46 @@
           path: '/sync-service/latest/admin/troubleshoot/'
         - title: 'FAQ'
           path: '/sync-service/latest/admin/faq/'
+
+# Alfresco Sync Service 3.11
+- version: 3.11
+  pages:
+    - title: 'Introduction'
+      path: '/sync-service/3.11/'
+    - title: 'Install'
+      pages:
+        - title: 'Overview'
+          path: '/sync-service/3.11/install/'
+        - title: 'Install options'
+          path: '/sync-service/3.11/install/options/'
+        - title: 'Database'
+          path: '/sync-service/3.11/install/database/'
+    - title: 'Configure'
+      pages:
+        - title: 'Overview'
+          path: '/sync-service/3.11/config/'
+        - title: 'Run via a script'
+          path: '/sync-service/3.11/config/script/'
+        - title: 'Connect through JMX'
+          path: '/sync-service/3.11/config/jmx/'
+    - title: 'Upgrade'
+      path: '/sync-service/3.11/upgrade/'
+    - title: 'Administer'
+      pages:
+        - title: 'Overview'
+          path: '/sync-service/3.11/admin/'
+        - title: 'Cluster'
+          path: '/sync-service/3.11/admin/cluster/'
+        - title: 'Monitor'
+          pages:
+            - title: 'Overview'
+              path: '/sync-service/3.11/admin/monitor/'
+            - title: 'Using Grafana'
+              path: '/sync-service/3.11/admin/monitor/grafana/'
+        - title: 'Troubleshoot'
+          path: '/sync-service/3.11/admin/troubleshoot/'
+        - title: 'FAQ'
+          path: '/sync-service/3.11/admin/faq/'
 
 # Alfresco Sync Service 3.10
 - version: '3.10'

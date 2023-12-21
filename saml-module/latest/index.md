@@ -19,6 +19,8 @@ SAML is based on a trust relationship between an IdP (for example, PingFederate 
 
 Alfresco uses SAML 2.0. See [OASIS SAML v2.0](https://wiki.oasis-open.org/security/FrontPage){: target="_blank"} for more information on SAML specifications.
 
+> **Note:** The SAML Module for Alfresco Content Services 1.2 can be applied to Alfresco Content Services 6.2 - 7.0 only.
+
 This diagram explains the exchange of information between the service provider (in this case, Alfresco Share), and the identity provider (in this case, PingFederate):
 
 ![An overview of SAML information exchange]({% link saml-module/images/overview.png %})

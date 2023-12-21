@@ -2,44 +2,61 @@
 title: What's new
 ---
 
-Alfresco Content Services (ACS) 7.4 is a minor software update release with improvements to Content Services to accelerate use and development for customer solutions for PaaS, Cloud, or on-premises deployment. With this release, Alfresco continues to enable open-source communities, customers, and partners to deliver a highly scalable Content Store with numerous applications, connectivity, and solutions.
+Alfresco Content Services (ACS) 23.1 is a major release with improvements to Content Services to accelerate use and development for customer solutions for PaaS, Cloud, or on-premises deployment. With this release, Alfresco continues to enable open-source communities, customers, and partners to deliver a highly scalable Content Store with numerous applications, connectivity, and solutions.
 
-> **Note:** Alfresco customers can view more detailed Release Notes in [Hyland Community](https://community.hyland.com/){:target="_blank"}.
+With this release, Alfresco Content Services and Alfresco Governance Services switch to the standard Hyland version naming convention of year and version number (`YY.#`). The scheme is explained in the [New product version naming convention](https://community.hyland.com/blog/posts/82512-new-product-version-naming-convention){:target="_blank"} blog post on Hyland Community.
 
-Here's a quick summary of what's new in the Alfresco Content Services 7.4 release.
+> **Note:** Alfresco customers can view more detailed Release Notes in [Hyland Community](https://community.hyland.com/customer-portal/downloads/alfresco){:target="_blank"}.
+
+Here's a quick summary of what's new in the Alfresco Content Services 23.1 release.
 
 ## Highlights
 
-* **Change in Logging library**
-* **Keycloack client adapter replaced with Spring security**
-* **Zero trust principle for communications with the Transform Service**
-* **Images generated from ACS Packaging are now Multi-Architecture**
+* **Toggle for more reliable events**
+* **Clean-up job for IP-addresses of dead cluster nodes**
+* **Support for external Hazelcast cluster management**
+* **ARM64 containers for developers**
+* **Modularized Helm charts**
+* **Jakarta EE 10 and Spring 6 support**
+* **Tomcat 10 support**
   
-### Change in Logging library
+### Toggle for more reliable events
 
-Starting from ACS 7.4, log4jv2 will be the library used for logging capabilities. Please refer to the [Log4j2 Migration Guide]({% link content-services/latest/upgrade/log4j2-migrate.md %}) to migrate your current logging configuration from version 1. If you built custom extensions relying on the Slf4j abstraction, no changes will be needed. If you have a direct dependency on log4jv1 instead, please take into consideration updating them.
+A toggle has been introduced to increase the reliability of events on the event queue. If the toggle is set, events are sent right after the database transaction closes, rather than through a separate thread. This increases the chance the events are correctly delivered to the queue, at a small performance cost. Default, this toggle is off, giving the old behavior.
 
-### Keycloack client adapter replaced with Spring security
+### Clean-up job for IP-addresses of dead cluster nodes
 
-Following the deprecation from the Keycloak team, Alfresco Content Services is no longer using the Keycloak client adapter and will rely on Spring Security instead.
+A new background task has been introduced that purges IP addresses of cluster nodes that have been decommissioned from the database. This means other cluster nodes will stop trying to connect to these ‘dead’ nodes, improving the efficiency of the cluster.
 
-### Zero trust principle for communications with the Transform Service
+This makes it easier to manage auto-scaling clusters, where new nodes are spun up under high load, and brought down when the load decreases.
 
-Communications between Alfresco Content Services and Alfresco Transform Service can now be secured through mutual TLS. Instructions on how to configure this can be found in the documentation.
+See [Scheduled Jobs Extension Point]({% link content-services/latest/develop/repo-ext-points/scheduled-jobs.md %}#out-of-the-box-scheduled-jobs-definitions) documentation for more details.
 
-See the [Mutual TLS]({% link content-services/latest/config/mtls.md %}) documentation for more details.
+### Support for external Hazelcast cluster management
 
-### Images generated from ACS Packaging are now Multi-Architecture
+Alfresco uses Hazelcast for its clustering management, and it includes cluster management. It is now possible to set up Hazelcast management external to Alfresco and let it manage the Alfresco nodes.
 
-Images from ACS Packaging are now available as multi-architecture (AMD64 + ARM64), with more to come.
+See [Set up repository clustering via external Hazelcast]({% link content-services/latest/admin/cluster.md %}#set-up-repository-clustering-via-external-hazelcast) documentation for more details.
 
-## Deprecated software
+### ARM64 containers for developers
 
-Alfresco Content Services is no longer using the Keycloak client adapter and will rely on Spring Security instead.
+Our developer experience is strongly built on Docker containers. Containers for the ARM64 architecture are now available on Docker Hub, allowing developers using hardware with ARM64 chips (such as Apple's M1/M2 chips) to use a containerized Alfresco without any extra steps.
+
+### Modularized Helm charts
+
+The Helm charts have been broken up into multiple, separate charts. This allows for more customization in deployments, where only part of the configuration can be easily adapted without affecting other parts.
+
+### Jakarta EE 10 and Spring 6 support
+
+As part of the Jakarta migration, Alfresco Content Services is using now Spring 6 and Jakarta EE 10 instead of `javax`.
+
+### Tomcat 10 support
+
+Alfresco now requires Tomcat 10. Earlier versions of Alfresco supported Tomcat 9. Tomcat 10 is not backwards compatible with Tomcat 9, so changes in existing deployments are required to move to Tomcat 10 and upgrade to Alfresco 23.1.
 
 ## Install
 
-Alfresco Content Services 7.4 is available as a distribution zip file for manual installation, or it can be installed using an Ansible playbook (Linux only) for non-containerized environments. It's also available as a set of Docker images that can be deployed in containerized environments using Docker Compose or Helm charts (for Kubernetes).
+Alfresco Content Services 23.1 is available as a distribution zip file for manual installation, or it can be installed using an Ansible playbook (Linux only) for non-containerized environments. It's also available as a set of Docker images that can be deployed in containerized environments using Docker Compose or Helm charts (for Kubernetes).
 
 See the [Install]({% link content-services/latest/install/index.md %}) documentation for more details.
 
@@ -51,8 +68,8 @@ See the detailed [Upgrade]({% link content-services/latest/upgrade/index.md %}) 
 
 ## Upgraded integrations
 
-Alfresco Content Services 7.4 introduces changes that require new releases of some modules.
+Alfresco Content Services 23.1 introduces changes that require new releases of some modules.
 
-To upgrade to Content Services 7.4, you'll also need to update any of the module artifacts to which you're entitled.
+To upgrade to Content Services 23.1, you'll also need to update any of the module artifacts to which you're entitled.
 
 See the [Supported Platforms]({% link content-services/latest/support/index.md %}) for more details.

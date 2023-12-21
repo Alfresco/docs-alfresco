@@ -1,5 +1,5 @@
-# Alfresco Governance Services 7.3
-- version: 7.4
+# Alfresco Governance Services 23.1
+- version: 23.1
   pages:
     - title: 'Introduction'
       path: '/governance-services/latest/'
@@ -53,6 +53,60 @@
       pages:
         - title: 'APIs'
           path: '/governance-services/latest/develop/'
+- version: 7.4
+  pages:
+    - title: 'Introduction'
+      path: '/governance-services/7.4/'
+    - title: 'Install'
+      pages:
+        - title: 'Overview'
+          path: '/governance-services/7.4/install/'
+        - title: 'Install using Docker Compose'
+          path: '/governance-services/7.4/install/docker/'
+        - title: 'Install from ZIP file'
+          path: '/governance-services/7.4/install/zip/'
+        - title: 'Creating the RM site'
+          path: '/governance-services/7.4/install/create-rm-site/'
+        - title: 'Uninstall the AMP files'
+          path: '/governance-services/7.4/install/uninstall/'
+    - title: 'Upgrade'
+      path: '/governance-services/7.4/upgrade/'
+    - title: "Configure"
+      path: '/governance-services/7.4/config/'
+    - title: "Administer"
+      path: '/governance-services/7.4/admin/'
+    - title: 'Using'
+      pages:
+        - title: 'Overview'
+          path: '/governance-services/7.4/using/overview/'
+        - title: 'The File Plan'
+          path: '/governance-services/7.4/using/the-fileplan/'
+        - title: 'Retention schedules'
+          path: '/governance-services/7.4/using/retention-schedules/'
+        - title: 'Managing permissions'
+          path: '/governance-services/7.4/using/manage-permissions/'
+        - title: 'Filing records'
+          path: '/governance-services/7.4/using/file-records/'
+        - title: 'Easy access records'
+          path: '/governance-services/7.4/using/easy-access-records/'
+        - title: 'Managing the File Plan'
+          path: '/governance-services/7.4/using/manage-fileplan/'
+        - title: 'Automating the File Plan'
+          path: '/governance-services/7.4/using/automate-fileplan/'
+        - title: 'Searching records'
+          path: '/governance-services/7.4/using/search-records/'
+        - title: 'Auditing and reporting'
+          path: '/governance-services/7.4/using/audit-report/'
+        - title: 'Working with Amazon S3 WORM'
+          path: '/governance-services/7.4/using/worm/'
+        - title: 'Security marks and classification'
+          path: '/governance-services/7.4/using/smc/'
+        - title: 'FAQ'
+          path: '/governance-services/7.4/using/faq/'
+    - title: 'Develop'
+      pages:
+        - title: 'APIs'
+          path: '/governance-services/7.4/develop/'
 - version: 7.3
   pages:
     - title: 'Introduction'

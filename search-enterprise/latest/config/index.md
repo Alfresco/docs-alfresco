@@ -47,7 +47,7 @@ Additionally, these properties can be set as environment variables in Alfresco R
 
 ```docker
 alfresco:
-    image: quay.io/alfresco/alfresco-content-repository:7.4.0
+    image: quay.io/alfresco/alfresco-content-repository:23.1.0
     environment:
         JAVA_OPTS: "
         -Dindex.subsystem.name=elasticsearch
@@ -116,7 +116,7 @@ There are two strategies to fill the gaps in the Elasticsearch server when provo
 Sample invocation for Fetch by IDS.
 
 ```java
-java -jar target/alfresco-elasticsearch-reindexing-3.3.0-app.jar \
+java -jar target/alfresco-elasticsearch-reindexing-4.0.0-app.jar \
   --alfresco.reindex.jobName=reindexByIds \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
@@ -128,7 +128,7 @@ java -jar target/alfresco-elasticsearch-reindexing-3.3.0-app.jar \
 Sample invocation for Fetch by DATE.
 
 ```java
- java -jar target/alfresco-elasticsearch-reindexing-3.3.0-app.jar \
+ java -jar target/alfresco-elasticsearch-reindexing-4.0.0-app.jar \
   --alfresco.reindex.jobName=reindexByDate \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
@@ -218,7 +218,7 @@ To override some of these values command line system properties can be specified
 $ java -DSPRING_ELASTICSEARCH_REST_URIS=http://localhost:9200
  -DSPRING_ACTIVEMQ_BROKERURL=nio://activemq:61616
  -DALFRESCO_SHAREDFILESTORE_BASEURL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file/
- -jar alfresco-elasticsearch-live-indexing-3.3.0-app.jar
+ -jar alfresco-elasticsearch-live-indexing-4.0.0-app.jar
 ```
 
 The same convention can be used when deploying the Elasticsearch connector using the Docker compose template.

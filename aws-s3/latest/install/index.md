@@ -30,11 +30,11 @@ There are a number of software requirements for installing Content Connector for
 
 ### Alfresco requirements
 
-* Alfresco Content Services 
+* Alfresco Content Services.
 
 ### Java requirements
 
-* OpenJDK 11 or 17.
+* OpenJDK 17.
 
 ### AWS related requirements
 
@@ -70,7 +70,7 @@ The S3 Connector is packaged as an Alfresco Module Package (AMP) file.
 
 1.  Go to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
-2.  Download the `alfresco-s3-connector-5.1.x.amp` file.
+2.  Download the `alfresco-s3-connector-6.0.x.amp` file.
 
 3.  Use the Module Management Tool (MMT) to install the AMP into the repository WAR (`alfresco.war`).
 
@@ -95,20 +95,20 @@ The S3 Connector is packaged as an Alfresco Module Package (AMP) file.
 
 1.  Go to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
-2.  Download the `alfresco-s3-connector-5.1.x.amp` file.
+2.  Download the `alfresco-s3-connector-6.0.x.amp` file.
 
 3.  Use the Module Management Tool (MMT) to install the AMP into the repository WAR (`alfresco.war`).
 
     For more information, see [Using the Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) and [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).
 
-4.  Unzip the `alfresco-s3-connector-5.1.x.amp` file.
+4.  Unzip the `alfresco-s3-connector-6.0.x.amp` file.
 
 5.  Copy the three sample files and rename them by removing the `.sample` extension.
 
     The sample files are located under:
 
     ```text
-    alfresco-s3-connector-5.1.x.amp/config/alfresco/extension/...
+    alfresco-s3-connector-6.0.x.amp/config/alfresco/extension/...
     ```
 
     They need to be copied to the relevant paths under the following folder:

@@ -83,6 +83,7 @@ When you deploy Community Edition, a number of containers are started.
   * Alfresco Office Services (AOS) AMP
   * Alfresco vti-bin war - that helps with AOS integration
   * Alfresco Google Docs Integration repository AMP
+* Alfresco Control Center
 * Alfresco Share with:
   * Alfresco Google Docs Integration Share AMP
 * Alfresco Search Services (Solr 6)

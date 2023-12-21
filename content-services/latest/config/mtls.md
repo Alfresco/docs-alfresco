@@ -186,37 +186,13 @@ Use this information to set up your generated certificates in their correct loca
 Configuration set up for both the server-side and client-side of the repository is provided in the Alfresco Search Services page, [Secure keys]({% link search-services/latest/config/keys.md %}#set-up-certificates).
 When using new scripts, make sure the folder path provided in the instruction is replaced with what has been provided in the `subfoldername` parameter of a script.
 
-### Set httpclient properties
+### Set HttpClient properties
 
-There is also a new type of configuration, for repository HttpClients that are used for communicating with the Transform Service. Solr configuration stays unchanged. If you just want to enable mTLS for the Transform Service, then after setting the properties related to keystore and truststore, one additional property change will be enough, since all of them have their default values.
+For the full list of available HttpClient properties and services that use them, see [repository documentation]({% link content-services/latest/config/repository.md %}#httpclientproperties).
 
-Below are httpClient properties, where valid substitutes for `<service>` are: `transform` (T-Router, T-Engines, Transform Aspose, AI Renditions; in enterprise: Shared File Store).
+Mutual TLS is disabled by default, to turn it on you have to change the value of properties `httpclient.config.<service>.mTLSEnabled` to `true` for all services you intend to use with mTLS.
 
-```text
-httpclient.config.<service>.mTLSEnabled
-httpclient.config.<service>.connectionTimeout
-httpclient.config.<service>.socketTimeout
-httpclient.config.<service>.connectionRequestTimeout
-httpclient.config.<service>.maxTotalConnections
-httpclient.config.<service>.maxHostConnections
-httpclient.config.<service>.hostnameVerificationDisabled
-```
-
-The default settings for `transform` are shown below:
-
-```text
-httpclient.config.transform.mTLSEnabled=false
-httpclient.config.transform.maxTotalConnections=20
-httpclient.config.transform.maxHostConnections=20
-httpclient.config.transform.socketTimeout=5000
-httpclient.config.transform.connectionRequestTimeout=5000
-httpclient.config.transform.connectionTimeout=5000
-httpclient.config.transform.hostnameVerificationDisabled=false
-```
-
-Mutual TLS is disabled by default, to turn it on you have to change the value of property `httpclient.config.<service>.mTLSEnabled` to `true`.
-
-Hostname verification can be disabled for verifying responses to requests made with `httpclient.config.<service>.hostnameVerificationDisabled` by setting it to `true`, though be aware that disabling it poses a significant security risk.
+> **Note:** Hostname verification can be disabled for responses with `httpclient.config.<service>.hostnameVerificationDisabled`, by setting it to `true`. Though be aware that disabling it poses a significant security risk.
 
 ### Configuration for Transform Service
 

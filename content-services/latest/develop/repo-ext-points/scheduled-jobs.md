@@ -387,13 +387,14 @@ a JavaScript. The script is passed in as the `script-ref` parameter.
 
 Alfresco runs a number of scheduled jobs that assist in the maintenance of a production environment.
 
-These jobs are defined in the [scheduled-jobs-context.xml](https://github.com/Alfresco/alfresco-repository/blob/alfresco-repository-6.8/src/main/resources/alfresco/scheduled-jobs-context.xml){:target="_blank"} file.
+These jobs are defined in the [scheduled-jobs-context.xml](https://github.com/Alfresco/alfresco-enterprise-repo/blob/master/repository/src/main/resources/alfresco/enterprise/cleanup-service-context.xml){:target="_blank"} file.
 
 |Scheduled job|Description|
 |-------------|-----------|
 |`contentStoreCleanerTrigger`|Launches the `contentStoreCleaner` bean, which identifies, and deletes or purges orphaned content from the content store while the system is running. Content is said to be orphaned when all references to a content binary have been removed from the metadata. By default, this job is triggered at 4:00 am each day. In a clustered environment, this job could be enabled on a headless (non-public) node only, which will improve efficiency.|
 |`nodeServiceCleanupTrigger`|Performs cleanup operations on DM node data, including old deleted nodes and old transactions. In a clustered environment, this job could be enabled on a headless (non-public) node only, which will improve efficiency.|
 |`tempFileCleanerTrigger`|Cleans up all Alfresco temporary files that are older than the given number of hours. Subdirectories are also emptied and all directories below the primary temporary subdirectory are removed. The job data must include the `protectHours` property, which is the number of hours to protect a temporary file from deletion since its last modification. The `system.tempFileCleaner.maxFilesToDelete` parameter can be used to configure a maximum number of files that the `TempFileCleanerTrigger` can delete when it is triggered, the default value is `null` and it's data type is `Long`. The `system.tempFileCleaner.maxTimeToRun` parameter can be used to determine a maximum duration for the `TempFileCleanerTrigger` to run after it starts, the default value is `null` and its data type is `Duration`.|
+|`deadClusterNodesCleanupJobDetail` |*Enterprise only feature*. Schedules the removal of dead cluster nodes from the database so that live nodes do not spend time trying to reconnect with dead nodes. By default, this job deletes nodes which are inactive for more than 24 hours. This period is configurable, by using the property `alfresco.cluster.deadNodes.cleaner.inactivePeriodMilliseconds` which is available inside the `repository.properties` file. Currently this job is triggered at 3:00 am on Saturday of every week. You can customize the schedule using the cron expression property `alfresco.cluster.deadNodes.cleaner.cronExpression` which is also available in the `repository.properties` file.|
 
 ## Deployment - App Server
 
@@ -404,6 +405,7 @@ JAR extension module.
 * JavaScript file: Upload to `/Company Home/Data Dictionary/Scripts`
 
 These file locations are untouched by re-deployments and upgrades.
+
 ## Deployment All-in-One SDK project
 
 * Java job implementations: `aio/platform-jar/src/main/java/{custom package path}`
@@ -411,5 +413,5 @@ These file locations are untouched by re-deployments and upgrades.
 * Spring Beans: `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/context/scheduler-context.xml`
 
 ## Sample Code
- 
+
 * [Java based Job implementation and Repo action Job implementation.](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/schedule-job-repo){:target="_blank"} (**Note**. this is 5.x code and it differs a little bit as Spring was updated to version 5.x in ACS 6.x. Some stuff in implementing Quartz schedulers changed, but not much, see above and compare with tutorial code)

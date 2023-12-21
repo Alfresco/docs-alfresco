@@ -55,7 +55,7 @@ To set the realm file during deployment:
           value: /data/import/realm.json
         - name: JAVA_OPTS_APPEND
           value: >-
-            -Djgroups.dns.query={{ include "keycloak.fullname" . }}-headless
+            {%raw%}-Djgroups.dns.query={{ include "keycloak.fullname" . }}-headless{%endraw%}
     EOL 
 
     helm install alfresco-stable/alfresco-infrastructure \

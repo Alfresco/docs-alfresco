@@ -29,8 +29,8 @@ $ java -jar bin\alfresco-mmt.jar uninstall <ModuleId> <WARFileLocation>
     ```bash
     Module 'org_alfresco_module_rm' installed in 'tomcat\webapps\alfresco.war'
     -    Title:        Records Management
-    -    Version:      7.4
-    -    Install Date: Mon May 15 12:04:49 BST 2023
+    -    Version:      23.1
+    -    Install Date: Thurs Nov 02 12:04:49 BST 2023
     -    Description:   Alfresco Record Management Extension
    ```
 
@@ -47,8 +47,8 @@ $ java -jar bin\alfresco-mmt.jar uninstall <ModuleId> <WARFileLocation>
     ```bash
     Module 'org_alfresco_module_rm_share' installed in 'tomcat\webapps\share.war'
     -    Title:        Alfresco Record Management Share Extension
-    -    Version:      7.4
-    -    Install Date: Mon May 15 12:05:24 BST 2023
+    -    Version:      23.1
+    -    Install Date: Thurs Nov 02 12:05:24 BST 2023
     -    Description:   Alfresco Record Management Share Extension           
     ```
 

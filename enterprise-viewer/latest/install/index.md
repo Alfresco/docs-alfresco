@@ -12,7 +12,7 @@ Use this information to install the Enterprise Viewer. If you're installing both
 
 You can install the Enterprise Viewer using a distribution ZIP. Download the following ZIP file from [Hyland Community](https://community.hyland.com/products/alfresco){:target="_blank"}:
 
-* `alfresco-enterprise-viewer-package-3.5.x.zip`
+* `alfresco-enterprise-viewer-package-3.6.x.zip`
 
 ### Java
 
@@ -255,9 +255,9 @@ You only need to follow these steps if installing AEV without ACA:
 
    > **Note:** Make sure you are using the correct `tsgrp-opencontent.amp` for your version of Alfresco.
 
-   * If using Alfresco Content Services 7.1.x, use the `tsgrp-opencontent-3.5-for-acs7.1.amp`.
-   * If using Alfresco Content Services 7.2.x, use the `tsgrp-opencontent-3.5-for-acs7.2.amp`.
-   * If using Alfresco Content Services 7.3.x, use the `tsgrp-opencontent-3.5-for-acs7.3.amp`.
+   * If using Alfresco Content Services 7.2.x, use the `tsgrp-opencontent-3.6-for-acs7.2.amp`.
+   * If using Alfresco Content Services 7.3.x, use the `tsgrp-opencontent-3.6-for-acs7.3.amp`.
+   * If using Alfresco Content Services 7.4.x, use the `tsgrp-opencontent-3.6-for-acs7.4.amp`.
 
 3. From the directory where your Alfresco Tomcat server is installed, run the following command to apply the AMP:
 
@@ -487,6 +487,9 @@ In this section the Enterprise Viewer collaboration features Socket.IO server is
     ```text
     forever start server.js
     ```
+In previous releases, the Socket Server URL for AEVV (Alfresco Enterprise Viewer Video) was set at build-time. There was no way to update or change the socket server URL without rebuilding the entire application. 
+
+Starting from Enterprise Viewer 3.6, an enhancement has been added so the socket server URL is fetched from the `appConfig.json` at runtime. This provides users with the capability to change the socket server URL by unpacking the `opencontent.war` file, changing the `SOCKET_URL` value in `appConfig.json`, and repacking the WAR file. You can unpack & repack the WAR file in an archive manager such as WinRAR. The URL change takes effect without rebuilding the application.
 
 ## Install webapps
 

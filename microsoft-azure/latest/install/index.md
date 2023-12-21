@@ -39,7 +39,7 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
 
 1. Go to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
-2. Download the `alfresco-azure-connector-3.2.x.amp` file.
+2. Download the `alfresco-azure-connector-4.0.x.amp` file.
 
 3. Use the Module Management Tool (MMT) to install the AMP into the repository WAR (`alfresco.war`).
 
@@ -63,7 +63,7 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
 
 1. Go to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
-2. Download the `alfresco-azure-connector-3.2.x.amp` file.
+2. Download the `alfresco-azure-connector-4.0.x.amp` file.
 
 3. Use the Module Management Tool (MMT) to install the AMP into the repository WAR (alfresco.war).
 
@@ -71,11 +71,11 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
 
     > **Note:** You must install the Azure AMP using `-force`.
 
-4. Unzip the `alfresco-azure-connector-3.2.x.amp` file.
+4. Unzip the `alfresco-azure-connector-4.0.x.amp` file.
 
 5. Copy the three sample files and rename them by removing the `.sample` extension.
 
-    The sample files are located under `alfresco-azure-connector-3.2.x.amp/config/alfresco/extension/`.
+    The sample files are located under `alfresco-azure-connector-4.0.x.amp/config/alfresco/extension/`.
 
     * `azure-multiple-storage-containers-context.xml.sample`
     * `subsystems/ContentStore/AzMultipleStorageContainers/AzMultipleStorageContainers/azure-mc-contentstore-context.xml.sample`
@@ -139,7 +139,7 @@ Add a context file, such as `enable-deleted-content-store-context.xml` in the `e
 $CATALINA_HOME/shared/classes/alfresco/extension
 ```
 
-You can find a sample file in `alfresco-azure-connector-3.2.x.amp`.
+You can find a sample file in `alfresco-azure-connector-4.0.x.amp`.
 
 `enable-deleted-content-store-context.xml.sample` in `config/alfresco/extension`
 

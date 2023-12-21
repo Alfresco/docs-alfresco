@@ -12,6 +12,7 @@ These accelerators are:
 
 * [Claims Management]({% link content-accelerator/latest/index.md %}#claims-management)
 * [Policy and Procedure Management]({% link content-accelerator/latest/index.md %}#policy-management)
+* [HR Employee File Management]({% link content-accelerator/latest/index.md %}#hr-file-management)
 
 More information is included below for the available accelerators. ACA is available for on-premises customers as well as customers in the Alfresco Cloud PaaS.
 
@@ -76,7 +77,7 @@ Utilize Alfresco Enterprise Viewer to view, annotate, and redact documents witho
 
 ## Policy and Procedure Management {#policy-management}
 
-The Policy and Procedure Management accelerator helps regulated companies such as life sciences, energy, and manufacturers as well as HR departments **maintain quality processes of essential documents** that require strict control over **content lifecycle, reviews, and approvals**.
+The Policy and Procedure Management (PnP) accelerator helps regulated companies such as life sciences, energy, and manufacturers as well as HR departments **maintain quality processes of essential documents** that require strict control over **content lifecycle, reviews, and approvals**.
 
 The intuitive interface facilitates consistency, **collaboration**, electronic review and approval for knowledge workers and provides electronic signatures including **21 CFR Part 11 compliance for life science companies**. Document annotations are supported through using the built in Alfresco Enterprise Viewer to efficiently facilitate document review and approval.
 
@@ -118,3 +119,32 @@ A wizard-style form is utilized to capture change request information. The form 
 ![ACA intro policy management4]({% link content-accelerator/images/aca-intro-policy-management-04.png %})
 
 > **Note:** AEV Edit and Redaction Modes are not supported with documents managed by the PnP Accelerator (Controlled Docs, Quality Docs, Wizard Forms)
+
+## HR Employee File Management {#hr-file-management}
+
+The HR Employee File Management (HR EFM) solution helps to keep track of all relevant documents for each employee at a company. The Alfresco Content Accelerator provides a platform which enables an organization to collect, store, manage, and delete documents within the Alfresco Content Services repository for their employees.
+
+Benefits of the HR Employee File Management solution:
+
+* **Faster & easier** to create, update, and retrieve employee data and documents.
+* **Restricted access** to employee folders and documents based on a user's role in the organization.
+* Easy to identify and maintain **incomplete & inaccurate** employee files.
+
+Key features:
+
+* **Custom Dashlets** - dashboard with visual representation of employee data to track and navigate easily.
+* **Employee Import** - autofill information from external systems to forms to create Employee folders in the repository.
+* **Alfresco Enterprise Viewer** - allows users to annotate and redact documents.
+* **Side by Side Viewing** - allows for side by side viewing of documents in a single interface.
+* **Records Management** - employee documents are filed as records in Alfresco Governance Services with a predefined Retention Schedule in case of employee separation.
+
+User Interface:
+
+Dashboards provide faster and easier access to employee information and visual reports representation:
+
+![ACA HREFM example dashboard 1]({% link content-accelerator/images/hrefm-intro-dashboard1.png %})
+![ACA HREFM example dashboard 2]({% link content-accelerator/images/hrefm-intro-dashboard2.png %})
+
+View all pending **Required Documents** in the employee folder. Fields highlighted with a red border need attention, i.e. employee documents that are yet to be uploaded.
+
+![ACA HREFM Required Documents]({% link content-accelerator/images/hrefm-required-documents.png %})

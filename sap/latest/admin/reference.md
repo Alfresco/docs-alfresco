@@ -426,7 +426,7 @@ Encrypt all passwords used in the `alfresco-global.properties` by the SAP Connec
 2. Download the related JAR file:
 
     ```text
-    sap-content-connector-encryptor-1.1.jar
+    sap-content-connector-encryptor-2.0.jar
     ```
 
 3. Create a public key and private key:
@@ -434,7 +434,7 @@ Encrypt all passwords used in the `alfresco-global.properties` by the SAP Connec
     Navigate to the folder of the downloaded JAR and run the following command to create the key pair in the current path:
 
     ```bash
-    java –jar sap-content-connector-encryptor-1.1.jar init -path .
+    java –jar sap-content-connector-encryptor-2.0.jar init -path .
     ```
 
     Two files are created:
@@ -445,7 +445,7 @@ Encrypt all passwords used in the `alfresco-global.properties` by the SAP Connec
 4. Create an encrypted password:
 
     ```bash
-    java -jar sap-content-connector-encryptor-1.1.jar encrypt -password H3ll0W0rlD112! -publicKey ./sapContentConnectorPublicKey.pub
+    java -jar sap-content-connector-encryptor-2.0.jar encrypt -password H3ll0W0rlD112! -publicKey ./sapContentConnectorPublicKey.pub
     ```
 
     The encrypted password will be printed to the console, for example:

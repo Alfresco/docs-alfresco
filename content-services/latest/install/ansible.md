@@ -122,25 +122,25 @@ While Content Services supports a wide range of OS, the playbook is only support
 
 ### Component versions
 
-The table below shows the version of the components deployed by the playbook for Content Services 7.x and Community.
+The table below shows the version of the components deployed by the playbook for Content Services 23.1, 7.x, and Community.
 
-| Component | 7.4 Enterprise | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0 Enterprise | Community |
-|-|-|-|-|-|-|-|
-| OpenJDK | 17.0.3 | 17.0.3 | 11.0.15 | 11.0.15 | 11.0.15 | 17.0.03 |
-| Apache Tomcat | 9.0.59 | 9.0.59 | 9.0.59 | 9.0.59 | 8.5.76 | 9.0.59 |
-| PostgreSQL | 14.x | 14.x | 13.x | 13.x | 13.x | 14.x |
-| Apache ActiveMQ | 5.16.6 | 5.16.6 | 5.16.6 | 5.16.6 | 5.16.6 | 5.16.6 |
-| Repository | 7.4.0 | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 7.4.0 |
-| Share | 7.4.0 | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 7.4.0 |
-| Search Services | 2.0.6.1 | 2.0.5 | 2.0.4 | 2.0.2 | 2.0.1.1 | 2.0.6.1 |
-| Search Enterprise | 3.3.0 | 3.2.0 | 3.1.1 | 3.1.1 | - | N/A |
-| All-In-One Transform Engine | 3.1.0 | 3.0.0 | 2.5.7 | 2.5.6 | 2.3.10 | 3.1.0 |
-| AOS | 1.6.0 | 1.5.0 | 1.4.1 | 1.4.0 | 1.4.0 | 1.6.0 |
-| GoogleDocs | 3.4.0 | 3.3.0 | 3.2.2 | 3.2.1 | 3.2.1 | 3.4.0 |
-| Digital Workspace | 4.0.0 | 3.1.0 | 2.9.0 | 2.6.0 | 2.1.0 | N/A |
-| Transform Router | 2.1.0 | 2.0.0 | 1.5.3 | 1.5.1 |1.3.2 | N/A |
-| Shared File Store | 2.1.0 | 2.0.0 | 0.16.1 | 0.16.1 | 0.13.0 | N/A |
-| Sync Service | 3.9.0 | 3.8.0 | 3.6.0 | 3.5.0 | 3.4.0 | N/A |
+| Component | 23.1.0 Enterprise | 7.4 Enterprise | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0 Enterprise | Community |
+|-|-|-|-|-|-|-|-|
+| OpenJDK | 17.0.4 | 17.0.3 | 17.0.3 | 11.0.15 | 11.0.15 | 11.0.15 | 17.0.03 |
+| Apache Tomcat | 10.1.x | 9.0.59 | 9.0.59 | 9.0.59 | 9.0.59 | 8.5.76 | 9.0.59 |
+| PostgreSQL | 14.x | 14.x | 14.x | 13.x | 13.x | 13.x | 14.x |
+| Apache ActiveMQ | 5.16.6 | 5.16.6 | 5.16.6 | 5.16.6 | 5.16.6 | 5.16.6 | 5.16.6 |
+| Repository | 23.1.0 | 7.4.0 | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 7.4.0 |
+| Share | 23.1.0 | 7.4.0 | 7.3.0 | 7.2.1 | 7.1.1 | 7.0.1.4 | 7.4.0 |
+| Search Services | 2.0.8.2 | 2.0.6.1 | 2.0.5 | 2.0.4 | 2.0.2 | 2.0.1.1 | 2.0.6.1 |
+| Search Enterprise | 4.0.0 | 3.3.0 | 3.2.0 | 3.1.1 | 3.1.1 | - | N/A |
+| All-In-One Transform Engine | 4.0.0 | 3.1.0 | 3.0.0 | 2.5.7 | 2.5.6 | 2.3.10 | 3.1.0 |
+| AOS | 2.0.0 | 1.6.0 | 1.5.0 | 1.4.1 | 1.4.0 | 1.4.0 | 1.6.0 |
+| GoogleDocs | 4.0.0 | 3.4.0 | 3.3.0 | 3.2.2 | 3.2.1 | 3.2.1 | 3.4.0 |
+| Digital Workspace | 4.3.0 | 4.0.0 | 3.1.0 | 2.9.0 | 2.6.0 | 2.1.0 | N/A |
+| Transform Router | 3.0.0 | 2.1.0 | 2.0.0 | 1.5.3 | 1.5.1 |1.3.2 | N/A |
+| Shared File Store | 4.0.0 | 2.1.0 | 2.0.0 | 0.16.1 | 0.16.1 | 0.13.0 | N/A |
+| Sync Service | 4.0.0 | 3.9.0 | 3.8.0 | 3.6.0 | 3.5.0 | 3.4.0 | N/A |
 
 ## Set up Ansible
 
@@ -571,7 +571,7 @@ This secret should be placed either in the inventory file under the `all` group 
 
 ### Mutual TLS authentication
 
-As of Content Services 7.4 mTLS authentication is supported using Transformation service, see the [security section](https://github.com/Alfresco/alfresco-ansible-deployment/blob/master/docs/SECURITY.md){:target="_blank"} in the GitHub repo for more information or read our [mTLS page]({% link content-services/latest/config/mtls.md %}).
+As of Content Services 7.4 mTLS authentication is supported using the Transform Service - see the [SECURITY section](https://github.com/Alfresco/alfresco-ansible-deployment/blob/master/docs/SECURITY.md){:target="_blank"} in the GitHub repo for more information or read our [mTLS page]({% link content-services/latest/config/mtls.md %}).
 
 ### Secrets management
 
