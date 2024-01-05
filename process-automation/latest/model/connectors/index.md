@@ -30,9 +30,20 @@ Connectors are created as [BPMN elements]({% link process-automation/latest/mode
 
 4. Drag the connector onto the diagram canvas and fill in the properties.
 
-## Using connectors in modeling application
+## Adding a connector instance to a process
 
-We can add a connector to our process while editing a process. We can create a new instance selecting the connector type from the toolbar 
+While editing a process we can add a connector instance in our flow.
+
+We can create a new instance selecting the connector type from the toolbar
+![Connector toolbar]({% link process-automation/images/connector-toolbar.png %})
+
+Once selected, we can create a new connector instance or using an existing one:
+![Create new connector instance]({% link process-automation/images/create-new-connector-instance.png %})
+
+Now we can add to our process and configure its properties:
+![Configure connector]({% link process-automation/images/configure-connector.png %})
+
+Please read documentation below for more details about properties of each individual connector.
 
 ## Connector modeling
 
