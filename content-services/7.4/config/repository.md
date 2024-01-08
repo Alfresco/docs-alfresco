@@ -665,7 +665,7 @@ For security reasons, configure your proxy to forward only requests to the resou
     -Dcookies.sameSite=none
     ```
 
-    When using Share with Chromium-based browsers (such as Google Chrome or the latest releases of Microsoft Edge) with either Alfresco Content Connector for Salesforce, the share web must be secured using an HTTPS (SSL/TLS) certificate.
+    When using Share with Chromium-based browsers (such as Google Chrome or the latest releases of Microsoft Edge) with Alfresco Content Connector for Salesforce, the share web must be secured using an HTTPS (SSL/TLS) certificate.
 
 10. (Optional) Only required if configuring Alfresco Share.
 
