@@ -206,8 +206,9 @@ Ensure you have read the [supported platforms]({% link process-services/latest/s
         > **Important:** Ensure that the driver for your database is on the classpath of the web application.
 
     3. Set a location for the file content to be at using `contentstorage.fs.rootFolder`.
-       > **Important:** Ensure that the path exists; for example if you set `contentstorage.fs.rootFolder=/var/lib/act_data` the path `/var/lib/act_data` must exist and be accessible by the process user.  
-       > If the folder doesn't exist them you won't be able to upload files from your pc to Activiti.
+       
+        > **Important:** Ensure that the path exists; for example if you set `contentstorage.fs.rootFolder=/var/lib/act_data` the path `/var/lib/act_data` must exist and be accessible by the process user.  
+        > If the folder doesn't exist them you won't be able to upload files from your pc to Activiti.
  
     4. Set a location for the search and analytics indexes using `elastic-search.data.path`.
 
