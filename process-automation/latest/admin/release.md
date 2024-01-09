@@ -26,12 +26,12 @@ The properties for a released project are:
 
 | Property | Description |
 | -------- | ----------- |
-| Name | Displays the release name of the project. |
+| Project Name | Displays the release name of the project. |
 | Created By | Displays which user released the project. |
 | Created | The time lapsed since the version of the project was released. |
 | Comment | Displays the comment entered when the new project was released. |
 | Uploaded | An icon displays if the project was uploaded. |
-| Version | The version number of the project. |
+| Latest project release | The version number of the project. |
 | Actions | A list of actions that can be made against the released project: {::nomarkdown} <ul><li><b>Download</b> Bundles the project contents into a zipped folder to import it into a different environment.</li><li><b>Restore this release</b> Allows you to restore the release to this version. If you use this action the current models of the project will be replaced with those present in the release. If you want to preserve your current status you must create another release which you can restore it later.</li><li><b>Edit release</b> You can change the name of the release or update the comment made about it.</li></ul>{:/} |
 
 ### Deployment
@@ -163,11 +163,13 @@ The properties for application instances are:
 
 | Property | Description |
 | -------- | ----------- |
-| Name | The name of the application. |
-| Version | The version of the application. **Note**: This is the application version related to [upgrading](#upgrade) an application and not the project version. |
+| Application name | The name of the application. |
+| Project release | Number of the latest project release. |
+| Runtime version | Version of software on which the application is running. |
+| Updated | Date of the last update of the application. |
 | Created | The time since the application was deployed. |
 | Status | The status of the application. Once fully deployed it will display as `Running`. |
-| Content App | A link to the [user interface]({% link process-automation/latest/model/interfaces.md %}) for the application. |
+| Workspace | A link to the [user interface]({% link process-automation/latest/model/interfaces.md %}) for the application. |
 
 ### Undeploy
 
