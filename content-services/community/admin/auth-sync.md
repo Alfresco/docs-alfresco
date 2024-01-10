@@ -47,8 +47,6 @@ The following table shows the authentication subsystem types supplied and the op
 
 > **Important:** Support for Microsoft Office depends on the authentication mechanism provided by the `external` subsystem. See [External authentication and SSO](#extauthsso) for more information.
 
-> **Important:** SAML Single Sign On can be used for Community Edition and Alfresco Office Services. SAML Single Sign On is not fully implemented when mapping a PC network drive over WebDAV, i.e. to either `<alfresco_host>/alfresco/webdav` or `<alfresco_host>/alfresco/aos` endpoints. As a workaround, a PC user should use SAML to login to Community Edition before mapping the drive, otherwise the map request may fail.
-
 > **Note:** If you're using a proxy (load balancer) with Kerberos authentication, either:
 
 * Use the `external` authentication subsystem and set up the proxy to implement `kerberos`
