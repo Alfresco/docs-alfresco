@@ -6,7 +6,7 @@ Alfresco Outlook Integration allows you to use email and repository management w
 
 New features introduced in v2.10 are:
 
-* Adds support for SAML SSO using Alfresco Identity Services with OpenId Connect. See configuration section for details. <!--FIXME-->
+* Adds support for [SAML SSO using the Identity Service]({% link microsoft-outlook/latest/admin/index.md %}) with OpenId Connect.
 * Adds support for Windows 11
 
 Features of Outlook Integration include the ability to archive content (i.e. emails, meetings, appointments, and files) into Alfresco, full metadata support, full search, tagging and workflow capabilities, and the ability to attach files and view archived emails in your inbox. In addition, you can create new versions of existing documents, review the version history of a versioned document, and revert back to previous versions.
