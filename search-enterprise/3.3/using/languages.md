@@ -46,7 +46,7 @@ When prefixes and fully qualified names are used, the property has to be prefixe
 
 ## CMIS query language
 
-The CMIS query language can be used with the Search Enterprise v1 REST API or by using the CMIS interface. CMIS is often used when you migrate to or from Alfresco. If you want to use the v1 REST API you must indicate this by using the parameter `language=CMIS`. The [CMIS specification](htts://docs.oasis-open.org/cmis/CMIS/v1.1/CMIS-v1.1.html){:target="_blank"} outlines the usable search query syntax. Queries run with CMIS are generally used to make sure that what you have imported has worked correctly. You can also use third-party tools that use CMIS as their query language.
+The CMIS query language can be used with the Search Enterprise v1 REST API or by using the CMIS interface. CMIS is often used when you migrate to or from Alfresco. If you want to use the v1 REST API you must indicate this by using the parameter `language=CMIS`. The [CMIS specification](https://docs.oasis-open.org/cmis/CMIS/v1.1/CMIS-v1.1.html){:target="_blank"} outlines the usable search query syntax. Queries run with CMIS are generally used to make sure that what you have imported has worked correctly. You can also use third-party tools that use CMIS as their query language.
 
 > **Note:** When checking equality of a string field `SELECT * FROM cmis:document WHERE abc:stringfield = 'stringvalue'` when using the exact term search feature, it is important to consider how the field is indexed. For more details see [Exact term search]({% link search-enterprise/3.3/config/index.md %}#exact-term-search).
 
