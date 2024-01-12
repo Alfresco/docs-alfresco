@@ -40,6 +40,7 @@ You need one of each of the following components:
 
 You can use one of the following operating systems:
 
+* Microsoft Windows 11 with latest updates
 * Microsoft Windows 10 with latest updates
 
 ### Software requirements
@@ -50,11 +51,11 @@ You can use one of the following Outlook releases:
 * Microsoft Outlook 2019 (x86/x64)
 * Microsoft Outlook 2016 (x86/x64)
 * [Visual Studio Tools for Office 4.0 Runtime](https://msdn.microsoft.com/en-us/library/ms178739.aspx){:target="_blank"}
-* Microsoft .NET Framework 4.5 or above
+* Microsoft .NET Framework 4.7.2 or above
 
 ### Alfresco requirements
 
-* Alfresco Content Services 7.0 or later.
+* Alfresco Content Services 7.4.x.
 
 #### Alfresco Search Services 2.0 and above
 
@@ -246,22 +247,13 @@ To deploy the Outlook Integration T-Engine with the Transform Service, you'll ne
     -DlocalTransform.transform-outlook.url=http://transform-outlook:8090/
     ```
 
-3. If you're using Content Services 6.2.2 (i.e. not 7.x), you'll need to set the following properties in your Docker Compose file:
-
-    ```yaml
-    -Dlegacy.transform.service.enabled=false
-    -Dlocal.transform.service.enabled=true
-    ```
-
-    > **Note:** If these settings are missing for Content Services 6.2.2, the transformation of MSG and EML files to PDFs won't work. You can ignore these settings for Content Services 7, as they're already set by default.
-
 See the Content Services documentation - [T-Engine configuration](https://github.com/Alfresco/acs-packaging/blob/master/docs/creating-a-t-engine.md#t-engine-configuration){:target="_blank"} for more details. For further development, see [Content Transformers and Renditions Extension Points]({% link content-services/latest/develop/repo-ext-points/content-transformers-renditions.md %}).
 
 ## Install Alfresco Outlook Client in Microsoft Outlook {#installclient}
 
 Inside the Outlook Integration zip is another zip file that installs the Alfresco Outlook Client into Microsoft Outlook.
 
-You might need local administrator rights to install .NET 4.5 and Microsoft VS Tools for Office Runtime. Ensure you have already installed the required AMP files in your Alfresco instance ([see Install Outlook Integration AMPs](#install-amps)).
+You might need local administrator rights to install .NET and Microsoft VS Tools for Office Runtime. Ensure you have already installed the required AMP files in your Alfresco instance ([see Install Outlook Integration AMPs](#install-amps)).
 
 >**Note:** If you are distributing Alfresco Outlook Client across an organization, see [Install the Alfresco Outlook Client in unattended mode](#installunattendedmode) for guidance on installing in unattended mode.
 
@@ -295,7 +287,7 @@ You might need local administrator rights to install .NET 4.5 and Microsoft VS T
 
 You can automate the Alfresco Outlook Client installation by using the `msiexec` command.
 
-You might need local administrator rights to install .NET 4.5 and Microsoft VS Tools for Office Runtime. Ensure you have already installed the required AMP files in your Alfresco instance ([see Install Outlook Integration AMPs](#install-amps)).
+You might need local administrator rights to install .NET and Microsoft VS Tools for Office Runtime. Ensure you have already installed the required AMP files in your Alfresco instance ([see Install Outlook Integration AMPs](#install-amps)).
 
 1. Extract the contents of the `alfresco-outlook-client-2.10.x.zip` file using a standard unzip tool.
 
@@ -303,17 +295,23 @@ You might need local administrator rights to install .NET 4.5 and Microsoft VS T
 
 3. From a command line, navigate to the `x64` or `x86` directory, and run the `msiexec` command. For example:
 
+    For an interactive installation:
+
     ```bash
     msiexec /i AlfrescoOutlookClient_x86_2.10.x.msi HOST=127.0.0.1:8080 AUTH=basic
     ```
 
-    for an interactive installation:
+    For a non-interactive installation:
 
     ```bash
     msiexec /i AlfrescoOutlookClient_x86_2.10.x.msi HOST=127.0.0.1:8080 AUTH=basic /quiet
     ```
 
-    for an installation with no interaction.
+    For a non-interactive installation with OpenId Connect enabled:
+
+    ```bash
+    msiexec /i AlfrescoOutlookClient_x86_2.10.x.msi HOST=127.0.0.1:8080 AUTH=oidc /quiet
+    ```
 
     >**Note:** Microsoft Office Primary Interop Assemblies are also installed, if they do not already exist in your version of Microsoft Office.
 
@@ -326,9 +324,13 @@ You might need local administrator rights to install .NET 4.5 and Microsoft VS T
     |`ALFRESCO`|Default: `alfresco`|Sets context to the Alfresco repository.|
     |`CULTURE`|`en|de|es|it|fr|ja|ru|zh-cn|pt-br|nl|nb-no|cs|da|fi|pl|sv` Default: `en`|Sets language for Alfresco Outlook Client.|
     |`SHAREALT`|No default|Sets alternative URL for Alfresco Share.|
-    |`AUTH`|`basic|windows`|Sets authentication type.|
+    |`AUTH`|`basic|windows|oidc`|Sets authentication type.|
     |`APPTITLE`|Default: Alfresco Outlook Plugin|Sets a custom title for Alfresco Outlook Client. Format: `"My Custom Title"`|
-    |`LANGS`|No default|Sets the available languages for the Alfresco Outlook Client. Format: `"en,de,fr"`. See `CULTURE` parameter for available language codes. Added in Outlook Integration 2.9.2.|
+    |`LANGS`|No default|Sets the available languages for the Alfresco Outlook Client. Format: `"en,de,fr"`. See `CULTURE` parameter for available language codes.<br><br>Added in Outlook Integration 2.9.2.|
+    |`OIDCHOST`|Format: `https://<idsHost>:<port>`|Sets the URL for the Identity Service that is used for OpenId Connect.<br><br>Added in Outlook Integration 2.10.|
+    |`OIDCCID`|Default: `alfresco`|Sets the OpenID Connect Client that is used in the Identity Service.<br><br>Added in Outlook Integration 2.10.|
+    |`OIDCREALM`|Default: `alfresco`|Sets the realm that is used in the Identity Service.<br><br>Added in Outlook Integration 2.10.|
+    |`OIDCURL`|Default: `https://127.0.0.1:6543/OutlookCallback`|Sets local redirect callback URL that is used in the Outlook Client to do the token exchange with the Identity Service.<br><br>Added in Outlook Integration 2.10.|
 
 4. Verify that Alfresco Outlook Client has installed in Microsoft Outlook.
 
