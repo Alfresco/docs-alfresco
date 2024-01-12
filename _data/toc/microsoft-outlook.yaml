@@ -9,9 +9,8 @@
       path: '/microsoft-outlook/latest/upgrade/'
     - title: 'Configure'
       path: '/microsoft-outlook/latest/config/'
-    #FIXME: comment out for OL 2.10
-    #- title: 'Administer'
-    #  path: '/microsoft-outlook/latest/admin/'
+    - title: 'Administer'
+      path: '/microsoft-outlook/latest/admin/'
     - title: 'Using'
       path: '/microsoft-outlook/latest/using/'
 - version: 2.9
