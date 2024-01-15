@@ -98,7 +98,7 @@ transform-outlook
 
 > **Note:** Alfresco customers can request Quay.io credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/){:target="_blank"}. These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
 
-> **Note:** Make sure that you request credentials for Alfresco Content Services and Alfresco Outlook Integration, so that you can use the additional `transform-outlook-1.2.x` Docker image. Version 1.2.0 of the Outlook T-Engine can also be used for the previous Outlook Integration releases (version 2.9.x).<!--FIXME: verify this-->
+> **Note:** Make sure that you request credentials for Alfresco Content Services and Alfresco Outlook Integration, so that you can use the additional `transform-outlook-1.2.x` Docker image.
 
 > **Note:** It is recommended that you familiarize yourself with the concepts of [containerized deployment]({% link content-services/latest/install/containers/index.md %}) before working with Docker.
 
