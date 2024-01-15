@@ -92,7 +92,7 @@ Deploy Digital Workspace using the following steps:
     APP_CONFIG_PLUGIN_AI_SERVICE=false
     ```
 
-    > **Note:** The Digital Workspace 4.1.x uses the Content Application version 4.0.0.
+    > **Note:** The Digital Workspace 4.3.x uses the Content Application version 4.0.0.
 
 3. Open a command prompt and run the following command to install all third-party dependencies:
 

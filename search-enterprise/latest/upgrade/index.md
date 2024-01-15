@@ -2,11 +2,11 @@
 title: Upgrade to Search Enterprise
 ---
 
-Use this information to upgrade from Search Services 2.x to Search Enterprise 3.x.
+Use this information to upgrade from Search Services 2.x to Search Enterprise 4.x.
 
-> **Note:** A full re-index is required when you upgrade from Search Services 2.x to Search Enterprise 3.x because the search engine is switching from Solr to Elasticsearch. If it is necessary for you to have a backup of the old SOLR index, then it must be copied elsewhere before you re-index.
+> **Note:** A full re-index is required when you upgrade from Search Services 2.x to Search Enterprise 4.x because the search engine is switching from Solr to Elasticsearch. If it is necessary for you to have a backup of the old SOLR index, then it must be copied elsewhere before you re-index.
 
-Search Enterprise 3.x is compatible with Alfresco Content Services 7.1 and above, which means you need to upgrade to this version before applying the following steps.
+Search Enterprise 4.x is compatible with Alfresco Content Services 7.1 and above, which means you need to upgrade to this version before applying the following steps.
 
 ## Configure Subsystem in Repository
 
@@ -46,9 +46,9 @@ Your current Content Services stack can continue to run while you are indexing t
 
 ## Zero downtime upgrade
 
-You can upgrade from Search Services 2.x without experiencing any downtime, to Search Enterprise 3.x when you are using Content Services 7.2 and above.
+You can upgrade from Search Services 2.x without experiencing any downtime, to Search Enterprise 4.x when you are using Content Services 7.2 and above.
 
-1. Start an Elasticsearch 3.x instance, for more see [Overview]({% link search-enterprise/latest/install/index.md %}).
+1. Start an Elasticsearch 4.x instance, for more see [Overview]({% link search-enterprise/latest/install/index.md %}).
 
     Currently your installation is using Solr.
 
@@ -116,7 +116,7 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
 You can upgrade from the legacy versions of Content Services 5.2.x and 6.2.x with Search Services (Solr) to Content Services 7.x with Search Enterprise. You can do this with minimal performance impact on your production environment, and you do not need to reindex Solr. 
 
-1. Start an Elasticsearch 3.x instance, for more see [Overview]({% link search-enterprise/latest/install/index.md %}).
+1. Start an Elasticsearch 4.x instance, for more see [Overview]({% link search-enterprise/latest/install/index.md %}).
 
     Currently your installation is using Solr.
 

@@ -6,7 +6,7 @@ For more complex Content Services installations, or if you wish to use an existi
 
 Use this method of installing Content Services if you've already have installed a JRE, a supported database, a supported application server, a message broker, and the additional components.
 
-For information about securing Tomcat, see [Tomcat security considerations](https://tomcat.apache.org/tomcat-9.0-doc/security-howto.html){:target="_blank"}.
+For information about securing Tomcat, see [Tomcat security considerations](https://tomcat.apache.org/tomcat-10.1-doc/security-howto.html){:target="_blank"}.
 
 ## Install application server
 
@@ -105,7 +105,7 @@ The Content Services distribution file is a zip containing the required WAR file
 
 1. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
-2. Download the file: `alfresco-content-services-distribution-7.4.x.zip`
+2. Download the file: `alfresco-content-services-distribution-23.1.x.zip`
 
 3. Specify a location for the download and extract the file to a system directory; for example `<installLocation>`.
 
@@ -229,7 +229,7 @@ The new keystore configuration implementation requires it to be configured with
 
 1. Move the default keystore files to your installation
 
-    1. Extract from the `alfresco-content-services-distribution-7.4.x.zip` file the following two files:
+    1. Extract from the `alfresco-content-services-distribution-23.1.x.zip` file the following two files:
 
         * `/keystore/metadata-keystore/keystore`
         * `/keystore/metadata-keystore/keystore-passwords.properties`
@@ -239,18 +239,18 @@ The new keystore configuration implementation requires it to be configured with
         * `<TOMCAT_HOME>/alf_data/keystore/metadata-keystore/keystore`
         * `<TOMCAT_HOME>/alf_data/keystore/metadata-keystore/keystore-passwords.properties`
 
-2. Configure Tomcat 9 to use the default keystore files
+2. Configure Tomcat 10 to use the default keystore files
 
     1. Open `<TOMCAT_HOME>/bin/catalina.bat` in a text editor.
 
     2. Add the following line to `catalina.bat`:
 
-       ```bash 
+       ```bash
        set “JAVA_TOOL_OPTIONS=-Dencryption.keystore.type=JCEKS -Dencryption.cipherAlgorithm=DESede/CBC/PKCS5Padding -Dencryption.keyAlgorithm=DESede -Dencryption.keystore.location=<TOMCAT_HOME>/alf_data/keystore/metadata-keystore/keystore -Dmetadata-keystore.password=mp6yc0UD9e -Dmetadata-keystore.aliases=metadata -Dmetadata-keystore.metadata.password=oKIWzVdEdA -Dmetadata-keystore.metadata.algorithm=DESede”
        ```
 
        Make sure to replace `<TOMCAT_HOME>` with your Tomcat installation directory.
-    
+
 ## Tailor your installation
 
 When installing Content Services, an important part of the configuration process is the removal of any unused applications. Use this information to determine any applications that you might want to remove from your installation and how to remove them.
@@ -258,6 +258,7 @@ When installing Content Services, an important part of the configuration process
 For example, if you want a Share-only tier, remove the Alfresco WAR file and any Solr configurations. Likewise, if you want an Alfresco-only tier, remove the Alfresco Share WAR file and any Solr configurations.
 
 ### Removing the Alfresco Repository Webapp
+
 The Alfresco Content Repository Webapp is deployed with the `alfresco.war` file. It contains the implementation of the 
 Content Repository and related content services, additional commands, configuration files, and licenses for a manual 
 installation. Use this information to remove the `alfresco.war` file from your Tomcat application server:
@@ -269,6 +270,7 @@ installation. Use this information to remove the `alfresco.war` file from your T
 You've successfully removed the Alfresco Content Repository Webapp from your application server.
 
 ### Removing the Alfresco Share UI Webapp
+
 The Alfresco Share UI Webapp is deployed with the `share.war` file. It contains the implementation of the
 Alfresco Share user interface. Use this information to remove the `share.war` file from your Tomcat application server:
 

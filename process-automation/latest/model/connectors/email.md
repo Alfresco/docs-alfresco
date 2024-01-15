@@ -71,16 +71,6 @@ The configuration parameters for the email service are:
 | EMAIL_PASSWORD | *Required.* The password of the user the connector will use to contact the email server. |
 | EMAIL_SMTP_AUTH | *Required.* Sets whether the connection to the email server requires authentication, for example `true`. |
 | EMAIL_SMTP_STARTTLS | *Required.*  Sets whether the connection uses TLS, for example `true`. |
-| POLLING_PROTOCOL | *Optional.* The protocol to use for inbound emails, for example `imaps`. |
-| POLLING_HOST | *Optional.* The host to be used for inbound emails. |
-| POLLING_PORT | *Optional.* The port to use for inbound emails. |
-| POLLING_USERNAME | *Optional.* The username of the account used for inbound emails. |
-| POLLING_PASSWORD | *Optional.* The password of the user account used for inbound emails. |
-| POLLING_FOLDER | *Optional.* The folder to retrieve inbound emails from, for example `INBOX`. |
-| POLLING_PAGINATION | *Optional.* The number of emails retrieved in a single request, for example `10`. |
-| CRON_SCHEDULE | *Optional.* A Cron expression to configure the inbound polling frequency. |
-
-> **Note**: The polling configuration parameters are used when configuring email service [triggers]({% link process-automation/latest/model/triggers.md %}).
 
 ## Errors
 

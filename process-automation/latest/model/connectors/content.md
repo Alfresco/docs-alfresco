@@ -126,7 +126,6 @@ Select actions are used to select a file, a files content, a folder or the metad
 The selection actions are:
 
 * [Select a file](#select-file)
-* [Read file content](#read-file-content)
 * [Select a folder](#select-folder)
 * [Select a node's metadata](#select-metadata)
 
@@ -151,28 +150,6 @@ The output parameters from selecting a file are:
 | --------- | ---- | ----------- |
 | response | JSON | *Optional.* The response from the call selecting the file. |
 | file | File | *Optional.* The selected file available to be mapped to a [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables). |
-
-### Read file content
-
-The **READ_FILE_CONTENT** action is used to parse files into JSON or TEXT format and store them in a variable.
-
-The input parameters to read file content are:
-
-| Parameter | Type | Description |
-| --------- | ---- | ----------- |
-| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to parse. |
-| nodeId | String | *Requires one.* The nodeId of the file to parse. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
-| path | String | *Requires one.* The location path or relative path of the file to parse. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
-| contentType | String | *Optional.* The type to parse the file as. The values are either `JSON` or `TXT`. The default value is `TXT`. |
-
-The output parameters from reading a file are:
-
-| Parameter | Type | Description |
-| --------- | ---- | ----------- |
-| jsonContent | JSON | *Optional.* The file in JSON format. |
-| txtContent | String | *Optional.* The file in TXT format. |
-
-> **Note**: To reference JSON key values from a process variable of type JSON, use the syntax `${process-variable.key}`.
 
 ### Select folder
 

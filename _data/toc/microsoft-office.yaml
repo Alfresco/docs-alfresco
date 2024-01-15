@@ -1,5 +1,5 @@
-# Alfresco Office Services 1.6
-- version: 1.6
+# Alfresco Office Services 2.0
+- version: 2.0
   pages:
     - title: 'Introduction'
       path: '/microsoft-office/latest/'
@@ -13,6 +13,22 @@
       path: '/microsoft-office/latest/using/'
     - title: 'Administer'
       path: '/microsoft-office/latest/admin/'
+      
+# Alfresco Office Services 1.6
+- version: 1.6
+  pages:
+    - title: 'Introduction'
+      path: '/microsoft-office/1.6/'
+    - title: 'Install'
+      path: '/microsoft-office/1.6/install/'
+    - title: 'Configure'
+      path: '/microsoft-office/1.6/config/'
+    - title: 'Upgrade'
+      path: '/microsoft-office/1.6/upgrade/'
+    - title: 'Using'
+      path: '/microsoft-office/1.6/using/'
+    - title: 'Administer'
+      path: '/microsoft-office/1.6/admin/'
 
 # Alfresco Office Services 1.5
 - version: 1.5

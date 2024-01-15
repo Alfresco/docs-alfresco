@@ -10,15 +10,15 @@ Use these steps to install the Google Docs Integration.
 
     | File | Description |
     | ---- | ----------- |
-    | alfresco-googledrive-repo-enterprise-3.4.x.amp |This AMP contains the Google Docs functionality that is applied to the core repository. The AMP should be applied to the `tomcat/webapps/alfresco directory`. |
-    | alfresco-googledrive-share-3.4.x.amp | This AMP file contains the additional Google Docs functionality that is applied to an existing Alfresco Share user interface. The AMP should be applied to the `tomcat/webapps/share` directory. |
+    | alfresco-googledrive-repo-enterprise-4.0.x.amp |This AMP contains the Google Docs functionality that is applied to the core repository. The AMP should be applied to the `tomcat/webapps/alfresco directory`. |
+    | alfresco-googledrive-share-4.0.x.amp | This AMP file contains the additional Google Docs functionality that is applied to an existing Alfresco Share user interface. The AMP should be applied to the `tomcat/webapps/share` directory. |
 
     For Alfresco Community Edition, you'll need:
 
     | File | Description |
     | ---- | ----------- |
-    | alfresco-googledrive-repo-community-3.4.x.amp | This AMP contains the Google Docs functionality that is applied to the core repository. The AMP should be applied to the `tomcat/webapps/alfresco directory`. |
-    | alfresco-googledrive-share-3.4.x.amp | This AMP file contains the additional Google Docs functionality that is applied to an existing Alfresco Share user interface. The AMP should be applied to the `tomcat/webapps/share` directory. |
+    | alfresco-googledrive-repo-community-4.0.x.amp | This AMP contains the Google Docs functionality that is applied to the core repository. The AMP should be applied to the `tomcat/webapps/alfresco directory`. |
+    | alfresco-googledrive-share-4.0.x.amp | This AMP file contains the additional Google Docs functionality that is applied to an existing Alfresco Share user interface. The AMP should be applied to the `tomcat/webapps/share` directory. |
 
 2. Change into the root of the installation directory (`<installLocation>`). Directories specified in the following procedures are relative to this directory.
 
@@ -40,8 +40,8 @@ Use these steps to install the Google Docs Integration.
 
     > **Note:** Replace `<version>` with your specific file name.
 
-    * Alfresco Content Services: `alfresco-googledrive-repo-enterprise-3.4.x.amp`
-    * Alfresco Community Edition: `alfresco-googledrive-repo-community-3.4.x.amp`
+    * Alfresco Content Services: `alfresco-googledrive-repo-enterprise-4.0.x.amp`
+    * Alfresco Community Edition: `alfresco-googledrive-repo-community-4.0.x.amp`
 
     For Alfresco Share:
 

@@ -4,23 +4,25 @@ title: Configure a Process Services action
 
 Use this information to install and configure an AMP for linking Content Services to Alfresco Process Services (APS).
 
-When Content Services and Process Services are linked, a [folder rule action]({% link content-services/latest/using/content/rules.md %}#ruleactions) can be configured that starts a Process Services process when a document is added into the folder. This is called an APS action.
+When Content Services and Process Services are linked, a [folder rule action]({% link content-services/latest/using/content/rules.md %}#ruleactions) can be configured that starts a Process Services process when a document is added into the folder. This is called an APS Action.
 
 ## Prerequisites
 
-To configure an APS action there are several prerequisites that must be met:
+To configure an APS Action there are several prerequisites that must be met:
 
 * Content Services installed.
 * Process Services installed.
 * Content Services and Process Services using a common LDAP database to sync users from.
 
-> **Note:** If Content Services and Process Services do not sync their uses against a single LDAP database then an APS action will never work. See [configure LDAP for Content Services]({% link content-services/latest/admin/auth-sync.md %}#configure-ldap) and [configure LDAP for Process Services]({% link process-services/latest/config/authenticate.md %}#ldap-and-active-directory) for information on configuring LDAP.
+> **Note:** If Content Services and Process Services do not sync their uses against a single LDAP database then an APS Action will never work. See [configure LDAP for Content Services]({% link content-services/latest/admin/auth-sync.md %}#configure-ldap) and [configure LDAP for Process Services]({% link process-services/latest/config/authenticate.md %}#ldap-and-active-directory) for information on configuring LDAP.
+
+> **Important:** The APS Action AMP is compatible with Alfresco Process Services 2.4.1 and Alfresco Content Services 23.1.
 
 ## Install the AMP
 
-To install the APS action AMP:
+To install the APS Action AMP:
 
-1. Visit [Hyland Community](https://community.hyland.com/){:target="_blank"} and download the APS action zip bundle.
+1. Visit [Hyland Community](https://community.hyland.com/Products/alfresco/release-notes/release-notes/alfresco-content-services-231){:target="_blank"} and download the APS Action zip bundle.
 
 2. Unzip the bundle and place the `aps-action-share-7.0.0.amp` to the Content Services `amps_share` directory.
 
@@ -67,11 +69,11 @@ app.review-workflows.enabled=true
 
 ## Configure Content Services properties
 
-Content Services needs properties set in the `tomcat/shared/classes/alfresco-global.properties` file that point to the Process Services installation and enable the use of APS actions:
+Content Services needs properties set in the `tomcat/shared/classes/alfresco-global.properties` file that point to the Process Services installation and enable the use of APS Actions:
 
 | Property | Description |
 | -------- | ----------- |
 | activiti.domain | The domain that Process Services is running on, for example `example-aps.com`. |
 | activiti.baseUrl | The base URL of the Process Services installation. |
 | activiti.secret | The common secret Content Services and Process Services use for communication. The default value is `activiti-share-connector-secret`. This value must match the `Secret` value set in Process Services when configuring a repository connection. |
-| activitiRepoConnector.enabled | Set this to `true` to enable the use of APS actions. |
+| activitiRepoConnector.enabled | Set this to `true` to enable the use of APS Actions. |

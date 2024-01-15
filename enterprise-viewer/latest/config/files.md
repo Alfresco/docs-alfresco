@@ -97,15 +97,29 @@ Set to `true` if only one annotation dialog should ever be open at a time, or `f
 
 Default value: `true`
 
+### allowExternalReviewers
+
+When set to `true` annotations from third party applications for both users that do not have an account in Alfresco and users that have corresponding accounts in Alfresco should be accepted. When set to `false`, only annotations from users with a corresponding Alfresco account will be accepted. 
+
+In order to have `allowExternalReviewers` set to `true`, a special license setting must be set in your AEV license by the Hyland License Team with the property `hasExternalOAUsers: true`.
+
+Default value: `false`
+
+### AllowMultipleOfflineReviewers
+
+When set to `false` offline annotations will be owned by the user that checked the annotations in. No matter which user is set on the offline annotation, the annotation will always be displayed as being added by the user who checked in the document.
+
+Default value: `true`
+
 ### excludeEmbeddedAnnotations
 
-Set to `true` if annotations embedded in the PDF should not be fetched, or `false` otherwise.
+Set to `true` if annotations embedded in the PDF should not be fetched, or `false` to allow annotations to be imported from third party systems like Adobe. Any users that do not have a corresponding Alfresco account will not have their annotations displayed in AEV.
 
 Default value: `true`
 
 ### serverAnnotationsEditable
 
-Set to `true` if server annotations can be edited. Setting this to false prevents users from editing their annotations after their session ends.
+Set to `true` if server annotations can be edited. Setting this to `false` prevents users from editing their annotations after their session ends.
 
 Default value: `true`
 
@@ -335,11 +349,11 @@ Default value: `false`
 
 The number of pages that are considered as a "large" document.
 
-* If the value is `0`, there is no bounds for large documents.
+* If the value is `0`, it ignores considering documents with many pages as a large document.
 * If a document has more pages than the value here, text search data isn't loaded initially, and thumbnails are disabled.
 * Text search data can still be manually loaded by the user later, after answering `yes` to a modal dialog box informing them of the delay.
 
-Default value: `200`
+Default value: `99`
 
 ### sizeOfLargeFiles
 
@@ -450,12 +464,6 @@ Whether or not the user wants a modal dialog box to appear asking them to confir
 
 Default value: `false`
 
-### controlledPrint
-
-Whether or not controlled printing is enabled. Controlled print only allows certain people to print a document, and controls the number of times it can be printed.
-
-Default value: `false`
-
 ### thumbnailResolution
 
 The minimum resolution to load the thumbnail images for the document.
@@ -548,7 +556,7 @@ Display an annotation modified date instead of the creation date throughout Ente
 
 Default value: `false`
 
-### minPagesToDefaultSectionModeOn
+### minPagesToDefafultSectionModeOn
 
 The minimum number of pages to default into sectioning mode. Set to `0` to prevent sectioning mode.
 

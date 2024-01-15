@@ -4,7 +4,7 @@ title: Alfresco Content Connector for AWS S3
 
 The Content Connector for AWS S3 is an add-on module that provides an alternative content store. It uses Amazon's Simple Storage Service (S3) as the storage mechanism for Alfresco Content Services, allowing for virtually unlimited and inexpensive storage.
 
-This release of the S3 Connector is a compatibility release to support Alfresco Content Services 7.3 and Java 17.
+This release of the S3 Connector is a compatibility release to support Alfresco Content Services 23.1 and Java 17.
 
 Other features introduced in previous versions include:
 
@@ -23,7 +23,7 @@ Other features introduced in previous versions include:
 
 The AWS SDK provides better support, stability, and extensibility for developers, and is more actively maintained.
 
->**Important:** The S3 Connector 5.1 module can be applied to Alfresco Content Services 7.2 or later.
+>**Important:** The S3 Connector 6.0 module can be applied to Alfresco Content Services 23.1.
 
 >**Important:** To leverage the full capabilities, it's recommended to run your Alfresco Content Services instance on 
 >Amazon's Elastic Compute Cloud (EC2), connected to Amazon's Simple Storage Service (S3). From S3 Connector 2.1 you can 

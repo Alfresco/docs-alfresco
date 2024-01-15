@@ -19,3 +19,19 @@ Follow these steps to upgrade Enterprise Viewer 3.3 to 3.5
 For AEV 3.5.1 or later, verify the `secureBrowserCookies` configuration. If you have setup SSL then `secureBrowserCookies` should be set to `true`, else it should be `false` (the default).
 
 In the `openannotate-override-placeholders.properties` set the following property accordingly: `secureBrowserCookies=`.
+
+## Upgrading to 3.6
+
+For AEV 3.6, the Control Document type is set to `aw:qualityDocument` by default. In case of a custom type set, you will need to override it by completing the following steps.
+
+1. Override the bean in `opencontent-extension-override-module-ctx.xml` as follows:
+
+   ```xml
+   <bean id="paasExtendPermissionModel" parent="permissionModelBootstrap">
+     <property name="model" value="alfresco/module/com.tsgrp.opencontent/model/ocPermissionDefinitionsOverride.xml"/>
+   </bean>
+   ```
+
+3. Then create `ocPermissionDefinitionsOverride.xml` at the specified path in your custom AMP with the contents of the original `ocPermissionDefinitions.xml`. 
+
+4. Replace the type `aw:qualityDocument` with your current or desired control document type. 

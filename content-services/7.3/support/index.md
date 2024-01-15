@@ -80,12 +80,13 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Intelligence Services 1.4.5 | |
 | Alfresco Content Connector for AWS S3 5.1 | Adds support for AWS Glacier using Cloud storage layer. |
 | Alfresco Content Connector for Azure 3.1 | |
+| Alfresco Content Connector for SAP applications 5.3 | |
 | Alfresco Content Connector for SAP applications 5.2.1 | |
 | Alfresco Content Connector for Salesforce 2.3.7 and later | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
 | Alfresco Collaboration Connector for Microsoft 365 1.1.3 | |
 | Alfresco Collaboration Connector for Teams 1.1 | |
-| Alfresco Outlook Integration 2.9 | |
+| Alfresco Outlook Integration 2.9 | *Partial support*. Only basic authentication is supported |
 | Alfresco Office Services 1.5 | |
 | Alfresco Google Docs Integration 3.3 | |
 | Alfresco Content Services SDK 5.2 | |
@@ -94,9 +95,12 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Applications** | |
 | Alfresco Digital Workspace 3.1 | |
 | Alfresco Application Development Framework (ADF) 5.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
+| Alfresco Mobile Workspace 1.7 | |
 | Alfresco Mobile Workspace 1.6 | |
 | Alfresco Mobile Workspace 1.5 | |
+| Alfresco Content Accelerator (ACA) 3.6 | |
 | Alfresco Content Accelerator (ACA) 3.5 | |
+| Alfresco Enterprise Viewer (AEV) 3.6 | |
 | Alfresco Enterprise Viewer (AEV) 3.5 | |
 | | |
 | **Components** | |
@@ -178,6 +182,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Intelligence Services 1.4.5 | |
 | Alfresco Content Connector for AWS S3 5.1 | Adds support for AWS Glacier using Cloud storage layer. |
 | Alfresco Content Connector for Azure 3.1 | |
+| Alfresco Content Connector for SAP applications 5.3 | |
 | Alfresco Content Connector for SAP applications 5.2.1 | |
 | Alfresco Content Connector for Salesforce 2.3.7 and later | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
@@ -191,10 +196,15 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 3.1 | |
+| Alfresco Control Center 7.7 | |
+| Alfresco Control Center 7.6 | |
 | Alfresco Application Development Framework (ADF) 5.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
+| Alfresco Mobile Workspace 1.7 | |
 | Alfresco Mobile Workspace 1.6 | |
 | Alfresco Mobile Workspace 1.5 | |
+| Alfresco Content Accelerator (ACA) 3.6 | |
 | Alfresco Content Accelerator (ACA) 3.5 | |
+| Alfresco Enterprise Viewer (AEV) 3.6 | |
 | Alfresco Enterprise Viewer (AEV) 3.5 | |
 | | |
 | **Components** | |

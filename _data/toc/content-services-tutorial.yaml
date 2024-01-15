@@ -1,5 +1,5 @@
-# Alfresco Content Services Tutorials 7.4
-- version: 7.4
+# Alfresco Content Services Tutorials 23.1
+- version: 23.1
   pages:
     - title: 'Tutorials'
       pages:
@@ -53,6 +53,54 @@
       pages:
         - title: 'Overview'
           path: '/content-services/community/tutorial/'
+
+# Alfresco Content Services Tutorials 7.4
+- version: 7.4
+  pages:
+    - title: 'Tutorials'
+      pages:
+        - title: 'Overview'
+          path: '/content-services/7.4/tutorial/'
+        - title: 'Configure Model Manager'
+          path: '/content-services/7.4/tutorial/model/'
+        - title: 'Configure Smart Folders'
+          path: '/content-services/7.4/tutorial/smart/'
+        - title: 'Videos'
+          pages:
+            - title: 'Alfresco Share videos'
+              path: '/content-services/7.4/tutorial/video/'
+            - title: 'Content management videos'
+              path: '/content-services/7.4/tutorial/video/content/'
+            - title: 'Site management videos'
+              path: '/content-services/7.4/tutorial/video/sites/'
+            - title: 'Model Manager videos'
+              path: '/content-services/7.4/tutorial/video/model/'
+        - title: 'Develop platform extensions'
+          pages:
+          - title: 'Create a platform extension project'
+            path: '/content-services/7.4/tutorial/platform/'
+          - title: 'Create a content model'
+            path: '/content-services/7.4/tutorial/platform/content-model/'
+          - title: 'Create Web Scripts'
+            path: '/content-services/7.4/tutorial/platform/web-scripts/'
+        - title: 'Develop Share extensions'
+          pages:
+          - title: 'Create a Share extension project'
+            path: '/content-services/7.4/tutorial/share/'
+          - title: 'Change the Share header'
+            path: '/content-services/7.4/tutorial/share/header/'
+          - title: 'Create and change pages'
+            path: '/content-services/7.4/tutorial/share/pages/'
+          - title: 'Create DocLib actions and metadata templates'
+            path: '/content-services/7.4/tutorial/share/doclib/'
+          - title: 'Conditional rendering (evaluators)'
+            path: '/content-services/7.4/tutorial/share/rendering/'
+          - title: 'Style Share'
+            path: '/content-services/7.4/tutorial/share/style/'
+          - title: 'Add AMD packages (Aikau)'
+            path: '/content-services/7.4/tutorial/share/amd/'
+          - title: 'Client debug mode'
+            path: '/content-services/7.4/tutorial/share/debug/'
 
 # Alfresco Content Services Tutorials 7.3
 - version: 7.3

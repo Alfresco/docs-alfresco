@@ -49,6 +49,43 @@ The following settings can be configured in `../digital-workspace/app.config.jso
 | viewer.downloadPromptReminderDelay | In seconds, specify the amount of time to delay a reminder prompt, to the Digital Workspace user, before displaying another download large file message. The default is `30`. |
 | viewer.fileAutoDownloadSizeThresholdInMB | In megabytes, specify the largest file size a file can be, before the Digital Workspace does not download it automatically. The default is `15`. |
 
+## Dynamic view
+
+You can edit the columns you want to see in any of the file views in the Digital Workspace. This configuration applies to the view you are in and any additional pagination part of that view. Currently the selection reverts back to the original view, once you click away.
+
+1. Log in to the Digital Workspace.
+
+2. In the view you want to adjust, select the three dots on the top right.
+
+3. Deselect the columns you don't want to see in the view and then click **Apply**.
+
+    The columns are no longer visible in the view.
+
+### Configure default columns
+
+A system administrator can use the `app.extension.json` file to configure which columns are visible by default. If the file is not adjusted all the columns will show by default.
+
+1. Open your `../digital-workspace/app.extension.json` file.
+
+2. Add `"isHidden": true` to any of the columns of the `files`, `libraries`, or `trashcan` sections of the file, and then save it. For example, to hide the `role` column in the `libraries` section:
+
+      ```json
+      {
+      "id": "app.libraries.role",
+      "key": "role",
+      "title": "APP.DOCUMENT_LIST.COLUMNS.ROLE",
+      "type": "text",
+      "class": "adf-no-grow-cell",
+      "sortable": true,
+      "template": "app.columns.libraryRole",
+      "desktopOnly": false,
+      "isHidden": true,
+      "order": 40
+    },
+    ```
+
+    The `role` column no longer displays by default.  
+
 ## Permissions
 
 Permissions for folders and files in the Digital Workspace can be assigned and viewed easily.
@@ -73,8 +110,19 @@ Setting permissions for folders and files allows you to manage what type of acce
 
 4. (Optional) Use the slider to allow the added users or groups to inherit the permissions from the parent folder.
 
-## Search Configuration
+## Search
 
-The search filters that are available in the Digital Workspace can be refined and tailored to your specific needs by creating custom search forms. Each form can contain a set of filters that are relevant to a particular task or user group within your organization. You can select the most useful search form from the drop-down list on the search results page. For details on how to create and configure search forms for a more intuitive search experience see [Search Configuration Guide](https://github.com/Alfresco/alfresco-ng2-components/blob/develop/docs/user-guide/search-configuration-guide.md){:target="_blank"}.
+The default search capability in the Digital Workspace contains six filters that can be used to refine the searches you make against your content. You can use the search filters in conjunction with each other to help further refine your results. The contents of the filters can be configured to suit your needs and can be based on the metadata you have chosen to assign to your content. Dublin core and Effectivity element sets have additionally been provided for you to use to help filter your content, if you are using those standard classification types. They can be selected under the **Filter Set** heading.
+
+### Search filters
+
+Use the **Logic** filter to match or exclude words, and phrases. Use the **Properties** filter to limit, exclude, or exactly match files of a certain size. You can also filter by file type. Use the **Date** filter to find files created or modified within specific time periods. Use the **Location** filter to include locations of where you would like to focus your search results, for example Europe, or Marketing. Use the **Tags** filter to include content that has been tagged, for more see [Tags]({% link content-services/latest/admin/control-center.md %}#tags). Use the **Categories** filter to include content that has been categorized, for more see [Categories]({% link content-services/latest/admin/control-center.md %}#categories).
+
+![search]({% link digital-workspace/images/search-user-interface.png %})
+
+### Search configuration
+
+The search filters that are available in the Digital Workspace can be refined and tailored to your specific needs by creating custom search forms. Each form can contain a set of filters that are relevant to a particular task or user group within your organization. You can select the most useful search form from the drop-down lists on the search results page. For details on how to create and configure search forms for a more intuitive search experience, see the [Search Configuration Guide](https://github.com/Alfresco/alfresco-ng2-components/blob/develop/docs/user-guide/search-configuration-guide.md){:target="_blank"}.
 
 ![search]({% link digital-workspace/images/search-integration.png %})
+

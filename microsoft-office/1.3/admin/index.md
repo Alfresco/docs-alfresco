@@ -104,3 +104,86 @@ If you use the JBoss application server, you must customize the `web.xml` file i
 ```
 
 This ensures that the JSF deployer in JBoss uses its own bundled JSF version.
+
+## Fixing 'Edit in Microsoft Office' Issue with AOS when SSO is enabled
+
+### Problem:
+
+After installing AOS module (amp), when user clicks on 'Edit in Microsoft Office Action' (Inline Edit) from 'document-browse' action menu or 'document-details' action menu, following behavior has been noticed:
+
+ - User will see a blank Office application (Word or Excel application without content being displayed)
+ - User might be able to open document but will see an error popping-up saying 'Cannot download requested content'
+
+### Cause of the issue:
+
+When user tried to open a document, Microsoft Office Application (AOS) tries to establish a connection from client machine to the alfresco repository server and tries to validates the client certificate that matches with alfresco repository server. This uses Crypto API calls to match certificate using certificate fingerprint.
+
+### Solutions:
+
+Follow the steps outlined below to fix the aforementioned issue:
+
+#### Generating the PKCS12 certificate using JKS certificate:
+
+   - Download certificate from server which is used to configure SSL in tomcat (If certificate has a password then get the password for the root certificate from your certificate provider).
+   - Execute command given below to generate the PKCS12 format (.p12) which needs to be imported into client personal certificates:
+
+      ```
+      keytool -importkeystore -srckeystore {path_to_JKS_cert} -destkeystore {desired_path_for .p12} -srcstoretype JKS -deststoretype PKCS12 -deststorepass {your_password}
+      ```
+      1. During the course of the process, you will be prompted to provide the root certificate password (only for the first time). Please provide the root certificate password.
+      2. Secondly, you will be prompted to provide a password for `.p12 certificate` (that is being generated). Provide a desired password as per your password policy.
+      3. Certificate will be generated and saved to the location of your choice. Keep the newly generated .p12 certificate handy for next steps.
+
+
+#### Installing the certificate:
+   
+   1. Use `.p12 certificate` that was generated in previous steps to import into the client machine.
+   2. Search for Run Application in your system or press `windows + r` to open run manager.
+   3. Enter command `certmgr.msc` and press OK/Enter. You will see certificate manager dialog. See screenshots below.
+
+      
+      ![AOS Certificate Fix]({% link microsoft-office/images/run-command-dialog.png %})
+
+
+      ![AOS Certificate Fix]({% link microsoft-office/images/certificate-manager-dialog.png %})
+
+
+   4. Click on `Personal` -> `Certificates`
+   5. Right click on `Certificates` -> `All Tasks` -> `Import` , To open the certificate import wizard.
+
+
+      ![AOS Certificate Fix]({% link microsoft-office/images/import-personal-cert-dialog.png %})
+
+
+   6. Select `.p12 certificate` from your computer and click on `Next`. See screenshots below.
+
+      
+      ![AOS Certificate Fix]({% link microsoft-office/images/import-personal-cert-select-dialog.png %})
+
+
+      ![AOS Certificate Fix]({% link microsoft-office/images/import-personal-cert-selected-dialog.png %})
+
+
+   7. At this step, you will be see an option to provide a password in certificate import wizard. Provide the password you choose during the PKCS12 certificate generation step (see 2nd point in the generate certificate section) and click `Next`.
+
+
+      ![AOS Certificate Fix]({% link microsoft-office/images/personal-cert-pass-prompt.png %})
+
+
+   8. Keep the selection as is to place the certificate in Personal store. 
+
+      ![AOS Certificate Fix]({% link microsoft-office/images/import-personal-cert-saveas-personal.png %})
+
+
+   9. At this step, the dialog will show the selected `.p12 certificate` path and  `Personal` store as you selected above. Click `Finish` to complete the import process and then Click `OK` to close the prompt. See screenshots below.
+
+
+      ![AOS Certificate Fix]({% link microsoft-office/images/import-personal-cert-finish.png %})
+
+
+      ![AOS Certificate Fix]({% link microsoft-office/images/import-personal-cert-finalized.png %})
+
+
+   10. You should be seeing the "The import was successful" message and newly imported Certificate will be visible in the certificate manager.
+
+   11. Test the 'Edit in Microsoft Office' and it should be working again.

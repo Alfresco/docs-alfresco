@@ -28,6 +28,6 @@ Here is a summary of the key capabilities:
 * SAP Attachments
 * SAP Data Archiving (ADK)
 
-> **Important:** The SAP Connector module can be applied to several versions of Content Services. See [Prerequisites]({% link sap/latest/install/index.md %}#prerequisites) and [Supported Platforms]({% link sap/latest/support/index.md %}) for more.
+> **Important:** The SAP Connector module can be applied to Alfresco Content Services. See [Prerequisites]({% link sap/latest/install/index.md %}#prerequisites) and [Supported platforms]({% link sap/latest/support/index.md %}) for more.
 
 > **Note:** This documentation only covers how to use Content Services with the SAP Connector.

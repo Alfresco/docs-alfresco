@@ -290,7 +290,7 @@ Click the green button to expand the modal dialog to be full size, the following
 The autocompletion function is based on the context of the project and depends on where the expression is going to be used. It lets the user know which variables in that context are available. The autocompletion is displayed as the user types but can also be triggered by using the following keyboard shortcuts:
 
 * In Windows or Linux: `Ctrl + Space`
-* In MacOS: `Cmd + Space`
+* In MacOS: `Ctrl + Space` or `Fn + Ctrl + Space`
 
 The following is an example.
 

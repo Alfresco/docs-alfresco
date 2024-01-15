@@ -665,7 +665,7 @@ For security reasons, configure your proxy to forward only requests to the resou
     -Dcookies.sameSite=none
     ```
 
-    When using Share with Chromium-based browsers (such as Google Chrome or the latest releases of Microsoft Edge) with either Alfresco Content Connector for Salesforce or the SAML Module, the share web must be secured using an HTTPS (SSL/TLS) certificate.
+    When using Share with Chromium-based browsers (such as Google Chrome or the latest releases of Microsoft Edge) with Alfresco Content Connector for Salesforce, the share web must be secured using an HTTPS (SSL/TLS) certificate.
 
 10. (Optional) Only required if configuring Alfresco Share.
 
@@ -683,9 +683,9 @@ If you're configuring SSL in a development or test environment, you can edit som
 
 > **Note:** These instructions should only be used for configuring a test environment. If you're configuring a production environment, you should use a proxy server to handle all SSL communication. See [Configuring SSL for a production environment](#ssl-repo) for more information.
 
-Here's an example of how to configure Tomcat 9 to work with HTTPS for your development or test system. At this point, we assume that:
+Here's an example of how to configure Tomcat 10 to work with HTTPS for your development or test system. At this point, we assume that:
 
-* You've already set up Content Service with Tomcat 9, running HTTP on port 8080.
+* You've already set up Content Service with Tomcat 10, running HTTP on port 8080.
   * Follow the steps in [Install using distribution zip]({% link content-services/latest/install/zip/index.md %}) if you haven't already done so.
 * You may have already setup HTTPS on port 8443 for Content Service to communicate with [Alfresco Search Services]({% link search-services/latest/index.md %}).
 * In our documentation, such as [Secure Sockets Layer (SSL) and the repository](#ssl-repo), port 8443 is generally provided as an example when setting up secure HTTPS connections. This is recommended only for use with Alfresco Search Services as it should use real client certificates, where `certificateVerification="required"`. For this development or test setup, we won't necessarily use client certificates, so we'll setup a separate HTTPS connector on a different port. You can have multiple connectors in Tomcat that use HTTPS and different ports.
@@ -753,7 +753,7 @@ Here's an example of how to configure Tomcat 9 to work with HTTPS for your devel
 
     2. On Windows, you can just use port 443 without any proxy.
 
-    Note that we use the `certificateVerification="none"` setting. See the [official Tomcat 9.0 page](https://tomcat.apache.org/tomcat-9.0-doc/config/http.html#SSL_Support_-_SSLHostConfig){:target="_blank"} to learn more about the HTTPS security settings for the connector.
+    Note that we use the `certificateVerification="none"` setting. See the [official Tomcat 10 page](https://tomcat.apache.org/tomcat-10.1-doc/config/http.html#SSL_Support_-_SSLHostConfig){:target="_blank"} to learn more about the HTTPS security settings for the connector.
 
 6. Edit `alfresco-global.properties` and replace the relevant values for your case:
 
@@ -804,6 +804,44 @@ Here's an example of how to configure Tomcat 9 to work with HTTPS for your devel
     If you installed the Alfresco Office Services AMP, you'll also be able to edit files from your Microsoft Office applications.
 
     See [Considerations when using Alfresco Office Services]({% link microsoft-office/latest/index.md %}) for more details.
+
+## Configure HttpClient settings of repository {#httpclientproperties}
+
+Below are HttpClient properties that allow for turning on [mTLS]({% link content-services/latest/config/mtls.md %}) and fine-tuning of repository outbound communication targeting Transform Services.
+
+```text
+httpclient.config.<service>.mTLSEnabled
+httpclient.config.<service>.connectionTimeout
+httpclient.config.<service>.socketTimeout
+httpclient.config.<service>.connectionRequestTimeout
+httpclient.config.<service>.maxTotalConnections
+httpclient.config.<service>.maxHostConnections
+httpclient.config.<service>.hostnameVerificationDisabled
+```
+
+Valid substitutes for `<service>` are: `transform` (T-Router, T-Engines, Transform Aspose, AI Renditions) and `sharedfilestore` (enterprise: Shared File Store).
+Unset timeouts are infinite.
+
+The default settings for `transform` are shown below:
+
+```text
+httpclient.config.transform.mTLSEnabled=false
+httpclient.config.transform.maxTotalConnections=20
+httpclient.config.transform.maxHostConnections=20
+httpclient.config.transform.hostnameVerificationDisabled=false
+```
+
+The default settings for `sharedfilestore` are shown below:
+
+```text
+httpclient.config.sharedfilestore.mTLSEnabled=false
+httpclient.config.sharedfilestore.maxTotalConnections=20
+httpclient.config.sharedfilestore.maxHostConnections=20
+httpclient.config.sharedfilestore.socketTimeout=5000
+httpclient.config.sharedfilestore.connectionRequestTimeout=5000
+httpclient.config.sharedfilestore.connectionTimeout=5000
+httpclient.config.sharedfilestore.hostnameVerificationDisabled=false
+```
 
 ## Configure the repository cache
 

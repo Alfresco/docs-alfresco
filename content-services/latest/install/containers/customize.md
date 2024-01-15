@@ -79,7 +79,7 @@ You now need to install the AMP files into the Alfresco Content Repository image
     In the example, replace `myregistrydomain/my-custom-alfresco-content-repository:7.4` and `myregistrydomain/my-custom-alfresco-content-repository:latest` with your own Docker registry, image name, and tag:
 
     ```bash
-    docker build repository -t myregistrydomain/my-custom-alfresco-content-repository:7.4 -t myregistrydomain/my-custom-alfresco-content-repository:latest
+    docker build repository -t myregistrydomain/my-custom-alfresco-content-repository:23.1 -t myregistrydomain/my-custom-alfresco-content-repository:latest
     ```
 
     Once the image build is complete, you should see success messages:
@@ -128,7 +128,7 @@ Let's repeat the process for the Alfresco Share image.
     In the following command, replace `myregistrydomain/my-custom-alfresco-share:7.4` and `myregistrydomain/my-custom-alfresco-share:latest` with your own Docker registry, image name and tag:
 
     ```bash
-    docker build share -t myregistrydomain/my-custom-alfresco-share:7.4 -t myregistrydomain/my-custom-alfresco-share:latest
+    docker build share -t myregistrydomain/my-custom-alfresco-share:23.1 -t myregistrydomain/my-custom-alfresco-share:latest
     ```
 
     Once the image build is complete, you should see success messages:

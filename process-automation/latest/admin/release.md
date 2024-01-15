@@ -12,7 +12,7 @@ The **Project Releases** section displays a list of all [released projects]({% l
 
 To release a project:
 
-1. Sign into the Modeling Application.
+1. Sign in to the Modeling Application.
 
 2. Find or search for your project in the list of projects.
 
@@ -26,12 +26,12 @@ The properties for a released project are:
 
 | Property | Description |
 | -------- | ----------- |
-| Name | Displays the release name of the project. |
+| Project Name | Displays the release name of the project. |
 | Created By | Displays which user released the project. |
 | Created | The time lapsed since the version of the project was released. |
 | Comment | Displays the comment entered when the new project was released. |
 | Uploaded | An icon displays if the project was uploaded. |
-| Version | The version number of the project. |
+| Latest project release | The version number of the project. |
 | Actions | A list of actions that can be made against the released project: {::nomarkdown} <ul><li><b>Download</b> Bundles the project contents into a zipped folder to import it into a different environment.</li><li><b>Restore this release</b> Allows you to restore the release to this version. If you use this action the current models of the project will be replaced with those present in the release. If you want to preserve your current status you must create another release which you can restore it later.</li><li><b>Edit release</b> You can change the name of the release or update the comment made about it.</li></ul>{:/} |
 
 ### Deployment
@@ -98,6 +98,8 @@ The options for the storage location are:
 
 {% include tabs.html tableid="deploy-steps" opt1="Application Name" content1=name opt2="Admin Access" content2=admin opt3="User Access" content3=user opt4="Connectors" content4=connector opt5="Storage" content5=storage %}
 
+You can see the progress of the deployment process. The completed steps are marked with an orange tick, while the incomplete ones are marked with an empty circle.
+
 After clicking **Create** the deployment descriptor will be created and the application deployed, if **Deploy** was selected.
 
 ### Delete
@@ -163,11 +165,13 @@ The properties for application instances are:
 
 | Property | Description |
 | -------- | ----------- |
-| Name | The name of the application. |
-| Version | The version of the application. **Note**: This is the application version related to [upgrading](#upgrade) an application and not the project version. |
+| Application name | The name of the application. |
+| Project release | Number of the latest project release. |
+| Runtime version | Version of software on which the application is running. |
+| Updated | Date of the last update of the application. |
 | Created | The time since the application was deployed. |
 | Status | The status of the application. Once fully deployed it will display as `Running`. |
-| Content App | A link to the [user interface]({% link process-automation/latest/model/interfaces.md %}) for the application. |
+| Workspace | A link to the [user interface]({% link process-automation/latest/model/interfaces.md %}) for the application. |
 
 ### Undeploy
 
@@ -185,7 +189,7 @@ You can monitor the health of your installation by using the Monitoring dashboar
 
 To access the dashboard.
 
-1. Log into the Alfresco Admin App.
+1. Log in to the Alfresco Admin App.
 
 2. Expand **Devops** from the left pane and select **Application Instances**.
 
@@ -214,9 +218,9 @@ The version of an application is incremental and independent of the released pro
 
 The upgrade process displays the same configuration as [deploying](#deployment) an application. The only field that cannot be changed when upgrading is the application name.
 
-To upgrade an application.
+To upgrade an application:
 
-1. Log into the Alfresco Admin App.
+1. Log in to the Alfresco Admin App.
 
 2. Expand **Devops** from the left pane and select **Application Instances**.
 
@@ -226,15 +230,13 @@ To upgrade an application.
 
 5. Select the details you want to upgrade and click **Upgrade**.
 
-![upgrade application]({% link process-automation/images/upgrade-application.png %})
-
 ### Update runtime version
 
-You can update the runtime version of an application from when it was originally deployed.
+Regularly updating your application to the latest runtime version is a best practice.
 
-To update the runtime version.
+To update the runtime version:
 
-1. Log into the Alfresco Admin App.
+1. Log in to the Alfresco Admin App.
 
 2. Expand **Devops** from the left pane and select **Application Instances**.
 
@@ -242,19 +244,13 @@ To update the runtime version.
 
 4. Select **Update runtime version**.
 
-5. Select the runtime version you want to upgrade to and click **Update runtime version**.
-
-> **Note:** You can also update the runtime version of an application when you upgrade. For more see [Upgrade](#upgrade).
-
-![update runtime]({% link process-automation/images/update-runtime.png %})
-
 ### Logs
 
 You can view Deployment Service Logs, Runtime Bundle Logs, and Process Storage Logs to help understand any errors you may be having with your installation. The Deployment Service Logs are always available because they belong to a shared service. The logs use different blue highlighting to indicate the app being viewed. The Runtime Bundle Logs and the Storage Logs are unavailable if the app is not deployed correctly.
 
 To view the logs:
 
-1. Log into the Alfresco Admin App.
+1. Log in to the Alfresco Admin App.
 
 2. Expand **Devops** from the left pane and select **Application Instances**.
 
@@ -263,3 +259,7 @@ To view the logs:
 4. Select **Logs** and then the logs you want to view.
 
 The log text is color coded. White indicates no issue. Yellow indicates a warning, and Red indicates an error.
+
+### Development configuration
+
+If local development is enabled, you can see the variables required for it, such as a client id, after clicking **Development configuration**.

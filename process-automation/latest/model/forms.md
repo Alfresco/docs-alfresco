@@ -186,11 +186,25 @@ Display value fields do not have the `Read-only`, `Placeholder`, and `Required?`
 
 ### Dropdown fields
 
-Dropdown fields allow the form designer to define a set of options a form filler must choose from a list. This list can be a manually entered set of options or it can read from a REST service.
+Dropdown fields allow the form designer to define a set of options that a form filler must choose from a list.
+
+When you use dropdown fields in Process Automation, you can enter any character of the item you are searching for to limit the amount of returned entries. This includes any part of a sentence. This feature works when there are more than five entries and is useful when your lists are large.
+
+You can select single or multiple entries from a dropdown list to use them further in your process.
+
+When designing a dropdown list in the modeling application, the list items can be:
+
+* [Entered manually]({% link process-automation/latest/model/forms.md %}#manual-dropdown-fields)
+* [Read from a REST service]({% link process-automation/latest/model/forms.md %}#rest-service-dropdown-fields)
+* [Populated from a JSON type Variable]({% link process-automation/latest/model/forms.md %}#variable-dropdown-fields)
+
+#### Manual dropdown fields
 
 The advanced properties for a manual dropdown field allow for a set of options to be entered with a `name` and `id` for each option set. Selecting the radio button next to an option will set it as the `empty value`. An empty value is taken to mean the field is empty if this option is selected when the form is filled in.
 
-The advanced properties for a REST dropdown field are:
+#### REST Service dropdown fields
+
+The advanced properties for a **REST Service** dropdown field are:
 
 | Property | Description |
 | -------- | ----------- |
@@ -202,6 +216,77 @@ The advanced properties for a REST dropdown field are:
 | Conditional | Turn this option on if you would like to link your dropdown widget with another dropdown widget and to create a conditional relationship between them. For example, if you select a country from one dropdown widget, the second dropdown widget will only show cities from that country. |
 | Depends on | Select which other dropdown widget you would like to connect with. |
 | If equal | Select which child entry of the **Depends on** field you want to work with and add subordinate entries for it. |
+
+#### Variable dropdown fields
+
+The following is an example of a Form Variable in JSON format:
+
+```json
+{
+  "response": {
+    "data": {
+      "available_cars":
+        [
+          {
+            "car_id": 1,
+            "car_name": "Ferrari 458",
+            "car_price": "500000"
+          },
+          {
+            "car_id": 2,
+            "car_name": "Lamborghini Urus",
+            "car_price": "150000"
+          }
+        ]
+    },
+    "pagination": {
+      "maxItems": 100
+    }
+  }
+}
+```
+
+> **Note**: You must create a JSON type Form Variable, not a Process Variable, prior to configuring a dropdown field to use it. If no such Variable exists, the only selectable option available when configuring the dropdown field is: **No form variable (JSON)**.
+
+The advanced properties for a **Variable** dropdown field are:
+
+| Property | Description |
+| -------- | ----------- |
+| Form variable (JSON) | Form Variable to be used by the runtime application to populate the dropdown options. |
+| Path to array in JSON | Path where the dropdown option data is located, for example: `response.data.available_cars`. |
+| ID property | Informs the runtime application which element in the variable value is to be used as an ID for each dropdown option. This value is used as a payload when the user selects a dropdown option. For example: `car_id`. |
+| Label property | Informs the runtime application which element in the variable value is to be used as the label for each dropdown option. This is what the user sees in the dropdown list when selecting it. For example: `car_name`. |
+
+The modeling application also supports JSON variables structured according to a default configuration. Provided that the data in the JSON type Form Variable has the proper structure, the data is displayed correctly in the dropdown field without needing to specify the path, ID, and label values at the modeling level. The default configuration is the following:
+
+| Property | Default |
+| -------- | ------- |
+| path | `data` |
+| ID | `id` |
+| label | `name` |
+
+The following is an example of a JSON variable with this structure:
+
+```json
+{
+    "data": [
+        {
+            "id": "default-pet-1",
+            "name": "Dog"
+        },
+        {
+            "id": "default-pet-2",
+            "name": "Cat"
+        },
+        {
+            "id": "default-pet-3",
+            "name": "Parrot"
+        }
+    ]
+}
+```
+
+#### Creating a conditional relationship between dropdown lists
 
 To create a conditional relationship between two dropdown lists using Country and City as an example:
 
@@ -227,11 +312,7 @@ To create a conditional relationship between two dropdown lists using Country an
 
 **Note:** You can link as many dropdown fields as you want.
 
-When you use dropdown fields in Process Automation you can enter any character of the item you are searching for to limit the amount of returned entries, this includes any part of a sentence. This feature works when there are more than five entries and is useful when your lists are large.
-
-You can select single or multiple entries from a dropdown list to use them further in your process.
-
-When using **REST Service** you can use the ID of the linked widget in the REST URL. For example, if your URL is `https://mydomain.com/get-cities/country=${Country}` the value inside `${}` is the ID of the linked widget. If my widget had an ID called `my-dropdown` your URL would be `https://mydomain.com/get-cities/country=${my-dropdown}`.
+When using a **REST Service** you can use the ID of the linked widget in the REST URL. For example, if your URL is `https://mydomain.com/get-cities/country=${Country}` the value inside `${}` is the ID of the linked widget. If my widget had an ID called `my-dropdown` your URL would be `https://mydomain.com/get-cities/country=${my-dropdown}`.
 The `${my-dropdown-id}` can be used in any position of the URL, for example you can also use `https://mydomain.com/country=${Country}/get-cities`. When authentication is required for the REST service you can select the authentication type from the Authentication dropdown list. For how to create authentication types see, [Authentication]({% link process-automation/latest/model/authentication.md %}).
 
 ### File viewer fields
@@ -385,6 +466,88 @@ The advanced properties for the Metadata viewer are:
 | Use chips for multi-value properties | Select the check box to allow the display of multi-value properties as chips. |
 | Display aspect | Select the Aspect you wish to display as an expanded card. |
 | Preset | The name or configuration of the the metadata preset. Click the preset button to configure the metadata you would like visible in your GUI, for more on presets see [Application config presets](https://www.alfresco.com/abn/adf/docs/content-services/components/content-metadata-card.component/#application-config-presets){:target="_blank"}. |
+
+### Data Table
+
+The Data Table can be used to display data in a table.
+
+To create a form that contains the Data Table:
+
+1. Create or edit an existing form, for more see [Create a form](#create-a-form).
+
+2. Add the Data Table widget to the form.
+
+The advanced properties for the Data Table are:
+
+| Property | Description |
+| -------- | ----------- |
+| Rowspan | The number of rows a field spans. |
+| Form variable (JSON) | Displays a drop-down list of all available JSON type form variables. These variables can be used by the application to populate the data table. If there are no JSON variables, the list is empty. You can create one, following instructions in [Create a form variable](#create-a-form-variable). |
+| Path to array in JSON | Configuration of the path where the fetched data belongs. Each nested object is added using a dot as a separator. |
+
+The following Data Table types are available: text, number, amount, date, boolean, json, and icon.
+
+You can define additional properties for:
+
+| Property | Type | Description |
+| -------- | ----------- | ----------- |
+| locale | number, amount, date | Language code in ICU format, for example en_US. It impacts the format of the shown data, such as dates. |
+| digitsInfo | number, amount, date | Decimal places, according to the Angular Decimal Pipe. |
+| decimalConfig | number | Configuration of the displayed decimal number, including properties: locale and digitsInfo. |
+| currencyConfig | amount | Configuration of the displayed currency, including properties: locale (currency formatting), digitsInfo, code (currency code, such as USD or EUR), display (currency symbol, such as $ or €). |
+| dateConfig | date | Configuration of the displayed date, including properties: locale (date formatting), format (selection of pre-defined Angular Date Pipe formats), tooltipFormat (formatting of the displayed tooltip). |
+
+You can edit the schema definition, using the Edit Schema Definition under the Data Table properties pane. The column schema definition is used to specify how the table is displayed in detail, including the column header (title) or sorting. The schema is edited in the JSON editor.
+
+The following is an example of a schema definition:
+
+```json
+[
+    {
+        "type": "number",
+        "key": "id",
+        "title": "No",
+        "sortable": true,
+        "draggable": true
+    },
+    {
+        "type": "date",
+        "key": "creation_date",
+        "title": "Creation date",
+        "sortable": true,
+        "draggable": true,
+        "dateConfig": {
+            "locale": "en-GB",
+            "format": "full",
+            "tooltipFormat": ""
+        }
+    },
+    {
+        "type": "number",
+        "key": "people",
+        "title": "Numbers of interested people",
+        "sortable": true,
+        "draggable": true,
+        "decimalConfig": {
+            "digitsInfo": "1.0-0",
+            "locale": "pl-PL"
+        }
+    },
+    {
+        "type": "amount",
+        "key": "cost",
+        "title": "Cost of maintenance",
+        "sortable": true,
+        "draggable": true,
+        "currencyConfig": {
+            "code": "EUR",
+            "digitsInfo": "2.2-2",
+            "display": "€",
+            "locale": "de-DE"
+        }
+    }
+]
+```
 
 ## Custom form widgets
 

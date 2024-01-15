@@ -428,8 +428,141 @@ The re-indexing metadata process also indexes permissions associated with the do
 
 The main use case to re-index only content or path is a fully metadata indexed repository that needs to update / complete the content or path.
 
-## Recommendations for large re-indexing processes
+## Bulk metadata indexing
 
-When indexing large repositories from scratch, the metadata indexing rate will be higher than the content indexing rate. This will increase the number of messages pending in the property `acs-repo-transform-request` from the ActiveMQ queue. However, since [Basic ActiveMQ configuration](https://activemq.apache.org/amq-message-store){:target="_blank"} is prepared to handle [millions of Queue Messages](https://activemq.apache.org/how-do-i-configure-activemq-to-hold-100s-of-millions-of-queue-messages){:target="_blank"} per queue, this will not be an issue for the platform.
+You can customize Search Enterprise by having the index ready with just the metadata of uploaded files or with the content of the files as well. If you have the content of your files indexed there are time and cost implications you must consider and it is only recommended when necessary.
+This example describes how to set up Search Enterprise to show the speed achievable when processing one billion files. Amazon Web Services have been used as the host but your setup will be specific to your requirements.
 
-If you're using a custom ActiveMQ configuration ensure ActiveMQ is not using a transient message store and is using paging cache.
+The configuration used in this example:
+
+**Search Enterprise Data Node**
+
+* AWS Elasticsearch `7.10` with Availability Zone: `1-AZ`.
+* Number of Data Nodes: `3`.
+* Instance Type: `r6g.2xlarge.search`.
+* Storage type: EBS.
+* EBS volume type: Provisioned IOPS (SSD).
+* EBS volume size: `1000GB` per node.
+* Fielddata cache allocation: `20`.
+* Max clause count: `1024`.
+
+**Indexing Instance**
+
+* Amazon EC2 Indexing instance to run `alfresco-elasticsearch-connector-distribution-3.2.1`.
+* Indexing Instance type: `t2.2xlarge` (8vCPUs, `32GB` RAM).
+* Number of Amazon EC2 Instances for Indexing: `3`.
+* Number of threads running on instance 1 and 2 is `7` each with `6` threads on instance 3. Total threads running in parallel is `20`.
+* Maximum Heap allocated to each thread is `4GB` (`-Xmx4G`).
+
+**Search Enterprise Master Node**
+
+* Number of Master Nodes: `3`.
+* Master Node instance type: `m5.large.search`.
+* Master node is added for resilience, and can be avoided without having significant impact.
+
+**Search Enterprise Settings**
+
+* Number of Primary shards: `32`.
+* Number of Replica shards: `0`.
+* Refresh time: Disabled.
+* Translog flush threshold: `2GB`
+
+**Other Components**
+
+* Active MQ: `mq.m4.large`.
+* RDS is used as the Database with `db.r5.2xlarge` running PostgreSQL.
+* Amazon EC2 Instance running Content Services and the Transform Service: `m5a.xlarge`
+* Content Services: `7.2.0`.
+
+The deployment architecture of the system:
+
+![architecture]({% link search-enterprise/images/database-configuration.png %})
+
+### Configure Search Enterprise
+
+Amazon Web Services recommend each shard should be not more than `50GB`. For this example of one billion files the estimated total size of metadata to be indexed is `1.3TB`. The shard size here can be set to `40GB` which equals 32 shards.
+
+On the same VPC set the number of shards:
+
+```curl
+curl -XPUT 'https://<Elasticsearch DNS>:443/alfresco?pretty' -H 'Content-Type: application/json' -d'
+{
+  "settings" :{
+        "number_of_shards":32,
+        "number_of_replicas":0
+  }
+}'
+```
+
+You can set other critical parameters such as the refresh interval and the translog flush threshold using curl. The refresh interval is the time in which indexed data is searchable and should be disabled. This is done by setting it to `-1` or by setting it to a higher value during indexing to avoid the unnecessary usage of resources. The translog flush threshold is set to a higher size, for example `2GB`, to avoid it periodically flushing during the indexing process.
+
+To set the refresh interval to `-1` to disable it:
+
+```curl
+curl -XPUT "https://<Elasticsearch DNS>:443/alfresco/_settings" -H 'Content-Type: application/json' -d '{ "index" : { "refresh_interval" : "-1"  }}'
+```
+
+To set the translog flush threshold to `2GB`:
+
+```curl
+curl -XPUT "https://<Elasticsearch DNS>:443/alfresco/_settings?pretty" -H 'Content-Type: application/json' -d '{"index":{"translog.flush_threshold_size" : "2GB"}}'
+```
+
+To verify the settings:
+
+```curl
+curl -XGET "https://<Elasticsearch DNS>:443/alfresco/_settings?pretty" -H 'Content-Type: application/json' -d '{ "index" : { "refresh_interval" }}'
+```
+
+To setup the Re-Indexing Instance:
+
+1. Deploy three Amazon EC2 instances in the same VPC as all the other services.
+
+2. Attach the Amazon EC2 instances to a security group that allows all incoming traffic from the other services.
+
+3. Install Java 17 on all three instances.
+
+4. Copy `alfresco-elasticsearch-connector-distribution-3.2.1` to the three Amazon EC2 instances.
+
+   Run `7` threads on each of the two instances and `6` on the third instance to achieve a total of `20` thread count.
+
+5. In a command prompt on the VPC `cd` to where `alfresco-elasticsearch-reindexing-3.1.1-app.jar` is located.
+
+6. Run the following Indexing command with your specific configuration, where:
+
+    * `server.port` - a unique port number to run the required number of threads needed for an instance. For example, to run 7 threads from instance one, you must copy the code 7 times and provide a unique port in each of the 7 sets of commands.
+    * `alfresco.reindex.fromId` and `alfresco.reindex.toId` - a unique `nodeID` for each thread. You can equally distribute the total file count among the threads. In this example, 1B among 20 threads with each thread receiving 50 million each. For example:
+        * For Thread 1: `alfresco.reindex.fromId=0` and `alfresco.reindex.toId=50000000`
+        * For Thread 2: `alfresco.reindex.fromId=50000001` and `alfresco.reindex.toId=100000000`
+        * For Thread 3: `alfresco.reindex.fromId=100000001` and `alfresco.reindex.toId=150000000`
+        * For Thread 20: `alfresco.reindex.fromId=950000001` and `alfresco.reindex.toId=1000000000`
+
+Indexing Command:
+
+```java
+nohup java -Xmx4G -jar alfresco-elasticsearch-reindexing-3.2.1-app.jar \
+--server.port=<unique port> \
+--alfresco.reindex.jobName=reindexByIds \
+--spring.elasticsearch.rest.uris=https://<Elasticsearch DNS>:443 \
+--spring.datasource.url=jdbc:postgresql://<DB Writer URL>:5432/alfresco \
+--spring.datasource.username=**** \
+--spring.datasource.password=**** \
+--alfresco.accepted-content-media-types-cache.enabled=false \
+--spring.activemq.broker-url=failover:\(ssl://<Broker 1>:61617,ssl://<Broker 2>:61617\) \
+--spring.activemq.user=alfresco \
+--spring.activemq.password=***** \
+--alfresco.reindex.fromId=0 \
+--alfresco.reindex.toId=50000000 \
+--alfresco.reindex.multithreadedStepEnabled=true \
+--alfresco.reindex.concurrentProcessors=30 \
+--alfresco.reindex.metadataIndexingEnabled=true \
+--alfresco.reindex.contentIndexingEnabled=false \
+--alfresco.reindex.pathIndexingEnabled=true \
+--alfresco.reindex.pagesize=10000 \
+--alfresco.reindex.batchSize=1000  &
+Indexing Speed
+```
+
+The table summarizes different indexing capabilities obtained with different data volumes but with identical infrastructure and configuration as outlined above.
+
+![statistics]({% link search-enterprise/images/database-statistics.png %})

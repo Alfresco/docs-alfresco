@@ -17,7 +17,7 @@ The `EVERYONE` authority must have Consumer permissions on this folder in order 
 * **rootPath** (String, required) – path to the root Alfresco folder where auto-filed content will be stored
 * **types** (List, required) – list of content types that the auto-file configuration applies to (must be in QName format, e.g. `{http://www.alfresco.org/model/content/1.0}content`)
 
-* **propertiesList** (List, optional) – list of metadata properties that determines the folder path that content will be auto-filed into. For example, if you wanted to file documents by 2 metadata fields, "Project Name" and "Document Type", you’d configure auto-filing for these two properties, and then new content would be filed into the folder, `/{Root Path}/{Project Name}/{Document Type}` (must be in QName format, e.g. `{http://www.alfresco.org/model/content/1.0}content`). Property values can be split by adding brackets to the end of declaration (e.g. `{http://www.alfresco.org/model/content/1.0}name[0,4]`). If the `cm:name` was originally "Content Name", the property used for filing will be "Cont". If properties list is empty or null, document will be autofiled into the rootPath.
+* **propertiesList** (List, optional) – list of metadata properties that determines the folder path that content will be auto-filed into. For example, if you wanted to file documents by 2 metadata fields, "Project Name" and "Document Type", you’d configure auto-filing for these two properties, and then new content would be filed into the folder, `/{Root Path}/{Project Name}/{Document Type}` (must be in QName format, e.g. `{http://www.alfresco.org/model/content/1.0}content`). Property values can be split by adding a substring transformer as a prefix followed by the indexes in the format `~0~4` to the end of the declaration (e.g. `xSubstringBetweenTransformer~{http://www.alfresco.org/model/content/1.0}name~0~4`). If the `cm:name` was originally "Content Name", the property used for filing will be "Cont". If the properties list is empty or null, document will be autofiled into the rootPath.
 
 * **autoCreateFolders** (Boolean, optional – default true) – indicates whether folders should be automatically created if they don’t already exist in the repository
 
@@ -37,8 +37,33 @@ The `EVERYONE` authority must have Consumer permissions on this folder in order 
 
 * **sanitizePropValueRegex** (String, optional) - a regex that will be used to sanitize property values that will be used for Autofiling. Any property pulled from an object will run through the regex and a matching string will be used for filing.
 
-### Sample REST Call to Configure Autofiling
+### REST Call to Configure Autofiling
+Autofiling can be configured using the POST and GET methods.
 
+### Sample REST Call to Configure Autofiling
+**Method:** POST
+
+**URL:**
+```bash
+http://{server}:{port}/alfresco/service/tsgrp/autofile/createAutofileConfig
+```
+**Body Content:**
+```bash
+{"name":"Department - Region","rootPath":"Company Home/Sites/tsg-add-ons-demo/documentLibrary/Autofiling","types":["{http://www.tsgrp.com/model/tao/1.0}content"],
+"propertiesList":[
+"{http://www.tsgrp.com/model/tao/1.0}department",
+"{http://www.tsgrp.com/model/tao/1.0}region"
+],
+"autoCreateFolders":"true",
+"autoCreateFolderType":"{http://www.alfresco.org/model/content/1.0}folder",
+"autoRenameDuplicates":"true",
+"priority":"1",
+"criteriaProperties":["{http://www.alfresco.org/model/content/1.0}title",
+"{http://www.alfresco.org/model/content/1.0}description"],
+"criteriaRegexes":["A","B"]}
+```
+
+**Method:** GET
 ```bash
 http://{server}:{port}/alfresco/service/tsgrp/autofile/createAutofileConfig?params={"name":"Department - Region","rootPath":"Company Home/Sites/tsg-add-ons-demo/documentLibrary/Autofiling","types":["{http://www.tsgrp.com/model/tao/1.0}content"],
 "propertiesList":[
@@ -52,10 +77,20 @@ http://{server}:{port}/alfresco/service/tsgrp/autofile/createAutofileConfig?para
 "criteriaProperties":["{http://www.alfresco.org/model/content/1.0}title",
 "{http://www.alfresco.org/model/content/1.0}description"],
 "criteriaRegexes":["A","B"]}
-   ```
+```
 
-> **Note:** Authorization for an admin user must be included. In Postman, switch to the `Authorization` tab. In the `TYPE` dropdown, select `Basic Auth` and then enter in an admin user's credentials.
+> **Note:** Authorization for an admin user must be included. In Postman, switch to the `Authorization` tab. In the `TYPE` dropdown, select `Basic Auth` and then enter in an admin user's credentials. The recommended approach is to use a POST call.
 
 ## Utilizing Autofile
 
 The autofiled aspect, `af:autofiled`, must be applied to content in order for it to be autofiled. The easiest way to do this is to make the autofiled aspect mandatory for any content types that are to be autofiled. The aspect can also be applied manually.
+
+## Disabling Autofile for Specific Aspects
+
+To disable autofile for a specific aspect, override the following configuration in the Alfresco global properties:
+
+```text
+tsgrp.autofile.disableForAspects=
+```
+
+Set this to a comma delimited list of QNames in a String format (for example, `{http://www.alfresco.org/model/content/1.0}taggable`).

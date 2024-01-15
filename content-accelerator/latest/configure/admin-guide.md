@@ -183,7 +183,7 @@ Ad Hoc Forms are very similar to regular forms with an additional feature to cre
 
 * **Content Template** - allows administrators to create template documents that can be utilized in the Bulk Upload action for users to create documents from a template starting point.
 
-* **FreeMarker Template** - allows administrators to override default FTL templates provided in the ACA deployment.  For example, FTL template overrides can be used to change notification email content.
+* **FreeMarker Template** - allows administrators to override default FTL templates provided in the ACA deployment and create their own FTL templates. For example, FTL template overrides can be used to change notification email content. To override, simply select a template to override in the dropdown of the FTL template management area and upload a new file to replace the existing template. Once overridden, the template can be edited in plain text.
 
 * **Wizard Form Template** - allows administrators to provide a Word document template that is used to apply Wizard form data to create the form PDF rendition and optionally a separate document.
 
@@ -353,7 +353,6 @@ High-level search settings including:
 * **Search form to display** - This is an important configuration, as it is the search form that will be displayed and drives the setup of several other search components.
 * **Limit search results to** - If lower than the repository setting for number of search results returned, this value will restrict search results. If higher than the repository search results settings, the repository value will be used. In other words, this setting cannot allow for more search results than the repository is set up to return.
 * **Enable type-to-path security** - For each type in the selected search form, a user can indicate a repository folder path (generally the path to the folder being searched) to pull the security setup from. Basically, this allows search to use repository folder level security to determine who can perform the configured searches.
-* **Open Content Query Implementation** - Allows queries to be run against a database. This should only be set to "Use Native Search APIs". All other options are deprecated and will be removed from the drop down in future releases.
 
 #### Sidebar Settings
 
@@ -412,7 +411,7 @@ This section dictates the table configurations specific to each search result ty
     * **Enable Reset Button** - Users can order or hide columns for the search results table, and those local configurations are stored under their user preferences. Reset clears out search-related user preferences, and resets the look of the table to the default.
     * **Enable standardized table view** - When enabled, users can click this view and ALL users will see the exact same table sorted the exact same way.
 
-2. Object Title - Configure which attribute in the table should be clickable.
+2. Result Link Display Attribute - Configure which attribute in the table should be clickable.
 
 3. Indicator Icons - Configure icons that are displayed next to the Title attribute in the table if the criteria is met for a particular document. The most common scenario this is used for is displaying a lock icon next to checked out documents. This scenario is so common that its configuration is mapped to a single button click &gt; "Add Lock/Key"
 
@@ -538,7 +537,7 @@ Additional Viewer Configurations:
 Renditioning:
 
 * Elevate Renditioning Priority for Folder
-* Enable View Time Renditioning
+* Enable View Time Renditioning - Enable this option if types utilized in this trac do not have the `tsg:renditioned` aspect applied and require view time renditioning functionality.  Note that all ACA Accelerator types are pre-configured with the `tsg:renditioned` aspect and do not require view time renditioning. Therefore, you only need to enable this option for out of the box accelerator types.
 * Rendition Check Period
 
 Configure:
@@ -1543,7 +1542,7 @@ The Content Accelerator license manager allows an Administrator to view the curr
 
 ## Action Configuration
 
-While many actions require little to no configuration beyond enabling the action, some more complicated actions have additional configuration options. See the [Action Configurations]({% link content-accelerator/latest/configure/actions.md %}) section for further details about how to configure certain commonly used actions in Content Accelerator. Individual action links listed in the table below.
+While many actions require little to no configuration beyond enabling the action (self-documentation can be found under **Admin** > **Tools** > **Actions Information** > **Available Actions**), some more complicated actions have additional configuration options. See the [Action Configurations]({% link content-accelerator/latest/configure/actions.md %}) section for further details about how to configure certain commonly used actions in Content Accelerator. Individual action links listed in the table below.
 
 ### Addition Action Configuration Information
 

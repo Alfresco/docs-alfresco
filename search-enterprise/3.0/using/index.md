@@ -251,7 +251,7 @@ In the REST API you can specify the timezone to be used in search for date range
 
 ## Search for an exact term
 
-> **Note:** Exact Term searching is only allowed if default Alfresco Repository configuration has been changed in order to enable this feature.
+> **Note:** Exact Term searching is only allowed if the default Alfresco Repository configuration has been changed in order to enable this feature, for more see [Pre-indexing considerations]({% link search-enterprise/3.0/admin/index.md %}#pre-indexing-considerations).
 
 To search for an exact term you must prefix it with "=". The supported syntax:
 

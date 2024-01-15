@@ -24,7 +24,7 @@ The Extension Inspector has two main modules:
 
 ## Download
 
-You can download the [alfresco-extension-inspector-1.7.0.jar](https://artifacts.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/extension-inspector/alfresco-extension-inspector/1.7.0/alfresco-extension-inspector-1.7.0.jar) file from the Alfresco Nexus repository.
+You can download the [alfresco-extension-inspector-1.9.0.jar](https://artifacts.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/extension-inspector/alfresco-extension-inspector/1.9.0/alfresco-extension-inspector-1.9.0.jar) file from the Alfresco Nexus repository.
 
 >**Note:** See the [Alfresco Extension Inspector](https://github.com/Alfresco/alfresco-extension-inspector){:target="_blank"} GitHub repository for more details.
 
@@ -117,7 +117,7 @@ The application analyzes custom extensions against WAR inventories.
 Use the following command to run the application:
 
 ```bash
-java -jar alfresco-extension-inspector-<version>.jar <extension-filename> [--target-version=6.1.0[-7.4.0] | --target-inventory =/path/to/war_inventory.json] [--verbose=[true | false]]
+java -jar alfresco-extension-inspector-<version>.jar <extension-filename> [--target-version=6.1.0[-23.1.0] | --target-inventory =/path/to/war_inventory.json] [--verbose=[true | false]]
 ```
 
 where:
@@ -155,6 +155,7 @@ The following conflict types are detected:
 * Beans instantiating restricted classes (`BEAN_RESTRICTED_CLASS`)
 * Usage of non @AlfrescoPublicAPI classes (`ALFRESCO_INTERNAL_USAGE`)
 * Usage of 3rd party libraries (`WAR_LIBRARY_USAGE`)
+* Jakarta migration dependency conflicts (`JAKARTA_MIGRATION_CONFLICT`)
 
 The output is a report with the following example structure.
 
@@ -233,18 +234,54 @@ These 3rd party libraries are managed by the ACS repository and are subject to
 constant change, even in service packs and hotfixes.
 Each of these libraries has its own backward compatibility strategy, which will
 make it really hard for this extension to keep up with these changes.
+```
 
-REPORT SUMMARY
+### Incompatible Jakarta migration dependencies
+
+```text
+The following classes defined in the extension module are using incompatible jakarta migration dependencies:
+
+  org.alfresco.utility.data.DataEmail
+  org.alfresco.utility.data.DataEmail$1
+Jakarta migration dependencies:
+  jakarta.mail.Authenticator
+  jakarta.mail.Flags
+  jakarta.mail.Flags$Flag
+  jakarta.mail.Folder
+  jakarta.mail.Message
+  jakarta.mail.MessagingException
+  jakarta.mail.Session
+  jakarta.mail.Store
+  jakarta.mail.internet.MimeMessage
+  jakarta.mail.search.AndTerm
+  jakarta.mail.search.FlagTerm
+  jakarta.mail.search.SearchTerm
+
+Classes using non-jakarta migrated dependencies are incompatible with a jakarta migrated ACS version, and vice versa.
+For a complete usage matrix, use the -verbose option of this tool.
+```
+
+### REPORT SUMMARY
+
+```text
 Across the provided target versions, the following number of conflicts have been
 found:
 
-| Type                    | Total |
-| ----------------------- | ----- |
-| BEAN_OVERWRITE          | 1     |
-| BEAN_RESTRICTED_CLASS   | 1     |
-| CLASSPATH_CONFLICT      | 1     |
-| ALFRESCO_INTERNAL_USAGE | 2     |
-| WAR_LIBRARY_USAGE       | 1     |
++--------------------------+-----+
+|Type                      |Total|
++--------------------------+-----+
+|BEAN_OVERWRITE            |1    |
++--------------------------+-----+
+|BEAN_RESTRICTED_CLASS     |1    |
++--------------------------+-----+
+|CLASSPATH_CONFLICT        |1    |
++--------------------------+-----+
+|ALFRESCO_INTERNAL_USAGE   |2    |
++--------------------------+-----+
+|WAR_LIBRARY_USAGE         |1    |
++--------------------------+-----+
+|JAKARTA_MIGRATION_CONFLICT|2    |
++--------------------------+-----+
 
 (use option --verbose for version details)
 ```

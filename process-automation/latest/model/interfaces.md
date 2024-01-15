@@ -2,16 +2,16 @@
 title: User interfaces
 ---
 
-The user interfaces (UI) section sets an end user interface for users to interact with content, tasks, and processes for the project using the [Alfresco Digital Workspace]({% link process-automation/latest/using/index.md %}).
+The user interfaces (UI) section sets an end user interface for users to interact with content, tasks, and processes for the project using [Alfresco Digital Workspace]({% link process-automation/latest/using/index.md %}).
 
 ## Properties
 
-The basic properties of a user interface are:
+The basic properties of a UI are:
 
 | Property | Description |
 | -------- | ----------- |
 | UI name | *Required.* The name of the interface. Must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically, for example `order-template`. |
-| Content/Process | *Required.* Select **Content** to force all the widgets in the Digital Workspace that refer to content, processes, and tasks to be displayed. Select **Process** when you want only the widgets that refer to processes, and tasks to be displayed. Additionally if **Process** is selected then the landing page can be configured that allows the user who runs the application to be redirected to the list of running processes, or to their list of My Tasks. |
+| Content and Process | *Required.* Select **Content** to force all the widgets in the Digital Workspace that refer to content, processes, and tasks to be displayed. Select **Process** when you want only the widgets that refer to processes, and tasks to be displayed. Additionally if **Process** is selected then the landing page can be configured that allows the user who runs the application to be redirected to the list of running processes, or to their list of My Tasks. |
 | UI description | *Optional.* A description of what the interface should be used for, for example `A template for orders to follow.` |
 | Default System Logo | *Optional.* The default system logo image. The recommended size for the logo is 28x28 px. **Note:** To set a new logo the file must be uploaded in advance with the visibility flag set to public, for more see [Files]({% link process-automation/latest/model/files.md %}). |
 | Application title | *Optional.* The name of the application. This is the name that will appear in the header and on the tab of your browser. |
@@ -19,35 +19,63 @@ The basic properties of a user interface are:
 | Header color HEX code | *Optional.* The color of the header background on the user interface using hexadecimal numbers. For example `#b39oba`. |
 | Default Background Header Image | *Optional.* The default background header image.  **Note:** To set a new background image the file must be uploaded in advance with the visibility flag set to public, for more see [Files]({% link process-automation/latest/model/files.md %}). |
 
-## Create a user interface
+## Create default UI
 
-To create a user interface:
+To create a default UI:
 
-1. Sign into the Modeling Application and open a project.
+1. Sign in to the Modeling Application and open a project.
 
-2. Click the **NEW** dropdown.
+2. Click the three dots next to **UI** and then select **Create Default UI**.
 
-3. Select how to create the interface:
+3. Enter a name and optional description.
 
-    * **Create > UI** creates a new, empty user interface.
+4. Click **Create UI**.  
 
-    * **Upload > UI** allows for uploading an existing user interface into the Modeling Application.
+## Upload default UI
 
-    Alternatively use the **+** or **Upload** buttons next to **UI** in the left-hand menu.
+The UI definition is normally created using the [create default UI tool](#create-default-ui) and downloaded as a JSON file by clicking **Download UI**. You can follow the steps in this section to reuse a default UI definition in another project or UI.
 
-4. Enter a name and optional description.
+> **Note**: To upload a custom UI, follow the steps in [Create custom UI](#create-custom-ui) instead.
+
+To upload a default UI definition:
+
+1. Sign in to the Modeling Application and open a project.
+
+2. Click the three dots next to **UI** and then select **Upload**.
+
+3. Select the JSON file that contains the UI definition.
+
+## Create custom UI
+
+You can create a custom UI outside of the Modeling Application. The custom UI can be an Application Development Framework (ADF) application. It can also be any single page application, such as React or Vanilla HTML, CSS, or JavaScript, that conforms to the UI schema. To verify this, upload your JSON definition and click the **Validate UI** button.
+
+> **Important:** Before uploading your custom UI, ensure that it has a valid application entry point in either an `index.html` or `index.htm` file. The custom UI must be contained in a zip archive with the `index.html` or `index.htm` file at its root. The archive size cannot exceed 50 mb.
+
+> **Note**: ADF comes with a JavaScript library for managing bearer token authentication handling and renewal, which solution builders using other Custom UI implementations will have to manage.
+
+To create a custom UI:
+
+1. Sign in to the Modeling Application and open a project.
+
+2. Click the three dots next to **UI** and then select **Create custom UI**.
+
+3. Enter a name and optional description.
+
+4. If you do not have a customized zip file yet, select **Generate from Template** to generate a custom UI from a UI template, which contains the source code from the Workspace application. The template zip file can be then downloaded and customized in a different application.
+
+5. Once you have a zip file with custom UI, click the **Upload** button and select the zip file that contains your Custom UI.
 
 ## Theme
 
 You can add a theme to the Digital Workspace.
 
-### Use the modelling application to change the theme
+### Use the Modeling Application to change the theme
 
-To change the theme using the **UI** properties in the modelling application.  
+To change the theme using the **UI** properties in the Modeling Application.  
 
-1. Sign into the modeling application.
+1. Sign in to the Modeling Application.
 
-2. Select the **UI** you want to change and enter the new configuration properties under the **Theme** heading. 
+2. Select the **UI** you want to change and enter the new configuration properties under the **Theme** heading.
 
     > **Note:** You can only change the **Theme** of the **Default UI**.
 
@@ -71,8 +99,8 @@ The properties of the UI theme are:
 
 ### Deploy the theme
 
-If you are deploying using the modelling application or Docker compose you must provide the correct configuration and the theme will be generated at startup.
-After updating the properties for the custom theme in the modelling application, new entries for the **UI** are added to this file: `"customCssPath": "./assets/theme/custom.css" (i.e. /[app-name]/ui/[ui-name]/assets/theme/custom.css)`
+If you are deploying using the Modeling Application or Docker compose you must provide the correct configuration and the theme will be generated at startup.
+After updating the properties for the custom theme in the Modeling Application, new entries for the **UI** are added to this file: `"customCssPath": "./assets/theme/custom.css" (i.e. /[app-name]/ui/[ui-name]/assets/theme/custom.css)`
 
 For example:
 

@@ -1,5 +1,5 @@
-# Google Drive 3.4
-- version: 3.4
+# Google Drive 4.0
+- version: 4.0
   pages:
     - title: 'Introduction'
       path: '/google-drive/latest/'
@@ -7,6 +7,15 @@
       path: '/google-drive/latest/install/'
     - title: 'Configure'
       path: '/google-drive/latest/config/'
+# Google Drive 3.4
+- version: 3.4
+  pages:
+    - title: 'Introduction'
+      path: '/google-drive/3.4/'
+    - title: 'Install'
+      path: '/google-drive/3.4/install/'
+    - title: 'Configure'
+      path: '/google-drive/3.4/config/'
 # Google Drive 3.3
 - version: 3.3
   pages:

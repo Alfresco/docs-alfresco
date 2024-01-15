@@ -433,15 +433,9 @@ With Bcrypt, the hashing algorithm (also called an encoder) can be configured by
 
 * `md4`
 * `sha256`
-* `bcrypt10`
+* `bcrypt10` (the default)
 
 If you provide a different value, the repository won't start.
-
-To maintain backwards compatibility with previous versions, the default setting for this property is:
-
-```text
-system.preferred.password.encoding=md4
-```
 
 After upgrading to the latest Content Services version, when the user logs in or changes the password, the system rehashes the password using the preferred encoding mechanism and stores the mechanism being used. If the preferred encoding is set to `md4`, the system moves the current hashed passwords for that user.
 

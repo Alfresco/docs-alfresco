@@ -6,6 +6,7 @@ The following are the supported platforms for Document Transformation Engine 2.4
 
 | Version | Notes |  
 | ------- | ----- |
+| Content Services 23.1.x | *Required.* Use with DTE T-Engine v1.2.0 |
 | Content Services 7.4.x | *Required.* Use with DTE T-Engine v1.2.0 |
 | Content Services 7.3.x | *Required.* Use with DTE T-Engine v1.2.0 |
 | Content Services 7.2.x | *Required.* Use with DTE T-Engine v1.2.0 |
