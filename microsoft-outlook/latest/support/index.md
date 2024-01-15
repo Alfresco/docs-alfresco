@@ -2,17 +2,16 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for Outlook Integration 2.10: <!--FIXME: update -->
+The following are the supported platforms for Outlook Integration 2.10:
 
 | Version | Notes |
 | ------- | ----- |
-| Alfresco Content Services 7.3.x | *Optional.* Use with Outlook Integration T-Engine v1.1.0 |
-| Alfresco Content Services 7.2.x | *Optional.* Use with Outlook Integration T-Engine v1.1.0 |
-| Alfresco Content Services 7.1.x | *Optional.* Use with Outlook Integration T-Engine v1.1.0 |
-| Alfresco Content Services 7.0.x | *Optional.* Use with Outlook Integration T-Engine v1.1.0 |
+| Alfresco Content Services 7.4.x | *Optional.* Use with Outlook Integration T-Engine v1.2.0 |
 | | |
+| | Check the [Alfresco Content Services Supported platforms]({% link content-services/latest/support/index.md %}) page for specific versions of the individual components. |
 | **Application servers** | |
-| Apache Tomcat | Check the supported Tomcat version based on your Content Services version |
+| Apache Tomcat | |
 | | |
 | **Java** | |
 | JDK 17 | Check the supported JDKs based on your Content Services version |
+| JDK 11 | Check the supported JDKs based on your Content Services version |
