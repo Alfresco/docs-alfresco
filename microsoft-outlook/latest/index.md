@@ -16,5 +16,3 @@ Features of Outlook Integration include the ability to archive content (i.e. ema
 For information about using the Outlook Integration, see [Using Alfresco from Microsoft Outlook]({% link microsoft-outlook/latest/using/index.md %}).
 
 For information about installing and configuring the Outlook Integration, see [Install and configure Outlook Integration]({% link microsoft-outlook/latest/install/index.md %}).
-
-If you plan to use SAML Module for Alfresco Content Services authentication, see [Using SAML SSO with Outlook Integration]({% link microsoft-outlook/latest/admin/index.md %}#usingsaml).
