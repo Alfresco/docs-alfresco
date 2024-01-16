@@ -75,20 +75,37 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
 
 7. Open your browser and check everything starts up correctly:
 
-    | Service | Endpoint | Comment |
-    | ------- | -------- | ------- |
-    | Administration and REST APIs | `http://localhost:8080/alfresco` ||
-    | Share | `http://localhost:8080/share` ||
-    | Digital Workspace | `http://localhost:8080/workspace` ||
-    | Search Services administration | `http://localhost:8083/solr` |To get to the Solr Admin UI it’s necessary to add a header with a secret.<br/><br/>*For Safari:*<br/><br/>1. Go to **Develop -> Show Web Inspector -> Sources**.<br/>2. Click on the **+** next to *Local Overrides* and select **Local Overrides…**.<br/>3.  Configure URL with regular expression, using Solr host and port (e.g `http://localhost:8983/solr/*`) and add the `X-Alfresco-Search-Secret` header with the secret value.<br/><br/>*For Chrome, FireFox, Opera, and Edge*:<br/><br/>1. Install the ModHeader extension.<br/>2. Add the `X-Alfresco-Search-Secret` header with the secret value, as seen in the image. <br/><br/>![Modheader]({% link content-services/images/modheader.png %}){:width="460" height="380px"}|
-    | Sync Service health check | `http://localhost:9090/alfresco/healthcheck` ||
-    | Admin Console | `http://localhost:8080/alfresco/s/enterprise/admin` ||
+    | Service | Endpoint |
+    | ------- | -------- |
+    | Administration and REST APIs | `http://localhost:8080/alfresco` |
+    | Share | `http://localhost:8080/share` |
+    | Digital Workspace | `http://localhost:8080/workspace` |
+    | Search Services administration | `http://localhost:8083/solr` |
+    | Sync Service health check | `http://localhost:9090/alfresco/healthcheck` |
+    | Admin Console | `http://localhost:8080/alfresco/s/enterprise/admin` |
 
     If Docker is running on your local machine, the IP address will be just `localhost`.
 
     If you're still using the [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/){:target="_blank"}, you'll need to switch to [Docker Desktop](https://docs.docker.com/install/){:target="_blank"} as Docker Toolbox is deprecated.
 
+    For more information on Search Services administration, see [Search Services administration](#search-services-administration)
+
 8. Log in as the `admin` user. Enter the default administrator password `admin`.
+
+## Search Services administration
+
+To get to the Solr Admin UI it’s necessary to add a header with a secret.
+
+For Safari:
+
+1. Go to **Develop > Show Web Inspector > Sources**.
+2. Click on the **+** next to *Local Overrides* and select **Local Overrides…**.
+3. Configure URL with regular expression, using Solr host and port (e.g `http://localhost:8983/solr/*`), and add the `X-Alfresco-Search-Secret` header with the secret value.
+
+For Chrome, FireFox, Opera, and Edge:
+
+1. Install the ModHeader extension.
+2. Add the `X-Alfresco-Search-Secret` header with the secret value, as seen in the image. <br/><br/>![Modheader]({% link content-services/images/modheader.png %}){:width="460" height="380px"}
 
 ## Check system start up
 
