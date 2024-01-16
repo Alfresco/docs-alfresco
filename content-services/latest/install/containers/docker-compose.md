@@ -93,6 +93,7 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
 8. Log in as the `admin` user. Enter the default administrator password `admin`.
 
 ## Search Services administration
+
 To get to the Solr Admin UI it’s necessary to add a header with a secret.
 
 For Safari:

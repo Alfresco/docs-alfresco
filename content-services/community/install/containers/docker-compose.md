@@ -89,7 +89,7 @@ For Safari:
 
 4. Add the `X-Alfresco-Search-Secret` header with the secret value.
 
-For Chrome, FireFox, Opera, and Edge*:
+For Chrome, FireFox, Opera, and Edge:
 
 1. Install the ModHeader extension.
 2. Add the `X-Alfresco-Search-Secret` header with the secret value, as shown in the image.
