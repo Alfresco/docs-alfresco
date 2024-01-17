@@ -18,7 +18,7 @@ The Alfresco Digital Workspace is automatically deployed as part of Alfresco Con
 
 {% include media.html id="giypeO8Q4cs" %}
 
-## ssibility Guidelines (WCAG) 2.1
+## Assibility Guidelines (WCAG) 2.1
 
 The Digital Workspace has been independently tested for its accessibility using the WCAG 2.1 AA, Section 508, and EN 301 standards. It complies with these regulations that ensure an online computer-based system is completely accessible by all of the general public, including those with disabilities. See the following websites for more details:
 
