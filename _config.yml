@@ -507,6 +507,7 @@ defaults:
       toc: "desktop-sync"
       support: true
       versions:
+        - 1.17
         - 1.16
         - 1.15
         - 1.14
@@ -522,8 +523,12 @@ defaults:
   - scope:
       path: "desktop-sync/latest"
     values:
-      version: 1.16
+      version: 1.17
       latest: true
+  - scope:
+      path: "desktop-sync/1.16"
+    values:
+      version: 1.16
   - scope:
       path: "desktop-sync/1.15"
     values:
