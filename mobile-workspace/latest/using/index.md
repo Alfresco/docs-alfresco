@@ -260,3 +260,15 @@ To set up a workflow, you can either:
 
 * Create a new workflow from the context menu of an existing file.
 * Starting from the **Workflows** tab, tap the **+** button, and then select a workflow.
+
+## Multiple Selection
+
+You can select multiple files within the Mobile Workspace. Multiple Selection allows you to perform actions on multiple items. You can select up to 25 files in a page. The **Start Workflow** option will only work for files. The available actions will differ depending on your starting point. To begin Multiple Selecting, long press on any file.
+
+The following actions are available:
+
+* Add to Favorites
+* Start Workflow
+* Move
+* Make available offline
+* Move to Trash
