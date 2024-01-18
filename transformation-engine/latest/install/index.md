@@ -18,6 +18,8 @@ There are a number of important notes to consider when installing the Document T
 
 * Microsoft Office (32-bit and 64-bit).
 
+    > **Note:** Please be advised that the Alfresco Document Transformation Engine (DTE) uses Microsoft Office to automate the creation of high-fidelity renderings of Office document formats; as a result, it is your responsibility as a user of DTE to ensure that you have proper licensing arrangements in place with Microsoft to allow for such automation.
+
 * To enable the Document Transformation Engine to work with non-English documents you must install the desired Microsoft Office language pack of the language you want to work with.
 
 * The Document Transformation Engine does not work with Windows non-English regional settings.
