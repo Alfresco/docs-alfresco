@@ -39,7 +39,7 @@ $ java -jar bin\alfresco-mmt.jar uninstall <ModuleId> <WARFileLocation>
     Module 'alfresco-rm-enterprise-repo' installed in 'webapps/alfresco'
        -    Title:        AGS Enterprise Repo
        -    Version:      7.4
-       -    Install Date: Mon May 15 08:50:15 UTC 2023
+       -    Install Date: Mon May 17 08:50:15 UTC 2023
        -    Description:   Alfresco Governance Services Enterprise Repository Extension    
    ```
 
@@ -57,7 +57,7 @@ $ java -jar bin\alfresco-mmt.jar uninstall <ModuleId> <WARFileLocation>
     Module 'alfresco-rm-enterprise-share' installed in 'tomcat\webapps\share.war'
     -    Title:        Alfresco Record Management Share Extension
     -    Version:      7.4
-    -    Install Date: Mon May 15 08:50:15 UTC 2023
+    -    Install Date: Mon May 17 08:50:15 UTC 2023
     -    Description:   Alfresco Record Management Share Extension              
     ```
 
