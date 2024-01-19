@@ -68,13 +68,13 @@ recommended for development and test environments only.
     $ docker-compose up -d
    ```
 
-7. Wait for the logs to complete.
+6. Wait for the logs to complete.
 
     ```text
     ...
-    alfresco_1            | 02-Nov-2023 08:41:58.156 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
-    alfresco_1            | 02-Nov-2023 08:41:58.206 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
-    alfresco_1            | 02-Nov-2023 08:41:58.261 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 226026 ms
+    alfresco_1            | ... INFO ... [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+    alfresco_1            | ... INFO ... [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+    alfresco_1            | ... INFO ... [main] org.apache.catalina.startup.Catalina.start Server startup in 226026 ms
     ```
 
     If you encounter errors whilst the system is starting up:
@@ -91,7 +91,7 @@ recommended for development and test environments only.
     
     > **Note:** Although 16 GB is the required minimum memory setting, keep in mind that 6 GB is much lower than the required minimum, and may need to be adapted for your environment.
 
-8. Open your browser and check everything starts up correctly:
+7. Open your browser and check everything starts up correctly:
 
     * Share: `http://localhost:8080/share`
 
