@@ -242,13 +242,13 @@ There are three different ways you can configure your Controls:
 
     Example: The predefined Classification group has marks of Top Secret, Secret, and Classified. To see a file classified as Secret, the user must have Secret or Top Secret clearance.
 
-## Security Controls in the Control Center
+### Security Controls in the Control Center
 
 Use this example to create an **All** Control in the Control Center called Training that has three Security Marks, **Media**, **Data handling**, and **Backend management**.
 
 > **Important:** All Security Marks you create are visible to all users within the Digital Workspace.
 
-### Create Controls and Security Marks
+#### Create Controls and Security Marks
 
 Use the Control Center to create Controls.
 

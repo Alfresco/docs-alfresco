@@ -1,5 +1,5 @@
 ---
-title: Security Marks in the Digital Workspace
+title: Security Marks
 ---
 
 Use the Digital Workspace to assign Security Marks to files and folders. Doing this limits their accessibility from users that do not have the correct user rights.

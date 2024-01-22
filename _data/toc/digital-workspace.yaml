@@ -19,7 +19,7 @@
       pages: 
         - title: 'Governance Services overview'
           path: '/digital-workspace/latest/governance/'
-        - title: 'Security Marks in the Digital Workspace'
+        - title: 'Security Marks'
           path: '/digital-workspace/latest/governance/security/'
         - title: 'Working with records'
           path: '/digital-workspace/latest/governance/records/'
@@ -71,7 +71,7 @@
       pages: 
         - title: 'Governance Services overview'
           path: '/digital-workspace/4.2/governance/'
-        - title: 'Security Marks in the Digital Workspace'
+        - title: 'Security Marks'
           path: '/digital-workspace/4.2/governance/security/'
         - title: 'Working with records'
           path: '/digital-workspace/4.2/governance/records/'
@@ -123,7 +123,7 @@
       pages: 
         - title: 'Governance Services overview'
           path: '/digital-workspace/4.1/governance/'
-        - title: 'Security Marks in the Digital Workspace'
+        - title: 'Security Marks'
           path: '/digital-workspace/4.1/governance/security/'
         - title: 'Working with records'
           path: '/digital-workspace/4.1/governance/records/'
@@ -175,7 +175,7 @@
       pages: 
         - title: 'Governance Services overview'
           path: '/digital-workspace/4.0/governance/'
-        - title: 'Security Marks in the Digital Workspace'
+        - title: 'Security Marks'
           path: '/digital-workspace/4.0/governance/security/'
         - title: 'Working with records'
           path: '/digital-workspace/4.0/governance/records/'
