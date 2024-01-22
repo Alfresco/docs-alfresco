@@ -272,3 +272,6 @@ The following actions are available:
 * Move
 * Make available offline
 * Move to Trash
+* Remove from Favorites
+* Restore
+* Delete Permanently
