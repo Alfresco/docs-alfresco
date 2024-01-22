@@ -25,7 +25,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | MS SQL Server 2022 |  |
 | MS SQL Server 2019 | `mssql-jdbc-9.2.1.jre11.jar` |
 | Oracle 19c | `Ojdbc11.jar` – 19.3 |
-| PostgreSQL 15.x |  |
+| PostgreSQL 15.x | `Postgresql-42.6.0.jar` |
 | PostgreSQL 14.x | `Postgresql-42.3.2.jar` |
 | PostgreSQL 13.x | `Postgresql-42.3.2.jar` |
 | MariaDB 10.6 | |
