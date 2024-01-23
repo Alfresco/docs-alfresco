@@ -57,9 +57,9 @@ As usual, no SSL queries configured go to the slave.
 
 ### Configuring Solr master
 
-The configuration affecting replication is controlled by a single file, `alresco-search-services/solrhome/templates/re-rank/conf/solrconfig.xml`. To configure the master server, follow the steps below:
+The configuration affecting replication is controlled by a single file, `alfresco-search-services/solrhome/templates/re-rank/conf/solrconfig.xml`. To configure the master server, follow the steps below:
 
-1. Edit the `alresco-search-services/solrhome/templates/re-rank/conf/solrconfig.xml` file on the master server to change the default replication handler configuration. Remember to uncomment the `master` section.
+1. Edit the `alfresco-search-services/solrhome/templates/re-rank/conf/solrconfig.xml` file on the master server to change the default replication handler configuration. Remember to uncomment the `master` section.
 
     ```bash
     <requestHandler name="/replication" class="solr.ReplicationHandler" > 
@@ -186,7 +186,7 @@ To promote a slave, follow the steps below:
     ![]({% link search-services/images/slave-version.png %})
 
 2. Stop the Solr server on the new master.
-3. In the alresco-search-services/solrhome/templates/re-rank/conf/solrconfig.xml file, replace the Solr configuration in the replication handler that defines the slave with the one that defines the master.
+3. In the alfresco-search-services/solrhome/templates/re-rank/conf/solrconfig.xml file, replace the Solr configuration in the replication handler that defines the slave with the one that defines the master.
 
     ```bash
     <requestHandler name="/replication" class="solr.ReplicationHandler"> 
