@@ -181,7 +181,7 @@ Once the group has been created, click the vertical ellipsis (**&vellip;**) at e
 ## Tags
 
 A tag is a marker that you can assign to related content to help categorize it. This makes it easier to view related content. You can create tags in the Control Center that can be used in the Digital Workspace. For example, you may create tags called **proposal-one**, and  **proposal-two** to help you identify all the content that has been created for two different versions of a design. In the Digital Workspace you can search your content that has specific tags.
-For more on their use in the Digital Workspace, see [Tags]({% link content-services/latest/using/content/tags-categories.md %}#tags).
+For more on their use in the Digital Workspace, see [Tags]({% link digital-workspace/latest/using/tags-categories.md %}#tags).
 
 To create a tag:
 
@@ -205,7 +205,7 @@ The tag list automatically refreshes and you can see the new tag you created. If
 
 ## Categories
 
-A category is a group of files, or other categories, that all relate to a project or concept. Content can be a part of more than one category, for example, a category called **Language** may include a language file called **English**, and the file may also exist within a category called **Country**. For more on their use in the Digital Workspace, see [Categories]({% link content-services/latest/using/content/tags-categories.md %}#categories)
+A category is a group of files, or other categories, that all relate to a project or concept. Content can be a part of more than one category, for example, a category called **Language** may include a language file called **English**, and the file may also exist within a category called **Country**. For more on their use in the Digital Workspace, see [Categories]({% link digital-workspace/latest/using/tags-categories.md %}#categories)
 
 To create a root level category:
 

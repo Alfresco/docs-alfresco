@@ -38,7 +38,11 @@
     - title: 'Image Management'
       path: '/digital-workspace/latest/media/'
     - title: 'Using'
-      path: '/digital-workspace/latest/using/'
+      pages:
+        - title: 'Creating a rule'
+          path: '/digital-workspace/latest/using/'
+        - title: 'Tags and Categories'
+          path: '/digital-workspace/latest/using/tags-categories/'
     - title: 'Develop'    
       pages: 
         - title: 'Overview'

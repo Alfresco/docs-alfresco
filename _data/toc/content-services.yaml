@@ -153,8 +153,6 @@
               path: '/content-services/latest/using/content/files-folders/'
             - title: 'Folder rules'
               path: '/content-services/latest/using/content/rules/'
-            - title: 'Tags and Categories'
-              path: '/content-services/latest/using/content/tags-categories/'
         - title: 'Tasks and workflows'
           path: '/content-services/latest/using/tasks/'
         - title: 'Search'
