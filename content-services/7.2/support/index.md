@@ -80,6 +80,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.11 | |
 | Alfresco Desktop Sync 1.10 | |
 | Alfresco Desktop Sync 1.9 | |
+| Alfresco Transform Service 2.1.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Transform Service 2.0 | |
 | Alfresco Transform Service 1.5.2 | |
 | Alfresco Document Transformation Engine 2.4 | |
@@ -209,6 +210,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.11 | |
 | Alfresco Desktop Sync 1.10 | |
 | Alfresco Desktop Sync 1.9 | |
+| Alfresco Transform Service 2.1.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Transform Service 2.0 | |
 | Alfresco Transform Service 1.5.2 | |
 | Alfresco Document Transformation Engine 2.4 | |
