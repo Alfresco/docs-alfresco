@@ -17,3 +17,5 @@ Use the Digital Workspace to assign Security Marks to files and folders. Doing t
 Once you have saved the Security Marks for the file or folder the ones you have selected will be visible in the Security Marks column.
 
 > **Note:** If you have more than can be displayed in the column you can click the **Display all** button.
+
+See the [Security Controls]({% link content-services/latest/admin/control-center.md %}#security-controls) section of the Content Services - Control Center documentation for more details.
