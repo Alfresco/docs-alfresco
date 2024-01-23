@@ -4,7 +4,7 @@ title: Supported platforms
 
 Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Content Services 7.1.
 
-Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact [Support](https://support.alfresco.com){:target="_blank"}.
+Choose a combination of products to build your own Supported Stack. If anything is unclear then please [contact Support]({% link support/latest/contact.md %}).
 
 {% capture seven-one-one %}
 
@@ -76,6 +76,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.10 | |
 | Alfresco Desktop Sync 1.9 | |
 | Alfresco Desktop Sync 1.8 | |
+| Alfresco Transform Service 2.1.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Transform Service 1.5.1 | |
 | Alfresco Document Transformation Engine 2.4 | |
 | Alfresco Document Transformation Engine 2.3 | |
@@ -198,6 +199,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.10 | |
 | Alfresco Desktop Sync 1.9 | |
 | Alfresco Desktop Sync 1.8 | |
+| Alfresco Transform Service 2.1.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Transform Service 1.5.1 | |
 | Alfresco Transform Service 1.4.1 | |
 | Alfresco Document Transformation Engine 2.4 | |
