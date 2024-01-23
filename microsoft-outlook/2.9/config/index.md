@@ -797,7 +797,7 @@ These settings define global controls across your enterprise and are applied imm
 
     3. **Site**: emails with same messageID are not allowed across a site.
 
-    >**Note:** If an email is dropped into a folder, where the same email document already exists, the version detection feature will recognize it, and the **Versioning** dialog is displayed. See [Managing file versions in Outlook]({% link microsoft-outlook/latest/using/index.md %}#managing-file-versions-in-outlook) for more details.
+    >**Note:** If an email is dropped into a folder, where the same email document already exists, the version detection feature will recognize it, and the **Versioning** dialog is displayed. See [Managing file versions in Outlook]({% link microsoft-outlook/2.9/using/index.md %}#managing-file-versions-in-outlook) for more details.
 
 5. If you have an Alfresco Application Development Framework (ADF) application installed, such as the Digital Workspace, you can configure your Outlook clients to use links to it instead of Alfresco Share. For example, if you want to view the document details page, this configuration will open the relevant page in Digital Workspace instead of Share.
 
@@ -898,7 +898,7 @@ These settings define global controls across your enterprise.
 
 4. Select Licenses from the Tools menu and click **Edit** to add new licenses.
 
-    See [Installing server and client licenses in Alfresco Share]({% link microsoft-outlook/latest/install/index.md %}#installserverclientlicenses) for more information about installing licenses.
+    See [Installing server and client licenses in Alfresco Share]({% link microsoft-outlook/2.9/install/index.md %}#installserverclientlicenses) for more information about installing licenses.
 
 5. Select **System Info** from the Tools menu to view system information.
 
@@ -936,7 +936,11 @@ Configure Microsoft Outlook to find and connect to the correct Alfresco server.
 
     If you select standard authentication, enter your Alfresco user name and password. If you select Windows authentication, the `passthru` authentication is used. For more information about authentication subsystem types, see [Authentication subsystem types]({% link content-services/latest/admin/auth-sync.md %}#Authentication subsystem types).
 
+    >**Note:** By default, SAML authentication is enabled. Use the Client Settings XML file to disable SAML authentication, and remove the SAML authentication radio button in this panel. See [Setting SAML in AlfrescoClientSettings]({% link microsoft-outlook/2.9/config/index.md %}#configure-connection-settings) for more information.
+
 6. Click **Check connection** to test the connection to the Alfresco server.
+
+    >**Note:** If your IT team has configured SAML authentication without single-sign on (SSO), then you may notice the following behavior when you change the Outlook configuration. When you select **Check connection**, you'll see an authentication window, where you'll need to enter your Alfresco user name and password. If you choose to close the window without entering your login details, the Outlook Integration considers this to be a failed authentication attempt and will try again. When the authentication window is displayed for a 2nd time and you close the window, there'll be no further authentication attempts. The Alfresco Outlook Client displays a message to indicate that SAML authentication failed. Click **OK** to dismiss the message.
 
 ### Configure email archive settings
 
@@ -1084,10 +1088,10 @@ Set the configuration template to import when the configuration dialog is called
 
 Use the Alfresco Client Settings XML file for advanced configuration of Alfresco Microsoft Outlook client.
 
-The `AlfrescoClientSettings-2.10.x.xml` file contains advanced configuration properties.
+The `AlfrescoClientSettings-2.9.x.xml` file contains advanced configuration properties.
 Use this file to set up attributes and metadata settings.
 
-1. Locate and open `AlfrescoClientSettings-2.10.x.xml` in the `C:\Users\<username>` directory, where `<username>` is your Windows user name.
+1. Locate and open `AlfrescoClientSettings-2.9.x.xml` in the `C:\Users\<username>` directory, where `<username>` is your Windows user name.
 
     The `<outlook>` section contains elements that you can configure to customize the Alfresco Outlook Client, and also additional `<storage>`, `<connection>`, `<logging>`, `<restrictions>`, and `<tabs>` sections:
 
@@ -1155,24 +1159,16 @@ Use this file to set up attributes and metadata settings.
     |`password`|Password for Alfresco server (encrypted)|This is your Alfresco password.|
     |`shareUrl`|Path to Alfresco Share|`share`: this is the default setting. Specify a text string for an alternative path.|
     |`alfrescoUrl`|Path to Alfresco repository|`alfresco`: this is the default setting. Specify a text string for an alternative path.|
-    |`authentication`|Authentication type for connection to Alfresco|`basic`: basic authentication is used to connect to Alfresco. This also works out-of-the-box if using the Identity Service.<br><br>`windows`: Kerberos authentication is used to connect to Alfresco.<br><br>`oidc`: OpenId Connect authentication is used to connect to Alfresco.<br><br>**Note:** Contact Alfresco support before using these settings.|
+    |`authentication`|Authentication type for connection to Alfresco|`basic`: basic authentication is used to connect to Alfresco<br><br>`windows`: Kerberos authentication is used to connect to Alfresco<br><br>`saml`: SAML authentication is used to connect to Alfresco<br><br>**Note:** Contact Alfresco support before using these settings.|
     |`webApp`|Which Alfresco web application is used to display details, links, etc. outside of the Outlook Integration.|`2`: Share. This is the default setting.<br><br>`3`: ADF|
     |`shareAlterUrl=""`|Sets alternative URL for Alfresco Share|Specify your alternative URL.<br><br>|
     |`checkCertificate`|Specifies whether to check for a server certificate|`true`: certificate is checked and if it is not correct then the connection fails. This is the default setting.<br><br>`false`: certificate is not checked|
     |`checkVersion`|Specifies whether to check the Alfresco server version|`true`: version is checked and if it is not correct then the connection fails. This is the default setting.<br><br>`false`: version is not checked|
     |`settingsCheckInterval`|Specifies the interval, in seconds, between checks to determine if the central settings have changed|`480`: 480 seconds is the default setting.|
+    |`samlFallbackTimeout`|Sets a time, in seconds, for the Alfresco Outlook Client to wait before the SAML authentication window appears. This should only be required for slower networks to reduce the number of times that the authentication window reappears due to a delay from the server.<br><br>Added in Outlook Integration 2.4.7. Supported in versions 2.4.7 onwards and 2.6.|`7`: 7 seconds is the default setting.|
     |`writeStreamBuffering`|Sets the `AllowWriteStreamBuffering` parameter of the HttpWebRequest.<br><br>**Note:** In a clustered Alfresco environment, you may encounter the error message _“This request requires buffering data to succeed”_ while uploading emails or files. Setting `writeStreamBuffering` to `true` will prevent this error from happening.<br><br>Added in Outlook Integration 2.7.|`true`: `AllowWriteStreamBuffering` is enabled.<br><br>`false`: `AllowWriteStreamBuffering` is disabled. This is the default setting.|
 
-5. Configure the attributes that you need for the `<oidc>` element. The `<oidc>` configuration element is part of the `<connection>` element:
-
-    |Attribute|Description|Value|
-    |---------|-----------|-----|
-    |`serverUrl`|URL to the Alfresco Identity Service system that is used for authentication via OpenId Connect.<br><br>**Note:** Only relevant if the authentication type is set to `oidc` in `<connection>` element.<br><br>Added in Outlook Integration 2.10.|URL to Identity Service server|
-    |`realm`|Realm of the Alfresco Identity Service system that is used for authentication via OpenId Connect.<br><br>**Note:** Only relevant if the authentication type is set to `oidc` in `<connection>` element.<br><br>Added in Outlook Integration 2.10.|`alfresco` is the default setting.<br><br>You can change the value if a different realm is set in Identity Service.|
-    |`clientId`|Identity Service OpenId Connect client that is used for the authentication.<br><br>**Note:** Only relevant if the authentication type is set to `oidc` in `<connection>` element.<br><br>Added in Outlook Integration 2.10.|`alfresco` is the default setting.<br><br>You can change the value if a different OpenId Connect client is set in Identity Service.|
-    |`redirectUrl`|Redirect URL that is used by Identity Service to redirect the Outlook Integration to do the token exchange for authentication.<br><br>**Note:** Only relevant if the authentication type is set to `oidc` in `<connection>` element.<br><br>Added in Outlook Integration 2.10.|`"https://127.0.0.1:6543/OutlookIntegrationCallback"` is the default setting.<br><br>You can change the value, but it needs to match the Identity Service setting for allowed redirects for the configured client.|
-
-6. Configure the attributes that you need for the `<feature>` element:
+5. Configure the attributes that you need for the `<feature>` element:
 
     |Attribute|Description|Value|
     |---------|-----------|-----|
@@ -1185,13 +1181,13 @@ Use this file to set up attributes and metadata settings.
     |`tokenAlterMode`|Used for QA and testing. Toggles the way a client is uniquely identified.|**Note:** Keep the default value: `false`.|
     |`copyMoveWarningThreshold`|Sets the threshold for when a warning should be displayed, when a large amount of files is being copied/moved inside the repository with the copy/move & paste feature. Warns the user that copying `x` amount of files can take a long time depending on the server.<br><br>Added in Outlook Integration 2.7.|`100` is the default setting.|
 
-7. Configure the attributes that you need for the `<logging>` element:
+6. Configure the attributes that you need for the `<logging>` element:
 
     |Attribute|Description|Value|
     |---------|-----------|-----|
     |`minLevel`|Sets logging level|`debug`: activates debug logging<br><br>`info`: activates info logging. This is the default setting.<br><br>`warning`: activates warning logging<br><br>`error`: activates error logging|
 
-8. Configure the attributes that you need for the `<restrictions>` element.
+7. Configure the attributes that you need for the `<restrictions>` element.
 
     1. For the high resolution front-end of the Alfresco Outlook Client:
 
@@ -1243,13 +1239,13 @@ Use this file to set up attributes and metadata settings.
         |`<action type="upload-drop-folder" enabled="true"/>`|Sets action: upload folder via drag & drop<br><br>Added in Alfresco Outlook Integration 2.8|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled.|
         |`<action type="send-and-archive" enabled="true"/>`|Sets action: send and archive<br><br>Added in Outlook Integration 2.8.|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled.|
 
-9. Configure the attributes that you need for the `<tabs>` element:
+8. Configure the attributes that you need for the `<tabs>` element:
 
     |Attribute|Description|Value|
     |---------|-----------|-----|
     |`<tab type="workflow" enabled="true" />`|Controls visibility of Workflow tab in Alfresco sidebar in low resolution mode|`true`: Workflow tab is visible.<br><br>`false`: Workflow tab is not visible. This is the default setting.|
 
-10. Configure the attributes that you need for the `<metadata>` element:
+9. Configure the attributes that you need for the `<metadata>` element:
 
     |Attribute|Description|Value|
     |---------|-----------|-----|
@@ -1266,6 +1262,6 @@ Use this file to set up attributes and metadata settings.
     </metadata>
     ```
 
-11. Save your changes and restart Microsoft Outlook.
+10. Save your changes and restart Microsoft Outlook.
 
     The template changes are applied.

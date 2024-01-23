@@ -8,7 +8,7 @@ Features of Outlook Integration include the ability to archive content (i.e. ema
 
 >**Important:** In this documentation, the term 'email' is used to refer to emails, meetings, and appointments for the sake of readability.
 
-For information about installing and configuring the Outlook Integration, see [Installing and configuring the Outlook Integration]({% link microsoft-outlook/latest/install/index.md %}).
+For information about installing and configuring the Outlook Integration, see [Installing and configuring the Outlook Integration]({% link microsoft-outlook/2.9/install/index.md %}).
 
 ## Archiving content in Outlook
 
@@ -29,7 +29,7 @@ When you drag and drop the email with a subject that already exists in a specifi
     ![This screen capture shows the metadata dialog with a metadata selector and associated fields, plus icons for the actions listed.]({% link microsoft-outlook/images/Outlook-metadata-dialog.png %})
 
     * The first line indicates the number of emails that you are archiving (in this case, **1 / 1** is 1 of 1 emails), and the title of the current email. If you're archiving more than one email, the **Next** and **Previous** options are enabled so that you can page between the emails.
-        >**Note:** By default, Alfresco Outlook Integration displays the subject line of the email document as the title. See [Configuring alternative naming of emails in Outlook]({% link microsoft-outlook/latest/config/index.md %}#configalternativenamingemails) if you want to change this behavior.
+        >**Note:** By default, Alfresco Outlook Integration displays the subject line of the email document as the title. See [Configuring alternative naming of emails in Outlook]({% link microsoft-outlook/2.9/config/index.md %}#configalternativenamingemails) if you want to change this behavior.
     * If you have email attachments, the **Apply to all attachments** option is enabled and you can apply any metadata you enter to all attachments related to that email.  
     * If you're archiving more than one email, the **Apply to all emails** option is enabled and you can apply the same metadata to all emails that are being archived.
         >**Note:** You can only try to archive one type of Outlook item at a time, either emails, meetings or appointments.
@@ -54,14 +54,14 @@ When you drag and drop the email with a subject that already exists in a specifi
 
     1. The Alfresco Outlook Client checks if the email to be uploaded already exists in the upload location.
     2. If it does exist, the version detection dialog is shown, and offers you an alternative name.
-    3. Next, there's a check to see if the email exists in another folder, either at site-level or repository-level (depending what your IT team has configured). See [Configuring Outlook email settings in Alfresco Share]({% link microsoft-outlook/latest/config/index.md %}#configoutlookemailsettings) for guidance on customizing **Integration Settings**.
+    3. Next, there's a check to see if the email exists in another folder, either at site-level or repository-level (depending what your IT team has configured). See [Configuring Outlook email settings in Alfresco Share]({% link microsoft-outlook/2.9/config/index.md %}#configoutlookemailsettings) for guidance on customizing **Integration Settings**.
     4. If a match is found, the Alfresco Outlook Client shows the duplication dialog, presenting a reference to the duplicate email in the other folder.
 
     When an email is archived, it is usually identified with an Alfresco icon in the Outlook inbox: ![Alfresco archive icon in Outlook]({% link microsoft-outlook/images/Outlook_alf_icon.png %}){:height="18px" width="18px"}
 
     An email that is archived as an attachment can be opened directly by double-clicking the email in Outlook. The email opens in a new window and can be read normally. An email that is archived as a link can be loaded into Outlook by clicking the link in the email.
 
-    See [Outlook metadata settings]({% link microsoft-outlook/latest/config/index.md %}#configmetadataandlistview) for metadata configuration guidance.
+    See [Outlook metadata settings]({% link microsoft-outlook/2.9/config/index.md %}#configmetadataandlistview) for metadata configuration guidance.
 
 ### Archiving emails after sending
 
@@ -103,7 +103,7 @@ You can create different types of folders within a particular location and assig
 
     The system updates the navigation panel and shows the new folder.
 
-   See [Outlook metadata settings]({% link microsoft-outlook/latest/config/index.md %}#configmetadataandlistview) for metadata configuration guidance.
+   See [Outlook metadata settings]({% link microsoft-outlook/2.9/config/index.md %}#configmetadataandlistview) for metadata configuration guidance.
 
 ## Managing files using the Alfresco sidebar
 
@@ -168,7 +168,7 @@ Work with your files and folders using the Alfresco sidebar.
 
 6. Drag and drop files into the repository. A number of options are available, depending on your configuration settings.
 
-    The options available to you are shown in the right-click context menu. For example, if you have selected a Microsoft Office file, you can edit this online in addition to other standard options. See [Configuring extended settings in Outlook]({% link microsoft-outlook/latest/config/index.md %}#configure-extended-settings) for more information on configuration settings.
+    The options available to you are shown in the right-click context menu. For example, if you have selected a Microsoft Office file, you can edit this online in addition to other standard options. See [Configuring extended settings in Outlook]({% link microsoft-outlook/2.9/config/index.md %}#configure-extended-settings) for more information on configuration settings.
 
     If your IT team has enabled email duplication prevention, the Alfresco Outlook Client will receive information from the server that a particular email document already exists (either in the repository or the site). The following message is presented:
 
@@ -209,6 +209,8 @@ Start workflows using the Alfresco sidebar.
         Upcoming appointments and tasks are shown in the left panel.
 
         >**Note:** In Alfresco Outlook Integration 2.7, the **Workflow** tab is disabled by default. Contact your IT team for further help.
+
+    >**Note:** If your IT team has configured SAML authentication without single-sign on (SSO), when you select the **Workflow** dialog, you'll be prompted to enter your login credentials even though you've already logged in successfully.
 
 ## Managing file versions in Outlook
 
@@ -265,7 +267,7 @@ Create new versions of files by dragging & dropping them into the Alfresco sideb
 
     >**Note:** You might see a **Metadata** dialog if this has been configured by your IT team. Enter the information needed for archiving. See [Archiving content in Outlook](#archiving-content-in-outlook) for more details.
 
-    See [Outlook metadata settings]({% link microsoft-outlook/latest/config/index.md %}#configmetadataandlistview) for metadata configuration guidance.
+    See [Outlook metadata settings]({% link microsoft-outlook/2.9/config/index.md %}#configmetadataandlistview) for metadata configuration guidance.
 
 3. For explicit versioning: drag and drop a single file onto an existing file in the Alfresco sidebar. You will see the **Versioning** dialog.
 
@@ -398,3 +400,10 @@ The Alfresco Outlook Client no longer permits direct write access to a Records M
 ### Error when declaring a record from within Alfresco Outlook Client
 
 In the Alfresco Outlook Client, you might see a message stating that you can't declare a record from within the client. This action is no longer supported. However, you can declare content in a collaboration site as a record (i.e. create an inline record).
+
+### Drag and drop as a PDF link doesn't work with SAML authentication
+
+There's a known issue when using drag and drop from Alfresco to convert an Office file to PDF format, and adding it to an email as a link, where there's an option to automatically link to a PDF version of that document. This feature doesn't currently work with SAML authentication. However, there's a workaround to achieve the same functionality:
+
+* Convert the document you want to link to as a PDF first, using the available context menu action
+* Drag and drop the PDF version as a link to the email
