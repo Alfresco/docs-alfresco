@@ -1,8 +1,8 @@
 ---
-title: Alfresco SDK 4.6 for in-process extensions
+title: Alfresco SDK 4.7 for in-process extensions
 ---
 
-Alfresco SDK 4.6 is a Maven based development kit that provides an easy to use approach to developing applications and extensions for Alfresco. With this SDK you can develop, package, test, run, document and release your Alfresco extension project.
+Alfresco SDK 4.7 is a Maven based development kit that provides an easy to use approach to developing applications and extensions for Alfresco. With this SDK you can develop, package, test, run, document and release your Alfresco extension project.
 
 The following picture illustrates where SDK 4.x fits into the big picture:
 
@@ -14,11 +14,11 @@ The Alfresco SDK is released under [Apache License version 2.0](http://www.apach
 
 The 4.0 release took advantage of Semantic Versioning ([SEMVER](https://semver.org/){:target="_blank"}), which means that it isn't directly compatible with the previous releases of the SDK.
 
-If you have existing projects that you wish to upgrade to SDK 4.6 the recommended approach is to generate a new project from the new archetypes and move your code over.
+If you have existing projects that you wish to upgrade to SDK 4.7 the recommended approach is to generate a new project from the new archetypes and move your code over.
 
 ## What's new?
 
-Alfresco SDK 4.6 is a minor update to the SDK and provides support for Alfresco 7.4.x and later.
+Alfresco SDK 4.7 is a minor update to the SDK and extends support to Alfresco 23.1.
 
 ### Embracing containers and Docker
 
@@ -59,11 +59,11 @@ environment can be more similar to a real one, including whatever other service 
 
 ## Getting started with Alfresco SDK {#gettingstarted}
 
-Use these instructions to get started with using Alfresco SDK 4.6.
+Use these instructions to get started with using Alfresco SDK 4.7.
 
 ### Prerequisites
 
-There are a number of software requirements for using Alfresco SDK 4.6:
+There are a number of software requirements for using Alfresco SDK 4.7:
 
 * Java Development Kit (JDK) - Version 17
 * Maven - Version 3.3
@@ -73,7 +73,7 @@ There are a number of software requirements for using Alfresco SDK 4.6:
 
 #### Java
 
-Content Services 6.1 is compiled and executed using Java 11, but it is highly recommended to work with Content Services 7.3 or later, which uses Java 17.
+It is highly recommended to work with Content Services 23.1, which uses Java 17.
 
 1. Download [JDK 17](https://jdk.java.net/archive/){:target="_blank"}, unzip it and configure it as the default Java installation.
 
@@ -100,7 +100,7 @@ Content Services 6.1 is compiled and executed using Java 11, but it is highly re
 
 Alfresco recommends that you keep up-to-date with all the Maven releases. Linux distributions and package managers tend to bundle older releases and this is the most common pitfall.
 
-Alfresco SDK 4.6 requires Maven 3.3.0 or later, but you are recommended to download the latest version.
+Alfresco SDK 4.7 requires Maven 3.3.0 or later, but you are recommended to download the latest version.
 
 1. Download and install [Apache Maven](https://maven.apache.org/download.cgi){:target="_blank"} and make sure it is configured correctly on your path.
 
@@ -197,7 +197,8 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     17: 4.4.0
     18: 4.5.0
     19: 4.6.0
-    Choose a number: 19: 19    
+    20: 4.7.0
+    Choose a number: 20: 20
     ```
 
 4. You are prompted to enter additional information:
@@ -226,7 +227,7 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
 
     ```bash
     [INFO] ----------------------------------------------------------------------------
-    [INFO] Using following parameters for creating project from Archetype: alfresco-allinone-archetype:4.6.0
+    [INFO] Using following parameters for creating project from Archetype: alfresco-allinone-archetype:4.7.0
     [INFO] ----------------------------------------------------------------------------
     [INFO] Parameter: groupId, Value: com.acme
     [INFO] Parameter: artifactId, Value: my-all-in-one
@@ -452,7 +453,7 @@ my-all-in-one-project username$ ./run.sh build_start
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Build Order:
 [INFO] 
-[INFO] AIO - SDK 4.6
+[INFO] AIO - SDK 4.7
 [INFO] Alfresco Platform/Repository JAR Module
 [INFO] Alfresco Share JAR Module
 [INFO] Integration Tests Module
@@ -462,7 +463,7 @@ my-all-in-one-project username$ ./run.sh build_start
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Summary:
 [INFO] 
-[INFO] AIO - SDK 4.6 ...................................... SUCCESS [  0.680 s]
+[INFO] AIO - SDK 4.7 ...................................... SUCCESS [  0.680 s]
 [INFO] Alfresco Platform/Repository JAR Module ............ SUCCESS [  5.461 s]
 [INFO] Alfresco Share JAR Module .......................... SUCCESS [  0.557 s]
 [INFO] Integration Tests Module ........................... SUCCESS [  0.900 s]
