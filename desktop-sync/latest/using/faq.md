@@ -42,7 +42,7 @@ Yes. As a Desktop Sync user, you can either:
 
 * Take your machine offline: You can simply ignore initial sync and shut down your machine or disconnect the network. Initial sync will resume when connection is restored.
 * Keep your machine running but discontinue initial sync: You can quit Desktop Sync and initial sync will resume when restart Desktop Sync.
-* Amend your selected content choices by clicking **Return to Content Selection**.
+* Amend your selected content choices by clicking **Return to content selection**.
 
 ### I made changes to a local file that aren't showing in Alfresco.
 
@@ -270,7 +270,7 @@ Yes. As a Desktop Sync user, you can either:
 
 * Take your computer offline: You can simply ignore initial sync and shut down your computer or disconnect the network. Initial sync will resume when connection is restored.
 * Keep your computer running but discontinue initial sync: You can quit Desktop Sync and initial sync will resume when you restart Desktop Sync.
-* Amend your selected content choices by clicking **Return to Content Selection**.
+* Amend your selected content choices by clicking **Return to content selection**.
 
 ### I made changes to a local file that aren't showing in Alfresco.
 

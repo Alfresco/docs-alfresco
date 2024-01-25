@@ -43,9 +43,9 @@ The first time you open Desktop Sync you need to enter your login details to con
 
     That's it. Your Desktop Sync account is now set.
 
-The **Choose files and folders to sync** screen appears.
+The **Select sites and folders to sync** screen appears.
 
-![Initial sync selection screen]({% link desktop-sync/images/setup-1.9.png %}){:height="555px" width="346px"}
+![Initial sync selection screen]({% link desktop-sync/images/setup-1.17.png %}){:height="555px" width="346px"}
 
 All your favorite Alfresco content, My Files, Shared Files, and your Alfresco sites are displayed.
 

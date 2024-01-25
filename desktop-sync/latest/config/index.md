@@ -75,7 +75,7 @@ Here are some examples of the information that's collected:
 * Application crash logs
 * Event metrics for specific features:
     * Conflict detected
-    * Conflict resolved: Keep my Changes, Discard my Changes, error
+    * Conflict resolved: Keep my changes, Discard my changes, error
     * Check out: success / error
     * Cancel check out: success / error
     * Check in: success / error, Has comment: yes / no, Major version: yes / no
@@ -116,7 +116,7 @@ can apply to their content from their desktops. If either `syncui.fileCustomType
 from the configuration file, the custom types are fetched from the repository. 
 Otherwise, the custom type field is populated with the values read from the configuration file.
 
-In the **Property** dialog > **General Properties** tab, there's a drop-down menu with the custom types that can be 
+In the **Property** dialog > **General properties** tab, there's a drop-down menu with the custom types that can be 
 applied to a file or folder. This menu lists only custom types created using the Content Model Manager API.
 
 Example:
