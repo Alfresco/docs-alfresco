@@ -1,12 +1,12 @@
 ---
-title: Alfresco SDK 5.2 for out-of-process extensions
+title: Alfresco SDK 6.0 for out-of-process extensions
 ---
 
-Alfresco SDK 5.2 is a development kit that provides an easy to use approach to developing applications and 
-out-of-process extensions for Content Services 7.x. With this SDK you can develop, package, test, run, document and 
+Alfresco SDK 6.x is a development kit that provides an easy to use approach to developing applications and 
+out-of-process extensions for Content Services 23.x. With this SDK you can develop, package, test, run, document and 
 release your extension project.
 
-The following picture illustrates where SDK 5.2 fits into the big picture:
+The following picture illustrates where the SDK fits into the big picture:
 
 ![sdk52_big_picture]({% link content-services/images/sdk52_big_picture.png %})
 
@@ -14,30 +14,30 @@ The SDK is a fundamental tool provided by Alfresco to developers to build custom
 Content Services Platform. It is based on the [Spring Integration](https://spring.io/projects/spring-integration){:target="_blank"} 
 tooling library and the [Spring Boot](https://spring.io/projects/spring-boot){:target="_blank"} library. 
 
-Alfresco SDK 5.2 is released under [Apache License version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html){:target="_blank"} 
+Alfresco SDK 6 is released under [Apache License version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html){:target="_blank"} 
 and supports Content Services Enterprise Edition as well as Community Edition. If you're an Enterprise customer, 
 please check the [Alfresco SDK Support status]({% link content-services/latest/support/index.md %}) 
-for the version you're using. If your version is in Limited or Full Support and you need help, contact our 
-[Support team](https://support.alfresco.com/){:target="_blank"}.
+for the version you're using. If your version is in Limited or Full Support and you need help, [contact Support]({% link support/latest/contact.md %}).
 
-The 5.2 release takes advantage of Semantic Versioning ([SEMVER](https://semver.org/){:target="_blank"}), which means that 
+The 6.0 release takes advantage of Semantic Versioning ([SEMVER](https://semver.org/){:target="_blank"}), which means that 
 this new release is not directly compatible with the previous releases of the SDK.
 
-There is no direct upgrade path from previous versions of the SDK. This is because version 5.2 is an additional SDK to 
+There is no direct upgrade path from previous versions of the SDK because version 6.0 is an additional SDK to 
 support out-of-process extensions, rather than an updated 4.x version. [Alfresco SDK 4.x]({% link content-services/latest/develop/sdk.md %}) 
 is still needed for a lot of the extension points, such as [content modelling]({% link content-services/latest/develop/repo-ext-points/content-model.md %}).
 
 If you have an existing project with business logic that could be lifted out and implemented as an external service, then 
-the recommended approach is to create a new SDK 5.2 project and start using the event system to implement the business logic. 
+the recommended approach is to create a new SDK 6 project and start using the event system to implement the business logic. 
 Any business logic that is executed as a result of an action in the Repository, such as document or folder uploaded, updated, deleted,
-can be reimplemented as an external out-process extension utilizing the new event system. 
+can be reimplemented as an external out-process extension utilizing the new event system.
 
 ## What's new?
-* Alfresco SDK 5.2 [integrates](#using-event-gateway) with the new [Event Gateway]({% link content-services/latest/develop/oop-ext-points/event-gateway.md %}) 
-that is part of Content Services version 7.1.
+
+* Alfresco SDK 6 [integrates](#using-event-gateway) with the [Event Gateway]({% link content-services/latest/develop/oop-ext-points/event-gateway.md %}) that is part of Content Services 23.1.
 * ReST API authentication using [OAuth2](#rest-api-config) with Alfresco Identity Service.
 
 ## Introduction
+
 The SDK includes Java libraries for the following:
 
 * **Alfresco Java Event API** - enables an Alfresco developer to work with the new Alfresco Event system from Java.
@@ -470,21 +470,19 @@ The `resource.getSource().getId()` call will return the Node ID for the source n
 `resource.getTarget().getId()` call will return the Node ID for the target node.
 
 ## Creating event handler projects
+
 In this section we will see how to use SDK 5 to create Alfresco event handler projects, using plain Java and 
 using the Spring framework.
 
-### Start up Content Services 7 or newer {#acsstart}
-Before continuing you need an instance of Content Services version 7 running, either Community or Enterprise. In this 
+### Start up Content Services 23.1 or newer {#acsstart}
+
+Before continuing you need an instance of Content Services version 23.1 running, either Community or Enterprise. In this 
 samples section we will use Community and start it up with Docker Compose. You can get the Docker Compose file for 
-Community version 7 from the [acs-deployment](https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/community-docker-compose.yml){:target="_blank"} 
-GitHub project.
+Community version 23.1 from the [acs-deployment](https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/community-docker-compose.yml){:target="_blank"} GitHub project.
 
 Put the Docker Compose YAML file in a directory and then start it all up with the following command:
 
 ```bash
-$ ls -l
-total 8
--rw-r--r--  1 mbergljung  staff  4006 26 Mar 09:43 docker-compose.yml
 $ docker-compose up
 ...
 ```
@@ -492,8 +490,8 @@ $ docker-compose up
 During start up you can see Apache Active MQ starting:
 
 ```text
-activemq_1            |  INFO | Apache ActiveMQ 5.16.1 (localhost, ID:6906413a8893-36895-1616752022615-0:1) is starting
-activemq_1            |  INFO | Listening for connections at: tcp://6906413a8893:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+activemq_1            |  INFO | Apache ActiveMQ 5.18.3 (localhost, ID:34b213aab4c7-42881-1706185256201-0:1) is starting
+activemq_1            |  INFO | Listening for connections at: tcp://34b213aab4c7:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600
 ...
 ```
 
@@ -502,12 +500,13 @@ event application.
 
 It will take 5-15 minutes to start up, depending on what Docker images you already have locally. Make sure everything has 
 started properly by accessing [http://localhost:8080/share](http://localhost:8080/share){:target="_blank"} 
-and login with **admin/admin**. 
+and login with **admin/admin**.
 
 ### Prerequisites {#prereq}
-Before you start using any of the libraries in SDK 5 make sure you got the correct Java and Maven versions installed:
 
-Java needs to be version 11 or above:
+Before you start using any of the libraries in SDK 6 make sure you got the correct Java and Maven versions installed:
+
+Java needs to be version 17 or above:<!--FIXME: Java 17 .. more to follow-->
 
 ```bash
 $ java -version
@@ -564,7 +563,7 @@ Before you start, make sure you're familiar with Spring Boot and the Maven proje
 2. Click **GENERATE** to generate and download your default Spring Boot project.
 3. Make the following changes in your project:
 
-    1. Change the parent of the Maven project (i.e. in `pom.xml`) so it uses the Alfresco Java SDK (i.e. SDK 5).
+    1. Change the parent of the Maven project (i.e. in `pom.xml`) so it uses the Alfresco Java SDK (i.e. SDK 6).
     2. Delete the Spring Boot test dependency in the POM file, and also the test source (i.e. `org/alfresco/tutorial/sdk5demo/Sdk5DemoApplicationTests.java`).
 
     Your project file should look like this now:
@@ -575,11 +574,11 @@ Before you start, make sure you're familiar with Spring Boot and the Maven proje
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
         <modelVersion>4.0.0</modelVersion>
         
-        <!-- Alfresco Java SDK 5 Parent -->
+        <!-- Alfresco Java SDK 6 Parent -->
         <parent>
             <groupId>org.alfresco</groupId>
             <artifactId>alfresco-java-sdk</artifactId>
-            <version>5.2.0</version>
+            <version>6.0.0</version>
         </parent>
         
         <groupId>org.alfresco.tutorial</groupId>
@@ -768,11 +767,11 @@ Add the following dependency in the Maven project file (i.e. `pom.xml`):
 
 ```xml
 <dependencies>
-    <!-- Alfresco Java SDK 5 Java Event Handler API Spring Boot Starter -->
+    <!-- Alfresco Java SDK 6 Java Event Handler API Spring Boot Starter -->
     <dependency>
         <groupId>org.alfresco</groupId>
         <artifactId>alfresco-java-event-api-spring-boot-starter</artifactId>
-        <version>5.2.0</version>
+        <version>6.0.0</version>
     </dependency>
 </dependencies>
 ```
@@ -937,11 +936,11 @@ Add the following dependency in the Maven project file (i.e. `pom.xml`):
 
 ```xml
 <dependencies>
-    <!-- Alfresco Java SDK 5 Spring Integration Event Handler API Spring Boot Starter -->
+    <!-- Alfresco Java SDK 6 Spring Integration Event Handler API Spring Boot Starter -->
     <dependency>
         <groupId>org.alfresco</groupId>
         <artifactId>alfresco-java-event-api-spring-boot-starter</artifactId>
-        <version>5.2.0</version>
+        <version>6.0.0</version>
     </dependency>
 </dependencies>
 ```
@@ -1282,11 +1281,11 @@ Make sure you have completed [prerequisites](#prereq) and created a [starter pro
 
     ```xml
     <dependencies>
-        <!-- Alfresco Java SDK 5 Java ReST API wrapper Spring Boot Starter -->
+        <!-- Alfresco Java SDK 6 Java ReST API wrapper Spring Boot Starter -->
         <dependency>
         <groupId>org.alfresco</groupId>
         <artifactId>alfresco-java-rest-api-spring-boot-starter</artifactId>
-        <version>5.2.0</version>
+        <version>6.0.0</version>
         </dependency>
     </dependencies>
     ```
@@ -1592,7 +1591,8 @@ $ ^C
 ...
 $ mvn clean package -Dlicense.skip=true
 ...
-``` 
+```
+
 Create an Alfresco Share site with id `test` as follows:
 
 ```bash
@@ -1609,7 +1609,7 @@ $ java -jar target/rest-api-0.0.1-SNAPSHOT.jar create-site test
     preset: site-dashboard
     role: SiteManager
 }
-``` 
+```
 
 Then create a folder called `folder1` in the site with id `test`:
 
@@ -1648,7 +1648,7 @@ $ java -jar target/rest-api-0.0.1-SNAPSHOT.jar create-folder test folder1
     permissions: null
     definition: null
 }
-``` 
+```
 
 Create a file called `somefile.txt` in the folder called `folder1` (3e16d079-2fdc-4d64-ad76-c65c233165f4):
 
@@ -1719,7 +1719,8 @@ $ java -jar target/rest-api-0.0.1-SNAPSHOT.jar create-file 3e16d079-2fdc-4d64-ad
     permissions: null
     definition: null
 }
-``` 
+```
+
 Finally, search for content matching text `file` in site with id `test`:
 
 ```bash
@@ -1805,18 +1806,18 @@ search.service.path=/alfresco/api/-default-/public/search/versions/1
 
     ```xml
     <dependencies>
-        <!-- Alfresco Java SDK 5 Java Event Handler API Spring Boot Starter -->
+        <!-- Alfresco Java SDK 6 Java Event Handler API Spring Boot Starter -->
         <dependency>
             <groupId>org.alfresco</groupId>
             <artifactId>alfresco-java-event-api-spring-boot-starter</artifactId>
-            <version>5.2.0</version>
+            <version>6.0.0</version>
         </dependency>
         
-        <!-- Alfresco Java SDK 5 Java ReST API wrapper Spring Boot Starter -->
+        <!-- Alfresco Java SDK 6 Java ReST API wrapper Spring Boot Starter -->
         <dependency>
         <groupId>org.alfresco</groupId>
         <artifactId>alfresco-java-rest-api-spring-boot-starter</artifactId>
-        <version>5.2.0</version>
+        <version>6.0.0</version>
         </dependency>
     </dependencies>
     ```
@@ -1958,7 +1959,7 @@ mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=
 ```
 
 ## Using the Event Gateway {#using-event-gateway}
-Alfresco Java SDK 5.2 is compatible with [Alfresco Event Gateway]({% link content-services/latest/develop/oop-ext-points/event-gateway.md %}).
+Alfresco Java SDK 6 is compatible with [Alfresco Event Gateway]({% link content-services/latest/develop/oop-ext-points/event-gateway.md %}).
 
 Using the Alfresco Event Gateway REST API, extensions can manage the lifecycle of an event subscription. For example, 
 an out-of-process extension may [create a subscription](#gateway-api-create-sub) 
@@ -1973,7 +1974,7 @@ To work with the Gateway ReST API Java Wrapper in your extension project, add th
 <dependency>
     <groupId>org.alfresco</groupId>
     <artifactId>alfresco-event-gateway-api</artifactId>
-    <version>5.2.0</version>
+    <version>6.0.0</version>
 </dependency>
 ```
 
