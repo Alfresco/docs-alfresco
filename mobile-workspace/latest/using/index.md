@@ -259,7 +259,8 @@ You can access workflows in two ways by either creating a workflow from the cont
 To set up a workflow, you can either:
 
 * Create a new workflow from the context menu of an existing file.
-* Starting from the **Workflows** tab, tap the floating button (**+**), and then select a workflow.
+* Starting from the **Workflows** tab, tap the floating action button (**+**), and then select a workflow.
+
 
 ## Multiple Selection
 
