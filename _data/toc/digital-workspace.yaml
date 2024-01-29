@@ -38,7 +38,11 @@
     - title: 'Image Management'
       path: '/digital-workspace/latest/media/'
     - title: 'Using'
-      path: '/digital-workspace/latest/using/'
+      pages:
+        - title: 'Creating a rule'
+          path: '/digital-workspace/latest/using/'
+        - title: 'Tags and Categories'
+          path: '/digital-workspace/latest/using/tags-categories/'
     - title: 'Develop'    
       pages: 
         - title: 'Overview'
@@ -90,7 +94,11 @@
     - title: 'Image Management'
       path: '/digital-workspace/4.2/media/'
     - title: 'Using'
-      path: '/digital-workspace/4.2/using/'
+      pages:
+        - title: 'Creating a rule'
+          path: '/digital-workspace/4.2/using/'
+        - title: 'Tags and Categories'
+          path: '/digital-workspace/4.2/using/tags-categories/'
     - title: 'Develop'    
       pages: 
         - title: 'Overview'
@@ -142,7 +150,11 @@
     - title: 'Image Management'
       path: '/digital-workspace/4.1/media/'
     - title: 'Using'
-      path: '/digital-workspace/4.1/using/'
+      pages:
+        - title: 'Creating a rule'
+          path: '/digital-workspace/4.1/using/'
+        - title: 'Tags and Categories'
+          path: '/digital-workspace/4.1/using/tags-categories/'
     - title: 'Develop'    
       pages: 
         - title: 'Overview'
@@ -193,6 +205,10 @@
           path: '/digital-workspace/4.0/process/config/'
     - title: 'Image Management'
       path: '/digital-workspace/4.0/media/'
+    - title: 'Using'
+      pages:
+        - title: 'Tags and Categories'
+          path: '/digital-workspace/4.0/using/tags-categories/'
     - title: 'Develop'    
       pages: 
         - title: 'Overview'
