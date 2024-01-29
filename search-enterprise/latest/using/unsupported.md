@@ -10,7 +10,6 @@ The following features, which were supported with Search and Insight Engine 2.x 
 
 ## Search features
 
-* Aspect queries (it works only using exact aspect name)
 * Fingerprinting
 * Resource limiting
 * Scoped search
@@ -19,7 +18,6 @@ The following features, which were supported with Search and Insight Engine 2.x 
 ### Search Syntax
 
 * Fuzzy matching
-* Search for spans and positions
 * Field Facets Pagination
 * Field Facets Tags Exclusion
 
