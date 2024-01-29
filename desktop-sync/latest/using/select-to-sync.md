@@ -8,7 +8,7 @@ Once you've set up Desktop Sync, all your Alfresco Content Services folders will
 
 Once you've set up Desktop Sync, all your Alfresco Content Services folders are displayed from My Files, Shared Files, and My Sites.
 
-Use the *Choose files and folders to sync* screen to select the content to sync between Alfresco Content Services and your desktop. The content is synced at `C:\Users\<username>\Alfresco`.
+Use the *Select sites and folders to sync* screen to select the content to sync between Alfresco Content Services and your desktop. The content is synced at `C:\Users\<username>\Alfresco`.
 
 If you work with content that has deep folder structures, you may wish to deselect the **Include all files and sub-folders** checkbox. This allows you to only sync selected folders deep in your hierarchy, without syncing the intermediate folders, and prevent lengthy folder paths being created. By default, this feature is enabled, and if you want to sync only particular folders then the checkbox has to be deselected. In this case, only the files in the selected folders are synced using a folder structure starting from their respective root paths in Content Services (such as My Files, Shared Files, and your Sites).
 
@@ -24,7 +24,7 @@ When the checkbox is selected (since it's enabled by default), the folders are s
 
 1. Synchronize your content from **My Files** and **Shared Files**.
 
-    ![Initial sync selection screen]({% link desktop-sync/images/setup-1.9.png %}){:height="555px" width="346px"}
+    ![Initial sync selection screen]({% link desktop-sync/images/setup-1.17.png %}){:height="555px" width="346px"}
 
     1. Select **My Files** to expand the folder list in your **My Files** area of Alfresco Content Services.
 
@@ -56,7 +56,7 @@ When the checkbox is selected (since it's enabled by default), the folders are s
 
 6. Click **Sync** to start initial syncing of the selected Alfresco files and folders to your desktop.
 
-    > **Tip:** You can click **Cancel** to cancel the sync and close the Choose files and folders to sync screen.
+    > **Tip:** You can click **Cancel** to cancel the sync and close the Select sites and folders to sync screen.
 
     > **Note:** During the initial sync, don't disconnect your computer from the network or put your computer to sleep. Although the sync will resume if interrupted, it will likely need to check the content again and very large initial syncs may take a long time to complete.
 
@@ -84,7 +84,7 @@ In C`:\Users\<username>\Alfresco`, copies of all the content you've selected to 
 
 During initial sync:
 
-* You can **Return to Content Selection** to change the content selected for synchronization. Note that after making changes, your sync will restart from the beginning.
+* You can **Return to content selection** to change the content selected for synchronization. Note that after making changes, your sync will restart from the beginning.
 * If you create a new file or update a file on your desktop, it will be synced only after the initial sync is over.
 * It's recommended that you don't move the parent folders being synced.
 
@@ -163,7 +163,7 @@ When the checkbox is selected (since it's enabled by default), the folders are s
 
 The **Sync** progress dialog shows the status of the initial sync. The Alfresco icon in the menu bar changes to indicate that the sync is in progress ![]({% link desktop-sync/images/ds-syncing-mac.png %}){:height="23px" width="23px"}. Once the sync has completed successfully, the icon changes to ![]({% link desktop-sync/images/ds-synced-mac.png %}){:height="23px" width="23px"}.
 
-![]({% link desktop-sync/images/initialsync-mac-1.12.png %}){:height="221px" width="469px"}
+![]({% link desktop-sync/images/initialsync-mac-1.17.png %}){:height="221px" width="469px"}
 
 In `/<userHome>/Alfresco`, copies of all the content you've selected to sync are created. Desktop Sync automatically keeps both the local copy and the Alfresco Content Services versions in sync with each other whenever any changes are made.
 
@@ -172,7 +172,7 @@ In `/<userHome>/Alfresco`, copies of all the content you've selected to sync are
 During initial sync:
 
 * You can close the sync progress dialog using the red cross, and the initial sync will continue in the background which allows you to continue working elsewhere.
-* You can **Return to Content Selection** to change the content selected for synchronization. Note that after making changes, your sync will restart from the beginning.
+* You can **Return to content selection** to change the content selected for synchronization. Note that after making changes, your sync will restart from the beginning.
 * If you create a new file or update a file on your desktop, it'll be synced after the initial sync is over.
 * It's recommended that you don't move folders until the initial sync has completed.
 

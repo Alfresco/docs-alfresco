@@ -65,11 +65,11 @@ This ensures users with Desktop Sync clients are always up to date with minimal 
 
 Starting from version 1.4, Alfresco Desktop Sync users can authenticate through a SAML identity provider.
 
-The following prerequisites are required:
+The following prerequisites are required - see the [Supported platforms]({% link sync-service/latest/support/index.md %}) page for specific versions:
 
-* Alfresco Content Services 6.2 or later
-* Alfresco Sync Service 3.3 or later
-* Identity Service 1.1 or later
+* Alfresco Content Services
+* Alfresco Sync Service
+* Identity Service
 
 SAML authentication in Desktop Sync clients (Windows and Mac) is automatically enabled if the 
 Alfresco Content Services repository is configured to use the Identity Service.

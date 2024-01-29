@@ -26,23 +26,23 @@ The following section goes through each one of the Desktop Sync menu items.
 
 Displays information about checked out files, any pending syncs, and conflicts.
 
-![]({% link desktop-sync/images/conflict.png %}){:height="374px" width="756px"}
+![]({% link desktop-sync/images/conflict-1.17.png %}){:height="374px" width="756px"}
 
-* Select **Files Checked Out** to view information about any files you've checked out from Desktop Sync, for example, file name, file location, and details when the file was downloaded.
-* Select **Pending Syncs** to view information about any pending syncs, for example, file name, status of the pending sync, modifier, file location, and details when the file was last accessed.
+* Select **Checked out** to view information about any files you've checked out from Desktop Sync, for example, file name, file location, and details when the file was downloaded.
+* Select **Pending** to view information about any pending syncs, for example, file name, status of the pending sync, modifier, file location, and details when the file was last accessed.
 * Select **Conflicts** to view conflict-related information and resolve the conflict. The information displayed includes file name, the conflict or issue, modifier, location of the conflict, and details when the file was last modified.
 * Select the file in conflict and click **Resolve**.
 
 To resolve a conflict, choose which version to keep, Alfresco or your changes and click **Keep**:
 
-![]({% link desktop-sync/images/conflict-resolution.png %}){:height="246px" width="350px"}
+![]({% link desktop-sync/images/conflict-resolution-1.17.png %}){:height="246px" width="350px"}
 
-* **Alfresco Version**: Replaces the local file with the Alfresco copy.
-* **My Version**: Copies updates made to content locally to Alfresco.
+* **Alfresco version**: Replaces the local file with the Alfresco copy.
+* **My version**: Copies updates made to content locally to Alfresco.
 
-##### Working with multiple Checked Out files
+##### Working with multiple checked out files
 
-If several files are **Checked Out**, you have the following options:
+If several files are **Checked out**, you have the following options:
 
 * Select files individually using the check boxes to the left hand side, or use the select all files check box at the top.
 * When you select more than one check box, you can pick bulk actions at the top of the tab, **Check In** and **Cancel Check Out**. If you choose **Check In**, you can select if the new version is a major or minor change, and optionally input a comment. Select **Check In** again to save your changes. This applies the same version change and comment (if added) to all the selected files.
@@ -248,26 +248,26 @@ You won't be able to sync content during this time. Syncing will resume when you
 
 It's recommended that you always have Desktop Sync up and running so that your local content and Alfresco are in sync.
 
-### Check Outs, Conflicts and Pending Syncs {#checkouts-conflicts-pendingsyncs}
+### Check Outs, Conflicts and Pending {#checkouts-conflicts-pendingsyncs}
 
 Displays information about checked out files, any pending syncs, and conflicts.
 
-![]({% link desktop-sync/images/ds-tabbed-ui.png %}){:height="358px" width="260px"}
+![]({% link desktop-sync/images/ds-tabbed-ui-1.17.png %}){:height="358px" width="260px"}
 
-* Select **Checked Out** to view information about any files you've checked out from Desktop Sync, for example, file name, file location, and details when the file was downloaded.
+* Select **Checked out** to view information about any files you've checked out from Desktop Sync, for example, file name, file location, and details when the file was downloaded.
 * Select **Pending** to view information about any pending syncs, for example, file name, status of the pending sync, modifier, file location, and details when the file was last accessed.
 * Select **Conflicts** to view conflict-related information and resolve the conflict. The information displayed includes file name, the conflict or issue, modifier, location of the conflict, and details when the file was last modified.
 
     To resolve a conflict, select the conflict and either click:
 
-    * **Discard my Changes**: Replaces the local file with the Alfresco copy.
-    * **Keep my Changes**: Copies updates made to content locally over to Alfresco.
+    * **Discard my changes**: Replaces the local file with the Alfresco copy.
+    * **Keep my changes**: Copies updates made to content locally over to Alfresco.
 
-> **Note:** There may be times when you can't resolve a conflict for a file because the parent folder also has a conflict. In this case, your only choice is to resolve the conflict on the folder by either selecting **Keep my Changes** or **Discard my Changes**. Your choice is then applied to all files within that folder.
+> **Note:** There may be times when you can't resolve a conflict for a file because the parent folder also has a conflict. In this case, your only choice is to resolve the conflict on the folder by either selecting **Keep my changes** or **Discard my changes**. Your choice is then applied to all files within that folder.
 
-### Working with multiple Checked Out files {#working-with-multiple-checkedout-files-mac}
+### Working with multiple checked out files {#working-with-multiple-checkedout-files-mac}
 
-If several files are **Checked Out**, you have the following options:
+If several files are **Checked out**, you have the following options:
 
 * Select files individually using the check boxes to the left hand side, or use the select all files check box at the top.
 * When you select more than one check box, you can pick bulk actions at the top of the tab, **Check In** and **Cancel Check Out**. If you choose **Check In**, you can select if the new version is a major or minor change, and optionally input a comment. Select **Check In** again to save your changes. This applies the same version change and comment (if added) to all the selected files.
