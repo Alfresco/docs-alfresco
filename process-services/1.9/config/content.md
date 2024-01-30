@@ -50,7 +50,7 @@ The following properties need to be set in the `activiti-app.properties` file to
 
 |Property|Description|
 |--------|-----------|
-|box.disabled|Set this to `true` to enable Box connections to be configured in forms and processes. |
+|box.disabled|Set this to `false` to enable Box connections to be configured in forms and processes. |
 |box.web.auth_uri|Set this to the value provided in the example column to configure the Box authentication URI. For example `https://app.box.com/api/oauth2/authorize`. |
 |box.web.token_uri|Set this to the value provided in the example column to configure the Box token URI. For example `https://app.box.com/api/oauth2/token`. |
 |box.web.redirect_uris|Update the base of the URL provided in the example column to reflect your Process Services installation. For example `http://localhost:8080/activiti-app/app/rest/integration/box/confirm-auth-request`. |
