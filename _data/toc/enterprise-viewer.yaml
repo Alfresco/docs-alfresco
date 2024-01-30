@@ -1,5 +1,5 @@
-# Alfresco Enterprise Viewer 3.6
-- version: 3.6
+# Alfresco Enterprise Viewer 4.0
+- version: 4.0
   pages:
     - title: 'Introduction'
       path: '/enterprise-viewer/latest/'
@@ -43,6 +43,51 @@
           path: '/enterprise-viewer/latest/develop/integrations/'
         - title: 'ADF AEV applications'
           path: '/enterprise-viewer/latest/develop/adf/'
+# Alfresco Enterprise Viewer 3.6
+- version: 3.6
+  pages:
+    - title: 'Introduction'
+      path: '/enterprise-viewer/3.6/'
+    - title: 'Install'
+      pages:
+        - title: 'Overview'
+          path: '/enterprise-viewer/3.6/install/'
+        - title: 'Java 17 support'
+          path: '/enterprise-viewer/3.6/install/java-support/'
+        - title: 'Install Alfresco Enterprise Viewer Transformer (optional)'
+          path: '/enterprise-viewer/3.6/install/aevt/'
+        - title: 'Upgrade'
+          path: '/enterprise-viewer/3.6/install/upgrade/'
+        - title: 'Integrate AEV with ADF'
+          path: '/enterprise-viewer/3.6/install/adf/'
+        - title: 'Prerequisites and sizing'
+          path: '/enterprise-viewer/3.6/install/prereqs/'
+    - title: 'Using'
+      path: '/enterprise-viewer/3.6/using/'
+    - title: 'Configure'
+      pages:
+        - title: 'AEV actions and modes'
+          path: '/enterprise-viewer/3.6/config/actions/'
+        - title: 'Configuration files'
+          path: '/enterprise-viewer/3.6/config/files/'
+        - title: 'Collaboration features'
+          path: '/enterprise-viewer/3.6/config/collaboration/'       
+        - title: 'Performance tuning'
+          path: '/enterprise-viewer/3.6/config/performance/'
+        - title: 'Configure overlays'
+          path: '/enterprise-viewer/3.6/config/overlay/'
+        - title: 'Configure suggested redaction'
+          path: '/enterprise-viewer/3.6/config/suggested-redact/'
+        - title: 'FAQ'
+          path: '/enterprise-viewer/3.6/config/faq/'
+        - title: 'Supported languages'
+          path: '/enterprise-viewer/3.6/config/supported-languages/'
+    - title: 'Develop'
+      pages:
+        - title: 'Integrations'
+          path: '/enterprise-viewer/3.6/develop/integrations/'
+        - title: 'ADF AEV applications'
+          path: '/enterprise-viewer/3.6/develop/adf/'
 
 # Alfresco Enterprise Viewer 3.5
 - version: 3.5

@@ -1505,13 +1505,18 @@ defaults:
       location: "enterprise-viewer"
       support: true
       versions:
+        - 4.0
         - 3.6
         - 3.5
   - scope:
       path: "enterprise-viewer/latest"
     values:
-      version: 3.6
+      version: 4.0
       latest: true
+  - scope:
+      path: "enterprise-viewer/3.6"
+    values:
+      version: 3.6
   - scope:
       path: "enterprise-viewer/3.5"
     values:
