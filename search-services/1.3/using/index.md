@@ -531,7 +531,7 @@ banana
 TEXT:banana
 ```
 
-Both of these queries will find any nodes with the word "banana" in any property of type `d:content`.
+Both of these queries will find any nodes with the word "banana" in any property of type `d:content`, `d:text` or `d:mltext`.
 
 If the appropriate data dictionary definition(s) for the field supports both FTS and untokenized search, then FTS search will be used. FTS will include synonyms if the analyzer generates them. Terms cannot contain whitespace.
 
