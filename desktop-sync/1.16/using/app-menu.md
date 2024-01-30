@@ -26,23 +26,23 @@ The following section goes through each one of the Desktop Sync menu items.
 
 Displays information about checked out files, any pending syncs, and conflicts.
 
-![]({% link desktop-sync/images/conflict-1.17.png %}){:height="374px" width="756px"}
+![]({% link desktop-sync/images/conflict.png %}){:height="374px" width="756px"}
 
-* Select **Checked out** to view information about any files you've checked out from Desktop Sync, for example, file name, file location, and details when the file was downloaded.
-* Select **Pending** to view information about any pending syncs, for example, file name, status of the pending sync, modifier, file location, and details when the file was last accessed.
+* Select **Files Checked Out** to view information about any files you've checked out from Desktop Sync, for example, file name, file location, and details when the file was downloaded.
+* Select **Pending Syncs** to view information about any pending syncs, for example, file name, status of the pending sync, modifier, file location, and details when the file was last accessed.
 * Select **Conflicts** to view conflict-related information and resolve the conflict. The information displayed includes file name, the conflict or issue, modifier, location of the conflict, and details when the file was last modified.
 * Select the file in conflict and click **Resolve**.
 
 To resolve a conflict, choose which version to keep, Alfresco or your changes and click **Keep**:
 
-![]({% link desktop-sync/images/conflict-resolution-1.17.png %}){:height="246px" width="350px"}
+![]({% link desktop-sync/images/conflict-resolution.png %}){:height="246px" width="350px"}
 
-* **Alfresco version**: Replaces the local file with the Alfresco copy.
-* **My version**: Copies updates made to content locally to Alfresco.
+* **Alfresco Version**: Replaces the local file with the Alfresco copy.
+* **My Version**: Copies updates made to content locally to Alfresco.
 
-##### Working with multiple checked out files
+##### Working with multiple Checked Out files
 
-If several files are **Checked out**, you have the following options:
+If several files are **Checked Out**, you have the following options:
 
 * Select files individually using the check boxes to the left hand side, or use the select all files check box at the top.
 * When you select more than one check box, you can pick bulk actions at the top of the tab, **Check In** and **Cancel Check Out**. If you choose **Check In**, you can select if the new version is a major or minor change, and optionally input a comment. Select **Check In** again to save your changes. This applies the same version change and comment (if added) to all the selected files.
@@ -80,7 +80,7 @@ Pauses Sync if you don't wish to synchronize files from the server, for example 
 
 You can manage which folders and sites get synced on your desktop and other account details using **Manage Your Account**. The available options are:
 
-* **Manage Folders**: Opens Choose folders and sites to sync screen. See [Select content to sync]({% link desktop-sync/latest/using/select-to-sync.md %}#sync/windows).
+* **Manage Folders**: Opens Choose folders and sites to sync screen. See [Select content to sync]({% link desktop-sync/1.16/using/select-to-sync.md %}#sync/windows).
 
     If you deselect a previously synced folder and click **Sync**, then the synced content from your desktop is removed. In case you have any unsynced or conflicted files, they will be orphaned in `C:\Users\<username>\Alfresco\`orphaned.
 
@@ -97,9 +97,9 @@ You can manage which folders and sites get synced on your desktop and other acco
 
 * **Remove Local Content**: Removes all the synced content from Desktop Sync without the need to remove the user account. This provides support for a customer policy where content is only kept on a device when users are actively working on that content and using Desktop Sync.
 
-    To start using Desktop Sync again, you'll need to set up your synced files via the **Manage Your Account > Manage Folders** menu option. See [Select content to sync]({% link desktop-sync/latest/using/select-to-sync.md %}#sync/windows).
+    To start using Desktop Sync again, you'll need to set up your synced files via the **Manage Your Account > Manage Folders** menu option. See [Select content to sync]({% link desktop-sync/1.16/using/select-to-sync.md %}#sync/windows).
 
-* **Remove Account**: Removes the synced user from Desktop Sync and deletes all the synced content from the desktop. You can still access your files in Alfresco. On removing your account you are taken back to the Desktop Sync login screen. See [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#setting-up-desktop-sync-on-windows).
+* **Remove Account**: Removes the synced user from Desktop Sync and deletes all the synced content from the desktop. You can still access your files in Alfresco. On removing your account you are taken back to the Desktop Sync login screen. See [Setting up Desktop Sync]({% link desktop-sync/1.16/install/index.md %}#setting-up-desktop-sync-on-windows).
 
 #### About
 
@@ -134,13 +134,13 @@ To view the Desktop Sync context menu, follow the steps below:
 5. In the event of a conflict, you'll see one more option:
     * **Resolve**: Selecting this option opens a screen where you can decide to keep your changes or the changes from the server.
 6. Click **Share** to enable file sharing when you right-click a synced file. Once set up in your configuration file, this option allows you to share a direct link to a file, so that anyone that has the link can view the file.
-    * See [Configuring Desktop Sync]({% link desktop-sync/latest/config/index.md %}) for configuration details.
-    * See [Sharing files]({% link desktop-sync/latest/using/sharing.md %}#sharing-files-on-windows) for more.
+    * See [Configuring Desktop Sync]({% link desktop-sync/1.16/config/index.md %}) for configuration details.
+    * See [Sharing files]({% link desktop-sync/1.16/using/sharing.md %}#sharing-files-on-windows) for more.
 7. Click **Version History** to view and manage version history when you right-click synced content.
-    * See [Version History]({% link desktop-sync/latest/using/versions.md %}) for more.
+    * See [Version History]({% link desktop-sync/1.16/using/versions.md %}) for more.
 8. Click **Properties** to enable viewing, editing, and updating of properties when you right-click synced content.
-    * See [Properties]({% link desktop-sync/latest/using/metadata.md %}#manage-the-properties-for-content-on-windows) for more.
-9. Click **Update Desktop Sync** to download the new installer file to your local Downloads folder. See [Updating Desktop Sync]({% link desktop-sync/latest/upgrade/index.md %}) for more.
+    * See [Properties]({% link desktop-sync/1.16/using/metadata.md %}#manage-the-properties-for-content-on-windows) for more.
+9. Click **Update Desktop Sync** to download the new installer file to your local Downloads folder. See [Updating Desktop Sync]({% link desktop-sync/1.16/upgrade/index.md %}) for more.
 
 #### Working with multiple files in Windows Explorer
 
@@ -207,7 +207,7 @@ Click **Recent Files** to open the Recent Files dialog and view your recently us
 
 #### Manage Sync Folder
 
-Selecting **Manage Sync Folder** opens the Select sites and folders to sync dialog. This allows you to select more content to sync, or deselect content to stop syncing. See [Select content to sync]({% link desktop-sync/latest/using/select-to-sync.md %}#sync/mac) for more.
+Selecting **Manage Sync Folder** opens the Select sites and folders to sync dialog. This allows you to select more content to sync, or deselect content to stop syncing. See [Select content to sync]({% link desktop-sync/1.16/using/select-to-sync.md %}#sync/mac) for more.
 
 If you deselect a previously synced folder and click **Sync**, then the synced content from your desktop is removed. In case you have any unsynced or conflicted files, they will be orphaned in `/<userHome>/Alfresco/orphaned`.
 
@@ -224,13 +224,13 @@ If you deselect a previously synced folder and click **Sync**, then the synced c
 
     Removes all the synced content from Desktop Sync without the need to remove the user account. This provides support for a customer policy where content is only kept on a device when users are actively working on that content and using Desktop Sync.
 
-    To start using Desktop Sync again, you'll need to set up your synced files via the **Manage Sync Folder** menu option. See [Select content to sync]({% link desktop-sync/latest/using/select-to-sync.md %}#sync/mac).
+    To start using Desktop Sync again, you'll need to set up your synced files via the **Manage Sync Folder** menu option. See [Select content to sync]({% link desktop-sync/1.16/using/select-to-sync.md %}#sync/mac).
 
 * **Remove Account**
 
     Removes the synced user from Desktop Sync and deletes all the synced content from the desktop. Use this option as the first stage of uninstalling Desktop Sync.
 
-    You can still access your files in Alfresco. Any content that can't be removed from your desktop is orphaned. On removing your account you are taken back to the Desktop Sync login dialog. Close the login dialog to quit the application. See [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#faq/mac).
+    You can still access your files in Alfresco. Any content that can't be removed from your desktop is orphaned. On removing your account you are taken back to the Desktop Sync login dialog. Close the login dialog to quit the application. See [Setting up Desktop Sync]({% link desktop-sync/1.16/install/index.md %}#faq/mac).
 
 #### Help
 
@@ -248,26 +248,26 @@ You won't be able to sync content during this time. Syncing will resume when you
 
 It's recommended that you always have Desktop Sync up and running so that your local content and Alfresco are in sync.
 
-### Check Outs, Conflicts and Pending {#checkouts-conflicts-pendingsyncs}
+### Check Outs, Conflicts and Pending Syncs {#checkouts-conflicts-pendingsyncs}
 
 Displays information about checked out files, any pending syncs, and conflicts.
 
-![]({% link desktop-sync/images/ds-tabbed-ui-1.17.png %}){:height="358px" width="260px"}
+![]({% link desktop-sync/images/ds-tabbed-ui.png %}){:height="358px" width="260px"}
 
-* Select **Checked out** to view information about any files you've checked out from Desktop Sync, for example, file name, file location, and details when the file was downloaded.
+* Select **Checked Out** to view information about any files you've checked out from Desktop Sync, for example, file name, file location, and details when the file was downloaded.
 * Select **Pending** to view information about any pending syncs, for example, file name, status of the pending sync, modifier, file location, and details when the file was last accessed.
 * Select **Conflicts** to view conflict-related information and resolve the conflict. The information displayed includes file name, the conflict or issue, modifier, location of the conflict, and details when the file was last modified.
 
     To resolve a conflict, select the conflict and either click:
 
-    * **Discard my changes**: Replaces the local file with the Alfresco copy.
-    * **Keep my changes**: Copies updates made to content locally over to Alfresco.
+    * **Discard my Changes**: Replaces the local file with the Alfresco copy.
+    * **Keep my Changes**: Copies updates made to content locally over to Alfresco.
 
-> **Note:** There may be times when you can't resolve a conflict for a file because the parent folder also has a conflict. In this case, your only choice is to resolve the conflict on the folder by either selecting **Keep my changes** or **Discard my changes**. Your choice is then applied to all files within that folder.
+> **Note:** There may be times when you can't resolve a conflict for a file because the parent folder also has a conflict. In this case, your only choice is to resolve the conflict on the folder by either selecting **Keep my Changes** or **Discard my Changes**. Your choice is then applied to all files within that folder.
 
-### Working with multiple checked out files {#working-with-multiple-checkedout-files-mac}
+### Working with multiple Checked Out files {#working-with-multiple-checkedout-files-mac}
 
-If several files are **Checked out**, you have the following options:
+If several files are **Checked Out**, you have the following options:
 
 * Select files individually using the check boxes to the left hand side, or use the select all files check box at the top.
 * When you select more than one check box, you can pick bulk actions at the top of the tab, **Check In** and **Cancel Check Out**. If you choose **Check In**, you can select if the new version is a major or minor change, and optionally input a comment. Select **Check In** again to save your changes. This applies the same version change and comment (if added) to all the selected files.
@@ -294,13 +294,13 @@ To view the Finder menu actions, follow the steps below:
     * **Discard my Changes**: Replaces the local file with the Alfresco copy.
     * **Keep my Changes**: Copies updates made to content locally over to Alfresco.
 6. Click **Share** to enable file sharing when you right-click a synced file. Once set up in your configuration file, this option allows you to share a direct link to a file, so that anyone that has the link can view the file.
-    * See [Configuring Desktop Sync]({% link desktop-sync/latest/config/index.md %}) for configuration details.
-    * See [Sharing files]({% link desktop-sync/latest/using/sharing.md %}#faq/mac) for more.
+    * See [Configuring Desktop Sync]({% link desktop-sync/1.16/config/index.md %}) for configuration details.
+    * See [Sharing files]({% link desktop-sync/1.16/using/sharing.md %}#faq/mac) for more.
 7. Click **Version History** to view and manage version history when you right-click synced content.
-    * See [Version History]({% link desktop-sync/latest/using/versions.md %}) for more.
+    * See [Version History]({% link desktop-sync/1.16/using/versions.md %}) for more.
 8. Click **Properties** to enable viewing, editing, and updating of properties when you right-click synced content.
-    * See [Properties]({% link desktop-sync/latest/using/metadata.md %}#faq/mac) for more.
-9. Click **Update Desktop Sync** to download the new installer file to your local Downloads folder. See [Updating Desktop Sync]({% link desktop-sync/latest/upgrade/index.md %}) for more.
+    * See [Properties]({% link desktop-sync/1.16/using/metadata.md %}#faq/mac) for more.
+9. Click **Update Desktop Sync** to download the new installer file to your local Downloads folder. See [Updating Desktop Sync]({% link desktop-sync/1.16/upgrade/index.md %}) for more.
 
 #### Working with multiple files in Finder
 

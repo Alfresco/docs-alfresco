@@ -16,7 +16,7 @@ Whenever you update any of this local content (which includes adding, moving, an
 
 Whenever you or anyone else make changes in Alfresco to sites or folders that you've synced with, then these changes will be replicated in your local content.
 
->**Note:** Some temporary files don't get synced. These include, but aren't limited to \*.tmp, \*.temp, desktop.ini, \*.~, and Thumbs.db files. You can configure the file types you don't want to be synced in AlfrescoSync.config. For more information, see [Client configuration]({% link desktop-sync/latest/config/index.md %}).
+>**Note:** Some temporary files don't get synced. These include, but aren't limited to \*.tmp, \*.temp, desktop.ini, \*.~, and Thumbs.db files. You can configure the file types you don't want to be synced in AlfrescoSync.config. For more information, see [Client configuration]({% link desktop-sync/1.16/config/index.md %}).
 
 ### Can I use Desktop Sync during initial sync?
 
@@ -42,7 +42,7 @@ Yes. As a Desktop Sync user, you can either:
 
 * Take your machine offline: You can simply ignore initial sync and shut down your machine or disconnect the network. Initial sync will resume when connection is restored.
 * Keep your machine running but discontinue initial sync: You can quit Desktop Sync and initial sync will resume when restart Desktop Sync.
-* Amend your selected content choices by clicking **Return to content selection**.
+* Amend your selected content choices by clicking **Return to Content Selection**.
 
 ### I made changes to a local file that aren't showing in Alfresco.
 
@@ -51,7 +51,7 @@ A number of scenarios can cause this:
 * The file is held/locked open by an application on your computer.
 * Network connection problems, Alfresco connection problems, or synchronization service connection problems; contact your IT team.
 * If you've made changes locally that are showing in Alfresco, then make sure that Desktop Sync is running by confirming that the ![Menu bar]({% link desktop-sync/images/ico-ds-alfresco.png %}) icon is showing in the system tray.
-* It's also possible that someone was updating the content in Alfresco at the same time as you were updating the local content. The file is in conflict state. See sync conflict resolution guide for [Windows]({% link desktop-sync/latest/using/sync-conflict-guide.md %}#resolve-and-manage-sync-conflicts-on-windows).
+* It's also possible that someone was updating the content in Alfresco at the same time as you were updating the local content. The file is in conflict state. See sync conflict resolution guide for [Windows]({% link desktop-sync/1.16/using/sync-conflict-guide.md %}#resolve-and-manage-sync-conflicts-on-windows).
 
 ### What's the *orphaned* folder in my local synced drive?
 
@@ -75,9 +75,9 @@ Resolve the issue and your file will be synced automatically.
 
 ### I see a red cross on my system tray. What does that mean?
 
-See [App icons and context menu]({% link desktop-sync/latest/using/app-icons.md %}#application-icons-and-menu-on-windows).
+See [App icons and context menu]({% link desktop-sync/1.16/using/app-icons.md %}#application-icons-and-menu-on-windows).
 
-See also sync conflict resolution guide on [Windows]({% link desktop-sync/latest/using/sync-conflict-guide.md %}#resolve-and-manage-sync-conflicts-on-windows).
+See also sync conflict resolution guide on [Windows]({% link desktop-sync/1.16/using/sync-conflict-guide.md %}#resolve-and-manage-sync-conflicts-on-windows).
 
 ### Do I need to restart Desktop Sync when I restart my machine?
 
@@ -100,7 +100,7 @@ available for Desktop Sync icon overlays.
 
 Additionally, check if you have accidentally quit Desktop Sync. Upon restart, the icons should be restored.
 
-See [application icons]({% link desktop-sync/latest/using/app-icons.md %}#application-icons-and-menu-on-windows) 
+See [application icons]({% link desktop-sync/1.16/using/app-icons.md %}#application-icons-and-menu-on-windows) 
 for more details.
 
 ### What happens if two Alfresco sites have the same name?
@@ -246,7 +246,7 @@ Whenever you update any of this local content (which includes adding, moving, an
 
 Whenever you or anyone else make changes in Alfresco to sites or folders that you've synced with, then these changes will be replicated in your local content.
 
-> **Note:** Some temporary files don't get synced. These include, but aren't limited to `*.tmp`, `*.temp`, `desktop.ini`, `*.~`, and `Thumbs.db` files. You can configure the file types you don't want to be synced in `AlfrescoSync.config`. For more information, see [Configuring Desktop Sync]({% link desktop-sync/latest/config/index.md %}).
+> **Note:** Some temporary files don't get synced. These include, but aren't limited to `*.tmp`, `*.temp`, `desktop.ini`, `*.~`, and `Thumbs.db` files. You can configure the file types you don't want to be synced in `AlfrescoSync.config`. For more information, see [Configuring Desktop Sync]({% link desktop-sync/1.16/config/index.md %}).
 
 ### Can I use Desktop Sync during initial sync?
 
@@ -270,7 +270,7 @@ Yes. As a Desktop Sync user, you can either:
 
 * Take your computer offline: You can simply ignore initial sync and shut down your computer or disconnect the network. Initial sync will resume when connection is restored.
 * Keep your computer running but discontinue initial sync: You can quit Desktop Sync and initial sync will resume when you restart Desktop Sync.
-* Amend your selected content choices by clicking **Return to content selection**.
+* Amend your selected content choices by clicking **Return to Content Selection**.
 
 ### I made changes to a local file that aren't showing in Alfresco.
 
@@ -279,7 +279,7 @@ A number of scenarios can cause this:
 * The file is held/locked open by an application on your computer.
 * Network connection problems, Alfresco connection problems, or synchronization service connection problems; contact your IT team.
 * If you've made changes locally that are showing in Alfresco, then make sure that Desktop Sync is running by confirming that the ![Menu bar]({% link desktop-sync/images/ico-ds-alfresco.png %}) icon is showing in the menu bar.
-* It's also possible that someone was updating the content in Alfresco at the same time as you were updating the local content. The file is in conflict state. See sync conflict resolution guide for [Mac]({% link desktop-sync/latest/using/sync-conflict-guide.md %}#faq/mac).
+* It's also possible that someone was updating the content in Alfresco at the same time as you were updating the local content. The file is in conflict state. See sync conflict resolution guide for [Mac]({% link desktop-sync/1.16/using/sync-conflict-guide.md %}#faq/mac).
 
 ### What's the *orphaned* folder in my local synced drive?
 
@@ -303,7 +303,7 @@ Resolve the issue and your file will be synced automatically.
 
 ### I see a red flag on my menu bar. What does that mean?
 
-See [App icons and context menu]({% link desktop-sync/latest/using/app-icons.md %}#faq/mac)
+See [App icons and context menu]({% link desktop-sync/1.16/using/app-icons.md %}#faq/mac)
 
 If a file is in conflict and the parent folder is also in conflict:
 
@@ -312,7 +312,7 @@ If a file is in conflict and the parent folder is also in conflict:
 * Any children in conflict are shown in an indented list below the parent.
 * Once you select a resolution, the child is resolved using the same choice as the parent.
 
-See also sync conflict resolution guide on [Mac]({% link desktop-sync/latest/using/sync-conflict-guide.md %}#faq/mac).
+See also sync conflict resolution guide on [Mac]({% link desktop-sync/1.16/using/sync-conflict-guide.md %}#faq/mac).
 
 ### Do I need to restart Desktop Sync when I restart my computer?
 
@@ -330,7 +330,7 @@ The moved file or folder is deleted in Alfresco.
 
 If, for some reason, your content icons are hidden in Finder, you can make them visible by checking your **System Preferences**.
 
-See [application icons]({% link desktop-sync/latest/using/app-icons.md %}#faq/mac) for more details.
+See [application icons]({% link desktop-sync/1.16/using/app-icons.md %}#faq/mac) for more details.
 
 Additionally, check if you have accidentally quit Desktop Sync. Upon restart, the icons should be restored.
 
@@ -344,7 +344,7 @@ A file name can't contain the following characters: `\ / : * ? " < >`. Desktop S
 
 ### How do I uninstall Desktop Sync?
 
-See [Uninstalling Desktop Sync]({% link desktop-sync/latest/install/index.md %}#faq/mac).
+See [Uninstalling Desktop Sync]({% link desktop-sync/1.16/install/index.md %}#faq/mac).
 
 ### Can Desktop Sync be installed in an unattended mode?
 

@@ -6,7 +6,7 @@ You can easily share a file from the Explorer or Finder menu actions. Clicking t
 
 {% capture windows %}
 
-Make sure that you've [configured file sharing]({% link desktop-sync/latest/config/index.md %}#sharing-files) before continuing.
+Make sure that you've [configured file sharing]({% link desktop-sync/1.16/config/index.md %}#sharing-files) before continuing.
 
 1. In your **Alfresco** synced folder find the file you want to share.
 
@@ -16,7 +16,7 @@ Make sure that you've [configured file sharing]({% link desktop-sync/latest/conf
 
     A window appears displaying that link sharing is enabled (**Link sharing on**), the URL for this file, and no expiry date is set.
 
-    ![]({% link desktop-sync/images/ds-share-file-1.17.png %}){:height="190px" width="360px"}
+    ![]({% link desktop-sync/images/ds-share-file.png %}){:height="190px" width="360px"}
 
     > **Note:** If a file is record, link sharing is not allowed. If a file is read-only, the file can be shared but you can't set an expiry date. However, if a read-only file was previously shared and had an expiry date, the date is displayed but can't be changed (i.e. the field is read-only).
 
@@ -28,7 +28,7 @@ Make sure that you've [configured file sharing]({% link desktop-sync/latest/conf
 
 4. (Optional): To set an expiry date for the shared link, first click the **Calendar** icon and then set the required date.
 
-    To remove an expiry date, remove the tick from the **Set expiry date** check box.
+    To remove an expiry date, remove the tick from the **Set Expiry Date** check box.
 
 5. Click **Close**.
 
@@ -48,7 +48,7 @@ Make sure that you've [configured file sharing]({% link desktop-sync/latest/conf
 
 {% capture mac %}
 
-Make sure that you've [configured file sharing]({% link desktop-sync/latest/config/index.md %}#sharing-files) before continuing.
+Make sure that you've [configured file sharing]({% link desktop-sync/1.16/config/index.md %}#sharing-files) before continuing.
 
 1. In your **Alfresco** synced folder find the file you want to share.
 
@@ -58,7 +58,7 @@ Make sure that you've [configured file sharing]({% link desktop-sync/latest/conf
 
     A window appears displaying that link sharing is enabled (**Link sharing on**), the URL for this file, and no expiry date is set.
 
-    ![]({% link desktop-sync/images/ds-share-file-mac-1.17.png %}){:height="202px" width="400px"}
+    ![]({% link desktop-sync/images/ds-share-file-mac-workspace.png %}){:height="202px" width="400px"}
 
     > **Note:** If a file is record, link sharing is not allowed. If a file is read-only, the file can be shared but you can't set an expiry date. However, if a read-only file was previously shared and had an expiry date, the date is displayed but can't be changed (i.e. the field is read-only).
 
@@ -68,9 +68,9 @@ Make sure that you've [configured file sharing]({% link desktop-sync/latest/conf
 
     ![]({% link desktop-sync/images/ds-shared-file-adw.png %}){:height="277px" width="562px"}
 
-4. (Optional): To set an expiry date for the shared link, first tick the **Set expiry date** check box, and then adjust the date using the up and down arrows.
+4. (Optional): To set an expiry date for the shared link, first tick the **Set Expiry Date** check box, and then adjust the date using the up and down arrows.
 
-    To remove an expiry date, remove the tick from the **Set expiry date** check box.
+    To remove an expiry date, remove the tick from the **Set Expiry Date** check box.
 
 5. Click **Close**.
 

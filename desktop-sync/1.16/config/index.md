@@ -41,7 +41,7 @@ Here are examples of how you can set the URL to access a file:
 >The URL must also use an `http` or `https` protocol. If the property is left blank or not set correctly, 
 >the file sharing feature won't be available in Desktop Sync.
 
-For more information, see [Sharing files]({% link desktop-sync/latest/using/sharing.md %}).
+For more information, see [Sharing files]({% link desktop-sync/1.16/using/sharing.md %}).
 
 ## User interface
 
@@ -75,7 +75,7 @@ Here are some examples of the information that's collected:
 * Application crash logs
 * Event metrics for specific features:
     * Conflict detected
-    * Conflict resolved: Keep my changes, Discard my changes, error
+    * Conflict resolved: Keep my Changes, Discard my Changes, error
     * Check out: success / error
     * Cancel check out: success / error
     * Check in: success / error, Has comment: yes / no, Major version: yes / no
@@ -87,7 +87,7 @@ Here are some examples of the information that's collected:
 As an IT administrator, you can control the parts of the Desktop Sync UI that users can access, 
 so that they can't sync content from specific areas in Alfresco Content Services. 
 
-By default, the content selection dialog (see [selecting content to sync]({% link desktop-sync/latest/using/select-to-sync.md %})) 
+By default, the content selection dialog (see [selecting content to sync]({% link desktop-sync/1.16/using/select-to-sync.md %})) 
 displays **My Files**, **Shared Files**, **Sites**, and **Company Home**. 
 If you want to hide any of these areas, change the value of the relevant `syncui.show*` property to `false`.
 
@@ -116,7 +116,7 @@ can apply to their content from their desktops. If either `syncui.fileCustomType
 from the configuration file, the custom types are fetched from the repository. 
 Otherwise, the custom type field is populated with the values read from the configuration file.
 
-In the **Property** dialog > **General properties** tab, there's a drop-down menu with the custom types that can be 
+In the **Property** dialog > **General Properties** tab, there's a drop-down menu with the custom types that can be 
 applied to a file or folder. This menu lists only custom types created using the Content Model Manager API.
 
 Example:
@@ -456,7 +456,7 @@ You can manage the installation of your Desktop Sync client apps by uploading an
 central location in Alfresco Content Services. This allows you to update the installed version of all your 
 Desktop Sync clients without any manual intervention.
 
-See [Managing automatic installation updates]({% link desktop-sync/latest/admin/index.md %}#manage-automatic-installation-updates) for more.
+See [Managing automatic installation updates]({% link desktop-sync/1.16/admin/index.md %}#manage-automatic-installation-updates) for more.
 
 ## Automatic configuration updates
 
@@ -464,22 +464,22 @@ You can manage the configuration of your Desktop Sync client apps by uploading a
 central location in Alfresco Content Services. This allows you to update the configuration settings for all your 
 Desktop Sync clients without any manual intervention.
 
-See [Managing automatic configuration updates]({% link desktop-sync/latest/admin/index.md %}#manage-automatic-configuration-updates) for more.
+See [Managing automatic configuration updates]({% link desktop-sync/1.16/admin/index.md %}#manage-automatic-configuration-updates) for more.
 
 ## Manage sync configuration methods
 
 As an IT administrator, you can manage the configuration of your Desktop Sync client apps via the Desktop Sync UI and a configuration file. You can choose to enable or disable the content selection dialog from the UI for all your Desktop Sync clients, while setting enforced paths to sync from the configuration file.
 
-See [Manage sync configuration]({% link desktop-sync/latest/admin/index.md %}#manage-sync-configuration) for more.
+See [Manage sync configuration]({% link desktop-sync/1.16/admin/index.md %}#manage-sync-configuration) for more.
 
 ## Force users to sync specific paths {#force-user-sync}
 
 You can configure your Desktop Sync client apps to enforce the sync and exclusion of specific paths or Sites that are added to the configuration file. This allows you to restrict what your Desktop Sync clients sync by pre-selecting the sync folders.
 
-See [Manage enforced sync]({% link desktop-sync/latest/admin/index.md %}#manage-enforced-sync) for more.
+See [Manage enforced sync]({% link desktop-sync/1.16/admin/index.md %}#manage-enforced-sync) for more.
 
 ## Hide specific paths from users {#hide-from-sync}
 
 You can configure your Desktop Sync client apps to hide specific paths or Sites that are added to the configuration file. This allows you to restrict what your Desktop Sync clients sync by hiding those locations from view in the content selection dialog.
 
-See [Manage hidden sync]({% link desktop-sync/latest/admin/index.md %}#manage-hidden-sync) for more.
+See [Manage hidden sync]({% link desktop-sync/1.16/admin/index.md %}#manage-hidden-sync) for more.
