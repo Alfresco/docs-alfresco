@@ -962,7 +962,6 @@ defaults:
       path: "transform-service/3.0"
     values:
       version: 3.0
-      latest: true
   - scope:
       path: "transform-service/2.1"
     values:
@@ -1324,7 +1323,6 @@ defaults:
       path: "sync-service/3.11"
     values:
       version: 3.11
-      latest: true
   - scope:
       path: "sync-service/3.10"
     values:
