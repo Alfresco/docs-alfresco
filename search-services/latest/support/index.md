@@ -13,3 +13,4 @@ The following are the supported platforms for Search Services:
 | Content Services 7.0.x | |
 | Content Services 6.2.2 | |
 | Content Services 6.2.1 | |
+| Alfresco Enterprise Viewer 4.0 | |
