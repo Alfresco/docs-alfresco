@@ -46,7 +46,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Browsers** | |
 | Mozilla Firefox 86 | |
 | Microsoft Edge Latest| |
-| MS Internet Explorer 11 | |
 | Chrome 89 | Includes Chromium edition. |
 | Safari 15 | |
 | | |
