@@ -78,6 +78,8 @@ See the Alfresco Sync Service documentation for [SAML configuration]({% link syn
 
 Once users have entered the repository URL (shown in step 2 of [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#setting-up-desktop-sync-on-windows) for Windows and [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#faq/mac) for Mac), they will be asked to enter their username and password into the SAML provider login page via their default browser.
 
+> **Note:** In earlier versions of Desktop Sync, the user was logged out every 30 minutes and needed to enter their credentials again to re-authenticate. Starting from Desktop Sync 1.17, the logged in session will not terminate unless the system has unforeseen issues.
+
 ## Manage sync configuration
 
 As an IT administrator, you can manage the configuration of your Desktop Sync client apps via the Desktop Sync UI and a configuration file. You can choose to enable or disable the content selection dialog from the UI for all your Desktop Sync clients, while setting enforced paths to sync from the configuration file.

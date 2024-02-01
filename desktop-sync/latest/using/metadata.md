@@ -76,7 +76,7 @@ By default, you can view and edit general properties, such as Title, Name, Descr
 
 3. Click **Edit** to start editing the content.
 
-    Note that the **Edit** button changes to **Save** (if you have edit permissions on the selected content):
+    Note that the **Edit** button changes to **Save** (if you have edit permissions on the selected content).
 
 4. In the **General properties** tab, you may see a **Custom Type** field. When custom types have been defined in the Desktop Sync configuration file by your IT team, you'll see them listed in this field.
 
