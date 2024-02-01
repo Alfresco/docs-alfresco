@@ -136,11 +136,11 @@ If you've been provided a URL to install the Salesforce Connector, log in to Sal
     * **Install for All Users**
     * **Install for Specific Profiles...**
   
-    > **Note:** Selecting a security level can have an affect on future usage. When choosing a level you may be required to manually adjust permissions for users, profiles, or permission sets along with adding those users, profiles, and permission sets directly on classes, Visualforce pages, and/or the Connected App Definition.
+    > **Note:** Selecting a security level can have an effect on future usage. When choosing a level you may be required to manually adjust permissions for users, profiles, or permission sets along with adding those users, profiles, and permission sets directly on classes, Visualforce pages, and/or the Connected App Definition.
     >
     > Specifically, you may need to adjust permissions on the `AlfrescoCanvasLifeCycleHandler` and add the API Enabled permission on a profile.
     >
-    > Permissions Sets and Profiles can also be used with the Connected App Definition to control who can see/use the Connector within a page layout.
+    > **Permission Sets** and **Profiles** can also be used with the Connected App Definition to control who can see/use the Connector within a page layout.
     >
     > Consult with your Salesforce Admin in your organizations best practices when applying permissions.
 
