@@ -15,7 +15,9 @@ The `solrcore.properties` configuration file is the property configuration file 
 |alfresco.baseUrl|This property configures the base URL to Alfresco Content Services web project, for example `/alfresco`. If you need to change the `baseUrl` value, see [Deploy with a different context path]({% link content-services/latest/config/repository.md %}#deploy-with-a-different-context-path).|
 |alfresco.batch.count|This property indicates the number of updates that should be made to this core before a commit is executed, for example  `1000`.|
 |alfresco.cascade.tracker.maxParallelism|Defines the number of threads that are used when indexing documents using the Cascade Tracker, for example `32`.|
+|alfresco.cascade.tracker.nodeBatchSize| This property is used for batch fetching cascade updates during indexing, for example `100`.
 |alfresco.changeSetAclsBatchSize|This property is used for batch fetching updates during tracking, for example `100`.|
+|alfresco.contentUpdateBatchSize|This property is used for batch fetching content during indexing, for example `100`.|
 |alfresco.content.tracker.maxParallelism|Defines the number of threads that are used when indexing documents using the Content Tracker, for example `32`.|
 |alfresco.corePoolSize|This property specifies the pool size for multi-threaded tracking. It is used for indexing nodes, for example `3`.|
 |alfresco.cron|This property specifies the cron expression that instructs Solr how often to track Alfresco Content Services and index new or updated content. The default value indicates that Solr tracks every 15 seconds i.e. `0/15 * * * * ? *`.|
@@ -36,10 +38,8 @@ The `solrcore.properties` configuration file is the property configuration file 
 |alfresco.maxHostConnections|This property is used for HTTP client configuration, for example `40`.|
 |alfresco.maximumPoolSize|This property specifies the maximum pool size for multi-threaded tracking, for example `-1`.|
 |alfresco.maxTotalConnections|This property is used for HTTP client configuration, for example `40`.|
-|alfresco.metadata.ignore.datatype.0|This property configures the metadata pulling control, for example `cm:person`.|
-|alfresco.metadata.ignore.datatype.1|This property configures the metadata pulling control, for example `app:configurations`.|
-|alfresco.metadata.skipDescendantDocsForSpecificTypes|This property reduces the overhead caused by reindexing sites, for example `false`.|
 |alfresco.metadata.tracker.maxParallelism|Defines the number of threads used when indexing documents using the Metadata Tracker, for example `32`.|
+|alfresco.nodeBatchSize|This property is used for batch fetching during metadata tracking, for example `100`|
 |alfresco.port|This property specifies the HTTP port for the instance that Solr should track and index, for example `8080`.|
 |alfresco.port.ssl|This property specifies the HTTPS port for the instance that Solr should track and index, for example `8443`.|
 |alfresco.secureComms|This property enables Shared Secret authentication or mTLS authentication with HTTPS. Set to `secret` if a Shared Secret HTTP header should be used for authentication, for example `https`.|
