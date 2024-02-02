@@ -51,7 +51,7 @@ Note that the file path properties are relative to wherever the `server.js` file
 
 ## Configure Enterprise Viewer to connect to the Node server
 
-In order to use the Node server, you must configure Enterprise Viewer to use it. The two properties that must be set are the `collaborationEndpoint` and `collaborationModeEnabled` properties. For more information on these properties and how to set these properties, read [AEV configuration files]({% link enterprise-viewer/latest/config/files.md %}).
+In order to use the Node server, you must configure Enterprise Viewer to use it. The two properties that must be set are the `collaborationEndpoint` and `collaborationModeEnabled` properties. For more information on these properties and how to set these properties, read [AEV configuration files]({% link enterprise-viewer/3.6/config/files.md %}).
 
 ## Collaboration modes
 

@@ -138,6 +138,6 @@ Enterprise Viewer has a configuration to toggle if a "low-res" and a "high-res" 
 
 ## AEV transformations
 
-Should the embedded OpenContent transformations not scale to the level necessary for your implementation, the "Alfresco Enterprise Viewer Transformation" application can operate at scale. This application is also known as "Alfresco Enterprise Viewer Transformations", or AEVT for short. See [Installing Alfresco Enterprise Viewer Transformer]({% link enterprise-viewer/latest/install/aevt.md %})
+Should the embedded OpenContent transformations not scale to the level necessary for your implementation, the "Alfresco Enterprise Viewer Transformation" application can operate at scale. This application is also known as "Alfresco Enterprise Viewer Transformations", or AEVT for short. See [Installing Alfresco Enterprise Viewer Transformer]({% link enterprise-viewer/3.6/install/aevt.md %})
 
 AEVT/OAT is used on Alfresco PaaS.

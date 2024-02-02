@@ -22,25 +22,25 @@ Users can be launched directly into any of these modes. By default, a document i
 
 Add Annotations mode allows the user to annotate the document.
 
-See the [Add Annotations Interface section]({% link enterprise-viewer/latest/using/index.md %}#add-annotations-interface) for more information.
+See the [Add Annotations Interface section]({% link enterprise-viewer/3.6/using/index.md %}#add-annotations-interface) for more information.
 
 ### Redact Content
 
 Redact Content mode allows the user to redact text and images in the document.
 
-See the [Redact Content Interface section]({% link enterprise-viewer/latest/using/index.md %}#redact-content-interface) for more information.
+See the [Redact Content Interface section]({% link enterprise-viewer/3.6/using/index.md %}#redact-content-interface) for more information.
 
 ### Edit Pages
 
 Edit Pages mode allows the user to edit pages by reordering, splitting, rotating, or sectioning them.
 
-See the [Edit Pages Interface section]({% link enterprise-viewer/latest/using/index.md %}#edit-pages-interface) for more information.
+See the [Edit Pages Interface section]({% link enterprise-viewer/3.6/using/index.md %}#edit-pages-interface) for more information.
 
 ### Add Signatures
 
 Add Signatures mode allows the user to add a signature to the document.
 
-See the [Add Signatures Interface section]({% link enterprise-viewer/latest/using/index.md %}#add-signatures-interface) for more information.
+See the [Add Signatures Interface section]({% link enterprise-viewer/3.6/using/index.md %}#add-signatures-interface) for more information.
 
 ## Add Annotations Interface
 
@@ -1496,7 +1496,7 @@ Clicking this button will allow the user to split the document into different se
 
 Sectioning is an efficient way to reorder large documents. A blue notification will appear in the bottom right corner where the user can name the section and select the range of pages for the section. The user must then select the **Create Section** button. The new section will appear in the left sidebar.
 
-See [how to section a document]({% link enterprise-viewer/latest/using/index.md %}#section-docs).
+See [how to section a document]({% link enterprise-viewer/3.6/using/index.md %}#section-docs).
 
 The **Section Document** button is located to the right of the **Rotate Page Clockwise** button and to the left of the **Help** button.
 
@@ -1546,7 +1546,7 @@ The **Sections** sidebar displays all the sections of the document, if available
 
 Sectioning is an efficient way to reorder large documents. Unsectioned pages will be listed under *Unsectioned*. The pages belonging to each section are listed under the section's name. Clicking on an entry in the list in *Add Annotations* mode will take the user to the first page of the section.
 
-See [how to activate the Section Document feature]({% link enterprise-viewer/latest/using/index.md %}#section-doc-activate) for more information.
+See [how to activate the Section Document feature]({% link enterprise-viewer/3.6/using/index.md %}#section-doc-activate) for more information.
 
 It is located on the left side of the Enterprise Viewer window.
 

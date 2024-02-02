@@ -16,11 +16,11 @@ You can install the Enterprise Viewer using a distribution ZIP. Download the fol
 
 ### Java
 
-Enterprise Viewer requires Java 11 or above. Consult your repository of choice for more detailed requirements. If you are using Java 17, refer to our [Java 17 support guide]({% link enterprise-viewer/latest/install/java-support.md %}).
+Enterprise Viewer requires Java 11 or above. Consult your repository of choice for more detailed requirements. If you are using Java 17, refer to our [Java 17 support guide]({% link enterprise-viewer/3.6/install/java-support.md %}).
 
 ### Alfresco repository version
 
-See the [Supported Platforms]({% link enterprise-viewer/latest/support/index.md %}) for more information.
+See the [Supported Platforms]({% link enterprise-viewer/3.6/support/index.md %}) for more information.
 
 Make sure you have the correct version of the Enterprise Viewer package for your Content Services version. If you are unsure, please contact Hyland Support.
 
@@ -37,7 +37,7 @@ Operating system and libraries for the target server machine:
 
 When installing AEV you have 2 options:
 
-| Option 1 | Deploy AEV to the Alfresco Tomcat. <br><br>Skip to the [OpenContent install]({% link enterprise-viewer/latest/install/index.md %}#installoc) section since no proxy will need to be installed. |
+| Option 1 | Deploy AEV to the Alfresco Tomcat. <br><br>Skip to the [OpenContent install]({% link enterprise-viewer/3.6/install/index.md %}#installoc) section since no proxy will need to be installed. |
 | Option 2 | *Preferred.* For production deployment. <br><br>Deploy AEV to a separate Tomcat instance. In this case, you must complete the following steps to setup a proxy. |
 
 ### Proxy setup
@@ -49,14 +49,14 @@ The following routes must be proxied to their respective ports and applications 
 * `{Application Base URL}/OpenAnnotate`
 * `{Application Base URL}/oat` (if installed)
 
-When installing a proxy please note that you are not limited to using Apache or NGINX. These are just two common options which we cover example installs of below. As long as the above routes are proxied appropriately you can move onto the [AEV install]({% link enterprise-viewer/latest/install/index.md %}#install).
+When installing a proxy please note that you are not limited to using Apache or NGINX. These are just two common options which we cover example installs of below. As long as the above routes are proxied appropriately you can move onto the [AEV install]({% link enterprise-viewer/3.6/install/index.md %}#install).
 
 > **Important:** If you've already completed the ACA install guide and setup a proxy as part of that installation, you can just add the following routes to that proxy configuration and restart the proxy:
 >
 > * `{Application Base URL}/OpenAnnotate`
 > * `{Application Base URL}/oat` (if installed)
 >
-> Next, go to the [AEV install]({% link enterprise-viewer/latest/install/index.md %}#install).
+> Next, go to the [AEV install]({% link enterprise-viewer/3.6/install/index.md %}#install).
 
 ### Example proxy install 1 - Apache HTTPD on Windows
 
@@ -564,7 +564,7 @@ This section walks through how to install the web applications on a separate Tom
     * `collaborationModeEnabled=true`
     * `collaborationEndpoint=http://${server}:${port}`
 
-    Replace the `${server}` and `${port}` placeholders in the above URL with the correct server and port values for the environment being installed to (See the section [Install collaboration features]({% link enterprise-viewer/latest/install/index.md %}#collab))
+    Replace the `${server}` and `${port}` placeholders in the above URL with the correct server and port values for the environment being installed to (See the section [Install collaboration features]({% link enterprise-viewer/3.6/install/index.md %}#collab))
 
 8. For AEV 3.5.1 or later, verify the `secureBrowserCookies` configuration. If you are planning to setup SSL then `secureBrowserCookies` should be set to `true`, else it should be `false` (the default).
 
@@ -612,7 +612,7 @@ This section walks through how to install the web applications on Alfresco Tomca
    * `collaborationEndpoint=http://${server}:${port}`
 
    Replace the `${server}` and `${port}` placeholders in the above URL with the correct server and port values for
-   the environment being installed to. See the section [Install collaboration features]({% link enterprise-viewer/latest/install/index.md %}#collab).
+   the environment being installed to. See the section [Install collaboration features]({% link enterprise-viewer/3.6/install/index.md %}#collab).
 
 7. For AEV 3.5.1 or later, verify the `secureBrowserCookies` configuration. If you are planning to setup SSL then `secureBrowserCookies` should be set to `true`, else it should be `false` (the default).
 

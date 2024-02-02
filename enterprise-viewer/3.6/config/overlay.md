@@ -130,7 +130,7 @@ Like the text tag within the Text Template, there can also be a text tag within 
 
 Properties:  
 
-* See [here]({% link enterprise-viewer/latest/config/overlay.md %}#text) for properties.  
+* See [here]({% link enterprise-viewer/3.6/config/overlay.md %}#text) for properties.  
 Example (The following example's output will have formatting following that the default template but it will have red text and print `Updated Text.`):  
 
 ```xml

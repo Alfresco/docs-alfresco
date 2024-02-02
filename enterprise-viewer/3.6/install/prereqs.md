@@ -14,7 +14,7 @@ Server-side
   * Other application server wrappers are supported, contact us for more details
 * Java:
   * Java 11 + (64-bit)
-  * If you are using Java 17, refer to our [Java 17 support guide]({% link enterprise-viewer/latest/install/java-support.md %}).
+  * If you are using Java 17, refer to our [Java 17 support guide]({% link enterprise-viewer/3.6/install/java-support.md %}).
 
 Client Browsers:
 
