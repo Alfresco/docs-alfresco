@@ -489,7 +489,7 @@ In this section the Enterprise Viewer collaboration features Socket.IO server is
     ```
 In previous releases, the Socket Server URL for AEVV (Alfresco Enterprise Viewer Video) was set at build-time. There was no way to update or change the socket server URL without rebuilding the entire application. 
 
-Starting from Enterprise Viewer 4.0, an enhancement has been added so the socket server URL is fetched from the `appConfig.json` at runtime. This provides users with the capability to change the socket server URL by unpacking the `opencontent.war` file, changing the `SOCKET_URL` value in `appConfig.json`, and repacking the WAR file. You can unpack & repack the WAR file in an archive manager such as WinRAR. The URL change takes effect without rebuilding the application.
+Starting from Enterprise Viewer 3.6, an enhancement has been added so the socket server URL is fetched from the `appConfig.json` at runtime. This provides users with the capability to change the socket server URL by unpacking the `opencontent.war` file, changing the `SOCKET_URL` value in `appConfig.json`, and repacking the WAR file. You can unpack & repack the WAR file in an archive manager such as WinRAR. The URL change takes effect without rebuilding the application.
 
 ## Install webapps
 

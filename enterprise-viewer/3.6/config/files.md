@@ -231,7 +231,7 @@ Default value: `MM/DD/YYYY`
 
 Configuring what Buttons and Actions appear in Enterprise Viewer is a little more in-depth than the average configuration option.
 
-See [Configure Enterprise Viewer actions and modes]({% link enterprise-viewer/latest/config/actions.md %}) for more details.
+See [Configure Enterprise Viewer actions and modes]({% link enterprise-viewer/3.6/config/actions.md %}) for more details.
 
 ### quillEnabledButtons
 
