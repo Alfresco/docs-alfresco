@@ -116,11 +116,11 @@ The following AFTS exact matches and patterns are supported:
 
 ### Support for special fields in TMDQ using AFTS
 
-* PARENT
 * TYPE
 * ASPECT
 * EXACTTYPE
 * EXACTASPECT
+* PARENT - but note that database queries will not contain any categories since there is no notion of category paths in the database
 
 > **Note:** CMIS QL does not support any use of `CONTAINS()` using the database.
 
