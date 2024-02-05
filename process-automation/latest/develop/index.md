@@ -624,6 +624,8 @@ To create a custom user interface:
 
 ### Develop a custom user interface
 
+Custom UIs are developed using nx generators.
+
 The downloaded default UI ZIP file includes a file with detailed instructions on creating custom UI pages and plugins. To see the instructions, refer to **plugins-generators.md** file within the downloaded ZIP package.
 
 ### Upload {#custom-upload}
