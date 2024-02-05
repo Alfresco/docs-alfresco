@@ -241,7 +241,7 @@
       pages: 
         - title: 'Governance Services overview'
           path: '/digital-workspace/3.1/governance/'
-        - title: 'Security Controls'
+        - title: 'Security Marks'
           path: '/digital-workspace/3.1/governance/security/'
         - title: 'Working with records'
           path: '/digital-workspace/3.1/governance/records/'
@@ -291,7 +291,7 @@
       pages: 
         - title: 'Governance Services overview'
           path: '/digital-workspace/3.0/governance/'
-        - title: 'Security Controls'
+        - title: 'Security Marks'
           path: '/digital-workspace/3.0/governance/security/'
         - title: 'Working with records'
           path: '/digital-workspace/3.0/governance/records/'
