@@ -72,6 +72,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search Services 2.0.8 and later | |
 | Alfresco Federation Services 3.1 | |
 | Identity Service 2.0 | |
+| Keycloak 21.1.2 | |
 | Alfresco Intelligence Services 1.5 | |
 | Alfresco Content Connector for AWS S3 6.0 | Adds support for AWS Glacier using Cloud storage layer. |
 | Alfresco Content Connector for Azure 4.0 | |
