@@ -25,11 +25,11 @@ The **Favorites** view shows all files and folders from the content repository t
 
 **Browse** contains the rest of the navigation structure. You can access your libraries, personal files, shared files and discarded files from this screen.
 
-* **Personal Files** retrieves all content from the logged in user's home area `/User Homes/<username>/` in the repository. If the user is an administrator who does not have a home folder then the repository root folder is shown.
+* **Personal Files** retrieves all content from the logged-in user's home area `/User Homes/<username>/` in the repository. If the user is an administrator who does not have a home folder then the repository root folder is shown.
 
 * **File Libraries** retrieves all the sites that the user is a member of, either public, moderated or private. File Libraries is the Libraries component, using the Sites API.
 
-* The **Shared Files** view aggregates all files that have been shared using the QuickShare feature in the content repository.
+* The **Shared Files** view aggregates all files that have been shared by a logged-in user, using the QuickShare feature in the content repository.
 
 * The **Trash** view shows all the items that a user has deleted. An administrator can see items deleted by all users. The actions available in this view are **Restore** and **Permanently Delete**.
 
