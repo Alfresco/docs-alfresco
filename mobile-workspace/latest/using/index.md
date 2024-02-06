@@ -29,7 +29,7 @@ The **Favorites** view shows all files and folders from the content repository t
 
 * **File Libraries** retrieves all the sites that the user is a member of, either public, moderated or private. File Libraries is the Libraries component, using the Sites API.
 
-* The **Shared Files** view aggregates all files that have been shared by a logged-in user, using the QuickShare feature in the content repository.
+* The **Shared Files** view aggregates all files that have been shared by a logged-in user using the QuickShare feature in the content repository.
 
 * The **Trash** view shows all the items that a user has deleted. An administrator can see items deleted by all users. The actions available in this view are **Restore** and **Permanently Delete**.
 
