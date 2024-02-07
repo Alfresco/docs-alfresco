@@ -120,7 +120,7 @@ The following AFTS exact matches and patterns are supported:
 * ASPECT
 * EXACTTYPE
 * EXACTASPECT
-* PARENT - but note that database queries will not contain any categories since there is no notion of category paths in the database
+* PARENT - Note that database queries will not contain any categories since there is no notion of category paths in the database
 
 > **Note:** CMIS QL does not support any use of `CONTAINS()` using the database.
 
