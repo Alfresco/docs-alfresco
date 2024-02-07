@@ -81,4 +81,4 @@ The following values are used to test Process Services.
 
 Optionally, the `hibernate.show_sql` property can be set to `true` if the SQL being executed needs to be printed to the log.
 
-    >**Note:** You will need to research the exact dialect for your exact version of database as it may differ from what was used to test Process Services.
+>**Note:** You will need to research the exact dialect for your exact version of database as it may differ from what was used to test Process Services.
