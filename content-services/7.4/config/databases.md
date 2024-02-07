@@ -50,7 +50,7 @@ To configure the database:
 
 4. Install the Aurora database connector.
 
-    This release requires `mysql-connector-java-5.x.x.jar` for compatibility with the SQL Server database. Check the [Supported platforms]({% link content-services/7.4/support/index.md %}) page for the correct driver.
+    This release requires `mysql-connector-java-8.x.x.jar` for compatibility with the SQL Server database. Check the [Supported platforms]({% link content-services/7.4/support/index.md %}) page for the correct driver.
 
     1. Download the driver from the [MySQL site](https://dev.mysql.com/){:target="_blank"}.
 
@@ -116,7 +116,7 @@ You can configure a MySQL database on Amazon RDS for use with Content Services, 
 
     The MySQL database connector is required when installing with MySQL, and allows the MySQL database to talk to the server. Check the [Supported platforms]({% link content-services/7.4/support/index.md %}) page for the correct driver.
 
-    1. Download `mysql-connector-java-5.x.x` from the [MySQL download site](https://dev.mysql.com/){:target="_blank"}.
+    1. Download `mysql-connector-java-8.x.x` from the [MySQL download site](https://dev.mysql.com/){:target="_blank"}.
 
     2. Copy the JAR file into the `/lib` directory.
 
@@ -385,7 +385,7 @@ You can configure a MySQL or MariaDB database connection (with a MySQL JDBC driv
 
 1. Install the MySQL database connector to allow the database to talk to the Content Services server.
 
-    The connector is a JAR file, for example, `mysql-connector-java-5.x.x`.
+    The connector is a JAR file, for example, `mysql-connector-java-8.x.x`.
 
     Check the [Supported platforms]({% link content-services/7.4/support/index.md %}) page for the correct driver version.
 
