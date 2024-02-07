@@ -8,6 +8,8 @@ replaced or extended to create new permissions and roles.
 
 Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
 
+>**Note:** If you create sites and then add sites custom roles the existing sites will break. In order to fix this issue, you need to create a script to manually add a site role group for all existing sites. e.g. GROUP_site_\<my site\>_\<custom role\>
+
 ## Description
 
 Content Services provides a handful of out-of-the-box roles with different levels of permissions in the repository: 
