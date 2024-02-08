@@ -708,19 +708,13 @@ There are a set of [content components](https://www.alfresco.com/abn/adf/docs/co
 
 Once the custom interface has been fully developed and tested it can be deployed.
 
-1. Upload your source code to your Alfresco S3 bucket.
+1. Sign in to the Modeling Application and open a project.
 
-    > **Note**: Please contact [Support](https://support.alfresco.com/){:target="_blank"} if you do not have the details of this bucket.
+2. Select the created custom UI under the UI drop-down list.
 
-2. Raise a [Support request](https://support.alfresco.com/){:target="_blank"} with this information:
+3. Click **Upload**.
 
-    * A link to the source code in S3.
-    * The name of the application to update 
-
-        > **Note**: This should match what is configured in the `app.config.json` for the interface.
-
-    * The environment the application is deployed in.
-    * When the application should be updated with the new interface.
+4. Upload the custom UI as a ZIP file.
 
 ## Custom form fields
 
