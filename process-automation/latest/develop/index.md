@@ -624,7 +624,7 @@ To create a custom user interface:
 
 ### Develop a custom user interface
 
-Custom UIs are developed using nx generators.
+Custom UIs can be developed using hyland nx generators.
 
 The downloaded zip includes instructions how to customize application. To see the instructions, refer to **plugins-generators.md** file within the downloaded ZIP package.
 
