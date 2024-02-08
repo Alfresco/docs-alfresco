@@ -618,7 +618,7 @@ To create a custom user interface:
 
 3. Enter the name of the custom UI.
 
-4. If you want to develop the custom UI basing on the existing default UI of the application, select **Generate from template**.
+4. If you want to develop the custom UI basing on the existing default UI of the application, select **Generate from template** and click **download source code link**.
 
 5. Once your custom UI is ready to be deployed, select **Upload**.
 
