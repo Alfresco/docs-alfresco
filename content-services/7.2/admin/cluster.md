@@ -177,7 +177,7 @@ To enable Hazelcast clustering between Share instances, configure the `custom-sl
 
 > **Note:** An example file which includes this configuration is provided in the distribution.zip and is located at
 > `web-server/shared/classes/alfresco/web-extension/web-extension/custom-slingshot-application-context.xml.sample`
-> as well as in the extracted share.war under
+> as well as in the extracted `share.war` under
 > `web-server/webapps/share/WEB-INF/classes/alfresco/web-extension/custom-slingshot-application-context.xml.sample`.
 
 To enable the Hazelcast cluster messaging, edit this section on each Share Tomcat instance:
@@ -265,11 +265,11 @@ The message shows that the configuration has successfully initialized Hazelcast 
 
 ### Share Cluster Troubleshooting
 
-In case share cluster does not start, check `share.log` for details.
+In case the Share cluster does not start, check the `share.log` for details.
 
-> *Note*: To setup an acs share cluster without internet connection, make sure to check the hazelcast
->  `xsi:schemaLocation=http://www.hazelcast.com/schema/spring/hazelcast-spring-<versionstring>.xsd` is the same hazelcast version as in the corresponding share lib
-> `share/WEB-INF/lib/hazelcast-spring-<version>.jar`
+> **Note**: To setup an ACS Share cluster without internet connection, make sure to check the Hazelcast
+>  `xsi:schemaLocation=http://www.hazelcast.com/schema/spring/hazelcast-spring-<version-string>.xsd` is the same Hazelcast version as in the corresponding Share lib
+> `share/WEB-INF/lib/hazelcast-spring-<version>.jar`.
 
 ### Configure Alfresco Share clustering
 
