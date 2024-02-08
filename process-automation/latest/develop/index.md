@@ -698,8 +698,6 @@ The Yeoman generator can be used to develop custom user interfaces for Process A
     }
     ```
 
-### Create Custom UI
-
 ### Develop {#custom-develop}
 
 There are a set of [content components](https://www.alfresco.com/abn/adf/docs/content-services/){:target="_blank"} and a set of [process components](https://www.alfresco.com/abn/adf/docs/process-services-cloud/){:target="_blank"} that can be used to develop the custom user interface with. The content components can only be used if you selected the option **Content and Process Services with Activiti** when generating the application.
