@@ -393,7 +393,7 @@ services:
 
 PostgreSQL is the default database for Search Enterprise. You can use different databases with Search Enterprise, but they must be configured within your system and must match the database used by Content Services. The other types of databases supported by Search Enterprise are: MySQL, MariaDB, Microsoft SQL Server, and Oracle.
 
-Add parameters to the startup script or in the command line when you run the reindexing app. You can use the following parameters.
+Add parameters to the startup script or in the command line when you run the reindexing app. You can use the following parameters:
 
 | Property | Description |
 | -------- | ------------|  
