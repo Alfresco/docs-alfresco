@@ -608,101 +608,23 @@ Restart the application and you will see the custom columns in the process list 
 
 ![Process list custom template]({% link process-automation/images/process-list-custom-template.png %})
 
-## Develop a custom user interface
+## Create a custom user interface
 
-The [Application Development Framework (ADF)](https://www.alfresco.com/abn/adf/docs/){:target="_blank"} can be used to develop a custom [end user interface]({% link process-automation/latest/model/interfaces.md %}) from scratch.
+To create a custom user interface:
 
-### Setup {#custom-setup}
+1. Sign in to the Modeling Application and open a project.
 
-The Yeoman generator can be used to develop custom user interfaces for Process Automation.
+2. Click the three dots next to **UI** and then select **Create Custom UI**.
 
-1. Clone the [Yeoman generator project](https://github.com/Alfresco/generator-alfresco-adf-app/){:target="_blank"}.
+3. Enter the name of the custom UI.
 
-2. Open `apps/utils.js` and remove the following two templates from being excluded:
+If you want to develop the custom UI basing on the existing default UI of the application, select **Generate from template** and click **download source code link**. Once your custom UI is ready to be deployed select **Upload** (you need to build your application and create a zip from the build).
 
-    ```js
-    const excludedTemplates = ['adf-cli-activiti-template', 'adf-cli-activiti-acs-template'];
-    ```
+### Develop a custom user interface
 
-3. Run the following command from the root of the project: `yo alfresco-adf-app`.
+Custom UIs can be developed using hyland nx generators.
 
-    1. Give the project a name.
-    2. Select the option **Content and Process Services with Activiti** to develop an application using process and content components, or **Process Services with Activiti** if developing only with process components.
-    3. Install any required dependencies.
-
-4. Configure the security in the `app.config.json` of the generated application:
-
-    ```json
-    "$schema": "../node_modules/@alfresco/adf-core/app.config.schema.json",
-        "ecmHost": "http://{hostname}{:port}",
-        "bpmHost": "http://{hostname}{:port}",
-        "identityHost": "https://{hostname}{:port}/auth/realms/alfresco",
-        "providers": "ALL",
-        "appName": "invoice-approval-application",
-        "application": {
-            "name": "Alfresco ADF Application"
-        },
-
-    "authType": "OAUTH",
-    "oauth2": {
-        "host": "https://{hostname}/auth/realms/alfresco",
-        "clientId": "invoice-approval-application",
-        "scope": "openid",
-        "secret": "",
-        "implicitFlow": true,
-        "silentLogin": true,
-        "redirectSilentIframeUri": "{protocol}//{hostname}{:port}/assets/silent-refresh.html",
-        "redirectUri": "/",
-        "redirectUriLogout": "/"
-    },
-    ```
-
-5. Add the property `"alfresco-deployed-apps"` to the `app.config.json` with the name of the deployed application you are developing an interface for. For example, `"alfresco-deployed-apps": [{"name":"invoice-approval-application"}]`.
-
-6. To develop the interface locally, CORS will need to be bypassed. Edit the `proxy.conf.js` replacing the `{hostname}` and `{realm}` with those relevant to your environment and realm:
-
-    ```js
-    module.exports = {
-        "/auth/admin/realms/{realm}": {
-            "target": "https://{hostname}",
-            "secure": false,
-            "pathRewrite": {
-                "^/auth/admin/realms/{realm}": ""
-            },
-            "changeOrigin": true,
-            "logLevel": "debug"
-        },
-
-        "/auth/realms/...": {
-            "target": "https://{hostname}",
-            "secure": false,
-            "pathRewrite": {
-                "^/auth/realms/{realm}": ""
-            },
-            "changeOrigin": true,
-            "logLevel": "debug"
-        },
-
-        "/": {
-            "target": "https://{hostname}",
-            "secure": false,
-            "changeOrigin": true,
-            "logLevel": "debug"
-        },
-
-        "/alfresco": {
-            "target": "https://{hostname}",
-            "secure": false,
-            "changeOrigin": true
-        }
-    }
-    ```
-
-### Develop {#custom-develop}
-
-There are a set of [content components](https://www.alfresco.com/abn/adf/docs/content-services/){:target="_blank"} and a set of [process components](https://www.alfresco.com/abn/adf/docs/process-services-cloud/){:target="_blank"} that can be used to develop the custom user interface with. The content components can only be used if you selected the option **Content and Process Services with Activiti** when generating the application.
-
-> **Note**: Process Automation uses the Process Services **Cloud** components.
+The downloaded zip includes instructions how to customize application. To see the instructions, refer to **plugins-generators.md** file within the downloaded ZIP package.
 
 ### Upload {#custom-upload}
 
