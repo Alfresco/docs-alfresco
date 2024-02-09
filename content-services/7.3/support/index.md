@@ -128,7 +128,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Ubuntu 20.04 | |
 |  |  |
 | **Databases** | |
-| MySQL 8 | `mysql-connector-java-8.0.27.jar` |
+| MySQL 8 | `mysql-connector-java-8.0.30.jar` |
 | MS SQL Server 2019 | `mssql-jdbc-9.2.1.jre11.jar` |
 | Oracle 19c | `Ojdbc8.jar – 19.11.0.0` |
 | PostgreSQL 14.x | `Postgresql-42.3.2.jar` |

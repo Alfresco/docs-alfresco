@@ -85,7 +85,7 @@ To configure the database:
 
     # MySQL database connection
 
-    db.driver=org.gjt.mm.mysql.Driver
+    db.driver=com.mysql.jdbc.Driver
     db.url=jdbc:mysql://${db.host}/${db.name}?${db.params}
     OR
     db.url=jdbc:mysql://${db.host}:${db.port}/${db.name}?${db.params}
@@ -148,7 +148,7 @@ You can configure a MySQL database on Amazon RDS for use with Content Services, 
 
     # MySQL connection
   
-    db.driver=org.gjt.mm.mysql.Driver
+    db.driver=com.mysql.jdbc.Driver
     db.url=jdbc:mysql://${db.host}:${db.port}/${db.name}?useUnicode=yes&characterEncoding=UTF-8
     ```
 
