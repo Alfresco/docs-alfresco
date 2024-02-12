@@ -133,9 +133,11 @@ Below is a very basic example of how to configure Secure Sockets Layer (SSL) for
 
 For more information on configuring SSL on Tomcat, see the Tomcat documentation [SSL/TLS Configuration How-To](https://tomcat.apache.org/tomcat-9.0-doc/ssl-howto.html){:target="_blank"}.
 
-## Configure HTML Sanitizer
+## Configure HTML sanitizer
 
-There are multiple modes you can choose from.
+Starting from DTE 2.4.2, DTE brings new configuration options to control the behavior for HTML sanitizing when converting HTML files.
+
+There are multiple modes you can choose from:
 
 | Mode | Description |
 | ---- | ----------- |
@@ -143,9 +145,11 @@ There are multiple modes you can choose from.
 | Whitelist | You can choose which HTML parts and attributes are allowed. This setting is empty by default, but it stops SSRF attacks. |
 | None | `None` means there is no sanitization provided at all. SSRF attacks are possible when using this mode, as it re-enables features like embedded script execution or iframe preview. <br><br>**Note:** This mode is not recommended. Administrators - use this setting at your own risk. |
 
-Default configuration:
+### Default configuration
 
-```xml
+The default configuration provided in `C:\Program Files (x86)\TransformationServer\tomcat\webapps\transformation-backend\WEB-INF\classes\default-configuration.properties` is shown below:
+
+```text
 # Configuration for HTML sanitizer
 # Sample configuration for HTML sanitizer
 # Modes are WHITELIST, BLACKLIST, NONE (Use at own risk, not recommended)
@@ -160,11 +164,15 @@ sanitizer.allowed.elements=
 sanitizer.allowed.attributes=
 ```
 
+You can override the default configuration in `C:\Program Files (x86)\TransformationServer\tomcat\webapps\transformation-backend\WEB-INF\classes\custom-configuration.properties`.
+
+### Examples
+
 Below are some examples of how to configure the new HTML sanitizer which comes with DTE 2.4.2.
 
 Configuration for `BLACKLIST` mode:
 
-```xml
+```text
 # Configuration for HTML sanitizer
 # Sample configuration for HTML sanitizer
 # Modes are WHITELIST, BLACKLIST, NONE (Use at own risk, not recommended)
@@ -178,11 +186,11 @@ sanitizer.disallowed.attributes=img.onerror
 * This mode explicitly disables the following HTML elements: `a`, `script`, `iframe`, and `style`.
 * It also explicitly disables the `onError` attribute in `img` elements.
 
-**Note:** Most of these elements are already sanitized by choosing "BLACKLIST" mode, which also prevents potential SSRF attacks.
+> **Note:** Most of these elements are already sanitized by choosing "BLACKLIST" mode, which also prevents potential SSRF attacks.
 
 Configuration for `WHITELIST` mode:
 
-```xml
+```text
 # Configuration for HTML sanitizer
 # Sample configuration for HTML sanitizer
 # Modes are WHITELIST, BLACKLIST, NONE (Use at own risk, not recommended)
@@ -196,19 +204,18 @@ sanitizer.allowed.attributes=img.src
 * This mode explicitly disables the following HTML elements: `p`, `div`, `span`, `ul`, `ol`, `li`, `h1`, `h2`, `h3`, and `a`.
 * It also explicitly disables the `src` attribute in `img` elements.
 
-**Note:** You cannot enable SSRF critical elements with the whitelist.
+> **Note:** You cannot enable SSRF critical elements with the whitelist.
 
 Configuration for `None` mode:
 
-```xml
+```text
 # Configuration for HTML sanitizer
 # Sample configuration for HTML sanitizer
 # Modes are WHITELIST, BLACKLIST, NONE (Use at own risk, not recommended)
 sanitizer.mode=NONE
 ```
 
-**Important:** This mode is not recommended. Use this at your own risk.
+> **Important:** This mode is not recommended. Use this at your own risk.
 
-* This mode re-enables all HTML features such as embedded script tag execution or preview of iframes.
-* However, this comes with the cost of potential SSRF attacks.
-* If you choose to select this mode, the behavior is exactly the same as before version 2.4.2.
+* This mode re-enables all HTML features such as embedded script tag execution or preview of iframes. However, this comes with the cost of potential SSRF attacks.
+* If you choose to select this mode, the behavior is exactly the same as older DTE versions prior to 2.4.2.
