@@ -393,7 +393,7 @@ services:
 
 PostgreSQL is the default database for Search Enterprise. You can use different databases with Search Enterprise, but they must be configured within your system and must match the database used by Content Services. The other types of databases supported by Search Enterprise are: MySQL, MariaDB, Microsoft SQL Server, and Oracle.
 
-Edit the `alfresco-global.properties` file using the following properties to change the Search Enterprise database.
+Add parameters to the startup script or in the command line when you run the reindexing app. You can use the following parameters:
 
 | Property | Description |
 | -------- | ------------|  
@@ -402,6 +402,11 @@ Edit the `alfresco-global.properties` file using the following properties to cha
 | spring.datasource.password | *Required*. Enter the password for the username. |
 | spring.datasource.hikari.maximumpoolsize | *Optional*. Sets the maximum size of the connections in HikariCP. |
 | alfresco.dbtype | *Optional*. Use this property to set your database type. When you set the type of database you are using the database auto-detection type is turned off. The supported values are: `postgresql`, `mysql`, `mariadb`, `sqlserver`, and `oracle`. |
+
+For example:
+```
+java -jar alfresco-elasticsearch-reindexing-4.0.0.1.jar --spring.datasource.url="jdbc:sqlserver://<your-server>.<your-domain>.com:1433;databaseName=alfresco;integratedSecurity=true"
+```
 
 ### Provide custom JDBC Drivers
 
