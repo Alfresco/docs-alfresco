@@ -24,3 +24,19 @@ You can start a process in Alfresco Digital Workspace, with or without a file at
     Once the process starts you can view the running process by clicking **View running process** at the bottom of the window.
 
    > **Note:** You can also start a process by right clicking a file in your search results and selecting **Start Process**.
+
+## Badges
+
+Badges are icons visible next to your documents that are currently in a workflow. To check the processes involved with the document, complete the following steps:
+
+1. Click on the running processes badge.
+
+    The metadata side panel opens.
+
+2. Click on **Linked Process** to view a list of all the currently running processes of that particular document. 
+
+    The name of the processes along with the starting date is displayed. 
+
+3. Click on **View Details** to view the tasks completed.
+
+   > **Note:**  You will require permmision to access the details.
