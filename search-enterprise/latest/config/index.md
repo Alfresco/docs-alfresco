@@ -8,14 +8,14 @@ The Admin console is used to manage the interaction between Alfresco and Search 
 
 To use Search Enterprise with the Alfresco Content Services platform the following configuration must be applied:
 
-* For *searching* features the Alfresco Repository properties must be configured in the `alfresco-global.properties` file. This can also be done as an environment variable by configuring the Search Subystem.
+* For *searching* features the Alfresco Repository properties must be configured in the `alfresco-global.properties` file. This can also be done as an environment variable by configuring the Search Subsystem.
 * The Elasticsearch connector environment variables related to communication with the Alfresco Repository (Database, ActiveMQ and Transform Service) must be set and the Elasticsearch server for *indexing* features.
 
 > **Note:** To ensure backward compatibility, the exact same property values are used for configuring connection to the Opensearch Search subsystem (*'elasticsearch'* prefixes and aliases shall not change).
 
 ## Alfresco Repository
 
-Alfresco Repository provides configuration properties for the Elasticsearch Search subystem that defines the connection to the external Elasticsearch server, for more see [Subsystem]({% link search-enterprise/latest/install/index.md %}#configure-subsystem-in-repository).
+Alfresco Repository provides configuration properties for the Elasticsearch Search subsystem that defines the connection to the external Elasticsearch server, for more see [Subsystem]({% link search-enterprise/latest/install/index.md %}#configure-subsystem-in-repository).
 
 Additional property values can be included in the global configuration file `alfresco-global.properties`
 
