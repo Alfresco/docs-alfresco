@@ -25,7 +25,7 @@ You can start a process in Alfresco Digital Workspace, with or without a file at
 
    > **Note:** You can also start a process by right clicking a file in your search results and selecting **Start Process**.
 
-## Badges
+## Part of running process badge
 
 Badges are icons visible next to your documents, and they are designed to represent different statuses of them. The **Part of running process** badge is visible for documents that are currently in a workflow. To check the processes involved with the document, complete the following steps:
 
