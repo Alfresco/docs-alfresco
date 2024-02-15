@@ -37,6 +37,6 @@ Badges are icons visible next to your documents that are currently in a workflow
 
     The name of all the linked processes along with their starting date is displayed. 
 
-3. Click on **View Details** to view more information about the tasks completed.
+3. Click on **View Details** to view more information about the specific process.
 
    > **Note:**  You will require permmision to access the details.
