@@ -8,7 +8,7 @@ replaced or extended to create new permissions and roles.
 
 Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
 
->**Note:** If you create sites and then add sites custom roles the existing sites will break. In order to fix this issue, you need to create a script to manually add a site role group for all existing sites. e.g. GROUP_site_\<my site\>_\<custom role\>
+>**Important:** If you have existing sites and then add a new custom role for sites, the existing sites will break. To fix this issue, you need to create a script to manually add your custom role group to all existing sites, for example, `GROUP_site_<my-site>_<custom-role>`.
 
 ## Description
 
