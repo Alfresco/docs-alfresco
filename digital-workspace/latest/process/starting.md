@@ -27,7 +27,7 @@ You can start a process in Alfresco Digital Workspace, with or without a file at
 
 ## Badges
 
-Badges are icons visible next to your documents that are currently in a workflow. To check the processes involved with the document, complete the following steps:
+Badges are icons visible next to your documents, they are designed to represent different statuses of them. Part of running process badge is visible for documents that are currently in a workflow. To check the processes involved with the document, complete the following steps:
 
 1. Click on the running processes badge.
 
