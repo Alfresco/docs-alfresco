@@ -31,12 +31,12 @@ Badges are icons visible next to your documents that are currently in a workflow
 
 1. Click on the running processes badge.
 
-    The metadata side panel opens.
+    A side panel containing all the metadata opens.
 
 2. Click on **Linked Process** to view a list of all the currently running processes of that particular document. 
 
-    The name of the processes along with the starting date is displayed. 
+    The name of all the linked processes along with their starting date is displayed. 
 
-3. Click on **View Details** to view the tasks completed.
+3. Click on **View Details** to view more information about the tasks completed.
 
    > **Note:**  You will require permmision to access the details.
