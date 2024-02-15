@@ -31,22 +31,6 @@ You can directly archive emails into Alfresco Share, use the full metadata suppo
 
 See [Alfresco Outlook Integration]({% link microsoft-outlook/latest/index.md %}) for more information.
 
-## Using the Windows Explorer shortcuts
-
-You can work with files without actually being in the Alfresco Share interface.
-
-Your administrator can map the repository so that you can access your content using Windows Explorer or a desktop shortcut. If you are working in this way, then there will be up to three additional files shown on each level of the Content Services file structure:
-
-* `__CheckInOut.exe`
-* `__ShowDetails.exe`
-* `__Share.url`
-
-> **Note:** The Share.url is only available within site folders, rather than everywhere in the repository.
-
-You can use these files to add content to the repository, check documents in and out, view document details, and open Alfresco Share in a browser window.
-
-> **Note:** These options only function when you are working in a Windows environment.
-
 ### Add a file from outside Alfresco Share
 
 You can easily drag and drop content to the repository from outside Share.
