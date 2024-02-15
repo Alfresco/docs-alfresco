@@ -39,4 +39,4 @@ Badges are icons visible next to your documents, and they are designed to repres
 
 3. Click on **View Details** to view more information about the specific process.
 
-   > **Note:**  You will require permmision to access the details.
+   > **Note:**  You will require permission to access the details.
