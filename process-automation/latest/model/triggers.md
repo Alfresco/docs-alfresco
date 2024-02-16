@@ -169,7 +169,7 @@ The input parameters for the **INCOMING_WEBHOOK** event is:
 | headers   | *Optional.* The key value pairs that must match in order to publish the event. Use the **+** symbol to add more pairs.                                                                                                                            |
 | params    | *Optional.* The request parameter key value pairs that must match in order to publish the event. Use the **+** symbol to add more pairs.                                                                                                          |
 | body      | *Optional.* The JSON body to send to the external service.                                                                                                                                                                                        |
-| secured   | *Required.* When true, the webhook needs a valid token in the request (will become mandatory in upcoming releases).                                                                                                                               |
+| secured   | *Required.* When true, the webhook needs a valid token in the request.                                                                                                                               |
 
 The output parameters that can be used as values within the trigger action for a webhook are:
 
