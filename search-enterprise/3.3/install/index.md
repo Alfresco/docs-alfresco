@@ -225,7 +225,7 @@ Deploy the Docker compose file you created.
     $ docker login https://quay.io
     ```
 
-2. Deploy Alfresco Content Services. The `docker-compose.yml` you generated includes the Repository, ADW, Postgres, Transform Service, ActiveMQ, Alfresco Elasticsearch Connector, Elasticsearch, and Kibana.
+2. Deploy Alfresco Content Services. The `docker-compose.yml` you generated includes the Repository, ADW, database, Transform Service, ActiveMQ, Alfresco Elasticsearch Connector, Elasticsearch, and Kibana.
 
     ```bash
     $ docker-compose up --build --force-recreate
