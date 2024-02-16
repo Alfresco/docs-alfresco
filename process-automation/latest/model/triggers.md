@@ -159,17 +159,16 @@ The [REST connector]({% link process-automation/latest/model/connectors/rest.md 
 
 The input parameters for the **INCOMING_WEBHOOK** event is:
 
-| Parameter | Description                                                                                                                                                                                                                                       |
-|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Parameter | Description |
+| --------- | ----------- |
 | condition | *Optional.* An expression created using the [Condition Builder]({% link process-automation/latest/using/index.md %}#condition-builder) that when true triggers an action. The event content described by its model can be used in the expression. |
-| path      | *Required.* The webhook path to monitor. The format begins `https://<environment>.com/<project-name>/<connector-name>/events/` followed by a custom value, for example `https://alfresco.com/finance-project/rest-connector-1/events/github`.     |
-| method    | *Optional.* A list of HTTP methods that can trigger an action.                                                                                                                                                                                    |
-| condition | *Optional.* The condition that must evaluate to true to trigger an action.                                                                                                                                                                        |
-| status    | *Optional.* The status code to return to the external service.                                                                                                                                                                                    |
-| headers   | *Optional.* The key value pairs that must match in order to publish the event. Use the **+** symbol to add more pairs.                                                                                                                            |
-| params    | *Optional.* The request parameter key value pairs that must match in order to publish the event. Use the **+** symbol to add more pairs.                                                                                                          |
-| body      | *Optional.* The JSON body to send to the external service.                                                                                                                                                                                        |
-| secured   | *Required.* When true, the webhook needs a valid token in the request.                                                                                                                               |
+| path | *Required.* The webhook path to monitor. The format begins `https://<environment>.com/<project-name>/<connector-name>/events/` followed by a custom value, for example `https://alfresco.com/finance-project/rest-connector-1/events/github`. |
+| method | *Optional.* A list of HTTP methods that can trigger an action. |
+| condition | *Optional.* The condition that must evaluate to true to trigger an action. |
+| status | *Optional.* The status code to return to the external service. |
+| headers | *Optional.* The key value pairs that must match in order to publish the event. Use the **+** symbol to add more pairs. |
+| params | *Optional.* The request parameter key value pairs that must match in order to publish the event. Use the **+** symbol to add more pairs. |
+| body | *Optional.* The JSON body to send to the external service. |
 
 The output parameters that can be used as values within the trigger action for a webhook are:
 
