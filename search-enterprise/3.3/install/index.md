@@ -48,7 +48,7 @@ Use this information to install the Elasticsearch connector on the same machine 
 
 * Alfresco ActiveMQ, by default `nio://activemq:61616`
 * Alfresco Shared FileStore endpoint, by default http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file/
-* Alfresco Database using PostgresSQL engine, by default `localhost:5432`
+* Alfresco Database, by default `localhost:5432`
 * Elasticsearch server, by default http://elasticsearch:9200
 
 Once you have extracted the Elasticsearch connector zip file you install the Alfresco re-indexing app, and then the Alfresco live indexing app.
@@ -225,7 +225,7 @@ Deploy the Docker compose file you created.
     $ docker login https://quay.io
     ```
 
-2. Deploy Alfresco Content Services. The `docker-compose.yml` you generated includes the Repository, ADW, Postgres, Transform Service, ActiveMQ, Alfresco Elasticsearch Connector, Elasticsearch, and Kibana.
+2. Deploy Alfresco Content Services. The `docker-compose.yml` you generated includes the Repository, ADW, database, Transform Service, ActiveMQ, Alfresco Elasticsearch Connector, Elasticsearch, and Kibana.
 
     ```bash
     $ docker-compose up --build --force-recreate
