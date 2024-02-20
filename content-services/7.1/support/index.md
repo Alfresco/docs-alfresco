@@ -67,6 +67,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Process Services 2.0.1 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 3.11.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Sync Service 3.7 | |
 | Alfresco Sync Service 3.6 | |
 | Alfresco Sync Service 3.5 | |
@@ -190,6 +191,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Process Services 2.0.1 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 3.11.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Sync Service 3.7 | |
 | Alfresco Sync Service 3.6 | |
 | Alfresco Sync Service 3.5 | |
