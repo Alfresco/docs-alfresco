@@ -1,5 +1,5 @@
-# Alfresco Content Services 23.1
-- version: 23.1
+# Alfresco Content Services 23.x
+- version: 23.x
   pages:
     - title: 'Introduction'
       path: '/content-services/latest/'
