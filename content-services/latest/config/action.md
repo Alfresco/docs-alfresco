@@ -16,7 +16,7 @@ To configure an APS Action there are several prerequisites that must be met:
 
 > **Note:** If Content Services and Process Services do not sync their uses against a single LDAP database then an APS Action will never work. See [configure LDAP for Content Services]({% link content-services/latest/admin/auth-sync.md %}#configure-ldap) and [configure LDAP for Process Services]({% link process-services/latest/config/authenticate.md %}#ldap-and-active-directory) for information on configuring LDAP.
 
-> **Important:** The APS Action AMP is compatible with Alfresco Process Services 2.4.1 and Alfresco Content Services 23.1.
+> **Important:** The APS Action AMP is compatible with Alfresco Process Services 2.4.1 and Alfresco Content Services 23.x.
 
 ## Install the AMP
 
