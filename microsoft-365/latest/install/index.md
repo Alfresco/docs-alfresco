@@ -49,9 +49,14 @@ A single-page application needs to be registered in your Microsoft Azure Active 
 
 7. Select **API permissions** from the left menu and click **Add a permission** and then select **Microsoft Graph**.
 
-8. Select **Delegated permissions** and search for **Files.ReadWrite.All** in the **Select permissions** search box.
+8. Select **Delegated permissions** and search for the following permissions necessary for this integration:
+    | Permission | Description |
+    | ---------- | ----------- |
+    |offline_access |  OpenId Permissions. Maintain access to data you have given it access to |
+    |User.Read	| Sign in and read user profile |
+    |Files.ReadWrite.All | Have full access to all files user can access |
 
-9. Expand **Files** and select **Files.ReadWrite.All** and then click **Add permissions**.
+9. Click **Add permissions** after adding all the permissions above.
  
 10. Select **Grant admin consent for `<your-app-name>`**.
 
