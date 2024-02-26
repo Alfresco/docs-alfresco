@@ -61,6 +61,16 @@ You can edit the columns you want to see in any of the file views in the Digital
 
     The columns are no longer visible in the view.
 
+### Drag and drop
+
+You can manually edit the position of the columns in any of the file views in Digital Workspace. To do so, complete the following steps.
+
+1. Log in to the Digital Workspace.
+
+2. In the view you want to adjust, drag and drop the columns to your desired position. 
+
+    > **Note:** The position does not revert back to the original view, once you click away.
+
 ### Configure default columns
 
 A system administrator can use the `app.extension.json` file to configure which columns are visible by default. If the file is not adjusted all the columns will show by default.
