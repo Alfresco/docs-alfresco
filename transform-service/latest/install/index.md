@@ -283,7 +283,7 @@ from the left column that corresponds to the required Content Services version y
    ```yaml
    transform-router:
      mem_limit: 512m
-     image: quay.io/alfresco/alfresco-transform-router:4.0.0
+     image: quay.io/alfresco/alfresco-transform-router:4.1.0
      environment:
        JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
        ACTIVEMQ_URL: "nio://activemq:61616"
@@ -295,7 +295,7 @@ from the left column that corresponds to the required Content Services version y
        - activemq
 
    transform-core-aio:
-     image: alfresco/alfresco-transform-core-aio:5.0.0
+     image: alfresco/alfresco-transform-core-aio:5.1.0
      mem_limit: 1536m
      environment:
        JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
@@ -540,9 +540,9 @@ before continuing.
 
     In this directory you'll see the following content including three runnable JAR files:
 
-    * `alfresco-shared-file-store-controller-4.0.x.jar`
-    * `alfresco-transform-core-aio-boot-5.0.x.jar`
-    * `alfresco-transform-router-4.0.x.jar`
+    * `alfresco-shared-file-store-controller-4.1.x.jar`
+    * `alfresco-transform-core-aio-boot-5.1.x.jar`
+    * `alfresco-transform-router-4.1.x.jar`
     * `README.md`
     * IPTC Content Model
       * Needs to be bootstrapped into Alfresco Content Services for IPTC Metadata extraction to work, unless you are using Alfresco Content Services version 7.1.0+. See [Supported platforms]({% link transform-service/latest/support/index.md %}) for more information.
@@ -569,7 +569,7 @@ before continuing.
     ```java
     java -DfileStorePath="/path/to/your/AlfrescoFileStore" \
          -Dscheduler.contract.path="/path/to/tempdir/scheduler.json" \
-         -jar alfresco-shared-file-store-controller-4.0.x.jar
+         -jar alfresco-shared-file-store-controller-4.1.x.jar
     ```
 
     Check the output to ensure that it starts successfully.
@@ -592,7 +592,7 @@ before continuing.
          -DIMAGEMAGICK_EXE="<imagemagick_installation_dir>/bin/convert" \
          -DACTIVEMQ_URL="failover:(tcp://<server>:61616)?timeout=3000" \
          -DFILE_STORE_URL="http://<server>:8099/alfresco/api/-default-/private/sfs/versions/1/file" \
-         -jar alfresco-transform-core-aio-boot-5.0.x.jar
+         -jar alfresco-transform-core-aio-boot-5.1.x.jar
     ```
 
     > **Note:** LibreOffice, ImageMagick and Alfresco PDF Renderer binaries needs to be installed on the server where the all-in-one core T-Engine is setup. See the [Prerequisites](#prereq-non-containerized-deploy) for more details. You may need to change the paths depending on your operating system.
@@ -609,7 +609,7 @@ before continuing.
          -DIMAGEMAGICK_CONFIG="/usr/local/acs74/imagemagick/config-Q16HDRI" \
          -DACTIVEMQ_URL="failover:(tcp://localhost:61616)?timeout=3000" \
          -DFILE_STORE_URL="http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file" \
-         -jar /usr/local/acs74/bin/alfresco-transform-core-aio-boot-5.0.0.jar
+         -jar /usr/local/acs74/bin/alfresco-transform-core-aio-boot-5.1.0.jar
     ```
 
     Check the output to ensure that it starts successfully.
@@ -626,7 +626,7 @@ before continuing.
          -DCORE_AIO_URL="http://localhost:8090" \
          -DACTIVEMQ_URL="failover:(tcp://localhost:61616)?timeout=3000" \
          -DFILE_STORE_URL="http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file" \
-         -jar alfresco-transform-router-4.0.x.jar
+         -jar alfresco-transform-router-4.1.x.jar
     ```
 
     Check the output to ensure that it starts successfully.
