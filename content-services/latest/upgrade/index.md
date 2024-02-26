@@ -21,13 +21,13 @@ When you upgrade Content Services, it's recommended that you follow a structured
 
 The following diagram shows the upgrade paths for major versions:
 
-![Upgrade paths to 23.1]({% link content-services/images/upgrade-path-23.1.png %})
+![Upgrade paths to 23.x]({% link content-services/images/upgrade-path-23.x.png %})
 
 The upgrade path recommendations are:
 
-* Direct upgrades to Content Services 23.1 are supported only from 7.1 and later versions, using their latest patch release.
-* Content Services 23.1 introduces changes that require new releases of some modules. To upgrade to 23.1, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/latest/support/index.md %}) for more details on the associated versions.
-* You must upgrade to a supported version of Alfresco Search Services before upgrading the repository to 23.1. See [Upgrade Search Services]({% link search-services/latest/upgrade/index.md %}) for more information.
+* Direct upgrades to Content Services 23.x are supported only from 7.1 and later versions, using their latest patch release.
+* Content Services 23.x introduces changes that require new releases of some modules. To upgrade to 23.x, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/latest/support/index.md %}) for more details on the associated versions.
+* You must upgrade to a supported version of Alfresco Search Services before upgrading the repository to 23.x. See [Upgrade Search Services]({% link search-services/latest/upgrade/index.md %}) for more information.
 
 > **Note:** If you're upgrading from an earlier release that's not shown on this diagram, [contact Support]({% link support/latest/contact.md %}){:target="_blank"}.
 
