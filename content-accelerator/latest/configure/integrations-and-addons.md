@@ -395,17 +395,19 @@ Once your cloud solution has been chosen, the following steps must be completed 
 
 5. Select the Authentication section.
 
-   1. Set up Redirect url(s) (example: `https://{server}/ocms/dummy/path`).
+   1. Click the + `Add Platform` button.
+   2. Select `Web`.
+   3. Set up Redirect url(s) (example: `https://{server}/ocms/dummy/path`).
       > **Note:** For development, a redirect URL starting with `http://localhost` is acceptable.  All other URLs must start with `https://`.
 
-   2. Under `Implicit grant`, ensure the `Access tokens` and `ID tokens` checkboxes are checked.
+   4. Under `Implicit grant and hybrid flows`, ensure the `Access tokens` and `ID tokens` checkboxes are checked.
 
 6. Select the API Permissions section.  Ensure the following permissions are granted:
 
     * Microsoft Graph: `user.read, Files.ReadWrite.All, Files.ReadWrite.AppFolder, Files.ReadWrite.Selected, offline_access, openid, Sites.ReadWrite.All`
     * Admin Consent Required - no for all
 
-7. After saving all changes, navigate back to the Overview page and copy the `Application (client) ID`.  This will be needed in the ACA admin (see below).
+7. After saving all changes, navigate back to the Overview page and copy the `Application (client) ID`.  This will be needed in the [Configure Google Drive and OneDrive Actions in ACA](https://docs.alfresco.com/content-accelerator/latest/configure/integrations-and-addons/#configure-google-drive-and-onedrive-actions-in-aca){:target="_blank"} section.
 
 8. Follow these steps if your version of Java runs into issues with the SSL Certificate, usually manifesting in `PKIX` errors in the log files:
 
