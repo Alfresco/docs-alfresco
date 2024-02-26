@@ -942,6 +942,7 @@ defaults:
       toc: "transform-service"
       support: true
       versions:
+        - 4.1
         - 4.0
         - 3.0
         - 2.1
@@ -955,6 +956,11 @@ defaults:
 
   - scope:
       path: "transform-service/latest"
+    values:
+      version: 4.1
+      latest: true
+  - scope:
+      path: "transform-service/4.0"
     values:
       version: 4.0
       latest: true
