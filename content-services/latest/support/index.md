@@ -65,7 +65,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 4.0 | |
 | Alfresco Desktop Sync 1.17 | |
 | Alfresco Desktop Sync 1.16 | |
-| Alfresco Transform Service 4.0 | |
+| Alfresco Transform Service 4.1 | |
 | Alfresco Document Transformation Engine 2.4 | |
 | Alfresco Search Enterprise 4.0 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
 | Alfresco Search and Insight Engine 2.0.8 and later | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
