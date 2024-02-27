@@ -186,4 +186,4 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 {% endcapture %}
 
-{% include tabs.html tableid="supported-platforms" opt1="23.2" content1=twenty-three-two opt1="23.1" content1=twenty-three-one%}
+{% include tabs.html tableid="supported-platforms" opt1="23.2" content1=twenty-three-two opt2="23.1" content2=twenty-three-one%}
