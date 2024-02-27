@@ -122,6 +122,11 @@ In Activiti 7, the package `org.activiti.engine.identity` and all it's classes l
 
 The following are third party breaking changes that have occured.
 
-* Spring framework upgraded from 4.x to 5
+* Spring framework upgraded from 5 to 6
 * Spring boot upgraded from 1.x to 2
 * Hibernate upgraded from 4.x to 5
+* Jakarta EE
+* Tomcat 10
+* Java 17
+
+> **Note:** If you have custom code, you’ll need to upgrade these components to use the latest APIs.
