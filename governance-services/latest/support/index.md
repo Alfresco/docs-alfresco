@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for the Alfresco Governance Services version 23.1.x:
+The following are the supported platforms for the Alfresco Governance Services version 23.x.x:
 
 | Version | Notes |
 | ------- | ----- |

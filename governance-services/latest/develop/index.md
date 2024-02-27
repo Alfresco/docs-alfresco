@@ -12,7 +12,7 @@ You can download the API Explorer from:
 
 * [Alfresco Nexus repository](https://nexus.alfresco.com/nexus/#welcome){:target="_blank"}
 
-The Governance Services distribution zip contains the `alfresco-governance-services-enterprise-rest-api-explorer-23.1.0.230.war` file.
+The Governance Services distribution zip contains the `alfresco-governance-services-enterprise-rest-api-explorer-23.x.0.230.war` file.
 
 > **Note:** Contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"} for log in credentials.
 
