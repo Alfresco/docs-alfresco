@@ -407,7 +407,7 @@ Once your cloud solution has been chosen, the following steps must be completed 
     * Microsoft Graph: `user.read, Files.ReadWrite.All, Files.ReadWrite.AppFolder, Files.ReadWrite.Selected, offline_access, openid, Sites.ReadWrite.All`
     * Admin Consent Required - no for all
 
-7. After saving all changes, navigate back to the Overview page and copy the `Application (client) ID`.  This will be needed in the [Configure Google Drive and OneDrive Actions in ACA](https://docs.alfresco.com/content-accelerator/latest/configure/integrations-and-addons/#configure-google-drive-and-onedrive-actions-in-aca){:target="_blank"} section.
+7. After saving all changes, navigate back to the Overview page and copy the `Application (client) ID`.  This will be needed in the [Configure Google Drive and OneDrive Actions in ACA]({% link content-accelerator/latest/configure/integrations-and-addons.md %}#configure-google-drive-and-onedrive-actions-in-aca) section.
 
 8. Follow these steps if your version of Java runs into issues with the SSL Certificate, usually manifesting in `PKIX` errors in the log files:
 
