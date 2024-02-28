@@ -11,7 +11,7 @@ When your Alfresco Content Services installation is upgraded, you can apply the 
 
 1. Ensure your current production environment is running a version that is supported for upgrading.
 
-2. Download Alfresco Content Services 23.x and the Governance Services Distribution ZIP from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
+2. Download Alfresco Content Services 23.x and the compatible Governance Services Distribution ZIP from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 3. Upgrade to Alfresco Content Services.
 

@@ -44,6 +44,9 @@ recommended for development and test environments only.
             mem_limit: 1g
            
     ```
+    Replace the ACS version (for example, ACS 23.1.x) with the compatible AGS version (for example, AGS 23.1.x).
+           
+    ```
 
 4. In a command prompt login to Quay using the following command (to open up access to Enterprise Docker images):
 
