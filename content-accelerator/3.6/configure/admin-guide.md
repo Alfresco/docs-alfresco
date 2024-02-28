@@ -140,7 +140,7 @@ Add types to a form config by selecting the type from the available options. All
 
 #### Rules
 
-These are standard front-end rules and can be used for validation. All rules are contained within the front-end and cannot be expanded.
+Rules are standard front-end rules and can be used for validation. All rules are contained within the front-end and cannot be expanded.
 
 **Rule Types:**
 
@@ -154,7 +154,7 @@ These are standard front-end rules and can be used for validation. All rules are
 
 #### External Rules
 
-External rules are conditions which are configured in OpenConnect and made available in the configuration to use as an extra validation. You can select a rule which will run this condition against OpenConnect to allow validation.
+External rules are conditions which are configured in OpenConnect and made available in the configuration to use as an extra validation. You can select a rule which will run a condition against OpenConnect to allow validation.
 
 #### Recommended Forms
 
