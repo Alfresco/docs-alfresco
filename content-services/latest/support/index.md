@@ -22,13 +22,13 @@ Choose a combination of products to build your own Supported Stack. If anything 
 |  |  |
 | **Databases** | |
 | MySQL 8 | `mysql-connector-java-8.0.30.jar` |
-| MS SQL Server 2022 |  |
+| MS SQL Server 2022 | `mssql-jdbc-11.2.0.jre17.jar` |
 | MS SQL Server 2019 | `mssql-jdbc-9.2.1.jre11.jar` |
 | Oracle 19c | `Ojdbc11.jar` – 19.3 |
 | PostgreSQL 15.x | `Postgresql-42.6.0.jar` |
 | PostgreSQL 14.x | `Postgresql-42.3.2.jar` |
 | PostgreSQL 13.x | `Postgresql-42.3.2.jar` |
-| MariaDB 10.6 | |
+| MariaDB 10.6 | `MariaDB Connector/J 2.7.2` |
 | Amazon Aurora | Use of Amazon Aurora is supported only if it is configured to emulate one of the supported versions of PostgreSQL or MySQL listed above, and the listed JDBC driver is used. |
 | | |
 | **Message brokers** | |
@@ -50,7 +50,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Safari 15 | |
 | | |
 | **Java** | |
-| OpenJDK 17.0.4 | |
+| OpenJDK 17.x.x | |
 | Amazon Corretto 17 | |
 | | |
 | **Third party integrations** | |
@@ -112,13 +112,13 @@ Choose a combination of products to build your own Supported Stack. If anything 
 |  |  |
 | **Databases** | |
 | MySQL 8 | `mysql-connector-java-8.0.30.jar` |
-| MS SQL Server 2022 |  |
+| MS SQL Server 2022 | mssql-jdbc-11.2.0.jre17.jar |
 | MS SQL Server 2019 | `mssql-jdbc-9.2.1.jre11.jar` |
 | Oracle 19c | `Ojdbc11.jar` – 19.3 |
 | PostgreSQL 15.x | `Postgresql-42.6.0.jar` |
 | PostgreSQL 14.x | `Postgresql-42.3.2.jar` |
 | PostgreSQL 13.x | `Postgresql-42.3.2.jar` |
-| MariaDB 10.6 | |
+| MariaDB 10.6 | `MariaDB Connector/J 2.7.2` |
 | Amazon Aurora | Use of Amazon Aurora is supported only if it is configured to emulate one of the supported versions of PostgreSQL or MySQL listed above, and the listed JDBC driver is used. |
 | | |
 | **Message brokers** | |
@@ -140,7 +140,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Safari 15 | |
 | | |
 | **Java** | |
-| OpenJDK 17.0.4 | |
+| OpenJDK 17.x.x | |
 | Amazon Corretto 17 | |
 | | |
 | **Third party integrations** | |
