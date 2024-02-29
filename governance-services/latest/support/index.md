@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for the Alfresco Governance Services version 23.x.x:
+The following are the supported platforms for the Alfresco Governance Services version 23.x:
 
 {% capture twenty-three-two %}
 
@@ -20,4 +20,4 @@ The following are the supported platforms for the Alfresco Governance Services v
 
 {% endcapture %}
 
-{% include tabs.html tableid="supported-platforms" opt1="23.2" content1=twenty-three-two opt2="23.1" content2=twenty-three-one%}
+{% include tabs.html tableid="supported-platforms" opt1="23.2" content1=twenty-three-two opt2="23.1" content2=twenty-three-one %}
