@@ -16,7 +16,7 @@ There are a number of software requirements for installing Azure Connector.
 
 ### Alfresco requirements
 
-See [Supported Platforms]({% link microsoft-azure/latest/support/index.md %}).
+See [Supported Platforms]({% link microsoft-azure/4.0/support/index.md %}).
 
 ### Azure related requirements
 
@@ -39,7 +39,7 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
 
 1. Go to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
-2. Download the `alfresco-azure-connector-5.0.x.amp` file.
+2. Download the `alfresco-azure-connector-4.0.x.amp` file.
 
 3. Use the Module Management Tool (MMT) to install the AMP into the repository WAR (`alfresco.war`).
 
@@ -47,7 +47,7 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
 
     > **Note:** You must install the Azure Connector AMP using `-force`.
 
-4. Check that the [configuration]({% link microsoft-azure/latest/config/index.md %}) is set up correctly for your environment.
+4. Check that the [configuration]({% link microsoft-azure/4.0/config/index.md %}) is set up correctly for your environment.
 
     > **Note:** Starting from version 1.2, the Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services. For details on how to re-enable it, see [Azure Connector deleted content store](#azure-connector-deleted-content-store).
 
@@ -63,7 +63,7 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
 
 1. Go to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
-2. Download the `alfresco-azure-connector-5.0.x.amp` file.
+2. Download the `alfresco-azure-connector-4.0.x.amp` file.
 
 3. Use the Module Management Tool (MMT) to install the AMP into the repository WAR (alfresco.war).
 
@@ -71,11 +71,11 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
 
     > **Note:** You must install the Azure AMP using `-force`.
 
-4. Unzip the `alfresco-azure-connector-5.0.x.amp` file.
+4. Unzip the `alfresco-azure-connector-4.0.x.amp` file.
 
 5. Copy the three sample files and rename them by removing the `.sample` extension.
 
-    The sample files are located under `alfresco-azure-connector-5.0.x.amp/config/alfresco/extension/`.
+    The sample files are located under `alfresco-azure-connector-4.0.x.amp/config/alfresco/extension/`.
 
     * `azure-multiple-storage-containers-context.xml.sample`
     * `subsystems/ContentStore/AzMultipleStorageContainers/AzMultipleStorageContainers/azure-mc-contentstore-context.xml.sample`
@@ -103,7 +103,7 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
         -Dconnector.az.deleted.containerName=${AZURE_DELETED_CONTAINER_NAME}
         ```
 
-        See [Configure the Azure Connector]({% link microsoft-azure/latest/config/index.md %}) for the supported authentication modes.
+        See [Configure the Azure Connector]({% link microsoft-azure/4.0/config/index.md %}) for the supported authentication modes.
 
     2. Check the Azure Connector properties for store 2 (for example, `connector.az.store2.*`).
 
@@ -121,7 +121,7 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
         -Dfilecontentstore.subsystem.name=AzMultipleStorageContainers
         ```
 
-7. Check that the [Configuration]({% link microsoft-azure/latest/config/index.md %} is set up correctly for your environment.
+7. Check that the [Configuration]({% link microsoft-azure/4.0/config/index.md %} is set up correctly for your environment.
 
 8. Start Content Services.
 
@@ -139,7 +139,7 @@ Add a context file, such as `enable-deleted-content-store-context.xml` in the `e
 $CATALINA_HOME/shared/classes/alfresco/extension
 ```
 
-You can find a sample file in `alfresco-azure-connector-5.0.x.amp`.
+You can find a sample file in `alfresco-azure-connector-4.0.x.amp`.
 
 `enable-deleted-content-store-context.xml.sample` in `config/alfresco/extension`
 
@@ -203,7 +203,7 @@ Use this information to upgrade the Azure Connector from a previous version for 
 
     > **Note:** When upgrading from Azure Connector 1.0, make sure you define the Azure authentication mode and a supported value in your `alfresco-global.properties` file.
 
-     > **Note:** To upgrade a system that's never used the file system (for example, an on-premises installation without locally saved binaries), we recommend that you choose a pure Azure content store. See [Azure content store subsystems]({% link microsoft-azure/latest/config/index.md %}#azure-subsystems) for more details.
+     > **Note:** To upgrade a system that's never used the file system (for example, an on-premises installation without locally saved binaries), we recommend that you choose a pure Azure content store. See [Azure content store subsystems]({% link microsoft-azure/4.0/config/index.md %}#azure-subsystems) for more details.
 
 10. Start the server.
 
