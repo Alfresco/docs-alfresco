@@ -49,15 +49,17 @@ For more on creating rules see [Creating a rule]({% link governance-services/lat
 This task assumes you have:
 
 * Installed Alfresco Content Services 7.0 and above.
-* Installed Alfresco Content Connector for AWS S3 3.1 with multiple bucket support enabled. For more see [Configuring multiple buckets using S3 Connector]({% link aws-s3/latest/config/index.md %}#multibucketconfig).
+* Installed Alfresco Content Connector for AWS S3 3.1 and above with multiple bucket support enabled. For more see [Configuring multiple buckets using S3 Connector]({% link aws-s3/latest/config/index.md %}#multibucketconfig).
 * Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
-    |Property|Description|
-    |--------|-----------|
-    |s3.worm.contentstore|This property is the key of the content store that has a WORM bucket.|
-    |s3.worm.retentionPeriod|This property controls the default retention period. It is specified in days and the default value is 2192 which is six years.|
-    |connector.s3.store2.retentionPeriodProperty|This property passes the AGS property which stores the unlock date of an object to Content Connector for AWS S3. You must enter this value: `{http://www.alfresco.org/model/recordsmanagemententerprise/1.0}wormUnlockDate`|
-    |rm.wormUnlockRecords.cronExpression|This cron expression is used to specify how often the unlock job should run in Governance Services. The default is 15 minutes.|
+    |Property| Description                                                                                                                                                                                                                 |
+    |--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    |worm.contentstore| (ACS 23.2, S3 Connector 6.1.0 and above) This property is the key of the content store that has a WORM bucket.                                                                                                              |
+    |worm.retentionPeriod| (ACS 23.2, S3 Connector 6.1.0 and above) This property controls the default retention period. It is specified in days and the default value is 2192 which is six years.                                                     |
+    |s3.worm.contentstore| (ACS lower than 23.2, S3 Connector lower than 6.1.0) This property is the key of the content store that has a WORM bucket.                                                                                                  |
+    |s3.worm.retentionPeriod| (ACS lower than 23.2, S3 Connector lower than 6.1.0) This property controls the default retention period. It is specified in days and the default value is 2192 which is six years.                                                                        |
+    |connector.s3.store2.retentionPeriodProperty| This property passes the AGS property which stores the unlock date of an object to Content Connector for AWS S3. You must enter this value: `{http://www.alfresco.org/model/recordsmanagemententerprise/1.0}wormUnlockDate` |
+    |rm.wormUnlockRecords.cronExpression| This cron expression is used to specify how often the unlock job should run in Governance Services. The default is 15 minutes.                                                                                              |
 
 1.  Log in to your AWS Management Console.
 
@@ -85,11 +87,11 @@ This task assumes you have:
 
 10. Under the Advanced settings heading click the **Object lock** tile.
 
-11. Select **Enable compliance mode**.
+11. Select `Compliance` or `Governance` retention mode as per your preferences (you may want to contant your Legal Department to define that).
 
 12. Enter a Retention period in Days and click **Save**.
 
-    This retention period must match the retention period you configured in the Alfresco Global Properties file for property `s3.worm.retentionPeriod`.
+    This retention period must match the retention period you configured in the Alfresco Global Properties file for property `worm.retentionPeriod`/`s3.worm.retentionPeriod`.
 
     To use this bucket as WORM storage you must now create rules for a category or folder in Governance Services using the **WORM lock** action. If you use the REST API you can use the action without a rule.
 
@@ -123,7 +125,7 @@ This task assumes you have:
 
 9.  Enter a retention period. In days.
 
-    If you don't enter a retention period the default period used is the one you set for this property `s3.worm.retentionPeriod` in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file.
+    If you don't enter a retention period the default period used is the one you set for this property `worm.retentionPeriod`/`s3.worm.retentionPeriod` in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file.
 
     **Note:** When using the WORM Lock action you must select **Run in Background** when creating rules for your categories or folders.
 
