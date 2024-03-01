@@ -22,6 +22,6 @@ Other features introduced in previous versions include:
 * Enrichment of content metadata (v1.0)
 * Easier access to insights from unstructured content (v1.0)
 
-> **Important:** The Intelligence Services module can be applied to Content Services 7.2 or later. See [Supported platforms]({% link intelligence-services/1.5/support/index.md %}) for more.
+> **Note:** Alfresco Intelligence Services 1.5 can be applied to Alfresco Content Services 7.4 only. See [Supported platforms]({% link intelligence-services/1.5/support/index.md %}) for more.
 
 See [Intelligence Services architecture]({% link intelligence-services/1.5/admin/index.md %}) for a general overview.
