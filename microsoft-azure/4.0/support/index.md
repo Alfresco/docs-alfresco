@@ -6,4 +6,4 @@ The following are the supported platforms for Alfresco Content Connector for Azu
 
 | Version | Notes |
 | ------- | ----- |
-| Content Services 23.2.x | |
+| Content Services 23.1.x | |
