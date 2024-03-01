@@ -1,5 +1,5 @@
 ---
-title: Upgrading from 3.4
+title: Upgrade Alfresco Content Accelerator
 ---
 
 ## Recommendations
