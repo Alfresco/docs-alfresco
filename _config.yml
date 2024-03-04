@@ -313,6 +313,7 @@ defaults:
       toc: "microsoft-azure"
       support: true
       versions:
+        - 5.0
         - 4.0
         - 3.2
         - 3.1
@@ -325,8 +326,12 @@ defaults:
   - scope:
       path: "microsoft-azure/latest"
     values:
-        version: 4.0
+        version: 5.0
         latest: true
+  - scope:
+      path: "microsoft-azure/4.0"
+    values:
+        version: 4.0
   - scope:
       path: "microsoft-azure/3.2"
     values:

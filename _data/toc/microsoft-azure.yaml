@@ -1,5 +1,5 @@
 # Microsoft Azure
-- version: 4.0
+- version: 5.0
   pages:
     - title: 'Introduction'
       path: '/microsoft-azure/latest/'
@@ -13,6 +13,20 @@
           path: '/microsoft-azure/latest/config/direct-access/'
     - title: 'Administer'
       path: '/microsoft-azure/latest/admin/'
+- version: 4.0
+  pages:
+    - title: 'Introduction'
+      path: '/microsoft-azure/4.0/'
+    - title: 'Install'
+      path: '/microsoft-azure/4.0/install/'
+    - title: 'Configure'
+      pages:
+        - title: 'Overview'
+          path: '/microsoft-azure/4.0/config/'
+        - title: 'Direct access URLs'
+          path: '/microsoft-azure/4.0/config/direct-access/'
+    - title: 'Administer'
+      path: '/microsoft-azure/4.0/admin/'
 - version: 3.2
   pages:
     - title: 'Introduction'

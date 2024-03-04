@@ -269,7 +269,7 @@ Previous versions of the Azure Connector support the deleted content store provi
 
 Starting with 1.2, the Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services. However, you can enable the Content Services deleted content store, if required.
 
-See [Azure Connector deleted content store]({% link microsoft-azure/latest/install/index.md %}#azure-connector-deleted-content-store) for more details.
+See [Azure Connector deleted content store]({% link microsoft-azure/4.0/install/index.md %}#azure-connector-deleted-content-store) for more details.
 
 ## Configuring multiple storage containers
 
@@ -282,7 +282,7 @@ The Azure multiple storage containers sample is a new store subsystem that is ba
 * `store1.azureBlobContentStore` as the default
 * `store2.azureBlobContentStore` as the second one
 
-The sample files can be found in `alfresco-azure-connector-5.0.x.amp`.
+The sample files can be found in `alfresco-azure-connector-4.0.x.amp`.
 
 * `azure-multiple-storage-containers-context.xml.sample` in `config/alfresco/extension`
 * `azure-mc-contentstore-context.xml.sample` and `azure-mc-contentstore.properties.sample` are in `config/alfresco/extension/subsystems/ContentStore/AzMultipleStorageContainers/AzMultipleStorageContainers`
