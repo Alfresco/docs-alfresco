@@ -90,6 +90,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Control Center 8.4 | |
 | Alfresco Application Development Framework (ADF) 6.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Content Accelerator 4.0 | |
+| Alfresco Enterprise Viewer 4.0 | |
 | | |
 | **Components** | |
 | ImageMagick v7.1.0-16 | |
@@ -182,6 +183,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Control Center 8.3 | |
 | Alfresco Application Development Framework (ADF) 6.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Content Accelerator 4.0 | |
+| Alfresco Enterprise Viewer 4.0 | |
 | | |
 | **Components** | |
 | ImageMagick v7.1.0-16 | |
