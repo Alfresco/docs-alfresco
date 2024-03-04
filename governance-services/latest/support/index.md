@@ -8,7 +8,7 @@ The following are the supported platforms for the Alfresco Governance Services v
 
 | Version | Notes |
 | ------- | ----- |
-| Alfresco Content Services 23.2 |
+| Alfresco Content Services 23.2 | |
 
 {% endcapture %}
 
@@ -16,7 +16,7 @@ The following are the supported platforms for the Alfresco Governance Services v
 
 | Version | Notes |
 | ------- | ----- |
-| Alfresco Content Services 23.1 |
+| Alfresco Content Services 23.1 | |
 
 {% endcapture %}
 
