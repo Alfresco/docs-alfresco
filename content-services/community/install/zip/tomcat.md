@@ -101,7 +101,7 @@ Use this method of installing if you've already installed a JRE, a supported dat
 
 The Community Edition distribution file is a zip containing the required WAR files, in addition to the additional commands, and configuration files for a manual installation.
 
-1. Download the zip file from Alfresco Nexus repository: [alfresco-content-services-community-distribution-23.1.x.zip](https://artifacts.alfresco.com/nexus/#nexus-search;gav~org.alfresco~alfresco-content-services-community*~23.1.0~~){:target="_blank"}
+1. Download the zip file from Alfresco Nexus repository: [alfresco-content-services-community-distribution-23.2.x.zip](https://artifacts.alfresco.com/nexus/#nexus-search;gav~org.alfresco~alfresco-content-services-community*~23.2.0~~){:target="_blank"}
 
 2. Specify a location for the download and extract the file to a system directory; for example `<installLocation>`.
 
