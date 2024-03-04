@@ -1439,6 +1439,7 @@ defaults:
       toc: "microsoft-outlook"
       support: true
       versions:
+        - 3.0
         - "2.10"
         - 2.9
         - 2.8
@@ -1449,8 +1450,12 @@ defaults:
   - scope:
       path: "microsoft-outlook/latest"
     values:
-      version: "2.10"
+      version: 3.0
       latest: true
+  - scope:
+      path: "microsoft-outlook/2.10"
+    values:
+      version: "2.10"
   - scope:
       path: "microsoft-outlook/2.9"
     values:
