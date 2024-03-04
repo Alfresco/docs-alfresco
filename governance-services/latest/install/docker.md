@@ -31,19 +31,19 @@ recommended for development and test environments only.
     ```text
     services:
         alfresco:
-            #image: alfresco/alfresco-content-repository:23.1.x
-            image: quay.io/alfresco/alfresco-governance-repository-enterprise:23.1.x
+            #image: alfresco/alfresco-content-repository:23.x.x
+            image: quay.io/alfresco/alfresco-governance-repository-enterprise:23.x.x
             mem_limit: 1700m
-           
     ```
 
     ```text
         share:
-            #image: alfresco/alfresco-share:23.1.x
-            image: quay.io/alfresco/alfresco-governance-share-enterprise:23.1.x
+            #image: alfresco/alfresco-share:23.x.x
+            image: quay.io/alfresco/alfresco-governance-share-enterprise:23.x.x
             mem_limit: 1g
-           
     ```
+
+    Replace the ACS versions (for example, ACS 23.1.1) with the compatible AGS versions (for example, AGS 23.1.1).
 
 4. In a command prompt login to Quay using the following command (to open up access to Enterprise Docker images):
 
@@ -88,7 +88,7 @@ recommended for development and test environments only.
 
     * Try allocating more memory resources, as advised in `docker-compose.yml`. For example, in Docker, change the memory setting in **Preferences** (or **Settings**) > **Advanced** > **Memory**, to at least 6 GB. Make sure you restart Docker and wait for the process to finish before continuing.
     * Go back and retry the deployment.
-    
+
     > **Note:** Although 16 GB is the required minimum memory setting, keep in mind that 6 GB is much lower than the required minimum, and may need to be adapted for your environment.
 
 7. Open your browser and check everything starts up correctly:
