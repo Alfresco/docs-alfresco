@@ -6,6 +6,6 @@ The following are the supported platforms for the Alfresco Enterprise Viewer 4.0
 
 | Version | Notes |
 | ------- | ----- |
-| Content Services 23.1 | |
+| Content Services 23.x | |
 | Search Services 2.x | |
 | Search Enterprise 4.x | |

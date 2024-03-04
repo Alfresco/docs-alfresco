@@ -24,6 +24,6 @@ The following are the supported platforms for Search Enterprise 4.0.x:
 | Alfresco Elasticsearch Connector 4.0.x | |
 | | |
 | **Applications** | |
-| Alfresco Enterprise Viewer 4.0 | |
+| Alfresco Enterprise Viewer 4.0.x | |
 
 > **Note:** Elasticsearch/Opensearch does not require any additional software from Alfresco in order to be used by Alfresco Search Enterprise 4.0.
