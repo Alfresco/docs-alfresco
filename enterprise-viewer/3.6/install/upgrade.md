@@ -20,9 +20,9 @@ For AEV 3.5.1 or later, verify the `secureBrowserCookies` configuration. If you 
 
 In the `openannotate-override-placeholders.properties` set the following property accordingly: `secureBrowserCookies=`.
 
-## Upgrading to 3.6 and above
+## Upgrading to 3.6
 
-For AEV 3.6 or later, the Control Document type is set to `aw:qualityDocument` by default. In case of a custom type set, you will need to override it by completing the following steps.
+For AEV 3.6, the Control Document type is set to `aw:qualityDocument` by default. In case of a custom type set, you will need to override it by completing the following steps.
 
 1. Override the bean in `opencontent-extension-override-module-ctx.xml` as follows:
 
