@@ -79,7 +79,7 @@ The tool may be used as a standalone jar file. The table below lists the main co
 | alfresco.reindex.pagesize | The page size of nodes fetched from the Alfresco dabatase. The default value is `100`. |
 | alfresco.reindex.concurrentProcessors | Number of parallel processors. The default value is `10`. |
 | alfresco.reindex.fromId | Start ID for fetching nodes (_reindexByIds_). The default value is `0`. |
-| alfresco.reindex.toId | Start ID for fetching nodes (_reindexByIds_) is configured. The default value is `10000`. |
+| alfresco.reindex.toId | End ID for fetching nodes (_reindexByIds_) is configured. The default value is `20000000000`. |
 | alfresco.reindex.fromTime | Start time for fetching nodes (_reindexByDate_), pattern: yyyyMMddHHmm. The default value is `190001010000`. |
 | alfresco.reindex.toTime | End time for fetching nodes (_reindexByDate_), pattern: yyyyMMddHHmm. The default value is `203012312359`. |
 | spring.datasource.url | JDBC url of the Alfresco database. The default value is `jdbc:postgresql://localhost:5432/alfresco`. |
@@ -100,8 +100,8 @@ The tool may be used as a standalone jar file. The table below lists the main co
 | alfresco.reindex.prefixes-file | File with namespaces-prefixes mapping. The default value is `classpath:reindex.prefixes-file.json`. |
 | alfresco.reindex.partitioning.type | Remote node type, can be master or worker. If not specified, the app runs as a single node instance. By default it is left empty. |
 | alfresco.reindex.partitioning.grid-size | Number of partitions, usually equals the number of available workers. The default value is `3`. |
-| alfresco.reindex.partitioning.requests-queue| Request queue for remote partitioning. `org.alfresco.search.reindex`.requests. |
-| alfresco.reindex.partitioning.replies-queue | Reply queue for remote partitioning. `org.alfresco.search.reindex.replies` |
+| alfresco.reindex.partitioning.requests-queue | Request queue for remote partitioning. `org.alfresco.search.reindex.requests.` |
+| alfresco.reindex.partitioning.replies-queue | Reply queue for remote partitioning. `org.alfresco.search.reindex.replies`. |
 | alfresco.db.minimum.schema.version | Minimum Alfresco Repository database version supported: 14002. |
 | alfresco.accepted-content-media-types-cache.base-url | URL to get the list of Content Media Types supported. The default URL is `http://localhost:8090/transform/config`. |
 | alfresco.accepted-content-media-types-cache.enabled | Cache the list of Content Media Types supported in memory. The default value is `true`. |
