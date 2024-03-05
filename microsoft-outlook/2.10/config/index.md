@@ -797,7 +797,7 @@ These settings define global controls across your enterprise and are applied imm
 
     3. **Site**: emails with same messageID are not allowed across a site.
 
-    >**Note:** If an email is dropped into a folder, where the same email document already exists, the version detection feature will recognize it, and the **Versioning** dialog is displayed. See [Managing file versions in Outlook]({% link microsoft-outlook/latest/using/index.md %}#managing-file-versions-in-outlook) for more details.
+    >**Note:** If an email is dropped into a folder, where the same email document already exists, the version detection feature will recognize it, and the **Versioning** dialog is displayed. See [Managing file versions in Outlook]({% link microsoft-outlook/2.10/using/index.md %}#managing-file-versions-in-outlook) for more details.
 
 5. If you have an Alfresco Application Development Framework (ADF) application installed, such as the Digital Workspace, you can configure your Outlook clients to use links to it instead of Alfresco Share. For example, if you want to view the document details page, this configuration will open the relevant page in Digital Workspace instead of Share.
 
@@ -898,7 +898,7 @@ These settings define global controls across your enterprise.
 
 4. Select Licenses from the Tools menu and click **Edit** to add new licenses.
 
-    See [Installing server and client licenses in Alfresco Share]({% link microsoft-outlook/latest/install/index.md %}#installserverclientlicenses) for more information about installing licenses.
+    See [Installing server and client licenses in Alfresco Share]({% link microsoft-outlook/2.10/install/index.md %}#installserverclientlicenses) for more information about installing licenses.
 
 5. Select **System Info** from the Tools menu to view system information.
 
@@ -1084,10 +1084,10 @@ Set the configuration template to import when the configuration dialog is called
 
 Use the Alfresco Client Settings XML file for advanced configuration of Alfresco Microsoft Outlook client.
 
-The `AlfrescoClientSettings-3.0.x.xml` file contains advanced configuration properties.
+The `AlfrescoClientSettings-2.10.x.xml` file contains advanced configuration properties.
 Use this file to set up attributes and metadata settings.
 
-1. Locate and open `AlfrescoClientSettings-3.0.x.xml` in the `C:\Users\<username>` directory, where `<username>` is your Windows user name.
+1. Locate and open `AlfrescoClientSettings-2.10.x.xml` in the `C:\Users\<username>` directory, where `<username>` is your Windows user name.
 
     The `<outlook>` section contains elements that you can configure to customize the Alfresco Outlook Client, and also additional `<storage>`, `<connection>`, `<logging>`, `<restrictions>`, and `<tabs>` sections:
 
@@ -1181,6 +1181,7 @@ Use this file to set up attributes and metadata settings.
     |`useFilenameOnUploadMsg`|Controls if Alfresco should use the file name of email files uploaded from the desktop or the subject line to name the document in the repository. This option applies to email files uploaded from the desktop only.<br><br>Added in Outlook Integration 2.4.7. Supported in versions 2.4.7 onwards and 2.6.|`true`: Alfresco uses the file name to name the document in the repository.<br><br>`false`: Alfresco uses the subject line of the email to name the document in the repository.|
     |`useFilenameOnRenderMsg`|Controls if Alfresco should use the `cm:name` or `subjectline` attribute to display in the list/tree view. This option applies to email documents only.<br><br>Added in Outlook Integration 2.4.7. Supported in versions 2.4.7 onwards and 2.6.|`true`: Alfresco uses the `cm:name` instead of the `subjectline` attribute to show the email document in the list/tree view.<br><br>`false`: Alfresco uses the `subjectline` attribute to show the email document in the list/tree view.|
     |`enableWFTab`|Controls the visibility of the Workflow tab in high resolution mode.<br><br>Added in Outlook Integration 2.6.|`true`: Workflow tab is visible.<br><br>`false`: Workflow tab is collapsed. This is the default setting.|
+    |`enableWPF`|Enables/disables the use of a high resolution front-end for the Alfresco Outlook Client.<br><br>Added in Outlook Integration 2.6.|`true`: High resolution front-end is enabled. This is the default setting.<br><br>`false`: High resolution front-end is disabled.|
     |`tokenAlterMode`|Used for QA and testing. Toggles the way a client is uniquely identified.|**Note:** Keep the default value: `false`.|
     |`copyMoveWarningThreshold`|Sets the threshold for when a warning should be displayed, when a large amount of files is being copied/moved inside the repository with the copy/move & paste feature. Warns the user that copying `x` amount of files can take a long time depending on the server.<br><br>Added in Outlook Integration 2.7.|`100` is the default setting.|
 
