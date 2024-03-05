@@ -257,9 +257,7 @@ You only need to follow these steps if installing AEV without ACA:
 
    For example:
 
-   * If using Alfresco Content Services 23.x, use the `tsgrp-opencontent-4.0-for-acs23.x.amp`.
-
-   where `x` is the specific Content Services version you're running.
+   * If using Alfresco Content Services 23.x, use the `tsgrp-opencontent-4.0.0-for-acs23.amp`.
 
 3. From the directory where your Alfresco Tomcat server is installed, run the following command to apply the AMP:
 
