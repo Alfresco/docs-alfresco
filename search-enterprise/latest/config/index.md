@@ -79,7 +79,7 @@ The tool may be used as a standalone jar file. The table below lists the main co
 | alfresco.reindex.pagesize | The page size of nodes fetched from the Alfresco dabatase. The default value is `100`. |
 | alfresco.reindex.concurrentProcessors | Number of parallel processors. The default value is `10`. |
 | alfresco.reindex.fromId | Start ID for fetching nodes (_reindexByIds_). The default value is `0`. |
-| alfresco.reindex.toId | Start ID for fetching nodes (_reindexByIds_) is configured. The default value is `10000`. |
+| alfresco.reindex.toId | End ID for fetching nodes (reindexByIds) is configured. The default value is 20000000000. |
 | alfresco.reindex.fromTime | Start time for fetching nodes (_reindexByDate_), pattern: yyyyMMddHHmm. The default value is `190001010000`. |
 | alfresco.reindex.toTime | End time for fetching nodes (_reindexByDate_), pattern: yyyyMMddHHmm. The default value is `203012312359`. |
 | spring.datasource.url | JDBC url of the Alfresco database. The default value is `jdbc:postgresql://localhost:5432/alfresco`. |
