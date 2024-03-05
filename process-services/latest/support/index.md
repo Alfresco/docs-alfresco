@@ -19,6 +19,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Ubuntu 22.04 | |
 | Ubuntu 22.04 | |
 | Amazon Linux 2 | |
+| | |
 | **Databases** | |
 | MariaDB 10.6 | 3.1.4 |
 | MySQL 8.0 | `mysql-connector-java-8.0.33.jar` |
