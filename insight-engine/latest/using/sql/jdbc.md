@@ -15,13 +15,13 @@ The connection string's host and port should point to the Alfresco Content Servi
 The JDBC connection string uses the following format:
 
 ```bash
-jdbc:alfresco://<alfresco-server-name>:<alfresco-server-port>?collection=alfresco
+jdbc:solr://<alfresco-server-name>:<alfresco-server-port>?collection=alfresco
 ```
 
 For example, this database URL property value:
 
 ```bash
-jdbc:alfresco://localhost:8080?collection=alfresco
+jdbc:solr://localhost:8080?collection=alfresco
 ```
 
 Will generate the following request:
