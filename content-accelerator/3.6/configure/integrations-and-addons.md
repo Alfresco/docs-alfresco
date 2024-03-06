@@ -19,7 +19,7 @@ title: Integrations and Addons
 2. Add the following properties:
 
     * `docusign.username` - DocuSign user name (which should be the same as the user's email address)
-    * `docusign.password` - DocuSign user password, should be [encrypted with the TSGEncrypter]({% link content-accelerator/latest/configure/oc-property-overrides.md %}#encrypting-property-values) and enclosed with the encryption indicator like: `@{theEncPassword}`
+    * `docusign.password` - DocuSign user password, should be [encrypted with the TSGEncrypter]({% link content-accelerator/3.6/configure/oc-property-overrides.md %}#encrypting-property-values) and enclosed with the encryption indicator like: `@{theEncPassword}`
     * `docusign.integratorKey` - see setup step above
     * `docusign.login.url` - the login URL is defaulted to the DocuSign dev sandbox URL in `universal-defaults.properties`.  You will want to override this for production environments
     * `docusign.hpi.dataPath` - The folder where DocuSign data objects should be stored.  Defaults to `/hpi/docuSignData`
@@ -395,19 +395,17 @@ Once your cloud solution has been chosen, the following steps must be completed 
 
 5. Select the Authentication section.
 
-   1. Click the + `Add Platform` button.
-   2. Select `Web`.
-   3. Set up Redirect url(s) (example: `https://{server}/ocms/dummy/path`).
+   1. Set up Redirect url(s) (example: `https://{server}/ocms/dummy/path`).
       > **Note:** For development, a redirect URL starting with `http://localhost` is acceptable.  All other URLs must start with `https://`.
 
-   4. Under `Implicit grant and hybrid flows`, ensure the `Access tokens` and `ID tokens` checkboxes are checked.
+   2. Under `Implicit grant`, ensure the `Access tokens` and `ID tokens` checkboxes are checked.
 
 6. Select the API Permissions section.  Ensure the following permissions are granted:
 
     * Microsoft Graph: `user.read, Files.ReadWrite.All, Files.ReadWrite.AppFolder, Files.ReadWrite.Selected, offline_access, openid, Sites.ReadWrite.All`
     * Admin Consent Required - no for all
 
-7. After saving all changes, navigate back to the Overview page and copy the `Application (client) ID`.  This will be needed in the [Configure Google Drive and OneDrive Actions in ACA]({% link content-accelerator/latest/configure/integrations-and-addons.md %}#configure-google-drive-and-onedrive-actions-in-aca) section.
+7. After saving all changes, navigate back to the Overview page and copy the `Application (client) ID`.  This will be needed in the ACA admin (see below).
 
 8. Follow these steps if your version of Java runs into issues with the SSL Certificate, usually manifesting in `PKIX` errors in the log files:
 
@@ -504,7 +502,7 @@ Override the applicable Workshare Compare properties (see below) in a `project-p
 * `oc.workshare.user`- Username to login to the machine/server the Workshare Compare server is installed on.
 * `oc.workshare.password` - Password to login to the machine/server the Workshare Compare server is installed on.
 * `oc.workshare.setfile` - Path the the "set file" (ex. WorkshareStandard.set) on the machine/server the Workshare Compare server is installed on **or** local machine. By default, this file is included in the classpath and can be set to `WorkshareStandard.set`
-* `oc.workshare.password.encrypted` - Set whether the workshare password has been [encrypted with the TSGEncrypter]({% link content-accelerator/latest/configure/oc-property-overrides.md %}#encrypting-property-values). This only needs to be set if the password is encrypted.
+* `oc.workshare.password.encrypted` - Set whether the workshare password has been [encrypted with the TSGEncrypter]({% link content-accelerator/3.6/configure/oc-property-overrides.md %}#encrypting-property-values). This only needs to be set if the password is encrypted.
 
 ### Configure ACA
 
