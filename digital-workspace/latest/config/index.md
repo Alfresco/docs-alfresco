@@ -69,7 +69,9 @@ You can manually edit the position of the columns in any of the file views in Di
 
 2. In the view you want to adjust, drag and drop the columns to your desired position. 
 
-    > **Note:** The position does not revert back to the original view, once you click away.
+    > **Note:**
+    > * A column can be dragged to a different position if the ``draggable`` parameter of the column is set to ``enable`` in the Config file.
+    > * The position does not revert back to the original view, once you click away.
 
 ### Configure default columns
 
