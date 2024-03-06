@@ -1,5 +1,5 @@
 # Digital Workspace
-- version: 4.3
+- version: 4.4
   pages:
     - title: 'Introduction'
       path: '/digital-workspace/latest/'
@@ -55,6 +55,62 @@
           path: '/digital-workspace/latest/develop/extensions/'  
     - title: 'Troubleshooting'
       path: '/digital-workspace/latest/troubleshooting/'
+- version: 4.3
+  pages:
+    - title: 'Introduction'
+      path: '/digital-workspace/4.3/'
+    - title: 'Install'
+      pages: 
+        - title: 'Overview'
+          path: '/digital-workspace/4.3/install/'
+        - title: 'Install into Tomcat'
+          path: '/digital-workspace/4.3/install/tomcat/'
+        - title: 'Install into other webserver'
+          path: '/digital-workspace/4.3/install/other-webserver/'
+        - title: 'Install with Docker Compose'
+          path: '/digital-workspace/4.3/install/containerized/'
+    - title: 'Configure'
+      path: '/digital-workspace/4.3/config/'
+    - title: 'Governance Services'
+      pages: 
+        - title: 'Governance Services overview'
+          path: '/digital-workspace/4.3/governance/'
+        - title: 'Security Marks'
+          path: '/digital-workspace/4.3/governance/security/'
+        - title: 'Working with records'
+          path: '/digital-workspace/4.3/governance/records/'
+    - title: 'Process Services'
+      pages: 
+        - title: 'Process Services overview'
+          path: '/digital-workspace/4.3/process/'
+        - title: 'Starting processes'
+          path: '/digital-workspace/4.3/process/starting/'
+        - title: 'Managing processes'
+          path: '/digital-workspace/4.3/process/managing/'
+        - title: 'Managing Tasks'
+          path: '/digital-workspace/4.3/process/tasks/'
+        - title: 'Configuring Process Services'
+          path: '/digital-workspace/4.3/process/config/'
+    - title: 'Image Management'
+      path: '/digital-workspace/4.3/media/'
+    - title: 'Using'
+      pages:
+        - title: 'Creating a rule'
+          path: '/digital-workspace/4.3/using/'
+        - title: 'Tags and Categories'
+          path: '/digital-workspace/4.3/using/tags-categories/'
+    - title: 'Develop'    
+      pages: 
+        - title: 'Overview'
+          path: '/digital-workspace/4.3/develop/'
+        - title: 'Deploy'
+          path: '/digital-workspace/4.3/develop/deploy/'
+        - title: 'Manage Digital Workspace'
+          path: '/digital-workspace/4.3/develop/manage/'
+        - title: 'Build extensions'
+          path: '/digital-workspace/4.3/develop/extensions/'  
+    - title: 'Troubleshooting'
+      path: '/digital-workspace/4.3/troubleshooting/'
 - version: 4.2
   pages:
     - title: 'Introduction'
