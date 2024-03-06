@@ -263,7 +263,9 @@ Make sure that you've applied your AMP files, downloaded the Alfresco Content Co
 
     You can optionally hide the password when you have pasted it into the Admin Console.
 
-9. Select the **Salesforce Environment Type** that Alfresco should use. There are two options: `Production (the default value)` and `Sandbox`.
+9. Select the **Salesforce Environment Type** that Alfresco should use.
+
+    There are two options: `Production` (the default value) and `Sandbox`:
 
     ![sf-adminconsole]({% link salesforce/images/sf-adminconsole.png %})
 
@@ -503,7 +505,9 @@ Make sure that you've applied your AMP files, downloaded the Alfresco Content Co
 
     You can optionally hide the password when you have pasted it into the Admin Console.
 
-7. Select the Salesforce Environment type that Alfresco should use. There are two options: **Production** (the default value) and **Sandbox**.
+7. Select the **Salesforce Environment Type** that Alfresco should use.
+
+    There are two options: **Production** (the default value) and **Sandbox**.
 
 8. You can optionally change the list size of records that are displayed.
 
