@@ -88,8 +88,6 @@ When this configuration is added to the Google Docs Integration, you can define 
 
     > **Note:** Switching the integration repeatedly between different configurations can corrupt the Google authentication store in Alfresco Content Services for your users. If this happens, users will need to remove access to the integration from their Google Account so that their connection can be set up again.
 
-    > **Note:** If, while using the Google Docs Integration, when a user is logging into their Google Drive account and they see the message `This App isn't verified, you'll need to upgrade to at least version 4.1.0 of the integration.` Users can click the Advanced link in the message to allow them to continue to the login screen.
-
 ## Google Docs supported document types
 
 Google Docs restricts the formats of files or documents that can be uploaded or created.
