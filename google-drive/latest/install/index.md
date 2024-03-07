@@ -40,8 +40,8 @@ Use these steps to install the Google Docs Integration.
 
     > **Note:** Replace `<version>` with your specific file name.
 
-    * Alfresco Content Services: `alfresco-googledrive-repo-enterprise-4.1/.x.amp`
-    * Alfresco Community Edition: `alfresco-googledrive-repo-community-4.1/.x.amp`
+    * Alfresco Content Services: `alfresco-googledrive-repo-enterprise-4.1.x.amp`
+    * Alfresco Community Edition: `alfresco-googledrive-repo-community-4.1.x.amp`
 
     For Alfresco Share:
 
