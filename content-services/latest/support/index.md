@@ -84,6 +84,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Outlook Integration 3.0 | |
 | Alfresco Office Services 2.0 | |
 | Alfresco Google Docs Integration 4.0 | |
+| Alfresco Content Services SDK 4.8 | |
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 4.3 | |
@@ -179,6 +180,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Outlook Integration 3.0 | |
 | Alfresco Office Services 2.0 | |
 | Alfresco Google Docs Integration 4.0 | |
+| Alfresco Content Services SDK 4.8 | |
+| Alfresco Content Services SDK 4.7 | |
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 4.3 | |
