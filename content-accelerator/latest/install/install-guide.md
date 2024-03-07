@@ -24,7 +24,7 @@ You will need to download the following distribution zips in order to install AC
 
 ### Java
 
-Content Accelerator requires Java 11 or above. Consult your repository of choice for more detailed requirements. If you are using Java 17, refer to our [Java 17 support guide]({% link content-accelerator/latest/install/java-support.md %}).
+Content Accelerator requires Java 17 or above. Consult your repository of choice for more detailed requirements. If you are using Java 17, refer to our [Java 17 support guide]({% link content-accelerator/latest/install/java-support.md %}).
 
 ### Alfresco repository version
 
@@ -514,7 +514,7 @@ This sections walks through how to install the Alfresco Content Accelerator web 
 
 ### Install web applications on separate Tomcat {#install-webapps-separate-tomcat}
 
-This section walks through how to install the web applications on a separate Tomcat instance (Meaning, you must have a proxy setup).
+This section walks through how to install the web applications on a separate Tomcat instance (meaning, you must have a proxy setup).
 
 1. Install Apache Tomcat. See [https://archive.apache.org/dist/tomcat](https://archive.apache.org/dist/tomcat){:target="_blank"}.
 
@@ -524,7 +524,7 @@ This section walks through how to install the web applications on a separate Tom
 
 3. (PnP and HR ONLY) This step is only required if using the Policy and Procedure Content Accelerator or HR Content Accelerator solution:
 
-   Copy the `WizardAdmin.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
+   Copy the `WizardAdmin.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory (**Note:** Apache Tomcat 8.x or 9.x is recommended for Active Wizard Admin).
 
    You'll find this WAR file in the `Web Applications` folder of the `alfresco-content-accelerator-policy-and-procedure-accelerator` zip or `alfresco-content-accelerator-sehr-accelerator` zip.
 
@@ -573,7 +573,7 @@ This section walks through how to install the web applications on a separate Tom
 
 10. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution AND if `TOMCAT_HOME` is NOT `/opt/ocms-policy/apache-tomcat`
 
-    Navigate to `TOMCAT_HOME/webapps` and extract the `WizardAdmin.war`.
+    Navigate to `TOMCAT_HOME/webapps` and extract the `WizardAdmin.war` (**Note:** Apache Tomcat 8.x or 9.x is recommended for Active Wizard Admin).
 
     Navigate to `TOMCAT_HOME/webapps/WizardAdmin/WEB-INF/classes` and modify the following files to have the proper path to your `TOMCAT_HOME` on the line numbers listed:
 
@@ -600,7 +600,7 @@ This section walks through how to install the web applications on Alfresco Tomca
 
 3. (PnP and HR ONLY) This step is only required if using the Policy and Procedure Content Accelerator or HR Content Accelerator solution:
 
-   Copy the `WizardAdmin.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory.
+   Copy the `WizardAdmin.war` file into the `ALFRESCO_HOME/tomcat/webapps` directory (**Note:** Apache Tomcat 8.x or 9.x is recommended for Active Wizard Admin).
 
    You'll find this WAR file in the `Web Applications` folder of the `alfresco-content-accelerator-policy-and-procedure-accelerator` zip or `alfresco-content-accelerator-sehr-accelerator` zip.
 
@@ -645,7 +645,7 @@ This section walks through how to install the web applications on Alfresco Tomca
 
 9. (OPTIONAL) This step is only required if using the Policy and Procedure Content Accelerator solution:
 
-    Navigate to `ALFRESCO_HOME/tomcat/webapps` and extract the `WizardAdmin.war`.
+    Navigate to `ALFRESCO_HOME/tomcat/webapps` and extract the `WizardAdmin.war` (**Note:** Apache Tomcat 8.x or 9.x is recommended for Active Wizard Admin).
 
     Navigate to `ALFRESCO_HOME/tomcat/webapps/WizardAdmin/WEB-INF/classes` and modify the following files to have the proper
     path to your `ALFRESCO_HOME` on the line numbers listed:
