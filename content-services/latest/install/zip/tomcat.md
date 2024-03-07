@@ -105,7 +105,7 @@ The Content Services distribution file is a zip containing the required WAR file
 
 1. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
-2. Download the file: `alfresco-content-services-distribution-23.1.x.zip`
+2. Download the file: `alfresco-content-services-distribution-23.x.x.zip`
 
 3. Specify a location for the download and extract the file to a system directory; for example `<installLocation>`.
 
@@ -229,7 +229,7 @@ The new keystore configuration implementation requires it to be configured with
 
 1. Move the default keystore files to your installation
 
-    1. Extract from the `alfresco-content-services-distribution-23.1.x.zip` file the following two files:
+    1. Extract from the `alfresco-content-services-distribution-23.x.x.zip` file the following two files:
 
         * `/keystore/metadata-keystore/keystore`
         * `/keystore/metadata-keystore/keystore-passwords.properties`

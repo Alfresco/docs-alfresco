@@ -11,7 +11,7 @@ defaults:
       tutorial: true
       support: true
       versions:
-        - 23.1
+        - 23.x
         - 7.4
         - 7.3
         - 7.2
@@ -24,7 +24,7 @@ defaults:
   - scope:
       path: "content-services/latest"
     values:
-      version: 23.1
+      version: 23.x
       latest: true
       release: true
   - scope:

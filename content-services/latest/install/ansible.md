@@ -122,7 +122,7 @@ While Content Services supports a wide range of OS, the playbook is only support
 
 ### Component versions
 
-The table below shows the version of the components deployed by the playbook for Content Services 23.1, 7.x, and Community.
+The table below shows the version of the components deployed by the playbook for Content Services 23.x, 7.x, and Community.
 
 | Component | 23.1.0 Enterprise | 7.4 Enterprise | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0 Enterprise | Community |
 |-|-|-|-|-|-|-|-|

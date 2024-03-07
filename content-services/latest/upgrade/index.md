@@ -21,13 +21,13 @@ When you upgrade Content Services, it's recommended that you follow a structured
 
 The following diagram shows the upgrade paths for major versions:
 
-![Upgrade paths to 23.1]({% link content-services/images/upgrade-path-23.1.png %})
+![Upgrade paths to 23.x]({% link content-services/images/upgrade-path-23.x.png %})
 
 The upgrade path recommendations are:
 
-* Direct upgrades to Content Services 23.1 are supported only from 7.1 and later versions, using their latest patch release.
-* Content Services 23.1 introduces changes that require new releases of some modules. To upgrade to 23.1, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/latest/support/index.md %}) for more details on the associated versions.
-* You must upgrade to a supported version of Alfresco Search Services before upgrading the repository to 23.1. See [Upgrade Search Services]({% link search-services/latest/upgrade/index.md %}) for more information.
+* Direct upgrades to Content Services 23.x are supported only from 7.1 and later versions, using their latest patch release.
+* Content Services 23.x introduces changes that require new releases of some modules. To upgrade to 23.x, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/latest/support/index.md %}) for more details on the associated versions.
+* You must upgrade to a supported version of Alfresco Search Services before upgrading the repository to 23.x. See [Upgrade Search Services]({% link search-services/latest/upgrade/index.md %}) for more information.
 
 > **Note:** If you're upgrading from an earlier release that's not shown on this diagram, [contact Support]({% link support/latest/contact.md %}){:target="_blank"}.
 
@@ -48,6 +48,7 @@ The following table shows the upgrade path for major versions:
 | Community Edition 7.3 | Content Services 7.3 |
 | Community Edition 7.4 | Content Services 7.4 |
 | Community Edition 23.1 | Content Services 23.1 |
+| Community Edition 23.2 | Content Services 23.2 |
 
 Please contact Alfresco Support for upgrade advice that's specific to your environment.
 
@@ -93,13 +94,13 @@ These steps assume that you've got an existing Content Services installation (`a
         data.dir.root:/alfresco-v.2/solr/myindexes
         ```
 
-2. Validate the new 23.1 installation to check that it's working correctly.
+2. Validate the new 23.x installation to check that it's working correctly.
 
     1. Configure the new installation with a new repository and database (not the existing one).
 
     2. [Start the server]({% link content-services/latest/install/zip/additions.md %}#start-server) and [validate](#validate-upgrade) that the system works correctly.
 
-3. Apply all customizations to the new 23.1 installation.
+3. Apply all customizations to the new 23.x installation.
 
     1. [Stop]({% link content-services/latest/install/zip/additions.md %}#stop-server) the server.
 
