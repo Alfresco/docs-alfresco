@@ -96,6 +96,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Office Services 1.6 | |
 | Alfresco Google Docs Integration 3.4 | |
 | Alfresco Content Services SDK 5.2 | |
+| Alfresco Content Services SDK 4.7 | |
 | Alfresco Content Services SDK 4.6 | |
 | | |
 | **Applications** | |
@@ -211,6 +212,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Office Services 1.6 | |
 | Alfresco Google Docs Integration 3.4 | |
 | Alfresco Content Services SDK 5.2 | |
+| Alfresco Content Services SDK 4.7 | |
 | Alfresco Content Services SDK 4.6 | |
 | | |
 | **Applications** | |
