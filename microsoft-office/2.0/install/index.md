@@ -26,7 +26,7 @@ To install manually into an existing Alfresco instance, you use the AOS AMP file
 
 > **Note:** If you deploy Content Services using containerized deployment, AOS is pre-installed in the Docker images.
 
-1. Install the AMP file `alfresco-aos-module-3.0.x.amp`. See [Installing an AMP]({% link content-services/latest/install/zip/amp.md %}) for information about installing an AMP file.
+1. Install the AMP file `alfresco-aos-module-2.0.x.amp`. See [Installing an AMP]({% link content-services/latest/install/zip/amp.md %}) for information about installing an AMP file.
 
 2. Deploy the `_vti_bin.war` file.
 

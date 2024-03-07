@@ -905,6 +905,7 @@ defaults:
       toc: "microsoft-office"
       support: true
       versions:
+        - 3.0
         - 2.0
         - 1.6
         - 1.5
@@ -915,8 +916,12 @@ defaults:
   - scope:
       path: "microsoft-office/latest"
     values:
-      version: 2.0
+      version: 3.0
       latest: true
+  - scope:
+      path: "microsoft-office/2.0"
+    values:
+      version: 2.0
   - scope:
       path: "microsoft-office/1.6"
     values:
