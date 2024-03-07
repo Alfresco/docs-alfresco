@@ -58,7 +58,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | MS Office 2016 | Microsoft Office for Mac does not support Kerberos authentication. |
 | | |
 | **Services** | |
-| Alfresco Governance Services 23.1 | |
+| Alfresco Governance Services 23.2 | |
 | Alfresco Process Services 2.4.2 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
@@ -70,23 +70,24 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search Enterprise 4.0 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
 | Alfresco Search and Insight Engine 2.0.8 and later | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0.8 and later | |
-| Alfresco Federation Services 3.1 | |
+| Alfresco Federation Services 3.2 | |
 | Keycloak 21.1.2 | |
 | Identity Service 2.0 | |
 | Alfresco Intelligence Services 3.1 | |
-| Alfresco Content Connector for AWS S3 6.0 | Adds support for AWS Glacier using Cloud storage layer. |
+| Alfresco Content Connector for AWS S3 6.1 | Adds support for AWS Glacier using Cloud storage layer. |
 | Alfresco Content Connector for Azure 5.0 | |
 | Alfresco Content Connector for Salesforce 3.1 | |
 | Alfresco Content Connector for SAP Applications 6.0.1 | |
-| Alfresco Content Connector for SAP Cloud 1.2 | |
+| Alfresco Content Connector for SAP Cloud 2.0 | |
 | Alfresco Collaboration Connector for Microsoft 365 2.0 | |
 | Alfresco Collaboration Connector for Teams 2.0 | |
 | Alfresco Outlook Integration 3.0 | |
 | Alfresco Office Services 2.0 | |
 | Alfresco Google Docs Integration 4.1 | |
+| Alfresco Content Services SDK 4.8 | |
 | | |
 | **Applications** | |
-| Alfresco Digital Workspace 4.3 | |
+| Alfresco Digital Workspace 4.4 | |
 | Alfresco Mobile Workspace 1.8 | |
 | Alfresco Control Center 8.4 | |
 | Alfresco Application Development Framework (ADF) 6.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
@@ -164,6 +165,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search Enterprise 4.0 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
 | Alfresco Search and Insight Engine 2.0.8 and later | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0.8 and later | |
+| Alfresco Federation Services 3.2 | |
 | Alfresco Federation Services 3.1 | |
 | Keycloak 21.1.2 | |
 | Identity Service 2.0 | |
@@ -173,16 +175,18 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for Salesforce 3.1 | |
 | Alfresco Content Connector for Salesforce 3.0 | |
 | Alfresco Content Connector for SAP Applications 6.0 | |
-| Alfresco Content Connector for SAP Cloud 1.2 | |
+| Alfresco Content Connector for SAP Cloud 2.0 | |
 | Alfresco Collaboration Connector for Microsoft 365 2.0 | |
 | Alfresco Collaboration Connector for Teams 2.0 | |
 | Alfresco Outlook Integration 3.0 | |
 | Alfresco Office Services 2.0 | |
 | Alfresco Google Docs Integration 4.1 | |
 | Alfresco Google Docs Integration 4.0 | |
+| Alfresco Content Services SDK 4.8 | |
+| Alfresco Content Services SDK 4.7 | |
 | | |
 | **Applications** | |
-| Alfresco Digital Workspace 4.3 | |
+| Alfresco Digital Workspace 4.4 | |
 | Alfresco Mobile Workspace 1.8 | |
 | Alfresco Control Center 8.4 | |
 | Alfresco Control Center 8.3 | |
