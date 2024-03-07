@@ -14,7 +14,7 @@ To connect to Content Services, the URL needs to end in `/alfresco/aos`, so if y
 
 Depending on whether you're using Windows or Mac, there are a few differences to how you do this, and you'll need to be online.
 
-> **Note:** Alfresco administrators can find out more about [installing AOS]({% link microsoft-office/latest/install/index.md %}).
+> **Note:** Alfresco administrators can find out more about [installing AOS]({% link microsoft-office/2.0/install/index.md %}).
 
 There are lots of ways that using Alfresco from Microsoft Office will help you to work more efficiently, so here are a few examples.
 

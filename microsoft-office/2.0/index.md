@@ -6,7 +6,7 @@ Alfresco Office Services (AOS) allows you to access Alfresco directly from your 
 
 Installing Alfresco Office Services allows Microsoft Office Suite applications (for example, Word, PowerPoint, and Excel) to interact with Alfresco similar to SharePoint. This feature allows you to edit Office documents in Alfresco Share and to modify Office files without checking them in and out. Alfresco locks the file while it is being modified and releases the lock when the file is saved and closed.
 
-It is important to note the URL required to access Alfresco from a Microsoft Office application. For more information, see [Using Alfresco from Microsoft Office]({% link microsoft-office/latest/using/index.md %}). The following diagram shows the architecture of AOS in relation to an Alfresco installation:
+It is important to note the URL required to access Alfresco from a Microsoft Office application. For more information, see [Using Alfresco from Microsoft Office]({% link microsoft-office/2.0/using/index.md %}). The following diagram shows the architecture of AOS in relation to an Alfresco installation:
 
 ![Office Services architecture]({% link microsoft-office/images/architecture.png %})
 
@@ -39,7 +39,7 @@ There are some dependencies that you might encounter when using Alfresco Office 
   * There is limited support for AOS with Microsoft Office for Mac. It is a known problem that there is no property mapping function in Microsoft Office for Mac.
 * AOS is installed by default during the standard Alfresco installation:
   * If you are installing the repository manually, you'll need to install the Alfresco Office Services AMP file. See the guidance in [Install an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}) for more information.
-  * If you have a custom application that is running at the server root directory, it is important that you merge the `_vti_inf.html` and `index.jsp` files into this application to enable AOS. For more information, see [Install into an existing web application]({% link microsoft-office/latest/install/index.md %}#installing-into-an-existing-web-application).
+  * If you have a custom application that is running at the server root directory, it is important that you merge the `_vti_inf.html` and `index.jsp` files into this application to enable AOS. For more information, see [Install into an existing web application]({% link microsoft-office/2.0/install/index.md %}#installing-into-an-existing-web-application).
 * AOS interacts very closely with Microsoft Office, and there are some implications as a result:
   * Alfresco simulates a SharePoint Site in the `/alfresco/aos` directory and uses the child folder to represent the SharePoint document library. As a result, Office does not check out documents in the repository root; that is, if your document is located in `/alfresco/aos`. Make sure that you add a child folder in the `/alfresco/aos` directory and place documents there. For example:
 
@@ -53,4 +53,4 @@ There are some dependencies that you might encounter when using Alfresco Office 
   * If mapped properties are embedded into an `OOXML` file (for example, a `.docx` file), time values are displayed in the user's timezone. Properties embedded into `OLE` files (for example, `.doc` files) are displayed in Coordinated Universal Time (UTC).
   * There are known issues with decimal numeric values (float and double) in non-English versions of certain Office products and if Office runs with a non-English regional setting.
 
-See [Troubleshoot Alfresco Office Services]({% link microsoft-office/latest/admin/index.md %}) to resolve any other issues you might have.
+See [Troubleshoot Alfresco Office Services]({% link microsoft-office/2.0/admin/index.md %}) to resolve any other issues you might have.

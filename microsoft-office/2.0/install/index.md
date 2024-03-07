@@ -10,7 +10,7 @@ Installing Alfresco Office Services allows Microsoft Office Suite applications (
 
 There are a number of software requirements for using AOS.
 
-Alfresco Office Services is part of the standard Alfresco installation, and software and hardware requirements are the same as those for Alfresco. See [Supported platforms]({% link microsoft-office/latest/support/index.md %}) for more information.
+Alfresco Office Services is part of the standard Alfresco installation, and software and hardware requirements are the same as those for Alfresco. See [Supported platforms]({% link microsoft-office/2.0/support/index.md %}) for more information.
 
 * Microsoft Office 2016 for Windows (boxed version)
 * Microsoft Office 2016 for Mac (boxed version)

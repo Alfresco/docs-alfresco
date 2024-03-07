@@ -30,7 +30,7 @@ reachable from the outside!
 
 To fix this problem, ensure that you have installed the Alfresco Office Services AMP file, and deployed the `_vti_bin.war` file that is required for AOS to work correctly.
 
-See [Install Alfresco Office Services]({% link microsoft-office/latest/install/index.md %}) for more.
+See [Install Alfresco Office Services]({% link microsoft-office/2.0/install/index.md %}) for more.
 
 ## Missing version history and check in/ check out options in Office
 
