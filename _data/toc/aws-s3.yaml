@@ -1,5 +1,5 @@
 # Alfresco Content Connector for AWS S3
-- version: 6.0
+- version: 6.1
   pages:
     - title: 'Introduction'
       path: '/aws-s3/latest/'
@@ -17,6 +17,24 @@
       pages:
         - title: 'FAQ'
           path: '/aws-s3/latest/using/faq/'
+- version: 6.0
+  pages:
+    - title: 'Introduction'
+      path: '/aws-s3/6.0/'
+    - title: 'Install'
+      path: '/aws-s3/6.0/install/'
+    - title: 'Upgrade'
+      path: '/aws-s3/6.0/upgrade/'
+    - title: 'Configure'
+      pages:
+        - title: 'Overview'
+          path: '/aws-s3/6.0/config/'
+        - title: 'Direct access URLs'
+          path: '/aws-s3/6.0/config/direct-access/'
+    - title: 'Using'
+      pages:
+        - title: 'FAQ'
+          path: '/aws-s3/6.0/using/faq/'
 - version: 5.1
   pages:
     - title: 'Introduction'

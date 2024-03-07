@@ -8,9 +8,9 @@ This release of the S3 Connector is a compatibility release to support Alfresco 
 
 Other features introduced in previous versions include:
 
-* Support for AWS Glacier storage type and introduction of [Cloud Storage Properties]({% link aws-s3/latest/config/index.md %}#cloud-storage-properties) (v5.0).
-* [Direct Access URLs]({% link aws-s3/latest/config/direct-access.md %}) (v4.1)
-* [S3 Content Store Subsystems]({% link aws-s3/latest/config/index.md %}#content-store-subsystems) (v3.1)
+* Support for AWS Glacier storage type and introduction of [Cloud Storage Properties]({% link aws-s3/6.0/config/index.md %}#cloud-storage-properties) (v5.0).
+* [Direct Access URLs]({% link aws-s3/6.0/config/direct-access.md %}) (v4.1)
+* [S3 Content Store Subsystems]({% link aws-s3/6.0/config/index.md %}#content-store-subsystems) (v3.1)
 * S3MultipleBuckets subsystem configuration (v3.1)
 * Changes to the S3 Connector configuration and properties (v3.1)
 * Support for AWS S3 for on-premises installation of Alfresco Content Services (v2.1)
@@ -23,12 +23,12 @@ Other features introduced in previous versions include:
 
 The AWS SDK provides better support, stability, and extensibility for developers, and is more actively maintained.
 
->**Important:** The S3 Connector 6.1 module can be applied to Alfresco Content Services 23.2.
+>**Important:** The S3 Connector 6.0 module can be applied to Alfresco Content Services 23.1.
 
 >**Important:** To leverage the full capabilities, it's recommended to run your Alfresco Content Services instance on 
 >Amazon's Elastic Compute Cloud (EC2), connected to Amazon's Simple Storage Service (S3). From S3 Connector 2.1 you can 
 >also use the S3 Connector with an Alfresco Content Services instance running on-premises, with 
->[some limitations]({% link aws-s3/latest/config/index.md %}#onpremconfig). Other devices or services that advertise as 
+>[some limitations]({% link aws-s3/6.0/config/index.md %}#onpremconfig). Other devices or services that advertise as 
 >being S3 compatible have not been tested and aren't supported.
 
 The following diagram shows a simple representation of how Alfresco Content Services and the S3 Connector interact with AWS S3.
