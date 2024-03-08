@@ -8,7 +8,7 @@ Before performing an upgrade or applying a Service Pack, make sure you check the
 
 Care should be taken when upgrading from any previous releases of Content Services or Community Edition. There are some steps that should be reviewed and planned before you upgrade. Familiarize yourself with the guidance below and then plan your upgrade. In particular, ensure that the following steps are completed before you start:
 
-* Ensure that you have a functional [backup of your Alfresco repository and database]({% link content-services/latest/admin/backup-restore.md %}), before starting the upgrade process.
+* Ensure you are able to restore your repository and database to a fixed point in time before the upgrade begins. This would normally involve taking backups including a backup of the content store, but any mechanism that guarantees full restoration will work.
 * Download and run the [Alfresco Extension Inspector]({% link content-services/latest/develop/extension-inspector.md %}) to understand which customization or library items need to be reviewed or updated to support the upgrade.
 * Review all new and deprecated features included in the Release Notes. Customers can access these from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 * Review and implement the new [Supported platforms]({% link content-services/latest/support/index.md %}) options, and update as necessary for the new deployment. Also, check the general advice about [Supported Platforms and Languages](https://www.alfresco.com/services/subscription/supported-platforms){:target="_blank"} on our website.
@@ -74,6 +74,8 @@ These steps assume that you've got an existing Content Services installation (`a
     1. Shut down your existing instance.
 
     2. [Back up your existing repository]({% link content-services/latest/admin/backup-restore.md %}) (`alfresco-v.1`) and the database.
+
+        > **Note:** Backup of the repository can be skipped if using an alternative mechanism to guarantee restoration of the repository to its pre-upgrade state. For example, AWS S3 storage allows for restoration to a fixed point in time as long as soft deletes are enabled. For more information, see [Enabling versioning on buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html).
 
         > **Note:** Back up any configuration overrides from the `<extension>` directory.
 
