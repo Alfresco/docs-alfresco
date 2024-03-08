@@ -75,7 +75,7 @@ These steps assume that you've got an existing Content Services installation (`a
 
     2. [Back up your existing repository]({% link content-services/latest/admin/backup-restore.md %}) (`alfresco-v.1`) and the database.
 
-        > **Note:** Backup of the repository can be skipped if using an alternative mechanism to guarantee restoration of the repository to its pre-upgrade state. For example, AWS S3 storage allows for restoration to a fixed point in time as long as soft deletes are enabled. For more information, see [Enabling versioning on buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html).
+        > **Note:** Backup of the repository can be skipped if using an alternative mechanism to guarantee restoration of the repository to its pre-upgrade state. For example, AWS S3 storage allows for restoration to a fixed point in time as long as soft deletes are enabled. For more information, see [Enabling versioning on buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html){:target="_blank"}.
 
         > **Note:** Back up any configuration overrides from the `<extension>` directory.
 
