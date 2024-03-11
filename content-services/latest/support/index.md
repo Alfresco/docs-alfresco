@@ -59,7 +59,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Services** | |
 | Alfresco Governance Services 23.1 | |
-| Alfresco Process Services 2.4.2 | |
+| Alfresco Process Services 24.1 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
 | Alfresco Sync Service 4.0 | |
@@ -149,7 +149,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Services** | |
 | Alfresco Governance Services 23.1 | |
-| Alfresco Process Services 2.4.2 | |
+| Alfresco Process Services 24.1 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
 | Alfresco Sync Service 4.0 | |
