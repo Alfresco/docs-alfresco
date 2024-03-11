@@ -35,7 +35,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Application servers** | |
 | Tomcat 9.0 | |
-| Jetty 9.4 | |
 | | |
 | **JDKs** | |
 | OpenJDK 17.0.2 |  |
@@ -56,6 +55,9 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 4.3 | Requires Alfresco Process Services 2.4.2. |
+| | |
+| **Services** | |
+| Alfresco Content Services 23.x |  |
 | | |
 | **Related components** | |
 | VMWare ESXi 5.1.0 | For supported guest operating systems |
