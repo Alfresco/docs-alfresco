@@ -49,15 +49,15 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Third party integrations** | |
 | Elasticsearch 7.13.2 | |
 | | |
+| **Services** | |
+| Alfresco Content Services 23.x |  |
+| | |
 | **Integrations** | |
 | Identity Service 1.2 | For use with LDAP and SAML |
 | Identity Service 1.1 | For use with LDAP and SAML |
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 4.3 | Requires Alfresco Process Services 2.4.2. |
-| | |
-| **Services** | |
-| Alfresco Content Services 23.x |  |
 | | |
 | **Related components** | |
 | VMWare ESXi 5.1.0 | For supported guest operating systems |
