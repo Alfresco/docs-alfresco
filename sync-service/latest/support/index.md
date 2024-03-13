@@ -6,7 +6,7 @@ The following are the supported platforms for Alfresco Sync Service 4.0:
 
 | Version | Notes |
 | ------- | ----- |
-| Alfresco Content Services 23.1 | Optionally with Alfresco Governance Services 23.1 |
+| Alfresco Content Services 23.x | Optionally with Alfresco Governance Services 23.x |
 | Identity Service 2.0 | Required for SAML authentication |
 | Alfresco Desktop Sync for Windows 1.16 | |
 | Alfresco Desktop Sync for Mac 1.16 | |
