@@ -64,7 +64,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
 | Alfresco Sync Service 4.0 | |
 | Alfresco Desktop Sync 1.17 | |
-| Alfresco Desktop Sync 1.16 | |
 | Alfresco Transform Service 4.1 | |
 | Alfresco Document Transformation Engine 2.4 | |
 | Alfresco Search Enterprise 4.0 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
