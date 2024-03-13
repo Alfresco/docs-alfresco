@@ -253,23 +253,39 @@ Make sure that you've applied your AMP files, downloaded the Alfresco Content Co
 
     where `localhost:8080` is your Alfresco host name and port.
 
-6. In the Admin Console window, paste your Salesforce consumer key into **Salesforce Consumer Token**.
+6. In the Admin Console window, click **Add Connection**.
 
-7. In the Salesforce window, click **Click to reveal** to reveal the consumer secret, and copy the code.
+   A new window opens that allows you to enter the Salesforce Organization Id, Salesforce Consumer Token, and Salesforce Consumer Secret.
+
+7. Paste your Salesforce Org Id into **Salesforce Org Id**.
+
+   Here's how to find your Organization Id in your Salesforce account:
+
+   1. Navigate to **Salesforce Settings**.
+   2. Click on **Company Settings**.
+   3. Select **Company Information**.
+
+      The Salesforce.com Organization Id is shown in this window.
+
+8. Paste your Salesforce consumer key into **Salesforce Consumer Token**.
+
+9. In the Salesforce window, click **Click to reveal** to reveal the consumer secret, and copy the code.
 
     ![sf-consumerkey]({% link salesforce/images/sf-consumerkey.png %})
 
-8. Paste your Salesforce consumer secret into **Salesforce Consumer Secret**.
+10. Paste your Salesforce consumer secret into **Salesforce Consumer Secret**.
 
     You can optionally hide the password when you have pasted it into the Admin Console.
 
-9. Select the **Salesforce Environment Type** that Alfresco should use.
+11. Select the **Salesforce Environment Type** that Alfresco should use.
 
     There are two options: `Production` (the default value) and `Sandbox`:
 
     ![sf-adminconsole]({% link salesforce/images/sf-adminconsole.png %})
 
-10. You can optionally change the list size of records that are displayed.
+12. Save the new connection by clicking the **Save** button.
+
+13. You can optionally change the list size of records that are displayed.
 
     Enter a number in **Recently Viewed Records List Size** to specify how many recent Salesforce records are displayed when you link an Alfresco file or folder with a record. The default setting is 20 records.
 
@@ -279,7 +295,16 @@ Make sure that you've applied your AMP files, downloaded the Alfresco Content Co
     >sfdc.canvas.recordMruSize=10
     >```
 
-11. **Save** your settings.
+14. **Save** your settings.
+
+Once a connection is created, you can add additional connections, if needed. You can also remove or update an existing connection. Removing a connection won't remove any content.
+
+> **Important:**
+>
+> * Upgrading the Salesforce Connector requires you to re-add any previous connections.
+> * Re-adding the connection won't affect any content that you've previously added through the Salesforce Connector.
+
+In the Salesforce Record Folder, you'll now see a new metadata field: `Organization Id`. This can help you differentiate Salesforce records added through different Salesforce organizations. A link is also added in the folder description of the Salesforce Record, if no other value is currently present. This link allows you to directly navigate to the Salesforce Record.
 
 ### Step 5: Add an Alfresco site and map metadata in Salesforce
 
