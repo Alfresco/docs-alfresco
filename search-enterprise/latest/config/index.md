@@ -302,7 +302,7 @@ After the completion of a bulk deletion process, some scheduled jobs execute to 
 
 Therefore, when you plan to execute the bulk ingestion process after a bulk deletion process completes, it is recommended that you consider the following best practices.
 
-* Start the bulk ingestion process after 25 minutes of the completion of the deletion process.
+* Start the bulk ingestion process after 25 minutes of the completion of the deletion process:
 * Schedule the clean-up jobs after you complete the bulk ingestion.
 * If you have configured the log files to include clean-up job notifications, monitor the log files and resume the ingestion after the cleanup is complete.
 
