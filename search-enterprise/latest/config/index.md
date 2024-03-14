@@ -300,7 +300,7 @@ To increase the consumer number you must check the property name in the `applica
 
 After the completion of a bulk deletion process, some scheduled jobs execute to clean up the environment for the next set of tasks. Executing a bulk ingestion process when the clean-up jobs are running impacts the performance of the ingestion process.
 
-Therefore, when you plan to execute bulk ingestion process after a bulk deletion process completes, it is recommended that you consider either of the following best practices.
+Therefore, when you plan to execute the bulk ingestion process after a bulk deletion process completes, it is recommended that you consider the following best practices.
 * Start the bulk ingestion process after 25 minutes of the completion of the deletion process.
 * Schedule the clean-up jobs after you complete the bulk ingestion.
 * If you have configured the log files to include clean-up job notifications, monitor the log files and resume the ingestion after the cleanup is complete.
