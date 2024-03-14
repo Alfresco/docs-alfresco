@@ -17,7 +17,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | CentOS 8 x64 | |
 | CentOS 7 x64 | |
 | Ubuntu 22.04 | |
-| Ubuntu 22.04 | |
 | Amazon Linux 2 | |
 | | |
 | **Databases** | |
@@ -34,9 +33,10 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Application servers** | |
 | Tomcat 10 | |
 | Jetty 12 | |
-| | |
+| | |   
 | **JDKs** | |
-| OpenJDK 17.0.2 |  |
+| OpenJDK 17 |  |
+| Amazon Coretto 17 |  |
 | | |
 | **Browsers** | |
 | Mozilla Firefox | |
