@@ -47,6 +47,9 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Third party integrations** | |
 | Elasticsearch 7.13.2 | |
 | | |
+| **Services** | |
+| Alfresco Content Services 23.x |  |
+| | |
 | **Integrations** | |
 | Identity Service 1.2 | For use with LDAP and SAML |
 | Identity Service 1.1 | For use with LDAP and SAML |
