@@ -23,7 +23,7 @@ Other features introduced in previous versions include:
 
 The AWS SDK provides better support, stability, and extensibility for developers, and is more actively maintained.
 
->**Important:** The S3 Connector 6.0 module can be applied to Alfresco Content Services 23.1.
+>**Important:** The S3 Connector 6.1 module can be applied to Alfresco Content Services 23.2.
 
 >**Important:** To leverage the full capabilities, it's recommended to run your Alfresco Content Services instance on 
 >Amazon's Elastic Compute Cloud (EC2), connected to Amazon's Simple Storage Service (S3). From S3 Connector 2.1 you can 

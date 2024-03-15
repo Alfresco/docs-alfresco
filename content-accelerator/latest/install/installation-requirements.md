@@ -8,7 +8,7 @@ The server setup required to run ACA will vary based on the needs for that speci
 
 * ACA - web application
 * OpenContent Services - web services layer
-* Java Application server - required to run OpenContent Services and potentially ACA, AEV, and Active Wizard Admin.  Apache Tomcat 8.x or above is recommended. **Note:** It is possible to deploy these apps to the Alfresco Tomcat directly. Installing ACA, AEV, and AW admin to a separate application server (not on the Alfresco tomcat) is recommended.
+* Java Application server - required to run OpenContent Services and potentially ACA, AEV, and Active Wizard Admin. Apache Tomcat 10.x or above is recommended for ACA and AEV. Apache Tomcat 8.x or 9.x is recommended for Active Wizard Admin. **Note:** It is possible to deploy ACA and AEV to the Alfresco Tomcat directly (AW admin needs to be on a separate tomcat version 8.x or 9.x). Installing ACA, AEV, and AW admin to a separate application server (not on the Alfresco tomcat) is recommended.
 
 ### Additional Application Components
 

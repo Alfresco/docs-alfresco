@@ -148,7 +148,6 @@ The following is an example `app.config.json` file excerpt. By default this file
         "host": "https://ids.example.com/auth/realms/alfresco",
         "clientId": "alfresco",        
         "scope": "openid",
-        "secret": "",
         "implicitFlow": true,
         "silentLogin": true,
         "redirectSilentIframeUri": "https://adw.example.com/workspace/assets/silent-refresh.html",

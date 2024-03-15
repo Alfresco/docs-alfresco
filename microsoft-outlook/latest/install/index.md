@@ -55,7 +55,9 @@ You can use one of the following Outlook releases:
 
 ### Alfresco requirements
 
-* Alfresco Content Services 7.4.x.
+* Alfresco Content Services 23.x.
+
+See the [Supported platforms]({% link microsoft-outlook/latest/support/index.md %}) for more.
 
 #### Alfresco Search Services 2.0 and above
 
@@ -81,6 +83,27 @@ Follow the steps in the Indexing recommendations (Cross locale section) for the 
 * Search and Insight Engine: [Indexing recommendations - Cross locale]({% link insight-engine/latest/config/indexing.md %}#cross-locale)
 
 > **Note:** These changes require a SOLR restart, but no reindex.
+
+#### Alfresco Search Enterprise
+
+If you're using Alfresco Search Enterprise in combination with Outlook Integration, you must add the `messageId` property to the `shared.properties` file for Elasticsearch configuration in Alfresco Content Services. See the recommendations in the Exact Term Search section to locate this file:
+
+* Search Enterprise: [Exact Term Search]({% link search-enterprise/latest/config/index.md %}#exact-term-search)
+
+Add the following lines to the configuration:
+
+```bash
+alfresco.cross.locale.property.#={http://www.alfresco.org/model/imap/1.0}messageId
+alfresco.cross.locale.property.#={http://www.westernacher.com/alfresco/models/wpsmail-v2}messageId
+```
+
+where `#` is an ascending index number that hasn't been used.
+
+You must also enable cross-locale data types in Search Enterprise.
+
+Follow the steps in the Exact Term Search (Cross locale section) to enable this configuration. This applies for both the `messageId` property addition and enabling cross-locale data types:
+
+* Enterprise Search: [Exact Term Search]({% link search-enterprise/latest/config/index.md %}#exact-term-search)
 
 ### Java requirements
 
@@ -118,17 +141,17 @@ Make sure you are running the correct versions of operating system and software 
 
 2. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"}, download and unzip the Outlook Integration zip package:
 
-    `alfresco-outlook-integration-2.10.x.zip`
+    `alfresco-outlook-integration-3.0.x.zip`
 
 3. Copy the provided AMP files to the Alfresco `amps` and `amps_share` directories.
 
     Copy this file to the `amps` directory:
 
-    `alfresco-outlook-repository-2.10.x.amp`
+    `alfresco-outlook-repository-3.0.x.amp`
 
     and this file to the `amps_share` directory:
 
-    `alfresco-outlook-share-2.10.x.amp`
+    `alfresco-outlook-share-3.0.x.amp`
 
 4. To install the AMP files, run the `apply_amps.bat` file from the Alfresco `bin` directory.
 
@@ -185,15 +208,15 @@ If you wish to use a Tomcat application server, you can use the WAR bundle to in
 
 > **Note:** Check the supported Tomcat version based on your version of the [Content Services documentation]({% link content-services/latest/support/index.md %}) before continuing.
 
-1. Install the latest required version of Tomcat, for example, [Tomcat 8.5](https://tomcat.apache.org/download-80.cgi){:target="_blank"} to run as a service.
+1. Install the latest required version of Tomcat, for example, [Tomcat 10](https://tomcat.apache.org/download-10.cgi){:target="_blank"} to run as a service.
 
-    See the [Tomcat documentation](https://tomcat.apache.org/tomcat-8.5-doc/index.html){:target="_blank"} for more information about configuring and using a Tomcat server.
+    See the [Tomcat documentation](https://tomcat.apache.org/tomcat-10.1-doc/index.html){:target="_blank"} for more information about configuring and using a Tomcat server.
 
-    For information about securing Tomcat, see [Tomcat security considerations](https://tomcat.apache.org/tomcat-8.5-doc/security-howto.html).
+    For information about securing Tomcat, see [Tomcat security considerations](https://tomcat.apache.org/tomcat-10.1-doc/security-howto.html){:target="_blank"}.
 
 2. Rename the WAR file from `transform-outlook-webapp-${version}.war` to `transform-outlook.war`.
 
-    You'll find the file, `transform-outlook-webapp-1.2.0.war`, in the distribution zip.
+    You'll find the file, `transform-outlook-webapp-2.0.0.war`, in the distribution zip.
 
 3. Copy the WAR file into your `<TOMCAT_HOME>/webapps` folder.
 
@@ -227,7 +250,7 @@ To deploy the Outlook Integration T-Engine with the Transform Service, you'll ne
 
     ```yaml
     transform-outlook:
-        image: quay.io/alfresco/transform-outlook:1.2.0
+        image: quay.io/alfresco/transform-outlook:2.0.0
         mem_limit: 2g
         environment:
             JAVA_OPTS: " -Xms256m -Xmx512m"
@@ -257,7 +280,7 @@ You might need local administrator rights to install .NET and Microsoft VS Tools
 
 >**Note:** If you are distributing Alfresco Outlook Client across an organization, see [Install the Alfresco Outlook Client in unattended mode](#installunattendedmode) for guidance on installing in unattended mode.
 
-1. Extract the contents of the `alfresco-outlook-client-2.10.x.zip` file using a standard unzip tool.
+1. Extract the contents of the `alfresco-outlook-client-3.0.x.zip` file using a standard unzip tool.
 
 2. Navigate to the directory containing the unzipped content and double click the `install.bat` file.
 
@@ -289,28 +312,28 @@ You can automate the Alfresco Outlook Client installation by using the `msiexec`
 
 You might need local administrator rights to install .NET and Microsoft VS Tools for Office Runtime. Ensure you have already installed the required AMP files in your Alfresco instance ([see Install Outlook Integration AMPs](#install-amps)).
 
-1. Extract the contents of the `alfresco-outlook-client-2.10.x.zip` file using a standard unzip tool.
+1. Extract the contents of the `alfresco-outlook-client-3.0.x.zip` file using a standard unzip tool.
 
-2. Locate `x64/AlfrescoOutlookClient_x64_2.10.x.msi` or `x86/AlfrescoOutlookClient_x86_2.10.x.msi`, depending on whether you are running a 64-bit or 32-bit version of Windows.
+2. Locate `x64/AlfrescoOutlookClient_x64_3.0.x.msi` or `x86/AlfrescoOutlookClient_x86_3.0.x.msi`, depending on whether you are running a 64-bit or 32-bit version of Windows.
 
 3. From a command line, navigate to the `x64` or `x86` directory, and run the `msiexec` command. For example:
 
     For an interactive installation:
 
     ```bash
-    msiexec /i AlfrescoOutlookClient_x86_2.10.x.msi HOST=127.0.0.1:8080 AUTH=basic
+    msiexec /i AlfrescoOutlookClient_x86_3.0.x.msi HOST=127.0.0.1:8080 AUTH=basic
     ```
 
     For a non-interactive installation:
 
     ```bash
-    msiexec /i AlfrescoOutlookClient_x86_2.10.x.msi HOST=127.0.0.1:8080 AUTH=basic /quiet
+    msiexec /i AlfrescoOutlookClient_x86_3.0.x.msi HOST=127.0.0.1:8080 AUTH=basic /quiet
     ```
 
     For a non-interactive installation with OpenId Connect enabled:
 
     ```bash
-    msiexec /i AlfrescoOutlookClient_x86_2.10.x.msi HOST=127.0.0.1:8080 AUTH=oidc /quiet
+    msiexec /i AlfrescoOutlookClient_x86_3.0.x.msi HOST=127.0.0.1:8080 AUTH=oidc /quiet
     ```
 
     >**Note:** Microsoft Office Primary Interop Assemblies are also installed, if they do not already exist in your version of Microsoft Office.

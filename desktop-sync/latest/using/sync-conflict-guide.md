@@ -14,7 +14,7 @@ For example, a conflict occurs when you update a file in your `Alfresco` sync fo
 
 A conflict may either be resolved automatically by Desktop Sync or may require you to do something.
 
-![]({% link desktop-sync/images/conflict-resolution.png %}){:height="500px" width="351px"}
+![]({% link desktop-sync/images/conflict-resolution-1.17.png %}){:height="500px" width="351px"}
 
 ### User action needed
 
@@ -66,18 +66,18 @@ where ![]({% link desktop-sync/images/tick.png %}) indicates no conflict.
 
 A conflict may either be resolved automatically by Desktop Sync or may require you to do something.
 
-![]({% link desktop-sync/images/conflict-resolution-mac.png %}){:height="414px" width="300px"}
+![]({% link desktop-sync/images/conflict-resolution-mac-1.17.png %}){:height="414px" width="300px"}
 
 ### User action needed
 
 |Alfresco action|Desktop Sync action|Result|Resolution|
 |---------------|-------------------|------|----------|
-|Update|Update|![]({% link desktop-sync/images/cross.png %})|Select either to keep your update or discard your changes.If you keep your changes, that version is uploaded in Alfresco. If you discard your changes, the Alfresco version is applied on your desktop. See [Check Outs, Conflicts and Pending Syncs]({% link desktop-sync/latest/using/app-menu.md %}#faq/mac) for information on resolving the conflict.|
-|Rename|Rename|![]({% link desktop-sync/images/cross.png %})|Select either to keep your rename or discard your changes.If you keep your changes, the Alfresco version rename is discarded. If you discard your changes, the Alfresco rename is applied on your desktop. See [Check Outs, Conflicts and Pending Syncs]({% link desktop-sync/latest/using/app-menu.md %}#faq/mac) for information on resolving the conflict.|
-|Move|Move|![]({% link desktop-sync/images/cross.png %})|Select either to keep your move action or discard your changes. If you keep your changes, the Alfresco move is cancelled, and your desktop move is replicated in Alfresco. If you discard your move, the desktop move is cancelled, and the Alfresco move is replicated on your desktop. See [Check Outs, Conflicts and Pending Syncs]({% link desktop-sync/latest/using/app-menu.md %}#faq/mac) for information on resolving the conflict.|
-|Delete|Update|![]({% link desktop-sync/images/cross.png %})|Select either to keep your update action or discard your changes. If you keep your changes, the updated file is restored in Alfresco. If you discard your changes, the update is discarded, and the file on your desktop is deleted to reflect the Alfresco delete action. See [Check Outs, Conflicts and Pending Syncs]({% link desktop-sync/latest/using/app-menu.md %}#faq/mac) for information on resolving the conflict.|
-|Delete|Rename|![]({% link desktop-sync/images/cross.png %})|Select either to keep your rename action or discard your changes. If you keep your changes, the renamed file is restored in Alfresco with the new name. If you discard your changes, the rename is discarded, and the file on your desktop is deleted. See [Check Outs, Conflicts and Pending Syncs]({% link desktop-sync/latest/using/app-menu.md %}#faq/mac) for information on resolving the conflict.|
-|Delete|Move|![]({% link desktop-sync/images/cross.png %})|Select either to keep your move action or discard your changes. If you keep your changes, the file is recreated on your desktop at the new location. If you discard your changes, the file is deleted from its new location on your desktop. See [Check Outs, Conflicts and Pending Syncs]({% link desktop-sync/latest/using/app-menu.md %}#faq/mac) for information on resolving the conflict.|
+|Update|Update|![]({% link desktop-sync/images/cross.png %})|Select either to keep your update or discard your changes.If you keep your changes, that version is uploaded in Alfresco. If you discard your changes, the Alfresco version is applied on your desktop. See [Check Outs, Conflicts and Pending]({% link desktop-sync/latest/using/app-menu.md %}#faq/mac) for information on resolving the conflict.|
+|Rename|Rename|![]({% link desktop-sync/images/cross.png %})|Select either to keep your rename or discard your changes.If you keep your changes, the Alfresco version rename is discarded. If you discard your changes, the Alfresco rename is applied on your desktop. See [Check Outs, Conflicts and Pending]({% link desktop-sync/latest/using/app-menu.md %}#faq/mac) for information on resolving the conflict.|
+|Move|Move|![]({% link desktop-sync/images/cross.png %})|Select either to keep your move action or discard your changes. If you keep your changes, the Alfresco move is cancelled, and your desktop move is replicated in Alfresco. If you discard your move, the desktop move is cancelled, and the Alfresco move is replicated on your desktop. See [Check Outs, Conflicts and Pending]({% link desktop-sync/latest/using/app-menu.md %}#faq/mac) for information on resolving the conflict.|
+|Delete|Update|![]({% link desktop-sync/images/cross.png %})|Select either to keep your update action or discard your changes. If you keep your changes, the updated file is restored in Alfresco. If you discard your changes, the update is discarded, and the file on your desktop is deleted to reflect the Alfresco delete action. See [Check Outs, Conflicts and Pending]({% link desktop-sync/latest/using/app-menu.md %}#faq/mac) for information on resolving the conflict.|
+|Delete|Rename|![]({% link desktop-sync/images/cross.png %})|Select either to keep your rename action or discard your changes. If you keep your changes, the renamed file is restored in Alfresco with the new name. If you discard your changes, the rename is discarded, and the file on your desktop is deleted. See [Check Outs, Conflicts and Pending]({% link desktop-sync/latest/using/app-menu.md %}#faq/mac) for information on resolving the conflict.|
+|Delete|Move|![]({% link desktop-sync/images/cross.png %})|Select either to keep your move action or discard your changes. If you keep your changes, the file is recreated on your desktop at the new location. If you discard your changes, the file is deleted from its new location on your desktop. See [Check Outs, Conflicts and Pending]({% link desktop-sync/latest/using/app-menu.md %}#faq/mac) for information on resolving the conflict.|
 
 where ![]({% link desktop-sync/images/cross.png %}) indicates a conflict.
 

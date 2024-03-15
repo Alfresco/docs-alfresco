@@ -385,7 +385,7 @@ Since you deployed Enterprise, you'll also have access to:
 * Alfresco Digital Workspace: `https://acs.YOUR-DOMAIN-NAME/workspace/`
 * Alfresco Sync Service: `https://acs.YOUR-DOMAIN-NAME/syncservice/healthcheck`
 
-If you're running Content Services 23.1 (i.e. the latest version) and already have a valid license file for this version, you can apply it directly to the running system. Navigate to the Admin Console and apply your license:
+If you're running Content Services 23.x (i.e. the latest version) and already have a valid license file for this version, you can apply it directly to the running system. Navigate to the Admin Console and apply your license:
 
 * [https://acs.YOUR-DOMAIN-NAME/alfresco/service/enterprise/admin/admin-license](http://localhost:8080/alfresco/service/enterprise/admin/admin-license){:target="_blank"} (this only applies for the Enterprise Download Trial)
 * Default username and password is `admin`

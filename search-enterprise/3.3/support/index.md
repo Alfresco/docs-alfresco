@@ -6,10 +6,7 @@ The following are the supported platforms for Search Enterprise 3.3.x:
 
 | Version | Notes |
 | ------- | ----- |
-| Content Services 7.4.x | Including Alfresco ActiveMQ 5.15.8, Alfresco Transform Service 1.4.1 and PostgreSQL 11.7 |
-| Content Services 7.3.x | Including Alfresco ActiveMQ 5.15.8, Alfresco Transform Service 1.4.1 and PostgreSQL 11.7 |
-| Content Services 7.2.x | Including Alfresco ActiveMQ 5.15.8, Alfresco Transform Service 1.4.1 and PostgreSQL 11.7 |
-| Content Services 7.1.x | Including Alfresco ActiveMQ 5.15.8, Alfresco Transform Service 1.4.1 and PostgreSQL 11.7 |
+| Content Services 7.4.x | Including Alfresco ActiveMQ 5.15.8, Alfresco Transform Service 1.4.1, and the database |
 | JDK 11 or OpenJDK 11 | |
 | Elasticsearch server 7.17.x | |
 | Elasticsearch server 7.16.x | |

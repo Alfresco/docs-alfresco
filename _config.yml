@@ -11,7 +11,7 @@ defaults:
       tutorial: true
       support: true
       versions:
-        - 23.1
+        - 23.x
         - 7.4
         - 7.3
         - 7.2
@@ -24,7 +24,7 @@ defaults:
   - scope:
       path: "content-services/latest"
     values:
-      version: 23.1
+      version: 23.x
       latest: true
       release: true
   - scope:
@@ -127,6 +127,7 @@ defaults:
       toc: "digital-workspace"
       support: true
       versions:
+        - 4.4
         - 4.3
         - 4.2
         - 4.1
@@ -148,8 +149,12 @@ defaults:
   - scope:
       path: "digital-workspace/latest"
     values:
-      version: 4.3
+      version: 4.4
       latest: true
+  - scope:
+      path: "digital-workspace/4.3"
+    values:
+      version: 4.3
   - scope:
       path: "digital-workspace/4.2"
     values:
@@ -244,6 +249,7 @@ defaults:
       toc: "google-drive"
       support: true
       versions:
+        - 4.1     
         - 4.0
         - 3.4
         - 3.3
@@ -252,8 +258,12 @@ defaults:
   - scope:
       path: "google-drive/latest"
     values:
-      version: 4.0
+      version: 4.1
       latest: true
+  - scope:
+      path: "google-drive/4.0"
+    values:
+      version: 4.0
   - scope:
       path: "google-drive/3.4"
     values:
@@ -313,6 +323,7 @@ defaults:
       toc: "microsoft-azure"
       support: true
       versions:
+        - 5.0
         - 4.0
         - 3.2
         - 3.1
@@ -325,8 +336,12 @@ defaults:
   - scope:
       path: "microsoft-azure/latest"
     values:
-        version: 4.0
+        version: 5.0
         latest: true
+  - scope:
+      path: "microsoft-azure/4.0"
+    values:
+        version: 4.0
   - scope:
       path: "microsoft-azure/3.2"
     values:
@@ -507,6 +522,7 @@ defaults:
       toc: "desktop-sync"
       support: true
       versions:
+        - 1.17
         - 1.16
         - 1.15
         - 1.14
@@ -522,8 +538,12 @@ defaults:
   - scope:
       path: "desktop-sync/latest"
     values:
-      version: 1.16
+      version: 1.17
       latest: true
+  - scope:
+      path: "desktop-sync/1.16"
+    values:
+      version: 1.16
   - scope:
       path: "desktop-sync/1.15"
     values:
@@ -580,7 +600,7 @@ defaults:
       tutorial: true
       support: true
       versions:
-        - 23.1
+        - 23.x
         - 7.4
         - 7.3
         - 7.2
@@ -594,7 +614,7 @@ defaults:
   - scope:
       path: "governance-services/latest"
     values:
-      version: 23.1
+      version: 23.x
       latest: true
   - scope:
       path: "governance-services/latest/tutorial"
@@ -779,6 +799,7 @@ defaults:
       toc: "aws-s3"
       support: true
       versions:
+        - 6.1
         - 6.0
         - 5.1
         - 5.0
@@ -791,8 +812,12 @@ defaults:
   - scope:
       path: "aws-s3/latest"
     values:
-      version: 6.0
+      version: 6.1
       latest: true
+  - scope:
+      path: "aws-s3/6.0"
+    values:
+      version: 6.0      
   - scope:
       path: "aws-s3/5.1"
     values:
@@ -890,6 +915,7 @@ defaults:
       toc: "microsoft-office"
       support: true
       versions:
+        - 3.0
         - 2.0
         - 1.6
         - 1.5
@@ -900,8 +926,12 @@ defaults:
   - scope:
       path: "microsoft-office/latest"
     values:
-      version: 2.0
+      version: 3.0
       latest: true
+  - scope:
+      path: "microsoft-office/2.0"
+    values:
+      version: 2.0
   - scope:
       path: "microsoft-office/1.6"
     values:
@@ -937,6 +967,7 @@ defaults:
       toc: "transform-service"
       support: true
       versions:
+        - 4.1
         - 4.0
         - 3.0
         - 2.1
@@ -951,13 +982,17 @@ defaults:
   - scope:
       path: "transform-service/latest"
     values:
+      version: 4.1
+      latest: true
+  - scope:
+      path: "transform-service/4.0"
+    values:
       version: 4.0
       latest: true
   - scope:
       path: "transform-service/3.0"
     values:
       version: 3.0
-      latest: true
   - scope:
       path: "transform-service/2.1"
     values:
@@ -1319,7 +1354,6 @@ defaults:
       path: "sync-service/3.11"
     values:
       version: 3.11
-      latest: true
   - scope:
       path: "sync-service/3.10"
     values:
@@ -1375,6 +1409,7 @@ defaults:
       toc: "intelligence-services"
       support: true
       versions:
+        - 3.1
         - 1.5
         - 1.4
         - 1.3
@@ -1384,8 +1419,12 @@ defaults:
   - scope:
       path: "intelligence-services/latest"
     values:
-      version: 1.5
+      version: 3.1
       latest: true
+  - scope:
+      path: "intelligence-services/1.5"
+    values:
+      version: 1.5
   - scope:
       path: "intelligence-services/1.4"
     values:
@@ -1431,6 +1470,7 @@ defaults:
       toc: "microsoft-outlook"
       support: true
       versions:
+        - 3.0
         - "2.10"
         - 2.9
         - 2.8
@@ -1441,8 +1481,12 @@ defaults:
   - scope:
       path: "microsoft-outlook/latest"
     values:
-      version: "2.10"
+      version: 3.0
       latest: true
+  - scope:
+      path: "microsoft-outlook/2.10"
+    values:
+      version: "2.10"
   - scope:
       path: "microsoft-outlook/2.9"
     values:
@@ -1478,13 +1522,18 @@ defaults:
       toc: "content-accelerator"
       support: true
       versions:
+        - 4.0
         - 3.6
         - 3.5
   - scope:
       path: "content-accelerator/latest"
     values:
+      version: 4.0
+      latest: true      
+  - scope:
+      path: "content-accelerator/3.6"
+    values:
       version: 3.6
-      latest: true
   - scope:
       path: "content-accelerator/3.5"
     values:
@@ -1500,13 +1549,18 @@ defaults:
       location: "enterprise-viewer"
       support: true
       versions:
+        - 4.0
         - 3.6
         - 3.5
   - scope:
       path: "enterprise-viewer/latest"
     values:
-      version: 3.6
+      version: 4.0
       latest: true
+  - scope:
+      path: "enterprise-viewer/3.6"
+    values:
+      version: 3.6
   - scope:
       path: "enterprise-viewer/3.5"
     values:

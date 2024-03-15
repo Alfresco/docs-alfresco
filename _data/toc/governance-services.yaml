@@ -1,5 +1,5 @@
-# Alfresco Governance Services 23.1
-- version: 23.1
+# Alfresco Governance Services 23.x
+- version: 23.x
   pages:
     - title: 'Introduction'
       path: '/governance-services/latest/'
@@ -45,6 +45,8 @@
           path: '/governance-services/latest/using/audit-report/'
         - title: 'Working with Amazon S3 WORM'
           path: '/governance-services/latest/using/worm/'
+        - title: 'Working with Azure WORM'
+          path: '/governance-services/latest/using/azure-worm/'
         - title: 'Security marks and classification'
           path: '/governance-services/latest/using/smc/'
         - title: 'FAQ'

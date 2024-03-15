@@ -140,8 +140,7 @@ Add types to a form config by selecting the type from the available options. All
 
 #### Rules
 
-**Rules:** All rules are contained within the front-end and cannot be expanded.
-**External Rules:** Utilize an extension AMP and can be expanded by calling out to OpenContent.
+Rules are standard front-end rules used for validation. All rules are contained within the front-end and cannot be expanded.
 
 **Rule Types:**
 
@@ -153,7 +152,9 @@ Add types to a form config by selecting the type from the available options. All
 | Enable Dependent | Enables a field only when specified criteria is met |
 | Lock | Locks down fields by group |
 
-> **Note:** All rules are contained within the front-end and cannot be expanded. External rules utilize an extension AMP and can be expanded by calling out to OpenContent.
+#### External Rules
+
+External rules are conditions which are configured in OpenConnect and made available in the configuration to use as an extra validation. You can select a rule which will run a condition against OpenConnect to allow validation.
 
 #### Recommended Forms
 

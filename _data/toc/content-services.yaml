@@ -1,5 +1,5 @@
-# Alfresco Content Services 23.1
-- version: 23.1
+# Alfresco Content Services 23.x
+- version: 23.x
   pages:
     - title: 'Introduction'
       path: '/content-services/latest/'
@@ -153,8 +153,6 @@
               path: '/content-services/latest/using/content/files-folders/'
             - title: 'Folder rules'
               path: '/content-services/latest/using/content/rules/'
-            - title: 'Tags and Categories'
-              path: '/content-services/latest/using/content/tags-categories/'
         - title: 'Tasks and workflows'
           path: '/content-services/latest/using/tasks/'
         - title: 'Search'
@@ -613,8 +611,6 @@
               path: '/content-services/7.4/using/content/files-folders/'
             - title: 'Folder rules'
               path: '/content-services/7.4/using/content/rules/'
-            - title: 'Tags and Categories'
-              path: '/content-services/7.4/using/content/tags-categories/'
         - title: 'Tasks and workflows'
           path: '/content-services/7.4/using/tasks/'
         - title: 'Search'

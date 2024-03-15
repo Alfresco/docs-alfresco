@@ -66,6 +66,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Process Services 2.3 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 3.11.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Sync Service 3.11 | |
 | Alfresco Sync Service 3.10 | |
 | Alfresco Sync Service 3.9 | |
@@ -80,6 +81,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search and Insight Engine 2.0.7 and later | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0.7 and later | |
 | Alfresco Federation Services 3.0 | |
+| Keycloak 21.1.2 | |
 | Identity Service 2.0 | |
 | Identity Service 1.8 | |
 | Alfresco Intelligence Services 1.5 | |
@@ -87,7 +89,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for Azure 3.2 | |
 | Alfresco Content Connector for Salesforce 2.4 | |
 | Alfresco Content Connector for SAP applications 5.3 | |
-| Alfresco Content Connector for SAP Cloud 1.2 | |
+| Alfresco Content Connector for SAP Cloud 1.2.1 | |
 | Alfresco Collaboration Connector for Microsoft 365 2.0 | |
 | Alfresco Collaboration Connector for Teams 2.0 | |
 | Alfresco Outlook Integration 2.10 | |
@@ -98,6 +100,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.6 | |
 | | |
 | **Applications** | |
+| Alfresco Digital Workspace 4.4 | |
 | Alfresco Digital Workspace 4.3 | |
 | Alfresco Digital Workspace 4.2 | |
 | Alfresco Digital Workspace 4.1 | |
@@ -138,7 +141,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Rocky Linux 8.7 | |
 |  |  |
 | **Databases** | |
-| MySQL 8 | `mysql-connector-java-8.0.27.jar` |
+| MySQL 8 | `mysql-connector-java-8.0.30.jar` |
 | MS SQL Server 2019 | `mssql-jdbc-9.2.1.jre11.jar` |
 | Oracle 19c | `Ojdbc8.jar – 19.11.0.0` |
 | PostgreSQL 14.x | `Postgresql-42.3.2.jar` |
@@ -181,6 +184,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Process Services 2.3 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 3.11.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Sync Service 3.10 | |
 | Alfresco Sync Service 3.9 | |
 | Alfresco Desktop Sync 1.17 | |
@@ -194,6 +198,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search and Insight Engine 2.0.7 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0.7 | |
 | Alfresco Federation Services 3.0 | |
+| Keycloak 21.1.2 | |
 | Identity Service 2.0 | |
 | Identity Service 1.8 | |
 | Alfresco Intelligence Services 1.5 | |
@@ -201,7 +206,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for Azure 3.2 | |
 | Alfresco Content Connector for Salesforce 2.4 | |
 | Alfresco Content Connector for SAP applications 5.3 | |
-| Alfresco Content Connector for SAP Cloud 1.2 | |
+| Alfresco Content Connector for SAP Cloud 1.2.1 | |
 | Alfresco Collaboration Connector for Microsoft 365 2.0 | |
 | Alfresco Collaboration Connector for Teams 2.0 | |
 | Alfresco Outlook Integration 2.10 | |
@@ -212,6 +217,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.6 | |
 | | |
 | **Applications** | |
+| Alfresco Digital Workspace 4.4 | |
 | Alfresco Digital Workspace 4.3 | |
 | Alfresco Digital Workspace 4.2 | |
 | Alfresco Digital Workspace 4.1 | |

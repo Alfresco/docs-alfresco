@@ -187,7 +187,7 @@ To enable the Hazelcast cluster messaging, edit this section on each Share Tomca
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
                 http://www.hazelcast.com/schema/spring
-                http://www.hazelcast.com/schema/spring/hazelcast-spring-2.4.xsd">
+                http://www.hazelcast.com/schema/spring/hazelcast-spring-5.3.xsd">
    <!--
         Hazelcast distributed messaging configuration - Share web-tier cluster config
         - see http://www.hazelcast.com/docs.jsp
@@ -199,7 +199,6 @@ To enable the Hazelcast cluster messaging, edit this section on each Share Tomca
    <hz:topic id="topic" instance-ref="webframework.cluster.slingshot" name="slingshot-topic"/>
    <hz:hazelcast id="webframework.cluster.slingshot">
       <hz:config>
-         <hz:group name="slingshot" password="alfresco"/>
          <hz:network port="5801" port-auto-increment="true">
             <hz:join>
                <hz:multicast enabled="true"

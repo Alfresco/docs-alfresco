@@ -69,6 +69,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Process Services 2.3 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 3.11.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Sync Service 3.8 | |
 | Alfresco Sync Service 3.7 | |
 | Alfresco Sync Service 3.6 | |
@@ -113,6 +114,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.4 | |
 | | |
 | **Applications** | |
+| Alfresco Digital Workspace 4.4 | |
 | Alfresco Digital Workspace 3.0 | |
 | Alfresco Digital Workspace 2.9 | |
 | Alfresco Digital Workspace 2.8 | |
@@ -201,6 +203,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Process Services 2.3 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 3.11.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Sync Service 3.8 | |
 | Alfresco Sync Service 3.7 | |
 | Alfresco Sync Service 3.6 | |
@@ -245,6 +248,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.4 | |
 | | |
 | **Applications** | |
+| Alfresco Digital Workspace 4.4 | |
 | Alfresco Digital Workspace 3.0 | |
 | Alfresco Digital Workspace 2.9 | |
 | Alfresco Digital Workspace 2.8 | |

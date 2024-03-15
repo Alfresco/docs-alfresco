@@ -16,7 +16,7 @@ By default, you can view and edit general properties, such as Title, Name, Descr
 
     A window appears displaying a number of properties. For example:
 
-    ![]({% link desktop-sync/images/ds-properties-view-win.png %}){:height="491px" width="673px"}
+    ![]({% link desktop-sync/images/ds-properties-view-win-1.17.png %}){:height="491px" width="673px"}
 
     By default, the properties are read-only.
 
@@ -24,7 +24,7 @@ By default, you can view and edit general properties, such as Title, Name, Descr
 
     Note that the **Edit** button changes to **Save** (if you have edit permissions on the selected content).
 
-4. In the **General Properties** tab, you may see a **Custom Type** field. When custom types have been defined in the Desktop Sync configuration file by your IT team, you'll see them listed in this field.
+4. In the **General properties** tab, you may see a **Custom Type** field. When custom types have been defined in the Desktop Sync configuration file by your IT team, you'll see them listed in this field.
 
     * To change the content type, select one from the available options, and then click **Apply**.
 
@@ -70,19 +70,15 @@ By default, you can view and edit general properties, such as Title, Name, Descr
 
     A window appears displaying a number of properties. For example:
 
-    ![]({% link desktop-sync/images/ds-properties-view-mac2.png %}){:height="378px" width="690px"}
+    ![]({% link desktop-sync/images/ds-properties-view-mac2-1.17.png %}){:height="378px" width="690px"}
 
     By default, the properties are read-only.
 
 3. Click **Edit** to start editing the content.
 
-    Note that the **Edit** button changes to **Save** (if you have edit permissions on the selected content):
+    Note that the **Edit** button changes to **Save** (if you have edit permissions on the selected content).
 
-    ![]({% link desktop-sync/images/ds-properties-edit-mac.png %}){:height="378px" width="690px"}
-
-    > **Note:** This example shows a different file with an additional aspect (i.e. Webable) and related properties (i.e. Description and Title).
-
-4. In the **General Properties** tab, you may see a **Custom Type** field. When custom types have been defined in the Desktop Sync configuration file by your IT team, you'll see them listed in this field.
+4. In the **General properties** tab, you may see a **Custom Type** field. When custom types have been defined in the Desktop Sync configuration file by your IT team, you'll see them listed in this field.
 
     1. To change the content type, select one from the available options, and then click **Apply**.
 

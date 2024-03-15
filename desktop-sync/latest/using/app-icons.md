@@ -102,7 +102,7 @@ Click ![Settings]({% link desktop-sync/images/ico-ds-alfresco.png %}) to open th
 
 |Tab name|Description|
 |--------|-----------|
-|Checked Out|Displays files that you have checked out from your synced folder in Desktop Sync. You can click the icon or file name to open it, or double-click to reveal the file in Finder. See [working with multiple Checked Out files]({% link desktop-sync/latest/using/app-menu.md %}#faq/mac) for more.|
+|Checked out|Displays files that you have checked out from your synced folder in Desktop Sync. You can click the icon or file name to open it, or double-click to reveal the file in Finder. See [working with multiple checked out files]({% link desktop-sync/latest/using/app-menu.md %}#faq/mac) for more.|
 |Pending|Displays any changes that are waiting to be synced to Alfresco. **Note:** Files that are currently in use by another application are listed here.|
 |Conflicts|Displays a list of files or folders that are in conflict. **Note:** If a folder is in conflict as well as any of its contents (such as a file or sub-folder), special rules apply for how this content is resolved. See [sync conflict resolution guide]({% link desktop-sync/latest/using/sync-conflict-guide.md %}#faq/mac) for more details.|
 

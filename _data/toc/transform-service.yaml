@@ -1,5 +1,5 @@
-# Transform Service 4.0
-- version: 4.0
+# Transform Service 4.1
+- version: 4.1
   pages:
     - title: 'Introduction'
       path: '/transform-service/latest/'
@@ -15,6 +15,24 @@
               path: '/transform-service/latest/config/add-tengine-trouter/'
     - title: 'Administer'
       path: '/transform-service/latest/admin/'
+
+# Transform Service 4.0
+- version: 4.0
+  pages:
+    - title: 'Introduction'
+      path: '/transform-service/4.0/'
+    - title: 'Install'
+      path: '/transform-service/4.0/install/'
+    - title: 'Configure'
+      pages:
+        - title: 'Overview'
+          path: '/transform-service/4.0/config/'
+        - title: 'Extend'
+          pages:
+            - title: 'Add T-Engines to T-Router'
+              path: '/transform-service/4.0/config/add-tengine-trouter/'
+    - title: 'Administer'
+      path: '/transform-service/4.0/admin/'
 
 # Transform Service 3.0
 - version: 3.0
