@@ -15,8 +15,6 @@
           path: '/salesforce/latest/using/recommend/'
         - title: 'Salesforce Community'
           path: '/salesforce/latest/using/community/'
-        - title: 'Multiple organizations'
-          path: '/salesforce/latest/using/multiple-orgs/'
         - title: 'Troubleshoot'
           path: '/salesforce/latest/using/troubleshoot/'
 

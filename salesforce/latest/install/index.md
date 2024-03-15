@@ -36,6 +36,10 @@ Salesforce Group is the minimum requirement. See [Salesforce Connected Apps](htt
 
 Your Salesforce and Alfresco instances must be on a shared network or otherwise accessible in order to share information.
 
+## Support for multiple Salesforce organizations
+
+Starting from version 3.1, the Salesforce Connector provides support for multiple Salesforce organizations (or instances) adds the ability to connect a single Content Services instance to multiple Salesforce organizations. This may be a combination of Production and Sandbox organizations. The detailed steps are included in **Step 4** of the installation steps for the Salesforce Classic and Lightning Experience.
+
 ## Step 1: Install AMP files {#installamps}
 
 Download and install the AMP files to connect to Salesforce.
@@ -237,13 +241,13 @@ Make sure that you've applied your AMP files, downloaded the Alfresco Content Co
 
 2. Under **PLATFORM TOOLS**, click **Apps > App Manager**.
 
-3. On the **Lightning Experience App Manager** screen, click the down-arrow icon for the app that you created in [Step 3: Configure the app in Salesforce](#configappinsalesforce-lightning) and select View.
+3. On the **Lightning Experience App Manager** screen, click the down-arrow icon for the app that you created in [Step 3: Configure the app in Salesforce](#configappinsalesforce-lightning) and select **View**.
 
     ![sf-view]({% link salesforce/images/sf-view.png %})
 
-    In the **API (Enable OAuth Settings)** section, you'll see entries for the consumer key and consumer secret.
+4. In the **API (Enable OAuth Settings)** section, click **Manage Consumer Details** to reveal the Consumer Key and Secret. You'll return to this screen to copy the code for both fields.
 
-4. Copy the code in the **Consumer Key** field.
+   ![sf-manage-consumer-details]({% link salesforce/images/sf-manage-consumer-details.png %})
 
 5. In a separate browser window, log on to the Salesforce page of the Alfresco Admin Console with your administrator credentials:
 
@@ -267,35 +271,29 @@ Make sure that you've applied your AMP files, downloaded the Alfresco Content Co
 
       The Salesforce.com Organization Id is shown in this window.
 
-8. Paste your Salesforce consumer key into **Salesforce Consumer Token**.
+8. From the Salesforce window, copy your **Consumer Key** and paste it into the Admin Console **Salesforce Consumer Token**.
 
-9. In the Salesforce window, click **Click to reveal** to reveal the consumer secret, and copy the code.
-
-    ![sf-consumerkey]({% link salesforce/images/sf-consumerkey.png %})
-
-10. Paste your Salesforce consumer secret into **Salesforce Consumer Secret**.
+9. From the Salesforce window, copy your **Consumer Secret** and paste it into the Admin Console **Salesforce Consumer Secret**.
 
     You can optionally hide the password when you have pasted it into the Admin Console.
 
-11. Select the **Salesforce Environment Type** that Alfresco should use.
+10. Select the **Salesforce Environment Type** that Alfresco should use.
 
     There are two options: `Production` (the default value) and `Sandbox`:
 
     ![sf-adminconsole]({% link salesforce/images/sf-adminconsole.png %})
 
-12. Save the new connection by clicking the **Save** button.
+11. Save the new connection by clicking the **Save** button.
 
-13. You can optionally change the list size of records that are displayed.
+12. (*Optional*) You can change the list size of records that are displayed.
 
-    Enter a number in **Recently Viewed Records List Size** to specify how many recent Salesforce records are displayed when you link an Alfresco file or folder with a record. The default setting is 20 records.
+    Enter a number in **Recently Viewed Records List Size** to specify how many recent Salesforce records are displayed when you link an Alfresco file or folder with a record. The default setting is `20` records.
 
-    >**Note:** Alternatively, you can set this in your `alfresco-global.properties` file using `sfdc.canvas.recordMruSize`. For example:
+    >**Note:** Alternatively, you can set this in your `alfresco-global.properties` file using `sfdc.canvas.recordMruSize`.
     >
-    >```text
-    >sfdc.canvas.recordMruSize=10
-    >```
+    >For example: `sfdc.canvas.recordMruSize=10`
 
-14. **Save** your settings.
+13. **Save** your settings.
 
 Once a connection is created, you can add additional connections, if needed. You can also remove or update an existing connection. Removing a connection won't remove any content.
 
