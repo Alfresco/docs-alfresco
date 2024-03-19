@@ -12,7 +12,7 @@ The key capabilities of Keycloak include the ability to:
 
 More information is available about Keycloak covering:
 
-* An overview of Keycloak architecture is provided in the [Alfresco/alfresco-identity-service](https://github.com/Alfresco/alfresco-identity-service/tree/keycloak-21.1.2_theme-0.3.5){:target="_blank"} GitHub project documentation.<!--404-->
+* An overview of Keycloak architecture is provided in the [Alfresco/alfresco-identity-service](https://github.com/Alfresco/alfresco-identity-service/tree/keycloak-21.1.2_theme-0.3.5){:target="_blank"} GitHub project documentation.
 * How to [install Keycloak](#install-keycloak).
 * How to [configure](#configure-keycloak) realm and theme customizations.
 
@@ -111,7 +111,7 @@ Prerequisites: Git and Helm are installed.
 
 To install the Alfresco Realm manually:
 
-1. Clone the `https://github.com/Alfresco/alfresco-identity-service` git repository:
+1. Clone the `https://github.com/Alfresco/alfresco-identity-service` GitHub repository:
 
    ```bash
    git clone https://github.com/Alfresco/alfresco-identity-service.git
@@ -119,7 +119,7 @@ To install the Alfresco Realm manually:
 
 2. Checkout the required tag based on the Keycloak and Alfresco Keycloak Theme versions specified in the Supported platforms page.
 
-   For example:<!--404: need new link-->
+   For example:
 
    ```bash
    git checkout keycloak-21.1.2_theme-0.3.5
@@ -300,7 +300,6 @@ However a new theme is imported, the new theme will need to be applied by signin
 5. In the Keycloak Admin Console select the new themes for each component in the **Themes** tab under **Realm Settings**.
 
 ## Run Keycloak with Process Services
-<!--FIXME: IDS 1.8 & 2.0 docs-->
 
 You can run Keycloak with Process Services. You must configure both applications for the logout functionality in Process Services to function correctly.
 
@@ -308,7 +307,7 @@ You can run Keycloak with Process Services. You must configure both applications
 
 To run Keycloak with Process Services:
 
-1. Deploy your Identity Service installation by adding the following command-line parameter:
+1. Deploy your Keycloak installation by adding the following command-line parameter:
 
     ```xml
     --spi-login-protocol-openid-connect-legacy-logout-redirect-uri=true
