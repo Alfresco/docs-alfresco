@@ -182,7 +182,7 @@ To enable Hazelcast clustering between Share instances, configure the `custom-sl
 
 To enable the Hazelcast cluster messaging, edit this section on each Share Tomcat instance:
 
-**Note:** For the correct version numbers of both spring beans and hazelcast spring, navigate to the following directory and list the files referring to hazelcast:
+**Note:** For the correct version numbers of both spring beans and hazelcast spring, list the files referring to hazelcast in the following directory:
 
 ```text
 cd <tomcat_home>/webapps/share/WEB-INF/lib
