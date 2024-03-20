@@ -57,7 +57,7 @@ Based on the HTTP Connection created in the previous section, a new CMIS Content
 
     * **Content Rep.:** `-DEFAULT-`
 
-    > **Important: This must be an exact match - written in UPPERCASE with leading and trailing slash.** *The name can't be changed as it's the default setting in Content Services for the CMIS repository*.
+    > **Important: This must be an exact match - written in UPPERCASE with leading and trailing slash.** *The name can't be changed as it's the default setting in Content Services for the CMIS repository* SAP may not allow you to create it with `-DEFAULT-` and might show an error message similar to `The selected key is reserved for SAP`. If this error shows up, hit the Enter key twice.
 
     * **Document area:** *Leave empty*
     * **Storage type:** `CMIS Content Server`
@@ -113,6 +113,12 @@ This is also the proof that the errors in the report above can be skipped, becau
 
 ## Maintain storage category for CMIS
 
-To store documents (attachments) from SAP via CMIS to Content Services, the category **SOFFDB** should point to the `-DEFAULT-` content repository. Change it in transaction `OACT`.
+To store documents (attachments) from SAP via CMIS to Content Services, the **SOFFDB** and **SOFFHTTP** categories should point to the `-DEFAULT-` content repository. Change it in transaction `OACT`.
 
-![Change SOFFDB category]({% link sap-cloud/images/sap_oact_soffdb_category_to_default.png %})
+![Change SOFFDB and SOFFHTTP categories]({% link sap-cloud/images/sap_oact_soffdb_soffhttp_category_to_default.png %})
+
+## Map Categories for Physical Documents Class
+
+Go to transaction `SKPR08` and map the new category under `SOFFPHIO`.
+
+![Map SOFFDB under new category]({% link sap-cloud/images/sap_skpr08_map_category_to_soffdb.png %})
