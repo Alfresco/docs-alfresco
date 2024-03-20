@@ -65,6 +65,8 @@
           path: '/content-services/latest/config/action/'
         - title: 'Mutual TLS'
           path: '/content-services/latest/config/mtls/'
+        - title: 'Keycloak'
+          path: '/content-services/latest/config/keycloak/'
     - title: 'Administer'
       pages:
         - title: 'Overview'
@@ -523,6 +525,8 @@
           path: '/content-services/7.4/config/action/'
         - title: 'Mutual TLS'
           path: '/content-services/7.4/config/mtls/'
+        - title: 'Keycloak'
+          path: '/content-services/7.4/config/keycloak/'
     - title: 'Administer'
       pages:
         - title: 'Overview'
@@ -839,6 +843,8 @@
           path: '/content-services/7.3/config/models/'
         - title: 'Process Services actions'
           path: '/content-services/7.3/config/action/'
+        - title: 'Keycloak'
+          path: '/content-services/7.3/config/keycloak/'
     - title: 'Administer'
       pages:
         - title: 'Overview'
