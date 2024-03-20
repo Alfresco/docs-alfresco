@@ -1135,14 +1135,19 @@ defaults:
       toc: "sap-cloud"
       support: true
       versions:
+        - 2.0
         - 1.2
         - 1.1
         - 1.0
   - scope:
       path: "sap-cloud/latest"
     values:
-      version: 1.2
+      version: 2.0
       latest: true
+  - scope:
+      path: "sap-cloud/1.2"
+    values:
+      version: 1.2      
   - scope:
       path: "sap-cloud/1.1"
     values:
