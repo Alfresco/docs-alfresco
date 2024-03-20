@@ -70,7 +70,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search and Insight Engine 2.0.8 and later | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0.8 and later | |
 | Alfresco Federation Services 3.2 | |
-| Keycloak 21.1.2 | |
+| Keycloak 21.1.2 | Use this Keycloak version and Alfresco Keycloak Theme 0.3.5 as an alternative to Identity Service 2.0.0. |
 | Identity Service 2.0 | |
 | Alfresco Intelligence Services 3.1 | |
 | Alfresco Content Connector for AWS S3 6.1 | Adds support for AWS Glacier using Cloud storage layer. |
@@ -168,7 +168,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search Services 2.0.8 and later | |
 | Alfresco Federation Services 3.2 | |
 | Alfresco Federation Services 3.1 | |
-| Keycloak 21.1.2 | |
+| Keycloak 21.1.2 | Use this Keycloak version and Alfresco Keycloak Theme 0.3.5 as an alternative to Identity Service 2.0.0. |
 | Identity Service 2.0 | |
 | Alfresco Intelligence Services 3.1 | |
 | Alfresco Content Connector for AWS S3 6.0 | Adds support for AWS Glacier using Cloud storage layer. |
