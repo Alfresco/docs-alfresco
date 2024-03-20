@@ -113,9 +113,9 @@ This is also the proof that the errors in the report above can be skipped, becau
 
 ## Maintain storage category for CMIS
 
-To store documents (attachments) from SAP via CMIS to Content Services, the category **SOFFDB** should point to the `-DEFAULT-` content repository. Change it in transaction `OACT`.
+To store documents (attachments) from SAP via CMIS to Content Services, the **SOFFDB** and **SOFFHTTP** categories should point to the `-DEFAULT-` content repository. Change it in transaction `OACT`.
 
-![Change SOFFDB category]({% link sap-cloud/images/sap_oact_soffdb_soffhttp_category_to_default.png %})
+![Change SOFFDB and SOFFHTTP categories]({% link sap-cloud/images/sap_oact_soffdb_soffhttp_category_to_default.png %})
 
 ## Map Categories for Physical Documents Class
 
