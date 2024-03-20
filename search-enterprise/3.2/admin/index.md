@@ -313,19 +313,24 @@ Both strategies split the specified range into multiple ranges depending on the 
 _Manager_:
 
 ```shell
-java -jar alfresco-elasticsearch-reindexing-3.2.0-app.jar \
+java -jar alfresco-elasticsearch-reindexing-4.0.0-app.jar \
   --alfresco.reindex.jobName=reindexByIds \
   --alfresco.reindex.partitioning.type=manager \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
   --alfresco.reindex.fromId=0 \
   --alfresco.reindex.toId=10000 \
-  --spring.batch.datasource.url=jdbc:postgresql://localhost:5432/alfresco \
-  --spring.batch.datasource.username=springBatchUser \
-  --spring.batch.datasource.password=****** \
+  --spring.batch.datasource.url=jdbc:postgresql://<IP address of host>:<port number>/alfresco \
+  --spring.batch.datasource.username=alfresco \
+  --spring.batch.datasource.password=alfresco \
   --spring.batch.datasource.driver-class-name=org.postgresql.Driver \
   --spring.batch.drop.script=classpath:/org/springframework/batch/core/schema-drop-postgresql.sql \
   --spring.batch.schema.script=classpath:/org/springframework/batch/core/schema-postgresql.sql
+  --spring.elasticsearch.rest.uris=http://<IP address of host>:<port number> 
+  --spring.datasource.url=jdbc:postgresql://<IP address of host>:<port number>/alfresco 
+  --spring.datasource.username=alfresco 
+  --spring.datasource.password=alfresco 
+  --spring.activemq.broker-url=tcp://localhost:<port number>
 ```
 
 _Worker_:
