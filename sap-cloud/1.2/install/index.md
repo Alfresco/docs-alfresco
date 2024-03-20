@@ -4,13 +4,13 @@ title: Install SAP Cloud Connector
 
 The Content Connector for SAP Cloud capability is delivered in a repository Alfresco Module Package (AMP) file.
 
-In these topics you'll install and set up everything you need to run the SAP Cloud Connector. See [Prerequisites](#prerequisites) and [Supported Platforms]({% link sap-cloud/latest/support/index.md %}) for information on what you require before you start the installation.
+In these topics you'll install and set up everything you need to run the SAP Cloud Connector. See [Prerequisites](#prerequisites) and [Supported Platforms]({% link sap-cloud/l.2/support/index.md %}) for information on what you require before you start the installation.
 
 ## Prerequisites
 
 There are a number of software requirements for installing and using the SAP Cloud Connector.
 
-See [Supported platforms]({% link sap-cloud/latest/support/index.md %}) for more information.
+See [Supported platforms]({% link sap-cloud/l.2/support/index.md %}) for more information.
 
 ### General requirements
 
@@ -26,7 +26,7 @@ The SAP Cloud Connector is packaged as an {% include tooltip.html word="AMP" tex
         * This contains the business logic for the SAP Cloud Connector.
     * Module `sap-content-connector-genericXchange-1.x.x.amp` for Content Services:
         * This contains the business logic for additional data exchange.
-        * See [Configure GenericXchange]({% link sap-cloud/latest/config/genericxchange.md %}) for more details.
+        * See [Configure GenericXchange]({% link sap-cloud/l.2/config/genericxchange.md %}) for more details.
     * `alfresco-global.properties_append` template:
         * This is only required if using GenericXchange, and contains required keys/properties to add to the current `alfresco-global.properties` file.
     * `sap-content-connector-jco-packer-x.x`:
