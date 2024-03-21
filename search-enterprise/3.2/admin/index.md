@@ -313,7 +313,7 @@ Both strategies split the specified range into multiple ranges depending on the 
 _Manager_:
 
 ```shell
-java -jar alfresco-elasticsearch-reindexing-4.0.0-app.jar \
+java -jar alfresco-elasticsearch-reindexing-3.2.1-app.jar \
   --alfresco.reindex.jobName=reindexByIds \
   --alfresco.reindex.partitioning.type=manager \
   --alfresco.reindex.pagesize=100 \
