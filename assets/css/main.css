@@ -141,12 +141,12 @@ nav.navbar .navbar-lang {
 
 .navbar-item .icon-logo {
   display: block;
-  width: 155px;
+  width: 345px;
   height: auto;
   padding: 0;
 }
 
-@media (max-width: 155px) {
+@media (max-width: 345px) {
   .icon-logo img {
     transform: scale(0.8); 
   }
