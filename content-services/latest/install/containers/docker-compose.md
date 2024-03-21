@@ -78,8 +78,8 @@ To deploy Content Services using Docker Compose, download and install [Docker](h
     | Service | Endpoint |
     | ------- | -------- |
     | Administration and REST APIs | `http://localhost:8080/alfresco` |
-    | Share | `http://localhost:8080/share` |
     | Digital Workspace | `http://localhost:8080/workspace` |
+    | Share | `http://localhost:8080/share` |
     | Search Services administration | `http://localhost:8083/solr` |
     | Sync Service health check | `http://localhost:9090/alfresco/healthcheck` |
     | Admin Console | `http://localhost:8080/alfresco/s/enterprise/admin` |
