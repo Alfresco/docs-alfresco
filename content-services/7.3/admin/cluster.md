@@ -173,9 +173,12 @@ This information describes the configuration of Hazelcast clustering between ins
 
 In a load balanced environment, Share now uses Hazelcast to provide multicast messaging between the web-tier nodes. As a result, Share caches no longer need to be disabled for any node, simple cache invalidation message are sent to all nodes when appropriate. Each node functions practically as fast as a single Share instance, enhancing the overall performance of Share.
 
-To enable Hazelcast clustering between Share instances, configure the `custom-slingshot-application-context.xml` file found at `<TOMCAT-HOME>/shared/classes/alfresco/web-extension`. This file is used to override the Spring application context beans for Share.
+To enable Hazelcast clustering between Share instances, configure the `custom-slingshot-application-context.xml` file and place it in the `<TOMCAT-HOME>/shared/classes/alfresco/web-extension` folder. This file is used to override the Spring application context beans for Share.
 
-> **Note:** An example `custom-slingshot-application-context.xml.sample` file is provided in the distribution, which now includes this configuration.
+> > **Note:** An example file which includes this configuration is provided in the distribution.zip and is located at
+> `web-server/shared/classes/alfresco/web-extension/web-extension/custom-slingshot-application-context.xml.sample`
+> as well as in the extracted `share.war` under
+> `web-server/webapps/share/WEB-INF/classes/alfresco/web-extension/custom-slingshot-application-context.xml.sample`.
 
 To enable the Hazelcast cluster messaging, edit this section on each Share Tomcat instance:
 
@@ -198,7 +201,7 @@ To enable the Hazelcast cluster messaging, edit this section on each Share Tomca
    <!--
         Hazelcast distributed messaging configuration - Share web-tier cluster config
         - see http://www.hazelcast.com/docs.jsp
-        - and specifically http://docs.hazelcast.org/docs/x.x/manual/html-single/#SpringIntegration
+        - and specifically https://docs.hazelcast.org/docs/x.x/manual/html-single/#SpringIntegration
    -->
    <!-- Configure cluster to use either Multicast or direct TCP-IP messaging - multicast is default -->
    <!-- Optionally specify network interfaces - server machines likely to have more than one interface -->
@@ -209,11 +212,11 @@ To enable the Hazelcast cluster messaging, edit this section on each Share Tomca
          <hz:group name="slingshot" password="alfresco"/>
          <hz:network port="5801" port-auto-increment="true">
             <hz:join>
-               <hz:multicast enabled="true"
+               <hz:multicast enabled="false"
                      multicast-group="224.2.2.5"
                      multicast-port="54327"/>
-               <hz:tcp-ip enabled="false">
-                  <hz:members></hz:members>
+               <hz:tcp-ip enabled="true">
+                  <hz:members>192.168.15,192.168.16</hz:members>
                </hz:tcp-ip>
             </hz:join>
             <hz:interfaces enabled="false">
@@ -230,7 +233,7 @@ To enable the Hazelcast cluster messaging, edit this section on each Share Tomca
 </beans>
 ```
 
-This configuration enables the Hazelcast Spring integration, which in turn, starts the Hazelcast server. The Hazelcast server is easily configurable and can use either multicast (default) or TCP-IP direct, if preferred. For more information, see the [Hazelcast Documentation](https://hazelcast.com/products/in-memory-computing/#resources){target="_blank"}.
+This configuration enables the Hazelcast Spring integration, which in turn, starts the Hazelcast server. The Hazelcast server is easily configurable and can use either multicast (default) or TCP-IP direct, if preferred. For more information, see the [Hazelcast Documentation](https://hazelcast.com/products/in-memory-computing/#resources){:target="_blank"}.
 
 If this configuration is enabled, the Share instance becomes a cluster node and Hazelcast is started. If this configuration is disabled (such as, for a default install), then Hazelcast is not started. While using Share, only when any of the following actions occur, the cache invalidation messages will be sent from the affected node to other nodes in the cluster:
 
@@ -266,6 +269,15 @@ INFO: /127.0.0.1]:5801 [slingshot] Address[127.0.0.1]:5801 is STARTED
 ```
 
 The message shows that the configuration has successfully initialized Hazelcast between Share instances.
+
+### Share Cluster Troubleshooting
+
+In case the Share cluster does not start, check the `share.log` for details.
+
+> **Note**: To setup an ACS Share cluster without internet connection, make sure to check the Hazelcast
+> `xsi:schemaLocation=http://www.hazelcast.com/schema/spring/hazelcast-spring-<version-string>.xsd` is the same Hazelcast version as in the corresponding Share lib
+> `share/WEB-INF/lib/hazelcast-spring-<version>.jar`.
+
 
 ### Configure Alfresco Share clustering
 
