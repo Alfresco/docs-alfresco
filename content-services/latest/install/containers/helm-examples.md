@@ -289,7 +289,7 @@ Currently, the ingress-nginx doesn't support TCP/UDP services due to Kubernetes 
 
 So, for example if your Content Services Helm chart is enabled with Inbound/Outbound email in domain `*.example.com`, then the service endpoints would be:
 
-* `myacs.example.com` - for general Alfresco, Share and Digital Workspace endpoints
+* `myacs.example.com` - for general Alfresco, Digital Workspace, and Share endpoints
 * `smtps-myacs.example.com` - for sending emails to Content Services smtp(s) server (for example port: 1125 (smtps), 1144(imaps))
 
 It is recommended to enable TLS while configuring SMTP(s) and IMAP(s) configuration.  If TLS is enabled for inbound email, then the helm chart expects the TLS certificate as a Secret before installing the chart.  This secret name is passed on as a parameter with helm chart installation to be used for inbound email with TLS and repository will create keystore and truststore accordingly from the provided SSL certificates.
