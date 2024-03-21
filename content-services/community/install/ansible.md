@@ -25,4 +25,4 @@ There are two types of installations - local and remote:
 ## Deployment
 
 For the Ansible deployment, refer to the following page which provides the most up-to-date reference with current OS, Ansible version, and Python runtime/libraries:
-[Ansible Deployment Guide](https://github.com/Alfresco/alfresco-ansible-deployment/blob/master/docs/deployment-guide.md){:target="_blank"}
+[Ansible Deployment Guide](https://alfresco.github.io/alfresco-ansible-deployment/deployment-guide.html){:target="_blank"}
