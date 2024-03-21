@@ -249,7 +249,7 @@ Here is a summary of the steps required:
 See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment/){:target="_blank"} GitHub project 
 documentation for the prerequisites and detailed setup:
 
-* [Deploying with Helm charts on AWS using EKS](https://github.com/Alfresco/acs-deployment/blob/support/SP/4.N/docs/helm-deployment-aws_eks.md){:target="_blank"}
+* [Deploying with Helm charts on AWS using EKS](https://github.com/Alfresco/acs-deployment/blob/master/docs/helm/eks-deployment.md){:target="_blank"}
 
 ## Install with Docker Compose
 Use this information to quickly start up Content Services (including Transform Service) using Docker Compose. Due to the 
