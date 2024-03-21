@@ -179,19 +179,26 @@ To enable Hazelcast clustering between Share instances, configure the `custom-sl
 
 To enable the Hazelcast cluster messaging, edit this section on each Share Tomcat instance:
 
+> **Note:** For the correct version numbers of both Spring beans and Hazelcast Spring, list the files referring to Hazelcast in the following directory:
+> 
+> ```text
+> cd <tomcat_home>/webapps/share/WEB-INF/lib
+> ls -al | grep hazelcast
+> ```
+
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:hz="http://www.hazelcast.com/schema/spring"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-                http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                http://www.springframework.org/schema/beans/spring-beans-x.x.xsd
                 http://www.hazelcast.com/schema/spring
-                http://www.hazelcast.com/schema/spring/hazelcast-spring-2.4.xsd">
+                http://www.hazelcast.com/schema/spring/hazelcast-spring-x.x.xsd">
    <!--
         Hazelcast distributed messaging configuration - Share web-tier cluster config
         - see http://www.hazelcast.com/docs.jsp
-        - and specifically http://docs.hazelcast.org/docs/2.4/manual/html-single/#SpringIntegration
+        - and specifically http://docs.hazelcast.org/docs/x.x/manual/html-single/#SpringIntegration
    -->
    <!-- Configure cluster to use either Multicast or direct TCP-IP messaging - multicast is default -->
    <!-- Optionally specify network interfaces - server machines likely to have more than one interface -->

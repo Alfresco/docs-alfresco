@@ -182,12 +182,12 @@ To enable Hazelcast clustering between Share instances, configure the `custom-sl
 
 To enable the Hazelcast cluster messaging, edit this section on each Share Tomcat instance:
 
-**Note:** For the correct version numbers of both spring beans and hazelcast spring, list the files referring to hazelcast in the following directory:
-
-```text
-cd <tomcat_home>/webapps/share/WEB-INF/lib
-ls -al | grep hazelcast
-```
+> **Note:** For the correct version numbers of both Spring beans and Hazelcast Spring, list the files referring to Hazelcast in the following directory:
+> 
+> ```text
+> cd <tomcat_home>/webapps/share/WEB-INF/lib
+> ls -al | grep hazelcast
+> ```
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -233,7 +233,7 @@ ls -al | grep hazelcast
 </beans>
 ```
 
-This configuration enables the Hazelcast Spring integration, which in turn, starts the Hazelcast server. The Hazelcast server is easily configurable and can use either multicast (default) or TCP-IP direct, if preferred. For more information, see the [Hazelcast Documentation](https://hazelcast.com/products/in-memory-computing/#resources){target="_blank"}.
+This configuration enables the Hazelcast Spring integration, which in turn, starts the Hazelcast server. The Hazelcast server is easily configurable and can use either multicast (default) or TCP-IP direct, if preferred. For more information, see the [Hazelcast Documentation](https://hazelcast.com/products/in-memory-computing/#resources){:target="_blank"}.
 
 If this configuration is enabled, the Share instance becomes a cluster node and Hazelcast is started. If this configuration is disabled (such as, for a default install), then Hazelcast is not started. While using Share, only when any of the following actions occur, the cache invalidation messages will be sent from the affected node to other nodes in the cluster:
 
