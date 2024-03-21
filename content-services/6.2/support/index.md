@@ -70,6 +70,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.8 | |
 | Alfresco Desktop Sync 1.7 | |
 | Alfresco Desktop Sync 1.6 | |
+| Alfresco Transform Service 1.5 | |
 | Alfresco Transform Service 1.4 | |
 | Alfresco Transform Service 1.3 | |
 | Alfresco Document Transformation Engine 2.2.2 | |
