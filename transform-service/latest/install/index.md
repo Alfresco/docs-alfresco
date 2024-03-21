@@ -249,7 +249,7 @@ Here is a summary of the steps required:
 See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment/){:target="_blank"} GitHub project 
 documentation for the prerequisites and detailed setup:
 
-* [Deploying with Helm charts on AWS using EKS](https://github.com/Alfresco/acs-deployment/blob/support/SP/4.N/docs/helm-deployment-aws_eks.md){:target="_blank"}
+* [Deploying with Helm charts on AWS using EKS](https://github.com/Alfresco/acs-deployment/blob/master/docs/helm/eks-deployment.md){:target="_blank"}
 
 ## Install with Docker Compose
 Use this information to quickly start up Content Services (including Transform Service) using Docker Compose. Due to the 
@@ -307,7 +307,7 @@ from the left column that corresponds to the required Content Services version y
        - activemq
    
    shared-file-store:
-     image: quay.io/alfresco/alfresco-shared-file-store:4.0.0
+     image: quay.io/alfresco/alfresco-shared-file-store:4.1.0
      mem_limit: 512m
      environment:
        JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
@@ -405,17 +405,17 @@ Use this information to verify that the system started correctly, and to clean u
         Container                             Repository                                     Tag                        Image Id         Size
         --------------------------------------------------------------------------------------------------------------------------------------- 
         docker-compose-activemq-1             alfresco/alfresco-activemq                     5.18-jre17-rockylinux8   8d025606b35f        686MB
-        docker-compose-alfresco-1             quay.io/alfresco/alfresco-content-repository   23.1.1                   c50a76324708        1.15GB
-        docker-compose-control-center-1       quay.io/alfresco/alfresco-control-center       8.3.0                    9f7f1ce0ba60        43.2MB
-        docker-compose-digital-workspace-1    quay.io/alfresco/alfresco-digital-workspace    4.3.0                    bb6bda03b42e        47.5MB
+        docker-compose-alfresco-1             quay.io/alfresco/alfresco-content-repository   23.2.1                   c50a76324708        1.15GB
+        docker-compose-control-center-1       quay.io/alfresco/alfresco-control-center       8.4.1                    9f7f1ce0ba60        43.2MB
+        docker-compose-digital-workspace-1    quay.io/alfresco/alfresco-digital-workspace    4.4.1                    bb6bda03b42e        47.5MB
         docker-compose-postgres-1             postgres                                       14.4                     fb7289787ade        355MB
         docker-compose-proxy-1                alfresco/alfresco-acs-nginx                    3.4.2                    f9c4519b7920        23.4MB
-        docker-compose-share-1                quay.io/alfresco/alfresco-share                23.1.1                   f4063f4d7a62        715MB
-        docker-compose-shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    4.0.1                    ac8ce4ddeeb7        567MB
+        docker-compose-share-1                quay.io/alfresco/alfresco-share                23.2.1                   f4063f4d7a62        715MB
+        docker-compose-shared-file-store-1    quay.io/alfresco/alfresco-shared-file-store    4.1.0                    ac8ce4ddeeb7        567MB
         docker-compose-solr6-1                quay.io/alfresco/search-services               2.0.8.2                  be4b827d934a        835MB
         docker-compose-sync-service-1         quay.io/alfresco/service-sync                  4.0.1                    cb8e65443e11        719MB
-        docker-compose-transform-core-aio-1   alfresco/alfresco-transform-core-aio           5.0.1                    448b02b47f7d        1.67GB
-        docker-compose-transform-router-1     quay.io/alfresco/alfresco-transform-router     4.0.1                    bcdf3867f26c        598MB
+        docker-compose-transform-core-aio-1   alfresco/alfresco-transform-core-aio           5.1.0                    448b02b47f7d        1.67GB
+        docker-compose-transform-router-1     quay.io/alfresco/alfresco-transform-router     4.1.0                    bcdf3867f26c        598MB
         ```
 
         > **Note:** The Docker images listed above are based on an updated Docker Compose file, using the code snippet from step 3 in the initial Docker Compose instructions.
