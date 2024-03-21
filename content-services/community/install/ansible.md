@@ -22,7 +22,7 @@ There are two types of installations - local and remote:
 
 ![deployment-type-ssh]({% link content-services/images/deployment-type-ssh.png %})
 
-### Deployment
+## Deployment
 
 For the Ansible deployment, refer to the following link which is the most up-to-date reference with current OS, Ansible version, and Python runtime/libraries:
 [Ansible Deployment Guide](https://github.com/Alfresco/alfresco-ansible-deployment/blob/master/docs/deployment-guide.md){:target="_blank"}
