@@ -289,13 +289,14 @@ Single terms, phrases, and so on can be combined using "`NOT`" in upper, lower, 
 These queries search for nodes that contain the terms `yellow` in any content.
 
 ```sql
-yellow NOT banana
-yellow !banana
-yellow -banana
+yellow AND NOT banana
+yellow AND !banana
+yellow AND -banana
 NOT yellow banana
 -yellow banana
 !yellow banana
 ```
+The `NOT` operator can be omitted for Share. 
 
 The `NOT` operator can only be used for string keywords; it doesn't work for numerals or dates.
 
