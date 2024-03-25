@@ -33,10 +33,10 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Application servers** | |
 | Tomcat 10 | |
 | Jetty 12 | |
-| | |   
+| | |
 | **JDKs** | |
 | OpenJDK 17 |  |
-| Amazon Coretto 17 |  |
+| Amazon Corretto 17 |  |
 | | |
 | **Browsers** | |
 | Mozilla Firefox | |
