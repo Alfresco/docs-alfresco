@@ -680,6 +680,18 @@ You can configure a PostgreSQL database for use with Content Services.
 
     If you receive JDBC errors, ensure the location of the PostgreSQL JDBC drivers are on the system path, or add them to the relevant lib directory of the application server.
 
+### Database Partitioning
+
+Starting from version 7.3, Content Services supports table partitioning with PostgreSQL as the database backend. Table partitioning in PostSQL enhances performance and data management for large tables by breaking them into smaller, more manageable segments.
+
+Key benefits include:
+
+* Improved query performance: queries run faster because only relevant partitions are scanned, and each partition can have its own optimized indexes.
+* Enhanced data management: maintenance tasks like VACUUM and REINDEX can be performed on individual partitions, simplifying data management, and improving efficiency.
+
+Note that table partitioning is transparent to external systems; for Content Services, a partitioned table continues to function as a single, unified table.
+Our advice is to look at the distribution of the data and your use case in order to devise a fitting partitioning strategy. We do not guarantee a certain performance for a given partitioning strategy.
+
 ## Microsoft SQL Server
 
 You can configure a Microsoft SQL Server database for use with Content Services. To modify the default database configuration, you must edit values in the `<classpathRoot>/alfresco-global.properties` file.
