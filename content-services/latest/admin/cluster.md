@@ -113,7 +113,8 @@ The main decision is involved around when to split and how to split.
 **When to split:** There are a number of indicators to help you decide when to split your architecture from a single node environment to a distributed node environment. Some of the indicators to look for include:
 
 * Low disk space
-* CPU running out of memory
+* High CPU usage
+* Frequent out of memory errors
 * High indexing load
 
 **How to split:** When you've decided to upgrade from a single node environment to a distributed or clustered environment, you must find the most appropriate way to cluster architecture.
