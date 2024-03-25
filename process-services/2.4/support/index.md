@@ -9,34 +9,37 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Version | Notes |
 | ------- | ----- |
 | **Operating systems** | |
-| Red Hat Enterprise Linux 9 | |
-| Red Hat Enterprise Linux 8.8 | |
-| Windows Server 2022 | |
-| Rocky Linux 9 | |
-| Rocky Linux 8.8 | |
+| Red Hat Enterprise Linux 8 | |
+| Red Hat Enterprise Linux 7.7 | |
+| Red Hat Enterprise Linux 7.6 | |
+| Windows Server 2019 | |
+| Windows Server 2016 | |
+| Rocky Linux 8.7 | |
 | CentOS 8 x64 | |
 | CentOS 7 x64 | |
-| Ubuntu 22.04 | |
-| Amazon Linux 2 | |
 | | |
 | **Databases** | |
-| MariaDB 10.6 | 3.1.4 |
-| MySQL 8.0 | `mysql-connector-java-8.0.33.jar` |
-| MS SQL Server 2022 | `mssql-jdbc-11.2.jar` |
-| MS SQL Server 2019 | `mssql-jdbc-10.2.jar` |
-| Oracle 19c | 21.7.0.0 |
-| PostgreSQL 15.4 | `postgresql-42.5.1.jar` |
-| PostgreSQL 14.9 | `postgresql-42.5.1.jar` |
-| PostgreSQL 13.12 | `postgresql-42.5.1.jar` |
+| MariaDB 10.5 | 2.7.3 |
+| MariaDB 10.4 | 2.7.3 |
+| MySQL 8.0 | `mysql-connector-java-8.0.25.jar` |
+| MySQL 5.7 | `mysql-connector-java-8.0.25.jar` |
+| MS SQL Server 2019 | `mssql-jdbc-9.2.1.jre11.jar` |
+| MS SQL Server 2019 | `mssql-jdbc-9.2.1.jre8.jar` |
+| MS SQL Server 2017 | `mssql-jdbc-9.2.1.jre11.jar` |
+| MS SQL Server 2017 | `mssql-jdbc-9.2.1.jre8.jar` |
+| Oracle 19c | 21.1.0.0 |
+| PostgreSQL 13.1 | `postgresql-42.2.22.jar` |
+| PostgreSQL 12.4 | `postgresql-42.2.22.jar` |
+| PostgreSQL 11.7 | `postgresql-42.2.22.jar` |
 | Amazon Aurora | Use of Amazon Aurora is supported only if it is configured to emulate one of the supported versions of PostgreSQL or MySQL listed above, and the listed JDBC driver is used. |
 | | |
 | **Application servers** | |
-| Tomcat 10 | |
-| Jetty 12 | |
+| Tomcat 9.0 | |
+| Jetty 9.4 | |
 | | |
 | **JDKs** | |
-| OpenJDK 17 |  |
-| Amazon Corretto 17 |  |
+| OpenJDK 17.0.2 |  |
+| OpenJDK 11.0.2 |  |
 | | |
 | **Browsers** | |
 | Mozilla Firefox | |
@@ -46,9 +49,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Third party integrations** | |
 | Elasticsearch 7.13.2 | |
-| | |
-| **Services** | |
-| Alfresco Content Services 23.x |  |
 | | |
 | **Integrations** | |
 | Identity Service 1.2 | For use with LDAP and SAML |

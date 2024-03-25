@@ -18,11 +18,11 @@ The Docker images for Process Services are available on [Docker Hub](https://hub
 To download the images from Docker Hub, use the following commands:
 
 ```bash
-docker pull alfresco/process-services:24.1.0
+docker pull alfresco/process-services:2.4.x
 ```
 
 ```bash
-docker pull alfresco/process-services-admin:24.1.0
+docker pull alfresco/process-services-admin:2.4.x
 ```
 
 >**Note:** If a tag isn't supplied then the latest version will be downloaded.
@@ -64,11 +64,9 @@ There are three options for specifying your own variables during a Docker deploy
 * Mount your own `activiti-app.properties` and optionally an `activiti-identity-service.properties` file in `/usr/local/tomcat/lib` using Docker volumes.
 * Specifying environment variables for each properties file that points to an accessible location such as an S3 bucket:
 
-  * Use the `EXTERNAL_ACTIVITI_APP_PROPERTIES_FILE` environment variable for an `activiti-app.properties` file.
-  * Use the `EXTERNAL_ACTIVITI_IDENTITY_SERVICE_PROPERTIES_FILE` environment variable for an `activiti-identity-service.properties` file.
-
-    >**Note:** If you choose this option, the files will be automatically downloaded into the contextual folder.
-
+    * Use the `EXTERNAL_ACTIVITI_APP_PROPERTIES_FILE` environment variable for an `activiti-app.properties` file.
+    * Use the `EXTERNAL_ACTIVITI_IDENTITY_SERVICE_PROPERTIES_FILE` environment variable for an `activiti-identity-service.properties` file.
+        >**Note:** If you choose this option, the files will be automatically downloaded into the contextual folder.
 * Configure the environment variables in the Docker container by overriding the default values.
 
 Variables that correspond to the `activiti-app.properties` file:

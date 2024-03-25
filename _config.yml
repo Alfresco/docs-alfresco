@@ -720,6 +720,7 @@ defaults:
       toc: "process-services"
       support: true
       versions:
+        - 24.1
         - 2.4
         - 2.3
         - 2.2
@@ -731,8 +732,12 @@ defaults:
   - scope:
       path: "process-services/latest"
     values:
-      version: 2.4
+      version: 24.1
       latest: true
+  - scope:
+      path: "process-services/2.4"
+    values:
+      version: 2.4
   - scope:
       path: "process-services/2.3"
     values:

@@ -15,7 +15,7 @@ There are two methods for upgrading:
 
 ## Upgrade using a setup wizard
 
-You can use the Process Services setup wizard to upgrade to the latest version. The process is similar to [installing for the first time]({% link process-services/latest/install/manual.md %}#install-using-setup-wizards).
+You can use the Process Services setup wizard to upgrade to the latest version. The process is similar to [installing for the first time]({% link process-services/2.4/install/manual.md %}#install-using-setup-wizards).
 
 Follow these steps to upgrade:
 
@@ -33,13 +33,13 @@ Alternatively, copy the license to your home directory using the terminal (OSX) 
 C:\.activiti\enterprise-license
 ```
 
->**Tip**: You can also upload a [license]({% link process-services/latest/install/manual.md %}#license) from the user interface.
+>**Tip**: You can also upload a [license]({% link process-services/2.4/install/manual.md %}#license) from the user interface.
 
 ## Upgrade manually
 
 You can upgrade using the WAR file in your application server distribution. These instructions use the WAR file from the Apache Tomcat based distribution, however you can choose from different distributions for various application servers.
 
-Review the [Supported Stacks]({% link process-services/latest/support/index.md %}) list to see what’s supported.
+Review the [Supported Stacks]({% link process-services/2.4/support/index.md %}) list to see what’s supported.
 
 Follow these steps to upgrade using the War file:
 
@@ -122,11 +122,6 @@ In Activiti 7, the package `org.activiti.engine.identity` and all it's classes l
 
 The following are third party breaking changes that have occured.
 
-* Spring framework upgraded from 5 to 6
-* Spring boot upgraded from 2.x to 3
-* Hibernate upgraded from 5.x to 6
-* Jakarta EE
-* Tomcat 10
-* Java 17
-
-> **Note:** If you have custom code, you’ll need to upgrade these components to use the latest APIs.
+* Spring framework upgraded from 4.x to 5
+* Spring boot upgraded from 1.x to 2
+* Hibernate upgraded from 4.x to 5
