@@ -689,7 +689,7 @@ Key benefits include:
 * Improved query performance: queries run faster because only relevant partitions are scanned, and each partition can have its own optimized indexes.
 * Enhanced data management: maintenance tasks like VACUUM and REINDEX can be performed on individual partitions, simplifying data management, and improving efficiency.
 
-Note that table partitioning is transparent to external systems; for Content Services, a partitioned table continues to function as a single, unified table.
+Note that table partitioning is transparent to external systems; for Content Services, a partitioned table continues to funstion as a single, unified table.
 Our advice is to look at the distribution of the data and your use case in order to devise a fitting partitioning strategy. We do not guarantee a certain performance for a given partitioning strategy.
 
 ## Microsoft SQL Server
