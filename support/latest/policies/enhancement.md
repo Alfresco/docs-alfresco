@@ -10,11 +10,11 @@ An enhancement request is a piece of functionality that was not specified at the
 
 ## How are enhancement requests created
 
-Enhancement requests are created by customers and partners through the **Ideas** page on Hyland Community. Ideas in Hyland Community is designed to facilitate innovation around Hyland products and solutions. Think of it as your connection to our Product Management team, your opportunity to influence the roadmap. You can suggest product enhancements, share a concept for something new, and vote in favor of Ideas you support.
+Enhancement requests are created by customers and partners through the **Feedback** page on Hyland Community. Feedback in Hyland Community is designed to facilitate innovation around Hyland products and solutions. Think of it as your connection to our Product Management team, your opportunity to influence the roadmap and to submit overall feedback. You can suggest product enhancements, and share a concept for something new. Please visit the [Community Feedback Portal Guide](https://community.hyland.com/en/help/documentation/reference-guide/Feedback){:target="_blank"} for more information.
 
 ## What happens to my enhancement requests
 
-Enhancement requests are kept in a separate Engineering [project.](https://issues.alfresco.com/jira/browse/MNT){:target="_blank"}. You are welcome to vote on enhancements you would find useful in your environment. Hyland uses the votes as an indication of applicability across our subscriber base.
+Enhancement requests are kept in a separate Engineering [project](https://issues.alfresco.com/jira/browse/MNT){:target="_blank"}.
 
 As the planning for a new release gets underway, enhancements requests are reviewed for consideration in the next release.
 
