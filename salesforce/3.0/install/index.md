@@ -15,7 +15,7 @@ To begin, [install the AMP files](#installamps) and then [install the app in Sal
 
 There are a number of software requirements for using the Salesforce Connector.
 
-See [Supported platforms]({% link salesforce/latest/support/index.md %}) for specific versions.
+See [Supported platforms]({% link salesforce/3.0/support/index.md %}) for specific versions.
 
 ### Alfresco requirements
 
@@ -36,10 +36,6 @@ Salesforce Group is the minimum requirement. See [Salesforce Connected Apps](htt
 
 Your Salesforce and Alfresco instances must be on a shared network or otherwise accessible in order to share information.
 
-## Support for multiple Salesforce organizations
-
-Starting from version 3.1, the Salesforce Connector provides support for multiple Salesforce organizations (or instances) adds the ability to connect a single Content Services instance to multiple Salesforce organizations. This may be a combination of Production and Sandbox organizations. The detailed steps are included in **Step 4** of the installation steps for the Salesforce Classic and Lightning Experience.
-
 ## Step 1: Install AMP files {#installamps}
 
 Download and install the AMP files to connect to Salesforce.
@@ -54,11 +50,11 @@ Make sure you are running the correct versions of operating system and software 
 
     Copy this file to the `amps` directory:
 
-    * `alfresco-content-connector-for-salesforce-repo-3.1.x.amp`
+    * `alfresco-content-connector-for-salesforce-repo-3.0.x.amp`
 
     Copy this file to the `amps_share` directory:
 
-    * `alfresco-content-connector-for-salesforce-share-3.1.x.amp`
+    * `alfresco-content-connector-for-salesforce-share-3.0.x.amp`
 
 4. To install the AMP files, run the `apply_amps.bat` file from the Alfresco `bin` directory.
 
@@ -185,7 +181,7 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
 
         >**Note:** A suggested name is `Alfresco_for_Salesforce`. You'll need to remember the API Name when you configure the Alfresco Setup tab.
 
-        >**Note:** If this is not set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/latest/using/troubleshoot.md %}) for guidance.
+        >**Note:** If this is not set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/3.0/using/troubleshoot.md %}) for guidance.
 
     3. **Contact Email**: Enter an administrator email address.
     4. Check **Enable OAuth Settings**.
@@ -241,13 +237,13 @@ Make sure that you've applied your AMP files, downloaded the Alfresco Content Co
 
 2. Under **PLATFORM TOOLS**, click **Apps > App Manager**.
 
-3. On the **Lightning Experience App Manager** screen, click the down-arrow icon for the app that you created in [Step 3: Configure the app in Salesforce](#configappinsalesforce-lightning) and select **View**.
+3. On the **Lightning Experience App Manager** screen, click the down-arrow icon for the app that you created in [Step 3: Configure the app in Salesforce](#configappinsalesforce-lightning) and select View.
 
     ![sf-view]({% link salesforce/images/sf-view.png %})
 
-4. In the **API (Enable OAuth Settings)** section, click **Manage Consumer Details** to reveal the Consumer Key and Secret. You'll return to this screen to copy the code for both fields.
+    In the **API (Enable OAuth Settings)** section, you'll see entries for the consumer key and consumer secret.
 
-   ![sf-manage-consumer-details]({% link salesforce/images/sf-manage-consumer-details.png %})
+4. Copy the code in the **Consumer Key** field.
 
 5. In a separate browser window, log on to the Salesforce page of the Alfresco Admin Console with your administrator credentials:
 
@@ -257,52 +253,31 @@ Make sure that you've applied your AMP files, downloaded the Alfresco Content Co
 
     where `localhost:8080` is your Alfresco host name and port.
 
-6. In the Admin Console window, click **Add Connection**.
+6. In the Admin Console window, paste your Salesforce consumer key into **Salesforce Consumer Token**.
 
-   A new window opens that allows you to enter the Salesforce Organization Id, Salesforce Consumer Token, and Salesforce Consumer Secret.
+7. In the Salesforce window, click **Click to reveal** to reveal the consumer secret, and copy the code.
 
-7. Paste your Salesforce Org Id into **Salesforce Org Id**.
+    ![sf-consumerkey]({% link salesforce/images/sf-consumerkey.png %})
 
-   Here's how to find your Organization Id in your Salesforce account:
-
-   1. Navigate to **Salesforce Settings**.
-   2. Click on **Company Settings**.
-   3. Select **Company Information**.
-
-      The Salesforce.com Organization Id is shown in this window.
-
-8. From the Salesforce window, copy your **Consumer Key** and paste it into the Admin Console **Salesforce Consumer Token**.
-
-9. From the Salesforce window, copy your **Consumer Secret** and paste it into the Admin Console **Salesforce Consumer Secret**.
+8. Paste your Salesforce consumer secret into **Salesforce Consumer Secret**.
 
     You can optionally hide the password when you have pasted it into the Admin Console.
 
-10. Select the **Salesforce Environment Type** that Alfresco should use.
-
-    There are two options: `Production` (the default value) and `Sandbox`:
+9. Select the **Salesforce Environment Type** that Alfresco should use. There are two options: `Production (the default value)` and `Sandbox`.
 
     ![sf-adminconsole]({% link salesforce/images/sf-adminconsole.png %})
 
-11. Save the new connection by clicking the **Save** button.
+10. You can optionally change the list size of records that are displayed.
 
-12. (*Optional*) You can change the list size of records that are displayed.
+    Enter a number in **Recently Viewed Records List Size** to specify how many recent Salesforce records are displayed when you link an Alfresco file or folder with a record. The default setting is 20 records.
 
-    Enter a number in **Recently Viewed Records List Size** to specify how many recent Salesforce records are displayed when you link an Alfresco file or folder with a record. The default setting is `20` records.
-
-    >**Note:** Alternatively, you can set this in your `alfresco-global.properties` file using `sfdc.canvas.recordMruSize`.
+    >**Note:** Alternatively, you can set this in your `alfresco-global.properties` file using `sfdc.canvas.recordMruSize`. For example:
     >
-    >For example: `sfdc.canvas.recordMruSize=10`
+    >```text
+    >sfdc.canvas.recordMruSize=10
+    >```
 
-13. **Save** your settings.
-
-Once a connection is created, you can add additional connections, if needed. You can also remove or update an existing connection. Removing a connection won't remove any content.
-
-> **Important:**
->
-> * Upgrading the Salesforce Connector requires you to re-add any previous connections.
-> * Re-adding the connection won't affect any content that you've previously added through the Salesforce Connector.
-
-In the Salesforce Record Folder, you'll now see a new metadata field: `Organization Id`. This can help you differentiate Salesforce records added through different Salesforce organizations. A link is also added in the folder description of the Salesforce Record, if no other value is currently present. This link allows you to directly navigate to the Salesforce Record.
+11. **Save** your settings.
 
 ### Step 5: Add an Alfresco site and map metadata in Salesforce
 
@@ -318,7 +293,7 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
 
     If your API name appears as `Alfresco_Content_Connector_for_Salesforce`, then you must to change it to `Alfresco_for_Salesforce`.
 
-    This sets the Alfresco site that you want to use for your content. If this isn't set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/latest/using/troubleshoot.md %}) for guidance.
+    This sets the Alfresco site that you want to use for your content. If this isn't set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/3.0/using/troubleshoot.md %}) for guidance.
 
 3. You'll see two tabs; **Site to Object Mapping** and **Metadata Mapping**. Select a tab and you'll see the Alfresco login screen. Log in to your connected Alfresco instance.
 
@@ -367,7 +342,7 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
 
 To allow the Alfresco Content Connector to appear in the Lightning experience view of Salesforce you need to add a Salesforce lightning component.
 
-Make sure that you've downloaded the Alfresco Content Connector app, as described in [Step 2: Install the app in Salesforce](#installapp). You need administrator rights to make these changes. You also need to have a custom Salesforce domain that has been deployed and activated for your users, for more see [Configure SSO for Salesforce]({% link salesforce/latest/config/index.md %}#prereqs).
+Make sure that you've downloaded the Alfresco Content Connector app, as described in [Step 2: Install the app in Salesforce](#installapp). You need administrator rights to make these changes. You also need to have a custom Salesforce domain that has been deployed and activated for your users, for more see [Configure SSO for Salesforce]({% link salesforce/3.0/config/index.md %}#prereqs).
 
 To create the Lightning Component follow these steps:
 
@@ -457,7 +432,7 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
 
         >**Note:** A suggested name is `Alfresco_for_Salesforce`. You'll need to remember the API Name when you configure the **Alfresco Setup** tab.
 
-        >**Note:** If this is not set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/latest/using/troubleshoot.md %}) for guidance.
+        >**Note:** If this is not set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/3.0/using/troubleshoot.md %}) for guidance.
 
     3. **Contact Email**: Enter an administrator email address.
     4. Check **Enable OAuth Settings**.
@@ -508,9 +483,9 @@ Make sure that you've applied your AMP files, downloaded the Alfresco Content Co
 
 1. In your Salesforce Setup menu, click **Create > Apps**, and then the connected app name that you created in [Step 3: Configure the app in Salesforce](#configappinsalesforce-classic).
 
-2. In the **API (Enable OAuth Settings)** section, click **Manage Consumer Details** to reveal the Consumer Key and Secret. You'll return to this screen to copy the code for both fields.
+    In the **API (Enable OAuth Settings)** section, you'll see entries for the consumer key and consumer secret.
 
-   ![sf-manage-consumer-details]({% link salesforce/images/sf-manage-consumer-details.png %})
+2. Copy the code in the **Consumer Key** field.
 
 3. In a separate browser window, log on to the Salesforce page of the Alfresco Admin Console with your administrator credentials:
 
@@ -520,35 +495,17 @@ Make sure that you've applied your AMP files, downloaded the Alfresco Content Co
 
     where `localhost:8080` is your Alfresco host name and port.
 
-4. In the Admin Console window, click **Add Connection**.
+4. In the Admin Console window, paste your Salesforce consumer key into **Salesforce Consumer Token**.
 
-   A new window opens that allows you to enter the Salesforce Organization Id, Salesforce Consumer Token, and Salesforce Consumer Secret.
+5. In the Salesforce window, click **Click to reveal** to reveal the consumer secret, and copy the code.
 
-5. Paste your Salesforce Org Id into **Salesforce Org Id**.
-
-   Here's how to find your Organization Id in your Salesforce account:
-
-   1. Navigate to **Salesforce Settings**.
-   2. Click on **Company Settings**.
-   3. Select **Company Information**.
-
-      The Salesforce.com Organization Id is shown in this window.
-
-6. From the Salesforce window, copy your **Consumer Key** and paste it into the Admin Console **Salesforce Consumer Token**.
-
-7. From the Salesforce window, copy your **Consumer Secret** and paste it into the Admin Console **Salesforce Consumer Secret**.
+6. Paste your Salesforce consumer secret into **Salesforce Consumer Secret**.
 
     You can optionally hide the password when you have pasted it into the Admin Console.
 
-8. Select the **Salesforce Environment Type** that Alfresco should use.
+7. Select the Salesforce Environment type that Alfresco should use. There are two options: **Production** (the default value) and **Sandbox**.
 
-    There are two options: `Production` (the default value) and `Sandbox`:
-
-    ![sf-adminconsole]({% link salesforce/images/sf-adminconsole.png %})
-
-9. Save the new connection by clicking the **Save** button.
-
-10. (*Optional*) You can change the list size of records that are displayed.
+8. You can optionally change the list size of records that are displayed.
 
     Enter a number in **Recently Viewed Records List Size** to specify how many recent Salesforce records are displayed when you link an Alfresco file or folder with a record. The default setting is 20 records.
 
@@ -558,16 +515,7 @@ Make sure that you've applied your AMP files, downloaded the Alfresco Content Co
     >sfdc.canvas.recordMruSize=10
     >```
 
-11. **Save** your settings.
-
-Once a connection is created, you can add additional connections, if needed. You can also remove or update an existing connection. Removing a connection won't remove any content.
-
-> **Important:**
->
-> * Upgrading the Salesforce Connector requires you to re-add any previous connections.
-> * Re-adding the connection won't affect any content that you've previously added through the Salesforce Connector.
-
-In the Salesforce Record Folder, you'll now see a new metadata field: `Organization Id`. This can help you differentiate Salesforce records added through different Salesforce organizations. A link is also added in the folder description of the Salesforce Record, if no other value is currently present. This link allows you to directly navigate to the Salesforce Record.
+9. **Save** your settings.
 
 ### Step 5: Add an Alfresco site and map metadata in Salesforce
 
@@ -583,7 +531,7 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
 
     If your API name appears as `Alfresco_Content_Connector_for_Salesforce` then you must to change it to `Alfresco_for_Salesforce`.
 
-    This sets the Alfresco site that you want to use for Alfresco content. If this is not set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/latest/using/troubleshoot.md %}) for guidance.
+    This sets the Alfresco site that you want to use for Alfresco content. If this is not set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/3.0/using/troubleshoot.md %}) for guidance.
 
 3. You'll see two tabs; **Site to Object Mapping** and **Metadata Mapping**. Select a tab and you'll see the Alfresco login screen. Log on to your connected Alfresco instance.
 

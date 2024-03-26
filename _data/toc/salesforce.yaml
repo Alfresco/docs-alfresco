@@ -1,5 +1,5 @@
-# Alfresco Content Connector for Salesforce 3.0
-- version: 3.0
+# Alfresco Content Connector for Salesforce 3.1
+- version: 3.1
   pages:
     - title: 'Introduction'
       path: '/salesforce/latest/'
@@ -17,6 +17,26 @@
           path: '/salesforce/latest/using/community/'
         - title: 'Troubleshoot'
           path: '/salesforce/latest/using/troubleshoot/'
+
+# Alfresco Content Connector for Salesforce 3.0
+- version: 3.0
+  pages:
+    - title: 'Introduction'
+      path: '/salesforce/3.0/'
+    - title: "Install"
+      path: '/salesforce/3.0/install/'
+    - title: "Configure"
+      path: '/salesforce/3.0/config/'
+    - title: 'Using'
+      pages:
+        - title: 'Overview'
+          path: '/salesforce/3.0/using/'
+        - title: 'Recommended content'
+          path: '/salesforce/3.0/using/recommend/'
+        - title: 'Salesforce Community'
+          path: '/salesforce/3.0/using/community/'
+        - title: 'Troubleshoot'
+          path: '/salesforce/3.0/using/troubleshoot/'
 
 # Alfresco Content Connector for Salesforce 2.4
 - version: 2.4

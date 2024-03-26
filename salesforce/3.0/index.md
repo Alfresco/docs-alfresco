@@ -4,9 +4,7 @@ title: Alfresco Content Connector for Salesforce
 
 Alfresco Content Connector for Salesforce allows you to store documents in Alfresco Content Services, but access them directly from Salesforce.
 
-New features introduced in v3.1 include support for multiple Salesforce organizations (or instances). This adds the ability to connect a single Content Services instance to multiple Salesforce organizations.
-
-Other features introduced in previous versions include:
+Features include:
 
 * **Full document management support**
 
