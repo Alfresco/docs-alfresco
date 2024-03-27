@@ -315,7 +315,7 @@ To run Keycloak with Process Services:
 
 2. Ensure you've set `keycloak.token-store=cookie` in the `activiti-identity-service.properties` file in Process Services.
 
-    See `keycloak.token-store` in the [Process Services properties]({% link process-services/latest/config/authenticate.md %}#properties) table for more details.
+    See `keycloak.token-store` in the [Process Services properties]({% link process-services/2.4/config/authenticate.md %}#properties) table for more details.
 
 3. Restart Process Services.
 
