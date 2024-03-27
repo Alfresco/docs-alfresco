@@ -1,8 +1,8 @@
 ---
-title: Alfresco SDK 4.7 for in-process extensions
+title: Alfresco SDK 4.x for in-process extensions
 ---
 
-Alfresco SDK 4.7 is a Maven based development kit that provides an easy to use approach to developing applications and extensions for Alfresco. With this SDK you can develop, package, test, run, document and release your Alfresco extension project.
+Alfresco SDK 4.x is a Maven based development kit that provides an easy to use approach to developing applications and extensions for Alfresco. With this SDK you can develop, package, test, run, document and release your Alfresco extension project.
 
 The following picture illustrates where SDK 4.x fits into the big picture:
 
@@ -14,11 +14,11 @@ The Alfresco SDK is released under [Apache License version 2.0](http://www.apach
 
 The 4.0 release took advantage of Semantic Versioning ([SEMVER](https://semver.org/){:target="_blank"}), which means that it isn't directly compatible with the previous releases of the SDK.
 
-If you have existing projects that you wish to upgrade to SDK 4.7 the recommended approach is to generate a new project from the new archetypes and move your code over.
+If you have existing projects that you wish to upgrade to the latest SDK 4.x version, the recommended approach is to generate a new project from the new archetypes and move your code over.
 
 ## What's new?
 
-Alfresco SDK 4.7 is a minor update to the SDK and extends support to Alfresco 23.1.
+Alfresco SDK 4.7 is a minor update to the SDK and extends support to Alfresco 23.1. Alfresco SDK 4.8 extends support to Alfresco 23.2.
 
 ### Embracing containers and Docker
 
@@ -43,7 +43,7 @@ That incredibly eases the management of the versions of the different Alfresco p
 
 ### Alfresco Maven Plugin no longer needed
 
-Alfresco SDK 4.0 manages the lifecycle of the generated projects making use of proper [utility scripts](#workingwithrunscript) (`run.sh` / `run.bat`). That avoids the need of using the Alfresco Maven Plugin and eases the process to modify the lifecycle of the customization projects.
+The Alfresco SDK manages the lifecycle of the generated projects making use of proper [utility scripts](#workingwithrunscript) (`run.sh` / `run.bat`). That avoids the need of using the Alfresco Maven Plugin and eases the process to modify the lifecycle of the customization projects.
 
 If a development team has straightforward requirements and doesn't want to worry about the complexity of working with containers, it can use the utility scripts as they are. But, if any development team has a requirement or a development process that requires a customization in the project development lifecycle, it is easy to modify the utility scripts, the Docker files or the Docker Compose descriptor to adapt the SDK projects to their needs.
 
@@ -59,11 +59,11 @@ environment can be more similar to a real one, including whatever other service 
 
 ## Getting started with Alfresco SDK {#gettingstarted}
 
-Use these instructions to get started with using Alfresco SDK 4.7.
+Use these instructions to get started with using the Alfresco SDK.
 
 ### Prerequisites
 
-There are a number of software requirements for using Alfresco SDK 4.7:
+There are a number of software requirements for using the Alfresco SDK:
 
 * Java Development Kit (JDK) - Version 17
 * Maven - Version 3.3
@@ -73,7 +73,7 @@ There are a number of software requirements for using Alfresco SDK 4.7:
 
 #### Java
 
-It is highly recommended to work with Content Services 23.1, which uses Java 17.
+It is highly recommended to work with Content Services 23.x, which uses Java 17.
 
 1. Download [JDK 17](https://jdk.java.net/archive/){:target="_blank"}, unzip it and configure it as the default Java installation.
 
@@ -81,26 +81,26 @@ It is highly recommended to work with Content Services 23.1, which uses Java 17.
 
     ```bash
     $ javac -version
-    javac 17.0.2
+    javac 17.0.9
     
     $ java -version
-    openjdk version "17.0.2" 2021-09-10
-    OpenJDK Runtime Environment 18.9 (build 17.0.2+8)
-    OpenJDK 64-Bit Server VM 18.9 (build 17.0.2+8, mixed mode)
+    openjdk version "17.0.9" 2023-10-17
+    OpenJDK Runtime Environment Homebrew (build 17.0.9+0)
+    OpenJDK 64-Bit Server VM Homebrew (build 17.0.9+0, mixed mode, sharing)
     ```
 
 3. Make sure JAVA_HOME is setup correctly, so other tools like Maven will use the correct version.
 
     ```bash
     $ env|grep JAVA_HOME
-    JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.0.2.jdk/Contents/Home
+    JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.0.9.jdk/Contents/Home
     ```
 
 #### Maven
 
 Alfresco recommends that you keep up-to-date with all the Maven releases. Linux distributions and package managers tend to bundle older releases and this is the most common pitfall.
 
-Alfresco SDK 4.7 requires Maven 3.3.0 or later, but you are recommended to download the latest version.
+Alfresco SDK 4.7 and 4.8 require Maven 3.3.0 or later, but you are recommended to download the latest version.
 
 1. Download and install [Apache Maven](https://maven.apache.org/download.cgi){:target="_blank"} and make sure it is configured correctly on your path.
 
@@ -108,12 +108,11 @@ Alfresco SDK 4.7 requires Maven 3.3.0 or later, but you are recommended to downl
 
     ```bash
     $ mvn -v
-    Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
-    Maven home: /usr/local/Cellar/maven/3.3.9/libexec
-    Java version: 17.0.2, vendor: Oracle Corporation
-    Java home: /Library/Java/JavaVirtualMachines/jdk-17.0.2.jdk/Contents/Home
-    Default locale: en_ES, platform encoding: UTF-8
-    OS name: "mac os x", version: "10.13.4", arch: "x86_64", family: "mac"
+    Apache Maven 3.9.6 (bc0240f3c744dd6b6ec2920b3cd08dcc295161ae)
+    Maven home: /opt/homebrew/Cellar/maven/3.9.6/libexec
+    Java version: 17.0.9, vendor: Homebrew, runtime: /opt/homebrew/Cellar/openjdk@17/17.0.9/libexec/openjdk.jdk/Contents/Home
+    Default locale: en_GB, platform encoding: UTF-8
+    OS name: "mac os x", version: "14.2.1", arch: "aarch64", family: "mac"
     ```
 
 #### Docker
@@ -126,7 +125,7 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
 
     ```bash
     $ docker -v
-    Docker version 18.06.1-ce, build e68fc7a
+    Docker version 25.0.2, build 29cf629
     ```
 
 3. [Docker Compose](https://docs.docker.com/compose/install/){:target="_blank"} is included as part of some Docker installers. If it's not part of your installation, then install it separately after you've installed Docker.
@@ -135,7 +134,7 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
 
     ```bash
     $ docker-compose -v
-    docker-compose version 1.22.0, build f46880f
+    Docker Compose version v2.24.3-desktop.1
     ```
 
 ### Generate your project from the archetypes
@@ -198,8 +197,11 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     18: 4.5.0
     19: 4.6.0
     20: 4.7.0
-    Choose a number: 20: 20
+    21: 4.8.0
+    Choose a number: 21: 21
     ```
+
+    This example uses SDK 4.8, but you should see similar results for SDK 4.7.
 
 4. You are prompted to enter additional information:
 
@@ -227,7 +229,7 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
 
     ```bash
     [INFO] ----------------------------------------------------------------------------
-    [INFO] Using following parameters for creating project from Archetype: alfresco-allinone-archetype:4.7.0
+    [INFO] Using following parameters for creating project from Archetype: alfresco-allinone-archetype:4.8.0
     [INFO] ----------------------------------------------------------------------------
     [INFO] Parameter: groupId, Value: com.acme
     [INFO] Parameter: artifactId, Value: my-all-in-one
@@ -238,18 +240,18 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     [INFO] Parameter: groupId, Value: com.acme
     [INFO] Parameter: artifactId, Value: my-all-in-one
     [INFO] Parameter: version, Value: 1.0-SNAPSHOT
-    [INFO] Parent element not overwritten in C:\Users\username\my-all-in-one\my-all-in-one-platform\pom.xml
-    [INFO] Parent element not overwritten in C:\Users\username\my-all-in-one\my-all-in-one-share\pom.xml
-    [INFO] Parent element not overwritten in C:\Users\username\my-all-in-one\my-all-in-one-integration-tests\pom.xml
-    [INFO] Parent element not overwritten in C:\Users\username\my-all-in-one\my-all-in-one-platform-docker\pom.xml
-    [INFO] Parent element not overwritten in C:\Users\username\my-all-in-one\my-all-in-one-share-docker\pom.xml
+    [INFO] Parent element not overwritten in /Users/username/Projects/sdk/my-all-in-one/my-all-in-one-platform/pom.xml
+    [INFO] Parent element not overwritten in /Users/username/Projects/sdk/my-all-in-one/my-all-in-one-share/pom.xml
+    [INFO] Parent element not overwritten in /Users/username/Projects/sdk/my-all-in-one/my-all-in-one-integration-tests/pom.xml
+    [INFO] Parent element not overwritten in /Users/username/Projects/sdk/my-all-in-one/my-all-in-one-platform-docker/pom.xml
+    [INFO] Parent element not overwritten in /Users/username/Projects/sdk/my-all-in-one/my-all-in-one-share-docker/pom.xml
     [INFO] Executing META-INF/archetype-post-generate.groovy post-generation script
-    [INFO] Project created from Archetype in dir: C:\Users\username\my-all-in-one
+    [INFO] Project created from Archetype in dir: /Users/username/Projects/sdk/my-all-in-one
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESS
     [INFO] ------------------------------------------------------------------------
-    [INFO] Total time:  04:14 min
-    [INFO] Finished at: 2023-07-24T15:43:32+01:00
+    [INFO] Total time:  01:06 min
+    [INFO] Finished at: 2024-03-27T16:02:56Z
     [INFO] ------------------------------------------------------------------------
     ```
 
@@ -453,7 +455,7 @@ my-all-in-one-project username$ ./run.sh build_start
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Build Order:
 [INFO] 
-[INFO] AIO - SDK 4.7
+[INFO] AIO - SDK 4.8
 [INFO] Alfresco Platform/Repository JAR Module
 [INFO] Alfresco Share JAR Module
 [INFO] Integration Tests Module
@@ -463,7 +465,7 @@ my-all-in-one-project username$ ./run.sh build_start
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Summary:
 [INFO] 
-[INFO] AIO - SDK 4.7 ...................................... SUCCESS [  0.680 s]
+[INFO] AIO - SDK 4.8 ...................................... SUCCESS [  0.680 s]
 [INFO] Alfresco Platform/Repository JAR Module ............ SUCCESS [  5.461 s]
 [INFO] Alfresco Share JAR Module .......................... SUCCESS [  0.557 s]
 [INFO] Integration Tests Module ........................... SUCCESS [  0.900 s]
