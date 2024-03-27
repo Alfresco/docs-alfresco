@@ -55,6 +55,8 @@
           path: '/process-services/latest/using/getting-started/'
         - title: 'Share Connector'
           path: '/process-services/latest/using/share-connector/'
+        - title: 'Preconfigured workflows'
+          path: '/process-services/latest/using/workflows/'
     - title: 'Administer'
       path: '/process-services/latest/admin/'
     - title: 'Develop'
