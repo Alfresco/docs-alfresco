@@ -2,7 +2,7 @@
 title: Alfresco SDK 4.x for in-process extensions
 ---
 
-Alfresco SDK 4.x is a Maven based development kit that provides an easy to use approach to developing applications and extensions for Alfresco. With this SDK you can develop, package, test, run, document and release your Alfresco extension project.
+Alfresco SDK 4.x is a Maven based development kit that provides an easy to use approach to developing applications and extensions for Alfresco Content Services. With this SDK you can develop, package, test, run, document and release your Alfresco extension project.
 
 The following picture illustrates where SDK 4.x fits into the big picture:
 
@@ -18,20 +18,20 @@ If you have existing projects that you wish to upgrade to the latest SDK 4.x ver
 
 ## What's new?
 
-Alfresco SDK 4.7 is a minor update to the SDK and extends support to Alfresco 23.1. Alfresco SDK 4.8 extends support to Alfresco 23.2.
+Alfresco SDK 4.7 is a minor update to the SDK and extends support to Content Services 23.1. Alfresco SDK 4.8 extends support to Content Services 23.2.
 
 ### Embracing containers and Docker
 
-The main change included in SDK 4.0 is the addition of container technologies. Specifically, the new SDK is highly based on [Docker](https://www.docker.com/){:target="_blank"} and [Docker Compose](https://docs.docker.com/compose/){:target="_blank"} to offer a solution aligned with the architectural decisions made in Alfresco for version 6: moving towards microservices-oriented solutions.
+The main change included in SDK 4.0 is the addition of container technologies. Specifically, the new SDK is highly based on [Docker](https://www.docker.com/){:target="_blank"} and [Docker Compose](https://docs.docker.com/compose/){:target="_blank"} to offer a solution aligned with the architectural decisions made for version 6: moving towards microservices-oriented solutions.
 
 Working with Docker images gives the developers the opportunity to easily customize the deployment of the local environment to adapt it to their requirements.
 Adding, removing and configuring services in the environment is as easy as modifying the Docker Compose descriptor file.
 
 ### Support for Java 17
 
-[Java 17](https://openjdk.org/projects/jdk/17/){:target="_blank"} is the latest Long Term Support (LTS) version that provides support for 3 years. Alfresco 7.3 or later already offers support for this version of the Java platform.
+[Java 17](https://openjdk.org/projects/jdk/17/){:target="_blank"} is the latest Long Term Support (LTS) version that provides support for 3 years. Content Services 7.3 or later already offers support for this version of the Java platform.
 
-Alfresco SDK 4.5 or later has been modified to add support for Java 17, as well. This way, if you're working as a developer in customizations for Alfresco 7.3 or later, you must now use SDK 4.5 or later + JDK 17 to work on them. The Apache Maven plugins included in the archetypes has been updated to avoid any issue with Java 17.
+Alfresco SDK 4.5 or later has been modified to add support for Java 17, as well. This way, if you're working as a developer in customizations for Content Services 7.3 or later, you must now use SDK 4.5 or later + JDK 17 to work on them. The Apache Maven plugins included in the archetypes has been updated to avoid any issue with Java 17.
 
 ### Easy dependency configuration
 
@@ -51,7 +51,7 @@ The Alfresco Maven Plugin is only required in those cases in which it is require
 
 ### Integration testing
 
-The integration tests and the mechanisms to execute them in an Alfresco Content Service instance remains the same as in the previous version of the SDK.
+The integration tests and the mechanisms to execute them in an Alfresco Content Services instance remains the same as in the previous version of the SDK.
 
 However, the inclusion of Docker and the utility scripts provides a different perspective about the environment on which the integration tests are executed.
 In this version, the integration tests are run against the dockerised environment defined using Docker and Docker Compose. By doing so, the integration test
@@ -1623,36 +1623,6 @@ This article is focused on the Community version. If you want to switch to Alfre
 
 The supported versions are explained in the next sections of this article.
 
-#### Switch to Alfresco version 6.0.x
-
-Starting from a newly created Alfresco SDK project (All-In-One, Platform JAR, or Share JAR), let’s replace the two properties with the following ones.
-
-1. Open the `pom.xml` in your generated project.
-
-2. Replace the properties with the following:
-
-    ```xml
-    <alfresco.platform.version>6.0.7-ga</alfresco.platform.version>
-    <alfresco.share.version>6.0.c</alfresco.share.version>
-    ```
-
-    In this example we have shown the switch to version 6.0.7-ga. Feel free to use the correct version for your project, paying attention to the compatible versions of Content Services and Alfresco Share.
-
-3. After changing the versions, delete all the previous data of your development Docker environment:
-
-    ```bash
-    $ ./run.sh purge
-    ```
-
-4. Rebuild and restart the project:
-
-    ```bash
-    $ ./run.sh build_start
-    ```
-
->**Important:** Alfresco 6.1+ is ready to work with JDK 11, but Alfresco 6.0 needs to be compiled and run using JDK 8, so take this into account when you
-switch from version 6.1+ to 6.0.x. If you compile Alfresco 6.0.x with JDK 11 you'll experience the issue described in the [Troubleshooting page](#troubleshooting) about wrong JDK versions.
-
 #### Switch to Alfresco version 7.0.x
 
 Starting from a newly created Alfresco SDK project (All-In-One, Platform JAR, or Share JAR), let’s replace the two properties with the following ones.
@@ -2283,7 +2253,7 @@ Here are the basics to understanding and using integration testing in the contex
 
 #### How SDK's integration tests work
 
-The Alfresco SDK's integration tests are primarily supported by a utility module included in the SDK called [Alfresco Rapid Application Development](https://github.com/Alfresco/alfresco-sdk/tree/master/modules/alfresco-rad){:target="_blank"} (alfresco-rad). This module basically enables the execution of the integration tests within the context of a running Alfresco Content Service (Content Services) instance.
+The Alfresco SDK's integration tests are primarily supported by a utility module included in the SDK called [Alfresco Rapid Application Development](https://github.com/Alfresco/alfresco-sdk/tree/master/modules/alfresco-rad){:target="_blank"} (alfresco-rad). This module basically enables the execution of the integration tests within the context of a running Alfresco Content Services (Content Services) instance.
 
 ##### Alfresco Rapid Application Development (Alfresco RAD)
 
