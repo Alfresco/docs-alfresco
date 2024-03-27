@@ -123,7 +123,7 @@ You can attach a workflow directly to one or more files. Starting a workflow gen
 
 5.	Enter details for the workflow in the General section.
 
-      * In the **Message** field describe the task requirements, such as Please review the attached content. This should clearly explain to the user what they are expected to do. This text displays in the My Tasks dashlet for the workflow task.
+      * In the **Message** field describe the task requirements, such as Please review the attached content. This should clearly explain to the user what they are expected to do. This text displays in My Tasks for the workflow task.
 	  * Select a **Priority** setting for the task.
         > **Note:**  By default, the priority is set to **Medium**.
 	  * Select a **Due** date for the task.
@@ -188,7 +188,7 @@ Once you’re finished with a workflow, you can delete it to clear it from the w
 
 3.	Click **Yes**.
 
-      The workflow is deleted and removed from the workflow list. The tasks related to the workflow are deleted, which removes them from the Completed view on the My Tasks page. They are also removed from the My Tasks dashlet.
+      The workflow is deleted and removed from the workflow list. The tasks related to the workflow are deleted, which removes them from the Completed view on the My Tasks page. They are also removed from My Tasks.
 
 ## Viewing tasks and workflows
 
@@ -196,7 +196,7 @@ You can view the details for an individual task or for the workflow that initiat
 
 1. Click **Tasks** then **Workflows I've Started**.
 
-    > **Note:** You can also view and edit tasks from the My Tasks dashlet.
+    > **Note:** You can also view and edit tasks from My Tasks.
 
 2. On the My Tasks page, hover over a task and click an action:
 
@@ -223,7 +223,7 @@ You can view the details for an individual task or for the workflow that initiat
 
 ## Managing tasks
 
-Tasks assigned to you appear in two places: the My Tasks personal dashlet and the My Tasks page. Each task stays assigned to you until you complete or reassign it.
+Tasks assigned to you appear in two places: the My Tasks personal and the My Tasks page. Each task stays assigned to you until you complete or reassign it.
 
 1. Click **Tasks** then **My Tasks**.
 
@@ -231,7 +231,7 @@ Tasks assigned to you appear in two places: the My Tasks personal dashlet and th
 
     The Edit Task page appears displaying the task details. The actions available on this page depend on the task type.
 
-    > **Note:** You can also access this page from the My Tasks dashlet: click the **Edit Task** icon.
+    > **Note:** You can also access this page from My Tasks: click the **Edit Task** icon.
 
 3. Manage the selected task in one or more of the following ways:
 
