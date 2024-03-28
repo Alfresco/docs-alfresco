@@ -47,6 +47,13 @@ You can upload single or multiple files within the Mobile Workspace.
 
 This will open your file repository on your mobile device (for example, Files for iPhone users) where you can select files to upload. This will upload files to the Personal files area. If you want to upload to a specific folder, create a new folder first and upload from inside that folder.
 
+To upload photos, you can use the following options:
+
+ | Option | Description |
+ | -------- | ----------- |
+ | **Upload photos and videos** | Photos are uploaded without EXIF metadata. |
+ | **Upload files** | Photos are uploaded with EXIF metadata. |
+
 ## Share files from another file system
 
 You can share single or multiple files from a different file system with the Mobile Workspace.
@@ -60,6 +67,8 @@ You can share single or multiple files from a different file system with the Mob
 This will upload files to the Personal files area. If you want to upload to a specific folder, create a new folder first and then upload from inside that folder. Files can also be shared this way using the gallery with the Mobile Workspace.
 
 Open the Mobile Workspace to view your files.
+
+> **Note:** When uploading photos using this option, EXIF metadata is not preserved. To preserve the EXIF metadata, upload photos using the **Upload files** option. For more information, see [Upload files](#upload-files).
 
 * On the Recent Files view, a banner displays the sync progress for all files as a percentage complete. Tapping the sync status banner opens a Transfers view with all the files selected to be shared with the Mobile Workspace.
 * On the Transfers view, tap the **Sync All** button to force the files to upload. This is used to complete the transfer when files were shared without an internet connection or if the internet connection is lost.
