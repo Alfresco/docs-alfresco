@@ -21,7 +21,7 @@ The following is a Glossary of terms related to the Alfresco Product Support pol
 
 |Term|Description|
 |----|-----------|
-|Version Numbering|Alfresco uses a 3-place numbering scheme to designate released versions of software. The format is **F.SP.HF**, where:{::nomarkdown}<ul><li>**F** indicates the Family.</li><li>**SP** indicates the Service Pack.</li><li>**HF** indicates the Hot Fix.</li></ul>{:/} An example is version `23.1`. Often in referring to general product versions, only the first two numbers are used. For example, both `23.1.1` may be referred to as `23.1`.<br><br>**Note:** Alfresco Modules, Add-ons, and Components may use a 3- or 4-place versioning scheme.  |
+|Version Numbering|Alfresco uses a 3-place numbering scheme to designate released versions of software. The format is **F.SP.HF**, where:{::nomarkdown}<ul><li><b>F</b> indicates the Family.</li><li><b>SP</b> indicates the Service Pack.</li><li><b>HF</b> indicates the Hot Fix.</li></ul>{:/} An example is version `23.1`. Often in referring to general product versions, only the first two numbers are used. For example, `23.1.1` may be referred to as `23.1`.<br><br>**Note:** Alfresco Modules, Add-ons, and Components may use a 3- or 4-place versioning scheme.  |
 |Family|A family is a fully functional Alfresco product that typically contains significant new functionality. A family is referenced using the **F** portion of the release number as described previously.|
 |Service Pack (SP)|A service pack is a cumulative patch release.|
 |Hot Fix (HF)|A hot fix is a limited patch release.|
