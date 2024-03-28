@@ -39,7 +39,7 @@ A Content Services inventory file has the following groups a host can belong to:
 * `search_enterprise`: one or more hosts on which to deploy Search Enterprise, as an alternative to Alfresco Search.
 * `elasticsearch`: one or more hosts on which to deploy the ElasticSearch cluster backing Search Enterprise.
 * `external_elasticsearch`: an alternative group to `elasticsearch` in case you don't want to deploy ElasticSearch using the [community ElasticSearch role](https://github.com/buluma/ansible-role-elasticsearch){:target="_blank"} but instead use an ElasticSearch cluster of yours which matches your hosting standards.
-* `nginx`: a single host on which the playbook will deploy an NGINX reverse proxy configured for the numerous http based services, such as Alfresco Share and Alfresco Digital Workspace.
+* `nginx`: a single host on which the playbook will deploy an NGINX reverse proxy configured for the numerous http based services, such as Alfresco Digital Workspace and Alfresco Share.
 * `acc`: a single host where you want the Alfresco Control Center UI to be installed.
 * `adw`: a single host where you want the Alfresco Digital Workspace UI to be installed.
 * `transformers`: a single host where the playbook will deploy the Alfresco Transform Service components.
