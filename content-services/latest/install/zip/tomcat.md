@@ -75,17 +75,24 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
     2. Add the following Connector:
 
         ```xml
-        <Connector port="8443" protocol="HTTP/1.1"
-            SSLEnabled="true" maxThreads="150" scheme="https"
-            keystoreFile="xxxxx"
-            keystorePass="password" keystoreType="JCEKS"
-            secure="true" connectionTimeout="240000"
-            truststoreFile="xxxxx"
-            truststorePass="password" truststoreType="JCEKS"
-            clientAuth="want" sslProtocol="TLS" />
+        <Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol"
+            SSLEnabled="true" connectionTimeout="20000"
+            maxThreads="150" scheme="https" secure="true" >
+                <SSLHostConfig
+                    certificateVerification="required"
+                    truststoreFile="/path/to/tomcat/keystore/ssl.truststore"
+                    truststorePassword="xxxxxx"
+                    truststoreType="JCEKS" >
+                    <Certificate
+                        certificateKeystoreFile="/path/to/tomcat/keystore/ssl.keystore"
+                        certificateKeystorePassword="yyyyyy"
+                        certificateKeystoreType="JCEKS"
+                        type="RSA" />
+                </SSLHostConfig>
+        </Connector>
         ```
 
-        > **Note:** The keystore and truststore file locations in the above example will be created later, when you install and configure Alfresco Search Services.
+        > **Note:** The keystore and truststore file  have to be generated to ensure the best security level when installing Alfresco Search Services. You can choose the location of your choice; usually they are stored either into the Tomcat installation directory or into the "alf_data" directory. For more information, see [Alfresco Search Services secure keys generation](https://docs.alfresco.com/search-services/latest/config/keys/){:target="_blank"}
 
         > **Note:** If you're using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file.
 
