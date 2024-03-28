@@ -32,7 +32,7 @@ The `solrcore.properties` configuration file is the property configuration file 
 |alfresco.encryption.ssl.truststore.type|This property specifies the CLIENT truststore type, for example `JCEKS`.|
 |alfresco.hole.retention|Each track will revisit all transactions from the timestamp of the last in the index, less this value, to fill in any transactions that might have been missed, for example `3600000`.|
 |alfresco.host|This property specifies the host name for the instance that Solr should track and index, for example `localhost`.|
-|alfresco.index.transformContent|If this property is set to false, the index tracker will not transform any content and only the metadata will be indexed, for example `false`.|
+|alfresco.index.transformContent|If this property is set to false, the index tracker will not transform any content and only the metadata will be indexed, for example `false`. The default value is `true`.|
 |alfresco.keepAliveTime|This property specifies the time (in seconds) to keep non-core idle threads in the pool, for example `120`.|
 |alfresco.lag|When Solr tracking starts, it aims to get up to date to the current time (in seconds), less this lag, for example `1000`.|
 |alfresco.maxHostConnections|This property is used for HTTP client configuration, for example `40`.|
