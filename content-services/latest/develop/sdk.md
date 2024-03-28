@@ -1,8 +1,8 @@
 ---
-title: Alfresco SDK 4.6 for in-process extensions
+title: Alfresco SDK 4.x for in-process extensions
 ---
 
-Alfresco SDK 4.6 is a Maven based development kit that provides an easy to use approach to developing applications and extensions for Alfresco. With this SDK you can develop, package, test, run, document and release your Alfresco extension project.
+Alfresco SDK 4.x is a Maven based development kit that provides an easy to use approach to developing applications and extensions for Alfresco Content Services. With this SDK you can develop, package, test, run, document and release your Alfresco extension project.
 
 The following picture illustrates where SDK 4.x fits into the big picture:
 
@@ -14,24 +14,24 @@ The Alfresco SDK is released under [Apache License version 2.0](http://www.apach
 
 The 4.0 release took advantage of Semantic Versioning ([SEMVER](https://semver.org/){:target="_blank"}), which means that it isn't directly compatible with the previous releases of the SDK.
 
-If you have existing projects that you wish to upgrade to SDK 4.6 the recommended approach is to generate a new project from the new archetypes and move your code over.
+If you have existing projects that you wish to upgrade to the latest SDK 4.x version, the recommended approach is to generate a new project from the new archetypes and move your code over.
 
 ## What's new?
 
-Alfresco SDK 4.6 is a minor update to the SDK and provides support for Alfresco 7.4.x and later.
+Alfresco SDK 4.7 is a minor update to the SDK and extends support to Content Services 23.1. Alfresco SDK 4.8 extends support to Content Services 23.2.
 
 ### Embracing containers and Docker
 
-The main change included in SDK 4.0 is the addition of container technologies. Specifically, the new SDK is highly based on [Docker](https://www.docker.com/){:target="_blank"} and [Docker Compose](https://docs.docker.com/compose/){:target="_blank"} to offer a solution aligned with the architectural decisions made in Alfresco for version 6: moving towards microservices-oriented solutions.
+The main change included in SDK 4.0 is the addition of container technologies. Specifically, the new SDK is highly based on [Docker](https://www.docker.com/){:target="_blank"} and [Docker Compose](https://docs.docker.com/compose/){:target="_blank"} to offer a solution aligned with the architectural decisions made for version 6: moving towards microservices-oriented solutions.
 
 Working with Docker images gives the developers the opportunity to easily customize the deployment of the local environment to adapt it to their requirements.
 Adding, removing and configuring services in the environment is as easy as modifying the Docker Compose descriptor file.
 
 ### Support for Java 17
 
-[Java 17](https://openjdk.org/projects/jdk/17/){:target="_blank"} is the latest Long Term Support (LTS) version that provides support for 3 years. Alfresco 7.3 or later already offers support for this version of the Java platform.
+[Java 17](https://openjdk.org/projects/jdk/17/){:target="_blank"} is the latest Long Term Support (LTS) version that provides support for 3 years. Content Services 7.3 or later already offers support for this version of the Java platform.
 
-Alfresco SDK 4.5 or later has been modified to add support for Java 17, as well. This way, if you're working as a developer in customizations for Alfresco 7.3 or later, you must now use SDK 4.5 or later + JDK 17 to work on them. The Apache Maven plugins included in the archetypes has been updated to avoid any issue with Java 17.
+Alfresco SDK 4.5 or later has been modified to add support for Java 17, as well. This way, if you're working as a developer in customizations for Content Services 7.3 or later, you must now use SDK 4.5 or later + JDK 17 to work on them. The Apache Maven plugins included in the archetypes has been updated to avoid any issue with Java 17.
 
 ### Easy dependency configuration
 
@@ -43,7 +43,7 @@ That incredibly eases the management of the versions of the different Alfresco p
 
 ### Alfresco Maven Plugin no longer needed
 
-Alfresco SDK 4.0 manages the lifecycle of the generated projects making use of proper [utility scripts](#workingwithrunscript) (`run.sh` / `run.bat`). That avoids the need of using the Alfresco Maven Plugin and eases the process to modify the lifecycle of the customization projects.
+The Alfresco SDK manages the lifecycle of the generated projects making use of proper [utility scripts](#workingwithrunscript) (`run.sh` / `run.bat`). That avoids the need of using the Alfresco Maven Plugin and eases the process to modify the lifecycle of the customization projects.
 
 If a development team has straightforward requirements and doesn't want to worry about the complexity of working with containers, it can use the utility scripts as they are. But, if any development team has a requirement or a development process that requires a customization in the project development lifecycle, it is easy to modify the utility scripts, the Docker files or the Docker Compose descriptor to adapt the SDK projects to their needs.
 
@@ -51,7 +51,7 @@ The Alfresco Maven Plugin is only required in those cases in which it is require
 
 ### Integration testing
 
-The integration tests and the mechanisms to execute them in an Alfresco Content Service instance remains the same as in the previous version of the SDK.
+The integration tests and the mechanisms to execute them in an Alfresco Content Services instance remains the same as in the previous version of the SDK.
 
 However, the inclusion of Docker and the utility scripts provides a different perspective about the environment on which the integration tests are executed.
 In this version, the integration tests are run against the dockerised environment defined using Docker and Docker Compose. By doing so, the integration test
@@ -59,11 +59,11 @@ environment can be more similar to a real one, including whatever other service 
 
 ## Getting started with Alfresco SDK {#gettingstarted}
 
-Use these instructions to get started with using Alfresco SDK 4.6.
+Use these instructions to get started with using the Alfresco SDK.
 
 ### Prerequisites
 
-There are a number of software requirements for using Alfresco SDK 4.6:
+There are a number of software requirements for using the Alfresco SDK:
 
 * Java Development Kit (JDK) - Version 17
 * Maven - Version 3.3
@@ -73,7 +73,7 @@ There are a number of software requirements for using Alfresco SDK 4.6:
 
 #### Java
 
-Content Services 6.1 is compiled and executed using Java 11, but it is highly recommended to work with Content Services 7.3 or later, which uses Java 17.
+It is highly recommended to work with Content Services 23.x, which uses Java 17.
 
 1. Download [JDK 17](https://jdk.java.net/archive/){:target="_blank"}, unzip it and configure it as the default Java installation.
 
@@ -81,26 +81,26 @@ Content Services 6.1 is compiled and executed using Java 11, but it is highly re
 
     ```bash
     $ javac -version
-    javac 17.0.2
+    javac 17.0.9
     
     $ java -version
-    openjdk version "17.0.2" 2021-09-10
-    OpenJDK Runtime Environment 18.9 (build 17.0.2+8)
-    OpenJDK 64-Bit Server VM 18.9 (build 17.0.2+8, mixed mode)
+    openjdk version "17.0.9" 2023-10-17
+    OpenJDK Runtime Environment Homebrew (build 17.0.9+0)
+    OpenJDK 64-Bit Server VM Homebrew (build 17.0.9+0, mixed mode, sharing)
     ```
 
 3. Make sure JAVA_HOME is setup correctly, so other tools like Maven will use the correct version.
 
     ```bash
     $ env|grep JAVA_HOME
-    JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.0.2.jdk/Contents/Home
+    JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.0.9.jdk/Contents/Home
     ```
 
 #### Maven
 
 Alfresco recommends that you keep up-to-date with all the Maven releases. Linux distributions and package managers tend to bundle older releases and this is the most common pitfall.
 
-Alfresco SDK 4.6 requires Maven 3.3.0 or later, but you are recommended to download the latest version.
+Alfresco SDK 4.7 and 4.8 require Maven 3.3.0 or later, but you are recommended to download the latest version.
 
 1. Download and install [Apache Maven](https://maven.apache.org/download.cgi){:target="_blank"} and make sure it is configured correctly on your path.
 
@@ -108,12 +108,11 @@ Alfresco SDK 4.6 requires Maven 3.3.0 or later, but you are recommended to downl
 
     ```bash
     $ mvn -v
-    Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
-    Maven home: /usr/local/Cellar/maven/3.3.9/libexec
-    Java version: 17.0.2, vendor: Oracle Corporation
-    Java home: /Library/Java/JavaVirtualMachines/jdk-17.0.2.jdk/Contents/Home
-    Default locale: en_ES, platform encoding: UTF-8
-    OS name: "mac os x", version: "10.13.4", arch: "x86_64", family: "mac"
+    Apache Maven 3.9.6 (bc0240f3c744dd6b6ec2920b3cd08dcc295161ae)
+    Maven home: /opt/homebrew/Cellar/maven/3.9.6/libexec
+    Java version: 17.0.9, vendor: Homebrew, runtime: /opt/homebrew/Cellar/openjdk@17/17.0.9/libexec/openjdk.jdk/Contents/Home
+    Default locale: en_GB, platform encoding: UTF-8
+    OS name: "mac os x", version: "14.2.1", arch: "aarch64", family: "mac"
     ```
 
 #### Docker
@@ -126,7 +125,7 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
 
     ```bash
     $ docker -v
-    Docker version 18.06.1-ce, build e68fc7a
+    Docker version 25.0.2, build 29cf629
     ```
 
 3. [Docker Compose](https://docs.docker.com/compose/install/){:target="_blank"} is included as part of some Docker installers. If it's not part of your installation, then install it separately after you've installed Docker.
@@ -135,7 +134,7 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
 
     ```bash
     $ docker-compose -v
-    docker-compose version 1.22.0, build f46880f
+    Docker Compose version v2.24.3-desktop.1
     ```
 
 ### Generate your project from the archetypes
@@ -197,8 +196,12 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     17: 4.4.0
     18: 4.5.0
     19: 4.6.0
-    Choose a number: 19: 19    
+    20: 4.7.0
+    21: 4.8.0
+    Choose a number: 21: 21
     ```
+
+    This example uses SDK 4.8, but you should see similar results for SDK 4.7.
 
 4. You are prompted to enter additional information:
 
@@ -226,7 +229,7 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
 
     ```bash
     [INFO] ----------------------------------------------------------------------------
-    [INFO] Using following parameters for creating project from Archetype: alfresco-allinone-archetype:4.6.0
+    [INFO] Using following parameters for creating project from Archetype: alfresco-allinone-archetype:4.8.0
     [INFO] ----------------------------------------------------------------------------
     [INFO] Parameter: groupId, Value: com.acme
     [INFO] Parameter: artifactId, Value: my-all-in-one
@@ -237,18 +240,18 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     [INFO] Parameter: groupId, Value: com.acme
     [INFO] Parameter: artifactId, Value: my-all-in-one
     [INFO] Parameter: version, Value: 1.0-SNAPSHOT
-    [INFO] Parent element not overwritten in C:\Users\username\my-all-in-one\my-all-in-one-platform\pom.xml
-    [INFO] Parent element not overwritten in C:\Users\username\my-all-in-one\my-all-in-one-share\pom.xml
-    [INFO] Parent element not overwritten in C:\Users\username\my-all-in-one\my-all-in-one-integration-tests\pom.xml
-    [INFO] Parent element not overwritten in C:\Users\username\my-all-in-one\my-all-in-one-platform-docker\pom.xml
-    [INFO] Parent element not overwritten in C:\Users\username\my-all-in-one\my-all-in-one-share-docker\pom.xml
+    [INFO] Parent element not overwritten in /Users/username/Projects/sdk/my-all-in-one/my-all-in-one-platform/pom.xml
+    [INFO] Parent element not overwritten in /Users/username/Projects/sdk/my-all-in-one/my-all-in-one-share/pom.xml
+    [INFO] Parent element not overwritten in /Users/username/Projects/sdk/my-all-in-one/my-all-in-one-integration-tests/pom.xml
+    [INFO] Parent element not overwritten in /Users/username/Projects/sdk/my-all-in-one/my-all-in-one-platform-docker/pom.xml
+    [INFO] Parent element not overwritten in /Users/username/Projects/sdk/my-all-in-one/my-all-in-one-share-docker/pom.xml
     [INFO] Executing META-INF/archetype-post-generate.groovy post-generation script
-    [INFO] Project created from Archetype in dir: C:\Users\username\my-all-in-one
+    [INFO] Project created from Archetype in dir: /Users/username/Projects/sdk/my-all-in-one
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESS
     [INFO] ------------------------------------------------------------------------
-    [INFO] Total time:  04:14 min
-    [INFO] Finished at: 2023-07-24T15:43:32+01:00
+    [INFO] Total time:  01:06 min
+    [INFO] Finished at: 2024-03-27T16:02:56Z
     [INFO] ------------------------------------------------------------------------
     ```
 
@@ -452,7 +455,7 @@ my-all-in-one-project username$ ./run.sh build_start
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Build Order:
 [INFO] 
-[INFO] AIO - SDK 4.6
+[INFO] AIO - SDK 4.8
 [INFO] Alfresco Platform/Repository JAR Module
 [INFO] Alfresco Share JAR Module
 [INFO] Integration Tests Module
@@ -462,7 +465,7 @@ my-all-in-one-project username$ ./run.sh build_start
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Summary:
 [INFO] 
-[INFO] AIO - SDK 4.6 ...................................... SUCCESS [  0.680 s]
+[INFO] AIO - SDK 4.8 ...................................... SUCCESS [  0.680 s]
 [INFO] Alfresco Platform/Repository JAR Module ............ SUCCESS [  5.461 s]
 [INFO] Alfresco Share JAR Module .......................... SUCCESS [  0.557 s]
 [INFO] Integration Tests Module ........................... SUCCESS [  0.900 s]
@@ -1620,36 +1623,6 @@ This article is focused on the Community version. If you want to switch to Alfre
 
 The supported versions are explained in the next sections of this article.
 
-#### Switch to Alfresco version 6.0.x
-
-Starting from a newly created Alfresco SDK project (All-In-One, Platform JAR, or Share JAR), let’s replace the two properties with the following ones.
-
-1. Open the `pom.xml` in your generated project.
-
-2. Replace the properties with the following:
-
-    ```xml
-    <alfresco.platform.version>6.0.7-ga</alfresco.platform.version>
-    <alfresco.share.version>6.0.c</alfresco.share.version>
-    ```
-
-    In this example we have shown the switch to version 6.0.7-ga. Feel free to use the correct version for your project, paying attention to the compatible versions of Content Services and Alfresco Share.
-
-3. After changing the versions, delete all the previous data of your development Docker environment:
-
-    ```bash
-    $ ./run.sh purge
-    ```
-
-4. Rebuild and restart the project:
-
-    ```bash
-    $ ./run.sh build_start
-    ```
-
->**Important:** Alfresco 6.1+ is ready to work with JDK 11, but Alfresco 6.0 needs to be compiled and run using JDK 8, so take this into account when you
-switch from version 6.1+ to 6.0.x. If you compile Alfresco 6.0.x with JDK 11 you'll experience the issue described in the [Troubleshooting page](#troubleshooting) about wrong JDK versions.
-
 #### Switch to Alfresco version 7.0.x
 
 Starting from a newly created Alfresco SDK project (All-In-One, Platform JAR, or Share JAR), let’s replace the two properties with the following ones.
@@ -2280,7 +2253,7 @@ Here are the basics to understanding and using integration testing in the contex
 
 #### How SDK's integration tests work
 
-The Alfresco SDK's integration tests are primarily supported by a utility module included in the SDK called [Alfresco Rapid Application Development](https://github.com/Alfresco/alfresco-sdk/tree/master/modules/alfresco-rad){:target="_blank"} (alfresco-rad). This module basically enables the execution of the integration tests within the context of a running Alfresco Content Service (Content Services) instance.
+The Alfresco SDK's integration tests are primarily supported by a utility module included in the SDK called [Alfresco Rapid Application Development](https://github.com/Alfresco/alfresco-sdk/tree/master/modules/alfresco-rad){:target="_blank"} (alfresco-rad). This module basically enables the execution of the integration tests within the context of a running Alfresco Content Services (Content Services) instance.
 
 ##### Alfresco Rapid Application Development (Alfresco RAD)
 

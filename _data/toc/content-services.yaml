@@ -171,7 +171,7 @@
           path: '/content-services/latest/develop/software-architecture/'
         - title: 'Software Development Kits (SDK)'
           pages:
-          - title: 'In-Process SDK (4.6)'
+          - title: 'In-Process SDK (4.7, 4.8)'
             path: '/content-services/latest/develop/sdk/'
           - title: 'Out-of-Process SDK (5.2)'
             path: '/content-services/latest/develop/oop-sdk/'
