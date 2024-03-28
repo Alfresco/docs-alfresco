@@ -175,7 +175,7 @@ In a load balanced environment, Share now uses Hazelcast to provide multicast me
 
 To enable Hazelcast clustering between Share instances, configure the `custom-slingshot-application-context.xml` file and place it in the `<TOMCAT-HOME>/shared/classes/alfresco/web-extension` folder. This file is used to override the Spring application context beans for Share.
 
-> > **Note:** An example file which includes this configuration is provided in the distribution.zip and is located at
+> **Note:** An example file which includes this configuration is provided in the distribution.zip and is located at
 > `web-server/shared/classes/alfresco/web-extension/web-extension/custom-slingshot-application-context.xml.sample`
 > as well as in the extracted `share.war` under
 > `web-server/webapps/share/WEB-INF/classes/alfresco/web-extension/custom-slingshot-application-context.xml.sample`.
