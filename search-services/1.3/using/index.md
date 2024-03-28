@@ -286,17 +286,21 @@ You can narrow your search results by excluding words with the `NOT` syntax.
 
 Single terms, phrases, and so on can be combined using "`NOT`" in upper, lower, or mixed case, or prefixed with "`!`" or "`-`".
 
-These queries search for nodes that contain the terms `yellow` in any content.
+These queries search for nodes that contain the term "yellow" but does not contain the term "banana" in the content.
 
 ```sql
 yellow AND NOT banana
 yellow AND !banana
 yellow AND -banana
+```
+These queries search for nodes that contain the term "banana" but does not contain the term "yellow" in the content.
+
+```sql
 NOT yellow banana
 -yellow banana
 !yellow banana
 ```
-The `NOT` operator can be omitted for Share. 
+The `AND` operator can be omitted for Share. 
 
 The `NOT` operator can only be used for string keywords; it doesn't work for numerals or dates.
 
