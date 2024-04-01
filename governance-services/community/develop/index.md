@@ -12,7 +12,7 @@ You can download the API Explorer from:
 
 * [Alfresco Nexus repository](https://nexus.alfresco.com/nexus/#welcome){:target="_blank"}
 
-The Governance Services distribution zip contains the `alfresco-governance-services-community-rest-api-explorer-23.1.0.255.war` file.
+The Governance Services distribution zip contains the `alfresco-governance-services-community-rest-api-explorer-23.2.0.255.war` file.
 
 Deploy it on the same port as Governance Services and test the APIs with your server directly from the API Explorer.
 
