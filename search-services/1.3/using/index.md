@@ -286,7 +286,7 @@ You can narrow your search results by excluding words with the `NOT` syntax.
 
 Single terms, phrases, and so on can be combined using "`NOT`" in upper, lower, or mixed case, or prefixed with "`!`" or "`-`".
 
-These queries search for nodes that contain the term "yellow" but does not contain the term "banana" in the content.
+These queries search for nodes that contain the term "yellow" but do not contain the term "banana" in the content.
 
 ```sql
 yellow AND NOT banana
