@@ -293,7 +293,7 @@ yellow AND NOT banana
 yellow AND !banana
 yellow AND -banana
 ```
-These queries search for nodes that contain the term "banana" but does not contain the term "yellow" in the content.
+These queries search for nodes that contain the term "banana" but do not contain the term "yellow" in the content.
 
 ```sql
 NOT yellow banana
