@@ -113,7 +113,7 @@ The Microsoft 365 connector zip file includes all the files required to install 
 
 ## Install using Docker Compose
 
-Installations using Docker Compose should only be used for development and test environments. To run the Microsoft 365 Connector using Docker Compose, you can either utilize the [Alfresco Content Services download trial]({% link content-services/latest/install/containers/docker-compose.md %}) or use an existing installation of Content Services.
+Installations using Docker Compose should only be used for development and test environments. To run the Microsoft 365 Connector using Docker Compose, you can either utilize the [Alfresco Content Services download trial](https://www.hyland.com/en/resources/alfresco-ecm-download){:target="_blank"} or use an existing installation of Content Services.
 
 > **Note**: To access the Docker images for the Microsoft 365 Connector, access to [Quay.io](https://quay.io/){:target="_blank"} is required. Alfresco customers can request Quay.io credentials by logging a ticket with [Alfresco Support](https://support.alfresco.com/){:target="_blank"}.
 
