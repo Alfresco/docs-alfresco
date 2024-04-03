@@ -545,7 +545,7 @@ Several roles set up services that listen on TCP ports, and several roles wait f
 
 ## Configure your installation
 
-By default, without any configuration applied, the playbook installs a limited trial of the Enterprise version of Content Services 7.x that goes into read-only mode after 2 days. If you'd like to try Content Services for a longer period, request the 30-day [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"}.
+By default, without any configuration applied, the playbook installs a limited trial of the Enterprise version of Content Services 23.x that goes into read-only mode after 2 days. If you'd like to try Content Services for a longer period, request the 30-day [Download Trial](https://www.hyland.com/en/resources/alfresco-ecm-download){:target="_blank"}.
 
 This section describes how to configure your installation before running the playbook.
 
