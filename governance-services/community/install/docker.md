@@ -26,15 +26,15 @@ Use this information to quickly deploy Governance Services using Docker Compose.
     ```text
     services:
         alfresco:
-            #image: alfresco/alfresco-content-repository-community:23.2.0
-            image: alfresco/alfresco-governance-repository-community:23.2.0
+            #image: alfresco/alfresco-content-repository-community:23.2.1
+            image: alfresco/alfresco-governance-repository-community:23.2.1
             ... 
     ```
 
     ```text
         share:
-            #image: alfresco/alfresco-share:23.2.0
-            image: alfresco/alfresco-governance-share-community:23.2.0
+            #image: alfresco/alfresco-share:23.2.1
+            image: alfresco/alfresco-governance-share-community:23.2.1
             ... 
     ```
 
