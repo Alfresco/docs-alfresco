@@ -12,7 +12,9 @@ The Model Manager is a user-friendly tool that enables you to add custom types, 
 
 The Model Manager is available to users in the `ALFRESCO_MODEL_ADMINISTRATORS` permission group. To create or edit a model you must be a member of this group. By default, the System Administrator is a member of the `ALFRESCO_MODEL_ADMINISTRATORS` group and can create models.
 
-> **Note:** The Model Manager does not allow editing existing dynamic models and content models that have been configured in XML and bootstrapped through Spring (static models).
+> **Note:** The Model Manager does not allow editing existing dynamic models and content models that have been configured in XML and bootstrapped through Spring (static models). For a
+> production environment, we recommend that you deploy your content model via the bootstrap method, so the model is read in when the system starts. Using this method gives you the 
+> flexibility to change the content model and deployment method.
 
 ### Models
 
