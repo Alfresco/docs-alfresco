@@ -27,8 +27,8 @@ To create a tenant, complete the following steps.
 
 5. Enter the following details as per your requirements.
 
-      * Enter the **Name** – The name of your tenant, for example, xxx.
-      * Specify the **Maximum allowed users in this tenant** - This is set at 10 bBy default, it is set at 10.
+      * Enter the **Name** – The name of your tenant, for example, tenant1.
+      * Specify the **Maximum allowed users in this tenant** - This is set at 10 by default.
 
 6. Select the **Deploy preconfigured workflows** checkbox.
 
