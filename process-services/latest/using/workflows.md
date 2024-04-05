@@ -32,11 +32,31 @@ To create a tenant, complete the following steps.
 
 6. Select the **Deploy preconfigured workflows** checkbox.
 
-7. Add the details about the tenant owner including **First name**, **Last name**, **Email**, and **Password**. 
+7. Add the details about the workflow owner including **First name**, **Last name**, **Email**, and **Password**. 
 
-      You can also assign a tenant owner from the list of created users.
+      You can also assign a workflow owner from the list of created users.
 
 8. Click **Save**.
+
+## Changing the owner of preconfigured workflow
+
+The workflow app needs to be manually deleted before changing the owner of preconfigured workflow.
+
+To change the owner of a preconfigured workflow, complete the following steps.
+
+1. Log in to Alfresco Process Services.
+
+2. Select **Identity Management**.
+
+3. Select **Tenants**.
+
+4. Select **Edit Tenant**.
+
+5. Select a user as the owner of the workflow in the current tenant.
+
+      You can choose a new user or the existing user.
+
+6. Click **Save**.
 
 ## Configuring a preconfigured workflow
 
@@ -91,6 +111,8 @@ To create a group in a tenant, complete the following steps.
 3. Select **Organization**.
 
 4. Select your tenant from the drop-down list.
+ 
+      A workflow group will be visible by default. You can add other users to this group so they can have access to view the workflow.
 
 5. Select **Create group**. Name your group and click **Save**.
 
