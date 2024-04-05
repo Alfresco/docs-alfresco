@@ -93,4 +93,11 @@ You need Alfresco Administrator permissions to run the web script.
     2016-09-16 13:46:47,238 INFO  [org.alfresco.repo.web.scripts.roles.DynamicAuthoritiesGet] [http-apr-8080-exec-6] Processing - END
     2016-09-16 13:46:47,238 INFO  [org.alfresco.repo.web.scripts.roles.DynamicAuthoritiesGet] [http-apr-8080-exec-6] Processed first 100 records.
     ```
+## Upgrading from AGS 3.4 versions or later
 
+Starting from Governance Services versions 3.4.x, when upgrading to later versions, an `RMv34AddArchiveAspectToSecuredNodes` patch is applied. As the patch uses a single transaction to add or remove the `sc:disableArchive` aspect to secured nodes, it can cause a performance issue.
+
+To address this issue, beginning with Governance Services 7.3.x, the following properties have been introduced:
+
+* `rm.patch.v34.addArchiveAspectToSecuredNodes.batchSize=1000` - defines the number of operations performed in one transaction. It is set to 1000.
+* `rm.patch.v34.addArchiveAspectToSecuredNodes.querySize=5000` - defines the number of rows we fetch on each database query to gather nodes to validate if we need to add or remove the aspect. It is set to 5000.
