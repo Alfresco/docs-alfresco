@@ -998,7 +998,6 @@ defaults:
       path: "transform-service/4.0"
     values:
       version: 4.0
-      latest: true
   - scope:
       path: "transform-service/3.0"
     values:

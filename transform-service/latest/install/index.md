@@ -28,7 +28,7 @@ See [Supported platforms]({% link transform-service/latest/support/index.md %}) 
 The images downloaded directly from [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"}, or 
 [Quay.io](https://quay.io/){:target="_blank"} are for a limited trial of the Enterprise version of Content Services that 
 goes into read-only mode after 2 days. For a longer (30-day) trial, get the Alfresco Content Services 
-[Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"}.
+[Download Trial](https://www.hyland.com/en/resources/alfresco-ecm-download){:target="_blank"}.
 
 > **Note:** A [Quay.io](https://quay.io/) account is needed to pull the Docker images that are needed for the Transform Service:
 >
@@ -263,7 +263,7 @@ from the left column that corresponds to the required Content Services version y
 
 1. Download [one of the Docker Compose files](https://github.com/Alfresco/acs-deployment/tree/master/docker-compose/){:target="_blank"} from the `acs-deployment` repository, and navigate to the folder where the file is saved.
 
-    Alternatively, if you want to contribute to the open source code, you can use one of the options provided in the **Code** dropdown of the [main repository page](https://github.com/Alfresco/acs-deployment/tree/master){:target="_blank"}. These options are **Clone** the repository, **Open with GitHub Desktop**, or **Download ZIP** to save a copy of the code. For example, if you want to see the latest release code for Content Services 23.1, then select tag `v7.0.0`.
+    Alternatively, if you want to contribute to the open source code, you can use one of the options provided in the **Code** dropdown of the [main repository page](https://github.com/Alfresco/acs-deployment/tree/master){:target="_blank"}. These options are **Clone** the repository, **Open with GitHub Desktop**, or **Download ZIP** to save a copy of the code. For example, if you want to see the latest release code for Content Services 23.x, then select tag `v8.0.0`.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to 
     > determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 
@@ -534,7 +534,7 @@ metadata extraction capabilities. Ensure that you've installed the [prerequisite
 before continuing.
 
 1. Browse to [Hyland Community](https://community.hyland.com/){:target="_blank"} and download 
-   `alfresco-transform-service-distribution-4.0.x.zip`.
+   `alfresco-transform-service-distribution-4.1.x.zip`.
 
 2. Extract the zip file into a system directory; for example, `<installLocation>/`.
 
