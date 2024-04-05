@@ -11,7 +11,7 @@ Use this information to quickly deploy Governance Services using Docker Compose.
 * [Docker Compose](https://docs.docker.com/compose/install/)
   * Docker Compose is included as part of some Docker installers. If it's not part of your installation, then install it separately after you've installed Docker.
 
-> **Note:** Make sure that the following ports are free on your computer: 5432, 8080, 8082, 8083. These ports are set in the `docker-compose.yml` file.
+> **Note:** Make sure that the following ports are free on your computer: 5432, 8080, 8083. These ports are set in the `docker-compose.yml` file.
 
 ## Installation steps
 
@@ -56,9 +56,9 @@ Use this information to quickly deploy Governance Services using Docker Compose.
 
     ```text
     ...
-    alfresco_1  | ...INFO... [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
-    alfresco_1  | ...INFO... [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
-    alfresco_1  | ...INFO... [main] org.apache.catalina.startup.Catalina.start Server startup in 226026 ms
+    alfresco_1  | ... INFO ... [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+    alfresco_1  | ... INFO ... [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+    alfresco_1  | ... INFO ... [main] org.apache.catalina.startup.Catalina.start Server startup in 226026 ms
     ```
 
     If you encounter errors whilst the system is starting up:
