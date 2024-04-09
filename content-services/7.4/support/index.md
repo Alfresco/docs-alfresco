@@ -12,24 +12,18 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | ------- | ----- |
 | **Operating systems** | |
 | Red Hat Enterprise Linux 8.7 x64 | |
-| Red Hat Enterprise Linux 8.6 x64 | |
 | Windows Server 2022 | |
-| Windows Server 2019 | |
 | Amazon Linux | v2 |
 | CentOS 8.3 x64 | |
-| CentOS 7.9 x64 | |
 | Ubuntu 22.04 | |
-| Ubuntu 20.04 | |
-| Rocky Linux 8.7 | |
 |  |  |
 | **Databases** | |
-| MySQL 8 | `mysql-connector-java-8.0.27.jar` |
+| MySQL 8 | `mysql-connector-java-8.0.30.jar` |
 | MS SQL Server 2019 | `mssql-jdbc-9.2.1.jre11.jar` |
-| Oracle 19c | `Ojdbc8.jar – 19.11.0.0` |
-| PostgreSQL 14.x | `Postgresql-42.3.2.jar` |
-| PostgreSQL 13.x | `Postgresql-42.3.2.jar` |
-| MariaDB 10.6 | |
-| Amazon Aurora | Use of Amazon Aurora is supported only if it is configured to emulate one of the supported versions of PostgreSQL or MySQL listed above, and the listed JDBC driver is used. |
+| Oracle 19c | `Ojdbc11` |
+| PostgreSQL 14.6 | `Postgresql-42.2.50.jar` |
+| MariaDB 10.6 | `MariaDB Connector/J 2.7.2` |
+| Amazon Aurora MySQL 5.7 | `MariaDB Connector/J 2.2.5` |
 | | |
 | **Message brokers** | |
 | ActiveMQ v5.17 | |
@@ -40,21 +34,19 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Clients** | |
 | Windows 10 x64 | |
+| Windows 8.1 x64 | |
 | Windows 7 x64 | |
 | Mac OSX 10.12 | |
 | | |
 | **Browsers** | |
 | Mozilla Firefox 86 | |
 | Microsoft Edge Latest| |
-| MS Internet Explorer 11 | |
 | Chrome 89 | Includes Chromium edition. |
-| Safari 14 | |
+| Safari 15 | |
 | | |
 | **Java** | |
-| OpenJDK 17.0.4 | |
-| OpenJDK 11.0.13 | |
+| OpenJDK 17 | |
 | Amazon Corretto 17 | |
-| Amazon Corretto 11 | |
 | | |
 | **Third party integrations** | |
 | Microsoft 365 | |
