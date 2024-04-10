@@ -9,6 +9,16 @@
           path: '/content-services/latest/tutorial/model/'
         - title: 'Configure Smart Folders'
           path: '/content-services/latest/tutorial/smart/'
+        - title: 'Configure Single Sign On'
+          pages:
+            - title: 'Single Sign On Guide v2 (ACS 7.3+)'
+              path: '/content-services/latest/tutorial/sso/'
+            - title: 'SAML'
+              path: '/content-services/latest/tutorial/sso/saml/'
+            - title: 'LDAP'
+              path: '/content-services/latest/tutorial/sso/ldap/'
+            - title: 'Kerberos'
+              path: '/content-services/latest/tutorial/sso/kerberos/'
         - title: 'Videos'
           pages:
             - title: 'Alfresco Share videos'
