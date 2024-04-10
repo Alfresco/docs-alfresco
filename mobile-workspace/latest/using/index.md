@@ -51,7 +51,7 @@ To upload photos, you can use the following options:
 
  | Option | Description |
  | -------- | ----------- |
- | **Upload photos and videos** | Photos are uploaded without EXIF metadata. |
+ | **Upload photos and videos** | Photos are automatically uploaded without EXIF metadata according to the device security system. |
  | **Upload files** | Photos are uploaded with EXIF metadata. |
 
 ## Share files from another file system
