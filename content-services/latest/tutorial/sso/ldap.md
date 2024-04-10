@@ -6,22 +6,21 @@ The configuration for LDAP authentication will allow users to access Alfresco pr
 
 The following diagram illustrates the components and authentication flow for an LDAP setup:
 
-![LDAP authentication diagram]({% link identity-service/images/1-5-ldap.png %})
+![LDAP authentication diagram]({% link content-services/images/LDAP.png %})
 
-As shown in the diagram, the Identity Service is used to authenticate the Alfresco Digital Workspace, Alfresco Share, and Alfresco Process Services.
+As shown in the diagram, the Keycloak is used to authenticate the Alfresco Digital Workspace, Alfresco Share, and Alfresco Process Services.
 
-Alfresco Share is configured to authenticate against the Identity Service using a SAML connection, however this does not require a SAML identity provider to be used.
+Alfresco Share is configured to authenticate against the Keycloak using a SAML connection, however this does not require a SAML identity provider to be used.
 
-Alfresco Content Services and Alfresco Process Services are configured directly to the Identity Service instance so that the Identity Service can authenticate a user when it is contacted by the respective web application.
+Alfresco Content Services and Alfresco Process Services are configured directly to the Keycloak instance so that the Keycloak can authenticate a user when it is contacted by the respective web application.
 
-The LDAP directory is used for user and group management and is configured to synchronize users to the Identity Service, Alfresco Content Services and Alfresco Process Services individually.
+The LDAP directory is used for user and group management and is configured to synchronize users to the Keycloak, Alfresco Content Services and Alfresco Process Services individually.
 
 ## Prerequisites
 
 The following are the prerequisites needed to configure SSO with LDAP:
 
-* The [correct product versions]({% link identity-service/latest/support/index.md %}) of the Alfresco software you are using.
-* The Identity Service is installed.
+* The Keycloak is installed.
 * An LDAP directory.
 * Administrator access to all systems.
 
@@ -33,47 +32,31 @@ There are ten steps to configuring SSO using an LDAP directory with Alfresco pro
 * Alfresco Share: `share.example.com`
 * Alfresco Digital Workspace: `adw.example.com`
 * Alfresco Process Services: `aps.example.com`
-* Identity Service: `ids.example.com`
+* Keycloak: `keycloak.example.com`
 * LDAP Directory: `ldap.example.com`
   * OpenLDAP was used for testing purposes.
 
 It is also assumed that certificates are correctly set up for each host and that each host exposes its service solely via TLS on the default port (443).
 
-## Step 1: Configure a realm and clients
+## Step 1: Configure a realm and client
 
-A realm and client need to be configured in the Identity Service for the Alfresco products to sit under. A single realm is required and the client will be used for all services other than Alfresco Share and Alfresco Office Services (AOS).
+A realm and client need to be configured in the Keycloak for the Alfresco products to sit under. A single realm is required and the client will be used for all services other than Alfresco Share and Alfresco Office Services (AOS).
 
-1. Sign in to the administrator console of the Identity Service as an administrator. The URL of the Identity Service administrator console is `https://ids.example.com/auth/admin`.
+1. Sign into the master realm Keycloak Administration Console (Keycloak Admin Console) using the credentials created on your first sign in.
 
-2. Select the default realm, `Alfresco` or create a new realm to use that the Alfresco products will be accessed through. Note down the **Name** for later use. The realm `Alfresco` will be used in this example.
+2. [Add a new realm](https://www.keycloak.org/docs/21.1.2/server_admin/index.html#proc-creating-a-realm_server_administration_guide){:target="_blank"} or edit the `Alfresco` realm.
 
-3. Select **Tokens** and set a timeout period in the **Realm Settings** for the realm `Alfresco`.
+3. [Create a new OIDC client](https://www.keycloak.org/docs/21.1.2/server_admin/index.html#_oidc_clients){:target="_blank"} or edit the existing one.
 
-4. Use the default client under the `Alfresco` realm or create a new client and configure it. Make sure that at least the following are set:
-
-    * The client is **Enabled**.
-    * A **Client ID** is set.
-    * **Implicit Flow Enabled** is switched on.
-    * A wildcard `*` is entered for **Valid Redirect URIs**.
-
-5. To configure single logout for Process Services add the following URL into the **Admin URL**: `aps.example.com/activiti-app`.
-
-6. Create a new client for Alfresco Share under the `Alfresco` realm or the realm you created, setting at least the following:
-
-    * **Client ID** is set to a valid value (for example, `share`).
-    * **Enabled** is set to true.
-    * **Client Protocol** is set to `openid-connect`.
-    * **Access Type** is set to `public`.
-    * **Standard Flow** is enabled.
-    * **Valid Redirect URIs** is set to `*`.
+4. Configure any [groups](https://www.keycloak.org/docs/21.1.2/server_admin/index.html#proc-managing-groups_server_administration_guide){:target="_blank"} or users
 
 ## Step 2: Configure LDAP synchronization
 
-An LDAP directory needs to be synchronized with the Identity Service, Alfresco Content Services (ACS) and Alfresco Process Services (APS). The following steps detail the synchronization with the Identity Service, whilst the configuration to ACS and APS is covered in later steps.
+An LDAP directory needs to be synchronized with the Keycloak, Alfresco Content Services (ACS) and Alfresco Process Services (APS). The following steps detail the synchronization with the Keycloak, whilst the configuration to ACS and APS is covered in later steps.
 
-1. Sign in to the administrator console of the Identity Service as an administrator. The URL of the Identity Service administrator console is `https://ids.example.com/auth/admin`.
+1. Sign into the master realm Keycloak Administration Console (Keycloak Admin Console) using the credentials created on your first sign in.
 
-2. Select **User Federation** and **Add provider...** then choose **ldap**.
+2. Select **User Federation** and **Add Ldap providers**.
 
 3. Choosing a **Vendor** will auto-populate many of the fields.
 
@@ -93,12 +76,12 @@ The properties listed that need to be set for Alfresco Content Services (ACS) ar
 
     | Property | Description |
     | -------- | ----------- |
-    | authentication.chain | The authentication chain needs to be set for the Identity Service and LDAP synchronization, for example `identity-service-1:identity-service,alfrescoNtlm-1:alfrescoNtlm,ldap-1:ldap`|
-    |identity-service.auth-server-url|The base URL of the Identity Service, for example `https://ids.example.com/auth`|
-    |identity-service.enable-basic-auth | Sets whether basic authentication is also supported by the Identity Service, for example `true`|
-    |identity-service.realm | The realm name configured in the Identity Service for the Alfresco applications, for example `alfresco`|
-    |identity-service.resource|The **Client ID** set up in the Identity Service for Alfresco Content Services. The client needs to exist underneath the realm set for `identity-service.realm`, for example `alfresco`|
-    |ldap.authentication.active | Sets whether LDAP authentication is enabled or not. This needs to be set to `false` to use SAML authentication via the Identity Service, for example `false`|
+    | authentication.chain | The authentication chain needs to be set for the Keycloak and LDAP synchronization |
+    |keycloak.auth-server-url|The base URL of the Keycloak, for example `https://keycloak.example.com/auth`|
+    |keycloak.enable-basic-auth | Sets whether basic authentication is also supported by the Keycloak, for example `true`|
+    |keycloak.realm | The realm name configured in the Keycloak for the Alfresco applications, for example `alfresco`|
+    |keycloak.resource|The **Client ID** set up in the Keycloak for Alfresco Content Services. The client needs to exist underneath the realm set for `keycloak.realm`, for example `alfresco`|
+    |ldap.authentication.active | Sets whether LDAP authentication is enabled or not. This needs to be set to `false` to use SAML authentication via the Keycloak, for example `false`|
     |ldap.synchronization.active|Sets whether LDAP synchronization is enabled or not. This needs to be set to `true` to sync users with the repository, for example `true`|
     |ldap.synchronization.java.naming. security.authentication | The mechanism to use to authenticate with the LDAP server, for example `simple`|
     |ldap.synchronization.java.naming. security.principal|The user principal name (UPN) of the account used to retrieve account details for all users and groups, for example `alfresco@domain.com`|
@@ -130,7 +113,7 @@ Alfresco Digital Workspace only requires its properties to be updated to enable 
 | Property | Environment variable | Description |
 | -------- | -------------------- | ----------- |
 | authType | APP_CONFIG_AUTH_TYPE |The authentication type. Must be set to `OAUTH`|
-| host | APP_CONFIG_OAUTH2_HOST |The address of the Identity Service including the realm name configured in [step 1](#step-1-configure-a-realm-and-clients). In the example the realm name is *Alfresco*|
+| host | APP_CONFIG_OAUTH2_HOST |The address of the Keycloak including the realm name configured in [step 1](#step-1-configure-a-realm-and-clients). In the example the realm name is *Alfresco*|
 | clientId | APP_CONFIG_OAUTH2_CLIENTID |The name of the client configured in [step 1](#step-1-configure-a-realm-and-clients) for Digital Workspace|
 | implicitFlow | APP_CONFIG_OAUTH2_IMPLICIT_FLOW | |
 | silentLogin | APP_CONFIG_OAUTH2_SILENT_LOGIN |Setting `silentLogin` to true removes a login page from displaying if a user is already authenticated. Setting the value to `false` will display a sign in page even though a user needs to only select the **Sign in** option and not enter any credentials|
@@ -145,7 +128,7 @@ The following is an example `app.config.json` file excerpt. By default this file
 ```json
 "authType": "OAUTH",
 "oauth2": {
-        "host": "https://ids.example.com/auth/realms/alfresco",
+        "host": "https://keycloak.example.com/auth/realms/alfresco",
         "clientId": "alfresco",        
         "scope": "openid",
         "implicitFlow": true,
@@ -164,11 +147,11 @@ Use the following configuration parameters either in the `share-config.propertie
 
 |Property|Description|
 |--------|-----------|
-| aims.enabled | Enables or disables Identity Service, for example `true`. |
+| aims.enabled | Enables or disables Keycloak, for example `true`. |
 | aims.realm | The name of the realm, for example `alfresco`. |
 | aims.resource | The Client ID of the application, for example `share`. |
-| aims.authServerUrl | The base URL of the Identity Service, for example `https://ids.example.com` |
-| aims.publicClient | If set to `true`, the adapter will not send credentials for the client to Identity Service. |
+| aims.authServerUrl | The base URL of the Keycloak, for example `https://keycloak.example.com` |
+| aims.publicClient | If set to `true`, the adapter will not send credentials for the client to Keycloak. |
 
 ## Step 6: (Optional) Configure Alfresco Sync Service
 
@@ -176,15 +159,15 @@ If Alfresco Sync Service is used and a client has been created for it in [step 2
 
 | Property | Description |
 | -------- | ----------- |
-| identity-service.auth-server-url |The base URL of the Identity Service, for example `https://ids.example.com/auth`|
-| identity-service.realm |The realm name configured in the Identity Service for the Alfresco application, for example `alfresco`|
-| identity-service.resource |The **Client ID** set up in the Desktop Sync for Alfresco Content Services. The client needs to exist underneath the realm set for `identity-service.realm`, for example `desktop-sync`|
-| identity-service.public-client |The adapter will not send credentials for the client to the Identity Service if this is set to true, for example `true`|
-| identity-service.credentials.secret |The secret key for this client if the access type is not set to public.|
+| keycloak.auth-server-url |The base URL of the Keycloak, for example `https://keycloak.example.com/auth`|
+| keycloak.realm |The realm name configured in the Keycloak for the Alfresco application, for example `alfresco`|
+| keycloak.resource |The **Client ID** set up in the Desktop Sync for Alfresco Content Services. The client needs to exist underneath the realm set for `keycloak.realm`, for example `desktop-sync`|
+| keycloak.public-client |The adapter will not send credentials for the client to the Keycloak if this is set to true, for example `true`|
+| keycloak.credentials.secret |The secret key for this client if the access type is not set to public.|
 
 ## Step 7: Configure Alfresco Process Services
 
-Alfresco Process Services (APS) has two sets of properties that need to be configured to setup SSO. One set synchronizes APS with an LDAP directory and the other set configure with the Identity Service.
+Alfresco Process Services (APS) has two sets of properties that need to be configured to setup SSO. One set synchronizes APS with an LDAP directory and the other set configure with the Keycloak.
 
 1. Configuration for LDAP synchronization can be achieved manually for WAR file deployments using the `activiti-ldap-properties` file or reference an external file for Docker and Kubernetes deployments:
 
@@ -201,27 +184,27 @@ Alfresco Process Services (APS) has two sets of properties that need to be confi
     | ldap.synchronization.userSearchBase |The section of the LDAP directory to restrict user synchronization to, for example `ou=users,dc=alfresco,dc=com`|
     | ldap.synchronization.groupSearchBase |The section of the LDAP directory to restrict group synchronization to, for example `ou=groups,dc=alfresco,dc=com`|
 
-2. Configuration with the Alfresco Process Services can be achieved manually for WAR file deployments using the `activiti-identity-service.properties` or reference an external file for Docker and Kubernetes deployments:
+2. Configuration with the Alfresco Process Services can be achieved manually for WAR file deployments using the `activiti-keycloak.properties` or reference an external file for Docker and Kubernetes deployments:
 
     | Property | Description |
     | -------- | ----------- |
-    | keycloak.enabled |Sets whether Process Services will use the Identity Service to authenticate against, for example `true`|
-    | keycloak.realm |The realm name configured in the Identity Service for the Alfresco applications, for example `alfresco`|
-    | keycloak.auth-server-url |The base URL of the Identity Service, for example `https://ids.example.com/auth`|
+    | keycloak.enabled |Sets whether Process Services will use the Keycloak to authenticate against, for example `true`|
+    | keycloak.realm |The realm name configured in the Keycloak for the Alfresco applications, for example `alfresco`|
+    | keycloak.auth-server-url |The base URL of the Keycloak, for example `https://keycloak.example.com/auth`|
     | keycloak.ssl-required |Sets whether SSL is mandatory for access or not, for example `all`|
-    | keycloak.resource |The **Client ID** set up in the Identity Service for Process Services. The client needs to exist underneath the realm set for `keycloak.realm` or `IDENTITY_SERVICE_REALM`, for example `alfresco`|
+    | keycloak.resource |The **Client ID** set up in the Keycloak for Process Services. The client needs to exist underneath the realm set for `keycloak.realm` or `KEYCLOAK_REALM`, for example `alfresco`|
     | keycloak.principal-attribute |The attribute to identify users by for authentication. This needs to be set to `email` for Process Services, for example `email`|
-    | keycloak.public-client |The adapter will not send credentials for the client to the Identity Service if this is set to `true`, for example `true`|
+    | keycloak.public-client |The adapter will not send credentials for the client to the Keycloak if this is set to `true`, for example `true`|
     | keycloak.always-refresh-token |Sets whether a token should be refreshed for every request or not, for example `true`|
     | keycloak.autodetect-bearer-only |This should be set to true to serve both a web application and web services, for example `true`|
     | keycloak.token-store |The location of where account information token should be stored, for example `cookie`|
-    | keycloak.enable-basic-auth |Sets whether basic authentication is also supported by the Identity Service, for example `true`|
+    | keycloak.enable-basic-auth |Sets whether basic authentication is also supported by the Keycloak, for example `true`|
 
 ## Step 8: (Optional) Configure a connection between Process Services and Content Services
 
 An SSO connection can be configured between Process Services and Content Services so that communication between the two systems is achieved using tokens instead of stored credentials when executing processes.
 
-1. Set these additional properties in `activiti-identity-service.properties`:
+1. Set these additional properties in `activiti-keycloak.properties`:
 
     | Property | Description |
     | -------- | ----------- |
@@ -231,8 +214,8 @@ An SSO connection can be configured between Process Services and Content Service
     | alfresco.content.sso.realm |The realm that is configured for the Content Services and Process Services clients, for example `${keycloak.realm}`|
     | alfresco.content.sso.scope |Sets the duration that tokens are valid for. For example using the value `offline_access` a token is valid even after a user logs out as long as the token is used at least once every 30 days. See the [Keycloak documentation](https://www.keycloak.org/docs/21.1.2/server_admin/#_offline-access){:target="_blank"} for further information, for example `offline_access`|
     | alfresco.content.sso.javascript_origins |The base URL for the Javascript origins of the Process Services instance, for example `https://aps.example.com`|
-    | alfresco.content.sso.auth_uri |The authorization URL, for example `https://ids.example.com/realms/alfresco/protocol/openid-connect/auth`|
-    | alfresco.content.sso.token_uri |The authorization token URL, for example `https://ids.example.com/realms/alfresco/protocol/openid-connect/token`|
+    | alfresco.content.sso.auth_uri |The authorization URL, for example `https://keycloak.example.com/realms/alfresco/protocol/openid-connect/auth`|
+    | alfresco.content.sso.token_uri |The authorization token URL, for example `https://keycloak.example.com/realms/alfresco/protocol/openid-connect/token`|
     | alfresco.content.sso.redirect_uri |The redirect URI for authorization. The value in the example column needs to be updated with the correct base URL for the Process Services instance, for example`https://aps.example.com/activiti-app/rest/integration/sso/confirm-auth-request`|
 
 2. Sign into Process Services as an administrator.
@@ -250,13 +233,13 @@ An SSO connection can be configured between Process Services and Content Service
     |Repository base URL|The base URL of the repository instance to connect to.|
     |Share base URL|The base URL of Share for the repository instance to connect to.|
     |Alfresco version|The version of Content Services to connect to.|
-    |Authentication type|Select **Identity Service authentication** to use SSO.|
+    |Authentication type|Select **Keycloak authentication** to use SSO.|
 
 ## Step 9: (Optional) Configure a mobile client for Process Services
 
-If Process Services for mobile is required then a client needs to be created for it in the Identity Service to enable SSO capability. The redirect URI is preconfigured for the mobile application using the operating system it is installed on, which means that the **Valid Redirect URIs** value in the Identity Service must match this value.
+If Process Services for mobile is required then a client needs to be created for it in the Keycloak to enable SSO capability. The redirect URI is preconfigured for the mobile application using the operating system it is installed on, which means that the **Valid Redirect URIs** value in the Keycloak must match this value.
 
-1. Sign in to the administrator console of the Identity Service as an administrator. The URL of the Identity Service administrator console is `https://ids.example.com/auth/admin`.
+1. Sign into the master realm Keycloak Administration Console (Keycloak Admin Console) using the credentials created on your first sign in.
 
 2. Create a new client for the mobile application under the `Alfresco` realm or the realm you created in [step 1](#step-1-configure-a-realm-and-clients) and set at least the following in the **Settings** tab:
 
@@ -274,9 +257,9 @@ If Process Services for mobile is required then a client needs to be created for
 
 ## Step 10: (Optional) Configure a client for Content Services for iOS
 
-If Content Services for iOS is required then a client needs to be created for it in the Identity Service to enable SSO capability. The redirect URI is preconfigured for the mobile application using the operating system it is installed on, which means that the **Valid Redirect URIs** value in the Identity Service must match this value.
+If Content Services for iOS is required then a client needs to be created for it in the Keycloak to enable SSO capability. The redirect URI is preconfigured for the mobile application using the operating system it is installed on, which means that the **Valid Redirect URIs** value in the Keycloak must match this value.
 
-1. Sign in to the administrator console of the Identity Service as an administrator. The URL of the Identity Service administrator console is `https://ids.example.com/auth/admin`.
+1. Sign into the master realm Keycloak Administration Console (Keycloak Admin Console) using the credentials created on your first sign in.
 
 2. Create a new client for the mobile application under the `Alfresco` realm or the realm you created in [step 1](#step-1-configure-a-realm-and-clients) and set at least the following in the **Settings** tab:
 
@@ -294,4 +277,4 @@ After configuring SSO with an LDAP directory, the following is an example sequen
 
 3. Create a new tab in the same browser session and navigate to Alfresco Process Services at the URL `http://aps.example.com/activiti-app` and there should be no additional sign in step required.
 
-> **Note:** If timeout is configured in the [Identity Service](#step-1-configure-a-realm-and-clients) accessing any of the applications after the specified time will prompt a user to sign in again.
+> **Note:** If timeout is configured in the [Keycloak](#step-1-configure-a-realm-and-clients) accessing any of the applications after the specified time will prompt a user to sign in again.

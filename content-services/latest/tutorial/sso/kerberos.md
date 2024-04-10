@@ -12,7 +12,6 @@ The following diagram illustrates the components and authentication flow for a K
 
 The following are the prerequisites needed to configure SSO with Kerberos:
 
-* The [correct product versions]({% link identity-service/latest/support/index.md %}) of the Alfresco software you are using.
 * A Kerberos Key Distribution Center (KDC).
 * An instance of Active Directory.
 * Administrator access to all systems.
