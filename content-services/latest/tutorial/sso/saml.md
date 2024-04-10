@@ -6,20 +6,19 @@ The configuration for SAML authentication allows users to access Alfresco produc
 
 The following diagram illustrates the components and authentication flow for a SAML setup:
 
-![SAML authentication diagram]({% link identity-service/images/1-5-saml.png %})
+![SAML authentication diagram]({% link content-services/images/Keycloak_SAML.png %})
 
-As shown in the diagram, a connection to the SAML identity provider is configured within Identity Service in order to authenticate Alfresco Share, Alfresco Digital Workspace, and Alfresco Process Services. This also includes setting up a service provider within the SAML identity provider for Identity Service.
+As shown in the diagram, a connection to the SAML identity provider is configured within Keycloak in order to authenticate Alfresco Share, Alfresco Digital Workspace, and Alfresco Process Services. This also includes setting up a service provider within the SAML identity provider for Keycloak.
 
-Alfresco Content Services and Alfresco Process Services are configured directly to the Identity Service instance so that the Identity Service can authenticate a user when it is contacted by the respective web application.
+Alfresco Content Services and Alfresco Process Services are configured directly to the Keycloak instance so that the Keycloak can authenticate a user when it is contacted by the respective web application.
 
-The LDAP directory is used for user and group management and is configured to synchronize users to the Identity Service, Alfresco Content Services and Alfresco Process Services individually.
+The LDAP directory is used for user and group management and is configured to synchronize users to the Keycloak, Alfresco Content Services and Alfresco Process Services individually.
 
 ## Prerequisites
 
 The following are the prerequisites needed to configure SSO with SAML:
 
-* The [correct product versions]({% link identity-service/latest/support/index.md %}) of the Alfresco software you are using.
-* The Identity Service is installed.
+* The Keycloak is installed.
 * A SAML identity provider
 * An LDAP directory
 * Administrator access to all systems
@@ -32,7 +31,7 @@ There are thirteen steps to configuring SSO using a SAML identity provider with 
 * Alfresco Share: `share.example.com`
 * Alfresco Digital Workspace: `adw.example.com`
 * Alfresco Process Services: `aps.example.com`
-* Identity Service: `ids.example.com`
+* Keycloak: `keycloak.example.com`
 * SAML Identity Provider: `saml.example.com`
   * PingFederate was used for testing purposes.
 * LDAP Directory: `ldap.example.com`
@@ -42,11 +41,11 @@ It is also assumed that certificates are correctly set up for each host and that
 
 ## Step 1: Configure a realm and clients
 
-A realm and client need to be configured in the Identity Service for the Alfresco products to sit under. A single realm is required, however multiple clients may be used instead of the single one used in this example.
+A realm and client need to be configured in the Keycloak for the Alfresco products to sit under. A single realm is required, however multiple clients may be used instead of the single one used in this example.
 
 A separate client always needs to be created and configured for Desktop Sync if it is used. The configuration steps for this additional client can be ignored if Desktop Sync is not used.
 
-1. Sign in to the administrator console of the Identity Service as an administrator. The URL of the Identity Service administrator console is `https://ids.example.com/auth/admin`.
+1. Sign into the master realm Keycloak Administration Console (Keycloak Admin Console) using the credentials created on your first sign in.
 2. Select the default realm, `Alfresco` or create a new realm to use that the Alfresco products will be accessed through. Note down the **Name** for later use. The realm `Alfresco` will be used in this example.
 3. Select **Tokens** and set a timeout period in the **Realm Settings** for the realm `Alfresco`.
 4. Use the default client under the `Alfresco` realm or create a new client and configure it. Make sure that at least the following are set:
@@ -77,10 +76,10 @@ A separate client always needs to be created and configured for Desktop Sync if 
 
 ## Step 2: Configure LDAP synchronization
 
-An LDAP directory needs to be synchronized with the Identity Service, Alfresco Content Services (ACS) and Alfresco Process Services (APS). The following steps detail the synchronization with the Identity Service, whilst the configuration to ACS and APS is covered in later steps.
+An LDAP directory needs to be synchronized with the Keycloak, Alfresco Content Services (ACS) and Alfresco Process Services (APS). The following steps detail the synchronization with the Keycloak, whilst the configuration to ACS and APS is covered in later steps.
 
-1. Sign in to the administrator console of the Identity Service as an administrator. The URL of the Identity Service administrator console is `https://ids.example.com/auth/admin`.
-2. Select **User Federation** and **Add provider...** then choose **ldap**.
+1. Sign into the master realm Keycloak Administration Console (Keycloak Admin Console) using the credentials created on your first sign in.
+2. Select **User Federation** and **Add Ldap providers**.
 3. Choosing a **Vendor** will auto-populate many of the fields.
 4. Enter the **Connection URL** for the LDAP instance in the format:
     * `ldap//ldap.example.com:389` or
@@ -88,11 +87,11 @@ An LDAP directory needs to be synchronized with the Identity Service, Alfresco C
 5. Set the **Batch Size** and whether to use **Full Sync** and/or **Period Changed Users Sync** followed by the associated **Sync Periods**.
 6. Save the configuration.
 
-## Step 3: Configure a service provider for the Identity Service
+## Step 3: Configure a service provider for the Keycloak
 
-A Service provider needs to be set up in the SAML identity provider for the Identity Service using a certificate generated by the Identity Service API.
+A Service provider needs to be set up in the SAML identity provider for the Keycloak using a certificate generated by the Keycloak API.
 
-1. Use the Identity Service certificate descriptor API. The URL of the API is `https://ids.example.com/auth/realms/alfresco/protocol/saml/descriptor`.
+1. Use the Keycloak certificate descriptor API. The URL of the API is `https://keycloak.example.com/auth/realms/alfresco/protocol/saml/descriptor`.
 2. Copy the value of `<dsig:X509Certificate>`.
 3. Paste the value of `<dsig:X509Certificate>` into a new text file between the `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` commands. The following is an example of a completed text file:
 
@@ -105,9 +104,9 @@ A Service provider needs to be set up in the SAML identity provider for the Iden
 4. Save the file with the file extension `.cert`.
 5. Sign into the SAML identity provider as an administrator and configure a new service provider:
 
-    * The base URL to use is: `https://ids.example.com/`.
+    * The base URL to use is: `https://keycloak.example.com/`.
     * Use the certificate created in the previous step.
-    * The redirect URI to use will be in the format `https://ids.example.com/auth/realms/alfresco/broker/saml/endpoint`.
+    * The redirect URI to use will be in the format `https://keycloak.example.com/auth/realms/alfresco/broker/saml/endpoint`.
 
     > **Note:** The alfresco part of the URL is the name of the realm configured in [step 1](#step-1-configure-a-realm-and-clients). Make sure this is changed if you used a different realm name.
 

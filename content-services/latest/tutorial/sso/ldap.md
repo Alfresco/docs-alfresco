@@ -44,12 +44,28 @@ A realm and client need to be configured in the Keycloak for the Alfresco produc
 
 1. Sign into the master realm Keycloak Administration Console (Keycloak Admin Console) using the credentials created on your first sign in.
 
-2. [Add a new realm](https://www.keycloak.org/docs/21.1.2/server_admin/index.html#proc-creating-a-realm_server_administration_guide){:target="_blank"} or edit the `Alfresco` realm.
+2. Select the default realm, `Alfresco` or create a new realm to use that the Alfresco products will be accessed through. Note down the **Name** for later use. The realm `Alfresco` will be used in this example.
 
-3. [Create a new OIDC client](https://www.keycloak.org/docs/21.1.2/server_admin/index.html#_oidc_clients){:target="_blank"} or edit the existing one.
+3. Select **Tokens** and set a timeout period in the **Realm Settings** for the realm `Alfresco`.
 
-4. Configure any [groups](https://www.keycloak.org/docs/21.1.2/server_admin/index.html#proc-managing-groups_server_administration_guide){:target="_blank"} or users
+4. Use the default client under the `Alfresco` realm or create a new client and configure it. Make sure that at least the following are set:
 
+    * The client is **Enabled**.
+    * A **Client ID** is set.
+    * **Implicit Flow Enabled** is switched on.
+    * A wildcard `*` is entered for **Valid Redirect URIs**.
+
+5. To configure single logout for Process Services add the following URL into the **Admin URL**: `aps.example.com/activiti-app`.
+
+6. Create a new client for Alfresco Share under the `Alfresco` realm or the realm you created, setting at least the following:
+
+    * **Client ID** is set to a valid value (for example, `share`).
+    * **Enabled** is set to true.
+    * **Client Protocol** is set to `openid-connect`.
+    * **Access Type** is set to `public`.
+    * **Standard Flow** is enabled.
+    * **Valid Redirect URIs** is set to `*`.
+    
 ## Step 2: Configure LDAP synchronization
 
 An LDAP directory needs to be synchronized with the Keycloak, Alfresco Content Services (ACS) and Alfresco Process Services (APS). The following steps detail the synchronization with the Keycloak, whilst the configuration to ACS and APS is covered in later steps.
