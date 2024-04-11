@@ -6,7 +6,7 @@ The configuration for SAML authentication allows users to access Alfresco produc
 
 The following diagram illustrates the components and authentication flow for a SAML setup:
 
-![SAML authentication diagram]({% link content-services/images/Keycloak_SAML.png %})
+![SAML authentication diagram]({% link content-services/images/keycloak-saml.png %})
 
 As shown in the diagram, a connection to the SAML identity provider is configured within Keycloak in order to authenticate Alfresco Share, Alfresco Digital Workspace, and Alfresco Process Services. This also includes setting up a service provider within the SAML identity provider for Keycloak.
 

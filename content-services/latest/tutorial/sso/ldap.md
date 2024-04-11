@@ -6,7 +6,7 @@ The configuration for LDAP authentication will allow users to access Alfresco pr
 
 The following diagram illustrates the components and authentication flow for an LDAP setup:
 
-![LDAP authentication diagram]({% link content-services/images/LDAP.png %})
+![LDAP authentication diagram]({% link content-services\images\keycloak-ldap.png %})
 
 As shown in the diagram, the Keycloak is used to authenticate the Alfresco Digital Workspace, Alfresco Share, and Alfresco Process Services.
 
