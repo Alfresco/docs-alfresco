@@ -1,5 +1,5 @@
-# Alfresco Process Services 24.1
-- version: 24.1
+# Alfresco Process Services 24.x
+- version: 24.x
   pages:
     - title: 'Introduction'
       path: '/process-services/latest/'
