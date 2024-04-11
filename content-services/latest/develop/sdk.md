@@ -54,7 +54,7 @@ The Alfresco Maven Plugin is only required in those cases in which it is require
 The integration tests and the mechanisms to execute them in an Alfresco Content Services instance remains the same as in the previous version of the SDK.
 
 However, the inclusion of Docker and the utility scripts provides a different perspective about the environment on which the integration tests are executed.
-In this version, the integration tests are run against the dockerised environment defined using Docker and Docker Compose. By doing so, the integration test
+In this version, the integration tests are run against the dockerized environment defined using Docker and Docker Compose. By doing so, the integration test
 environment can be more similar to a real one, including whatever other service is required for a full featured integration test execution.
 
 ## Getting started with Alfresco SDK {#gettingstarted}
@@ -125,7 +125,7 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
 
     ```bash
     $ docker -v
-    Docker version 25.0.2, build 29cf629
+    Docker version 25.0.3, build 4debf41
     ```
 
 3. [Docker Compose](https://docs.docker.com/compose/install/){:target="_blank"} is included as part of some Docker installers. If it's not part of your installation, then install it separately after you've installed Docker.
@@ -134,7 +134,7 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
 
     ```bash
     $ docker-compose -v
-    Docker Compose version v2.24.3-desktop.1
+    Docker Compose version v2.24.6-desktop.1
     ```
 
 ### Generate your project from the archetypes
@@ -240,18 +240,18 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     [INFO] Parameter: groupId, Value: com.acme
     [INFO] Parameter: artifactId, Value: my-all-in-one
     [INFO] Parameter: version, Value: 1.0-SNAPSHOT
-    [INFO] Parent element not overwritten in /Users/username/Projects/sdk/my-all-in-one/my-all-in-one-platform/pom.xml
-    [INFO] Parent element not overwritten in /Users/username/Projects/sdk/my-all-in-one/my-all-in-one-share/pom.xml
-    [INFO] Parent element not overwritten in /Users/username/Projects/sdk/my-all-in-one/my-all-in-one-integration-tests/pom.xml
-    [INFO] Parent element not overwritten in /Users/username/Projects/sdk/my-all-in-one/my-all-in-one-platform-docker/pom.xml
-    [INFO] Parent element not overwritten in /Users/username/Projects/sdk/my-all-in-one/my-all-in-one-share-docker/pom.xml
+    [INFO] Parent element not overwritten in /Users/username/sdk/my-all-in-one/my-all-in-one-platform/pom.xml
+    [INFO] Parent element not overwritten in /Users/username/sdk/my-all-in-one/my-all-in-one-share/pom.xml
+    [INFO] Parent element not overwritten in /Users/username/sdk/my-all-in-one/my-all-in-one-integration-tests/pom.xml
+    [INFO] Parent element not overwritten in /Users/username/sdk/my-all-in-one/my-all-in-one-platform-docker/pom.xml
+    [INFO] Parent element not overwritten in /Users/username/sdk/my-all-in-one/my-all-in-one-share-docker/pom.xml
     [INFO] Executing META-INF/archetype-post-generate.groovy post-generation script
-    [INFO] Project created from Archetype in dir: /Users/username/Projects/sdk/my-all-in-one
+    [INFO] Project created from Archetype in dir: /Users/username/sdk/my-all-in-one
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESS
     [INFO] ------------------------------------------------------------------------
-    [INFO] Total time:  01:06 min
-    [INFO] Finished at: 2024-03-27T16:02:56Z
+    [INFO] Total time:  18.512 s
+    [INFO] Finished at: 2024-04-10T11:58:59+01:00
     [INFO] ------------------------------------------------------------------------
     ```
 
@@ -387,15 +387,15 @@ The execution of this script must be followed by a parameter that dictates the t
 
 |Task|Description|
 |----|-----------|
-|`build_start` | Build the whole project, recreate the Content Services and Share docker images, start the dockerised environment composed by Content Services, Share, ASS and PostgreSQL and tail the logs of all the containers.|
-|`build_start_it_supported` | Build the whole project including dependencies required for IT execution, recreate the Content Services and Share docker images, start the dockerised environment composed by Content Services, Share, ASS and PostgreSQL and tail the logs of all the containers.|
-|`start` | Start the dockerised environment without building the project and tail the logs of all the containers.|
-|`stop` | Stop the dockerised environment.|
-|`purge` | Stop the dockerised environment and delete all the persistent data (docker volumes).|
+|`build_start` | Build the whole project, recreate the Content Services and Share docker images, start the dockerized environment composed by Content Services, Share, ASS and PostgreSQL and tail the logs of all the containers.|
+|`build_start_it_supported` | Build the whole project including dependencies required for IT execution, recreate the Content Services and Share docker images, start the dockerized environment composed by Content Services, Share, ASS and PostgreSQL and tail the logs of all the containers.|
+|`start` | Start the dockerized environment without building the project and tail the logs of all the containers.|
+|`stop` | Stop the dockerized environment.|
+|`purge` | Stop the dockerized environment and delete all the persistent data (docker volumes).|
 |`tail` | Tail the logs of all the containers.|
 |`reload_share` | Build the Share module, recreate the Share docker image and restart the Share container (not available in the Alfresco Platform JAR archetype).|
 |`reload_acs` | Build the Content Services module, recreate the Content Services docker image and restart the Content Services container (only available in the All-In-One archetype).|
-|`build_test` | Build the whole project, recreate the Content Services and Share docker images, start the dockerised environment, execute the integration tests from the `integration-tests` module and stop the environment.|
+|`build_test` | Build the whole project, recreate the Content Services and Share docker images, start the dockerized environment, execute the integration tests from the `integration-tests` module and stop the environment.|
 |`test` | Execute the integration tests (the environment must be already started).|
 
 This utility script uses `mvn`, `docker` and `docker-compose` commands, so make sure you have properly installed Maven, Docker and Docker Compose and you have configured them properly to be accessible in the path.
@@ -427,8 +427,8 @@ The following table explains some of these properties:
 
 | Name | Type | Default value | Description |
 | ---- | ---- | ------------- | ----------- |
-| alfresco.platform.version | `string` | 7.0.0 | The version of the Content Services Repository (i.e. `alfresco.war`) that the Repository Extension should be applied to. This also specifies the version of the Content Services Repository Docker Image that the custom built Repository image should be based on. See `my-all-in-one-project-platform-docker/src/main/docker/Dockerfile` |
-| alfresco.share.version | `string` | 7.0.0 | The version of Alfresco Share (i.e. `share.war`) that the Share Extension should be applied to. This also specifies the version of the Alfresco Share Docker Image that the custom built Share image should be based on. See `my-all-in-one-project-share-docker/src/main/docker/Dockerfile`|
+| alfresco.platform.version | `string` | 23.2.1 | The version of the Content Services Repository (i.e. `alfresco.war`) that the Repository Extension should be applied to. This also specifies the version of the Content Services Repository Docker image that the custom built Repository image should be based on. See `my-all-in-one-project-platform-docker/src/main/docker/Dockerfile` |
+| alfresco.share.version | `string` | 23.2.0.72 | The version of Alfresco Share (i.e. `share.war`) that the Share Extension should be applied to. This also specifies the version of the Alfresco Share Docker image that the custom built Share image should be based on. See `my-all-in-one-project-share-docker/src/main/docker/Dockerfile`|
 | docker.acs.image | `string` | alfresco/alfresco-content-repository-community | The name of the Content Services Repository Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | docker.share.image | `string` | alfresco/alfresco-share | The name of the Alfresco Share Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | share.port | `number` | 8180 | The external port (i.e. outside container) for the Alfresco Share webapp.|
@@ -444,7 +444,15 @@ When you first start out you don't need to change any of these properties, just 
 
 The first thing you need to do before you can run anything is to build the custom Content Services Docker images with the custom extensions. We can build images and extensions at the same time as we start (run) the project by using the `./run.sh build_start` script (on Windows use the `run.bat build_start` script instead).
 
-Note that if you have another Alfresco SDK project running, then you need to stop it first. Also, make sure that the following ports are free: 8180 (Share), 8080 (Alfresco Repo), 9898 (Share Debug), 8888 (Alfresco Repo Debug), 5555 (Postgres). If you want to change the ports see the properties section of `my-all-in-one-project/pom.xml`. This project file also contains the versions of Alfresco Repository and Alfresco Share that will be used.  
+Note that if you have another Alfresco SDK project running, then you need to stop it first. Also, make sure that the following ports are free:
+
+* `8180` (Share)
+* `8080` (Alfresco Repo)
+* `9898` (Share Debug)
+* `8888` (Alfresco Repo Debug)
+* `5555` (Postgres)
+
+If you want to change the ports see the properties section of `my-all-in-one-project/pom.xml`. This project file also contains the versions of Alfresco Repository and Alfresco Share that will be used.  
 
 ```bash
 $ cd my-all-in-one-project
@@ -551,7 +559,7 @@ CONTAINER ID        IMAGE                                                       
 733867a70117        alfresco-content-services-my-all-in-one-project:development   "catalina.sh run -se…"   5 minutes ago       Up 5 minutes        0.0.0.0:8080->8080/tcp, 0.0.0.0:8888->8888/tcp             docker_my-all-in-one-project-acs_1
 1f197e52b4f2        alfresco/alfresco-search-services:2.0.3                       "/bin/sh -c '$DIST_D…"   5 minutes ago       Up 5 minutes        0.0.0.0:8983->8983/tcp                                     docker_my-all-in-one-project-ass_1
 4eff0cc9cc25        alfresco-share-my-all-in-one-project:development              "/usr/local/tomcat/s…"   5 minutes ago       Up 5 minutes        8000/tcp, 0.0.0.0:8180->8080/tcp, 0.0.0.0:9898->8888/tcp   docker_my-all-in-one-project-share_1
-a7854ff16d72        postgres:9.6                                                  "docker-entrypoint.s…"   5 minutes ago       Up 5 minutes        0.0.0.0:5555->5432/tcp                                     docker_my-all-in-one-project-postgres_1
+a7854ff16d72        postgres:14.4                                                  "docker-entrypoint.s…"   5 minutes ago       Up 5 minutes        0.0.0.0:5555->5432/tcp                                     docker_my-all-in-one-project-postgres_1
 ```
 
 Then open up a shell into the Content Services Repository container:
@@ -646,8 +654,8 @@ The following table explains some of these properties:
 
 | Name | Type | Default value | Description |
 | ---- | ---- | ------------- | ----------- |
-| alfresco.platform.version | `string` | 7.0.0 | The version of the Content Services Repository (i.e. alfresco.war) that the Repository Extension should be applied to. This also specifies the version of the Content Services Repository Docker Image that the custom built Repository image should be based on. See `my-platform-project-platform-docker/src/main/docker/Dockerfile` |
-| alfresco.share.version | `string` | 7.0.0 | The version of Alfresco Share (i.e. share.war) that the Share Extension should be applied to. This also specifies the version of the Alfresco Share Docker Image that the custom built Share image should be based on. See `my-platform-project-share-docker/src/main/docker/Dockerfile`|
+| alfresco.platform.version | `string` | 23.2.1 | The version of the Content Services Repository (i.e. `alfresco.war`) that the Repository Extension should be applied to.<br><br>This also specifies the version of the Content Services Repository Docker image that the custom built Repository image should be based on. See `my-platform-project-platform-docker/src/main/docker/Dockerfile`. |
+| alfresco.share.version | `string` | 23.2.1 | The version of Alfresco Share (i.e. `share.war`) that the Share Extension should be applied to.<br><br>This also specifies the version of the Alfresco Share Docker image that the custom built Share image should be based on. See `my-platform-project-share-docker/src/main/docker/Dockerfile`. |
 | docker.acs.image | `string` | alfresco/alfresco-content-repository-community | The name of the Content Services Repository Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | docker.share.image | `string` | alfresco/alfresco-share | The name of the Alfresco Share Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | share.port | `number` | 8180 | The external port (i.e. outside container) for the Alfresco Share webapp.|
@@ -862,8 +870,8 @@ The following table explains some of these properties:
 
 | Name | Type | Default value | Description |
 | ---- | ---- | ------------- | ----------- |
-| alfresco.platform.version | `string` | 7.0.0 | The version of the Content Services Repository (i.e. alfresco.war) that the Repository Extension should be applied to. This also specifies the version of the Content Services Repository Docker Image that the custom built Repository image should be based on. See `my-share-project-platform-docker/src/main/docker/Dockerfile` |
-| alfresco.share.version | `string` | 7.0.0 | The version of Alfresco Share (i.e. share.war) that the Share Extension should be applied to. This also specifies the version of the Alfresco Share Docker Image that the custom built Share image should be based on. See `my-share-project-share-docker/src/main/docker/Dockerfile`|
+| alfresco.platform.version | `string` | 23.2.1 | The version of the Content Services Repository (i.e. `alfresco.war`) that the Repository Extension should be applied to. This also specifies the version of the Content Services Repository Docker image that the custom built Repository image should be based on. See `my-share-project-platform-docker/src/main/docker/Dockerfile` |
+| alfresco.share.version | `string` | 23.2.1 | The version of Alfresco Share (i.e. `share.war`) that the Share Extension should be applied to. This also specifies the version of the Alfresco Share Docker image that the custom built Share image should be based on. See `my-share-project-share-docker/src/main/docker/Dockerfile`|
 | docker.acs.image | `string` | alfresco/alfresco-content-repository-community | The name of the Content Services Repository Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | docker.share.image | `string` | alfresco/alfresco-share | The name of the Alfresco Share Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | share.port | `number` | 8180 | The external port (i.e. outside container) for the Alfresco Share webapp.|
@@ -936,8 +944,8 @@ This will build the following Docker image:
 
 ```bash
 $ docker image ls
-REPOSITORY                                                       TAG                                          IMAGE ID            CREATED              SIZE
-alfresco-share-my-share-project                                  development                                  b8b9acdb3425        About a minute ago   749MB
+REPOSITORY                                     TAG                        IMAGE ID            CREATED              SIZE
+alfresco-share-my-share-project                development                b8b9acdb3425        About a minute ago   749MB
 ```
 
 The different web applications should now be accessible:
@@ -2357,7 +2365,7 @@ So, taking into account the previous section, let's see how the integration test
     development environment is run using Docker Toolbox (old Windows and MacOS versions). In this case, the container exposed ports are not mapped to `localhost`, but to a custom IP provided by the Virtual Box virtual machine (i.e. `http://192.168.99.100:8080/alfresco`).
 
 * The All-In-One project utility scripts (`run.sh` / `run.bat`) offer two different tasks to execute the integration tests:
-  * `build_test`. It builds the whole project, recreates the Content Services and Share docker images, starts the dockerised environment, executes the integration tests from the `integration-tests` module and stops the environment.
+  * `build_test`. It builds the whole project, recreates the Content Services and Share docker images, starts the dockerized environment, executes the integration tests from the `integration-tests` module and stops the environment.
   * `test`. It simply executes the integration tests (the environment must be already started).
 
 ##### Sample tests included in the generated project
@@ -2393,7 +2401,7 @@ Running the integration tests of a project generated from the Alfresco SDK arche
 
 If you want to run the integration tests from the command line you'll have to use the utility scripts provided by all the projects generated from the archetypes. These are `run.sh` if you're on Unix systems or `run.bat` if you're on Windows systems.
 
-If you want to spin up a new dockerised environment with Content Services, run the integration tests and stop that environment, you'll use the `build_test` goal:
+If you want to spin up a new dockerized environment with Content Services, run the integration tests and stop that environment, you'll use the `build_test` goal:
 
 ```bash
 $ ./run.sh build_test
@@ -2409,15 +2417,15 @@ $ ./run.sh build_test
 
 The `build_test` goal will execute the next list of tasks: 
 
-* Stop any previous execution of the dockerised environment.
+* Stop any previous execution of the dockerized environment.
 * Compile all the source code.
 * Rebuild the custom Docker images of the project.
-* Start a new dockerised environment.
+* Start a new dockerized environment.
 * Execute the integration tests.
 * Show the logs of the docker containers during the tests execution.
-* Stop the dockerised environment.
+* Stop the dockerized environment.
 
-If your dockerised environment is already started and you simply want to execute the integration tests against that existing Content Services instance, then use the `test`
+If your dockerized environment is already started and you simply want to execute the integration tests against that existing Content Services instance, then use the `test`
 goal:
 
 ```bash
@@ -2438,7 +2446,7 @@ The maven property for the test Content Services instance endpoint location is `
 </properties>
 ```
 
-This parameter is **specially important** if you're running your dockerised environment using [Docker Toolbox](https://docs.docker.com/toolbox/){:target="_blank"} instead of [Docker Desktop](https://www.docker.com/products/docker-desktop){:target="_blank"}. If that is the case, then the Docker container exposed ports are not mapped in the hosted machine as `localhost` but as an assigned IP address (i.e. `192.168.99.100`).
+This parameter is **specially important** if you're running your dockerized environment using [Docker Toolbox](https://docs.docker.com/toolbox/){:target="_blank"} instead of [Docker Desktop](https://www.docker.com/products/docker-desktop){:target="_blank"}. If that is the case, then the Docker container exposed ports are not mapped in the hosted machine as `localhost` but as an assigned IP address (i.e. `192.168.99.100`).
 
 ##### Eclipse IDE
 
@@ -2446,7 +2454,7 @@ If your project is available in Eclipse, you can easily run one or more of the i
 
 To run the integration tests:
 
-1. In order to properly execute the integration tests the dockerised environment must be already up and running with IT support. So, before executing the tests you must run the `build_start_it_supported` or the `start` goal of the `run` script.
+1. In order to properly execute the integration tests the dockerized environment must be already up and running with IT support. So, before executing the tests you must run the `build_start_it_supported` or the `start` goal of the `run` script.
 2. Open the project using the IDE.
 3. Select the classes for the integration tests (either one, some, or the whole package).
 4. Right click and select `Run As ...`, then click `JUnit Test`.
@@ -2466,7 +2474,7 @@ If your project is available in IntelliJ IDEA, you can easily run one or more of
 
 To run the integration tests:
 
-1. In order to properly execute the integration tests the dockerised environment must be already up and running with IT support. So, before executing the tests you must run the `build_start_it_supported` or the `start` goal of the `run` script.
+1. In order to properly execute the integration tests the dockerized environment must be already up and running with IT support. So, before executing the tests you must run the `build_start_it_supported` or the `start` goal of the `run` script.
 2. Open the project using the IDE.
 3. Select the classes for the integration tests (either one, some, or the whole package).
 4. Right click and select `Run Tests`.
