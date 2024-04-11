@@ -53,9 +53,7 @@ The Alfresco Maven Plugin is only required in those cases in which it is require
 
 The integration tests and the mechanisms to execute them in an Alfresco Content Services instance remains the same as in the previous version of the SDK.
 
-However, the inclusion of Docker and the utility scripts provides a different perspective about the environment on which the integration tests are executed.
-In this version, the integration tests are run against the dockerized environment defined using Docker and Docker Compose. By doing so, the integration test
-environment can be more similar to a real one, including whatever other service is required for a full featured integration test execution.
+However, the inclusion of Docker and the utility scripts provides a different perspective about the environment on which the integration tests are executed. In this version, the integration tests are run against the dockerized environment defined using Docker and Docker Compose. By doing so, the integration test environment can be more similar to a real one, including whatever other service is required for a full featured integration test execution.
 
 ## Getting started with Alfresco SDK {#gettingstarted}
 
@@ -409,8 +407,6 @@ Before you continue make sure that you have read and completed the tasks in the 
 
 > **Note:** The following information assumes that the AIO project was generated with the name `my-all-in-one-project`.
 
-#### Introduction
-
 An AIO SDK project is used to build extensions for both [Content Services (Content Services) Repository]({% link content-services/latest/develop/repo-ext-points/index.md %}) and [Alfresco Share UI]({% link content-services/latest/develop/share-ext-points/index.md %}). The runtime environment for Content Services is Docker so not only is this project building the source code for your extensions but also the custom Docker images for the Alfresco Repository and Alfresco Share. The custom Docker images includes the JARs, or AMPs, with your extension code.
 
 Looking into the generated AIO parent project we can see that we got a Docker Compose file (`my-all-in-one-project/docker/docker-compose.yml`) that will be used to build custom Docker images and run the project, one sub-project called `my-all-in-one-project-platform` that will be used to build Repository customizations, and one sub-project called `my-all-in-one-project-share` that can be used to build Alfresco Share UI customizations.
@@ -427,8 +423,8 @@ The following table explains some of these properties:
 
 | Name | Type | Default value | Description |
 | ---- | ---- | ------------- | ----------- |
-| alfresco.platform.version | `string` | 23.2.1 | The version of the Content Services Repository (i.e. `alfresco.war`) that the Repository Extension should be applied to. This also specifies the version of the Content Services Repository Docker image that the custom built Repository image should be based on. See `my-all-in-one-project-platform-docker/src/main/docker/Dockerfile` |
-| alfresco.share.version | `string` | 23.2.0.72 | The version of Alfresco Share (i.e. `share.war`) that the Share Extension should be applied to. This also specifies the version of the Alfresco Share Docker image that the custom built Share image should be based on. See `my-all-in-one-project-share-docker/src/main/docker/Dockerfile`|
+| alfresco.platform.version | `string` | 23.2.1 | The version of the Content Services Repository (i.e. `alfresco.war`) that the Repository Extension should be applied to.<br><br>This also specifies the version of the Content Services Repository Docker image that the custom built Repository image should be based on. See `my-all-in-one-project-platform-docker/src/main/docker/Dockerfile` |
+| alfresco.share.version | `string` | 23.2.0.72 | The version of Alfresco Share (i.e. `share.war`) that the Share Extension should be applied to.<br><br>This also specifies the version of the Alfresco Share Docker image that the custom built Share image should be based on. See `my-all-in-one-project-share-docker/src/main/docker/Dockerfile`|
 | docker.acs.image | `string` | alfresco/alfresco-content-repository-community | The name of the Content Services Repository Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | docker.share.image | `string` | alfresco/alfresco-share | The name of the Alfresco Share Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | share.port | `number` | 8180 | The external port (i.e. outside container) for the Alfresco Share webapp.|
@@ -440,7 +436,7 @@ The following table explains some of these properties:
 
 When you first start out you don't need to change any of these properties, just use the defaults and try it out.
 
-#### Building and running the project
+#### Building and running the AIO project
 
 The first thing you need to do before you can run anything is to build the custom Content Services Docker images with the custom extensions. We can build images and extensions at the same time as we start (run) the project by using the `./run.sh build_start` script (on Windows use the `run.bat build_start` script instead).
 
@@ -522,8 +518,8 @@ alfresco-share-my-all-in-one-project                             development    
 
 The different web applications should now be accessible:
 
-* **Content Services Repository**: http://localhost:8080/alfresco
-* **Content Services Share**: http://localhost:8180/share/ - login with admin/admin
+* **Content Services Repository**: <http://localhost:8080/alfresco>
+* **Content Services Share**: <http://localhost:8180/share/> - login with admin/admin
 
 #### Trying out the sample code
 
@@ -591,21 +587,21 @@ my-all-in-one-project username$ ./run.sh reload_acs
 
 What this will do is the following:
 
-* Kill the `my-all-in-one-project-acs` container 
+* Kill the `my-all-in-one-project-acs` container
 * Remove the killed (stopped) `my-all-in-one-project-acs` container, so a new Docker image can be created with `development` tag
-* Build the Repository extension JAR: `my-all-in-one-project/my-all-in-one-project-platform` 
+* Build the Repository extension JAR: `my-all-in-one-project/my-all-in-one-project-platform`
 * Copy the newly built Repository extension JAR over to the `my-all-in-one-project/my-all-in-one-project-platform-docker/target/extensions` where it will be picked up when the new Docker image is built.
 * Build a new `alfresco-content-services-my-all-in-one-project:development` image
 * Start up the `my-all-in-one-project-acs` container based on new image  
 
-You will be left with the console tailing the logs, but you can **Ctrl-C** out of this as you are already tailing the logs 
+You will be left with the console tailing the logs, but you can **Ctrl-C** out of this as you are already tailing the logs
 in the initial console where we started things up.
 
 You can now check if the change took effect by accessing the `http://localhost:8080/alfresco/service/sample/helloworld` Web Script.
- 
+
 #### Stopping the project
 
-To stop the solution you need to first `Ctrl-C` out of the log tailing. This does not stop the containers 
+To stop the solution you need to first `Ctrl-C` out of the log tailing. This does not stop the containers
 as they run in daemon mode in the background. Check this by executing the following command that lists running containers:
 
 ```bash
@@ -639,13 +635,11 @@ Before you continue make sure that you have read and completed the tasks in the 
 
 > **Note:** The following information assumes that the Platform project was generated with the name `my-platform-project`.
 
-#### Introduction
-
 A Platform project is used to build extensions for the [Content Services (Content Services) Repository]({% link content-services/latest/develop/repo-ext-points/index.md %}). The runtime environment for Content Services is Docker so not only is this project building the source code for your extensions but also the custom Docker image for the Alfresco Repository. The custom Docker images includes the JARs, or AMPs, with your extension code.
 
 Looking into the generated Platform project we can see that we got a Docker Compose file (`my-platform-project/docker/docker-compose.yml`) that will be used to build custom Docker images and run the project. We also got a directory for our extension source code: `my-platform-project/src/main/java` and one directory with the Docker related stuff, such as the `Dockerfile` used to build the custom Content Services Repository Docker image: `my-platform-project/src/main/docker`.
 
-#### Configuration properties
+#### Configuration properties (platform)
 
 There are a number of properties that we can customize when we run the Alfresco SDK project.
 These configuration properties are defined in the `my-platform-project/pom.xml` project file.
@@ -669,7 +663,7 @@ There are some Alfresco Share related properties listed here, but they are not u
 
 When you first start out you don't need to change any of these properties, just use the defaults and try it out.
 
-#### Building and running the project
+#### Building and running the Platform project
 
 The first thing you need to do before you can run anything is to build the custom Content Services Repository Docker image with the custom extensions. We can build the image and extensions at the same time as we start (run) the project by using the `./run.sh build_start` script (on Windows use the `run.bat build_start` script instead).
 
@@ -727,21 +721,21 @@ alfresco-content-services-my-platform-project                    development    
 
 The different web applications should now be accessible:
 
-* **Content Services Repository**: http://localhost:8080/alfresco
-* And optionally (if enabled in Docker Compose file) **Content Services Share**: http://localhost:8180/share/ - login with **admin/admin**
+* **Content Services Repository**: <http://localhost:8080/alfresco>
+* And optionally (if enabled in Docker Compose file) **Content Services Share**: <http://localhost:8180/share/> - login with **admin/admin**
 
-#### Trying out the sample code
+#### Trying out the sample code (platform)
 
-The Platform project has some sample extension code that you can try out. 
+The Platform project has some sample extension code that you can try out.
 
 The Repository extension is a Web Script that can be called with the following URL: `http://localhost:8080/alfresco/service/sample/helloworld`.
-The source code for the Web Script is located here: `my-platform-project/src/main/resources/alfresco/extension/templates/webscripts/alfresco/tutorials` 
+The source code for the Web Script is located here: `my-platform-project/src/main/resources/alfresco/extension/templates/webscripts/alfresco/tutorials`
 and here: `my-platform-project/src/main/java/ com/example/platformsample/HelloWorldWebScript.java`.
 
-#### Looking inside the containers
+#### Looking inside the containers (platform)
 
-Sometimes it's good to be able to look at what has actually been deployed in the containers. For example, how do I 
-access the Repository container and list the custom Repository extension JARs that have been deployed? 
+Sometimes it's good to be able to look at what has actually been deployed in the containers. For example, how do I
+access the Repository container and list the custom Repository extension JARs that have been deployed?
 
 You can do that as follows:
 
@@ -780,7 +774,7 @@ my-platform-project username$ docker exec -it docker_my-platform-project-acs_1 /
 exit
 ```
 
-#### Updating extension code
+#### Updating extension code (platform)
 
 So now you probably want to write some new code, or update the existing code, and see how that works with the containers running. What do you need to do, restart etc. First just update the code. For example, let's update the Repository Web Script to return a different message. Open up the `my-platform-project/src/main/resources/alfresco/extension/templates/webscripts/alfresco/tutorials/helloworld.get.html.ftl` file and change it to look as follows:
 
@@ -814,7 +808,7 @@ my-platform-project username$ ./run.sh build_start
 
 What this will do is the following:
 
-* Kill the `my-platform-project-acs` container 
+* Kill the `my-platform-project-acs` container
 * Removed the killed (stopped) `my-platform-project-acs` container, so a new Docker image can be created with `development` tag
 * Build the Repository extension JAR
 * Copy the newly built Repository extension JAR over to the `my-platform-project/target/extensions` where it will be picked up when the new Docker image is built.
@@ -823,7 +817,7 @@ What this will do is the following:
 
 You can now check if the change took effect by accessing the `http://localhost:8080/alfresco/service/sample/helloworld` Web Script.
 
-#### Stopping the project
+#### Stopping the project (platform)
 
 To stop the solution you need to first `Ctrl-C` out of the log tailing. This does not stop the containers as they run in daemon mode in the background. Check this by executing the following command that lists running containers:
 
@@ -855,13 +849,11 @@ Before you continue make sure that you have read and completed the tasks in the 
 
 > **Note:** The following information assumes that the Share project was generated with the name `my-share-project`.
 
-#### Introduction
-
 An Alfresco Share project is used to build extensions for [Alfresco Share UI]({% link content-services/latest/develop/share-ext-points/index.md %}). The runtime environment for Content Services is Docker so not only is this project building the source code for your extensions but also the custom Docker image for Alfresco Share. The custom Docker images includes the JARs, or AMPs, with your extension code.
 
 Looking into the generated Share project we can see that we got a Docker Compose file (`my-share-project/docker/docker-compose.yml`) that will be used to build custom Docker images and run the project. We also got a directory for our extension source code: `my-share-project/src/main/java` and one directory with the Docker related stuff, such as the `Dockerfile` used to build the custom Alfresco Share Docker image: `my-share-project/src/main/docker`.
 
-#### Configuration properties
+#### Configuration properties (share)
 
 There are a number of properties that we can customize when we run the Alfresco SDK project.
 These configuration properties are defined in the `my-share-project/pom.xml` project file.
@@ -870,8 +862,8 @@ The following table explains some of these properties:
 
 | Name | Type | Default value | Description |
 | ---- | ---- | ------------- | ----------- |
-| alfresco.platform.version | `string` | 23.2.1 | The version of the Content Services Repository (i.e. `alfresco.war`) that the Repository Extension should be applied to. This also specifies the version of the Content Services Repository Docker image that the custom built Repository image should be based on. See `my-share-project-platform-docker/src/main/docker/Dockerfile` |
-| alfresco.share.version | `string` | 23.2.1 | The version of Alfresco Share (i.e. `share.war`) that the Share Extension should be applied to. This also specifies the version of the Alfresco Share Docker image that the custom built Share image should be based on. See `my-share-project-share-docker/src/main/docker/Dockerfile`|
+| alfresco.platform.version | `string` | 23.2.1 | The version of the Content Services Repository (i.e. `alfresco.war`) that the Repository Extension should be applied to.<br><br>This also specifies the version of the Content Services Repository Docker image that the custom built Repository image should be based on. See `my-share-project-platform-docker/src/main/docker/Dockerfile` |
+| alfresco.share.version | `string` | 23.2.1 | The version of Alfresco Share (i.e. `share.war`) that the Share Extension should be applied to.<br><br>This also specifies the version of the Alfresco Share Docker image that the custom built Share image should be based on. See `my-share-project-share-docker/src/main/docker/Dockerfile`|
 | docker.acs.image | `string` | alfresco/alfresco-content-repository-community | The name of the Content Services Repository Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | docker.share.image | `string` | alfresco/alfresco-share | The name of the Alfresco Share Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | share.port | `number` | 8180 | The external port (i.e. outside container) for the Alfresco Share webapp.|
@@ -883,24 +875,24 @@ The following table explains some of these properties:
 
 There are some Content Services Repository related properties listed here, such as `acs.host` and `acs.port`. Alfresco Share will use those
 to connect to the Alfresco Repository. This is however a bit tricky when we are running in a container environment. You cannot
-just start the Repository and make it available on `localhost:8080`. It would not be accessible like that from inside the 
-Share container. For Share to be able to connect to the Repository both containers need to be attached to the same 
+just start the Repository and make it available on `localhost:8080`. It would not be accessible like that from inside the
+Share container. For Share to be able to connect to the Repository both containers need to be attached to the same
 Docker Network. This way you can just use the Docker Compose service name for the Repository, such as `my-share-project-acs`.
-So the best way to test your Share extension is to uncomment the code in the Docker Compose file 
+So the best way to test your Share extension is to uncomment the code in the Docker Compose file
 (`my-share-project/docker/docker-compose.yml`) to also run the Content Services Repository container, Search, and Postgres.
 
-#### Building and running the project
+#### Building and running the Share project
 
 The first thing you need to do before you can run anything is to build the custom Share Docker image with the custom extensions.
-We can build the image and extensions at the same time as we start (run) the project by using the `./run.sh build_start` script 
+We can build the image and extensions at the same time as we start (run) the project by using the `./run.sh build_start` script
 (on Windows use the `run.bat build_start` script instead).
 
-Note that if you have another Alfresco SDK project running, then you need to stop it first. Also, make sure that the 
+Note that if you have another Alfresco SDK project running, then you need to stop it first. Also, make sure that the
 following ports are free: 8180 (Share), 8080 (Alfresco Repo - if enabled in Docker Compose), 9898 (Share Debug), 8888 (Alfresco Repo Debug - if enabled), 5555 (Postgres).
-If you want to change the ports see the properties section of `my-share-project/pom.xml`. This project file also 
+If you want to change the ports see the properties section of `my-share-project/pom.xml`. This project file also
 contains the versions of Alfresco Repository (if enabled) and Alfresco Share that will be used.  
 
-When I run the project I have uncommented the code (make sure to also remove the "# Optional" line) that starts 
+When I run the project I have uncommented the code (make sure to also remove the "# Optional" line) that starts
 the Repository, Search, and PostgresSQL in the (`my-share-project/docker/docker-compose.yml`) file, so I can test the Share extension:  
 
 ```bash
@@ -950,15 +942,15 @@ alfresco-share-my-share-project                development                b8b9ac
 
 The different web applications should now be accessible:
 
-* **Content Services Repository**: http://localhost:8080/alfresco
-* **Content Services Share**: http://localhost:8180/share/ - login with **admin/admin**
+* **Content Services Repository**: <http://localhost:8080/alfresco>
+* **Content Services Share**: <http://localhost:8180/share/> - login with **admin/admin**
 
-#### Trying out the sample code
+#### Trying out the sample code (share)
 
 The Share project has some sample extension code that you can try out. The Share extension is a custom Aikau page with a custom widget, you reach it with the following URL: `http://localhost:8180/share/page/hdp/ws/simple-page`.
 The source code for the Page and Widget is located here: `my-share-project/src/main/resources/alfresco/web-extension/site-webscripts/com/example/pages` and here: `my-share-project/src/main/resources/META-INF/resources/my-share-project-share/js/tutorials/widgets`.
 
-#### Looking inside the containers
+#### Looking inside the containers (share)
 
 Sometimes it's good to be able to look at what has actually been deployed in the containers. For example, how do I access the Share container and list the custom Share extension JARs that have been deployed?
 
@@ -999,7 +991,7 @@ my-share-project username$ docker exec -it docker_my-share-project-share_1 /bin/
 exit
 ```
 
-#### Updating extension code
+#### Updating extension code (share)
 
 So now you probably want to write some new code, or update the existing code, and see how that works with the containers running. What do you need to do, restart etc. First just update the code. For example, let's update the Share Page title. Open up the `my-share-project/src/main/resources/alfresco/web-extension/site-webscripts/com/example/pages/simple-page.get.js` file and change it to look as follows:
 
@@ -1054,9 +1046,9 @@ You will be left with the console tailing the logs, but you can **Ctrl-C** out o
 
 You can now check if the change took effect by accessing the `http://localhost:8180/share/page/hdp/ws/simple-page` Web Script.
 
-#### Stopping the project
+#### Stopping the project (share)
 
-To stop the solution you need to first `Ctrl-C` out of the log tailing. This does not stop the containers 
+To stop the solution you need to first `Ctrl-C` out of the log tailing. This does not stop the containers
 as they run in daemon mode in the background. Check this by executing the following command that lists running containers:
 
 ```bash
@@ -1257,8 +1249,8 @@ After this brief introduction of the All-In-One project, let’s focus on the co
 
 Below is a description of the files in the root of the project (in this case, `my-all-in-one-project`).
 
-|File | Description|
-|--- | ---|
+| File | Description |
+| ---- | ----------- |
 |`run` (`sh` and `bat`) | Utility script to work with the project (compile, run, test, show logs, etc.). [More details about the run script](#workingwithrunscript).|
 |`pom.xml` | This XML file contains information about the project and configuration details used by Apache Maven to build the project. You can define all the configurations, parameters, and settings in this file for projects as well as for sub-projects.|
 |`README.md` | File in Markdown format containing the documentation for the project.|
@@ -1267,8 +1259,8 @@ Below is a description of the files in the root of the project (in this case, `m
 
 Below is a description of the content in the `my-all-in-one-project-platform` (typically named `<artefactId-platform>`) sub-project. This sub-project contains the source code entirely dedicated to the customizing the Content Services Repository.
 
-|Content | Description|
-|--- | ---|
+| Content | Description |
+| ------- | ----------- |
 |`pom.xml` | This XML file contains information about the project and configuration details used by Apache Maven to build the project. You can define all the configurations, parameters, and settings in this file even if it depends on the parent pom in the root folder. For the majority of use cases, settings and configurations are directly inherited from the parent pom, and this file can work in its default version.|
 |`src/main/assembly` | In this folder you can find everything that's needed to fully control creating the AMP artifact in the platform project. The main file to check is `amp.xml`.|
 |`src/main/java/<groupId>...` | This folder contains the same content you can find in a regular Java project, i.e. the Java source code. Here you should put all the custom classes, interfaces, and Java source code in general.|
@@ -1281,47 +1273,47 @@ Below is a description of the content in the `my-all-in-one-project-platform` (t
 
 Below is a description of the content in the `my-all-in-one-project-platform-docker` (typically named `<artefactId-platform-docker>`) sub-project. This sub-project contains the resources required to define a custom Docker image with the Content Services Repository and the customization module `my-all-in-one-project-platform` installed.
 
-Content | Description
---- | ---
-`pom.xml` | This XML file contains information about the project and configuration details used by Apache Maven to build the project. It adds the dependency to the `my-all-in-one-project-platform` module and configures the `maven-dependency-plugin` to copy all the artifacts required in the Docker image into the folder `${project.build.directory}/extensions`.
-`src/main/docker` | In this folder you can find everything that's needed to fully configure the custom Content Services Docker image.
-`src/main/docker/Dockerfile` | This is the file that define the custom Content Services Docker image. The default configuration installs all the existing JARs and AMPs under `${project.build.directory}/extensions` folder and adds custom configuration and license files.
-`src/main/docker/license` | This folder contains the licenses required for running an Enterprise project.
+| Content | Description |
+| ------- | ----------- |
+| `pom.xml` | This XML file contains information about the project and configuration details used by Apache Maven to build the project. It adds the dependency to the `my-all-in-one-project-platform` module and configures the `maven-dependency-plugin` to copy all the artifacts required in the Docker image into the folder `${project.build.directory}/extensions`. |
+| `src/main/docker` | In this folder you can find everything that's needed to fully configure the custom Content Services Docker image. |
+| `src/main/docker/Dockerfile` | This is the file that define the custom Content Services Docker image. The default configuration installs all the existing JARs and AMPs under `${project.build.directory}/extensions` folder and adds custom configuration and license files. |
+| `src/main/docker/license` | This folder contains the licenses required for running an Enterprise project. |
 
 #### my-all-in-one-project-share
 
 Below is a description of the content in the `my-all-in-one-project-share` (typically named `<artefactId-share>`) sub-project. This sub-project contains the source code entirely dedicated to the customizing the Alfresco Share client.
 
-Content | Description
---- | ---
-`pom.xml` | This XML file contains information about the project and configuration details used by Apache Maven to build the project. You can define all the configurations, parameters, and settings in this file even if it depends on the parent pom in the root folder. For the majority of use cases, settings and configurations are directly inherited from the parent pom, and this file can work in its default version.
-`src/main/assembly` | In this folder you can find everything that's needed to fully control creating the AMP artifact in the platform project. The main file to check is `amp.xml`.
-`src/main/java/<groupId>...` | This folder contains the same content you can find in a regular Java project, i.e. the Java source code. Here you should put all the custom classes, interfaces, and Java source code in general.
-`src/main/resources/alfresco/module/<artifactId>` | This folder contains all the configuration files and settings for the Alfresco Share module. Here you can find the property file for the module.
-`src/main/resources/alfresco/web-extension` | In this folder you can find the extensions to the web client (Alfresco Share) and it's where you store Spring configurations that extend and override the system Share configuration. There are two important sub-directories here: `site-data` and `site-webscripts`.
-`src/main/resources/alfresco/META-INF/resources` | This folder hosts the content that will be placed in the `META-INF` folder of a standard Java web application. It is best practice to use a further subdirectory based on the module name. This allows you to manage multiple modules, so that their web resources don't conflict with each other.
-`src/main/resources/alfresco/META-INF/share-config-custom.xml` | This file is a relevant Alfresco Share file used to configure the sub-project with the correct settings, depending on your environment. For more details, see [Share configuration]({% link content-services/latest/develop/share-ext-points/index.md %}).
-`src/test/java/<groupId>...` | This folder contains the same content you can find in a regular Java project, i.e. the Java source code for tests. Here you should put all the custom classes, interfaces, and Java source code related to tests.
+| Content | Description |
+| ------- | ----------- |
+| `pom.xml` | This XML file contains information about the project and configuration details used by Apache Maven to build the project. You can define all the configurations, parameters, and settings in this file even if it depends on the parent pom in the root folder. For the majority of use cases, settings and configurations are directly inherited from the parent pom, and this file can work in its default version. |
+| `src/main/assembly` | In this folder you can find everything that's needed to fully control creating the AMP artifact in the platform project. The main file to check is `amp.xml`. |
+| `src/main/java/<groupId>...` | This folder contains the same content you can find in a regular Java project, i.e. the Java source code. Here you should put all the custom classes, interfaces, and Java source code in general. |
+| `src/main/resources/alfresco/module/<artifactId>` | This folder contains all the configuration files and settings for the Alfresco Share module. Here you can find the property file for the module. |
+| `src/main/resources/alfresco/web-extension` | In this folder you can find the extensions to the web client (Alfresco Share) and it's where you store Spring configurations that extend and override the system Share configuration. There are two important sub-directories here: `site-data` and `site-webscripts`. |
+| `src/main/resources/alfresco/META-INF/resources` | This folder hosts the content that will be placed in the `META-INF` folder of a standard Java web application. It is best practice to use a further subdirectory based on the module name. This allows you to manage multiple modules, so that their web resources don't conflict with each other. |
+| `src/main/resources/alfresco/META-INF/share-config-custom.xml` | This file is a relevant Alfresco Share file used to configure the sub-project with the correct settings, depending on your environment. For more details, see [Share configuration]({% link content-services/latest/develop/share-ext-points/index.md %}). |
+| `src/test/java/<groupId>...` | This folder contains the same content you can find in a regular Java project, i.e. the Java source code for tests. Here you should put all the custom classes, interfaces, and Java source code related to tests. |
 
 #### my-all-in-one-project-share-docker
 
 Below is a description of the content in the `my-all-in-one-project-share-docker` (typically named `<artefactId-share-docker>`) sub-project. This sub-project contains the resources required to define a custom Docker image with the Alfresco Share Client and the customization module `my-all-in-one-project-share` installed.
 
-Content | Description
---- | ---
-`pom.xml` | This XML file contains information about the project and configuration details used by Apache Maven to build the project. It adds the dependency to the `my-all-in-one-project-share` module and configures the `maven-dependency-plugin` to copy all the artifacts required in the Docker image into the folder `${project.build.directory}/extensions`.
-`src/main/docker` | In this folder you can find everything that's needed to fully configure the custom Alfresco Share Docker image.
-`src/main/docker/Dockerfile` | This is the file that define the custom Alfresco Share Docker image. The default configuration installs all the existing JARs and AMPs under `${project.build.directory}/extensions` folder and adds custom configuration files.
+| Content | Description |
+| ------- | ----------- |
+| `pom.xml` | This XML file contains information about the project and configuration details used by Apache Maven to build the project. It adds the dependency to the `my-all-in-one-project-share` module and configures the `maven-dependency-plugin` to copy all the artifacts required in the Docker image into the folder `${project.build.directory}/extensions`. |
+| `src/main/docker` | In this folder you can find everything that's needed to fully configure the custom Alfresco Share Docker image. |
+| `src/main/docker/Dockerfile` | This is the file that define the custom Alfresco Share Docker image. The default configuration installs all the existing JARs and AMPs under `${project.build.directory}/extensions` folder and adds custom configuration files. |
 
 #### my-all-in-one-project-integration-tests
 
 Below is a description of the content in the `my-all-in-one-project-integration-tests` (typically named `<artefactId-integration-tests>`) sub-project. This sub-project contains all the source code and resources needed to run the integration tests.
 
-Content | Description
---- | ---
-`pom.xml` | This XML file contains information about the project and configuration details used by Apache Maven to build the project. You can define all the configurations, parameters, and settings in this file even if it depends on the parent pom in the root folder. For the majority of use cases, settings and configurations are directly inherited from the parent pom, and this file can work in its default version.
-`src/main/java/<groupId>...` | This folder contains the same content you can find in a regular Java project, i.e. the Java source code. Here you should put all the custom classes, interfaces, and Java source code in general. The folder is empty by default.
-`src/test/java/<groupId>...` | This folder contains the same content you can find in a regular Java project, i.e. the Java source code for tests. Here you should put all the custom classes, interfaces, and Java source code in general related to tests. By default you can find three different tests related to content modelling, custom components, and web scripts.
+| Content | Description |
+| ------- | ----------- |
+| `pom.xml` | This XML file contains information about the project and configuration details used by Apache Maven to build the project. You can define all the configurations, parameters, and settings in this file even if it depends on the parent pom in the root folder. For the majority of use cases, settings and configurations are directly inherited from the parent pom, and this file can work in its default version. |
+| `src/main/java/<groupId>...` | This folder contains the same content you can find in a regular Java project, i.e. the Java source code. Here you should put all the custom classes, interfaces, and Java source code in general. The folder is empty by default. |
+| `src/test/java/<groupId>...` | This folder contains the same content you can find in a regular Java project, i.e. the Java source code for tests. Here you should put all the custom classes, interfaces, and Java source code in general related to tests. By default you can find three different tests related to content modelling, custom components, and web scripts. |
 
 ### Platform JAR project structure {#structureplatform}
 
@@ -1409,31 +1401,31 @@ From a high level standpoint, we can describe the content of the project as foll
 
 After this brief introduction of the Platform JAR project, let’s focus on the content of the folders.
 
-#### Project root folder
+#### Project root folder (platform)
 
 Below is a description of the files in the root of the project (in this case, `my-platform-jar-project`).
 
-File | Description
---- | ---
-`run` (`sh` and `bat`) | Utility script to work with the project (compile, run, test, show logs, etc.). [More details about the run script](#workingwithrunscript).
-`pom.xml` | This XML file contains information about the project and configuration details used by Apache Maven to build the project.
-`README.md` | File in Markdown format containing the documentation for the project.
+| File | Description |
+| ---- | ----------- |
+| `run` (`sh` and `bat`) | Utility script to work with the project (compile, run, test, show logs, etc.). [More details about the run script](#workingwithrunscript). |
+| `pom.xml` | This XML file contains information about the project and configuration details used by Apache Maven to build the project. |
+| `README.md` | File in Markdown format containing the documentation for the project. |
 
-#### `src` folder
+#### `src` folder (platform)
 
 Below is a description of the content in the `src` folder. This folder contains the source code, tests, configuration, settings, and resources entirely dedicated to the customization of the Content Services Repository.
 
-Content | Description
---- | ---
-`src/main/assembly` | In this folder you can find everything that's needed to fully control creating the AMP artifact in the platform project. The main file to check is `amp.xml`.
-`src/main/docker` | In this folder you can find everything that's needed to fully configure the custom Content Services Docker image.
-`src/main/docker/Dockerfile` | This is the file that define the custom Content Services Docker image. The default configuration installs all the existing JARs and AMPs under `${project.build.directory}/extensions` folder and adds custom configuration and license files.
-`src/main/docker/license` | This folder contains the licenses required for running an Enterprise project.
-`src/main/java/<groupId>...` | This folder contains the same content you can find in a regular Java project, i.e. the Java source code. Here you should put all the custom classes, interfaces, and Java source code in general.
-`src/main/resources/alfresco/extension/templates/webscripts` | In this folder you can find the extensions to the REST API related to Web Scripts . Repository Web Scripts are defined in XML, JavaScript, and FreeMarker files. These are referred to as Data Web Scripts as they usually return JSON or XML. The default project contains a Hello World example.
-`src/main/resources/alfresco/module/<artifactId>` | This folder contains all the configuration files and settings for the Alfresco platform module. Here you can find context files, the `alfresco-global.properties` file, Content Model examples, and Activiti workflow examples.
-`src/main/resources/META-INF` | This folder hosts the content that will be placed in the `META-INF` folder of a standard Java web application.
-`src/test/java/<groupId>...` | This folder contains the same content you can find in a regular Java project, i.e. the Java source code for tests. Here you should put all the custom classes, interfaces, and Java source code related to tests.
+| Content | Description |
+| ------- | ----------- |
+| `src/main/assembly` | In this folder you can find everything that's needed to fully control creating the AMP artifact in the platform project. The main file to check is `amp.xml`. |
+| `src/main/docker` | In this folder you can find everything that's needed to fully configure the custom Content Services Docker image. |
+| `src/main/docker/Dockerfile` | This is the file that define the custom Content Services Docker image. The default configuration installs all the existing JARs and AMPs under `${project.build.directory}/extensions` folder and adds custom configuration and license files. |
+| `src/main/docker/license` | This folder contains the licenses required for running an Enterprise project. |
+| `src/main/java/<groupId>...` | This folder contains the same content you can find in a regular Java project, i.e. the Java source code. Here you should put all the custom classes, interfaces, and Java source code in general. |
+| `src/main/resources/alfresco/extension/templates/webscripts` | In this folder you can find the extensions to the REST API related to Web Scripts . Repository Web Scripts are defined in XML, JavaScript, and FreeMarker files. These are referred to as Data Web Scripts as they usually return JSON or XML. The default project contains a Hello World example. |
+| `src/main/resources/alfresco/module/<artifactId>` | This folder contains all the configuration files and settings for the Alfresco platform module. Here you can find context files, the `alfresco-global.properties` file, Content Model examples, and Activiti workflow examples. |
+| `src/main/resources/META-INF` | This folder hosts the content that will be placed in the `META-INF` folder of a standard Java web application. |
+| `src/test/java/<groupId>...` | This folder contains the same content you can find in a regular Java project, i.e. the Java source code for tests. Here you should put all the custom classes, interfaces, and Java source code related to tests. |
 
 ### Share JAR project structure {#structureshare}
 
@@ -1514,31 +1506,31 @@ From a high level standpoint, we can describe the content of the project as foll
 
 After this brief introduction of the Platform JAR project, let’s focus on the content of the folders.
 
-#### Project root folder
+#### Project root folder (share)
 
 Below is a description of the files in the root of the project (in this case, `my-share-jar-project`).
 
-File | Description
---- | ---
-`run` (`sh` and `bat`) | Utility script to work with the project (compile, run, test, show logs, etc.). [More details about the run script](#workingwithrunscript).
-`pom.xml` | This XML file contains information about the project and configuration details used by Apache Maven to build the project.
-`README.md` | File in Markdown format containing the documentation for the project.
+| File | Description |
+| ---- | ----------- |
+| `run` (`sh` and `bat`) | Utility script to work with the project (compile, run, test, show logs, etc.). [More details about the run script](#workingwithrunscript). |
+| `pom.xml` | This XML file contains information about the project and configuration details used by Apache Maven to build the project. |
+| `README.md` | File in Markdown format containing the documentation for the project. |
 
-#### `src` folder
+#### `src` folder (share)
 
 Below is a description of the content in the `src` folder, which contains the source code, tests, configuration, settings, and resources entirely dedicated to the customization of the Alfresco Share client.
 
-Content | Description
---- | ---
-`src/main/assembly` | In this folder you can find everything that's needed to fully control creating the AMP artifact in the platform project. The main file to check is `amp.xml`.
-`src/main/docker` | In this folder you can find everything that's needed to fully configure the custom Alfresco Share Docker image.
-`src/main/docker/Dockerfile` | This is the file that define the custom Alfresco Share Docker image. The default configuration installs all the existing JARs and AMPs under `${project.build.directory}/extensions` folder and adds custom configuration files.
-`src/main/java/<groupId>...` | This folder contains the same content you can find in a regular Java project, i.e. the Java source code. Here you should put all the custom classes, interfaces, and Java source code in general.
-`src/main/resources/alfresco/module/<artifactId>` | This folder contains all the configuration files and settings for the Alfresco Share module. Here you can find the property file for the module.
-`src/main/resources/alfresco/web-extension` | In this folder you can find the extensions to the web client (Alfresco Share) and it's where you store Spring configurations that extend and override the system Share configuration. There are two important sub-directories here: `site-data` and `site-webscripts`.
-`src/main/resources/alfresco/META-INF/resources` | This folder hosts the content that will be placed in the `META-INF` folder of a standard Java web application. It is best practice to use a further subdirectory based on the module name. This allows you to manage multiple modules, so that their web resources don't conflict with each other.
-`src/main/resources/alfresco/META-INF/share-config-custom.xml` | This file is a relevant Alfresco Share file used to configure the sub-project with the correct settings, depending on your environment. For more details, see [Share configuration]({% link content-services/latest/develop/share-ext-points/index.md %}).
-`src/test/java/<groupId>...` | This folder contains the same content you can find in a regular Java project, i.e. the Java source code for tests. Here you should put all the custom classes, interfaces, and Java source code related to tests.
+| Content | Description |
+| ------- | ----------- |
+| `src/main/assembly` | In this folder you can find everything that's needed to fully control creating the AMP artifact in the platform project. The main file to check is `amp.xml`. |
+| `src/main/docker` | In this folder you can find everything that's needed to fully configure the custom Alfresco Share Docker image. |
+| `src/main/docker/Dockerfile` | This is the file that define the custom Alfresco Share Docker image. The default configuration installs all the existing JARs and AMPs under `${project.build.directory}/extensions` folder and adds custom configuration files. |
+| `src/main/java/<groupId>...` | This folder contains the same content you can find in a regular Java project, i.e. the Java source code. Here you should put all the custom classes, interfaces, and Java source code in general. |
+| `src/main/resources/alfresco/module/<artifactId>` | This folder contains all the configuration files and settings for the Alfresco Share module. Here you can find the property file for the module. |
+| `src/main/resources/alfresco/web-extension` | In this folder you can find the extensions to the web client (Alfresco Share) and it's where you store Spring configurations that extend and override the system Share configuration. There are two important sub-directories here: `site-data` and `site-webscripts`. |
+| `src/main/resources/alfresco/META-INF/resources` | This folder hosts the content that will be placed in the `META-INF` folder of a standard Java web application. It is best practice to use a further subdirectory based on the module name. This allows you to manage multiple modules, so that their web resources don't conflict with each other. |
+| `src/main/resources/alfresco/META-INF/share-config-custom.xml` | This file is a relevant Alfresco Share file used to configure the sub-project with the correct settings, depending on your environment. For more details, see [Share configuration]({% link content-services/latest/develop/share-ext-points/index.md %}). |
+| `src/test/java/<groupId>...` | This folder contains the same content you can find in a regular Java project, i.e. the Java source code for tests. Here you should put all the custom classes, interfaces, and Java source code related to tests. |
 
 ## Setting up your development environment
 
@@ -1631,7 +1623,7 @@ This article is focused on the Community version. If you want to switch to Alfre
 
 The supported versions are explained in the next sections of this article.
 
-#### Switch to Alfresco version 7.0.x
+#### Switch to Alfresco version 7.x
 
 Starting from a newly created Alfresco SDK project (All-In-One, Platform JAR, or Share JAR), let’s replace the two properties with the following ones.
 
@@ -1644,19 +1636,18 @@ Starting from a newly created Alfresco SDK project (All-In-One, Platform JAR, or
     <alfresco.share.version>7.0.0</alfresco.share.version>
     ```
 
-    In this example we have shown the switch to version 7.0.0. Feel free to use the correct version for your project, paying attention to the compatible versions 
-    of Content Services and Alfresco Share.
+    In this example we have shown the switch to version 7.0.0. Feel free to use the correct version for your project, paying attention to the compatible versions of Content Services and Alfresco Share.
 
 3. After changing the versions, delete all the previous data of your development Docker environment:
 
     ```bash
-    $ ./run.sh purge
+    ./run.sh purge
     ```
 
 4. Rebuild and restart the project:
 
     ```bash
-    $ ./run.sh build_start
+    ./run.sh build_start
     ```
 
 ### Working with Enterprise {#workingwithenterprise}
@@ -1695,7 +1686,7 @@ You'll need to update the following settings in the `pom.xml` file:
 
 Changing these parameters instructs the project to use the proper maven dependencies and Docker images. Note that the Docker images are located in the private **quay.io** Docker Registry.
 
-Depending on the needs of your project, it might be necessary to change the `org.alfresco:alfresco-remote-api` dependency to `org.alfresco:alfresco-enterprise-remote-api` or adding any other enterprise dependency like `org.alfresco:alfresco-enterprise-repository`. In any case, it won't be necessary to include the dependency version as the BOM dependency in the `dependencyManagement` section of the parent `pom.xml` file handles that. 
+Depending on the needs of your project, it might be necessary to change the `org.alfresco:alfresco-remote-api` dependency to `org.alfresco:alfresco-enterprise-remote-api` or adding any other enterprise dependency like `org.alfresco:alfresco-enterprise-repository`. In any case, it won't be necessary to include the dependency version as the BOM dependency in the `dependencyManagement` section of the parent `pom.xml` file handles that.
 
 #### Configuring the Enterprise version
 
@@ -1716,8 +1707,8 @@ Once all the previous configuration is done, you only need to purge any possible
 the project.
 
 ```bash
-$ ./run.sh purge
-$ ./run.sh build_start
+./run.sh purge
+./run.sh build_start
 ```
 
 If you're using Windows, you'll need to use the `run.bat` script instead of `run.sh`.
@@ -1751,7 +1742,7 @@ In order to download the Docker images needed to work with Content Services Ente
 The first matter to consider is to ensure that you have credentials for the Alfresco private Docker registry, where the Alfresco images are stored. Customers and partners can request these credentials by opening a ticket in [Hyland Community](https://community.hyland.com/){:target="_blank"}. Once you have suitable credentials, you only need to login your docker installation to the Quay.io Docker registry:
 
 ```bash
-$ docker login quay.io
+docker login quay.io
 ```
 
 At this point you have configured Docker to have access to the Alfresco private Docker registry at [Quay.io](https://quay.io/){:target="_blank"}.
@@ -2062,7 +2053,7 @@ Anyway, that order can be controlled modifying slightly the configuration of the
 4. Rebuild and restart the project (use `run.bat` instead in Windows):
 
     ```bash
-    $ ./run.sh build_start
+    ./run.sh build_start
     ```
 
 At this point, you have configured your project to apply the AMPs in a specific order.
@@ -2247,7 +2238,7 @@ For more details on how to import an Alfresco project into your IntelliJ IDEA ID
 
 From here the management is the same as for a regular Java application using your preferred IDE. Please note that the whole Alfresco source code is available at debug time, thanks to the local maven repository.
 
-### Integration testing
+### SDK integration testing
 
 _"Integration testing is the phase in software testing where individual software modules are combined and tested as a group. It occurs after unit testing and before validation testing. Integration testing takes as its input modules that have been unit tested, groups them in larger aggregates, applies tests defined in an integration test plan to those aggregates, and delivers as its output the integrated system ready for system testing." [Wikipedia]._
 
@@ -2404,18 +2395,18 @@ If you want to run the integration tests from the command line you'll have to us
 If you want to spin up a new dockerized environment with Content Services, run the integration tests and stop that environment, you'll use the `build_test` goal:
 
 ```bash
-$ ./run.sh build_test
+./run.sh build_test
 ```
 
 If you want all your previous data in the docker environment to be wiped out before the execution of the integration tests, remember to call the `purge` goal
 before the `build_test` goal:
 
 ```bash
-$ ./run.sh purge
-$ ./run.sh build_test
+./run.sh purge
+./run.sh build_test
 ```
 
-The `build_test` goal will execute the next list of tasks: 
+The `build_test` goal will execute the next list of tasks:
 
 * Stop any previous execution of the dockerized environment.
 * Compile all the source code.
@@ -2429,7 +2420,7 @@ If your dockerized environment is already started and you simply want to execute
 goal:
 
 ```bash
-$ ./run.sh test
+./run.sh test
 ```
 
 ##### Configuring a custom Content Services endpoint location
@@ -2560,7 +2551,7 @@ _Note that a license is required. In this step you will be able to request a tri
 
 5. Select `Preferences > JRebel > Remote Servers` to add a new remote server.
 
-6. Give a descriptive name to the new server and set the `Server URL` as `http://localhost:8080/alfresco.
+6. Give a descriptive name to the new server and set the `Server URL` as `<http://localhost:8080/alfresco>.
 
     ![sdk-jrebel-intellij-server]({% link content-services/images/sdk-jrebel-intellij-server.png %})
 
@@ -3059,7 +3050,7 @@ sample-project-acs_1    | at org.postgresql.jdbc.PgConnection.<init>(PgConnectio
 ...
 ```
 
-The projects generated using the Alfresco SDK archetypes are configured in a way that the Content Services container _depends on_ the database container (PostgreSQL). 
+The projects generated using the Alfresco SDK archetypes are configured in a way that the Content Services container _depends on_ the database container (PostgreSQL).
 
 ```text
 services:
