@@ -45,7 +45,7 @@ A realm and client need to be configured in the Keycloak for the Alfresco produc
 
 A separate client always needs to be created and configured for Desktop Sync if it is used. The configuration steps for this additional client can be ignored if Desktop Sync is not used.
 
-1. Sign in to the administrator console of the Keycloak as an administrator.
+1. Sign into the Keycloak Administration Console (Keycloak Admin Console).
 2. Select the default realm, `Alfresco` or create a new realm to use that the Alfresco products will be accessed through. Note down the **Name** for later use. The realm `Alfresco` will be used in this example.
 3. Select **Tokens** and set a timeout period in the **Realm Settings** for the realm `Alfresco`.
 4. Use the default client under the `Alfresco` realm or create a new client and configure it. Make sure that at least the following are set:
@@ -78,7 +78,7 @@ A separate client always needs to be created and configured for Desktop Sync if 
 
 An LDAP directory needs to be synchronized with the Keycloak, Alfresco Content Services (ACS) and Alfresco Process Services (APS). The following steps detail the synchronization with the Keycloak, whilst the configuration to ACS and APS is covered in later steps.
 
-1. Sign in to the administrator console of the Keycloak as an administrator and select the `Alfresco` realm.
+1. Sign into the Keycloak Administration Console (Keycloak Admin Console) and select the `Alfresco` realm.
 2. Select **User Federation** and **Add Ldap providers**.
 3. Choosing a **Vendor** will auto-populate many of the fields.
 4. Enter the **Connection URL** for the LDAP instance in the format:
@@ -116,7 +116,7 @@ A Service provider needs to be set up in the SAML identity provider for the Keyc
 
 The Keycloak needs to have a connection to the SAML identity provider configured. This can be setup manually or by importing connection details from an external file.
 
-1. Sign in to the administrator console of the Keycloak as an administrator and select the `Alfresco` realm.
+1. Sign into the Keycloak Administration Console (Keycloak Admin Console) and select the `Alfresco` realm.
 2. Select **Identity Providers** and **Add provider...** then choose **SAML v2.0**.
 3. Enter an **Alias** for the provider.
 
@@ -130,7 +130,7 @@ The Keycloak needs to have a connection to the SAML identity provider configured
 
 Enforcing SAML removes the option for users to sign into Alfresco products with basic authentication and only displays the option for a SAML sign in.
 
-1. Sign in to the administrator console of the Keycloak as an administrator and select the `Alfresco` realm.
+1. Sign into the Keycloak Administration Console (Keycloak Admin Console) and select the `Alfresco` realm.
 2. Select **Authentication** and navigate to the **Flows** tab.
 3. `Browser` in the dropdown list and select **Action** > **Config** for the **Identity Provider Redirector** row.
 4. Fill in the resulting form with the details of the SAML identity provider configured in [step 4](#step-4-configure-a-service-provider-connection).
@@ -314,7 +314,7 @@ An SSO connection can be configured between Process Services and Content Service
 
 If Process Services for mobile is required then a client needs to be created for it in the Keycloak to enable SSO capability. The redirect URI is preconfigured for the mobile application using the operating system it is installed on, which means that the **Valid Redirect URIs** value in the Keycloak must match this value.
 
-1. Sign in to the administrator console of the Keycloak as an administrator.
+1. Sign into the Keycloak Administration Console (Keycloak Admin Console).
 2. Create a new client for the mobile application under the `Alfresco` realm or the realm you created in [step 1](#step-1-configure-a-realm-and-clients) and set at least the following in the **Settings** tab:
 
     **iOS**
@@ -333,7 +333,7 @@ If Process Services for mobile is required then a client needs to be created for
 
 If Content Services for iOS is required then a client needs to be created for it in the Keycloak to enable SSO capability. The redirect URI is preconfigured for the mobile application using the operating system it is installed on, which means that the **Valid Redirect URIs** value in the Keycloak must match this value.
 
-1. Sign in to the administrator console of the Keycloak as an administrator. The URL of the Keycloak administrator console is `https://keycloak.example.com/auth/admin`.
+1. Sign into the Keycloak Administration Console (Keycloak Admin Console).
 2. Create a new client for the mobile application under the `Alfresco` realm or the realm you created in [step 1](#step-1-configure-a-realm-and-clients) and set at least the following in the **Settings** tab:
 
     * A unique and identifiable **Client ID**. The default value is `alfresco-ios-acs-app`.
