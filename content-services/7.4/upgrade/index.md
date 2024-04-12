@@ -21,7 +21,7 @@ When you upgrade Content Services, it's recommended that you follow a structured
 
 The following diagram shows the upgrade paths for major versions:
 
-![Upgrade paths to 7.4.x]({% link content-services/images/upgrade-path-7.4.png %})
+![Upgrade paths to 7.4.x]({% link content-services/images/upgrade-path-7.4.x.png %})
 
 The upgrade path recommendations are:
 
