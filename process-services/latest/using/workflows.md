@@ -9,6 +9,41 @@ A workflow is a process that controls a specific task, such as a document review
 Once all the task actions required by a workflow have been finished, the workflow will move from active to completed status. At this point you’re free to delete the workflow.
 Individual users manage their own tasks, and the person who created a workflow manages the workflow.
 
+Starting from Process Service 24.1, six out-of-the box workflows provide a faster time to value for these frequently used simple workflows. The workflows are for assigning tasks, review, and approval:
+
+* New Task
+* New Task (group)
+* Review and Approve (group review)
+* Review and Approve (one or more reviewers)
+* Review and Approve (pooled review)
+* Review and Approve (single reviewer)
+
+There are several stages to setting up a Preconfigured Workflows app before you can use it. To get started:
+
+1. Create a tenant.
+
+      This is when you enable the **Preconfigured workflows** app.
+
+2. Change the owner.
+
+3. Configure a preconfigured workflow.
+
+4. Create a user.
+
+5. Create a group.
+
+6. Start a workflow.
+
+7. View workflows that you started.
+
+8. Cancel an active workflow.
+
+9. Delete a completed workflow.
+
+10. View tasks and workflows.
+
+11. Manage tasks.
+
 ## Creating a tenant
 
 You need to create a tenant before you can start creating workflows. 
