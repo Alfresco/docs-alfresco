@@ -53,15 +53,15 @@ These steps describe how to quickly start up Content Services (including Control
 
 To deploy Content Services using Docker Compose, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites](#prerequisites) before continuing.
 
-1. Download the `docker-compose.yml` file by accessing the Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"} page, which will give you a 30-day license.
+1. Download the `7.4.N-docker-compose.yml` file by accessing the Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"} page, which will give you a 30-day license.
 
-    If you already have a valid license file for Content Services 7.4, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/7.4/admin/license.md %}) for more details.
+    If you already have a valid license file for Content Services 7.4.x, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/7.4/admin/license.md %}) for more details.
 
-    > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
+    > **Note:** Make sure that exposed ports are open on your host computer. Check the `7.4.N-docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 
     > **Note:** The Download Trial is usually updated for *major.minor* versions of Content Services. The latest published version on our website is labelled *Version 7.4 - May 2023*.
 
-2. Save the `docker-compose.yml` file in a local folder.
+2. Save the `7.4.N-docker-compose.yml` file in a local folder.
 
 3. Log in to Quay.io using your credentials:
 
@@ -308,7 +308,7 @@ You have created a new Control called `Training` that has three Security Marks. 
     docker-compose down --rmi all
     ```
 
-5. Try allocating more memory resources, as advised in `docker-compose.yml`.
+5. Try allocating more memory resources, as advised in `7.4.N-docker-compose.yml`.
 
     For example, in Docker, change the memory setting in **Preferences** (or **Settings**) **Resources** > **Advanced** > **Memory** to at least 13 GB. Make sure you restart Docker and wait for the process to finish before continuing.
 

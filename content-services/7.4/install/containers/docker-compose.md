@@ -8,19 +8,19 @@ Use this information to quickly start up Content Services using Docker Compose.
 
 To deploy Content Services using Docker Compose, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites]({% link content-services/7.4/install/containers/index.md %}#prerequisites) before continuing.
 
-1. Download the `docker-compose.yml` file by accessing the Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"} page, which will give you a 30-day license.
+1. Download the `7.4.N-docker-compose.yml` file by accessing the Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"} page, which will give you a 30-day license.
 
-    If you already have a valid license file for Content Services 7.4, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/7.4/admin/license.md %}) for more details.
+    If you already have a valid license file for Content Services 7.4.x, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/7.4/admin/license.md %}) for more details.
 
-    > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
+    > **Note:** Make sure that exposed ports are open on your host computer. Check the `7.4.N-docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 
     > **Note:** The Download Trial is usually updated for *major.minor* versions of Content Services. The latest published version on our website is labelled *Version 7.4 - May 2023*.
 
-2. Save the `docker-compose.yml` file in a local folder.
+2. Save the `7.4.N-docker-compose.yml` file in a local folder.
 
     For example, you can create a folder `acs-trial`.
 
-3. Change directory to the location of your `docker-compose.yml` file.
+3. Change directory to the location of your `7.4.N-docker-compose.yml` file.
 
 4. Log in to Quay.io using your credentials:
 
@@ -106,7 +106,7 @@ Use this information to verify that the system started correctly, and to clean u
         docker-compose images
         ```
 
-        You should see a list of the services defined in your `docker-compose.yml` file (below are the tags used in the latest 7.4.0 release):
+        You should see a list of the services defined in your `7.4.N-docker-compose.yml` file (below are the tags used in the latest 7.4.x release):
 
         ```text
         Container                        Repository                                     Tag                       Image Id       Size

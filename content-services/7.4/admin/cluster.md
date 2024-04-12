@@ -385,7 +385,7 @@ We recommend to enable:
 
 Given that the Hazelcast cluster name consists of the Repository name and the Repository ID, you should consider changing this value to one that can’t be easily guessed.
 
-> **Note:** This compensating control applies to Content Services up to (and including) [version 7.3.x]({% link content-services/7.3/admin/cluster.md %}#setuprepocluster). From Content Services 7.4.0 onwards, this procedure is applied automatically.
+> **Note:** This compensating control applies to Content Services up to (and including) [version 7.3.x]({% link content-services/7.3/admin/cluster.md %}#setuprepocluster). From Content Services 7.4.x onwards, this procedure is applied automatically.
 
 1. Open the Admin Console.
 
