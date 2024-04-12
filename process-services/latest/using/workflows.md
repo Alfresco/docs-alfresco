@@ -9,7 +9,7 @@ A workflow is a process that controls a specific task, such as a document review
 Once all the task actions required by a workflow have been finished, the workflow will move from active to completed status. At this point you’re free to delete the workflow.
 Individual users manage their own tasks, and the person who created a workflow manages the workflow.
 
-Starting from Process Service 24.1, six out-of-the box workflows provide a faster time to value for these frequently used simple workflows. The workflows are for assigning tasks, review, and approval:
+Starting from Process Services 24.1, six out-of-the box workflows provide a faster time to value for these frequently used simple workflows. The workflows are for assigning tasks, review, and approval:
 
 * New Task
 * New Task (group)
