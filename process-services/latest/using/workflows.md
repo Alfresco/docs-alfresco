@@ -34,15 +34,13 @@ There are several stages to setting up a Preconfigured Workflows app before you 
 
 6. Start a workflow.
 
-7. View workflows that you started.
+Once a workflow has been created, you can also:
 
-8. Cancel an active workflow.
-
-9. Delete a completed workflow.
-
-10. View tasks and workflows.
-
-11. Manage tasks.
+* View workflows that you started.
+* Cancel an active workflow.
+* Delete a completed workflow.
+* View tasks and workflows.
+* Manage tasks.
 
 ## Creating a tenant
 

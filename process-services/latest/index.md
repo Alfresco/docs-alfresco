@@ -13,4 +13,4 @@ Starting from Process Services 24.1, six out-of-the box workflows provide a fast
 * Review and Approve (pooled review)
 * Review and Approve (single reviewer)
 
-See the [Alfresco Docs - Preconfigured workflows]({% link process-services/latest/using/workflows.md %}) documentation for more details.
+See the [Preconfigured workflows]({% link process-services/latest/using/workflows.md %}) documentation for more details.
