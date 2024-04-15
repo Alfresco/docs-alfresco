@@ -1,5 +1,5 @@
 # Alfresco Content Connector for SAP Cloud 2.0
-- version: 1.2
+- version: 2.0
   pages:
     - title: 'Introduction'
       path: '/sap-cloud/latest/'
