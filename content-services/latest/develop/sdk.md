@@ -31,7 +31,7 @@ Adding, removing and configuring services in the environment is as easy as modif
 
 [Java 17](https://openjdk.org/projects/jdk/17/){:target="_blank"} is the latest Long Term Support (LTS) version that provides support for 3 years. Content Services 7.3 or later already offers support for this version of the Java platform.
 
-Alfresco SDK 4.5 or later has been modified to add support for Java 17, as well. This way, if you're working as a developer in customizations for Content Services 7.3 or later, you must now use SDK 4.5 or later + JDK 17 to work on them. The Apache Maven plugins included in the archetypes has been updated to avoid any issue with Java 17.
+Alfresco SDK 4.5 and later versions have been modified to add support for Java 17. This way, if you're working as a developer in customizations for Content Services 7.3 or later, you must now use SDK 4.5 or later + JDK 17 to work on them. The Apache Maven plugins included in the archetypes has been updated to avoid any issue with Java 17.
 
 ### Easy dependency configuration
 
@@ -87,7 +87,7 @@ It is highly recommended to work with Content Services 23.x, which uses Java 17.
     OpenJDK 64-Bit Server VM Homebrew (build 17.0.9+0, mixed mode, sharing)
     ```
 
-3. Make sure JAVA_HOME is setup correctly, so other tools like Maven will use the correct version.
+3. Make sure `JAVA_HOME` is setup correctly, so other tools like Maven use the correct version.
 
     ```bash
     $ env|grep JAVA_HOME
@@ -531,10 +531,10 @@ The Repository extension is a Web Script that you can call with the following UR
 http://localhost:8080/alfresco/service/sample/helloworld
 ```
 
-* The source code for the Web Script is located in the `my-all-in-one-project/my-all-in-one-project-platform/` folder:
+The source code for the Web Script is located in the `my-all-in-one-project/my-all-in-one-project-platform/` folder:
 
-  * `src/main/resources/alfresco/extension/templates/webscripts/alfresco/tutorials`
-  * `src/main/java/ com/example/platformsample/HelloWorldWebScript.java`
+* `src/main/resources/alfresco/extension/templates/webscripts/alfresco/tutorials`
+* `src/main/java/ com/example/platformsample/HelloWorldWebScript.java`
 
 The Share extension is a custom Aikau page with a custom widget that you can reach with the following URL:
 
@@ -542,10 +542,10 @@ The Share extension is a custom Aikau page with a custom widget that you can rea
 http://localhost:8180/share/page/hdp/ws/simple-page
 ```
 
-* The source code for the Page and Widget is located in the `my-all-in-one-project/my-all-in-one-project-share/` folder::
+The source code for the Page and Widget is located in the `my-all-in-one-project/my-all-in-one-project-share/` folder:
 
-  * `src/main/resources/alfresco/web-extension/site-webscripts/com/example/pages`
-  * `src/main/resources/META-INF/resources/my-all-in-one-project-share/js/tutorials/widgets`
+* `src/main/resources/alfresco/web-extension/site-webscripts/com/example/pages`
+* `src/main/resources/META-INF/resources/my-all-in-one-project-share/js/tutorials/widgets`
 
 #### Looking inside the containers
 
@@ -589,11 +589,20 @@ exit
 
 #### Updating extension code
 
-So now you probably want to write some new code, or update the existing code, and see how that works with the containers running. What do you need to do, restart etc. First just update the code. For example, let's update the Repository Web Script to return a different message. Open up the `my-all-in-one-project/my-all-in-one-project-platform/src/main/resources/alfresco/extension/templates/webscripts/alfresco/tutorials/helloworld.get.html.ftl` file and change it to look as follows:
+So now you probably want to write some new code, or update the existing code, and see how that works with the containers running. Let's just update the code and restart.
 
-```text
-Message: '${fromJS}' '${fromJava}' UPDATED!
-```
+For example, let's update the Repository Web Script to return a different message.
+
+1. Open the file in the `my-all-in-one-project/my-all-in-one-project-platform/` folder:
+
+    ```text
+    src/main/resources/alfresco/extension/templates/webscripts/alfresco/tutorials/helloworld.get.html.ftl`
+
+2. Change the content as follows:
+
+    ```text
+    Message: '${fromJS}' '${fromJava}' UPDATED!
+    ```
 
 To get this code update deployed, run the following command in another console then where we are tailing the logs,
 and stand in the directory where the `run.sh` script is located:
@@ -684,7 +693,7 @@ When you first start out you don't need to change any of these properties - just
 
 The first thing you need to do before you can run anything is to build the custom Content Services Repository Docker image with the custom extensions. We can build the image and extensions at the same time as we start (run) the project by using the `./run.sh build_start` script (on Windows use the `run.bat build_start` script instead).
 
-Note that if you have another Alfresco SDK project running, then you need to stop it first. Also, make sure that the following ports are free: 8180 (Share - if enabled in Docker Compose), 8080 (Alfresco Repo), 9898 (Share Debug - if enabled in Docker Compose), 8888 (Alfresco Repo Debug), 5555 (Postgres). If you want to change the ports see the properties section of `my-platform-project/pom.xml`. This project file also contains the versions of Alfresco Repository and Alfresco Share (if enabled) that will be used.  
+Note that if you have another Alfresco SDK project running, then you need to stop it first. Also, make sure that the following ports are free: `8180` (Share - if enabled in Docker Compose), `8080` (Alfresco Repo), `9898` (Share Debug - if enabled in Docker Compose), `8888` (Alfresco Repo Debug), `5555` (Postgres). If you want to change the ports see the properties section of `my-platform-project/pom.xml`. This project file also contains the versions of Alfresco Repository and Alfresco Share (if enabled) that will be used.  
 
 ```bash
 % cd my-platform-project/
@@ -755,9 +764,10 @@ The Repository extension is a Web Script that can be called with the following U
 http://localhost:8080/alfresco/service/sample/helloworld
 ```
 
-* The source code for the Web Script is located in the `my-platform-project/` folder:
-  * `src/main/resources/alfresco/extension/templates/webscripts/alfresco/tutorials`
-  * `src/main/java/ com/example/platformsample/HelloWorldWebScript.java`
+The source code for the Web Script is located in the `my-platform-project/` folder:
+
+* `src/main/resources/alfresco/extension/templates/webscripts/alfresco/tutorials`
+* `src/main/java/ com/example/platformsample/HelloWorldWebScript.java`
 
 #### Looking inside the containers (platform)
 
@@ -802,11 +812,21 @@ exit
 
 #### Updating extension code (platform)
 
-So now you probably want to write some new code, or update the existing code, and see how that works with the containers running. What do you need to do, restart etc. First just update the code. For example, let's update the Repository Web Script to return a different message. Open up the `my-platform-project/src/main/resources/alfresco/extension/templates/webscripts/alfresco/tutorials/helloworld.get.html.ftl` file and change it to look as follows:
+So now you probably want to write some new code, or update the existing code, and see how that works with the containers running. Let's just update the code and restart.
 
-```text
-Message: '${fromJS}' '${fromJava}' UPDATED!
-```
+For example, let's update the Repository Web Script to return a different message.
+
+1. Open the file in the `my-platform-project` folder:
+
+    ```text
+    src/main/resources/alfresco/extension/templates/webscripts/alfresco/tutorials/helloworld.get.html.ftl
+    ```
+
+2. Change the content as follows:
+
+    ```text
+    Message: '${fromJS}' '${fromJava}' UPDATED!
+    ```
 
 To get this code update deployed we have to run the following commands:
 
@@ -910,8 +930,7 @@ For Share to be able to connect to the Repository, both containers need to be at
 
 The first thing you need to do before you can run anything is to build the custom Share Docker image with the custom extensions. We can build the image and extensions at the same time as we start (run) the project by using the `./run.sh build_start` script (on Windows use the `run.bat build_start` script instead).
 
-Note that if you have another Alfresco SDK project running, then you need to stop it first. Also, make sure that the following ports are free: `8180` (Share), `8080` (Alfresco Repo - if enabled in Docker Compose), `9898` (Share Debug), `8888` (Alfresco Repo Debug - if enabled), `5555` (Postgres).
-If you want to change the ports see the properties section of `my-share-project/pom.xml`. This project file also contains the versions of Alfresco Repository (if enabled) and Alfresco Share that will be used.  
+Note that if you have another Alfresco SDK project running, then you need to stop it first. Also, make sure that the following ports are free: `8180` (Share), `8080` (Alfresco Repo - if enabled in Docker Compose), `9898` (Share Debug), `8888` (Alfresco Repo Debug - if enabled), `5555` (Postgres). If you want to change the ports see the properties section of `my-share-project/pom.xml`. This project file also contains the versions of Alfresco Repository (if enabled) and Alfresco Share that will be used.  
 
 > **Note:** Before running the Share project, uncomment the code that starts the Repository, Search, and PostgreSQL in the (`my-share-project/docker/docker-compose.yml`) file, so you can test the Share extension. Make sure you also remove the `# Optional` line.
 
@@ -975,9 +994,10 @@ The Share project has some sample extension code that you can try out. The Share
 http://localhost:8180/share/page/hdp/ws/simple-page
 ```
 
-* The source code for the Page and Widget is located in the `my-share-project/` folder:
-  * `src/main/resources/alfresco/web-extension/site-webscripts/com/example/pages`
-  * `src/main/resources/META-INF/resources/my-share-project-share/js/tutorials/widgets`
+The source code for the Page and Widget is located in the `my-share-project/` folder:
+
+* `src/main/resources/alfresco/web-extension/site-webscripts/com/example/pages`
+* `src/main/resources/META-INF/resources/my-share-project-share/js/tutorials/widgets`
 
 #### Looking inside the containers (share)
 
@@ -1024,7 +1044,7 @@ exit
 
 #### Updating extension code (share)
 
-So now you probably want to write some new code, or update the existing code, and see how that works with the running containers. First, just update the code.
+So now you probably want to write some new code, or update the existing code, and see how that works with the running containers. Let's just update the code and restart.
 
 For example, let's update the Share Page title.
 
@@ -1688,7 +1708,7 @@ Starting from a newly created Alfresco SDK project (All-In-One, Platform JAR, or
 
 ### Working with Enterprise {#workingwithenterprise}
 
-By default, the Alfresco SDK will use Community Edition releases, but it can be configured to use Enterprise Edition releases. Here you will learn how to set up a project to work with an Enterprise Edition release, highlighting the changes required to make it work.
+By default, the Alfresco SDK uses the Community Edition releases, but it can be configured to use Enterprise Edition releases. Here you'll learn how to set up a project to work with an Enterprise Edition release, highlighting the changes required to make it work.
 
 If you would like to work with the Alfresco Enterprise Edition, then this requires just a few property changes and a license installation. You also need to have access to the private Alfresco Nexus repository and the private Alfresco Quay.io Docker registry. See:
 
@@ -1785,32 +1805,32 @@ At this point you have configured Docker to have access to the Alfresco private 
 
 #### How to set up Alfresco Transform Service {#setuptransformservice}
 
-By default, the _Alfresco Transform Service_ (from now ATS) is not included in the basic configuration of the projects generated making use of the Alfresco SDK archetypes.
+By default, the _Alfresco Transform Service_ (ATS) is not included in the basic configuration of the projects generated by making use of the Alfresco SDK archetypes.
 
-ATS is only supported in Content Services Enterprise and it is distributed as a composition of Docker containers. The docker images required for ATS are available in the Alfresco private docker registry at [Quay.io](https://quay.io){:target="_blank"}.
+ATS is only supported in Content Services Enterprise and is distributed as a composition of Docker containers. The Docker images required for ATS are available in the Alfresco private docker registry at [Quay.io](https://quay.io){:target="_blank"}.
 For more information, see [How to configure private Alfresco Docker registry](#enterprisedockerregistry).
 
-In order to properly configure ATS in a project generated using the Alfresco SDK archetypes it is required to execute 2 steps:
+In order to properly configure ATS in a project generated using the Alfresco SDK archetypes, you'll need to execute 2 steps:
 
 1. Add the containers that conform ATS to the Docker Compose file.
 2. Configure the properties that are required to properly set up ATS.
 
 ##### Adding the new containers
 
-* Locate the Docker Compose file (usually at `PROJECT_ROOT_PATH/docker/docker-compose.yml`) and add the container that contains AIO transformer:
+* Locate the Docker Compose file (usually at `PROJECT_ROOT_PATH/docker/docker-compose.yml`) and add the container that contains the All-In-One (AIO) transformer:
 
 ```text
 services:
 ...
   transform-core-aio:
-    image: alfresco/alfresco-transform-core-aio:2.3.8
+    image: alfresco/alfresco-transform-core-aio:<AIO-VERSION>
     mem_limit: 1536m
     environment:
         JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
     ports:
         - 8090:8090  
   activemq:
-    image: alfresco/alfresco-activemq:5.16.1
+    image: alfresco/alfresco-activemq:<ACTIVEMQ-VERSION>
     mem_limit: 1g
     ports:
         - 8161:8161 # Web Console
@@ -1820,7 +1840,9 @@ services:
 ...
 ```
 
-* Check that you haven't any port conflict with other services in the Docker Compose file.
+> **Note:** Make you're using compatible component versions, such as the `<AIO-VERSION>` Transformer, and `<ACTIVEMQ-VERSION>`.
+
+* Check that you don't have any port conflict with other services in the Docker Compose file.
 
 ##### Adding the required configuration
 
@@ -1875,7 +1897,7 @@ To build AMPs the SDK ships a default assembly XML file that will tell the assem
 
 This section is commented out by default.
 
-1. To produce both a JAR file and an AMP, remove the comments and run the `mvn package` command.
+To produce both a JAR file and an AMP, remove the comments and run the `mvn package` command.
 
 Now you have full control over how your AMPs are built. If you want to change the content of the AMP, you can change the assembly `amp.xml` and tailor it to your needs.
 
@@ -1920,29 +1942,29 @@ The projects created from the Alfresco SDK archetypes are configured to deploy e
 
 ##### Platform / Share project
 
-1. Modify the Maven Resource Plugin in the file `pom.xml` to set the platform / share JAR artifact to copy to `amp`:
+Modify the Maven Resource Plugin in the file `pom.xml` to set the platform / share JAR artifact to copy to `amp`:
 
-    ```xml
-    <execution>
-        <id>copy-repository-extension</id>
-        <phase>package</phase>
-        <goals>
-            <goal>copy-resources</goal>
-        </goals>
-        <configuration>
-            <outputDirectory>${project.build.directory}/extensions</outputDirectory>
-            <resources>
-                <resource>
-                    <directory>target</directory>
-                    <includes>
-                        <include>${project.build.finalName}.amp</include>
-                    </includes>
-                    <filtering>false</filtering>
-                </resource>
-            </resources>
-        </configuration>
-    </execution>
-    ```
+```xml
+<execution>
+    <id>copy-repository-extension</id>
+    <phase>package</phase>
+    <goals>
+        <goal>copy-resources</goal>
+    </goals>
+    <configuration>
+        <outputDirectory>${project.build.directory}/extensions</outputDirectory>
+        <resources>
+            <resource>
+                <directory>target</directory>
+                <includes>
+                    <include>${project.build.finalName}.amp</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+    </configuration>
+</execution>
+```
 
 Once this configuration is in place, you simply need to rebuild and restart the project. The new configuration will make the Docker images automatically install the packaged AMPs in Content Services / Share.
 
@@ -2601,7 +2623,7 @@ _Note that a license is required. In this step you will be able to request a tri
 
 ##### Configuring JRebel in the project
 
-By default, JRebel is not set up in the projects generated making use of the Alfresco SDK archetypes. So, in order to enable it, you'll need to follow the next steps:
+By default, JRebel is not set up in the projects generated by making use of the Alfresco SDK archetypes. So, in order to enable it, you'll need to follow the next steps:
 
 1. Once JRebel is activated, copy `JREBEL_BASE_DIR/jrebel.jar` and `JREBEL_BASE_DIR/lib/libjrebel64.so` to `PROJECT_ARTIFACT_ID-platform-docker/src/main/docker` folder in case of the All-In-One archetype or `PROJECT_ARTIFACT_ID/src/main/docker` folder in case of the Platform Jar archetype.
 2. Modify the file `PROJECT_ARTIFACT_ID-platform-docker/src/main/docker/Dockerfile` to copy the JRebel files into the platform container:
@@ -2961,7 +2983,7 @@ By changing the code and compiling it again, the changes have been dynamically r
 
 ### Switching Content Services database
 
-By default, the projects generated making use of the archetypes provided by the Alfresco SDK 4 are pre-configured to work with a specific database, which is PostgreSQL.
+By default, the projects generated by making use of the archetypes provided by the Alfresco SDK 4 are pre-configured to work with a specific database, which is PostgreSQL.
 
 Anyway, Content Services is developed and tested to [support a wide range of platforms and languages]({% link content-services/latest/support/index.md %}).
 That includes a set of supported databases.
@@ -3163,10 +3185,10 @@ That way, if you face a port conflict, you only need to change the port in the c
 
 ### Alfresco Share previews / Transformations not working
 
-Some files with different formats like _doc_, _docx_ or _xls_ can't be previewed in Alfresco Share. The source reason of this problem is that the Alfresco Transformation Service (ATS) is not working. ATS is required to generate the content renditions that will be used by Alfresco Share to show the content preview.
+Some files with different formats like _doc_, _docx_ or _xls_ can't be previewed in Alfresco Share. The source reason of this problem is that the Alfresco Transform Service (ATS) is not working. ATS is required to generate the content renditions that will be used by Alfresco Share to show the content preview.
 
 #### Solution
 
-By default, ATS is not included in the basic configuration of the projects generated making use of the Alfresco SDK 4 archetypes.
+By default, ATS is not included in the basic configuration of the projects generated by making use of the Alfresco SDK 4 archetypes.
 
-To enable it, you simply need to follow the steps described in the article [How to set up Alfresco Transform Service](#setuptransformservice). If you're working with Alfresco Enterprise you must also follow [this guide](#workingwithenterprise).
+To enable it, you simply need to follow the steps described in the article [How to set up Alfresco Transform Service](#setuptransformservice). If you're working with Alfresco Enterprise you must also follow the step in [How to set up Alfresco Transform Service](#workingwithenterprise).
