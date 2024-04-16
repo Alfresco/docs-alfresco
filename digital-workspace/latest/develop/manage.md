@@ -35,7 +35,7 @@ Once Content Services is up and running, you must make the source code of the pr
     APP_CONFIG_PLUGIN_AI_SERVICE=false
     ```
 
-    > **Note:** The Digital Workspace 4.3.x uses the Content Application version 4.0.0.
+    > **Note:** The Digital Workspace 4.4.x uses the Content Application version 4.4.x.
 
 2. Run the following commands to start the application:
 
@@ -66,7 +66,6 @@ Once Content Services is up and running, you must make the source code of the pr
     APP_CONFIG_LANDING_PAGE="/personal-files"
 
     # CONTENT RELATED
-    ACA_BRANCH="develop"
     APP_CONFIG_PLUGIN_PROCESS_SERVICE=true
     APP_CONFIG_PLUGIN_AI_SERVICE=true
     APP_CONFIG_PLUGIN_AOS=true
@@ -104,12 +103,11 @@ The Digital Workspace is a standard Angular application, and its lifecycle follo
     | Distribution | Description |
     | ------------ | ----------- |
     | `content-ee` | *Default.* The Digital Workspace with the Process Services extension |
-    | `content-ee-apa` | The Digital Workspace with the Process Automation extension |
 
 2. Select the command to start the application:
 
     ```bash
-    npm start <content-ee|content-ee-apa> [prod]
+    npm start <content-ee> [prod]
     ```
 
     > **Note:** For the Alfresco Content Application or any other ADF-based application, the command is `npm start`.

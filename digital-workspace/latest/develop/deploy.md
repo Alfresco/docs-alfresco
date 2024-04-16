@@ -74,7 +74,6 @@ Deploy Digital Workspace using the following steps:
     | Distribution | Description |
     | ------------ | ----------- |
     | `content-ee` | *Default.* The Digital Workspace with the Process Services extension |
-    | `content-ee-apa` | The Digital Workspace with the Process Automation extension |
 
     > **Note:** This project uses the monorepo structure with several monorepo apps.
 
@@ -92,7 +91,7 @@ Deploy Digital Workspace using the following steps:
     APP_CONFIG_PLUGIN_AI_SERVICE=false
     ```
 
-    > **Note:** The Digital Workspace 4.3.x uses the Content Application version 4.0.0.
+    > **Note:** The Digital Workspace 4.4.x uses the Content Application version 4.4.x.
 
 3. Open a command prompt and run the following command to install all third-party dependencies:
 
@@ -128,7 +127,6 @@ Deploy Digital Workspace using the following steps:
     APP_CONFIG_LANDING_PAGE="/personal-files"
 
     # CONTENT RELATED
-    ACA_BRANCH="develop"
     APP_CONFIG_PLUGIN_PROCESS_SERVICE=true
     APP_CONFIG_PLUGIN_AI_SERVICE=true
     APP_CONFIG_PLUGIN_AOS=true
