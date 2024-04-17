@@ -80,7 +80,6 @@ Deploy Digital Workspace using the following steps:
 2. Create the following `.env` file.
 
     ```bash
-    ACA_BRANCH="2.10.0"
     BASE_URL="http://localhost:8080"
     APP_CONFIG_ECM_HOST="http://localhost:8080"
     APP_CONFIG_PROVIDER="ECM"

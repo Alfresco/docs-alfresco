@@ -24,7 +24,6 @@ Once Content Services is up and running, you must make the source code of the pr
     Enter the Content Services URL as the `APP_CONFIG_ECM_HOST` value.
 
     ```bash
-    ACA_BRANCH="2.10.0"
     BASE_URL="http://localhost:8080"
     APP_CONFIG_ECM_HOST="http://localhost:8080"
     APP_CONFIG_PROVIDER="ECM"
