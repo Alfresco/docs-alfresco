@@ -329,11 +329,15 @@ Use this information to start up Alfresco Content Services 6.2 or above and Sear
 
 > **Note:** Make sure the following ports are free on your computer: `5432`, `8080`, `8082`, `8083`. These ports are set in the `docker-compose.yml` file.
 
-1. Download the latest Alfresco Content Services `docker-compose.yml` file by accessing the [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"} page.
+### Deployment steps
+
+1. Download the latest Alfresco Content Services `docker-compose.yml` file by accessing the [Download Trial](https://www.hyland.com/en/resources/alfresco-ecm-download){:target="_blank"} page.
 
 2. Save the file in a local folder.
 
-3. Edit the file and change the Solr 6 service. Add a # prefix to Alfresco Search and Insight Engine so it is commented out.
+3. Edit the file and change the `Solr 6` service. 
+
+4. Add a `#` prefix to Alfresco Search and Insight Engine so it is commented out, and add the Alfresco Search and Insight Engine image location:
 
     ```yaml
         solr6:
