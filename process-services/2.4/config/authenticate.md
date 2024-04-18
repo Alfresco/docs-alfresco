@@ -279,6 +279,7 @@ These are settings that are generic or shared between user and group objects. Fo
 |ldap.synchronization.userLastNameAttributeName|The attribute on person objects in LDAP to map to the last name property of a user. For example in LDAP: `sn` and in AD: `cn`. |
 |ldap.synchronization.userEmailAttributeName|The attribute on person objects in LDAP to map to the email property of a user. For example: `mail`. |
 |ldap.synchronization.userType|The person type in the directory server. For example in LDAP: `inetOrgPerson` and in AD: `user`. |
+|ldap.synchronization.activate.users|Determines if users should be activated during synchronization.<br><br>Possible values: <br><br>- `NONE`: No users will be activated during LDAP synchronization (default).<br>- `APP`: Only users that have been deactivated through the APS UI will be activated.<br>- `LDAP`: Only users that have been deactivated in a previous LDAP synchronization will be activated.<br> - `ANY`: Activates all users regardless of the way they were deactivated before.<br><br>The default value is `NONE`. <br><br>Added in Process Services 2.4.4.|
 
 You can configure which users should be made administrators in the system. Delimit multiple entries with a `;` (semi-colon) as commas can’t be used.
 
