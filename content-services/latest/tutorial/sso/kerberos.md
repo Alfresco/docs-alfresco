@@ -37,10 +37,10 @@ The following table explains the values used to generate the `keytab` and `krb5.
 
 | Variable | Description |
 | -------- | ----------- |
-| host | A server host or load balancer name without a domain suffix, for example `alfresco` |
-| domain| The Domain Name System (DNS) domain, for example `example.com` |
-| domainnetbios | The Windows domain NetBIOS name, for example `example` |
-| REALM | The DNS domain in uppercase, for example `EXAMPLE.COM` |
+| host | A server host or load balancer name without a domain suffix, for example `alfresco`. |
+| domain | The Domain Name System (DNS) domain, for example `example.com`. |
+| domainnetbios | The Windows domain NetBIOS name, for example `example`. |
+| REALM | The DNS domain in uppercase, for example `EXAMPLE.COM`. |
 
 1. Create a user account in Active Directory for the SSO authentication filters:
     * Enter a full name such as `HTTP alfresco`.
@@ -164,11 +164,11 @@ The Java login files need to be updated with details of the Kerberos configurati
 
     | Property | Description |
     | -------- | ----------- |
-    | authentication.chain | The authentication chain needs to be set for Kerberos, for example: `kerberos,alfrescoNtlm1:alfrescoNtlm` |
-    | kerberos.authentication.realm | The Kerberos realm to authenticate against. The realm name is the domain name in uppercase, for example: `EXAMPLE.COM` |
-    | kerberos.authentication.sso.enabled | Sets whether authentication using Kerberos is enabled or not |
-    | kerberos.authentication.sso.fallback.enabled | Sets whether a fallback authentication mechanism such as database credentials is used |
-    | kerberos.authentication.user.configEntryName | The name of the entry in the Java Authentication and Authorization Service (JAAS) file used for password-based authentication. The default value of `Alfresco` is recommended |
+    | authentication.chain | The authentication chain needs to be set for Kerberos, for example `kerberos,alfrescoNtlm1:alfrescoNtlm`. |
+    | kerberos.authentication.realm | The Kerberos realm to authenticate against. The realm name is the domain name in uppercase, for example `EXAMPLE.COM`. |
+    | kerberos.authentication.sso.enabled | Sets whether authentication using Kerberos is enabled or not. |
+    | kerberos.authentication.sso.fallback.enabled | Sets whether a fallback authentication mechanism such as database credentials is used. |
+    | kerberos.authentication.user.configEntryName | The name of the entry in the Java Authentication and Authorization Service (JAAS) file used for password-based authentication. The default value of `Alfresco` is recommended. |
 
 ## Step 3: Configure Alfresco Share
 
@@ -279,15 +279,15 @@ The Java login files need to be updated with details of the Kerberos configurati
 
     | Property | Description |
     | -------- | ----------- |
-    | kerberos.authentication.enabled | Sets whether authentication via Kerberos is enabled. This needs to be set to `true` to setup SSO using Kerberos, for example `true` |
-    | kerberos.authentication.principal | The Service Principal Name (SPN) to authenticate against, for example `HTTP/alfresco.example.com` |
-    | kerberos.authentication.keytab | The location of key table file, for example `C:/alfresco/alfrescohttp.keytab` |
-    | kerberos.authentication.krb5.conf | The location of the Kerberos ini file, for example `C:/Windows/krb5.ini` |
-    | kerberos.allow.ldap.authentication.fallback |Sets whether to allow sign in from unsupported browsers using LDAP credentials, for example `false` |
-    | kerberos.allow.database.authentication.fallback | Sets whether to allow sign in from unsupported browsers using database credentials, for example `true` |
-    | kerberos.allow.samAccountName.authentication | Sets whether authentication can use the short form such as `username` rather than `username@domain.com`, for example `true` |
-    | security.authentication.use-externalid | A setting that enables authentication through Kerberos, for example `true` |
-    | ldap.authentication.enabled | Sets whether LDAP authentication is enabled. This setting needs to be set to `true` for SSO to work for Kerberos, for example `true` |
+    | kerberos.authentication.enabled | Sets whether authentication via Kerberos is enabled. This needs to be set to `true` to setup SSO using Kerberos, for example `true`. |
+    | kerberos.authentication.principal | The Service Principal Name (SPN) to authenticate against, for example `HTTP/alfresco.example.com`. |
+    | kerberos.authentication.keytab | The location of key table file, for example `C:/alfresco/alfrescohttp.keytab`. |
+    | kerberos.authentication.krb5.conf | The location of the Kerberos ini file, for example `C:/Windows/krb5.ini`. |
+    | kerberos.allow.ldap.authentication.fallback |Sets whether to allow sign in from unsupported browsers using LDAP credentials, for example `false`. |
+    | kerberos.allow.database.authentication.fallback | Sets whether to allow sign in from unsupported browsers using database credentials, for example `true`. |
+    | kerberos.allow.samAccountName.authentication | Sets whether authentication can use the short form such as `username` rather than `username@domain.com`, for example `true`. |
+    | security.authentication.use-externalid | A setting that enables authentication through Kerberos, for example `true`. |
+    | ldap.authentication.enabled | Sets whether LDAP authentication is enabled. This setting needs to be set to `true` for SSO to work for Kerberos, for example `true`. |
 
 ## (Optional) Containerized deployment
 

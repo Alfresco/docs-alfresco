@@ -11,7 +11,7 @@
           path: '/content-services/latest/tutorial/smart/'
         - title: 'Configure Keycloak'
           pages:
-            - title: 'Single Sign On Guide v2 (ACS 7.3+)'
+            - title: 'Single Sign On Guide'
               path: '/content-services/latest/tutorial/sso/'
             - title: 'SAML'
               path: '/content-services/latest/tutorial/sso/saml/'
