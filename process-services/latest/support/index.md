@@ -47,16 +47,18 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Chrome | |
 | | |
 | **Third party integrations** | |
-| Elasticsearch 7.13.2 | |
+| Elasticsearch 8.13.1 | |
 | | |
 | **Services** | |
 | Alfresco Content Services 23.x |  |
 | | |
 | **Integrations** | |
+| Identity Service 2.0 | For use with LDAP and SAML |
 | Identity Service 1.2 | For use with LDAP and SAML |
 | Identity Service 1.1 | For use with LDAP and SAML |
 | | |
 | **Applications** | |
+| Alfresco Digital Workspace 4.4 |
 | Alfresco Digital Workspace 4.3 | Requires Alfresco Process Services 2.4.2. |
 | | |
 | **Related components** | |
