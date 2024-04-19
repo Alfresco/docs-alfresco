@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for the Alfresco Collaboration Connector for Teams 2.0.x:
+The following are the supported platforms for the Alfresco Collaboration Connector for Teams 2.0:
 
 |Version|Notes|
 |-------|-----|
