@@ -97,9 +97,9 @@ The properties listed that need to be set for Alfresco Content Services (ACS) ar
     | identity-service.enable-basic-auth | Sets whether basic authentication is also supported by Keycloak, for example `true`. |
     | identity-service.realm | The realm name configured in Keycloak for the Alfresco applications, for example `alfresco`. |
     | identity-service.resource| The **Client ID** set up in Keycloak for Alfresco Content Services. The client needs to exist underneath the realm set for `identity-service.realm`, for example `alfresco`. |
-    | ldap.authentication.active | Sets whether LDAP authentication is enabled or not. This needs to be set to `false` to use SAML authentication via Keycloak, for example `false`|
-    | ldap.synchronization.active | Sets whether LDAP synchronization is enabled or not. This needs to be set to `true` to sync users with the repository, for example `true`|
-    | ldap.synchronization.java.naming. security.authentication | The mechanism to use to authenticate with the LDAP server, for example `simple`|
+    | ldap.authentication.active | Sets whether LDAP authentication is enabled or not. This needs to be set to `false` to use SAML authentication via Keycloak, for example `false`. |
+    | ldap.synchronization.active | Sets whether LDAP synchronization is enabled or not. This needs to be set to `true` to sync users with the repository, for example `true`. |
+    | ldap.synchronization.java.naming. security.authentication | The mechanism to use to authenticate with the LDAP server, for example `simple`. |
     | ldap.synchronization.java.naming. security.principal | The user principal name (UPN) of the account used to retrieve account details for all users and groups, for example `alfresco@domain.com`. |
     | ldap.synchronization.java.naming.security.credentials | The password for the account set in `ldap.synchronization.java.naming.security.principal`, for example `secret`. |
     | ldap.* | There are several optional [configuration]({% link content-services/latest/admin/auth-sync.md %}#ldapconfprops) and [synchronization]({% link content-services/latest/admin/auth-sync.md %}#synchronization-configuration-properties) properties. |
@@ -166,7 +166,7 @@ Use the following configuration parameters either in the `share-config.propertie
 | aims.enabled | Enables or disables Keycloak, for example `true`. |
 | aims.realm | The name of the realm, for example `alfresco`. |
 | aims.resource | The Client ID of the application, for example `share`. |
-| aims.authServerUrl | Keycloak's base URL, for example `https://keycloak.example.com` |
+| aims.authServerUrl | Keycloak's base URL, for example `https://keycloak.example.com`. |
 | aims.publicClient | If set to `true`, the adapter will not send credentials for the client to Keycloak. |
 
 ## Step 6: (Optional) Configure Alfresco Sync Service
