@@ -63,6 +63,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Related components** | |
 | VMWare ESXi 5.1.0 | For supported guest operating systems |
+| Spring Boot 3.2.3 |
+| Spring 6.1.4 |
 
 {% endcapture %}
 
