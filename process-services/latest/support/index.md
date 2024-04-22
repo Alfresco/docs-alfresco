@@ -6,7 +6,7 @@ Here is a list of the individual components that have been through the complete 
 
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact our Support team - submit a case via [Hyland Community]({% link support/latest/contact.md %}).
 
-{% capture twenty-three-two %}
+{% capture twenty-four-two %}
 
 | Version | Notes |
 | ------- | ----- |
@@ -66,7 +66,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 {% endcapture %}
 
-{% capture twenty-three-one %}
+{% capture twenty-four-one %}
 
 | Version | Notes |
 | ------- | ----- |
@@ -124,4 +124,4 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 {% endcapture %}
 
-{% include tabs.html tableid="supported-platforms" opt1="23.2" content1=twenty-three-two opt2="23.1" content2=twenty-three-one %}
+{% include tabs.html tableid="supported-platforms" opt1="24.2" content1=twenty-four-two opt2="24.1" content2=twenty-four-one %}
