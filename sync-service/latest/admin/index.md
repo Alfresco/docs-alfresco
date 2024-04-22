@@ -126,7 +126,7 @@ The approach to backup and restore is to ensure that the repository is backed up
 
 1. To perform a backup of your Sync Service database, follow these steps:
 
-    1. Backup your repository database. See [Back up and restore]({% link content-services/latest/admin/backup-restore.md %})).
+    1. Backup your repository database. See [Back up and restore]({% link content-services/latest/admin/backup-restore.md %}).
 
     2. After you have successfully backed up the repository, wait for a couple of minutes to ensure that the synchronization server has correctly tracked the repository after the repository backup.
 
