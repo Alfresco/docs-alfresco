@@ -240,6 +240,6 @@ To remove the Sync Service, uninstall the Sync Service AMP file, remove the Sync
 8. Using the ActiveMQ Console, remove the ActiveMQ topic and queues matching the following names:
 
     ```bash
-    Queue Consumer.*.VirtualTopic.alfresco.repo.events.nodes
-    Topic VirtualTopic.alfresco.repo.events.nodes
+    Queue Consumer.*.alfresco.repo.event2
+    Topic alfresco.repo.event2
     ```
