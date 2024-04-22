@@ -38,6 +38,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Tomcat 10.1.x | |
 | | |
 | **Clients** | |
+| Windows 11 | |
 | Windows 10 x64 | |
 | Windows 8.1 x64 | |
 | Windows 7 x64 | |
@@ -132,6 +133,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Tomcat 10.1.x | |
 | | |
 | **Clients** | |
+| Windows 11 | |
 | Windows 10 x64 | |
 | Windows 8.1 x64 | |
 | Windows 7 x64 | |
