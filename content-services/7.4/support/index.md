@@ -77,6 +77,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Keycloak 21.1.2 | Use this Keycloak version and Alfresco Keycloak Theme 0.3.5 as an alternative to Identity Service 2.0.0. |
 | Identity Service 2.0 | |
 | Identity Service 1.8 | |
+| Alfresco Intelligence Services 3.1.1 | |
 | Alfresco Intelligence Services 1.5 | |
 | Alfresco Content Connector for AWS S3 5.1 | Adds support for AWS Glacier using Cloud storage layer. |
 | Alfresco Content Connector for Azure 3.2 | |
