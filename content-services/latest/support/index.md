@@ -79,7 +79,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for SAP Applications 6.0.1 | |
 | Alfresco Content Connector for SAP Cloud 2.0 | |
 | Alfresco Collaboration Connector for Microsoft 365 2.0.x | |
-| Alfresco Collaboration Connector for Teams 2.0 | |
+| Alfresco Collaboration Connector for Teams 2.0.x | |
 | Alfresco Outlook Integration 3.0 | |
 | Alfresco Office Services 2.0 | |
 | Alfresco Google Docs Integration 4.1 | |
@@ -178,7 +178,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for SAP Applications 6.0 | |
 | Alfresco Content Connector for SAP Cloud 2.0 | |
 | Alfresco Collaboration Connector for Microsoft 365 2.0.x | |
-| Alfresco Collaboration Connector for Teams 2.0 | |
+| Alfresco Collaboration Connector for Teams 2.0.x | |
 | Alfresco Outlook Integration 3.0 | |
 | Alfresco Office Services 2.0 | |
 | Alfresco Google Docs Integration 4.1 | |
