@@ -2,11 +2,11 @@
 title: Supported platforms
 ---
 
-Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Process Services 23.x.
+Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Process Services 24.x.
 
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact our Support team - submit a case via [Hyland Community]({% link support/latest/contact.md %}).
 
-{% capture twenty-three-two %}
+{% capture twenty-four-two %}
 
 | Version | Notes |
 | ------- | ----- |
@@ -47,24 +47,28 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Chrome | |
 | | |
 | **Third party integrations** | |
-| Elasticsearch 7.13.2 | |
+| Elasticsearch 8.13.1 | |
 | | |
 | **Services** | |
 | Alfresco Content Services 23.x |  |
 | | |
 | **Integrations** | |
+| Identity Service 2.0 | For use with LDAP and SAML |
 | Identity Service 1.2 | For use with LDAP and SAML |
 | Identity Service 1.1 | For use with LDAP and SAML |
 | | |
 | **Applications** | |
+| Alfresco Digital Workspace 4.4 |
 | Alfresco Digital Workspace 4.3 | Requires Alfresco Process Services 2.4.2. |
 | | |
 | **Related components** | |
 | VMWare ESXi 5.1.0 | For supported guest operating systems |
+| Spring Boot 3.2.3 |
+| Spring 6.1.4 |
 
 {% endcapture %}
 
-{% capture twenty-three-one %}
+{% capture twenty-four-one %}
 
 | Version | Notes |
 | ------- | ----- |
@@ -105,7 +109,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Chrome | |
 | | |
 | **Third party integrations** | |
-| Elasticsearch 7.13.2 | |
+| Elasticsearch 7.17.18 | |
 | | |
 | **Services** | |
 | Alfresco Content Services 23.x |  |
@@ -122,4 +126,4 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 {% endcapture %}
 
-{% include tabs.html tableid="supported-platforms" opt1="23.2" content1=twenty-three-two opt2="23.1" content2=twenty-three-one %}
+{% include tabs.html tableid="supported-platforms" opt1="24.2" content1=twenty-four-two opt2="24.1" content2=twenty-four-one %}
