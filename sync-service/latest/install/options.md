@@ -227,7 +227,7 @@ To remove the Sync Service, uninstall the Sync Service AMP file, remove the Sync
 
 6. Ensure that Alfresco Content Services isn't physically connected to the Sync Service installation and that all related functions are disabled.
 
-    You'll physically remove all parts of the Sync Service installation, so you must make sure this doesn't affect the Alfresco Content Services installation. Most Sync Service files are installed in `<installLocation>`), which you chose during installation (for example, `<installLocation>/sync`).
+    You'll physically remove all parts of the Sync Service installation, so you must make sure this doesn't affect the Alfresco Content Services installation. Most Sync Service files are installed in `<installLocation>`, which you chose during installation (for example, `<installLocation>/sync`).
 
 7. Remove the Sync Service installation and database.
 
@@ -240,6 +240,6 @@ To remove the Sync Service, uninstall the Sync Service AMP file, remove the Sync
 8. Using the ActiveMQ Console, remove the ActiveMQ topic and queues matching the following names:
 
     ```bash
-    Queue Consumer.*.VirtualTopic.alfresco.repo.events.nodes
-    Topic VirtualTopic.alfresco.repo.events.nodes
+    Queue Consumer.*.alfresco.repo.event2
+    Topic alfresco.repo.event2
     ```

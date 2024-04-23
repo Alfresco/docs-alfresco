@@ -19,14 +19,14 @@ ActiveMQ provides a publish/subscribe mechanism to relay node events from the re
 
 ```java
 org.apache.activemq:type=Broker,brokerName=localhost,destinationType=Topic,
-destinationName=VirtualTopic.alfresco.repo.events.nodes
+destinationName=alfresco.repo.event2
 ```
 
 The Sync Service consumes from a queue that is tied to the virtual topic. The JMX bean name of this queue is:
 
 ```java
 org.apache.activemq:type=Broker,brokerName=localhost,destinationType=Queue,
-destinationName=Consumer.<SyncId>.VirtualTopic.alfresco.repo.events.nodes
+destinationName=Consumer.<SyncId>.alfresco.repo.event2
 ```
 
 where `<SyncId>` is a UUID that uniquely represents the Sync Service. This UUID can be obtained from the [Sync Service health check](#sync-service-health-check).
@@ -46,7 +46,7 @@ Advisories can be read like any other topic. The following advisories can be use
 The advisories can be configured in the `activemq.xml` file as follows:
 
 ```xml
-<policyEntry topic="VirtualTopic.alfresco.repo.events.nodes" advisoryForDelivery="true"
+<policyEntry topic="alfresco.repo.event2" advisoryForDelivery="true"
 advisoryForConsumed="true" advisoryForSlowConsumers="true" sendAdvisoryIfNoConsumers="true"
 advisoryForFastProducers="true">
 ```
