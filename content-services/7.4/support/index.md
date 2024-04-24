@@ -6,6 +6,118 @@ Here is a list of the individual components that have been through the complete 
 
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please [contact Support]({% link support/latest/contact.md %}).
 
+{% capture seven-four-two %}
+
+| Version | Notes |
+| ------- | ----- |
+| **Operating systems** | |
+| Red Hat Enterprise Linux 8.7 x64 | |
+| Windows Server 2022 | |
+| Amazon Linux | v2 |
+| CentOS 8.3 x64 | |
+| Ubuntu 22.04 | |
+|  |  |
+| **Databases** | |
+| MySQL 8 | `mysql-connector-java-8.0.30.jar` |
+| MS SQL Server 2019 | `mssql-jdbc-9.2.1.jre11.jar` |
+| Oracle 19c | `Ojdbc11` |
+| PostgreSQL 14.6 | `Postgresql-42.2.50.jar` |
+| MariaDB 10.6 | `MariaDB Connector/J 2.7.2` |
+| Amazon Aurora MySQL 5.7 | `MariaDB Connector/J 2.2.5` |
+| | |
+| **Message brokers** | |
+| ActiveMQ v5.17 | |
+| ActiveMQ v5.16 | |
+| | |
+| **Application servers** | |
+| Tomcat 9 | |
+| | |
+| **Clients** | |
+| Windows 10 x64 | |
+| Windows 8.1 x64 | |
+| Windows 7 x64 | |
+| Mac OSX 10.12 | |
+| | |
+| **Browsers** | |
+| Mozilla Firefox 86 | |
+| Microsoft Edge Latest| |
+| Chrome 89 | Includes Chromium edition. |
+| Safari 15 | |
+| | |
+| **Java** | |
+| OpenJDK 17 | |
+| Amazon Corretto 17 | |
+| | |
+| **Third party integrations** | |
+| Microsoft 365 | |
+| MS Office 2016 | Microsoft Office for Mac does not support Kerberos authentication. |
+| | |
+| **Services** | |
+| Alfresco Governance Services 7.4 | |
+| Alfresco Process Services 2.4 | |
+| Alfresco Process Services 2.3 | |
+| | |
+| **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 3.11.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
+| Alfresco Sync Service 3.11 | |
+| Alfresco Sync Service 3.10 | |
+| Alfresco Sync Service 3.9 | |
+| Alfresco Desktop Sync 1.17 | |
+| Alfresco Desktop Sync 1.16 | |
+| Alfresco Desktop Sync 1.15 | |
+| Alfresco Transform Service 4.1 | |
+| Alfresco Transform Service 3.0 | Compatible with Java 17 only |
+| Alfresco Transform Service 2.1.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
+| Alfresco Transform Service 2.1 | |
+| Alfresco Document Transformation Engine 2.4 | |
+| Alfresco Search Enterprise 3.3 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.x upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
+| Alfresco Search and Insight Engine 2.0.7 and later | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
+| Alfresco Search Services 2.0.7 and later | |
+| Alfresco Federation Services 3.0 | |
+| Keycloak 21.1.2 | Use this Keycloak version and Alfresco Keycloak Theme 0.3.5 as an alternative to Identity Service 2.0.0. |
+| Identity Service 2.0 | |
+| Identity Service 1.8 | |
+| Alfresco Intelligence Services 3.1.1 | |
+| Alfresco Intelligence Services 1.5 | |
+| Alfresco Content Connector for AWS S3 5.1 | Adds support for AWS Glacier using Cloud storage layer. |
+| Alfresco Content Connector for Azure 3.2.x | |
+| Alfresco Content Connector for Salesforce 2.4 | |
+| Alfresco Content Connector for SAP applications 5.3 | |
+| Alfresco Content Connector for SAP Cloud 1.2.1 | |
+| Alfresco Collaboration Connector for Microsoft 365 2.0.x | |
+| Alfresco Collaboration Connector for Teams 2.0.x | |
+| Alfresco Outlook Integration 2.10 | |
+| Alfresco Office Services 1.6 | |
+| Alfresco Google Docs Integration 3.4 | |
+| Alfresco Content Services SDK 5.2 | |
+| Alfresco Content Services SDK 4.7 | |
+| Alfresco Content Services SDK 4.6 | |
+| | |
+| **Applications** | |
+| Alfresco Digital Workspace 4.4 | |
+| Alfresco Digital Workspace 4.3 | |
+| Alfresco Digital Workspace 4.2 | |
+| Alfresco Digital Workspace 4.1 | |
+| Alfresco Digital Workspace 4.0 | |
+| Alfresco Mobile Workspace 1.8 | |
+| Alfresco Mobile Workspace 1.7 | |
+| Alfresco Mobile Workspace 1.6 | |
+| Alfresco Control Center 8.3 | |
+| Alfresco Control Center 8.2 | |
+| Alfresco Control Center 8.1 | |
+| Alfresco Control Center 8.0 | |
+| Alfresco Application Development Framework (ADF) 6.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
+| Alfresco Content Accelerator (ACA) 3.6 | |
+| Alfresco Content Accelerator (ACA) 3.5.1 | |
+| Alfresco Enterprise Viewer (AEV) 3.6 | |
+| Alfresco Enterprise Viewer (AEV) 3.5.1 | |
+| | |
+| **Components** | |
+| ImageMagick v7.1.0-16 | |
+| LibreOffice v7.0.6 | |
+
+{% endcapture %}
+
 {% capture seven-four-one %}
 
 | Version | Notes |
@@ -73,6 +185,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.17 | |
 | Alfresco Desktop Sync 1.16 | |
 | Alfresco Desktop Sync 1.15 | |
+| Alfresco Transform Service 4.1 | |
 | Alfresco Transform Service 3.0 | Compatible with Java 17 only |
 | Alfresco Transform Service 2.1.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Transform Service 2.1 | |
@@ -86,12 +199,12 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Identity Service 1.8 | |
 | Alfresco Intelligence Services 1.5 | |
 | Alfresco Content Connector for AWS S3 5.1 | Adds support for AWS Glacier using Cloud storage layer. |
-| Alfresco Content Connector for Azure 3.2 | |
+| Alfresco Content Connector for Azure 3.2.x | |
 | Alfresco Content Connector for Salesforce 2.4 | |
 | Alfresco Content Connector for SAP applications 5.3 | |
 | Alfresco Content Connector for SAP Cloud 1.2.1 | |
-| Alfresco Collaboration Connector for Microsoft 365 2.0 | |
-| Alfresco Collaboration Connector for Teams 2.0 | |
+| Alfresco Collaboration Connector for Microsoft 365 2.0.x | |
+| Alfresco Collaboration Connector for Teams 2.0.x | |
 | Alfresco Outlook Integration 2.10 | |
 | Alfresco Office Services 1.6 | |
 | Alfresco Google Docs Integration 3.4 | |
@@ -190,6 +303,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.17 | |
 | Alfresco Desktop Sync 1.16 | |
 | Alfresco Desktop Sync 1.15 | |
+| Alfresco Transform Service 4.1 | |
 | Alfresco Transform Service 3.0 | Compatible with Java 17 only |
 | Alfresco Transform Service 2.1.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Transform Service 2.1 | |
@@ -203,12 +317,12 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Identity Service 1.8 | |
 | Alfresco Intelligence Services 1.5 | |
 | Alfresco Content Connector for AWS S3 5.1 | Adds support for AWS Glacier using Cloud storage layer. |
-| Alfresco Content Connector for Azure 3.2 | |
+| Alfresco Content Connector for Azure 3.2.x | |
 | Alfresco Content Connector for Salesforce 2.4 | |
 | Alfresco Content Connector for SAP applications 5.3 | |
 | Alfresco Content Connector for SAP Cloud 1.2.1 | |
-| Alfresco Collaboration Connector for Microsoft 365 2.0 | |
-| Alfresco Collaboration Connector for Teams 2.0 | |
+| Alfresco Collaboration Connector for Microsoft 365 2.0.x | |
+| Alfresco Collaboration Connector for Teams 2.0.x | |
 | Alfresco Outlook Integration 2.10 | |
 | Alfresco Office Services 1.6 | |
 | Alfresco Google Docs Integration 3.4 | |
@@ -241,4 +355,4 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 {% endcapture %}
 
-{% include tabs.html tableid="supported-platforms" opt1="7.4.1" content1=seven-four-one opt2="7.4.0" content2=seven-four-zero %}
+{% include tabs.html tableid="supported-platforms" opt1="7.4.2" content1=seven-four-two opt2="7.4.1" content2=seven-four-one opt3="7.4.0" content3=seven-four-zero %}
