@@ -19,14 +19,14 @@ ActiveMQ provides a publish/subscribe mechanism to relay node events from the re
 
 ```java
 org.apache.activemq:type=Broker,brokerName=localhost,destinationType=Topic,
-destinationName=alfresco.repo.event2
+destinationName=VirtualTopic.alfresco.repo.events.nodes
 ```
 
 The Sync Service consumes from a queue that is tied to the virtual topic. The JMX bean name of this queue is:
 
 ```java
 org.apache.activemq:type=Broker,brokerName=localhost,destinationType=Queue,
-destinationName=Consumer.<SyncId>.alfresco.repo.event2
+destinationName=Consumer.<SyncId>.VirtualTopic.alfresco.repo.events.nodes
 ```
 
 where `<SyncId>` is a UUID that uniquely represents the Sync Service. This UUID can be obtained from the [Sync Service health check](#sync-service-health-check).
@@ -46,7 +46,7 @@ Advisories can be read like any other topic. The following advisories can be use
 The advisories can be configured in the `activemq.xml` file as follows:
 
 ```xml
-<policyEntry topic="alfresco.repo.event2" advisoryForDelivery="true"
+<policyEntry topic="VirtualTopic.alfresco.repo.events.nodes" advisoryForDelivery="true"
 advisoryForConsumed="true" advisoryForSlowConsumers="true" sendAdvisoryIfNoConsumers="true"
 advisoryForFastProducers="true">
 ```
@@ -194,7 +194,7 @@ The response is JSON and contains all the metrics collected by the Sync Service.
 
 ## Reporting Sync Service metrics to Graphite
 
-In order to visualize the metrics listed above in a graphical manner, Sync Service can be configured to report all its metrics to [Graphite](https://graphite.readthedocs.io/en/latest/overview.html){:target="_blank"}. See the `sync.metrics.reporter.graphite.*` properties in [Configure the Sync Service]({% link sync-service/latest/config/index.md%}).
+In order to visualize the metrics listed above in a graphical manner, Sync Service can be configured to report all its metrics to [Graphite](https://graphite.readthedocs.io/en/latest/overview.html){:target="_blank"}. See the `sync.metrics.reporter.graphite.*` properties in [Configure the Sync Service]({% link sync-service/4.0/config/index.md%}).
 
 Here you can see a glimpse of how the `timePerCommit` metric looks like in Graphite:
 

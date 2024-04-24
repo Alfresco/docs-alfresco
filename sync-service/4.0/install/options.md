@@ -13,23 +13,23 @@ There are several options for installing the Sync Service:
 
 Use these instructions to install the Sync Service repository modules and services on Alfresco Content Services.
 
-The Sync Service distribution zip file, `AlfrescoSyncServer-5.0.x.zip`, includes all the files required to provide the Sync Service. This file contains the following artifacts:
+The Sync Service distribution zip file, `AlfrescoSyncServer-4.0.x.zip`, includes all the files required to provide the Sync Service. This file contains the following artifacts:
 
-* `amps-repository` directory containing the Sync Service repository AMP: `alfresco-device-sync-repo-5.0.x.amp`
+* `amps-repository` directory containing the Sync Service repository AMP: `alfresco-device-sync-repo-4.0.x.amp`
 * `licenses` directory containing the 3rd-party licenses
 * `service-sync` directory with:
-  * `service-sync-5.0.x.jar` Sync Service JAR
+  * `service-sync-4.0.x.jar` Sync Service JAR
   * `config.yml` property file
   * `syncservice` start/stop script
   * `sync.jks` SSL keys
 
 > **Note:** The keystore `sync.jks` contains a self-signed certificate that should be used for testing purposes only. You'll need to provide your own SSL keys for a production environment.
 
-> **Note:** Make sure you're running the correct versions of operating system and software before you install the AMP file. See [Prerequisites]({% link sync-service/latest/install/index.md %}) for more information.
+> **Note:** Make sure you're running the correct versions of operating system and software before you install the AMP file. See [Prerequisites]({% link sync-service/4.0/install/index.md %}) for more information.
 
-1. Download `AlfrescoSyncServer-5.0.x.zip` from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
+1. Download `AlfrescoSyncServer-4.0.x.zip` from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
-2. Extract the `AlfrescoSyncServer-5.0.x.zip` file into a system directory; for example, `<installLocation>/`.
+2. Extract the `AlfrescoSyncServer-4.0.x.zip` file into a system directory; for example, `<installLocation>/`.
 
     We'll refer to this new directory (`<installLocation>/sync`), as the *Alfresco Sync Service installation directory*. In this directory you'll see these folders:
 
@@ -39,14 +39,14 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-5.0.x.zip`, includes
 
 3. Stop the Alfresco repository.
 
-4. Use the Module Management Tool (MMT) to install the `alfresco-device-sync-repo-5.0.x.amp` AMP into the repository WAR.
+4. Use the Module Management Tool (MMT) to install the `alfresco-device-sync-repo-4.0.x.amp` AMP into the repository WAR.
 
     For more information, see instructions in [Install the AMP file]({% link content-services/latest/install/zip/amp.md %}).
 
-    For example, to apply the `alfresco-device-sync-repo-5.0.x.amp`, use the following command:
+    For example, to apply the `alfresco-device-sync-repo-4.0.x.amp`, use the following command:
 
     ```java
-    java -jar <alfrescoInstallLocation>\bin\alfresco-mmt.jar install <installLocation>\amps-repository\alfresco-device-sync-repo-5.0.x.amp <installLocation>\tomcat\webapps\alfresco.war
+    java -jar <alfrescoInstallLocation>\bin\alfresco-mmt.jar install <installLocation>\amps-repository\alfresco-device-sync-repo-4.0.x.amp <installLocation>\tomcat\webapps\alfresco.war
     ```
 
 5. Add the following properties to the `alfresco-global.properties` file:
@@ -64,7 +64,7 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-5.0.x.zip`, includes
 
 6. Configure the Sync Service properties in the `<installLocation>/service-sync/config.yml` file.
 
-    See [Configure Sync Service]({% link sync-service/latest/config/index.md %}).
+    See [Configure Sync Service]({% link sync-service/4.0/config/index.md %}).
 
     For example, edit the following properties:
 
@@ -96,7 +96,7 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-5.0.x.zip`, includes
 
 7. Start and configure PostgreSQL.
 
-    For more information, see [Configuring PostgreSQL database for Desktop Sync]({% link sync-service/latest/install/database.md %}).
+    For more information, see [Configuring PostgreSQL database for Desktop Sync]({% link sync-service/4.0/install/database.md %}).
 
 8. Start ActiveMQ.
 
@@ -115,24 +115,24 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-5.0.x.zip`, includes
     ```bash
     cd <installLocation>/service-sync
 
-    java -Xmx2G -Djava.io.tmpdir=/var/tmp/dsync -classpath <classpath to database.jar file>:service-sync-5.0.x.jar org.alfresco.service.sync.dropwizard.SyncService server config.yml
+    java -Xmx2G -Djava.io.tmpdir=/var/tmp/dsync -classpath <classpath to database.jar file>:service-sync-4.0.x.jar org.alfresco.service.sync.dropwizard.SyncService server config.yml
     ```
 
-    See [Running Sync Service via a script]({% link sync-service/latest/config/script.md %}).
+    See [Running Sync Service via a script]({% link sync-service/4.0/config/script.md %}).
 
     For Windows:
 
     ```bash
     cd <installLocation>/service-sync
 
-    java -Xmx2G -Djava.io.tmpdir=/users/<username>sync/tmp -classpath <classpath to database.jar file>;service-sync-5.0.x.jar org.alfresco.service.sync.dropwizard.SyncService server config.yml
+    java -Xmx2G -Djava.io.tmpdir=/users/<username>sync/tmp -classpath <classpath to database.jar file>;service-sync-4.0.x.jar org.alfresco.service.sync.dropwizard.SyncService server config.yml
     ```
 
-    > **Note:** For production systems, you need to configure JMX authentication as password authentication over the Secure Sockets Layer (SSL) is enabled by default. However, in a test environment, you can disable all security, namely both password authentication and SSL, when you start the Java VM. See [Connect to Sync Service through JMX]({% link sync-service/latest/config/jmx.md %}) for configuration options. For more information, see the [JRE documentation](https://docs.oracle.com/javase/7/docs/technotes/guides/management/agent.html){:target="_blank"}.
+    > **Note:** For production systems, you need to configure JMX authentication as password authentication over the Secure Sockets Layer (SSL) is enabled by default. However, in a test environment, you can disable all security, namely both password authentication and SSL, when you start the Java VM. See [Connect to Sync Service through JMX]({% link sync-service/4.0/config/jmx.md %}) for configuration options. For more information, see the [JRE documentation](https://docs.oracle.com/javase/7/docs/technotes/guides/management/agent.html){:target="_blank"}.
 
     > **Note:** The PostgreSQL JDBC driver must be provided and included in the startup command line as shown above.
 
-    For more information, see [Install and configure PostgreSQL database]({% link sync-service/latest/install/database.md %}).
+    For more information, see [Install and configure PostgreSQL database]({% link sync-service/4.0/install/database.md %}).
 
 11. Access Alfresco Share by browsing to:
 
@@ -142,7 +142,7 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-5.0.x.zip`, includes
 
 12. Check the repository and Sync Service log file (`<installLocation>/service-sync/logs/sync-service.log` by default) to see if the Sync Service started properly. The location of the log file can be configured using the `logging` properties in the `config.yml` file.
 
-    To validate that the Sync Service is configured correctly, see [Sync Service health check]({% link sync-service/latest/admin/monitor/index.md %}#sync-service-health-check).
+    To validate that the Sync Service is configured correctly, see [Sync Service health check]({% link sync-service/4.0/admin/monitor/index.md %}#sync-service-health-check).
 
 ## SSL certificate for the synchronization server
 
@@ -173,7 +173,7 @@ Alfresco supplies a self-signed certificate with the Sync Service. This certific
 
 The Sync Service is not packaged with a database driver, so it will need to be downloaded separately and cited in the start-up.
 
-See instructions to [install and configure databases]({% link sync-service/latest/install/database.md %}).
+See instructions to [install and configure databases]({% link sync-service/4.0/install/database.md %}).
 
 ## Containerized deployment
 
@@ -197,7 +197,7 @@ To remove the Sync Service, uninstall the Sync Service AMP file, remove the Sync
 2. Uninstall the Sync Service, AMP file in the repository, for example using the Module Management Tool (MMT):
 
     ```java
-    java -jar bin/alfresco-mmt.jar uninstall alfresco-device-sync-repo-5.0.x.amp tomcat/webapps/alfresco.war
+    java -jar bin/alfresco-mmt.jar uninstall alfresco-device-sync-repo-4.0.x.amp tomcat/webapps/alfresco.war
     ```
 
     [Uninstall an AMP file]({% link content-services/latest/install/zip/amp.md %}#uninstall-an-amp-file) provides information on how to uninstall the AMP file, and remove the AMP content from the WAR files.
@@ -227,7 +227,7 @@ To remove the Sync Service, uninstall the Sync Service AMP file, remove the Sync
 
 6. Ensure that Alfresco Content Services isn't physically connected to the Sync Service installation and that all related functions are disabled.
 
-    You'll physically remove all parts of the Sync Service installation, so you must make sure this doesn't affect the Alfresco Content Services installation. Most Sync Service files are installed in `<installLocation>`, which you chose during installation (for example, `<installLocation>/sync`).
+    You'll physically remove all parts of the Sync Service installation, so you must make sure this doesn't affect the Alfresco Content Services installation. Most Sync Service files are installed in `<installLocation>`), which you chose during installation (for example, `<installLocation>/sync`).
 
 7. Remove the Sync Service installation and database.
 
@@ -240,6 +240,6 @@ To remove the Sync Service, uninstall the Sync Service AMP file, remove the Sync
 8. Using the ActiveMQ Console, remove the ActiveMQ topic and queues matching the following names:
 
     ```bash
-    Queue Consumer.*.alfresco.repo.event2
-    Topic alfresco.repo.event2
+    Queue Consumer.*.VirtualTopic.alfresco.repo.events.nodes
+    Topic VirtualTopic.alfresco.repo.events.nodes
     ```

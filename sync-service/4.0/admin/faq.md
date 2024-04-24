@@ -10,7 +10,7 @@ No, this version of Sync Service doesn't support Smart Folders.
 
 ## What tools can I use to validate the relative states of the MQ/Sync Service/Desktop Sync data/Alfresco data and the existing sync sets?
 
-To bring the Sync Service and Alfresco Content Services repository in sync, see [Back up and restore Sync Service]({% link sync-service/latest/admin/index.md %}#back-up-and-restore-sync-service). Currently, there are no tools that can validate this.
+To bring the Sync Service and Alfresco Content Services repository in sync, see [Back up and restore Sync Service]({% link sync-service/4.0/admin/index.md %}#back-up-and-restore-sync-service). Currently, there are no tools that can validate this.
 
 ## What is the starting order of Sync Service?
 
@@ -48,7 +48,7 @@ For information on ActiveMQ logging, see [How do I change the logging](https://a
 
 ## How can I monitor Sync Service?
 
-To monitor Sync Service, see [Sync Service health check]({% link sync-service/latest/admin/monitor/index.md %}#sync-service-health-check).
+To monitor Sync Service, see [Sync Service health check]({% link sync-service/4.0/admin/monitor/index.md %}#sync-service-health-check).
 
 To get detailed logging information on Sync Service, change the logging level in the `config.yml` file as shown below:
 
@@ -67,8 +67,8 @@ loggers:
 If the Desktop Sync client connects to Alfresco Content Services to start content selection then immediately goes offline, folders may already have been created, but no files have been synced; check the following:
 
 * The Sync Service is running
-* The Sync Service is accessible from the client - you can use the [Healthcheck URL]({% link sync-service/latest/admin/monitor/index.md %}#sync-service-health-check) in the clients browser
-* The global properties file is correctly set up - see [Install Sync Service]({% link sync-service/latest/install/options.md %}#install-with-zip)
+* The Sync Service is accessible from the client - you can use the [Healthcheck URL]({% link sync-service/4.0/admin/monitor/index.md %}#sync-service-health-check) in the clients browser
+* The global properties file is correctly set up - see [Install Sync Service]({% link sync-service/4.0/install/options.md %}#install-with-zip)
 
 For example, if the Sync Service port is not open on the firewall, then the client won't be able to connect to the Desktop Sync service, or the Healthcheck URL. The port is set when installing the Sync Service, where the default is 9090.
 
@@ -76,24 +76,20 @@ For example, if the Sync Service port is not open on the firewall, then the clie
 
 ## What can I check if content can't be added to or updated in Alfresco Content Services via Alfresco Share or another application?
 
-To fix this issue, check if ActiveMQ is running and available to the repository. See [Prerequisites]({% link sync-service/latest/install/index.md %}) for more. A feature of the Sync Service is to provide resilience of the service, and ensuring that no critical event information is lost.
+To fix this issue, check if ActiveMQ is running and available to the repository. See [Prerequisites]({% link sync-service/4.0/install/index.md %}) for more. A feature of the Sync Service is to provide resilience of the service, and ensuring that no critical event information is lost.
 
 The recommendation is to run an ActiveMQ cluster to ensure high availability.
 
 ## Why has sync stopped working since upgrading the client operating system (for example to Mac OS X to Sierra High)?
 
-If SSL has been enabled on the Sync Service without provision for a signed certificate, then the clients may fail to sync content. The log files contain a message "SSL peer certificate or SSH remote key was not OK". [Install the Sync Service]({% link sync-service/latest/install/index.md %}) with a valid security certificate or disable SSL for the synchronization server if required.
+If SSL has been enabled on the Sync Service without provision for a signed certificate, then the clients may fail to sync content. The log files contain a message "SSL peer certificate or SSH remote key was not OK". [Install the Sync Service]({% link sync-service/4.0/install/index.md %}) with a valid security certificate or disable SSL for the synchronization server if required.
 
 ## How can I prevent the synchronization of a folder, or folder structure?
 
 You can stop users from synchronizing folders by creating a custom model with an aspect, and then updating the configuration in Alfresco Content Services.
 
-See [Limit folder synchronization]({% link sync-service/latest/admin/index.md %}#limit-folder-synchronization) for more.
+See [Limit folder synchronization]({% link sync-service/4.0/admin/index.md %}#limit-folder-synchronization) for more.
 
 ## What tools can I use if either the desktop or Alfresco Content Services needs to restored from a backup?
 
-See [Back up and restore Sync Service]({% link sync-service/latest/admin/index.md %}#back-up-and-restore-sync-service).
-
-## Can Sync Service 5.x be used against a repository with Sync Service AMP 4.x installed?
-
-We recommend using the same Sync Service and AMP version for better compatibility.
+See [Back up and restore Sync Service]({% link sync-service/4.0/admin/index.md %}#back-up-and-restore-sync-service).

@@ -6,7 +6,7 @@ Use these instructions to run the Sync Service using a script.
 
 Ensure that you've installed the required software before installing Sync Service.
 
-Before you start the Sync Service, see the [Prerequisites]({% link sync-service/latest/install/index.md %}) and `Readme.txt` file included in the `AlfrescoSyncServer-5.0.x.zip` for more information.
+Before you start the Sync Service, see the [Prerequisites]({% link sync-service/4.0/install/index.md %}) and `Readme.txt` file included in the `AlfrescoSyncServer-4.0.x.zip` for more information.
 
 1. Create a user that you'll use to run the process.
 
@@ -24,7 +24,7 @@ Before you start the Sync Service, see the [Prerequisites]({% link sync-service/
 
     2. For Windows:
 
-        You only need a dedicated user if JMX remote authentication is enabled. See `Readme.txt` file in `AlfrescoSyncServer-5.0.x.zip` for details.
+        You only need a dedicated user if JMX remote authentication is enabled. See `Readme.txt` file in `AlfrescoSyncServer-4.0.x.zip` for details.
 
 2. Use one of the start up scripts from the distribution zip.
 
