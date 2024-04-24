@@ -503,7 +503,7 @@ The `./run.sh build_start` script performs the following tasks:
 * Build the Repository and Share Extension JARs so we are sure to get the latest changes.
 * Assemble/Aggregate all Repository extension JARs into the `my-all-in-one-project/my-all-in-one-project-platform-docker/target/extensions` directory.
 * Assemble/Aggregate all Share extension JARs into the `my-all-in-one-project/my-all-in-one-project-share-docker/target/extensions` directory.
-* Create Docker Volumes for Repository (alf_data), Search index, and Database so data is persisted outside the containers.
+* Create Docker Volumes for Repository (`alf_data`), Search index, and Database so data is persisted outside the containers.
 * Run the project via the Docker Compose file and instruct Docker Compose to build the custom Docker images first.
 * Tail the logs of all containers.
 
@@ -596,7 +596,8 @@ For example, let's update the Repository Web Script to return a different messag
 1. Open the file in the `my-all-in-one-project/my-all-in-one-project-platform/` folder:
 
     ```text
-    src/main/resources/alfresco/extension/templates/webscripts/alfresco/tutorials/helloworld.get.html.ftl`
+    src/main/resources/alfresco/extension/templates/webscripts/alfresco/tutorials/helloworld.get.html.ftl
+    ```
 
 2. Change the content as follows:
 
@@ -737,7 +738,7 @@ The `./run.sh build_start` script performs the following tasks:
 * Stop anything running already with this project's Docker Compose file: `my-platform-project/docker/docker-compose.yml`.
 * Build the Repository Extension JARs so we are sure to get the latest changes.
 * Assemble/Aggregate all Repository extension JARs into the `my-platform-project/target/extensions` directory.
-* Create Docker Volumes for Repository (alf_data), Search index, and Database so data is persisted outside the containers.
+* Create Docker Volumes for Repository (`alf_data`), Search index, and Database so data is persisted outside the containers.
 * Run the project via the Docker Compose file and instruct Docker Compose to build the custom Docker images first.
 * Tail the logs of all containers.
 
@@ -969,7 +970,7 @@ The `./run.sh build_start` script does the following tasks:
 * Stop anything running already with this project's Docker Compose file: `my-share-project/docker/docker-compose.yml`.
 * Build the Share Extension JARs so we are sure to get the latest changes.
 * Assemble/Aggregate all Share extension JARs into the `my-share-project/target/extensions` directory.
-* Create Docker Volumes for Repository (alf_data), Search index, and Database so data is persisted outside the containers.
+* Create Docker Volumes for Repository (`alf_data`), Search index, and Database so data is persisted outside the containers.
 * Run the project via the Docker Compose file and instruct Docker Compose to build the custom Docker images first.
 * Tail the logs of all containers.
 
