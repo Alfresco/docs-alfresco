@@ -48,7 +48,7 @@ Once a workflow has been created, you can also:
 
 You need to create a tenant before you can start creating workflows. 
 
-> **Note:**  Ignore this step if you are using single tenant mode.
+> **Note:**  Skip this step if you are using single tenant mode.
 
 To create a tenant, complete the following steps.
 
