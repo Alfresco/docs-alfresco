@@ -360,9 +360,9 @@ Use this information to start up Alfresco Content Services 6.2 or above and Sear
 
     > **Note:** If you want to use the Apache Zeppelin visualization interface with Search and Insight Engine you have to deploy it using Docker Compose along with Alfresco Content Services, you cannot install it manually. See [Building Reports and Dashboards]({% link insight-engine/latest/using/index.md %}#Installing with Docker Compose) for the additional container information you need to add to your `docker-compose.yml` file.
 
-4. Save the file.
+5. Save the file.
 
-5. Log in to Quay using the following command:
+6. Log in to Quay using the following command:
 
     ```yaml
     $ docker login quay.io
@@ -371,7 +371,7 @@ Use this information to start up Alfresco Content Services 6.2 or above and Sear
                 Password: <<Quay.io Credential Password>>
     ```
 
-6. Change directory to the location of the `docker-compose.yml` file and deploy Alfresco Content Services and Search and Insight Engine using the following command:
+7. Change directory to the location of the `docker-compose.yml` file and deploy Alfresco Content Services and Search and Insight Engine using the following command:
 
     ```bash
     docker-compose up
@@ -379,7 +379,7 @@ Use this information to start up Alfresco Content Services 6.2 or above and Sear
 
     This downloads the images, fetches all the dependencies, creates each container, and then starts the system. If you downloaded the project and changes were made to the project settings, any new images will be pulled from Quay before the system starts.
 
-7. Wait for the logs to complete.
+8. Wait for the logs to complete.
 
     If you encounter errors while the system is starting up:
 
@@ -387,7 +387,7 @@ Use this information to start up Alfresco Content Services 6.2 or above and Sear
     * Remove the container (using the `--rmi all` option): For example `docker-compose down --rmi all`.
     * Try allocating more memory resources. As advised in `docker-compose.yml` set it to at least 16 GB. To adjust the memory, in Docker, go to **Preferences** (or **Settings**) > **Advanced** > **Memory**. Once you have adjusted the memory make sure you restart Docker and wait for the process to finish before continuing.
     * Go back to step 6 and retry the deployment.
-8. Open your browser and check everything starts up correctly:
+9. Open your browser and check everything starts up correctly:
 
     * Alfresco: `http://localhost:8082/alfresco`
     * Share: `http://localhost:8080/share`
