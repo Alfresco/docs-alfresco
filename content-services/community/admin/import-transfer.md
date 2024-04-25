@@ -226,7 +226,7 @@ It supports sync mode transfer, so it can also be used by the replication servic
 
 The File System Transfer Receiver is delivered as a compressed zip file.
 
-1. Download the following file from the [Alfresco Community Edition download page](https://www.alfresco.com/products/community/download){:target="_blank"}:
+1. Download the following file from the [Alfresco Community Edition download page](https://www.hyland.com/en/resources/alfresco-community-download){:target="_blank"}:
 
     `alfresco-file-transfer-receiver-6.2.1.zip`
 

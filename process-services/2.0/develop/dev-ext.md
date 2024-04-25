@@ -523,13 +523,13 @@ at run-time to an instance of `org.activiti.engine.delegate.JavaDelegate`. Alter
 ```java
 package com.activiti.extension.bean;
 
-import org.activiti.engine.impl.pvm.delegate.ActivityExecution;
+import org.activiti.engine.impl.pvm.delegate.DelegateExecution;
 import org.springframework.stereotype.Component;
 
 @Component("helloWorldBean")
 public class HelloWorldBean {
 
-        public void sayHello(ActivityExecution execution) {
+        public void sayHello(DelegateExecution execution) {
                 System.out.println("Hello from " + this);
                 execution.setVariable("var3", " from the bean");
         }

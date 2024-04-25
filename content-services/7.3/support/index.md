@@ -65,6 +65,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Process Services 2.3 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 3.11.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Sync Service 3.8 | |
 | Alfresco Desktop Sync 1.17 | |
 | Alfresco Desktop Sync 1.16 | |
@@ -77,6 +78,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search Enterprise 3.2 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.x upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
 | Alfresco Search and Insight Engine 2.0.5 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0.5 | |
+| Keycloak 21.1.2 | Use this Keycloak version and Alfresco Keycloak Theme 0.3.5 as an alternative to Identity Service 2.0.0. |
 | Identity Service 2.0 | |
 | Identity Service 1.8 | |
 | Alfresco Intelligence Services 1.4.5 | |
@@ -95,6 +97,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.5 | |
 | | |
 | **Applications** | |
+| Alfresco Digital Workspace 4.4 | |
 | Alfresco Digital Workspace 3.1 | |
 | Alfresco Application Development Framework (ADF) 5.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Mobile Workspace 1.8 | |
@@ -128,7 +131,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Ubuntu 20.04 | |
 |  |  |
 | **Databases** | |
-| MySQL 8 | `mysql-connector-java-8.0.27.jar` |
+| MySQL 8 | `mysql-connector-java-8.0.30.jar` |
 | MS SQL Server 2019 | `mssql-jdbc-9.2.1.jre11.jar` |
 | Oracle 19c | `Ojdbc8.jar – 19.11.0.0` |
 | PostgreSQL 14.x | `Postgresql-42.3.2.jar` |
@@ -171,6 +174,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Process Services 2.3 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 3.11.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Sync Service 3.8 | |
 | Alfresco Desktop Sync 1.17 | |
 | Alfresco Desktop Sync 1.16 | |
@@ -200,6 +204,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.5 | |
 | | |
 | **Applications** | |
+| Alfresco Digital Workspace 4.4 | |
 | Alfresco Digital Workspace 3.1 | |
 | Alfresco Control Center 7.7 | |
 | Alfresco Control Center 7.6 | |

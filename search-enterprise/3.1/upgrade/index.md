@@ -74,7 +74,7 @@ You can upgrade from Search Services 2.x without experiencing any downtime, to S
 
     ![initial-reindexing]({% link search-enterprise/images/initial-re-indexing.png %})
 
-5. Shutdown the original environment.
+5. Shutdown the mirrored environment.
 
     You are left with an Elasticsearch server with a populated index.
 

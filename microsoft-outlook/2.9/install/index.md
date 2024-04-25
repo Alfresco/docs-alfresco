@@ -89,7 +89,7 @@ transform-outlook
 
 > **Note:** Alfresco customers can request Quay.io credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/){:target="_blank"}. These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
 
-> **Note:** Make sure that you request credentials for Alfresco Content Services and Alfresco Outlook Integration, so that you can use the additional `transform-outlook-1.1.x` Docker image. Version 1.1.0 of the Outlook T-Engine can also be used for the previous Outlook Integration releases (version 2.8.x).
+> **Note:** Make sure that you request credentials for Alfresco Content Services and Alfresco Outlook Integration, so that you can use the additional `transform-outlook-*` Docker image.
 
 > **Note:** It is recommended that you familiarize yourself with the concepts of [containerized deployment]({% link content-services/latest/install/containers/index.md %}) before working with Docker.
 
@@ -187,7 +187,7 @@ If you wish to use a Tomcat application server, you can use the WAR bundle to in
 
 2. Rename the WAR file from `transform-outlook-webapp-${version}.war` to `transform-outlook.war`.
 
-    You'll find the file, `transform-outlook-webapp-1.1.0.war`, in the distribution zip.
+    You'll find the file, `transform-outlook-webapp-1.2.1.war`, in the distribution zip.
 
 3. Copy the WAR file into your `<TOMCAT_HOME>/webapps` folder.
 
@@ -221,7 +221,7 @@ To deploy the Outlook Integration T-Engine with the Transform Service, you'll ne
 
     ```yaml
     transform-outlook:
-        image: quay.io/alfresco/transform-outlook:1.1.0
+        image: quay.io/alfresco/transform-outlook:1.2.1
         mem_limit: 2g
         environment:
             JAVA_OPTS: " -Xms256m -Xmx512m"

@@ -22,9 +22,9 @@ The SAP Cloud Connector is packaged as an {% include tooltip.html word="AMP" tex
 
 1. Go to [Hyland Community](https://community.hyland.com/){:target="_blank"}, and then download the Alfresco Content Connector for SAP Cloud delivery package. It is provided as a ZIP file and contains at least the following files:
 
-    * Module `sap-content-connector-cmis-repo-1.2.x.amp` for Content Services:
+    * Module `sap-content-connector-cmis-repo-2.0.x.amp` for Content Services:
         * This contains the business logic for the SAP Cloud Connector.
-    * Module `sap-content-connector-genericXchange-1.x.x.amp` for Content Services:
+    * Module `sap-content-connector-genericXchange-2.x.x.amp` for Content Services:
         * This contains the business logic for additional data exchange.
         * See [Configure GenericXchange]({% link sap-cloud/latest/config/genericxchange.md %}) for more details.
     * `alfresco-global.properties_append` template:

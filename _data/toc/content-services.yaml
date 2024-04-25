@@ -1,5 +1,5 @@
-# Alfresco Content Services 23.1
-- version: 23.1
+# Alfresco Content Services 23.x
+- version: 23.x
   pages:
     - title: 'Introduction'
       path: '/content-services/latest/'
@@ -65,6 +65,8 @@
           path: '/content-services/latest/config/action/'
         - title: 'Mutual TLS'
           path: '/content-services/latest/config/mtls/'
+        - title: 'Keycloak'
+          path: '/content-services/latest/config/keycloak/'
     - title: 'Administer'
       pages:
         - title: 'Overview'
@@ -153,8 +155,6 @@
               path: '/content-services/latest/using/content/files-folders/'
             - title: 'Folder rules'
               path: '/content-services/latest/using/content/rules/'
-            - title: 'Tags and Categories'
-              path: '/content-services/latest/using/content/tags-categories/'
         - title: 'Tasks and workflows'
           path: '/content-services/latest/using/tasks/'
         - title: 'Search'
@@ -171,7 +171,7 @@
           path: '/content-services/latest/develop/software-architecture/'
         - title: 'Software Development Kits (SDK)'
           pages:
-          - title: 'In-Process SDK (4.6)'
+          - title: 'In-Process SDK (4.7, 4.8)'
             path: '/content-services/latest/develop/sdk/'
           - title: 'Out-of-Process SDK (6.0)'
             path: '/content-services/latest/develop/oop-sdk/'
@@ -525,6 +525,8 @@
           path: '/content-services/7.4/config/action/'
         - title: 'Mutual TLS'
           path: '/content-services/7.4/config/mtls/'
+        - title: 'Keycloak'
+          path: '/content-services/7.4/config/keycloak/'
     - title: 'Administer'
       pages:
         - title: 'Overview'
@@ -613,8 +615,6 @@
               path: '/content-services/7.4/using/content/files-folders/'
             - title: 'Folder rules'
               path: '/content-services/7.4/using/content/rules/'
-            - title: 'Tags and Categories'
-              path: '/content-services/7.4/using/content/tags-categories/'
         - title: 'Tasks and workflows'
           path: '/content-services/7.4/using/tasks/'
         - title: 'Search'
@@ -843,6 +843,8 @@
           path: '/content-services/7.3/config/models/'
         - title: 'Process Services actions'
           path: '/content-services/7.3/config/action/'
+        - title: 'Keycloak'
+          path: '/content-services/7.3/config/keycloak/'
     - title: 'Administer'
       pages:
         - title: 'Overview'

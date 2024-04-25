@@ -48,7 +48,7 @@ If you are using an ActiveMQ cluster, you benefit from reliable high performance
 
 ## Synchronization service is down
 
-If the Alfresco folder goes down, the size of the `Consumer.*.VirtualTopic.alfresco.repo.events.nodes` queue in ActiveMQ grows. The dispatched number does not increase and the events will be retained until the Sync Service comes back again.
+If the Alfresco folder goes down, the size of the `Consumer.*.alfresco.repo.event2` queue in ActiveMQ grows. The dispatched number does not increase and the events will be retained until the Sync Service comes back again.
 
 While the Sync Service is down, any file to the Alfresco folder on your desktop will be deferred until the Alfresco folder is back up. In File Explorer/Finder, the file will shows a blue icon and a notification is displayed on the system tray.
 

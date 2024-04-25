@@ -113,7 +113,8 @@ The main decision is involved around when to split and how to split.
 **When to split:** There are a number of indicators to help you decide when to split your architecture from a single node environment to a distributed node environment. Some of the indicators to look for include:
 
 * Low disk space
-* CPU running out of memory
+* High CPU usage
+* Frequent out of memory errors
 * High indexing load
 
 **How to split:** When you've decided to upgrade from a single node environment to a distributed or clustered environment, you must find the most appropriate way to cluster architecture.
@@ -173,11 +174,21 @@ This information describes the configuration of Hazelcast clustering between ins
 
 In a load balanced environment, Share now uses Hazelcast to provide multicast messaging between the web-tier nodes. As a result, Share caches no longer need to be disabled for any node, simple cache invalidation message are sent to all nodes when appropriate. Each node functions practically as fast as a single Share instance, enhancing the overall performance of Share.
 
-To enable Hazelcast clustering between Share instances, configure the `custom-slingshot-application-context.xml` file found at `<TOMCAT-HOME>/shared/classes/alfresco/web-extension`. This file is used to override the Spring application context beans for Share.
+To enable Hazelcast clustering between Share instances, configure the `custom-slingshot-application-context.xml` file and place it in the `<TOMCAT-HOME>/shared/classes/alfresco/web-extension` folder. This file is used to override the Spring application context beans for Share.
 
-> **Note:** An example `custom-slingshot-application-context.xml.sample` file is provided in the distribution, which now includes this configuration.
+> **Note:** An example file which includes this configuration is provided in the distribution.zip and is located at
+> `web-server/shared/classes/alfresco/web-extension/web-extension/custom-slingshot-application-context.xml.sample`
+> as well as in the extracted `share.war` under
+> `web-server/webapps/share/WEB-INF/classes/alfresco/web-extension/custom-slingshot-application-context.xml.sample`.
 
 To enable the Hazelcast cluster messaging, edit this section on each Share Tomcat instance:
+
+> **Note:** For the correct version numbers of both Spring beans and Hazelcast Spring, list the files referring to Hazelcast in the following directory:
+> 
+> ```text
+> cd <tomcat_home>/webapps/share/WEB-INF/lib
+> ls -al | grep hazelcast
+> ```
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -185,13 +196,13 @@ To enable the Hazelcast cluster messaging, edit this section on each Share Tomca
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:hz="http://www.hazelcast.com/schema/spring"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-                http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                http://www.springframework.org/schema/beans/spring-beans-x.x.xsd
                 http://www.hazelcast.com/schema/spring
-                http://www.hazelcast.com/schema/spring/hazelcast-spring-2.4.xsd">
+                http://www.hazelcast.com/schema/spring/hazelcast-spring-x.x.xsd">
    <!--
         Hazelcast distributed messaging configuration - Share web-tier cluster config
         - see http://www.hazelcast.com/docs.jsp
-        - and specifically http://docs.hazelcast.org/docs/2.4/manual/html-single/#SpringIntegration
+        - and specifically https://docs.hazelcast.org/docs/x.x/manual/html-single/#SpringIntegration
    -->
    <!-- Configure cluster to use either Multicast or direct TCP-IP messaging - multicast is default -->
    <!-- Optionally specify network interfaces - server machines likely to have more than one interface -->
@@ -202,11 +213,11 @@ To enable the Hazelcast cluster messaging, edit this section on each Share Tomca
          <hz:group name="slingshot" password="alfresco"/>
          <hz:network port="5801" port-auto-increment="true">
             <hz:join>
-               <hz:multicast enabled="true"
+               <hz:multicast enabled="false"
                      multicast-group="224.2.2.5"
                      multicast-port="54327"/>
-               <hz:tcp-ip enabled="false">
-                  <hz:members></hz:members>
+               <hz:tcp-ip enabled="true">
+                  <hz:members>192.168.15,192.168.16</hz:members>
                </hz:tcp-ip>
             </hz:join>
             <hz:interfaces enabled="false">
@@ -259,6 +270,14 @@ INFO: /127.0.0.1]:5801 [slingshot] Address[127.0.0.1]:5801 is STARTED
 ```
 
 The message shows that the configuration has successfully initialized Hazelcast between Share instances.
+
+### Share Cluster Troubleshooting
+
+In case the Share cluster does not start, check the `share.log` for details.
+
+> **Note**: To setup an ACS Share cluster without internet connection, make sure to check the Hazelcast
+> `xsi:schemaLocation=http://www.hazelcast.com/schema/spring/hazelcast-spring-<version-string>.xsd` is the same Hazelcast version as in the corresponding Share lib
+> `share/WEB-INF/lib/hazelcast-spring-<version>.jar`.
 
 ### Configure Alfresco Share clustering
 

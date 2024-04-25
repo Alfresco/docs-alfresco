@@ -1,5 +1,5 @@
 ---
-title: Upgrading from 3.4
+title: Upgrade Alfresco Content Accelerator
 ---
 
 ## Recommendations
@@ -8,7 +8,7 @@ It is highly recommended to perform and validate upgrade steps in a pre-producti
 
 ## Upgrade Path
 
-The below instructions are validated to work on upgrading a 3.4.x version to 3.5. If upgrading from an older version of ACA, additional changes may be required.
+The below instructions are validated to work on upgrading a 3.4.x version to the latest version. If upgrading from an older version of ACA, additional changes may be required.
 
 Here is the recommended upgrade path:
 
@@ -27,7 +27,7 @@ Here is the recommended upgrade path:
 4. Upgrade ACA admin configurations (ACA admin web interface)
 
    * Verify key functionality
-   * See below for details on ACA admin configuration changes required when moving from ACA 3.4.x to 3.5.
+   * See below for details on ACA admin configuration changes required when moving from ACA 3.4.x to 3.5 and above.
 
 ## ACA Config Updates
 
@@ -228,7 +228,7 @@ Follow these steps to add the above (optional) features to existing Policy and P
       - Additional Options:
         - Defaults acceptable.  Update as desired
 
-## Upgrading to 3.5.1 and above
+## Upgrading to 3.5.1
 
 If you previously had the Power Promote action configured, navigate to the ACA admin and locate the action configuration for periodic review. Set the sliders for **Require Authentication** and **Add ESignature Page** appropriately for the results you desire.
 
@@ -255,7 +255,7 @@ If you want to switch your current SSO implementation to the new 3.5.1 SSO imple
 
 Note that this newer SSO implementation is not a replacement for the current SSO offering. The current SSO offering can continue to be used with ACA 3.5.1.
 
-### Upgrading to 3.6
+## Upgrading to 3.6 and above
 
 Advanced Search is deprecated in Content Accelerator 3.6. Though it is still available, it is expected to be removed in future releases and replaced with the new Advanced Search capabilities added to attribute search in Content Accelerator 3.6.
 

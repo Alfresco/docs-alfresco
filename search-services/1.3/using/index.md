@@ -286,16 +286,21 @@ You can narrow your search results by excluding words with the `NOT` syntax.
 
 Single terms, phrases, and so on can be combined using "`NOT`" in upper, lower, or mixed case, or prefixed with "`!`" or "`-`".
 
-These queries search for nodes that contain the terms `yellow` in any content.
+These queries search for nodes that contain the term "yellow" but do not contain the term "banana" in the content.
 
 ```sql
-yellow NOT banana
-yellow !banana
-yellow -banana
+yellow AND NOT banana
+yellow AND !banana
+yellow AND -banana
+```
+These queries search for nodes that contain the term "banana" but do not contain the term "yellow" in the content.
+
+```sql
 NOT yellow banana
 -yellow banana
 !yellow banana
 ```
+The `AND` operator can be omitted for Share. 
 
 The `NOT` operator can only be used for string keywords; it doesn't work for numerals or dates.
 
@@ -531,7 +536,7 @@ banana
 TEXT:banana
 ```
 
-Both of these queries will find any nodes with the word "banana" in any property of type `d:content`.
+Both of these queries will find any nodes with the word "banana" in any property of type `d:content`, `d:text` or `d:mltext`.
 
 If the appropriate data dictionary definition(s) for the field supports both FTS and untokenized search, then FTS search will be used. FTS will include synonyms if the analyzer generates them. Terms cannot contain whitespace.
 

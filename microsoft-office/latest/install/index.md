@@ -20,13 +20,20 @@ Alfresco Office Services is part of the standard Alfresco installation, and soft
 
 > **Note:** You must activate SSL when using Alfresco Office Services 1.2 or above. For more information, see [Configuring SSL]({% link content-services/latest/config/repository.md %}#ssl-repo).
 
+In the latest Microsoft Office versions, such as Microsoft Word for Microsoft 365 and Microsoft Office (Version 2401 Build 16.0.17231.20236) 64-bit, Microsoft has removed the ability to use basic authentication in Exchange Online for Exchange ActiveSync (EAS), POP, IMAP, Remote PowerShell, Exchange Web Services (EWS), Offline Address Book (OAB), Autodiscover, Outlook for Windows, and Outlook for Mac.
+
+> **Note:** To make Alfresco Office Services work with the latest versions of Microsoft Office, you must either:
+>
+> * Use IdP-initiated Single Sign On (IdP/SSO), since basic authentication is not supported in the latest Microsoft Office versions.
+> * Downgrade Microsoft Office to a version where basic authentication is supported.
+
 ## Installing manually using the AMP file
 
 To install manually into an existing Alfresco instance, you use the AOS AMP file.
 
 > **Note:** If you deploy Content Services using containerized deployment, AOS is pre-installed in the Docker images.
 
-1. Install the AMP file `alfresco-aos-module-2.0.x.amp`. See [Installing an AMP]({% link content-services/latest/install/zip/amp.md %}) for information about installing an AMP file.
+1. Install the AMP file `alfresco-aos-module-3.0.x.amp`. See [Installing an AMP]({% link content-services/latest/install/zip/amp.md %}) for information about installing an AMP file.
 
 2. Deploy the `_vti_bin.war` file.
 

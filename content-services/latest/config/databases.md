@@ -50,7 +50,7 @@ To configure the database:
 
 4. Install the Aurora database connector.
 
-    This release requires `mysql-connector-java-5.x.x.jar` for compatibility with the SQL Server database. Check the [Supported platforms]({% link content-services/latest/support/index.md %}) page for the correct driver.
+    This release requires `mysql-connector-java-8.x.x.jar` for compatibility with the SQL Server database. Check the [Supported platforms]({% link content-services/latest/support/index.md %}) page for the correct driver.
 
     1. Download the driver from the [MySQL site](https://dev.mysql.com/){:target="_blank"}.
 
@@ -85,7 +85,7 @@ To configure the database:
 
     # MySQL database connection
 
-    db.driver=org.gjt.mm.mysql.Driver
+    db.driver=com.mysql.jdbc.Driver
     db.url=jdbc:mysql://${db.host}/${db.name}?${db.params}
     OR
     db.url=jdbc:mysql://${db.host}:${db.port}/${db.name}?${db.params}
@@ -116,7 +116,7 @@ You can configure a MySQL database on Amazon RDS for use with Content Services, 
 
     The MySQL database connector is required when installing with MySQL, and allows the MySQL database to talk to the server. Check the [Supported platforms]({% link content-services/latest/support/index.md %}) page for the correct driver.
 
-    1. Download `mysql-connector-java-5.x.x` from the [MySQL download site](https://dev.mysql.com/){:target="_blank"}.
+    1. Download `mysql-connector-java-8.x.x` from the [MySQL download site](https://dev.mysql.com/){:target="_blank"}.
 
     2. Copy the JAR file into the `/lib` directory.
 
@@ -148,7 +148,7 @@ You can configure a MySQL database on Amazon RDS for use with Content Services, 
 
     # MySQL connection
   
-    db.driver=org.gjt.mm.mysql.Driver
+    db.driver=com.mysql.jdbc.Driver
     db.url=jdbc:mysql://${db.host}:${db.port}/${db.name}?useUnicode=yes&characterEncoding=UTF-8
     ```
 
@@ -385,7 +385,7 @@ You can configure a MySQL or MariaDB database connection (with a MySQL JDBC driv
 
 1. Install the MySQL database connector to allow the database to talk to the Content Services server.
 
-    The connector is a JAR file, for example, `mysql-connector-java-5.x.x`.
+    The connector is a JAR file, for example, `mysql-connector-java-8.x.x`.
 
     Check the [Supported platforms]({% link content-services/latest/support/index.md %}) page for the correct driver version.
 
@@ -679,6 +679,19 @@ You can configure a PostgreSQL database for use with Content Services.
 14. Restart the Content Services server.
 
     If you receive JDBC errors, ensure the location of the PostgreSQL JDBC drivers are on the system path, or add them to the relevant lib directory of the application server.
+
+### Database Partitioning
+
+Starting from version 7.3, Content Services supports table partitioning with PostgreSQL as the database backend. Table partitioning in PostgreSQL enhances performance and data management for large tables by breaking them into smaller, more manageable segments.
+
+Key benefits include:
+
+* Improved query performance: queries run faster because only relevant partitions are scanned, and each partition can have its own optimized indexes.
+* Enhanced data management: maintenance tasks like `VACUUM` and `REINDEX` can be performed on individual partitions, simplifying data management, and improving efficiency.
+
+Note that table partitioning is transparent to external systems; for Content Services, a partitioned table continues to function as a single, unified table.
+
+Our advice is to look at the distribution of the data and your use case in order to devise a fitting partitioning strategy. We do not guarantee a certain performance for a given partitioning strategy.
 
 ## Microsoft SQL Server
 

@@ -43,7 +43,6 @@ The following table shows the authentication subsystem types supplied and the op
 | ldap-ad | Authentication and user registry export from Active Directory through the LDAP protocol | No | Yes |
 | kerberos | Authentication through a Kerberos realm | Yes, SPNEGO | No |
 | external | Authentication using an external SSO mechanism | Yes | No |
-| SAML | Authentication through the SAML open standard | Yes | No |
 
 > **Important:** Support for Microsoft Office depends on the authentication mechanism provided by the `external` subsystem. See [External authentication and SSO](#extauthsso) for more information.
 

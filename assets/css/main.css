@@ -148,7 +148,7 @@ nav.navbar .navbar-lang {
 
 @media (max-width: 345px) {
   .icon-logo img {
-    transform: scale(0.8);
+    transform: scale(0.8); 
   }
 }
 

@@ -8,14 +8,14 @@ The Admin console is used to manage the interaction between Alfresco and Search 
 
 To use Search Enterprise with the Alfresco Content Services platform the following configuration must be applied:
 
-* For *searching* features the Alfresco Repository properties must be configured in the `alfresco-global.properties` file. This can also be done as an environment variable by configuring the Search Subystem.
+* For *searching* features the Alfresco Repository properties must be configured in the `alfresco-global.properties` file. This can also be done as an environment variable by configuring the Search Subsystem.
 * The Elasticsearch connector environment variables related to communication with the Alfresco Repository (Database, ActiveMQ and Transform Service) must be set and the Elasticsearch server for *indexing* features.
 
 > **Note:** To ensure backward compatibility, the exact same property values are used for configuring connection to the Opensearch Search subsystem (*'elasticsearch'* prefixes and aliases shall not change).
 
 ## Alfresco Repository
 
-Alfresco Repository provides configuration properties for the Elasticsearch Search subystem that defines the connection to the external Elasticsearch server, for more see [Subsystem]({% link search-enterprise/latest/install/index.md %}#configure-subsystem-in-repository).
+Alfresco Repository provides configuration properties for the Elasticsearch Search subsystem that defines the connection to the external Elasticsearch server, for more see [Subsystem]({% link search-enterprise/latest/install/index.md %}#configure-subsystem-in-repository).
 
 Additional property values can be included in the global configuration file `alfresco-global.properties`
 
@@ -40,6 +40,7 @@ Additional property values can be included in the global configuration file `alf
 | elasticsearch.query.includeGroupsForRoleAdmin | Include groups for Role Admin in permission filters when this value is set to `true`. The default value is `false`. |
 | elasticsearch.index.mapping.total_fields.limit | Mapping limit settings: The maximum number of fields in Alfresco index. When working on deployments including a large collection of custom content models, this value may be increased, but it is not recommended. The default value is `7500`. |
 | elasticsearch.index.max_result_window | Maximum number of results that can be returned by a single query. The default value is `10000`. |
+| elasticsearch.io.threadCount | Number of I/O Dispatcher threads to be used by the underlying Elasticsearch REST client. This number must be greater than zero, otherwise the default value will be used. The default value is `java.lang.Runtime.getRuntime().availableProcessors()`.<br><br> Added in Content Services 23.1.|
 
 Some of the properties above can be edited in the Search Admin Console, but values will be applied only to the Alfresco Repository instance. To update values for the Elasticsearch connector update its property file manually. **Note:** It is important that the Elasticsearch connector and repository configuration match, otherwise the search functionality will be impaired.
 
@@ -78,7 +79,7 @@ The tool may be used as a standalone jar file. The table below lists the main co
 | alfresco.reindex.pagesize | The page size of nodes fetched from the Alfresco dabatase. The default value is `100`. |
 | alfresco.reindex.concurrentProcessors | Number of parallel processors. The default value is `10`. |
 | alfresco.reindex.fromId | Start ID for fetching nodes (_reindexByIds_). The default value is `0`. |
-| alfresco.reindex.toId | Start ID for fetching nodes (_reindexByIds_) is configured. The default value is `10000`. |
+| alfresco.reindex.toId | End ID for fetching nodes (_reindexByIds_) is configured. The default value is `20000000000`. |
 | alfresco.reindex.fromTime | Start time for fetching nodes (_reindexByDate_), pattern: yyyyMMddHHmm. The default value is `190001010000`. |
 | alfresco.reindex.toTime | End time for fetching nodes (_reindexByDate_), pattern: yyyyMMddHHmm. The default value is `203012312359`. |
 | spring.datasource.url | JDBC url of the Alfresco database. The default value is `jdbc:postgresql://localhost:5432/alfresco`. |
@@ -99,8 +100,8 @@ The tool may be used as a standalone jar file. The table below lists the main co
 | alfresco.reindex.prefixes-file | File with namespaces-prefixes mapping. The default value is `classpath:reindex.prefixes-file.json`. |
 | alfresco.reindex.partitioning.type | Remote node type, can be master or worker. If not specified, the app runs as a single node instance. By default it is left empty. |
 | alfresco.reindex.partitioning.grid-size | Number of partitions, usually equals the number of available workers. The default value is `3`. |
-| alfresco.reindex.partitioning.requests-queue| Request queue for remote partitioning. `org.alfresco.search.reindex`.requests. |
-| alfresco.reindex.partitioning.replies-queue | Reply queue for remote partitioning. `org.alfresco.search.reindex.replies` |
+| alfresco.reindex.partitioning.requests-queue | Request queue for remote partitioning. `org.alfresco.search.reindex.requests.` |
+| alfresco.reindex.partitioning.replies-queue | Reply queue for remote partitioning. `org.alfresco.search.reindex.replies`. |
 | alfresco.db.minimum.schema.version | Minimum Alfresco Repository database version supported: 14002. |
 | alfresco.accepted-content-media-types-cache.base-url | URL to get the list of Content Media Types supported. The default URL is `http://localhost:8090/transform/config`. |
 | alfresco.accepted-content-media-types-cache.enabled | Cache the list of Content Media Types supported in memory. The default value is `true`. |
@@ -295,6 +296,15 @@ To increase the consumer number you must check the property name in the `applica
         environment:
             INPUT_ALFRESCO_METADATA_BATCH_EVENT_CHANNEL: sjms-batch:metadata.event?completionTimeout=1000&completionSize=10&aggregationStrategy=#eventAggregator&?consumerCount=20
 ```
+## Bulk deletion and ingestion
+
+After the completion of a bulk deletion process, some scheduled jobs execute to clean up the environment for the next set of tasks. Executing a bulk ingestion process when the clean-up jobs are running impacts the performance of the ingestion process.
+
+Therefore, when you plan to execute the bulk ingestion process after a bulk deletion process completes, it is recommended that you consider the following best practices:
+
+* Start the bulk ingestion process after 25 minutes of the completion of the deletion process.
+* Schedule the clean-up jobs after you complete the bulk ingestion.
+* If you have configured the log files to include clean-up job notifications, monitor the log files and resume the ingestion after the cleanup is complete.
 
 ## Using HTTP Basic Authentication to access Elasticsearch
 
@@ -393,7 +403,7 @@ services:
 
 PostgreSQL is the default database for Search Enterprise. You can use different databases with Search Enterprise, but they must be configured within your system and must match the database used by Content Services. The other types of databases supported by Search Enterprise are: MySQL, MariaDB, Microsoft SQL Server, and Oracle.
 
-Edit the `alfresco-global.properties` file using the following properties to change the Search Enterprise database.
+Add parameters to the startup script or in the command line when you run the reindexing app. You can use the following parameters.
 
 | Property | Description |
 | -------- | ------------|  
@@ -402,6 +412,11 @@ Edit the `alfresco-global.properties` file using the following properties to cha
 | spring.datasource.password | *Required*. Enter the password for the username. |
 | spring.datasource.hikari.maximumpoolsize | *Optional*. Sets the maximum size of the connections in HikariCP. |
 | alfresco.dbtype | *Optional*. Use this property to set your database type. When you set the type of database you are using the database auto-detection type is turned off. The supported values are: `postgresql`, `mysql`, `mariadb`, `sqlserver`, and `oracle`. |
+
+For example:
+```
+java -jar alfresco-elasticsearch-reindexing-4.0.0.1.jar --spring.datasource.url="jdbc:sqlserver://<your-server>.<your-domain>.com:1433;databaseName=alfresco;integratedSecurity=true"
+```
 
 ### Provide custom JDBC Drivers
 

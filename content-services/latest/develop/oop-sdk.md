@@ -1262,23 +1262,22 @@ familiar with Alfresco ReST API version 1.0, then read through this [introductio
 The ReST API wrapper classes have been generated based on the ReST API [Swagger definition](https://swagger.io/){:target="_blank"}.
 The following main packages exist for the different APIs:
 
-* [alfresco-auth-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-auth-rest-api){:target="_blank"} - Managing Alfresco tickets
-* [alfresco-core-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api){:target="_blank"} - The main API with actions, nodes, audit, renditions, sites, tagging, versioning etc
-* [alfresco-discovery-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-discovery-rest-api){:target="_blank"} - Repository information, such as license, version, modules
-* [alfresco-search-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-search-rest-api){:target="_blank"} - Search API  
+* [alfresco-auth-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-auth-rest-api){:target="_blank"} - Managing Alfresco tickets
+* [alfresco-core-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-core-rest-api){:target="_blank"} - The main API with actions, nodes, audit, renditions, sites, tagging, versioning etc 
+* [alfresco-discovery-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-discovery-rest-api){:target="_blank"} - Repository information, such as license, version, modules 
+* [alfresco-search-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-search-rest-api){:target="_blank"} - Search API  
 
 The following API requires the [Alfresco Insight Engine]({% link insight-engine/latest/index.md %}) to be installed:
 
-* [alfresco-search-sql-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-search-sql-rest-api){:target="_blank"} - SQL search with Alfresco Insight Engine
+* [alfresco-search-sql-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-search-sql-rest-api){:target="_blank"} - SQL search with Alfresco Insight Engine
 
 The following APIs require the [Alfresco Governance Services]({% link governance-services/latest/index.md %}) module to be installed:
-
-* [alfresco-governance-core-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-governance-core-rest-api){:target="_blank"} - Main Governance Services API
-* [alfresco-governance-classification-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-governance-classification-rest-api){:target="_blank"} - Classification and Security Marks API
+ 
+* [alfresco-governance-core-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-governance-core-rest-api){:target="_blank"} - Main Governance Services API
+* [alfresco-governance-classification-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-governance-classification-rest-api){:target="_blank"} - Classification and Security Marks API
 
 ## The alfresco-core-rest-api package
-
-The [alfresco-core-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api){:target="_blank"}
+The [alfresco-core-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-core-rest-api){:target="_blank"} 
 package contains most of the APIs that you will need. Here are some of the APIs in this package:
 
 * `NodesApi` – Manage nodes, such as folders and files
@@ -1290,7 +1289,7 @@ package contains most of the APIs that you will need. Here are some of the APIs 
 * `CommentsApi` – Manage node comments
 * `DownloadsApi` – Download node content
 
-This package together with the [alfresco-search-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-search-rest-api){:target="_blank"}
+This package together with the [alfresco-search-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-search-rest-api){:target="_blank"} 
 package, which contains the `SearchAPI`, is all you will need in most cases.
 
 ## Creating a Java ReST API extension project {#restapijavawrapperproject}
@@ -1304,7 +1303,7 @@ Make sure you have completed [prerequisites](#prereq) and created a [starter pro
         <!-- Alfresco Java SDK 6 Java ReST API wrapper Spring Boot Starter -->
         <dependency>
         <groupId>org.alfresco</groupId>
-        <artifactId>alfresco-java-rest-api-spring-boot-starter</artifactId>
+        <artifactId>alfresco-acs-java-rest-api-spring-boot-starter</artifactId>
         <version>6.0.0</version>
         </dependency>
     </dependencies>
@@ -1467,10 +1466,10 @@ public class CreateSiteCmd {
 }
 ```
 
-To use one of the ReST API Java wrapper services, such as [`SitesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/src/main/java/org/alfresco/core/handler/SitesApi.java){:target="_blank"},
-auto wire it into the component as in the above class. Creating stuff in the repository usually mean making a HTTP POST
-in the background. In these cases there is always a body class that we can use to fill in POST data, such as `SiteBody` in
-this case. A successful API call will return a populated result object called `Site`.
+To use one of the ReST API Java wrapper services, such as [`SitesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-core-rest-api/src/main/java/org/alfresco/core/handler/SitesApi.java){:target="_blank"}, 
+auto wire it into the component as in the above class. Creating stuff in the repository usually mean making a HTTP POST 
+in the background. In these cases there is always a body class that we can use to fill in POST data, such as `SiteBody` in 
+this case. A successful API call will return a populated result object called `Site`. 
 
 In a similar way we add the other three command beans in the same directory as follows, starting with the `CreateFolderCmd`:
 
@@ -1516,8 +1515,8 @@ public class CreateFolderCmd {
 }
 ```
 
-The [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/src/main/java/org/alfresco/core/handler/NodesApi.java){:target="_blank"}
-is one of the main APIs that we will use a lot to manipulate folders and files. We use it here to create a folder node
+The [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-acs-java-rest-api/alfresco-acs-java-rest-api-lib/generated/alfresco-core-rest-api/src/main/java/org/alfresco/core/handler/NodesApi.java){:target="_blank"} 
+is one of the main APIs that we will use a lot to manipulate folders and files. We use it here to create a folder node 
 in the site's document library.
 
 Next we create the `CreateFileCmd` as follows in the same directory:
@@ -1837,7 +1836,7 @@ search.service.path=/alfresco/api/-default-/public/search/versions/1
         <!-- Alfresco Java SDK 6 Java ReST API wrapper Spring Boot Starter -->
         <dependency>
         <groupId>org.alfresco</groupId>
-        <artifactId>alfresco-java-rest-api-spring-boot-starter</artifactId>
+        <artifactId>alfresco-acs-java-rest-api-spring-boot-starter</artifactId>
         <version>6.0.0</version>
         </dependency>
     </dependencies>

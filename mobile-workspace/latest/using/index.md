@@ -25,11 +25,11 @@ The **Favorites** view shows all files and folders from the content repository t
 
 **Browse** contains the rest of the navigation structure. You can access your libraries, personal files, shared files and discarded files from this screen.
 
-* **Personal Files** retrieves all content from the logged in user's home area `/User Homes/<username>/` in the repository. If the user is an administrator who does not have a home folder then the repository root folder is shown.
+* **Personal Files** retrieves all content from the logged-in user's home area `/User Homes/<username>/` in the repository. If the user is an administrator who does not have a home folder then the repository root folder is shown.
 
 * **File Libraries** retrieves all the sites that the user is a member of, either public, moderated or private. File Libraries is the Libraries component, using the Sites API.
 
-* The **Shared Files** view aggregates all files that have been shared using the QuickShare feature in the content repository.
+* The **Shared Files** view aggregates all files that have been shared by a logged-in user using the QuickShare feature in the content repository.
 
 * The **Trash** view shows all the items that a user has deleted. An administrator can see items deleted by all users. The actions available in this view are **Restore** and **Permanently Delete**.
 
@@ -41,11 +41,18 @@ You can upload single or multiple files within the Mobile Workspace.
 
 2. Navigate to the **Personal Files** area.
 
-3. Tap the plus **+** button.
+3. Tap the floating action button (**+**).
 
 4. Tap **Upload Files**.
 
 This will open your file repository on your mobile device (for example, Files for iPhone users) where you can select files to upload. This will upload files to the Personal files area. If you want to upload to a specific folder, create a new folder first and upload from inside that folder.
+
+To upload photos, you can use the following options:
+
+ | Option | Description |
+ | -------- | ----------- |
+ | **Upload photos and videos** | Photos are automatically uploaded without EXIF metadata according to the device security system. |
+ | **Upload files** | Photos are uploaded with EXIF metadata. |
 
 ## Share files from another file system
 
@@ -60,6 +67,8 @@ You can share single or multiple files from a different file system with the Mob
 This will upload files to the Personal files area. If you want to upload to a specific folder, create a new folder first and then upload from inside that folder. Files can also be shared this way using the gallery with the Mobile Workspace.
 
 Open the Mobile Workspace to view your files.
+
+> **Note:** When uploading photos using this option, EXIF metadata is not preserved. To preserve the EXIF metadata, upload photos using the **Upload files** option. For more information, see [Upload files](#upload-files).
 
 * On the Recent Files view, a banner displays the sync progress for all files as a percentage complete. Tapping the sync status banner opens a Transfers view with all the files selected to be shared with the Mobile Workspace.
 * On the Transfers view, tap the **Sync All** button to force the files to upload. This is used to complete the transfer when files were shared without an internet connection or if the internet connection is lost.
@@ -259,7 +268,8 @@ You can access workflows in two ways by either creating a workflow from the cont
 To set up a workflow, you can either:
 
 * Create a new workflow from the context menu of an existing file.
-* Starting from the **Workflows** tab, tap the **+** button, and then select a workflow.
+* Starting from the **Workflows** tab, tap the floating action button (**+**), and then select a workflow.
+
 
 ## Multiple Selection
 

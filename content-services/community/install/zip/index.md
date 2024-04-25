@@ -58,13 +58,13 @@ There are a number of different installation files available to you, each of whi
 
 For new installations or upgrades, use the distribution zip. Use the Alfresco WAR file to install Community Edition within an existing Tomcat. The WAR file is included in the distribution zip. In addition, you must install all the required additional components manually.
 
-The installation files are available from the [Alfresco Community Edition download page](https://www.alfresco.com/products/community/download){:target="_blank"}.
+The installation files are available from the [Alfresco Community Edition download page](https://www.hyland.com/en/resources/alfresco-community-download){:target="_blank"}.
 
 Here's a list of the files to download and install.
 
 | File | Description |
 | ---- | ----------- |
-| alfresco-content-services-community-distribution-23.1.x.zip | Community Edition distribution zip for new installations or upgrades. Alfresco WAR files (in distribution zip) for a manual install into an existing Tomcat application server. This distribution zip also contains the Module Management Tool (MMT) and the sample extension files, such as `alfresco-global.properties`. |
+| alfresco-content-services-community-distribution-23.2.x.zip | Community Edition distribution zip for new installations or upgrades. Alfresco WAR files (in distribution zip) for a manual install into an existing Tomcat application server. This distribution zip also contains the Module Management Tool (MMT) and the sample extension files, such as `alfresco-global.properties`. |
 |alfresco-search-services-2.0.x.zip | Alfresco Search Services distribution zip.<br><br>See [Install Alfresco Search Services]({% link search-services/latest/install/index.md %}) for more information. |
 
 ## Preparing the filesystem and database

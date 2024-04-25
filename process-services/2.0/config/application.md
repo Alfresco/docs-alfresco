@@ -148,16 +148,6 @@ com.activiti.runtime.rest.TaskQueryResource.listTasks
   99.9% <= 186.55 milliseconds
 ```
 
-## Business calendar
-
-The business calendar is used to calculate relative due dates for tasks. To exclude weekends when calculating a task’s 
-relative due date, set the `calendar.weekends` property as follows:
-
-```text
-# Weekend days comma separated (day's first 3 letters in capital)
-calendar.weekends=SAT,SUN
-```
-
 ## Group manager involvement
 
 When a task is created that has one or more candidate groups assigned, the group managers for those groups will be automatically involved with the created task. To stop group managers from being involved, set the following property to `false`.

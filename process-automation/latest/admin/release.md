@@ -179,6 +179,10 @@ The **Undeploy** action removes a deployed application.
 
 > **Important**: Undeploying an application will remove all data related to the application including processes and tasks. It is not possible to retrieve this data once an application has been undeployed.
 
+### Redeploy
+
+If deployment of an application fails, you can use the **Redeploy** action to quickly start the deployment again.
+
 ### Manage permissions
 
 The **Manage Permissions** option allows for additional users to be granted user or administrator access to an application without having to upgrade it.

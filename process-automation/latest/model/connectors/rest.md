@@ -40,7 +40,7 @@ The output parameters from GET are:
 | --------- | ---- | ----------- |
 | restResult | JSON | *Optional.* The response from the REST service call. |
 | restStatus | Integer | *Optional.* The HTTP response status code from the REST service call. |
-| restResponseHeaders | JSON | *Optional.* The HTTP response headers from the REST service call. |
+| responseHeaders | JSON | *Optional.* The HTTP response headers from the REST service call. |
 
 ## HEAD
 
@@ -62,7 +62,7 @@ The output parameters from HEAD are:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | restStatus | Integer | *Optional.* The HTTP response status code from the REST service call. |
-| restResponseHeaders | JSON | *Optional.* The HTTP response headers from the REST service call. |
+| responseHeaders | JSON | *Optional.* The HTTP response headers from the REST service call. |
 
 ## POST
 
@@ -86,7 +86,7 @@ The output parameters from POST are:
 | --------- | ---- | ----------- |
 | restResult | JSON | *Optional.* The response from the REST service call. |
 | restStatus | Integer | *Optional.* The HTTP response status code from the REST service call. |
-| restResponseHeaders | JSON | *Optional.* The HTTP response headers from the REST service call. |
+| responseHeaders | JSON | *Optional.* The HTTP response headers from the REST service call. |
 
 ### Use the POST action to send files
 
@@ -145,7 +145,7 @@ The output parameters from PUT are:
 | --------- | ---- | ----------- |
 | restResult | JSON | *Optional.* The response from the REST service call. |
 | restStatus | Integer | *Optional.* The HTTP response status code from the REST service call. |
-| restResponseHeaders | JSON | *Optional.* The HTTP response headers from the REST service call. |
+| responseHeaders | JSON | *Optional.* The HTTP response headers from the REST service call. |
 
 ## PATCH
 
@@ -169,7 +169,7 @@ The output parameters from PATCH are:
 | --------- | ---- | ----------- |
 | restResult | JSON | *Optional.* The response from the REST service call. |
 | restStatus | Integer | *Optional.* The HTTP response status code from the REST service call. |
-| restResponseHeaders | JSON | *Optional.* The HTTP response headers from the REST service call. |
+| responseHeaders | JSON | *Optional.* The HTTP response headers from the REST service call. |
 
 ## DELETE
 
@@ -192,7 +192,7 @@ The output parameters from DELETE are:
 | --------- | ---- | ----------- |
 | restResult | JSON | *Optional.* The response from the REST service call. |
 | restStatus | Integer | *Optional.* The HTTP response status code from the REST service call. |
-| restResponseHeaders | JSON | *Optional.* The HTTP response headers from the REST service call. |
+| responseHeaders | JSON | *Optional.* The HTTP response headers from the REST service call. |
 
 ## OPTIONS
 
@@ -214,7 +214,7 @@ The output parameters from OPTIONS are:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | restStatus | Integer | *Optional.* The HTTP response status code from the REST service call. |
-| restResponseHeaders | JSON | *Optional.* The HTTP response headers from the REST service call. |
+| responseHeaders | JSON | *Optional.* The HTTP response headers from the REST service call. |
 
 ## TRACE
 

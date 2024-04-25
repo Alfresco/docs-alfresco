@@ -1,5 +1,5 @@
-# Alfresco Content Connector for SAP Cloud 1.2
-- version: 1.2
+# Alfresco Content Connector for SAP Cloud 2.0
+- version: 2.0
   pages:
     - title: 'Introduction'
       path: '/sap-cloud/latest/'
@@ -15,6 +15,24 @@
           path: '/sap-cloud/latest/config/genericxchange/'
     - title: 'Administer'
       path: '/sap-cloud/latest/admin/'
+
+# Alfresco Content Connector for SAP Cloud 1.2
+- version: 1.2
+  pages:
+    - title: 'Introduction'
+      path: '/sap-cloud/1.2/'
+    - title: 'Install'
+      path: '/sap-cloud/1.2/install/'
+    - title: 'Configure'
+      pages:
+        - title: 'Configure SAP on-premises'
+          path: '/sap-cloud/1.2/config/'
+        - title: 'Configure SAP Cloud'
+          path: '/sap-cloud/1.2/config/cloud/'
+        - title: 'Configure GenericXchange'
+          path: '/sap-cloud/1.2/config/genericxchange/'
+    - title: 'Administer'
+      path: '/sap-cloud/1.2/admin/'
 
 # Alfresco Content Connector for SAP Cloud 1.1
 - version: 1.1

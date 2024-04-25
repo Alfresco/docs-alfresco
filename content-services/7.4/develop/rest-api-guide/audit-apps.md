@@ -779,9 +779,9 @@ The following GET call is used for this:
 
 `http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/{id}/audit-entries`
 
-The identifier for the node we want to list audit entries (logs) for is specified with the `{id}` parameter.
+The identifier for the node we want to list audit entries (logs) for is specified with the `{id}` parameter. This parameter is resolved to the current path of the node, so this GET call returns the audit entries of any node that is or has existed under this path. In addition, it includes all copy and move events that started with the node at its current path.
 
-Here is how to get all audit entries for a text file with Node id `f0587f6b-f6ec-44ed-a7d2-db18865fd1db`:
+Here is how to get all audit entries for a text file current path with Node id `f0587f6b-f6ec-44ed-a7d2-db18865fd1db`:
 
 ```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/f0587f6b-f6ec-44ed-a7d2-db18865fd1db/audit-entries' | jq  

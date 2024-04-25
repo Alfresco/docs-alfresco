@@ -39,7 +39,7 @@ A Content Services inventory file has the following groups a host can belong to:
 * `search_enterprise`: one or more hosts on which to deploy Search Enterprise, as an alternative to Alfresco Search.
 * `elasticsearch`: one or more hosts on which to deploy the ElasticSearch cluster backing Search Enterprise.
 * `external_elasticsearch`: an alternative group to `elasticsearch` in case you don't want to deploy ElasticSearch using the [community ElasticSearch role](https://github.com/buluma/ansible-role-elasticsearch){:target="_blank"} but instead use an ElasticSearch cluster of yours which matches your hosting standards.
-* `nginx`: a single host on which the playbook will deploy an NGINX reverse proxy configured for the numerous http based services, such as Alfresco Share and Alfresco Digital Workspace.
+* `nginx`: a single host on which the playbook will deploy an NGINX reverse proxy configured for the numerous http based services, such as Alfresco Digital Workspace and Alfresco Share.
 * `acc`: a single host where you want the Alfresco Control Center UI to be installed.
 * `adw`: a single host where you want the Alfresco Digital Workspace UI to be installed.
 * `transformers`: a single host where the playbook will deploy the Alfresco Transform Service components.
@@ -122,7 +122,7 @@ While Content Services supports a wide range of OS, the playbook is only support
 
 ### Component versions
 
-The table below shows the version of the components deployed by the playbook for Content Services 23.1, 7.x, and Community.
+The table below shows the version of the components deployed by the playbook for Content Services 23.x, 7.x, and Community.
 
 | Component | 23.1.0 Enterprise | 7.4 Enterprise | 7.3 Enterprise | 7.2 Enterprise | 7.1 Enterprise | 7.0 Enterprise | Community |
 |-|-|-|-|-|-|-|-|
@@ -545,7 +545,7 @@ Several roles set up services that listen on TCP ports, and several roles wait f
 
 ## Configure your installation
 
-By default, without any configuration applied, the playbook installs a limited trial of the Enterprise version of Content Services 7.x that goes into read-only mode after 2 days. If you'd like to try Content Services for a longer period, request the 30-day [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"}.
+By default, without any configuration applied, the playbook installs a limited trial of the Enterprise version of Content Services 23.x that goes into read-only mode after 2 days. If you'd like to try Content Services for a longer period, request the 30-day [Download Trial](https://www.hyland.com/en/resources/alfresco-ecm-download){:target="_blank"}.
 
 This section describes how to configure your installation before running the playbook.
 
