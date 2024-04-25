@@ -18,7 +18,7 @@ Starting from Process Services 24.1, six out-of-the box workflows provide a fast
 * Review and Approve (pooled review)
 * Review and Approve (single reviewer)
 
-There are several stages to setting up a Preconfigured Workflows app before you can use it. To enable the Preconfigured workflows, please ensure that the `app.review-workflows.enabled` property is set to `true` in the activiti-app properties file. 
+There are several stages to setting up a Preconfigured Workflows app before you can use it. To enable the Preconfigured workflows, please ensure that the `app.review-workflows.enabled` property is set to `true` in the activiti-app.properties file. 
 
 To get started:
 
