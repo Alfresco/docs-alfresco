@@ -113,7 +113,7 @@ In version 5, the delegate classes like `JavaDelegate` and `ActivityBehavior` ha
 
 `org.activiti.engine.impl.pvm.delegate.ActivityBehavior` has changed package and lives now in `org.activiti.engine.impl.delegate`.
 
-Although `getEngineServices()` is still available from `DelegateExecution`, it’s deprecated. 
+The method `getEngineServices()`, although deprecated, is still available from `DelegateExecution`.
 
 When implementing new processes in APS 2.4.x, it’s advisable to retrieve services like `RepositoryService` from `org.activiti.engine.impl.context.Context` using `Context.getProcessEngineConfiguration().getRepositoryService()`.
 
