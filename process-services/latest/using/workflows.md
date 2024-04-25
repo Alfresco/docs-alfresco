@@ -18,7 +18,10 @@ Starting from Process Services 24.1, six out-of-the box workflows provide a fast
 * Review and Approve (pooled review)
 * Review and Approve (single reviewer)
 
-There are several stages to setting up a Preconfigured Workflows app before you can use it. To get started:
+There are several stages to setting up a Preconfigured Workflows app before you can use it. To enable the Preconfigured workflows, ensure that the `app.review-workflows.enabled` property is set to `true` in the `activiti-app.properties` file. 
+
+
+To get started:
 
 1. Create a tenant.
 
@@ -45,6 +48,8 @@ Once a workflow has been created, you can also:
 ## Creating a tenant
 
 You need to create a tenant before you can start creating workflows. 
+
+> **Note:**  Skip this step if you are using single tenant mode.
 
 To create a tenant, complete the following steps.
 
