@@ -113,7 +113,9 @@ In version 5, the delegate classes like `JavaDelegate` and `ActivityBehavior` ha
 
 `org.activiti.engine.impl.pvm.delegate.ActivityBehavior` has changed package and lives now in `org.activiti.engine.impl.delegate`.
 
-The method `getEngineServices()` have been removed from `DelegateExecution`. It's possible to retrieve services like `RepositoryService` from `org.activiti.engine.impl.context.Context` using `Context.getProcessEngineConfiguration().getRepositoryService()`.
+The method `getEngineServices()`, although deprecated, is still available from `DelegateExecution`.
+
+When implementing new processes in APS 2.4.x, it’s advisable to retrieve services like `RepositoryService` from `org.activiti.engine.impl.context.Context` using `Context.getProcessEngineConfiguration().getRepositoryService()`.
 
 #### Identity management classes removed
 In Activiti 7, the package `org.activiti.engine.identity` and all it's classes like `User` and `Group` were removed. While the classes have been removed the database tables like `ACT_ID_USER` and `ACT_ID_GROUP` will not be removed when upgrading from APS 1.x to APS 2. However, they'll not be created if you start APS 2 on a new database.
