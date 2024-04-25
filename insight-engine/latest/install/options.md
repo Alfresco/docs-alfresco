@@ -327,7 +327,7 @@ Use this information to start up Alfresco Content Services 6.2 or above and Sear
 * Access to [Quay](https://quay.io/){:target="_blank"}
   * Docker requires access to certain images which are stored on Quay. You need to use the correct credentials provided by Alfresco to access these images. Contact [Alfresco Support](mailto:support@alfresco.com){:target="_blank"} to request the credentials.
 
-> **Note:** Make sure the following ports are free on your computer: `5432`, `8080`, `8082`, `8083`. These ports are set in the `docker-compose.yml` file.
+> **Note:** Make sure the following ports are free on your computer: `5432`, `8080`. These ports are set in the `docker-compose.yml` file.
 
 ### Deployment steps
 
