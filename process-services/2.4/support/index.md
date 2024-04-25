@@ -48,7 +48,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Chrome | |
 | | |
 | **Third party integrations** | |
-| Elasticsearch 7.13.2 | |
+| Elasticsearch 7.17.6 | |
 | | |
 | **Integrations** | |
 | Identity Service 1.2 | For use with LDAP and SAML |
