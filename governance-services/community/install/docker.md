@@ -13,7 +13,7 @@ Use this information to quickly deploy Governance Services using Docker Compose.
 
 > **Note:** Make sure that the following ports are free on your computer: 5432, 8080, 8083. These ports are set in the `docker-compose.yml` file.
 
-## Installation steps
+## Deployment steps
 
 1. Download the Alfresco Community Edition [docker-compose.yml](https://raw.githubusercontent.com/Alfresco/acs-deployment/master/docker-compose/community-docker-compose.yml) file from GitHub.
 

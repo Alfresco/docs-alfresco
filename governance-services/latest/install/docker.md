@@ -17,9 +17,9 @@ recommended for development and test environments only.
 
 > **Note:** Make sure that the following ports are free on your computer: 5432, 8080, 8082, 8083. These ports are set in the `docker-compose.yml` file.
 
-## Installation steps
+## Deployment steps
 
-1. Download the latest Alfresco Content Services `docker-compose.yml` file by accessing the [trial download page](https://www.alfresco.com/platform/content-services-ecm/trial/download).
+1. Download the `docker-compose.yml` file by accessing the Content Services [Download Trial](https://www.hyland.com/en/resources/alfresco-ecm-download) page, which will give you a 30-day license.
 
 2. Save the file in a local folder.
 
