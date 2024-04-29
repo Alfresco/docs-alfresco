@@ -93,3 +93,7 @@ See [Limit folder synchronization]({% link sync-service/latest/admin/index.md %}
 ## What tools can I use if either the desktop or Alfresco Content Services needs to restored from a backup?
 
 See [Back up and restore Sync Service]({% link sync-service/latest/admin/index.md %}#back-up-and-restore-sync-service).
+
+## Can Sync Service 5.x be used against a repository with Sync Service AMP 4.x installed?
+
+We recommend using the same Sync Service and AMP version for better compatibility.

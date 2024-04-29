@@ -38,6 +38,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Tomcat 10.1.x | |
 | | |
 | **Clients** | |
+| Windows 11 | |
 | Windows 10 x64 | |
 | Windows 8.1 x64 | |
 | Windows 7 x64 | |
@@ -62,6 +63,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Process Services 24.1 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 5.0 | |
 | Alfresco Sync Service 4.0 | |
 | Alfresco Desktop Sync 1.17 | |
 | Alfresco Transform Service 4.1 | |
@@ -134,6 +136,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Tomcat 10.1.x | |
 | | |
 | **Clients** | |
+| Windows 11 | |
 | Windows 10 x64 | |
 | Windows 8.1 x64 | |
 | Windows 7 x64 | |
@@ -159,6 +162,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Process Services 2.4.2 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 5.0 | |
 | Alfresco Sync Service 4.0 | |
 | Alfresco Desktop Sync 1.17 | |
 | Alfresco Desktop Sync 1.16 | |

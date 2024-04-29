@@ -15,8 +15,7 @@ Both connectors can send and return JSON payloads from a process. The REST conne
 ## Extend the Digital Workspace
 
 The default [end user interface]({% link process-automation/latest/model/interfaces.md %}) provided with Process Automation is the [Alfresco Digital Workspace]({% link digital-workspace/latest/index.md %}).
-
-> **Note**: The Digital Workspace can be extended to customize the branding and components. If your requirement is to customize large parts of the Digital Workspace then consider [developing a custom user interface](#develop-a-custom-user-interface) instead.
+Starting with Process Automation version 7.12, large parts of the Digital Workspace can be easily customized by editing the provided UI, see [creating a custom user interface](#create-a-custom-user-interface). If you're using a version older than 7.12, use the instructions below to extend your Digital Workspace.
 
 ### Setup
 
@@ -609,6 +608,8 @@ Restart the application and you will see the custom columns in the process list 
 ![Process list custom template]({% link process-automation/images/process-list-custom-template.png %})
 
 ## Create a custom user interface
+
+Starting with Process Automation version 7.12, custom user interfaces can be modified, starting from the default interface. If you're using older Process Automation version and wish to modify the user interface, see [extending digital workspace](#extend-the-digital-workspace) instead.
 
 To create a custom user interface:
 

@@ -725,7 +725,7 @@ defaults:
       toc: "process-services"
       support: true
       versions:
-        - 24.1
+        - 24.x
         - 2.4
         - 2.3
         - 2.2
@@ -737,7 +737,7 @@ defaults:
   - scope:
       path: "process-services/latest"
     values:
-      version: 24.1
+      version: 24.x
       latest: true
   - scope:
       path: "process-services/2.4"
@@ -1346,6 +1346,7 @@ defaults:
       toc: "sync-service"
       support: true
       versions:
+        - 5.0
         - 4.0
         - 3.11
         - "3.10"
@@ -1362,8 +1363,12 @@ defaults:
   - scope:
       path: "sync-service/latest"
     values:
-      version: 4.0
+      version: 5.0
       latest: true
+  - scope:
+      path: "sync-service/4.0"
+    values:
+      version: 4.0
   - scope:
       path: "sync-service/3.11"
     values:

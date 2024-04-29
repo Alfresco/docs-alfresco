@@ -17,7 +17,7 @@ The following are the supported platforms for Document Transformation Engine 2.4
 | Oracle JDK 11 | |
 | | |
 | **Microsoft Windows Server** | |
-| Microsoft Windows Server 2021 | |
+| Microsoft Windows Server 2022 | |
 | Microsoft Windows Server 2019 | |
 | Microsoft Windows Server 2016 | |
 | Microsoft Windows Server 2012 | |
