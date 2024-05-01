@@ -33,8 +33,8 @@ can be reimplemented as an external out-process extension utilizing the new even
 
 ## What's new?
 
-* Alfresco SDK 6 [integrates](#using-event-gateway) with the [Event Gateway]({% link content-services/latest/develop/oop-ext-points/event-gateway.md %}) that is part of Content Services 23.1.
-* ReST API authentication using [OAuth2](#rest-api-config) with Alfresco Identity Service.
+* Alfresco SDK 6 [integrates](#using-event-gateway) with the [Event Gateway]({% link content-services/latest/develop/oop-ext-points/event-gateway.md %}) that is part of Content Services 23.x.
+* ReST API authentication using [OAuth2](#rest-api-config) with the Identity Service.
 
 ## Introduction
 
@@ -484,14 +484,13 @@ The `resource.getSource().getId()` call will return the Node ID for the source n
 
 ## Creating event handler projects
 
-In this section we will see how to use SDK 5 to create Alfresco event handler projects, using plain Java and
-using the Spring framework.<!--FIXME-->
+In this section we will see how to use SDK 5 to create Alfresco event handler projects, using plain Java and using the Spring framework.
 
 ### Start up Content Services 23.1 or newer {#acsstart}
 
 Before continuing you need an instance of Content Services version 23.x running, either Community or Enterprise. In this
 samples section we will use Community and start it up with Docker Compose. You can get the Docker Compose file for
-Community version 23.2 from the [acs-deployment](https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/community-docker-compose.yml){:target="_blank"} GitHub project.
+Community version 23 from the [acs-deployment](https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/community-docker-compose.yml){:target="_blank"} GitHub project.
 
 Put the Docker Compose YAML file in a directory and then start it all up with the following command:
 
@@ -508,39 +507,38 @@ activemq_1            |  INFO | Listening for connections at: tcp://34b213aab4c7
 ...
 ```
 
-Note down the ActiveMQ Broker TCP access point (i.e. `tcp://localhost:61616`), we will need it later when configuring the
-event application.
+Note down the ActiveMQ Broker TCP access point (i.e. `tcp://localhost:61616`), we will need it later when configuring the event application.
 
-It will take 5-15 minutes to start up, depending on what Docker images you already have locally. Make sure everything has
-started properly by accessing [http://localhost:8080/share](http://localhost:8080/share){:target="_blank"}
-and login with **admin/admin**.
+It will take 5-15 minutes to start up, depending on what Docker images you already have locally. Make sure everything has started properly by accessing `http://localhost:8080/share` and login with `admin/admin`.
 
 ### Prerequisites {#prereq}
 
-Before you start using any of the libraries in SDK 6 make sure you got the correct Java and Maven versions installed:
+Before you start using any of the libraries in SDK 6 make sure you've got the correct Java and Maven versions installed. The software requirements are:
 
-Java needs to be version 17 or above:<!--FIXME: Java 17-->
+* Java Development Kit (JDK) - Version 17 or higher
+* Maven - Version 3.3
+* Spring Boot 3.1 or higher
+* Docker - Latest stable version
 
 ```bash
 $ java -version
-java version "11.0.2" 2019-01-15 LTS
-Java(TM) SE Runtime Environment 18.9 (build 11.0.2+9-LTS)
-Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.2+9-LTS, mixed mode)
+openjdk version "17.0.9" 2023-10-17
+OpenJDK Runtime Environment Homebrew (build 17.0.9+0)
+OpenJDK 64-Bit Server VM Homebrew (build 17.0.9+0, mixed mode, sharing)
 
 $ javac -version
-javac 11.0.2
+javac 17.0.9
 ```
 
 Maven needs to be version 3.3 or above:
 
 ```bash
 $ mvn -version
-Apache Maven 3.5.0 (ff8f5e7444045639af65f6095c62210b5713f426; 2017-04-03T20:39:06+01:00)
-Maven home: /Users/mbergljung/Tools/apache-maven-3.5.0
-Java version: 11.0.2, vendor: Oracle Corporation
-Java home: /Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home
+Apache Maven 3.9.6 (bc0240f3c744dd6b6ec2920b3cd08dcc295161ae)
+Maven home: /opt/homebrew/Cellar/maven/3.9.6/libexec
+Java version: 17.0.9, vendor: Homebrew, runtime: /opt/homebrew/Cellar/openjdk@17/17.0.9/libexec/openjdk.jdk/Contents/Home
 Default locale: en_GB, platform encoding: UTF-8
-OS name: "mac os x", version: "10.16", arch: "x86_64", family: "mac"
+OS name: "mac os x", version: "14.2.1", arch: "aarch64", family: "mac"
 ```
 
 The Java artifacts (i.e. JAR libs) that we will be using are located in the
