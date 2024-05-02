@@ -343,19 +343,7 @@ Use this information to start up Alfresco Content Services 6.2 or above and Sear
         solr6:
             #image: alfresco/alfresco-search-services:2.0.x
             image: quay.io/alfresco/insight-engine:2.0.x
-            mem_limit: 2500m
-            environment:
-                #Solr needs to know how to register itself with Alfresco
-                    - SOLR_ALFRESCO_HOST=alfresco
-                    - SOLR_ALFRESCO_PORT=8080
-                #Alfresco needs to know how to call solr
-                    - SOLR_SOLR_HOST=solr6
-                    - SOLR_SOLR_PORT=8983
-                #Create the default alfresco and archive cores
-                    - SOLR_CREATE_ALFRESCO_DEFAULTS=alfresco,archive
-                    - "SOLR_JAVA_MEM=-Xms2g -Xmx2g"
-            ports:
-                - 8083:8983 #Browser port
+            ...
     ```
 
     > **Note:** If you want to use the Apache Zeppelin visualization interface with Search and Insight Engine you have to deploy it using Docker Compose along with Alfresco Content Services, you cannot install it manually. See [Building Reports and Dashboards]({% link insight-engine/latest/using/index.md %}#Installing with Docker Compose) for the additional container information you need to add to your `docker-compose.yml` file.
@@ -386,10 +374,11 @@ Use this information to start up Alfresco Content Services 6.2 or above and Sear
     * Stop the session (by using `CONTROL+C`).
     * Remove the container (using the `--rmi all` option): For example `docker-compose down --rmi all`.
     * Try allocating more memory resources. As advised in `docker-compose.yml` set it to at least 16 GB. To adjust the memory, in Docker, go to **Preferences** (or **Settings**) > **Advanced** > **Memory**. Once you have adjusted the memory make sure you restart Docker and wait for the process to finish before continuing.
-    * Go back to step 6 and retry the deployment.
+    * Go back to step 7 and retry the deployment.
+
 9. Open your browser and check everything starts up correctly:
 
-    * Alfresco: `http://localhost:8082/alfresco`
+    * Alfresco: `http://localhost:8080/alfresco`
     * Share: `http://localhost:8080/share`
     * Solr: `http://localhost:8083/solr`
 
