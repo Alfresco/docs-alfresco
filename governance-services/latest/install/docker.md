@@ -15,11 +15,11 @@ recommended for development and test environments only.
 * Access to [Quay](http://www.quay.io){:target="_blank"}
     * Alfresco customers can request Quay.io credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/). These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
 
-> **Note:** Make sure that the following ports are free on your computer: 5432, 8080, 8082, 8083. These ports are set in the `docker-compose.yml` file.
+> **Note:** Make sure that the following ports are free on your computer: 5432, 8080. These ports are set in the `docker-compose.yml` file.
 
-## Installation steps
+## Deployment steps
 
-1. Download the latest Alfresco Content Services `docker-compose.yml` file by accessing the [trial download page](https://www.alfresco.com/platform/content-services-ecm/trial/download).
+1. Download the `docker-compose.yml` file by accessing the Content Services [Download Trial](https://www.hyland.com/en/resources/alfresco-ecm-download) page, which will give you a 30-day license.
 
 2. Save the file in a local folder.
 
