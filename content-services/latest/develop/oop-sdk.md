@@ -484,7 +484,7 @@ The `resource.getSource().getId()` call will return the Node ID for the source n
 
 ## Creating event handler projects
 
-In this section we will see how to use SDK 5 to create Alfresco event handler projects, using plain Java and using the Spring framework.
+In this section we will see how to use the SDK to create Alfresco event handler projects, using plain Java and using the Spring framework.
 
 ### Start up Content Services 23.1 or newer {#acsstart}
 
@@ -495,8 +495,7 @@ Community version 23 from the [acs-deployment](https://github.com/Alfresco/acs-d
 Put the Docker Compose YAML file in a directory and then start it all up with the following command:
 
 ```bash
-$ docker-compose up
-...
+docker-compose up
 ```
 
 During start up you can see Apache Active MQ starting:
@@ -516,7 +515,7 @@ It will take 5-15 minutes to start up, depending on what Docker images you alrea
 Before you start using any of the libraries in SDK 6 make sure you've got the correct Java and Maven versions installed. The software requirements are:
 
 * Java Development Kit (JDK) - Version 17 or higher
-* Maven - Version 3.3
+* Maven - Version 3.3  or higher
 * Spring Boot 3.1 or higher
 * Docker - Latest stable version
 
@@ -525,12 +524,12 @@ $ java -version
 openjdk version "17.0.9" 2023-10-17
 OpenJDK Runtime Environment Homebrew (build 17.0.9+0)
 OpenJDK 64-Bit Server VM Homebrew (build 17.0.9+0, mixed mode, sharing)
+```
 
+```bash
 $ javac -version
 javac 17.0.9
 ```
-
-Maven needs to be version 3.3 or above:
 
 ```bash
 $ mvn -version
@@ -544,7 +543,7 @@ OS name: "mac os x", version: "14.2.1", arch: "aarch64", family: "mac"
 The Java artifacts (i.e. JAR libs) that we will be using are located in the
 [Alfresco Nexus repo](https://artifacts.alfresco.com/nexus/#nexus-search;quick~alfresco-java-sdk){:target="_blank"}:
 
-![artifacts-alfresco-java-sdk]({% link content-services/images/artifacts-alfresco-java-sdk.png %}){:height="500px" width="400px"}
+![Search Nexus artefacts for alfresco-java-sdk]({% link content-services/images/artifacts-alfresco-java-sdk-6.png %}){:height="416px" width="500px"}
 
 Maven needs to know about the Alfresco Artifacts Repository (Nexus) so add the following to `~/.m2/settings.xml`:
 
@@ -567,9 +566,9 @@ The easiest way to get going is to use the **Spring Initializr** website and cre
 
 Before you start, make sure you're familiar with Spring Boot and the Maven project structure.
 
-1. Go to [https://start.spring.io/](https://start.spring.io/){:target="_blank"} and fill in your project info something like this:
+1. Go to [https://start.spring.io/](https://start.spring.io/){:target="_blank"} and fill in your project info:
 
-    ![spring-initializr]({% link content-services/images/spring-initializr.png %}){:height="500px" width="400px"}
+    ![View the completed spring-initializr project info]({% link content-services/images/spring-initializr-sdk6.png %}){:height="500px" width="450px"}
 
 2. Click **GENERATE** to generate and download your default Spring Boot project.
 3. Make the following changes in your project:
@@ -589,17 +588,17 @@ Before you start, make sure you're familiar with Spring Boot and the Maven proje
         <parent>
             <groupId>org.alfresco</groupId>
             <artifactId>alfresco-java-sdk</artifactId>
-            <version>6.0.0</version>
+            <version>6.2.0</version>
         </parent>
         
         <groupId>org.alfresco.tutorial</groupId>
-        <artifactId>sdk5-demo</artifactId>
+        <artifactId>sdk6-demo</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <name>sdk5-demo</name>
-        <description>Demo showing use of Alfresco SDK 5 libraries</description>
+        <name>sdk6-demo</name>
+        <description>Demo showing use of Alfresco SDK 6 libraries</description>
         
         <properties>
-            <java.version>11</java.version>
+            <java.version>17</java.version>
         </properties>
         
         <dependencies>
@@ -686,7 +685,7 @@ Provide a bean that implements the interface `DelegatedAuthenticationProvider`.
 
 #### Build and test
 
-Now package the project and make sure it builds properly (skip the license test as none of the files have a license header):
+Now package the project and make sure it builds properly (skip the license test as none of the files have a license header):<!--FIXME-->
 
 ```bash
 $ mvn clean package -Dlicense.skip=true
@@ -741,7 +740,7 @@ You have successfully generated your first Spring Boot project.
 Now that the JAR file has been created, in this case `events-0.0.1-SNAPSHOT.jar`, try and run the Spring Boot app:
 
 ```bash
-$ java -jar target/sdk5-demo-0.0.1-SNAPSHOT.jar 
+$ java -jar target/sdk6-demo-0.0.1-SNAPSHOT.jar 
   
 .   ____          _            __ _ _
 /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -764,10 +763,10 @@ mvn spring-boot:run -Dlicense.skip=true
 
 We are now ready to add the specifics depending on what type of project we are going to develop:
 
-* SDK 5 Event handler project using [pure Java](#purejavaeventhandlers)
-* SDK 5 Event handler project using [Spring Integration](#springintegrationhandlers)
-* SDK 5 [Java ReST API project](#restapijavawrapperproject)
-* SDK 5 project using both [event handling and Java ReST API](#eventandrestproject)
+* SDK 6 Event handler project using [pure Java](#purejavaeventhandlers)
+* SDK 6 Event handler project using [Spring Integration](#springintegrationhandlers)
+* SDK 6 [Java ReST API project](#restapijavawrapperproject)
+* SDK 6 project using both [event handling and Java ReST API](#eventandrestproject)
 
 ### Pure Java event handlers {#purejavaeventhandlers}
 
@@ -783,7 +782,7 @@ Add the following dependency in the Maven project file (i.e. `pom.xml`):
     <dependency>
         <groupId>org.alfresco</groupId>
         <artifactId>alfresco-java-event-api-spring-boot-starter</artifactId>
-        <version>6.0.0</version>
+        <version>6.2.0</version>
     </dependency>
 </dependencies>
 ```
@@ -953,7 +952,7 @@ Add the following dependency in the Maven project file (i.e. `pom.xml`):
     <dependency>
         <groupId>org.alfresco</groupId>
         <artifactId>alfresco-java-event-api-spring-boot-starter</artifactId>
-        <version>6.0.0</version>
+        <version>6.2.0</version>
     </dependency>
 </dependencies>
 ```
@@ -1254,7 +1253,7 @@ public class ContentUploadedEventHandler implements OnNodeCreatedEventHandler {
 
 ## ReST API Java wrapper {#rest-api-java-wrapper}
 
-The ReST API Java wrapper library in SDK 5 provides a Java object wrapper around the Alfresco ReST API. If you are not
+The ReST API Java wrapper library in SDK 6 provides a Java object wrapper around the Alfresco ReST API. If you are not
 familiar with Alfresco ReST API version 1.0, then read through this [introduction]({% link content-services/latest/develop/rest-api-guide/index.md %}).
 
 The ReST API wrapper classes have been generated based on the ReST API [Swagger definition](https://swagger.io/){:target="_blank"}.
@@ -1302,7 +1301,7 @@ Make sure you have completed [prerequisites](#prereq) and created a [starter pro
         <dependency>
         <groupId>org.alfresco</groupId>
         <artifactId>alfresco-acs-java-rest-api-spring-boot-starter</artifactId>
-        <version>6.0.0</version>
+        <version>6.2.0</version>
         </dependency>
     </dependencies>
     ```
@@ -1564,7 +1563,7 @@ public class CreateFileCmd {
 You might notice that it requires two calls to create a file with content. The ReST API does provide a way to do this
 with one call as can be seen [here]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#uploadfile).
 However, the generated Java wrapping classes does not yet provide functionality for this (it is scheduled to be supported in
-a future version of SDK 5).
+a future version of the SDK).
 
 Add also the final `SearchCmd` class as follows:
 
@@ -1790,7 +1789,7 @@ $ java -jar target/rest-api-0.0.1-SNAPSHOT.jar search test file
 ```
 
 This sample has shown us that it's easy to interact with the Alfresco Repository from a Java client with the help
-of SDK 5 Java ReST API services.
+of SDK 6 Java ReST API services.
 
 For more information see the [ReST API Java wrapper extension point]({% link content-services/latest/develop/oop-ext-points/rest-api-java-wrapper.md %})
 documentation.
@@ -1828,14 +1827,14 @@ search.service.path=/alfresco/api/-default-/public/search/versions/1
         <dependency>
             <groupId>org.alfresco</groupId>
             <artifactId>alfresco-java-event-api-spring-boot-starter</artifactId>
-            <version>6.0.0</version>
+            <version>6.2.0</version>
         </dependency>
         
         <!-- Alfresco Java SDK 6 Java ReST API wrapper Spring Boot Starter -->
         <dependency>
         <groupId>org.alfresco</groupId>
         <artifactId>alfresco-acs-java-rest-api-spring-boot-starter</artifactId>
-        <version>6.0.0</version>
+        <version>6.2.0</version>
         </dependency>
     </dependencies>
     ```
@@ -1994,7 +1993,7 @@ To work with the Gateway ReST API Java Wrapper in your extension project, add th
 <dependency>
     <groupId>org.alfresco</groupId>
     <artifactId>alfresco-event-gateway-api</artifactId>
-    <version>6.0.0</version>
+    <version>6.2.0</version>
 </dependency>
 ```
 
