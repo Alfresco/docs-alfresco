@@ -41,27 +41,29 @@ Configure the `activiti-identity-service.properties` file using the below proper
 |activiti.identity-service.credentials.secret| *Optional.* The secret key for this client if the access type is not set to `public`.|
 |activiti.use-browser-based-logout| *Optional.* Sets whether signing out of Process Services calls the Identity Service `logout URL`. If set to `true`, set the **Admin URL** to `https://{server}:{port}/activiti-app/` under the client settings in the Identity Service management console.|
 |activiti.identity-service.cookie-auth-enabled| *Optional.* When set to `true` enables cookie-based authentication that will work alongside the Identity Service authentication.|
+|activiti.identity-service.retry.maxAttempts| Sets the maximum number of attempts for retries.|
+|activiti.identity-service.retry.delay| Sets the delay between the retries.|
 
 #### Renamed Properties
 
-Starting from Alfresco Process Services 24.x, as part of replacing the Keycloak adapter with Spring security, the properties prefix changed from `keycloak.*` to `activiti.identity-service.*`. The new property names are:
+Starting from Alfresco Process Services 24.1, as part of replacing the Keycloak adapter with Spring security, the properties prefix changed from `keycloak.*` to `activiti.identity-service.*`. The new property names are:
 
-* activiti.identity-service.enabled=false
-* activiti.identity-service.realm=alfresco
-* activiti.identity-service.auth-server-url=http://localhost:8180/auth
-* activiti.identity-service.resource=alfresco
-* activiti.identity-service.principal-attribute=email
-* activiti.identity-service.credentials.secret=
-* alfresco.content.sso.enabled=${activiti.identity-service.enabled}
-* alfresco.content.sso.client_id=${activiti.identity-service.resource}
-* alfresco.content.sso.client_secret=${activiti.identity-service.credentials.secret}
-* alfresco.content.sso.realm=${activiti.identity-service.realm}
-* alfresco.content.sso.auth_uri=${activiti.identity-service.auth-server-url}/realms/${alfresco.content.sso.realm}/protocol/openid-connect/auth
-* alfresco.content.sso.token_uri=${activiti.identity-service.auth-server-url}/realms/${alfresco.content.sso.realm}/protocol/openid-connect/token
+* `activiti.identity-service.enabled=false`
+* `activiti.identity-service.realm=alfresco`
+* `activiti.identity-service.auth-server-url=http://localhost:8180/auth`
+* `activiti.identity-service.resource=alfresco`
+* `activiti.identity-service.principal-attribute=email`
+* `activiti.identity-service.credentials.secret=`
+* `alfresco.content.sso.enabled=${activiti.identity-service.enabled}`
+* `alfresco.content.sso.client_id=${activiti.identity-service.resource}`
+* `alfresco.content.sso.client_secret=${activiti.identity-service.credentials.secret}`
+* `alfresco.content.sso.realm=${activiti.identity-service.realm}`
+* `alfresco.content.sso.auth_uri=${activiti.identity-service.auth-server-url}/realms/${alfresco.content.sso.realm}/protocol/openid-connect/auth`
+* `alfresco.content.sso.token_uri=${activiti.identity-service.auth-server-url}/realms/${alfresco.content.sso.realm}/protocol/openid-connect/token`
 
 #### New Properties
 
-Here is a list of properties that are added in Alfresco Process Service 24.x:
+Here is a list of properties that are added in Alfresco Process Service 24.1:
 
 * `activiti.identity-service.retry.maxAttempts=20`
    
@@ -73,15 +75,15 @@ Here is a list of properties that are added in Alfresco Process Service 24.x:
 
 #### Removed Properties
 
-Starting from Process Services 24.x, as part of replacing the Keycloak adapter with Spring security, the following unused `keycloak.*` properties have been removed:
+Starting from Process Services 24.1, as part of replacing the Keycloak adapter with Spring security, the following unused `keycloak.*` properties have been removed:
 
-* keycloak.ssl-required=none
-* keycloak.confidential-port=8443
-* keycloak.public-client=true
-* keycloak.always-refresh-token=true
-* keycloak.autodetect-bearer-only=true
-* keycloak.token-store=session
-* keycloak.enable-basic-auth=true
+* `keycloak.ssl-required=none`
+* `keycloak.confidential-port=8443`
+* `keycloak.public-client=true`
+* `keycloak.always-refresh-token=true`
+* `keycloak.autodetect-bearer-only=true`
+* `keycloak.token-store=session`
+* `keycloak.enable-basic-auth=true`
 
 ## OAuth 2
 
