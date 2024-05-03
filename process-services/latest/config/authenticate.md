@@ -33,10 +33,10 @@ Configure the `activiti-identity-service.properties` file using the below proper
 
 |Property|Description|
 |--------|-----------|
-|activiti.identity-service.enabled| *Required.* Enable or disable authentication via the Identity Service.|
-|activiti.identity-service.realm| *Required.* Name of the realm configured in the Identity Service.|
-|activiti.identity-service.auth-server-url| *Required.* Base URL of the Identity Service server in the format `https://{server}:{port}/auth`|
-|activiti.identity-service.resource| *Required.* The **Client ID** for the client created within your realm that points to Process Services.|
+|activiti.identity-service.enabled| *Required.* Enable or disable authentication via the Identity Service. The default value is `false`.|
+|activiti.identity-service.realm| *Required.* Name of the realm configured in the Identity Service. The default value is `alfresco`.|
+|activiti.identity-service.auth-server-url| *Required.* Base URL of the Identity Service server in the format `http://localhost:8180/auth`.|
+|activiti.identity-service.resource| *Required.* The **Client ID** for the client created within your realm that points to Process Services. The default value is `alfresco`.|
 |activiti.identity-service.principal-attribute| *Required.* The attribute used to populate the field `UserPrincipal` with. This property needs to be set to `email` to work with Process Services.|
 |activiti.identity-service.credentials.secret| *Optional.* The secret key for this client if the access type is not set to `public`.|
 |activiti.use-browser-based-logout| *Optional.* Sets whether signing out of Process Services calls the Identity Service `logout URL`. If set to `true`, set the **Admin URL** to `https://{server}:{port}/activiti-app/` under the client settings in the Identity Service management console.|
