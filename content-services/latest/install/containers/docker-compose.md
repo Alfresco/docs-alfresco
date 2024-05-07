@@ -259,17 +259,17 @@ Use this information to verify that the system started correctly, and to clean u
         ```text
         Container acs_trial-transform-core-aio-1                           Removed
         Container acs_trial-transform-router-1                             Removed
-        Container acstrial-search-reindexing-1                             Removed
-        Container acstrial-proxy-1                                         Removed
-        Container acstrial-search-1                                        Removed
-        Container acstrial-sync-service-1                                  Removed
-        Container acstrial-postgres-1                                      Removed
-        Container acstrial-elasticsearch-1                                 Removed
-        Container acstrial-activemq-1                                      Removed
-        Container acstrial-share-1                                         Removed
-        Container acstrial-digital-workspace-1                             Removed
-        Container acstrial-alfresco-1                                      Removed
-        Container acstrial-control-center-1                                Removed
+        Container acs_trial-search-reindexing-1                            Removed
+        Container acs_trial-proxy-1                                        Removed
+        Container acs_trial-search-1                                       Removed
+        Container acs_trial-sync-service-1                                 Removed
+        Container acs_trial-postgres-1                                     Removed
+        Container acs_trial-elasticsearch-1                                Removed
+        Container acs_trial-activemq-1                                     Removed
+        Container acs_trial-share-1                                        Removed
+        Container acs_trial-digital-workspace-1                            Removed
+        Container acs_trial-alfresco-1                                     Removed
+        Container acs_trial-control-center-1                               Removed
         Image quay.io/alfresco/service-sync:4.0.1                          Removed
         Image alfresco/alfresco-activemq:5.18-jre17-rockylinux8            Removed
         Image quay.io/alfresco/alfresco-elasticsearch-live-indexing:4.0.1  Removed
