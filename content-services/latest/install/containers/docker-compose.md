@@ -271,19 +271,9 @@ Use this information to verify that the system started correctly, and to clean u
         Container acs_trial-alfresco-1                                     Removed
         Container acs_trial-control-center-1                               Removed
         Image quay.io/alfresco/service-sync:4.0.1                          Removed
-        Image alfresco/alfresco-activemq:5.18-jre17-rockylinux8            Removed
-        Image quay.io/alfresco/alfresco-elasticsearch-live-indexing:4.0.1  Removed
-        Image alfresco/alfresco-transform-core-aio:5.1.1                   Removed
-        Image alfresco/alfresco-acs-nginx:3.4.2                            Removed                   
-        Image quay.io/alfresco/alfresco-share:23.2.1                       Removed                                     
-        Image quay.io/alfresco/alfresco-elasticsearch-reindexing:4.0.1     Removed                                      
-        Image postgres:14.4                                                Removed                 
-        Image quay.io/alfresco/alfresco-shared-file-store:4.1.1            Removed                                 
-        Image quay.io/alfresco/alfresco-transform-router:4.1.1             Removed                                  
+        ...                               
         Image quay.io/alfresco/alfresco-content-repository:23.2.1          Stopping                               
-        Image quay.io/alfresco/alfresco-control-center:8.4.1               Stopping        
-        Image elasticsearch:7.10.1                                         Stopping
-        Image quay.io/alfresco/alfresco-digital-workspace:4.4.1            Stopping
+        ...
         Network acstrial_default                                           Stopping
         ```
 
