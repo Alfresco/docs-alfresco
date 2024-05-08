@@ -92,7 +92,7 @@ The properties listed that need to be set for Alfresco Content Services (ACS) ar
 
     | Property | Description |
     | -------- | ----------- |
-    | authentication.chain | The authentication chain needs to be set for Keycloak and LDAP synchronization, for example `ldap1:ldap`. |
+    | authentication.chain | The authentication chain needs to be set for Keycloak and LDAP synchronization, for example `identity-service-1:identity-service,alfrescoNtlm-1:alfrescoNtlm,ldap-1:ldap`. |
     | identity-service.auth-server-url | Keycloak's base URL, for example `https://keycloak.example.com/auth`. |
     | identity-service.enable-basic-auth | Sets whether basic authentication is also supported by Keycloak, for example `true`. |
     | identity-service.realm | The realm name configured in Keycloak for the Alfresco applications, for example `alfresco`. |
