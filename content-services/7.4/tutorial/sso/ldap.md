@@ -92,7 +92,7 @@ The properties listed that need to be set for Alfresco Content Services (ACS) ar
 
     | Property | Description |
     | -------- | ----------- |
-    | authentication.chain | The authentication chain needs to be set for Keycloak and LDAP synchronization, for example `identity-service-1:identity-service,alfrescoNtlm-1:alfrescoNtlm,ldap-1:ldap`. |
+    | authentication.chain | The authentication chain needs to be set for Keycloak and LDAP synchronization, for example `ldap1:ldap`. |
     | identity-service.auth-server-url | Keycloak's base URL, for example `https://keycloak.example.com/auth`. |
     | identity-service.enable-basic-auth | Sets whether basic authentication is also supported by Keycloak, for example `true`. |
     | identity-service.realm | The realm name configured in Keycloak for the Alfresco applications, for example `alfresco`. |
@@ -204,17 +204,17 @@ Alfresco Process Services (APS) has two sets of properties that need to be confi
 
     | Property | Description |
     | -------- | ----------- |
-    | activiti.identity-service.enabled | Sets whether Process Services will use Keycloak to authenticate against, for example `true`. |
-    | activiti.identity-service.realm | The realm name configured in Keycloak for the Alfresco applications, for example `alfresco`. |
-    | activiti.identity-service.auth-server-url | Keycloak's base URL, for example `https://keycloak.example.com/auth`. |
-    | activiti.identity-service.resource | The **Client ID** set up in Keycloak for Process Services. The client needs to exist underneath the realm set for `IDENTITY_SERVICE_REALM`, for example `alfresco`. |
-    | activiti.identity-service.principal-attribute | The attribute to identify users by for authentication. This needs to be set to `email` for Process Services, for example `email`. |
-    |activiti.identity-service.credentials.secret| The secret key for this client if the access type is not set to `public`. |
-    |activiti.use-browser-based-logout| Sets whether signing out of Process Services calls the Identity Service `logout URL`. If set to `true`, set the **Admin URL** to `https://{server}:{port}/activiti-app/` under the client settings in the Identity Service management console. |
-    |activiti.identity-service.cookie-auth-enabled| When set to `true` enables cookie-based authentication that will work alongside the Identity Service authentication. |
-    |activiti.identity-service.retry.maxAttempts| Sets the maximum number of attempts for retries. The default value is `20`. |
-    |activiti.identity-service.retry.delay| Sets the delay between the retries. The default value is `10000`. |
-   
+    | keycloak.enabled | Sets whether Process Services will use Keycloak to authenticate against, for example `true`. |
+    | keycloak.realm | The realm name configured in Keycloak for the Alfresco applications, for example `alfresco`. |
+    | keycloak.auth-server-url | Keycloak's base URL, for example `https://keycloak.example.com/auth`. |
+    | keycloak.ssl-required | Sets whether SSL is mandatory for access or not, for example `all`. |
+    | keycloak.resource | The **Client ID** set up in Keycloak for Process Services. The client needs to exist underneath the realm set for `keycloak.realm` or `KEYCLOAK_REALM`, for example `alfresco`. |
+    | keycloak.principal-attribute | The attribute to identify users by for authentication. This needs to be set to `email` for Process Services, for example `email`. |
+    | keycloak.public-client | The adapter will not send credentials for the client to Keycloak if this is set to `true`, for example `true`. |
+    | keycloak.always-refresh-token | Sets whether a token should be refreshed for every request or not, for example `true`. |
+    | keycloak.autodetect-bearer-only | This should be set to true to serve both a web application and web services, for example `true`. |
+    | keycloak.token-store | The location of where account information token should be stored, for example `cookie`. |
+    | keycloak.enable-basic-auth | Sets whether basic authentication is also supported by Keycloak, for example `true`. |
 
 ## Step 8: (Optional) Configure a connection between Process Services and Content Services
 
@@ -224,14 +224,14 @@ An SSO connection can be configured between Process Services and Content Service
 
     | Property | Description |
     | -------- | ----------- |
-    | alfresco.content.sso.enabled | Sets whether SSO is enabled between Process Services and Content Services, for example `${activiti.identity-service.enabled}`. |
-    | alfresco.content.sso.client_id | The **Client ID** within the realm that points to Process Services, for example `${activiti.identity-service.resource}`. |
-    | alfresco.content.sso.client_secret | The secret key for the Process Services client, for example `${activiti.identity-servicecredentials.secret}`. |
-    | alfresco.content.sso.realm | The realm that is configured for the Content Services and Process Services clients, for example `${activiti.identity-service.realm}`. |
+    | alfresco.content.sso.enabled | Sets whether SSO is enabled between Process Services and Content Services, for example `${keycloak.enabled}`. |
+    | alfresco.content.sso.client_id | The **Client ID** within the realm that points to Process Services, for example `${keycloak.resource}`. |
+    | alfresco.content.sso.client_secret | The secret key for the Process Services client, for example `${keycloak.credentials.secret}`. |
+    | alfresco.content.sso.realm | The realm that is configured for the Content Services and Process Services clients, for example `${keycloak.realm}`. |
     | alfresco.content.sso.scope | Sets the duration that tokens are valid for. For example using the value `offline_access` a token is valid even after a user logs out as long as the token is used at least once every 30 days. See the [Keycloak documentation](https://www.keycloak.org/docs/21.1.2/server_admin/#_offline-access){:target="_blank"} for further information, for example `offline_access`. |
     | alfresco.content.sso.javascript_origins | The base URL for the Javascript origins of the Process Services instance, for example `https://aps.example.com`. |
-    | alfresco.content.sso.auth_uri | The authorization URL, for example `${activiti.identity-service.auth-server-url}/realms/${alfresco.content.sso.realm}/protocol/openid-connect/auth`. |
-    | alfresco.content.sso.token_uri | The authorization token URL, for example `${activiti.identity-service.auth-server-url}/realms/${alfresco.content.sso.realm}/protocol/openid-connect/token`. |
+    | alfresco.content.sso.auth_uri | The authorization URL, for example `https://keycloak.example.com/realms/alfresco/protocol/openid-connect/auth`. |
+    | alfresco.content.sso.token_uri | The authorization token URL, for example `https://keycloak.example.com/realms/alfresco/protocol/openid-connect/token`. |
     | alfresco.content.sso.redirect_uri | The redirect URI for authorization. The value in the example column needs to be updated with the correct base URL for the Process Services instance, for example`https://aps.example.com/activiti-app/rest/integration/sso/confirm-auth-request`. |
 
 2. Sign into Process Services as an administrator.
