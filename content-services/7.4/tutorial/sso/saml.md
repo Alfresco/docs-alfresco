@@ -270,7 +270,7 @@ Alfresco Process Services (APS) has two sets of properties that need to be confi
     | keycloak.realm | The realm name configured in Keycloak for the Alfresco applications, for example `alfresco`. |
     | keycloak.auth-server-url | Keycloak's base URL, for example `https://keycloak.example.com/auth`. |
     | keycloak.ssl-required | Sets whether SSL is mandatory for access or not, for example `all`. |
-    | keycloak.resource | The **Client ID** set up in Keycloak for Process Services. The client needs to exist underneath the realm set for `keycloak.realm` or `KEYCLOAK_REALM`, for example `alfresco`. |
+    | keycloak.resource | The **Client ID** set up in Keycloak for Process Services. The client needs to exist underneath the realm set for `IDENTITY_SERVICE_REALM`, for example `alfresco`. |
     | keycloak.principal-attribute | The attribute to identify users by for authentication. This needs to be set to `email` for Process Services, for example `email`. |
     | keycloak.public-client | The adapter will not send credentials for the client to Keycloak if this is set to `true`, for example `true`. |
     | keycloak.always-refresh-token | Sets whether a token should be refreshed for every request or not, for example `true`. |
