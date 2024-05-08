@@ -53,6 +53,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Integrations** | |
 | Identity Service 1.2 | For use with LDAP and SAML |
 | Identity Service 1.1 | For use with LDAP and SAML |
+| Keycloak 24.0.3 | Enable `Exclude Issuer from Authentication Response` - see [Configure authentication](https://docs.alfresco.com/process-services/2.4/config/authenticate/#properties){:target="_blank"} for details. |
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 4.3 | Requires Alfresco Process Services 2.4.2. |
