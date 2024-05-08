@@ -41,10 +41,10 @@ Configure the `activiti-identity-service.properties` file using the below proper
 |activiti.identity-service.credentials.secret| *Optional.* The secret key for this client if the access type is not set to `public`.|
 |activiti.use-browser-based-logout| *Optional.* Sets whether signing out of Process Services calls the Identity Service `logout URL`. If set to `true`, set the **Admin URL** to `https://{server}:{port}/activiti-app/` under the client settings in the Identity Service management console.|
 |activiti.identity-service.cookie-auth-enabled| *Optional.* When set to `true` enables cookie-based authentication that will work alongside the Identity Service authentication.|
-|activiti.identity-service.retry.maxAttempts| Sets the maximum number of attempts for retries.|
-|activiti.identity-service.retry.delay| Sets the delay between the retries.|
+|activiti.identity-service.retry.maxAttempts| Sets the maximum number of attempts for retries. The default value is `20`.|
+|activiti.identity-service.retry.delay| Sets the delay between the retries. The default value is `10000`.|
 
-#### Renamed Properties
+#### Renamed properties
 
 Starting from Alfresco Process Services 24.1, as part of replacing the Keycloak adapter with Spring security, the properties prefix changed from `keycloak.*` to `activiti.identity-service.*`. The new property names are:
 
@@ -61,19 +61,14 @@ Starting from Alfresco Process Services 24.1, as part of replacing the Keycloak 
 * `alfresco.content.sso.auth_uri=${activiti.identity-service.auth-server-url}/realms/${alfresco.content.sso.realm}/protocol/openid-connect/auth`
 * `alfresco.content.sso.token_uri=${activiti.identity-service.auth-server-url}/realms/${alfresco.content.sso.realm}/protocol/openid-connect/token`
 
-#### New Properties
+#### New properties
 
-Here is a list of properties that are added in Alfresco Process Service 24.1:
+Here is a list of new properties in Alfresco Process Service 24.1:
 
 * `activiti.identity-service.retry.maxAttempts=20`
-   
-   This sets the maximum number of attempts for retries.
-
 * `activiti.identity-service.retry.delay=10000`
 
-   This sets the delay between the retries.
-
-#### Removed Properties
+#### Removed properties
 
 Starting from Process Services 24.1, as part of replacing the Keycloak adapter with Spring security, the following unused `keycloak.*` properties have been removed:
 
