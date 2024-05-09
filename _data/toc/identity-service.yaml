@@ -132,7 +132,7 @@
     - title: 'Introduction'
       path: '/identity-service/1.1/'
     - title: 'Install'
-      path: '/identity-service/1.1/install'
+      path: '/identity-service/1.1/install/'
     - title: 'Configure Identity Providers'
       path: '/identity-service/1.1/config/'
 - version: 1.0
@@ -140,6 +140,6 @@
     - title: 'Introduction'
       path: '/identity-service/1.0/'
     - title: 'Install'
-      path: '/identity-service/1.0/install'
+      path: '/identity-service/1.0/install/'
     - title: 'Configure Identity Providers'
       path: '/identity-service/1.0/config/'
