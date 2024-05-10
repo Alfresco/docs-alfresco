@@ -82,6 +82,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search Services 2.0.7 and later | |
 | Alfresco Federation Services 3.0 | |
 | Keycloak 24.0.3 | Use this Keycloak version and Alfresco Keycloak Theme 0.3.5 as an alternative to Identity Service 2.0.0. |
+| Keycloak 21.1.2 | Use this Keycloak version and Alfresco Keycloak Theme 0.3.5 as an alternative to Identity Service 2.0.0. |
 | Identity Service 2.0 | |
 | Identity Service 1.8 | |
 | Alfresco Intelligence Services 1.5 | |
