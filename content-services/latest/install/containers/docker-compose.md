@@ -163,14 +163,14 @@ Use this information to verify that the system started correctly, and to clean u
 
         ```bash
         docker-compose logs share
-        docker container logs acs_trial_share_1
+        docker container logs acs_trial-share-1
         ```
 
         You can add an optional parameter `--tail=25` before `<container-name>` to display the last 25 lines of the logs for the selected container.
 
         ```bash
         docker-compose logs --tail=25 share
-        docker container logs --tail=25 acs_trial_share_1
+        docker container logs --tail=25 acs_trial-share-1
         ```
 
         Check for a success message:
