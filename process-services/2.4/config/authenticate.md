@@ -37,7 +37,8 @@ Configure the `activiti-identity-service.properties` file using the below proper
 |keycloak.realm| *Required.* Name of the realm configured in the Identity Service.|
 |keycloak.auth-server-url| *Required.* Base URL of the Identity Service server in the format `https://{server}:{port}/auth`|
 |keycloak.ssl-required| *Required.* Whether communication to and from the Identity Service server is over HTTPS. Possible values are `all` for all requests, `external` for external requests or `none`. **Important:** this property needs to match the equivalent setting for **Require SSL** in your realm within the Identity Service administration console.|
-|keycloak.resource| *Required.* The **Client ID** for the client created within your realm that points to Process Services.|
+|keycloak.resource| *Required.* The **Client ID** for the client created within your realm that points to Process Services. <br><br> >**Note**: For Keycloak compatibility,
+you must enable **Exclude Issuer from Authentication Response** - see [Enable configuration for Keycloak]({% link process-services/2.4/config/authenticate.md %}#Enable configuration for Keycloak) for details.|
 |keycloak.principal-attribute| *Required.* The attribute used to populate the field `UserPrincipal` with. This property needs to be set to `email` to work with Process Services.|
 |keycloak.public-client| *Optional.* The adapter will not send credentials for the client to the Identity Service if this is set to `true`.|
 |keycloak.credentials.secret| *Optional.* The secret key for this client if the access type is not set to `public`.|
@@ -54,7 +55,7 @@ Exclude Issuer from Authentication Response must be set to `On`.
 1. Log in to the Keycloak Admin Console.
 2. Select the **alfresco** realm.
 3. Navigate to the **Clients** section.
-4. Select the client that's used by APS according to the `keycloak.resource` [property](https://docs.alfresco.com/process-services/2.4/config/authenticate/#properties).
+4. Select the client that's used by APS according to the `keycloak.resource` property. See [Configure authentication]({% link process-services/2.4/config/authenticate.md %}#properties).
 5. Select the **Advanced** tab.
 6. Enable **Exclude Issuer from Authentication Response** and click **Save**.
 
