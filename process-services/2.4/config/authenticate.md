@@ -49,6 +49,15 @@ Configure the `activiti-identity-service.properties` file using the below proper
 |activiti.use-browser-based-logout| *Optional.* Sets whether signing out of Process Services calls the Identity Service `logout URL`. If set to `true`, set the **Admin URL** to `https://{server}:{port}/activiti-app/` under the client settings in the Identity Service management console.|
 |activiti.identity-service.cookie-auth-enabled| *Optional.* When set to `true` enables cookie-based authentication that will work alongside the Identity Service authentication.|
 
+Exclude Issuer from Authentication Response must be set to `On`. 
+
+1. Log in to the Keycloak Admin Console.
+2. Select the **alfresco** realm.
+3. Navigate to the **Clients** section.
+4. Select the client that's used by APS according to the `keycloak.resource` [property](https://docs.alfresco.com/process-services/2.4/config/authenticate/#properties).
+5. Select the **Advanced** tab.
+6. Enable **Exclude Issuer from Authentication Response** and click **Save**.
+
 ## OAuth 2
 
 To use the OAuth 2 client for authenticating login to the APS web application, you first need to configure it using
