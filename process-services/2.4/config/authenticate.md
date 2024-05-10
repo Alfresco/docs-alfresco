@@ -50,7 +50,9 @@ you must enable **Exclude Issuer from Authentication Response** - see [Enable co
 |activiti.use-browser-based-logout| *Optional.* Sets whether signing out of Process Services calls the Identity Service `logout URL`. If set to `true`, set the **Admin URL** to `https://{server}:{port}/activiti-app/` under the client settings in the Identity Service management console.|
 |activiti.identity-service.cookie-auth-enabled| *Optional.* When set to `true` enables cookie-based authentication that will work alongside the Identity Service authentication.|
 
-Exclude Issuer from Authentication Response must be set to `On`. 
+#### Enable configuration for Keycloak
+
+For Keycloak compatibility, you must set `Exclude Issuer from Authentication Response` to `On`.
 
 1. Log in to the Keycloak Admin Console.
 2. Select the **alfresco** realm.
