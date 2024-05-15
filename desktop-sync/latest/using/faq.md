@@ -232,6 +232,10 @@ When the sync client starts up, it uses the modification time stamp from the `Al
 
 To avoid problems with conflicts on device registration, and content going out of sync during the migration process, you should first remove your account from the deprecated computer, and then setup Alfresco Desktop Sync on the new machine.
 
+### Is Desktop Sync authentication bound to a particular user login?
+
+Yes. In the Desktop Sync application, when User A's session expires and User B logs in either accidentally or intentionally, we take immediate action to maintain privacy and security by automatically removing User A's account details, as well as any synced files and folders from the local machine. Next, we display the **Select sites and folders to sync** screen for User B to choose the data they want to sync from the server to their local machine. Several notifications are shown to inform users when their session expires, their account is removed, and the app switches to the new user.
+
 {% endcapture %}
 
 {% capture mac %}
@@ -457,6 +461,10 @@ When the sync client starts up, it uses the modification time stamp from the `Al
 ### I have a new computer, is it possible to migrate my Alfresco sync folder to the new computer?
 
 To avoid problems with conflicts on device registration, and content going out of sync during the migration process, you should first remove your account from the deprecated computer and then setup Alfresco Desktop Sync on the new machine.
+
+### Is Desktop Sync authentication bound to a particular user login?
+
+Yes. In the Desktop Sync application, when User A's session expires and User B logs in either accidentally or intentionally, we take immediate action to maintain privacy and security by automatically removing User A's account details, as well as any synced files and folders from the local machine. Next, we display the **Select sites and folders to sync** screen for User B to choose the data they want to sync from the server to their local machine. Several notifications are shown to inform users when their session expires, their account is removed, and the app switches to the new user.
 
 {% endcapture %}
 
