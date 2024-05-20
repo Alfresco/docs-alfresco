@@ -4,7 +4,7 @@ title: Alfresco Content Connector for Azure
 
 The Alfresco Content Connector for Azure is an add-on module that provides an alternative content store. It uses Microsoft's Azure Blob Storage as the storage mechanism for Alfresco Content Services, allowing for virtually unlimited and inexpensive storage.
 
-This release of the Azure Connector is a compatibility release to support Alfresco Content Services 7.3.
+> **Note:** See the [Supported Platforms]({% link microsoft-azure/3.1/support/index.md %}) page for compatibility between Alfresco Content Connector for Azure 3.1.x and Alfresco Content Services.
 
 Other features introduced in previous versions include:
 
@@ -17,8 +17,6 @@ Other features introduced in previous versions include:
 * Configurable retries and timeouts for large file uploads and downloads
 * Accelerate local content download using [Direct Access URLs]({% link microsoft-azure/3.1/config/direct-access.md %})
 * [Cloud Storage Properties]({% link microsoft-azure/3.1/config/index.md %}#cloud-storage-properties)
-
-> **Note:** The Alfresco Content Connector for Azure module can be applied to Content Services 7.2 or later.
 
 > **Note:** For improved performance of the Azure Connector, you may wish to run your Content Services instance on an Azure VM connected to Azure Blob storage.
 
