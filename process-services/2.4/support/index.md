@@ -51,10 +51,11 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Elasticsearch 7.17.6 | |
 | | |
 | **Integrations** | |
+| Keycloak 24.0.3 | Enable `Exclude Issuer from Authentication Response` - see [Configure authentication]({% link process-services/2.4/config/authenticate.md %}#properties) for details. |
+| Keycloak 21.1.2 | |
 | Identity Service 1.2 | For use with LDAP and SAML |
 | Identity Service 1.1 | For use with LDAP and SAML |
-| Keycloak 24.0.3 | Enable `Exclude Issuer from Authentication Response` - see [Configure authentication]({% link process-services/2.4/config/authenticate.md %}#properties) for details. |
-| Keycloak 21.1.2 | Enable `Exclude Issuer from Authentication Response` - see [Configure authentication]({% link process-services/2.4/config/authenticate.md %}#properties) for details. |
+
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 4.3 | Requires Alfresco Process Services 2.4.2. |
