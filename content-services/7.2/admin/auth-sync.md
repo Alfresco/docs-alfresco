@@ -1467,6 +1467,17 @@ Configure the `alfresco-global.properties` file using the below properties:
 | identity-service.resource | The **Client ID** for the client created within your realm that points to Content Services. The default value  is `alfresco`. |
 | identity-service.public-client | The adapter won't send credentials for the client to the Identity Service if this is set to `true`. The default value  is `true`. |
 
+#### Enable configuration for Keycloak
+
+For Keycloak compatibility, you must set `Exclude Issuer from Authentication Response` to `On`.
+
+1. Log in to the Keycloak Admin Console.
+2. Select the **alfresco** realm.
+3. Navigate to the **Clients** section.
+4. Select the client that is used by Share according to the `aims.resource` property. For more information, see .
+5. Select the **Advanced** tab.
+6. Enable **Exclude Issuer from Authentication Response** and click **Save**. 
+
 ## Configure synchronization
 
 The synchronization subsystem manages the synchronization of Content Services with all the user
