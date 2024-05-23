@@ -216,7 +216,9 @@ This task assumes you have:
 
     By default, the contents of `alfresco-insight-engine-2.0.x.zip` are decompressed in a root folder as `/alfresco-search-services`. See [Search and Insight Engine directory structure]({% link insight-engine/latest/config/index.md %}#search-and-search-services-directory-structure) for more details.
 
-3. Configure HTTP. Pass `alfresco.secureComms.secret` as a system property (using `-D` when starting Solr) by adding the startup parameters in step **7**:
+3. Configure HTTP.
+
+    Pass `alfresco.secureComms.secret` as a system property (using `-D` when starting Solr) by adding the startup parameters in step **7**:
 
         ```bash
         -Dalfresco.secureComms=secret
