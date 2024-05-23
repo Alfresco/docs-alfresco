@@ -225,7 +225,7 @@ This task assumes you have:
    -Dalfresco.secureComms.secret=password
    ```
 
-This ensures that the Solr cores are created in plain HTTP mode with the shared secret communication method. The property `alfresco.secureComms.secret` includes the same word used in the `solr.sharedSecret` property in the Repository configuration.
+    This ensures that the Solr cores are created in plain HTTP mode with the shared secret communication method. The property `alfresco.secureComms.secret` includes the same word used in the `solr.sharedSecret` property in the Repository configuration.
 
 4. If you use several languages across your organization, you **must** enable cross-language search support in all fields. To do this add the following to the `alfresco-search-services/solrhome/conf/shared.properties` file:
 
