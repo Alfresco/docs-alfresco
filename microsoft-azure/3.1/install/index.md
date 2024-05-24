@@ -121,7 +121,7 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
         -Dfilecontentstore.subsystem.name=AzMultipleStorageContainers
         ```
 
-7. Check that the [Configuration]({% link microsoft-azure/3.1/config/index.md %} is set up correctly for your environment.
+7. Check that the [Configuration]({% link microsoft-azure/3.1/config/index.md %}) is set up correctly for your environment.
 
 8. Start Content Services.
 
