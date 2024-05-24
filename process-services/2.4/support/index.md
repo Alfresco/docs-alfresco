@@ -55,7 +55,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Keycloak 21.1.2 | |
 | Identity Service 1.2 | For use with LDAP and SAML |
 | Identity Service 1.1 | For use with LDAP and SAML |
-
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 4.3 | Requires Alfresco Process Services 2.4.2. |
