@@ -1449,7 +1449,7 @@ Use this information to configure Content Services to authenticate using Identit
 
 Configure the `alfresco-global.properties` file using the below properties:
 
-> **Note:** See the Keycloak documentation for a [full list of possible properties](https://www.keycloak.org/docs/4.8/securing_apps/index.html#_java_adapter_config).
+> **Note:** See the Keycloak documentation for a [full list of possible properties](https://www.keycloak.org/docs/latest/securing_apps/index.html#_java_adapter_config).
 
 | Property | Description |
 | -------- | ----------- |
