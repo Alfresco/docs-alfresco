@@ -76,7 +76,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Identity Service 2.0 | |
 | Alfresco Intelligence Services 3.1 | |
 | Alfresco Content Connector for AWS S3 6.1 | Adds support for AWS Glacier using Cloud storage layer. |
-| Alfresco Content Connector for Azure 5.0 | |
+| Alfresco Content Connector for Azure 5.0.1 | |
 | Alfresco Content Connector for Azure 3.2.1 | |
 | Alfresco Content Connector for Salesforce 3.1 | |
 | Alfresco Content Connector for SAP Applications 6.0.1 | |
@@ -178,6 +178,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Identity Service 2.0 | |
 | Alfresco Intelligence Services 3.1 | |
 | Alfresco Content Connector for AWS S3 6.0 | Adds support for AWS Glacier using Cloud storage layer. |
+| Alfresco Content Connector for Azure 5.0.1 | |
 | Alfresco Content Connector for Azure 4.0 | |
 | Alfresco Content Connector for Azure 3.2.1 | |
 | Alfresco Content Connector for Salesforce 3.1 | |
