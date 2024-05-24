@@ -155,7 +155,7 @@ The properties listed that need to be set for Alfresco Content Services (ACS) ar
     | ldap.synchronization.java.naming. security.authentication | The mechanism to use to authenticate with the LDAP server, for example `simple`. |
     | ldap.synchronization.java.naming. security.principal | The user principal name (UPN) of the account used to retrieve account details for all users and groups, for example `alfresco@domain.com`. |
     | ldap.synchronization.java.naming.security.credentials | The password for the account set in `ldap.synchronization.java.naming.security.principal`, for example `secret`. |
-    | ldap.* | There are several optional [configuration]({% link content-services/latest/admin/auth-sync.md %}#ldapconfprops) and [synchronization]({% link content-services/latest/admin/auth-sync.md %}#synchronization-configuration-properties) properties. |
+    | ldap.* | There are several optional [configuration]({% link content-services/7.3/admin/auth-sync.md %}#ldapconfprops) and [synchronization]({% link content-services/7.3/admin/auth-sync.md %}#synchronization-configuration-properties) properties. |
     | csrf.filter.referer | The referer value of ACS to prevent Cross Site Request Forgery (CSRF), for example `https://repo.example.com`. |
     | csrf.filter.origin | The origin value of ACS to prevent Cross Site Request Forgery (CSRF), for example `https://repo.example.com/*`. |
 
