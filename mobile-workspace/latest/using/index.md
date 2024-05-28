@@ -333,9 +333,9 @@ To start a workflow from the **Tasks** menu:
 
 5.	Tap **Start workflow**. 
 
-    The workflow has been started, and it is listed in the Workflows tab under Active. 
+    The workflow has been started, and it is listed in the Workflows tab under **Active**. 
 
-> **Note:** To view an filter workflows, see [View and Filter Workflows](####view-and-filter-workflows).
+> **Note:** To view and filter workflows, see [View and Filter Workflows](####view-and-filter-workflows).
 
 Once a workflow has been started, you can proceed to complete all task forms within it. To complete
 task forms, see [Complete Task Forms](####complete-task-forms).
@@ -395,7 +395,7 @@ To claim a task:
 
     The task is assigned to you, and you can start working on it.
 
-If you claim a task by mistake, you can release it. To release a task, see [Release a Task](####release-a-task)
+If you claim a task by mistake, you can release it. To release a task, see [Release a Task](####release-a-task).
 
 #### Release a Task 
 
@@ -421,6 +421,7 @@ form, the next form in a sequence will be displayed for you to complete.
 To complete task forms:
 
 1. From the **Workflows** tab, open a workflow.
+    
     The details of the workflow are displayed.
 
 2. Tap **Tasks**.
@@ -471,8 +472,7 @@ To view and edit task details:
     | ------ | ----------- |
     | Description | Specifies the description of a task. |
     | Due date | Specifies the date a task is due. |
-    | Priority | Specifies the priority of a task. Task priority colors are set as the following: Low (green),
-Medium (orange), and High (red). |
+    | Priority | Specifies the priority of a task. Task priority colors are set as the following: Low (green), Medium (orange), and High (red). |
     | Assignee | Specifies the person assigned to a task. |
     | Status | Specifies the status of a workflow. The following statuses are available: active, completed. |
     | Identifier | Specifies the unique number of a task. |
@@ -532,7 +532,7 @@ To attach files:
 
 5. Select one or multiple files or photos and tap **Add(X)**, where **X** is the number of selected files or photos.
 
-    The files or photos are attached and listed in the Attached files screen.
+    The files or photos are attached and listed in the **Attached files** screen.
 
 > **Note:** If an attachment section is designed to upload only one attachment, for example birth certificate, you can select only one file or photo.
     
@@ -550,7 +550,7 @@ To attach files:
 
 #### Complete a Workflow
 
-You can complete a workflow process by reviewing all the data provided in the previous tasks and marking the **Complete details** task as completed.
+You can complete a workflow process by reviewing all the data in the **Complete details** task.
 
 At the end of a workflow process, the **Complete details** task is displayed, allowing you to review all the data provided in the previous tasks. Once you finish this task, the workflow process is marked as completed.
 
