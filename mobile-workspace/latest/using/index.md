@@ -331,17 +331,17 @@ To start a workflow from the **Tasks** menu:
 
 > **Note:** To start the workflow process, you must complete all required fields.
 
-5.	Tap **Start workflow**. 
+5. Tap **Start workflow**. 
 
     The workflow has been started, and it is listed in the Workflows tab under **Active**. 
-
-> **Note:** To view and filter workflows, see [View and Filter Workflows](####view-and-filter-workflows).
 
 Once a workflow has been started, you can proceed to complete all task forms within it. To complete
 task forms, see [Complete Task Forms](####complete-task-forms).
 
 > **Note:** If a workflow process assigns task forms to groups (referred to as a pooled process), you must first
-claim the task form before you can start working on it. To claim a task, see [Claim a Task](####claim-a-task)
+claim the task form before you can start working on it. To claim a task, see [Claim a Task](####claim-a-task).
+
+To view and filter workflows, see [View and Filter Workflows](####view-and-filter-workflows).
 
 #### View and Filter Workflows
 
@@ -517,7 +517,7 @@ To attach files:
 
 ![The Review and Upload Files task]({% link mobile-workspace/images/review-data-and-upload-files.png %})
 
-2. Select the attachment icon [attachment icon]({% link mobile-workspace/images/attachment-icon.png %}).
+2. Select the attachment icon ![attachment icon]({% link mobile-workspace/images/attachment-icon.png %}).
 
     The **Attached files** screen is displayed.
 
