@@ -20,7 +20,7 @@ This process requires some familiarity with [Docker](https://www.docker.com/){:t
 2. Switch to the `docker-compose` directory, then create subdirectories to hold the AMP files and Dockerfiles:
 
     ```bash
-    cd N-docker-compose && \
+    cd docker-compose && \
     mkdir -p repository/amps share/share_amps && \
     touch repository/Dockerfile share/Dockerfile
     ```
