@@ -2,11 +2,11 @@
 title: What's new
 ---
 
-Alfresco Content Services (ACS) 7.4.x is a minor software update release with improvements to Content Services to accelerate use and development for customer solutions for PaaS, Cloud, or on-premises deployment. With this release, Alfresco continues to enable open-source communities, customers, and partners to deliver a highly scalable Content Store with numerous applications, connectivity, and solutions.
+Alfresco Content Services (ACS) 7.4 is a minor software update release with improvements to Content Services to accelerate use and development for customer solutions for PaaS, Cloud, or on-premises deployment. With this release, Alfresco continues to enable open-source communities, customers, and partners to deliver a highly scalable Content Store with numerous applications, connectivity, and solutions.
 
 > **Note:** Alfresco customers can view more detailed Release Notes in [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
-Here's a quick summary of what's new in the Alfresco Content Services 7.4.x release.
+Here's a quick summary of what's new in the Alfresco Content Services 7.4 release.
 
 ## Highlights
 
@@ -17,7 +17,7 @@ Here's a quick summary of what's new in the Alfresco Content Services 7.4.x rele
   
 ### Change in Logging library
 
-Starting from ACS 7.4.x, log4jv2 will be the library used for logging capabilities. Please refer to the [Log4j2 Migration Guide]({% link content-services/7.4/upgrade/log4j2-migrate.md %}) to migrate your current logging configuration from version 1. If you built custom extensions relying on the Slf4j abstraction, no changes will be needed. If you have a direct dependency on log4jv1 instead, please take into consideration updating them.
+Starting from ACS 7.4, log4jv2 will be the library used for logging capabilities. Please refer to the [Log4j2 Migration Guide]({% link content-services/7.4/upgrade/log4j2-migrate.md %}) to migrate your current logging configuration from version 1. If you built custom extensions relying on the Slf4j abstraction, no changes will be needed. If you have a direct dependency on log4jv1 instead, please take into consideration updating them.
 
 ### Keycloack client adapter replaced with Spring security
 
@@ -39,7 +39,7 @@ Alfresco Content Services is no longer using the Keycloak client adapter and wil
 
 ## Install
 
-Alfresco Content Services 7.4.x is available as a distribution zip file for manual installation, or it can be installed using an Ansible playbook (Linux only) for non-containerized environments. It's also available as a set of Docker images that can be deployed in containerized environments using Docker Compose or Helm charts (for Kubernetes).
+Alfresco Content Services 7.4 is available as a distribution zip file for manual installation, or it can be installed using an Ansible playbook (Linux only) for non-containerized environments. It's also available as a set of Docker images that can be deployed in containerized environments using Docker Compose or Helm charts (for Kubernetes).
 
 See the [Install]({% link content-services/7.4/install/index.md %}) documentation for more details.
 
@@ -51,8 +51,8 @@ See the detailed [Upgrade]({% link content-services/7.4/upgrade/index.md %}) doc
 
 ## Upgraded integrations
 
-Alfresco Content Services 7.4.x introduces changes that require new releases of some modules.
+Alfresco Content Services 7.4 introduces changes that require new releases of some modules.
 
-To upgrade to Content Services 7.4.x, you'll also need to update any of the module artifacts to which you're entitled.
+To upgrade to Content Services 7.4, you'll also need to update any of the module artifacts to which you're entitled.
 
 See the [Supported Platforms]({% link content-services/7.4/support/index.md %}) for more details.

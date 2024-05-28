@@ -164,7 +164,7 @@ The Log4j configuration augmentation and override mechanism provided by Content 
 
 `SanitizingPatternLayout` is a class provided by the `alfresco-log-sanitizer` library, which serves as an extension to the Log4j 1.x `PatternLayout` to harden Content Services against [CWE-117: Improper Output Neutralization for Logs](https://cwe.mitre.org/data/definitions/117.html){:target="_blank"}.
 
-This implementation, being specific to Log4j 1.x, serves no purpose anymore and won't be packaged in Content Services 7.4.x.
+This implementation, being specific to Log4j 1.x, serves no purpose anymore and won't be packaged in Content Services 7.4.0.
 
 Log4j 2.x offers regex replacement functionalities for logs out of the box, guaranteeing that Content Services is hardened against CWE-117 without needing any custom implementations, but just relying on the `%replace` layout parameter instead.
 

@@ -17,10 +17,10 @@ This process requires some familiarity with [Docker](https://www.docker.com/){:t
     cd acs-deployment
     ```
 
-2. Switch to the `7.4.N-docker-compose` directory, then create subdirectories to hold the AMP files and Dockerfiles:
+2. Switch to the `docker-compose` directory, then create subdirectories to hold the AMP files and Dockerfiles:
 
     ```bash
-    cd 7.4.N-docker-compose && \
+    cd N-docker-compose && \
     mkdir -p repository/amps share/share_amps && \
     touch repository/Dockerfile share/Dockerfile
     ```
@@ -33,20 +33,20 @@ You now need to install the AMP files into the Alfresco Content Repository image
 
 1. The `docker-compose` folder contains a file for each main code line of Content Services. Examine the relevant Docker Compose file for the version you want to apply the AMPs to.
 
-    For example, to apply AMPs to the latest version of 7.4.x, take a look at the `7.4.N-docker-compose.yml` file.
+    For example, to apply AMPs to the latest version of 7.4, take a look at the `docker-compose.yml` file.
 
 2. Take note of the image and tag used for the **alfresco** service in the Docker Compose file you chose.
 
-    For example, if you're using `7.4.N-docker-compose.yml`, you'll find on [line 21](https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/7.4.N-docker-compose.yml#L21){:target="_blank"}:
+    For example, if you're using `docker-compose.yml`, you'll find on [line 21](https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/docker-compose.yml#L21){:target="_blank"}:
 
     ```bash
-    quay.io/alfresco/alfresco-content-repository:7.4.1.6
+    quay.io/alfresco/alfresco-content-repository:7.4.0
     ```
 
 3. Add the following Docker commands to the `repository/Dockerfile` file and save it. Make sure that you change the image name and tag to match the above step:
 
     ```Dockerfile
-    FROM quay.io/alfresco/alfresco-content-repository:7.4.1.6
+    FROM quay.io/alfresco/alfresco-content-repository:7.4.0
 
     # Customize container: install amps
 
@@ -92,7 +92,7 @@ You now need to install the AMP files into the Alfresco Content Repository image
 
 5. Replace the image used by the **alfresco** service in the Docker Compose file you chose in step 1.
 
-    For example, replace `image: quay.io/alfresco/alfresco-content-repository:7.4.1.6` with `image: myregistrydomain/my-custom-alfresco-content-repository:7.4`:
+    For example, replace `image: quay.io/alfresco/alfresco-content-repository:7.4.0` with `image: myregistrydomain/my-custom-alfresco-content-repository:7.4`:
 
 6. Save the file.
 
@@ -102,16 +102,16 @@ Let's repeat the process for the Alfresco Share image.
 
 1. Take note of the image and tag used for the **share** service in the Docker Compose file you chose in the previous section.
 
-    For example, if you're using `7.4.N-docker-compose.yml`, you'll find on [line 102](https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/7.4.N-docker-compose.yml#L102){:target="_blank"}:
+    For example, if you're using `docker-compose.yml`, you'll find on [line 102](https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/docker-compose.yml#L102){:target="_blank"}:
 
     ```bash
-    quay.io/alfresco/alfresco-share:7.4.1.6
+    quay.io/alfresco/alfresco-share:7.4.0
     ```
 
 2. Add the following Docker commands to the `share/Dockerfile` file and save it. Make sure you change the image name and tag to match the above step:
 
     ```Dockerfile
-    FROM quay.io/alfresco/alfresco-share:7.4.1.6
+    FROM quay.io/alfresco/alfresco-share:7.4.0
 
     ARG TOMCAT_DIR=/usr/local/tomcat
 
@@ -141,15 +141,15 @@ Let's repeat the process for the Alfresco Share image.
 
 4. Replace the image used by the **share** service in the Docker Compose file you chose in the previous section.
 
-    For example, replace `image: quay.io/alfresco/alfresco-share:7.4.1.6` with `image: myregistrydomain/my-custom-alfresco-share:7.4`
+    For example, replace `image: quay.io/alfresco/alfresco-share:7.4.0` with `image: myregistrydomain/my-custom-alfresco-share:7.4`
 
 5. Save the file.
 
 ## Start the system
 
-You've now built two custom images, one for the Alfresco Content Repository and one for Alfresco Share, and added them to your `7.4.N-docker-compose.yml` services.
+You've now built two custom images, one for the Alfresco Content Repository and one for Alfresco Share, and added them to your `docker-compose.yml` services.
 
-You can start your custom `7.4.N-docker-compose.yml` file using the following command:
+You can start your custom `docker-compose.yml` file using the following command:
 
 ```bash
 docker-compose -f <your-modified-docker-compose.yml> up
