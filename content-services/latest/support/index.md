@@ -65,6 +65,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
 | Alfresco Sync Service 5.0 | |
 | Alfresco Sync Service 4.0 | |
+| Alfresco Desktop Sync 1.18 | |
 | Alfresco Desktop Sync 1.17 | |
 | Alfresco Transform Service 4.1 | |
 | Alfresco Document Transformation Engine 2.4 | |
@@ -162,6 +163,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
 | Alfresco Sync Service 5.0 | |
 | Alfresco Sync Service 4.0 | |
+| Alfresco Desktop Sync 1.18 | |
 | Alfresco Desktop Sync 1.17 | |
 | Alfresco Desktop Sync 1.16 | |
 | Alfresco Transform Service 4.1 | |
