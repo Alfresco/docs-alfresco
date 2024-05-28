@@ -299,23 +299,23 @@ The following components are included in the default form:
 * Display value 
 * Display text 
 
-### Workflow with Task Forms
+### Workflow with Task
 
-The workflow process manages the completion of all task forms in a specific sequence. You can view and filter workflow processes, start new ones, or track ongoing processes. The workflow process is complete when all associated task forms are finished.
+The workflow process manages the completion of all tasks in a specific sequence. You can view and filter workflow processes, start new ones, or track ongoing processes. The workflow process is complete when all associated tasks are finished.
 
 > **Note:** A workflow with a single task is completed once this task is finished.
 
-To initiate a workflow process and start completing task forms, see [Start a Workflow](####start-a-workflow).
+To initiate a workflow process and start completing tasks, see [Start a Workflow](####start-a-workflow).
 
 #### Start a Workflow
 
-To begin completing task forms within a workflow, you must first initiate the workflow.
+To begin completing tasks within a workflow, you must first initiate the workflow.
 
 > **Note:** You can start workflows from either the context menu of an existing file or the **Tasks** menu.
 
 To start a workflow from the **Tasks** menu:
 
-1.	Log on to the Mobile workspace. 
+1.	Log on to the Mobile Workspace. 
 
 2.	Tap **Tasks** and select the **Workflows** tab. 
 
@@ -335,11 +335,11 @@ To start a workflow from the **Tasks** menu:
 
     The workflow has been started, and it is listed in the Workflows tab under **Active**. 
 
-Once a workflow has been started, you can proceed to complete all task forms within it. To complete
-task forms, see [Complete Task Forms](####complete-task-forms).
+Once a workflow has been started, you can proceed to complete all tasks within it. To complete
+tasks, see [Complete Task Forms](####complete-task-forms).
 
-> **Note:** If a workflow process assigns task forms to groups (referred to as a pooled process), you must first
-claim the task form before you can start working on it. To claim a task, see [Claim a Task](####claim-a-task).
+> **Note:** If a workflow process assigns tasks to groups (referred to as a pooled process), you must first
+claim the task before you can start working on it. To claim a task, see [Claim a Task](####claim-a-task).
 
 To view and filter workflows, see [View and Filter Workflows](####view-and-filter-workflows).
 
@@ -383,11 +383,11 @@ If a workflow assigns tasks to groups, you must first claim the task before you 
 
 To claim a task:
 
-1. From the **Workflows** tab, open a workflow.
+1. From the **Tasks** tab, select task status as **Queued** in the filter options.
 
-2. Tap **Tasks**.
+2. Tap **Apply**.
 
-    The **Tasks** screen is displayed with a task to complete at the top.
+    The **Tasks** screen is displayed with a task to claim at the top.
 
 3. Open a task and select **Claim**.
 
@@ -407,18 +407,17 @@ To release a task:
 
 2. Tap **Tasks**.
 
-    The **Tasks** screen is displayed with a task to complete at the top.
+    The **Tasks** screen is displayed with a task to release at the top.
 
-4. Open a task form and select **Release**.
+4. Open a task and select **Release** from the **Actions**.
 
     The task is available for other users in the group.
 
-#### Complete Task Forms
+#### Complete Tasks in Workflow
 
-Task forms within a workflow process must be completed sequentially, one by one. After you complete a task
-form, the next form in a sequence will be displayed for you to complete.
+Tasks within a workflow process are displayed sequentially, one by one. After you complete a task, the next task in a sequence will be automatically displayed for you to complete.
 
-To complete task forms:
+To complete tasks:
 
 1. From the **Workflows** tab, open a workflow.
     
@@ -433,6 +432,8 @@ task.
 
     ![Task form]({% link mobile-workspace/images/task-form.png %})
 
+> **Note:** Tasks may require from you to add attachments. To upload files, see [Attach Files](####attach-files).
+
 4. Once you complete the form, do one of the following:
 
     * To save the task without completing it, tap **Save**.
@@ -443,10 +444,7 @@ task.
 
 6. Repeat steps 3 through 4 to complete all the task forms.
 
-Once all the task forms are completed, the **Review Data and Upload Files** task is displayed to upload required
-files. To upload files, see [Attach Files](####attach-files).
-
-To view and edit completed task form, see [View and Edit Task Forms](####view-and-edit-task-forms).
+Once all the tasks are completed, the workflow is completed. 
 
 #### View and Edit Task Details
 
@@ -463,6 +461,8 @@ To view and edit task details:
     The **Tasks** screen is displayed with a list of tasks.
 
 3. Open a task from the list.
+
+4. Tap the **info** icon in the upper-right corner.
 
     The following details of the task are displayed in the **Task View** screen:
 
@@ -483,37 +483,13 @@ To view and edit task details:
 
     The changes are reflected in the **Task View** screen.
 
-#### View and Edit Task Forms
-
-Once you complete or save your task form, you can view and edit it as needed.
-
-To view and edit completed task form:
-
-1. From the **Workflows** tab, open a workflow.
-
-2. Tap **Tasks**.
-
-    The Tasks screen is displayed with a list of tasks.
-
-3. Open a task from the list.
-
-    The completed form is displayed.
-
-4. Modify the form as needed and do one of the following:
-
-    * To save the task without completing it, tap **Save**.
-        The task remains assigned to you, and you can perform additional work as needed.
-
-    * To complete the task, tap **Complete**.
-        The task is completed, the next task in a sequence is displayed.
-
 #### Attach Files
 
-You can attach the required files in the **Review Data and Upload Files** task, which is displayed after completing all previous tasks in the workflow process.
+If a task requires you to attach files, you can attach the files by selecting the attachment icon ![attachment icon]({% link mobile-workspace/images/attachment-icon.png %}).
 
 To attach files:
 
-1. Open the **Review Data and Upload Files** task.
+1. Open a task that requires adding attachments.
 
 ![The Review and Upload Files task]({% link mobile-workspace/images/review-data-and-upload-files.png %})
 
@@ -527,6 +503,7 @@ To attach files:
 
     | Option | Description |
     | ------ | ----------- |
+    | Take photos or videos | You can take a photo and upload it to a task. |
     | Upload photos and videos | Photos are automatically uploaded without EXIF metadata according to the device security system. |
     | Upload files | Files are uploaded. Photos are uploaded with EXIF metadata. |
 
@@ -536,7 +513,7 @@ To attach files:
 
 > **Note:** If an attachment section is designed to upload only one attachment, for example birth certificate, you can select only one file or photo.
     
-6. Navigate to the **Review Data and Upload Files** screen by tapping the left arrow.
+6. Navigate to the task screen by tapping the left arrow.
 
     The attachments are listed under headers.
 
@@ -546,25 +523,11 @@ To attach files:
         The task remains assigned to you, and you can perform additional work or edit it as needed.
 
     * To complete the task, tap **Complete**.
-        The task is completed, the next task in a sequence is displayed.
+        The task is completed, the next task in a sequence is displayed or the workflow is completed.
 
 #### Complete a Workflow
 
-You can complete a workflow process by reviewing all the data in the **Complete details** task.
-
-At the end of a workflow process, the **Complete details** task is displayed, allowing you to review all the data provided in the previous tasks. Once you finish this task, the workflow process is marked as completed.
-
-To complete a workflow:
-
-1. Open the **Complete details** task at the top of the **Tasks** list.
-
-2. Ensure all the data in the task form is correct and do one of the following:
-
-    * To save the task without completing it, tap **Save**.
-        The task remains assigned to you, and you can perform additional work or edit it as needed.
-
-    * To complete the task, tap **Complete**.
-        The task is completed, the workflow process is completed and listed in the Workflows tab under **Completed**.
+A workflow is completed once all tasks within it are finished. To finish tasks, see [Complete Tasks in Workflow](####complete-tasks-in-workflow).
 
 ## Multiple Selection
 
