@@ -6,8 +6,6 @@ Once you've set up Desktop Sync, all your Alfresco Content Services folders will
 
 {% capture windows %}
 
-Once you've set up Desktop Sync, all your Alfresco Content Services folders are displayed from My Files, Shared Files, and My Sites.
-
 Use the *Select sites and folders to sync* screen to select the content to sync between Alfresco Content Services and your desktop. The content is synced at `C:\Users\<username>\Alfresco`.
 
 If you work with content that has deep folder structures, you may wish to deselect the **Include all files and sub-folders** checkbox. This allows you to only sync selected folders deep in your hierarchy, without syncing the intermediate folders, and prevent lengthy folder paths being created. By default, this feature is enabled, and if you want to sync only particular folders then the checkbox has to be deselected. In this case, only the files in the selected folders are synced using a folder structure starting from their respective root paths in Content Services (such as My Files, Shared Files, and your Sites).

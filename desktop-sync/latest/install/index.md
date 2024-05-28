@@ -49,6 +49,8 @@ The **Select sites and folders to sync** screen appears.
 
 All your favorite Alfresco content, My Files, Shared Files, and your Alfresco sites are displayed.
 
+Use the [Select content to sync]({% link desktop-sync/latest/using/select-to-sync.md %}) dialog to select the content to sync between Alfresco Content Services and your desktop.
+
 {% endcapture %}
 
 {% capture mac %}
@@ -108,6 +110,8 @@ The **Select sites and folders to sync** dialog appears.
 ![Initial sync selection screen]({% link desktop-sync/images/setup-mac-1.9.png %}){:height="382px" width="640px"}
 
 All your Alfresco Content Services folders will be displayed from My Files, Shared Files, and your Sites.
+
+Use the [Select content to sync]({% link desktop-sync/latest/using/select-to-sync.md %}) dialog to select the content to sync between Alfresco Content Services and your desktop.
 
 ### Uninstalling Desktop Sync on Mac
 
