@@ -368,7 +368,7 @@ To view and filter workflows:
 
     The following details of the selected workflow are displayed:
 
-    ![Workflow details]({% link mobile-workspace\images\workflow-details.png %})
+    ![Workflow details]({% link mobile-workspace/images/workflow-details.png %})
 
     | Detail | Description |
     | ------ | ----------- |
@@ -389,7 +389,7 @@ To claim a task:
 
     The **Tasks** screen is displayed with a task to complete at the top.
 
-    ![Tasks screen]({% link mobile-workspace\images\tasks-screen.png %})
+    ![Tasks screen]({% link mobile-workspace/images/tasks-screen.png %})
 
 3. Open a task and select **Claim**.
 
