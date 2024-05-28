@@ -321,7 +321,7 @@ To start a workflow from the **Tasks** menu:
 
     The **Workflows** tab is displayed with a list of all active workflows assigned to you or created by you. 
 
-![The workflows tab](C:/Users/mbujak/alfresco_projects/docs-alfresco/mobile-workspace/images/workflows-tab.png)
+    ![Workflows tab]({% link mobile-workspace/images/workflows-tab.png %})
 
 3.	Tap the floating action button (**+**) to expand a list of workflows and select a workflow.
 
@@ -368,7 +368,7 @@ To view and filter workflows:
 
     The following details of the selected workflow are displayed:
 
-    [Worklow details](mobile-workspace/images/workflow-details.png)
+    ![Workflow details]({% link mobile-workspace\images\workflow-details.png %})
 
     | Detail | Description |
     | ------ | ----------- |
@@ -389,7 +389,7 @@ To claim a task:
 
     The **Tasks** screen is displayed with a task to complete at the top.
 
-[The Tasks screen](C:/Users/mbujak/alfresco_projects/docs-alfresco/mobile-workspace/images/tasks-screen.png)
+    ![Tasks screen]({% link mobile-workspace\images\tasks-screen.png %})
 
 3. Open a task and select **Claim**.
 
@@ -430,7 +430,7 @@ To complete task forms:
 3. Open the task and fill out the form. Available fields and components may vary depending on the
 task.
 
-[Task form](mobile-workspace/images/task-form.png)
+    ![Task form]({% link mobile-workspace/images/task-form.png %})
 
 4. Once you complete the form, do one of the following:
 
@@ -465,7 +465,7 @@ To view and edit task details:
 
     The following details of the task are displayed in the **Task View** screen:
 
-    [Task View screen with task's details](mobile-workspace/images/task-view-details.png)
+    ![Task View screen with task's details]({% link mobile-workspace/images/task-view-details.png %})
 
     | Detail | Description |
     | ------ | ----------- |
@@ -515,9 +515,9 @@ To attach files:
 
 1. Open the **Review Data and Upload Files** task.
 
-[The Review Data and Upload Files task](mobile-workspace/images/review-data-and-upload-files.png)
+![The Review and Upload Files task]({% link mobile-workspace/images/review-data-and-upload-files.png %})
 
-2. Select the attachment icon [attachment icon](mobile-workspace/images/attachment-icon.png).
+2. Select the attachment icon [attachment icon]({% link mobile-workspace/images/attachment-icon.png %}).
 
     The **Attached files** screen is displayed.
 
