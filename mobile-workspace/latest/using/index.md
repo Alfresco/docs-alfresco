@@ -389,10 +389,10 @@ To claim a task:
 
     The **Tasks** screen is displayed with a task to complete at the top.
 
-    ![Tasks screen]({% link mobile-workspace/images/tasks-screen.png %})
-
 3. Open a task and select **Claim**.
 
+    ![Claim the task]({% link mobile-workspace/images/claim-task.png %})
+    
     The task is assigned to you, and you can start working on it.
 
 If you claim a task by mistake, you can release it. To release a task, see [Release a Task](####release-a-task).
