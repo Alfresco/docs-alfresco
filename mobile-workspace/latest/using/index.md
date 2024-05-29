@@ -305,7 +305,7 @@ The workflow process manages the completion of all tasks in a specific sequence.
 
 > **Note:** A workflow with a single task is completed once this task is finished.
 
-To initiate a workflow process and start completing tasks, see [Start a Workflow](####start-a-workflow).
+To initiate a workflow process and start completing tasks, see [Start a Workflow](#start-a-workflow).
 
 #### Start a Workflow
 
@@ -336,17 +336,16 @@ To start a workflow from the **Tasks** menu:
     The workflow has been started, and it is listed in the Workflows tab under **Active**. 
 
 Once a workflow has been started, you can proceed to complete all tasks within it. To complete
-tasks, see [Complete Task Forms](####complete-task-forms).
+tasks, see [Complete Task Forms](#complete-task-forms).
 
 > **Note:** If a workflow process assigns tasks to groups (referred to as a pooled process), you must first
-claim the task before you can start working on it. To claim a task, see [Claim a Task](####claim-a-task).
+claim the task before you can start working on it. For more information, see [Claim a Task](#claim-a-task).
 
-To view and filter workflows, see [View and Filter Workflows](####view-and-filter-workflows).
+To view and filter workflows, see [View and Filter Workflows](#view-and-filter-workflows).
 
 #### View and Filter Workflows
 
-All workflows created by you or assigned to you are available from the **Tasks** menu. You can view workflow's
-details after selecting a workflow from the **Workflows** tab.
+All workflows created by you or assigned to you are available from the **Tasks** menu. You can view workflow's details after selecting a workflow from the **Workflows** tab.
 
 Filtering options allow you to categorize workflows by their statuses: all, active, completed.
 
@@ -395,7 +394,7 @@ To claim a task:
     
     The task is assigned to you, and you can start working on it.
 
-If you claim a task by mistake, you can release it. To release a task, see [Release a Task](####release-a-task).
+If you claim a task by mistake, you can release it. To release a task, see [Release a Task](#release-a-task).
 
 #### Release a Task 
 
@@ -427,12 +426,11 @@ To complete tasks:
 
     The Tasks screen is displayed with a task to complete at the top.
 
-3. Open the task and fill out the form. Available fields and components may vary depending on the
-task.
+3. Open the task and fill out the form. Available fields and components may vary depending on the task.
 
     ![Task form]({% link mobile-workspace/images/task-form.png %})
 
-> **Note:** Tasks may require from you to add attachments. To upload files, see [Attach Files](####attach-files).
+> **Note:** Tasks may require from you to add attachments. To upload files, see [Attach Files](#attach-files).
 
 4. Once you complete the form, do one of the following:
 
@@ -527,7 +525,7 @@ To attach files:
 
 #### Complete a Workflow
 
-A workflow is completed once all tasks within it are finished. To finish tasks, see [Complete Tasks in Workflow](####complete-tasks-in-workflow).
+A workflow is completed once all tasks within it are finished. To finish tasks, see [Complete Tasks in Workflow](#complete-tasks-in-workflow).
 
 ## Multiple Selection
 
