@@ -1474,7 +1474,7 @@ For Keycloak compatibility, you must set `Exclude Issuer from Authentication Res
 1. Log in to the Keycloak Admin Console.
 2. Select the **alfresco** realm.
 3. Navigate to the **Clients** section.
-4. Select the client that is used by Share according to the `aims.resource` property. For more information, see .
+4. Select the client that is used by Share according to the `aims.resource` property. For more information, see [Configure authentication]({% link content-services\7.2\tutorial\sso\ldap.md. %}#step-5:-configure-alfresco-share-properties).
 5. Select the **Advanced** tab.
 6. Enable **Exclude Issuer from Authentication Response** and click **Save**. 
 
