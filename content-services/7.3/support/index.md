@@ -65,6 +65,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.15 | |
 | Alfresco Desktop Sync 1.14 | |
 | Alfresco Desktop Sync 1.13.1 | |
+| Alfresco Transform Service 4.1.2 | |
 | Alfresco Transform Service 2.1.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Transform Service 2.0 | |
 | Alfresco Document Transformation Engine 2.4 | |
