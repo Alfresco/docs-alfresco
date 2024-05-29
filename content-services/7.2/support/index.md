@@ -69,10 +69,12 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Process Services 2.3 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 3.11.3 | |
 | Alfresco Sync Service 3.11.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Sync Service 3.8 | |
 | Alfresco Sync Service 3.7 | |
 | Alfresco Sync Service 3.6 | |
+| Alfresco Desktop Sync 1.18 | |
 | Alfresco Desktop Sync 1.17 | |
 | Alfresco Desktop Sync 1.16 | |
 | Alfresco Desktop Sync 1.15 | |
@@ -95,6 +97,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Identity Service 1.8 | |
 | Identity Service 1.7 | |
 | SAML Module for Alfresco Content Services 1.2.3 | |
+| Alfresco Intelligence Services 3.1.3 | |
 | Alfresco Intelligence Services 1.4.4 | |
 | Alfresco Intelligence Services 1.4.2 | |
 | Alfresco Content Connector for AWS S3 5.1 | |
@@ -210,6 +213,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.8 | |
 | Alfresco Sync Service 3.7 | |
 | Alfresco Sync Service 3.6 | |
+| Alfresco Desktop Sync 1.18 | |
 | Alfresco Desktop Sync 1.17 | |
 | Alfresco Desktop Sync 1.16 | |
 | Alfresco Desktop Sync 1.15 | |
@@ -344,6 +348,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.8 | |
 | Alfresco Sync Service 3.7 | |
 | Alfresco Sync Service 3.6 | |
+| Alfresco Desktop Sync 1.18 | |
 | Alfresco Desktop Sync 1.17 | |
 | Alfresco Desktop Sync 1.16 | |
 | Alfresco Desktop Sync 1.15 | |
