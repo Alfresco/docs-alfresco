@@ -2,11 +2,14 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for Alfresco Sync Service 3.11:
+The following are the supported platforms for Alfresco Sync Service 3.11.x:
 
 | Version | Notes |
 | ------- | ----- |
-| Alfresco Content Services 7.4 | Optionally with Alfresco Governance Services 7.4.<br>Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4 with Sync Service 3.11.1. |
+| Alfresco Content Services 7.4 | Optionally with Alfresco Governance Services 7.4.<br>Additional compatibility testing with ACS 7.4 and Sync Service 3.11.3. |
+| Alfresco Content Services 7.3 | Additional compatibility testing with ACS 7.3 and Sync Service 3.11.3. |
+| Alfresco Content Services 7.2 | Additional compatibility testing with ACS 7.2 and Sync Service 3.11.3. |
+| Alfresco Content Services 7.1 | Additional compatibility testing with ACS 7.1 and Sync Service 3.11.1. |
 | Identity Service 1.8 or later | Required for SAML authentication |
 | Alfresco Desktop Sync for Windows 1.15 or later | |
 | Alfresco Desktop Sync for Mac 1.15 or later | |
