@@ -164,13 +164,13 @@
     - title: 'Configure Keycloak'
         pages:
         - title: 'Single Sign On Guide'
-          path: '/content-services/latest/tutorial/sso/'
+          path: '/content-services/7.2/tutorial/sso/'
         - title: 'SAML'
-           path: '/content-services/latest/tutorial/sso/saml/'
+           path: '/content-services/7.2/tutorial/sso/saml/'
         - title: 'LDAP'
-            path: '/content-services/latest/tutorial/sso/ldap/'   
+            path: '/content-services/7.2/tutorial/sso/ldap/'   
         - title: 'Kerberos'
-            path: '/content-services/latest/tutorial/sso/kerberos/'
+            path: '/content-services/7.2/tutorial/sso/kerberos/'
     - title: 'Videos'
           pages:
             - title: 'Alfresco Share videos'
