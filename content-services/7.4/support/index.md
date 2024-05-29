@@ -66,10 +66,12 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Process Services 2.3 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 3.11.3 | |
 | Alfresco Sync Service 3.11.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Sync Service 3.11 | |
 | Alfresco Sync Service 3.10 | |
 | Alfresco Sync Service 3.9 | |
+| Alfresco Desktop Sync 1.18 | |
 | Alfresco Desktop Sync 1.17 | |
 | Alfresco Desktop Sync 1.16 | |
 | Alfresco Desktop Sync 1.15 | |
@@ -86,6 +88,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Keycloak 21.1.2 | Use this Keycloak version and Alfresco Keycloak Theme 0.3.5 as an alternative to Identity Service 2.0.0. |
 | Identity Service 2.0 | |
 | Identity Service 1.8 | |
+| Alfresco Intelligence Services 3.1.3 | |
 | Alfresco Intelligence Services 1.5 | |
 | Alfresco Content Connector for AWS S3 5.1 | Adds support for AWS Glacier using Cloud storage layer. |
 | Alfresco Content Connector for Azure 3.2 | |
@@ -190,6 +193,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.11 | |
 | Alfresco Sync Service 3.10 | |
 | Alfresco Sync Service 3.9 | |
+| Alfresco Desktop Sync 1.18 | |
 | Alfresco Desktop Sync 1.17 | |
 | Alfresco Desktop Sync 1.16 | |
 | Alfresco Desktop Sync 1.15 | |
@@ -307,6 +311,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.11.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Sync Service 3.10 | |
 | Alfresco Sync Service 3.9 | |
+| Alfresco Desktop Sync 1.18 | |
 | Alfresco Desktop Sync 1.17 | |
 | Alfresco Desktop Sync 1.16 | |
 | Alfresco Desktop Sync 1.15 | |
