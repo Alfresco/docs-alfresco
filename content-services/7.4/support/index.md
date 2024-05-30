@@ -12,18 +12,24 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | ------- | ----- |
 | **Operating systems** | |
 | Red Hat Enterprise Linux 8.7 x64 | |
+| Red Hat Enterprise Linux 8.6 x64 | |
 | Windows Server 2022 | |
+| Windows Server 2019 | |
 | Amazon Linux | v2 |
 | CentOS 8.3 x64 | |
+| CentOS 7.9 x64 | |
 | Ubuntu 22.04 | |
+| Ubuntu 20.04 | |
+| Rocky Linux 8.7 | |
 |  |  |
 | **Databases** | |
-| MySQL 8 | `mysql-connector-java-8.0.30.jar` |
+| MySQL 8 | `mysql-connector-java-8.0.27.jar` |
 | MS SQL Server 2019 | `mssql-jdbc-9.2.1.jre11.jar` |
-| Oracle 19c | `Ojdbc11` |
-| PostgreSQL 14.6 | `Postgresql-42.2.50.jar` |
-| MariaDB 10.6 | `MariaDB Connector/J 2.7.2` |
-| Amazon Aurora MySQL 5.7 | `MariaDB Connector/J 2.2.5` |
+| Oracle 19c | `Ojdbc8.jar – 19.11.0.0` |
+| PostgreSQL 14.x | `Postgresql-42.3.2.jar` |
+| PostgreSQL 13.x | `Postgresql-42.3.2.jar` |
+| MariaDB 10.6 | |
+| Amazon Aurora | Use of Amazon Aurora is supported only if it is configured to emulate one of the supported versions of PostgreSQL or MySQL listed above, and the listed JDBC driver is used. |
 | | |
 | **Message brokers** | |
 | ActiveMQ v5.17 | |
@@ -34,19 +40,21 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Clients** | |
 | Windows 10 x64 | |
-| Windows 8.1 x64 | |
 | Windows 7 x64 | |
 | Mac OSX 10.12 | |
 | | |
 | **Browsers** | |
 | Mozilla Firefox 86 | |
 | Microsoft Edge Latest| |
+| MS Internet Explorer 11 | |
 | Chrome 89 | Includes Chromium edition. |
-| Safari 15 | |
+| Safari 14 | |
 | | |
 | **Java** | |
-| OpenJDK 17 | |
+| OpenJDK 17.0.4 | |
+| OpenJDK 11.0.13 | |
 | Amazon Corretto 17 | |
+| Amazon Corretto 11 | |
 | | |
 | **Third party integrations** | |
 | Microsoft 365 | |
@@ -54,18 +62,20 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Services** | |
 | Alfresco Governance Services 7.4 | |
-| Alfresco Process Services 2.4 | |
+| Alfresco Process Services 2.4 | Enable `Exclude Issuer from Authentication Response` - see [Configure authentication]({% link process-services/2.4/config/authenticate.md %}#properties) for details. |
 | Alfresco Process Services 2.3 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
+| Alfresco Sync Service 3.11.3 | |
 | Alfresco Sync Service 3.11.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Sync Service 3.11 | |
 | Alfresco Sync Service 3.10 | |
 | Alfresco Sync Service 3.9 | |
+| Alfresco Desktop Sync 1.18 | |
 | Alfresco Desktop Sync 1.17 | |
 | Alfresco Desktop Sync 1.16 | |
 | Alfresco Desktop Sync 1.15 | |
-| Alfresco Transform Service 4.1 | |
+| Alfresco Transform Service 4.1.2 | |
 | Alfresco Transform Service 3.0 | Compatible with Java 17 only |
 | Alfresco Transform Service 2.1.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Transform Service 2.1 | |
@@ -74,18 +84,19 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search and Insight Engine 2.0.7 and later | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0.7 and later | |
 | Alfresco Federation Services 3.0 | |
+| Keycloak 24.0.3 | Use this Keycloak version and Alfresco Keycloak Theme 0.3.5 as an alternative to Identity Service 2.0.0. |
 | Keycloak 21.1.2 | Use this Keycloak version and Alfresco Keycloak Theme 0.3.5 as an alternative to Identity Service 2.0.0. |
 | Identity Service 2.0 | |
 | Identity Service 1.8 | |
-| Alfresco Intelligence Services 3.1.1 | |
+| Alfresco Intelligence Services 3.1.3 | |
 | Alfresco Intelligence Services 1.5 | |
 | Alfresco Content Connector for AWS S3 5.1 | Adds support for AWS Glacier using Cloud storage layer. |
-| Alfresco Content Connector for Azure 3.2.x | |
+| Alfresco Content Connector for Azure 3.2 | |
 | Alfresco Content Connector for Salesforce 2.4 | |
 | Alfresco Content Connector for SAP applications 5.3 | |
 | Alfresco Content Connector for SAP Cloud 1.2.1 | |
-| Alfresco Collaboration Connector for Microsoft 365 2.0.x | |
-| Alfresco Collaboration Connector for Teams 2.0.x | |
+| Alfresco Collaboration Connector for Microsoft 365 2.0 | |
+| Alfresco Collaboration Connector for Teams 2.0 | |
 | Alfresco Outlook Integration 2.10 | |
 | Alfresco Office Services 1.6 | |
 | Alfresco Google Docs Integration 3.4 | |
@@ -112,7 +123,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Components** | |
 | ImageMagick v7.1.0-16 | |
-| LibreOffice v7.0.6 | |
+| LibreOffice v7.2.5 | |
 
 {% endcapture %}
 
@@ -180,6 +191,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.11 | |
 | Alfresco Sync Service 3.10 | |
 | Alfresco Sync Service 3.9 | |
+| Alfresco Desktop Sync 1.18 | |
 | Alfresco Desktop Sync 1.17 | |
 | Alfresco Desktop Sync 1.16 | |
 | Alfresco Desktop Sync 1.15 | |
@@ -296,6 +308,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.11.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Sync Service 3.10 | |
 | Alfresco Sync Service 3.9 | |
+| Alfresco Desktop Sync 1.18 | |
 | Alfresco Desktop Sync 1.17 | |
 | Alfresco Desktop Sync 1.16 | |
 | Alfresco Desktop Sync 1.15 | |

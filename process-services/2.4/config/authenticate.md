@@ -37,17 +37,27 @@ Configure the `activiti-identity-service.properties` file using the below proper
 |keycloak.realm| *Required.* Name of the realm configured in the Identity Service.|
 |keycloak.auth-server-url| *Required.* Base URL of the Identity Service server in the format `https://{server}:{port}/auth`|
 |keycloak.ssl-required| *Required.* Whether communication to and from the Identity Service server is over HTTPS. Possible values are `all` for all requests, `external` for external requests or `none`. **Important:** this property needs to match the equivalent setting for **Require SSL** in your realm within the Identity Service administration console.|
-|keycloak.resource| *Required.* The **Client ID** for the client created within your realm that points to Process Services.|
+|keycloak.resource| *Required.* The **Client ID** for the client created within your realm that points to Process Services. <br><br>**Note:** For Keycloak compatibility, you must enable **Exclude Issuer from Authentication Response** - see [Enable configuration for Keycloak]({% link process-services/2.4/config/authenticate.md %}#enable-configuration-for-keycloak) for details.|
 |keycloak.principal-attribute| *Required.* The attribute used to populate the field `UserPrincipal` with. This property needs to be set to `email` to work with Process Services.|
 |keycloak.public-client| *Optional.* The adapter will not send credentials for the client to the Identity Service if this is set to `true`.|
 |keycloak.credentials.secret| *Optional.* The secret key for this client if the access type is not set to `public`.|
 |keycloak.always-refresh-token| *Required.* The token will be refreshed for every request if this is set to `true`.|
 |keycloak.autodetect-bearer-only| *Required.* This should be set to true if your application serves both a web application and web services. It allows for the redirection of unauthorized users of the web application to the Identity Service sign in page, but send a HTTP 401 to unauthenticated SOAP or REST clients.|
-|keycloak.token-store| *Required.* The location of where the account information token is stored. Possible values are `cookie` or `session`. **Note:** If you have Process Services configured with the Identity Service you must use the value `cookie` otherwise upon logging out of Process Services a user will be redirected to an error page, for more see [Run Identity Service with Process Services]({% link identity-service/latest/config/index.md %}#run-identity-service-with-process-services).
-|
+|keycloak.token-store| *Required.* The location of where the account information token is stored. Possible values are `cookie` or `session`. **Note:** If you have Process Services configured with the Identity Service you must use the value `cookie` otherwise upon logging out of Process Services a user will be redirected to an error page, for more see [Run Identity Service with Process Services]({% link identity-service/latest/config/index.md %}#run-identity-service-with-process-services).|
 |keycloak.enable-basic-auth| *Optional.* Whether basic authentication is supported by the adapter. If set to `true` then a secret must also be provided.|
 |activiti.use-browser-based-logout| *Optional.* Sets whether signing out of Process Services calls the Identity Service `logout URL`. If set to `true`, set the **Admin URL** to `https://{server}:{port}/activiti-app/` under the client settings in the Identity Service management console.|
 |activiti.identity-service.cookie-auth-enabled| *Optional.* When set to `true` enables cookie-based authentication that will work alongside the Identity Service authentication.|
+
+#### Enable configuration for Keycloak
+
+For Keycloak compatibility, you must set `Exclude Issuer from Authentication Response` to `On`.
+
+1. Log in to the Keycloak Admin Console.
+2. Select the **alfresco** realm.
+3. Navigate to the **Clients** section.
+4. Select the client that's used by APS according to the `keycloak.resource` property. See [Configure authentication]({% link process-services/2.4/config/authenticate.md %}#properties).
+5. Select the **Advanced** tab.
+6. Enable **Exclude Issuer from Authentication Response** and click **Save**.
 
 ## OAuth 2
 
