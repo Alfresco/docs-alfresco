@@ -42,7 +42,7 @@ It is also assumed that certificates are correctly set up for each host and that
 
 A realm and client need to be configured in Keycloak for the Alfresco products to sit under. A single realm is required and the client will be used for all services other than Alfresco Share and Alfresco Office Services (AOS).
 
-1. Sign into the Keycloak Administration Console (Keycloak Admin Console). 
+1. Sign into the Keycloak Administration Console (Keycloak Admin Console).
 
 2. Select the default realm, `Alfresco` or create a new realm to use that the Alfresco products will be accessed through. Note down the **Name** for later use. The realm `Alfresco` will be used in this example.
 
@@ -70,7 +70,7 @@ A realm and client need to be configured in Keycloak for the Alfresco products t
 
 An LDAP directory needs to be synchronized with Keycloak, Alfresco Content Services (ACS) and Alfresco Process Services (APS). The following steps detail the synchronization with Keycloak, whilst the configuration to ACS and APS is covered in later steps.
 
-1. Sign into the Keycloak Administration Console (Keycloak Admin Console). 
+1. Sign into the Keycloak Administration Console (Keycloak Admin Console).
 
 2. Select **User Federation** and **Add Ldap providers**.
 
@@ -129,8 +129,8 @@ Alfresco Digital Workspace only requires its properties to be updated to enable 
 | Property | Environment variable | Description |
 | -------- | -------------------- | ----------- |
 | authType | APP_CONFIG_AUTH_TYPE | The authentication type. Must be set to `OAUTH`. |
-| host | APP_CONFIG_OAUTH2_HOST | Keycloak's address including the realm name configured in [step 1](#step-1-configure-a-realm-and-clients). In the example the realm name is *Alfresco*. |
-| clientId | APP_CONFIG_OAUTH2_CLIENTID | The name of the client configured in [step 1](#step-1-configure-a-realm-and-clients) for Digital Workspace. |
+| host | APP_CONFIG_OAUTH2_HOST | Keycloak's address including the realm name configured in [step 1](#step-1-configure-a-realm-and-client). In the example the realm name is *Alfresco*. |
+| clientId | APP_CONFIG_OAUTH2_CLIENTID | The name of the client configured in [step 1](#step-1-configure-a-realm-and-client) for Digital Workspace. |
 | implicitFlow | APP_CONFIG_OAUTH2_IMPLICIT_FLOW | |
 | silentLogin | APP_CONFIG_OAUTH2_SILENT_LOGIN | Setting `silentLogin` to true removes a login page from displaying if a user is already authenticated. Setting the value to `false` will display a sign in page even though a user needs to only select the **Sign in** option and not enter any credentials. |
 | redirectSilentIframeUri | APP_CONFIG_OAUTH2_REDIRECT_SILENT_IFRAME_URI | The address that Digital Workspace uses to refresh authorization tokens. |
@@ -256,7 +256,7 @@ If Process Services for mobile is required then a client needs to be created for
 
 1. Sign into the Keycloak Administration Console (Keycloak Admin Console).
 
-2. Create a new client for the mobile application under the `Alfresco` realm or the realm you created in [step 1](#step-1-configure-a-realm-and-clients) and set at least the following in the **Settings** tab:
+2. Create a new client for the mobile application under the `Alfresco` realm or the realm you created in [step 1](#step-1-configure-a-realm-and-client) and set at least the following in the **Settings** tab:
 
     **iOS**
 
@@ -276,7 +276,7 @@ If Content Services for iOS is required then a client needs to be created for it
 
 1. Sign into the Keycloak Administration Console (Keycloak Admin Console).
 
-2. Create a new client for the mobile application under the `Alfresco` realm or the realm you created in [step 1](#step-1-configure-a-realm-and-clients) and set at least the following in the **Settings** tab:
+2. Create a new client for the mobile application under the `Alfresco` realm or the realm you created in [step 1](#step-1-configure-a-realm-and-client) and set at least the following in the **Settings** tab:
 
     * A unique and identifiable **Client ID**. The default value is `alfresco-ios-acs-app`.
     * The **Valid Redirect URI** must be set to `iosacsapp://aims/auth`.
@@ -292,4 +292,4 @@ After configuring SSO with an LDAP directory, the following is an example sequen
 
 3. Create a new tab in the same browser session and navigate to Alfresco Process Services at the URL `http://aps.example.com/activiti-app` and there should be no additional sign in step required.
 
-> **Note:** If timeout is configured in [Keycloak](#step-1-configure-a-realm-and-clients), accessing any of the applications after the specified time will prompt a user to sign in again.
+> **Note:** If timeout is configured in [Keycloak](#step-1-configure-a-realm-and-client), accessing any of the applications after the specified time will prompt a user to sign in again.

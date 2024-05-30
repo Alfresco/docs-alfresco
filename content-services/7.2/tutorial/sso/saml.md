@@ -134,6 +134,7 @@ Enforcing SAML removes the option for users to sign into Alfresco products with 
 4. Fill in the resulting form with the details of the SAML identity provider configured in [step 4](#step-4-configure-a-service-provider-connection).
 
     > **Important:** The **Alias** and **Default Identity Provider** need to match the values configured in [step 4](#step-4-configure-a-service-provider-connection).
+
 ## Step 6: Configure Alfresco Content Services properties
 
 The properties listed that need to be set for Alfresco Content Services (ACS) are only those that are required for setting up SSO. They include the synchronization with an LDAP directory and updating the Alfresco Share configuration file to enable SSO. A timeout period can also be set for Share.

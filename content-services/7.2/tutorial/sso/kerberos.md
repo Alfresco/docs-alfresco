@@ -28,6 +28,7 @@ There are five steps to configuring SSO using Kerberos with Alfresco products. T
 * Load Balancer: `alfresco.example.com`
 
 > **Note:** If using a containerized deployment there are [several amendments and additions](#optional-containerized-deployment) required for certain steps.
+
 ## Step 1: Configure Kerberos files
 
 A user account and `keytab` file is required for Alfresco Content Services (ACS), Alfresco Share and Alfresco Process Services (APS) and a `krb5.conf` file that details the location of the authentication server needs to be located on each server. The files can be configured against a load balancer.
@@ -202,6 +203,7 @@ The Java login files need to be updated with details of the Kerberos configurati
     ```
 
     > **Note:** If Alfresco Share is hosted on the same server as Alfresco Content Services then the contents of the `java.login.config` can be merged into a single file.
+
 2. Edit the following line in the Java security configuration file `java.security` by default located in `java/conf/security/`to point to the `java.login.config` file using the full file path:
 
     ```bash
@@ -220,6 +222,7 @@ The Java login files need to be updated with details of the Kerberos configurati
     > ```bash
     > -Dsun.security.krb5.msinterop.kstring=true
     > ```
+
 ## Step 4: Configure Alfresco Digital Workspace
 
 The Alfresco Digital Workspace requires one property added to enable Kerberos SSO. This can be added in the `app.config.json`, located by default in the `/src`directory.
