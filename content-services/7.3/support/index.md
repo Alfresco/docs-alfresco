@@ -30,7 +30,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | ActiveMQ v5.16 | |
 | | |
 | **Application servers** | |
-| Tomcat 9.0.54 | |
+| Tomcat 9 | |
 | | |
 | **Clients** | |
 | Windows 10 x64 | |
@@ -40,13 +40,15 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Browsers** | |
 | Mozilla Firefox 86 | |
 | Microsoft Edge Latest| |
+| MS Internet Explorer 11 | |
 | Chrome 89 | Includes Chromium edition. |
-| Safari 15 | |
+| Safari 14 | |
 | | |
 | **Java** | |
-| OpenJDK 17 | |
-| OpenJDK 11 | |
+| OpenJDK 17.0.4 | |
+| OpenJDK 11.0.13 | |
 | Amazon Corretto 17 | |
+| Amazon Corretto 11 | |
 | | |
 | **Third party integrations** | |
 | Microsoft 365 | |
@@ -81,7 +83,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Intelligence Services 3.1.3 | |
 | Alfresco Intelligence Services 1.4.5 | |
 | Alfresco Content Connector for AWS S3 5.1 | Adds support for AWS Glacier using Cloud storage layer. |
-| Alfresco Content Connector for Azure 3.1 | |
+| Alfresco Content Connector for Azure 3.1.1 | |
 | Alfresco Content Connector for SAP applications 5.3 | |
 | Alfresco Content Connector for SAP applications 5.2.1 | |
 | Alfresco Content Connector for Salesforce 2.4 | |

@@ -37,7 +37,7 @@ You now need to install the AMP files into the Alfresco Content Repository image
 
 2. Take note of the image and tag used for the **alfresco** service in the Docker Compose file you chose.
 
-    For example, if you're using `docker-compose.yml`, you'll find on [line 15](https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/docker-compose.yml#L15){:target="_blank"}:
+    For example, if you're using `docker-compose.yml`, you'll find on [line 21](https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/docker-compose.yml#L21){:target="_blank"}:
 
     ```bash
     quay.io/alfresco/alfresco-content-repository:7.4.0
@@ -102,7 +102,7 @@ Let's repeat the process for the Alfresco Share image.
 
 1. Take note of the image and tag used for the **share** service in the Docker Compose file you chose in the previous section.
 
-    For example, if you're using `docker-compose.yml`, you'll find on [line 93](https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/docker-compose.yml#L93){:target="_blank"}:
+    For example, if you're using `docker-compose.yml`, you'll find on [line 102](https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/docker-compose.yml#L102){:target="_blank"}:
 
     ```bash
     quay.io/alfresco/alfresco-share:7.4.0

@@ -78,21 +78,23 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Intelligence Services 3.1.3 | |
 | Alfresco Intelligence Services 3.1 | |
 | Alfresco Content Connector for AWS S3 6.1 | Adds support for AWS Glacier using Cloud storage layer. |
-| Alfresco Content Connector for Azure 5.0 | |
+| Alfresco Content Connector for Azure 5.0.1 | |
+| Alfresco Content Connector for Azure 3.2.1 | |
 | Alfresco Content Connector for Salesforce 3.1 | |
 | Alfresco Content Connector for SAP Applications 6.0.1 | |
 | Alfresco Content Connector for SAP Cloud 2.0 | |
-| Alfresco Collaboration Connector for Microsoft 365 2.0 | |
-| Alfresco Collaboration Connector for Teams 2.0 | |
+| Alfresco Collaboration Connector for Microsoft 365 2.0.x | |
+| Alfresco Collaboration Connector for Teams 2.0.x | |
 | Alfresco Outlook Integration 3.0 | |
 | Alfresco Office Services 2.0 | |
 | Alfresco Google Docs Integration 4.1 | |
+| Alfresco Content Services SDK 6.2 | |
 | Alfresco Content Services SDK 6.1 | |
 | Alfresco Content Services SDK 4.8 | |
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 4.4 | |
-| Alfresco Mobile Workspace 1.8 | |
+| Alfresco Mobile Workspace 1.9 | |
 | Alfresco Control Center 8.4 | |
 | Alfresco Application Development Framework (ADF) 6.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Content Accelerator 4.0 | |
@@ -180,17 +182,20 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Intelligence Services 3.1.3 | |
 | Alfresco Intelligence Services 3.1 | |
 | Alfresco Content Connector for AWS S3 6.0 | Adds support for AWS Glacier using Cloud storage layer. |
+| Alfresco Content Connector for Azure 5.0.1 | |
 | Alfresco Content Connector for Azure 4.0 | |
+| Alfresco Content Connector for Azure 3.2.1 | |
 | Alfresco Content Connector for Salesforce 3.1 | |
 | Alfresco Content Connector for Salesforce 3.0 | |
 | Alfresco Content Connector for SAP Applications 6.0 | |
 | Alfresco Content Connector for SAP Cloud 2.0 | |
-| Alfresco Collaboration Connector for Microsoft 365 2.0 | |
-| Alfresco Collaboration Connector for Teams 2.0 | |
+| Alfresco Collaboration Connector for Microsoft 365 2.0.x | |
+| Alfresco Collaboration Connector for Teams 2.0.x | |
 | Alfresco Outlook Integration 3.0 | |
 | Alfresco Office Services 2.0 | |
 | Alfresco Google Docs Integration 4.1 | |
 | Alfresco Google Docs Integration 4.0 | |
+| Alfresco Content Services SDK 6.2 | |
 | Alfresco Content Services SDK 6.1 | |
 | Alfresco Content Services SDK 6.0 | |
 | Alfresco Content Services SDK 4.8 | |
@@ -199,7 +204,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Applications** | |
 | Alfresco Digital Workspace 4.4 | |
 | Alfresco Digital Workspace 4.3 | |
-| Alfresco Mobile Workspace 1.8 | |
+| Alfresco Mobile Workspace 1.9 | |
 | Alfresco Control Center 8.4 | |
 | Alfresco Control Center 8.3 | |
 | Alfresco Application Development Framework (ADF) 6.x | Some API functionality may be available only in the latest Alfresco Content Services release. |

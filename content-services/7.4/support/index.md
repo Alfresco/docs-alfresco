@@ -110,9 +110,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Digital Workspace 4.2 | |
 | Alfresco Digital Workspace 4.1 | |
 | Alfresco Digital Workspace 4.0 | |
-| Alfresco Mobile Workspace 1.8 | |
-| Alfresco Mobile Workspace 1.7 | |
-| Alfresco Mobile Workspace 1.6 | |
+| Alfresco Mobile Workspace 1.9 | |
 | Alfresco Control Center 8.3 | |
 | Alfresco Control Center 8.2 | |
 | Alfresco Control Center 8.1 | |
@@ -197,6 +195,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.17 | |
 | Alfresco Desktop Sync 1.16 | |
 | Alfresco Desktop Sync 1.15 | |
+| Alfresco Transform Service 4.1 | |
 | Alfresco Transform Service 3.0 | Compatible with Java 17 only |
 | Alfresco Transform Service 2.1.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Transform Service 2.1 | |
@@ -210,12 +209,12 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Identity Service 1.8 | |
 | Alfresco Intelligence Services 1.5 | |
 | Alfresco Content Connector for AWS S3 5.1 | Adds support for AWS Glacier using Cloud storage layer. |
-| Alfresco Content Connector for Azure 3.2 | |
+| Alfresco Content Connector for Azure 3.2.x | |
 | Alfresco Content Connector for Salesforce 2.4 | |
 | Alfresco Content Connector for SAP applications 5.3 | |
 | Alfresco Content Connector for SAP Cloud 1.2.1 | |
-| Alfresco Collaboration Connector for Microsoft 365 2.0 | |
-| Alfresco Collaboration Connector for Teams 2.0 | |
+| Alfresco Collaboration Connector for Microsoft 365 2.0.x | |
+| Alfresco Collaboration Connector for Teams 2.0.x | |
 | Alfresco Outlook Integration 2.10 | |
 | Alfresco Office Services 1.6 | |
 | Alfresco Google Docs Integration 3.4 | |
@@ -229,9 +228,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Digital Workspace 4.2 | |
 | Alfresco Digital Workspace 4.1 | |
 | Alfresco Digital Workspace 4.0 | |
-| Alfresco Mobile Workspace 1.8 | |
-| Alfresco Mobile Workspace 1.7 | |
-| Alfresco Mobile Workspace 1.6 | |
+| Alfresco Mobile Workspace 1.9 | |
 | Alfresco Control Center 8.3 | |
 | Alfresco Control Center 8.2 | |
 | Alfresco Control Center 8.1 | |
@@ -315,6 +312,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.17 | |
 | Alfresco Desktop Sync 1.16 | |
 | Alfresco Desktop Sync 1.15 | |
+| Alfresco Transform Service 4.1 | |
 | Alfresco Transform Service 3.0 | Compatible with Java 17 only |
 | Alfresco Transform Service 2.1.1 | Additional compatibility testing was done with ACS 7.1, 7.2, 7.3, and 7.4. |
 | Alfresco Transform Service 2.1 | |
@@ -328,12 +326,12 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Identity Service 1.8 | |
 | Alfresco Intelligence Services 1.5 | |
 | Alfresco Content Connector for AWS S3 5.1 | Adds support for AWS Glacier using Cloud storage layer. |
-| Alfresco Content Connector for Azure 3.2 | |
+| Alfresco Content Connector for Azure 3.2.x | |
 | Alfresco Content Connector for Salesforce 2.4 | |
 | Alfresco Content Connector for SAP applications 5.3 | |
 | Alfresco Content Connector for SAP Cloud 1.2.1 | |
-| Alfresco Collaboration Connector for Microsoft 365 2.0 | |
-| Alfresco Collaboration Connector for Teams 2.0 | |
+| Alfresco Collaboration Connector for Microsoft 365 2.0.x | |
+| Alfresco Collaboration Connector for Teams 2.0.x | |
 | Alfresco Outlook Integration 2.10 | |
 | Alfresco Office Services 1.6 | |
 | Alfresco Google Docs Integration 3.4 | |
@@ -347,9 +345,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Digital Workspace 4.2 | |
 | Alfresco Digital Workspace 4.1 | |
 | Alfresco Digital Workspace 4.0 | |
-| Alfresco Mobile Workspace 1.8 | |
-| Alfresco Mobile Workspace 1.7 | |
-| Alfresco Mobile Workspace 1.6 | |
+| Alfresco Mobile Workspace 1.9 | |
 | Alfresco Control Center 8.3 | |
 | Alfresco Control Center 8.2 | |
 | Alfresco Control Center 8.1 | |
