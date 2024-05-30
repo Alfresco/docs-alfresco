@@ -33,21 +33,52 @@ Configure the `activiti-identity-service.properties` file using the below proper
 
 |Property|Description|
 |--------|-----------|
-|keycloak.enabled| *Required.* Enable or disable authentication via the Identity Service.|
-|keycloak.realm| *Required.* Name of the realm configured in the Identity Service.|
-|keycloak.auth-server-url| *Required.* Base URL of the Identity Service server in the format `https://{server}:{port}/auth`|
-|keycloak.ssl-required| *Required.* Whether communication to and from the Identity Service server is over HTTPS. Possible values are `all` for all requests, `external` for external requests or `none`. **Important:** this property needs to match the equivalent setting for **Require SSL** in your realm within the Identity Service administration console.|
-|keycloak.resource| *Required.* The **Client ID** for the client created within your realm that points to Process Services.|
-|keycloak.principal-attribute| *Required.* The attribute used to populate the field `UserPrincipal` with. This property needs to be set to `email` to work with Process Services.|
-|keycloak.public-client| *Optional.* The adapter will not send credentials for the client to the Identity Service if this is set to `true`.|
-|keycloak.credentials.secret| *Optional.* The secret key for this client if the access type is not set to `public`.|
-|keycloak.always-refresh-token| *Required.* The token will be refreshed for every request if this is set to `true`.|
-|keycloak.autodetect-bearer-only| *Required.* This should be set to true if your application serves both a web application and web services. It allows for the redirection of unauthorized users of the web application to the Identity Service sign in page, but send a HTTP 401 to unauthenticated SOAP or REST clients.|
-|keycloak.token-store| *Required.* The location of where the account information token is stored. Possible values are `cookie` or `session`. **Note:** If you have Process Services configured with the Identity Service you must use the value `cookie` otherwise upon logging out of Process Services a user will be redirected to an error page, for more see [Run Identity Service with Process Services]({% link identity-service/latest/config/index.md %}#run-identity-service-with-process-services).
-|
-|keycloak.enable-basic-auth| *Optional.* Whether basic authentication is supported by the adapter. If set to `true` then a secret must also be provided.|
+|activiti.identity-service.enabled| *Required.* Enable or disable authentication via the Identity Service. The default value is `false`.|
+|activiti.identity-service.realm| *Required.* Name of the realm configured in the Identity Service. The default value is `alfresco`.|
+|activiti.identity-service.auth-server-url| *Required.* Base URL of the Identity Service server in the format `http://localhost:8180/auth`.|
+|activiti.identity-service.resource| *Required.* The **Client ID** for the client created within your realm that points to Process Services. The default value is `alfresco`.|
+|activiti.identity-service.principal-attribute| *Required.* The attribute used to populate the field `UserPrincipal` with. This property needs to be set to `email` to work with Process Services.|
+|activiti.identity-service.credentials.secret| *Optional.* The secret key for this client if the access type is not set to `public`.|
 |activiti.use-browser-based-logout| *Optional.* Sets whether signing out of Process Services calls the Identity Service `logout URL`. If set to `true`, set the **Admin URL** to `https://{server}:{port}/activiti-app/` under the client settings in the Identity Service management console.|
 |activiti.identity-service.cookie-auth-enabled| *Optional.* When set to `true` enables cookie-based authentication that will work alongside the Identity Service authentication.|
+|activiti.identity-service.retry.maxAttempts| Sets the maximum number of attempts for retries. The default value is `20`.|
+|activiti.identity-service.retry.delay| Sets the delay between the retries. The default value is `10000`.|
+
+#### Renamed properties
+
+Starting from Alfresco Process Services 24.1, as part of replacing the Keycloak adapter with Spring security, the properties prefix changed from `keycloak.*` to `activiti.identity-service.*`. The new property names are:
+
+* `activiti.identity-service.enabled=false`
+* `activiti.identity-service.realm=alfresco`
+* `activiti.identity-service.auth-server-url=http://localhost:8180/auth`
+* `activiti.identity-service.resource=alfresco`
+* `activiti.identity-service.principal-attribute=email`
+* `activiti.identity-service.credentials.secret=`
+* `alfresco.content.sso.enabled=${activiti.identity-service.enabled}`
+* `alfresco.content.sso.client_id=${activiti.identity-service.resource}`
+* `alfresco.content.sso.client_secret=${activiti.identity-service.credentials.secret}`
+* `alfresco.content.sso.realm=${activiti.identity-service.realm}`
+* `alfresco.content.sso.auth_uri=${activiti.identity-service.auth-server-url}/realms/${alfresco.content.sso.realm}/protocol/openid-connect/auth`
+* `alfresco.content.sso.token_uri=${activiti.identity-service.auth-server-url}/realms/${alfresco.content.sso.realm}/protocol/openid-connect/token`
+
+#### New properties
+
+Here is a list of new properties in Alfresco Process Service 24.1:
+
+* `activiti.identity-service.retry.maxAttempts=20`
+* `activiti.identity-service.retry.delay=10000`
+
+#### Removed properties
+
+Starting from Process Services 24.1, as part of replacing the Keycloak adapter with Spring security, the following unused `keycloak.*` properties have been removed:
+
+* `keycloak.ssl-required=none`
+* `keycloak.confidential-port=8443`
+* `keycloak.public-client=true`
+* `keycloak.always-refresh-token=true`
+* `keycloak.autodetect-bearer-only=true`
+* `keycloak.token-store=session`
+* `keycloak.enable-basic-auth=true`
 
 ## OAuth 2
 

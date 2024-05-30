@@ -218,23 +218,14 @@ This task assumes you have:
 
 3. Configure HTTP.
 
-    1. Open `solrhome/templates/rerank/conf/solrcore.properties`.
+    Pass `alfresco.secureComms.secret` as a system property (using `-D` when starting Solr) by adding the startup parameters in step **7**:
 
-    2. Replace `alfresco.secureComms=https` with:
+   ```bash
+   -Dalfresco.secureComms=secret
+   -Dalfresco.secureComms.secret=password
+   ```
 
-        ```bash
-        alfresco.secureComms=secret
-        alfresco.secureComms.secret=password
-        ```
-
-        This ensures that the Solr cores are created in plain HTTP mode with the shared secret communication method. The property `alfresco.secureComms.secret` includes the same word used in the `solr.sharedSecret` property in the Repository configuration.
-
-        Alternatively, you can add this configuration in the system properties (using `-D`) when starting Solr. This alternative is safer because the shared secret is not stored in the filesystem. For example, add the following to the startup parameters in step **7**.
-
-        ```bash
-        -Dalfresco.secureComms=secret
-        -Dalfresco.secureComms.secret=password
-        ```
+    This ensures that the Solr cores are created in plain HTTP mode with the shared secret communication method. The property `alfresco.secureComms.secret` includes the same word used in the `solr.sharedSecret` property in the Repository configuration.
 
 4. If you use several languages across your organization, you **must** enable cross-language search support in all fields. To do this add the following to the `alfresco-search-services/solrhome/conf/shared.properties` file:
 
@@ -327,38 +318,30 @@ Use this information to start up Alfresco Content Services 6.2 or above and Sear
 * Access to [Quay](https://quay.io/){:target="_blank"}
   * Docker requires access to certain images which are stored on Quay. You need to use the correct credentials provided by Alfresco to access these images. Contact [Alfresco Support](mailto:support@alfresco.com){:target="_blank"} to request the credentials.
 
-> **Note:** Make sure the following ports are free on your computer: `5432`, `8080`, `8082`, `8083`. These ports are set in the `docker-compose.yml` file.
+> **Note:** Make sure the following ports are free on your computer: `5432`, `8080`. These ports are set in the `docker-compose.yml` file.
 
-1. Download the latest Alfresco Content Services `docker-compose.yml` file by accessing the [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"} page.
+### Deployment steps
+
+1. Download the latest Alfresco Content Services `docker-compose.yml` file by accessing the [Download Trial](https://www.hyland.com/en/resources/alfresco-ecm-download){:target="_blank"} page.
 
 2. Save the file in a local folder.
 
-3. Edit the file and change the Solr 6 service. Add a # prefix to Alfresco Search and Insight Engine so it is commented out.
+3. Edit the file and change the `Solr 6` service. 
+
+4. Add a `#` prefix to Alfresco Search and Insight Engine so it is commented out, and add the Alfresco Search and Insight Engine image location:
 
     ```yaml
         solr6:
             #image: alfresco/alfresco-search-services:2.0.x
             image: quay.io/alfresco/insight-engine:2.0.x
-            mem_limit: 2500m
-            environment:
-                #Solr needs to know how to register itself with Alfresco
-                    - SOLR_ALFRESCO_HOST=alfresco
-                    - SOLR_ALFRESCO_PORT=8080
-                #Alfresco needs to know how to call solr
-                    - SOLR_SOLR_HOST=solr6
-                    - SOLR_SOLR_PORT=8983
-                #Create the default alfresco and archive cores
-                    - SOLR_CREATE_ALFRESCO_DEFAULTS=alfresco,archive
-                    - "SOLR_JAVA_MEM=-Xms2g -Xmx2g"
-            ports:
-                - 8083:8983 #Browser port
+            ...
     ```
 
     > **Note:** If you want to use the Apache Zeppelin visualization interface with Search and Insight Engine you have to deploy it using Docker Compose along with Alfresco Content Services, you cannot install it manually. See [Building Reports and Dashboards]({% link insight-engine/latest/using/index.md %}#Installing with Docker Compose) for the additional container information you need to add to your `docker-compose.yml` file.
 
-4. Save the file.
+5. Save the file.
 
-5. Log in to Quay using the following command:
+6. Log in to Quay using the following command:
 
     ```yaml
     $ docker login quay.io
@@ -367,7 +350,7 @@ Use this information to start up Alfresco Content Services 6.2 or above and Sear
                 Password: <<Quay.io Credential Password>>
     ```
 
-6. Change directory to the location of the `docker-compose.yml` file and deploy Alfresco Content Services and Search and Insight Engine using the following command:
+7. Change directory to the location of the `docker-compose.yml` file and deploy Alfresco Content Services and Search and Insight Engine using the following command:
 
     ```bash
     docker-compose up
@@ -375,17 +358,18 @@ Use this information to start up Alfresco Content Services 6.2 or above and Sear
 
     This downloads the images, fetches all the dependencies, creates each container, and then starts the system. If you downloaded the project and changes were made to the project settings, any new images will be pulled from Quay before the system starts.
 
-7. Wait for the logs to complete.
+8. Wait for the logs to complete.
 
     If you encounter errors while the system is starting up:
 
     * Stop the session (by using `CONTROL+C`).
     * Remove the container (using the `--rmi all` option): For example `docker-compose down --rmi all`.
     * Try allocating more memory resources. As advised in `docker-compose.yml` set it to at least 16 GB. To adjust the memory, in Docker, go to **Preferences** (or **Settings**) > **Advanced** > **Memory**. Once you have adjusted the memory make sure you restart Docker and wait for the process to finish before continuing.
-    * Go back to step 6 and retry the deployment.
-8. Open your browser and check everything starts up correctly:
+    * Go back to step 7 and retry the deployment.
 
-    * Alfresco: `http://localhost:8082/alfresco`
+9. Open your browser and check everything starts up correctly:
+
+    * Alfresco: `http://localhost:8080/alfresco`
     * Share: `http://localhost:8080/share`
     * Solr: `http://localhost:8083/solr`
 

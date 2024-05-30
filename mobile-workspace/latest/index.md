@@ -8,4 +8,6 @@ You can access your libraries, view recent and shared files, and manage your fav
 
 Alfresco Mobile Workspace streamlines your task management. You can view, create and edit tasks, including adding comments, accessing details, and completing tasks. You can also attach files, such as  photos, videos, or documents, to your tasks, as well as delete unnecessary files. 
 
+You can complete tasks within a workflow by filling out forms tailored to your specific use case. All standard form components are available to you in the Alfresco Mobile Workspace.
+
 Alfresco Mobile Workspace also facilitates the sharing of single or multiple files from different file systems, like Google Drive. The Mobile Workspace is now integrated into the share options of other application. 

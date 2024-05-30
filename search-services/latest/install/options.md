@@ -216,23 +216,14 @@ This task assumes you have:
 
 3. Configure HTTP.
 
-    1. Open `solrhome/templates/rerank/conf/solrcore.properties`.
+    Pass `alfresco.secureComms.secret` as a system property (using `-D` when starting Solr) by adding the startup parameters in step **7**:
 
-    2. Replace `alfresco.secureComms=https` with:
+   ```bash
+   -Dalfresco.secureComms=secret
+   -Dalfresco.secureComms.secret=password
+   ```
 
-        ```bash
-        alfresco.secureComms=secret
-        alfresco.secureComms.secret=password
-        ```
-
-        This ensures that the Solr cores are created in plain HTTP mode with the shared secret communication method. The property `alfresco.secureComms.secret` includes the same word used in the `solr.sharedSecret` property in the Repository configuration.
-
-        Alternatively, you can add this configuration in the system properties (using `-D`) when starting Solr. This alternative is safer because the shared secret is not stored in the filesystem. For example, add the following to the startup parameters in step **7**.
-
-        ```bash
-        -Dalfresco.secureComms=secret
-        -Dalfresco.secureComms.secret=password
-        ```
+   This ensures that the Solr cores are created in plain HTTP mode with the shared secret communication method. The property `alfresco.secureComms.secret` includes the same word used in the `solr.sharedSecret` property in the Repository configuration.
 
 4. If you use several languages across your organization, you **must** enable cross-language search support in all fields. To do this add the following to the `alfresco-search-services/solrhome/conf/shared.properties` file:
 

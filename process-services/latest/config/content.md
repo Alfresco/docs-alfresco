@@ -71,14 +71,14 @@ The following properties need to be set in the `activiti-identity-service.proper
 
 |Property|Description|
 |--------|-----------|
-|alfresco.content.sso.enabled|Sets whether SSO is enabled between Process Services and Content Services. For example `${keycloak.enabled}`. |
-|alfresco.content.sso.client_id|The **Client ID** within the realm that points to Process Services. For example `${keycloak.resource}`. |
-|alfresco.content.sso.client_secret|The secret key for the Process Services client. For example `${keycloak.credentials.secret}`. |
-|alfresco.content.sso.realm|The realm that is configured for the Content Services and Process Services clients. For example `${keycloak.realm}`. |
+|alfresco.content.sso.enabled|Sets whether SSO is enabled between Process Services and Content Services. For example `${activiti.identity-service.enabled}`. |
+|alfresco.content.sso.client_id|The **Client ID** within the realm that points to Process Services. For example `${activiti.identity-service.resource}`. |
+|alfresco.content.sso.client_secret|The secret key for the Process Services client. For example `${activiti.identity-service.credentials.secret}`. |
+|alfresco.content.sso.realm|The realm that is configured for the Content Services and Process Services clients. For example `${activiti.identity-service.realm}`. |
 |alfresco.content.sso.scope|Sets the duration that tokens are valid for. For example using the value`offline_access` a token is valid even after a user logs out as long as the token is used at least once every 30 days. See the [Keycloak documentation](https://www.keycloak.org/docs/latest/server_admin/#_offline-access){:target="_blank"} for further information. |
 |alfresco.content.sso.javascript_origins|The base URL for the Javascript origins of the Process Services instance. For example `http://localhost:9999`. |
-|alfresco.content.sso.auth_uri|The authorization URL. For example `${keycloak-auth-server-url}/realms/${alfresco.content.sso.realm}/protocol/openid-connect/auth`. |
-|alfresco.content.sso.token_uri|The authorization token URL. For example `${keycloak-auth-server-url}/realms/${alfresco.content.sso.realm}/protocol/openid-connect/token`. |
+|alfresco.content.sso.auth_uri|The authorization URL. For example `${activiti.identity-service.auth-server-url}/realms/${alfresco.content.sso.realm}/protocol/openid-connect/auth`. |
+|alfresco.content.sso.token_uri|The authorization token URL. For example `${activiti.identity-service.auth-server-url}/realms/${alfresco.content.sso.realm}/protocol/openid-connect/token`. |
 |alfresco.content.sso.redirect_uri|The redirect URI for authorization. The value in the example column needs to be updated with the correct base URL for the Process Services instance. For example `http://localhost:9999/activiti-app/rest/integration/sso/confirm-auth-request`. |
 
 ### Configure a connection using basic authentication
@@ -186,7 +186,7 @@ To configure Amazon S3 for content storage, set the following properties in the 
 
 |Property|Description|
 |--------|-----------|
-|`contentstorage.s3.accessKey`|Set to the S3 access key. The access key is required to identify the Amazon Web Services account and can be obtained from the Amazon Web Services site [AWS Credentials](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html).|
-|`contentstorage.s3.secretKey`|Set to the S3 secret key.The secret key is required to identify the Amazon Web Services account and can be obtained from the Amazon Web Services site [AWS Credentials](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html).|
-|`contentstorage.s3.bucketName`|Set to the S3 bucket name.The bucket name must be unique among all Amazon Web Services users globally. If the bucket does not already exist, it will be created, but the name must not have already been taken by another user. See [S3 bucket restrictions](http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html) for more information on bucket naming.|
-|`contentstorage.s3.objectKeyPrefix`|Set to your AWS object prefix.|
+|contentstorage.s3.accessKey|Set to the S3 access key. The access key is required to identify the Amazon Web Services account and can be obtained from the Amazon Web Services site [AWS Credentials](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html).|
+|contentstorage.s3.secretKey|Set to the S3 secret key.The secret key is required to identify the Amazon Web Services account and can be obtained from the Amazon Web Services site [AWS Credentials](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html).|
+|contentstorage.s3.bucketName|Set to the S3 bucket name.The bucket name must be unique among all Amazon Web Services users globally. If the bucket does not already exist, it will be created, but the name must not have already been taken by another user. See [S3 bucket restrictions](http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html) for more information on bucket naming.|
+|contentstorage.s3.objectKeyPrefix|Set to your AWS object prefix.|
