@@ -12,7 +12,7 @@ The key capabilities of Keycloak include the ability to:
 
 More information is available about Keycloak covering:
 
-* An overview of Keycloak architecture is provided in the [Alfresco/alfresco-identity-service](https://github.com/Alfresco/alfresco-identity-service/tree/keycloak-21.1.2_theme-0.3.5){:target="_blank"} GitHub project documentation.
+* An overview of Keycloak architecture is provided in the [Alfresco/alfresco-identity-service](https://github.com/Alfresco/alfresco-identity-service/tree/keycloak-24.0.3_theme-0.3.5){:target="_blank"} GitHub project documentation.
 * How to [install Keycloak](#install-keycloak).
 * How to [configure](#configure-keycloak) realm and theme customizations.
 
@@ -122,7 +122,7 @@ To install the Alfresco Realm manually:
    For example:
 
    ```bash
-   git checkout keycloak-21.1.2_theme-0.3.5
+   git checkout keycloak-24.0.3_theme-0.3.5
    ```
 
 3. (Optional) Customize the realm section of the sample `values.yaml` file by editing it locally, if needed - for example to define additional users, roles, groups, and override the allowed `redirectUris`.
