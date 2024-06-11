@@ -85,7 +85,7 @@ There are a number of tools you'll need to design, execute, and monitor your wor
 
 The following diagram shows the tools used in designing, executing, and monitoring a Content Services workflow:
 
-![wf-tools]({% link content-services/images/wf-tools.jpg %})
+![wf-tools]({% link content-services/images/wf-tools-73.png %})
 
 | Workflow tool | Description |
 | ------------- | ----------- |
