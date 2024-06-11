@@ -482,10 +482,16 @@ Configuration options:
 
 * Object type
   * Document
+    * Select the Type of Document to configure from **Current types not configured**
+    * Once a type is selected, it is visible under **Types that have Stage Info Configured**
+    * To configure the stage info view of the selected Object Type, drag and drop the attributes from the not selected list to the selected list.
+    * **Tab Title Configuration** - Create a pattern for the stage title that will be resolved based on the object in the stage. This will basically be the browser tab title when the document is opened in stage.
   * Folder
+    * Select the Type of Document to configure from **Current types not configured**
+    * Once a type is selected, it is visible under **Types that have Stage Info Configured**
+    * To configure the stage info view of the selected Object Type, drag and drop the attributes from the not selected list to the selected list.
+    * **Tab Title Configuration** - Create a pattern for the stage title that will be resolved based on the object in the stage. This will basically be the browser tab title when the document is opened in stage.
   * WebService
-* Select properties to display for each type
-* Create a pattern for the stage title that will be resolved based on the object in the stage.
 
 #### Search Result Traversal
 
