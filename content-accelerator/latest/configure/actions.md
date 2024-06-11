@@ -37,11 +37,11 @@ Enable this configuration to allow users to set an uploaded doc as a new minor v
 
 #### Scanning
 
-The Bulk Upload scanning functionality allows a user to scan multiple documents and upload them. To enable, change the "Allow Documents from Scanner" slider to "Yes" in the Bulk Upload Action  Advanced Properties section of the admin config.
+The Bulk Upload scanning functionality allows a user to scan multiple documents and upload them. To enable, change the **Allow Documents from Scanner** slider to `Yes` in the Bulk Upload Action  Advanced Properties section of the admin config.
 
 ##### Setting up Scanning
 
-Follow the steps to setup Scanning paper documents into ACA. Currently, this functionality is set using HTML5 and Dynamic Web TWAIN (DWT) Version 12.3.1.
+Follow the steps to setup Scanning paper documents into ACA. Currently, this functionality is set using Dynamic Web TWAIN (DWT) Version 18.5.
 
 ###### Install Scanner Drivers
 
@@ -49,11 +49,18 @@ You must have a TWAIN-compliant scanner plugged into your machine with the prope
 
 ###### Install Dynamic Web TWAIN
 
-Run the `DynamicWebTWAINHTML5Edition.exe` installation file.
+There are two ways to install Dynamic Web TWAIN:
+
+* Download and run the `Dynamsoft-Service-Setup` installation file from Dynamsoft Downloads (Download the installer according to your OS).
+* Download the installer on the Bulk Upload window. Right-click the **Download** icon, copy the link, paste it in a new browser tab, and hit **Enter**.
+
+![Bulk Upload window]({% link content-accelerator/images/aca-dynamsoft-service-not-installed.JPG %})
 
 ##### Configuration Options for Scanning
 
-**License Key:** The licence key from Dynamsoft - this must be configured properly for the functionality to work as expected.
+**License Key:** The License key from Dynamsoft - this must be configured properly for the functionality to work as expected.
+
+![License Key Configuration]({% link content-accelerator/images/aca-license-key.png %})
 
 #### Create Document from Template
 
