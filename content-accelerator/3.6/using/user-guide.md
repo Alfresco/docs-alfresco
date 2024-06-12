@@ -663,7 +663,7 @@ Annotations are a very powerful collaboration tool that is integrated within thi
 
 The annotation tool can be used whenever a form or document is viewed (this viewer is configured by default).
 
-The advantage of using AEV is that it provides additional opportunities to provide feedback on a document. In addition, there are an abundance of use cases that AEV can tackle. During this section, only the particular use cases associated with the Pnp scenario will be highlighted.
+The advantage of using AEV is that it provides additional opportunities to provide feedback on a document. In addition, there are an abundance of use cases that AEV can tackle. During this section, only the particular use cases associated with the PnP scenario will be highlighted.
 
 To understand more of the use cases of AEV please refer to AEV's user guide or relevant documentation.
 

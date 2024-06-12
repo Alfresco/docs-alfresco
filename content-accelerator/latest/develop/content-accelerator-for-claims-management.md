@@ -68,5 +68,5 @@ To do this, create the file `opencontent-override-placeholders.properties`. It w
 
 Two things to note with this:
 
-1. This file will win out on any other property files, even ones in the custom amp. For this reason, if you are using a custom amp, it is better to override the properties in the amp than this file.
+1. This file will win out on any other property files, even ones in the custom amp. For this reason, if you are using a custom amp, it is better to override the properties in the AMP than this file.
 2. You will likely need to create the `module/com.tsgrp.opencontent/` folders.

@@ -111,7 +111,7 @@ For the three steps above, see the below for example configuration:
 
 The default Quality Document object type is the out-of-the-box available controlled document type. If you wish to add additional properties or aspects to your Policy and Procedure solution, you can extend the quality document type using the following steps.
 
-In a [custom Alfresco AMP]({% link content-accelerator/latest/develop/extension-content-accelerator.md %}) (see what is expected of a custom ACA amp and how to set it up properly), define your custom Alfresco object model, then do the following:
+In a [custom Alfresco AMP]({% link content-accelerator/latest/develop/extension-content-accelerator.md %}) (see what is expected of a custom ACA AMP and how to set it up properly), define your custom Alfresco object model, then do the following:
 
 1. Extend the `aw:qualityDocument` type in your object model.
 
@@ -201,7 +201,7 @@ For the three steps above, see the below for example configuration:
 
 The default Page Set Instance object type is the out-of-the-box available type for documents created via wizard form. If you wish to add additional properties or aspects to the ootb PSI for the Policy and Procedure solution, you can extend the aw:psi type using the following steps.
 
-In a custom Alfresco AMP ( [See]({% link content-accelerator/latest/develop/extension-content-accelerator.md %}) on what is expected of a custom ACA amp and how to set it up properly), setup a custom Alfresco object model, then do the following:
+In a custom Alfresco AMP ( [See]({% link content-accelerator/latest/develop/extension-content-accelerator.md %}) on what is expected of a custom ACA AMP and how to set it up properly), setup a custom Alfresco object model, then do the following:
 
 1. Extend the `aw:psi` type in your object model. Example:
 
@@ -287,7 +287,7 @@ In a custom Alfresco AMP ( [See]({% link content-accelerator/latest/develop/exte
 
     ```
 
-5. Once the updates to the custom amp have been deployed, you can now add your custom type to the Object Type Config in the ACA admin. Locate the Object Type Config in the ACA Admin interface, click **Add Type**, and select your new object type from the list (ex: `hy_psi`). Once selected, change the `container` to `Wizard`. Save the config.
+5. Once the updates to the custom AMP have been deployed, you can now add your custom type to the Object Type Config in the ACA admin. Locate the Object Type Config in the ACA Admin interface, click **Add Type**, and select your new object type from the list (ex: `hy_psi`). Once selected, change the `container` to `Wizard`. Save the config.
 
 6. You can now use this type as the Instance type for a wizard form. Login to the Wizard Admin interface. Create a new form. You will be prompted for an Instance Type. Select your new type.
 
@@ -668,10 +668,10 @@ Once a custom permissionSet is defined and enabled via your custom AMP, it can b
 
 ### Modify Only Properties
 
-In some cases, you may only want to override some of the default properties of the pnp accelerator. You do not need an entire custom amp to do this. Instead you can create the file `opencontent-override-placeholders.properties` on the /alfresco classpath, for example, `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent` and put the overridden properties in this file.
+In some cases, you may only want to override some of the default properties of the pnp accelerator. You do not need an entire custom AMP to do this. Instead you can create the file `opencontent-override-placeholders.properties` on the /alfresco classpath, for example, `tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent` and put the overridden properties in this file.
 
 Two things to note with this:
 
-1. This file will win out on any other property files, even ones in the custom amp. For this reason, if you are using a custom amp, it is better to override the properties in the amp than this file
+1. This file will win out on any other property files, even ones in the custom amp. For this reason, if you are using a custom amp, it is better to override the properties in the AMP than this file
 
 2. You will likely need to create the `module/com.tsgrp.opencontent/` folders

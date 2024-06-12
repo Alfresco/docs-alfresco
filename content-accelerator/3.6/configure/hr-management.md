@@ -24,7 +24,7 @@ Make sure the HR Tier-2 solution is [installed]({% link content-accelerator/3.6/
 
    * ![File Plan in HREFM RM Site Dashboard]({% link content-accelerator/images/hrefm-file-plan.png %})
 
-4. Click on the **Import** action in the File Plan* folder, and select the file `HREFM_FilePlan.acp` to start the import:
+4. Click on the **Import** action in the **File Plan** folder, and select the file `HREFM_FilePlan.acp` to start the import:
 
    * You'll find `HREFM_FilePlan.acp` in the `Alfresco Artifacts` folder of the `alfresco-content-accelerator-sehr-rm-accelerator` distribution zip.
 
