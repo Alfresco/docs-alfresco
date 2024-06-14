@@ -22,7 +22,7 @@ The form controls for each field determine how the field is displayed and handle
 |Date/Time|The behavior is similar to that of the Date control, with the added capability of allowing selection of a time value.|
 |Dropdown|Allows you to select an item from a displayed list of items.|
 |Typeahead|On entering data, displays filtered information in a list and allows selection of a value.|
-|Amount|Allows you to input data representing an amount of money and to define a currency type.<br><br>The default values with decimal enabled are -99999999999999.98 (Min value) to 99999999999999.98 (Max value).<br><br> The decimal places will have max (14) and min (1) validation.<br><br> Both Min & Max values will change dynamically based on decimal places enabled and it's value. In absence of user defined values, system defaults will be used. |
+|Amount|Allows you to input data representing an amount of money and to define a currency type.<br><br>The default values with decimal enabled are -99999999999999.98 (Minimum value) to 99999999999999.98 (Maximum value).<br><br> The decimal places have a maximum of 14-digit and a minimum of 1-digit validation.<br><br> Both the minimum & maximum values change dynamically based on decimal places enabled and their value. In the absence of user defined values, system defaults are used. |
 |Radio buttons|Allows you to choose an item from a predefined list.|
 |People|Allows you to select a person from a list.|
 |Group of people|Allows you to create a group of people by selecting names from a list.|
