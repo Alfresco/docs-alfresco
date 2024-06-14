@@ -188,12 +188,12 @@ mediation:
      - nodeType1
      - nodeType2
      - ...
-     . nodeTypeN
+     - nodeTypeN
   contentNodeTypes:
      - nodeType1
      - nodeType2
      - ...
-     . nodeTypeN
+     - nodeTypeN
   nodeAspects:
      - nodeAspect1
      - nodeAspect2
@@ -203,7 +203,7 @@ mediation:
      - field1
      - field2
      - ...
-     . fieldN
+     - fieldN
 ```
 
 Where:
