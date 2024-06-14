@@ -8,7 +8,7 @@ The new [event system]({% link content-services/latest/develop/oop-ext-points/ev
 out-of-process extensions. To support the event system a [ReST API Java Wrapper]({% link content-services/latest/develop/oop-ext-points/rest-api-java-wrapper.md %}) 
 is provided for easy development of extensions from Java applications.
 
-You should get familiar with the [SDK 5]({% link content-services/latest/develop/oop-sdk.md %}) as it is 
+You should get familiar with the [SDK 6]({% link content-services/latest/develop/oop-sdk.md %}) as it is 
 the recommended way of developing out-of-process extensions.
 
 Read through the [Getting started guide]({% link content-services/latest/develop/index.md %}) to get up to 
