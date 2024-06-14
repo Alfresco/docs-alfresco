@@ -231,4 +231,4 @@ The Event Gateway provides a ReST API with the following features:
 An out-of-process extension may create a subscription to receive certain types of events in a specific topic of an 
 ActiveMQ broker.
 
-For more information on how to use the subscription API see the [SDK 5 documentation]({% link content-services/latest/develop/oop-sdk.md %}#using-event-gateway).
+For more information on how to use the subscription API see the [SDK 6 documentation]({% link content-services/latest/develop/oop-sdk.md %}#using-event-gateway).
