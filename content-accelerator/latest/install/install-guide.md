@@ -330,7 +330,7 @@ In this section we ensure that all components of the Content Accelerator are ins
    Navigate to the `ALFRESCO_HOME/amps` directory and copy the following amps there:
    `claims-platform-3.5.amp`
 
-   This amp can be found in the `alfresco-content-accelerator-claims-accelerator` distribution zip under `Alfresco Artifacts` folder.
+   This AMP can be found in the `alfresco-content-accelerator-claims-accelerator` distribution zip under `Alfresco Artifacts` folder.
 
 1. (HR ONLY) This step is only required if installing the HR Content Accelerator solution:
 
@@ -340,11 +340,11 @@ In this section we ensure that all components of the Content Accelerator are ins
    * `tsgrp-cascading-value-assistance.amp`
    * `tsgrp-alfresco-chain-versioning.amp`
 
-   Navigate to `ALFRESCO_HOME/amps_share` directory and copy the following amp there:
+   Navigate to `ALFRESCO_HOME/amps_share` directory and copy the following AMP there:
 
    * `tsgrp-cascading-value-assistance-share.amp`
 
-   This amp can be found in the `alfresco-content-accelerator-sehr-accelerator` distribution zip under the `Alfresco Artifacts` folder.
+   This AMP can be found in the `alfresco-content-accelerator-sehr-accelerator` distribution zip under the `Alfresco Artifacts` folder.
 
 1. (HR Tier-2 ONLY) This step is only required if installing the HR Tier-2 Content Accelerator solution:
 
@@ -353,11 +353,11 @@ In this section we ensure that all components of the Content Accelerator are ins
    * `sehr-rm-platform-1.0-SNAPSHOT.amp`
    * `alfresco-governance-services-enterprise-repo-12.21.amp`
 
-   Navigate to `ALFRESCO_HOME/amps_share` directory and copy the following amp there:
+   Navigate to `ALFRESCO_HOME/amps_share` directory and copy the following AMP there:
 
    * `alfresco-governance-services-enterprise-share-12.19.amp`
 
-    This amp can be found in the `alfresco-content-accelerator-sehr-rm-accelerator` distribution zip under the `Alfresco Artifacts` folder.
+    This AMP can be found in the `alfresco-content-accelerator-sehr-rm-accelerator` distribution zip under the `Alfresco Artifacts` folder.
 
 1. Apply the AMPs
 

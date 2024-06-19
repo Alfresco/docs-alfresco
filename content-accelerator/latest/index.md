@@ -122,7 +122,7 @@ A wizard-style form is utilized to capture change request information. The form 
 
 ## HR Employee File Management {#hr-file-management}
 
-The HR Employee File Management (HR EFM) solution helps to keep track of all relevant documents for each employee at a company. The Alfresco Content Accelerator provides a platform which enables an organization to collect, store, manage, and delete documents within the Alfresco Content Services repository for their employees.
+The HR Employee File Management (HR EFM or HR Tier-2) solution helps to keep track of all relevant documents for each employee at a company. The Alfresco Content Accelerator provides a platform which enables an organization to collect, store, manage, and delete documents within the Alfresco Content Services repository for their employees.
 
 Benefits of the HR Employee File Management solution:
 
