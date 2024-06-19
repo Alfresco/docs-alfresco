@@ -4,10 +4,6 @@ title: Unsupported features
 
 The following features, which were supported with Search and Insight Engine 2.x and Search Services 2.x (Solr) are not supported in the latest release for Search Enterprise 4.x.
 
-## Indexing
-
-* Indexing of nodes created during content repository bootstrap. For example, the sample site data.
-
 ## Search features
 
 * Fingerprinting
