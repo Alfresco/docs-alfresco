@@ -181,17 +181,17 @@ mediation:
      - nodeType1
      - nodeType2
      - ...
-     . nodeTypeN
+     - nodeTypeN
   contentNodeTypes:
      - nodeType1
      - nodeType2
      - ...
-     . nodeTypeN
+     - nodeTypeN
   fields:
      - field1
      - field2
      - ...
-     . fieldN
+     - fieldN
 ```  
 
 Where:
