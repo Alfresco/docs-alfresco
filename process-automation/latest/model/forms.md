@@ -469,7 +469,7 @@ The advanced properties for the Metadata viewer are:
 
 ### Data Table
 
-The Data Table can be used to display data in a table.
+The Data Table can be used to display data in a table. It handles the following types of data: text, decimal, integer, amount, date, boolean, JSON, fileSize, and icon.
 
 To create a form that contains the Data Table:
 
