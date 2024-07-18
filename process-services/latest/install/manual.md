@@ -312,7 +312,7 @@ After installing you will need to [apply a valid license file](#license) to your
 
 A valid license file is required to run Process Services.
 
-A license file can be obtained from [support](https://community.hyland.com/customer-portal/5097/licensing/alfresco/request)){:target="_blank"} or a link is provided via email to download a temporary (30-day) license if you signed up for a free trial.
+Customers can download and request licenses from [Hyland Community](https://community.hyland.com/customer-portal/licensing/){:target="_blank"}.
 
 Logging into Process Services as an administrator will display a notification if a license is not currently valid.
 Notifications are displayed when:
