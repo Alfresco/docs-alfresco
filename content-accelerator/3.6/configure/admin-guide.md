@@ -154,7 +154,7 @@ Rules are standard front-end rules and can be used for validation. All rules are
 
 #### External Rules
 
-External rules are conditions which are configured in OpenConnect and made available in the configuration to use as an extra validation. You can select a rule which will run a condition against OpenConnect to allow validation.
+External rules are conditions which are configured in OpenContent and made available in the configuration to use as an extra validation. You can select a rule which will run a condition against OpenContent to allow validation.
 
 #### Recommended Forms
 

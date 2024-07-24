@@ -378,13 +378,13 @@ In this section we ensure that all components of the Content Accelerator are ins
    * `alfresco`
    * `share`
 
-9. Install license file for OpenConnect
+9. Install license file for OpenContent
 
    Create the `module/com.tsgrp.opencontent/license` folder structure on the /alfresco classpath, for example, at `ALFRESCO_HOME/tomcat/shared/classes/alfresco`
 
    Place a `TextLicense.l4j` file in the `license` directory.
 
-10. Deploy the OpenConnect configuration:
+10. Deploy the OpenContent configuration:
 
     Deploy/Copy the following files onto the /alfresco classpath, for example, `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` folder:
   
@@ -394,7 +394,7 @@ In this section we ensure that all components of the Content Accelerator are ins
 
    These files can be found in the `Alfresco Artifacts` folder of the alfresco-content-accelerator-base-package zip.
 
-11. Configure OpenConnect
+11. Configure OpenContent
 
     In the `opencontent-override-placeholders.properties` file deployed in the last step, update the following environment variables:
 
