@@ -543,7 +543,7 @@ Whether or not to apply a separate overlay note to each PDF page when viewing th
 
 This is configured in the `overlay-config-override.xml` file.
 
-For more information on configuring overlays, see the `oaSecureViewing` property in [Configure Overlays]({%link enterprise-viewer\latest\config\overlay.md%}#usefulxmloverlayconfigurationexamples).
+For more information on configuring overlays, see the `oaSecureViewing` property in [Configure Overlays]({%link enterprise-viewer/latest/config/overlay.md%}#usefulxmloverlayconfigurationexamples).
 
 Default value: `false`
 
