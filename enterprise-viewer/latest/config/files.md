@@ -189,7 +189,7 @@ Default value: `1`
 
 ### pageZoom
 
-The initial zoom fit to use for modes `Edit Pages` or `Add Signatures`. The allowed values are either `fitHeight` or `fitWidth`. Fit height adjusts the document so the entire height is visible. Fit width adjusts the document so the entire width is visible.
+The initial zoom fit to use for modes `Edit Pages` or `Add Signature`. The allowed values are either `fitHeight` or `fitWidth`. Fit height adjusts the document so the entire height is visible. Fit width adjusts the document so the entire width is visible.
 
 Default value: `fitWidth`
 
@@ -417,7 +417,7 @@ Default value: `page,!p4`
 
 ### warnBeforeSaveModifications
 
-Whether or not the user wants a dialog box to appear before saving page modifications within the `Edit` and `Sectioning` modes.
+Whether or not the user wants a dialog box to appear before saving page modifications within the `Edit Pages` mode when editing or sectioning documents.
 
 Default value: `false`
 
@@ -435,13 +435,13 @@ Default value: `25`
 
 ### newVersionOnModification
 
-If set to `true`, a new version of the document will be created when the document is modified. If set to `false`, the document in the repository will remain the same version when modified. It works within the `Edit` or `Sectioning` mode. 
+If set to `true`, a new version of the document will be created when the document is modified. If set to `false`, the document in the repository will remain the same version when modified. It works within the `Edit Pages` mode when editing or sectioning documents. 
 
 Default value: `true`
 
 ### majorVersionOnModification
 
-If set to `true`, a major version of the document will be created when the document is modified (exluding modifications to annotations). If set to `false`, the document in the repository will default to a minor version when modified. It works within the `Edit` or `Sectioning` mode.
+If set to `true`, a major version of the document will be created when the document is modified (exluding modifications to annotations). If set to `false`, the document in the repository will default to a minor version when modified. It works within the `Edit Pages` mode when editing or sectioning documents.
 
 Default value: `false`
 
@@ -543,7 +543,7 @@ Whether or not to apply a separate overlay note to each PDF page when viewing th
 
 This is configured in the `overlay-config-override.xml` file.
 
-For more information on configuring overlays, see the `oaSecureViewing` property in [Configure Overlays]({%link enterprise-viewer/latest/config/overlay.md%}#usefulxmloverlayconfigurationexamples).
+For more information on configuring overlays, see the `oaSecureViewing` property in [Configure Overlays]({%link enterprise-viewer/latest/config/overlay.md%}).
 
 Default value: `false`
 
