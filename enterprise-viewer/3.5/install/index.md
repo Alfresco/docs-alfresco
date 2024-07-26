@@ -277,13 +277,13 @@ You only need to follow these steps if installing AEV without ACA:
 
    Navigate to the `ALFRESCO_HOME/tomcat/webapps` directory and delete the `alfresco` folder (if it exists).
 
-5. Install license file for OpenConnect:
+5. Install license file for OpenContent:
 
    Create the `module/com.tsgrp.opencontent/license` folder structure on the `/alfresco` classpath, for example, at `ALFRESCO_HOME/tomcat/shared/classes/alfresco`
 
    Place a `TextLicense.l4j` file in the `license` directory.
 
-6. Deploy the OpenConnect configuration:
+6. Deploy the OpenContent configuration:
 
     Create a file called `opencontent-override-placeholders.properties` and put it onto the `/alfresco` classpath, for example, in the `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` folder.
   
@@ -425,7 +425,7 @@ You only need to follow these steps if installing AEV without ACA:
 
 1. Stop Alfresco.
 
-2. Configure OpenConnect.
+2. Configure OpenContent.
 
     Update the environment variables in the provided `opencontent-override-placeholders.properties`. Deploy the updated file to the `/alfresco` classpath, for example, the `ALFRESCO_HOME/tomcat/shared/classes/alfresco/module/com.tsgrp.opencontent/` directory:
 
