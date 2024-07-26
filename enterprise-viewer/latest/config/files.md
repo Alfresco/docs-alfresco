@@ -93,7 +93,7 @@ Default value: `true`
 
 ### singleAnnotationDialog
 
-Set to `true` if only one annotation dialog should open at a time, or `false` if one or more.
+Set to `true` if only one annotation dialog should open at a time, or `false` if one or more annotation dialogs should open.
 
 Default value: `true`
 
@@ -125,9 +125,9 @@ Default value: `true`
 
 ### sidebarDefaultOpen
 
-Whether or not Enterprise Viewer should start up with its sidebars (which contains other modules like summary, search and collaboration) showing.
+Whether or not Enterprise Viewer should start up with its sidebar (which contains other modules like summary, search and collaboration) showing.
 
-Set it to `true` if sidebars should be displayed by default, once Enterprise Viewer opens; otherwise set it to `false`.  
+Set it to `true` if sidebars should be displayed by default (once Enterprise Viewer opens), otherwise set it to `false`.  
 
 Default value: `true`
 
@@ -195,12 +195,12 @@ Default value: `fitWidth`
 
 ### numPreloadPages
 
-The number of pages, around the current page, to preload. Preloading works by making requests to fetch pages close to the current page the user is viewing in order to cache the image, which results in faster page transitions and better user experience. Limiting the number of preloaded pages helps in managing memory and network resources.
+The number of pages around the current page to preload. Preloading works by making requests to fetch pages close to the current page the user is viewing in order to cache the image, which results in faster page transitions and better user experience. Limiting the number of preloaded pages helps in managing memory and network resources.
 
 The allowed values are the following:
 
 * `0`: to preload all the pages of the document
-* `-1`: not to use preloading at all
+* `-1`: not to preload any pages
 * Any other positive integer: This integer specifies the total number of pages to preload - half are pages before the current page and the other half are after the current page.
 
    > **Note:**
@@ -217,7 +217,7 @@ Default value: `10`
 This flag controls the colors that are displayed and allowed to be chosen for annotations.
 
 * If set to `true`, annotation colors are displayed for all users.
-* If set to `false`, your annotations are displayed in red, your notes and highlights are displayed in yellow, other user's annotations are displayed in blue (the same is true for the downloaded annotated PDF).
+* If set to `false`, your annotations are displayed in red, your sticky notes and highlights are displayed in yellow, other user's annotations are displayed in blue (the same is true for the downloaded annotated PDF).
 
 Default value: `true`
 
@@ -375,13 +375,13 @@ Default value: `true`
 
 ### searchPagesPerRequest
 
-The number of document pages to fetch search data for per request. This is a performance-only property.
+The number of document pages to fetch search data for, per request. This is a performance-only property.
 
 Default value: `200`
 
 ### textDataPagesPerRequest
 
-The number of document pages to fetch text-select location data for per request. This is a performance-only property.
+The number of document pages to fetch text-select location data for, per request. This is a performance-only property.
 
 Default value: `200`
 
@@ -435,13 +435,13 @@ Default value: `25`
 
 ### newVersionOnModification
 
-If set to `true`, a new version of the document will be created when the document is modified. If `false`, the document in the repository will remain the same version when modified. It works within the `Edit` or `Sectioning` mode. 
+If set to `true`, a new version of the document will be created when the document is modified. If set to `false`, the document in the repository will remain the same version when modified. It works within the `Edit` or `Sectioning` mode. 
 
 Default value: `true`
 
 ### majorVersionOnModification
 
-If set to `true`, a major version of the document will be created when the document is modified (exluding modifications to annotations). If `false`, the document in the repository will default to a minor version when modified. It works within the `Edit` or `Sectioning` mode.
+If set to `true`, a major version of the document will be created when the document is modified (exluding modifications to annotations). If set to `false`, the document in the repository will default to a minor version when modified. It works within the `Edit` or `Sectioning` mode.
 
 Default value: `false`
 
@@ -505,7 +505,7 @@ Default value: `10000`
 
 Load annotations simultaneous with document information. Prevents the user from viewing the document until the annotations are loaded.
 
-If set to `true`, the annotations load times are included when retrieving various performance metrics related to document loading.
+If set to `true`, the annotations load times are included when retrieving performance metrics related to document loading.
 
 Default value: `false`
 
