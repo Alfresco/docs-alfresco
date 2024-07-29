@@ -119,7 +119,7 @@ Default value: `true`
 
 ### serverAnnotationsEditable
 
-Set to `true` if server annotations can be modified. Setting this to `false` prevents users from editing their annotations after their session ends.
+Set to `true` if server annotations can be modified. Setting this to `false`, prevents users from editing their annotations after their session ends.
 
 Default value: `true`
 
@@ -189,13 +189,13 @@ Default value: `1`
 
 ### pageZoom
 
-The initial zoom fit to use for modes `Edit Pages` or `Add Signature`. The allowed values are either `fitHeight` or `fitWidth`. Fit height adjusts the document so the entire height is visible. Fit width adjusts the document so the entire width is visible.
+The initial zoom fit to use for the  `Edit Pages` or `Add Signature` modes. The allowed values are either `fitHeight` or `fitWidth`. Fit height adjusts the document so the entire height is visible. Fit width adjusts the document so the entire width is visible.
 
 Default value: `fitWidth`
 
 ### numPreloadPages
 
-The number of pages around the current page to preload. Preloading works by making requests to fetch pages close to the current page the user is viewing in order to cache the image, which results in faster page transitions and better user experience. Limiting the number of preloaded pages helps in managing memory and network resources.
+This property determines how many pages around the current page should be preloaded. Preloading works by making requests to fetch pages close to the current page the user is viewing in order to cache the image, which results in faster page transitions and better user experience. Limiting the number of preloaded pages helps in managing memory and network resources.
 
 The allowed values are the following:
 
@@ -417,7 +417,7 @@ Default value: `page,!p4`
 
 ### warnBeforeSaveModifications
 
-Whether or not the user wants a dialog box to appear before saving page modifications within the `Edit Pages` mode when editing or sectioning documents.
+Whether or not a dialog box should appear before saving page modifications within the `Edit` or `Sectioning` modes.
 
 Default value: `false`
 
@@ -435,13 +435,13 @@ Default value: `25`
 
 ### newVersionOnModification
 
-If set to `true`, a new version of the document will be created when the document is modified. If set to `false`, the document in the repository will remain the same version when modified. It works within the `Edit Pages` mode when editing or sectioning documents. 
+If set to `true`, a new version of the document will be created when the document is modified. If set to `false`, the document in the repository will remain the same version when modified. It works within the `Edit` or `Sectioning` mode. 
 
 Default value: `true`
 
 ### majorVersionOnModification
 
-If set to `true`, a major version of the document will be created when the document is modified (exluding modifications to annotations). If set to `false`, the document in the repository will default to a minor version when modified. It works within the `Edit Pages` mode when editing or sectioning documents.
+If set to `true`, a major version of the document will be created when the document is modified (exluding modifications to annotations). If set to `false`, the document in the repository will default to a minor version when modified. It works within the `Edit` or `Sectioning` mode.
 
 Default value: `false`
 
@@ -539,7 +539,7 @@ Default value: `false`
 
 ### enableSecureViewingOverlay
 
-Whether or not to apply a separate overlay note to each PDF page when viewing them. This overlay displays the current `username` and the `current date` (when they are viewing it) in the document.
+Whether or not to apply a separate overlay note to each PDF page when viewing them. This overlay displays the current `username` and the `current date` (when a user is viewing it) in the document.
 
 This is configured in the `overlay-config-override.xml` file.
 
