@@ -21,6 +21,12 @@ In general, use the `openannotate-override-placeholders.properties` to override 
 
 OpenContent properties related to AEV are located in the `universal-defaults.properties` file. Any of these properties can be overridden if desired in the `opencontent-override-placeholders.properties` file.
 
+### keepAnnotationOnApproval
+
+If set to `true`, when updating a document to a new version, all annotations are preserved across these versions. If set to `false` or overridden, when updating a document to a new version, all annotations are lost. 
+
+> **Note:** This property should not be set to `true` in regulated environments where all annotations should be stripped prior to approval.
+
 ## Default properties
 
 The following are the configurable properties for Enterprise Viewer:
