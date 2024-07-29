@@ -81,19 +81,19 @@ Default value: `http://localhost:3000`
 
 ### collaborationModeEnabled
 
-This property represents whether or not Enterprise Viewer is being run in collaboration mode to take advantage of features like real-time annotations and chat functionality.
+Whether or not Enterprise Viewer is being run in collaboration mode to take advantage of features like real-time annotations and chat functionality.
 
 Default value: `false`
 
 ### forceNonModalNotifications
 
-This property represents whether or not Enterprise Viewer forces non-modal notifications.
+Whether or not Enterprise Viewer forces non-modal notifications.
 
 Default value: `true`
 
 ### singleAnnotationDialog
 
-Set to `true` if only one annotation dialog should ever be open at a time, or `false` otherwise.
+Set to `true` if only one annotation dialog should open at a time, or `false` if one or more annotation dialogs should open.
 
 Default value: `true`
 
@@ -119,27 +119,25 @@ Default value: `true`
 
 ### serverAnnotationsEditable
 
-Set to `true` if server annotations can be edited. Setting this to `false` prevents users from editing their annotations after their session ends.
+Set to `true` if server annotations can be modified. Setting this to `false`, prevents users from editing their annotations after their session ends.
 
 Default value: `true`
 
 ### sidebarDefaultOpen
 
-This property represents whether or not Enterprise Viewer should start up with its sidebar (which contains other modules like summary, search and collaboration) showing.
+Whether or not Enterprise Viewer should start up with its sidebar (which contains other modules like summary, search and collaboration) showing.
+
+Set it to `true` if sidebars should be displayed by default (once Enterprise Viewer opens), otherwise set it to `false`.  
 
 Default value: `true`
 
 ### helpUrl
 
-This URL points to a "help" website for using Enterprise Viewer. **This is not recommended to be overridden.**
+This URL points to a help website for using Enterprise Viewer. To access the help website, click the `?` icon on the toolbar.
+
+**This is not recommended to be overridden.**
 
 Default value: `https://docs.alfresco.com/`
-
-### printSummaryBaseType
-
-This is the base type to use when fetching the attributes for the print summary window. If the attributes specified are not attributes on this type, Enterprise Viewer fails to initialize properly.
-
-Default value: `Document`
 
 ### oaLogoPath
 
@@ -185,22 +183,24 @@ Default value: `64`
 
 ### progressiveReloadSteps
 
-The number of reloads to make between the minimum resolution image and the full resolution.
+This property controls the initial resolution and the number of steps in the progressive loading process. You can define how many intermediate loading steps the image should go through before reaching its full resolution. This helps in improving the initial load time and provides a smoother user experience, especially for large images or documents.
 
 Default value: `1`
 
 ### pageZoom
 
-The initial page zoom to use when loading a document. The allowed values are either `fitHeight` or `fitWidth`. Fit height adjusts the document so the entire height is visible. Fit width adjusts the document so the entire width is visible.
+The initial zoom fit to use for the  `Edit Pages` or `Add Signature` modes. The allowed values are either `fitHeight` or `fitWidth`. Fit height adjusts the document so the entire height is visible. Fit width adjusts the document so the entire width is visible.
 
 Default value: `fitWidth`
 
 ### numPreloadPages
 
-The number of pages to preload. Preloading works by making requests to fetch pages close to the current page the user is viewing in order to cache the image, which results in shorter load times when the page is changed. The allowed values are the following:
+This property determines how many pages around the current page should be preloaded. Preloading works by making requests to fetch pages close to the current page the user is viewing in order to cache the image, which results in faster page transitions and better user experience. Limiting the number of preloaded pages helps in managing memory and network resources.
 
-* `0`: This tells AEV to preload all the pages of the document
-* `-1`: This tells AEV to not use preloading at all
+The allowed values are the following:
+
+* `0`: to preload all the pages of the document
+* `-1`: not to preload any pages
 * Any other positive integer: This integer specifies the total number of pages to preload - half are pages before the current page and the other half are after the current page.
 
    > **Note:**
@@ -216,8 +216,8 @@ Default value: `10`
 
 This flag controls the colors that are displayed and allowed to be chosen for annotations.
 
-* If set to `true` there is no limit on the color of created annotations and the downloaded annotations maintain their colors.
-* If set to `false` the user may not choose different colors for annotations and instead, all of the user's annotations are either red, yellow for a highlight, and all other annotations are blue (the same is true for the downloaded annotated PDF).
+* If set to `true`, annotation colors are displayed for all users.
+* If set to `false`, your annotations are displayed in red, your sticky notes and highlights are displayed in yellow, other user's annotations are displayed in blue (the same is true for the downloaded annotated PDF).
 
 Default value: `true`
 
@@ -235,7 +235,7 @@ See [Configure Enterprise Viewer actions and modes]({% link enterprise-viewer/la
 
 ### quillEnabledButtons
 
-A comma separated list of buttons that's visible in the quill toolbar. All currently supported quill buttons are bold, italic, and underline.
+A comma separated list of style buttons that are visible for styling annotation text. Currently, only `italic`, `bold`, and `underline` are supported.
 
 Default value: `bold,italic`
 
@@ -253,8 +253,13 @@ Default value: `summary,search,participants,suggestedRedactions`
 
 ### redactionType
 
-What type of redaction should be made when entering redaction mode via the dropdown.
-Possible values include `redactInPlace`, `redactedAsCopy`, and `unredactedAsCopy`.
+This is the type of redaction that should be made when entering redaction mode. 
+
+It can be set to one of the following values:
+
+* `redactInPlace` - makes the redactions directly on the document being redacted.
+* `redactedAsCopy` - makes a copy of the document being redacted and the redactions on the copy, so the original document is not be modified.
+* `unredactedAsCopy` - makes a copy of the document being redacted and the redactions on the original document, so the copy doesn’t include the redactions.
 
 Default value: `redactInPlace`
 
@@ -313,26 +318,6 @@ Set to `true` if a check should be made for the sessionId on a cookie and append
 
 Default value: `true`
 
-### snapThreshold
-
-The percentage of a highlight that must overlap a word for it to be detected as a word. Highlights snap to the detected words and get the underlying text. If no highlight snapping is desired, set to a value over 100% (i.e. < 1.0).
-
-Default value: `0.15`
-
-The GIFs below show the results of different values of `snapThreshold`:
-
-#### Example snap threshold = 10% (`0.1`)
-
-![Highlight Snap Threshold 10%]({% link enterprise-viewer/images/snap-threshold_10.gif %})
-
-#### Example snap threshold = 40% (`0.4`)
-
-![Highlight Snap Threshold 40%]({% link enterprise-viewer/images/snap-threshold_40.gif %})
-
-#### Example snap threshold 100% or more (greater than `1.0`)
-
-![Highlight Snap Threshold 100% or more (greater than 1.0)]({% link enterprise-viewer/images/snap-threshold_gt_100.gif %})
-
 ### rerenderPageOnResize
 
 Set to `true` to send new requests to OC every time you zoom in or out on a page, or `false` otherwise.
@@ -376,16 +361,6 @@ Set to `true` if the comment box is enabled in the annotation dialog box, or `fa
 
 Default value: `true`
 
-### enablePicklist
-
-Set to `true` if picklist features are enabled for Enterprise Viewer, or `false` otherwise.
-
-If picklists are enabled, `picklistUrl` must have a parameter to work.
-
-> **Note:** Currently, picklists are only used for annotation dialog boxes.
-
-Default value: `false`
-
 ### enableStatuses
 
 Set to `true` if annotations can have a status and previous statuses appear.
@@ -398,33 +373,15 @@ Set to `true` if the actions dropdown shown at small resolutions should reflecte
 
 Default value: `true`
 
-### asyncPicklist
-
-Set to `true` if picklists used for Enterprise Viewer are asynchronous, or `false` otherwise.
-
-Default value: `false`
-
-### picklistUrl
-
-The picklist information needed to retrieve picklist data. This is either a picklist name to reference a configured picklist in OpenContent or a URL to retrieve picklist data from an external source.
-
-Default value: `""`
-
-### externalPicklist
-
-Set to `true` if the picklist is from an external source, or `false` otherwise.
-
-Default value: `false`
-
 ### searchPagesPerRequest
 
-The number of pages to fetch search data for in a single request.
+The number of document pages to fetch search data for, per request. This is a performance-only property.
 
 Default value: `200`
 
 ### textDataPagesPerRequest
 
-The number of pages to fetch text select data for in a single request.
+The number of document pages to fetch text-select location data for, per request. This is a performance-only property.
 
 Default value: `200`
 
@@ -448,7 +405,7 @@ Default value: `200`
 
 ### maxUserPageCookieSize
 
-The maximum number of user page cookie objects to store.
+This property defines the maximum number of entries the `openannotate.userPage` cookie can hold. If the cookie object reaches this limit, the function removes the oldest entry to make room for a new one. This prevents the cookie from growing indefinitely and potentially exceeding the size limits imposed by browsers on cookies.
 
 Default value: `50`
 
@@ -460,7 +417,7 @@ Default value: `page,!p4`
 
 ### warnBeforeSaveModifications
 
-Whether or not the user wants a modal dialog box to appear asking them to confirm that they want to save page modifications when in edit mode.
+Whether or not a dialog box should appear before saving page modifications within the `Edit` or `Sectioning` modes.
 
 Default value: `false`
 
@@ -478,13 +435,13 @@ Default value: `25`
 
 ### newVersionOnModification
 
-Set to `true` if a new version of the document should be created when the document is modified. If `false`, the document in the repository remains the same version when modified.
+If set to `true`, a new version of the document will be created when the document is modified. If set to `false`, the document in the repository will remain the same version when modified. It works within the `Edit` or `Sectioning` mode. 
 
 Default value: `true`
 
 ### majorVersionOnModification
 
-Set to `true` if a major version of the document should be created when the document is modified. If `false`, the document in the repository defaults to a minor version when modified.
+If set to `true`, a major version of the document will be created when the document is modified (exluding modifications to annotations). If set to `false`, the document in the repository will default to a minor version when modified. It works within the `Edit` or `Sectioning` mode.
 
 Default value: `false`
 
@@ -548,11 +505,7 @@ Default value: `10000`
 
 Load annotations simultaneous with document information. Prevents the user from viewing the document until the annotations are loaded.
 
-Default value: `false`
-
-### displayAnnotationModifyDate
-
-Display an annotation modified date instead of the creation date throughout Enterprise Viewer.
+If set to `true`, the annotations load times are included when retrieving performance metrics related to document loading.
 
 Default value: `false`
 
@@ -564,7 +517,9 @@ Default value: `10`
 
 ### determineSectionsFromProperty
 
-Whether to determine sections automatically from a property property name or keep the default value.
+Whether or not sections should be identified from a specific property in the document's metadata.
+
+If set to document property name, the property's value is fetched and used to identify sections, formatting, and escaping the value appropriately. 
 
 Default value: `false`
 
@@ -576,13 +531,19 @@ Default value: `true`
 
 ### enablePageObfuscation
 
-Whether or not OpenContent should obfuscate pages when transforming them. This is to prevent users from viewing a secure document through network calls.
+Whether or not the loaded image should be obfuscated. 
+
+If set to `true`, Enterprise Viewer converts the image response into a binary format and creates a blob URL to use as the image source, adding an extra layer of security to the image data. This helps prevent direct access or unauthorized copying of the image by obfuscating its content before displaying it in the viewer.
 
 Default value: `false`
 
 ### enableSecureViewingOverlay
 
-Whether or not to apply the secure viewing overlay to pages when viewing them. This overlay shows the display name of the user viewing the page. Displays the current username on the document and the date when they viewed it.
+Whether or not to apply a separate overlay note to each PDF page when viewing them. This overlay displays the current `username` and the `current date` (when a user is viewing it) in the document.
+
+This is configured in the `overlay-config-override.xml` file.
+
+For more information on configuring overlays, see the `oaSecureViewing` property in [Configure Overlays]({%link enterprise-viewer/latest/config/overlay.md%}).
 
 Default value: `false`
 
@@ -603,16 +564,6 @@ Default value: ``
 The optional OC client key to be used in `OAUtil.oaRestTemplateGet/oaRestTemplatePost` calls. This key, if configured, sets as a request header and eventually used OC side for some SSO implementations.
 
 Default value: ``
-
-### aevChatAuthor
-
-The chat author name that's posting in the chat from OpenContent.
-
-Default value: `AEV Chat Bot`
-
-A fully qualified REST URL for client side use.
-
-Default value: `http://localhost:8080/OpenContent/rest`
 
 ## OpenContent - default properties
 
