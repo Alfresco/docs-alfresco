@@ -937,7 +937,7 @@ The following properties are available for fully-distributed caches and aren't s
 
 Use this information to add a MIME type definition.
 
-The MIME type default definitions are in the [mimetype-map.xml](https://dev.alfresco.com/resource/AlfrescoOne/5.1/configuration/alfresco/mimetype/mimetype-map.xml){:target="_blank"} file.
+The MIME type default definitions are in the [mimetype-map.xml](https://github.com/Alfresco/alfresco-community-repo/blob/master/data-model/src/main/resources/alfresco/mimetype/mimetype-map.xml){:target="_blank"} file.
 
 1. Copy the default definition file and place it in a file called `<extension>/mimetype/mimetypes-extension-map.xml`.
 
@@ -1133,32 +1133,6 @@ Follow these replication steps for the MySQL database.
     The slave user and slave password are those to which you set when you granted `REPLICATION SLAVE` permission on the master. The `server-id` must be a unique number, different to the master or any other slaves in the system. There are also two other options: `master-port`, used if the master is running on a non-standard port (3306 is default), and `master-connect-retry`, a time in seconds for the slave to attempt to reconnect if the master goes down. The default is 60 seconds.
 
     Restore the data from the master, either as you would normally restore a backup or with the statement `LOAD DATA FROM MASTER`. The latter will lock the master for the duration of the operation, which could be quite lengthy, so you might not be able to spare the downtime.
-
-## Customize content transformations
-
-This task describes how to customize content transformations.
-
-1. Download the [content-services-context.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/7.0.0/repository/src/main/resources/alfresco/content-services-context.xml){:target="_blank"} file.
-
-2. Paste this file into the `<extension>` directory, and open the file.
-
-    Transformers start below the comment:
-
-    ```xml
-    <!-- Content Transformations -->
-    ```
-
-3. Locate the bean containing a transformer that's most similar to the transformer that you want to add.
-
-    It's unlikely that you'll want to modify an existing transformer.
-
-4. Delete every pair of `<bean> </bean>` tags except the pair containing the similar transformer.
-
-5. Rename and modify the bean.
-
-6. Save the file.
-
-    If you save the file in the `<extension>` directory, the filename must end with `‑context.xml`.
 
 ## Control indexes
 
