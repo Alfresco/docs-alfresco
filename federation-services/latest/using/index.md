@@ -58,9 +58,9 @@ Repeat Step 2 for your Output Integration Connection. This will be the location 
 2. Select **Integration Connections**
 3. Click the **Create Integration Connection** button
 4. Add the Following
-     * Connection Name
-     * Connection Description (Optional)
-     * Connection Type
+   * Connection Name
+   * Connection Description (Optional)
+   * Connection Type
 5. Click **Save** to continue editing your integration connector
 6. Edit your new Integration Connection
 7. Add the Authentication Connection you created for this connector.
@@ -75,9 +75,9 @@ This process will allow Federation Services to connect the two systems and move 
 2. Select **List Jobs**
 3. Click the Create New Job button
 4. Add the following:
-    * Give your job a descriptive Job Name
-    * Select your Repository Connection
-    * Select your Output Connection
+  * Give your job a descriptive Job Name
+  * Select your Repository Connection
+  * Select your Output Connection
 5. Leave the Job type as Simple Migration
 6. Click **Save**
 7. View your new job edit page.
@@ -129,19 +129,19 @@ NEXT STEP: View your results
 
 **Congratulations! You have successfully created your first Integration Job.**
 
-# Discovery and Analytics
+## Discovery and Analytics
 
-## Overview
+### Overview
 
 Discovery is the 2nd step in the integration process. Create an instance, select a connector and a schema will be produced based on the connector's configuration. Includes a list of all object types as well as attributes stored in each.
 
-## Discovery Schema Instances
+### Discovery Schema Instances
 
 Discovery connectors are responsible for discovering the schema, or the metadata about the repository. This will include content types and their associated properties.
 
 A discovery schema can then be used to aid in creating [Job Mappings](#job-mappings) or to simply find out what's in the repository. Running a discovery instance will create a new version of the schema. Whatever version you select will be used when creating mappings.
 
-### Schema Instances
+#### Schema Instances
 
 Viewing the schema instances will show you a table of all available Discovery Instances, this table can be sorted by Name, Type, and Available Versions.
 
@@ -151,7 +151,7 @@ Here you can view the most recently created schema instances as well as created 
 * **Type**: The Discovery Type refers to the type of the repository (i.e. CMIS, SharePoint, Documentum etc.).
 * **Version**: Each Discovery Schema can have multiple versions. Selecting this version will set which is used in Job Mappings as well as which schema will be shown when examining a schema.
 
-### New Discovery Connection Instance
+#### New Discovery Connection Instance
 
 To create a new Discovery Connection, click the Create New Discovery Instance button at the bottom of the Schema Instances Page. Fill in the following fields.
 
@@ -161,19 +161,19 @@ To create a new Discovery Connection, click the Create New Discovery Instance bu
 * **Ignore Types**: Comma delimited list of types to ignore.
 * **Additional Fields**: Some connections require additional information to search for types. Click on a link in the table below for more details on setting up the Discovery Connection for a particular software
 
-### Discovery Schema View
+#### Discovery Schema View
 
 Once Discovery finishes running Federation Services will store the information. Discovery only needs to be run once, unless the schema of the source repository is changed.
 
 To view the report, click the document icon to the left of the instance. You can click into each attribute section by category.
 
-## Data Collection
+### Data Collection
 
 Data Collection is a scheduling system that allows the user to schedule job runs. It can be turned on and off in the Data Collection index page.
 
 Data collection schedules can be run for a job group or individual job. For the purposes of data collection jobs it is suggested you use the Reporting Connector and do not have **Include Binaries** checked in the **Details** tab. Federation Services can create the necessary auditing data without the actual file content
 
-### How to use Data Collection
+#### How to use Data Collection
 
 The **Set Info Pane** will show you basic information about the various collections in the data set, as well as allowing you to delete individual runs.
 
@@ -197,11 +197,11 @@ The data collection service runs in the background based on properties set eithe
 * **Choose between a job group or individual job** 
   * If selecting a job group, you can choose the run order by dragging. The top job is run first.
 
-### Example Duplicate Checking
+#### Example Duplicate Checking
 
 If you wish to collect information on duplicate data, use the Duplication Check Task. As of the inclusion of Data Collection, you do not need to include a binary for duplication checks. If you declare a field that is not the md5 field as your "hash", you can set a field in the JavaScript Task using the `rd.setMetaHash(Strings)` method.
 
-## Discovery Report Views
+### Discovery Report Views
 
 A view which charts data from a Content Report generated through [Data Collection](#data-collection)
 
@@ -215,7 +215,7 @@ In this report view users will find:
 * Storage Summary
 * Total Numbers of files
 
-### Generate Reports
+#### Generate Reports
 
 This tab initially only contains a drop-down of data sets that have job runs associated with them. It also displays their collection status.
 
@@ -226,7 +226,7 @@ Upon selecting a data set you should see the following:
 * Clicking one of these ids will take you to a detailed view of the job run. For content reporting you are currently only allow to select one dataset.
 * In the future a "Content Growth Report" option will be made available, allowing you to select multiple job runs to monitor increases in storage usage.
 
-#### Filter Dataset
+##### Filter Dataset
 
 There are a number of filters that can be applied to the dataset during report generation. These include:
 
@@ -239,7 +239,7 @@ There are a number of filters that can be applied to the dataset during report g
 
 These filters are processed in this order, upon selecting them you will have the option to reorder them.
 
-### Available Reports
+#### Available Reports
 
 Upon completion of report generation you should be taken to the Available Reports tab.
 
@@ -254,7 +254,7 @@ This tab shows the generated reports as well some additional information:
   * Generate New Version of this Report
   * Delete Report with the additional option to delete all versions of the report
 
-### Schedule Reports
+#### Schedule Reports
 
 The schedule reports tab allows you to automate the creation of reports after creating the initial one.
 
@@ -267,7 +267,7 @@ The schedule reports tab allows you to automate the creation of reports after cr
 * **Send email Notifications**: A simple yes/no. Email must be enabled for the application.
 * **Comma delimited list of emails**: As the tooltip says.
 
-## Pii Scan
+### Pii Scan
 
 The Pii Scan feature allows the user to select a configured repository connector and job, then scan the repository for Personally Identifiable Information (Pii).
 
@@ -279,26 +279,26 @@ Appropriate tasks and mappings are added to the job, then the job is run.
 
 Upon completion, the temporary job and records are deleted, leaving only Pii Data.
 
-# Federated Search
+## Federated Search
 
-## Overview
+### Overview
 
 Federation Services allows you to manage data throughout multiple repositories without having to move the content from one location to another. With Federated Search users can view, organise, report on, update and maintain all of their documents, files and records in one easy to use highly customisable space.
 
-## Content Search
+### Content Search
 
 Content View Connectors are used by Content Views in Federation to query indexed documents and populate the results within a federated search view. Federation can then take action against the results such as preview, download, check in and out and edit the file's properties.
 
-### Content Search Connection Configuration
+#### Content Search Connection Configuration
 
-#### Available Content View Connection Types
+##### Available Content View Connection Types
 
 * [Elasticsearch Connector]({% link federation-services/latest/config/index.md%}#elasticsearch)
 * [MongoDB GridFS]({% link federation-services/latest/config/index.md%}#mongodb-gridfs) Search Connector
 * [MongoDB]({% link federation-services/latest/config/index.md%}#mongodb) Search Connector
 * [SOLR]({% link federation-services/latest/config/index.md%}#apache-solr) Search Connector (End of Life)
 
-#### Basic Configuration
+##### Basic Configuration
 
 **Connector ID**
 Connector ids are how Federation Services identifies the individual connector when receiving calls from other sources, such as Federation Service. This value must be usable as part of url. Use the description field if you need more than a few letters/numbers to describe the connection. The description shows up with its connectorId across the product.
@@ -312,7 +312,7 @@ Connector ids are how Federation Services identifies the individual connector wh
 * **Authentication Connection:** The most common method is to use the appropriate authentication connection
 * **User Pass-through Credentials:** Users the authenticates with whatever authentication they used for Federation Services. Only supported in rare cases.
 
-#### Result Links
+##### Result Links
 
 Result Links are under the **Search Configuration** tab, but work universally.
 
@@ -328,11 +328,11 @@ If **External** is selected, you will need to add **Result Links**. When you cli
 **Link Field With Semicolons**
 Due to how certain ids with versions are handled. The value of the link field will be cut off after the first instance of a semicolon(;)
 
-#### Search Configuration
+##### Search Configuration
 
 Refer to the documentation for each connector to see which fields are available.
 
-#### Search Security
+##### Search Security
 
 * **Filter:**
 
@@ -342,7 +342,7 @@ The authenticated user's group ids and login will be added to each search reques
 
 Only users from the selected groups will be able to use this search connection, regardless of role. If this connection in used as part of a Content View, users outside these groups will not be able to see it in their View List in Discovery.
 
-#### Connection Configuration
+##### Connection Configuration
 
 Individuals connectors might have specific fields here that were not general enough to be in Search Configuration
 
@@ -358,15 +358,15 @@ query_fq1 for the second
 etc.
 ```
 
-## Content Services
+### Content Services
 
 Content Service Connections are used to interact with content in Federated Search views. Actions set up in the Content Services API or the Discovery UI web application will be performed against specified repositories and documents through these Content Service connectors.
 
-### Content Service Connections
+#### Content Service Connections
 
 Federation Services's Content Service Connections offer public REST endpoints that allow for integration with external applications. Actions in the Content Services API or the Discovery web application perform actions against specific repositories through these connectors.
 
-#### Commonly Supported Operations
+##### Commonly Supported Operations
 
 > **Note:** The capabilities of each Content Service Connector is limited to operations allowed by the repository. Additionally, not all methods are available for all connectors. View individual connector pages for a list of capabilities.
 
@@ -386,7 +386,7 @@ Federation Services's Content Service Connections offer public REST endpoints th
   * [FileNet]({% link federation-services/latest/config/index.md%}#ibm-filenet)
   * [SharePoint Online (O365)]({% link federation-services/latest/config/index.md%}#microsoft-graph-sharepoint)
 
-#### Basic Configuration
+##### Basic Configuration
 
 > **Tip:** Connector ids are how Federation Services identifies the individual connector when receiving calls from other sources, such as Federation Service. This value must be usable as part of url. Use the description field if you need more than a few letters/numbers to describe the connection. The description shows up with its connector ID across the product.
 
@@ -400,24 +400,24 @@ Federation Services's Content Service Connections offer public REST endpoints th
   * **User Pass-through Credentials**: Users the authenticates with whatever authentication they used for Federation Services. Only supported in rare cases.
   * **None**: Only usable with the Filesystem Content Service Connector
 
-#### Connection Configuration
+##### Connection Configuration
 
 Different connectors might require additional configuration. These values will populate after selecting a Type.
 
-#### Content Service Mapping
+##### Content Service Mapping
 
 You can also add mappings or mapping groups to your Content Service Connections which will allow you to map custom parameters to properties in the destination system.
 
-#### Add Mappings to a Content Service Connector
+##### Add Mappings to a Content Service Connector
 
 1. Create a mapping.
-     * (Optional) Add your mappings (and other mappings) to a Mapping Group.
+  * (Optional) Add your mappings (and other mappings) to a Mapping Group.
 2. Click the edit icon for your Content Service connector.
 3. In the drop-down under Mapping Type select Single Mapping or Group Mapping
 4. In the drop-down under the mapping type you chose, select the Mapping or Mapping Group you want to add to this connection.
 5. Save the Content Service connector.
 
-#### Creating Mappings for Content Services
+##### Creating Mappings for Content Services
 
 Content Service mappings will use the source as the **parameter name** for the content service call. The target field should match a field name in the destination repository. For easier use, you can leverage the schema discovery for your connectors to populate the output field names when mapping.
 
@@ -432,7 +432,7 @@ Here is an example call using the mapping above:
 
 The above call will update the SharePoint document by setting the Title to '**second_level_22**'.
 
-#### Creating A Content Service Connection
+##### Creating A Content Service Connection
 
 Following is an example of how to create a new content service connection.
 
@@ -456,7 +456,7 @@ You will be brought to the generic Content Connection page.
 
 **Add Configuration Parameter (Button)**: Some connectors allow for optional parameters than can be passed via key/value pairs. Most of the time you'll have a form to fill out, but for more advanced features that are situational adding a key/value pair makes sense as it won't clutter up the user interface.
 
-#### List of Repositories supported by Content Services
+##### List of Repositories supported by Content Services
 
 * Alfresco
 * CMIS
@@ -483,9 +483,9 @@ You will be brought to the generic Content Connection page.
 * Webdav
 * Zendesk
 
-### Content Service REST Endpoints
+#### Content Service REST Endpoints
 
-#### GET FILE
+##### GET FILE
 
 `GET /api/repo/<connectorid>/file?id=<id>`
 
@@ -505,7 +505,7 @@ You will be brought to the generic Content Connection page.
 
 `curl -u admin:admin -X GET "localhost:8081/3sixty-admin/api/repo/box/file?id=384896487495" | json_pp`
 
-#### GET OBJECT ID BY PATH
+##### GET OBJECT ID BY PATH
 
 `GET /api/repo/<connectorid>/idbypath?fileName=<fileName>&folderPath=<folderPath>`
 
@@ -537,7 +537,7 @@ You will be brought to the generic Content Connection page.
 
 `curl -u admin:admin -X GET "localhost:8081/3sixty-admin/api/repo/box/idbypath?fileName=testFolder&folderPath=/TestFolder/ | json_pp`
 
-#### POST FILE
+##### POST FILE
 
 `POST /api/repo/<connectorid>/file?fileName=<fileName>&folderId=<folderId>&type=<type>`
 
@@ -575,7 +575,7 @@ You will be brought to the generic Content Connection page.
 `curl -u admin:admin -Ffile=@/Users/simflofy/CaterpillarDEUAjax.pdf"`
 `localhost:8081/3sixty-admin/api/repo/box/file?fileName=Caterpillar%20DEU%20Ajax.pdf&folderId=105965269305&type=document" | json_pp`
 
-#### UPDATE FILE
+##### UPDATE FILE
 
 ```text
 PUT /api/repo/<connectorid>/update?
@@ -617,7 +617,7 @@ localhost:8081/3sixty-admin/api/repo/box/update?fileName=Caterpillar%20DEU%20Aja
 | json_pp
 ```
 
-#### UPDATE FILE CONTENT
+##### UPDATE FILE CONTENT
 
 `PUT /api/repo/<connectorid>/updateContent?fileId=<fileId>`
 
@@ -651,7 +651,7 @@ curl -X PUT -u admin:admin --data-binary '@/Users/simflofy/CaterpillarDEUAjax-ne
 | json_pp
 ```
 
-#### UPDATE FILE PROPERTIES
+##### UPDATE FILE PROPERTIES
 
 `PUT /api/repo/<connectorid>/updateProperties?fileId=<fileId>&<param1>=<value1>&<param2>=<value2>`
 
@@ -688,7 +688,7 @@ curl -X PUT -u admin:admin
 | json_pp
 ```
 
-#### CHECKIN FILE
+##### CHECKIN FILE
 
 `POST /api/repo/<connectorid>/checkin?id=<id>&comment=<comment>`
 
@@ -725,7 +725,7 @@ curl -u admin:admin -X POST "localhost:8081/3sixty-admin/api/repo/cmis/checkin?
 id=5dba1525-44a6-45ed-a42e-4a155a3f0539&comment=Spacing%20Fix" | json_pp
 ```
 
-#### CHECK OUT FILE
+##### CHECK OUT FILE
 
 `POST /api/repo/<connectorid>/checkout?id=<id>`
 
@@ -761,7 +761,7 @@ curl -u admin:admin -X POST "localhost:8081/3sixty-admin/api/repo/cmis/checkout?
 id=5dba1525-44a6-45ed-a42e-4a155a3f0539" | json_pp
 ```
 
-#### GET FILE BATCH (3.1.1 and older)
+##### GET FILE BATCH (3.1.1 and older)
 
 `GET /api/repo/__BATCH__/file?id[x]=<idx>&conn[x]=<connx>&fname[x]=<fnamex>`
 
@@ -789,7 +789,7 @@ curl -u admin:admin -X "localhost:8081/3sixty-admin/api/repo/__BATCH__/file?
 id0=/home/user/simflofy/test.txt&conn0=localFS&fname0=test.txt&id1=629425696136&conn1=box&fname1=Caterpillar%20DEU%20Ajax.pdf"
 ```
 
-#### GET FILE BATCH (3.1.2+)
+##### GET FILE BATCH (3.1.2+)
 
 `POST /api/repo/batch`
 
@@ -837,7 +837,7 @@ connId: "box"
 }
 ```
 
-#### GET FILE VERSIONS
+##### GET FILE VERSIONS
 
 `GET /api/repo/<connectorid>/listversions?id=<id>`
 
@@ -888,7 +888,7 @@ curl -u admin:admin -X GET "localhost:8081/3sixty-admin/api/repo/spo/listversion
 id=5dba1525-44a6-45ed-a42e-4a155a3f0539" | json_pp
 ```
 
-#### DELETE FILE OR FOLDER
+##### DELETE FILE OR FOLDER
 
 **Delete Requests:**
 
@@ -930,7 +930,7 @@ curl -u admin:admin -X DELETE "localhost:8081/3sixty-admin/api/repo/box/delete?
 id=629425696136&allversions=false" | json_pp
 ```
 
-#### GET FOLDER ITEMS
+##### GET FOLDER ITEMS
 
 **Request**:
 
@@ -1027,7 +1027,7 @@ id=629425696136&allversions=false" | json_pp
 
 `curl -u admin:admin -X GET "localhost:8081/3sixty-admin/api/repo/box/folderitems?id=384896487495" | json_pp`
 
-#### CREATE FOLDER
+##### CREATE FOLDER
 
 `POST /api/repo/(connectorid)/folder?path=<path>`
 
@@ -1060,7 +1060,7 @@ id=629425696136&allversions=false" | json_pp
 
 `curl -u admin:admin -X POST"localhost:8081/3sixty-admin/api/repo/box/folder?path=3Sixty/testfolder" | json_pp`
 
-#### GET ITEM PROPERTIES
+##### GET ITEM PROPERTIES
 
 `GET /api/repo/<connectorid>/properties?id=<id>`
 
@@ -1111,11 +1111,11 @@ id=629425696136&allversions=false" | json_pp
 
 `curl -u admin:admin -X GET "localhost:8081/3sixty-admin/api/repo/box/properties?id=384896487495" | json_pp`
 
-## Discovery
+### Discovery
 
 Discovery is Federation Services's user interface for Federation services. It is a highly configurable platform which uses Views and Widgets to organise, view, and manage your data in the most effective ways possible.
 
-### Federation Configuration
+#### Federation Configuration
 
 * **tsearch.simflofy.services.url**= The full url of the Federation Services-admin webapp.
 * **tsearch.security.allow.expired**= Allows for expired ssl certificates when connecting to simflofy admin
@@ -1129,15 +1129,15 @@ Discovery is Federation Services's user interface for Federation services. It is
 
 Many of these can be accessed by Discovery Admins at `tsearch/config`. It is available via the user navigation (top right corner) menu under Configuration
 
-## Widgets
+### Widgets
 
-### Widget Instances
+#### Widget Instances
 
  Widget Instance is an instance of a Widget Definition that can now be placed in a Content View. Many instances of the same definition can exist in a content view. Each instance has a unique id. Federation Services comes preloaded with a number of common widget instances. If you don't find the type you need in your list, found under **Federation > Widget Instances**, you will need to create one.
 
 In the Widget Instance list you can search and sort by name, widget ID, label and field.
 
-#### Widget Instance List
+##### Widget Instance List
 
 Following is a the list of widgets you will see upon installing Discovery with Federation Services depending on the template used when building a content view.
 
@@ -1172,7 +1172,7 @@ Following is a the list of widgets you will see upon installing Discovery with F
 * Check In File
 * Check Out File
 
-#### Customisation
+##### Customisation
 
 To the left of each widget instance there are edit and delete buttons.
 
@@ -1180,7 +1180,7 @@ To make changes to a widget instance click the edit button. Make any necessary u
 
 You cannot delete a widget instance that is being used by any content view template. To delete a widget instance you must first remove it from any templates it's being used on. Once this is done, you can click the delete button and click ok to confirm that you want to delete the instance. This action cannot be reversed.
 
-#### Create a New Widget Instance
+##### Create a New Widget Instance
 
 * In **Federation Services Admin** go to **Federation > Widget** Instances
 * Click the **Plus** button.
@@ -1196,11 +1196,11 @@ Options is a custom field. See below
 
 Click **Save** to finish creating your new Widget Instance.
 
-### Content Views
+#### Content Views
 
 Content Views are how users can interact with indexed content in Discovery. They also allow for administrators to control who can access the view, as well as who can use specific widgets within the view. Content views can be found under the Federation menu in Federation Services Admin.
 
-#### Creating a View
+##### Creating a View
 
 Views can be created under **Federation > Content Views**. The following information is needed to create a new view.
 
@@ -1214,7 +1214,7 @@ Views can be created under Federation > Content Views. The following information
 * **Display Name (Optional)**: Enter the name you want displayed for this view in the views drop-down and in the views list in the left navigation menu. If no display name has been entered Discovery will use the short name.
 * **Select a Search Connection**: Select the Content Search Connection the view will use to perform searches. This connector should be set up prior to creating a Content View as not having one will prevent you from being able to save the view.
 
-#### Configuring Views
+##### Configuring Views
 
 **View Builder**
 
@@ -1243,7 +1243,7 @@ Views can be created under Federation > Content Views. The following information
 
 This list applies to both the Admin and Discovery apps. The SIMFLOFY_ADMIN role will not bypass this list.
 
-#### Content View Examples
+##### Content View Examples
 
 Discovery can be customised in various ways using the content view builder. Following are some examples of the types of views you can build for different result sets.
 
@@ -1255,9 +1255,9 @@ Discovery can be customised in various ways using the content view builder. Foll
 
 **Clustering**: Provides a visual representation of the data using clusters that the user can drill into by content tags.  
 
-# Integrations
+## Integrations
 
-## Overview
+### Overview
 
 Federation Services has a standard process for performing integrations or indexing, as demonstrated by the steps below.
 
@@ -1265,7 +1265,7 @@ Federation Services has a standard process for performing integrations or indexi
 2. Discovery - Discovery is the 2nd step in the integration process. Here you will create a discovery schema instance, based on the connector's configuration. It includes a list of all object types as well as attributes stored in each. Run discovery to get the schema/content type information from both the source and destination systems.
 3. Create and run jobs - This involves mapping metadata, configuring tasks for any kind of processing that is required (pre-requisite), and any targeted configuration for the source and destination. There are several ways to run jobs and depending on the amount of data the Federation Services Admin will set these up accordingly.
 
-## Job Setup and Configurations
+### Job Setup and Configurations
 
 The final step in the integration process includes mapping fields from each repository, creating and running the final job.
 
@@ -1273,7 +1273,7 @@ The final step in the integration process includes mapping fields from each repo
 
 Event Rules let you trigger jobs from content service calls. For example, if a file is updated in a source system, an event can be set up to trigger an index.
 
-### Event Job Configurations
+#### Event Job Configurations
 
 Event Rules let you trigger jobs from content service calls. For example, if a file is updated in a source system, an event can be set up to trigger an index.
 
@@ -1289,7 +1289,7 @@ It allows them to be triggered through content service actions. So, if we want t
 2. Add it to an Event Job
 3. Trigger that job through a call to a content service endpoint.
 
-#### Field Options
+##### Field Options
 
 * **Name:** The name of the document.
 * **Content Length:** The size of the document.
@@ -1303,17 +1303,17 @@ It allows them to be triggered through content service actions. So, if we want t
 * **Content Connector:** The `connectorId` which was used. Can trigger on any endpoint.
 * **Event Type:** The type of action. See the table below for the action for each end point.
 
-#### Creating and Event Job
+##### Creating and Event Job
 
 This tutorial will walk you through setting up an event job that will process one or more documents. After we create the event job, we will push a document to the event queue using an API call. The API call will also start the event job and copy our document from a source folder to a target folder. To get started we will need to create a source folder, target folder and a test document.
 
-##### Getting Started
+###### Getting Started
 
 1. Create a source folder for your document. E.g. C:\SourceDocuments
 2. Place a test document into this folder.
 3. Create a target folder. E.g. C:\TargetFolder
 
-##### Creating a Federation Services Event Job
+###### Creating a Federation Services Event Job
 
 **Step 1. Create a File System Connection**
 
@@ -1377,7 +1377,7 @@ Also, note that the event job will continue running until you kill the job.
 
 To kill a job, on the left-hand menu under Admin, select Active Jobs - Select the trash can icon to kill the job.
 
-#### Event Types and Endpoints
+##### Event Types and Endpoints
 
 | Event Type | Endpoint | Method |
 | ---|---|--- |
@@ -1402,31 +1402,31 @@ To kill a job, on the left-hand menu under Admin, select Active Jobs - Select th
 | DELETE_VERSION | /version | DELETE |
 | LIST_VERSIONS | /listversions | GET |
 
-### Job Mappings
+#### Job Mappings
 
 Federation Services Mapping gives you the ability to map your content types and metadata from one system to another. Before you start, be sure you are familiar with creating jobs and discovery. Both are integral to mapping.
 
-#### Overview
+##### Overview
 
 In this tutorial we will explain how mapping works in Federation Services. Where you can create your map types, aspects, fields and calculated fields. How to update mappings in mass using Mapping Templates. How to export and import mappings. And complex scenarios such as mapping type hierarchies.
 
-#### Creating Mappings
+##### Creating Mappings
 
 Federation Services Mapping gives you the ability to map your content types and metadata from one system to another. There are two places in Federation Services where you can set up mappings:
 
 * [Reusable Mappings](#reusable-mappings)
 * [Mappings Tab](#mappings-tab)
 
-##### Reusable Mappings
+###### Reusable Mappings
 
 From the **Integration** menu on the left-hand side of the Admin Page select **Job Mappings**.
 The **Job Mappings** menu item lets you create reusable mappings that you can then add to a job. This is especially useful when you have a lot of jobs with the same mappings. This way, you can edit one Job Mapping, and it will then be updated for all jobs that use that mapping. You can also download the JSON representation of the mapping to use for mappings import on another system.
 
-##### Mappings Tab
+###### Mappings Tab
 
 The Mappings tab in a job is great when you need a one-off mapping that other jobs won't use or if your mapping only applies to one job.
 
-##### Mapping Types
+###### Mapping Types
 
 There are several things you can map as seen below:
 
@@ -1437,20 +1437,20 @@ There are several things you can map as seen below:
 
 > **Info**: Calculated fields are processed before tasks and field/aspect mappings. If you wish to further use the product of a calculated field for you will need to create a separate mapping using the calculated fields output as the source.
 
-##### Discovery Within Mappings
+###### Discovery Within Mappings
 
 Mappings make heavy use of discovery information. Discovery allows you to pick your types and fields from drop-down lists instead of typing them out. It also knows the data types of each field. This allows for a much faster and less error-prone method of mapping types, aspects, and fields.
 
-##### Audit Mappings
+###### Audit Mappings
 
 Audit mappings allow you to add field names and values to the Federation Services audit. These can later be used to create reports for analytics and/or validation. By default, Federation Services selects normal file system attributes to audit. These include file id, file name, created/modified dates, and author. A red eye is not being audited. Green is being audited. Simply clicking on the eye will change it to being audited or not.
 
-##### Calculated Fields
+###### Calculated Fields
 
 Calculated fields allow you to hard code values or use functions.
 If you find the function calls getting too complex, we strongly suggest using a [Job Task](#event-job-configurations) instead. Calculated fields are designed to be simple. Complex examples that have multiple levels of function calls are prone to error and tasks are designed for complex logic, unlike calculated fields.
 
-##### Importing and Exporting Mappings
+###### Importing and Exporting Mappings
 
 To export a mapping, go to the **Job Mapping** page, and select the **export** icon with the down arrow on it.
 Click **Export Mappings** to save the mappings as a json file.
@@ -1474,19 +1474,19 @@ Example of a JSON format for import mapping under the mappings tab in the job co
 ]}
 ```
 
-#### Mapping Groups
+##### Mapping Groups
 
 Mapping groups allow you to group integration job mappings into logical groups that you can then manage together.
 
-##### Creating Mapping Groups
+###### Creating Mapping Groups
 
 Creating a mapping group is easy. You just give it a name, click the Add Mapping Group button, and then select mappings from the list. You can use the search box to filter the list.
 
-##### Using Mapping Groups
+###### Using Mapping Groups
 
 In the job's Mappings tab your mapping groups will show up in the Select Additional Mappings drop-down. Read Only versions of the mappings will appear at the bottom of the page, so you won't have to leave to confirm the content of each mapping in the group.
 
-#### Properties File Discovery
+##### Properties File Discovery
 
 If you ever have the situation where Discovery can't automatically find your fields, but you know they will be there, then you can create your own mappings with a properties file.
 
@@ -1516,7 +1516,7 @@ folder.isversion=CHECKBOX
 
 3. Create a properties file discovery instance and point it to your properties file. Run it and your types and fields should show up, and now you can use them in job mappings.
 
-#### Federation Services Expression Language
+##### Federation Services Expression Language
 
 Federation Services uses a version of the JEval project to handle expressions. Expressions can be used in many places in Federation Services. Specifically they are used for calculated fields on the mapping page, but tasks and connectors can use them in their configuration pages too. The filter task is another good example.
 
@@ -1531,7 +1531,7 @@ An expression allows you to create values based on some formula or set of functi
 
 An expression is just a series of Strings, Numbers, Function Calls, and Operators put together by the administrator resulting in a value.
 
-##### Strings or Numbers or Booleans
+###### Strings or Numbers or Booleans
 
 Strings are surrounded with ' '. If something is not surrounded with a ', then it's treated as a number. This will result in an error if you try to convert a string to a number.
 
@@ -1549,7 +1549,7 @@ Booleans result in 1.0 or 0.0 where 1.0 is true and 0.0 is false.
 
 'mark' == 'nathan' would result in 0.0.
 
-##### Variables
+###### Variables
 
 Variables are either part of the Repository Document, Version History, or Fields from a Repository.
 **Info:** You access a variable using the following format: **'#{rd.path}'**
@@ -1571,7 +1571,7 @@ Where document is the type:
 
 See below for a full reference of all rd and version variables available.
 
-##### Function Calls
+###### Function Calls
 
 You call functions with no ' ' such as:
 
@@ -1581,7 +1581,7 @@ Most functions are camel case. So first letter is lower case, start of each syll
 
 `toLower()`, `startsWith()`, etc..
 
-##### String Functions
+###### String Functions
 
 Full list of String functions with example:
 
@@ -1603,7 +1603,7 @@ Full list of String functions with example:
 `lastIndexOf('abcabcabc', 'abc', 8)`
 `eval(1 + 2)`
 
-##### Math Functions
+###### Math Functions
 
 Full list of math functions with example:
 
@@ -1629,7 +1629,7 @@ Full list of math functions with example:
 `toRadians(44)`
 `abs(-1)`
 
-##### Custom Functions
+###### Custom Functions
 
 If the first argument is blank, use the second argument.
 
@@ -1664,7 +1664,7 @@ The normal Boolean, number, and string operators for Java work with Federation S
 `*`
 `!=`
 
-##### Repository Document Variables
+###### Repository Document Variables
 
 All variables with Federation Services Variable Resolvers are case-insensitive.
 
@@ -1727,17 +1727,17 @@ You can also nest functions. A good example is toDate:
 
 This results in `rd.created` date being formatted into UTC format, but if for some reason Federation Services detects an invalid date it will use the result of `now()` instead.
 
-##### Migration Manager Variables
+###### Migration Manager Variables
 
 **Variable name**: job.lastrundate
 **Description**: This variable is substituted by the last successful job run date. If the job is run for the first time, it substitutes with 1st January, 1990
 **Example**: SELECT * FROM mydatabase.events where created_at > CONVERT(DATE_FORMAT('#{job.lastrundate}', '%Y%m%d'), char);
 
-### Schedule Jobs
+#### Schedule Jobs
 
 Federation Services allows users to schedule integration jobs and job groups to run at a time period that may be more effective for the servers running them. Jobs can be scheduled to run at set times as well as set intervals. By minutes, hours, days, weeks etc.
 
-#### Creating a Scheduled Job
+##### Creating a Scheduled Job
 
 **To create a scheduled job:**
 
@@ -1749,7 +1749,7 @@ Federation Services allows users to schedule integration jobs and job groups to 
 
 > **Note:** If the schedule on a running job changes, that job will be aborted and the new schedule will take effect immediately.
 
-#### Configuration Fields
+##### Configuration Fields
 
 * **Schedule Name**: Name of the schedule.
 * **Run Schedule**: Sets the schedule to run.
@@ -1761,20 +1761,20 @@ Federation Services allows users to schedule integration jobs and job groups to 
 * **Interval Between Runs**: How often the schedule will run. **An interval of fewer than 3 minutes is not recommended**.
 * **Job/JobGroup**: Sets whether to run a Job or a Job Group. If Job Group is selected, you will be able to choose the run order for jobs in the group.
 
-#### Job Status
+##### Job Status
 
 At the top of the scheduled job you can see the current status.
 
 * **Current Status**: Unsaved until Update Configuration button is pressed. Then OFF, WAITING, or RUNNING.
 * **Time until next run**: As it reads. If this runs to zero, it will not refresh unless the schedule is closed and reopened. Will Display as NA if performing a single run (interval set to 0) or the job is currently running.
 
-### List Jobs
+#### List Jobs
 
 A Federation Services Job is the process of moving or syncing content(including versions, ACL's, metadata) from one CMS (content management system) to another. Since Federation Services Jobs are specifically engineered for content management systems, moving content and metadata is just point and click. There are many Job types as well as Job Tasks that can handle anything from data validation and cleansing to duplication detection.
 
 The List jobs page shows the jobs created. There are five available Job Types: Sync, Simple Migration, Incremental Migration, Event and Polling.
 
-#### Job Types
+##### Job Types
 
 There are several Job Types available depending on the use case.
 
@@ -1784,14 +1784,14 @@ There are several Job Types available depending on the use case.
 * **Polling**: A simple migration that runs continuously, the job processes at a specified interval and then sleeps until the next processing time. While it sleeps, the status of this job will be `Waiting`.
 * **Event**: This type of job acts as a listeners for certain Content Service events, in order to run individual documents through a job, without starting and stopping the job. They can be triggered through a push event or by an event configuration. While not running, these jobs will show the status `Ready`.
 
-#### Job Groups
+##### Job Groups
 
 To access Job Groups, go to the group section in the left sidebar and select Job Groups. From here you can view and create Job Groups. When creating a job, users are given an option to either create a new Job group or assign the job to an existing job group.
 
 * To create a new job group check the **Create a new job group for the job** check box and enter a name for the new job group. If no name is entered Federation Services will default to the name of the job as the Job Group name
 * To add the job to an existing group, Select the group from the **Job Group** drop down. This will add this job to that group once created.
 
-##### Creating a Job Group
+###### Creating a Job Group
 
 To access Job Groups, go to the group section in the left sidebar and select Job Groups. From here you can view and create Job Groups.
 
@@ -1800,7 +1800,7 @@ To access Job Groups, go to the group section in the left sidebar and select Job
 3. Select which **jobs** you want included in the group. You can use the search box to filter the available jobs list.
 4. Click **Save**.
 
-#### Job Configuration Fields
+##### Job Configuration Fields
 
 **Standard Options**
 
@@ -1817,11 +1817,11 @@ To access Job Groups, go to the group section in the left sidebar and select Job
 START AND END TIME
 These values are only set by users for Simple Migrations. For Incremental Migrations, they are calculated based on when the job was last run. Event and Polling jobs don't use them at all
 
-#### Notifications
+##### Notifications
 
 Notifications will only function is email is enabled. This allows the user to set conditions in which the listed email addresses will receive confirm status reports when a job completes.
 
-#### Auditing
+##### Auditing
 
 * **Audit**: Where to write audit data too. Note that **Job Restart** and **Document Search** will only work if Mongo is selected.
   * **Mongo**: Audit to the Mongo Database or SQL Database if running in SQL mode.
@@ -1836,7 +1836,7 @@ Notifications will only function is email is enabled. This allows the user to se
   * **Written, Failed and Deleted**: Audit a record that failed during the Job run or was deleted from a **Sync Job** or written by the Output Connection.
   * **Written, Failed, Skipped and Deleted** : Audit a record that failed during the Job run or was skipped or deleted from a **sync job** or written by the Output Connection.
 
-#### Advanced Options
+##### Advanced Options
 
 * **Repository Connection Thread Count**: The number of individual workers which will process and queue documents. Implementation may vary in certain systems.
 * **Output Connection Thread Count**: The number of individual workers which will process and post documents. Implementation may vary in certain systems.
@@ -1850,7 +1850,7 @@ Notifications will only function is email is enabled. This allows the user to se
 * **Chain Job Wait Interval**: Amount of time to wait after job completes before starting next job in format: 5s 5m 5h 5d
 * **History Retention**: How long to keep the Job Run History for this job before the Job History Clean up Service clears the content.
 
-### Job Tasks
+#### Job Tasks
 
 Job tasks provide a processing pipeline for documents and metadata. This means doing things like:
 
@@ -1864,7 +1864,7 @@ Job tasks provide a processing pipeline for documents and metadata. This means d
 8. PII - Personally Identifiable Information - detection
 9. De-Duplication
 
-#### Adding Tasks to Jobs
+##### Adding Tasks to Jobs
 
 There are over 30 tasks available out of the box and Federation Services is adding more all the time. This is the most popular extension point in Federation Services.
 
@@ -1876,7 +1876,7 @@ The default recommended thread count is 1.
 
 These tasks run in order, meaning if something is changed with the documents or metadata in one task, then the following tasks will see those changes.
 
-#### Task Groups
+##### Task Groups
 
 Users can create task groups for tasks they will use often so they do not have to constantly create them for every job. When you select "Yes" under use a task group, a second box will pop up.
 
@@ -1886,13 +1886,13 @@ Select before or after to let Federation Services know when to run the tasks in 
 
 In the drop down provided, select the Task group you would like to run with this job. Once selected you will see a list of all the tasks in the group. Click on the eye icon to view the details of each task.
 
-### Run and Monitor Jobs
+#### Run and Monitor Jobs
 
 The Run and Monitor Jobs page is where you can monitor the progress of your integration jobs. From this page you can see the status of your jobs. How many files have been migrated. When the job was last ran and any errors that might have occurred during the integration.
 
 > **Note**: When migrating documents with multiple versions, if a version in that series fails for any reason, the subsequent versions will not be processed. They will instead be 'Skipped' and previously uploaded versions will be cleaned up/deleted.
 
-#### How to Run and Monitor Jobs
+##### How to Run and Monitor Jobs
 
 Under the **Integration** section in the navigation menu click **Run and Monitor Jobs**. On this screen, jobs can be stopped, started, and errors run.
 
@@ -1906,18 +1906,18 @@ Use the **Show entries** drop-down to select how many jobs get listed on each pa
 
 The list of jobs displayed will tell the user the job status, how long the job took to run, how many files have been read, written, have errors, removed and skipped.
 
-#### Reviewing Job Errors
+##### Reviewing Job Errors
 
 If any errors occurred during the job run, you can click on the error count to get to the error report page. From the error report you will be able to see the cause of the errors and download them as a csv if needed. For additional debugging instructions see the following article: [Federation Services Logging Instructions]({% link federation-services/latest/admin/index.md%}#logging).
 
-#### Resuming and Restarting Jobs
+##### Resuming and Restarting Jobs
 
 **Resuming a job**: Usable when a job is aborted. Reruns the job, but a special task is added that will skip documents which had errors in the previous run.
 **Run Errors**: Available when a job fails or is aborted. Only the errored documents will be processed.
 
-## Advanced Configurations
+### Advanced Configurations
 
-### PII Detection and Reporting
+#### PII Detection and Reporting
 
 While doing a document migration or synchronisation it may be prudent to check the document, or it's metadata for PII. You can also crawl you content simply for PII by using our reporting output connector with any repository connector that we support.
 
@@ -1929,7 +1929,7 @@ A temporary job is created using the repository configuration of the selected jo
 
 > **Important:** File size limit is 95MB
 
-#### Running the PII Scan
+##### Running the PII Scan
 
 Under Analytics select PII Scan and complete the PII Scan page
 
@@ -1942,14 +1942,14 @@ Under Analytics select PII Scan and complete the PII Scan page
   * Notify of completion by email.
 * Select the **Scan for PII** button
 
-#### Viewing PII Data
+##### Viewing PII Data
 
 Once the PII is ran users can view the PII report in the Discovery UI by either:
 
 * Clicking on the link provided in the Scan complete notification box or 
 * Selecting **PII Data Viewer** in the left navigation pane on the home page of the Discovery UI
 
-### Document Duplication Detection and Reporting
+#### Document Duplication Detection and Reporting
 
 There may be a need to identify duplicate documents in your enterprise and Federation Services allows you to identify these duplicate documents in a variety of ways.
 
@@ -1974,28 +1974,28 @@ mongoexport --db simflofy --collection duplicates --fields _id,docs,doc_names
 --username user --password "pass" --type=csv --out duplicates.csv
 ```
 
-### Stuck Jobs
+#### Stuck Jobs
 
 If a job is running and the **Abort** does not stop the job in an appropriate amount of time, the job can be killed manually through an Admin page.
 See [Active Jobs]({% link federation-services/latest/admin/index.md%}#active-jobs) for more information.
 
-## Federation Services Job Flow
+### Federation Services Job Flow
 
 ![Job Flow]({% link federation-services/images/job-flow.png %})
 
-# Task List
+## Task List
 
 Tasks are run for each document that has been read. A number of tasks can be set to remove documents from the queue if they don't fit certain criteria. Documents removed this way will not be processed by any following tasks. It should be noted that Calculated Fields are calculated before tasks, while Fields Mappings are handled after tasks.
 
-## Commonly Used
+### Commonly Used
 
-### Duplication Detection
+#### Duplication Detection
 
 This task checks the chosen field to find duplicate documents during the job run. And will take the selected actions against the document if a duplicate one exists. To see how each repository handles duplicates and versioning check the individual connector page.
 
 When the duplication check is ran multiple times the original file will not be marked as duplicate.
 
-#### Configuration
+##### Configuration
 
 **Field to Compare**: The field whose value will be used to check for duplicates. If this value is found in any other document it will be considered a duplicate. The default is the File Content Hash. 
 * File Content Hash
@@ -2019,7 +2019,7 @@ If you wish to compare file hashes (a sort of fingerprint for a document), you w
 * Skip the document
 * Fail the job
 
-#### Tagging Duplicate Documents
+##### Tagging Duplicate Documents
 
 Metadata can be added through mapping to tag documents discovered as duplicates when the Action field is set to Audit and Continue.
 
@@ -2031,9 +2031,9 @@ The fields that can be added are:
 * **duplicationScope**: blank if no duplicate detected, and
 * **duplicationCriteria**: which fields the duplicate was considered against; depends on what was selected below - blank if no duplicate detected
 
-### Filename Cleanse
+#### Filename Cleanse
 
-his task uses regex (Regular Expressions) to alter filenames.
+This task uses regex (Regular Expressions) to alter filenames.
 
 Common use cases are clearing unwanted characters, such as whitespace, or non-alphanumeric characters.
 * **Regex to Match**: The regex pattern to search for in the filename.
@@ -2057,7 +2057,7 @@ The pattern `\s` is regex shorthand for "spaces". If you're worried about tabs, 
   
 Adding this as your regex and setting the replacement as `''`
 
-### Filename Extraction
+#### Filename Extraction
 
 Extracts the file name from another field using regex (Regular Expressions). It will set the file name to the value that matches the regex.
 
@@ -2081,7 +2081,7 @@ The pattern `\s` is regex shorthand for "spaces". If you're worried about tabs, 
 
 Adding this as your regex and setting the replacement as `''`
 
-### Folder Path Cleanse
+#### Folder Path Cleanse
 
 This task uses Regular Expressions (regex) to alter Folder Names. Functionally identical to Filename Cleanse Task, except that is changes the document parent path.
 
@@ -2091,35 +2091,35 @@ The default value matches any character that isn't a letter, number, space or pe
 
 **Replacement:** Replacement for matches.
 
-### Obsolete Detection
+#### Obsolete Detection
 
 The obsolete task can be used to identify obsolete documents when reading them from the source repository. This can be used either in the federation view for identifying documents that are obsolete based on the definition set in the task for the job by adding metadata or skipping/processing the documents which are obsolete. You can define what obsolete means for your organisation - you can define it based on the date created or updated and the content before what timeframe is considered as obsolete.
 
 > **Note**: The Obsolete Detection tasks uses the system time of the 3Sixty server when calculating date/time scenarios.
 
-#### Fields
+##### Fields
 
 * Before when will the files be considered obsolete
 * Before
 * Custom Date
 * Action
 
-#### Metadata
+##### Metadata
 
 * isObsolete - Yes/No
 * obsoleteField - Date Created or Date Updated
 * obsoleteBefore - date after which the content is considered obsolete
 
-### Override Filename
+#### Override Filename
 
 The task uses the 3Sixty Expression Language to override the file name of each document. The functionally of this task is identical to the [Override Folder Path](#override-folder-path) task.
 
-#### Configuration
+##### Configuration
 
 * **Pattern**: List the fields you want to use to rename the file
 * **Deep Change**: If the file has versions, update their names as well.
 
-### Override Folder Path
+#### Override Folder Path
 
 Add the Override Folder Path task from the drop-down on your job.
 
@@ -2157,7 +2157,7 @@ Now let's say we want the actual folder path to be a combination of folderpath +
 '#{document.Category}'+'/' + '#{document.CustomerId}'
 ```
 
-### PII Detection
+#### PII Detection
 
 The PII Detection Job Task is uses regex expressions to detect PII in any document or metadata passing through 3Sixty. The regex expressions are stored in the form of a .properties file.
 > **Caution**: File size limit is 95MB
@@ -2184,11 +2184,11 @@ In this case, the above fields will come across as
 
 **pii.phonenumber** and **pii.names**
 
-### Rename File On Duplicate File Path
+#### Rename File On Duplicate File Path
 
 Functions similarly to the [Duplication Check](#duplication-detection) task, except if it finds a duplicate, it will rename the file using the supplied pattern.
 
-### Tika Text Extractor
+#### Tika Text Extractor
 
 [Apache Tika](https://tika.apache.org/) is an open-source tool used to extract text from documents. 3Sixty most commonly uses it to extract text during indexing for federated search.
 
@@ -2203,11 +2203,11 @@ For this feature to work on larger files, memory pool settings of 4GB is require
 * **Remove Content After Extraction**: Remove the content from the documents. This will happen even if the document exceeds the maximum length.
 * **Stage on Filesystem**: Stage content on the filesystem for extracting text or set to false to use in memory.
 
-### Trivial Detection
+#### Trivial Detection
 
 The trivial task can be used to identify content that is trivial in nature (as it holds no importance from a corporate knowledge perspective). The definition of trivial depends on your organisation. You can set whether you want to filter on documents of certain sizes or if you want to filter out files with certain extensions or document types. For example, dmg, and exe are installers and may hold no corporate importance so you may want to skip such content from being registered as a record, you can now do so by adding them to the filtered list of extensions. 
 
-#### Configuration
+##### Configuration
 
 You can add several filters to include documents that meet all the stated criteria.
 
@@ -2224,7 +2224,7 @@ Once the filters are selected you can then determine what action should be taken
 * Skip the files
 * Fail the job
 
-#### Metadata
+##### Metadata
 
 The trivial detection task also includes the following default set of metadata:
 * **isTrivial** - Yes/No
@@ -2233,13 +2233,13 @@ The trivial detection task also includes the following default set of metadata:
 * **ignoreExtensions** - comma separated list of extensions that were listed in the criteria
 * **ignoreDocTypes** - comma separated list of doc types that were listed in the criteria
 
-## General
+### General
 
-### Basic JDBC
+#### Basic JDBC
 
 This task is for a scenario where if you have extra metadata that points to an external source repository like a JDBC Database 3Sixty will merge that data into your documents as they are being read.
 
-#### Configuration
+##### Configuration
 
 * **User Name**: JDBC User Name
 * **Password**: JDBC Password
@@ -2256,20 +2256,20 @@ This task is for a scenario where if you have extra metadata that points to an e
 * **Query**: The query to execute. All results will be added to the document in the format [tableName].[fieldName]
 > **Note**: The query can insert expresions. And the query will only return one document.
 
-### Buffer Binaries to File System
+#### Buffer Binaries to File System
 
 This task will buffer files to temporary directory. In this case the value of the System Property java.io.tmpdir. The task takes a timeout which will fail the document if it does not complete staging in the given amount of time. The default is 10 seconds, but for larger files (100+ MB), we recommend 60 seconds.
 
-### Convert Array Value To String
+#### Convert Array Value To String
 
 Converts a property on a repository document from an array to a String.
 
-#### Configuration
+##### Configuration
 
 * **Delimiter**: The delimiter to place in between values of the Array. If left empty will default to space
 * **Property Name**: The array repository document property to convert into a String. The new String property will have the same name. This field cannot be an expression.
 
-### Convert String to Boolean
+#### Convert String to Boolean
 
 The String to Boolean Task is designed to check the value of a string and return true of it matches the expected value. This is a quick way to convert a string field into a Boolean and is used to manipulate data as it is being processed. You also have the option to specify whether the match should be case-sensitive or not.
 
@@ -2277,11 +2277,11 @@ Here's an example:
 
 In the above example, we are going to check the field **dc:availability**. If the string value of that field equals **available (Expected Value)** the dc:availability field will be updated to a **true**(boolean). As we elected not to use case sensitivity, the string **AvailAble** would also return true. Otherwise, a boolean **false** value will be stored.
 
-### Convert To UTC
+#### Convert To UTC
 
 This task will convert date fields to the given format, with the given offset.
 
-#### Configuration
+##### Configuration
 
 * **Date Fields to Convert**: A comma delimited list of repository fields or the output of calculated field.
   * If you do not supply field names, the task will attempt to process all the Job's Date/Time mappings. Note: only calculated field mappings are available to job processors.
@@ -2289,11 +2289,11 @@ This task will convert date fields to the given format, with the given offset.
 * **Date Time Format**: Final format for the field you're converting.
 * **Define Date Time Format Check box**: Check to define an output format, uncheck to return default format (i.e. 2019-11-05T16:00:00Z)
 
-### Date Based Folder Path
+#### Date Based Folder Path
 
 This task takes ones of the date fields on the Repository Document and uses it to generate the parent folder path for the document. This mimics how Alfresco stores its data in the filesystem
 
-#### Configuration
+##### Configuration
 
 * **Repository Document Field**: the field to use for the path - can be any date field
 * **Pattern**: The pattern used to break down the date into a folder path
@@ -2302,13 +2302,13 @@ The default is /yyyy/M/dd/kk/mm/ss/
 
 In this case, kk is used for hours.
 
-#### Example
+##### Example
 
 For the document file.txt, if you set the field to used the modified date `'#{rd.modifieddate}'` and the date is `1999-04-20T12:01:23`, then your path with the default pattern will be:
 
 `/1999/4/20/12/01/23/file.txt`
 
-### Field Lookup
+#### Field Lookup
 
 This task is intended to allow users the ability to perform a look-up operation and update the matching fields of the repository documents. This task was originally created for integrations in which certain field values could only be obtained by importing them from an external source.
 
@@ -2338,7 +2338,7 @@ In the example above you will notice that the **document.Customer** field has a 
 
 The updated values will then be available in subsequent job tasks. For instance, you could then use override folder path task to build out a folder structure with the updated values. Using the scenario above, you could build out a folder for each customer by name instead of numerical value.
 
-### HTTP
+#### HTTP
 
 The purpose of this task is to execute a GET or POST HTTP call for each repository document. If the status is any of the following, then processing will continue, if not, the document will be skipped.
 
@@ -2353,7 +2353,7 @@ The purpose of this task is to execute a GET or POST HTTP call for each reposito
 208 Already Reported (WebDAV)
 226 IM Used (HTTP Delta encoding)
 
-#### Configuration
+##### Configuration
 
 * **Username/Password**: Credentials to access the endpoint
 * **Action URL**: The endpoint being contacted, without parameters
@@ -2366,7 +2366,7 @@ The purpose of this task is to execute a GET or POST HTTP call for each reposito
 * **Timeout in milliseconds**: How long to wait for the call to execute before attempting to continue.
   * If the timeout is reached, the action selected will be used.
 
-### JavaScript Processing
+#### JavaScript Processing
 
 This task is a custom operation that allows the user to ask 3Sixty to do things that are not already available in the software. 3Sixty's JavaScript Task allows you to run JavaScript against a repository document during processing. The task uses the ECMA 5.1 specification to execute the JavaScript against the native Java API. Currently, only one root object is exposed called rd (repository document). Any method that can be called against the repository document can be called using JavaScript syntax.
 
@@ -2382,23 +2382,23 @@ The task only supports single quotes for strings. Double quotes will cause error
 
 > **Caution**: When creating the database table name please note that it must be all lowercase.
 
-### Pause
+#### Pause
 
 This task can be useful when outputting to a repository with rate limits, such as Box or SharePoint.
 
 * **Pause in seconds**: How long to pause for each document.
 
-### Remove Mappings
+#### Remove Mappings
 
 Removes mappings from a repository document if the field has no values.
 
 * **Source Fields**: Comma delimited list of the mappings to remove if it has no values.
 
-### Two Way Sync
+#### Two Way Sync
 
 The Two Way Sync Job Task is to filter out any unnecessary documents when doing an incremental sync between two systems. Documents can be filtered by matching MD5 Hash or If the document was just seen in the last run by the other sync Job.
 
-#### Configuration
+##### Configuration
 
 For Two Way Sync you will need to set up two Incremental Migration jobs and chain one Job after the other. You will want to put the Job that should win on a collision as the first Job in the chain.
 
@@ -2409,9 +2409,9 @@ On each Job add the TWO Way Sync Job Task and, if using the MD5 Hash option, you
 * **Compare MD5 Checksums**: Check MD5 Hash of this Document and the Last Document moved by the synced Job. If set to true and MD5 Hashes match, then skip this Document.
 * **Job ID of Other Job**: The Job ID of the other chained Job in this Two Way Sync
 
-## Metadata
+### Metadata
 
-### Join Mongo Document Metadata
+#### Join Mongo Document Metadata
 
 The purposes of this task is to retrieve metadata from an outside mongo database during a migration, adding it to the repository document before mappings are performed.
 
@@ -2424,7 +2424,7 @@ This task is called a "join" because it checks for a value on both the Repositor
 * This task supports multiple fields to check on the Mongo document and repository document
 * Users can sort the order in which the fields are checked
 
-#### Configuration
+##### Configuration
 
 Fill in the following fields to configure this task. Some fields come with default configurations. Update them as necessary.
 
@@ -2450,7 +2450,7 @@ The Sort order can be +1 for ascending or -1 for descending.
 * The mongo user, leave blank if no authentication is set
 * The mongo password, leave blank if no authentication is set
 
-### Metadata Extraction - EML
+#### Metadata Extraction - EML
 
 An EML file is an email message saved by an email application, such as Microsoft Outlook or Apple Mail. It contains the content of the message, along with the subject, sender, recipient(s), and date of the message. EML files may also store one or more email attachments, which are files sent with the message.
 
@@ -2473,11 +2473,11 @@ This task extracts metadata from emails and adds as fields to the repository doc
 * **Email.LastModifiedTime**: The modified date time of the email.
 * **Email.DateTimeReceived**: The date and time the email was received.
 
-### Metadata Extraction - Path
+#### Metadata Extraction - Path
 
 This task will extract the metadata from the file and add it as fields to the repository document.
 
-#### Configuration
+##### Configuration
 
 * **Path Field**: Which field to use to extract metadata. Options are
   * Repository ID (for repos that use the entire path as an ID, such as Filesystem, or Amazon S3)
@@ -2486,7 +2486,7 @@ This task will extract the metadata from the file and add it as fields to the re
   * Location takes the form of an integer, starting at 0 for the root folder.
   * Additionally, 'filename','parent',and 'grandparent' with **quotes included can be used.
 
-### Output Metadata As JSON
+#### Output Metadata As JSON
 
 This task fully converts each document to a json object and exports to it to the configured path on the local filesystem where 3Sixty is running.
 
@@ -2496,7 +2496,7 @@ File name pattern = [filename].document.metadata.json
 
 Folder name pattern = [foldername].folder.metadata.json
 
-### Replace Metadata
+#### Replace Metadata
 
 This task will perform a Regex search on the configured metadata field and replaces it with supplied text.
 
@@ -2504,16 +2504,16 @@ This task will perform a Regex search on the configured metadata field and repla
 * **Regex to Match**: A regular expression to use as the first argument of a Java String.replaceAll() method.
 * **Replacement Text**: The text to use as the second argument of the replaceAll() method.
 
-### Metadata from Properties File - Filesystem
+#### Metadata from Properties File - Filesystem
 
 If there is a separate properties file then 3Sixty will get the metadata from that file. This only works for a File Systems connector. Configure this task by completing the following fields.
 
 * Properties filename
 * Skip files with no property file found in hierarchy
 
-## File
+### File
 
-### Attach Content Binaries
+#### Attach Content Binaries
 
 This task is designed to grab a binary from the filesystem given a path set in the form field. The task will look for a file of the same name.
 
@@ -2522,31 +2522,31 @@ This task is designed to grab a binary from the filesystem given a path set in t
 * If there is an error reading the file, an error will be noted in the tasks/job run.
 * If the task does not detect the use of an expression through the characters `'${'`, it will search the document metadata for a field which contains the absolute path to the file.
 
-### Attach Content - External Repo
+#### Attach Content - External Repo
 
 This task is for a scenario in which the source contains document metadata and also contains the file path to it's content.
 
 This allows the user to read metadata and attach the file to it that matches the metadata field given.
 
-#### Configuration
+##### Configuration
 
 * Enter the field that references the Object Id for the file content.
 * If you include metadata 3Sixty will combine the properties between the two files
 
 > **Note**: The text input does not currently process expressions.
 
-### Attach Content - File System
+#### Attach Content - File System
 
 This task is designed to grab a binary from the filesystem given a path set in the form field. The task will look for a file of the same name.
 
-#### Configuration
+##### Configuration
 
 * Expressions should be used to set the path dynamically. ie `/path/to/` + `#{rd.FileName}`
 * If there is no file at the specified path, the documents will be skipped.
 * If there is an error reading the file, an error will be noted in the tasks/job run.
 * If the task does not detect the use of an expression through the characters `'${'`, it will search the document metadata for a field which contains the absolute path to the file.
 
-### Attach Content - FTP
+#### Attach Content - FTP
 
 Sets the binary of a document to a binary found on an FTP server at the location found using the Path Expression.
 
@@ -2560,7 +2560,7 @@ Sets the binary of a document to a binary found on an FTP server at the location
 * **Server Port**: The port your FTP server is listening on
 * **Thread Count**: Number of FTP poster threads
 
-### Attach Content - S3
+#### Attach Content - S3
 
 Attaches a binary to the repository document from an S3 bucket.
 
@@ -2571,7 +2571,7 @@ Attaches a binary to the repository document from an S3 bucket.
 * **Key Field**: The field on the repo document that contains the key for S3 bucket lookup.
 * **S3 Region**: The region of your S3 bucket
 
-### Filter Expression
+#### Filter Expression
 
 The filter expression task allows you to remove files based on the expression used. The task has two fields, the **task name** and the **filter expression**. The task name is arbitrary but should identify the type of filter you're creating.
 
@@ -2583,7 +2583,7 @@ The filter expression can use any of the 3Sixty [Expression Language](#federatio
 
 The above example will find all the files that have the name **'Thumbs.db'** and set the expression to false for the documents. Therefore, all files with the name 'Thumbs.db' will be skipped.
 
-### Generate Thumbnail
+#### Generate Thumbnail
 
 Generates a thumbnail for a repository document and adds it as a rendition.
 
@@ -2593,7 +2593,7 @@ Generates a thumbnail for a repository document and adds it as a rendition.
 * **Action**: The integration action to take following thumbnail generation
 * **Types of Thumb Nails**: List of comma delimited file extensions to support
 
-### Hash Value Generator
+#### Hash Value Generator
 
 Creates a hash of the document content and sets it on the repository document. Can be used in tandem with the [Duplication Check](#duplication-detection) task to find duplicates.
 
@@ -2602,13 +2602,13 @@ Creates a hash of the document content and sets it on the repository document. C
 
 Federation Services can generate Hash for any File Size. But users are provided with the option to add File Size limit while generating Hash. If the user does not want to generate a Hash for a file of a particular size, then they can put it in megabytes.
 
-### HTML to PDF
+#### HTML to PDF
 
 This task takes a single argument, which is a file path to an XHTML stylesheet ( *.xsl).
 
 The binary stream is taken from each repository document and converts it to a pdf using the template.
 
-### Property XML Parser Job
+#### Property XML Parser Job
 
 This task will take an XML file and use the content to create metadata fields.
 
@@ -2627,56 +2627,56 @@ The xml is expected in the followingform:
 * The root element is named as such for the example. The task searches for "entry" children.
 * Comment is an optional field and will be added as **comment** to the document properties.
 
-### Remove Renditions Matching Binary MimeType
+#### Remove Renditions Matching Binary MimeType
 
 This task takes no arguments. It will remove all renditions that have the same MimeType as the Original Document Binary.
 
-### Skip Blank Filename
+#### Skip Blank Filename
 
 Skips a file during migration if its file name is blank.
 
 No additional Task Configurations needed.
 
-### Skip on Empty Field
+#### Skip on Empty Field
 
 This task will skip a document if the supplied fields are all blank.
 
-### Text to PDF
+#### Text to PDF
 
 This task takes no arguments, and simply converts text binaries from a Repository Document into a PDF file on output. If the mimetype of the document is not 'text/plain', it will be skipped.
 
-### Text/HTML to EML
+#### Text/HTML to EML
 
 This task takes the content of an document and converts it into email.
 
-### Unzip
+#### Unzip
 
 This task will unzip any compressed files during the migration process and send the documents directly to the output connector. Documents that are queued this way will not increment Read, but will increment processed.
 
-#### Configuration Fields
+##### Configuration Fields
 
 * **File staging location**: The location unzipped files are stored temporarily while processing
 * **Skip the zip file after unzip**: Check this box to skip the zip file during processing. If the box is unchecked the zip file will be included in the document transfer
 
 > **Caution**: When unzipping files to an ECM output location, if the zip file has the same file name as another document in the folder, the file will not unzip to that location as ECM doesn't allow folders to be created with the same name as a file. It will result in a duplication error.
 
-## Text Extraction
+### Text Extraction
 
-### AWS Textract
+#### AWS Textract
 
 This task will extract text from PNGs, JPGs, and PDFs and stores the text on the repository document in the **simflofy_ai_text** field.
 
-#### Configuration
+##### Configuration
 
 * **Authentication Connection**: An Amazon authentication connection with your Amazon AWS credentials
 
-### Google Vision Text Extraction
+#### Google Vision Text Extraction
 
 Extracts text from .tiff, .pdf and .gif files and stores it on the repository document in the **simflofy_ai_texts** field.
 
 * **Authentication Connector**: Your authentication connection for Google You can find it in the url while edit or view page for the connection
 
-### Tesseract Text Extraction
+#### Tesseract Text Extraction
 
 PREREQUISITE
 This task requires Tesseract to be installed on the system that Federation Services is running on.
@@ -2685,7 +2685,7 @@ This task uses Tesseract OCR to scan for text from images and PDF files, saving 
 
 > **Note**: Tesseract OCR will be an optional dependency of Federation Services.
 
-#### Configuration
+##### Configuration
 
 * **Tessdata Directory**: The path to your Tessdata folder. This folder should have the trained data of the language you plan to OCR.
 * **Tesseract Library**: The path to your Tesseract library folder containing the proper library files for your OS.
@@ -2694,29 +2694,29 @@ This task uses Tesseract OCR to scan for text from images and PDF files, saving 
 * **Tesseract Language Code**: The language code for the installed trained data in your Tessdata directory. This is in ISO 639-1/T format and is the letters before the .trained data extension for the trained data file.
 * **Use HOCR**: Whether to use HOCR. When enabled, text will be output in HTML format rather than as raw text.
 
-## Image Analysis
+### Image Analysis
 
-### AWS Image Recognition
+#### AWS Image Recognition
 
 Detects real world objects in images and adds these labels to the repository document on the field **simflofy_ai_labels** using the AWS Rekognition system.
 
 For your reference, these are 'MinConfidence' and 'MaxLabels' [here](https://docs.aws.amazon.com/rekognition/latest/dg/what-is.html){:target="_blank"}. This page is what this task uses.
 
-#### Configuration
+##### Configuration
 
 * **Minimum Threshold**: The minimum confidence threshold for labels to return following label detection. Labels with a confidence level lower than this will not be returned.
 * **Max Number of labels**: The maximum number of recognised labels to be returned, by highest confidence.
 * **Auth conn**: Your Amazon AWS credentials
 * **Max number of labels**: The number of labels you want to return
 
-### Google Vision Image Labels
+#### Google Vision Image Labels
 
 Detects real world objects in images and adds these labels to the repository document on the field **simflofy_ai_labels** using Google Vision.
 
 * **Max Number of labels**: The maximum number of recognised labels to be returned
 * **Authentication connection**: Your authentication connection for Google. You can find it in the url while edit or view page for the connection
 
-### Watson Image Analysis
+#### Watson Image Analysis
 
 Uses IBM Watson Image Analysis to analyse an image, adding its response to a specified field.
 
@@ -2727,39 +2727,39 @@ Uses IBM Watson Image Analysis to analyse an image, adding its response to a spe
 * **The training json**: Required for training mode. The format is {"dog":[25,35,105,215]}. Array order is top, left, width, height with object type as the key.
 * **Field that contains the image urls**: If left blank the file content will be used.
 
-## Alfresco
+### Alfresco
 
-### Alfresco Job Run History Nodes
+#### Alfresco Job Run History Nodes
 
 The purpose of this task is to get the Alfresco Node Reference from the Current Job Run History, in order to update an existing document from a previous Job run in Alfresco, rather than creating a new one.
 
 It's used in **Incremental** or jobs where the Alfresco connector is being used. This task uses the Source Repository ID from the Repository the document is pulled from, in order to find the document in the Job Run History.
 
-#### Configuration
+##### Configuration
 
 **Set up:** There are no configuration options for this task. It uses the Document's Source Repository ID in order to find the node Reference in Alfresco.
 **Exception/Requirements:** Since the Source Repository ID is used, any source repositories that use a Path Based Source ID will not work if the path of the document changes.
 
-### Alfresco Property Mapping Nodes
+#### Alfresco Property Mapping Nodes
 
 This task is for getting existing node references in an Alfresco instance, in order to update them, rather than create a new one if the existing file has moved from its original ingestion location.
 It's used in jobs where the Alfresco Output connector is used. Typically, in incremental or sync jobs, where changes to a file from a source system need to make it to the node it previously integrated to.
 
-#### Configuration
+##### Configuration
 
 **How to set up**: Provide the query JSON object, which is then sent to Alfresco which will return the matching Alfresco Node Reference, which we'll use to update the document.
 
 **Exceptions / requirements**: If the query is too vague, and matches more than one node/document, then none of the documents will be updated. The query has to uniquely find a single node/document in Alfresco.
 
-## ACL
+### ACL
 
-### CMIS ACL modification
+#### CMIS ACL modification
 
 This task is meant to be used with a CMIS Repository connection. It will use the Repository Document id, and gather the current ACL for the document. It will then generate a new ACL based on the parameters. This task establishes a session upon initialisation, and keeps it open until the job run is complete.
 
 The principal lists are pipe (|) delimited, to account for LDAP style principals. You will need to know the exact principal ids of the ACEs (Access Control Entries). The task works by cycling through the current ACEs and a series of if-then logic to construct a new ACL.
 
-#### Configuration
+##### Configuration
 
 * **User name**: CMIS server user name
 * **Password**: CMIS server password
@@ -2773,7 +2773,7 @@ The principal lists are pipe (|) delimited, to account for LDAP style principals
   * Write
   * All
 
-### FileNet ACL Modification
+#### FileNet ACL Modification
 
 The purpose of this task is change the permission lists of integrated documents in the IBM FileNet Repository.
 
@@ -2786,7 +2786,7 @@ The purpose of this task is change the permission lists of integrated documents 
 
 Note that any permission not added to these lists will be ignored.
 
-### File System ACL Extraction
+#### File System ACL Extraction
 
 Extracts ACLs from the Windows or Linux filesystem document and adds them to the repository document.
 
@@ -2809,7 +2809,7 @@ Finally, if any User Defined File Attributes (extended attributes), they will be
 
 `simflofy.userattributes`
 
-### Generic ACL Mapper
+#### Generic ACL Mapper
 
 The generic ACL mapper job task allows you to create simple rules for matching principles and permissions from one system to another. ACLs will need to be extracted from each document. This task reads the **originalPermissions** field of the document and sets the **transformedPermissions** field.
 
@@ -2825,9 +2825,9 @@ Only the Azure Blob, CMIS, and Alfresco Connectors can use this task. For all ot
 * Enabling parsing: Enable parsing for multiple permissions to be assigned to an authority after mapping?
   * For example, [Write]=WRITE_DATA with this box checked will allow 'Write' to be added on as an extra permission to an authority's newly mapped permissions.
 
-## Classifier
+### Classifier
 
-### IBM Watson Natural Language Classification
+#### IBM Watson Natural Language Classification
 
 Uses IBM Watson Natural Language classifier to analyse and label text into categories. This uses Watson's Natural Language Classifier APIs.
 * **The IAM API Key for IBM Cloud**: See instructions [here](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui){:target="_blank"} on how to get it.
@@ -2836,31 +2836,31 @@ Uses IBM Watson Natural Language classifier to analyse and label text into categ
 * **Field to store the Watson response**: If left blank, the field name will be 'nlc'.
 * **Comma delimited list of file extensions**: Which content types to process or leave blank to process all.
 
-## Others
+### Others
 
-### Index User Groups
+#### Index User Groups
 
 Used for Search Security to index user and group information onto each document. This task adds two metadata fields to each document in order to restrict or allow access to documents indexed through this task.
 
 * **Select User Groups To Index**: The selected user groups will be added to the field simflofyUserGroups as well as adding a mapping.
 * **Select Users to Index**: The selected users will be to the field simflofyUsers as well as adding a mapping.
 
-### Lookup Destination Id From Job Run History
+#### Lookup Destination Id From Job Run History
 
 **Purpose**: Getting the rd destination Id from the Current Job Run History, in order to update an existing document from a previous Job run, rather than creating a new one.
 **Use Case**: It's used in **Incremental** or **Sync** jobs. This task uses the Source Repository ID from the Repository the document is pulled from, in order to find the document in the Job Run History.
 **Set up**: There are no configuration options for this task. It uses the Document's Source Repository ID in order to find the rd destination Id.
 **Exception/Requirements**: Since the Source Repository ID is used, any source repositories that use a Path Based Source ID will not work if the path of the document changes.
 
-### Remove Empty Fields
+#### Remove Empty Fields
 
 This task will remove any empty fields from the metadata of the document if there is no set value in those fields.
 
-# Audit Reports
+## Audit Reports
 
 Federation Services Reports can provide documentation and results from each time a job has been run. In this section you will find overviews, set up instructions, and use cases of the various reports you can use to see what's going on with your data. These reports can be found under the Auditing section in the left sidebar.
 
-## Job Run History
+### Job Run History
 
 The Job Run History page allows you to search collections of audits based on the job, depending on what types of audits were selected in the Job Configuration(link). A Job Run History contains, at least, the Name, Size, Mimetype, and source ID of each audited document.
 
@@ -2872,37 +2872,37 @@ Click on the eye icon next to the job to view the full details of the job run. T
 
 > **Tip:** Tip: Users can access a specific sets of audits for a job by clicking on the processed/read/error numbers in the [Run and Monitor Jobs](#run-and-monitor-jobs) page.
 
-### Records
+#### Records
 
 The Records tab will give you a list of all of the documents that have been processed through this job run. This list can be filtered by record type. Allowing the user to view records that have been: processed, read, deleted, errors, error summary, skipped, and duplicates. You can use the search field to filter the list by record content such as document name and content type.
 
-### Details
+#### Details
 
 The Details tab will give you all of the details about the job run.
 
 Job Details: Job ID, Job Name, Job Status, Status Message, Job start and end time, Total time, Query From and to time, Records processed per sec, number of records read, written, in error and skipped, and the Federation Services server port number.
 
-### Stats
+#### Stats
 
 Clicking on Stats tab will provide a basic performance report.
 
 In the figure, the input is tracked as the blue line, the output as yellow. This can help determine the "bottleneck" if the job performance is not as expected. It also shows the bytes per second allowing for the debugging of network throughput issues.
 
-### Deleting Job Run History
+#### Deleting Job Run History
 
 To delete individual job run histories, you can simply delete them while viewing them, or, in 3.1.1+ a button will be available in the Job Run History table.
 
-### Automatically Deleting Job Run History
+#### Automatically Deleting Job Run History
 
 Federation Services has a background service that will check for job run histories of a certain age, and remove them. This service can be configured through the Federation Services Global Properties.
 
 History retention is on a per-job basis and can be configured under the **Advanced Options** section in the job's **Details** tab.
 
-## Document Search
+### Document Search
 
 Search job run history for specific documents. Results will contain a link to the document's details page, containing a full history for that document across all job runs.
 
-### Filter by Record Type
+#### Filter by Record Type
 
 AUDITING:
 
@@ -2914,11 +2914,11 @@ Auditing of record types is set in the Auditing menu in a job's **Details** tab
 * **Skipped**: Documents that were skipped due to falling outside the time range, or by a processor
 * **Duplicate**: Detected duplicates. Requires a Duplicate Detection Task.
 
-### Filter by Job
+#### Filter by Job
 
 Choose the job you want to filter by or search all jobs
 
-### Filter by Field Value
+#### Filter by Field Value
 
 * **No field**: Selecting this option will perform an open search for all documents in the selected job
 * **Job Run ID**
@@ -2937,22 +2937,22 @@ TABLE SEARCH
 
 The **results** table also has a search field to further narrow down the results
 
-### Exporting
+#### Exporting
 
 You have the option of exporting the current page or entire result set as a CSV file, using the buttons at the top of the page. Will only activate if there are search results.
 
-## Mapping Audits
+### Mapping Audits
 
 Mapping audits are a way to track the values of individual mappings on a per job run basis
 
-### Enabling Mapping Audits
+#### Enabling Mapping Audits
 
 There are two ways to enable mapping audits.
 
 1. In the **Mappings** tab of your job. Click the eyeball next to any mapping. A green eye means the mapping is being "watched", and its values will be track 
 2. In the **Details** tab of your job, under the **Auditing** section, check **Audit all Mappings**. This will collect the audit data for every mapping on the job, including additional mappings from Job Mappings and Mapping Groups
 
-### Viewing audit data
+#### Viewing audit data
 
 Under the **Audit Reports** menu in the sidebar, click **Mapping Audits**. If there are no jobs with audited mappings, you should see a message saying so. Otherwise, you will be presented with a drop-down of jobs with mapping audits.
 
@@ -2962,21 +2962,21 @@ Under the **Audit Reports** menu in the sidebar, click **Mapping Audits**. If th
 
 These audits can be exported using the **Export as CSV **button.
 
-### Example: Content Type Breakdown
+#### Example: Content Type Breakdown
 
 If you add a **calculated field** with the source **'#{rd.mimetype}'** (see the [Federation Services Expression Language](#federation-services-expression-language)) and audit it, you will be able to see a breakdown of all content types (pdf, docx) for documents in the job.
 
-### Example: Auditing a PII Job
+#### Example: Auditing a PII Job
 
 If you add a [PII Detection Task](#pii-detection-and-reporting) to a job, the field **hasPii** is automatically added to each document. You can add this as the source of a **field mapping** and audit it.
 
 When viewing the mapping in the Mapping Audits page, you will get a breakdown of how many documents in the job contained PII.
 
-## Search Audit
+### Search Audit
 
 Search audits are collected by all search API endpoints. This includes searches performed through Discovery. In this page you can view the audits for the last week. For a broader view, these reports can be retrieved through the [[Audit Report Service REST API](https://api.simflofy.com/#/Audit Report Service)](https://api.simflofy.com/#/Audit Report Service)<!--FIXME: link to the simfloly api, should it stay this way?-->
 
-## Event Audit
+### Event Audit
 
 All API actions in Federation Services are audited. This page allows you to see those audits using search criteria.
 
