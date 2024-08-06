@@ -9,6 +9,8 @@
       path: '/federation-services/latest/config/'
     - title: 'Administer'
       path: '/federation-services/latest/admin/'
+    - title: 'Using'
+      path: '/federation-services/latest/using/'
 
 # Federation Services 3.1
 - version: 3.1

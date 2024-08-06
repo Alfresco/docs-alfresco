@@ -293,10 +293,10 @@ Content View Connectors are used by Content Views in Federation to query indexed
 
 #### Available Content View Connection Types
 
-* [Elasticsearch Connector]({% federation-services\latest\config\index\#elasticsearch %})
-* [MongoDB GridFS]({% federation-services\latest\config\index\#mongodb-gridfs %}) Search Connector
-* [MongoDB]({% federation-services\latest\config\index\#mongodb %}) Search Connector
-* [SOLR]({% federation-services\latest\config\index\##apache-solr %}) Search Connector (End of Life)
+* [Elasticsearch Connector]({% link federation-services/latest/config/index.md%}#elasticsearch)
+* [MongoDB GridFS]({% link federation-services/latest/config/index.md%}#mongodb-gridfs) Search Connector
+* [MongoDB]({% link federation-services/latest/config/index.md%}#mongodb) Search Connector
+* [SOLR]({% link federation-services/latest/config/index.md%}#apache-solr) Search Connector (End of Life)
 
 #### Basic Configuration
 
@@ -380,11 +380,11 @@ Federation Services's Content Service Connections offer public REST endpoints th
 * Showing repository capabilities
 * Retrieving the Root Folder ID
 * Managing Permissions
-  * [CMIS]({% federation-services\latest\config\index\#cmis }%)
-  * [Documentum]({% federation-services\latest\config\index\#documentum }%)
-  * [Box]({% federation-services\latest\config\index\#box }%)
-  * [FileNet]({% federation-services\latest\config\index\#ibm-filenet }%)
-  * [SharePoint Online (O365)]({% federation-services\latest\config\index\#microsoft-graph-sharepoint }%)
+  * [CMIS]({% link federation-services/latest/config/index.md%}#cmis)
+  * [Documentum]({% link federation-services/latest/config/index.md%}#documentum)
+  * [Box]({% link federation-services/latest/config/index.md%}#box)
+  * [FileNet]({% link federation-services/latest/config/index.md%}#ibm-filenet)
+  * [SharePoint Online (O365)]({% link federation-services/latest/config/index.md%}#microsoft-graph-sharepoint)
 
 #### Basic Configuration
 
@@ -1908,7 +1908,7 @@ The list of jobs displayed will tell the user the job status, how long the job t
 
 #### Reviewing Job Errors
 
-If any errors occurred during the job run, you can click on the error count to get to the error report page. From the error report you will be able to see the cause of the errors and download them as a csv if needed. For additional debugging instructions see the following article: [Federation Services Logging Instructions]({% link federation-services/latest/admin/index/#logging %}).
+If any errors occurred during the job run, you can click on the error count to get to the error report page. From the error report you will be able to see the cause of the errors and download them as a csv if needed. For additional debugging instructions see the following article: [Federation Services Logging Instructions]({% link federation-services/latest/admin/index.md%}#logging).
 
 #### Resuming and Restarting Jobs
 
@@ -1977,7 +1977,7 @@ mongoexport --db simflofy --collection duplicates --fields _id,docs,doc_names
 ### Stuck Jobs
 
 If a job is running and the **Abort** does not stop the job in an appropriate amount of time, the job can be killed manually through an Admin page.
-See [Active Jobs]({% link federation-services/latest/admin/#active-jobs %}) for more information.
+See [Active Jobs]({% link federation-services/latest/admin/index.md%}#active-jobs) for more information.
 
 ## Federation Services Job Flow
 
@@ -1985,7 +1985,876 @@ See [Active Jobs]({% link federation-services/latest/admin/#active-jobs %}) for 
 
 # Task List
 
-<!--FIXME: to do still-->
+Tasks are run for each document that has been read. A number of tasks can be set to remove documents from the queue if they don't fit certain criteria. Documents removed this way will not be processed by any following tasks. It should be noted that Calculated Fields are calculated before tasks, while Fields Mappings are handled after tasks.
+
+## Commonly Used
+
+### Duplication Detection
+
+This task checks the chosen field to find duplicate documents during the job run. And will take the selected actions against the document if a duplicate one exists. To see how each repository handles duplicates and versioning check the individual connector page.
+
+When the duplication check is ran multiple times the original file will not be marked as duplicate.
+
+#### Configuration
+
+**Field to Compare**: The field whose value will be used to check for duplicates. If this value is found in any other document it will be considered a duplicate. The default is the File Content Hash. 
+* File Content Hash
+* Document Type
+* Document Source Id
+* Document URI
+* Version ID
+* Version Series Id
+
+If you wish to compare file hashes (a sort of fingerprint for a document), you will need to precede this task with a [Hash Value Generator Task](#hash-value-generator).
+
+**Duplication Check Scope**:
+
+* **Run Job**: Check the documents associated with this job run only
+* **Job**: Check all documents ever ran for that job
+* **Enterprise**: Check all documents ever processed through 3Sixty
+
+**Action**: What to do if a document is found. 
+
+* Audit and continue 
+* Skip the document
+* Fail the job
+
+#### Tagging Duplicate Documents
+
+Metadata can be added through mapping to tag documents discovered as duplicates when the Action field is set to Audit and Continue.
+
+The fields that can be added are:
+* **isDuplicate**: true (if duplicate found) or false (if not) 
+**Important:** When using the Duplication Detection task in a job the user must make sure that if they are mapping the "isDuplicate" field that they set the Target type to String and not Boolean or they will receive an error that they cannot change text to boolean. If this error is received the user has to drop the index and run the job again. 
+* **baseParentID**: doc ID of the original document
+* **duplicationParentID**: comma separated list of doc IDs of the documents that it found duplicates against - blank if no duplicate detected
+* **duplicationScope**: blank if no duplicate detected, and
+* **duplicationCriteria**: which fields the duplicate was considered against; depends on what was selected below - blank if no duplicate detected
+
+### Filename Cleanse
+
+his task uses regex (Regular Expressions) to alter filenames.
+
+Common use cases are clearing unwanted characters, such as whitespace, or non-alphanumeric characters.
+* **Regex to Match**: The regex pattern to search for in the filename.
+
+The default value matches any character that isn't a letter, number, space or period an unlimited number of times.
+* **Replacement**: Replacement for matches.
+
+EXAMPLE - ALPHANUMERICS  
+The pattern for alphanumeric characters is  
+  
+`[a-zA-Z0-9]`, or if you wish to include underscores `\w ` 
+  
+To select for non-alphanumeric characters we add the carat (^) before the pattern, so  
+  
+`^[a-zA-Z0-9]`
+  
+The character simply translates to "Not", so it negates whatever is after it.
+
+EXAMPLE - CLEARING UNWANTED SPACES  
+The pattern `\s` is regex shorthand for "spaces". If you're worried about tabs, line breaks etc. add an asterisk (*) after the pattern for what is called "greedy" selection.  
+  
+Adding this as your regex and setting the replacement as `''`
+
+### Filename Extraction
+
+Extracts the file name from another field using regex (Regular Expressions). It will set the file name to the value that matches the regex.
+
+* **Regex to match:** The regex to match and convert to and set as the file name.
+* **Data Field:** The repository document field to match the regex on.
+
+EXAMPLE - ALPHANUMERICS
+The pattern for alphanumeric characters is
+
+`[a-zA-Z0-9]`, or if you wish to include underscores `\`w`
+
+To select for non-alphanumeric characters we add the carat (^) before the pattern, so
+
+`^[a-zA-Z0-9]`
+
+The character simply translates to "Not", so it negates whatever is after it.
+
+EXAMPLE - CLEARING UNWANTED SPACES
+
+The pattern `\s` is regex shorthand for "spaces". If you're worried about tabs, line breaks etc. add an asterisk (*) after the pattern for what is called "greedy" selection.
+
+Adding this as your regex and setting the replacement as `''`
+
+### Folder Path Cleanse
+
+This task uses Regular Expressions (regex) to alter Folder Names. Functionally identical to Filename Cleanse Task, except that is changes the document parent path.
+
+**Regex to Match:** The regex pattern to search for in the Folder Name.
+
+The default value matches any character that isn't a letter, number, space or period an unlimited number of times.
+
+**Replacement:** Replacement for matches.
+
+### Obsolete Detection
+
+The obsolete task can be used to identify obsolete documents when reading them from the source repository. This can be used either in the federation view for identifying documents that are obsolete based on the definition set in the task for the job by adding metadata or skipping/processing the documents which are obsolete. You can define what obsolete means for your organisation - you can define it based on the date created or updated and the content before what timeframe is considered as obsolete.
+
+> **Note**: The Obsolete Detection tasks uses the system time of the 3Sixty server when calculating date/time scenarios.
+
+#### Fields
+
+* Before when will the files be considered obsolete
+* Before
+* Custom Date
+* Action
+
+#### Metadata
+
+* isObsolete - Yes/No
+* obsoleteField - Date Created or Date Updated
+* obsoleteBefore - date after which the content is considered obsolete
+
+### Override Filename
+
+The task uses the 3Sixty Expression Language to override the file name of each document. The functionally of this task is identical to the [Override Folder Path](#override-folder-path) task.
+
+#### Configuration
+
+* **Pattern**: List the fields you want to use to rename the file
+* **Deep Change**: If the file has versions, update their names as well.
+
+### Override Folder Path
+
+Add the Override Folder Path task from the drop-down on your job.
+
+A sample pattern has been provided for you by default. You can also leverage the 3Sixty expression language when modifying your path. More information on the Expression Language can be found [here](#federation-services-expression-language). Click the Done button when you have finished modifying your job task.
+
+The example pattern is
+
+`'/' + '#{rd.filename}' + '/simflofy'`
+
+Using the Expression Language you can see that **rd**. are internal 3Sixty Fields.
+
+However, you may want to use metadata from the source system to generate your path.
+
+Use **field** in place of r**d to accomplish this or **leave off the prefix entirely**.
+
+The best way to put your path together is to know what fields are available and what the field values look like. We suggest running the BFS output with no mappings and Include Un-Mapped Properties set to True. This will generate a xml file such as:
+
+```xml
+<properties>
+<entry key="document.name">Alfresco Ingestion.pptx</entry>
+<entry key="type">document</entry>
+<entry key="folderpath">test3Sixty_Partners</entry>
+<entry key="separator">,</entry>
+<entry key="document.Culture">en-US</entry>
+<entry key="document.CustomerId">123</entry>
+<entry key="document.Category">legal</entry>
+<entry key="document.lastindex">23</entry>
+</properties>
+```
+
+Now let's say we want the actual folder path to be a combination of folderpath + Culture + Category + Customer ID. To do that we just reference each field like:
+
+```text
+'/' + '#{rd.path}' + '/' + '#{document.Culture}'+'/' +
+'#{document.Category}'+'/' + '#{document.CustomerId}'
+```
+
+### PII Detection
+
+The PII Detection Job Task is uses regex expressions to detect PII in any document or metadata passing through 3Sixty. The regex expressions are stored in the form of a .properties file.
+> **Caution**: File size limit is 95MB
+
+PII FLAG  
+This task will always add the boolean field hasPii for the purposes of mapping and analysis.
+
+DEFAULT FILE LOCATION  
+The default file is located at 3sixty-admin/WEB-INF/classes/simflofy-pii- detection.properties
+* **Field To Mark**: The output metadata property to store PII detected. The value of this field will be a map
+
+```
+{
+"PhoneNumber": 20,
+"Names": 200
+}
+```
+
+* **Break up PII data into individuals fields**: Instead of adding the PII as a map, 3Sixty will break it up as individual fields for easier mapping/processing.
+* **Prefix for PII fields**: If breaking up PII data, the prefix to use for each field. If left blank 'pii' will be used.
+* **Fields To Check**: Source properties and/or document to check for PII. Use ALL_PROPS to check all properties, BINARY to check the document (extracted via Tika) or individual property names.
+
+In this case, the above fields will come across as
+
+**pii.phonenumber** and **pii.names**
+
+### Rename File On Duplicate File Path
+
+Functions similarly to the [Duplication Check](#duplication-detection) task, except if it finds a duplicate, it will rename the file using the supplied pattern.
+
+### Tika Text Extractor
+
+[Apache Tika](https://tika.apache.org/) is an open-source tool used to extract text from documents. 3Sixty most commonly uses it to extract text during indexing for federated search.
+
+For this feature to work on larger files, memory pool settings of 4GB is required, 8GB recommended. This can be updated in the Java tab of your Apache Tomcat Properties window.
+
+> **Caution**: File size limit is 95MB
+
+* **Tika Content Field**: The field where the task will put the extracted content.
+* **Max Content Length (B)**: Set the max content length which is checked before processing. The job will not process documents over this size. Set to 0 to process documents of any length.
+* **File Extensions to Extract**: Comma delimited list of file extensions to process or leave blank to process all. The extensions are checked at the same time as content length.
+**Fail Document on Extraction Error**: Fail the Document if there is an Extraction Error during processing.
+* **Remove Content After Extraction**: Remove the content from the documents. This will happen even if the document exceeds the maximum length.
+* **Stage on Filesystem**: Stage content on the filesystem for extracting text or set to false to use in memory.
+
+### Trivial Detection
+
+The trivial task can be used to identify content that is trivial in nature (as it holds no importance from a corporate knowledge perspective). The definition of trivial depends on your organisation. You can set whether you want to filter on documents of certain sizes or if you want to filter out files with certain extensions or document types. For example, dmg, and exe are installers and may hold no corporate importance so you may want to skip such content from being registered as a record, you can now do so by adding them to the filtered list of extensions. 
+
+#### Configuration
+
+You can add several filters to include documents that meet all the stated criteria.
+
+* Filter on document' below a specific size
+* Filter files below size (bytes)
+* Filter on document's above a specified size
+* Filter files above size (bytes)
+* Filter on file extension
+* Filter on document type
+
+Once the filters are selected you can then determine what action should be taken with the files that meet the selected criteria.
+
+* Audit and Continue
+* Skip the files
+* Fail the job
+
+#### Metadata
+
+The trivial detection task also includes the following default set of metadata:
+* **isTrivial** - Yes/No
+* **ignoreSizeBelow** - content ignored below size in bytes
+* **ignoreSizeAbove** - content ignored above size in bytes
+* **ignoreExtensions** - comma separated list of extensions that were listed in the criteria
+* **ignoreDocTypes** - comma separated list of doc types that were listed in the criteria
+
+## General
+
+### Basic JDBC
+
+This task is for a scenario where if you have extra metadata that points to an external source repository like a JDBC Database 3Sixty will merge that data into your documents as they are being read.
+
+#### Configuration
+
+* **User Name**: JDBC User Name
+* **Password**: JDBC Password
+* **Driver Class**: The driver for the JDBC database. A number of possible drivers are listed here.
+  The Database Driver Class supports:
+    * com.microsoft.sqlserver.jdbc.SQLServerDriver
+    * oracle.jdbc.driver.OracleDriver
+> **Caution**: Ensure that your driver jar file is in the 3sixty-admin/WEB-INF/lib folder at start-up.
+* **JDBC Url**: Url to connect to the database. Each type of database uses a different format. Refer to the linked table for formats.
+  JDBC Url examples:
+    * jdbc:sqlserver://localhost:1433;encrypt=false;databaseName=Objdemo
+    * jdbc:oracle:thin:@dos1029ecm01.eng12.ocl:1521:ora
+* **ID Field**: The field (without table name) which will be used to name binaries queried from the database.
+* **Query**: The query to execute. All results will be added to the document in the format [tableName].[fieldName]
+> **Note**: The query can insert expresions. And the query will only return one document.
+
+### Buffer Binaries to File System
+
+This task will buffer files to temporary directory. In this case the value of the System Property java.io.tmpdir. The task takes a timeout which will fail the document if it does not complete staging in the given amount of time. The default is 10 seconds, but for larger files (100+ MB), we recommend 60 seconds.
+
+### Convert Array Value To String
+
+Converts a property on a repository document from an array to a String.
+
+#### Configuration
+
+* **Delimiter**: The delimiter to place in between values of the Array. If left empty will default to space
+* **Property Name**: The array repository document property to convert into a String. The new String property will have the same name. This field cannot be an expression.
+
+### Convert String to Boolean
+
+The String to Boolean Task is designed to check the value of a string and return true of it matches the expected value. This is a quick way to convert a string field into a Boolean and is used to manipulate data as it is being processed. You also have the option to specify whether the match should be case-sensitive or not.
+
+Here's an example:
+
+In the above example, we are going to check the field **dc:availability**. If the string value of that field equals **available (Expected Value)** the dc:availability field will be updated to a **true**(boolean). As we elected not to use case sensitivity, the string **AvailAble** would also return true. Otherwise, a boolean **false** value will be stored.
+
+### Convert To UTC
+
+This task will convert date fields to the given format, with the given offset.
+
+#### Configuration
+
+* **Date Fields to Convert**: A comma delimited list of repository fields or the output of calculated field.
+  * If you do not supply field names, the task will attempt to process all the Job's Date/Time mappings. Note: only calculated field mappings are available to job processors.
+* **Offset**: Timezone offset.
+* **Date Time Format**: Final format for the field you're converting.
+* **Define Date Time Format Check box**: Check to define an output format, uncheck to return default format (i.e. 2019-11-05T16:00:00Z)
+
+### Date Based Folder Path
+
+This task takes ones of the date fields on the Repository Document and uses it to generate the parent folder path for the document. This mimics how Alfresco stores its data in the filesystem
+
+#### Configuration
+
+* **Repository Document Field**: the field to use for the path - can be any date field
+* **Pattern**: The pattern used to break down the date into a folder path
+
+The default is /yyyy/M/dd/kk/mm/ss/
+
+In this case, kk is used for hours.
+
+#### Example
+
+For the document file.txt, if you set the field to used the modified date `'#{rd.modifieddate}'` and the date is `1999-04-20T12:01:23`, then your path with the default pattern will be:
+
+`/1999/4/20/12/01/23/file.txt`
+
+### Field Lookup
+
+This task is intended to allow users the ability to perform a look-up operation and update the matching fields of the repository documents. This task was originally created for integrations in which certain field values could only be obtained by importing them from an external source.
+
+* **Task Name**: Name of the Lookup Job Task
+* **Delimiter**: Denotes the delimiter character if values are not in list format.
+* **Property Field**: Path Uses preset configurations to evaluate values against the path
+  * File Name Uses preset configurations to evaluate values against the file name
+  * Other Property Evaluates a property entered by the user against the given values
+* **Property Name**: A specific property entered by the user. This property will be used only if Other Property is selected from the property field drop-down list.
+* **Values**: Key=Value listing to be used as the source data for the lookup operation.
+* **Look for an exact match**: If set to true, properties that have an exact (whole case) match will be updated. If set to false, properties that contain the entered value(s) will be updated. For instance, if set to true the value 123 will only have a match with 123. If false, a match will be identified if 123 is present in any part of the field and only that portion will be updated with the new value.
+
+3Sixty can utilise any properties that are associated with a repository document. We recommend running a BFS output job with no mappings and Include Un-Mapped Properties set to True. This will generate a xml file similar to the example below and allow you to see what properties are available for your documents:
+
+```
+<properties>
+<entry key="document.name">3Sixty Overview.doc</entry>
+<entry key="type">document</entry>
+<entry key="folderpath">test3Sixty_Setup</entry>
+<entry key="document.Culture">en-US</entry>
+<entry key="document.Customer">123456</entry>
+<entry key="document.Category">training</entry>
+</properties>
+```
+
+In the example above you will notice that the **document.Customer** field has a numerical value associated with it, but not the actual customer name. The task will allow you to import a list of customer IDs along with their associated customer names and update those values as desired.
+
+The updated values will then be available in subsequent job tasks. For instance, you could then use override folder path task to build out a folder structure with the updated values. Using the scenario above, you could build out a folder for each customer by name instead of numerical value.
+
+### HTTP
+
+The purpose of this task is to execute a GET or POST HTTP call for each repository document. If the status is any of the following, then processing will continue, if not, the document will be skipped.
+
+200 OK
+201 Created
+202 Accepted
+203 Non-Authoritative Information
+204 No Content
+205 Reset Content
+206 Partial Content
+207 Multi-Status (WebDAV)
+208 Already Reported (WebDAV)
+226 IM Used (HTTP Delta encoding)
+
+#### Configuration
+
+* **Username/Password**: Credentials to access the endpoint
+* **Action URL**: The endpoint being contacted, without parameters
+* **POST or GET**: Selects the HTTP Method
+* **Request parameters**: In the form of param1=value1&m2=value2
+  * The 'values' can be dynamically created using the [Expression Language](#federation-services-expression-language)
+* **Send body with request**: The body can be raw text and can use the Expression language.
+  * If the text begins with the symbols `[` or `{`, then the body will be need to be valid JSON
+* **Action to take if the call does not return 200 (OK)**: Continue, Skip or Fail are the options
+* **Timeout in milliseconds**: How long to wait for the call to execute before attempting to continue.
+  * If the timeout is reached, the action selected will be used.
+
+### JavaScript Processing
+
+This task is a custom operation that allows the user to ask 3Sixty to do things that are not already available in the software. 3Sixty's JavaScript Task allows you to run JavaScript against a repository document during processing. The task uses the ECMA 5.1 specification to execute the JavaScript against the native Java API. Currently, only one root object is exposed called rd (repository document). Any method that can be called against the repository document can be called using JavaScript syntax.
+
+**Fields that are also available:**
+
+Variable Name : Variable
+The Job ID : jobId
+The Job Run ID : jobRunId
+
+The variable **result** is automatically declared in each run of the JavaScript task, and its return value can be used to control which documents continue processing.
+
+The task only supports single quotes for strings. Double quotes will cause errors due to how the content of the script is saved to the database.
+
+> **Caution**: When creating the database table name please note that it must be all lowercase.
+
+### Pause
+
+This task can be useful when outputting to a repository with rate limits, such as Box or SharePoint.
+
+* **Pause in seconds**: How long to pause for each document.
+
+### Remove Mappings
+
+Removes mappings from a repository document if the field has no values.
+
+* **Source Fields**: Comma delimited list of the mappings to remove if it has no values.
+
+### Two Way Sync
+
+The Two Way Sync Job Task is to filter out any unnecessary documents when doing an incremental sync between two systems. Documents can be filtered by matching MD5 Hash or If the document was just seen in the last run by the other sync Job.
+
+#### Configuration
+
+For Two Way Sync you will need to set up two Incremental Migration jobs and chain one Job after the other. You will want to put the Job that should win on a collision as the first Job in the chain.
+
+
+On each Job add the TWO Way Sync Job Task and, if using the MD5 Hash option, you will need to add the MD5 Hash Job Task before the Two Way Sync Job Task.
+
+* **Check Last Run**: If this document was just moved by the other Job in the Sync to this Repository, then let's skip it. If you want to sync it back (maybe after a rule/formula set to false).
+* **Compare MD5 Checksums**: Check MD5 Hash of this Document and the Last Document moved by the synced Job. If set to true and MD5 Hashes match, then skip this Document.
+* **Job ID of Other Job**: The Job ID of the other chained Job in this Two Way Sync
+
+## Metadata
+
+### Join Mongo Document Metadata
+
+The purposes of this task is to retrieve metadata from an outside mongo database during a migration, adding it to the repository document before mappings are performed.
+
+This task is called a "join" because it checks for a value on both the Repository Document and in the Mongo Document.
+
+* The **checked field on the Repository Document** can be either a standard field mapping, or it can be calculated using the [Expression Language](#federation-services-expression-language).
+* If either checked field is missing, the process will be skipped.
+* If the values of the checked field matches, the comma delimited list of fields will be added from the Mongo Document, **in lowercase**.
+* They can then be added as normal field mappings in a job mapping, as Field mappings take place after Tasks.
+* This task supports multiple fields to check on the Mongo document and repository document
+* Users can sort the order in which the fields are checked
+
+#### Configuration
+
+Fill in the following fields to configure this task. Some fields come with default configurations. Update them as necessary.
+
+* Task Name
+* The fields you're checking for on the mongo document (comma separated)
+  * Default: doc_id,doc_name
+* The fields you're checking for on the repository document
+  * '#{rd.id}'
+  * '#{rd.filename}'
+Each line contains one field. The number of fields must match the ones you are checking on in the Mongo document.
+* Comma delimited list of fields to add to the repository documents, should the fields match
+* Mongo field to be used for sorting followed by a comma and sort order
+  * docCreated:1
+The Sort order can be +1 for ascending or -1 for descending.
+* The MongoDB Url
+  * localhost
+* The Mongo Port
+  * 27017
+* The mongo database to query
+  * admin
+* The mongo collection to query
+  * collection
+* The mongo user, leave blank if no authentication is set
+* The mongo password, leave blank if no authentication is set
+
+### Metadata Extraction - EML
+
+An EML file is an email message saved by an email application, such as Microsoft Outlook or Apple Mail. It contains the content of the message, along with the subject, sender, recipient(s), and date of the message. EML files may also store one or more email attachments, which are files sent with the message.
+
+This task extracts metadata from emails and adds as fields to the repository document. These extracted fields appear as:
+
+* **Email.Subject**: The subject line of the email.
+* **Email.From**: The 'from' line of the email.
+* **Email.To**: The 'to' line of the email.
+* **Email.Body**: The body of the email.
+* **Email.CC**: The CC line of the email.
+* **Email.BCC**: The BCC line of the email.
+* **Email.EmailList**: Space separated list of To, From and CC addresses.
+* **Email.InternetMessageId**: The message ID of the email.
+* **Email.Size**: The size of the email.
+* **Email.HasAttachments**: Whether the email has attachments or not.
+* **Email.Attachments**: Comma delimited list of email attachments by name. Blank if none.
+* **Email.AttachmentCount**: The number of attachments in this email.
+* **Email.DateTimeSent**: The date time the email was sent.
+* **Email.DateTimeCreated**: The date time the email was created.
+* **Email.LastModifiedTime**: The modified date time of the email.
+* **Email.DateTimeReceived**: The date and time the email was received.
+
+### Metadata Extraction - Path
+
+This task will extract the metadata from the file and add it as fields to the repository document.
+
+#### Configuration
+
+* **Path Field**: Which field to use to extract metadata. Options are
+  * Repository ID (for repos that use the entire path as an ID, such as Filesystem, or Amazon S3)
+  * Parent Path, for repos that don't use paths as ID.
+* **Path Rules**: Comma delimited list of rules to extract. The format is [New Field Name]=#{Location}
+  * Location takes the form of an integer, starting at 0 for the root folder.
+  * Additionally, 'filename','parent',and 'grandparent' with **quotes included can be used.
+
+### Output Metadata As JSON
+
+This task fully converts each document to a json object and exports to it to the configured path on the local filesystem where 3Sixty is running.
+
+* **Output Path**: Folder where the json files will be written. Path will be created if it does not exist.
+
+File name pattern = [filename].document.metadata.json
+
+Folder name pattern = [foldername].folder.metadata.json
+
+### Replace Metadata
+
+This task will perform a Regex search on the configured metadata field and replaces it with supplied text.
+
+* **Source Metadata Field**: The field to check.
+* **Regex to Match**: A regular expression to use as the first argument of a Java String.replaceAll() method.
+* **Replacement Text**: The text to use as the second argument of the replaceAll() method.
+
+### Metadata from Properties File - Filesystem
+
+If there is a separate properties file then 3Sixty will get the metadata from that file. This only works for a File Systems connector. Configure this task by completing the following fields.
+
+* Properties filename
+* Skip files with no property file found in hierarchy
+
+## File
+
+### Attach Content Binaries
+
+This task is designed to grab a binary from the filesystem given a path set in the form field. The task will look for a file of the same name.
+
+* Expressions should be used to set the path dynamically. ie `/path/to/` + `#{rd.FileName}`
+* If there is no file at the specified path, the documents will be skipped.
+* If there is an error reading the file, an error will be noted in the tasks/job run.
+* If the task does not detect the use of an expression through the characters `'${'`, it will search the document metadata for a field which contains the absolute path to the file.
+
+### Attach Content - External Repo
+
+This task is for a scenario in which the source contains document metadata and also contains the file path to it's content.
+
+This allows the user to read metadata and attach the file to it that matches the metadata field given.
+
+#### Configuration
+
+* Enter the field that references the Object Id for the file content.
+* If you include metadata 3Sixty will combine the properties between the two files
+
+> **Note**: The text input does not currently process expressions.
+
+### Attach Content - File System
+
+This task is designed to grab a binary from the filesystem given a path set in the form field. The task will look for a file of the same name.
+
+#### Configuration
+
+* Expressions should be used to set the path dynamically. ie `/path/to/` + `#{rd.FileName}`
+* If there is no file at the specified path, the documents will be skipped.
+* If there is an error reading the file, an error will be noted in the tasks/job run.
+* If the task does not detect the use of an expression through the characters `'${'`, it will search the document metadata for a field which contains the absolute path to the file.
+
+### Attach Content - FTP
+
+Sets the binary of a document to a binary found on an FTP server at the location found using the Path Expression.
+
+* **Username**: The username needed to log in to your FTP server
+* **Password**: The password needed to log in to your FTP server
+* **Host URL**: The URL of the FTP server
+* **Encrypt Data**: Sets whether to encrypt the data connection to the FTP server with TLS. Note that Use FTPS must be checked if you use this.
+* **Use FTPS**: Sets whether to use FTP with SSL protocol.
+* **Is Implicit**: Sets whether to use FTP implicit SSL or FTP explicit SSL
+* **EPSV With IPV4**: Sets whether to use EPSV with IPV4.
+* **Server Port**: The port your FTP server is listening on
+* **Thread Count**: Number of FTP poster threads
+
+### Attach Content - S3
+
+Attaches a binary to the repository document from an S3 bucket.
+
+* **S3 Access Key**: The access key for your S3 connection
+* **Client Secret**: The client secret for your S3 Connection
+* **Base Folder Path**: A base path to be prepended to your key
+* **S3 Bucket**: The bucket to search for the binary. Also, list items either all have periods or none of them do.
+* **Key Field**: The field on the repo document that contains the key for S3 bucket lookup.
+* **S3 Region**: The region of your S3 bucket
+
+### Filter Expression
+
+The filter expression task allows you to remove files based on the expression used. The task has two fields, the **task name** and the **filter expression**. The task name is arbitrary but should identify the type of filter you're creating.
+
+**Filter Expression** 
+
+The filter expression can use any of the 3Sixty [Expression Language](#federation-services-expression-language) components to form simple or more complex expressions for evaluation by 3Sixty.
+**If the expression evaluates to true, the document will continue to be processed.**
+**Example**: If you want to exclude the OS level file Thumbs.db in your job, you can filter those files out using the following statement: `!equalsIgnoreCase('#{rd.filename}', 'Thumbs.db')`
+
+The above example will find all the files that have the name **'Thumbs.db'** and set the expression to false for the documents. Therefore, all files with the name 'Thumbs.db' will be skipped.
+
+### Generate Thumbnail
+
+Generates a thumbnail for a repository document and adds it as a rendition.
+
+> **Note**: This task currently only supports jpg, png, bmp, wbmp, and gif
+
+* **Resize Width**: The width of the thumbnail image in pixels
+* **Action**: The integration action to take following thumbnail generation
+* **Types of Thumb Nails**: List of comma delimited file extensions to support
+
+### Hash Value Generator
+
+Creates a hash of the document content and sets it on the repository document. Can be used in tandem with the [Duplication Check](#duplication-detection) task to find duplicates.
+
+* **Staging**: Where to stage the data locally, while creating the MD5 Hash.
+* **Algorithm**: The type of hash to use. MD5 is the default hash, but SHA hashes are available
+
+Federation Services can generate Hash for any File Size. But users are provided with the option to add File Size limit while generating Hash. If the user does not want to generate a Hash for a file of a particular size, then they can put it in megabytes.
+
+### HTML to PDF
+
+This task takes a single argument, which is a file path to an XHTML stylesheet ( *.xsl).
+
+The binary stream is taken from each repository document and converts it to a pdf using the template.
+
+### Property XML Parser Job
+
+This task will take an XML file and use the content to create metadata fields.
+
+* **Field to Parse**: If the content of the file is the xml to parse, use **BINARY**. If the xml appears in a field, use the field name. This is a required feild.
+
+The xml is expected in the followingform:
+
+```xml
+<rootElement>
+<comment>Comment Text Here</comment>
+<entry key="fieldName1">fieldValue1</entry>
+<entry key="fieldName2">fieldValue2</entry>
+</rootElement>
+```
+
+* The root element is named as such for the example. The task searches for "entry" children.
+* Comment is an optional field and will be added as **comment** to the document properties.
+
+### Remove Renditions Matching Binary MimeType
+
+This task takes no arguments. It will remove all renditions that have the same MimeType as the Original Document Binary.
+
+### Skip Blank Filename
+
+Skips a file during migration if its file name is blank.
+
+No additional Task Configurations needed.
+
+### Skip on Empty Field
+
+This task will skip a document if the supplied fields are all blank.
+
+### Text to PDF
+
+This task takes no arguments, and simply converts text binaries from a Repository Document into a PDF file on output. If the mimetype of the document is not 'text/plain', it will be skipped.
+
+### Text/HTML to EML
+
+This task takes the content of an document and converts it into email.
+
+### Unzip
+
+This task will unzip any compressed files during the migration process and send the documents directly to the output connector. Documents that are queued this way will not increment Read, but will increment processed.
+
+#### Configuration Fields
+
+* **File staging location**: The location unzipped files are stored temporarily while processing
+* **Skip the zip file after unzip**: Check this box to skip the zip file during processing. If the box is unchecked the zip file will be included in the document transfer
+
+> **Caution**: When unzipping files to an ECM output location, if the zip file has the same file name as another document in the folder, the file will not unzip to that location as ECM doesn't allow folders to be created with the same name as a file. It will result in a duplication error.
+
+## Text Extraction
+
+### AWS Textract
+
+This task will extract text from PNGs, JPGs, and PDFs and stores the text on the repository document in the **simflofy_ai_text** field.
+
+#### Configuration
+
+* **Authentication Connection**: An Amazon authentication connection with your Amazon AWS credentials
+
+### Google Vision Text Extraction
+
+Extracts text from .tiff, .pdf and .gif files and stores it on the repository document in the **simflofy_ai_texts** field.
+
+* **Authentication Connector**: Your authentication connection for Google You can find it in the url while edit or view page for the connection
+
+### Tesseract Text Extraction
+
+PREREQUISITE
+This task requires Tesseract to be installed on the system that Federation Services is running on.
+
+This task uses Tesseract OCR to scan for text from images and PDF files, saving that text to a field in the repository documented called simflofy_ai_texts. Supported formats are .png, .jpg, .pdf, .tiff, .gif, and .bmp. PDFs are saved on a per-page basis to **simflofy_ai_texts**.
+
+> **Note**: Tesseract OCR will be an optional dependency of Federation Services.
+
+#### Configuration
+
+* **Tessdata Directory**: The path to your Tessdata folder. This folder should have the trained data of the language you plan to OCR.
+* **Tesseract Library**: The path to your Tesseract library folder containing the proper library files for your OS.
+* **Engine Mode**: Select which engine Tesseract should use, legacy or LTSM. Ensure that ensure is installed before selecting it, or leave it on the default config for it to detect your engine.
+* **Page Segmentation Mode**: By default Tesseract expects a page of text. You can change the way it segments a page if your images differ from this.
+* **Tesseract Language Code**: The language code for the installed trained data in your Tessdata directory. This is in ISO 639-1/T format and is the letters before the .trained data extension for the trained data file.
+* **Use HOCR**: Whether to use HOCR. When enabled, text will be output in HTML format rather than as raw text.
+
+## Image Analysis
+
+### AWS Image Recognition
+
+Detects real world objects in images and adds these labels to the repository document on the field **simflofy_ai_labels** using the AWS Rekognition system.
+
+For your reference, these are 'MinConfidence' and 'MaxLabels' [here](https://docs.aws.amazon.com/rekognition/latest/dg/what-is.html){:target="_blank"}. This page is what this task uses.
+
+#### Configuration
+
+* **Minimum Threshold**: The minimum confidence threshold for labels to return following label detection. Labels with a confidence level lower than this will not be returned.
+* **Max Number of labels**: The maximum number of recognised labels to be returned, by highest confidence.
+* **Auth conn**: Your Amazon AWS credentials
+* **Max number of labels**: The number of labels you want to return
+
+### Google Vision Image Labels
+
+Detects real world objects in images and adds these labels to the repository document on the field **simflofy_ai_labels** using Google Vision.
+
+* **Max Number of labels**: The maximum number of recognised labels to be returned
+* **Authentication connection**: Your authentication connection for Google. You can find it in the url while edit or view page for the connection
+
+### Watson Image Analysis
+
+Uses IBM Watson Image Analysis to analyse an image, adding its response to a specified field.
+
+* **The IAM API**: Key for IBM Cloud. See instructions [here](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui){:target="_blank"} on how to get it.
+* **Collection ID**: If left blank, 3Sixty will create one
+* **Collection Name**: Name of the collection to create. If left blank, will be new-training-collection with the date appended.
+* **Training Mode**: Images will be used in conjunction with the training json to train your analysable. In this mode, no analysis will be performed.
+* **The training json**: Required for training mode. The format is {"dog":[25,35,105,215]}. Array order is top, left, width, height with object type as the key.
+* **Field that contains the image urls**: If left blank the file content will be used.
+
+## Alfresco
+
+### Alfresco Job Run History Nodes
+
+The purpose of this task is to get the Alfresco Node Reference from the Current Job Run History, in order to update an existing document from a previous Job run in Alfresco, rather than creating a new one.
+
+It's used in **Incremental** or jobs where the Alfresco connector is being used. This task uses the Source Repository ID from the Repository the document is pulled from, in order to find the document in the Job Run History.
+
+#### Configuration
+
+**Set up:** There are no configuration options for this task. It uses the Document's Source Repository ID in order to find the node Reference in Alfresco.
+**Exception/Requirements:** Since the Source Repository ID is used, any source repositories that use a Path Based Source ID will not work if the path of the document changes.
+
+### Alfresco Property Mapping Nodes
+
+This task is for getting existing node references in an Alfresco instance, in order to update them, rather than create a new one if the existing file has moved from its original ingestion location.
+It's used in jobs where the Alfresco Output connector is used. Typically, in incremental or sync jobs, where changes to a file from a source system need to make it to the node it previously integrated to.
+
+#### Configuration
+
+**How to set up**: Provide the query JSON object, which is then sent to Alfresco which will return the matching Alfresco Node Reference, which we'll use to update the document.
+
+**Exceptions / requirements**: If the query is too vague, and matches more than one node/document, then none of the documents will be updated. The query has to uniquely find a single node/document in Alfresco.
+
+## ACL
+
+### CMIS ACL modification
+
+This task is meant to be used with a CMIS Repository connection. It will use the Repository Document id, and gather the current ACL for the document. It will then generate a new ACL based on the parameters. This task establishes a session upon initialisation, and keeps it open until the job run is complete.
+
+The principal lists are pipe (|) delimited, to account for LDAP style principals. You will need to know the exact principal ids of the ACEs (Access Control Entries). The task works by cycling through the current ACEs and a series of if-then logic to construct a new ACL.
+
+#### Configuration
+
+* **User name**: CMIS server user name
+* **Password**: CMIS server password
+* **Connection URL**: CMIS server url
+* **Repository ID**: CMIS repository ID
+* **Pipe (|) delimited list of principals to ignore from each document**: A list of principals to ignore and not add modifications to. The 'ignore' list will bypass any modification to a matching ACE and add it directly back to the new ACL.
+* **Pipe (|) delimited list of principals to remove from each document**: A list of principals to be removed from the ACL. The remove list will skip over a matching ACE, leaving it out.
+* **Comma delimited list of principals to add to each document**: A list of principals to be added to the ACL. The add list is checked separately and will generate a new ACE will the selected permissions.
+* **Permission to add to the principals**: Not ignored ACEs and added ACEs will have this permission added to them in the ACL.
+  * Read
+  * Write
+  * All
+
+### FileNet ACL Modification
+
+The purpose of this task is change the permission lists of integrated documents in the IBM FileNet Repository.
+
+* **Authentication Connector ID**: The ID of your P8 Authentication connection is available in the Authentications Connection under the **Integration **menu. You can find it the url of the edit or view page for the connection
+* **Change List**: Pipe (|) delimited list of principals to change from each document.
+* **Permissions to Change**: Access level for the changed permissions.
+* **Add List**: Pipe (|) delimited list of principals to add to each document
+* **Permissions to Add**: The access level to add to the new permissions.
+* **Removal List**: Pipe (|) delimited list of principals to remove from each document.
+
+Note that any permission not added to these lists will be ignored.
+
+### File System ACL Extraction
+
+Extracts ACLs from the Windows or Linux filesystem document and adds them to the repository document.
+
+* **File System Operating System**: The operating system that these files are being read from.
+* **Append _DENY to Deny ACL Type permissions**: Appends **_DENY** to the end of an extracted permission if it's of the type DENY, in case you want to track this later on.
+
+This task will have some different behaviour depending on your operating system. In a POSIX environment (macOS or Linux) permissions may be added as the field `document.permissions` with the permissions in a semicolon(;) delimited list, if any exist.
+
+If the filesystem supplies an owner, it will be added as **simflofy.owner**
+
+Additionally, simflofy will create a permission map of the principals and their permissions. It will set is as the **originalPermissions** field, so
+
+```
+Map<String, Set<String>> permissions = new Map<>();
+//process acls
+rd.setOriginalPermissions(permissions);
+```
+
+Finally, if any User Defined File Attributes (extended attributes), they will be added as a semicolon delimited list in the field
+
+`simflofy.userattributes`
+
+### Generic ACL Mapper
+
+The generic ACL mapper job task allows you to create simple rules for matching principles and permissions from one system to another. ACLs will need to be extracted from each document. This task reads the **originalPermissions** field of the document and sets the **transformedPermissions** field.
+
+LIMITED USAGE  
+Only the Azure Blob, CMIS, and Alfresco Connectors can use this task. For all other acl mapping, a [JavaScript](#javascript-processing) task is required.
+
+* Process Files and Process Folders tells the task what to process.
+* Mapping Rules: These rules will map the role/permissions on the left with the ones you want to match on the right.
+  * Permissions on the right will be from the source and those on the left will be for the target.
+  * Both side of a rule can be a comma delimited list.
+  * Each rule must end with a semicolon (;)
+* Authority Clean up: A comma delimited list of principals to remove as part of the task.
+* Enabling parsing: Enable parsing for multiple permissions to be assigned to an authority after mapping?
+  * For example, [Write]=WRITE_DATA with this box checked will allow 'Write' to be added on as an extra permission to an authority's newly mapped permissions.
+
+## Classifier
+
+### IBM Watson Natural Language Classification
+
+Uses IBM Watson Natural Language classifier to analyse and label text into categories. This uses Watson's Natural Language Classifier APIs.
+* **The IAM API Key for IBM Cloud**: See instructions [here](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui){:target="_blank"} on how to get it.
+* **The Classifier ID**: The ID of you classifier, created in Watson.
+* **Field to process If left blank**: the task will search for the field 'content'.
+* **Field to store the Watson response**: If left blank, the field name will be 'nlc'.
+* **Comma delimited list of file extensions**: Which content types to process or leave blank to process all.
+
+## Others
+
+### Index User Groups
+
+Used for Search Security to index user and group information onto each document. This task adds two metadata fields to each document in order to restrict or allow access to documents indexed through this task.
+
+* **Select User Groups To Index**: The selected user groups will be added to the field simflofyUserGroups as well as adding a mapping.
+* **Select Users to Index**: The selected users will be to the field simflofyUsers as well as adding a mapping.
+
+### Lookup Destination Id From Job Run History
+
+**Purpose**: Getting the rd destination Id from the Current Job Run History, in order to update an existing document from a previous Job run, rather than creating a new one.
+**Use Case**: It's used in **Incremental** or **Sync** jobs. This task uses the Source Repository ID from the Repository the document is pulled from, in order to find the document in the Job Run History.
+**Set up**: There are no configuration options for this task. It uses the Document's Source Repository ID in order to find the rd destination Id.
+**Exception/Requirements**: Since the Source Repository ID is used, any source repositories that use a Path Based Source ID will not work if the path of the document changes.
+
+### Remove Empty Fields
+
+This task will remove any empty fields from the metadata of the document if there is no set value in those fields.
 
 # Audit Reports
 

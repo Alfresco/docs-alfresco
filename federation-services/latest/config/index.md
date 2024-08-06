@@ -3402,7 +3402,7 @@ Query Parameters:
 
 **Returns:**
 
-```text
+```
 {
 "results": [
 "user@alfresco.com:cmis:all",
@@ -3411,10 +3411,6 @@ Query Parameters:
 "success": true
 }
 ```
-
-**Example With CURL**
-
-`curl -u admin:admin -X POST "localhost:8081/3sixty-admin/repo/fn/acls?id=5dba1525-44a6-45ed-a42e-4a155a3f0539&acls={%22newuser@alfresco.com%22:%22cmis:read,cmis:write%22}" | json_pp`
 
 **Delete Permissions (ACLs)**
 
@@ -4527,10 +4523,6 @@ Returns:
 "success": "true"
 }
 ```
-
-Example With CURL
-
-`curl -u admin:admin "localhost:8081/3sixty-admin/api/repo/fn/acls?id=6385C1A5-EF01-45F1-86C3-FDC3C4E3B6A8 -d{%22cn%3DTESTUser,O%3DSAMPLE:%22FULL_CONTROL%22}'" | json_pp`
 
 ###### Delete Permissions (ACLs)
 
