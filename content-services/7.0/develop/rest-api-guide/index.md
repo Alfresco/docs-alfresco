@@ -60,8 +60,7 @@ details, and you cannot find any information about it anywhere, consult the API 
 You can find more information about the API Explorer on [this page]({% link content-services/7.0/develop/rest-api-guide/install.md %}), 
 which also has information on how to install it for your specific version of ACS.
 
-If you want to know what the API Explorer looks like right now, then have a look at the online version at 
-[https://api-explorer.alfresco.com/api-explorer](https://api-explorer.alfresco.com/api-explorer){:target="_blank} 
+To know what the API Explorer looks like right now, search for "api-explorer" on the Nexus Repository website available at https://nexus.alfresco.com/nexus/
 (note that this API Explorer always shows the API for the latest version of ACS).
 
 ### Finding out if an API endpoint is supported in a specific ACS version

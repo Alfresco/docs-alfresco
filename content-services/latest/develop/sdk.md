@@ -1772,7 +1772,7 @@ If you're using Windows, you'll need to use the `run.bat` script instead of `run
 
 #### How to configure private Alfresco Nexus repository {#enterprisemvnrepo}
 
-The first matter to consider is to ensure that you have credentials for the Alfresco Private Repository ([artifacts.alfresco.com](https://artifacts.alfresco.com/nexus/#welcome){:target="_blank"}), where the Alfresco artifacts are stored. Enterprise customers and partners can request these credentials by opening a ticket in [Hyland Community](https://community.hyland.com/){:target="_blank"}.
+The first matter to consider is to ensure that you have credentials for the Alfresco Private Repository ([artifacts.alfresco.com](https://nexus.alfresco.com/nexus/){:target="_blank"}), where the Alfresco artifacts are stored. Enterprise customers and partners can request these credentials by opening a ticket in [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 Once you have suitable credentials, you need to add support for Alfresco private Maven repository to your configuration. This would typically be done by adding your access credentials to the `settings.xml` contained in your `~/.m2` directory (for Linux and OS X). On Windows this resolves to `C:\Users\<username>\.m2`.
 
