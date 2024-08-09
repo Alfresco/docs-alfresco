@@ -87,7 +87,7 @@ We provide example inventories:
 
 ## Prerequisites
 If you're using the Enterprise edition of Content Services, then you need credentials to access the necessary artifacts from 
-[Nexus](https://artifacts.alfresco.com/nexus/){:target="_blank"}. Customers can request these through 
+[Nexus](https://nexus.alfresco.com/nexus/){:target="_blank"}. Customers can request these through 
 [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 ### Control Node
