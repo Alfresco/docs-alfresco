@@ -4,7 +4,9 @@ title: Supported platforms
 
 Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Content Services.
 
-Choose a combination of products to build your own Supported Stack. If anything is unclear then please [contact Support]({% link support/latest/contact.md %}). Alfresco only supports the leading edge version.
+Choose a combination of products to build your own Supported Stack. If anything is unclear then please [contact Support]({% link support/latest/contact.md %}).
+
+> **Note:** Alfresco only supports the leading edge. Check Hyland Community for the latest available Service Packs.
 
 {% capture twenty-three-two %}
 
@@ -83,8 +85,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Outlook Integration 3.0 | |
 | Alfresco Office Services 2.0 | |
 | Alfresco Google Docs Integration 4.1 | |
-| Alfresco Events SDK for Out-of-Process Extensions 6.2 | |
-| Alfresco SDK for In-Process Extensions 4.8 | |
+| Alfresco Events SDK for Out-of-Process Events 6.2 | |
+| Alfresco In-Process SDK 4.8 | |
 | Alfresco Android SDK 1.5 | |
 | Alfresco iOS SDK 1.5 | |
 | | |
@@ -213,4 +215,4 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 {% endcapture %}
 
-{% include tabs.html tableid="supported-platforms" opt1="23.2" content1=twenty-three-two opt2="23.1" content2=twenty-three-one %}
+{% include tabs.html tableid="supported-platforms" opt1="23.2" content1=twenty-three-two opt2="23.1 (Not supported)" content2=twenty-three-one %}

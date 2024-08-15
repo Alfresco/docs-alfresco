@@ -6,6 +6,8 @@ Here is a list of the individual components that have been through the complete 
 
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please [contact Support]({% link support/latest/contact.md %}).
 
+> **Note:** Alfresco only supports the leading edge version.
+
 {% capture seven-two-two %}
 
 | Version | Notes |
@@ -89,8 +91,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Outlook Integration 2.9 | |
 | Alfresco Office Services 1.4 | |
 | Alfresco Google Docs Integration 3.3 | |
-| Alfresco Events SDK for Out-of-Process Extensions 6.2 | |
-| Alfresco SDK for In-Process Extensions 4.8 | |
+| Alfresco Events SDK for Out-of-Process Events 6.2 | |
+| Alfresco In-Process SDK 4.8 | |
 | Alfresco Android SDK 1.5 | |
 | Alfresco iOS SDK 1.5 | |
 | | |
