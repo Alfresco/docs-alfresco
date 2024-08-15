@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Process Services 24.x.
+Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Process Services.
 
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact our Support team - submit a case via [Hyland Community]({% link support/latest/contact.md %}).
 
@@ -37,8 +37,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Jetty 12 | |
 | | |
 | **JDKs** | |
-| OpenJDK 17 |  |
-| Amazon Corretto 17 |  |
+| OpenJDK 17 | |
+| Amazon Corretto 17 | |
 | | |
 | **Browsers** | |
 | Mozilla Firefox | |
@@ -48,23 +48,18 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Third party integrations** | |
 | Elasticsearch 8.13.1 | |
+| Keycloak 21.1.2 | |
 | | |
 | **Services** | |
-| Alfresco Content Services 23.x |  |
-| | |
-| **Integrations** | |
-| Identity Service 2.0 | For use with LDAP and SAML |
-| Identity Service 1.2 | For use with LDAP and SAML |
-| Identity Service 1.1 | For use with LDAP and SAML |
+| Alfresco Content Services 23.x | |
 | | |
 | **Applications** | |
-| Alfresco Digital Workspace 4.4 |
-| Alfresco Digital Workspace 4.3 | Requires Alfresco Process Services 2.4.2. |
+| Alfresco Digital Workspace 4.4 | |
 | | |
 | **Related components** | |
 | VMWare ESXi 5.1.0 | For supported guest operating systems |
-| Spring Boot 3.2.3 |
-| Spring 6.1.4 |
+| Spring Boot 3.2.3 | |
+| Spring 6.1.4 | |
 
 {% endcapture %}
 
