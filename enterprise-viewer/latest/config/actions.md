@@ -126,13 +126,22 @@ The Actions enabled in annotation mode.
 Default value:
 
 ```text
-(t:Navigation),(prevPage,nextPage, zoomIn,zoomOut,--isSmallScreen),
-(t:Mode),(t:PageEntry),d(checkinOfflineAnnotatedPdf,annotatedPdf,nativeContentDownload,extractPdfPages,offlineAnnotatedPdf,printAnnotatedPdf,
-printSectionsAction,--dropdownLabel-Downloads,--dropdownIcon-save_alt),(t:AnnotationManipulation),
-(t:Misc),d(t:Text,--dropdownLabel-Text Annotations,--dropdownIcon-font_download,--dropdownShowSelected),
-d(drawLine,drawArrow,drawEllipse,drawRectangle,drawBox,textbox,freeDraw,--dropdownLabel-Drawing Tools,--dropdownIcon-edit,--dropdownShowSelected),
-d(approvedStamp,paidStamp,reviewedStamp,acceptStamp,rejectStamp,pageSizedCheckmarkStamp,--dropdownLabel-Stamps,--dropdownIcon-layers,--dropdownShowSelected),
-d(t:Color,--dropdownLabel-Color Picker,--dropdownIcon-palette,--dropdownShowSelected),
+(t:Navigation),(prevPage,nextPage, zoomIn,zoomOut,--isSmallScreen),\
+
+(t:Mode),(t:PageEntry),d(checkinOfflineAnnotatedPdf,annotatedPdf,nativeContentDownload,extractPdfPages,offlineAnnotatedPdf,printAnnotatedPdf,\
+
+printSectionsAction,--dropdownLabel-viewer.toolbar.downloadTools.tooltip,--dropdownIcon-save_alt),(t:AnnotationManipulation),\
+
+(t:Misc),d(t:Text,--dropdownLabel-viewer.toolbar.textSelect.tooltip,--dropdownIcon-font_download,--dropdownShowSelected),\
+
+d(drawLine,drawArrow,drawEllipse,drawRectangle,drawBox,textbox,freeDraw,--dropdownLabel-viewer.toolbar.drawingTools.tooltip,--dropdownIcon-edit,--dropdownShowSelected),\
+
+d(approvedStamp,paidStamp,reviewedStamp,acceptStamp,rejectStamp,pageSizedCheckmarkStamp,--dropdownLabel-viewer.toolbar.stamps.tooltip,--dropdownIcon-layers,--dropdownShowSelected),\
+
+d(t:Color,--dropdownLabel-viewer.toolbar.colorpicker.tooltip,--dropdownIcon-palette,--dropdownShowSelected),\
+
+d(t:ChangeBgColor,--dropdownLabel-viewer.toolbar.changeBgColor.tooltip,--dropdownIcon-format_paint,--dropdownShowSelected),\
+
 (save,--isSmallScreen),(printAnnotatedPdf,--isSmallScreen),(stickyNote,--isSmallScreen),(highlight,--isSmallScreen),(t:Help),(toggleChat,t:Summary,--sidebar)
 ```
 
@@ -144,11 +153,9 @@ The Actions enabled in redaction mode.
 Default value:
 
 ```text
-(t:Navigation),(prevPage,nextPage,zoomIn,zoomOut,--isSmallScreen),
+(t:Navigation),(prevPage,nextPage,zoomIn,zoomOut,--isSmallScreen),\
+
 (t:Mode),(t:PageEntry),(save,--showAtAllSizes),(mouse),(drawRedaction,textRedaction,--showAtAllSizes),(t:Help),(t:Search,--sidebar)
-enabledIndexerActions=(t:PageEntry),(t:Navigation),(mouse),(prevPage,nextPage,zoomIn,zoomOut,--isSmallScreen),(drawRectangle,--showAtAllSizes),(selectText),(t:Help)
-enabledEditActions=(t:Navigation),(prevPage,nextPage,zoomIn,zoomOut,--isSmallScreen),
-(t:Mode),(t:PageEntry),(save,--showAtAllSizes),(t:DocumentManipulation,--showAtAllSizes),(t:Help)
 ```
 
 ### enabledIndexerActions
