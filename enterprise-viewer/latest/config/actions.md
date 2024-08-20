@@ -450,17 +450,6 @@ Actions that belong to this type: `help`.
 
 ```json
 /**
- * Actions that should be used only if the document has sections.
- */
-SECTIONED: "Sectioned"
-```
-
-Actions that belong to this type: `printSectionsAction`.
-​
-**Note** : The `printSectionsAction` action and the `SECTIONED` action type was developed alongside a new property, `determineSectionsFromProperty` that can allow you to parse sections automatically for your document based on a document property. `determineSectionsFromProperty` defaults to `false`, but should be equal to the name of the property if you want to turn on the feature.
-
-```json
-/**
  * Actions that can be used by non-sectioned documents. 
  */
 NONSECTIONED: "NonSectioned"
