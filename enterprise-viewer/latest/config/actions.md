@@ -467,7 +467,33 @@ NONSECTIONED: "NonSectioned"
 ```
 
 Actions that belong to this type: `printAnnotatedPdf`.
-​
+
+```json
+/**
+ * Actions related-to collaboration mode.
+ */
+COLLABORATION: "Collaboration"
+```
+
+Actions that belong to this type: `toggleChat`, `teamsCall`, `zoomCall`.
+
+```json
+/**
+ * Actions relating to color.
+ */
+COLOR: "Color"
+```
+
+Actions that belong to this type: `colorBlack`, `colorBlue`, `colorDefault`, `colorGray`, `colorGreen`, `colorOrange`, `colorPurple`, `colorRed`, `colorReset`, `color-white`, `colorYellow`.
+
+```json
+/**
+ * Actions relating to fill color of text box.
+ */
+CHANGE_BG_COLOR: "ChangeBgColor"
+```
+
+Actions that belong to this type: `bgColorBlack`, `bgColorDefault`, `bgColorLavender`, `bgColorLightBlue`, `bgColorLightGreen`, `bgColorLightGrey`, `bgColorLightPink`, `bgColorLightSalmon`, `bgColorLightYellow`, `bgColorRemove`, `colorReset`, `bgColorWhite`.
 
 ## Action groups, toolbar order, and dropdowns
 
