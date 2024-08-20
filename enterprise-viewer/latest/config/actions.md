@@ -467,33 +467,6 @@ NONSECTIONED: "NonSectioned"
 ```
 
 Actions that belong to this type: `printAnnotatedPdf`.
-
-```json
-/**
- * Actions related-to collaboration mode.
- */
-COLLABORATION: "Collaboration"
-```
-
-Actions that belong to this type: `toggleChat`, `teamsCall`, `zoomCall`.
-
-```json
-/**
- * Actions relating to color.
- */
-COLOR: "Color"
-```
-
-Actions that belong to this type: `colorBlack`, `colorBlue`, `colorDefault`, `colorGray`, `colorGreen`, `colorOrange`, `colorPurple`, `colorRed`, `colorReset`, `color-white`, `colorYellow`.
-
-```json
-/**
- * Actions relating to fill color of text box.
- */
-CHANGE_BG_COLOR: "ChangeBgColor"
-```
-
-Actions that belong to this type: `bgColorBlack`, `bgColorDefault`, `bgColorLavender`, `bgColorLightBlue`, `bgColorLightGreen`, `bgColorLightGrey`, `bgColorLightPink`, `bgColorLightSalmon`, `bgColorLightYellow`, `bgColorRemove`, `colorReset`, `bgColorWhite`.
 ​
 
 ## Action groups, toolbar order, and dropdowns
@@ -548,3 +521,67 @@ to:
 `(editMode),(t:PageEntry),(save,--showAtAllSizes),(rotatePageCounterClockwise,rotatePageClockwise,--showAtAllSizes),(t:Help)`
 `enabledOpenViewerActions=(t:Navigation),(prevPage,nextPage, zoomIn,zoomOut,--isSmallScreen),`
 `(editMode),(t:PageEntry),(printAnnotatedPdf),(rotatePageCounterClockwise,rotatePageClockwise,--showAtAllSizes),(mouse),(t:Help)`
+
+## Require ACS Permissions for AEV modes and actions
+
+The following table lists ACS Permissions for AEV Modes:
+
+| AEV | ACS Security Access Needed |
+| --- | -------------------------- |
+| signature | Read, Write |
+| annotationMode | <ul><li>Read (All the actions works with Read permission will be visible)</li><li>Read, AddChildren, Write</li></ul> |
+| editMode | Read, AddChildre, Write |
+| redactMode | Read, Write |
+| viewerwithtextMode | Read, Write |
+
+The following table lists ACS Permissions for AEV Actions:
+
+| AEV Actions | ACS Security Access Needed as per Front End |
+| ----------- | ------------------------------------------- |
+| prevPage | Read |
+| nextPage | Read |
+| zoomIn | Read |
+| zoomOut | Read |
+| checkinOfflineAnnotatedPdf | Read, AddChildren, Write |
+| annotatedPdf | Read |
+| nativeContentDownload | Read |
+| extractPdfPages | Read |
+| offlineAnnotatedPdf | Read |
+| printAnnotatedPdf | Read |
+| drawLine | Read, AddChildren, Write |
+| drawArrow | Read, AddChildren, Write |
+| drawEllipse | Read, AddChildren, Write |
+| drawRectangle | Read, AddChildren, Write |
+| textbox | Read, AddChildren, Write |
+| freeDraw | Read, AddChildren, Write |
+| approvedStamp | Read, AddChildren, Write |
+| paidStamp | Read, AddChildren, Write |
+| reviewedStamp | Read, AddChildren, Write |
+| acceptStamp | Read, AddChildren, Write |
+| rejectStamp | Read, AddChildren, Write |
+| pageSizedCheckmarkStamp | Read, AddChildren, Write |
+| save | Read, AddChildren, Write |
+| stickyNote | Read, AddChildren, Write |
+| highlight | Read, AddChildren, Write |
+| toggleChat | Read |
+| mouse | Read |
+| drawRedaction | Read, Write |
+| textRedaction | Read, Write |
+| selectText | Read |
+| strikeout | Read, AddChildren, Write |
+| addAttachment | Read, AddChildren, Write |
+| keepToolSelected | Read, AddChildren, Write |
+| insertText | Read, AddChildren, Write |
+| underline | Read, AddChildren, Write |
+| replaceText | Read, AddChildren, Write |
+| t:Navigation | Read |
+| t:Mode | <ul><li>Read, Write</li><li>Read, Write, AddChildren (to use it under annotationMode)</li></ul> |
+| t:PageEntry | Read |
+| t:AnnotationManipulation | Read, AddChildren, Write |
+| t:Misc | Read, AddChildren, Write |
+| t:Text | Read, AddChildren, Write |
+| t:Color | Read, AddChildren, Write |
+| t:Help | Read |
+| t:Summary | Read |
+| t:Search | Read |
+| t:DocumentManipulation | Read, Write |
