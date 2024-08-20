@@ -571,6 +571,20 @@ The optional OC client key to be used in `OAUtil.oaRestTemplateGet/oaRestTemplat
 
 Default value: ``
 
+### serviceExtAuthEndpoint
+
+REST Endpoint that holds the external authentication service that OAaaS will leverage to provide security.
+
+Default value: ``
+
+### oaVideoEndpointAddress
+
+The base endpoint address for `OpenAnnotateVideo`.
+
+Default value: `/OpenAnnotate/OpenAnnotateVideo/index.html`
+
+### 
+
 ## OpenContent - default properties
 
 ### license.doSendWarningEmail
