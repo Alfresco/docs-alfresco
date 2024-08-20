@@ -555,7 +555,7 @@ The following table lists ACS Permissions for AEV Modes:
 | AEV | ACS Security Access Needed |
 | --- | -------------------------- |
 | signature | Read, Write |
-| annotationMode | <ul><li>Read (All the actions works with Read permission will be visible)</li><li>Read, AddChildren, Write</li></ul> |
+| annotationMode | {::nomarkdown}<ul><li>Read (All the actions works with Read permission will be visible)</li><li>Read, AddChildren, Write</li></ul>{:/} |
 | editMode | Read, AddChildre, Write |
 | redactMode | Read, Write |
 | viewerwithtextMode | Read, Write |
@@ -601,7 +601,7 @@ The following table lists ACS Permissions for AEV Actions:
 | underline | Read, AddChildren, Write |
 | replaceText | Read, AddChildren, Write |
 | t:Navigation | Read |
-| t:Mode | <ul><li>Read, Write</li><li>Read, Write, AddChildren (to use it under annotationMode)</li></ul> |
+| t:Mode | {::nomarkdown}<ul><li>Read, Write</li><li>Read, Write, AddChildren (to use it under annotationMode)</li></ul>{:/} |
 | t:PageEntry | Read |
 | t:AnnotationManipulation | Read, AddChildren, Write |
 | t:Misc | Read, AddChildren, Write |
