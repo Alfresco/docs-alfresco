@@ -583,7 +583,191 @@ The base endpoint address for `OpenAnnotateVideo`.
 
 Default value: `/OpenAnnotate/OpenAnnotateVideo/index.html`
 
-### 
+### oaVideoEmbedded
+
+Whether or not the `OpenAnnotateVideo` is embedded in `OpenAnnotate`.
+
+Default value: `true`
+
+### ignoreTextInHeadersAndFooters
+
+Whether or not the selected text in headers and footers is ignored. This property can be used to evaluate if any text has been selected on a page.
+
+Default value: `false`
+
+### enableEditInSummaryView
+
+Whether or not users are allowed to edit annotation content in the summary view. If set to `false`, users are allowed to only edit text in the main annotation dialog.
+
+Default value: `true`
+
+### userFollowingEnabled
+
+Whether or not the `following` feature is enabled in the participants view.
+
+Default value: `true`
+
+### displayLoadTime
+
+Whether or not OA load time data is displayed. It is displayed in the `i` icon.
+
+Default value: `true`
+
+### displaySameLoadTimeAtAllResolutions
+
+Whether or not the load time information is displayed above the toolbar on small screens. If set to `true`, the load information is displayed in the toolbar row regardless of screen size.
+
+Default value: `false`
+
+### enableReplies
+
+Whether or not users are allowed to reply to annotations.
+
+Default value: `true`
+
+### largeDocTextDataPagesPerRequest
+
+The number of pages of a document that is processed at a time to retrieve the location data for a selectable text within a large document. For defining large documents, see the `numberOfPagesForLargeDocuments` and `maxDocumentSize` properties.
+
+This is a performance-only property.
+
+Default value: `5`
+
+### directDownload
+
+Whether or not request a temporary, secured URL within limited access time. If set to `true`, `&presignedUrl=true` is appended to the URL. This property is often used for accessing resources in cloud storage services (like Amazon S3) without needing long-term credentials.
+
+Default value: `false`
+
+### allowDownloadNativeContent
+
+Whether or not to download the native content if there is an error retrieving document information and the document cannot be displayed in OA.
+
+Default value: `true`
+
+### fileAttachmentMaxSize
+
+The maximum size (in bytes) of file attachments.
+
+Default value: `10260000`
+
+### numOfPageDimensionsToFetch
+
+The number of page dimensions, such as height and width, retrieved at once when as user views a document. This value is used to calculate how many pages' dimensions should be requested in each batch. This works to retrieve page dimensions around the current visible page, balancing the load by controlling the number of requests and ensuring efficient pre-caching of nearby pages' dimensions.
+
+Default value: `100`
+
+### pageHeightPlaceHolder
+
+A default height used for a page when the actual dimensions are not available yet.
+
+Default value: `792`
+
+### pageWidthPlaceHolder
+
+A default width used for a page when the actual dimensions are not available yet.
+
+Default value: `612`
+
+### displayOAVersionInfo
+
+Whether or not the OA version information is displayed in OpenAnnotate. If set to `true`, the `displayOAlogo` property must be also set to `true`.
+
+Default value: `true`
+
+### displayOALogo
+
+Whether or not the OA logo is displayed in OpenAnnotate.
+
+Default value: `true`
+
+### useSummaryEventsFilterOnDocAnnots
+
+Whether or not annotations and summaries should be hidden if they do not match the search criteria. If set to `false`, a user can filter summary entries but keep all annotations visible.
+
+Default value: `true`
+
+### showSelectedToolInDropDown
+
+Whether the icon displayed in the selection tool drop-down list is either the three-line menu icon or the icon of the tool that a user has currently selected, in non-standalone view.
+
+Default value: `false`
+
+### quillPlaceholderEnabled
+
+If set to `false`, the initial instructional note in the annotation text area is removed. 
+
+Default value: `true`
+
+### fullyQualifiedClientUrl
+
+A fully qualified REST URL for client side use.
+
+Default value: `http://localhost:8080/OpenContent/rest`
+
+### sso.client.key
+
+An optional OC client key that is used in `OAUtil.oaRestTemplateGet/oaRestTemplatePost`. If set to a value, it should be included in the request headers of your HTTP request.
+
+Default value: ``
+
+### suggestedRedactionProperties
+
+List of property values that are suggested for redaction. To set it to the desired property OC names, use comma to separate them. For example, for Alfresco environment, the following can be used: `insuranceDemo_claimantName,insuranceDemo_policyHolder`.
+
+Default value: ``
+
+### enablePruneAudit
+
+Whether or not OC should audit when executing a prune.
+
+Default value: `false`
+
+### mentionMinChars
+
+The minimum number of characters a user must type after (not including) a denotation character to display the `mention` drop-down list.
+
+Default value: `3`
+
+### mentionIsolateCharacter
+
+Whether or not the `@` must be isolated (at the beginning of a line or after a whitespace) to create a mention.
+
+Default value: `true`
+
+### mentionOnlyActiveUsers
+
+Whether or not only active users can be mentioned. If set to `false`, all users with access to a document can be mentioned.
+
+Default value: `false`
+
+### mentionSearchUserNames
+
+Whether or not to include `userNames` in search when populating the `mention` drop-down list.
+
+Default value: `true`
+
+### mentionSearchDisplayNames
+
+Whether or not to include `displayNames` in search when populating the `mention` drop-down list.
+
+Default value: `true`
+
+### mentionEmailOfflineUsers
+
+Whether or not an offline, mentioned user receives an email notification.
+
+Default value: `false`
+
+### secureBrowserCookies
+
+Set it to `true` if the SSL security protocol is used.
+
+Default value: `false`
+
+### split.prune.copy.attrs
+
+List of properties to copy property values while splitting or pruning document. To set it to the desired property OC names, use comma to separate them. For example, for Alfresco environment, the following can be used: `insuranceDemo_claimantName,insuranceDemo_policyHolder`. If set to blank, all property values are copied.
 
 ## OpenContent - default properties
 
