@@ -56,33 +56,32 @@ Finally, Federation Services will be integrating 2 or more products. Performance
 ## Install steps
 
 These steps describe how to install Federation Services to an instance of Alfresco Content Services.
+All files necessary for install are available from [Hyland Community](https://community.hyland.com/){:target="_blank"}. Sign in, select **Product downloads**, and search for the product you require.
 
-1. Go to [Hyland Community](https://community.hyland.com/){:target="_blank"} and download the files provided for the Federation Services release.
+1. Download the files provided for the Federation Services release.
 
     This should include the following:
 
     * `AFS-federation.war`
     * `AFS-admin.war`
 
-2. Copy the Federation Services Admin and discovery war files or expanded zip to **Tomcat Installation** Directory > webapps directory.
+2. Copy the Federation Services Admin and discovery war files or expanded zip to **Tomcat Installation** `Directory/webapps` directory.
 3. Start Tomcat.
-4. Navigate to the mongo-db.properties file Tomcat > Webapps > 3Sixty > Admin > WEB-INF > classes > mongo-db.properties.
+4. Navigate to the `mongo-db.properties` file `Tomcat/Webapps/3Sixty/Admin/WEB-INF/classes/mongo-db.properties`.
 5. Set the credentials for the user and the database connection details.
 6. Depending on what database you created the admin user in, you may have to append the database name to the end of the uri. This is the authenticating database. The following example config assumes you followed the previous steps exactly.
-
-```text
-mongo.db.username=simflofy`
-mongo.db.password=#whatever password you set during mongo user creation
-mongo.db.uri=mongodb://[[USER]]:[[PASS]]@localhost:27017/simflofy
-```
-
-7. In the same folder, open simflofy-global.properties and check if all of the 'initialize' properties are set to true. If not, set them to true and save. See the section on properties for more information.
+    ```text
+    mongo.db.username=simflofy`
+    mongo.db.password=#whatever password you set during mongo user creation
+    mongo.db.uri=mongodb://[[USER]]:[[PASS]]@localhost:27017/simflofy
+    ```
+7. In the same folder, open `simflofy-global.properties` and check if all of the 'initialize' properties are set to true. If not, set them to true and save. See the section on properties for more information.
 8. If you have a shared loader enabled in Tomcat, move the global properties files to the shared/classes folder. Now the properties files will persist after redeploying the war.
 9. Restart Tomcat.
-10. In simflofy-global.properties set initialize properties to false.
+10. In `simflofy-global.properties` set initialize properties to false.
 11. Copy and paste the following into your browser: `http://(servername):(port)/3sixty-admin`. The default Federation Services Username/Password is admin/admin.
 12. Access the Admin app through your preferred browser to [configure]({% link federation-services/latest/config/index.md %}) your installation.
 
 ## Configure Tomcat for SSL
 
-In order to finish the installation of Federation Services, you need to generate or install a certificate and enable SSL and and Port 8443 or port 443 in tomcat/conf/server.xml. Go to [Tomcat SSL documentation](https://tomcat.apache.org/tomcat-9.0-doc/ssl-howto.html){:target="_blank"} for more information.
+In order to finish the installation of Federation Services, you need to generate or install a certificate and enable SSL and and Port 8443 or port 443 in `tomcat/conf/server.xml`. Go to [Tomcat SSL documentation](https://tomcat.apache.org/tomcat-9.0-doc/ssl-howto.html){:target="_blank"} for more information.

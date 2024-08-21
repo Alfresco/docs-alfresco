@@ -2,9 +2,7 @@
 title: Using Federation Services
 ---
 
-# Quick Start User Guide
-
-## Overview
+## Quick Start User Guide
 
 Once your Federation Services environment has been successfully installed, you are ready to start making connections and executing jobs. This guide will walk you through this process. For this example, we will be using Google Drive as our source (repository) location and Dropbox as our target location (output).
 **Step 1.** Login to your Federation Services environment once all the required components have been installed.
@@ -192,7 +190,7 @@ The data collection service runs in the background based on properties set eithe
   * The "To" time and Interval are checked upon completion of a collection run to determine whether the set should run again.
 * **Interval**: The interval between collections will dictate how often the jobs are going to run.
   * It is suggested you determine the general length of the jobs you wish to run to avoid overlap. The Set Info pane provides an average run time for the data set.
-  * Setting the collection interval to **Once **will turn off collection after a single run.
+  * Setting the collection interval to **Once** will turn off collection after a single run.
   * Interval below 3 minutes are not allowed, as they cause unpredictable behaviour.
 * **Choose between a job group or individual job** 
   * If selecting a job group, you can choose the run order by dragging. The top job is run first.
@@ -427,8 +425,10 @@ In the above example, the parameter **name** can be populated to map data to the
 
 Here is an example call using the mapping above:
 
-`http://localhost:8080/3sixty-admin/repo/spo2/update?`
-`fileId=s5dba1525-44a6-45ed-a42e-4a155a3f0539&name=second_level_22`
+```text
+http://localhost:8080/3sixty-admin/repo/spo2/update?
+fileId=s5dba1525-44a6-45ed-a42e-4a155a3f0539&name=second_level_22
+```
 
 The above call will update the SharePoint document by setting the Title to '**second_level_22**'.
 
@@ -1208,7 +1208,7 @@ Views can be created under Federation > Content Views. The following information
 
 * **Short Name**: The key for the view. Only accepts alphanumeric characters, underscored and dashes (URL legal characters). This will be used as part of the url.
 
-> **Tip:** Example: if the shortname is 'test' and the template is 'search', the url will be `/Federation Services-discovery/view/search/test`
+> **Tip:** For example: if the shortname is 'test' and the template is 'search', the url will be `/Federation Services-discovery/view/search/test`
 
 * **Template**: Which view template to use. Federated Search or Reporting Dashboard Templates. 
 * **Display Name (Optional)**: Enter the name you want displayed for this view in the views drop-down and in the views list in the left navigation menu. If no display name has been entered Discovery will use the short name.
@@ -1309,9 +1309,9 @@ This tutorial will walk you through setting up an event job that will process on
 
 ###### Getting Started
 
-1. Create a source folder for your document. E.g. C:\SourceDocuments
+1. Create a source folder for your document. For example, `C:\SourceDocuments`
 2. Place a test document into this folder.
-3. Create a target folder. E.g. C:\TargetFolder
+3. Create a target folder. For example, `C:\TargetFolder`
 
 ###### Creating a Federation Services Event Job
 
@@ -1319,7 +1319,7 @@ This tutorial will walk you through setting up an event job that will process on
 
 You will need a connection to your source and target repositories. Because our source and target repositories are the same, we only need to create one connection.
 
-1. Log into the **Federation Services Admin** tool (http://(your server)/Federation Services-admin)
+1. Log into the **Federation Services Admin** tool (`http://(your server)/Federation-Services-admin`)
 2. On the left-hand side expand **Connections** and choose **Integration**.
 3. At the top left corner of the screen, click the button **Create Integration Connection**. Fill out the popup screen and click **Save**. This creates a connection to the File System that you can use as both a source and a target connection.
 
@@ -1336,9 +1336,9 @@ In the Federation Services Admin tool:
 3. Enter the data into the popup screen and click **Save**. The Repository Connection is the source system and the Output Connection is the target system.
 4. For Job Type, select Event
 5. Click Save on the popup, and you are now presented with the edit screen for your job. 
-6. The source file path should be set to include the location of the files you want to push. In our case we will set it to C:\SourceDocuments. Any files in SourceDocuments or its subfolders will be able to be pushed.
+6. The source file path should be set to include the location of the files you want to push. In our case we will set it to `C:\SourceDocuments`. Any files in SourceDocuments or its subfolders will be able to be pushed.
 > **Info:** It is possible to set the File Path to a root drive such as C:\\. We do not recommend doing this as it would allow any file on that drive to be pushed.
-7. Next we need to enter the target folder. Click on FileSystem Connection-Output tab and enter the target folder where the file(s) will be copied (migrated) to: C:\TargetFolder
+7. Next we need to enter the target folder. Click on FileSystem Connection-Output tab and enter the target folder where the file(s) will be copied (migrated) to: `C:\TargetFolder`
 8. We will leave the default values for everything else and click Save.
 
 This saves our event job, and we are ready to execute it.
@@ -1351,8 +1351,8 @@ We have to tell the event job which document we want to process. This requires m
 To get the jobId, open the job and on the Details page look for the ID field
 Edit or view the job we just created to see the job id.
 2. Find the document ID
-To get the documentId, use the full path of the document. I.e. C:/SourceDocuments/sampledoc.pdf
-In the SourceDocuments folder we will be copying sampledoc.pdf. Therefore, the documentId will be the full path: C:/SourceDocuments/sampledoc.pdf. Note the forward slashes.
+To get the documentId, use the full path of the document. I.e. `C:/SourceDocuments/sampledoc.pdf`
+In the SourceDocuments folder we will be copying sampledoc.pdf. Therefore, the documentId will be the full path: `C:/SourceDocuments/sampledoc.pdf`. Note the forward slashes.
 3. Construct an API url and call it.
 
 Construct the API URL:
@@ -1840,7 +1840,7 @@ Notifications will only function is email is enabled. This allows the user to se
 
 * **Repository Connection Thread Count**: The number of individual workers which will process and queue documents. Implementation may vary in certain systems.
 * **Output Connection Thread Count**: The number of individual workers which will process and post documents. Implementation may vary in certain systems.
-* **Batch Size**: If greater than 0, Documents will be assigned a batch ID. Batch Ids are a combination of the job id and the job run id (the timestamp of when the job was started), plus the batch number. The batchId will also be set as the highest parent folder for the document. (Ex. /home/simflofy will become {batchId}/home/simflofy). Some connectors have their own batch configuration, which is compatible with this field.
+* **Batch Size**: If greater than 0, Documents will be assigned a batch ID. Batch Ids are a combination of the job id and the job run id (the timestamp of when the job was started), plus the batch number. The batchId will also be set as the highest parent folder for the document. (For example, /home/simflofy will become {batchId}/home/simflofy). Some connectors have their own batch configuration, which is compatible with this field.
 * **Max Queue Size**: Limits the number of documents that can be queued at once, making repository workers wait. This can slow down output speeds, which may be useful if your output repository can be throttled.
 * **Max Errors Allowed**: Maximum errors before the job stops. Leave 0 for unlimited errors.
 * **Process Relationships** : Check this to tell Target Connector to process Document Relationships. This feature only works for the CMIS Connector.
@@ -2133,7 +2133,7 @@ Using the Expression Language you can see that **rd**. are internal 3Sixty Field
 
 However, you may want to use metadata from the source system to generate your path.
 
-Use **field** in place of r**d to accomplish this or **leave off the prefix entirely**.
+Use **field** in place of **rd** to accomplish this or **leave off the prefix entirely**.
 
 The best way to put your path together is to know what fields are available and what the field values look like. We suggest running the BFS output with no mappings and Include Un-Mapped Properties set to True. This will generate a xml file such as:
 
@@ -2757,7 +2757,7 @@ It's used in jobs where the Alfresco Output connector is used. Typically, in inc
 
 This task is meant to be used with a CMIS Repository connection. It will use the Repository Document id, and gather the current ACL for the document. It will then generate a new ACL based on the parameters. This task establishes a session upon initialisation, and keeps it open until the job run is complete.
 
-The principal lists are pipe (|) delimited, to account for LDAP style principals. You will need to know the exact principal ids of the ACEs (Access Control Entries). The task works by cycling through the current ACEs and a series of if-then logic to construct a new ACL.
+The principal lists are pipe (`|`) delimited, to account for LDAP style principals. You will need to know the exact principal ids of the ACEs (Access Control Entries). The task works by cycling through the current ACEs and a series of if-then logic to construct a new ACL.
 
 ##### Configuration
 
@@ -2765,8 +2765,8 @@ The principal lists are pipe (|) delimited, to account for LDAP style principals
 * **Password**: CMIS server password
 * **Connection URL**: CMIS server url
 * **Repository ID**: CMIS repository ID
-* **Pipe (|) delimited list of principals to ignore from each document**: A list of principals to ignore and not add modifications to. The 'ignore' list will bypass any modification to a matching ACE and add it directly back to the new ACL.
-* **Pipe (|) delimited list of principals to remove from each document**: A list of principals to be removed from the ACL. The remove list will skip over a matching ACE, leaving it out.
+* **Pipe (`|`) delimited list of principals to ignore from each document**: A list of principals to ignore and not add modifications to. The 'ignore' list will bypass any modification to a matching ACE and add it directly back to the new ACL.
+* **Pipe (`|`) delimited list of principals to remove from each document**: A list of principals to be removed from the ACL. The remove list will skip over a matching ACE, leaving it out.
 * **Comma delimited list of principals to add to each document**: A list of principals to be added to the ACL. The add list is checked separately and will generate a new ACE will the selected permissions.
 * **Permission to add to the principals**: Not ignored ACEs and added ACEs will have this permission added to them in the ACL.
   * Read
@@ -2777,12 +2777,12 @@ The principal lists are pipe (|) delimited, to account for LDAP style principals
 
 The purpose of this task is change the permission lists of integrated documents in the IBM FileNet Repository.
 
-* **Authentication Connector ID**: The ID of your P8 Authentication connection is available in the Authentications Connection under the **Integration **menu. You can find it the url of the edit or view page for the connection
-* **Change List**: Pipe (|) delimited list of principals to change from each document.
+* **Authentication Connector ID**: The ID of your P8 Authentication connection is available in the Authentications Connection under the **Integration** menu. You can find it the url of the edit or view page for the connection
+* **Change List**: Pipe (`|`) delimited list of principals to change from each document.
 * **Permissions to Change**: Access level for the changed permissions.
-* **Add List**: Pipe (|) delimited list of principals to add to each document
+* **Add List**: Pipe (`|`) delimited list of principals to add to each document
 * **Permissions to Add**: The access level to add to the new permissions.
-* **Removal List**: Pipe (|) delimited list of principals to remove from each document.
+* **Removal List**: Pipe (`|`) delimited list of principals to remove from each document.
 
 Note that any permission not added to these lists will be ignored.
 
@@ -2960,7 +2960,7 @@ Under the **Audit Reports** menu in the sidebar, click **Mapping Audits**. If th
 * Once you select your job run, a drop-down containing the audited mappings will appear.
 * When you select an audited mapping, a table will appear showing you a count of the final values for that mapping.
 
-These audits can be exported using the **Export as CSV **button.
+These audits can be exported using the **Export as CSV** button.
 
 #### Example: Content Type Breakdown
 
