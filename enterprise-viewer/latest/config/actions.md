@@ -128,9 +128,9 @@ Default value:
 ```text
 (t:Navigation),(prevPage,nextPage, zoomIn,zoomOut,--isSmallScreen),
 (t:Mode),(t:PageEntry),d(checkinOfflineAnnotatedPdf,annotatedPdf,nativeContentDownload,extractPdfPages,offlineAnnotatedPdf,printAnnotatedPdf,
-printSectionsAction,--dropdownLabel-Downloads,--dropdownIcon-save_alt),(t:AnnotationManipulation),
+--dropdownLabel-Downloads,--dropdownIcon-save_alt),(t:AnnotationManipulation),
 (t:Misc),d(t:Text,--dropdownLabel-Text Annotations,--dropdownIcon-font_download,--dropdownShowSelected),
-d(drawLine,drawArrow,drawEllipse,drawRectangle,drawBox,textbox,freeDraw,--dropdownLabel-Drawing Tools,--dropdownIcon-edit,--dropdownShowSelected),
+d(drawLine,drawArrow,drawEllipse,drawRectangle,textbox,freeDraw,--dropdownLabel-Drawing Tools,--dropdownIcon-edit,--dropdownShowSelected),
 d(approvedStamp,paidStamp,reviewedStamp,acceptStamp,rejectStamp,pageSizedCheckmarkStamp,--dropdownLabel-Stamps,--dropdownIcon-layers,--dropdownShowSelected),
 d(t:Color,--dropdownLabel-Color Picker,--dropdownIcon-palette,--dropdownShowSelected),
 (save,--isSmallScreen),(printAnnotatedPdf,--isSmallScreen),(stickyNote,--isSmallScreen),(highlight,--isSmallScreen),(t:Help),(toggleChat,t:Summary,--sidebar)
@@ -447,17 +447,6 @@ HELP: "Help"
 ```
 
 Actions that belong to this type: `help`.
-
-```json
-/**
- * Actions that should be used only if the document has sections.
- */
-SECTIONED: "Sectioned"
-```
-
-Actions that belong to this type: `printSectionsAction`.
-​
-**Note** : The `printSectionsAction` action and the `SECTIONED` action type was developed alongside a new property, `determineSectionsFromProperty` that can allow you to parse sections automatically for your document based on a document property. `determineSectionsFromProperty` defaults to `false`, but should be equal to the name of the property if you want to turn on the feature.
 
 ```json
 /**
