@@ -47,12 +47,6 @@ This is the service account password to use when logging in using the "stored" e
 
 Default value: `""`
 
-### isServiceAccountPasswordEncrypted
-
-Set to `true` if the password for the service account for the stored login endpoint is encrypted, or `false` if otherwise.
-
-Default value: `false`
-
 ### serviceAccountDocbase
 
 The docbase the service account should login to.
@@ -90,12 +84,6 @@ Default value: `http://localhost:3000`
 Whether or not Enterprise Viewer is being run in collaboration mode to take advantage of features like real-time annotations and chat functionality.
 
 Default value: `false`
-
-### forceNonModalNotifications
-
-Whether or not Enterprise Viewer forces non-modal notifications.
-
-Default value: `true`
 
 ### singleAnnotationDialog
 
@@ -144,18 +132,6 @@ This URL points to a help website for using Enterprise Viewer. To access the hel
 **This is not recommended to be overridden.**
 
 Default value: `https://docs.alfresco.com/`
-
-### oaLogoPath
-
-The path for the logo to display at the top left corner on the toolbar in the Enterprise Viewer interface. Useful to override for different logos. This path is relative to the `src/main/webapp` directory.
-
-Default value: `images/logos`
-
-### oaIconPath
-
-The path for the icons to display in the Enterprise Viewer interface. This path is relative to the `src/main/webapp` directory.
-
-Default value: `images/icons`
 
 ### targetMimetype
 
@@ -269,12 +245,6 @@ It can be set to one of the following values:
 
 Default value: `redactInPlace`
 
-### initialDrawingTool
-
-A comma separated list of drawing buttons that should be selected when Enterprise Viewer loads. The first valid button on the list is selected when Enterprise Viewer first loads.
-
-Default value: `drawRedaction, signature, mouse`
-
 ### autosaveInterval
 
 The number of milliseconds Enterprise Viewer waits between each autosave.
@@ -373,12 +343,6 @@ Set to `true` if annotations can have a status and previous statuses appear.
 
 Default value: `true`
 
-### showSmallActionName
-
-Set to `true` if the actions dropdown shown at small resolutions should reflected the currently selected tool, or `false` otherwise.
-
-Default value: `true`
-
 ### searchPagesPerRequest
 
 The number of document pages to fetch search data for, per request. This is a performance-only property.
@@ -388,24 +352,6 @@ Default value: `200`
 ### textDataPagesPerRequest
 
 The number of document pages to fetch text-select location data for, per request. This is a performance-only property.
-
-Default value: `200`
-
-### enableMacroMetadataFetching
-
-> **Note: UNIMPLEMENTED - DO NOT USE -**
-
-Gets all PDF MetaData (wordmaps, text select, bookmarks, etc.) in a single request if set to `true`. Otherwise each one is fetched via its own server request.
-
-Default value: `false`
-
-### macroMetadataFetchingBatchSize
-
-> **Note: UNIMPLEMENTED - DO NOT USE -**
-
-The number of pages to fetch ALL PDF metadata for per request.
-
-Requires `enableMacroMetadataFetching` to be set to `true`, or otherwise does nothing.
 
 Default value: `200`
 
@@ -451,12 +397,6 @@ If set to `true`, a major version of the document will be created when the docum
 
 Default value: `false`
 
-### alertDocumentHasAnnotations
-
-Set to `true` if the user is alerted that the current document in OpenViewer has annotations.
-
-Default value: `true`
-
 ### keepToolSelectedDefault
 
 Whether the keep tool selected feature should be on by default.
@@ -500,12 +440,6 @@ Default value: `en,fr,de`
 The default locale to use if the user has no configured locales. This value must already be available in the configured locales.
 
 Default value: `en`
-
-### checkRenditioningDelay
-
-The default time between checks for whether a document has a rendition.
-
-Default value: `10000`
 
 ### loadAnnotationsWithDocInfo
 
@@ -558,18 +492,6 @@ Default value: `false`
 Whether or not to enable functionality for AEVT (Optimus Transformations) overlays. When `true` (and AEVT is enabled), overlays are applied where configured.
 
 Default value: `false`
-
-### zoomClientID
-
-Client ID property for sending a Zoom authorization call that eventually sends a request that creates a meeting. Blank by default, as you'll need to create a Zoom app to get this value and use this feature.
-
-Default value: ``
-
-### clientKey
-
-The optional OC client key to be used in `OAUtil.oaRestTemplateGet/oaRestTemplatePost` calls. This key, if configured, sets as a request header and eventually used OC side for some SSO implementations.
-
-Default value: ``
 
 ## OpenContent - default properties
 
