@@ -530,7 +530,7 @@ Default value: `false`
 
 ### saveSectionsAsBookmarks
 
-Whether or not to enable the functionality of saving sections as bookmarks within a document. sections as bookmarks. If set to `true`, the sections created by a user are also saved as bookmarks.
+Whether or not to enable the functionality of saving sections as bookmarks within a document. If set to `true`, the sections created by a user are also saved as bookmarks.
 
 Default value: `true`
 
@@ -556,7 +556,7 @@ Default value: `false`
 
 Whether or not to enable functionality for AEVT (Optimus Transformations) overlays. When `true` (and AEVT is enabled), overlays are applied where configured.
 
-For more information on configuring overlays, see the `enableAEVTOverlays` property in [Configure Overlays]({%link enterprise-viewer/latest/config/overlay.md%}). 
+For more information on configuring overlays, see [Configure Overlays]({%link enterprise-viewer/latest/config/overlay.md%}). 
 
 Default value: `false`
 
