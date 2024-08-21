@@ -575,7 +575,7 @@ Default value: ``
 
 ### license.doSendWarningEmail
 
-Whether or not to send a warning email when the current OpenContent license is approaching an invalid state. For example: expiring, or almost at the maximum user or group user limit.
+Whether or not to send a warning email when the number of repository users approaches the maximum allowed by the license, or when the number of users in a group is approaching the maximum allowed by the license.
 
 Default value: `true`
 
@@ -587,25 +587,25 @@ Default value: `30`
 
 ### license.systemUserLimitCounter
 
-Used with a user-based license: this property configures how close to the maximum allowed users the system can get before setting a warning state on the active license.
+Number of system users allocated for the license. This property is used in the calculation for the `expiringSoonCounter` property.
 
 Default value: `25`
 
 ### license.groupUserLimitCounter
 
-Used with a group-based license: this property configures how close to the maximum allowed users the license group(s) can get before setting a warning state on the active license.
+Used with a group-based license: this property configures how close a user group approaches the maximum allowed number of users before a warning email is sent.
 
 Default value: `5`
 
 ### license.warning.email.recipients
 
-When in a warning state and configured to do so, OpenContent sends a license warning email to all of the recipients listed in this property.
+When in a warning state and configured to do so, OpenContent sends a license warning email to all of the email addresses listed in this property.
 
 Default value: ``
 
 ### fail.loud.on.errored.embedded.annotations
 
-Fail loudly on errors that occur with embedded annotations. This defaults to `true` so that the user is notified of errors loading annotations.
+If set to `true`, an exception is immediately thrown when OpenContent fails to retrieve embedded annotations from a page. This defaults to `true` so that the user is notified of errors loading annotations.
 
 This is an experimental feature. If set to `false`, users may be able to load, download, print previously erroring annotated PDFs but some annotations may be missing.
 
