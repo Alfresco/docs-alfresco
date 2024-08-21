@@ -73,7 +73,7 @@ Default value: `http://localhost:8080/OpenContent/rest`
 
 ### clientRequestUrl
 
-The URL that client requests from Enterprise Viewer to OpenContent should be made to. Generally, this only changes if OpenContent has a different REST root, `/alfresco/OpenContent` for example used when OC is an Alfresco subsystem.
+The URL that client requests from Enterprise Viewer to OpenContent should be made to. Generally, this only changes if OpenContent has a different REST root, `/alfresco/OpenContent` for example used when OpenContent is an Alfresco subsystem.
 
 Default value: `/OpenContent/rest`
 
@@ -314,19 +314,19 @@ Default value: `JSESSIONID`
 
 ### checkServletRequestForSessionId
 
-Set to `true` if a check should be made for the sessionId on the Servlet requests from Enterprise Viewer's front-end and append it to the requests to OC, or `false` otherwise. This sessionId is used to maintain sticky sessions in load-balanced environments. If this property and `checkServletCookieForSessionId` are both set, the sessionId set on the Servlet request overrides any sessionId set on the cookie.
+Set to `true` if a check should be made for the sessionId on the Servlet requests from Enterprise Viewer's front-end and append it to the requests to OpenContent, or `false` otherwise. This sessionId is used to maintain sticky sessions in load-balanced environments. If this property and `checkServletCookieForSessionId` are both set, the sessionId set on the Servlet request overrides any sessionId set on the cookie.
 
 Default value: `true`
 
 ### checkServletCookieForSessionId
 
-Set to `true` if a check should be made for the sessionId on a cookie and append it to the requests to OC, or `false` otherwise. This sessionId is used to maintain sticky sessions in load-balanced environments. If this property and `checkServletRequestForSessionId` are both set, the sessionId set on the Servlet request overrides any sessionId set on the cookie.
+Set to `true` if a check should be made for the sessionId on a cookie and append it to the requests to OpenContent, or `false` otherwise. This sessionId is used to maintain sticky sessions in load-balanced environments. If this property and `checkServletRequestForSessionId` are both set, the sessionId set on the Servlet request overrides any sessionId set on the cookie.
 
 Default value: `true`
 
 ### rerenderPageOnResize
 
-Set to `true` to send new requests to OC every time you zoom in or out on a page, or `false` otherwise.
+Set to `true` to send new requests to OpenContent every time you zoom in or out on a page, or `false` otherwise.
 
 Default value: `true`
 
@@ -567,7 +567,7 @@ Default value: ``
 
 ### clientKey
 
-The optional OC client key to be used in `OAUtil.oaRestTemplateGet/oaRestTemplatePost` calls. This key, if configured, sets as a request header and eventually used OC side for some SSO implementations.
+The optional OpenContent client key to be used in `OAUtil.oaRestTemplateGet/oaRestTemplatePost` calls. This key, if configured, sets as a request header and eventually used OpenContent side for some SSO implementations.
 
 Default value: ``
 
@@ -707,19 +707,19 @@ Default value: `http://localhost:8080/OpenContent/rest`
 
 ### sso.client.key
 
-An optional OC client key that is used in `OAUtil.oaRestTemplateGet/oaRestTemplatePost`. If set to a value, it should be included in the request headers of your HTTP request.
+An optional OpenContent client key that is used in `OAUtil.oaRestTemplateGet/oaRestTemplatePost`. If set to a value, it should be included in the request headers of your HTTP request.
 
 Default value: ``
 
 ### suggestedRedactionProperties
 
-List of property values that are suggested for redaction. To set it to the desired property OC names, use comma to separate them. For example, for Alfresco environment, the following can be used: `insuranceDemo_claimantName,insuranceDemo_policyHolder`.
+List of property values that are suggested for redaction. To set it to the desired property OpenContent names, use comma to separate them. For example, for Alfresco environment, the following can be used: `insuranceDemo_claimantName,insuranceDemo_policyHolder`.
 
 Default value: ``
 
 ### enablePruneAudit
 
-Whether or not OC should audit when executing a prune.
+Whether or not OpenContent should audit when executing a prune.
 
 Default value: `false`
 
@@ -767,7 +767,7 @@ Default value: `false`
 
 ### split.prune.copy.attrs
 
-List of properties to copy property values while splitting or pruning document. To set it to the desired property OC names, use comma to separate them. For example, for Alfresco environment, the following can be used: `insuranceDemo_claimantName,insuranceDemo_policyHolder`. If set to blank, all property values are copied.
+List of properties to copy property values while splitting or pruning document. To set it to the desired property OpenContent names, use comma to separate them. For example, for Alfresco environment, the following can be used: `insuranceDemo_claimantName,insuranceDemo_policyHolder`. If set to blank, all property values are copied.
 
 ## OpenContent - default properties
 
