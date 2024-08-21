@@ -105,7 +105,7 @@ In order to have `allowExternalReviewers` set to `true`, a special license setti
 
 Default value: `false`
 
-### AllowMultipleOfflineReviewers
+### annotation.AllowMultipleOfflineReviewers
 
 When set to `false` offline annotations will be owned by the user that checked the annotations in. No matter which user is set on the offline annotation, the annotation will always be displayed as being added by the user who checked in the document.
 
