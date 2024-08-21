@@ -633,7 +633,7 @@ Default value: `false`
 
 Whether or not to allow external users, who do not have user accounts, to make annotations to a document. This defaults to `false` so that external users are not allowed to make annotations to a document.
 
-Default value: `true`
+Default value: `false`
 
 ### annotation.keepAnnotationOnApproval
 
@@ -742,7 +742,7 @@ The default filename of email body template: `mention-email-body.ftl`
 
 ### redaction.redactedPageResolution
 
-The resolution used after coverting the redacted document pages into image format (to remove the text).
+The resolution used after converting the redacted document pages into image format (to remove the text).
 
 Default value: `400`
 
@@ -799,6 +799,31 @@ If set to `true`, long entries are shown in full, occupying multiple lines.
 
 Default value: `false`
 
+### ctrlprint.lines.per.index.page
+
+The number of lines per index page.
+
+Default value: `47`
+
+### ctrlprint.index.page.font
+
+A monospaced font used for the index page. If set to blank, the default iText monospaced font is used. To use different font, set this property to the directory of the font's `.ttf` file and specify the number of characters per line in the `ctrlprint.index.page.chars.per.line` property.
+
+Default value: ``
+
+### ctrlprint.index.page.chars.per.line
+
+The maximum number of characters, such as letters, numbers or spaces, that can be displayed on a single line. The number can differ depending on the selected font.
+
+Default value: ``
+
+### ctrlprint.index.page.allow.multiline.entries
+
+Whether or not long entries on the index page are shown in full, occupying multiple lines. This defaults to `false` so that each long entry is truncated and fits within a single line.
+If set to `true`, long entries are shown in full, occupying multiple lines.
+
+Default value: `false`
+
 ### annotation.incomingPDFCoordinatesStartAtTop
 
 The position of bookmarks in a document. This defaults to `false` so that the position of bookmarks is aligned to the bottom of the page, which is the "0" position on the vertical axis. If set to `true`, the position of bookmarks is aligned to the top of the page, which is the "0" position on the vertical axis.
@@ -811,9 +836,9 @@ The property of a document that failed to apply legal hold. For example, if set 
 
 Default value: `objectName`
 
-### Path to `FFMpeg` and `FFProbe` executable
+### Path to `FFMpeg` and `FFProbe` executables
 
-The following are paths to the FFMpeg and FFProbe executable:
+The following are paths to the FFMpeg and FFProbe executables:
 
 * FFMPEG.path=/Program Files/FFmpeg/bin/ffmpeg
 * FFPROBE.path =/Program Files/FFmpeg/bin/ffprobe
