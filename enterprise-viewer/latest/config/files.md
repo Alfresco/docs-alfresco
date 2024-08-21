@@ -548,7 +548,7 @@ Whether or not to apply a separate overlay note to each PDF page when viewing th
 
 This is configured in the `overlay-config-override.xml` file.
 
-For more information on configuring overlays, see the `oaSecureViewing` property in [Configure Overlays]({%link enterprise-viewer/latest/config/overlay.md%}).
+For more information on configuring overlays, see the `oaSecureViewing` property in [Configure Overlays]({% link enterprise-viewer/latest/config/overlay.md %}).
 
 Default value: `false`
 
@@ -556,7 +556,7 @@ Default value: `false`
 
 Whether or not to enable functionality for AEVT (Optimus Transformations) overlays. When `true` (and AEVT is enabled), overlays are applied where configured.
 
-For more information on configuring overlays, see [Configure Overlays]({%link enterprise-viewer/latest/config/overlay.md%}). 
+For more information on configuring overlays, see [Configure Overlays]({% link enterprise-viewer/latest/config/overlay.md %}). 
 
 Default value: `false`
 
