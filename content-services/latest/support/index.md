@@ -87,8 +87,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Google Docs Integration 4.1 | |
 | Alfresco Events SDK for Out-of-Process Events 6.2 | |
 | Alfresco In-Process SDK 4.8 | |
-| Alfresco Android SDK 1.5 | |
-| Alfresco iOS SDK 1.5 | |
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 4.4 | |
