@@ -99,10 +99,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Application Development Framework (ADF) 6.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Content Accelerator 4.0 | |
 | Alfresco Enterprise Viewer 4.0 | |
-| | |
-| **Components** | |
-| ImageMagick v7.1.0-16 | |
-| LibreOffice v7.2.5 | |
 
 {% endcapture %}
 
@@ -210,10 +206,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Application Development Framework (ADF) 6.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Content Accelerator 4.0 | |
 | Alfresco Enterprise Viewer 4.0 | |
-| | |
-| **Components** | |
-| ImageMagick v7.1.0-16 | |
-| LibreOffice v7.2.5 | |
 
 {% endcapture %}
 

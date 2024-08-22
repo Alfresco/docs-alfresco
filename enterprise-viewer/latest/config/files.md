@@ -17,7 +17,7 @@ Spring loads properties files into the system in a specific order to allow overr
 
 In general, use the `openannotate-override-placeholders.properties` to override any of the default properties. This file must be placed on the Tomcat classpath (for example, in the `<TOMCAT_HOME>/shared/classes` folder), and overrides all properties located in `OpenAnnotate.war`. Properties defined here can still be overridden by `override-placeholders.properties`, but if for example server URLs are all that need to be defined, these can be left in `openannotate-override-placeholders.properties`, allowing WARs to be promoted through various environments without needing to be re-built / configured.
 
-## OpenContent properties
+### OpenContent properties
 
 OpenContent properties related to AEV are located in the `universal-defaults.properties` file. Any of these properties can be overridden if desired in the `opencontent-override-placeholders.properties` file.
 
@@ -27,7 +27,7 @@ If set to `true`, when updating a document to a new version, all annotations are
 
 > **Note:** This property should not be set to `true` in regulated environments where all annotations should be stripped prior to approval.
 
-## Default properties
+## AEV default properties
 
 The following are the configurable properties for Enterprise Viewer:
 
@@ -107,7 +107,7 @@ Default value: `true`
 
 ### excludeEmbeddedAnnotations
 
-Set to `true` if annotations embedded in the PDF should not be fetched, or `false` to allow annotations to be imported from third party systems like Adobe. Any users that do not have a corresponding Alfresco account will not have their annotations displayed in AEV.
+Set to `true` if annotations embedded in the PDF should not be fetched. This may be used for documents that are part of a collection, documents with a MIME type other than PDF, configurations that explicitly exclude embedded annotations, or very large files. If set to `false` annotations embedded in the PDF are imported, including those created in third-party systems like Adobe. Any users that do not have a corresponding Alfresco account will not have their  annotations displayed in AEV.
 
 Default value: `true`
 
@@ -135,31 +135,31 @@ Default value: `https://docs.alfresco.com/`
 
 ### targetMimetype
 
-The target MIME type to use when transforming documents. Defaults to PNG, but supports JPG (`image/jpeg`) as well.
+The target MIME type for pages that are only to be viewed. Defaults to PNG, but supports JPG (`image/jpeg`) as well.
 
 Default value: `image/png`
 
 ### imageFullResolution
 
-The final resolution to use when transforming image pages to PNG or JPG. Lower resolutions may be loaded first.
+ The highest resolution at which images (not PDFs) should be loaded and displayed, ensuring that image quality is maintained, especially when `progressiveReloadSteps` is set to zero. It serves as a benchmark for determining whether to use the current resolution or reload the image at a higher resolution to achieve optimal clarity.
 
 Default value: `64`
 
 ### imageMinimumResolution
 
-The minimum resolution to load the image when progressively loading the image.
+The minimum resolution for images. If the current resolution is less than this value, images are reloaded at this minimum resolution or higher to ensure a baseline level of quality. 
 
 Default value: `16`
 
 ### pdfFullResolution
 
-The final resolution to use when transforming PDF pages to PNG or JPG. Lower resolutions may be loaded first.
+The highest resolution for loading and displaying PDF documents. Similarly to `imageFullResolution`, it ensures that PDFs are displayed with the highest quality possible and it is used as a reference point for whether to reload a document at a higher resolution.
 
 Default value: `244`
 
 ### pdfMinimumResolution
 
-The minimum resolution to load the image when progressively loading the image.
+The minimum resolution for PDFs. It is used to ensure that PDFs are not displayed below a certain level of quality, reloading them at this minimum resolution or higher as needed.
 
 Default value: `64`
 
@@ -272,19 +272,19 @@ chat,userJoined,userLeft,serverConnection,checkInAnnotations,checkInAnnotationsF
 
 ### slideViewerTileDirectoryRoot
 
-The root directory on the server filesystem where the slide viewer "tiles" should be served from. It is commonly a URL that is redirected through Apache to request files from the server.
+A root path for locating slide viewer resources, such as JSON files that define slide properties and tile definition files (`.dzi`) used for rendering tiled images. It ensures that resources are correctly located and fetched based on the base directory path.
 
 Default value: `http://localhost:8080/OpenAnnotate/images/seadragon/`
 
 ### sessionCookieName
 
-The name of the session cookie which is used to track sticky sessions in load balanced environments. For load balanced environments, sticky sessions are required to ensure Enterprise Viewer always hits the correct correct OpenContent with all its internal requests.
+The name of the session cookie which is used to track sticky sessions in load balanced environments. For load balanced environments, sticky sessions are required to ensure Enterprise Viewer always hits the correct OpenContent with all its internal requests.
 
 Default value: `JSESSIONID`
 
 ### checkServletRequestForSessionId
 
-Set to `true` if a check should be made for the sessionId on the Servlet requests from Enterprise Viewer's front-end and append it to the requests to OC, or `false` otherwise. This sessionId is used to maintain sticky sessions in load-balanced environments. If this property and `checkServletCookieForSessionId` are both set, the sessionId set on the Servlet request overrides any sessionId set on the cookie.
+Whether or not a session ID should be checked in the servlet request. If set to `true` and a valid session ID is found in the servlet request, the session ID is appended to the endpoint URL.
 
 Default value: `true`
 
@@ -363,7 +363,7 @@ Default value: `50`
 
 ### annotationSummaryDefaultSort
 
-The XFDF fields to sort the annotation summaries on, ordered from most important to least important.
+The default sorting order for annotations in the summary view. It specifies which fields to sort by and whether the sort should be in ascending or descending order, indicated by the presence of `!` for a descending sort. Each value is separated by a comma.
 
 Default value: `page,!p4`
 
@@ -381,7 +381,7 @@ Default value: `32`
 
 ### initialThumbnailLoad
 
-Amount of thumbnails to initially load.
+The batch size for loading thumbnail images. When thumbnails are being fetched, this configuration determines how many thumbnails are loaded at once. This is particularly useful for managing performance and ensuring that the application does not attempt to load all thumbnails at once, which could cause performance issues, especially with large documents.
 
 Default value: `25`
 
@@ -405,7 +405,7 @@ Default value: `false`
 
 ### annotationTypesToShowDialogForWithKeepToolSelected
 
-Which annotation type(s) dialogs to show when the annotation is created.
+Which annotation type(s) dialogs to show when the annotation is created. Each value must be separated with a comma.
 
 Different annotation types:
 
@@ -417,13 +417,13 @@ Default value: `""`
 
 ### thumbnailBatchSize
 
-The number of thumbnails to load for every subsequent batch after the first.
+The maximum number of thumbnails to be processed in a single call. This configuration is used to determine how many thumbnail images to fetch and process at one time, optimizing performance by batching the requests.
 
 Default value: `200`
 
 ### thumbnailWidth
 
-The width of the sidebar thumbnail previews.
+The standard width for the thumbnails of document pages. This width is used to compute the height of the thumbnails, maintaining the aspect ratio of the pages. Also, the height is calculated using this property multiplied by `1.83`, assuming a standard aspect ratio of 1:1.83 for the pages​.
 
 Default value: `150`
 
@@ -433,13 +433,18 @@ Enterprise Viewer takes a list of locales from the browser and returns the first
 
 You'll find a list of all locales AEV supports in [Supported Platforms]({% link enterprise-viewer/latest/config/supported-languages.md %}).
 
-Default value: `en,fr,de`
+Default value: `en,ja,fr,de,es,it,nl`
 
 ### defaultLocale
 
-The default locale to use if the user has no configured locales. This value must already be available in the configured locales.
+The default locale to use if the user has no configured locales. This value must be available in [Supported Platforms]({% link enterprise-viewer/latest/config/supported-languages.md %}).
 
 Default value: `en`
+
+### checkRenditioningDelay
+
+The delay time before retrying to get the document information if the document is still being renditioned. This happens after a precondition failed status is encountered (HTTP status code 412), indicating that the document is not yet ready to be processed or displayed. The delay ensures that the system waits for the specified time before making another attempt to check if the renditioning process is complete​.
+Default value: `10000`
 
 ### loadAnnotationsWithDocInfo
 
@@ -449,9 +454,9 @@ If set to `true`, the annotations load times are included when retrieving perfor
 
 Default value: `false`
 
-### minPagesToDefafultSectionModeOn
+### minPagesToDefaultSectionModeOn
 
-The minimum number of pages to default into sectioning mode. Set to `0` to prevent sectioning mode.
+The minimum number of pages a document must have for the system to automatically enter the default sectioning mode when the document is loaded. Set to `0` to prevent sectioning mode.
 
 Default value: `10`
 
@@ -465,7 +470,7 @@ Default value: `false`
 
 ### saveSectionsAsBookmarks
 
-Whether or not to save sections as bookmarks. Overriding this to `false` only saves the page reordering and rotating when sectioning is done.
+Whether or not to enable the functionality of saving sections as bookmarks within a document. If set to `true`, the sections created by a user are also saved as bookmarks.
 
 Default value: `true`
 
@@ -483,13 +488,15 @@ Whether or not to apply a separate overlay note to each PDF page when viewing th
 
 This is configured in the `overlay-config-override.xml` file.
 
-For more information on configuring overlays, see the `oaSecureViewing` property in [Configure Overlays]({%link enterprise-viewer/latest/config/overlay.md%}).
+For more information on configuring overlays, see the `oaSecureViewing` property in [Configure Overlays]({% link enterprise-viewer/latest/config/overlay.md %}).
 
 Default value: `false`
 
 ### enableAEVTOverlays
 
 Whether or not to enable functionality for AEVT (Optimus Transformations) overlays. When `true` (and AEVT is enabled), overlays are applied where configured.
+
+For more information on configuring overlays, see [Configure Overlays]({% link enterprise-viewer/latest/config/overlay.md %}). 
 
 Default value: `false`
 
@@ -530,5 +537,267 @@ Default value: ``
 If set to `true`, an exception is immediately thrown when OpenContent fails to retrieve embedded annotations from a page. This defaults to `true` so that the user is notified of errors loading annotations.
 
 This is an experimental feature. If set to `false`, users may be able to load, download, print previously erroring annotated PDFs but some annotations may be missing.
+
+Default value: `true`
+
+### annotation.allowCheckInAfterModification
+
+Whether or not to allow checking in a document after its modified date. This defaults to `false` so that a user cannot check in the document if the document's modified date is earlier than the current date.
+
+Default value: `false`
+
+### annotation.allowCheckInAfterNewVersion
+
+Whether or not to allow checking in a document after its new version has been created. This defaults to `false` so that a user cannot check in the document if the document's new version has been created.
+
+Default value: `false`
+
+### annotation.AllowMultipleOfflineReviewers
+
+Whether or not to allow multiple users to make anntations to a document offline and check it in online. If set to `true`, multiple users are allowed to make annotations to a document while not having access to the internet and check in their document once they regain internet access.
+
+Default value: `false`
+
+### annotation.allowExternalReviewers
+
+Whether or not to allow external users, who do not have user accounts, to make annotations to a document. This defaults to `false` so that external users are not allowed to make annotations to a document.
+
+Default value: `false`
+
+### annotation.keepAnnotationOnApproval
+
+Whether or not to keep all annotations across different versions of a document. If set to `true`, all annotations across the versions of a document are preserved.
+
+Default value:" `false`
+
+### annotation.externalReviewerPrefix
+
+The prefix for the external user's annotation's title. The external users are automatically tagged with a specific prefix in their titles. For example, if set to `[EXT]`, the title is `EXT`.
+
+Default value: `[EXT]`
+
+### annotation.preferNativeContent
+
+Whether or not the native content type should override the ordering of `annotableTypes` when determining what content to load for annotation. If set to `true`, the native content type overrides the ordering of different types of objects that can be annotated, such as documents, media files, or images, when loading content for annotation.
+
+Default value: `false`
+
+### annotation.transformation.temp.file.directory
+
+If set to blank, the Java temp directory is used to store temp annotation transformation files.
+
+Default value: ``
+
+### annotation.shouldUseOverlays
+
+Whether or not overlays are applied to documents when loading them in OpenAnnotate. This defaults to `true` so that additional layers of content or annotations are added on top of a document whithout changing the original document.
+
+Default value: `true`
+
+### annotation.aevChatAuthor
+
+The name of a chat author that is posting in the chat from OpenContent.
+
+Default value: `AEV Chat Bot`
+
+### annotation.defaultFontSize
+
+The default font size for cases where default styling is not available against FreeText Annotation.
+
+Default value: `12`
+
+### annotation.defaulttextAlign
+
+The default text alignment for cases where default styling is not available against FreeText Annotation.
+
+Default value: `left`
+
+### annotation.validDisplayableMimetypes
+
+The list of displayable MIME types. If a MIME type cannot be identified, the system attempts to create a thumbnail or rendition.
+
+The list of displayable MIME types:
+
+* `application/pdf`
+* `image/jpeg`
+* `image/png`
+
+### annotation.useContentFilepathForTransformations
+
+Whether or not to bypass the repository and instead provide a file path for the transformation engine to transform content. This property can be used to expedite transformations in heavy load scenarios. Currently, it is only supported on Alfresco with non-collection scenarios.
+
+> **Note:** External transformations (Optimus) are required to be deployed and accessible.
+
+Default value: `false`
+
+### annotation.defaultMimetype
+
+The default MIME type for documents when a document does not have a MIME type specified.
+
+Default value: `application/vnd.adobe.xfdf`
+
+### annotation.collectionSortProp
+
+The property determines the page order of document collections. Any date properties are treated as text strings that directly represent the date format. It also applies to the order of collection actions, such as `downloadcollectionasdocument` or `sendcombinedcollectionemail`.
+
+This defaults to blank so that the collections are sorted in the order objects are obtained in.
+
+Default value: ``
+
+### annotation.auditDeletePages
+
+Whether or not OpenContent should create an audit event when deleting document's pages through the `/deletePages` endpoint.
+
+Default value: `false`
+
+### annotation.auditRotatePages
+
+Whether or not OpenContent should create an audit event when rotating document's pages through the `/modifyPDF` endpoint.
+
+Default value: `false`
+
+### annotation.auditReorderPages
+
+Whether or not OpenContent should create an audit event when reordering document's pages through the `/modifyPDF` endpoint.
+
+Default value: `false`
+
+### annotation.mentionEmailSubjectTemplateName
+
+The filenames of email subject and body templates for offline mentioned emails.
+
+The default filename of email subject template: `mention-email-subject.ftl`
+The default filename of email body template: `mention-email-body.ftl`
+
+### redaction.redactedPageResolution
+
+The resolution used after converting the redacted document pages into image format (to remove the text).
+
+Default value: `400`
+
+### redaction.redactedReasonTextColor
+
+The color of the text that clarifies the purpose of a redaction, displayed on top of the redacted content. The default color is Blanched Almond.
+
+Default value: `#FFEBCD`
+
+### DocuSign properties
+
+The following DocuSign properties must be overridden in `project-placeholders.properties`: 
+
+> **Note:** For more information on these properties, see [AEV web application properties](###AEVwebapplicationproperties).
+
+* `docusign.username=`
+* `docusign.password=`
+* `docusign.integratorKey=`
+* `docusign.login.url=https://demo.docusign.net/restapi/v2/login_information`
+* `docusign.hpi.dataPath=/hpi/docuSignData`
+* `docusign.completed.version.policy=minor`
+
+### AbstractWordDocumentTemplatingImpl.java properties
+
+The following properties can be configured in the `AbstractWordDocumentTemplatingImpl.java` file:
+
+* `data.merge.enabled=true`
+* `data.merge.template.path=/hpi/dataMergeTemplates/`
+* `hot.docs.subscriber.id=`
+* `hot.docs.signing.key=`
+
+### actpdf.lines.per.index.page
+
+The number of lines per index page.
+
+Default value: `47`
+
+### actpdf.index.page.font
+
+A monospaced font used for the index page. If set to blank, the default iText monospaced font is used. To use different font, set this property to the directory of the font's `.ttf` file and specify the number of characters per line in the `actpdf.index.page.chars.per.line` property.
+
+Default value: ``
+
+### actpdf.index.page.chars.per.line
+
+The maximum number of characters, such as letters, numbers or spaces, that can be displayed on a single line. The number can differ depending on the selected font.
+
+Default value: `72`
+
+### actpdf.index.page.allow.multiline.entries
+
+Whether or not long entries on the index page are shown in full, occupying multiple lines. This defaults to `false` so that each long entry is truncated and fits within a single line.
+If set to `true`, long entries are shown in full, occupying multiple lines.
+
+Default value: `false`
+
+### ctrlprint.lines.per.index.page
+
+The number of lines per index page.
+
+Default value: `47`
+
+### ctrlprint.index.page.font
+
+A monospaced font used for the index page. If set to blank, the default iText monospaced font is used. To use different font, set this property to the directory of the font's `.ttf` file and specify the number of characters per line in the `ctrlprint.index.page.chars.per.line` property.
+
+Default value: ``
+
+### ctrlprint.index.page.chars.per.line
+
+The maximum number of characters, such as letters, numbers or spaces, that can be displayed on a single line. The number can differ depending on the selected font.
+
+Default value: ``
+
+### ctrlprint.index.page.allow.multiline.entries
+
+Whether or not long entries on the index page are shown in full, occupying multiple lines. This defaults to `false` so that each long entry is truncated and fits within a single line.
+If set to `true`, long entries are shown in full, occupying multiple lines.
+
+Default value: `false`
+
+### annotation.incomingPDFCoordinatesStartAtTop
+
+The position of bookmarks in a document. This defaults to `false` so that the position of bookmarks is aligned to the bottom of the page, which is the "0" position on the vertical axis. If set to `true`, the position of bookmarks is aligned to the top of the page, which is the "0" position on the vertical axis.
+
+Default value: `false`
+
+### managelegalhold.displayErrorDocProperty
+
+The property of a document that failed to apply legal hold. For example, if set to `objectName`, all the names of documents that failed to apply legal hold are displayed. To list all the IDs of documents that failed to apply legal hold, set it to `objectID`.
+
+Default value: `objectName`
+
+### Path to `FFMpeg` and `FFProbe` executables
+
+The following are paths to the FFMpeg and FFProbe executables:
+
+* FFMPEG.path=/Program Files/FFmpeg/bin/ffmpeg
+* FFPROBE.path =/Program Files/FFmpeg/bin/ffprobe
+
+### zoom.jwtTokenExpiration
+
+The number of seconds before the JSON Web Token expires.
+
+Default value: `30`
+
+### zoom.recordMeetings
+
+Whether or not a Zoom meeting is automatically recoreded.
+
+Default value: `false`
+
+### zoom.createMeetingRecordingObject
+
+Whether or not a related object for a recording, such as calendar event, meeting link, or participant list, is created every time a Zoom meeting is created.
+
+Default value: `false`
+
+### teams.createMeetingRecordingObject
+
+Whether or not a related object for a recording, such as calendar event, meeting link, or participant list, is created every time a Teams meeting is created.
+
+Default value: `false`
+
+### getdocumentinfo.contentinfo.ehache.evict.on.error
+
+Whether or not to evict items from the cache in case of errors in the `getDocumentInfo` call. This defaults to `true` so that cached data is removed when an error occurs in the `getDocumentInfo` call.
 
 Default value: `true`
