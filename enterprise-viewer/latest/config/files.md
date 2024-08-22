@@ -119,7 +119,7 @@ Default value: `true`
 
 ### excludeEmbeddedAnnotations
 
-Set to `true` if annotations embedded in the PDF should not be fetched, or `false` to allow annotations to be imported from third party systems like Adobe. Any users that do not have a corresponding Alfresco account will not have their annotations displayed in AEV.
+Set to `true` if annotations embedded in the PDF should not be fetched. This may be used for documents that are part of a collection, documents with a MIME type other than PDF, configurations that explicitly exclude embedded annotations, or very large files. If set to `false` annotations embedded in the PDF are imported, including those created in third-party systems like Adobe. Any users that do not have a corresponding Alfresco account will not have their  annotations displayed in AEV.
 
 Default value: `true`
 
@@ -159,31 +159,31 @@ Default value: `images/icons`
 
 ### targetMimetype
 
-The target MIME type to use when transforming documents. Defaults to PNG, but supports JPG (`image/jpeg`) as well.
+The target MIME type for pages that are only to be viewed. Defaults to PNG, but supports JPG (`image/jpeg`) as well.
 
 Default value: `image/png`
 
 ### imageFullResolution
 
-The final resolution to use when transforming image pages to PNG or JPG. Lower resolutions may be loaded first.
+ The highest resolution at which images (not PDFs) should be loaded and displayed, ensuring that image quality is maintained, especially when `progressiveReloadSteps` is set to zero. It serves as a benchmark for determining whether to use the current resolution or reload the image at a higher resolution to achieve optimal clarity.
 
 Default value: `64`
 
 ### imageMinimumResolution
 
-The minimum resolution to load the image when progressively loading the image.
+The minimum resolution for images. If the current resolution is less than this value, images are reloaded at this minimum resolution or higher to ensure a baseline level of quality. 
 
 Default value: `16`
 
 ### pdfFullResolution
 
-The final resolution to use when transforming PDF pages to PNG or JPG. Lower resolutions may be loaded first.
+The highest resolution for loading and displaying PDF documents. Similarly to `imageFullResolution`, it ensures that PDFs are displayed with the highest quality possible and it is used as a reference point for whether to reload a document at a higher resolution.
 
 Default value: `244`
 
 ### pdfMinimumResolution
 
-The minimum resolution to load the image when progressively loading the image.
+The minimum resolution for PDFs. It is used to ensure that PDFs are not displayed below a certain level of quality, reloading them at this minimum resolution or higher as needed.
 
 Default value: `64`
 
@@ -302,13 +302,13 @@ chat,userJoined,userLeft,serverConnection,checkInAnnotations,checkInAnnotationsF
 
 ### slideViewerTileDirectoryRoot
 
-The root directory on the server filesystem where the slide viewer "tiles" should be served from. It is commonly a URL that is redirected through Apache to request files from the server.
+A root path for locating slide viewer resources, such as JSON files that define slide properties and tile definition files (`.dzi`) used for rendering tiled images. It ensures that resources are correctly located and fetched based on the base directory path.
 
 Default value: `http://localhost:8080/OpenAnnotate/images/seadragon/`
 
 ### sessionCookieName
 
-The name of the session cookie which is used to track sticky sessions in load balanced environments. For load balanced environments, sticky sessions are required to ensure Enterprise Viewer always hits the correct correct OpenContent with all its internal requests.
+The name of the session cookie which is used to track sticky sessions in load balanced environments. For load balanced environments, sticky sessions are required to ensure Enterprise Viewer always hits the correct OpenContent with all its internal requests.
 
 Default value: `JSESSIONID`
 
@@ -417,7 +417,7 @@ Default value: `50`
 
 ### annotationSummaryDefaultSort
 
-The XFDF fields to sort the annotation summaries on, ordered from most important to least important.
+The default sorting order for annotations in the summary view. It specifies which fields to sort by and whether the sort should be in ascending or descending order, indicated by the presence of `!` for a descending sort. Each value is separated by a comma.
 
 Default value: `page,!p4`
 
@@ -435,7 +435,7 @@ Default value: `32`
 
 ### initialThumbnailLoad
 
-Amount of thumbnails to initially load.
+The batch size for loading thumbnail images. When thumbnails are being fetched, this configuration determines how many thumbnails are loaded at once. This is particularly useful for managing performance and ensuring that the application does not attempt to load all thumbnails at once, which could cause performance issues, especially with large documents.
 
 Default value: `25`
 
@@ -465,7 +465,7 @@ Default value: `false`
 
 ### annotationTypesToShowDialogForWithKeepToolSelected
 
-Which annotation type(s) dialogs to show when the annotation is created.
+Which annotation type(s) dialogs to show when the annotation is created. Each value must be separated with a comma.
 
 Different annotation types:
 
@@ -477,13 +477,13 @@ Default value: `""`
 
 ### thumbnailBatchSize
 
-The number of thumbnails to load for every subsequent batch after the first.
+The maximum number of thumbnails to be processed in a single call. This configuration is used to determine how many thumbnail images to fetch and process at one time, optimizing performance by batching the requests.
 
 Default value: `200`
 
 ### thumbnailWidth
 
-The width of the sidebar thumbnail previews.
+The standard width for the thumbnails of document pages. This width is used to compute the height of the thumbnails, maintaining the aspect ratio of the pages. Also, the height is calculated using this property multiplied by `1.83`, assuming a standard aspect ratio of 1:1.83 for the pages​.
 
 Default value: `150`
 
@@ -493,18 +493,17 @@ Enterprise Viewer takes a list of locales from the browser and returns the first
 
 You'll find a list of all locales AEV supports in [Supported Platforms]({% link enterprise-viewer/latest/config/supported-languages.md %}).
 
-Default value: `en,fr,de`
+Default value: `en,ja,fr,de,es,it,nl`
 
 ### defaultLocale
 
-The default locale to use if the user has no configured locales. This value must already be available in the configured locales.
+The default locale to use if the user has no configured locales. This value must be available in [Supported Platforms]({% link enterprise-viewer/latest/config/supported-languages.md %}).
 
 Default value: `en`
 
 ### checkRenditioningDelay
 
-The default time between checks for whether a document has a rendition.
-
+The delay time before retrying to get the document information if the document is still being renditioned. This happens after a precondition failed status is encountered (HTTP status code 412), indicating that the document is not yet ready to be processed or displayed. The delay ensures that the system waits for the specified time before making another attempt to check if the renditioning process is complete​.
 Default value: `10000`
 
 ### loadAnnotationsWithDocInfo
@@ -515,9 +514,9 @@ If set to `true`, the annotations load times are included when retrieving perfor
 
 Default value: `false`
 
-### minPagesToDefafultSectionModeOn
+### minPagesToDefaultSectionModeOn
 
-The minimum number of pages to default into sectioning mode. Set to `0` to prevent sectioning mode.
+The minimum number of pages a document must have for the system to automatically enter the default sectioning mode when the document is loaded. Set to `0` to prevent sectioning mode.
 
 Default value: `10`
 
@@ -531,7 +530,7 @@ Default value: `false`
 
 ### saveSectionsAsBookmarks
 
-Whether or not to save sections as bookmarks. Overriding this to `false` only saves the page reordering and rotating when sectioning is done.
+Whether or not to enable the functionality of saving sections as bookmarks within a document. If set to `true`, the sections created by a user are also saved as bookmarks.
 
 Default value: `true`
 
@@ -549,13 +548,15 @@ Whether or not to apply a separate overlay note to each PDF page when viewing th
 
 This is configured in the `overlay-config-override.xml` file.
 
-For more information on configuring overlays, see the `oaSecureViewing` property in [Configure Overlays]({%link enterprise-viewer/latest/config/overlay.md%}).
+For more information on configuring overlays, see the `oaSecureViewing` property in [Configure Overlays]({% link enterprise-viewer/latest/config/overlay.md %}).
 
 Default value: `false`
 
 ### enableAEVTOverlays
 
 Whether or not to enable functionality for AEVT (Optimus Transformations) overlays. When `true` (and AEVT is enabled), overlays are applied where configured.
+
+For more information on configuring overlays, see [Configure Overlays]({% link enterprise-viewer/latest/config/overlay.md %}). 
 
 Default value: `false`
 
@@ -773,7 +774,7 @@ List of properties to copy property values while splitting or pruning document. 
 
 ### license.doSendWarningEmail
 
-Whether or not to send a warning email when the current OpenContent license is approaching an invalid state. For example: expiring, or almost at the maximum user or group user limit.
+Whether or not to send a warning email when the number of repository users approaches the maximum allowed by the license, or when the number of users in a group is approaching the maximum allowed by the license.
 
 Default value: `true`
 
@@ -785,25 +786,25 @@ Default value: `30`
 
 ### license.systemUserLimitCounter
 
-Used with a user-based license: this property configures how close to the maximum allowed users the system can get before setting a warning state on the active license.
+Number of system users allocated for the license. This property is used in the calculation for the `expiringSoonCounter` property.
 
 Default value: `25`
 
 ### license.groupUserLimitCounter
 
-Used with a group-based license: this property configures how close to the maximum allowed users the license group(s) can get before setting a warning state on the active license.
+Used with a group-based license: this property configures how close a user group approaches the maximum allowed number of users before a warning email is sent.
 
 Default value: `5`
 
 ### license.warning.email.recipients
 
-When in a warning state and configured to do so, OpenContent sends a license warning email to all of the recipients listed in this property.
+When in a warning state and configured to do so, OpenContent sends a license warning email to all of the email addresses listed in this property.
 
 Default value: ``
 
 ### fail.loud.on.errored.embedded.annotations
 
-Fail loudly on errors that occur with embedded annotations. This defaults to `true` so that the user is notified of errors loading annotations.
+If set to `true`, an exception is immediately thrown when OpenContent fails to retrieve embedded annotations from a page. This defaults to `true` so that the user is notified of errors loading annotations.
 
 This is an experimental feature. If set to `false`, users may be able to load, download, print previously erroring annotated PDFs but some annotations may be missing.
 
