@@ -59,12 +59,6 @@ The docbase the service account should login to.
 
 Default value: `""`
 
-### emailInviteUrl
-
-This URL is used in the invitation to collaborate email. If the `[docId]` placeholder is specified, it is replaced by the `objectId` of the document being viewed when the invitation is sent.
-
-Default value: `http://localhost:8080/OpenAnnotate/viewer.htm?docId=[docId]&presenterMode=true&mode=readOnly`
-
 ### ocRestEndpointAddress
 
 This URL is the REST endpoint for the running instance of OpenContent. If Enterprise Viewer is being used in a load balancing setup and the instances of Enterprise Viewer and OpenContent are on the same server, this property should be the **non-load balanced url**, to ensure that the requests to OpenContent are always directed to the same OpenContent instance.
@@ -111,11 +105,11 @@ In order to have `allowExternalReviewers` set to `true`, a special license setti
 
 Default value: `false`
 
-### AllowMultipleOfflineReviewers
+### annotation.AllowMultipleOfflineReviewers
 
 When set to `false` offline annotations will be owned by the user that checked the annotations in. No matter which user is set on the offline annotation, the annotation will always be displayed as being added by the user who checked in the document.
 
-Default value: `true`
+Default value: `false`
 
 ### excludeEmbeddedAnnotations
 
@@ -191,7 +185,7 @@ Default value: `64`
 
 This property controls the initial resolution and the number of steps in the progressive loading process. You can define how many intermediate loading steps the image should go through before reaching its full resolution. This helps in improving the initial load time and provides a smoother user experience, especially for large images or documents.
 
-Default value: `1`
+Default value: `0`
 
 ### pageZoom
 
@@ -243,7 +237,7 @@ See [Configure Enterprise Viewer actions and modes]({% link enterprise-viewer/la
 
 A comma separated list of style buttons that are visible for styling annotation text. Currently, only `italic`, `bold`, and `underline` are supported.
 
-Default value: `bold,italic`
+Default value: `bold,italic,underline`
 
 ### leftSidebarModules
 
@@ -297,7 +291,7 @@ The list of the Collaboration mode notifications that are enabled and appear on 
 Default value:
 
 ```text
-chat,userJoined,userLeft,serverConnection,checkInAnnotations,checkInAnnotationsFailed,burnInRedactionFailed,checkinAnnotationsFinished,pageSelectMode,welcomeBackPage,save,loadedAnnotations,saveFinished,copyPaste,copyPasteNotReady,tooLargeForThumbnails,closeSave,closeCopyPaste,pageRangeInvalid,logstashFailed,portfolioContainsNonPdf,docHasAnnotations,afterPageLoad,textLocationDataFailed,enterSectioningMode,sectionNameInvalid,displayDocumentListFailed
+chat,reply,mention,userJoined,userLeft,participantFollowing,participantBeingFollowed,serverConnection,checkInAnnotations,checkInAnnotationsFailed,checkInAnnotationsFailedUsernames,burnInRedactionFailed,checkinAnnotationsFinished,pageSelectMode,welcomeBackPage,save,loadedAnnotations,saveFinished,copyPaste,copyPasteNotReady,tooLargeForThumbnails,closeSave,closeCopyPaste,pageRangeInvalid,logstashFailed,portfolioContainsNonPdf,docHasAnnotations,afterPageLoad,textLocationDataFailed,enterSectioningMode,sectionNameInvalid,foundWidgets,collectionOpened,fileAttachmentFailed,fileAttachmentProcessing,splitPdfSelectPageRange,pdfDownloadFailed,pdfExtractPagesFailed,pdfPrunePagesFail,documentCreationFailed,switchToEditMode,displayDocumentListFailed,annotationContentConvertedToPlaintext,annotationContentFailedToSave,errorDrawingTextAnnotation,errorParsingRows,licenseWarn,limitedFunctionailityLargeFile
 ```
 
 ### slideViewerTileDirectoryRoot
@@ -330,12 +324,6 @@ Set to `true` to send new requests to OC every time you zoom in or out on a page
 
 Default value: `true`
 
-### quickSearch
-
-Set to `true` to allow the user to immediately search selected text when  Ctrl+F is pressed, or `false` otherwise.
-
-Default value: `false`
-
 ### numberOfPagesForLargeDocuments
 
 The number of pages that are considered as a "large" document.
@@ -344,7 +332,7 @@ The number of pages that are considered as a "large" document.
 * If a document has more pages than the value here, text search data isn't loaded initially, and thumbnails are disabled.
 * Text search data can still be manually loaded by the user later, after answering `yes` to a modal dialog box informing them of the delay.
 
-Default value: `99`
+Default value: `90`
 
 ### sizeOfLargeFiles
 
@@ -473,7 +461,7 @@ Different annotation types:
 Line,Oval,Rectangle,Highlight,Cross-Out,Inserted Text,Replacement Text,Reply,Sticky Note,Signature,Approved Stamp,Accept Stamp,Reject Stamp,Reviewed Stamp,PageSizedCheckmark Stamp,Status,Freetext,File Attachment,Free Draw,Redaction
 ```
 
-Default value: `""`
+Default value: `Sticky Note`
 
 ### thumbnailBatchSize
 
