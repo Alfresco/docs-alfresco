@@ -6,7 +6,7 @@ Here is a list of the individual components that have been through the complete 
 
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please [contact Support]({% link support/latest/contact.md %}).
 
-> **Note:** Alfresco only supports the leading edge version.
+> **Note:** To get the latest security fixes and updates for the Alfresco integrations and applications listed below, use the latest Service Pack for the listed product version. See the Alfresco Software Downloads page in [Hyland Community](https://community.hyland.com/customer-portal/downloads/alfresco){:target="_blank"} for the latest Service Pack versions.
 
 {% capture seven-two-two %}
 
@@ -110,6 +110,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 {% capture seven-two-one %}
 
+> **Note:** Information for this Service Pack is provided for reference only. Please use the latest Service Pack.
+
 | Version | Notes |
 | ------- | ----- |
 | **Operating systems** | |
@@ -193,8 +195,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search and Insight Engine 2.0.3 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0.3 | |
 | Alfresco Federation Services 2.1 | |
-| Identity Service 1.8 | |
-| Identity Service 1.7 | |
+| Identity Service 1.8 | The Identity Service is sunset from September 1, 2024. We recommend using Keycloak with the latest Service Pack instead of the Identity Service. |
+| Identity Service 1.7 | The Identity Service is sunset from September 1, 2024. We recommend using Keycloak with the latest Service Pack instead of the Identity Service. |
 | SAML Module for Alfresco Content Services 1.2.3 | |
 | Alfresco Intelligence Services 1.4.4 | |
 | Alfresco Intelligence Services 1.4.2 | |
@@ -245,6 +247,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 {% endcapture %}
 
 {% capture seven-two-zero %}
+
+> **Note:** Information for this Service Pack is provided for reference only. Please use the latest Service Pack.
 
 | Version | Notes |
 | ------- | ----- |
@@ -328,8 +332,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search and Insight Engine 2.0.3 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0.3 | |
 | Alfresco Federation Services 2.1 | |
-| Identity Service 1.8 | |
-| Identity Service 1.7 | |
+| Identity Service 1.8 | The Identity Service is sunset from September 1, 2024. We recommend using Keycloak with the latest Service Pack instead of the Identity Service. |
+| Identity Service 1.7 | The Identity Service is sunset from September 1, 2024. We recommend using Keycloak with the latest Service Pack instead of the Identity Service. |
 | SAML Module for Alfresco Content Services 1.2.2 | |
 | Alfresco Intelligence Services 1.4.4 | |
 | Alfresco Intelligence Services 1.4.2 | |
@@ -379,4 +383,4 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 {% endcapture %}
 
-{% include tabs.html tableid="supported-platforms" opt1="7.2.2" content1=seven-two-two opt2="7.2.1" content2=seven-two-one opt3="7.2.0" content3=seven-two-zero %}
+{% include tabs.html tableid="supported-platforms" opt1="7.2.2" content1=seven-two-two opt2="7.2.1 (reference only)" content2=seven-two-one opt3="7.2.0 (reference only)" content3=seven-two-zero %}

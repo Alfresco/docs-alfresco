@@ -6,7 +6,7 @@ Here is a list of the individual components that have been through the complete 
 
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please [contact Support]({% link support/latest/contact.md %}).
 
-> **Note:** Alfresco only supports the leading edge version.
+> **Note:** To get the latest security fixes and updates for the Alfresco integrations and applications listed below, use the latest Service Pack for the listed product version. See the Alfresco Software Downloads page in [Hyland Community](https://community.hyland.com/customer-portal/downloads/alfresco){:target="_blank"} for the latest Service Pack versions.
 
 {% capture seven-three-two %}
 
@@ -99,6 +99,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 {% capture seven-three-one %}
 
+> **Note:** Information for this Service Pack is provided for reference only. Please use the latest Service Pack.
+
 | Version | Notes |
 | ------- | ----- |
 | **Operating systems** | |
@@ -171,8 +173,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search and Insight Engine 2.0.5 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0.5 | |
 | Keycloak 21.1.2 | Use this Keycloak version and Alfresco Keycloak Theme 0.3.5 as an alternative to Identity Service 2.0.0. |
-| Identity Service 2.0 | |
-| Identity Service 1.8 | |
+| Identity Service 2.0 | The Identity Service is sunset from September 1, 2024. We recommend using Keycloak with the latest Service Pack instead of the Identity Service. |
+| Identity Service 1.8 | The Identity Service is sunset from September 1, 2024. We recommend using Keycloak with the latest Service Pack instead of the Identity Service. |
 | Alfresco Intelligence Services 1.4.5 | |
 | Alfresco Content Connector for AWS S3 5.1 | Adds support for AWS Glacier using Cloud storage layer. |
 | Alfresco Content Connector for Azure 3.1 | |
@@ -208,6 +210,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 {% endcapture %}
 
 {% capture seven-three-zero %}
+
+> **Note:** Information for this Service Pack is provided for reference only. Please use the latest Service Pack.
 
 | Version | Notes |
 | ------- | ----- |
@@ -280,7 +284,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search Enterprise 3.2 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0, see the [Alfresco Search Enterprise 3.x upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
 | Alfresco Search and Insight Engine 2.0.5 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0.5 | |
-| Identity Service 1.8 | |
+| Identity Service 1.8 | The Identity Service is sunset from September 1, 2024. We recommend using Keycloak with the latest Service Pack instead of the Identity Service. |
 | Alfresco Intelligence Services 1.4.5 | |
 | Alfresco Content Connector for AWS S3 5.1 | Adds support for AWS Glacier using Cloud storage layer. |
 | Alfresco Content Connector for Azure 3.1 | |
@@ -317,4 +321,4 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 {% endcapture %}
 
-{% include tabs.html tableid="supported-platforms" opt1="7.3.2" content1=seven-three-two opt2="7.3.1" content2=seven-three-one opt3="7.3.0" content3=seven-three-zero %}
+{% include tabs.html tableid="supported-platforms" opt1="7.3.2" content1=seven-three-two opt2="7.3.1 (reference only)" content2=seven-three-one opt3="7.3.0 (reference only)" content3=seven-three-zero %}

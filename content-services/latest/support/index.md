@@ -6,7 +6,7 @@ Here is a list of the individual components that have been through the complete 
 
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please [contact Support]({% link support/latest/contact.md %}).
 
-> **Note:** Alfresco only supports the leading edge. Check Hyland Community for the latest available Service Packs.
+> **Note:** To get the latest security fixes and updates for the Alfresco integrations and applications listed below, use the latest Service Pack for the listed product version. See the Alfresco Software Downloads page in [Hyland Community](https://community.hyland.com/customer-portal/downloads/alfresco){:target="_blank"} for the latest Service Pack versions.
 
 {% capture twenty-three-two %}
 
@@ -104,6 +104,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 {% capture twenty-three-one %}
 
+> **Note:** Information for this Service Pack is provided for reference only. Please use the latest Service Pack.
+
 | Version | Notes |
 | ------- | ----- |
 | **Operating systems** | |
@@ -174,7 +176,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Federation Services 3.2 | |
 | Alfresco Federation Services 3.1 | |
 | Keycloak 21.1.2 | Use this Keycloak version and Alfresco Keycloak Theme 0.3.5 as an alternative to Identity Service 2.0.0. |
-| Identity Service 2.0 | |
+| Identity Service 2.0 | The Identity Service is sunset from September 1, 2024. We recommend using Keycloak with the latest Service Pack instead of the Identity Service. |
 | Alfresco Intelligence Services 3.1.3 | |
 | Alfresco Intelligence Services 3.1 | |
 | Alfresco Content Connector for AWS S3 6.0 | Adds support for AWS Glacier using Cloud storage layer. |
@@ -213,4 +215,4 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 {% endcapture %}
 
-{% include tabs.html tableid="supported-platforms" opt1="23.2" content1=twenty-three-two opt2="23.1 (Not supported)" content2=twenty-three-one %}
+{% include tabs.html tableid="supported-platforms" opt1="23.2" content1=twenty-three-two opt2="23.1 (reference only)" content2=twenty-three-one %}

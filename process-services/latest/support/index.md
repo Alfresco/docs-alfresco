@@ -6,6 +6,8 @@ Here is a list of the individual components that have been through the complete 
 
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact our Support team - submit a case via [Hyland Community]({% link support/latest/contact.md %}).
 
+> **Note:** To get the latest security fixes and updates for the Alfresco integrations and applications listed below, use the latest Service Pack for the listed product version. See the Alfresco Software Downloads page in [Hyland Community](https://community.hyland.com/customer-portal/downloads/alfresco){:target="_blank"} for the latest Service Pack versions.
+
 {% capture twenty-four-two %}
 
 | Version | Notes |
@@ -65,6 +67,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 {% capture twenty-four-one %}
 
+> **Note:** Information for this Service Pack is provided for reference only. Please use the latest Service Pack.
+
 | Version | Notes |
 | ------- | ----- |
 | **Operating systems** | |
@@ -110,8 +114,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services 23.x |  |
 | | |
 | **Integrations** | |
-| Identity Service 1.2 | For use with LDAP and SAML |
-| Identity Service 1.1 | For use with LDAP and SAML |
+| Identity Service 1.2 | The Identity Service is sunset from September 1, 2024. We recommend using Keycloak with the latest Service Pack instead of the Identity Service. For use with LDAP and SAML |
+| Identity Service 1.1 | The Identity Service is sunset from September 1, 2024. We recommend using Keycloak with the latest Service Pack instead of the Identity Service. For use with LDAP and SAML |
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 4.3 | Requires Alfresco Process Services 2.4.2. |
@@ -121,4 +125,4 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 {% endcapture %}
 
-{% include tabs.html tableid="supported-platforms" opt1="24.2" content1=twenty-four-two opt2="24.1" content2=twenty-four-one %}
+{% include tabs.html tableid="supported-platforms" opt1="24.2" content1=twenty-four-two opt2="24.1 (reference only)" content2=twenty-four-one %}
