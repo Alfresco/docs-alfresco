@@ -24,7 +24,7 @@ There are two types of installations - local and remote:
 
 ## Prerequisites
 
-If you're using the Content Services (Enterprise), then you need credentials to access the necessary artifacts from [Nexus](https://artifacts.alfresco.com/nexus/){:target="_blank"}. Customers can request these through [Hyland Community](https://community.hyland.com/){:target="_blank"}.
+If you're using the Content Services (Enterprise), then you need credentials to access the necessary artifacts from [Nexus](https://nexus.alfresco.com/nexus/){:target="_blank"}. Customers can request these through [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 >**Note:** If you are using Alfresco Transform Service 1.4 or newer, and you want to do IPTC metadata extraction,
 then you need to [bootstrap the IPTC Content Model]({% link content-services/7.0/install/containers/index.md %}#iptc-model-bootstrap) manually

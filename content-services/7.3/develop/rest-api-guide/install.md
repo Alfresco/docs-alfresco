@@ -20,7 +20,7 @@ If you just want to have a look at the latest API Explorer, then you can use an 
 >Check by accessing `http://localhost:8080/api-explorer`
 
 Most likely you would want to install the API Explorer into your local ACS installation. You can find the
-Alfresco API Explorer WAR file in [Alfresco’s Nexus repository](https://artifacts.alfresco.com/nexus/#nexus-search;quick~api-explorer){:target="_blank"}.
+Alfresco API Explorer WAR file in Alfresco’s Nexus repository by searching for "api-explorer" on the Nexus Repository website available at https://nexus.alfresco.com/nexus/.
 Pick the version that closest matches your ACS installation.
 
 To install the WAR file follow one of two approaches. If you are using a trial version of ACS then you follow the first
