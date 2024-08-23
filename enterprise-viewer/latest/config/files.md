@@ -1102,7 +1102,7 @@ Default value: `false`
 Whether or not to keep the front-end annotation color consistent with the color of the downloaded annotations on a downloaded annotated PDF (regardless of an annotation owner). 
 Set it to `false` to use red for the annotations of a user downloading an annotated PDF and blue for all other users' annotations.
 
-Default:?
+Default: `true`
 
 ### annotation.collabEndpoint
 
@@ -1171,8 +1171,12 @@ Example value: `oav_screenshot`
 
 The list of video property names or identifiers to skip. Each value separated with a comma.
 
+Default value: ``
+
 #### annotation.screenshotTag
 
 Tag name for the created screenshot properties for video annotations (optional).
+
+Default value: ``
 
 Example value: `Images`
