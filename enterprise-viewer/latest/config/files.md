@@ -21,6 +21,8 @@ In general, use the `openannotate-override-placeholders.properties` to override 
 
 OpenContent properties related to AEV are located in the `universal-defaults.properties` file. Any of these properties can be overridden if desired in the `opencontent-override-placeholders.properties` file.
 
+For more information on default properties for OpenContent, see [OpenContent-default properties](#opencontent---default-properties).
+
 ### keepAnnotationOnApproval
 
 If set to `true`, when updating a document to a new version, all annotations are preserved across these versions. If set to `false` or overridden, when updating a document to a new version, all annotations are lost. 
@@ -699,6 +701,8 @@ Default value: `false`
 List of properties to copy property values while splitting or pruning document. To set it to the desired property OpenContent names, use comma to separate them. For example, for Alfresco environment, the following can be used: `insuranceDemo_claimantName,insuranceDemo_policyHolder`. If set to blank, all property values are copied.
 
 ## OpenContent - default properties
+
+The following section outlines all configurable default properties for OpenContent.  
 
 ### license.doSendWarningEmail
 
