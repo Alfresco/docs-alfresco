@@ -1007,7 +1007,7 @@ Default value: `true`
 
 ### annotation.typeName
 
-The specific name of an object type bean for a document type to create when saving the annotations to the repository.
+The specific name of an object type bean for a document type to create when saving annotations to the repository.
 
 Default value: `Annotation`
 
@@ -1087,19 +1087,19 @@ Default value: `true`
 
 ### alfresco.annotation.unindexXFDFFile
 
-Whether or not to index XFDF files when creating a child association. To index these files, set it to `false`.
+Whether or not to index XFDF files when creating a child association. This defaults to `false` so that XFDF files are indexed.
 
 Default value: `false`
 
 ### alfresco.annotation.changeXFDFmodifier
 
-Whether or not to change an XFDF file’s modifier when creating a child association. This defaults to `false` so that modifier is managed by the system.
+Whether or not to change an XFDF file’s modifier when creating a child association. This defaults to `false` so that the modifier is managed by the system.
 
 Default value: `false`
 
 ### annotation.enhancedColorMode
 
-Whether or not to keep the front-end annotation color consistent with the color of the downloaded annotations on a downloaded annotated PDF (regardless of an annotation owner). 
+Whether or not to keep the front-end annotation color consistent with the color of downloaded annotations on a downloaded annotated PDF (regardless of an annotation owner). 
 Set it to `false` to use red for the annotations of a user downloading an annotated PDF and blue for all other users' annotations.
 
 Default: `true`
@@ -1114,7 +1114,7 @@ Example value: `https://dev.abc.pubdef.state.gm.us:3000`
 
 #### annotation.videoScreenshotObjectNameParams
 
-The name of the configured video screenshot object.
+The name of a configured video screenshot object.
 
 Default value: `%{UUID}%.jpeg`
 
@@ -1122,7 +1122,7 @@ Example values: `%{DOCNAME}%_screenshots/%{UUID}%.jpeg`
 
 #### annotation.videoScreenshotPath
 
-The repository path to save the video screenshot object to. If no default value is provided, then it is stored in the same folder as the video.
+The repository path to save a video screenshot object to. If no default value is provided, then it is stored in the same folder as the video.
 
 Default value: ``
 
@@ -1138,7 +1138,7 @@ Example value: `oa_linked_video`
 
 #### annotation.screenshotTimeMillisPropRepoName
 
-The name of the property to store a video screenshot's time.
+The name of a property to store a video screenshot's time.
 
 Default value: `oa:screenshotTimeMillis`
 
@@ -1149,7 +1149,7 @@ Example values:
 
 #### annotation.screenshotWidthPropRepoName
 
-The name of the property to store a video screenshot's width.
+The name of a property to store a video screenshot's width.
 
 Default value: `oa:screenshotWidth`
 
@@ -1161,7 +1161,7 @@ Example values:
 
 #### annotation.screenshotHeightPropRepoName
 
-The name of the property to store a video screenshot's height.
+The name of a property to store a video screenshot's height.
 
 Default value: ``
 
@@ -1175,7 +1175,7 @@ Default value: ``
 
 #### annotation.screenshotTag
 
-Tag name for the created screenshot properties for video annotations (optional).
+The tag name for created screenshot properties for video annotations (optional).
 
 Default value: ``
 
