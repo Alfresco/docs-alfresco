@@ -1018,7 +1018,7 @@ Example values:
 
 ### annotation.relationName
 
-The name of the relation associating a document with its repository annotation object.
+The name of a relation associating a document with its repository annotation object.
 
 Default value: `{http://www.tsgrp.com/model/openannotate/1.0}annotates`
 
@@ -1130,7 +1130,7 @@ Example value: `/Resources`
 
 #### annotation.linkedVideoRelationRepoName
 
-The name of the relation associating screenshots with their videos.
+The name of a relation associating screenshots with their videos.
 
 Default value: `oa:linkedVideo`
 
