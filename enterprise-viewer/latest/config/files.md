@@ -684,7 +684,9 @@ Default value: `true`
 
 ### mentionEmailOfflineUsers
 
-Whether or not an offline, mentioned user receives an email notification.
+Whether or not an offline, mentioned user receives an email notification. 
+
+To set the filename of email subject and body templates for offline mentioned emails, see the `annotation.mentionEmailSubjectTemplateName` and `annotation.mentionEmailBodyTemplateName` properties in the [OpenContent - default properties](#opencontent---default-properties) section.
 
 Default value: `false`
 
@@ -862,13 +864,13 @@ Default value: `false`
 
 ### annotation.mentionEmailSubjectTemplateName
 
-The filename of email subject for offline mentioned emails.
+The filename of email subject for offline mentioned emails. The `mentionEmailOfflineUsers` property must be set to `true`.
 
 The default value: `mention-email-subject.ftl`
 
 ### annotation.mentionEmailBodyTemplateName
 
-The filename of body templates for offline mentioned emails.
+The filename of body templates for offline mentioned emails. The `mentionEmailOfflineUsers` property must be set to `true`.
 
 The default value: `mention-email-body.ftl`
 
@@ -1162,6 +1164,14 @@ Example values:
 #### annotation.screenshotHeightPropRepoName
 
 The name of a property to store a video screenshot's height.
+
+Default value: ``
+
+Example value: `oav_screenshot`
+
+#### annotation.screenshotDocumentType
+
+The name of a document or object type to store video screenshots as.
 
 Default value: ``
 
