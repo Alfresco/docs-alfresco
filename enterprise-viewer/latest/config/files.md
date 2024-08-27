@@ -21,7 +21,7 @@ In general, use the `openannotate-override-placeholders.properties` to override 
 
 OpenContent properties related to AEV are located in the `universal-defaults.properties` file. Any of these properties can be overridden if desired in the `opencontent-override-placeholders.properties` file.
 
-For more information on default properties for OpenContent, see [OpenContent-default properties](#opencontent---default-properties).
+For more information on default properties for OpenContent, see [OpenContent - default properties](#opencontent---default-properties).
 
 ### keepAnnotationOnApproval
 
