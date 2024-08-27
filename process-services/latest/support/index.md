@@ -2,9 +2,11 @@
 title: Supported platforms
 ---
 
-Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Process Services 24.x.
+Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Process Services.
 
-Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact our Support team - submit a case via [Hyland Community]({% link support/latest/contact.md %}).
+Choose a combination of products to build your own Supported Stack. If anything is unclear then please [contact Support]({% link support/latest/contact.md %}).
+
+> **Note:** To get the latest security fixes and updates for the Alfresco integrations and applications listed below, use the latest Service Pack for the listed product version. See the Alfresco Software Downloads page in [Hyland Community](https://community.hyland.com/customer-portal/downloads/alfresco){:target="_blank"} for the latest Service Pack versions.
 
 {% capture twenty-four-two %}
 
@@ -37,8 +39,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Jetty 12 | |
 | | |
 | **JDKs** | |
-| OpenJDK 17 |  |
-| Amazon Corretto 17 |  |
+| OpenJDK 17 | |
+| Amazon Corretto 17 | |
 | | |
 | **Browsers** | |
 | Mozilla Firefox | |
@@ -48,27 +50,24 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Third party integrations** | |
 | Elasticsearch 8.13.1 | |
+| Keycloak 21.1.2 | |
 | | |
 | **Services** | |
-| Alfresco Content Services 23.x |  |
-| | |
-| **Integrations** | |
-| Identity Service 2.0 | For use with LDAP and SAML |
-| Identity Service 1.2 | For use with LDAP and SAML |
-| Identity Service 1.1 | For use with LDAP and SAML |
+| Alfresco Content Services 23.x | |
 | | |
 | **Applications** | |
-| Alfresco Digital Workspace 4.4 |
-| Alfresco Digital Workspace 4.3 | Requires Alfresco Process Services 2.4.2. |
+| Alfresco Digital Workspace 4.4 | |
 | | |
 | **Related components** | |
 | VMWare ESXi 5.1.0 | For supported guest operating systems |
-| Spring Boot 3.2.3 |
-| Spring 6.1.4 |
+| Spring Boot 3.2.3 | |
+| Spring 6.1.4 | |
 
 {% endcapture %}
 
 {% capture twenty-four-one %}
+
+> **Note:** Information for this Service Pack is provided for reference only. Please use the latest Service Pack.
 
 | Version | Notes |
 | ------- | ----- |
@@ -115,8 +114,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services 23.x |  |
 | | |
 | **Integrations** | |
-| Identity Service 1.2 | For use with LDAP and SAML |
-| Identity Service 1.1 | For use with LDAP and SAML |
+| Identity Service 1.2 | The Identity Service is sunset from September 1, 2024. We recommend using Keycloak with the latest Service Pack instead of the Identity Service. For use with LDAP and SAML |
+| Identity Service 1.1 | The Identity Service is sunset from September 1, 2024. We recommend using Keycloak with the latest Service Pack instead of the Identity Service. For use with LDAP and SAML |
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 4.3 | Requires Alfresco Process Services 2.4.2. |
@@ -126,4 +125,4 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 {% endcapture %}
 
-{% include tabs.html tableid="supported-platforms" opt1="24.2" content1=twenty-four-two opt2="24.1" content2=twenty-four-one %}
+{% include tabs.html tableid="supported-platforms" opt1="24.2" content1=twenty-four-two opt2="24.1 (reference only)" content2=twenty-four-one %}
