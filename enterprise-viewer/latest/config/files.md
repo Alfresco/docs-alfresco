@@ -686,7 +686,9 @@ Default value: `true`
 
 ### mentionEmailOfflineUsers
 
-Whether or not an offline, mentioned user receives an email notification.
+Whether or not an offline, mentioned user receives an email notification. 
+
+To set the filename of email subject and body templates for offline mentioned emails, see the `annotation.mentionEmailSubjectTemplateName` and `annotation.mentionEmailBodyTemplateName` properties in the [OpenContent - default properties](#opencontent---default-properties) section.
 
 Default value: `false`
 
@@ -866,10 +868,15 @@ Default value: `false`
 
 ### annotation.mentionEmailSubjectTemplateName
 
-The filenames of email subject and body templates for offline mentioned emails.
+The filename of email subject for offline mentioned emails. The `mentionEmailOfflineUsers` property must be set to `true`.
 
-The default filename of email subject template: `mention-email-subject.ftl`
-The default filename of email body template: `mention-email-body.ftl`
+The default value: `mention-email-subject.ftl`
+
+### annotation.mentionEmailBodyTemplateName
+
+The filename of body templates for offline mentioned emails. The `mentionEmailOfflineUsers` property must be set to `true`.
+
+The default value: `mention-email-body.ftl`
 
 ### redaction.redactedPageResolution
 
@@ -1003,3 +1010,187 @@ Default value: `false`
 Whether or not to evict items from the cache in case of errors in the `getDocumentInfo` call. This defaults to `true` so that cached data is removed when an error occurs in the `getDocumentInfo` call.
 
 Default value: `true`
+
+### annotation.typeName
+
+The specific name of an object type bean for a document type to create when saving annotations to the repository.
+
+Default value: `Annotation`
+
+Example values:
+
+* `Note`
+* `AEV:Annotation`
+
+### annotation.relationName
+
+The name of a relation associating a document with its repository annotation object.
+
+Default value: `{http://www.tsgrp.com/model/openannotate/1.0}annotates`
+
+Example values:
+
+* `annotates`
+* `DM_ANNOTATE`
+
+### annotation.annotationObjectNameParams
+
+The name of a configured annotation object.
+
+Default value: `%{UUID}%`
+
+Example values:
+
+* `%{docName}%%{title}%`
+* `%{OBJECTID}%-note`
+* `%{DOCNAME}%_%{DISPLAYNAME}%.xfdf`
+
+### annotation.annotationPath
+
+The repository path to save an annotation object to.
+
+Default value: `/OpenAnnotate/Annotations/%{LOGINNAME}%`
+
+Example values:
+
+* `/Annotations`
+* `/OpenAnnotate/Annotations`
+* `/abc-administration/documentLibrary/OpenAnnotate/Annotations`
+* `Annotations/%{DOCNAME}%_%{DISPLAYNAME}%.xfdf`
+* `/def-administration/OpenAnnotate/Annotations`
+* `/Resources/%{title}%`
+
+### annotation.annotationOwnerProperty
+
+The creator or owner property of each individual annotation for the Enterprise Viewer as a service.
+
+Default value: `creator`
+
+Example values:
+
+* `annotation_owner_name`
+* `creator_s`
+
+### annotation.oaaaSBaseUrl
+
+The base URL for the Enterprise Viewer as a service.
+
+Default value: `http://openannotate.tsgrpaws.com:9080/OpenAnnotate/login/stored.htm`
+
+### annotation.oaaasExtAuthBaseUrl
+
+URL instance when using the Enterprise Viewer as a service with an external authentication to view files (not common).
+
+Default value: `empty string`
+
+Example value: `http://camden3:8080/OpenAnnotate/login/extAuthStored.htm`
+
+### alfresco.annotation.hideXFDFFile
+
+Whether or not to hide XML Forms Data Format (XFDF) files when creating a child association.
+
+Default value: `true`
+
+### alfresco.annotation.unindexXFDFFile
+
+Whether or not to index XFDF files when creating a child association. This defaults to `false` so that XFDF files are indexed.
+
+Default value: `false`
+
+### alfresco.annotation.changeXFDFmodifier
+
+Whether or not to change an XFDF file’s modifier when creating a child association. This defaults to `false` so that the modifier is managed by the system.
+
+Default value: `false`
+
+### annotation.enhancedColorMode
+
+Whether or not to keep the front-end annotation color consistent with the color of downloaded annotations on a downloaded annotated PDF (regardless of an annotation owner). 
+Set it to `false` to use red for the annotations of a user downloading an annotated PDF and blue for all other users' annotations.
+
+Default: `true`
+
+### annotation.collabEndpoint
+
+The Enterprise Viewer collaboration or chat endpoint.
+
+Example value: `https://dev.abc.pubdef.state.gm.us:3000`
+
+### AEV video properties
+
+#### annotation.videoScreenshotObjectNameParams
+
+The name of a configured video screenshot object.
+
+Default value: `%{UUID}%.jpeg`
+
+Example values: `%{DOCNAME}%_screenshots/%{UUID}%.jpeg`
+
+#### annotation.videoScreenshotPath
+
+The repository path to save a video screenshot object to. If no default value is provided, then it is stored in the same folder as the video.
+
+Default value: ``
+
+Example value: `/Resources`
+
+#### annotation.linkedVideoRelationRepoName
+
+The name of a relation associating screenshots with their videos.
+
+Default value: `oa:linkedVideo`
+
+Example value: `oa_linked_video`
+
+#### annotation.screenshotTimeMillisPropRepoName
+
+The name of a property to store a video screenshot's time.
+
+Default value: `oa:screenshotTimeMillis`
+
+Example values: 
+
+* `oa_screenshot_time_millis`
+* `oa_screenshottimemillis`
+
+#### annotation.screenshotWidthPropRepoName
+
+The name of a property to store a video screenshot's width.
+
+Default value: `oa:screenshotWidth`
+
+Example values: 
+
+* `oa_screenshot_width`
+
+* `oa_screenshotwidth`
+
+#### annotation.screenshotHeightPropRepoName
+
+The name of a property to store a video screenshot's height.
+
+Default value: ``
+
+Example value: `oav_screenshot`
+
+#### annotation.screenshotDocumentType
+
+The name of a document or object type to store video screenshots as.
+
+Default value: ``
+
+Example value: `oav_screenshot`
+
+#### annotation.screenshotPropsToSkipRepoName
+
+The list of video property names or identifiers to skip. Each value separated with a comma.
+
+Default value: ``
+
+#### annotation.screenshotTag
+
+The tag name for created screenshot properties for video annotations (optional).
+
+Default value: ``
+
+Example value: `Images`
