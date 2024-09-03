@@ -54,6 +54,6 @@ You can edit the **General** and **Company details** sections by clicking **Edit
 
 ### Why is the preview not available when I add property system.thumbnail.generate=false to alfresco-global.properties
 
-When the property `system.thumbnail.generate=false` is added to `alfresco-global.properties`,  the thumbnail generation is disabled and the preview is not available. 
+When the property `system.thumbnail.generate=false` is added to `alfresco-global.properties`, the thumbnail generation is disabled and the preview is not available. 
 
-To see the preview, set the property `system.thumbnail.generatemust` to `true`.
+To see the preview, set the property `system.thumbnail.generate` to `true`.
