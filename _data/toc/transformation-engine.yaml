@@ -9,8 +9,6 @@
           path: '/transformation-engine/latest/install/'
         - title: 'Install with MSI'
           path: '/transformation-engine/latest/install/msi/'
-        - title: 'Install the SDK'
-          path: '/transformation-engine/latest/install/sdk/'
     - title: 'Configure'
       path: '/transformation-engine/latest/config/'
     - title: 'Administer'
