@@ -92,7 +92,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco In-Process SDK 4.8 | |
 | | |
 | **Applications** | |
-| Alfresco Digital Workspace 4.4 | |
+| Alfresco Digital Workspace 5.0 | |
 | Alfresco Mobile Workspace 1.9 | |
 | Alfresco Control Center 8.3 | |
 | Alfresco Application Development Framework (ADF) 6.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
@@ -203,11 +203,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.6 | |
 | | |
 | **Applications** | |
-| Alfresco Digital Workspace 4.4 | |
-| Alfresco Digital Workspace 4.3 | |
-| Alfresco Digital Workspace 4.2 | |
-| Alfresco Digital Workspace 4.1 | |
-| Alfresco Digital Workspace 4.0 | |
+| Alfresco Digital Workspace 5.0 | |
 | Alfresco Mobile Workspace 1.9 | |
 | Alfresco Control Center 8.3 | |
 | Alfresco Control Center 8.2 | |
@@ -322,11 +318,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.6 | |
 | | |
 | **Applications** | |
-| Alfresco Digital Workspace 4.4 | |
-| Alfresco Digital Workspace 4.3 | |
-| Alfresco Digital Workspace 4.2 | |
-| Alfresco Digital Workspace 4.1 | |
-| Alfresco Digital Workspace 4.0 | |
+| Alfresco Digital Workspace 5.0 | |
 | Alfresco Mobile Workspace 1.9 | |
 | Alfresco Control Center 8.3 | |
 | Alfresco Control Center 8.2 | |
