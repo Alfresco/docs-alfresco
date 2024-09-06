@@ -399,6 +399,15 @@ services:
       - ./exactTermSearch.properties:/usr/local/tomcat/webapps/alfresco/WEB-INF/classes/alfresco/search/elasticsearch/config/exactTermSearch.properties
 ```
 
+If you are working on the Content Services version 23.3+, refer to the following sample:
+
+```docker
+services:
+  alfresco:
+    volumes:
+      - ./exactTermSearch.properties:/usr/local/tomcat/shared/classes/alfresco/extension/exactTermSearch.properties
+```
+
 ## Support for different databases
 
 PostgreSQL is the default database for Search Enterprise. You can use different databases with Search Enterprise, but they must be configured within your system and must match the database used by Content Services. The other types of databases supported by Search Enterprise are: MySQL, MariaDB, Microsoft SQL Server, and Oracle.
