@@ -6,7 +6,7 @@ Alfresco products are available to customers and partners. Use the links provide
 
 ## Pre-built release artifacts
 
-Access to the Alfresco pre-built release artifacts is from [Hyland Community]() [https://community.hyland.com](https://community.hyland.com){:target=_"blank"}. Navigate to the **Support** tab and select **Alfresco Downloads**.
+Access to the Alfresco pre-built release artifacts is from [Hyland Community](https://community.hyland.com){:target=_"blank"}. Navigate to the **Support** tab and select **Alfresco Downloads** under the **Software Downloads** section.
 
 ## Containerized products
 
