@@ -8,7 +8,7 @@ The Federation Services capability for Alfresco Content Services is delivered in
 
 Check the [supported platforms]({% link federation-services/latest/support/index.md %}) for information on what you require before you start the installation.
 
-> **Note**: A compatible version of Alfresco Governance Services (if you plan to use the Manage in Place capabilities) is required, for example: if using Alfresco Content Services 23.1, make sure that you install Alfresco Governance Services 23.1.
+> **Note:** A compatible version of Alfresco Governance Services (if you plan to use the Manage in Place capabilities) is required, for example: if using Alfresco Content Services 23.1, make sure that you install Alfresco Governance Services 23.1.
 
 You can download the Federation Services software from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
@@ -19,12 +19,13 @@ You can download the Federation Services software from [Hyland Community](https:
   * Memory pool: 4GB required, 8GB recommended. This can be updated in the Java tab of your Apache Tomcat Properties window.
 
     > **Note:** We recommend using a separate instance, where possible, instead of using the same one used by Alfresco Content Services.
+
     > **Note:** Federation Services runs on the Spring platform, which does not support Tomcat versions beyond 9.
 
 * MongoDB 6.x
 * Linux or Windows
 
-**Client Access**
+#### Client Access
 
 The client uses a web browser to access Federation Services. The following browsers are supported:
 
@@ -36,9 +37,11 @@ The client uses a web browser to access Federation Services. The following brows
 
 Create the Federation Services database and user in MongoDB by executing the following commands in the mongo shell:
 
-`use simflofy`
-`db.createUser({"user":"simflofy", "pwd":"password",`
-`"roles":["clusterMonitor", "dbOwner"]});`
+```text
+use simflofy
+db.createUser({"user":"simflofy", "pwd":"password",
+"roles":["clusterMonitor", "dbOwner"]});
+```
 
 ### Hardware requirements
 
@@ -56,7 +59,7 @@ Finally, Federation Services will be integrating 2 or more products. Performance
 ## Install steps
 
 These steps describe how to install Federation Services to an instance of Alfresco Content Services.
-All files necessary for install are available from [Hyland Community](https://community.hyland.com/){:target="_blank"}. Sign in, select **Product downloads**, and search for the product you require.
+All files necessary for install are available from [Hyland Community](https://community.hyland.com/){:target="_blank"}. Sign in, select **Support > Alfresco Downloads**, and search for the product you require.
 
 1. Download the files provided for the Federation Services release.
 
@@ -65,18 +68,20 @@ All files necessary for install are available from [Hyland Community](https://co
     * `AFS-federation.war`
     * `AFS-admin.war`
 
-2. Copy the Federation Services Admin and discovery war files or expanded zip to **Tomcat Installation** `Directory/webapps` directory.
+2. Copy the Federation Services Admin and discovery WAR files or expanded zip to **Tomcat Installation** `Directory/webapps` directory.
 3. Start Tomcat.
 4. Navigate to the `mongo-db.properties` file `Tomcat/Webapps/3Sixty/Admin/WEB-INF/classes/mongo-db.properties`.
 5. Set the credentials for the user and the database connection details.
 6. Depending on what database you created the admin user in, you may have to append the database name to the end of the uri. This is the authenticating database. The following example config assumes you followed the previous steps exactly.
+
     ```text
-    mongo.db.username=simflofy`
+    mongo.db.username=simflofy
     mongo.db.password=#whatever password you set during mongo user creation
     mongo.db.uri=mongodb://[[USER]]:[[PASS]]@localhost:27017/simflofy
     ```
-7. In the same folder, open `simflofy-global.properties` and check if all of the 'initialize' properties are set to true. If not, set them to true and save. See the section on properties for more information.
-8. If you have a shared loader enabled in Tomcat, move the global properties files to the shared/classes folder. Now the properties files will persist after redeploying the war.
+
+7. In the same folder, open `simflofy-global.properties` and check if all of the 'initialize' properties are set to true. If not, set them to `true` and save. See the section on properties for more information.
+8. If you have a shared loader enabled in Tomcat, move the global properties files to the `shared/classes` folder. Now the properties files will persist after redeploying the WAR.
 9. Restart Tomcat.
 10. In `simflofy-global.properties` set initialize properties to false.
 11. Copy and paste the following into your browser: `http://(servername):(port)/3sixty-admin`. The default Federation Services Username/Password is admin/admin.

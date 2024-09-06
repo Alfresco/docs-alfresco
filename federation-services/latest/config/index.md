@@ -186,7 +186,7 @@ Content Service Connections offer public REST endpoints that allow for integrati
 
 #### Commonly Supported Operations
 
-> **Note**: The capabilities of each Content Service Connector is limited to operations allowed by the repository. Additionally, not all methods are available for all connectors. View individual connector pages for a list of capabilities.
+> **Note:** The capabilities of each Content Service Connector is limited to operations allowed by the repository. Additionally, not all methods are available for all connectors. View individual connector pages for a list of capabilities.
 
 * Creating content
 
@@ -388,13 +388,13 @@ A logical, intuitive UX. Informative dashboards. Powerful business process capab
 
 ##### Authentication Connections
 
-> **Note**: Passthrough authentication currently only works for ECM content service:
+> **Note:** Passthrough authentication currently only works for ECM content service:
 Objective Basic Authentication Connector: passthrough username and password
 Objective OAuth Connector: only passthrough username
 
 **Objective Basic Authentication**
 
-> **Note**: Objective Basic auth connector does not work for ECM Nexus
+> **Note:** Objective Basic auth connector does not work for ECM Nexus
 
 * **Connection Name**: Unique Name for the Auth Connection to identify it in the UI.
 * **Username**: The username to authenticate with the repository if applicable.
@@ -403,7 +403,7 @@ Objective OAuth Connector: only passthrough username
 
 **Objective OAuth Connection**
 
-> **Note**: Minimum required version of ECM/Nexus is 11.2 for OAuth connections
+> **Note:** Minimum required version of ECM/Nexus is 11.2 for OAuth connections
 
 * **Name**: Connector Name
 * **Server URL**: Server URL, for example `https://myserver.objective.com`
@@ -437,7 +437,7 @@ Also known as input an output connections. Their job is to query or crawl remote
 
 * **Output Folder Path**: Folder ID to start output. Note that the path from the source will be duplicated in the output and subsequent folders will be created as needed.
 
-> **Note**: The Objective connector uses the job's Repository Time Zone field for time zone conversion. The output Time Zone field is ignored, since Federation Services always sends ECM a UTC DateTime.
+> **Note:** The Objective connector uses the job's Repository Time Zone field for time zone conversion. The output Time Zone field is ignored, since Federation Services always sends ECM a UTC DateTime.
 
 **Duplication Check Task**
 
@@ -445,13 +445,13 @@ Given the ECM connector is the source repository, when there are two of the same
 
 When the duplication check task field to Compare is set as File content hash, and there are two emails with the same content and the same subject, the MD5 codes will still be different for these two emails. Because of this, Federation Services cannot use duplication check task to skip one of them.
 
-> **Note**: Only new files greater than 100MB are up chunked and uploaded.
+> **Note:** Only new files greater than 100MB are up chunked and uploaded.
 Chunked uploads do not take place if the file already exists in the Objective folder specified.
 Linked documents and version updates are not currently supported by this feature.
 
 ##### Mapping
 
-> **Note**: When adding job mapping, the type mapping and aspect mapping should be added first and then add the calculate mapping and field mapping.
+> **Note:** When adding job mapping, the type mapping and aspect mapping should be added first and then add the calculate mapping and field mapping.
 
 When "Field Mapping" from ECM connector, make sure fields do not have "document." prefix. For example, "document.dateUpdated" must be written as "dateUpdated" Remove the "document." prefix added by schema instance.
 
@@ -486,7 +486,7 @@ Elasticsearch is a search engine based on the Lucene library. It provides a dist
 * **Version Support**: Federation Services currently only supports version 7.15 of Elasticsearch and does not support version 8
 * **AWS Compatibility**: As of September 2021 this connector will not work with AWS instances of ElasticSearch. AWS has its own version, now called OpenSearch, which is incompatible with current Elasticsearch libraries.
 
-> **Note**: To configure Elasticsearch to handle larger file sizes:
+> **Note:** To configure Elasticsearch to handle larger file sizes:
 In installed `elasticsearch/config/elasticsearch.yml`, set `http.max_content_length` to a value greater than 100MB. See [here](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/modules-network.html){:target="_blank"} for more options.
 
 ##### Authentication Connection
@@ -581,7 +581,7 @@ Only one of these options may be selected at a time
 
 ##### Indexing Content into Elasticsearch for Federation
 
-> **Note**: PREREQUISITES AND THE FEDERATION WIZARD
+> **Note:** PREREQUISITES AND THE FEDERATION WIZARD
 These steps can be performed automatically by using the Federation Wizard, but will still require job configuration. If you use the wizard, skip steps 1 and 2.
 
 For indexing content you will need:
@@ -635,7 +635,7 @@ Can be used as a content search connector for Manage in Place
 
 MongoDB is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas.
 
-> **Note**: This page is only meant to cover using MongoDB without [GridFS](#mongodb-gridfs). The common use case for MongoDB without GridFS is to act as an indexing engine, like [Elasticsearch](#elasticsearch)
+> **Note:** This page is only meant to cover using MongoDB without [GridFS](#mongodb-gridfs). The common use case for MongoDB without GridFS is to act as an indexing engine, like [Elasticsearch](#elasticsearch)
 
 ##### Authentication Connection
 
@@ -738,7 +738,7 @@ rd.setDenyAcl(deny);
 
 Can be used as a content search connector for Manage in Place
 
-> **Note**: In Federation Services, the GridFS is just a mode of the MongoDB connector.
+> **Note:** In Federation Services, the GridFS is just a mode of the MongoDB connector.
 
 GridFS is the MongoDB specification for storing and retrieving large files such as images, audio files, video files, etc. It is kind of a file system to store files but its data is stored within MongoDB collections. GridFS has the capability to store files even greater than its document size limit of 16MB.
 
@@ -1675,7 +1675,7 @@ or
 
 > **Important**: In order to retrieve private chat messages, a payment model is required after a certain number of messages. See [this link](https://learn.microsoft.com/en-us/graph/teams-licenses#evaluation-mode-default-requirements){:target="_blank"}. Federation Services uses the Get messages across all chats for user method.
 
-> **Note**: Microsoft Teams file storage for a team is actually just a SharePoint site, with each channel being a folder in the `Documents` library. You can view your teams files in SharePoint by going to `https://[tenant].sharepoint.com/sites/[teamName]`.
+> **Note:** Microsoft Teams file storage for a team is actually just a SharePoint site, with each channel being a folder in the `Documents` library. You can view your teams files in SharePoint by going to `https://[tenant].sharepoint.com/sites/[teamName]`.
 
 ##### Authentication Connection
 
@@ -1746,7 +1746,7 @@ The second mode allows you to pull the private chats for a user.
 * Preferred licensing and payment requirement model. The API used to retrieve private messages has limited usage. Usage beyond certain amounts require payment. For testing, stick to the default, but note that you will run out after 500 messages.
 * Retrieve attachments attached to chat logs: Will attach documents as additional binaries for each message.
 
-> **Note**: If you wish to process a message via push event, there are some restrictions.
+> **Note:** If you wish to process a message via push event, there are some restrictions.
 
 * Private Chats are not available. Attempting to execute the push event against private chats will cause an error.
 * The output for an event chat will always be in html format.
@@ -1808,9 +1808,9 @@ Documents retrieved from OneDrive will have the same metadata as those read from
 
 ##### Integration Connection
 
-> **Caution**:As of the 3.1.1 release, MSGraph connectors cannot rerun errored documents. We are aware of the issue, and it will be addressed in the next release.
+> **Caution:** As of the 3.1.1 release, MSGraph connectors cannot rerun errored documents. We are aware of the issue, and it will be addressed in the next release.
 
-> **Important**: The Microsoft Graph APIs throttle connections that make what it considers excessive api calls. They have not shared these metrics, and they are determined dynamically based on previous usage and presumably account type. [See this link for more details](https://docs.microsoft.com/en-us/sharepoint/dev/general-development/how-to-avoid-getting-throttled-or-blocked-in-sharepoint-online#why-cant-you-just-tell-me-the-exact-throttling-limits){:target="_blank"}
+> **Important:** The Microsoft Graph APIs throttle connections that make what it considers excessive api calls. They have not shared these metrics, and they are determined dynamically based on previous usage and presumably account type. [See this link for more details](https://docs.microsoft.com/en-us/sharepoint/dev/general-development/how-to-avoid-getting-throttled-or-blocked-in-sharepoint-online#why-cant-you-just-tell-me-the-exact-throttling-limits){:target="_blank"}
 
 ##### Job Configuration
 

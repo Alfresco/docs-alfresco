@@ -36,12 +36,10 @@ Your Integration connections will be the places you want to move your files to a
 1. Select **Connections** from the navigation section on the left
 2. Select **Integration Connections**
 3. Click the **Create Integration Connection** button
-4. Add the Following
-
-* Connection Name
-* Connection Description (Optional)
-* Connection Type
-
+4. Add the following:
+   * Connection Name
+   * Connection Description (Optional)
+   * Connection Type
 5. Click **Save** to continue editing your integration connector
 6. Edit your new Integration Connection
 7. Add the **Authentication Connection** you created for this connector.
@@ -55,7 +53,7 @@ Repeat Step 2 for your Output Integration Connection. This will be the location 
 1. Select **Connections** from the navigation section on the left
 2. Select **Integration Connections**
 3. Click the **Create Integration Connection** button
-4. Add the Following
+4. Add the following:
    * Connection Name
    * Connection Description (Optional)
    * Connection Type
@@ -73,9 +71,9 @@ This process will allow Federation Services to connect the two systems and move 
 2. Select **List Jobs**
 3. Click the Create New Job button
 4. Add the following:
-  * Give your job a descriptive Job Name
-  * Select your Repository Connection
-  * Select your Output Connection
+   * Give your job a descriptive Job Name
+   * Select your Repository Connection
+   * Select your Output Connection
 5. Leave the Job type as Simple Migration
 6. Click **Save**
 7. View your new job edit page.
@@ -279,8 +277,6 @@ Upon completion, the temporary job and records are deleted, leaving only Pii Dat
 
 ## Federated Search
 
-### Overview
-
 Federation Services allows you to manage data throughout multiple repositories without having to move the content from one location to another. With Federated Search users can view, organise, report on, update and maintain all of their documents, files and records in one easy to use highly customisable space.
 
 ### Content Search
@@ -409,7 +405,7 @@ You can also add mappings or mapping groups to your Content Service Connections 
 ##### Add Mappings to a Content Service Connector
 
 1. Create a mapping.
-  * (Optional) Add your mappings (and other mappings) to a Mapping Group.
+   * (Optional) Add your mappings (and other mappings) to a Mapping Group.
 2. Click the edit icon for your Content Service connector.
 3. In the drop-down under Mapping Type select Single Mapping or Group Mapping
 4. In the drop-down under the mapping type you chose, select the Mapping or Mapping Group you want to add to this connection.
@@ -1257,8 +1253,6 @@ Discovery can be customised in various ways using the content view builder. Foll
 
 ## Integrations
 
-### Overview
-
 Federation Services has a standard process for performing integrations or indexing, as demonstrated by the steps below.
 
 1. Create connector instances - This is part of the installation and requires the Admin to create Integrations and Discovery connections for use with the source and target systems. If setting up Federation Content Service and View connections will also be required.
@@ -1295,10 +1289,10 @@ It allows them to be triggered through content service actions. So, if we want t
 * **Content Length:** The size of the document.
 * **Content Type:** The content type (mimetype) of the document.
 
-> **Important:** The previous three field options will currently only work for the following endpoints. This may change in future releases.  
-`/file`
-`/properties`
-`/contentStream`
+> **Important:** The previous three field options will currently only work for the following endpoints. This may change in future releases.
+> `/file`
+> `/properties`
+> `/contentStream`
 
 * **Content Connector:** The `connectorId` which was used. Can trigger on any endpoint.
 * **Event Type:** The type of action. See the table below for the action for each end point.
@@ -1309,9 +1303,9 @@ This tutorial will walk you through setting up an event job that will process on
 
 ###### Getting Started
 
-1. Create a source folder for your document. For example, `C:\SourceDocuments`
+1. Create a source folder for your document. For example, `C:\SourceDocuments`.
 2. Place a test document into this folder.
-3. Create a target folder. For example, `C:\TargetFolder`
+3. Create a target folder. For example, `C:\TargetFolder`.
 
 ###### Creating a Federation Services Event Job
 
@@ -1319,7 +1313,7 @@ This tutorial will walk you through setting up an event job that will process on
 
 You will need a connection to your source and target repositories. Because our source and target repositories are the same, we only need to create one connection.
 
-1. Log into the **Federation Services Admin** tool (`http://(your server)/Federation-Services-admin`)
+1. Log into the **Federation Services Admin** tool (`http://(your server)/Federation-Services-admin`).
 2. On the left-hand side expand **Connections** and choose **Integration**.
 3. At the top left corner of the screen, click the button **Create Integration Connection**. Fill out the popup screen and click **Save**. This creates a connection to the File System that you can use as both a source and a target connection.
 
@@ -1335,11 +1329,13 @@ In the Federation Services Admin tool:
 2. On the right-hand side, click the button **Create New Job**.
 3. Enter the data into the popup screen and click **Save**. The Repository Connection is the source system and the Output Connection is the target system.
 4. For Job Type, select Event
-5. Click Save on the popup, and you are now presented with the edit screen for your job. 
-6. The source file path should be set to include the location of the files you want to push. In our case we will set it to `C:\SourceDocuments`. Any files in SourceDocuments or its subfolders will be able to be pushed.
-> **Info:** It is possible to set the File Path to a root drive such as C:\\. We do not recommend doing this as it would allow any file on that drive to be pushed.
-7. Next we need to enter the target folder. Click on FileSystem Connection-Output tab and enter the target folder where the file(s) will be copied (migrated) to: `C:\TargetFolder`
-8. We will leave the default values for everything else and click Save.
+5. Click **Save** on the popup, and you are presented with the edit screen for your job.
+6. The source file path should be set to include the location of the files you want to push. In our case we will set it to `C:\SourceDocuments`. Any files in `SourceDocuments` or its subfolders will be able to be pushed.
+
+   > **Info:** It is possible to set the File Path to a root drive such as `C:\\`. We do not recommend doing this as it would allow any file on that drive to be pushed.
+
+7. Next we need to enter the target folder. Click on FileSystem Connection-Output tab and enter the target folder where the file(s) will be copied (migrated) to: `C:\TargetFolder`.
+8. We will leave the default values for everything else and click **Save**.
 
 This saves our event job, and we are ready to execute it.
 
@@ -1347,12 +1343,12 @@ This saves our event job, and we are ready to execute it.
 
 We have to tell the event job which document we want to process. This requires making an API call and passing two parameters, jobId and documentId.
 
-1. Find the job ID
-To get the jobId, open the job and on the Details page look for the ID field
-Edit or view the job we just created to see the job id.
-2. Find the document ID
-To get the documentId, use the full path of the document. I.e. `C:/SourceDocuments/sampledoc.pdf`
-In the SourceDocuments folder we will be copying sampledoc.pdf. Therefore, the documentId will be the full path: `C:/SourceDocuments/sampledoc.pdf`. Note the forward slashes.
+1. Find the job ID:
+   To get the jobId, open the job and on the Details page look for the ID field.
+   Edit or view the job we just created to see the job id.
+2. Find the document ID:
+   To get the documentId, use the full path of the document, i.e. `C:/SourceDocuments/sampledoc.pdf`.
+   In the SourceDocuments folder we will be copying sampledoc.pdf. Therefore, the documentId will be the full path: `C:/SourceDocuments/sampledoc.pdf`. Note the forward slashes.
 3. Construct an API url and call it.
 
 Construct the API URL:
@@ -1365,7 +1361,9 @@ URL format:
 
 Example curl command:
 
-`curl -u username:password "http://localhost:8080/3sixty-admin/api/event/service/pushevent?jobId=1631569493226&documentId=C:/SourceDocuments/sampledoc.pdf"`
+```bash
+curl -u username:password "http://localhost:8080/3sixty-admin/api/event/service/pushevent?jobId=1631569493226&documentId=C:/SourceDocuments/sampledoc.pdf"
+```
 
 Once the API is called, the document will be placed in a queue and the event job we created above will be started.
 
@@ -1380,7 +1378,7 @@ To kill a job, on the left-hand menu under Admin, select Active Jobs - Select th
 ##### Event Types and Endpoints
 
 | Event Type | Endpoint | Method |
-| ---|---|--- |
+| ---------- | -------- | ------ |
 | FILE_DOWNLOAD | /file | GET |
 | FILE_DOWNLOAD | /inlinefile | GET |
 | CREATE_DOCUMENT | /file | POST |
@@ -1494,25 +1492,27 @@ In some systems, like email headers or iManage, fields can be dynamic and so Dis
 
 1. Create a properties file that will contain your fields. An example can be found in your installation:
 
-`tomcat/webapps/3sixty-admin/WEB-INF/classes/propertiesFileDiscoverySample.properties`
+    ```text
+    tomcat/webapps/3sixty-admin/WEB-INF/classes/propertiesFileDiscoverySample.properties
+    ```
 
 2. Edit this file, or the one you created if it's different:
 
-```text
-# Fields Types
-# CHECKBOX,DATETIME,TEXT,TEXTAREA,INTEGER,LONG,DECIMAL,DOUBLE,URI,READONLY,BINARY,ANY
-#
-# Format
-# type.field=field type
-# If they key has a space in it, replace the space with the unicode value:
-# u0020
-# Historicalu0020Documents.field=CHECKBOX
-document.name=TEXT
-document.description=TEXTAREA
-document.createddate=DATETIME
-folder.name=TEXT
-folder.isversion=CHECKBOX
-```
+    ```text
+    # Fields Types
+    # CHECKBOX,DATETIME,TEXT,TEXTAREA,INTEGER,LONG,DECIMAL,DOUBLE,URI,READONLY,BINARY,ANY
+    #
+    # Format
+    # type.field=field type
+    # If they key has a space in it, replace the space with the unicode value:
+    # u0020
+    # Historicalu0020Documents.field=CHECKBOX
+    document.name=TEXT
+    document.description=TEXTAREA
+    document.createddate=DATETIME
+    folder.name=TEXT
+    folder.isversion=CHECKBOX
+    ```
 
 3. Create a properties file discovery instance and point it to your properties file. Run it and your types and fields should show up, and now you can use them in job mappings.
 
@@ -1645,7 +1645,7 @@ If the first date string is not a valid date, it will use the second date string
 
 ###### Creating your own custom functions
 
-**Operators** 
+**Operators**
 
 The normal Boolean, number, and string operators for Java work with Federation Services Expressions: 
 
@@ -1890,7 +1890,7 @@ In the drop down provided, select the Task group you would like to run with this
 
 The Run and Monitor Jobs page is where you can monitor the progress of your integration jobs. From this page you can see the status of your jobs. How many files have been migrated. When the job was last ran and any errors that might have occurred during the integration.
 
-> **Note**: When migrating documents with multiple versions, if a version in that series fails for any reason, the subsequent versions will not be processed. They will instead be 'Skipped' and previously uploaded versions will be cleaned up/deleted.
+> **Note:** When migrating documents with multiple versions, if a version in that series fails for any reason, the subsequent versions will not be processed. They will instead be 'Skipped' and previously uploaded versions will be cleaned up/deleted.
 
 ##### How to Run and Monitor Jobs
 
@@ -1997,7 +1997,8 @@ When the duplication check is ran multiple times the original file will not be m
 
 ##### Configuration
 
-**Field to Compare**: The field whose value will be used to check for duplicates. If this value is found in any other document it will be considered a duplicate. The default is the File Content Hash. 
+**Field to Compare**: The field whose value will be used to check for duplicates. If this value is found in any other document it will be considered a duplicate. The default is the File Content Hash.
+
 * File Content Hash
 * Document Type
 * Document Source Id
@@ -2013,9 +2014,9 @@ If you wish to compare file hashes (a sort of fingerprint for a document), you w
 * **Job**: Check all documents ever ran for that job
 * **Enterprise**: Check all documents ever processed through 3Sixty
 
-**Action**: What to do if a document is found. 
+**Action**: What to do if a document is found.
 
-* Audit and continue 
+* Audit and continue
 * Skip the document
 * Fail the job
 
@@ -2024,8 +2025,9 @@ If you wish to compare file hashes (a sort of fingerprint for a document), you w
 Metadata can be added through mapping to tag documents discovered as duplicates when the Action field is set to Audit and Continue.
 
 The fields that can be added are:
+
 * **isDuplicate**: true (if duplicate found) or false (if not) 
-**Important:** When using the Duplication Detection task in a job the user must make sure that if they are mapping the "isDuplicate" field that they set the Target type to String and not Boolean or they will receive an error that they cannot change text to boolean. If this error is received the user has to drop the index and run the job again. 
+**Important:** When using the Duplication Detection task in a job the user must make sure that if they are mapping the "isDuplicate" field that they set the Target type to String and not Boolean or they will receive an error that they cannot change text to boolean. If this error is received the user has to drop the index and run the job again.
 * **baseParentID**: doc ID of the original document
 * **duplicationParentID**: comma separated list of doc IDs of the documents that it found duplicates against - blank if no duplicate detected
 * **duplicationScope**: blank if no duplicate detected, and
@@ -2036,15 +2038,18 @@ The fields that can be added are:
 This task uses regex (Regular Expressions) to alter filenames.
 
 Common use cases are clearing unwanted characters, such as whitespace, or non-alphanumeric characters.
+
 * **Regex to Match**: The regex pattern to search for in the filename.
 
 The default value matches any character that isn't a letter, number, space or period an unlimited number of times.
+
 * **Replacement**: Replacement for matches.
 
-EXAMPLE - ALPHANUMERICS  
+EXAMPLE - ALPHANUMERICS
+
 The pattern for alphanumeric characters is  
   
-`[a-zA-Z0-9]`, or if you wish to include underscores `\w ` 
+`[a-zA-Z0-9]`, or if you wish to include underscores `\w`
   
 To select for non-alphanumeric characters we add the carat (^) before the pattern, so  
   
@@ -2052,7 +2057,8 @@ To select for non-alphanumeric characters we add the carat (^) before the patter
   
 The character simply translates to "Not", so it negates whatever is after it.
 
-EXAMPLE - CLEARING UNWANTED SPACES  
+EXAMPLE - CLEARING UNWANTED SPACES
+
 The pattern `\s` is regex shorthand for "spaces". If you're worried about tabs, line breaks etc. add an asterisk (*) after the pattern for what is called "greedy" selection.  
   
 Adding this as your regex and setting the replacement as `''`
@@ -2065,9 +2071,10 @@ Extracts the file name from another field using regex (Regular Expressions). It 
 * **Data Field:** The repository document field to match the regex on.
 
 EXAMPLE - ALPHANUMERICS
+
 The pattern for alphanumeric characters is
 
-`[a-zA-Z0-9]`, or if you wish to include underscores `\`w`
+`[a-zA-Z0-9]`, or if you wish to include underscores `\w`
 
 To select for non-alphanumeric characters we add the carat (^) before the pattern, so
 
@@ -2095,7 +2102,7 @@ The default value matches any character that isn't a letter, number, space or pe
 
 The obsolete task can be used to identify obsolete documents when reading them from the source repository. This can be used either in the federation view for identifying documents that are obsolete based on the definition set in the task for the job by adding metadata or skipping/processing the documents which are obsolete. You can define what obsolete means for your organisation - you can define it based on the date created or updated and the content before what timeframe is considered as obsolete.
 
-> **Note**: The Obsolete Detection tasks uses the system time of the 3Sixty server when calculating date/time scenarios.
+> **Note:** The Obsolete Detection tasks uses the system time of the 3Sixty server when calculating date/time scenarios.
 
 ##### Fields
 
@@ -2125,7 +2132,7 @@ Add the Override Folder Path task from the drop-down on your job.
 
 A sample pattern has been provided for you by default. You can also leverage the 3Sixty expression language when modifying your path. More information on the Expression Language can be found [here](#federation-services-expression-language). Click the Done button when you have finished modifying your job task.
 
-The example pattern is
+The example pattern is:
 
 `'/' + '#{rd.filename}' + '/simflofy'`
 
@@ -2160,16 +2167,19 @@ Now let's say we want the actual folder path to be a combination of folderpath +
 #### PII Detection
 
 The PII Detection Job Task is uses regex expressions to detect PII in any document or metadata passing through 3Sixty. The regex expressions are stored in the form of a .properties file.
-> **Caution**: File size limit is 95MB
+
+> **Caution:** File size limit is 95MB.
 
 PII FLAG  
 This task will always add the boolean field hasPii for the purposes of mapping and analysis.
 
-DEFAULT FILE LOCATION  
-The default file is located at 3sixty-admin/WEB-INF/classes/simflofy-pii- detection.properties
+DEFAULT FILE LOCATION
+
+The default file is located at `3sixty-admin/WEB-INF/classes/simflofy-pii- detection.properties`:
+
 * **Field To Mark**: The output metadata property to store PII detected. The value of this field will be a map
 
-```
+```text
 {
 "PhoneNumber": 20,
 "Names": 200
@@ -2194,7 +2204,7 @@ Functions similarly to the [Duplication Check](#duplication-detection) task, exc
 
 For this feature to work on larger files, memory pool settings of 4GB is required, 8GB recommended. This can be updated in the Java tab of your Apache Tomcat Properties window.
 
-> **Caution**: File size limit is 95MB
+> **Caution:** File size limit is 95MB.
 
 * **Tika Content Field**: The field where the task will put the extracted content.
 * **Max Content Length (B)**: Set the max content length which is checked before processing. The job will not process documents over this size. Set to 0 to process documents of any length.
@@ -2205,7 +2215,7 @@ For this feature to work on larger files, memory pool settings of 4GB is require
 
 #### Trivial Detection
 
-The trivial task can be used to identify content that is trivial in nature (as it holds no importance from a corporate knowledge perspective). The definition of trivial depends on your organisation. You can set whether you want to filter on documents of certain sizes or if you want to filter out files with certain extensions or document types. For example, dmg, and exe are installers and may hold no corporate importance so you may want to skip such content from being registered as a record, you can now do so by adding them to the filtered list of extensions. 
+The trivial task can be used to identify content that is trivial in nature (as it holds no importance from a corporate knowledge perspective). The definition of trivial depends on your organisation. You can set whether you want to filter on documents of certain sizes or if you want to filter out files with certain extensions or document types. For example, dmg, and exe are installers and may hold no corporate importance so you may want to skip such content from being registered as a record, you can now do so by adding them to the filtered list of extensions.
 
 ##### Configuration
 
@@ -2227,6 +2237,7 @@ Once the filters are selected you can then determine what action should be taken
 ##### Metadata
 
 The trivial detection task also includes the following default set of metadata:
+
 * **isTrivial** - Yes/No
 * **ignoreSizeBelow** - content ignored below size in bytes
 * **ignoreSizeAbove** - content ignored above size in bytes
@@ -2244,21 +2255,27 @@ This task is for a scenario where if you have extra metadata that points to an e
 * **User Name**: JDBC User Name
 * **Password**: JDBC Password
 * **Driver Class**: The driver for the JDBC database. A number of possible drivers are listed here.
+
   The Database Driver Class supports:
-    * com.microsoft.sqlserver.jdbc.SQLServerDriver
-    * oracle.jdbc.driver.OracleDriver
-> **Caution**: Ensure that your driver jar file is in the 3sixty-admin/WEB-INF/lib folder at start-up.
+  * com.microsoft.sqlserver.jdbc.SQLServerDriver
+  * oracle.jdbc.driver.OracleDriver
+
+> **Caution:** Ensure that your driver jar file is in the `3sixty-admin/WEB-INF/lib` folder at start-up.
+
 * **JDBC Url**: Url to connect to the database. Each type of database uses a different format. Refer to the linked table for formats.
+
   JDBC Url examples:
-    * jdbc:sqlserver://localhost:1433;encrypt=false;databaseName=Objdemo
-    * jdbc:oracle:thin:@dos1029ecm01.eng12.ocl:1521:ora
+  * jdbc:sqlserver://localhost:1433;encrypt=false;databaseName=Objdemo
+  * jdbc:oracle:thin:@dos1029ecm01.eng12.ocl:1521:ora
+
 * **ID Field**: The field (without table name) which will be used to name binaries queried from the database.
 * **Query**: The query to execute. All results will be added to the document in the format [tableName].[fieldName]
-> **Note**: The query can insert expresions. And the query will only return one document.
+
+> **Note:** The query can insert expresions. And the query will only return one document.
 
 #### Buffer Binaries to File System
 
-This task will buffer files to temporary directory. In this case the value of the System Property java.io.tmpdir. The task takes a timeout which will fail the document if it does not complete staging in the given amount of time. The default is 10 seconds, but for larger files (100+ MB), we recommend 60 seconds.
+This task will buffer files to temporary directory. In this case the value of the System Property `java.io.tmpdir`. The task takes a timeout which will fail the document if it does not complete staging in the given amount of time. The default is 10 seconds, but for larger files (100+ MB), we recommend 60 seconds.
 
 #### Convert Array Value To String
 
@@ -2275,7 +2292,7 @@ The String to Boolean Task is designed to check the value of a string and return
 
 Here's an example:
 
-In the above example, we are going to check the field **dc:availability**. If the string value of that field equals **available (Expected Value)** the dc:availability field will be updated to a **true**(boolean). As we elected not to use case sensitivity, the string **AvailAble** would also return true. Otherwise, a boolean **false** value will be stored.
+In the above example, we are going to check the field **dc:availability**. If the string value of that field equals **available (Expected Value)** the `dc:availability` field will be updated to a **true** (boolean). As we elected not to use case sensitivity, the string **AvailAble** would also return `true`. Otherwise, a boolean `false` value will be stored.
 
 #### Convert To UTC
 
@@ -2298,13 +2315,13 @@ This task takes ones of the date fields on the Repository Document and uses it t
 * **Repository Document Field**: the field to use for the path - can be any date field
 * **Pattern**: The pattern used to break down the date into a folder path
 
-The default is /yyyy/M/dd/kk/mm/ss/
+The default is `/yyyy/M/dd/kk/mm/ss/`
 
-In this case, kk is used for hours.
+In this case, `kk` is used for hours.
 
 ##### Example
 
-For the document file.txt, if you set the field to used the modified date `'#{rd.modifieddate}'` and the date is `1999-04-20T12:01:23`, then your path with the default pattern will be:
+For the document `file.txt`, if you set the field to use the modified date `'#{rd.modifieddate}'` and the date is `1999-04-20T12:01:23`, then your path with the default pattern will be:
 
 `/1999/4/20/12/01/23/file.txt`
 
@@ -2323,7 +2340,7 @@ This task is intended to allow users the ability to perform a look-up operation 
 
 3Sixty can utilise any properties that are associated with a repository document. We recommend running a BFS output job with no mappings and Include Un-Mapped Properties set to True. This will generate a xml file similar to the example below and allow you to see what properties are available for your documents:
 
-```
+```text
 <properties>
 <entry key="document.name">3Sixty Overview.doc</entry>
 <entry key="type">document</entry>
@@ -2358,7 +2375,7 @@ The purpose of this task is to execute a GET or POST HTTP call for each reposito
 * **Username/Password**: Credentials to access the endpoint
 * **Action URL**: The endpoint being contacted, without parameters
 * **POST or GET**: Selects the HTTP Method
-* **Request parameters**: In the form of param1=value1&m2=value2
+* **Request parameters**: In the form of `param1=value1&m2=value2`
   * The 'values' can be dynamically created using the [Expression Language](#federation-services-expression-language)
 * **Send body with request**: The body can be raw text and can use the Expression language.
   * If the text begins with the symbols `[` or `{`, then the body will be need to be valid JSON
@@ -2380,7 +2397,7 @@ The variable **result** is automatically declared in each run of the JavaScript 
 
 The task only supports single quotes for strings. Double quotes will cause errors due to how the content of the script is saved to the database.
 
-> **Caution**: When creating the database table name please note that it must be all lowercase.
+> **Caution:** When creating the database table name please note that it must be all lowercase.
 
 #### Pause
 
@@ -2401,7 +2418,6 @@ The Two Way Sync Job Task is to filter out any unnecessary documents when doing 
 ##### Configuration
 
 For Two Way Sync you will need to set up two Incremental Migration jobs and chain one Job after the other. You will want to put the Job that should win on a collision as the first Job in the chain.
-
 
 On each Job add the TWO Way Sync Job Task and, if using the MD5 Hash option, you will need to add the MD5 Hash Job Task before the Two Way Sync Job Task.
 
@@ -2479,12 +2495,12 @@ This task will extract the metadata from the file and add it as fields to the re
 
 ##### Configuration
 
-* **Path Field**: Which field to use to extract metadata. Options are
+* **Path Field**: Which field to use to extract metadata. Options are:
   * Repository ID (for repos that use the entire path as an ID, such as Filesystem, or Amazon S3)
   * Parent Path, for repos that don't use paths as ID.
-* **Path Rules**: Comma delimited list of rules to extract. The format is [New Field Name]=#{Location}
+* **Path Rules**: Comma delimited list of rules to extract. The format is `[New Field Name]=#{Location}`:
   * Location takes the form of an integer, starting at 0 for the root folder.
-  * Additionally, 'filename','parent',and 'grandparent' with **quotes included can be used.
+  * Additionally, `'filename'`,`'parent'`,and `'grandparent'` with **quotes included can be used.
 
 #### Output Metadata As JSON
 
@@ -2492,9 +2508,9 @@ This task fully converts each document to a json object and exports to it to the
 
 * **Output Path**: Folder where the json files will be written. Path will be created if it does not exist.
 
-File name pattern = [filename].document.metadata.json
+File name pattern = `[filename].document.metadata.json`
 
-Folder name pattern = [foldername].folder.metadata.json
+Folder name pattern = `[foldername].folder.metadata.json`
 
 #### Replace Metadata
 
@@ -2533,7 +2549,7 @@ This allows the user to read metadata and attach the file to it that matches the
 * Enter the field that references the Object Id for the file content.
 * If you include metadata 3Sixty will combine the properties between the two files
 
-> **Note**: The text input does not currently process expressions.
+> **Note:** The text input does not currently process expressions.
 
 #### Attach Content - File System
 
@@ -2575,19 +2591,21 @@ Attaches a binary to the repository document from an S3 bucket.
 
 The filter expression task allows you to remove files based on the expression used. The task has two fields, the **task name** and the **filter expression**. The task name is arbitrary but should identify the type of filter you're creating.
 
-**Filter Expression** 
+**Filter Expression**
 
 The filter expression can use any of the 3Sixty [Expression Language](#federation-services-expression-language) components to form simple or more complex expressions for evaluation by 3Sixty.
-**If the expression evaluates to true, the document will continue to be processed.**
-**Example**: If you want to exclude the OS level file Thumbs.db in your job, you can filter those files out using the following statement: `!equalsIgnoreCase('#{rd.filename}', 'Thumbs.db')`
 
-The above example will find all the files that have the name **'Thumbs.db'** and set the expression to false for the documents. Therefore, all files with the name 'Thumbs.db' will be skipped.
+> **Note:** If the expression evaluates to `true`, the document will continue to be processed.
+
+For example: If you want to exclude the OS level file Thumbs.db in your job, you can filter those files out using the following statement: `!equalsIgnoreCase('#{rd.filename}', 'Thumbs.db')`
+
+The above example will find all the files that have the name `Thumbs.db` and set the expression to `false` for the documents. Therefore, all files with the name `Thumbs.db` will be skipped.
 
 #### Generate Thumbnail
 
 Generates a thumbnail for a repository document and adds it as a rendition.
 
-> **Note**: This task currently only supports jpg, png, bmp, wbmp, and gif
+> **Note:** This task currently only supports jpg, png, bmp, wbmp, and gif.
 
 * **Resize Width**: The width of the thumbnail image in pixels
 * **Action**: The integration action to take following thumbnail generation
@@ -2614,7 +2632,7 @@ This task will take an XML file and use the content to create metadata fields.
 
 * **Field to Parse**: If the content of the file is the xml to parse, use **BINARY**. If the xml appears in a field, use the field name. This is a required feild.
 
-The xml is expected in the followingform:
+The xml is expected in the following form:
 
 ```xml
 <rootElement>
@@ -2658,7 +2676,7 @@ This task will unzip any compressed files during the migration process and send 
 * **File staging location**: The location unzipped files are stored temporarily while processing
 * **Skip the zip file after unzip**: Check this box to skip the zip file during processing. If the box is unchecked the zip file will be included in the document transfer
 
-> **Caution**: When unzipping files to an ECM output location, if the zip file has the same file name as another document in the folder, the file will not unzip to that location as ECM doesn't allow folders to be created with the same name as a file. It will result in a duplication error.
+> **Caution:** When unzipping files to an ECM output location, if the zip file has the same file name as another document in the folder, the file will not unzip to that location as ECM doesn't allow folders to be created with the same name as a file. It will result in a duplication error.
 
 ### Text Extraction
 
@@ -2683,7 +2701,7 @@ This task requires Tesseract to be installed on the system that Federation Servi
 
 This task uses Tesseract OCR to scan for text from images and PDF files, saving that text to a field in the repository documented called simflofy_ai_texts. Supported formats are .png, .jpg, .pdf, .tiff, .gif, and .bmp. PDFs are saved on a per-page basis to **simflofy_ai_texts**.
 
-> **Note**: Tesseract OCR will be an optional dependency of Federation Services.
+> **Note:** Tesseract OCR will be an optional dependency of Federation Services.
 
 ##### Configuration
 
@@ -2799,7 +2817,7 @@ If the filesystem supplies an owner, it will be added as **simflofy.owner**
 
 Additionally, simflofy will create a permission map of the principals and their permissions. It will set is as the **originalPermissions** field, so
 
-```
+```text
 Map<String, Set<String>> permissions = new Map<>();
 //process acls
 rd.setOriginalPermissions(permissions);
@@ -2974,7 +2992,7 @@ When viewing the mapping in the Mapping Audits page, you will get a breakdown of
 
 ### Search Audit
 
-Search audits are collected by all search API endpoints. This includes searches performed through Discovery. In this page you can view the audits for the last week. For a broader view, these reports can be retrieved through the [[Audit Report Service REST API](https://api.simflofy.com/#/Audit Report Service)](https://api.simflofy.com/#/Audit Report Service)<!--FIXME: link to the simfloly api, should it stay this way?-->
+Search audits are collected by all search API endpoints. This includes searches performed through Discovery. In this page you can view the audits for the last week. For a broader view, these reports can be retrieved through the [Audit Report Service REST API](https://api.simflofy.com/#/Audit Report Service){:target="_blank"}<!--FIXME: link to the simfloly api, should it stay this way?-->
 
 ### Event Audit
 
