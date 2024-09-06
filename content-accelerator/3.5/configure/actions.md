@@ -5,7 +5,7 @@ title: Action Configurations
 
 ## Bulk Upload
 
-Bulk Upload allows a user to select multiples files to upload, edit common properties for all documents, edit individual document properties and upload all documents. Additionally, Bulk Upload has support for scanning, generating a cover page (drop-off scanning) and MSG file parsing.
+Bulk Upload allows a user to select multiples files to upload, edit common properties for all documents, edit individual document properties and upload all documents. Additionally, Bulk Upload has support for scanning and MSG file parsing.
 
 ### Configuration
 
@@ -14,7 +14,6 @@ The features currently available is Bulk Upload are as follows:
 * Set doc as new version of existing document - **must be enabled in the admin**
 * Scanning - **must be enabled in the admin**
 * Create Document from Template - **must be enabled in the admin**
-* Generating a cover page / drop-off scanning - **must be enabled in the admin**
 * Parsing MSG files for attachments (and recursively parsing attached MSG files)
 * Gmail Inbox ingestion - **must be enabled in the admin**
 * Inheriting Folder Attributes
@@ -58,20 +57,6 @@ Run the `DynamicWebTWAINHTML5Edition.exe` installation file.
 #### Create Document from Template
 
 The Bulk Upload create document from template functionality allows a user to upload a new document by using content that already exists in the repository.
-
-#### Cover Page / Drop-off Scanning
-
-The Bulk Upload action provides the user the ability to generate a cover page for drop-off scanning functionality.
-
-##### Configuration Options for Cover Page / Drop-off Scanning
-
-**Button Name:** The text to display on the button used to initiate the generation of a cover page.
-
-**Attribute to Generate Barcode With:** The attribute to use for generating the barcode on the cover page. _A **common** string property must be used for this configuration option._
-
-**Cover Page Title:** The title to display at the top of the generated cover page.
-
-**Attributes to Display on Cover Page:** Enable this option to choose attributes by object type to display in a table on the generated cover page.
 
 #### Parsing MSG Files
 
