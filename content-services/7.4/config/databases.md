@@ -680,18 +680,26 @@ You can configure a PostgreSQL database for use with Content Services.
 
     If you receive JDBC errors, ensure the location of the PostgreSQL JDBC drivers are on the system path, or add them to the relevant lib directory of the application server.
 
-### Database Partitioning
+### Table Partitioning
 
-Starting from version 7.3, Content Services supports table partitioning with PostgreSQL as the database backend. Table partitioning in PostgreSQL enhances performance and data management for large tables by breaking them into smaller, more manageable segments.
+Starting from version 7.3, Content Services can work with partitioned tables with Oracle, PostgreSQL, or Microsoft SQL Server as the database backend. Table partitioning can enhance performance and data management for large tables by breaking them into smaller, more manageable segments.
 
 Key benefits include:
 
 * Improved query performance: queries run faster because only relevant partitions are scanned, and each partition can have its own optimized indexes.
-* Enhanced data management: maintenance tasks like `VACUUM` and `REINDEX` can be performed on individual partitions, simplifying data management, and improving efficiency.
+* Enhanced data management:
+    * For PostgreSQL: Maintenance tasks like `VACUUM`  and `REINDEX` can be performed on individual partitions, simplifying data management and enhancing efficiency.
+    * For Oracle and Microsoft SQL Server: Maintenance tasks can be more focused and efficient, as operations like index rebuilds and updates can be targeted at specific partitions, rather than the entire table.
 
-Note that table partitioning is transparent to external systems; for Content Services, a partitioned table continues to function as a single, unified table.
+> **Note:** Table partitioning is transparent to external systems; for Content Services, a partitioned table continues to function as a single, unified table.
 
-Our advice is to look at the distribution of the data and your use case in order to devise a fitting partitioning strategy. We do not guarantee a certain performance for a given partitioning strategy.
+To devise a fitting partitioning strategy, look at the distribution of the data and your use case. A certain performance cannot be guaranteed for a given partitioning strategy.
+
+#### No partitioning support for MySQL and MariaDB
+
+Content Services relies on check on foreign key constraints in the database to ensure the consistency of the data in the database.
+
+Since partitioned tables in MySQL and MariaDB have foreign key constraint checks disabled, running Content Services on MySQL or MariaDB databases with partitioned tables is not supported.
 
 ## Microsoft SQL Server
 
