@@ -80,6 +80,7 @@ The following properties need to be set in the `activiti-identity-service.proper
 |alfresco.content.sso.auth_uri|The authorization URL. For example `${activiti.identity-service.auth-server-url}/realms/${alfresco.content.sso.realm}/protocol/openid-connect/auth`. |
 |alfresco.content.sso.token_uri|The authorization token URL. For example `${activiti.identity-service.auth-server-url}/realms/${alfresco.content.sso.realm}/protocol/openid-connect/token`. |
 |alfresco.content.sso.redirect_uri|The redirect URI for authorization. The value in the example column needs to be updated with the correct base URL for the Process Services instance. For example `http://localhost:9999/activiti-app/rest/integration/sso/confirm-auth-request`. |
+|alfresco.content.use-adw|To use Alfresco Digital Workspace for content this property needs to be set to `true`.|
 
 ### Configure a connection using basic authentication
 
