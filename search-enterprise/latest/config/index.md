@@ -399,9 +399,9 @@ services:
       - ./exactTermSearch.properties:/usr/local/tomcat/webapps/alfresco/WEB-INF/classes/alfresco/search/elasticsearch/config/exactTermSearch.properties
 ```
 
-If you are working on the Content Services version 23.3+, refer to the following sample:
+If you are using Content Services 23.3, refer to the following sample:
 
-```docker
+```yaml
 services:
   alfresco:
     volumes:
