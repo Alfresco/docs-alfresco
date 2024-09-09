@@ -401,7 +401,7 @@ services:
 
 If you are using Content Services 23.3, refer to the following sample:
 
-```yaml
+```docker
 services:
   alfresco:
     volumes:
