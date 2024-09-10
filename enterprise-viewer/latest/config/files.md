@@ -702,6 +702,40 @@ Default value: `false`
 
 List of properties to copy property values while splitting or pruning document. To set it to the desired property OpenContent names, use comma to separate them. For example, for Alfresco environment, the following can be used: `insuranceDemo_claimantName,insuranceDemo_policyHolder`. If set to blank, all property values are copied.
 
+### AEV stamp properties
+
+The following are the stamp properties to configure custom stamps for Enterprise Viewer.
+
+#### customStamp1Label
+
+A custom label for the Custom Stamp 1. If set to a value, then this stamp is displayed from the **Stamps** drop-down list.
+
+> **Note:** Text cannot be localized based on browser's language once it has been configured.
+
+Default value: ``
+
+#### customStamp1HelpText
+
+A custom helper text for Custom Stamp 1. 
+
+> **Note:** Text cannot be localized based on browser's language once it has been configured.
+
+#### customStamp1Color
+
+A color for the Custom Stamp 1. The colors are set in the following order: `FONT_COLOR`, `GRADIENT_START`, `GRADIENT_STOP`.
+
+For example:
+
+If set to the following value: `#FF0000,#00FF00,#0000FF`, then `#FF0000` is the font color, `#00FF00` is the gradient start color, and `#0000FF` is the gradient end color.
+
+Default value: ``
+
+#### customStamp1Opacity
+
+A stamp image opacity for Custom Stamp 1. The value must be equal or larger than `0.1` and equal or smaller than `1`.
+
+Default value: ``
+
 ## OpenContent - default properties
 
 The following section outlines all configurable default properties for OpenContent.  
