@@ -22,47 +22,47 @@ This documentation describes a Salesforce Case object, however any standard or c
 
 2. Log in as an administrator to Alfresco Share in the Canvas app.
 
-      ![lightning-alfresco-tab]({% link salesforce/images/lightning-alfresco-tab.png %})
+      ![lightning-alfresco-tab](/salesforce/images/lightning-alfresco-tab.png)
 
 3. Click the down arrow next to **Cases** and then **New Case**.
 
-      ![lightning-create-case]({% link salesforce/images/lightning-create-case.png %})
+      ![lightning-create-case](/salesforce/images/lightning-create-case.png)
 
 4. Select the required **Case Origin** and any other information needed for the case. Click **Save**.
 
-      ![lightning-new-case]({% link salesforce/images/lightning-new-case.png %})
+      ![lightning-new-case](/salesforce/images/lightning-new-case.png)
 
 5. Click the drop down arrow next to **Change Owner** and select **Sharing**.
 
-      ![create-new-lightning-page]({% link salesforce/images/lightning-sharing.png %})
+      ![create-new-lightning-page](/salesforce/images/lightning-sharing.png)
 
 6. Click the drop down arrow in the search bar and select **Public Group**.
 
-      ![lightning-public-group]({% link salesforce/images/lightning-public-group.png %})
+      ![lightning-public-group](/salesforce/images/lightning-public-group.png)
 
 7. Type *all* into the search field and select **All Customer Portal Users**.
 
-      ![lightning-portal-users]({% link salesforce/images/lightning-portal-users.png %})
+      ![lightning-portal-users](/salesforce/images/lightning-portal-users.png)
 
 8. Click the **Case Access** field and select the type of access required for this case. Click **Save**.
 
-      ![lightning-share-access]({% link salesforce/images/lightning-share-access.png %})
+      ![lightning-share-access](/salesforce/images/lightning-share-access.png)
 
 9. Click the **Create** drop down list and select **Folder**.
 
-      ![lightning-create-folder]({% link salesforce/images/lightning-create-folder.png %})
+      ![lightning-create-folder](/salesforce/images/lightning-create-folder.png)
 
 10. Enter the details you require for your new folder and then click **Create**.
 
-      ![lightning-details-folder]({% link salesforce/images/lightning-details-folder.png %})
+      ![lightning-details-folder](/salesforce/images/lightning-details-folder.png)
 
 11. Click the **Actions** drop down list and select **Share Externally**.
 
-    ![lightning-share-externally]({% link salesforce/images/lightning-share-externally.png %})
+    ![lightning-share-externally](/salesforce/images/lightning-share-externally.png)
 
 12. Select the **Salesforce Community Name** you would like to share with and the **Users**. Click **Save**.
 
-      ![lightning-externally-select]({% link salesforce/images/lightning-externally-select.png %})
+      ![lightning-externally-select](/salesforce/images/lightning-externally-select.png)
 
 You will see a **Salesforce Community Member Access** message. The result of the performed actions is that when the Community Member logs into Salesforce they will see the case in their **All Open Cases** list.
 
