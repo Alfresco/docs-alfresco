@@ -726,13 +726,158 @@ A color for the Custom Stamp 1. The colors are set in the following order: `FONT
 
 For example:
 
-If set to the following value: `#FF0000,#00FF00,#0000FF`, then `#FF0000` is the font color, `#00FF00` is the gradient start color, and `#0000FF` is the gradient end color.
+* If set to the following value: `#FF0000,#00FF00,#0000FF`, then `#FF0000` is the font color, `#00FF00` is the gradient start color, and `#0000FF` is the gradient end color.
+* To set only the font color as red and use the default colors for the gradient start and gradient end, set it to: `#FF0000` or `#FF0000,`
+* To set only the gradient start color as red and use the default colors for the font and gradient end, set it to: `,#FF0000,`
+* To set only the gradient end as red and use the default colors for the font and gradient start, set it to: `,,#FF0000`
+
+>**Note:** The color values must be separated by a comma even if an empty string is used to indicate that the default value should be used.
 
 Default value: ``
 
 #### customStamp1Opacity
 
 A stamp image opacity for Custom Stamp 1. The value must be equal or larger than `0.1` and equal or smaller than `1`.
+
+Default value: ``
+
+#### customStamp2Label
+
+A custom label for the Custom Stamp 2. If set to a value, then this stamp is displayed from the **Stamps** drop-down list.
+
+> **Note:** Text cannot be localized based on browser's language once it has been configured.
+
+Default value: ``
+
+#### customStamp2HelpText
+
+A custom helper text for Custom Stamp 2. 
+
+> **Note:** Text cannot be localized based on browser's language once it has been configured.
+
+#### customStamp2Color
+
+A color for the Custom Stamp 2. The colors are set in the following order: `FONT_COLOR`, `GRADIENT_START`, `GRADIENT_STOP`.
+
+For example:
+
+* If set to the following value: `#FF0000,#00FF00,#0000FF`, then `#FF0000` is the font color, `#00FF00` is the gradient start color, and `#0000FF` is the gradient end color.
+* To set only the font color as red and use the default colors for the gradient start and gradient end, set it to: `#FF0000` or `#FF0000,`
+* To set only the gradient start color as red and use the default colors for the font and gradient end, set it to: `,#FF0000,`
+* To set only the gradient end as red and use the default colors for the font and gradient start, set it to: `,,#FF0000`
+
+>**Note:** The color values must be separated by a comma even if an empty string is used to indicate that the default value should be used.
+
+Default value: ``
+
+#### customStamp2Opacity
+
+A stamp image opacity for Custom Stamp 2. The value must be equal or larger than `0.1` and equal or smaller than `1`.
+
+Default value: ``
+
+#### customStamp3Label
+
+A custom label for the Custom Stamp 3. If set to a value, then this stamp is displayed from the **Stamps** drop-down list.
+
+> **Note:** Text cannot be localized based on browser's language once it has been configured.
+
+Default value: ``
+
+#### customStamp3HelpText
+
+A custom helper text for Custom Stamp 3. 
+
+> **Note:** Text cannot be localized based on browser's language once it has been configured.
+
+#### customStamp3Color
+
+A color for the Custom Stamp 3. The colors are set in the following order: `FONT_COLOR`, `GRADIENT_START`, `GRADIENT_STOP`.
+
+For example:
+
+* If set to the following value: `#FF0000,#00FF00,#0000FF`, then `#FF0000` is the font color, `#00FF00` is the gradient start color, and `#0000FF` is the gradient end color.
+* To set only the font color as red and use the default colors for the gradient start and gradient end, set it to: `#FF0000` or `#FF0000,`
+* To set only the gradient start color as red and use the default colors for the font and gradient end, set it to: `,#FF0000,`
+* To set only the gradient end as red and use the default colors for the font and gradient start, set it to: `,,#FF0000`
+
+>**Note:** The color values must be separated by a comma even if an empty string is used to indicate that the default value should be used.
+
+Default value: ``
+
+#### customStamp3Opacity
+
+A stamp image opacity for Custom Stamp 3. The value must be equal or larger than `0.1` and equal or smaller than `1`.
+
+Default value: ``
+
+#### customStamp4Label
+
+A custom label for the Custom Stamp 4. If set to a value, then this stamp is displayed from the **Stamps** drop-down list.
+
+> **Note:** Text cannot be localized based on browser's language once it has been configured.
+
+Default value: ``
+
+#### customStamp4HelpText
+
+A custom helper text for Custom Stamp 4. 
+
+> **Note:** Text cannot be localized based on browser's language once it has been configured.
+
+#### customStamp4Color
+
+A color for the Custom Stamp 4. The colors are set in the following order: `FONT_COLOR`, `GRADIENT_START`, `GRADIENT_STOP`.
+
+For example:
+
+* If set to the following value: `#FF0000,#00FF00,#0000FF`, then `#FF0000` is the font color, `#00FF00` is the gradient start color, and `#0000FF` is the gradient end color.
+* To set only the font color as red and use the default colors for the gradient start and gradient end, set it to: `#FF0000` or `#FF0000,`
+* To set only the gradient start color as red and use the default colors for the font and gradient end, set it to: `,#FF0000,`
+* To set only the gradient end as red and use the default colors for the font and gradient start, set it to: `,,#FF0000`
+
+>**Note:** The color values must be separated by a comma even if an empty string is used to indicate that the default value should be used.
+
+Default value: ``
+
+#### customStamp4Opacity
+
+A stamp image opacity for Custom Stamp 4. The value must be equal or larger than `0.1` and equal or smaller than `1`.
+
+Default value: ``
+
+#### customStamp5Label
+
+A custom label for the Custom Stamp 5. If set to a value, then this stamp is displayed from the **Stamps** drop-down list.
+
+> **Note:** Text cannot be localized based on browser's language once it has been configured.
+
+Default value: ``
+
+#### customStamp5HelpText
+
+A custom helper text for Custom Stamp 5. 
+
+> **Note:** Text cannot be localized based on browser's language once it has been configured.
+
+#### customStamp5Color
+
+A color for the Custom Stamp 5. The colors are set in the following order: `FONT_COLOR`, `GRADIENT_START`, `GRADIENT_STOP`.
+
+For example:
+
+* If set to the following value: `#FF0000,#00FF00,#0000FF`, then `#FF0000` is the font color, `#00FF00` is the gradient start color, and `#0000FF` is the gradient end color.
+* To set only the font color as red and use the default colors for the gradient start and gradient end, set it to: `#FF0000` or `#FF0000,`
+* To set only the gradient start color as red and use the default colors for the font and gradient end, set it to: `,#FF0000,`
+* To set only the gradient end as red and use the default colors for the font and gradient start, set it to: `,,#FF0000`
+
+>**Note:** The color values must be separated by a comma even if an empty string is used to indicate that the default value should be used.
+
+Default value: ``
+
+#### customStamp5Opacity
+
+A stamp image opacity for Custom Stamp 5. The value must be equal or larger than `0.1` and equal or smaller than `1`.
 
 Default value: ``
 

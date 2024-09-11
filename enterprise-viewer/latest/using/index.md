@@ -469,9 +469,9 @@ The **Free Draw** button is located in the **Drawing Tools** dropdown below the 
 #### Stamp Tools Dropdown
 
 The **Stamps** drop-down list includes all of the available stamp annotations, including **Approved**, **Paid**, **Reviewed**, **Accepted**,
-**Rejected**, **Checkmark**, and **Sample Stamp**. If one of these stamps is selected, a preview is displayed on the document, allowing you to see what the stamp annotation will look like before it is placed on the document. The dialog box is displayed from the top left corner of the stamp annotation every time the annotation is selected:
+**Rejected**, and **Checkmark**. If one of these stamps is selected, a preview is displayed on the document, allowing you to see what the stamp annotation will look like before it is placed on the document. The dialog box is displayed from the top left corner of the stamp annotation every time the annotation is selected:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar44.png %})
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar-dropdownlist.png %})
 
 The **Stamps** drop-down list is located to the right of the **Drawing Tools** drop-down list and to the left of the **Help** button.
 
@@ -483,7 +483,7 @@ before it is placed on the document:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar-approvedstamp.png %})
 
-The **Approved** stamp is located in the **Stamps** drop-down list above the **Reviewed Stamp** button.
+The **Approved** stamp is located in the **Stamps** drop-down list above the **Paid Stamp** button.
 
 ##### Paid Stamp
 
@@ -499,7 +499,7 @@ The **Reviewed** stamp is used when a reviewed stamp needs to be added to a page
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar-reviewed.png %})
 
-The **Reviewed** stamp button is located in the **Stamps** drop-down list below the **Approved** stamp and the
+The **Reviewed** stamp button is located in the **Stamps** drop-down list below the **Paid** stamp and above the
 **Accepted** stamp button.
 
 ##### Accepted Stamp
@@ -517,7 +517,7 @@ the **Rejected** stamp button.
 The **Rejected** stamp is used when a rejected stamp needs to be added to a page. Once the **Rejected** stamp button is
 clicked, a preview of the stamp is displayed on the document, allowing you to see what the stamp annotation will look like before it is placed on the document:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar48.png %})
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar-rejectedstamp.png %})
 
 The **Rejected** stamp button is located in the **Stamps** dropdown below the **Accepted** stamp button and above the
 **Checkmark** stamp button.
@@ -533,11 +533,15 @@ The **Checkmark** stamp button is located in the **Stamps** dropdown below the *
 
 ##### Custom Stamp
 
-There are five configurable **Custom Stamps** available with Enterprise Viewer. These stamps can be used to create new stamps with configurable stamp text on page. It must be configured by admin on server using override properties to use it. Once the **Stamp** button is clicked, a preview of the stamp is displayed on the document, allowing you to see what the stamp annotation will look like before it is placed on the document:
+There are five configurable **Custom Stamps** available with Enterprise Viewer. These custom stamps can be used to create new stamps with configurable stamp text on a page. It must be configured by admin on server using override properties to use it. 
+
+For more information on configuring custom stamps, see [AEV stamp properties]({% link enterprise-viewer/latest/config/files.md %}#AEV-stamp-properties).
+
+Once the **Stamp** button is clicked, a preview of the stamp is displayed on the document, allowing you to see what the stamp annotation will look like before it is placed on the document:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar-samplestamp.png %})
 
-The **Custom Stamps** are located in the **Stamps** drop-down menu below **Checkmark Stamp** button.
+The **Custom Stamps** are located in the **Stamps** drop-down menu below the **Checkmark** stamp button.
 
 #### Help
 

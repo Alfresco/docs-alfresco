@@ -183,7 +183,6 @@ Default value:
 (t:PageEntry),(t:Navigation),(prevPage,nextPage,zoomIn,zoomOut,--isSmallScreen),(t:Help)
 ```
 ​
-
 ### enabledSignatureActions
 
 The Actions enabled in document signing mode.
