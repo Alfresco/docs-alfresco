@@ -507,7 +507,7 @@ The **Reviewed** stamp button is located in the **Stamps** drop-down list below 
 The **Accepted** stamp is used when an accepted stamp needs to be added to a page. Once the **Accepted** stamp button is
 clicked, a preview of the stamp is displayed on the document, allowing you to see what the stamp annotation will look like before it is placed on the document:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar47.png %})
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar-accepted.png %})
 
 The **Accepted** stamp button is located in the **Stamps** drop-down menu below the **Reviewed** stamp button and above
 the **Rejected** stamp button.
@@ -527,7 +527,7 @@ The **Rejected** stamp button is located in the **Stamps** dropdown below the **
 The **Checkmark** stamp is used when a checkmark stamp needs to be added to a page. Once the **Checkmark** stamp button is
 clicked, a preview of the stamp is displayed on the document, allowing you to see what the stamp annotation will look like before it is placed on the document:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar49.png %})
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar-checkmark.png %})
 
 The **Checkmark** stamp button is located in the **Stamps** dropdown below the **Rejected** stamp button.
 
@@ -535,7 +535,7 @@ The **Checkmark** stamp button is located in the **Stamps** dropdown below the *
 
 There are five configurable **Custom Stamps** available with Enterprise Viewer. These custom stamps can be used to create new stamps with configurable stamp text on a page. It must be configured by admin on server using override properties to use it. 
 
-For more information on configuring custom stamps, see [AEV stamp properties]({% link enterprise-viewer/latest/config/files.md %}#AEV-stamp-properties).
+For more information on configuring custom stamps, see [AEV stamp properties]({% link enterprise-viewer/latest/config/files.md %}###AEVstampproperties).
 
 Once the **Stamp** button is clicked, a preview of the stamp is displayed on the document, allowing you to see what the stamp annotation will look like before it is placed on the document:
 
