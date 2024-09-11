@@ -3,7 +3,7 @@ title: Salesforce Community
 ---
 
 Support for Salesforce Community allows external Salesforce Community Members to store and access documents in Alfresco. To provide access and share documents with external Salesforce Community Members, internal Salesforce users need to perform a series of actions.
-Before you begin, ensure your internal Salesforce users have been added to the `GROUP_SALESFORCE_MODERATORS` group in Alfresco Content Services, for more see [Configure Salesforce Community]({% link salesforce/3.0/config/index.md %}#configure-a-salesforce-community).
+Before you begin, ensure your internal Salesforce users have been added to the `GROUP_SALESFORCE_MODERATORS` group in Alfresco Content Services, for more see [Configure Salesforce Community](/salesforce/3.0/config/index.md#configure-a-salesforce-community).
 This documentation describes a Salesforce Case object, however any standard or custom object can be shared externally with Community Members.
 
 > **Note:** Support for Salesforce Community is only available when using Alfresco Cloud (PaaS).
@@ -80,43 +80,43 @@ You will see a **Salesforce Community Member Access** message. The result of the
 
 2. Click **Alfresco Repository** and Log in as an administrator to Alfresco Share in the Canvas app.
 
-      ![lightning-alfresco-tab]({% link salesforce/images/lightning-alfresco-tab.png %})
+      ![lightning-alfresco-tab](/salesforce/images/lightning-alfresco-tab.png)
 
 3. Click **Cases** and click the **Create New** drop down list and then select **Case**.
 
-      ![classic-create-case]({% link salesforce/images/classic-create-case.png %})
+      ![classic-create-case](/salesforce/images/classic-create-case.png)
 
 4. Select the required **Case Origin** and any other information needed for the case. Click **Save**.
 
-      ![classic-new-case]({% link salesforce/images/classic-new-case.png %})
+      ![classic-new-case](/salesforce/images/classic-new-case.png)
 
 5. Click the **Sharing** button above the case.
 
-      ![classic-sharing]({% link salesforce/images/classic-sharing.png %})
+      ![classic-sharing](/salesforce/images/classic-sharing.png)
 
 6. Click the **Add** button.
 
-      ![classic-sharing-add]({% link salesforce/images/classic-sharing-add.png %})
+      ![classic-sharing-add](/salesforce/images/classic-sharing-add.png)
 
 7. Search **Public Groups** and add **All Customer Portal Users** to the **Share With** column. Click **Save**.
 
-      ![classic-sharing-groups]({% link salesforce/images/classic-sharing-groups.png %})
+      ![classic-sharing-groups](/salesforce/images/classic-sharing-groups.png)
 
 8. Click the **Create** drop down list and select **Folder**.
 
-      ![classic-create-folder]({% link salesforce/images/classic-create-folder.png %})
+      ![classic-create-folder](/salesforce/images/classic-create-folder.png)
 
 9. Enter a name for the folder and click **Create**.
 
-      ![classic-name-folder]({% link salesforce/images/classic-name-folder.png %})
+      ![classic-name-folder](/salesforce/images/classic-name-folder.png)
 
 10. Click the **Actions** button and select **Share Externally**.
 
-      ![classic-share-externally]({% link salesforce/images/classic-share-externally.png %})
+      ![classic-share-externally](/salesforce/images/classic-share-externally.png)
 
 11. Select the **Salesforce Community Name** you would like to share with and the **Users**. Click **Save**.
 
-      ![lightning-externally-select]({% link salesforce/images/lightning-externally-select.png %})
+      ![lightning-externally-select](/salesforce/images/lightning-externally-select.png)
 
 You will see a **Salesforce Community Member Access** message. The result of the performed actions is that when the Community Member logs into Salesforce they will see the case in their **All Open Cases** list.
 
@@ -126,15 +126,15 @@ You will see a **Salesforce Community Member Access** message. The result of the
 
 2. Click the **My Open Cases** drop down list and then select **All Open Cases**.
 
-      ![lightning-open-cases]({% link salesforce/images/lightning-open-cases.png %})
+      ![lightning-open-cases](/salesforce/images/lightning-open-cases.png)
 
 3. Click the link of the case number that has been shared with you to open it.
 
-      ![lightning-all-new]({% link salesforce/images/lightning-all-cases.png %})
+      ![lightning-all-new](/salesforce/images/lightning-all-cases.png)
 
 4. Log in as a Community Member to access the case and documents linked to the case.
 
-      ![lightning-alfresco-tab]({% link salesforce/images/lightning-alfresco-tab.png %})
+      ![lightning-alfresco-tab](/salesforce/images/lightning-alfresco-tab.png)
 
   Community Members can download and view documents linked to the case. They can also upload documents to the case that will get stored in Alfresco.
   
