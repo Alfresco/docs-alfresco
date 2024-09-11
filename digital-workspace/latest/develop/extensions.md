@@ -2,244 +2,475 @@
 title: Build extensions
 ---
 
-The Alfresco Application Development Framework (ADF) extension mechanism allows you to add, remove, and change the behavior of your applications. The extension mechanism supports the Digital Workspace, and is the recommended way to make direct changes to its source code.
+Customizations that are implemented through the extension mechanism are more maintainable because the changes are modular and isolated from the core of the application. This approach to customizing the Digital Workspace (ADW) ensures upgrades are easier to manage and test. It is the recommended way to customize your digital workspace.
 
-Customizations that are implemented through the extension mechanism are more maintainable because the changes are modular and isolated from the core of the application. This approach to customizing the Digital Workspace ensures upgrades are easier to manage and test.
+Develop an extension if your use case is mainly covered by the Digital Workspace functionality. However, some additional changes are required to meet the expectations and the requirements. In your use case requires complex changes, a custom Alfresco Application Development Framework (ADF)-based application is an alternative.
 
-Use the Digital Workspace and develop an extension if your use case is mainly covered by the Digital Workspace functionality. However, some additional changes are required to meet the expectations and the requirements. In case of complex changes, a custom ADF based application is an alternative.
+Extending Digital Workspace requires skills in Angular. You also need to be familiar with the Digital Workspace architecture for more complex cases. The extension mechanism allows you to add, remove, and change the behavior of your applications.
 
-## How to create an extension
+## How the ADW extension works
 
-Use this information to develop a `hello word` extension for the Digital Workspace.
+Digital Workspace relies on three main elements to achieve the dynamic extendability:
+
+* Angular Dependency Injection
+* ADF Extension Mechanism
+* NgRx Store
+
+The following diagram provide an overview of the composition of an extension and the different actors involved:
+
+![Extending ADW]({% link digital-workspace/images/adw-extending.png %})
+
+### Anatomy of an extension
+
+Each extension is an Angular library that contains an extension descriptor, in the form of a JSON file, an Angular module that act as root and expose all the elements that compose the feature, such as actions, components, services, rules.
+
+The descriptor declares how the extension is assembled in the ADW application, linking hooks with the proper extension element. The module needs to be imported in `extensions.module.ts` to be included in the bundle and execute import and registrations of all the elements with the Extension Mechanism and the Store.<!--FIXME: simplify-->
+
+## On startup
+
+The Digital Workspace application module imports the Extensions module, and each extension is imported in the bundle. Each module is responsible for declaring components, actions, and rules by providing a unique `ID` (string) associated with the element to be loaded. After this process ends, a dictionary of IDs → elements has been loaded. Each module also declares a descriptor file that is loaded and merged together with other files. The result of the merge is written into `app.extensions.json`.
+
+The `app.extensions.json` file is loaded by the `AppExtensionService`. This dynamically loads the extensions into the proper hook using the ADF Extension Mechanism.
+
+## Create your first ADW extension
+
+Use this information to develop an extension for the Digital Workspace.
+
+You can find the Digital Workspace source code in Alfresco’s Nexus repository. Log in and search for "digital-workspace" on the Nexus repository website, available at [https://nexus.alfresco.com/nexus/](https://nexus.alfresco.com/nexus/){:target="_blank"}.
+
+Alfresco customers can request Nexus credentials by logging a support ticket via [Hyland Community](https://community.hyland.com//){:target="_blank"}. These credentials are required to access private (Enterprise-only) artifacts from the Nexus repository.
 
 ### Prerequisites
 
-* Alfresco Content Services - Enterprise Edition.
-  * Open your browser and check everything starts up correctly:
+* Node.js
+  * See [Supported platforms]({% link digital-workspace/latest/support/index.md %}) for required version.
+* Alfresco Content Service deployed locally or remotely:
+  * The example URL uses the format: `https://your.alfresco.backend.com`.
+* Digital Workspace source code.
+* Your preferred IDE, such as Visual Studio Code.
+* (Optional) NX Console plugin for VSCode.
 
-    ```bash
-    http://localhost:8080/alfresco
-    ```
+### Build and run Digital Workspace
 
-* `Node.js` 18.x
+Ensure that you can build and run Digital Workspace.
 
-* Download the Digital Workspace project from [Nexus](https://nexus.alfresco.com/nexus/#nexus-search;quick~digital%20workspace){:target="_blank"}.
+1. Start your preferred Terminal application and install the packages:
 
-### Create a Digital Workspace extension
+   ```bash
+   npm i
+   ```
 
-Use the [Nx](https://nx.dev/) developer tools for monorepos to create the Digital Workspace extension.
+2. Edit the `.env` file to configure the Content Services backend:
 
-1. Install `nx` cli globally:
+   ```bash
+   BASE_URL=https://your.alfresco.backend.com
+   ```
 
-    ```bash
-    npm install -g nx
-    ```
+3. Edit `apps/content-ee/src/app.config.json` to configure authentication:
 
-2. Create a new extension called `my-extension` from the root directory of the Digital Workspace project:
+   ```bash
+   "authType": "OAUTH" or "BASIC"
+   ```
 
-    ```bash
-    nx g @nrwl/angular:lib my-extension
-    ```
+   The BASE URL defined earlier is also used for authentication.
 
-    Leave the default values of the command unless you're familiar with what they mean.
+4. Run the application:
 
-    In the `libs/my-extension` path you'll find the following structure:
+   ```bash
+   npm run start content-ee
+   ```
 
-    * The `src` folder contains all the typescript source code
-    * The `index.ts` file defines all the inclusions of the extension
-    * The `lib/my-extension.module.ts` file defines the module class for the extension
-    * The `README.md` file contains documentation
-    * Other files are for testing and configuration
+### Scaffolding
 
-    > **Note:** For more on creating libraries using Nx see [Angular Nx Tutorial - Step 8: Create Libs](https://nx.dev/angular-tutorial/08-create-libs){:target="_blank"}
+The scaffolding process requires several steps:
 
-3. Once `my-extension` is created, add the configuration to the extension module by editing the `./libs/my-extension/src/lib/my-extension.module.ts` file:
+* Creating a library to host your customizations.
+* Connecting the extension to the ADW application.
+* Creating your first extension.
 
-    ```java
-    // Add the following import to the page.
-    import { provideExtensionConfig } from '@alfresco/adf-extensions';
-    // Add providers as described below.
-    NgModule({
-      imports: [CommonModule],
-      providers: [
-        provideExtensionConfig(['my-extension.json'])
-      ]
-    })
-    export class MyExtensionModule {}
-    ```
+#### Create library to host your customizations
 
-4. Create a directory called `libs/my-extension/assets`:
+1. Create a folder where you would like to place the extensions. i.e. `/workspace/extensions`.
 
-    This directory is used to program the extension to add a new item called **hello world** to the **New** button on the landing page of the Digital Workspace.
+   > **Note:** Keep your customizations separate from the original code so future upgrades are easier.
 
-5. Create a file called `libs/my-extension/assets/my-extension.json` with the following content:
+2. Run the `@nx/angular` library generator using the following command as a template:
 
-    ```json
-    {
-      "$version": "1.0.0",
-      "$id": "my.extension",
-      "$name": "my adf extension",
-      "$description": "my adf extension",
-      "$license": "Apache-2.0",
-      "actions": [],
-      "features": {
-        "create": [
-          {
-            "id": "my.extension.hello.world",
-            "title": "BYE BYE WORLD! (Logout)",
-            "order": 50,
-            "actions": {
-              "click": "LOGOUT"
-            }
-          }
-        ]
-      },
-      "routes": [],
-      "rules": []
-    }
-    ```
+   ```bash
+   npx nx generate @nx/angular:library --name=@myorg/my-extension --buildable=true --directory=extensions/myextension --publishable=true --importPath=@myorg/my-extension --projectNameAndRootFormat=as-provided -- unitTestRunner=none --no-interactive --dry-run
+   ```
 
-    > **Note:** After the Digital Workspace extension has been created, ensure the `tsconfig.base.json` file includes a link to the `libs/my-extension/src/index.ts` file as part of the paths item. These are default paths that are set during the creation of the extension. It's useful to verify the paths when troubleshooting.
+   Set each option based on the following descriptions:
 
-6. Edit the `apps/content-ee/src/app/extensions.module.ts` file to add the extension module to the application using the following format:
+   | Options | Description |
+   | ------- | ----------- |
+   | -name | The name of the library. |
+   | --directory | A directory where the library  is placed. |
+   | --importPath | The library name used for the import, like `@myorg/my-awesome-lib`. This must be a valid `npm` package name.<br><br>**Tip:** Use the same value provided for the `--name` option. |
 
-    ```java
-    // Add the following import to the page.
-    import { MyExtensionModule } from '@alfresco-dbp/my-extension';
-    @NgModule({
-        imports: [
-            ...,
-            MyExtensionModule,
-        ],
-    })
-    export class AppExtensionsModule {}
-    ```
+   All the commands provided to generate code have the `--dry-run` flag. This gives you the opportunity to review the code before applying changes.
 
-7. Edit the `angular.json` file by adding the following configuration to the `projects/content-ee/targets/build/options/assets` section:
+   See the [official Nx Angular library documentation](https://nx.dev/nx-api/angular/generators/library){:target="_blank"} for more details.
 
-    This configuration ensures the extension is visible from the Digital Workspace app.
+3. Run the previous command without the `--dry-run` flag when you're happy with the result.
 
-    ```json
-    {
-      "input": "libs/my-extension/assets",
-      "output": "/assets/plugins/",
-      "glob": "my-extension.json"
-    },
-    ```
+   `npx nx` is preferred instead of having global `nx` installed. With NX globally installed, it is easy to encounter version mismatches and issues with the cache.
 
-8. From a command prompt start the Digital Workspace:
+##### Validate the changes
 
-    ```shell
-    npm start content-ee
-    ```
+1. Check in `tsconfig.base.json` that an import path exists and points to the correct entry point:
 
-You have now added a new option to the **New** button called **BYE BYE WORLD!**. The new option initiates the logout command from the current Digital Workspace session. For more see [Extending](https://alfresco-content-app.netlify.app/#/extending/){:target="_blank"} and [Application Development Framework Tutorials](https://www.alfresco.com/abn/adf/){:target="_blank"}.
+   ```bash
+   "@myorg/my-extension": ["extensions/my-extension/src/index.ts"],
+   ```
 
-![Development options]({% link digital-workspace/images/adw-extension-new-button.png %})
+2. Test `npm i` is working:
 
-### Replace existing extension
+   If you start getting errors due to package conflicts, run `npm i` with the `--legacy-peer-deps` option.
 
-You can replace an existing extension with a new one you have created. To achieve this you must have an existing extension called `my-extension`, and its structure must be compliant with the content and structure of the current `projects/my-extension` file.
+#### Connect the extension to the ADW application
 
-1. Run the following command from a command prompt from inside the root folder of the Digital Workspace project:
+To connect your extension the Digital Workspace, you'll need to import the module with your customizations, and include the `assets` folder in the build process.
 
-    ```bash
-    nx g @nrwl/angular:lib my-extension
-    ```
+1. Import the `NgModule` in the ADW application by adding it to the `imports` statement in `./apps/content-ee/src/app/extension.module.ts`:
 
-    > **Note:** Ensure you use the same name as the existing extension, in this example it's called `my-extension`.
+   ```typescript
+   import { MyAdwCustomizationsModule } from '@myorg/my-adw-customizations';
+   
+   @NgModule({
+     imports: [
+       environment.plugins.aca_aos ? AosExtensionModule : [],
+       environment.plugins.aca_about ? AcaAboutModule : [],
+       environment.plugins.adw_governance ? RecordModule : [],
+       environment.plugins.adw_aps1 ? ProcessServicesExtensionModule : [],
+       environment.plugins.adw_content_services
+         ? ContentServicesExtensionModule
+         : [],
+       environment.plugins.adw_office365
+         ? MicrosoftOfficeOnlineIntegrationExtensionModule
+         : [],
+       environment.plugins.adw_analytics ? ContentEeAnalyticsModule : [],
+       MyExtensionModule
+     ],
+       providers: [
+         { provide: PACKAGE_JSON, useValue: packageJson },
+         { provide: DEV_MODE_TOKEN, useValue: true },
+       ],
+     })
+   export class AppExtensionsModule {}
+   ```
 
-Once complete, delete the content of the `libs/my-extension` directory, and replace it with the source code of the new Digital Workspace extension.
+   > **Note:** If VS Code shows a lot of errors when opening the file, due to being unable to resolve the modules, it may be connected to the absence of `tsconfig.json` in the `content-ee` app.
 
-## How to add a new page and menu item
+   This is not a blocker. To fix error, one solution is to create a `tsconfig.json` file alongside `tsconfig.app.json` with the following content:
+  
+   ```json
+   { "extends": "./tsconfig.app.json" }
+   ```
 
-You can create a new page and a new menu item in the Digital Workspace. To achieve this you must have a working Digital Workspace extension as well as the full repository. Using the examples above, you should have an extension called `my-extension`.
+2. Add your source code to the application bundle by including the `assets` folders in the build process.
 
-1. Create a new folder called `libs/my-extension/src/lib/my-first-page`, and add a new file into it called `my-first-page.component.ts` with the following information:
+   This guarantees that the files are taken into account during the application build process.
 
-    ```java
-    import { Component, } from '@angular/core';
-    @Component({
-        selector: 'my-first-page',
-        template: "<h1>HELLO WORLD!</h1>"
-        })
-    export class MyFirstPageComponent {}
-    ```
+   | Asset Type | Input | Expected Destination |
+   | ---------- | ----- | -------------------- |
+   | Descriptor file | `extensions/EXT_NAME/descriptor` | `/assets/plugins` |
+   | Translations | `extensions/EXT_NAME/i18n` | `/assets/plugin-name/i18n` |
+   | Assets | `extensions/EXT_NAME/assets` | `/assets/` |
 
-2. Edit the `my-extension.json` file in the `libs/my-extension/assets` folder and add the following to the `routes` array:
+3. Edit the `./apps/content-ee/project.json` file by adding the following configuration to the `targets.build.options.assets` section:
 
-    ```json
-    {
-        ...,
-        "routes": [
-            {
-                "id": "my.extension.myFirstPage",
-                "path": "my-first-page",
-                "parentRoute": "",
-                "layout": "app.layout.main",
-                "component": "my.extension.components.my-first-page",
-                "auth": [
-                    "content-services.auth"
-                ]
-            }
-        ],
-        "rules": []
-    }
-    ```
+   ```json
+   {
+     "input": "extensions/my-extension/descriptor",
+     "output": "/assets/plugins",
+     "glob": "*.json"
+   },
+   {
+     "input": "extensions/my-extension/i18n",
+     "output": "/assets/my-extension/i18n",
+     "glob": "**/*"
+   },
+   {
+     "input": "extensions/my-extension/assets",
+     "output": "/assets/",
+     "glob": "**/*"
+   }
+   ```
 
-3. Declare the component identifier directly in the extension's module by editing the `libs/my-extension/src/lib/my-extension.module.ts` file with the following:
+   You may not need the entire configuration, but we'll add them once to cover more scenarios.
 
-    ```java
-    // Add the following imports.
-    import { ExtensionService } from '@alfresco/adf-extensions';
-    import { MyFirstPageComponent } from './my-first-page/my-first-page.component';
-    // Change the NgModule as follows.
-    @NgModule({
-      ...,
-      declarations: [MyFirstPageComponent]
-    })
-    export class MyExtensionModule {
-      constructor(extensions: ExtensionService) {
-        extensions.setComponents({
-          'my.extension.components.my-first-page': MyFirstPageComponent,
-        });
+#### Create your first extension
+
+To create your first extension, create a descriptor file, and provide the configuration file to the module.
+
+1. Create a `descriptor` folder with an extension descriptor file inside, i.e. `myorg.my-extension.json`.
+
+   * The file name must be unique inside the application.
+   * Choose a name that does not conflict with other extensions.
+   * The descriptor file follows the schema in `alfresco-content-app/extension.schema.json`  of the `https://github.com/Alfresco/alfresco-content-app/` GitHub repository.
+
+   The minimal content of the descriptor file (shown below) should include the fields used for the **About** box only:
+
+   ```json
+   {
+     "$version": "0.1.0",
+     "$id": "my-extension-id",
+     "$name": "your plugin name",
+     "$vendor": "Your amazing company",
+     "$license": "LGPL-3.0",
+     "$description": "Just a hello world"
+   }
+   ```
+
+   This is an example of the **About** box:
+
+   ![About box in Digital Workspace]({% link digital-workspace/images/adw-about.png %})
+
+2. Provide the configuration file to the module.
+
+   Inform the application to load the extension descriptor, using the `provideExtensionConfig` function from `@alfresco/adfextensions`.
+
+   ```typescript
+   import { NgModule } from '@angular/core';
+   import { CommonModule } from '@angular/common';
+   import { provideExtensionConfig } from '@alfresco/adf-extensions';
+
+   @NgModule({
+     imports: [CommonModule],
+     providers: [provideExtensionConfig(['myorg.my-extension.json'])],
+   })
+   export class MyAdwExtensionModule {}
+   ```
+
+3. Test the configuration by running:
+
+   ```bash
+   npm run start content-ee
+   ```
+
+   The application should run without issues or visible changes. If you inspect the network you should be able to find your JSON file loaded together with the other plugins.
+
+   Your extension is displayed in the plugin list in the **About** box:
+
+   ![List of Plugins shown in the About box of Digital Workspace]({% link digital-workspace/images/adw-plugins-extension.png %})
+
+### Add a new page
+
+To add a new page, define a new route in the application, assign a page component, and then create a navigation bar item.
+
+1. Define a new route in the descriptor file:
+
+   ```json
+   "routes": [
+     {
+       "id": "app.route.my-unique-route-id",
+       "parentRoute": "",
+       "path": "first-route",
+       "layout": "app.layout.main",
+       "component": "my-extension-id.pages.hello.page",
+       "data": {
+       },
+       "auth": ["content-services.auth", "extension-data-loader-guard.auth"]
+     }
+   ],
+   ```
+
+   Apart from `parentRoute`, the other options are comparable to the one you normally specify in an Angular application, [Angular Route](https://v14.angular.io/api/router/Route){:target="_blank"}. The key options are `id`, `path`, and `component`.
+
+   Internal references for how this works are defined in the `Alfresco/alfresco-content-app` GitHub repository - search for `alfresco-content-app/projects/aca-shared/src/lib/services/router.extension.service.ts`
+
+2. To assign a page component, first create a component for the page, and then link the created component with the component ID defined in the descriptor file.
+
+   1. You can create a component for the page either manually, if you want to follow the Angular standard, or by using the CLI.
+
+      ```bash
+      npx nx generate @schematics/angular:component --name=hello --project=@myorg/my-extension --skipTests=true --standalone=true --type=page --no-interactive --dry-run
+      ```
+
+      * In the example, you can change the `--name` and `--project` to your preference.
+      * When you're happy with the proposed changes, remove the `--dry-run` option and run the command again.
+
+   2. In your extension module, import the extension service using Angular dependency injection, and assign the component to the unique ID in the descriptor file.
+
+      The code should look like this:
+
+      ```typescript
+      import {
+        ExtensionService,
+        provideExtensionConfig,
+      } from '@alfresco/adf-extensions';
+      import { HelloPage } from './hello/hello.page';
+
+      @NgModule({
+        imports: [CommonModule],
+        providers: [provideExtensionConfig(['myorg.my-extension.json'])],
+      })
+      export class MyExtensionModule {
+        constructor(private extensionService: ExtensionService) {
+          this.extensionService.setComponents({
+            'my-extension-id.pages.hello.page': HelloPage,
+          });
+        }
       }
-    }
-    ```
+      ```
 
-    You have added a new route (URI) to the application through the extension. You can test everything is working properly by launching the `npm start content-ee` command and pointing your browser to `http://localhost:4200/#my-first-page`.
+      You can test if the change worked by accessing the defined route using the URL `http://localhost:4200/#/first-route`. The exact URL may vary depending on your configuration.
 
-4. To add a menu item that points to the new page, edit the `my-extension.json` file in the `libs/my-extension/assets` folder and add the following to the `features` element:
+3. Create a navigation bar item.
 
-    ```json
+   There are several options for adding the navbar item, depending on where you want to show your item in the navigation. The options are:
+
+   * As a single item
+   * Inside existing groups
+   * In a new group
+
+   These options are described in the following sections.
+
+#### Example - adding the navbar item as a single item
+
+Adding an item as a single item requires ...
+
+```json
+"features": {
+  "navbar": [
     {
-      ...
-      "features": {
-        ...,
-        "navbar": [
-          {
-            "id": "app.navbar.primary",
-            "items": [
-              {
-                "id": "app.navbar.libraries.menu",
-                "children": [
-                  {
-                    "id": "app.navbar.libraries.all-libraries",
-                    "title": "My first page",
-                    "description": "My first page",
-                    "order": 400,
-                    "route": "my-first-page",
-                    "rules": {
-                      "visible": "app.content-services.isEnabled"
-                    }
-                  }]
-              }]
-          }]
-      },
-      ...
+      "id": "app.navbar.primary",
+      "items": [
+        {
+          "id": "app.navbar.hello",
+          "title": "Hello World",
+          "route": "app.route.my-unique-route-id",
+          "description": "Hello World",
+          "order": 100,
+          "rules": {
+            "visible": "app.content-services.isEnabled"
+          }
+        }
+      ]
     }
-    ```
+  ]
+}
+```
+<!--FIXME: what's the result?-->
 
-Below you can see what the layout looks like:
+#### Example - adding the navbar item inside existing groups
 
-![ADW Extension New Library]({% link digital-workspace/images/adw-extension-new-library.png %})
+Adding an item in an existing group requires matching an `id`. In the following example, you can see the IDs required for the **Files** and **Workflow** sections:
+
+![Navigation bar items in groups for ADW]({% link digital-workspace/images/adw-navbar-groups.png %})
+
+```json
+"features": {
+  "navbar": [
+    {
+      "id": "app.navbar.primary",
+      "items": [
+        {
+          "id": "app.navbar.menu",
+          "children": [
+            {
+              "id": "app.navbar.hello2",
+              "title": "Hello in Content Group",
+              "route": "app.route.my-unique-route-id",
+              "description": "Hello World inside File",
+              "order": 90,
+              "rules": {
+                "visible": "app.content-services.isEnabled"
+              }
+            }
+          ],
+          "description": "Hello World",
+          "rules": {
+            "visible": "app.content-services.isEnabled"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+<!--FIXME: what's the result?-->
+
+Inside each group, the order of the element is controlled by the `order` attribute.
+
+#### Example - adding the navbar item in a new group
+
+Similar to the example for updating an existing group, you can create an item with children that translates to a group in the navbar. If the ID differs from the out-of-the-box ID, a new group is created in the navbar with a name that equals to what's specified in the `descriptor` property.
+
+```json
+"features": {
+  "navbar": [
+    {
+      "id": "app.navbar.primary",
+      "items": [
+        {
+          "id": "app.navbar.new-name",
+          "children": [
+            {
+              "id": "app.navbar.hello2",
+              "title": "Hello in Content Group",
+              "route": "app.route.my-unique-route-id",
+              "description": "Hello World inside File",
+              "order": 90,
+              "rules": {
+                "visible": "app.content-services.isEnabled"
+              }
+            }
+          ],
+          "title": "Hello World",
+          "description": "Hello World",
+          "rules": {
+            "visible": "app.content-services.isEnabled"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+<!--FIXME: what's the result?-->
+
+## ADW extension points
+
+### Extend the viewer
+
+To extend the viewer, create the new viewer component, register the custom viewer, and declare the new viewer in the descriptor.
+
+1. Generate a new component to create a new viewer component:
+
+   ```bash
+   npx nx generate @nx/angular:component --name=custom-viewer --directory=./extensions/my-customization/viewer/custom-viewer --standalone=true --nameAndDirectoryFormat=as-provided --no-interactive --dry-run  
+   ```
+
+2. Register the custom viewer:
+
+   ```typescript
+   import { NgModule } from '@angular/core';
+   import { CommonModule } from '@angular/common';
+   import { ExtensionService, provideExtensionConfig } from '@alfresco/adf-extensions';
+   import { CustomViewerComponent } from './viewer/custom-viewer/customViewer.component';
+   @NgModule({
+     imports: [CommonModule, CustomViewerComponent],
+     providers: [provideExtensionConfig(['myorg.my-customization.json'])]
+   })
+   export class MyCustomizationModule {
+    constructor(extension : ExtensionService) {
+      extension.setComponents({'my-org.components.custom-viewer': CustomViewerComponent,
+      })    
+    }
+   }
+   ```
+
+3. Declare the new viewer in the descriptor:
+
+   ```json
+           "viewer" : {
+            "extensions" : [
+                {
+                    "fileExtension": "pdf",
+                    "component": "my-org.components.custom-viewer"
+                }
+            ]
+        }
+   ```
