@@ -314,7 +314,7 @@ A valid license file is required to run Process Services.
 
 Customers can download and request licenses from the Customer Portal in [Hyland Community](https://community.hyland.com/customer-portal/licensing/alfresco/request/){:target="_blank"}.
 
-You can download a trial license from [https://www.hyland.com/alfresco/aps-trial-license/activiti-trial.zip].
+You can download a trial license from [https://www.hyland.com/alfresco/aps-trial-license/activiti-trial.zip](https://www.hyland.com/alfresco/aps-trial-license/activiti-trial.zip).
 
 Logging into Process Services as an administrator will display a notification if a license is not currently valid.
 Notifications are displayed when:
