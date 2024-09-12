@@ -938,6 +938,8 @@ Internal Links allow the user to jump to different places within the document:
 
 ![Img Txt]({% link enterprise-viewer/images/aev-left-sidebar8.png %})
 
+> **NOTE:** Only internal links with a page number are supported in Enterprise Viewer.
+
 An internal link will be highlighted light blue when a user hovers over it.
 
 #### Attachments
