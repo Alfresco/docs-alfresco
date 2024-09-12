@@ -30,6 +30,35 @@ Operating system and libraries for the target server machine:
 
 * Windows: Windows Server 2016 or newer
 * Linux: CentOS, Ubuntu, RHL, Amazon Linux
+
+### Custom transformer configuration file
+
+If there is a requirement to transform image files to PDF, create a custom transformer configuration file (`customTranformer.json`) and add it in the path - `<TOMCAT_HOME>/shared/classes/alfresco/extension/transform/pipelines/customTranformer.json`. If you’re using Docker, you can mount the same content as a volume against the same path.
+
+* `customTranformer.json`
+
+```text
+{
+    "transformers": [
+        {
+            "transformerName": "imageToPdfViaTiff",
+            "transformerPipeline": [
+                {
+                    "transformerName": "imagemagick",
+                    "targetMediaType": "image/tiff"
+                },
+                {
+                    "transformerName": "imageToPdf"
+                }
+            ],
+            "supportedSourceAndTargetList": [],
+            "transformOptions": [
+                "imageToPdfOptions"
+            ]
+        }
+    ]
+}
+```
   
 ## Install proxy
 
