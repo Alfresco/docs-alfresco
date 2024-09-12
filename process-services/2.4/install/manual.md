@@ -314,6 +314,8 @@ A valid license file is required to run Process Services.
 
 A license file can be obtained from [support](https://support.alfresco.com){:target="_blank"} or a link is provided via email to download a temporary (30-day) license if you signed up for a free trial.
 
+You can download a trial license from (https://www.hyland.com/alfresco/aps-trial-license/activiti-trial.zip).
+
 Logging into Process Services as an administrator will display a notification if a license is not currently valid.
 Notifications are displayed when:
 
