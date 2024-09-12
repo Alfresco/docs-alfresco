@@ -83,7 +83,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Collaboration Connector for Microsoft 365 2.0 | |
 | Alfresco Collaboration Connector for Teams 2.0 | |
 | Alfresco Outlook Integration 3.0 | |
-| Alfresco Office Services 2.0 | |
+| Alfresco Office Services 3.0 | |
 | Alfresco Google Docs Integration 4.1 | |
 | Alfresco Events SDK for Out-of-Process Events 6.2 | |
 | Alfresco In-Process SDK 4.8 | |
