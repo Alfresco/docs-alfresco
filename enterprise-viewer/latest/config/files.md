@@ -881,6 +881,102 @@ A stamp image opacity for Custom Stamp 5. The value must be equal or larger than
 
 Default value: ``
 
+### stampApprovedLabel 
+
+A custom label for **Approved** stamp. Configuring this value does not affect the stamp behavior.
+
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
+
+Default value: "" 
+
+### stampApprovedHelpText 
+
+A custom helper text for **Approved** stamp. 
+
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
+
+Default value: ""  
+
+### stampPaidLabel 
+
+A custom label for **Paid** stamp. Configuring this value does not affect the stamp behavior. 
+
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
+
+Default value: "" 
+
+### stampPaidHelpText 
+
+A custom helper text for **Paid** stamp.
+
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
+
+Default value: "" 
+
+### stampReviewedLabel 
+
+Acustom label for **Reviewed** stamp. Configuring this value does not affect the stamp behavior. 
+
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
+
+Default value: "" 
+
+### stampReviewedHelpText 
+
+A custom helper text for **Reviewed** stamp. 
+
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
+
+Default value: "" 
+
+### stampAcceptedLabel 
+
+A custom label for **Accepted** stamp. 
+
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
+
+Default value: "" 
+
+### stampAcceptedHelpText 
+
+A custom helper text for **Accepted** stamp. 
+
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
+
+Default value: "" 
+
+### stampRejectedLabel 
+
+A custom label for **Rejected** stamp. 
+
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
+
+Default value: "" 
+
+### stampRejectedHelpText 
+
+A custom helper text for **Rejected** stamp. 
+
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
+
+Default value: "" 
+
+### stampCheckmarkLabel 
+
+A custom label for **Checkmark** stamp. Configuring this value does not affect the stamp behavior. 
+
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
+
+Default value: "" 
+
+### stampCheckmarkHelpText 
+
+A custom helper text for **Checkmark** stamp.
+
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
+
+Default value: "" 
+
 ## OpenContent - default properties
 
 The following section outlines all configurable default properties for OpenContent.  
