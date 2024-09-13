@@ -885,7 +885,7 @@ Default value: ``
 
 A custom label for **Approved** stamp. Configuring this value does not affect the stamp behavior.
 
->**Note:** Text cannot be localized based on browser's language once it has been configured. 
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
 
 Default value: "" 
 
@@ -893,7 +893,7 @@ Default value: ""
 
 A custom helper text for **Approved** stamp. 
 
->**Note:** Text cannot be localized based on browser's language once it has been configured. 
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
 
 Default value: ""  
 
@@ -901,7 +901,7 @@ Default value: ""
 
 A custom label for **Paid** stamp. Configuring this value does not affect the stamp behavior. 
 
->**Note:** Text cannot be localized based on browser's language once it has been configured. 
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
 
 Default value: "" 
 
@@ -909,7 +909,7 @@ Default value: ""
 
 A custom helper text for **Paid** stamp.
 
->**Note:** Text cannot be localized based on browser's language once it has been configured. 
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
 
 Default value: "" 
 
@@ -917,7 +917,7 @@ Default value: ""
 
 Acustom label for **Reviewed** stamp. Configuring this value does not affect the stamp behavior. 
 
->**Note:** Text cannot be localized based on browser's language once it has been configured. 
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
 
 Default value: "" 
 
@@ -925,7 +925,7 @@ Default value: ""
 
 A custom helper text for **Reviewed** stamp. 
 
->**Note:** Text cannot be localized based on browser's language once it has been configured. 
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
 
 Default value: "" 
 
@@ -933,7 +933,7 @@ Default value: ""
 
 A custom label for **Accepted** stamp. 
 
->**Note:** Text cannot be localized based on browser's language once it has been configured. 
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
 
 Default value: "" 
 
@@ -941,7 +941,7 @@ Default value: ""
 
 A custom helper text for **Accepted** stamp. 
 
->**Note:** Text cannot be localized based on browser's language once it has been configured. 
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
 
 Default value: "" 
 
@@ -949,7 +949,7 @@ Default value: ""
 
 A custom label for **Rejected** stamp. 
 
->**Note:** Text cannot be localized based on browser's language once it has been configured. 
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
 
 Default value: "" 
 
@@ -957,7 +957,7 @@ Default value: ""
 
 A custom helper text for **Rejected** stamp. 
 
->**Note:** Text cannot be localized based on browser's language once it has been configured. 
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
 
 Default value: "" 
 
@@ -965,7 +965,7 @@ Default value: ""
 
 A custom label for **Checkmark** stamp. Configuring this value does not affect the stamp behavior. 
 
->**Note:** Text cannot be localized based on browser's language once it has been configured. 
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
 
 Default value: "" 
 
@@ -973,7 +973,7 @@ Default value: ""
 
 A custom helper text for **Checkmark** stamp.
 
->**Note:** Text cannot be localized based on browser's language once it has been configured. 
+>**Note:** Text cannot be localized based on the browser's language once it has been configured. 
 
 Default value: "" 
 
