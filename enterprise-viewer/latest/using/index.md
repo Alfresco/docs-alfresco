@@ -468,67 +468,80 @@ The **Free Draw** button is located in the **Drawing Tools** dropdown below the 
 
 #### Stamp Tools Dropdown
 
-The **Stamps** dropdown includes all of the available stamp annotations. These include Approved, Reviewed, Accepted,
-Rejected, and Checkmark. When one of these stamps are selected, a preview will appear on the document that will allow
-the user to see how the stamp will look when it is placed on the document. The dialog box will appear from the top left
-corner of the stamp annotation and will appear every time the annotation is selected:
+The **Stamps** drop-down list includes all of the available stamp annotations, including **Approved**, **Paid**, **Reviewed**, **Accepted**,
+**Rejected**, and **Checkmark**. If one of these stamps is selected, a preview is displayed on the document, allowing you to see what the stamp annotation will look like before it is placed on the document. The dialog box is displayed from the top left corner of the stamp annotation every time the annotation is selected:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar44.png %})
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar-dropdownlist.png %})
 
-The **Stamps** dropdown is located to the right of the **Drawing Tools** dropdown and to the left of the **Help** button.
+The **Stamps** drop-down list is located to the right of the **Drawing Tools** drop-down list and to the left of the **Help** button.
 
 ##### Approved Stamp
 
-The **Approved Stamp** is used when an approved stamp needs to be added to a page. Once the approved stamp button is clicked,
-a preview of the stamp will appear on the document to allow the user to see what the stamp annotation will look like
+The **Approved** stamp is used when an approved stamp needs to be added to a page. Once the **Approved** stamp button is clicked,
+a preview of the stamp is displayed on the document, allowing you to see what the stamp annotation will look like
 before it is placed on the document:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar45.png %})
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar-approvedstamp.png %})
 
-The **Approved Stamp** is located in the **Stamps** Dropdown menu above the **Reviewed Stamp** button.
+The **Approved** stamp is located in the **Stamps** drop-down list above the **Paid Stamp** button.
+
+##### Paid Stamp
+
+The **Paid** stamp is used when a paid stamp needs to be added to a page. Once the **Paid** stamp button is clicked, a preview of the stamp is displayed on the document, allowing you to see what the stamp annotation will look like before it is placed on the document:
+
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar-paid.png %})
+
+The **Paid** stamp is located in the **Stamps** drop-down menu above the **Reviewed** stamp button.
 
 ##### Reviewed Stamp
 
-The **Reviewed Stamp** is used when a reviewed stamp needs to be added to a page. Once the reviewed stamp button is clicked,
-a preview of the stamp will appear on the document to allow the user to see what the stamp annotation will look like
-before it is placed on the document:
+The **Reviewed** stamp is used when a reviewed stamp needs to be added to a page. Once the **Reviewed** stamp button is clicked, a preview of the stamp is displayed on the document, allowing you to see what the stamp annotation will look like before it is placed on the document:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar46.png %})
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar-reviewed.png %})
 
-The **Reviewed Stamp** button is located in the **Stamps** dropdown below the **Approved Stamp** and the
-**Accepted Stamp** button.
+The **Reviewed** stamp button is located in the **Stamps** drop-down list below the **Paid** stamp and above the
+**Accepted** stamp button.
 
 ##### Accepted Stamp
 
-The **Accepted Stamp** is used when an accepted stamp needs to be added to a page. Once the accepted stamp button is
-clicked, a preview of the stamp will appear on the document to allow the user to see what the stamp annotation will
-look like before it is placed on the document:
+The **Accepted** stamp is used when an accepted stamp needs to be added to a page. Once the **Accepted** stamp button is
+clicked, a preview of the stamp is displayed on the document, allowing you to see what the stamp annotation will look like before it is placed on the document:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar47.png %})
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar-accepted.png %})
 
-The **Accepted Stamp** button is located in the **Stamps** Dropdown menu below the **Reviewed Stamp** button and above
-the **Rejected Stamp** button.
+The **Accepted** stamp button is located in the **Stamps** drop-down menu below the **Reviewed** stamp button and above
+the **Rejected** stamp button.
 
 ##### Rejected Stamp
 
-The **Rejected Stamp** is used when a rejected stamp needs to be added to a page. Once the rejected stamp button is
-clicked, a preview of the stamp will appear on the document to allow the user to see what the stamp annotation will look
-like before it is placed on the document:
+The **Rejected** stamp is used when a rejected stamp needs to be added to a page. Once the **Rejected** stamp button is
+clicked, a preview of the stamp is displayed on the document, allowing you to see what the stamp annotation will look like before it is placed on the document:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar48.png %})
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar-rejectedstamp.png %})
 
-The **Rejected Stamp** button is located in the **Stamps** dropdown below the **Accepted Stamp** button and above the
-**Checkmark stamp** button.
+The **Rejected** stamp button is located in the **Stamps** dropdown below the **Accepted** stamp button and above the
+**Checkmark** stamp button.
 
 ##### Checkmark Stamp
 
-The **Checkmark Stamp** is used when a checkmark stamp needs to be added to a page. Once the checkmark stamp button is
-clicked, a preview of the stamp will appear on the document to allow the user to see what the stamp annotation will
-look like before it is placed on the document:
+The **Checkmark** stamp is used when a checkmark stamp needs to be added to a page. Once the **Checkmark** stamp button is
+clicked, a preview of the stamp is displayed on the document, allowing you to see what the stamp annotation will look like before it is placed on the document:
 
-![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar49.png %})
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar-checkmark.png %})
 
-The **Checkmark Stamp** button is located in the **Stamps** dropdown below the **Rejected Stamp** button.
+The **Checkmark** stamp button is located in the **Stamps** dropdown below the **Rejected** stamp button.
+
+##### Custom Stamp
+
+There are five configurable **Custom Stamps** available with Enterprise Viewer. These custom stamps can be used to create new stamps with configurable stamp text on a page. It must be configured by admin on server using override properties to use it. 
+
+For more information on configuring custom stamps, see [AEV stamp properties]({% link enterprise-viewer/latest/config/files.md %}###AEVstampproperties).
+
+Once the **Stamp** button is clicked, a preview of the stamp is displayed on the document, allowing you to see what the stamp annotation will look like before it is placed on the document:
+
+![Img Txt]({% link enterprise-viewer/images/aev-annotations-interface-toolbar-samplestamp.png %})
+
+The **Custom Stamps** are located in the **Stamps** drop-down menu below the **Checkmark** stamp button.
 
 #### Help
 

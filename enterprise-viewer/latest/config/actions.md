@@ -131,7 +131,7 @@ Default value:
 printSectionsAction,--dropdownLabel-viewer.toolbar.downloadTools.tooltip,--dropdownIcon-save_alt),(t:AnnotationManipulation),
 (t:Misc),d(t:Text,--dropdownLabel-viewer.toolbar.textSelect.tooltip,--dropdownIcon-font_download,--dropdownShowSelected),
 d(drawLine,drawArrow,drawEllipse,drawRectangle,drawBox,textbox,freeDraw,--dropdownLabel-viewer.toolbar.drawingTools.tooltip,--dropdownIcon-edit,--dropdownShowSelected),
-d(approvedStamp,paidStamp,reviewedStamp,acceptStamp,rejectStamp,pageSizedCheckmarkStamp,--dropdownLabel-viewer.toolbar.stamps.tooltip,--dropdownIcon-layers,--dropdownShowSelected),
+d(approvedStamp,paidStamp,reviewedStamp,acceptStamp,rejectStamp,pageSizedCheckmarkStamp,customStamp1,customStamp2,customStamp3,customStamp4,customStamp5,--dropdownLabel-viewer.toolbar.stamps.tooltip,--dropdownIcon-layers,--dropdownShowSelected),
 d(t:Color,--dropdownLabel-viewer.toolbar.colorpicker.tooltip,--dropdownIcon-palette,--dropdownShowSelected),
 d(t:ChangeBgColor,--dropdownLabel-viewer.toolbar.changeBgColor.tooltip,--dropdownIcon-format_paint,--dropdownShowSelected),
 (save,--isSmallScreen),(printAnnotatedPdf,--isSmallScreen),(stickyNote,--isSmallScreen),(highlight,--isSmallScreen),(t:Help),(toggleChat,t:Summary,--sidebar)
@@ -183,7 +183,6 @@ Default value:
 (t:PageEntry),(t:Navigation),(prevPage,nextPage,zoomIn,zoomOut,--isSmallScreen),(t:Help)
 ```
 ​
-
 ### enabledSignatureActions
 
 The Actions enabled in document signing mode.
@@ -308,7 +307,7 @@ Actions that belong to this type: `zoomIn`, `zoomOut`, `fitWidth`, `fitHeight`.
 TOOL: "Tool",
 ```
 
-Actions that belong to this type: `mouse`, `drawRedaction`, `signature`, `stickyNote`, `drawLine`, `drawArrow`, `drawRectangle`, `textbox`, `drawEllipse`, `freeDraw`, `selectText`, `highlight`, `strikeout`, `insertText`, `replaceText`, `acceptStamp`, `approvedStamp`, `pageSizedCheckmarkStamp`, `rejectStamp`, `reviewedStamp`.
+Actions that belong to this type: `mouse`, `drawRedaction`, `signature`, `stickyNote`, `drawLine`, `drawArrow`, `drawRectangle`, `textbox`, `drawEllipse`, `freeDraw`, `selectText`, `highlight`, `strikeout`, `insertText`, `replaceText`, `acceptStamp`, `approvedStamp`, `pageSizedCheckmarkStamp`, `rejectStamp`, `reviewedStamp`, `paidStamp`, `customStamp1`, `customStamp2`, `customStamp3`, `customStamp4`, `customStamp5`.
 
 ```json
 /**
@@ -336,7 +335,7 @@ Actions that belong to this type: `annotatedPdf`, `unannotatedPdf`, `offlineAnno
 ANNOTATION: "Annotation",
 ```
 
-Actions that belong to this type: `stickyNote`, `drawLine`, `drawArrow`, `drawRectangle`, `textbox`, `drawEllipse`, `freeDraw`, `highlight`, `strikeout`, `insertText`, `replaceText`, `acceptStamp`, `approvedStamp`, `pageSizedCheckmarkStamp`, `rejectStamp`, `reviewedStamp`, `undo`, `redo`, `checkinOfflineAnnotatedPdf`.
+Actions that belong to this type: `stickyNote`, `drawLine`, `drawArrow`, `drawRectangle`, `textbox`, `drawEllipse`, `freeDraw`, `highlight`, `strikeout`, `insertText`, `replaceText`, `acceptStamp`, `approvedStamp`, `pageSizedCheckmarkStamp`, `rejectStamp`, `reviewedStamp`, `paidStamp`, `customStamp1`, `customStamp2`, `customStamp3`, `customStamp4`, `customStamp5`, `undo`, `redo`, `checkinOfflineAnnotatedPdf`.
 
 ```json
 /**
@@ -372,7 +371,7 @@ Actions that belong to this type: `selectText`, `highlight`, `strikeout`, `inser
 STAMP: "Stamp",
 ```
 
-Actions that belong to this type: `acceptStamp`, `approvedStamp`, `pageSizedCheckmarkStamp`, `rejectStamp`, `reviewedStamp`, `signature`.
+Actions that belong to this type: `acceptStamp`, `approvedStamp`, `pageSizedCheckmarkStamp`, `rejectStamp`, `reviewedStamp`, `paidStamp`, `customStamp1`, `customStamp2`, `customStamp3`, `customStamp4`, `customStamp5`, `signature`.
 
 ```json
 /**
@@ -573,6 +572,11 @@ The following table lists ACS Permissions for AEV Actions:
 | acceptStamp | Read, AddChildren, Write |
 | rejectStamp | Read, AddChildren, Write |
 | pageSizedCheckmarkStamp | Read, AddChildren, Write |
+| customStamp1 | Read, AddChildren, Write |
+| customStamp2 | Read, AddChildren, Write |
+| customStamp3 | Read, AddChildren, Write |
+| customStamp4 | Read, AddChildren, Write |
+| customStamp5 | Read, AddChildren, Write |
 | save | Read, AddChildren, Write |
 | stickyNote | Read, AddChildren, Write |
 | highlight | Read, AddChildren, Write |
