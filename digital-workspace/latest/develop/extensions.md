@@ -6,7 +6,7 @@ Customizations that are implemented through the extension mechanism are more mai
 
 Develop an extension if your use case is mainly covered by the Digital Workspace functionality. However, some additional changes are required to meet the expectations and the requirements. In your use case requires complex changes, a custom Alfresco Application Development Framework (ADF)-based application is an alternative.
 
-Extending Digital Workspace requires skills in Angular. You also need to be familiar with the Digital Workspace architecture for more complex cases. The extension mechanism allows you to add, remove, and change the behavior of your applications.
+Extending Digital Workspace requires skills in Angular. You also need to be familiar with the Digital Workspace architecture for more complex use cases. The extension mechanism allows you to add, remove, and change the behavior of your applications.
 
 ## How the ADW extension works
 
@@ -22,13 +22,13 @@ The following diagram provide an overview of the composition of an extension and
 
 ### Anatomy of an extension
 
-Each extension is an Angular library that contains an extension descriptor, in the form of a JSON file, an Angular module that act as root and expose all the elements that compose the feature, such as actions, components, services, rules.
+Each extension is an Angular library that contains an extension descriptor in the form of a JSON file, an Angular module that acts as the root, and exposes all the elements that compose the feature, such as actions, components, services, rules.
 
-The descriptor declares how the extension is assembled in the ADW application, linking hooks with the proper extension element. The module needs to be imported in `extensions.module.ts` to be included in the bundle and execute import and registrations of all the elements with the Extension Mechanism and the Store.<!--FIXME: simplify-->
+The descriptor declares how the extension is assembled in the ADW application, linking hooks with the extension element. The module must be imported in `extensions.module.ts` to be included in the application bundle, which executes the import, and registrations of all the elements with the Extension Mechanism and the Store.
 
 ## On startup
 
-The Digital Workspace application module imports the Extensions module, and each extension is imported in the bundle. Each module is responsible for declaring components, actions, and rules by providing a unique `ID` (string) associated with the element to be loaded. After this process ends, a dictionary of IDs → elements has been loaded. Each module also declares a descriptor file that is loaded and merged together with other files. The result of the merge is written into `app.extensions.json`.
+The Digital Workspace application module imports the Extensions module, and each extension is imported in the bundle. Each module is responsible for declaring components, actions, and rules by providing a unique `ID` (string) associated with the element to be loaded. After this process ends, a dictionary of IDs → elements is loaded. Each module also declares a descriptor file that is loaded and merged together with other files. The result of the merge is written into `app.extensions.json`.
 
 The `app.extensions.json` file is loaded by the `AppExtensionService`. This dynamically loads the extensions into the proper hook using the ADF Extension Mechanism.
 
@@ -43,12 +43,12 @@ Alfresco customers can request Nexus credentials by logging a support ticket via
 ### Prerequisites
 
 * Node.js
-  * See [Supported platforms]({% link digital-workspace/latest/support/index.md %}) for required version.
+  * See the [Supported platforms]({% link digital-workspace/latest/support/index.md %}) page for the required version.
 * Alfresco Content Service deployed locally or remotely:
   * The example URL uses the format: `https://your.alfresco.backend.com`.
 * Digital Workspace source code.
-* Your preferred IDE, such as Visual Studio Code.
-* (Optional) NX Console plugin for VSCode.
+* Your preferred integrated development environment (IDE), such as Visual Studio Code (VS Code).
+* (Optional) Nx Console plugin for VS Code.
 
 ### Build and run Digital Workspace
 
@@ -104,9 +104,9 @@ The scaffolding process requires several steps:
 
    | Options | Description |
    | ------- | ----------- |
-   | -name | The name of the library. |
-   | --directory | A directory where the library  is placed. |
-   | --importPath | The library name used for the import, like `@myorg/my-awesome-lib`. This must be a valid `npm` package name.<br><br>**Tip:** Use the same value provided for the `--name` option. |
+   | name | The name of the library. |
+   | directory | A directory where the library  is placed. |
+   | importPath | The library name used for the import, like `@myorg/my-awesome-lib`. This must be a valid `npm` package name.<br><br>**Tip:** Use the same value provided for the `--name` option. |
 
    All the commands provided to generate code have the `--dry-run` flag. This gives you the opportunity to review the code before applying changes.
 
@@ -114,7 +114,7 @@ The scaffolding process requires several steps:
 
 3. Run the previous command without the `--dry-run` flag when you're happy with the result.
 
-   `npx nx` is preferred instead of having global `nx` installed. With NX globally installed, it is easy to encounter version mismatches and issues with the cache.
+   `npx nx ..` is the preferred command to run instead of having global `nx` installed. With Nx globally installed, it is easy to encounter version mismatches and issues with the cache.
 
 ##### Validate the changes
 
@@ -132,7 +132,7 @@ The scaffolding process requires several steps:
 
 To connect your extension the Digital Workspace, you'll need to import the module with your customizations, and include the `assets` folder in the build process.
 
-1. Import the `NgModule` in the ADW application by adding it to the `imports` statement in `./apps/content-ee/src/app/extension.module.ts`:
+1. Import the `NgModule` into the ADW application by adding it to the `imports` statement in `./apps/content-ee/src/app/extension.module.ts`:
 
    ```typescript
    import { MyAdwCustomizationsModule } from '@myorg/my-adw-customizations';
@@ -162,7 +162,7 @@ To connect your extension the Digital Workspace, you'll need to import the modul
 
    > **Note:** If VS Code shows a lot of errors when opening the file, due to being unable to resolve the modules, it may be connected to the absence of `tsconfig.json` in the `content-ee` app.
 
-   This is not a blocker. To fix error, one solution is to create a `tsconfig.json` file alongside `tsconfig.app.json` with the following content:
+   This is not a blocker, and one solution is to create a `tsconfig.json` file alongside `tsconfig.app.json` with the following content:
   
    ```json
    { "extends": "./tsconfig.app.json" }
@@ -352,7 +352,6 @@ Adding an item as a single item requires ...
   ]
 }
 ```
-<!--FIXME: what's the result?-->
 
 #### Example - adding the navbar item inside existing groups
 
@@ -390,7 +389,6 @@ Adding an item in an existing group requires matching an `id`. In the following 
   ]
 }
 ```
-<!--FIXME: what's the result?-->
 
 Inside each group, the order of the element is controlled by the `order` attribute.
 
@@ -429,7 +427,6 @@ Similar to the example for updating an existing group, you can create an item wi
   ]
 }
 ```
-<!--FIXME: what's the result?-->
 
 ## ADW extension points
 
