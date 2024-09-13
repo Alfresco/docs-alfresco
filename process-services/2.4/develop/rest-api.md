@@ -555,7 +555,7 @@ Mulesoft provides a free RAML IDE called API Workbench. This is a plugin for the
 
 In addition, Mulesoft provides a web-based RAML API designer that can be used to combine Process Services REST APIs in RAML-based API and system design. See [https://www.mulesoft.com/platform/api/anypoint-designer](https://www.mulesoft.com/platform/api/anypoint-designer){:target="_blank"}.
 
-For a full list of tools that can use RAML throughout the entire application development life cycle see [http://raml.org/projects/projects](http://raml.org/projects){:target="_blank"}.
+For a full list of tools that can use RAML throughout the entire application development life cycle see [http://raml.org/projects](http://raml.org/projects){:target="_blank"}.
 
 ## Process Services ReST API
 
