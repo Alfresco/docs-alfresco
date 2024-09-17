@@ -11,7 +11,7 @@ defaults:
       tutorial: true
       support: true
       versions:
-        - 23.x
+        - 23.2
         - 7.4
         - 7.3
         - 7.2
@@ -24,7 +24,7 @@ defaults:
   - scope:
       path: "content-services/latest"
     values:
-      version: 23.x
+      version: 23.2
       latest: true
       release: true
   - scope:
@@ -610,7 +610,7 @@ defaults:
       tutorial: true
       support: true
       versions:
-        - 23.x
+        - 23.2
         - 7.4
         - 7.3
         - 7.2
@@ -624,7 +624,7 @@ defaults:
   - scope:
       path: "governance-services/latest"
     values:
-      version: 23.x
+      version: 23.2
       latest: true
   - scope:
       path: "governance-services/latest/tutorial"
@@ -730,7 +730,7 @@ defaults:
       toc: "process-services"
       support: true
       versions:
-        - 24.x
+        - 24.2
         - 2.4
         - 2.3
         - 2.2
@@ -742,7 +742,7 @@ defaults:
   - scope:
       path: "process-services/latest"
     values:
-      version: 24.x
+      version: 24.2
       latest: true
   - scope:
       path: "process-services/2.4"

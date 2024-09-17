@@ -1,5 +1,5 @@
-# Alfresco Governance Services 23.x
-- version: 23.x
+# Alfresco Governance Services 23.2
+- version: 23.2
   pages:
     - title: 'Introduction'
       path: '/governance-services/latest/'

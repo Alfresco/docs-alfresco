@@ -10,6 +10,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 {% capture twenty-three-two %}
 
+> **Note:** Information for this Service Pack is provided for reference only. Please use the latest Service Pack.
+
 | Version | Notes |
 | ------- | ----- |
 | **Operating systems** | |
@@ -207,4 +209,4 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 {% endcapture %}
 
-{% include tabs.html tableid="supported-platforms" opt1="23.2" content1=twenty-three-two opt2="23.1 (reference only)" content2=twenty-three-one %}
+{% include tabs.html tableid="supported-platforms" opt1="23.2 (reference only)" content1=twenty-three-two opt2="23.1 (reference only)" content2=twenty-three-one %}
