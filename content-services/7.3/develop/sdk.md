@@ -1,11 +1,11 @@
 ---
-title: Alfresco SDK 4.5 for in-process extensions
+title: Alfresco In-Process SDK for in-process extensions
 ---
 
-Alfresco SDK 4.5 is a Maven based development kit that provides an easy to use approach to developing applications and 
+The Alfresco In-Process SDK is a Maven based development kit that provides an easy to use approach to developing applications and 
 extensions for Alfresco. With this SDK you can develop, package, test, run, document and release your Alfresco extension project.
 
-The following picture illustrates where SDK 4.x fits into the big picture:
+The following picture illustrates where the In-Process SDK fits into the big picture:
 
 ![sdk4_big_picture]({% link content-services/images/sdk4_big_picture.png %})
 
@@ -17,12 +17,12 @@ and Test Driven Development (TDD).
 The Alfresco SDK is released under [Apache License version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html){:target="_blank"} 
 and supports Content Services both in Community Edition and Enterprise Edition. If you're an Enterprise customer, 
 check the [Alfresco SDK Support status]({% link content-services/7.3/support/index.md %}) 
-for the version you're using. If your version is in Limited or Full Support and you need help, contact our [Support team](https://support.alfresco.com/){:target="_blank"}.
+for the version you're using. If your version is in Limited or Full Support and you need help, [contact Support]({% link support/latest/contact.md %}).
 
 The 4.0 release took advantage of Semantic Versioning ([SEMVER](https://semver.org/){:target="_blank"}), which means 
 that it isn't directly compatible with the previous releases of the SDK.
 
-If you have existing projects that you wish to upgrade to SDK 4.5 the recommended approach is to generate a new project 
+If you have existing projects that you wish to upgrade to the latest SDK version, the recommended approach is to generate a new project 
 from the new archetypes and move your code into place.
 
 ## What's new?
@@ -40,7 +40,7 @@ Adding, removing and configuring services in the environment is as easy as modif
 ### Support for Java 17
 [Java 17](https://openjdk.org/projects/jdk/17/){:target="_blank"} is the latest Long Term Support (LTS) version that provides support for 3 years. Alfresco 7.3+ already offers support for this version of the Java platform.
 
-Alfresco SDK 4.5 has been modified to add support for Java 17, as well. This way, if you're working as a developer in customizations for Alfresco 7.3 or later, you must now use SDK 4.5 + JDK 17 to work on them. The Apache Maven plugins included in the archetypes has been updated to avoid any issue with Java 17.
+Alfresco SDK 4.5 has been modified to add support for Java 17, as well. If you're working as a developer on customizations for Content Services, you must now use the latest version of the SDK + JDK 17 to work on them. The Apache Maven plugins included in the archetypes has been updated to avoid any issue with Java 17.
 
 ### Easy dependency configuration
 The configuration of the Maven dependency management has been greatly improved thanks to the addition of a _bill of materials_ (BOM). 
@@ -209,6 +209,8 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     17: 4.5.0   
     ```
 
+    This example uses SDK 4.5, but you should see similar results for other SDK 4.x versions.
+
 4. Next you will be prompted for additional values, like `groupId`, `artifactId`, and `package`, as shown below:
 
     ```bash
@@ -326,7 +328,7 @@ Please note that the numbering is not sequential and some numbers may be skipped
 ### org.alfresco.maven.archetype:alfresco-allinone-archetype
 
 This archetype allows a developer to implement the All-In-One project on Content Services. The All-In-One project (also called AIO) is provided in 
-this and previous versions of Alfresco SDK, but in SDK 4.x it has been reshaped to leverage on Docker.
+this and previous versions of Alfresco SDK. It has been reshaped in SDK 4 to leverage Docker.
 
 The All-In-One archetype allows a developer to create a multi-module project on Content Services. The All-In-One project mainly includes a module for 
 the core repository in ACS and a module for the Share client. This includes:
@@ -351,7 +353,7 @@ For more information about the All-In-One project, see [All-In-One project struc
 
 ### org.alfresco.maven.archetype:alfresco-platform-jar-archetype
 
-This archetype allows a developer to implement the Platform JAR project on Content Services. It has been reshaped in SDK 4.x to leverage on Docker.
+This archetype allows a developer to implement the Platform JAR project on Content Services. It has been reshaped in SDK 4 to leverage Docker.
 
 The Platform JAR Maven archetype allows a developer to create a module on Content Services, in particular on the Repository side, and includes:
 
@@ -370,7 +372,7 @@ For more information about the Platform JAR project, see [Platform JAR project s
 
 ### org.alfresco.maven.archetype:alfresco-share-jar-archetype
 
-This archetype allows a developer to implement the Share JAR project on an Alfresco Share client. It has been reshaped in SDK 4.x to leverage on Docker.
+This archetype allows a developer to implement the Share JAR project on an Alfresco Share client. It has been reshaped in SDK 4 to leverage Docker.
 
 The Share JAR Maven archetype allows a developer to create a module on an Alfresco Share client, and includes:
 
@@ -1712,10 +1714,10 @@ If you want more detail about how to work with the project, visit [Working with 
 
 ### Setting up your development environment using Intellij IDEA
 
-The Maven Alfresco SDK is designed to work well with Eclipse. This support includes the ability to import existing Alfresco projects created using the 
+The Maven Alfresco SDK is designed to work well with Intellij. This support includes the ability to import existing Alfresco projects created using the 
 Alfresco SDK.
 
-Here we assume you already have an Eclipse installation up and running, together with an available Alfresco project created using the Alfresco SDK. If you 
+Here we assume you already have an Intellij installation up and running, together with an available Alfresco project created using the Alfresco SDK. If you 
 don't have a project already, follow the steps in [Getting started with Alfresco SDK](#gettingstarted) to learn how to quickly generate it in a few 
 easy steps.
 
