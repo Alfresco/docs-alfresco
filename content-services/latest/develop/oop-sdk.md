@@ -22,9 +22,7 @@ for the version you're using. If your version is in Limited or Full Support and 
 The 6.0 release takes advantage of Semantic Versioning ([SEMVER](https://semver.org/){:target="_blank"}), which means that
 this new release is not directly compatible with the previous releases of the SDK.
 
-There is no direct upgrade path from previous versions of the SDK because version 6.0 is an additional SDK to
-support out-of-process extensions, rather than an updated 4.x version. [Alfresco SDK 4.x]({% link content-services/latest/develop/sdk.md %})
-is still needed for a lot of the extension points, such as [content modelling]({% link content-services/latest/develop/repo-ext-points/content-model.md %}).
+There is no direct upgrade path from previous versions of the SDK because version 6.0 is an additional SDK to support out-of-process extensions, rather than an updated 4.x version. The [Alfresco In-Process (SDK 4.x)]({% link content-services/latest/develop/sdk.md %}) is still needed for a lot of the extension points, such as [content modelling]({% link content-services/latest/develop/repo-ext-points/content-model.md %}).
 
 If you have an existing project with business logic that could be lifted out and implemented as an external service, then
 the recommended approach is to create a new SDK 6 project and start using the event system to implement the business logic.

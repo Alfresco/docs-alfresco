@@ -13,11 +13,10 @@ before continuing with this article to get an understanding of how to attach a d
 using Eclipse, then there is [this article](https://www.eclipse.org/community/eclipse_newsletter/2017/june/article1.php){:target="_blank"} 
 that might be a good read before moving on.
 
-If you are using any of the Alfresco SDKs, then you should be looking at the following sections for information about 
-how to do remote debugging in these environments:
+If you are using any of the Alfresco SDKs, then you should be looking at the following sections for information about how to do remote debugging in these environments:
 
-* [SDK 5 remote debugging]({% link content-services/latest/develop/oop-sdk.md %}#debug-extension-project)
-* [SDK 4 remote debugging]({% link content-services/latest/develop/sdk.md %}#debugging)
+* [Out-of-Process SDK remote debugging]({% link content-services/latest/develop/oop-sdk.md %}#debug-extension-project)
+* [In-Process SDK remote debugging]({% link content-services/latest/develop/sdk.md %}#debugging)
 
 ## Introduction
 
