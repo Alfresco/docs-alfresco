@@ -6,19 +6,19 @@ Alfresco products are available to customers and partners. Use the links provide
 
 ## Pre-built release artifacts
 
-Access to the Alfresco pre-built release artifacts is from [Hyland Community](https://community.hyland.com){:target=_"blank"}. Navigate to the **Support** tab and select **Alfresco Downloads** under the **Software Downloads** section.
+Access to the Alfresco pre-built release artifacts is from [Hyland Community](https://community.hyland.com){:target="_blank"}. Navigate to the **Support** tab and select **Alfresco Downloads** under the **Software Downloads** section.
 
 ## Containerized products
 
 Some Alfresco products are released as a Docker image or a set of multiple Docker images. Images that are common to both Enterprise and Community versions are available at Docker Hub:
 
-[https://hub.docker.com/u/alfresco](https://hub.docker.com/u/alfresco){:target=_"blank"}
+[https://hub.docker.com/u/alfresco](https://hub.docker.com/u/alfresco){:target="_blank"}
 
-Enterprise-only Docker images are available via a Docker pull from [quay.io](https://quay.io){:target=_"blank"} repositories. Please contact Alfresco Support for credentials to the quay.io repositories.
+Enterprise-only Docker images are available via a Docker pull from [quay.io](https://quay.io){:target="_blank"} repositories. Please contact Alfresco Support for credentials to the quay.io repositories.
 
 ## Building Alfresco products using SDKs
 
-Several Alfresco products can be built using SDKs. To see a list of available SDKs, refer to the [Alfresco Documentation](/).
+Several Alfresco products can be built using SDKs. To see a list of available SDKs, refer to the [Supported Platforms]({% link content-services/latest/support/index.md %}) page in the Alfresco Content Services documentation.
 
 Most SDKs require Maven and access to the Alfresco Nexus repository. Please contact Alfresco Support for credentials to the Nexus repository.
 
@@ -26,7 +26,7 @@ Most SDKs require Maven and access to the Alfresco Nexus repository. Please cont
 
 Source code for most Alfresco products, including ACS, APS, and many modules, is available at the Alfresco Nexus repository in the form of a product `sources.jar`, or available in GitHub:
 
-[https://github.com/Alfresco](https://github.com/Alfresco){:target=_"blank"}
+[https://github.com/Alfresco](https://github.com/Alfresco){:target="_blank"}
 
 If you are unable to locate the source code for a product or module, or need credentials to the Nexus repository, please contact Alfresco Support.
 

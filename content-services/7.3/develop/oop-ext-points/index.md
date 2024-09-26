@@ -4,11 +4,11 @@ title: Overview of out-of-process platform extension points
 
 Out-of-process Platform Extensions are extensions that run outside the Alfresco servers in its own processes. 
 
-The new [event system]({% link content-services/7.3/develop/oop-ext-points/events.md %}) in Content Services 7 enables 
+The [event system]({% link content-services/7.3/develop/oop-ext-points/events.md %}) introduced in Content Services 7 enables 
 out-of-process extensions. To support the event system a [ReST API Java Wrapper]({% link content-services/7.3/develop/oop-ext-points/rest-api-java-wrapper.md %}) 
 is provided for easy development of extensions from Java applications.
 
-You should get familiar with the [SDK 5]({% link content-services/7.3/develop/oop-sdk.md %}) as it is 
+You should get familiar with the [Out-of-Process SDK]({% link content-services/7.3/develop/oop-sdk.md %}) as it is 
 the recommended way of developing out-of-process extensions.
 
 Read through the [Getting started guide]({% link content-services/7.3/develop/index.md %}) to get up to 

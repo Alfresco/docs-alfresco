@@ -1,20 +1,20 @@
 ---
-title: Alfresco SDK 4.6 for in-process extensions
+title: Alfresco In-Process SDK for in-process extensions
 ---
 
-Alfresco SDK 4.6 is a Maven based development kit that provides an easy to use approach to developing applications and extensions for Alfresco. With this SDK you can develop, package, test, run, document and release your Alfresco extension project.
+The Alfresco In-Process SDK is a Maven based development kit that provides an easy to use approach to developing applications and extensions for Alfresco. With this SDK you can develop, package, test, run, document and release your Alfresco extension project.
 
-The following picture illustrates where SDK 4.x fits into the big picture:
+The following picture illustrates where the In-Process SDK fits into the big picture:
 
 ![sdk4_big_picture]({% link content-services/images/sdk4_big_picture.png %})
 
 The Alfresco Software Development Kit (Alfresco SDK) is a fundamental tool provided by Alfresco to developers to build customizations and extensions for the Alfresco Digital Business Platform. It is based on [Apache Maven](http://maven.apache.org/){:target="_blank"} and [Docker](https://www.docker.com/){:target="_blank"} and is compatible with major IDEs. This enables Rapid Application Development (RAD) and Test Driven Development (TDD).
 
-The Alfresco SDK is released under [Apache License version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html){:target="_blank"} and supports Content Services both in Community Edition and Enterprise Edition. If you're an Enterprise customer, check the [Alfresco SDK Support status]({% link content-services/7.4/support/index.md %}) for the version you're using. If your version is in Limited or Full Support and you need help, contact our [Support team](https://support.alfresco.com/){:target="_blank"}.
+The Alfresco SDK is released under [Apache License version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html){:target="_blank"} and supports Content Services both in Community Edition and Enterprise Edition. If you're an Enterprise customer, check the [Alfresco SDK Support status]({% link content-services/7.4/support/index.md %}) for the version you're using. If your version is in Limited or Full Support and you need help, [contact Support]({% link support/latest/contact.md %}).
 
 The 4.0 release took advantage of Semantic Versioning ([SEMVER](https://semver.org/){:target="_blank"}), which means that it isn't directly compatible with the previous releases of the SDK.
 
-If you have existing projects that you wish to upgrade to SDK 4.6 the recommended approach is to generate a new project from the new archetypes and move your code over.
+If you have existing projects that you wish to upgrade to the latest SDK version, the recommended approach is to generate a new project from the new archetypes and move your code over.
 
 ## What's new?
 
@@ -31,7 +31,7 @@ Adding, removing and configuring services in the environment is as easy as modif
 
 [Java 17](https://openjdk.org/projects/jdk/17/){:target="_blank"} is the latest Long Term Support (LTS) version that provides support for 3 years. Alfresco 7.3 or later already offers support for this version of the Java platform.
 
-Alfresco SDK 4.5 or later has been modified to add support for Java 17, as well. This way, if you're working as a developer in customizations for Alfresco 7.3 or later, you must now use SDK 4.5 or later + JDK 17 to work on them. The Apache Maven plugins included in the archetypes has been updated to avoid any issue with Java 17.
+Alfresco SDK 4.5 or later has been modified to add support for Java 17, as well. If you're working as a developer on customizations for Content Services, you must now use the latest version of the SDK + JDK 17 to work on them. The Apache Maven plugins included in the archetypes has been updated to avoid any issue with Java 17.
 
 ### Easy dependency configuration
 
@@ -200,6 +200,8 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     Choose a number: 19: 19    
     ```
 
+    This example uses SDK 4.6, but you should see similar results for other SDK 4.x versions.
+
 4. You are prompted to enter additional information:
 
     ```bash
@@ -293,7 +295,7 @@ This Maven archetype is related to an older version of the Alfresco SDK and shou
 
 ### org.alfresco.maven.archetype:alfresco-allinone-archetype
 
-This archetype allows a developer to implement the All-In-One project on Content Services. The All-In-One project, also called AIO, is provided in this and previous versions of Alfresco SDK. In SDK 4.x it has been reshaped and uses Docker.
+This archetype allows a developer to implement the All-In-One project on Content Services. The All-In-One project, also called AIO, is provided in this and previous versions of Alfresco SDK. It has been reshaped in SDK 4 to leverage Docker.
 
 The All-In-One archetype allows a developer to create a multi-module project on Content Services. The All-In-One project includes a module for the core repository in Content Services and a module for the Share client. This includes:
 
@@ -317,7 +319,7 @@ This Maven archetype is related to an older version of the Alfresco SDK and shou
 
 ### org.alfresco.maven.archetype:alfresco-platform-jar-archetype
 
-This archetype allows a developer to implement the Platform JAR project on Content Services. It has been reshaped in SDK 4.x to leverage on Docker.
+This archetype allows a developer to implement the Platform JAR project on Content Services. It has been reshaped in SDK 4 to leverage Docker.
 
 The Platform JAR Maven archetype allows a developer to create a module on Content Services, in particular on the Repository side, and includes:
 
@@ -1579,9 +1581,9 @@ If you want more detail about how to work with the project, visit [Working with 
 
 ### Setting up your development environment using Intellij IDEA
 
-The Maven Alfresco SDK is designed to work well with Eclipse. This support includes the ability to import existing Alfresco projects created using the Alfresco SDK.
+The Maven Alfresco SDK is designed to work well with Intellij. This support includes the ability to import existing Alfresco projects created using the Alfresco SDK.
 
-Here we assume you already have an Eclipse installation up and running, together with an available Alfresco project created using the Alfresco SDK. If you don't have a project already, follow the steps in [Getting started with Alfresco SDK](#gettingstarted) to learn how to quickly generate it in a few easy steps.
+Here we assume you already have an Intellij installation up and running, together with an available Alfresco project created using the Alfresco SDK. If you don't have a project already, follow the steps in [Getting started with Alfresco SDK](#gettingstarted) to learn how to quickly generate it in a few easy steps.
 
 #### Importing the Alfresco project into Intellij IDEA
 
@@ -2275,7 +2277,7 @@ Even if the definition of integration testing is a general description, the conc
 Here are the basics to understanding and using integration testing in the context of projects created with the SDK, from a technical perspective:
 
 * SDK 4.x develops integration tests for the platform only. Currently, the integration tests that the SDK is able to manage by default is related to Content Services (Content Services) only.
-* Integration tests require an Content Services instance to be up and running. You will see that all the scripts and commands are designed to easily manage this requirement, but the prerequisite for the SDK is that an Content Services instance is available.
+* Integration tests require a Content Services instance to be up and running. You will see that all the scripts and commands are designed to easily manage this requirement, but the prerequisite for the SDK is that a Content Services instance is available.
 * If you're running a project created with a Platform JAR archetype, integration tests are not provided by default. However, you can copy them from your All-In-One project.
 
 #### How SDK's integration tests work
@@ -2287,7 +2289,7 @@ The Alfresco SDK's integration tests are primarily supported by a utility module
 The Alfresco RAD is an Alfresco module which main functionality is offering the ability to execute integration tests in a real Content Services context. The core classes
 that conforms the Alfresco RAD module are:
 
-* [AlfrescoTestRunner](https://github.com/Alfresco/alfresco-sdk/blob/master/modules/alfresco-rad/src/main/java/org/alfresco/rad/test/AlfrescoTestRunner.java){:target="_blank"}. A JUnit test runner that is designed to work with an Content Services instance. It detects if it's executing a test inside of a running Content Services instance. If that is the case the tests are all run normally. If the test is being run from outside the repository, then, instead of running the actual test, an HTTP request is made to a Web Script (`RunTestWebScript`) in a running Alfresco instance.
+* [AlfrescoTestRunner](https://github.com/Alfresco/alfresco-sdk/blob/master/modules/alfresco-rad/src/main/java/org/alfresco/rad/test/AlfrescoTestRunner.java){:target="_blank"}. A JUnit test runner that is designed to work with a Content Services instance. It detects if it's executing a test inside of a running Content Services instance. If that is the case the tests are all run normally. If the test is being run from outside the repository, then, instead of running the actual test, an HTTP request is made to a Web Script (`RunTestWebScript`) in a running Alfresco instance.
 * [RunTestWebScript](https://github.com/Alfresco/alfresco-sdk/blob/master/modules/alfresco-rad/src/main/java/org/alfresco/rad/test/RunTestWebScript.java){:target="_blank"}. This Web Script works in consort with the `AlfrescoTestRunner`. When a test is run from outside the repository, the Alfresco test runner sends a proxied request to perform the test to this script. This runs the test and wraps the results up so that the test initiator can be fooled into thinking they are running the tests locally.
 * [AbstractAlfrescoIT](https://github.com/Alfresco/alfresco-sdk/blob/master/modules/alfresco-rad/src/main/java/org/alfresco/rad/test/AbstractAlfrescoIT.java){:target="_blank"}. Abstract integration test class that gives access to the Alfresco Spring Application context and the `ServiceRegistry` that should be used when accessing Alfresco Services.
 * [Remote](https://github.com/Alfresco/alfresco-sdk/blob/master/modules/alfresco-rad/src/main/java/org/alfresco/rad/test/Remote.java){:target="_blank"}. The `AlfrescoTestRunner` class has to determine where the Content Services instance endpoint is exposed to send the proxied request to the `RunTestWebScript`. It uses, in order, the next three mechanisms:
@@ -2453,7 +2455,7 @@ $ ./run.sh test
 
 ##### Configuring a custom Content Services endpoint location
 
-If you want to run your integration tests against an Content Services instance not exposed in `http://localhost:8080/alfresco` you'll need to modify a maven property before executing the tests.
+If you want to run your integration tests against a Content Services instance not exposed in `http://localhost:8080/alfresco` you'll need to modify a maven property before executing the tests.
 
 The maven property for the test Content Services instance endpoint location is `acs.endpoint.path` and you can configure it in the `pom.xml` file in the root folder of your project:
 

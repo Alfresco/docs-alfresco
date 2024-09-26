@@ -55,7 +55,7 @@ content model is usually the first thing that needs to be done in most content m
 through the [Content model extension point]({% link content-services/latest/develop/repo-ext-points/content-model.md %})
 documentation and then walk through the [content model tutorial]({% link content-services/latest/tutorial/platform/content-model.md %}).
 By implementing a content model you will get familiar with the in-process extension model and the associated
-[SDK 4]({% link content-services/latest/develop/sdk.md %}).
+[In-Process SDK]({% link content-services/latest/develop/sdk.md %}).
 
 When you have the custom content model in place, providing types and aspects related to the project domain (i.e. finance,
 healthcare, manufacturing etc.), then you can move on and implement the business logic using the [SDK event handling and ReST API libraries]({% link content-services/latest/develop/oop-sdk.md %})
