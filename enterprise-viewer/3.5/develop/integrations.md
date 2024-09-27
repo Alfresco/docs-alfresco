@@ -109,12 +109,6 @@ Document ID List Parameter (Alfresco):
 docIdList=workspace://SpacesStore/d7de806c-9aa6-4b14-8ff2-95b902d33d5d,workspace://SpacesStore/0ed0e588-8c70-42ad-8e77-2211e4bdd9ce,workspace://SpacesStore/0f39c66d-f414-4a06-861e-c91a3ff12335
 ```
 
-Document ID List Parameter (Documentum):
-
-```text
-docIdList=090130da806908e9,090130da806908e2,090130da806908e5
-```
-
 Full request:  
 
 ```text
