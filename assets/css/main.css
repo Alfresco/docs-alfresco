@@ -316,12 +316,12 @@ body > .section {
   border: 0px;
 }
 
-.langing-section-header {
+.landing-section-header {
   width: 100%;
   max-width: 400px;
   /* margin-bottom: 100px; */
 }
-.langing-section-header h1 {
+.landing-section-header h1 {
   font-weight: 600;
   font-size: 36pt;
   margin-left: -2px;
@@ -329,7 +329,7 @@ body > .section {
   line-height: 1;
 }
 
-.langing-section-header p {
+.landing-section-header p {
   font-size: 13.5pt;
   line-height: 140%;
   margin-bottom: 48px;
@@ -1765,7 +1765,7 @@ footer .copyright img {
     padding-left: 6px;
   }
 
-  .langing-section-header {
+  .landing-section-header {
     width: 100%;
     margin-bottom: 0px;
   }
@@ -1971,7 +1971,7 @@ footer .copyright img {
     background-repeat: no-repeat;
   }
 
-  .langing-section-header {
+  .landing-section-header {
     max-width: unset;
   }
 
@@ -2048,7 +2048,7 @@ footer .copyright img {
     margin-left: 32px;
   }
 
-  .langing-section-header h1 {
+  .landing-section-header h1 {
     font-size: 30pt;
   }
 
@@ -2105,7 +2105,7 @@ footer .copyright img {
 }
 
 @media screen and (max-width: 350px) {
-  .langing-section-header h1 {
+  .landing-section-header h1 {
     font-size: 18pt;
   }
 }
