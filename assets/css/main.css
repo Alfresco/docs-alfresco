@@ -2109,3 +2109,24 @@ footer .copyright img {
     font-size: 18pt;
   }
 }
+
+/* BANNER for migrated Docs page and landing page */
+
+.banner html, body {
+  margin: 0;
+} 
+
+.banner {
+  background: #FFF8C5; 
+  /* light yellow #FFF8C5; light grey #888888, dark red border #880000;
+  dark green #419346, light green #83BC59, orange #F0963B, yellow #FBE94E */
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding: 10px 10px 10px 10px;
+  border-width: 2px 2px;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: #FBE94E;
+  font-size: 10.5pt;
+  text-align: center;
+}
