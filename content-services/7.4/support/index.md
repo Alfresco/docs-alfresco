@@ -96,6 +96,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Mobile Workspace 1.9 | |
 | Alfresco Control Center 8.3 | |
 | Alfresco Application Development Framework (ADF) 6.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
+| Alfresco Content Accelerator (ACA) 3.7 | |
 | Alfresco Content Accelerator (ACA) 3.6 | |
 | Alfresco Enterprise Viewer (AEV) 3.6 | |
 | | |
@@ -214,6 +215,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Control Center 8.1 | |
 | Alfresco Control Center 8.0 | |
 | Alfresco Application Development Framework (ADF) 6.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
+| Alfresco Content Accelerator (ACA) 3.7 | |
 | Alfresco Content Accelerator (ACA) 3.6 | |
 | Alfresco Content Accelerator (ACA) 3.5.1 | |
 | Alfresco Enterprise Viewer (AEV) 3.6 | |
@@ -333,6 +335,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Control Center 8.1 | |
 | Alfresco Control Center 8.0 | |
 | Alfresco Application Development Framework (ADF) 6.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
+| Alfresco Content Accelerator (ACA) 3.7 | |
 | Alfresco Content Accelerator (ACA) 3.6 | |
 | Alfresco Content Accelerator (ACA) 3.5.1 | |
 | Alfresco Enterprise Viewer (AEV) 3.6 | |
