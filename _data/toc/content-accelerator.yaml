@@ -62,6 +62,70 @@
       - title: 'HR Tier-2 Solution'
         path: '/content-accelerator/latest/configure/hr-management/'
 
+# Alfresco Content Accelerator 3.7
+- version: 3.7
+  pages:
+    - title: 'Introduction'
+      path: '/content-accelerator/3.7/'
+
+    - title: 'Install'
+      pages:
+      - title: 'Installation Requirements'
+        path: '/content-accelerator/3.7/install/installation-requirements/'
+      - title: 'Install Guide'
+        path: '/content-accelerator/3.7/install/install-guide/'
+      - title: 'Java 17 support'
+        path: '/content-accelerator/3.7/install/java-support/'
+      - title: 'Single Sign On Support'
+        path: '/content-accelerator/3./install/sso/'
+      - title: 'Upgrade'
+        path: '/content-accelerator/3.7/install/upgrading/' 
+
+    - title: 'Using'
+      pages:
+      - title: 'User Guide'
+        path: '/content-accelerator/3.7/using/user-guide/'
+    
+    - title: 'Develop'
+      pages:
+      - title: 'Extension Content Accelerator (Custom Amp)'
+        path: '/content-accelerator/3.7/develop/extension-content-accelerator/'
+      - title: 'Content Accelerator for Claims Management'
+        path: '/content-accelerator/3.7/develop/content-accelerator-for-claims-management/'
+      - title: 'Content Accelerator for Policy and Procedure Management'
+        path: '/content-accelerator/3.7/develop/content-accelerator-for-pnp-management/'
+
+    - title: 'Configure'
+      pages:
+      - title: 'Admin Guide'
+        path: '/content-accelerator/3.7/configure/admin-guide/'
+      - title: 'Importing and Exporting ACA Configs'
+        path: '/content-accelerator/3.7/configure/config-archiver/'
+      - title: 'Action Configurations'
+        path: '/content-accelerator/3.7/configure/actions/'
+      - title: 'Other ACA Admin Configurations'
+        path: '/content-accelerator/3.7/configure/other-aca-admin-configs/'
+      - title: 'Notifications and Notes'
+        path: '/content-accelerator/3.7/configure/notifications-and-notes/'
+      - title: 'Integrations and Addons'
+        path: '/content-accelerator/3.7/configure/integrations-and-addons/'
+      - title: 'Limitations'
+        path: '/content-accelerator/3.7/configure/limitations/'
+      - title: 'OpenContent Property Overrides'
+        path: '/content-accelerator/3.7/configure/oc-property-overrides/'
+      - title: 'Alfresco Audit Configuration'
+        path: '/content-accelerator/3.7/configure/alfresco-audit-configuration/'
+      - title: 'Email Configuration'
+        path: '/content-accelerator/3.7/configure/email-configuration/'
+      - title: 'Autofile'
+        path: '/content-accelerator/3.7/configure/autofile/'
+      - title: 'Active Wizard'
+        path: '/content-accelerator/3.7/configure/activewizard/'
+      - title: 'Supported Languages'
+        path: '/content-accelerator/3.7/configure/supported-languages/'
+      - title: 'HR Tier-2 Solution'
+        path: '/content-accelerator/3.7/configure/hr-management/'
+
 # Alfresco Content Accelerator 3.6
 - version: 3.6
   pages:
