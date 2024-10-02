@@ -5,7 +5,7 @@ title: Action Configurations
 
 ## Bulk Upload
 
-Bulk Upload allows a user to select multiples files to upload, edit common properties for all documents, edit individual document properties and upload all documents. Additionally, Bulk Upload has support for scanning and MSG file parsing.
+Bulk Upload allows a user to select multiples files to upload, edit common properties for all documents, edit individual document properties and upload all documents. Additionally, Bulk Upload has support for scanning, handling zip type attachments, and MSG file parsing.
 
 ### Configuration
 
@@ -13,6 +13,7 @@ The features currently available is Bulk Upload are as follows:
 
 * Set doc as new version of existing document - **must be enabled in the admin**
 * Scanning - **must be enabled in the admin**
+* Handling zip type attachments - **must be configured in the admin**
 * Create Document from Template - **must be enabled in the admin**
 * Parsing MSG files for attachments (and recursively parsing attached MSG files)
 * Gmail Inbox ingestion - **must be enabled in the admin**
@@ -60,6 +61,25 @@ There are two ways to install Dynamic Web TWAIN:
 **License Key:** The License key from Dynamsoft - this must be configured properly for the functionality to work as expected.
 
 ![License Key Configuration]({% link content-accelerator/images/aca-license-key.png %})
+
+#### Zip File Handling
+
+The zip file configuration feature allows administrators to set the behavior when a user uploads a zip file.
+
+##### Configuring Zip File Handling
+
+To configure a behavior for uploading zip files:
+
+1. Open the **Application Config** configuration page in ACA Admin.
+2. Go to **Header Actions** section.
+3. Under **Selected Actions**, find **bulkUpload**. If it is not present, select it from **Available Header Actions**.
+4. Click the **Edit** button.
+    The configurations for **bulkUpload** is opened.
+5. Go to the **Common Configuration** section under **Advanced Properties**.
+6. Select one of the following behaviors from the **Zip Type Attachment Behavior** drop-down list:
+    * **Explode**: the system automatically extracts all files contained within the zip archive upon upload. This is the default behavior.
+    * **Do Not Explode**: the zip file remains intact and is uploaded as a single file without extraction.
+    * **Ask During Upload**: every time a user uploads a zip file, the system prompts them to choose whether they want the zip to be extracted or not.
 
 #### Create Document from Template
 
