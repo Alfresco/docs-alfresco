@@ -227,6 +227,10 @@ Allows for the upload of documents into the repository. Documents can be uploade
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-actions-add-docs.png %})
 
+If the configured behavior for uploading zip files is **Ask During Upload**, the following dialog box is displayed.
+
+![Zip file upload dialog box]({% link content-accelerator/images/ACA_zip_upload.png %})
+
 **Add Documents - Upload View:**
 
 1. The list of documents that you are uploading and which one you are currently on.
@@ -619,7 +623,13 @@ To upload a document in the PnP environment, the user will select the header act
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-add-docs.png %})
 
-This is the Add Documents action modal that is detailed in the commonly used actions section, see Add Documents. A document or multiple documents can be dragged or uploaded into the upload screen then the Next button would be clicked showing the screenshot below.
+This is the Add Documents action modal that is detailed in the commonly used actions section, see Add Documents. A document or multiple documents can be dragged or uploaded into the upload screen.
+
+If the configured behavior for uploading zip files is **Ask During Upload**, the following dialog box is displayed.
+
+![Zip file upload dialog box]({% link content-accelerator/images/ACA_zip_upload.png %})
+
+Then the Next button would be clicked showing the screenshot below.
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-add-docs2.png %})
 
