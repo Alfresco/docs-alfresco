@@ -25,8 +25,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Rocky Linux 8.8 | |
 |  |  |
 | **Container Orchestration** | |
-| Kubernetes 1.29 | Tested with [Alfresco Helm chart](https://alfresco.github.io/acs-deployment/helm/alfresco-content-services/README.html) |
-| Amazon EKS 1.28 | Tested with [Alfresco Helm chart](https://alfresco.github.io/acs-deployment/helm/alfresco-content-services/README.html) |
+| Kubernetes 1.29 | Tested with latest [ACS Helm chart](https://alfresco.github.io/acs-deployment/helm/alfresco-content-services/README.html) |
+| Amazon EKS 1.28 | Tested with latest [ACS Helm chart](https://alfresco.github.io/acs-deployment/helm/alfresco-content-services/README.html) |
 |  |  |
 | **Databases** | |
 | MySQL 8 | `mysql-connector-java-8.0.30.jar` |
