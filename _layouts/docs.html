@@ -18,6 +18,16 @@
         version: '{{version}}',
       }
     </script>
+
+    <!--Add banner for migrated content. Check 'migrated' setting in _config.yml-->
+    {% assign pathElements = page.path | split: "/" %}
+
+    {% if pathElements.size >= 3 %}
+    {% if page.migrated == true or page.version == 'community' %}
+    {% include migrated_banner.html %}
+    {% endif %}
+    {% endif %}
+
     {% include searchbar.html close=true %}
     {% include mainmenu.html showsearch=true%}
     <!--submenu-->

@@ -157,12 +157,3 @@ applications:
     text: "Alfresco Enterprise Viewer (AEV) provides high-speed and secure viewing of document, video and audio content with team collaborative annotation, redaction and other modern document capabilities for Alfresco Content Services."
     url: /enterprise-viewer/latest/
     image: /assets/img/aev-logo.svg
-#  - title: "Process for iOS"
-#    text: "Alfresco Process Services for mobile allows you to start new processes and interact with related content #via the mobile app."
-#    url:
-#    image: /assets/img/logo_pm_72px.svg
-#    sub:
-#      - title: "iOS"
-#        url:
-#      - title: "Android"
-#        url:
