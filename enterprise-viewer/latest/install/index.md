@@ -483,7 +483,7 @@ To override the default logging configuration:
 
 4.	Start the Alfresco server.
 
->**Note:** For more information on overriding logging in OpenContent, see [Overriding Logging Defaults in the Content Accelerator]({% link content-accelerator\3.7\install\logging.md %}).
+>**Note:** For more information on overriding logging in OpenContent, see [Logging in the Content Accelerator]({% link content-accelerator\3.7\install\logging.md %}).
 
 
 ## Install collaboration (optional)  {#collab}
