@@ -74,6 +74,8 @@
         path: '/content-accelerator/3.7/install/installation-requirements/'
       - title: 'Install Guide'
         path: '/content-accelerator/3.7/install/install-guide/'
+      - title: 'Overriding Logging Defaults'
+        path: '/content-accelerator/3.7/install/logging/'
       - title: 'Java 17 support'
         path: '/content-accelerator/3.7/install/java-support/'
       - title: 'Single Sign On Support'

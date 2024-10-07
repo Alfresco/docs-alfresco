@@ -354,6 +354,8 @@ High-level search settings including:
 * **Search form to display** - This is an important configuration, as it is the search form that will be displayed and drives the setup of several other search components.
 * **Limit search results to** - If lower than the repository setting for number of search results returned, this value will restrict search results. If higher than the repository search results settings, the repository value will be used. In other words, this setting cannot allow for more search results than the repository is set up to return.
 * **Enable type-to-path security** - For each type in the selected search form, a user can indicate a repository folder path (generally the path to the folder being searched) to pull the security setup from. Basically, this allows search to use repository folder level security to determine who can perform the configured searches.
+* **Save Search Results To Storage** - If set to local or session, the **Return to search results** button will not rerun the last search query but instead will repopulate the search results screen by storing the last set of search results in the browser and pulling those results from storage. If set to none, then the **Return to search results** button will re-run the search every time.
+  > **Note**: This feature is only available to users who have search configured to TableView. Returning to results from Saved Search will bring back the saved search results, but the field showing which saved search was run will not repopulate.
 
 #### Sidebar Settings
 
