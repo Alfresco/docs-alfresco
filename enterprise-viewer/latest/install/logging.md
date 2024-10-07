@@ -2,7 +2,7 @@
 title: Overriding Logging Defaults
 ---
 
-You can override the default logging configuration in OpenContent by deploying the `log4j2-OpenAnnotate.xml` file to the configured classpath.
+You can override the default logging configuration in OpenAnnotate by deploying the `log4j2-OpenAnnotate.xml` file to the configured classpath.
 
 To override the default logging configuration:
 
