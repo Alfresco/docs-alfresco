@@ -10,9 +10,9 @@ There are pre-configured “accelerators” on top of ACA that act as default co
 
 These accelerators are:
 
-* [Claims Management]({% link content-accelerator/3.6/index.md %}#claims-management)
-* [Policy and Procedure Management]({% link content-accelerator/3.6/index.md %}#policy-management)
-* [HR Employee File Management]({% link content-accelerator/3.6/index.md %}#hr-file-management)
+* [Claims Management]({% link content-accelerator/3.7/index.md %}#claims-management)
+* [Policy and Procedure Management]({% link content-accelerator/3.7/index.md %}#policy-management)
+* [HR Employee File Management]({% link content-accelerator/3.7/index.md %}#hr-file-management)
 
 More information is included below for the available accelerators. ACA is available for on-premises customers as well as customers in the Alfresco Cloud PaaS.
 

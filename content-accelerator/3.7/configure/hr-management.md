@@ -6,7 +6,7 @@ Use this information to configure the HR Employee File Management solution (HREF
 
 ## Prerequisites
 
-Make sure the HR Tier-2 solution is [installed]({% link content-accelerator/3.6/install/install-guide.md %}) before implementing the configuration steps below.
+Make sure the HR Tier-2 solution is [installed]({% link content-accelerator/3.7/install/install-guide.md %}) before implementing the configuration steps below.
 
 ## Configuration
 

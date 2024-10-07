@@ -166,7 +166,7 @@ A service account user is needed to send a direct 1:1 message to the user that i
 
 This is a valid user within your organization/team's azure directory. So, we need to encrypt the password before adding it to our override property file.
 
-* The steps to achieving the encryption can be followed [here]({% link content-accelerator/3.6/configure/oc-property-overrides.md %}#encrypting-property-values)
+* The steps to achieving the encryption can be followed [here]({% link content-accelerator/3.7/configure/oc-property-overrides.md %}#encrypting-property-values)
 
 #### Step 9: Override the Microsoft Teams Properties
 

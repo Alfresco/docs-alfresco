@@ -24,11 +24,11 @@ You will need to download the following distribution zips in order to install AC
 
 ### Java
 
-Content Accelerator requires Java 11 or above. Consult your repository of choice for more detailed requirements. If you are using Java 17, refer to our [Java 17 support guide]({% link content-accelerator/3.6/install/java-support.md %}).
+Content Accelerator requires Java 11 or above. Consult your repository of choice for more detailed requirements. If you are using Java 17, refer to our [Java 17 support guide]({% link content-accelerator/3.7/install/java-support.md %}).
 
 ### Alfresco repository version
 
-See the [Supported Platforms]({% link content-accelerator/3.6/support/index.md %}) for more information.
+See the [Supported Platforms]({% link content-accelerator/3.7/support/index.md %}) for more information.
 
 Please ensure you have the correct version of the Content Accelerator package for your Alfresco Content Services version. If you are unsure, please [contact Hyland Support]({% link support/latest/contact.md %}).
 
@@ -66,7 +66,7 @@ Since ACA executes as a JavaScript application in the browser and communicates w
    * `http://{server3}/OpenContent` routes to `http://{server2}:8080/OpenContent`
    * In the above example, ACA would be configured to access OpenContent at `http://{server3}/OpenContent`.  Now, to the browser all communication is on the same protocol, server, and port so the Same Origin Policy is upheld.
 
-If using option 1 (deploying ACA to the Alfresco Tomcat), you can skip to [Install libraries]({% link content-accelerator/3.6/install/install-guide.md %}#install-libraries) since no proxy will need to be installed.
+If using option 1 (deploying ACA to the Alfresco Tomcat), you can skip to [Install libraries]({% link content-accelerator/3.7/install/install-guide.md %}#install-libraries) since no proxy will need to be installed.
 
 If using option 2 (preferred for a production deployment), you must complete the following steps to setup a proxy.
 
@@ -404,7 +404,7 @@ In this section we ensure that all components of the Content Accelerator are ins
 
     * `application.root.url={Application Base URL}` (ex: `http://localhost:9090`)
     * `oc.email.smtp.host={SMTP host}`
-    * `imageMagick.path=IMAGEMAGICK_HOME` (if installed, get IMAGEMAGICK_HOME value from [ImageMagick Installation]({% link content-accelerator/3.6/install/install-guide.md %}#im))
+    * `imageMagick.path=IMAGEMAGICK_HOME` (if installed, get IMAGEMAGICK_HOME value from [ImageMagick Installation]({% link content-accelerator/3.7/install/install-guide.md %}#im))
 
 12. Update Tomcat server configuration:
 
@@ -507,8 +507,8 @@ In this section we ensure that all components of the Content Accelerator are ins
 
 This sections walks through how to install the Alfresco Content Accelerator web application (including the WizardAdmin if installing the Policy and Procedure Content Accelerator solution).
 
->**Note:** If you installed a proxy then follow the [Install Web Applications on Separate Tomcat]({% link content-accelerator/3.6/install/install-guide.md %}#install-webapps-separate-tomcat) Instructions.
-> If no proxy was installed then follow the [Install Web Applications on Alfresco Tomcat]({% link content-accelerator/3.6/install/install-guide.md %}#install-webapps-alfresco-tomcat) instructions.
+>**Note:** If you installed a proxy then follow the [Install Web Applications on Separate Tomcat]({% link content-accelerator/3.7/install/install-guide.md %}#install-webapps-separate-tomcat) Instructions.
+> If no proxy was installed then follow the [Install Web Applications on Alfresco Tomcat]({% link content-accelerator/3.7/install/install-guide.md %}#install-webapps-alfresco-tomcat) instructions.
 
 ### Install web applications on separate Tomcat {#install-webapps-separate-tomcat}
 
@@ -712,4 +712,4 @@ This section walks through how to install the web applications on Alfresco Tomca
 
 7. (HR Tier-2 ONLY) This step is only required if you are installing the HR Tier-2 solution:
 
-   Follow the installation steps to configure Alfresco Governance Services for the [HR Tier-2 solution]({% link content-accelerator/3.6/configure/hr-management.md %}).
+   Follow the installation steps to configure Alfresco Governance Services for the [HR Tier-2 solution]({% link content-accelerator/3.7/configure/hr-management.md %}).

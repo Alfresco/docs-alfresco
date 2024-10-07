@@ -50,4 +50,4 @@ To enable Gmail access, follow these steps:
 
 3. Use the app specific password.
 
-To override these properties and see how to encrypt a password refer to the [OpenContent Property Overrides]({% link content-accelerator/3.6/configure/oc-property-overrides.md %}) page.
+To override these properties and see how to encrypt a password refer to the [OpenContent Property Overrides]({% link content-accelerator/3.7/configure/oc-property-overrides.md %}) page.

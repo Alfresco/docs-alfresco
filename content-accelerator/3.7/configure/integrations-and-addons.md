@@ -19,7 +19,7 @@ title: Integrations and Addons
 2. Add the following properties:
 
     * `docusign.username` - DocuSign user name (which should be the same as the user's email address)
-    * `docusign.password` - DocuSign user password, should be [encrypted with the TSGEncrypter]({% link content-accelerator/3.6/configure/oc-property-overrides.md %}#encrypting-property-values) and enclosed with the encryption indicator like: `@{theEncPassword}`
+    * `docusign.password` - DocuSign user password, should be [encrypted with the TSGEncrypter]({% link content-accelerator/3.7/configure/oc-property-overrides.md %}#encrypting-property-values) and enclosed with the encryption indicator like: `@{theEncPassword}`
     * `docusign.integratorKey` - see setup step above
     * `docusign.login.url` - the login URL is defaulted to the DocuSign dev sandbox URL in `universal-defaults.properties`.  You will want to override this for production environments
     * `docusign.hpi.dataPath` - The folder where DocuSign data objects should be stored.  Defaults to `/hpi/docuSignData`
@@ -502,7 +502,7 @@ Override the applicable Workshare Compare properties (see below) in a `project-p
 * `oc.workshare.user`- Username to login to the machine/server the Workshare Compare server is installed on.
 * `oc.workshare.password` - Password to login to the machine/server the Workshare Compare server is installed on.
 * `oc.workshare.setfile` - Path the the "set file" (ex. WorkshareStandard.set) on the machine/server the Workshare Compare server is installed on **or** local machine. By default, this file is included in the classpath and can be set to `WorkshareStandard.set`
-* `oc.workshare.password.encrypted` - Set whether the workshare password has been [encrypted with the TSGEncrypter]({% link content-accelerator/3.6/configure/oc-property-overrides.md %}#encrypting-property-values). This only needs to be set if the password is encrypted.
+* `oc.workshare.password.encrypted` - Set whether the workshare password has been [encrypted with the TSGEncrypter]({% link content-accelerator/3.7/configure/oc-property-overrides.md %}#encrypting-property-values). This only needs to be set if the password is encrypted.
 
 ### Configure ACA
 
