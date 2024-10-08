@@ -23,7 +23,7 @@ Use this information to develop a `hello word` extension for the Digital Workspa
 
 * `Node.js` 18.x
 
-* Download the Digital Workspace project from [Nexus](https://nexus.alfresco.com/nexus/#nexus-search;quick~digital%20workspace){:target="_blank"}.
+* Download the Digital Workspace project from [Nexus](https://nexus.alfresco.com/nexus/){:target="_blank"}. Search for "digital-workspace" and pick the version that closest matches your installation.
 
 ### Create a Digital Workspace extension
 
