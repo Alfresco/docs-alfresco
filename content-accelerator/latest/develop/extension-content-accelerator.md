@@ -34,3 +34,20 @@ When you add a new document type extension for use in Alfresco Content Accelerat
 > **Note:** In many ACA Policy and Procedure implementations, dedicated per-version renditions are a regulatory requirement.
 
 If, however, the `tsg:renditioned` aspect is not desired, or the model already exists and cannot be updated, it is possible to turn on view time renditioning in the [Document Viewer]({% link content-accelerator/latest/configure/admin-guide.md %}#document-viewer) config in the Stage.
+
+## How to deploy Alfresco custom content model in Alfresco Content Accelerator
+
+Once you create a custom AMP, the next step is to deploy it to an Alfresco container and validate that the AMP is applied correctly. For more information see [Install Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).
+
+When the custom AMP is deployed successfully:
+
+* If a default AMP custom model was installed, a `sample_document` is deployed. The custom content type can be found in the **ACA Admin Console**.
+![AMP custom model]({% link content-accelerator/images/ACA_amp-custom-model.png %})
+   * Select the document type and configure the properties as required.
+   * Click **Save Config** at the bottom of the page to save and apply the changes.
+* If a default AMP custom aspect was installed, a `sample_aspect` is deployed. It can be added to the **Non-Mandatory Aspect** section in the **ACA Admin Console**.
+![AMP custom aspect]({% link content-accelerator/images/ACA_amp-custom-aspect.png %})
+   * Select the aspect and configure the properties as required.
+   * Click **Save Config** at the bottom of the page to save and apply the changes.
+
+The newly created Object Type and Non-Mandatory Aspect can be used to create new forms in ACA. For more information see [Admin Guide]({% link content-accelerator/latest/configure/admin-guide.md %}).
