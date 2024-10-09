@@ -1,6 +1,6 @@
 defaults:
 
-# Alfresco Content Services
+# Alfresco Content Services (ACS) - Migrated
   - scope:
       path: "content-services"
     values:
@@ -26,6 +26,7 @@ defaults:
     values:
       version: 23.2
       latest: true
+      migrated: true
       release: true
   - scope:
       path: "content-services/latest/tutorial"
@@ -117,7 +118,7 @@ defaults:
     values:
       toc: "content-services-tutorial"
 
-# Alfresco Digital Workspace
+# Alfresco Digital Workspace (ADW) - Migrated
   - scope:
       path: "digital-workspace"
     values:
@@ -151,6 +152,7 @@ defaults:
     values:
       version: 4.4
       latest: true
+      migrated: true
   - scope:
       path: "digital-workspace/4.3"
     values:
@@ -224,7 +226,7 @@ defaults:
     values:
       version: 1.5
 
-  # Alfresco Mobile Workspace
+  # Alfresco Mobile Workspace (AMW)
   - scope:
       path: "mobile-workspace"
     values:
@@ -599,7 +601,7 @@ defaults:
     values:
       version: 1.5
 
-# Alfresco Governance Services
+# Alfresco Governance Services (AGS) - Migrated
   - scope:
       path: "governance-services"
     values:
@@ -626,6 +628,7 @@ defaults:
     values:
       version: 23.2
       latest: true
+      migrated: true
   - scope:
       path: "governance-services/latest/tutorial"
     values:
@@ -720,7 +723,7 @@ defaults:
     values:
       toc: "governance-services-tutorial"
 
-# Alfresco Process Services (APS)
+# Alfresco Process Services (APS) - Migrated
   - scope:
       path: "process-services"
     values:
@@ -744,6 +747,7 @@ defaults:
     values:
       version: 24.2
       latest: true
+      migrated: true
   - scope:
       path: "process-services/2.4"
     values:
@@ -777,7 +781,7 @@ defaults:
     values:
       version: 1.9
 
-# Alfresco Document Transformation Engine
+# Alfresco Document Transformation Engine (DTE)
   - scope:
       path: "transformation-engine"
     values:
@@ -920,7 +924,7 @@ defaults:
     values:
       version: 1.0
 
-# Alfresco Office Services
+# Alfresco Office Services (AOS) - Migrated
   - scope:
       path: "microsoft-office"
     values:
@@ -943,6 +947,7 @@ defaults:
     values:
       version: 3.0
       latest: true
+      migrated: true
   - scope:
       path: "microsoft-office/2.0"
     values:
@@ -972,7 +977,7 @@ defaults:
     values:
       version: 1.1
 
-# Alfresco Transform Service
+# Alfresco Transform Service (ATS)
   - scope:
       path: "transform-service"
     values:
@@ -1188,7 +1193,7 @@ defaults:
       version: 2.2
       latest: true
 
-# Alfresco Process Automation
+# Alfresco Process Automation (APA) - Migrated
   - scope:
       path: "process-automation"
     values:
@@ -1201,9 +1206,9 @@ defaults:
     values:
       version: 1.0
       latest: true
+      migrated: true
 
-
-# Alfresco Federation Services
+# Alfresco Federation Services (AFS)
   - scope:
       path: "federation-services"
     values:
@@ -1245,7 +1250,7 @@ defaults:
     values:
       version: 1.0
 
-# Alfresco Search Enterprise
+# Alfresco Search Enterprise - Migrated
   - scope:
       path: "search-enterprise"
     values:
@@ -1265,6 +1270,7 @@ defaults:
     values:
       version: 4.0
       latest: true
+      migrated: true
   - scope:
       path: "search-enterprise/3.3"
     values:
@@ -1423,7 +1429,7 @@ defaults:
     values:
       version: 3.0
 
-# Alfresco Intelligence Services
+# Alfresco Intelligence Services (AIS)
   - scope:
       path: "intelligence-services"
     values:
@@ -1536,7 +1542,7 @@ defaults:
     values:
       version: 2.4
 
-# Alfresco Content Accelerator
+# Alfresco Content Accelerator (ACA)
   - scope:
       path: "content-accelerator"
     values:
@@ -1547,13 +1553,18 @@ defaults:
       support: true
       versions:
         - 4.0
+        - 3.7
         - 3.6
         - 3.5
   - scope:
       path: "content-accelerator/latest"
     values:
       version: 4.0
-      latest: true      
+      latest: true
+  - scope:
+      path: "content-accelerator/3.7"
+    values:
+      version: 3.7    
   - scope:
       path: "content-accelerator/3.6"
     values:
@@ -1563,7 +1574,7 @@ defaults:
     values:
       version: 3.5
 
-# Alfresco Enterprise Viewer
+# Alfresco Enterprise Viewer (AEV)
   - scope:
       path: "enterprise-viewer"
     values:

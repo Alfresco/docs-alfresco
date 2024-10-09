@@ -226,3 +226,48 @@ The default note object type is "hpi_note". To configure otherwise, replace this
 Ensure that the Note Relationship option is configured to :
 
 `hpi:folder_note (alfresco)`
+
+## Subscription and Distribution
+
+Subcriptions and distributions can be utilized to notify users about changes to documents.
+
+### Subscription
+
+ACA allows users to subscribe to a document.
+
+Actions to configure:
+
+* Subscribe (allows a user to subscribe to a document)
+* Unsubscribe (allows a user to unsubscribe to a document)
+
+Dashlets to configure:
+
+* My Subscriptions (allows users to see all documents they are subscribed to on the ACA dashboard)
+
+When a user is subscribed to a document they will receive an ACA notification and an email when the document they are subscribed to is modified in a way that meets the configured notification criteria for the subscription action (for more information see [Configuring Notifications for Subscription and Distribution](#configuring-notifications-for-subscription-and-distribution)).
+
+### Distribution
+
+Distribution lists allow users to define (at index time or later) what users and groups should be notified about changes to a document.
+
+### Configuring Notifications for Subscription and Distribution
+
+The following properties define when notifications should be sent for subscriptions and distributions: 
+
+```text
+# Configuration for the Distributions List and Subscription List behaviors, which will send users and/or groups a notification when a
+# property is updated to a given value.  The users and groups that will receive the notification are based on
+# values on the properties set in the tsg:distributionsAttrs and tsg:subscriptionAttrs aspects.
+# The list of QNames of the properties to check.  If this property does not exist on the node, no notifications will be sent.
+# Example {http://www.tsgrp.com/model/tsg/1.0}status|{tsg.engineering}status
+alfresco.notifications.criteriaProperty=
+# A pipe separated list of comma-separated lists of values; each value list corresponds to the above property list
+# When a node's property is set to one of these values, a notification is sent
+# Example: Approved,Effective,Obsolete|Released
+alfresco.notifications.criteriaPropertyValues=
+# The QName of the attribute that will identify the document in the notification and email.  For example, this could be
+# the QName for the node name or document number. If the document doesn't have this property the cm:name will be used.
+alfresco.notifications.identificationPropQName=
+```
+
+In summary, these properties allow to configure according to the statament: "when X property changes to value Y I want an email to be sent to subscribed users and I want the document name in the email to be Z property value".

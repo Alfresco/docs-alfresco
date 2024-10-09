@@ -7,6 +7,8 @@
       pages:
         - title: 'Overview'
           path: '/enterprise-viewer/latest/install/'
+        - title: 'Overriding Default Logging'
+          path: '/enterprise-viewer/latest/install/logging/' 
         - title: 'Java 17 support'
           path: '/enterprise-viewer/latest/install/java-support/'
         - title: 'Install Alfresco Enterprise Viewer Transformer (optional)'
