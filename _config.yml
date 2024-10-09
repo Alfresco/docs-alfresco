@@ -1553,13 +1553,18 @@ defaults:
       support: true
       versions:
         - 4.0
+        - 3.7
         - 3.6
         - 3.5
   - scope:
       path: "content-accelerator/latest"
     values:
       version: 4.0
-      latest: true      
+      latest: true
+  - scope:
+      path: "content-accelerator/3.7"
+    values:
+      version: 3.7    
   - scope:
       path: "content-accelerator/3.6"
     values:
