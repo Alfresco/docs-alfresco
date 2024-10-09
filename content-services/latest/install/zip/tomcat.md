@@ -64,7 +64,7 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
 
     2. Copy the files `alfresco.xml` and `share.xml` from the distribution zip `/web-server/conf/Catalina/localhost` to `<TOMCAT_HOME>/conf/Catalina/localhost` (or hostname).
 
-7. Configure Content Services for Solr communication by performing one fo the following:
+7. Configure Content Services for Solr communication by performing one of the following:
 
     * Install with mutual TLS, where the communication with Solr is encrypted and authenticated via mutual TLS.
 
@@ -74,7 +74,7 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
 
 8. When installing with mutual TLS, perform the following steps to configure the Tomcat connector:
 
-    > **Note:** This connector isn't used by end users and its only purpose is to handle the communication with Solr.
+    > **Note:** This connector isn't used by end users. Its sole purpose is to handle the communication with Solr.
 
     1. Open the `<TOMCAT_HOME>/conf/server.xml` file.
 
