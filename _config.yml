@@ -226,7 +226,7 @@ defaults:
     values:
       version: 1.5
 
-  # Alfresco Mobile Workspace (AMW)
+  # Alfresco Mobile Workspace (AMW) - Migrated
   - scope:
       path: "mobile-workspace"
     values:
@@ -239,7 +239,7 @@ defaults:
     values:
       version: 1.9
       latest: true
-
+      migrated: true
 
 # Alfresco Google Drive
   - scope:
@@ -1542,7 +1542,7 @@ defaults:
     values:
       version: 2.4
 
-# Alfresco Content Accelerator (ACA)
+# Alfresco Content Accelerator (ACA) - Migrated
   - scope:
       path: "content-accelerator"
     values:
@@ -1561,6 +1561,7 @@ defaults:
     values:
       version: 4.0
       latest: true
+      migrated: true
   - scope:
       path: "content-accelerator/3.7"
     values:
@@ -1574,7 +1575,7 @@ defaults:
     values:
       version: 3.5
 
-# Alfresco Enterprise Viewer (AEV)
+# Alfresco Enterprise Viewer (AEV) - Migrated
   - scope:
       path: "enterprise-viewer"
     values:
@@ -1592,6 +1593,7 @@ defaults:
     values:
       version: 4.0
       latest: true
+      migrated: true
   - scope:
       path: "enterprise-viewer/3.6"
     values:
