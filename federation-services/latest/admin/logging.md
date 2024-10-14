@@ -2,22 +2,26 @@
 title: Logging
 ---
 
-Federation Services logging allows a user to access and set the log levels of all Federation Services classes.
+Federation Services logging allows you to access and set the log levels of all Federation Services classes.
 
 ## Accessing and Updating the Logging File
 
 Federation Services logging is set in the following file:
 
-`[Federation Services folder]\WEB-INF\classes\log4j.properties`
+```text
+[Federation Services folder]/WEB-INF/classes/log4j.properties
+```
 
 You can set the log level of all Federation Services classes by changing the following:
 
-`log4j.logger.com.simflofy = debug, 3sixty-admin`
+```text
+log4j.logger.com.simflofy = debug, 3sixty-admin
+```
 
 Replace debug with another valid options:
 
 | Level | Description |
-| ---|--- |
+| ----- | ----------- |
 | ALL | All levels including custom levels. |
 | DEBUG | Designates fine-grained informational events that are most useful to debug an application. |
 | ERROR | Designates error events that might still allow the application to continue running. |
@@ -27,18 +31,16 @@ Replace debug with another valid options:
 | TRACE | Designates finer-grained informational events than the DEBUG. |
 | WARN | Designates potentially harmful situations. |
   
-In production Federation Services suggests setting logging to the ERROR level.
+In production, Federation Services suggests setting logging to the `ERROR` level.
 
-You'll notice there are other entries, these entries will override the com.simflofy setting for the specific packages they reference.
+You'll notice there are other entries. These entries will override the `com.simflofy` setting for the specific packages they reference.
 
-**For example**:
+For example, this sets the SharePoint connector logging to `TRACE`. The second line is necessary to prevent double-logging:
 
-```
+```text
 log4j.logger.com.simflofy.connectors.sharepoint = trace, 3sixty-admin
 log4j.additivity.com.simflofy.connectors.sharepoint = false
-``
-
-This sets the SharePoint connector logging to trace. The second line is necessary to prevent double-logging.
+```
 
 ### Federation Services Admin Log View
 
@@ -55,13 +57,13 @@ simflofy.admin.log.path=/my/log/directory/logs/3sixty-admin.log
 On this page the user can download the complete 3sixty-admin.log, as well as filter the last 5000 lines of the log file:
 
 | Level | Logs |
-| ---|--- |
+| ----- | ---- |
 | Info | Info, Error |
 | Debug | Info, Error, Debug |
 | Trace | All |
 | Error | Error only |
   
-You can also set the value simflofy.max.log.size to prevent performance issues. Default is 10 MB. KB and GB are also valid sizes.
+You can also set the value `simflofy.max.log.size` to prevent performance issues. Defaults to `10 MB`. KB and GB are also valid sizes.
 
 ## Log Levels
 

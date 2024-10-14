@@ -2,17 +2,20 @@
 title: Using Federation Services
 ---
 
+Once your Federation Services environment has been successfully installed, you are ready to start making connections and executing jobs.
+
 ## Quick Start User Guide
 
-Once your Federation Services environment has been successfully installed, you are ready to start making connections and executing jobs. This guide will walk you through this process. For this example, we will be using Google Drive as our source (repository) location and Dropbox as our target location (output).
-**Step 1.** Login to your Federation Services environment once all the required components have been installed.
-**Step 2.** Create the repository connection for your source data that you want to transfer.
-**Step 3.** Create your output connection for your target location you want to move your data to.
-**Step 4.** Create a new integration job to sync your two new connections.
-**Step 5.** Create a task to filter your results before moving your data.
-**Step 6.** Map your fields to tell Federation Services where you want the data in each field moved to.
-**Step 7.** Run your new job to begin the data transfer process.
-**Step 8.** View your results to confirm the transfer was successful.
+This guide will walk you through this process. For this example, we will be using Google Drive as our source (repository) location and Dropbox as our target location (output).
+
+* **Step 1.** Login to your Federation Services environment once all the required components have been installed.
+* **Step 2.** Create the repository connection for your source data that you want to transfer.
+* **Step 3.** Create your output connection for your target location you want to move your data to.
+* **Step 4.** Create a new integration job to sync your two new connections.
+* **Step 5.** Create a task to filter your results before moving your data.
+* **Step 6.** Map your fields to tell Federation Services where you want the data in each field moved to.
+* **Step 7.** Run your new job to begin the data transfer process.
+* **Step 8.** View your results to confirm the transfer was successful.
 
 **Step 1. Login to your Federation Services environment**
 
@@ -123,7 +126,7 @@ NEXT STEP: View your results
 
 1. Once the integration job is complete, you can view your results. This shows that all the files have been successfully integrated from one system to the other. If you log into your target repository you will see these files have been added successfully.
 
-**Congratulations! You have successfully created your first Integration Job.**
+Congratulations! You have successfully created your first Integration Job.
 
 ## Discovery and Analytics
 
@@ -297,13 +300,13 @@ Content View Connectors are used by Content Views in Federation to query indexed
 **Connector ID**
 Connector ids are how Federation Services identifies the individual connector when receiving calls from other sources, such as Federation Service. This value must be usable as part of url. Use the description field if you need more than a few letters/numbers to describe the connection. The description shows up with its connectorId across the product.
 
-* **Connector ID:** A unique identifier for this connection i.e. simflofy_demo (Alphanumeric, dashes and underscore characters only)
+* **Connector ID:** A unique identifier for this connection i.e. `simflofy_demo` (alphanumeric, dashes and underscore characters only).
 * **Description:** The text that will be displayed on drop-downs etc. to identify this connection.
 * **Type:** The type of Search Connection (Solr, Mongo, Elastic etc.)
 * **Keep Connection Alive:** Federation Services will cache the connection for a given amount of time before discarding it.
-* **Keep Alive in Milliseconds:** How long to keep the connection alive before discarding it (300000 is 5 minutes)
+* **Keep Alive in Milliseconds:** How long to keep the connection alive before discarding it (`300000` is 5 minutes).
 * **Security Mode:** This is how to authenticate with the back-end search.
-* **Authentication Connection:** The most common method is to use the appropriate authentication connection
+* **Authentication Connection:** The most common method is to use the appropriate authentication connection.
 * **User Pass-through Credentials:** Users the authenticates with whatever authentication they used for Federation Services. Only supported in rare cases.
 
 ##### Result Links
@@ -315,7 +318,7 @@ If **Download** is selected, the file names in your view will call a document do
 If **External** is selected, you will need to add **Result Links**. When you click the Result Links button a modal should appear. It takes three arguments
 
 * **Content Service Connector:** External link configurations are grouped by content service connector.
-  * This allows documents from different repositories to form different links
+  * This allows documents from different repositories to form different links.
 * **Link Field:** The document field that contains relevant information for building the link.
 * **Link Url:** The content of the link field will be appended to this url to create the link.
 
@@ -342,7 +345,7 @@ Individuals connectors might have specific fields here that were not general eno
 
 Additionally, this is where you can use the "Add Custom Parameter" button to set any default query values for the connection.
 
-A query_fq configuration param lets you define facet queries behind the scene. This is done to provide limited views or subsets of data in the search. Essentially you could create any number of views on the same date but each view would display different results. This can also be used in a role base system where you have views setup for specific user roles.Unless the fq is already encoded, you will need to wrap it in the encode() function where it will be URLEncoded UTF-8.
+A `query_fq` configuration parameter lets you define facet queries behind the scene. This is done to provide limited views or subsets of data in the search. Essentially you could create any number of views on the same date but each view would display different results. This can also be used in a role base system where you have views setup for specific user roles.Unless the `fq` is already encoded, you will need to wrap it in the `encode()` function where it will be URLEncoded UTF-8.
 
 The syntax is:
 
@@ -384,11 +387,11 @@ Federation Services's Content Service Connections offer public REST endpoints th
 
 > **Tip:** Connector ids are how Federation Services identifies the individual connector when receiving calls from other sources, such as Federation Service. This value must be usable as part of url. Use the description field if you need more than a few letters/numbers to describe the connection. The description shows up with its connector ID across the product.
 
-* **Connector ID**: A unique identifier for this connection i.e. simflofy_demo (Alphanumeric, dashes and underscore characters only)
+* **Connector ID**: A unique identifier for this connection i.e. `simflofy_demo` (alphanumeric, dashes and underscore characters only)
 * **Description**: The text that will be displayed on drop-downs etc. to identify this connection.
 * **Type**: The type of Search Connection (Solr, Mongo, Elastic etc.)
 * **Keep Connection Alive**: Federation Services will cache the connection for a given amount of time before discarding it.
-* **Keep Alive in Milliseconds**: How long to keep the connection alive before discarding it (300000 is 5 minutes)
+* **Keep Alive in Milliseconds**: How long to keep the connection alive before discarding it (`300000` is 5 minutes)
 * **Security Mode**: This is how to authenticate with the back-end search.
   * **Authentication Connection**: The most common method is to use the appropriate authentication connection
   * **User Pass-through Credentials**: Users the authenticates with whatever authentication they used for Federation Services. Only supported in rare cases.
@@ -483,7 +486,9 @@ You will be brought to the generic Content Connection page.
 
 ##### GET FILE
 
-`GET /api/repo/<connectorid>/file?id=<id>`
+```text
+GET /api/repo/<connectorid>/file?id=<id>
+```
 
 **Description**:
 
@@ -499,11 +504,15 @@ You will be brought to the generic Content Connection page.
 
 **With CURL**
 
-`curl -u admin:admin -X GET "localhost:8081/3sixty-admin/api/repo/box/file?id=384896487495" | json_pp`
+```bash
+curl -u admin:admin -X GET "localhost:8081/3sixty-admin/api/repo/box/file?id=384896487495" | json_pp
+```
 
 ##### GET OBJECT ID BY PATH
 
-`GET /api/repo/<connectorid>/idbypath?fileName=<fileName>&folderPath=<folderPath>`
+```text
+GET /api/repo/<connectorid>/idbypath?fileName=<fileName>&folderPath=<folderPath>
+```
 
 **Description**:
 
@@ -531,11 +540,15 @@ You will be brought to the generic Content Connection page.
 
 **With CURL**
 
-`curl -u admin:admin -X GET "localhost:8081/3sixty-admin/api/repo/box/idbypath?fileName=testFolder&folderPath=/TestFolder/ | json_pp`
+```bash
+curl -u admin:admin -X GET "localhost:8081/3sixty-admin/api/repo/box/idbypath?fileName=testFolder&folderPath=/TestFolder/ | json_pp
+```
 
 ##### POST FILE
 
-`POST /api/repo/<connectorid>/file?fileName=<fileName>&folderId=<folderId>&type=<type>`
+```text
+POST /api/repo/<connectorid>/file?fileName=<fileName>&folderId=<folderId>&type=<type>
+```
 
 **Description**:
 
@@ -568,8 +581,10 @@ You will be brought to the generic Content Connection page.
 
 **With CURL**
 
-`curl -u admin:admin -Ffile=@/Users/simflofy/CaterpillarDEUAjax.pdf"`
-`localhost:8081/3sixty-admin/api/repo/box/file?fileName=Caterpillar%20DEU%20Ajax.pdf&folderId=105965269305&type=document" | json_pp`
+```bash
+curl -u admin:admin -Ffile=@/Users/simflofy/CaterpillarDEUAjax.pdf"
+localhost:8081/3sixty-admin/api/repo/box/file?fileName=Caterpillar%20DEU%20Ajax.pdf&folderId=105965269305&type=document" | json_pp
+```
 
 ##### UPDATE FILE
 
@@ -607,7 +622,7 @@ fileId=<fileId>&folderId=<folderId>&fileName=<fileName>&type=<type>&property1=<v
 
 **With CURL**
 
-```text
+```bash
 curl -u admin:admin -Ffile=@/Users/simflofy/CaterpillarDEUAjax.pdf"
 localhost:8081/3sixty-admin/api/repo/box/update?fileName=Caterpillar%20DEU%20Ajax.pdf&folderId=105965269305&type=document"
 | json_pp
@@ -615,7 +630,9 @@ localhost:8081/3sixty-admin/api/repo/box/update?fileName=Caterpillar%20DEU%20Aja
 
 ##### UPDATE FILE CONTENT
 
-`PUT /api/repo/<connectorid>/updateContent?fileId=<fileId>`
+```text
+PUT /api/repo/<connectorid>/updateContent?fileId=<fileId>
+```
 
 **Description**:
 
@@ -641,7 +658,7 @@ localhost:8081/3sixty-admin/api/repo/box/update?fileName=Caterpillar%20DEU%20Aja
 
 **With CURL**
 
-```text
+```bash
 curl -X PUT -u admin:admin --data-binary '@/Users/simflofy/CaterpillarDEUAjax-newversion.pdf'
 'localhost:8081/3sixty-admin/api/repo/box/updateContent?fileId=804939960448'
 | json_pp
@@ -649,7 +666,9 @@ curl -X PUT -u admin:admin --data-binary '@/Users/simflofy/CaterpillarDEUAjax-ne
 
 ##### UPDATE FILE PROPERTIES
 
-`PUT /api/repo/<connectorid>/updateProperties?fileId=<fileId>&<param1>=<value1>&<param2>=<value2>`
+```text
+PUT /api/repo/<connectorid>/updateProperties?fileId=<fileId>&<param1>=<value1>&<param2>=<value2>
+```
 
 **Description**:
 
@@ -678,7 +697,7 @@ curl -X PUT -u admin:admin --data-binary '@/Users/simflofy/CaterpillarDEUAjax-ne
 
 **With CURL**
 
-```text
+```bash
 curl -X PUT -u admin:admin
 'localhost:8081/3sixty-admin/api/repo/box/updateProperties?fileId=804939960448&textfield=newvalue'
 | json_pp
@@ -716,7 +735,7 @@ curl -X PUT -u admin:admin
 
 **With CURL**
 
-```text
+```bash
 curl -u admin:admin -X POST "localhost:8081/3sixty-admin/api/repo/cmis/checkin?
 id=5dba1525-44a6-45ed-a42e-4a155a3f0539&comment=Spacing%20Fix" | json_pp
 ```
@@ -752,14 +771,16 @@ id=5dba1525-44a6-45ed-a42e-4a155a3f0539&comment=Spacing%20Fix" | json_pp
 
 **With CURL**
 
-```text
+```bash
 curl -u admin:admin -X POST "localhost:8081/3sixty-admin/api/repo/cmis/checkout?
 id=5dba1525-44a6-45ed-a42e-4a155a3f0539" | json_pp
 ```
 
 ##### GET FILE BATCH (3.1.1 and older)
 
-`GET /api/repo/__BATCH__/file?id[x]=<idx>&conn[x]=<connx>&fname[x]=<fnamex>`
+```text
+GET /api/repo/__BATCH__/file?id[x]=<idx>&conn[x]=<connx>&fname[x]=<fnamex>
+```
 
 **Description**:
 
@@ -767,7 +788,7 @@ id=5dba1525-44a6-45ed-a42e-4a155a3f0539" | json_pp
 
 **Query Parameters**:
 
-**Note:** [X] EQUALS AN INTEGER
+> **Note:** [X] EQUALS AN INTEGER
 
 * **idx**: ID of the file to retrieve
 * **connx**: Connector id of the file
@@ -780,7 +801,7 @@ id0=/home/user/simflofy/test.txt&conn0=localFS&fname0=test.txt&id1=629425696136&
 
 **With CURL**
 
-```text
+```bash
 curl -u admin:admin -X "localhost:8081/3sixty-admin/api/repo/__BATCH__/file?
 id0=/home/user/simflofy/test.txt&conn0=localFS&fname0=test.txt&id1=629425696136&conn1=box&fname1=Caterpillar%20DEU%20Ajax.pdf"
 ```
@@ -835,7 +856,9 @@ connId: "box"
 
 ##### GET FILE VERSIONS
 
-`GET /api/repo/<connectorid>/listversions?id=<id>`
+```text
+GET /api/repo/<connectorid>/listversions?id=<id>
+```
 
 **Description**:
 
@@ -849,7 +872,9 @@ connId: "box"
 
 * **id**: Source repository id. Differs depending on repository.
 
-`GET /api/repo/cmis/listversions?id=5dba1525-44a6-45ed-a42e-4a155a3f0539`
+```text
+GET /api/repo/cmis/listversions?id=5dba1525-44a6-45ed-a42e-4a155a3f0539
+```
 
 **Returns**:
 
@@ -879,7 +904,7 @@ connId: "box"
 
 **With CURL**
 
-```text
+```bash
 curl -u admin:admin -X GET "localhost:8081/3sixty-admin/api/repo/spo/listversions?
 id=5dba1525-44a6-45ed-a42e-4a155a3f0539" | json_pp
 ```
@@ -921,7 +946,7 @@ id=5dba1525-44a6-45ed-a42e-4a155a3f0539" | json_pp
 
 **With CURL** (remember to encode spaces and quotes)
 
-```text
+```bash
 curl -u admin:admin -X DELETE "localhost:8081/3sixty-admin/api/repo/box/delete?
 id=629425696136&allversions=false" | json_pp
 ```
@@ -930,7 +955,9 @@ id=629425696136&allversions=false" | json_pp
 
 **Request**:
 
-`GET /api/repo/<connectorid>/folderitems?id=<id>`
+```text
+GET /api/repo/<connectorid>/folderitems?id=<id>
+```
 
 **Description**:
 
@@ -944,7 +971,9 @@ id=629425696136&allversions=false" | json_pp
 
 * **id**: Source repository id. Differs depending on repository.
 
-`GET /api/repo/box/folderitems?id=384896487495`
+```text
+GET /api/repo/box/folderitems?id=384896487495
+```
 
 **Returns**:
 
@@ -1021,7 +1050,9 @@ id=629425696136&allversions=false" | json_pp
 
 **With CURL**
 
-`curl -u admin:admin -X GET "localhost:8081/3sixty-admin/api/repo/box/folderitems?id=384896487495" | json_pp`
+```bash
+curl -u admin:admin -X GET "localhost:8081/3sixty-admin/api/repo/box/folderitems?id=384896487495" | json_pp
+```
 
 ##### CREATE FOLDER
 
@@ -1054,11 +1085,15 @@ id=629425696136&allversions=false" | json_pp
 
 **With CURL**
 
-`curl -u admin:admin -X POST"localhost:8081/3sixty-admin/api/repo/box/folder?path=3Sixty/testfolder" | json_pp`
+```bash
+curl -u admin:admin -X POST"localhost:8081/3sixty-admin/api/repo/box/folder?path=3Sixty/testfolder" | json_pp
+```
 
 ##### GET ITEM PROPERTIES
 
-`GET /api/repo/<connectorid>/properties?id=<id>`
+```text
+GET /api/repo/<connectorid>/properties?id=<id>
+```
 
 **Description**:
 
@@ -1105,7 +1140,9 @@ id=629425696136&allversions=false" | json_pp
 
 **With CURL**
 
-`curl -u admin:admin -X GET "localhost:8081/3sixty-admin/api/repo/box/properties?id=384896487495" | json_pp`
+```bash
+curl -u admin:admin -X GET "localhost:8081/3sixty-admin/api/repo/box/properties?id=384896487495" | json_pp
+```
 
 ### Discovery
 
@@ -1129,7 +1166,7 @@ Many of these can be accessed by Discovery Admins at `tsearch/config`. It is ava
 
 #### Widget Instances
 
- Widget Instance is an instance of a Widget Definition that can now be placed in a Content View. Many instances of the same definition can exist in a content view. Each instance has a unique id. Federation Services comes preloaded with a number of common widget instances. If you don't find the type you need in your list, found under **Federation > Widget Instances**, you will need to create one.
+Widget Instance is an instance of a Widget Definition that can now be placed in a Content View. Many instances of the same definition can exist in a content view. Each instance has a unique id. Federation Services comes preloaded with a number of common widget instances. If you don't find the type you need in your list, found under **Federation > Widget Instances**, you will need to create one.
 
 In the Widget Instance list you can search and sort by name, widget ID, label and field.
 
@@ -1275,7 +1312,7 @@ Event jobs, in abstract are meant to be triggered by some external action. For a
 
 Event Configurations enhance Event Jobs and require:
 
-* simflofy.event.queue=true (which is the default setting)
+* `simflofy.event.queue=true` (which is the default setting)
 
 It allows them to be triggered through content service actions. So, if we want to add to that tutorial we would need to add a scenario in which we:
 
@@ -1357,7 +1394,9 @@ We will now call the API to push the document into the queue for processing.
 
 URL format:
 
-`http://{HOST}:{PORT}/3sixty-admin/api/event/service/pushevent?jobId=1631569493226&documentId=C:/SourceDocuments/sampledoc.pdf`
+```text
+http://{HOST}:{PORT}/3sixty-admin/api/event/service/pushevent?jobId=1631569493226&documentId=C:/SourceDocuments/sampledoc.pdf
+```
 
 Example curl command:
 
@@ -1745,7 +1784,7 @@ Federation Services allows users to schedule integration jobs and job groups to 
 2. Select the Create New Job Schedule button at the top of the page.
 3. Give your scheduled job a **name**.
 4. Fill out the Configuration Fields (descriptions below).
-5. Click the Update Configuration button once you are done configuring the scheduled job for it to start running at the set time and interval.
+5. Click the **Update Configuration** button once you are done configuring the scheduled job for it to start running at the set time and interval.
 
 > **Note:** If the schedule on a running job changes, that job will be aborted and the new schedule will take effect immediately.
 
@@ -1765,14 +1804,20 @@ Federation Services allows users to schedule integration jobs and job groups to 
 
 At the top of the scheduled job you can see the current status.
 
-* **Current Status**: Unsaved until Update Configuration button is pressed. Then OFF, WAITING, or RUNNING.
-* **Time until next run**: As it reads. If this runs to zero, it will not refresh unless the schedule is closed and reopened. Will Display as NA if performing a single run (interval set to 0) or the job is currently running.
+* **Current Status**: `Unsaved` until **Update Configuration** button is pressed. Then `OFF`, `WAITING`, or `RUNNING`.
+* **Time until next run**: As it reads. If this runs to zero, it will not refresh unless the schedule is closed and reopened. Will Display as `NA` if performing a single run (interval set to `0`) or the job is currently running.
 
 #### List Jobs
 
 A Federation Services Job is the process of moving or syncing content(including versions, ACL's, metadata) from one CMS (content management system) to another. Since Federation Services Jobs are specifically engineered for content management systems, moving content and metadata is just point and click. There are many Job types as well as Job Tasks that can handle anything from data validation and cleansing to duplication detection.
 
-The List jobs page shows the jobs created. There are five available Job Types: Sync, Simple Migration, Incremental Migration, Event and Polling.
+The List jobs page shows the jobs created. The available Job Types are:
+
+* Sync
+* Simple Migration
+* Incremental Migration
+* Event
+* Polling
 
 ##### Job Types
 
@@ -1793,7 +1838,7 @@ To access Job Groups, go to the group section in the left sidebar and select Job
 
 ###### Creating a Job Group
 
-To access Job Groups, go to the group section in the left sidebar and select Job Groups. From here you can view and create Job Groups.
+To access Job Groups, go to the group section in the left sidebar and select **Job Groups**. From here you can view and create Job Groups.
 
 1. Click **Create New Job Group**.
 2. Fill in the **group's name**.
@@ -1810,7 +1855,7 @@ To access Job Groups, go to the group section in the left sidebar and select Job
 * **Repository Connection**: The Repository Connection used for this Job.
 * **Output Connection**: The Output Connection used for this Job.
 * **Type**: The type of Federation Services Job.
-* **Job Tags**: Another option for separating jobs into groups. If any jobs have tags, they will appear as a filtering option when listing jobs. Tags are case sensitive. 
+* **Job Tags**: Another option for separating jobs into groups. If any jobs have tags, they will appear as a filtering option when listing jobs. Tags are case sensitive.
 * **Include documents modified after this date and time**: Referred to as "Start Time", this time will be used to check the last modified date of files before processing them.
 * **Include documents modified before this date and time**: Referred to as "End Time", this time will be used to check the last modified date of files before processing them.
 
@@ -1840,7 +1885,7 @@ Notifications will only function is email is enabled. This allows the user to se
 
 * **Repository Connection Thread Count**: The number of individual workers which will process and queue documents. Implementation may vary in certain systems.
 * **Output Connection Thread Count**: The number of individual workers which will process and post documents. Implementation may vary in certain systems.
-* **Batch Size**: If greater than 0, Documents will be assigned a batch ID. Batch Ids are a combination of the job id and the job run id (the timestamp of when the job was started), plus the batch number. The batchId will also be set as the highest parent folder for the document. (For example, /home/simflofy will become {batchId}/home/simflofy). Some connectors have their own batch configuration, which is compatible with this field.
+* **Batch Size**: If greater than 0, Documents will be assigned a batch ID. Batch Ids are a combination of the job id and the job run id (the timestamp of when the job was started), plus the batch number. The batchId will also be set as the highest parent folder for the document. (For example, `/home/simflofy` will become `{batchId}/home/simflofy`). Some connectors have their own batch configuration, which is compatible with this field.
 * **Max Queue Size**: Limits the number of documents that can be queued at once, making repository workers wait. This can slow down output speeds, which may be useful if your output repository can be throttled.
 * **Max Errors Allowed**: Maximum errors before the job stops. Leave 0 for unlimited errors.
 * **Process Relationships** : Check this to tell Target Connector to process Document Relationships. This feature only works for the CMIS Connector.
@@ -1854,15 +1899,15 @@ Notifications will only function is email is enabled. This allows the user to se
 
 Job tasks provide a processing pipeline for documents and metadata. This means doing things like:
 
-1. Filtering content out or in based on rules, such as metadata values
-2. Cleaning up file names or file paths
-3. Re-Parenting based on rules
-4. Extracting metadata from paths
-5. Adding metadata from third parties such as Databases, Rest APIs, OCR Engines, etc...
+1. Filtering content out or in based on rules, such as metadata values.
+2. Cleaning up file names or file paths.
+3. Re-Parenting based on rules.
+4. Extracting metadata from paths.
+5. Adding metadata from third parties such as Databases, Rest APIs, OCR Engines, etc..
 6. Transforming documents from one mime type to another, such as Word to PDF.
-7. Transforming metadata
-8. PII - Personally Identifiable Information - detection
-9. De-Duplication
+7. Transforming metadata.
+8. PII - Personally Identifiable Information - detection.
+9. De-Duplication.
 
 ##### Adding Tasks to Jobs
 
@@ -1931,7 +1976,7 @@ A temporary job is created using the repository configuration of the selected jo
 
 ##### Running the PII Scan
 
-Under Analytics select PII Scan and complete the PII Scan page
+Under Analytics select PII Scan and complete the PII Scan page:
 
 * Select the repository connection you want to scan
 * Select the Job to scan for PII
@@ -1944,10 +1989,10 @@ Under Analytics select PII Scan and complete the PII Scan page
 
 ##### Viewing PII Data
 
-Once the PII is ran users can view the PII report in the Discovery UI by either:
+Once the PII scan runs, users can view the PII report in the Discovery UI by either:
 
-* Clicking on the link provided in the Scan complete notification box or 
-* Selecting **PII Data Viewer** in the left navigation pane on the home page of the Discovery UI
+* Clicking on the link provided in the Scan complete notification box.
+* Selecting **PII Data Viewer** in the left navigation pane on the home page of the Discovery UI.
 
 #### Document Duplication Detection and Reporting
 
@@ -1961,13 +2006,17 @@ After crawling your source system and outputting to the Federation Services Repo
 
 Depending on how many documents you found during the crawl > 100,000, you may need to add docHash index.
 
-`db.tsRecordProcessed.createIndex( { docHash: 1 } )`
+```text
+db.tsRecordProcessed.createIndex( { docHash: 1 } )
+```
 
-Next we group by docHash and output to a new collection named duplicates (You can name the new output collection to anything you like).
+Next we group by docHash and output to a new collection named duplicates (you can name the new output collection anything you like):
 
-`db.tsRecordProcessed.aggregate([{$group:{_id:"$docHash",docs:{$push:"$doc_id"},doc_names:{$push:"$doc_name"}}},{$project:{docs:1,doc_names:1,numDocs:{$size:"$docs"}}},{$match:{numDocs:{$gt:1}}},{$out:"duplicates"}])`
+```text
+db.tsRecordProcessed.aggregate([{$group:{_id:"$docHash",docs:{$push:"$doc_id"},doc_names:{$push:"$doc_name"}}},{$project:{docs:1,doc_names:1,numDocs:{$size:"$docs"}}},{$match:{numDocs:{$gt:1}}},{$out:"duplicates"}])
+```
 
-You can now export de-dupes collection to CSV or JSON using mongoexport
+You can now export de-dupes collection to CSV or JSON using `mongoexport`:
 
 ```text
 mongoexport --db simflofy --collection duplicates --fields _id,docs,doc_names
@@ -1976,8 +2025,7 @@ mongoexport --db simflofy --collection duplicates --fields _id,docs,doc_names
 
 #### Stuck Jobs
 
-If a job is running and the **Abort** does not stop the job in an appropriate amount of time, the job can be killed manually through an Admin page.
-See [Active Jobs]({% link federation-services/latest/admin/index.md%}#active-jobs) for more information.
+If a job is running and the **Abort** does not stop the job in an appropriate amount of time, the job can be killed manually through an Admin page. See [Active Jobs]({% link federation-services/latest/admin/index.md%}#active-jobs) for more information.
 
 ### Federation Services Job Flow
 
@@ -1991,9 +2039,9 @@ Tasks are run for each document that has been read. A number of tasks can be set
 
 #### Duplication Detection
 
-This task checks the chosen field to find duplicate documents during the job run. And will take the selected actions against the document if a duplicate one exists. To see how each repository handles duplicates and versioning check the individual connector page.
+This task checks the chosen field to find duplicate documents during the job run. It takes the selected actions against the document if a duplicate one exists. To see how each repository handles duplicates and versioning check the individual connector page.
 
-When the duplication check is ran multiple times the original file will not be marked as duplicate.
+When the duplication check is run multiple times, the original file will not be marked as duplicate.
 
 ##### Configuration
 
@@ -2813,9 +2861,9 @@ Extracts ACLs from the Windows or Linux filesystem document and adds them to the
 
 This task will have some different behaviour depending on your operating system. In a POSIX environment (macOS or Linux) permissions may be added as the field `document.permissions` with the permissions in a semicolon(;) delimited list, if any exist.
 
-If the filesystem supplies an owner, it will be added as **simflofy.owner**
+If the filesystem supplies an owner, it will be added as `simflofy.owner`.
 
-Additionally, simflofy will create a permission map of the principals and their permissions. It will set is as the **originalPermissions** field, so
+Additionally, simflofy will create a permission map of the principals and their permissions. It will set is as the **originalPermissions** field:
 
 ```text
 Map<String, Set<String>> permissions = new Map<>();
@@ -2823,15 +2871,13 @@ Map<String, Set<String>> permissions = new Map<>();
 rd.setOriginalPermissions(permissions);
 ```
 
-Finally, if any User Defined File Attributes (extended attributes), they will be added as a semicolon delimited list in the field
-
-`simflofy.userattributes`
+Finally, if any User Defined File Attributes (extended attributes), they will be added as a semicolon delimited list in the field `simflofy.userattributes`.
 
 #### Generic ACL Mapper
 
 The generic ACL mapper job task allows you to create simple rules for matching principles and permissions from one system to another. ACLs will need to be extracted from each document. This task reads the **originalPermissions** field of the document and sets the **transformedPermissions** field.
 
-LIMITED USAGE  
+LIMITED USAGE
 Only the Azure Blob, CMIS, and Alfresco Connectors can use this task. For all other acl mapping, a [JavaScript](#javascript-processing) task is required.
 
 * Process Files and Process Folders tells the task what to process.

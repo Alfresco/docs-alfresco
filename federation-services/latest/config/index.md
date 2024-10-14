@@ -4,7 +4,13 @@ title: Configure Federation Services
 
 [Connectors](#connectors) are the 1st step in the integration process. They represent how Federation Services connects to other systems.
 
-Connections are instances of connectors which the user configures. There are 5 types of connections: Authentication, Discovery, Integration, Content Service, and Content Search.
+Connections are instances of connectors which the user configures. There are 5 types of connections:
+
+* Authentication
+* Discovery
+* Integration
+* Content Service
+* Content Search
 
 The Federation Services Wizards will help you quickly create all the connections needed for your data integration.
 Available Wizards: [Quick Build](#quick-build-wizard), [Integration](#integration-wizard), [Federation](#federation-wizard)
@@ -204,13 +210,13 @@ Content Service Connections offer public REST endpoints that allow for integrati
 
 #### Basic Configuration
 
-> **Tip**: Connector ids are how Federation Services identifies the individual connector when receiving calls from other sources. This value must be usable as part of url. Use the description field if you need more than a few letters/numbers to describe the connection. The description shows up with its connector ID across the product.
+> **Tip:** Connector ids are how Federation Services identifies the individual connector when receiving calls from other sources. This value must be usable as part of url. Use the description field if you need more than a few letters/numbers to describe the connection. The description shows up with its connector ID across the product.
 
 * Connector ID: A unique identifier for this connection (Alphanumeric, dashes and underscore characters only)
 * Description: The text that will be displayed on drop-downs etc. to identify this connection.
 * Type: The type of Search Connection (Solr, Mongo, Elastic etc.)
 * Keep Connection Alive: Federation Services will cache the connection for a given amount of time before discarding it.
-* Keep Alive in Milliseconds: How long to keep the connection alive before discarding it (300000 is 5 minutes)
+* Keep Alive in Milliseconds: How long to keep the connection alive before discarding it (`300000` is 5 minutes)
 * Security Mode: This is how to authenticate with the back-end search.
   * Authentication Connection: The most common method is to use the appropriate authentication connection
   * User Pass-through Credentials: Users the authenticates with whatever authentication they used for Federation Services. Only supported in rare cases.
@@ -273,11 +279,11 @@ Content View Connectors or Content Search Connector allow you to search content 
 
 Connector ids are how Federation Services identifies the individual connector when receiving calls from other sources, such as Federation Service. This value must be usable as part of url. Use the description field if you need more than a few letters/numbers to describe the connection. The description shows up with its connectorId across the product.
 
-* **Connector ID**: A unique identifier for this connection i.e. simflofy_demo (Alphanumeric, dashes and underscore characters only)
+* **Connector ID**: A unique identifier for this connection i.e. `simflofy_demo` (alphanumeric, dashes and underscore characters only)
 * **Description**: The text that will be displayed on drop-downs etc. to identify this connection.
 * **Type**: The type of Search Connection (Solr, Mongo, Elastic etc.)
 * **Keep Connection Alive**: Federation Services will cache the connection for a given amount of time before discarding it.
-* **Keep Alive in Milliseconds**: How long to keep the connection alive before discarding it (300000 is 5 minutes)
+* **Keep Alive in Milliseconds**: How long to keep the connection alive before discarding it (`300000` is 5 minutes)
 * **Security Mode**: This is how to authenticate with the back-end search.
 * **Authentication Connection**: The most common method is to use the appropriate authentication connection
 * **User Pass-through Credentials**: Users the authenticates with whatever authentication they used for Federation Services. Only supported in rare cases.
@@ -461,7 +467,7 @@ SharePoint Connection: When mapping "Modified by" field of SharePoint, schema in
 
 *For the MS Graph Mail connector and the Exchange Email connectors
 
-In a job MS Graph Mail connector / Exchange Email connector to ECM with the job type set as manage in place, if the user changes the object type to E-Mail Message type through mapping, then when running the job, the external records will generate in ECM with object type as E-Mail Message and the default metadata fields set in the E-Mail Message will not get a value.
+In a job MS Graph Mail connector / Exchange Email connector to ECM with the job type set as Manage in Place, if the user changes the object type to E-Mail Message type through mapping, then when running the job, the external records will generate in ECM with object type as E-Mail Message and the default metadata fields set in the E-Mail Message will not get a value.
 
 ##### Content Service Connection
 
@@ -547,7 +553,7 @@ A Content View Connector defines the who, what and how of search. A better term 
 
 Note that the usual `{"query":{}}` wrapper is not present. Including it will cause an error on search.
 
-* **elastic_q**: This parameter, added by clicking **Add Custom Parameter**, allows a user to pass in a JSON formatted query to the elastic search server. When using this query method you must replace double quotes with single quote characters.
+* **elastic_q**: This parameter, added by clicking **Add Custom Parameter**, allows you to pass in a JSON formatted query to the elastic search server. When using this query method you must replace double quotes with single quote characters.
 Here is an example query:
 
 `{'bool':{'must':[{'match':{'document_type':'accounting'}},{'match':{'account_type':''}}]}}`
@@ -631,7 +637,7 @@ This section covers the specific configuration of the Content Service Connector.
 
 #### MongoDB
 
-Can be used as a content search connector for Manage in Place
+Can be used as a content search connector for Manage in Place.
 
 MongoDB is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas.
 
@@ -649,7 +655,7 @@ Authentication Configuration Fields:
 * **Use MongoDB GridFS Services**: Using MongoDB GridFS Services. Leave unchecked for regular MongoDB
 
 MONGO URI
-Federation Services inserts the username and password into the connection string. In order to include them as part of the uri we use `[[USER]]:[[PASS]]`
+Federation Services inserts the username and password into the connection string. In order to include them as part of the URI we use `[[USER]]:[[PASS]]`
 
 ##### Discovery Connector
 
@@ -736,7 +742,7 @@ rd.setDenyAcl(deny);
 
 #### MongoDB GridFS
 
-Can be used as a content search connector for Manage in Place
+Can be used as a content search connector for Manage in Place.
 
 > **Note:** In Federation Services, the GridFS is just a mode of the MongoDB connector.
 
@@ -758,7 +764,7 @@ GridFS by default uses two collections, [collection].files and [collection].chun
 * **Use MongoDB GridFS Services?**: Required for binary storage. This checkbox enables GridFS services
 
 MONGO URI
-Federation Services inserts the username and password into the connection string. In order to include them as part of the uri we use `[[USER]]:[[PASS]]`.
+Federation Services inserts the username and password into the connection string. In order to include them as part of the URI we use `[[USER]]:[[PASS]]`.
 
 ##### Integration Connection
 
@@ -847,7 +853,7 @@ To add a default query which filters out all `.txt` documents:
 
 #### Alfresco
 
-Can be used as an output connector for Manage in Place
+Can be used as an output connector for Manage in Place.
 
 The Alfresco connector only operates in write mode. For read operations from Alfresco, use the CMIS connector.
 
@@ -933,7 +939,7 @@ Meaning that if field 1 or field 2 is not present, do not add the aspects.
 
 Index files and emails from Google Drive and Gmail
 
-> **Tip**: Google Drive folders usually display the ID in the url while looking at them in the browser. The root folder ("My Drive") does not show its ID, however. In order to retrieve it, you will need to create a Content Service Connection and use it to retrieve the id using the following url in your browser. If the root folder id it set on the content service connection, that folder's information will be returned. If blank, the My Drive folder's information will be returned.
+> **Tip:** Google Drive folders usually display the ID in the url while looking at them in the browser. The root folder ("My Drive") does not show its ID, however. In order to retrieve it, you will need to create a Content Service Connection and use it to retrieve the id using the following url in your browser. If the root folder id it set on the content service connection, that folder's information will be returned. If blank, the My Drive folder's information will be returned.
 `3sixty-admin/api/repo/{googleConnectorId}/rootfolderid`
 
 ##### Authentication Connection
@@ -984,22 +990,27 @@ Click **Add Scope** and check
 
 **Creating OAuth Credentials**
 
-1. Return to the [APIs and Services Dashboard](https://console.cloud.google.com/apis/dashboard){:target="_blank"}
-2. Click **Credentials**
-3. Click **Create Credentials**
-4. Click OAuth Client Id
-5. On the next screen, select **Web Application**
-6. Give the credentials a name
-7. Under **Authorised Redirect URIs**, add the following
-    ```
+1. Return to the [APIs and Services Dashboard](https://console.cloud.google.com/apis/dashboard){:target="_blank"}.
+2. Click **Credentials**.
+3. Click **Create Credentials**.
+4. Click OAuth Client Id.
+5. On the next screen, select **Web Application**.
+6. Give the credentials a name.
+7. Under **Authorised Redirect URIs**, add the following:
+
+    ```text
     http://{SIMFLOFY_SERVER}/3sixty-admin/authconn/oauthcb
     ```
+
     For example. If you're running Federation Services on a local machine
     `http://localhost:8080/3sixty-admin/authconn/oauthcb`
-    **Important:** For Manage In Place the domain server has to be public server since Google Drive only supports public server or localhost
-    **Tip:** 127.0.0.1 will not work, but **localhost** will.
-8. Click **Create**
-9. Your new credentials will appear under **OAuth 2.0 Client IDs**. Click the Download button on the right and retrieve the Client ID and Client Secret from the downloaded json file.
+
+    > **Important:** For Manage In Place, the domain server has to be public server since Google Drive only supports public server or localhost.
+
+    > **Tip:** `127.0.0.1` will not work, but `localhost` will.
+
+8. Click **Create**.
+9. Your new credentials will appear under **OAuth 2.0 Client IDs**. Click the **Download** button on the right and retrieve the Client ID and Client Secret from the downloaded JSON file.
 
 **Creating your connector in Federation Services**
 
@@ -1038,16 +1049,18 @@ Use this method if you wish to create a service user to interact with the data.
 
 **Creating The Service Account**
 
-1. Go to the [APIs and Services Dashboard](https://console.cloud.google.com/apis/dashboard){:target="_blank"}
-2. Click **Credentials**
-3. Click Create Credentials
-4. Select Service Account
+1. Go to the [APIs and Services Dashboard](https://console.cloud.google.com/apis/dashboard){:target="_blank"}.
+2. Click **Credentials**.
+3. Click Create Credentials.
+4. Select Service Account.
 5. You will be asked you to assign roles to the account. Since we need wide-ranging access for now, we should choose Owner. This can be changed later.
 6. The final screen invites other users to access this service account through their own service account portals. Use as needed for your organization.
 7. Click **DONE**. You will be taken back to the service account list for the project.
-**Tip:** Make note of the email address of this user. Any folders or Shared Drives you wish to migrate will need to be shared with this user.
-8. Click on the three dots under Actions, then click **Manage Keys**
-9. Click **ADD KEY** then **Create New Key**, then select **JSON**
+
+   > **Tip:** Make note of the email address of this user. Any folders or Shared Drives you wish to migrate will need to be shared with this user.
+
+8. Click on the three dots under Actions, then click **Manage Keys**.
+9. Click **ADD KEY** then **Create New Key**, then select **JSON**.
 10. Click **Create**. You will download a json file to be used in the next step.
 
 ###### Creating your JWT Auth Connector in Federation Services
@@ -1110,7 +1123,7 @@ google site - txt
 
 However, these new ones don't seem to support revisions so we can't get the revisions when getVersion is checked!
 
-**Tip:** If a document of the same name exists within a parent folder, the connector will attempt to create a new revision of the document, instead of uploading a new one. These revisions have the `keepRevisionForever` flag set to `true`, meaning Google Drive will not delete them automatically, as it does with most revisions. A document can have a maximum of 200 revisions.
+> **Tip:** If a document of the same name exists within a parent folder, the connector will attempt to create a new revision of the document, instead of uploading a new one. These revisions have the `keepRevisionForever` flag set to `true`, meaning Google Drive will not delete them automatically, as it does with most revisions. A document can have a maximum of 200 revisions.
 
 ##### Run and Monitor Jobs
 
@@ -1207,7 +1220,7 @@ rd.setACL(newAcl);
 
 ##### Interacting with Shared Drives (3.1.2+)
 
-**Tip:** These cases assume that you are working with a Google Workspace and the credentials you supply are allowed to view / access Shared Drive information.
+> **Tip:** These cases assume that you are working with a Google Workspace and the credentials you supply are allowed to view / access Shared Drive information.
 
 **Get a Shared Drive Id**
 
@@ -1260,7 +1273,7 @@ The Tenant, Client ID, and Client Secret, are all provided to you during your Ap
 
 ##### Authentification Connection
 
-> **Tip**: Tip:  Its recommended that OAuth be used for Migration only. And Client / Secret Auth be used for Content Service
+> **Tip:** Tip:  Its recommended that OAuth be used for Migration only. And Client / Secret Auth be used for Content Service
 
 This connector requires a standard [Microsoft Graph](#microsoft-graph) Authentication Connection.
 
@@ -1412,7 +1425,9 @@ Note: The folderId can be a path off of the root library. Such as /test.
 
 ###### Update File Content
 
-`PUT /api/repo/graph/updateContent?fileId=01WNAC6Z32P4QVKHLA7ZC2SZH7IYTSDON7`
+```text
+GET /api/repo/graph/updateContent?fileId=01WNAC6Z32P4QVKHLA7ZC2SZH7IYTSDON7
+```
 
 > Note: Set the new content as the request body
 
@@ -1454,7 +1469,9 @@ Note: The folderId can be a path off of the root library. Such as /test.
 
 ###### Update Files Properties
 
-`PUT /api/repo/graph/updateProperties?fileId=01WNAC6ZYYYWDZOWH2DFH3LRHT7MWF5L2R&3SixtyText=metafield`
+```text
+GET /api/repo/graph/updateProperties?fileId=01WNAC6ZYYYWDZOWH2DFH3LRHT7MWF5L2R&3SixtyText=metafield
+```
 
 > Note: Each field will be passed as a separate parameter
 
@@ -1469,7 +1486,9 @@ Note: The folderId can be a path off of the root library. Such as /test.
 
 ###### Folder Items
 
-`PUT /api/repo/graph/folderitems?id=01WNAC6Z4BAYBXXIMILVBLXKCZ6K3VVNHJ`
+```text
+GET /api/repo/graph/folderitems?id=01WNAC6Z4BAYBXXIMILVBLXKCZ6K3VVNHJ
+```
 
 ```text
 {
@@ -1671,11 +1690,11 @@ or
 
 #### Microsoft Graph Teams
 
-> **Important**: Due to the potentially sensitive nature of Teams' content, Microsoft has restricted the usage of APIs that can retrieve chat messages. In order to use these APIs, an additional approval process is required. The form is found [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1ax4zKyZjVBmutzKVo1pVtUQ1VJMlNTNUdJV1FKTzVZSVU4MlMwTTdOTSQlQCN0PWcu){:target="_blank"}. The response will usually take 1 to 2 business days.
+> **Important:** Due to the potentially sensitive nature of Teams content, Microsoft has restricted the usage of APIs that can retrieve chat messages. In order to use these APIs, an additional approval process is required. The form is found [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1ax4zKyZjVBmutzKVo1pVtUQ1VJMlNTNUdJV1FKTzVZSVU4MlMwTTdOTSQlQCN0PWcu){:target="_blank"}. The response will usually take 1 to 2 business days.
 
-> **Important**: In order to retrieve private chat messages, a payment model is required after a certain number of messages. See [this link](https://learn.microsoft.com/en-us/graph/teams-licenses#evaluation-mode-default-requirements){:target="_blank"}. Federation Services uses the Get messages across all chats for user method.
+> **Important:** In order to retrieve private chat messages, a payment model is required after a certain number of messages. See [this link](https://learn.microsoft.com/en-us/graph/teams-licenses#evaluation-mode-default-requirements){:target="_blank"}. Federation Services uses the Get messages across all chats for user method.
 
-> **Note:** Microsoft Teams file storage for a team is actually just a SharePoint site, with each channel being a folder in the `Documents` library. You can view your teams files in SharePoint by going to `https://[tenant].sharepoint.com/sites/[teamName]`.
+> **Note:** Microsoft Teams file storage for a team is actually just a SharePoint site, with each channel being a folder in the `Documents` library. You can view your Teams files in SharePoint by going to `https://[tenant].sharepoint.com/sites/[teamName]`.
 
 ##### Authentication Connection
 
@@ -1798,7 +1817,10 @@ The name of this connector is **Microsoft Graph oAuth Connector**
 
 * **Service URL**: This should be set to : [https://login.microsoftonline.com](https://login.microsoftonline.com/)
 * **Scope**: These are the permissions required to access OneDrive files. Multiple permissions are separated by a space. Default scope: user.read files.readwrite.all
-* **Tenant**: The directory tenant the application plans to operate against, in GUID or domain-name format. **Note**: When accessing a personal drive replace the guid with the word "common".
+* **Tenant**: The directory tenant the application plans to operate against, in GUID or domain-name format.
+
+> **Note:** When accessing a personal drive replace the GUID with the word "common".
+
 * **Client ID**: The client id of the application.
 * **Client Secret**: The client secret for the application.
 
@@ -1820,7 +1842,10 @@ Works with Business and SharePoint OneDrive. Personal drives not supported at th
 
 * **Site Names**: A list of sites to crawl. **Only applicable if accessing a SharePoint Drive via a standard authenication connection**
 * **Query**: A query to run against each drive. For a Business drive, leave blank to retrieve all items in the drive. For a Personal drive you must enter at least one search term.
-* **Process Folders**: Process folders as well as documents. **Note: Empty folders will be processed.**
+* **Process Folders**: Process folders as well as documents.
+
+> **Note: Empty folders will be processed.**
+
 * **Get Versions**: Retrieve document versions.
 * **Include Permissions**: Include the folder/document permissions.
 
@@ -1877,11 +1902,11 @@ Only fill this is if your Exchange server uses LDAP Authentication
 * **LDAP Username**: Username to authenticate with and query LDAP.
 * **LDAP Password**: Password for the LDAP Username. (Note: password is encrypted and never displayed in the input form after the Save button is pressed)
 * **LDAP Domain**: Domain of the LDAP server.
-* **LDAP Base Filter**: The base filter to search for your ldap user. Defaults to (&(&(objectCategory=Person)(objectClass=User)))
+* **LDAP Base Filter**: The base filter to search for your ldap user. Defaults to `(&(&(objectCategory=Person)(objectClass=User)))`.
 
 #### Discovery Connector
 
-Normally Federation Services Discovery is used to discovery the metadata models of underlying repository. In the case of Microsoft Exchange the Exchange Web Services (EWS) API provides us with the models as things such as Email Message and Calendar Event are static models depending on which version of the EWS you are using.
+Normally Federation Services Discovery is used to discover the metadata models of the underlying repository. In the case of Microsoft Exchange, the Exchange Web Services (EWS) API provides us with the models as things such as Email Message and Calendar Event are static models depending on which version of the EWS you are using.
 
 It is still necessary to run Discovery in order to do Job mappings. You would only need to run Exchange Discovery Once and then use that Discovery for any Exchange Jobs. Using the Exchange Discovery, you can map Email Message fields to the output fields.
 
@@ -1920,9 +1945,9 @@ Job specification includes Job run setting like number of worker threads and bat
 
 ##### Content Service Connection
 
-The source repository ids for exchange are a compound id in the form of
+The source repository ids for exchange are a compound id in the form:
 
-sourceEmail_SID_exchangeUniqueId
+`sourceEmail_SID_exchangeUniqueId`
 
 **Supported Methods**
 
@@ -1959,10 +1984,10 @@ folder.isversion=CHECKBOX
 ```
 
 SPACES
-If a type has a space in it, replace it with the value \u0020. As an example:
+If a type has a space in it, replace it with the value `\u0020`. As an example:
 `Historical\u0020Documents.field=CHECKBOX`
 
-Here is a list of available field types
+Here is a list of available field types:
 
 `CHECKBOX,DATETIME,TEXT,TEXTAREA,INTEGER,LONG,DECIMAL,DOUBLE,URI,READONLY,BINARY`
 
@@ -1979,11 +2004,11 @@ For retrieving content and its associated metadata from the specified filesystem
 
 **Paths (Repo)**
 
-Click the green plus sign below the paths to add more than one File Path
+Click the green plus sign below the paths to add more than one File Path.
 
 Click the red minus sign next to a file path to remove it.
 
-Manage In Place does not support multiple paths for the Filesystem Connector
+Manage In Place does not support multiple paths for the Filesystem Connector.
 
 * **File Path**: The path of a folder to crawl.
 * **Convert to URI**: For Windows filesystems, converts backslashes to forward slashes and removes drive identifiers
@@ -2014,7 +2039,7 @@ The methods currently supported for this connector are:
 **Connection Configuration**
 
 * **Root Path**: The location of your folders and files that you want Federation Services to access. Will be prepended to the id on all calls to the connection
-* Note: For a content service connection make sure the Root folder in the content service connection is the same as the root folder in the job properties. 
+* Note: For a content service connection make sure the Root folder in the content service connection is the same as the root folder in the job properties.
 
 IDS  
 Filesystem content services uses the files or folder's path as an ID. The connection will attempt to prepend the configured root folder on all calls.
@@ -2037,7 +2062,9 @@ Depending on how many documents you found during the crawl > 100,000, you may ne
 
 Next we group by docHash and output to a new collection named duplicates (You can name the new output collection to anything you like).
 
-`db.tsRecordProcessed.aggregate([{$group:{_id:"$docHash",docs:{$push:"$doc_id"},doc_names:{$push:"$doc_name"}}},{$project:{docs:1,doc_names:1,numDocs:{$size:"$docs"}}},{$match:{numDocs:{$gt:1}}},{$out:"duplicates"}])`
+```text
+db.tsRecordProcessed.aggregate([{$group:{_id:"$docHash",docs:{$push:"$doc_id"},doc_names:{$push:"$doc_name"}}},{$project:{docs:1,doc_names:1,numDocs:{$size:"$docs"}}},{$match:{numDocs:{$gt:1}}},{$out:"duplicates"}])
+```
 
 You can now export de-dupes collection to CSV or JSON using mongoexport
 
@@ -2088,7 +2115,7 @@ If you are using Amazon Glacier as an Output Connection you will need to fill ou
 **Output Specifications**
 
 * **Output Folder Path** : Path where archive zip file is created before sending to Glacier.
-* **Glacier End Point** : Glacier end point where the vault exists. For example, `https://glacier.us-east-1.amazonaws.com`
+* **Glacier End Point** : Glacier end point where the vault exists. For example, `https://glacier.us-east-1.amazonaws.com`.
 * **Glacier Vault** : Name of the vault to store archive files.
 
 ##### Content Service Connection
@@ -2099,7 +2126,7 @@ This section covers the Glacier specific configuration of the Content Service Co
 
 This section covers the Glacier specific configuration of the Content Service Connector.
 
-* **End Point**: Glacier end point where the vault exists. For example, `https://glacier.us-east-1.amazonaws.com`
+* **End Point**: Glacier end point where the vault exists. For example, `https://glacier.us-east-1.amazonaws.com`.
 * **Vault Name**: Name of the vault to store archive files.
 
 **Supported Methods**
@@ -2129,16 +2156,16 @@ Authentication connectors are used to authenticate repository/output connections
 * **Connection Timeout**: Set the connection timeout. Higher values may be needed when moving large files.
 
 > **Tip:** INSTALLED AWS CREDENTIALS  
-If you leave the Client ID and Client Secret empty, Federation Services will attempt to authenticate with your installed AWS credentials
+If you leave the Client ID and Client Secret empty, Federation Services will attempt to authenticate with your installed AWS credentials.
 
 **Proxy Information**
 
 This tab is for if you're connecting through a proxy, and is optional.
 
 * **Proxy User**: The proxy user to use. (Optional)
-* **Proxy Password**: The password for the proxy user. (leave blank if no proxy)
+* **Proxy Password**: The password for the proxy user. (Leave blank if there's no proxy)
 * **Proxy Protocol**: The HTTP(S) Protocol to use to connect to the proxy.
-* **Full Proxy Url**: The Proxy Host (leave blank if no proxy).
+* **Full Proxy Url**: The Proxy Host. (Leave blank if there's no proxy)
 * **Proxy Port**: The port to connect to on the proxy. (Optional)
 * **Proxy Domain**: The Domain for the proxy.
 * **Proxy Workstation**: The workstation to use.
@@ -2172,7 +2199,7 @@ Specification Tab: S3 Folders (Repo)
 * **Bucket Name**: The bucket name that will be prepended to all keys.
 * **Includes Unmapped Properties**: Will apply all metadata on the document without mapping
 * **Use GZip**: Sets whether gzip decompression should be used when receiving HTTP responses.
-* **Do not generate XML when Outputting to S3**: Like the BFS Connector, the S3 Connector outputs metadata as separate files in the for of [filename].metadata.properties.xml. Check this box if you wish for it to only output files.
+* **Do not generate XML when Outputting to S3**: Like the BFS Connector, the S3 Connector outputs metadata as separate files in the form of `[filename].metadata.properties.xml`. Check this box if you wish for it to only output files.
 * **Use Transfer Manager**: If migrating larger files, the S3 APIs offer a transfer manager to ensure more stable uploads
 * **Stage Binary to Filesystem**: To avoid issues with disconnects from the source, this will temporarily store file content in the Tomcat temp folder before uploading it.
 * **Date/DateTime Format**: How to format the mapped fields of this type before upload.
@@ -2198,7 +2225,7 @@ This section covers the S3 specific configuration of the Content Service Connect
 
 This section covers the S3 specific configuration of the Content Service Connector.
 
-> **Tip:** S3 file ids always take the form of /bucket/(key).
+> **Tip:** S3 file ids always take the form of `/bucket/(key)`.
 
 * **Bucket Name**: The target bucket for creating a file.
 * **Output Folder Path**: The key of the folder to target when creating a file.
@@ -2207,7 +2234,7 @@ This section covers the S3 specific configuration of the Content Service Connect
 
 **Supported Method**
 
-* Create File - Will take full /bucket/key as folderId parameter to bucket and folder configuration
+* Create File - takes full `/bucket/key` as `folderId` parameter to bucket and folder configuration
 * Delete Object by ID
 * Get File Content
 * Get Object Properties
@@ -2314,8 +2341,8 @@ The Apache Kafka Authentication Connector allows you to read from an Apache Kafk
 **Apache Kafka Authentication Connection Fields**
 
 * **Name**: Unique name for the connection
-* **Bootstrap Servers**: Comma Delimited list of servers (in host:port format) to consume from/publish to. Required.
-* **Topic Name**: Topic name to publish to or read from. Required
+* **Bootstrap Servers**: Comma Delimited list of servers (in `host:port` format) to consume from/publish to. Required.
+* **Topic Name**: Topic name to publish to or read from. Required.
 * **SASL Protocol**: The security.protocol config option to set. Will not do anything if SASL Mechanism and SASL JAAS Config Fields are empty. Optional.
 * **SASL Mechanism**: The sasl.mechanism config option to set. Will not do anything if Security Protocol and SASL JAAS Config Fields are empty. Optional.
 * **SASL JAAS Config**: The sasl.jaas.config config option to set. Will not do anything if Security Protocol and SASL Mechanism Fields are empty. Optional.
@@ -2335,7 +2362,7 @@ Most Integration Connections can act in both repository (read) and output (write
 
 ##### Job Configuration
 
-A Federation Services Job is the process of moving or syncing content(including versions, ACL's, metadata) from one CMS (content management system) to another.
+A Federation Services Job is the process of moving or syncing content (including versions, ACLs, metadata) from one CMS (content management system) to another.
 
 **Repository Configuration**: No additional job configurations needed to set up Kafka as a repository source
 **Output Configuration**: No additional job configurations needed to set up Kafka as an output source
@@ -2343,6 +2370,7 @@ A Federation Services Job is the process of moving or syncing content(including 
 #### Apache Solr
 
 Solr is an open-source enterprise-search platform, written in Java, from the Apache Lucene project. Its major features include full-text search, hit highlighting, faceted search, real-time indexing, dynamic clustering, database integration, NoSQL features and rich document handling.
+
 > **Important:** While Federation Servicestion Services still supports Solr for some basic federation cases it will not receive any further enhancements beyond its current state.
 
 [More info on Apache Solr](https://solr.apache.org/){:target="_blank"}
@@ -2350,15 +2378,16 @@ Solr is an open-source enterprise-search platform, written in Java, from the Apa
 ##### Authentication Connection
 
 Authentication connectors are used to authenticate repository/output connections that need certain authentication fields like access tokens or refresh tokens. Click here for more information on setting up an Authentication Connection.
+
 > **Important:** Federation Services has no way of creating a Solr core or generating a Solr schema. The configured Solr core must already exist. For the simplest case, go to your Silurian directory and execute the command `solr -c create _core-name_`. Any attempts to authenticate without a valid core will fail.
 
-**Configuration** 
+**Configuration**
 
-* **Name:** The name of the connection
-* **Host:** The location of the Solr server. Can support multiple urls, comma delimited, if using Solr Cloud
+* **Name:** The name of the connection.
+* **Host:** The location of the Solr server. Can support multiple urls, comma delimited, if using Solr Cloud.
 * **Solr Core Name:** The name of the Solr core (collection) to authenticate to.
-* **Username:** (Optional) The username, if security is enabled
-* **Password:** (Optional) The password, if security is enabled
+* **Username:** (Optional) The username, if security is enabled.
+* **Password:** (Optional) The password, if security is enabled.
 * **Use SolrCloud:** A special high-availability set up for clustered Solr servers.
 * **Use ZooKeeper:** Another Apache product used for clustering servers.
 
@@ -2366,14 +2395,14 @@ Authentication connectors are used to authenticate repository/output connections
 
 The Solr Integration Connection is designed to index content into a Solr core
 
-**Configuration** 
+**Configuration**
 
 * **Connection Name**: This is a unique name given to the connector instance upon creation.
 * **Description**: A description of the connector to help identify it better.
 
 ##### Job Configuration
 
-A Federation Servicestion Services Job is the process of moving or syncing content (including versions, ACL's, metadata) from one CMS (content management system) to another.
+A Federation Servicestion Services Job is the process of moving or syncing content (including versions, ACLs, metadata) from one CMS (content management system) to another.
 
 **Solr Output Specifications**
 
@@ -2481,7 +2510,7 @@ The Aprimo Integration Connection has no configuration as we use a Federation Se
 
 ##### Job Configuration
 
-A Federation Services Job is the process of moving or syncing content (including versions, ACL's, metadata) from one CMS (content management system) to another.
+A Federation Services Job is the process of moving or syncing content (including versions, ACLs, metadata) from one CMS (content management system) to another.
 
 * **Repository Connection Configuration**: Aprimo cannot be used as a Repository Connection
 * **Output Connection Configuration**: No additional configuration needed to use Aprimo as an Output source
@@ -2539,7 +2568,7 @@ In output mode, the connector will output documents in the same fashion as the [
 
 ##### Job Configuration
 
-A Federation Services Job is the process of moving or syncing content (including versions, ACL's, metadata) from one CMS (content management system) to another.
+A Federation Services Job is the process of moving or syncing content (including versions, ACLs, metadata) from one CMS (content management system) to another.
 
 **Output Specification Fields** 
 
@@ -2832,7 +2861,7 @@ Box Secret Key: Secret Key Box will generate for you as part of the Application 
 
 AUTHENTICATION
 
-After filling in your client id and secret. Hit the "Authenticate" button. You will be redirected to a screen in Box asking you to confirm the application permissions. You should be returned to Federation Services after accepting. If you receive an error, your redirect uri in the Box Application config may not be correct.
+After filling in your client id and secret. Hit the **Authenticate** button. You will be redirected to a screen in Box asking you to confirm the application permissions. You should be returned to Federation Services after accepting. If you receive an error, your redirect URI in the Box Application config may not be correct.
 
 ##### Discovery Connector
 
@@ -3206,7 +3235,7 @@ Also known as an input connection. It's job is to query or crawl remote systems 
 * Description: Provide a description for this connection
 * Type: Select the Filesystem Content Service Connector
 * Keep Connection Alive: Keep this connection active
-* Keep alive in Milliseconds (300000 is 5 minutes): How long until connection expires if unused
+* Keep alive in Milliseconds (`300000` is 5 minutes): How long until connection expires if unused
 * Connection URL: The web address for your connection
 * Security Mode: None needed for this connection
 * Mapping Type: Choose single map or group mapping if you are using mapping for jobs
@@ -4265,7 +4294,7 @@ This setup is for CMOD ODWek version 9.5 (64 bit). Other versions of ODWek can a
 
 ##### Job Configuration
 
-A Federation Services Job is the process of moving or syncing content (including versions, ACL's, metadata) from one CMS (content management system) to another.
+A Federation Services Job is the process of moving or syncing content (including versions, ACLs, metadata) from one CMS (content management system) to another.
 
 **Repository Configuration Fields**
 
@@ -4850,52 +4879,58 @@ This section covers the JDBC specific configuration of the Content Service Conne
 
 ##### Advanced Topic: Connecting to a Microsoft Access Database
 
-To use an Access database you'll need a JDBC Driver [here](http://ucanaccess.sourceforge.net/site.html){:target="_blank"}
+To use an Access database you'll need a JDBC Driver [here](http://ucanaccess.sourceforge.net/site.html){:target="_blank"}.
 
-You will need to install the jars in the 3sixty-admin web app. [This post](https://stackoverflow.com/questions/21955256/manipulating-an-access-database-from-java-without-odbc/21955257#21955257){:target="_blank"} tells you the jars you will need:
+You will need to install the JARs in the 3sixty-admin web app. [This post](https://stackoverflow.com/questions/21955256/manipulating-an-access-database-from-java-without-odbc/21955257#21955257){:target="_blank"} tells you the JARS you will need:
 
-Place them into `3sixty-admin/WEB-INF/lib`
+Place them into `3sixty-admin/WEB-INF/lib`.
 
-After installing the jars you should be able to start Federation Services and use the JDBC connector as per usual.
+After installing the JARs you should be able to start Federation Services and use the JDBC connector.
 
 **Example JDBC to BFS Oracle Integration**
 
-This process will walk you through setting up an integration from a JDBC Repository to a BFS Output system.
+This process walks you through setting up an integration from a JDBC Repository to a BFS Output system.
 
 1. **Create a JDBC Auth Connector**:
 
-For Oracle there are a couple of things to note:
+   For Oracle there are a couple of things to note:
 
-* The username must be all caps
-* The SID/Schema must be all caps as well
-* The username can be different from the Schema name, but obviously needs permissions to that Schema.
-* Note the Driver class
+   * The username must be all caps
+   * The SID/Schema must be all caps as well
+   * The username can be different from the Schema name, but obviously needs permissions to that Schema.
+   * Note the Driver class
 
 2. **Create a JDBC Discovery Connector**:
 
-Set the authentication connector to be the auth connector created above. For Oracle, the above will get all objects in your database.
+   Set the authentication connector to be the auth connector created above. For Oracle, the above will get all objects in your database.
 
-Trouble Shooting:
+   Troubleshooting:
 
-Remove any ojdbc jar file from the 3Sixty-admin/WEB-INF/lib directory and put in the ojdbc jar for your Oracle version. For Oracle 12c as an example that would be ojdbc8.jar.
+   Remove any ojdbc jar file from the 3Sixty-admin/WEB-INF/lib directory and put in the ojdbc jar for your Oracle version. For Oracle 12c as an example that would be ojdbc8.jar.
 
-The schema pattern should be set to the schema you want. Oracle seems to hang if you leave that field blank.
+   The schema pattern should be set to the schema you want. Oracle seems to hang if you leave that field blank.
 
-Table types can be a comma delimited list of the following:
+   Table types can be a comma delimited list of the following:
 
-* TABLE
-* VIEW
-* SYSTEM TABLE  
-* GLOBAL TEMPORARY  
-* LOCAL TEMPORARY  
-* ALIAS  
-* SYNONYM
+   * TABLE
+   * VIEW
+   * SYSTEM TABLE  
+   * GLOBAL TEMPORARY  
+   * LOCAL TEMPORARY  
+   * ALIAS  
+   * SYNONYM
 
 3. **Create an integration connector for JDBC**:
-4. **Create an integration connector for BFS.** **NOTE**: BFS does not have an authentication connector.
-5. **Create a job with the repo connector** as your jdbc integration connector and the output connector as your BFS integration connector:
+4. **Create an integration connector for BFS.**
+
+   > **Note:** BFS does not have an authentication connector.
+
+5. **Create a job with the repo connector** as your JDBC integration connector and the output connector as your BFS integration connector.
+
 6. **Edit the BFS Tab**:
-Chose your output folder path that must exist ahead of time. Check the **Include Un-Mapped Properties** check box. Leave the rest as the default like the above picture.
+
+   Chose your output folder path that must exist ahead of time. Check the **Include Un-Mapped Properties** check box. Leave the rest as the default like the above picture.
+
 7. **Edit the JDBC Tab**:
 
 ::: Configuration Some things to note about this configuration:
@@ -5128,13 +5163,13 @@ The Mobius Integration Connection has no configuration as we use a Federation Se
 
 ##### Job Configuration
 
-A Federation Services Job is the process of moving or syncing content (including versions, ACL's, metadata) from one CMS (content management system) to another.
+A Federation Services Job is the process of moving or syncing content (including versions, ACLs, metadata) from one CMS (content management system) to another.
 
 * **Repository Connection Configuration**: No additional configuration needed to use Mobius as an Repository source
 
 **Output Specification**
 
-* **Repository Name**: Mobius Repository Name (ie 'Mobius')
+* **Repository Name**: Mobius Repository Name (ie 'Mobius').
 * **Include Un-Mapped Properties**: All metadata will be output, even if no mappings are supplied. These values will be applied as global properties to the file.
 
 #### Nuxeo
@@ -5149,13 +5184,13 @@ The Nuxeo Authentication Connector contains configuration to authenticate with a
 **Configuration Options**
 
 * **Name**: The name of the connector.
-* **Nuxeo Username**: The name of the user to authenticate with Nuxeo
-* **Nuxeo Password**: The password of the user authenticating with Nuxeo
-* **Nuxeo URL**: The url to the **Nuxeo** endpoint
+* **Nuxeo Username**: The name of the user to authenticate with Nuxeo.
+* **Nuxeo Password**: The password of the user authenticating with Nuxeo.
+* **Nuxeo URL**: The url to the **Nuxeo** endpoint.
 * **Use Caching**: (required) Should the client use caching when making authentication requests?
-* **Session Timeout**: Maximum session timeout in ms
-* **Transaction Timeout**: Maximum transaction timeout in ms
-* **Nuxeo Provider ID**: The provider ID set in the Nuxeo's configuration for MIP (Manage-in-place/ Content federation).
+* **Session Timeout**: Maximum session timeout in milliseconds (ms).
+* **Transaction Timeout**: Maximum transaction timeout in milliseconds (ms).
+* **Nuxeo Provider ID**: The provider ID set in the Nuxeo's configuration for Manage in Place (MIP) /Content Federation.
 
 ##### Discovery Connector
 
@@ -5191,7 +5226,7 @@ The Nuxeo Content Service Connection provides a full ECM API for interacting wit
 
 **Basic Configurations**
 
-* **Connector ID**: A unique identifier for this connection i.e. simflofy_demo (Alphanumeric, dashes and underscore characters only)
+* **Connector ID**: A unique identifier for this connection i.e. `simflofy_demo` (alphanumeric, dashes and underscore characters only)
 * **Description**: The text that will be displayed on drop-downs etc. to identify this connection.
 * **Type**: The type of Search Connection (Solr, Mongo, Alfresco Faceted etc.)
 * **Connection URL**: Your server's web address
@@ -5315,7 +5350,7 @@ The Authentication connection configuration is simple as it only contains three 
 
 ##### Discovery Connector
 
-The Salesforce Discovery Connector allows a user to connect to their Salesforce domain and extract information about available data types and metadata.
+The Salesforce Discovery Connector allows you to connect to your Salesforce domain and extract information about available data types and metadata.
 
 **Discovery Configuration**
 

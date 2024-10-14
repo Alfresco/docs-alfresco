@@ -7,10 +7,15 @@ The following are the supported platforms for Alfresco Federation Services:
 | Version | Notes |
 | ------- | ----- |
 | Content Services 23.x | |
-| Content Services 7.4 | |
 | | |
 | **Java** | |
-| Java JRE 17 or later | |
+| Java JRE 17 | |
+| | |
+| **Databases** | |
+| MongoDB 6 | |
+| | |
+| **Application servers** | |
+| Tomcat 9 | |
 | | |
 | **Browsers** | |
 | Chrome (latest) | |
