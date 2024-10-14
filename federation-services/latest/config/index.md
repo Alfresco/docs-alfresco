@@ -36,7 +36,7 @@ If you have made a mistake in naming or choice of connector you can click **Undo
 
 ### Integration Wizard
 
-With the Integration Wizard you can create source and target repository connections step by step. This wizard will then create a job with some configuration options along the way. Follow the example below to use the Integration Wizard
+With the Integration Wizard you can create source and target repository connections step by step. This wizard will then create a job with some configuration options along the way. Follow the example below to use the Integration Wizard.
 
 **Step 1: Connection Type**
 
@@ -73,9 +73,9 @@ Click on **View Completed Job** to fill out any additional mappings and / or con
 
 ### Federation Wizard
 
-The Federation Wizard is a more specific type of migration, meant to index content into Elasticsearch, Solr, or MongoDB
+The Federation Wizard is a more specific type of migration, meant to index content into Elasticsearch, Solr, or MongoDB.
 
-Following are step-by-step instructions on using the Federation Wizard.
+The following are step-by-step instructions on using the Federation Wizard.
 
 **Input Connection**
 **Step 1: Connection Type**
@@ -117,7 +117,7 @@ Authentication connectors are reusable. Instead of writing the auth configuratio
 #### New Authentication Connection
 
 1. Click on **Authentication Connectors** to create an authentication connector.
-2. At the bottom of the Authentication Connections page click " **CREATE A NEW AUTH CONNECTION** ".
+2. At the bottom of the Authentication Connections page click **CREATE A NEW AUTH CONNECTION** ".
 3. The Connection Type drop-down is searchable. Repeat this step for other systems.
 
 #### Configuration Fields
@@ -1024,22 +1024,23 @@ Click **Add Scope** and check
 **Completed Checklist**
 
 Ensure that you have all the following with your Google project:
-* A Google Drive API listed in your dashboard under APIs and Services
-* If using Vision Tasks: A Cloud Vision API listed in your dashboard under APIs and Services
-* A Web Application OAuth 2.0 Client, listed under Credentials of your project.
-  * This should have an authorised redirect URI with the following format: **{SIMFLOFY_SERVER}/3sixty-admin/authconn/oauthcb**
+
+* A Google Drive API listed in your dashboard under APIs and Services.
+* If using Vision Tasks: A Cloud Vision API listed in your dashboard under APIs and Services.
+* A Web Application OAuth 2.0 Client, listed under Credentials of your project:
+  * This should have an authorised redirect URI with the following format: **{SIMFLOFY_SERVER}/3sixty-admin/authconn/oauthcb**.
 * A filled out OAuth consent form page with:
-  * The ApplicationName " **3Sixty-VisionTextExtractor/1.0**" if using Vision Tasks
-  * A support email to be used on the consent screen
-  * The email, profile, openid, `../auth/drive`
-    * If using Vision Tasks `../auth/cloud-vision`, `../auth/cloud-platform`
+  * The ApplicationName **3Sixty-VisionTextExtractor/1.0** if using Vision Tasks.
+  * A support email to be used on the consent screen.
+  * The email, profile, openid, `../auth/drive`:
+    * If using Vision Tasks `../auth/cloud-vision`, `../auth/cloud-platform`.
 * In Federation Services, a Google OAuth Connector using the secret key and ID from your credentials you created, and the token fields are now populated.
 
 https://developers.google.com/identity/protocols/oauth2#expiration
 
-Our app is in testing status, thus refresh token expires in 7 days and need to re-authenticate again!
+Our app is in testing status, thus refresh token expires in 7 days and need to re-authenticate again.
 
-Production status apps will not have refresh token expiry!
+Production status apps will not have refresh token expiry.
 
 https://stackoverflow.com/questions/71777420/i-want-to-use-google-api-refresh-tokens-forever
 
@@ -1251,7 +1252,7 @@ Microsoft Graph is the API for Microsoft 365. Connect to Office, Windows 10, and
 | MS Graph SharePoint | Yes | Yes | Yes | Yes |
 | MS Graph Teams | Yes | No | No | Yes |
 | MS Graph One Drive | Yes | No | No | Yes |
-| MS Graph Mail	| Yes | No | No | No |
+| MS Graph Mail | Yes | No | No | No |
 
 ##### Authentication Connection
 
@@ -1429,7 +1430,7 @@ Note: The folderId can be a path off of the root library. Such as /test.
 GET /api/repo/graph/updateContent?fileId=01WNAC6Z32P4QVKHLA7ZC2SZH7IYTSDON7
 ```
 
-> Note: Set the new content as the request body
+> **Note:** Set the new content as the request body.
 
 ```text
 {
@@ -1473,7 +1474,7 @@ GET /api/repo/graph/updateContent?fileId=01WNAC6Z32P4QVKHLA7ZC2SZH7IYTSDON7
 GET /api/repo/graph/updateProperties?fileId=01WNAC6ZYYYWDZOWH2DFH3LRHT7MWF5L2R&3SixtyText=metafield
 ```
 
-> Note: Each field will be passed as a separate parameter
+> **Note:** Each field will be passed as a separate parameter.
 
 ```text
 {
@@ -1567,7 +1568,7 @@ GET /api/repo/graph/folderitems?id=01WNAC6Z4BAYBXXIMILVBLXKCZ6K3VVNHJ
 }
 ```
 
-> Note: Only available acls for SharePoint through MSGraph are read, write, and owner
+> **Note:** Only available ACLs for SharePoint through MSGraph are read, write, and owner.
 
 ###### Change Permissions
 
@@ -2916,11 +2917,15 @@ This tab gives you three ways to retrieve data from Box. They construct a query 
 
 As a default, the parent paths of files are absolute, and will include the root folder All Files as well as any folders above the configured ones. When this box is checked, only folder paths up to the "crawled" folders will be included.
 
-> **Tip:** If we have the file `/AFolder/subfolder/testfile.txt` at our root in Box, and we migrate `subfolder`, the file's final parent path will be `/All Files/AFolder/subfolder/`. With the truncate option checked, it will be `/subfolder/testfile.txt`
+> **Tip:** If we have the file `/AFolder/subfolder/testfile.txt` at our root in Box, and we migrate `subfolder`, the file's final parent path will be `/All Files/AFolder/subfolder/`. With the truncate option checked, it will be `/subfolder/testfile.txt`.
 
 ##### Job Configuration (Output)
 
-> **Tip:** The upload APIs for box are different from most others used by Federation Services. Make sure your firewall is set to `allow upload.box.com`, or you will receive the error: `Error while uploading file <filename>.pdf Extended Response is: Couldn't connect to the Box API due to a network error`.
+> **Tip:** The upload APIs for box are different from most others used by Federation Services. Make sure your firewall is set to `allow upload.box.com`, or you will receive the error:
+>
+> ```text
+> Error while uploading file <filename>.pdf Extended Response is: Couldn't connect to the Box API due to a network error.
+> ```
 
 **Output Specification**
 
@@ -3505,7 +3510,7 @@ Viewing the discovery schema instances will show you a table of all available Di
 
 All of these fields will appear in a Job Specification where the CSV connector is the repository.
 
-**CSV File Info** 
+**CSV File Info**
 
 * **CSV File Path**: Path to the CSV file
 * **CSV Type**: CSV Type. Will be prepended to all properties. If blank, the type will be the (filename)_csv
@@ -3515,7 +3520,7 @@ All of these fields will appear in a Job Specification where the CSV connector i
 * **Document Type**: Sets the base type for the migrated files to either documents or folders
 * **Maximum number of rows**: Including the header. Set to 0 or leave blank to read the entire csv
 
-**File Field Mapping** 
+**File Field Mapping**
 
 * **Path Field**: The header under which file paths are stored
 * **Path Includes Files**: If checked, Federation Services will extract the filename from the value found in the Path Field. Only checked if Path Field is populated
@@ -3744,14 +3749,14 @@ The DocuShare Integration Connection must include a DocuShare Authentication Con
 Retrieving ACLs follows the standard format. You will need to send Federation Services the Document id for the target document or collection. The document id is the .getHandle().toLongString(). This means the id includes a reference to the host location: **Document-54:ec2-34-228-158-26.compute-1.amazonaws.com**
 
 **Example**:
-**CURL** 
+**CURL**
 
 ```text
 curl -X GET -u admin:admin 'http://localhost:8081/simflofy-
 admin/repo/ds/acls?id=Document-54:ec2-34-228-158-26.compute-1.amazonaws.com'
 ```
 
-**Output** 
+**Output**
 
 ```text
 {
@@ -3839,7 +3844,7 @@ In the above error, we used a connector ID that does not exist in Federation Ser
 
 When deleting permissions of an object you will need to send an encoded comma separated string as the aclsid argument. This will be a list of principal handles to be deleted.
 **Example**: Delete a single principal Group-6:msedgewin10.local
-**CURL** 
+**CURL**
 
 ```text
 curl -u admin:admin -X POST 'http://localhost:8081/simflofy-

@@ -130,8 +130,6 @@ Congratulations! You have successfully created your first Integration Job.
 
 ## Discovery and Analytics
 
-### Overview
-
 Discovery is the 2nd step in the integration process. Create an instance, select a connector and a schema will be produced based on the connector's configuration. Includes a list of all object types as well as attributes stored in each.
 
 ### Discovery Schema Instances
@@ -333,11 +331,11 @@ Refer to the documentation for each connector to see which fields are available.
 
 * **Filter:**
 
-The authenticated user's group ids and login will be added to each search request. Requires content to be indexed using the Index User Group Task.
+  The authenticated user's group ids and login will be added to each search request. Requires content to be indexed using the Index User Group Task.
 
 * **Restrict:**
 
-Only users from the selected groups will be able to use this search connection, regardless of role. If this connection in used as part of a Content View, users outside these groups will not be able to see it in their View List in Discovery.
+  Only users from the selected groups will be able to use this search connection, regardless of role. If this connection in used as part of a Content View, users outside these groups will not be able to see it in their View List in Discovery.
 
 ##### Connection Configuration
 
@@ -1237,8 +1235,6 @@ Content Views are how users can interact with indexed content in Discovery. They
 
 Views can be created under **Federation > Content Views**. The following information is needed to create a new view.
 
-Views can be created under Federation > Content Views. The following information is needed to create a new view.
-
 * **Short Name**: The key for the view. Only accepts alphanumeric characters, underscored and dashes (URL legal characters). This will be used as part of the url.
 
 > **Tip:** For example: if the shortname is 'test' and the template is 'search', the url will be `/Federation Services-discovery/view/search/test`
@@ -1356,7 +1352,7 @@ You will need a connection to your source and target repositories. Because our s
 
 After you click **Save**, another screen shows the connection, click **Save** again.
 
-**Create an Event Job**
+**Step 2. Create an Event Job**
 
 A Federation Services Job is the process of moving or syncing content (including versions, ACL's, metadata) from one CMS (content management system) to another. Since Federation Services Jobs are specifically engineered for content management systems, moving content and metadata is just point and click. There are many Job Types as well as Job Tasks that can handle anything from data validation and cleansing to duplication detection.
 
@@ -1472,7 +1468,7 @@ There are several things you can map as seen below:
 * **Type Mappings** allow you to map the source type to a target type. These do not have to be the same name.
 * **Calculated Fields** allow you to set constant values by surrounding them in single quotes (') or using the Federation Services [Expressions Language](#federation-services-expression-language).
 
-> **Info**: Calculated fields are processed before tasks and field/aspect mappings. If you wish to further use the product of a calculated field for you will need to create a separate mapping using the calculated fields output as the source.
+> **Info:** Calculated fields are processed before tasks and field/aspect mappings. If you wish to further use the product of a calculated field for you will need to create a separate mapping using the calculated fields output as the source.
 
 ###### Discovery Within Mappings
 
@@ -2095,21 +2091,17 @@ The default value matches any character that isn't a letter, number, space or pe
 
 EXAMPLE - ALPHANUMERICS
 
-The pattern for alphanumeric characters is  
+The pattern for alphanumeric characters is `[a-zA-Z0-9]`, or if you wish to include underscores `\w`.
   
-`[a-zA-Z0-9]`, or if you wish to include underscores `\w`
+To select for non-alphanumeric characters we add the carat (^) before the pattern, so `^[a-zA-Z0-9]`.
   
-To select for non-alphanumeric characters we add the carat (^) before the pattern, so  
-  
-`^[a-zA-Z0-9]`
-  
-The character simply translates to "Not", so it negates whatever is after it.
+The carat character simply translates to "Not", so it negates whatever is after it.
 
 EXAMPLE - CLEARING UNWANTED SPACES
 
 The pattern `\s` is regex shorthand for "spaces". If you're worried about tabs, line breaks etc. add an asterisk (*) after the pattern for what is called "greedy" selection.  
   
-Adding this as your regex and setting the replacement as `''`
+Adding this as your regex and setting the replacement as `''`.
 
 #### Filename Extraction
 
@@ -2120,21 +2112,17 @@ Extracts the file name from another field using regex (Regular Expressions). It 
 
 EXAMPLE - ALPHANUMERICS
 
-The pattern for alphanumeric characters is
+The pattern for alphanumeric characters is `[a-zA-Z0-9]`, or if you wish to include underscores `\w`.
 
-`[a-zA-Z0-9]`, or if you wish to include underscores `\w`
+To select for non-alphanumeric characters we add the carat (^) before the pattern, so `^[a-zA-Z0-9]`.
 
-To select for non-alphanumeric characters we add the carat (^) before the pattern, so
-
-`^[a-zA-Z0-9]`
-
-The character simply translates to "Not", so it negates whatever is after it.
+The carat character simply translates to "Not", so it negates whatever is after it.
 
 EXAMPLE - CLEARING UNWANTED SPACES
 
 The pattern `\s` is regex shorthand for "spaces". If you're worried about tabs, line breaks etc. add an asterisk (*) after the pattern for what is called "greedy" selection.
 
-Adding this as your regex and setting the replacement as `''`
+Adding this as your regex and setting the replacement as `''`.
 
 #### Folder Path Cleanse
 
@@ -2182,7 +2170,9 @@ A sample pattern has been provided for you by default. You can also leverage the
 
 The example pattern is:
 
-`'/' + '#{rd.filename}' + '/simflofy'`
+```text
+'/' + '#{rd.filename}' + '/simflofy'
+```
 
 Using the Expression Language you can see that **rd**. are internal 3Sixty Fields.
 
@@ -3038,7 +3028,7 @@ When viewing the mapping in the Mapping Audits page, you will get a breakdown of
 
 ### Search Audit
 
-Search audits are collected by all search API endpoints. This includes searches performed through Discovery. In this page you can view the audits for the last week. For a broader view, these reports can be retrieved through the [Audit Report Service REST API](https://api.simflofy.com/#/Audit Report Service){:target="_blank"}<!--FIXME: link to the simfloly api, should it stay this way?-->
+Search audits are collected by all search API endpoints. This includes searches performed through Discovery. In this page you can view the audits for the last week. For a broader view, these reports can be retrieved through the [Audit Report Service REST API](https://api.simflofy.com/#/Audit Report Service){:target="_blank"}.
 
 ### Event Audit
 

@@ -9,7 +9,7 @@
       path: '/federation-services/latest/config/'
     - title: 'Administer'
       pages:
-        - title: 'Administer'
+        - title: 'Overview'
           path: '/federation-services/latest/admin/'
         - title: 'Logging'
           path: '/federation-services/latest/admin/logging/'
