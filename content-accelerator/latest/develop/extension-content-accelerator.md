@@ -59,7 +59,7 @@ When you add a new document type extension for use in Alfresco Content Accelerat
 
 If, however, the `tsg:renditioned` aspect is not desired, or the model already exists and cannot be updated, it is possible to turn on view time renditioning in the [Document Viewer]({% link content-accelerator/latest/configure/admin-guide.md %}#document-viewer) config in the Stage.
 
-Steps to accomplish this in your Custom AMP:
+Complete the following steps to accomplish this in your Custom AMP:
 
 1. Create a bean to extend `dictionaryModelBootstrap` that points to the xml file for your custom model.
 
@@ -101,7 +101,7 @@ To accomplish this, complete the following steps:
 
 To override the existing OpenContent code, create a bean in `opencontent-extension-override-config.xml` with the same id as the bean that points to the OpenContent code that you want to override. In your new bean, refer to a new custom class you will implement in your AMP rather than the class the comes out of the box with OpenContent. Note that this will only work for overriding OpenContent classes that are referenced by a bean in OpenContent's spring configuration.
 
-Steps to accomplish this in your Custom AMP (example shows overriding the out-of-the-box Supscription action in ACA):
+Complete the following steps to accomplish this in your Custom AMP. The example shows overriding the out-of-the-box Subscription action in ACA:
 
 1. Create your own custom implementation of the java code you wish to override and give it its own name.
 
@@ -117,7 +117,7 @@ To configure your own custom document overlays (watermarks), create a file named
 
 This file will override the `oc-overlay-config.xml` configurations that come out-of-the-box with OpenContent. If you wish to keep the existing configurations and add your own on top of what is provided, start by copying the `oc-overlay-config.xml` from OpenContent source code and then simply append your configurations to that file rather than starting from scratch.
 
-Steps to accomplish this in your Custom AMP:
+Complete the following steps to accomplish this in your Custom AMP:
 
 1. Place your custom `oc-overlay-config.xml` file at `platform/src/main/config/alfresco/module/com.alfresco.accelerator.extension/`.
 
