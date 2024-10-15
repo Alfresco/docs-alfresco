@@ -367,6 +367,8 @@ To view the collections you create, go to Collection view and select the "My Col
 
 To search public collections of other users, use the "Search Collections" tab in Collections view.
 
+For details on how to configure the Collections view, see the [Attribute Search]({% link content-accelerator/latest/configure/admin-guide.md %}#attribute-search) configuration. The process of configuration is the same for the Collections view and the Attribute Search.
+
 ## DocInfo View {#docinfo-view}
 
 The purpose of this feature is to display an additional information pane that can contain specified attributes and associations for documents that abide by restrictions that are configured through ACA Admin. In order for this informational pane to show up, the view must be enabled in the ACA Admin and the document being opened in the docviewer must match the given configuration restrictions.
