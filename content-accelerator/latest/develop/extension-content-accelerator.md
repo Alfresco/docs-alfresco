@@ -12,7 +12,7 @@ One of the common ways customers and implementation teams extend the out-of-the-
 
 This Custom AMP framework can also be thought of as a generic content accelerator for adding custom configurations and code to an existing ACA accelerator.
 
- A sample SDK project has been generated for reference, see `https://github.com/Alfresco/om-content-accelerator-enterprise-viewer`, as a starting point for developing your own Custom AMP. The sample AMP has been developed so that it can be used for the extension of Claims, Policy and Procedure, or Human Resources Employee File Management accelerators.
+ A sample SDK project has been generated for reference, see `https://github.com/Alfresco/om-content-accelerator-enterprise-viewer`, as a starting point for developing your own Custom AMP. Note that this GitHub repository has restricted access. To access the repository you need to work with the Hyland Services engagement. The sample AMP has been developed so that it can be used for the extension of Claims, Policy and Procedure, or Human Resources Employee File Management accelerators.
 
 ## How to develop a Custom AMP for the existing extensions
 
