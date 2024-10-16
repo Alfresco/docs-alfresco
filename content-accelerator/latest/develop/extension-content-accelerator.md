@@ -111,7 +111,7 @@ Complete the following steps to accomplish this in your Custom AMP. The example 
 
    See `alfresco-sdk-aca-sample/sample-platform/src/main/config/alfresco/module/com.tsgrp.opencontent/extension/opencontent-extension-override-config.xml` in the sample SDK project for reference.
 
-### How create custom overlays in a Custom AMP
+### How to create custom overlays in a Custom AMP
 
 To configure your own custom document overlays (watermarks), create a file named `oc-overlay-config.xml` and configure custom overlays as needed. Refer to [Configuring Overlays]({% link enterprise-viewer/latest/config/overlay.md %}) for more information.
 
