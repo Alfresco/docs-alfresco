@@ -81,18 +81,31 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
     2. Add the following connector:
 
         ```xml
-        <Connector port="8443" protocol="HTTP/1.1"
-            SSLEnabled="true" maxThreads="150" scheme="https"
-            keystoreFile="xxxxx"
-            keystorePass="password" keystoreType="JCEKS"
-            secure="true" connectionTimeout="240000"
-            truststoreFile="xxxxx"
-            truststorePass="password" truststoreType="JCEKS"
-            clientAuth="want" sslProtocol="TLS" />
+        <Connector port="8443"
+           protocol="org.apache.coyote.http11.Http11NioProtocol"
+           connectionTimeout="20000"
+           maxThreads="150"
+           SSLEnabled="true"
+           scheme="https"
+           secure="true"
+           defaultSSLHostConfigName="localhost">
+	<SSLHostConfig hostName="localhost"
+	               protocols="TLSv1.2"
+	               certificateVerification="required"
+	               truststoreFile="/usr/local/tomcat/alf_data/keystore/ssl.truststore"
+	               truststorePassword="truststore"
+	               truststoreType="JCEKS">
+		<Certificate certificateKeystoreFile="/usr/local/tomcat/alf_data/keystore/ssl.keystore"
+		             certificateKeyAlias="ssl.repo"
+		             type="RSA"
+		             certificateKeystorePassword="keystore"
+		             certificateKeystoreType="JCEKS"/>
+	</SSLHostConfig>
+    </Connector>
         ```
         When configuring the Tomcat connector, consider the following:
 
-        * The keystore and truststore file locations in the above example will be created later, when you install and configure Alfresco Search Services.
+        * The keystore and truststore file have to be generated to ensure the best security level when installing Alfresco Search Services. You can choose the location of your choice. By default, they are stored either in the Tomcat installation directory or in the `alfa_data` directory. For more information, see [Alfresco Search Services secure keys generation]({%link search-services/latest/config/keys.md %}#set-up-certificates).
 
         * If you're using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file.
 
