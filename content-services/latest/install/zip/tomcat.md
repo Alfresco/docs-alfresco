@@ -89,10 +89,10 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
            scheme="https"
            secure="true"
            defaultSSLHostConfigName="localhost">
-	<SSLHostConfig hostName="localhost"
+	    <SSLHostConfig hostName="localhost"
 	               protocols="TLSv1.2"
 	               certificateVerification="required"
-	               truststoreFile="/usr/local/tomcat/alf_data/keystore/ssl.truststore"
+	               truststoreFile="/usr/local/tomcat/alf_data/keystore/ssl.truststore"git add conte 
 	               truststorePassword="truststore"
 	               truststoreType="JCEKS">
 		<Certificate certificateKeystoreFile="/usr/local/tomcat/alf_data/keystore/ssl.keystore"
@@ -100,10 +100,10 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
 		             type="RSA"
 		             certificateKeystorePassword="keystore"
 		             certificateKeystoreType="JCEKS"/>
-	</SSLHostConfig>
-    </Connector>
+	    </SSLHostConfig>
+        </Connector>
         ```
-        
+
         When configuring the Tomcat connector, consider the following:
 
         * The keystore and truststore file have to be generated to ensure the best security level when installing Alfresco Search Services. You can choose the location of your choice. By default, they are stored either in the Tomcat installation directory or in the `alfa_data` directory. For more information, see [Alfresco Search Services secure keys generation]({%link search-services/latest/config/keys.md %}#set-up-certificates).
