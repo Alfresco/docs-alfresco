@@ -103,6 +103,7 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
 	</SSLHostConfig>
     </Connector>
         ```
+        
         When configuring the Tomcat connector, consider the following:
 
         * The keystore and truststore file have to be generated to ensure the best security level when installing Alfresco Search Services. You can choose the location of your choice. By default, they are stored either in the Tomcat installation directory or in the `alfa_data` directory. For more information, see [Alfresco Search Services secure keys generation]({%link search-services/latest/config/keys.md %}#set-up-certificates).
