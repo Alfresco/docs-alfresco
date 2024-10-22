@@ -4,7 +4,7 @@ title: JDBC driver
 
 Search and Insight Engine includes a JDBC thin client that can be used with Insight Zeppelin and other SQL clients.
 
-To access the client log into [https://nexus.alfresco.com/nexus/#welcome](https://nexus.alfresco.com/nexus/#welcome) and search for `alfresco-insight-jdbc-1.4.0.jar`.
+To access the client log into [https://nexus.alfresco.com/nexus/#welcome](https://nexus.alfresco.com/nexus) and search for `alfresco-insight-jdbc-1.4.0.jar`.
 
 > **Note:** Contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"} for log in credentials.
 
