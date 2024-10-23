@@ -46,7 +46,7 @@ Microsoft Office transformations are I/O-heavy, and so on some solutions, I/O co
 
 ## Installation
 
-The Document Transformation Engine is installed using an `msi` file where you can select to install a T-Engine at the same time. Alternatively you can install the Document Transformation Engine using the `msi` and use Docker Compose to install the T-Engine. See [Install with MSI]({% link transformation-engine/latest/install/msi.md %}) for more details. There is also an [SDK that can be installed]({% link transformation-engine/latest/install/sdk.md %}).
+The Document Transformation Engine is installed using an `msi` file where you can select to install a T-Engine at the same time. Alternatively you can install the Document Transformation Engine using the `msi` and use Docker Compose to install the T-Engine. See [Install with MSI]({% link transformation-engine/latest/install/msi.md %}) for more details.
 
 ### Set `JAVA_HOME`
 
