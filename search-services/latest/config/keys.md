@@ -38,7 +38,18 @@ Before you start, you must already have OpenSSL and `keytool` available in your 
 
     By default, this creates a `keystores` folder in your current working directory.
 
-    > **Note:** If the `keystores` folder isn't empty, the script exits without producing any keystore or truststore. You can safely, remove the `keystores` folder if you need to re-run the script.
+    > **Note:** If the `keystores` folder isn't empty, the script exits without producing any keystore or truststore. You can safely, remove the `keystores` folder if you need to re-run the script. Also, you can delete the `ca` folder to avoid getting these errors in the console:
+    ```
+     * Invalid switch - "*".
+     * A subdirectory or file ca\certs already exists.
+     * Error occurred while processing: ca\certs.
+     * A subdirectory or file ca\crl already exists.
+     * Error occurred while processing: ca\crl.
+     * A subdirectory or file ca\newcerts already exists.
+     * Error occurred while processing: ca\newcerts.
+     * A subdirectory or file ca\private already exists.
+     * Error occurred while processing: ca\private.
+    ```
 
 See [Keystore directory structure](#keystore-directory-structure) for more and [Customize certificate generation](#customizing-certificate-generation) for a full list of parameters that allow you to customize your certificates. It is recommended that you set your own passwords when generating certificates.
 
