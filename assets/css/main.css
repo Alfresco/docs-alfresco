@@ -238,7 +238,7 @@ nav.navbar .navbar-lang {
 /* FOOTER */
 
 .footer {
-  padding-bottom: 36px;
+  padding-bottom: 0px;
   padding-left: 0px;
   padding-right: 0px;
 }
@@ -272,11 +272,75 @@ nav.navbar .navbar-lang {
 }
 .footer .links ul {
   margin-top: 24px;
-  margin-bottom: 50px;
+  margin-bottom: 16px;
 }
 
 .footer .extra-links {
   flex-wrap: wrap;
+}
+
+/* Footer settings to match corporate web site */
+
+.footer-corporate {
+  background: #181b19;
+  padding-bottom: 1em;
+  width: 100%;
+  margin: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+}
+
+.footer-copyright {
+  font-size: 14px;
+  color: rgba(255, 255, 255, .7);
+  text-align: center;
+  margin: 0;
+  padding: .7em .5em .5em .5em;
+}
+
+.footer-links {
+  list-style: none;
+  padding: .5em .5em 0 .5em;
+  margin: 0;
+  text-align: center;
+  color: rgba(255, 255, 255, .7);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.footer-links li:not(:first-child):before {
+  content: " | ";
+}
+
+/* display: flex; - omit for now; text lost center alignment
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+} */
+
+/* footer links too pale
+.white {
+  opacity: 0.7;
+} */
+
+.white, .white-link {
+  color: #ffffff;
+  font-family: "Inter Variable", Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 25px;
+  text-align: center;
+}
+
+.white-link {
+  text-decoration: none;
+}
+
+.white-link:hover {
+  text-decoration: underline #ffffff;
+  color: #ffffff;
 }
 
 /* sections */
