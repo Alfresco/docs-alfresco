@@ -92,7 +92,7 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
 	    <SSLHostConfig hostName="localhost"
 	               protocols="TLSv1.2"
 	               certificateVerification="required"
-	               truststoreFile="/usr/local/tomcat/alf_data/keystore/ssl.truststore"git add conte 
+	               truststoreFile="/usr/local/tomcat/alf_data/keystore/ssl.truststore"
 	               truststorePassword="truststore"
 	               truststoreType="JCEKS">
 		<Certificate certificateKeystoreFile="/usr/local/tomcat/alf_data/keystore/ssl.keystore"
