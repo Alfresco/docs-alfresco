@@ -313,18 +313,10 @@ nav.navbar .navbar-lang {
   content: " | ";
 }
 
-/* display: flex; - omit for now; text lost center alignment
-.row {
-  display: flex;
+.footer-links ul li {
+  display: inline-block;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-} */
-
-/* footer links too pale
-.white {
-  opacity: 0.7;
-} */
+}
 
 .white, .white-link {
   color: #ffffff;
@@ -341,6 +333,13 @@ nav.navbar .navbar-lang {
 .white-link:hover {
   text-decoration: underline #ffffff;
   color: #ffffff;
+}
+
+.copyright-text,
+.bottom-menu  {
+  padding: 1em;
+  display: inline-block;
+  text-align: center;
 }
 
 /* sections */
