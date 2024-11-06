@@ -14,6 +14,8 @@ The Enterprise configuration deploys the following system:
 
 Alfresco provides tested Helm charts as a "deployment template" for customers who want to take advantage of the container orchestration benefits of Kubernetes. These Helm charts are undergoing continual development and improvement, and shouldn't be used "as is" for your production environments, but should help you save time and effort deploying Content Services for your organization.
 
+>Helm charts are tested using Helm 3.5.4, kubectl 1.18.9 against an EKS cluster running Kubernetes 1.21. For more details, see [ACS Deployment Supported Versions](https://github.com/Alfresco/acs-deployment#versioning){:target="_blank"}.
+
 The Helm charts in this repository provide a PostgreSQL database in a Docker container and don't configure any logging. This design was chosen so that you can install them in a Kubernetes cluster without changes, and they're flexible enough for adopting to your actual environment.
 
 You should use these charts in your environment only as a starting point, and modify them so that Content Services integrates into your infrastructure. You typically want to remove the PostgreSQL container, and connect the `cs-repository` directly to your database (this might require custom images to get the required JDBC driver in the container).
