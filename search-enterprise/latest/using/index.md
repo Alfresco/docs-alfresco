@@ -104,6 +104,12 @@ The whole phrase will be tokenized before the search according to the appropriat
 "big yellow banana"
 ```
 
+The behavior for phrase queries with Alfresco Search Enterprise (Elasticsearch) differs from Alfresco Search Services (Solr).
+
+With Solr, searching for multiple terms in a phrase query returns results where all terms exist in any order. For example, searching “scary fish” returns results for “scary gigantic fish” and also “it’s OK if you have a fish, but scary if you don’t”.
+
+With Elasticsearch searching for multiple terms in a phrase query returns results where all terms exist in the order supplied. For example, searching “scary fish” returns results for “there are scary fish in the water” but not “scary gigantic fish” or “it’s OK if you have a fish, but scary if you don’t”. An alternative is to search “scary AND fish” to find results where both terms occur in any order. See [Search for conjunctions](#search-for-conjunctions) for more information.
+
 ## Search for wildcards
 
 Wildcards are supported in terms, phrases, and exact phrases using `*` to match zero, one, or more characters and `?` to match a single character.
