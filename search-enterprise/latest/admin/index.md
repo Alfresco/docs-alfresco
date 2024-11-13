@@ -198,7 +198,7 @@ The following sample re-indexes all the nodes in the Alfresco Repository which h
   --alfresco.reindex.toTime=202104180000
 ```
 
-> **Note:** Bulk indexing by date range is not recommended for the entire repository, because the meta-data indexing speed is slower. Indexing by date range is intended to be used for a targeted re-index of a small portion of the repository. For example, all updates in the last 24 hours.
+> **Note:** Bulk indexing by date range is not recommended for the entire repository because the meta-data indexing speed is slower. Indexing by date range is intended to be used for a targeted re-index of a small portion of the repository. For example, all updates in the last 24 hours.
 
 ## Deploying at Scale
 
