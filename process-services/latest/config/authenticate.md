@@ -29,7 +29,7 @@ Use this information to configure Process Services to authenticate via Identity 
 
 Configure the `activiti-identity-service.properties` file using the below properties:
 
-> **Note:** A [full list of possible properties](https://www.keycloak.org/docs/latest/securing_apps/index.html#_java_adapter_config) is also available.
+> **Note:** A [full list of possible properties](https://www.keycloak.org/docs/22.0.5/securing_apps/index.html#_java_adapter_config) is also available.
 
 |Property|Description|
 |--------|-----------|
