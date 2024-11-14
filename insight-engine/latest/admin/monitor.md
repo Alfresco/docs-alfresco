@@ -10,7 +10,7 @@ This task describes how to perform a full Solr reindex.
 
 The task assumes you are using only one Solr instance for all nodes in the Alfresco Content Services cluster. If not, then you need to repeat the process on each Solr instance used in the cluster.
 
-1. Confirm the location of the Solr core directories for archive and alfresco cores. This can be determined from the solrcore.properties file for both the cores. By default, the solrcore.properties file can be found at `<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`. The Solr core location is defined in the `solrcore.properties` file as:
+1. Confirm the location of the Solr core directories for archive and alfresco cores. This can be determined from the solrcore.properties file for both the cores. By default, the `solrcore.properties file` can be found at `<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`. The Solr core location is defined in the `solrcore.properties` file as:
 
     For Solr, the default data.dir.root path is:
 
@@ -176,6 +176,37 @@ Use the following setting to specify an option core for the report. If it is abs
 ```
 
 You can also fix index issues, check the index cache and backup individual indexes by using JMX. The status of the index can be checked using the JMX client on the **JMX MBeans > Alfresco > solrIndexes > `<store>`** tabs. The default view is the Solr core summary. The operations run the same consistency checks that are available by URL.
+
+### Troubleshooting - unsearchable content
+
+If content becomes unsearchable for some documents, it is possible that the necessary transformations failed and the documents are currently indexed with a `transform_failed` status.
+
+> **Note:** For Enterprise installations (assuming the reason for these failed transformations is the temporary unavailability of the Transform Engines (T-Engines)) it is recommended to verify that the T-Engines do get back up and running, and to check that ActiveMQ was and still is available. In that case, the documents indexed with a `transform_failed` status should be automatically reindexed once the T-Engines come back up and the prior ActiveMQ messages are consumed, without any further steps being required.
+
+These documents can be identified via the following query:
+
+```http
+http://localhost:8080/solr/alfresco/select?indent=on&q=cm:content.transformationStatus:transform_failed&wt=xml
+```
+
+You can extract the DB IDs of the nodes for the which the transformation of the content failed from the response:
+
+```
+    <result name="response" numFound="1" start="0">
+        <doc>
+            <long name="DBID">877</long>
+            <str name="id">_DEFAULT_!800000000000036d</str>
+        </doc>
+    </result>
+```
+
+Once the IDs have been identified, you can perform the following request once for each node, using the `REINDEX` parameter to trigger a reindexing attempt:
+
+```http
+http://localhost:8080/solr/admin/cores?action=REINDEX&nodeid=877
+```
+
+Alternatively, you can perform a full reindex following the instructions in [Perform a full reindex with Solr](#perform-a-full-reindex-with-solr).
 
 ## Solr troubleshooting for SSL configurations
 
