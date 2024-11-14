@@ -34,7 +34,7 @@ The keys and certificates required for mutual TLS on the repository side are set
     * If using Alfresco Content Services 7.x on Tomcat 9 or 23.x on Tomcat 10:
 
     ```bash
-    <Connector port="8443"
+    <Connector port="8999"
            protocol="org.apache.coyote.http11.Http11NioProtocol"
            connectionTimeout="20000"
            maxThreads="150"
@@ -45,13 +45,13 @@ The keys and certificates required for mutual TLS on the repository side are set
 	    <SSLHostConfig hostName="localhost"
 	               protocols="TLSv1.2"
 	               certificateVerification="required"
-	               truststoreFile="/usr/local/tomcat/alf_data/keystore/ssl.truststore"
-	               truststorePassword="truststore"
+	               truststoreFile="xxxxxxx"
+	               truststorePassword="yyyyy"
 	               truststoreType="JCEKS">
-		    <Certificate certificateKeystoreFile="/usr/local/tomcat/alf_data/keystore/ssl.keystore"
+		    <Certificate certificateKeystoreFile="xxxxxxx"
 		             certificateKeyAlias="ssl.repo"
 		             type="RSA"
-		             certificateKeystorePassword="keystore"
+		             certificateKeystorePassword="yyyyy"
 		             certificateKeystoreType="JCEKS"/>
 	    </SSLHostConfig>
     </Connector>
