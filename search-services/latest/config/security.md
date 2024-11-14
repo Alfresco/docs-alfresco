@@ -17,7 +17,7 @@ The keys and certificates required for mutual TLS on the repository side are set
 
 1. Modify `<TOMCAT_HOME>/conf/server.xml` and add the following connector:
 
-    * If using Alfresco Content Accelerator 6.x on Tomcat 8:
+    * If using Alfresco Content Services 6.x on Tomcat 8:
 
     ```xml
     <Connector port="8999" protocol="HTTP/1.1"
