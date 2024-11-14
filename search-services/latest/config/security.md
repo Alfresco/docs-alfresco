@@ -17,6 +17,8 @@ The keys and certificates required for mutual TLS on the repository side are set
 
 1. Modify `<TOMCAT_HOME>/conf/server.xml` and add the following connector:
 
+    * If using Alfresco Content Accelerator 6.x on Tomcat 8:
+
     ```xml
     <Connector port="8999" protocol="HTTP/1.1"
         connectionTimeout="20000"
@@ -27,6 +29,32 @@ The keys and certificates required for mutual TLS on the repository side are set
         truststoreFile="xxxxxxx"
         truststorePass="yyyyy"
     />
+    ```
+
+    * If using Alfresco Content Services 7.x on Tomcat 9 or 23.x on Tomcat 10:
+
+    ```bash
+    <Connector port="8443"
+           protocol="org.apache.coyote.http11.Http11NioProtocol"
+           connectionTimeout="20000"
+           maxThreads="150"
+           SSLEnabled="true"
+           scheme="https"
+           secure="true"
+           defaultSSLHostConfigName="localhost">
+	    <SSLHostConfig hostName="localhost"
+	               protocols="TLSv1.2"
+	               certificateVerification="required"
+	               truststoreFile="/usr/local/tomcat/alf_data/keystore/ssl.truststore"
+	               truststorePassword="truststore"
+	               truststoreType="JCEKS">
+		    <Certificate certificateKeystoreFile="/usr/local/tomcat/alf_data/keystore/ssl.keystore"
+		             certificateKeyAlias="ssl.repo"
+		             type="RSA"
+		             certificateKeystorePassword="keystore"
+		             certificateKeystoreType="JCEKS"/>
+	    </SSLHostConfig>
+    </Connector>
     ```
 
 2. Copy the keystore and truststore files you created in [Generating secure keys for ssl communication]({% link search-services/latest/config/keys.md %}#generating-secure-keys-for-ssl-communication) to the machine that's running the repository.
