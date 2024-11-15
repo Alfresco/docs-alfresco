@@ -206,7 +206,7 @@ Before we move on and use the FDK content model to demonstrate associations we n
 
 *1\) Download the Form Development Kit \(FDK\) Source JAR*
 
-Download the FDK Source code from [Alfresco artifacts repository \(Nexus\)](https://artifacts.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/test/fdk-custom-model-module/1.0/fdk-custom-model-module-1.0-sources.jar).
+Download the FDK Source code from [Alfresco artifacts repository \(Nexus\)](https://artifacts.alfresco.com/nexus/repository/releases/org/alfresco/test/fdk-custom-model-module/1.0/fdk-custom-model-module-1.0-sources.jar).
 
 *2\) Copy the FDK content model files into the SDK project*
 

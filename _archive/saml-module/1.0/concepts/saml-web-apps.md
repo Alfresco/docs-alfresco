@@ -21,7 +21,7 @@ The web client for ADF will be loaded from a different web server than the on wh
 To enable CORS in the Alfresco, do one of the following:
 
 -   Download and install the CORS module
-    1.  Download the [CORS module](https://artifacts.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/enablecors/1.0/enablecors-1.0.jar).
+    1.  Download the [CORS module](https://artifacts.alfresco.com/nexus/repository/releases/org/alfresco/enablecors/1.0/enablecors-1.0.jar).
     2.  Stop the Alfresco server.
     3.  Add the enable CORS platform module JAR to the <ALFRESCO\_HOME\>/modules/platform directory.
     4.  Restart the Alfresco server.
