@@ -44,7 +44,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Browsers** | |
 | Mozilla Firefox | |
 | Microsoft Edge | Versions based on Chromium only |
-| MS Internet Explorer 11 | |
 | Chrome | |
 | | |
 | **Third party integrations** | |
