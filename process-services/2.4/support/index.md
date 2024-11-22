@@ -35,7 +35,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Application servers** | |
 | Tomcat 9.0 | |
-| Jetty 9.4 | |
 | | |
 | **JDKs** | |
 | OpenJDK 17.0.2 |  |
