@@ -269,6 +269,11 @@ To deploy the Outlook Integration T-Engine with the Transform Service, you'll ne
     ```yaml
     -DlocalTransform.transform-outlook.url=http://transform-outlook:8090/
     ```
+3. To enable remote transformations, add the configuration to `transform-router` container
+    ```yaml
+    TRANSFORMER_URL_OUTLOOK: "http://transform-outlook:8090/"
+    TRANSFORMER_QUEUE_OUTLOOK: "org.alfresco.transform.engine.outlook.acs"
+    ```
 
 See the Content Services documentation - [T-Engine configuration](https://github.com/Alfresco/acs-packaging/blob/master/docs/creating-a-t-engine.md#t-engine-configuration){:target="_blank"} for more details. For further development, see [Content Transformers and Renditions Extension Points]({% link content-services/latest/develop/repo-ext-points/content-transformers-renditions.md %}).
 
