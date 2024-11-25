@@ -148,6 +148,8 @@ Not all distributions of Linux may match the version requirements for Ansible an
 
 1. Download the Ansible playbook: `alfresco-ansible-deployment-x.x`, where `x.x` is the version number.
 
+   For the supported version of the playbook, see [Alfresco Ansible Deployment](https://alfresco.github.io/alfresco-ansible-deployment/overview.html){:target="_blank"}.
+
    You can download the Ansible playbook from the Alfresco Nexus repository available at https://nexus.alfresco.com/nexus. Search for `alfresco-ansible-deployment`.
 
    If you're not working directly on the control node, transfer the ZIP file to the control node together with the SSH private key required to login to the target machines, and SSH into the control node.
