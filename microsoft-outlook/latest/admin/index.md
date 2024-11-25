@@ -63,7 +63,7 @@ The Outlook clients initiates the authentication process directly against the Id
 * Client ID
 * Redirect URL
 
-Details about the configuration parameters are in the [configuration]{% link microsoft-outlook/latest/config/index.md %} page.
+Details about the configuration parameters are in the [configuration]({% link microsoft-outlook/latest/config/index.md %}) page.
 
 > **Note:** To allow the use of the SAML provider without additional user interaction, you must force the use of the SAML provider. See [Identity Service documentation]({% link identity-service/latest/tutorial/sso/saml.md %}#step-5-optional-enforcing-saml) for
 details.
