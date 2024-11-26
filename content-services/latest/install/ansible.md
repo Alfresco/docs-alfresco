@@ -632,7 +632,7 @@ Ansible Vault provides two alternative ways to protect secrets:
 In the previous links you can read both advantages and disadvantages of the two approaches.
 
 > If you are upgrading from previous versions of the playbook, you may want to
-> read [upgrade notes](playbook-upgrade.md#secrets-management).
+> read the [upgrade notes](#secrets-management).
 
 ##### Encrypted variables
 

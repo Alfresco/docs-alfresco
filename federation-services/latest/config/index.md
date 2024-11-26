@@ -340,6 +340,7 @@ etc.
 The following connectors are recommended and supported by the latest version of Federation Services.
 
 | Software Connector | Description |
+| ------------------ | ----------- |
 | [Objective ECM/Nexus](#objective-ecmnexus) | Can be used as an output connector for Manage in Place |
 | [Elasticsearch](#elasticsearch) | Can be used as a content search connector for Manage in Place |
 | [MongoDB](#mongodb), [MongoDB GridFS](#mongodb-gridfs) | Can be used as a content search connector for Manage in Place |
@@ -1272,7 +1273,7 @@ The Tenant, Client ID, and Client Secret, are all provided to you during your Ap
 
 #### Microsoft Graph SharePoint
 
-##### Authentification Connection
+##### Authentication Connection
 
 > **Tip:** Tip:  Its recommended that OAuth be used for Migration only. And Client / Secret Auth be used for Content Service
 
@@ -1803,7 +1804,7 @@ Federation Services supports 3 types of OneDrive:
 
 **Standard Authentication Configuration**
 
-Use this authentication connector when accessing a "SharePoint" Drive. For more information see [Microsoft Graph](microsoft-graph.htm) Authentication Connection.
+Use this authentication connector when accessing a "SharePoint" Drive. For more information see [Microsoft Graph](#microsoft-graph) Authentication Connection.
 
 The application will require the following permissions:
 
