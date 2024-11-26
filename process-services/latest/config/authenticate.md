@@ -13,6 +13,8 @@ The authentication methods that can be configured for Process Services are:
 
 Process Services can be configured to authenticate using the [Identity Service]({% link identity-service/1.2/index.md %}).
 
+>**Note:** Starting from Alfresco Process Services 24.1, basic authentication is no longer supported when `activiti.identity-service.enabled` is set to `true`, as part of replacing Keycloak adapter with Spring security. This includes access to the REST APIs, for which you will first need to obtain a token from Identity Services.
+
 The Identity Service allows you to configure user authentication between a supported LDAP provider or SAML identity provider and the Identity Service for Single Sign On (SSO) capabilities.
 
 The Identity Service needs to be [deployed]({% link identity-service/1.2/install/index.md %}) and [configured]({% link identity-service/1.2/config/index.md %}) with an identity provider before being set up with other Alfresco products.

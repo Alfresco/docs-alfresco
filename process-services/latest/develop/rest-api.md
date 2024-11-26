@@ -22,6 +22,8 @@ You can use any of the following methods for REST API user authentication:
 * [OAuth 2 SSO](#oauth-2-sso-overview)
 * Impersonation
 
+>**Note:** Starting from Alfresco Process Services 24.1, basic authentication is no longer supported when `activiti.identity-service.enabled` is set to `true`, as part of replacing Keycloak adapter with Spring security. This includes access to the REST APIs, for which you will first need to obtain a token from Identity Services.
+
 If you are using basic authentication, you must set all requests with the `Authorization` header.
 
 If you are using OAuth 2 to authenticate users for SSO, see [OAuth 2 SSO](#oauth-2-sso-overview) for more information.
