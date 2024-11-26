@@ -14,7 +14,7 @@ The form controls for each field determine how the field is displayed and handle
 
 |Control|Description|
 |-------|-----------|
-|Text|Allows you to enter text.|
+|Text|Allows you to enter text. <br><br>Alfresco Process Services uses jQuery Mask Plugin for masking. <br><br>Only the following characters has meaning with the used jQuery plugin. <br><br>0 - Numbers only. <br>9 - Numbers only. <br>S - Alphabets only (Small-Capital). <br>A - Alphabets (Small-Capital) and Numbers. <br># - Unlimited numbers if it's the last or only character. <br><br>All other alphanumeric or special characters serve as separators. <br><br>**Note:** The Input mask feature in the Text field is intended to format user input, not to hide it.|
 |Multi-line Text|Enables you to enter multiple lines of text within a text box.|
 |Number|Allows you to enter a number.|
 |Checkbox|Allows selection and deselection of the field.|
