@@ -24,7 +24,7 @@ The Extension Inspector has two main modules:
 
 ## Download
 
-You can download the [alfresco-extension-inspector-1.5.0.jar](https://artifacts.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/extension-inspector/alfresco-extension-inspector/1.5.0/alfresco-extension-inspector-1.5.0.jar) file from the Alfresco Nexus repository.
+You can download the [alfresco-extension-inspector-1.5.0.jar](https://artifacts.alfresco.com/nexus/repository/releases/org/alfresco/extension-inspector/alfresco-extension-inspector/1.5.0/alfresco-extension-inspector-1.5.0.jar) file from the Alfresco Nexus repository.
 
 >**Note:** See the [Alfresco Extension Inspector](https://github.com/Alfresco/alfresco-extension-inspector){:target="_blank"} GitHub repository for more details.
 

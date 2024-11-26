@@ -141,7 +141,7 @@ how to configure a control node  with one of the many ways to set a python virtu
 you can install the exact same versions of Ansible we use when testing without impacting your system installation of python. 
 Doing so you're ensuring best chances of success.
 
-1. Download the Ansible playbook [zip file](https://nexus.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/alfresco-ansible-deployment/2.0.0/alfresco-ansible-deployment-2.0.0.zip)
+1. Download the Ansible playbook [zip file](https://nexus.alfresco.com/nexus/repository/releases/org/alfresco/alfresco-ansible-deployment/2.0.0/alfresco-ansible-deployment-2.0.0.zip)
 
 2. If you're not working directly on the control node, transfer the ZIP file to the control node together with the 
    SSH private key required to login to the target machines, and SSH into the machine
@@ -656,7 +656,7 @@ The following error during installation indicates Nexus login issues:
 .....
 Error was a <class 'ansible.errors.AnsibleError'>, original message: An unhandled exception occurred while running the lookup plugin 'url'.
 Error was a <class 'ansible.errors.AnsibleError'>, original message: Received HTTP error for
-https://artifacts.alfresco.com/nexus/service/local/repositories/enterprise-releases/content/org/alfresco/alfresco-content-services-distribution/7.0.0/alfresco-content-services-distribution-7.1.0.zip.sha1
+https://artifacts.alfresco.com/nexus/repository/enterprise-releases/org/alfresco/alfresco-content-services-distribution/7.0.0/alfresco-content-services-distribution-7.1.0.zip.sha1
  : HTTP Error 401: basic auth failed"
 }*
 ```

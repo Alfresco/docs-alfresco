@@ -28,7 +28,7 @@ The Extension Inspector has two main modules:
 | Analyser | `extension-inspector-analyser` for analyzing custom extensions against the inventory |
 
 ## Download
-You can download the [alfresco-extension-inspector-1.2.1.jar](https://artifacts.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/extension-inspector/alfresco-extension-inspector/1.2.1/alfresco-extension-inspector-1.2.1.jar) 
+You can download the [alfresco-extension-inspector-1.2.1.jar](https://artifacts.alfresco.com/nexus/repository/releases/org/alfresco/extension-inspector/alfresco-extension-inspector/1.2.1/alfresco-extension-inspector-1.2.1.jar) 
 file from the Alfresco Nexus repository.
 
 >**Note:** See the [Alfresco Extension Inspector](https://github.com/Alfresco/alfresco-extension-inspector){:target="_blank"} GitHub repository for more details.
