@@ -3187,7 +3187,7 @@ Alfresco system. It's assumed that you are using Alfresco SDK.
 
 *Download the Form Development Kit (FDK) Source JAR*
 
-Download the FDK Source code: `fdk-custom-model-module-x.x-sources`, where `x.x` is the version number. To download the FDK Source code, search for `fdk-custom-model-module` in the Alfresco Nexus repository available at https://nexus.alfresco.com/nexus.
+Download the FDK Source code: `fdk-custom-model-module-x.x-sources`, where `x.x` is the version number. To download the FDK Source code, search for `"fdk-custom-model-module"` in the Alfresco Nexus repository available at https://nexus.alfresco.com/nexus.
 
 *Copy the FDK content model files into the SDK project*
 
