@@ -1484,7 +1484,7 @@ defaults:
     values:
       version: 1.0
 
-# Alfresco Support Handbook
+# Alfresco Support Handbook - Migrated
   - scope:
       path: "support"
     values:
@@ -1497,6 +1497,7 @@ defaults:
     values:
       version: 1.0
       latest: true
+      migrated-sp: true
 
 # Alfresco Outlook Integration
   - scope:
