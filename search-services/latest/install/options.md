@@ -23,6 +23,8 @@ This task assumes you have:
     solr.port=8983
     ```
 
+> **Note:** If using the Community Edition of Content Services, the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file is already set up as required.
+
 > **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search Services server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search Services.
 
 1. Download `alfresco-search-services-2.0.x.zip` from the [Hyland Community](https://community.hyland.com/){:target="_blank"} if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
