@@ -24,6 +24,10 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Ubuntu 20.04 | |
 | Rocky Linux 8.7 | |
 |  |  |
+| **Container Orchestration** | |
+| Kubernetes 1.29 | Tested with latest [ACS Helm chart](https://alfresco.github.io/acs-deployment/helm/alfresco-content-services/README.html) |
+| Amazon EKS 1.28 | Tested with latest [ACS Helm chart](https://alfresco.github.io/acs-deployment/helm/alfresco-content-services/README.html) |
+|  |  |
 | **Databases** | |
 | MySQL 8 | `mysql-connector-java-8.0.27.jar` |
 | MS SQL Server 2019 | `mssql-jdbc-9.2.1.jre11.jar` |

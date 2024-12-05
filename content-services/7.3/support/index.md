@@ -19,6 +19,10 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | CentOS 8.3 x64 | |
 | Ubuntu 22.04 | |
 |  |  |
+| **Container Orchestration** | |
+| Kubernetes 1.29 | Tested with latest [ACS Helm chart](https://alfresco.github.io/acs-deployment/helm/alfresco-content-services/README.html) |
+| Amazon EKS 1.28 | Tested with latest [ACS Helm chart](https://alfresco.github.io/acs-deployment/helm/alfresco-content-services/README.html) |
+|  |  |
 | **Databases** | |
 | MySQL 8.0 | `mysql-connector-java-8.0.30.jar` |
 | MS SQL Server 2019 | `mssql-jdbc-9.2.1.jre11.jar` |
