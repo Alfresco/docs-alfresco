@@ -23,8 +23,13 @@
     {% assign pathElements = page.path | split: "/" %}
 
     {% if pathElements.size >= 3 %}
+
     {% if page.migrated == true or page.version == 'community' %}
     {% include migrated_banner.html %}
+
+    {% elsif page.migrated-sp == true %}
+    {% include migrated_handbook.html %}
+
     {% endif %}
     {% endif %}
 
