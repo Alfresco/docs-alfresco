@@ -398,7 +398,7 @@ defaults:
     values:
       version: 3.1
       latest: true
-      migration: true
+      migrated: true
   - scope:
       path: "salesforce/3.0"
     values:
@@ -549,7 +549,7 @@ defaults:
     values:
       version: 1.18
       latest: true
-      migration: true
+      migrated: true
   - scope:
       path: "desktop-sync/1.17"
     values:
@@ -1383,7 +1383,7 @@ defaults:
     values:
       version: 5.0
       latest: true
-      migration: true
+      migrated: true
   - scope:
       path: "sync-service/4.0"
     values:
