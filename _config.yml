@@ -1499,7 +1499,7 @@ defaults:
       latest: true
       migrated-sp: true
 
-# Alfresco Outlook Integration
+# Alfresco Outlook Integration - Migrated
   - scope:
       path: "microsoft-outlook"
     values:
@@ -1522,6 +1522,7 @@ defaults:
     values:
       version: 3.0
       latest: true
+      migrated: true
   - scope:
       path: "microsoft-outlook/2.10"
     values:
