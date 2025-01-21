@@ -87,4 +87,6 @@ These steps describe how to prepare a suitable location for data storage and the
     create database alfresco encoding 'utf8';
     create role alfresco LOGIN password 'alfresco';
     grant all on database alfresco to alfresco;
+    grant all on SCHEMA public to alfresco;
+    grant usage on SCHEMA public to alfresco;
     ```
