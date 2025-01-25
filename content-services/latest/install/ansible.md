@@ -146,7 +146,9 @@ The table below shows the version of the components deployed by the playbook for
 
 Not all distributions of Linux may match the version requirements for Ansible and its dependencies. Below we describe how to configure a control node with one of the many ways to set a Python virtual environment. With Python `virtualenvs` you can install the exact same versions of Ansible we use when testing without impacting your system installation of Python. By doing so, you're ensuring the best chances of success.
 
-1. Download the Ansible playbook [zip file](https://nexus.alfresco.com/nexus/repository/releases/org/alfresco/alfresco-ansible-deployment/2.3.0/alfresco-ansible-deployment-2.3.0.zip){:target="_blank"}.
+1. Download the Ansible playbook: `alfresco-ansible-deployment-x.x`, where `x.x` is the version number.
+
+   You can download the Ansible playbook from the Alfresco's Nexus repository available at https://nexus.alfresco.com/nexus. Find the zip file in the repository by searching for `"alfresco-ansible-deployment"`. For the supported version of the playbook, see [Alfresco Ansible Deployment](https://alfresco.github.io/alfresco-ansible-deployment/overview.html){:target="_blank"}. It is recommended to use the latest version.
 
    If you're not working directly on the control node, transfer the ZIP file to the control node together with the SSH private key required to login to the target machines, and SSH into the control node.
 
@@ -630,7 +632,7 @@ Ansible Vault provides two alternative ways to protect secrets:
 In the previous links you can read both advantages and disadvantages of the two approaches.
 
 > If you are upgrading from previous versions of the playbook, you may want to
-> read [upgrade notes](playbook-upgrade.md#secrets-management).
+> read the [upgrade notes](#secrets-management).
 
 ##### Encrypted variables
 

@@ -17,3 +17,6 @@ vendor
 *.iml
 *.iws
 docker-compose-o.yml
+
+# VS Code
+.vscode/

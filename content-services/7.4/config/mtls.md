@@ -208,22 +208,22 @@ server.ssl.enabled=true
 
 #Server behavior keystore
 server.ssl.key-password=password
-server.ssl.key-store=/keystores/tengineAIO/tengineAIO.keystore 
+server.ssl.key-store=file:/keystores/tengineAIO/tengineAIO.keystore 
 server.ssl.key-store-password=password
 server.ssl.key-store-type=JCEKS
 #Server behavior truststore
-server.ssl.trust-store=/keystores/tengineAIO/tengineAIO.truststore
+server.ssl.trust-store=file:/keystores/tengineAIO/tengineAIO.truststore
 server.ssl.trust-store-password=password
 server.ssl.trust-store-type=JCEKS
 #Require inbound communication to provide a certificate
 server.ssl.client-auth=need
 
 #Client behavior keystore
-client.ssl.key-store=/keystores/tengineAIO/tengineAIO.keystore
+client.ssl.key-store=file:/keystores/tengineAIO/tengineAIO.keystore
 client.ssl.key-store-password=password
 client.ssl.key-store-type=JCEKS
 #Client behavior truststore
-client.ssl.trust-store=/keystores/tengineAIO/tengineAIO.truststore
+client.ssl.trust-store=file:/keystores/tengineAIO/tengineAIO.truststore
 client.ssl.trust-store-password=password
 client.ssl.trust-store-type=JCEKS
 ```

@@ -501,6 +501,8 @@ Using this variable setting allows MySQL to convert all table names to lowercase
 
 See the [MySQL site](https://dev.mysql.com/){:target="_blank"} for more information on this variable.
 
+> **Note:** In environments with a high volume of ingestions or content updates, it is recommended to set the `--transaction-isolation` level to `READ-COMMITED`.
+
 ## Oracle
 
 You can configure an Oracle RDBMS database for use with Content Services. The Oracle database is case sensitive, so any configuration setting that you add into `alfresco-global.properties` must match the case used in Oracle.
