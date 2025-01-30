@@ -177,7 +177,7 @@ install `alfresco-pdf-renderer` on your system.
     * Note down the exe path: `<alfresco-pdf-renderer_installation_dir>/alfresco-pdf-renderer`.
 
 * For Linux:
-    * Download [alfresco-pdf-renderer-1.1-linux.tgz](https://nexus.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/alfresco-pdf-renderer/1.1/alfresco-pdf-renderer-1.1-linux.tgz).
+    * Download [alfresco-pdf-renderer-1.1-linux.tgz](https://nexus.alfresco.com/nexus/repository/releases/org/alfresco/alfresco-pdf-renderer/1.1/alfresco-pdf-renderer-1.1-linux.tgz).
     * Browse to the location of your saved file and extract the archive to a location of your choice.
     * Note down the exe path: `<alfresco-pdf-renderer_installation_dir>/alfresco-pdf-renderer`.
 
@@ -185,7 +185,7 @@ install `alfresco-pdf-renderer` on your system.
 
 Transform Service uses the [ExifTool](https://exiftool.org/){:target="_blank"} for metadata extraction.
 
-Download version 12.25 of the ExifTool from [Alfresco Nexus Server](https://nexus.alfresco.com/nexus/service/local/repositories/thirdparty/content/org/exiftool/image-exiftool/12.25/image-exiftool-12.25.tgz){:target="_blank"}
+Download version 12.25 of the ExifTool from [Alfresco Nexus Server](https://nexus.alfresco.com/nexus/repository/thirdparty/org/exiftool/image-exiftool/12.25/image-exiftool-12.25.tgz){:target="_blank"}
 
 See this [ExifTool page](https://exiftool.org/install.html){:target="_blank"} for installation instructions.
 
@@ -201,7 +201,7 @@ Example from Transform Service Dockerfile:
 ```bash
 ARG EXIFTOOL_VERSION=12.25
 ARG EXIFTOOL_FOLDER=Image-ExifTool-${EXIFTOOL_VERSION}
-ARG EXIFTOOL_URL=https://nexus.alfresco.com/nexus/service/local/repositories/thirdparty/content/org/exiftool/image-exiftool/${EXIFTOOL_VERSION}/image-exiftool-${EXIFTOOL_VERSION}.tgz
+ARG EXIFTOOL_URL=https://nexus.alfresco.com/nexus/repository/thirdparty/org/exiftool/image-exiftool/${EXIFTOOL_VERSION}/image-exiftool-${EXIFTOOL_VERSION}.tgz
 
 RUN ...
     curl -s -S $EXIFTOOL_URL -o ${EXIFTOOL_FOLDER}.tgz && \
