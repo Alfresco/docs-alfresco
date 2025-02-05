@@ -543,6 +543,12 @@ Once the **Stamp** button is clicked, a preview of the stamp is displayed on the
 
 The **Custom Stamps** are located in the **Stamps** drop-down menu below the **Checkmark** stamp button.
 
+##### Support for Non-AEV Generated Stamps
+
+Stamps with predefined images and subject text are fully supported without restrictions. Limited support is available for custom stamps not generated directly in AEV. To view non-AEV stamps, which are stamps that are not generated in AEV, you must set the configuration `excludeEmbeddedAnnotations` to `false`. For more information on `excludeEmbeddedAnnotations`, see [Exclude Embedded Annotations]({% link enterprise-viewer/latest/config/files.md %}#excludeembeddedannotations).
+
+Custom stamp requests that fall outside these supported capabilities will be treated as enhancement requests and may require additional development work. For configuration details, refer to [AEV Stamp Properties]({%link enterprise-viewer/latest/config/files.md %}#aevstampproperties).
+
 #### Help
 
 The **Help** button is used to give the user more information regarding Enterprise Viewer. When this button is clicked a
