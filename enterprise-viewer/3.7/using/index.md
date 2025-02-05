@@ -532,7 +532,7 @@ The **Checkmark Stamp** button is located in the **Stamps** dropdown below the *
 
 ##### Support for Non-AEV Generated Stamps
 
-Stamps with predefined images and subject text are fully supported without restrictions. Limited support is available for custom stamps not generated directly in AEV. To view non-AEV stamps, which are stamps that are not generated in AEV, you must set the configuration `excludeEmbeddedAnnotations` to `false`. For more information on `excludeEmbeddedAnnotations`, see [Enable Embedded Annotations]({% link enterprise-viewer/3.7/config/files.md %}#excludeEmbeddedAnnotations).
+Stamps with predefined images and subject text are fully supported without restrictions. Limited support is available for custom stamps not generated directly in AEV. To view non-AEV stamps, which are stamps that are not generated in AEV, you must set the configuration `excludeEmbeddedAnnotations` to `false`. For more information on `excludeEmbeddedAnnotations`, see [Exclude Embedded Annotations]({% link enterprise-viewer/3.7/config/files.md %}#excludeembeddedannotations).
 
 Custom stamp requests that fall outside these supported capabilities will be treated as enhancement requests and may require additional development work.
 
