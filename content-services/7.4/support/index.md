@@ -19,7 +19,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Windows Server 2019 | |
 | Amazon Linux | v2 |
 | Ubuntu 22.04 | |
-| Ubuntu 20.04 | |
 | Rocky Linux 8.7 | |
 |  |  |
 | **Databases** | |
@@ -116,7 +115,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Windows Server 2019 | |
 | Amazon Linux | v2 |
 | Ubuntu 22.04 | |
-| Ubuntu 20.04 | |
 | Rocky Linux 8.7 | |
 |  |  |
 | **Databases** | |
@@ -234,7 +232,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Windows Server 2019 | |
 | Amazon Linux | v2 |
 | Ubuntu 22.04 | |
-| Ubuntu 20.04 | |
 | Rocky Linux 8.7 | |
 |  |  |
 | **Databases** | |
