@@ -15,8 +15,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Windows Server 2019 | |
 | Windows Server 2016 | |
 | Rocky Linux 8.7 | |
-| CentOS 8 x64 | |
-| CentOS 7 x64 | |
 | | |
 | **Databases** | |
 | MariaDB 10.5 | 2.7.3 |
