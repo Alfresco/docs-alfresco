@@ -29,7 +29,7 @@ Make sure you have the correct version of the Enterprise Viewer package for your
 Operating system and libraries for the target server machine:
 
 * Windows: Windows Server 2016 or newer
-* Linux: CentOS, Ubuntu, RHL, Amazon Linux
+* Linux: Ubuntu, RHL, Amazon Linux
 
 ### Custom transformer configuration file
 

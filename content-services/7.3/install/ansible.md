@@ -101,7 +101,6 @@ While Content Services supports a wide range of OS, the playbook is only support
 | RHEL 8.2 | [x] | [x] | [x] | [x] | [x] |
 | RHEL 7.7 | - | - | [x] | [x] | [x] |
 | RHEL 7.6 | - | - | [x] | [x] | [x] |
-| CentOS 7 x64 | [x] | [x] | [x] |[x] | [x] |
 | Ubuntu 22.04 | [x] | - | - | - | [x] |
 | Ubuntu 20.04 | [x] | [x] | [x] | [x] | [x] |
 | Ubuntu 18.04 | - | - | [x] | [x] | [x] |

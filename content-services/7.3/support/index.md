@@ -16,7 +16,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Red Hat Enterprise Linux 8.7 x64 | |
 | Windows Server 2022 | |
 | Amazon Linux | v2 |
-| CentOS 8.3 x64 | |
 | Ubuntu 22.04 | |
 |  |  |
 | **Databases** | |
@@ -109,8 +108,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Windows Server 2022 | |
 | Windows Server 2019 | |
 | Amazon Linux | v2 |
-| CentOS 7.9 x64 | |
-| CentOS 8.3 x64 | |
 | Ubuntu 22.04 | |
 | Ubuntu 20.04 | |
 |  |  |
@@ -221,8 +218,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Windows Server 2022 | |
 | Windows Server 2019 | |
 | Amazon Linux | v2 |
-| CentOS 7.9 x64 | |
-| CentOS 8.3 x64 | |
 | Ubuntu 22.04 | |
 | Ubuntu 20.04 | |
 |  |  |
