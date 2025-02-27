@@ -162,6 +162,8 @@ Before continuing, make sure that you've already completed the steps in [Generat
 
     2. For the Tomcat SSL Connector in `<TOMCAT_HOME>/conf/server.xml` update the following:
 
+        * If using Alfresco Content Services 6.x on Tomcat 8:
+
         ```bash
         <Connector port="8443" protocol="HTTP/1.1"
             SSLEnabled="true" maxThreads="150" scheme="https"
@@ -171,6 +173,32 @@ Before continuing, make sure that you've already completed the steps in [Generat
             truststoreFile="/usr/local/tomcat/alf_data/keystore/ssl.truststore"
             truststorePass="password" truststoreType="JCEKS"
             clientAuth="want" sslProtocol="TLS" />
+        ```
+
+        * If using Alfresco Content Services 7.x on Tomcat 9 or 23.x on Tomcat 10:
+
+        ```bash
+        <Connector port="8443"
+           protocol="org.apache.coyote.http11.Http11NioProtocol"
+           connectionTimeout="20000"
+           maxThreads="150"
+           SSLEnabled="true"
+           scheme="https"
+           secure="true"
+           defaultSSLHostConfigName="localhost">
+	        <SSLHostConfig hostName="localhost"
+	               protocols="TLSv1.2"
+	               certificateVerification="required"
+	               truststoreFile="/usr/local/tomcat/alf_data/keystore/ssl.truststore"
+	               truststorePassword="truststore"
+	               truststoreType="JCEKS">
+		    <Certificate certificateKeystoreFile="/usr/local/tomcat/alf_data/keystore/ssl.keystore"
+		             certificateKeyAlias="ssl.repo"
+		             type="RSA"
+		             certificateKeystorePassword="keystore"
+		             certificateKeystoreType="JCEKS"/>
+	        </SSLHostConfig>
+        </Connector>
         ```
 
         > **Note:** If you're using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file. Also, make sure that the keystore and truststore file locations are correct for your environment.

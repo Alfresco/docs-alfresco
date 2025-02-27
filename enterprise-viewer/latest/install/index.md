@@ -29,7 +29,7 @@ Make sure you have the correct version of the Enterprise Viewer package for your
 Operating system and libraries for the target server machine:
 
 * Windows: Windows Server 2016 or newer
-* Linux: CentOS, Ubuntu, RHL, Amazon Linux
+* Linux: Ubuntu, RHL, Amazon Linux
 
 ### Custom transformer configuration file
 
@@ -542,11 +542,21 @@ This section walks through how to install the web applications on a separate Tom
 
    You'll find the WAR file in the `Web Applications` folder of the `alfresco-enterprise-viewer-package` zip.
 
-3. Configure Tomcat for shared classpath loader as well as encoded slashes (if not already configured in the Content Accelerator installation):
+3. Configure Tomcat for shared classpath loader (if not already configured in the Content Accelerator installation):
 
    Edit the `TOMCAT_HOME/conf/catalina.properties` file and enable the `shared.loader` by adding the following line (if not already there):
 
    `shared.loader=${catalina.base}/shared/classes,${catalina.base}/shared/lib/*.jar`
+
+4. (If not already configured in the ACA install) - Configure Tomcat ports as well as encoded slashes in the `TOMCAT_HOME/conf/server.xml`:
+
+   Configure the connector, server, and redirect ports to not conflict with Alfresco Tomcat’s (example below):
+
+   * Set Connector - `port="9090"` (defaults to `8080`)
+   * Set Connector - `redirectPort="9443"` (defaults to `8443`)
+   * Set Server - `port="9005"` (defaults to `8005`)
+
+   Note that you will need to ensure that the port chosen (i.e. `9090`) is open to the end user.
 
    ACA has some routes that are formatted like:
 
@@ -556,21 +566,7 @@ This section walks through how to install the web applications on a separate Tom
 
    In the above case, the object ID is URL encoded. This means that forward slashes in the object ID are URL encoded to `%2F`. By default, Tomcat does not serve any URLs with a URL encoded forward (or back) slash.
 
-   To work around the issue, edit the `TOMCAT_HOME/conf/catalina.properties` file and add the following line (if not already there):
-
-    ```java
-    org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true
-    ```
-
-4. (If not already configured in the ACA install) - Configure Tomcat ports in the `TOMCAT_HOME/conf/server.xml`:
-
-   Configure the connector, server, and redirect ports to not conflict with Alfresco Tomcat’s (example below):
-
-   * Set Connector - `port="9090"` (defaults to `8080`)
-   * Set Connector - `redirectPort="9443"` (defaults to `8443`)
-   * Set Server - `port="9005"` (defaults to `8005`)
-
-   Note that you will need to ensure that the port chosen (i.e. `9090`) is open to the end user.
+   To work around this issue, add `encodedSolidusHandling="decode"` to your `server.xml` file.
 
 5. (If not already configured in the ACA install) - Create a `classes` directory:
 

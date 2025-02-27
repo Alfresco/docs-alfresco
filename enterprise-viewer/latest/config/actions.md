@@ -481,6 +481,18 @@ CHANGE_BG_COLOR: "ChangeBgColor"
 
 Actions that belong to this type: `bgColorBlack`, `bgColorDefault`, `bgColorLavender`, `bgColorLightBlue`, `bgColorLightGreen`, `bgColorLightGrey`, `bgColorLightPink`, `bgColorLightSalmon`, `bgColorLightYellow`, `bgColorRemove`, `colorReset`, `bgColorWhite`.
 
+### Action Display Tags
+
+When configuring one of the mode enabled properties to determine which actions and dropdowns are displayed in a particular AEV mode, you can add several useful tags to the property to specify how and when the actions are displayed. 
+
+The following table outlines results of adding specific tags:
+
+| Tag | Result |
+| --- | ------ |
+| `--isSmallScreen` | The action is displayed only when AEV is displayed on a small screen, that is when browser width is below 1185 px. |
+| `--showAtAllSizes` | The action is always displayed regardless of screen size, assuming user has appropriate permissions. |
+| `--sidebar` | The action is displayed in the AEV sidebar panel.<br><br>Not all actions have this capability. |
+
 ## Action groups, toolbar order, and dropdowns
 
 ### Action groups
@@ -505,8 +517,9 @@ Properties relating to dropdowns:
 
 | Property | Description |
 | -------- | ----------- |
-| --dropdownLabel | Sets the `dropdownLabel` to the specified value. Defaults to an empty string. |
-| --dropdownIcon  | Sets the `dropdownIcon` to the specified value. Defaults to chevron-down. These refer to glyphicon values provided at [https://getbootstrap.com/docs/3.3/components/](https://getbootstrap.com/docs/3.3/components/){:target="_blank"}. |
+| `--dropdownLabel` | Sets the `dropdownLabel` to the specified value. Defaults to an empty string. |
+| `--dropdownIcon`  | Sets the `dropdownIcon` to the specified value. Defaults to chevron-down. These refer to glyphicon values provided at [https://getbootstrap.com/docs/3.3/components/](https://getbootstrap.com/docs/3.3/components/){:target="_blank"}. |
+| `--dropdownShowSelected` | If this property is provided, the dropdown shows which item is currently selected. |
 
 ## Enabling and disabling modes of AEV
 

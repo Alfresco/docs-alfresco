@@ -175,7 +175,7 @@ install `alfresco-pdf-renderer` on your system.
     * Note down the exe path: `<alfresco-pdf-renderer_installation_dir>/alfresco-pdf-renderer`.
 
 * For Linux:
-    * Download [alfresco-pdf-renderer-1.1-linux.tgz](https://nexus.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/alfresco-pdf-renderer/1.1/alfresco-pdf-renderer-1.1-linux.tgz).
+    * Download [alfresco-pdf-renderer-1.1-linux.tgz](https://nexus.alfresco.com/nexus/repository/releases/org/alfresco/alfresco-pdf-renderer/1.1/alfresco-pdf-renderer-1.1-linux.tgz).
     * Browse to the location of your saved file and extract the archive to a location of your choice.
     * Note down the exe path: `<alfresco-pdf-renderer_installation_dir>/alfresco-pdf-renderer`.
 
@@ -184,7 +184,7 @@ Transform Service uses the [ExifTool](https://exiftool.org/){:target="_blank"} f
 Apache Tika for extracting image metadata if the auto-detect parser is enabled, which automatically figures out what 
 kind of content you have, then calls the appropriate parser for you.
 
-Download version 12.25 of the ExifTool from [Alfresco Nexus Server](https://nexus.alfresco.com/nexus/service/local/repositories/thirdparty/content/org/exiftool/image-exiftool/12.25/image-exiftool-12.25.tgz){:target="_blank"}
+Download version 12.25 of the ExifTool from [Alfresco Nexus Server](https://nexus.alfresco.com/nexus/repository/thirdparty/org/exiftool/image-exiftool/12.25/image-exiftool-12.25.tgz){:target="_blank"}
 
 See this [ExifTool page](https://exiftool.org/install.html){:target="_blank"} for installation instructions.
 

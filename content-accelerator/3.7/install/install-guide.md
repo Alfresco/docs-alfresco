@@ -37,12 +37,9 @@ Please ensure you have the correct version of the Content Accelerator package fo
 Operating System and libraries for the target server machine:
 
 * **Windows**: Windows Server 2016 or newer
-* **Linux**: CentOS, Ubuntu, RHL, Amazon Linux
+* **Linux**: Ubuntu, RHL, Amazon Linux
   * **TrueType Font set** - In order to have OpenOverlay apply the expected fonts to overlays/watermarks, the Truetype Arial font is expected to be installed on the server that runs OpenContent.
     * **Ubuntu** - `sudo apt install ttf-mscorefonts-installer`
-    * **CentOS** -
-       1. Place fonts into the `/usr/share/fonts` directory
-       2. Run `fc-cache -v /usr/share/fonts/ && fc-cache-64 -v /usr/share/fonts/`
     * **Amazon-linux** - this typically comes pre-installed
 
 ## Install Proxy (Optional in non-production env)

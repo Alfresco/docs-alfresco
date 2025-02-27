@@ -37,12 +37,9 @@ Please ensure you have the correct version of the Content Accelerator package fo
 Operating System and libraries for the target server machine:
 
 * **Windows**: Windows Server 2016 or newer
-* **Linux**: CentOS, Ubuntu, RHL, Amazon Linux
+* **Linux**: Ubuntu, RHL, Amazon Linux
   * **TrueType Font set** - In order to have OpenOverlay apply the expected fonts to overlays/watermarks, the Truetype Arial font is expected to be installed on the server that runs OpenContent.
     * **Ubuntu** - `sudo apt install ttf-mscorefonts-installer`
-    * **CentOS** -
-       1. Place fonts into the `/usr/share/fonts` directory
-       2. Run `fc-cache -v /usr/share/fonts/ && fc-cache-64 -v /usr/share/fonts/`
     * **Amazon-linux** - this typically comes pre-installed
 
 ## Install Proxy (Optional in non-production env)
@@ -412,11 +409,19 @@ In this section we ensure that all components of the Content Accelerator are ins
 
    When running OpenContent on Tomcat 8+, the `relaxedQueryChars` and `relaxedPathChars` parameters are required on the Connector. If you are using Tomcat older than version 8.5 - you may need to add this to catalina.properties in your tomcat/conf folder.: `tomcat.util.http.parser.HttpParser.requestTargetAllow=|{}`
 
+   ACA has some routes that are formatted like the following:
+
+   `/ocms/{aca-module}/{object-id}`
+
+   In this case, the object ID is URL encoded. This means that using Alfresco as a back-end causes forward slashes in the object ID to be URL encoded to `%2F`. By default, neither Tomcat nor Apache serve any URLs with a URL encoded forward (or back) slash.
+
+   To work around the issue, the default value for `encodedSolidusHandling` needs to be updated to `decode`.
+
    The following will need to be updated:
 
    In the `${tomcat.home}/conf/web.xml`
 
-   Un-comment the setCharacterEncodingFilter and its mapping in web.xml (If not already uncommented)
+   Un-comment the setCharacterEncodingFilter and its mapping in web.xml (if not already uncommented).
 
    ```xml
    <!-- ================== Built In Filter Definitions ===================== -->
@@ -451,6 +456,7 @@ In this section we ensure that all components of the Content Accelerator are ins
     * `connectionTimeout="20000"`
     * `maxHttpHeaderSize="32768"`
     * `relaxedQueryChars="{}[]|"`
+    * `encodedSolidusHandling="decode"`
     * `relaxedPathChars="{}[]|"`
 
    ```xml
@@ -459,6 +465,7 @@ In this section we ensure that all components of the Content Accelerator are ins
                   redirectPort="8443"
                   URIEncoding="UTF-8"
                   relaxedQueryChars="{}[]|"
+                  encodedSolidusHandling="decode"
                   relaxedPathChars="{}[]|" />
    ```
 
@@ -528,21 +535,11 @@ This section walks through how to install the web applications on a separate Tom
 
    You'll find this WAR file in the `Web Applications` folder of the `alfresco-content-accelerator-policy-and-procedure-accelerator` zip or `alfresco-content-accelerator-sehr-accelerator` zip.
 
-4. Configure Tomcat for shared classpath loader as well as encoded slashes:
+4. Configure Tomcat for shared classpath loader:
 
    Edit the `TOMCAT_HOME/conf/catalina.properties` file and enable the `shared.loader` by adding the following line:
 
    `shared.loader=${catalina.base}/shared/classes,${catalina.base}/shared/lib/*.jar`
-
-   ACA has some routes that are formatted like the following:
-
-   `/ocms/{aca-module}/{object-id}`
-
-   In the above case, the object ID is URL encoded.  This means that forward slashes in the object ID are URL encoded to `%2F`.  By default, Tomcat does not serve any URLs with a URL encoded forward (or back) slash.  
-
-   To work around the issue, edit the `TOMCAT_HOME/conf/catalina.properties` file and add the following:
-
-   `org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true`
 
 5. Configure Tomcat ports in the `TOMCAT_HOME/conf/server.xml`:
 
@@ -604,21 +601,11 @@ This section walks through how to install the web applications on Alfresco Tomca
 
    You'll find this WAR file in the `Web Applications` folder of the `alfresco-content-accelerator-policy-and-procedure-accelerator` zip or `alfresco-content-accelerator-sehr-accelerator` zip.
 
-4. Configure Tomcat for shared classpath loader as well as encoded slashes:
+4. Configure Tomcat for shared classpath loader:
 
    Edit the `ALFRESCO_HOME/tomcat/conf/catalina.properties` file and enable the `shared.loader` by adding the following line:
 
    `shared.loader=${catalina.base}/shared/classes,${catalina.base}/shared/lib/*.jar`
-
-   ACA has some routes that are formatted like the following:
-
-   `/ocms/{aca-module}/{object-id}`
-
-   In the above case, the object ID is URL encoded.  This means that using Alfresco as a back-end, causes forward slashes in the object ID to be URL encoded to `%2F`.  By default, neither Tomcat nor Apache serve any URLs with a URL encoded forward (or back) slash.  
-
-   To work around the issue on the Alfresco Tomcat itself, add the following configuration to the to your Java Opts / CATALINA_OPTS.  To update the java options, go to {TOMCAT_HOME}/bin and run tomcat7w.exe //ES//{TOMCAT_SERVICE_NAME}
-
-   `-Dorg.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true`
 
    OR edit the `ALFRESCO_HOME/tomcat/conf/catalina.properties` file and add the following:
 

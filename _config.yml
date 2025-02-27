@@ -241,7 +241,7 @@ defaults:
       latest: true
       migrated: true
 
-# Alfresco Google Drive
+# Alfresco Google Docs Integration - Migrated
   - scope:
       path: "google-drive"
     values:
@@ -262,6 +262,7 @@ defaults:
     values:
       version: 4.1
       latest: true
+      migrated: true
   - scope:
       path: "google-drive/4.0"
     values:
@@ -315,7 +316,7 @@ defaults:
     values:
       version: 1.0
 
-# Alfresco Content Connector for Azure
+# Alfresco Content Connector for Azure - Migrated
   - scope:
       path: "microsoft-azure"
     values:
@@ -340,6 +341,7 @@ defaults:
     values:
         version: 5.0
         latest: true
+        migrated: true
   - scope:
       path: "microsoft-azure/4.0"
     values:
@@ -377,7 +379,7 @@ defaults:
     values:
       version: 1.0
 
-# Alfresco Content Connector for Salesforce
+# Alfresco Content Connector for Salesforce - Migrated
   - scope:
       path: "salesforce"
     values:
@@ -398,6 +400,7 @@ defaults:
     values:
       version: 3.1
       latest: true
+      migrated: true
   - scope:
       path: "salesforce/3.0"
     values:
@@ -519,7 +522,7 @@ defaults:
       version: 1.0
       tutorial: false
       
-# Alfresco Desktop Sync
+# Alfresco Desktop Sync - Migrated
   - scope:
       path: "desktop-sync"
     values:
@@ -548,6 +551,7 @@ defaults:
     values:
       version: 1.18
       latest: true
+      migrated: true
   - scope:
       path: "desktop-sync/1.17"
     values:
@@ -781,7 +785,7 @@ defaults:
     values:
       version: 1.9
 
-# Alfresco Document Transformation Engine (DTE)
+# Alfresco Document Transformation Engine (DTE) - Migrated
   - scope:
       path: "transformation-engine"
     values:
@@ -799,6 +803,7 @@ defaults:
     values:
       version: 2.4
       latest: true
+      migrated: true
   - scope:
       path: "transformation-engine/2.3"
     values:
@@ -808,7 +813,7 @@ defaults:
     values:
       version: 2.2
 
-# Alfresco Content Connector for AWS S3
+# Alfresco Content Connector for AWS S3 - Migrated
   - scope:
       path: "aws-s3"
     values:
@@ -833,6 +838,7 @@ defaults:
     values:
       version: 6.1
       latest: true
+      migrated: true
   - scope:
       path: "aws-s3/6.0"
     values:
@@ -870,7 +876,7 @@ defaults:
     values:
       version: 2.2
 
-# Alfresco Collaboration Connector for Microsoft 365
+# Alfresco Collaboration Connector for Microsoft 365 - Migrated
   - scope:
       path: "microsoft-365"
     values:
@@ -887,7 +893,8 @@ defaults:
       path: "microsoft-365/latest"
     values:
      version: 2.0
-     latest: true       
+     latest: true
+     migrated: true
   - scope:
       path: "microsoft-365/1.1"
     values:
@@ -897,7 +904,7 @@ defaults:
     values:
       version: 1.0
       
-  # Alfresco Collaboration Connector for Teams
+  # Alfresco Collaboration Connector for Teams - Migrated
   - scope:
       path: "microsoft-teams"
     values:
@@ -915,6 +922,7 @@ defaults:
     values:
       version: 2.0
       latest: true
+      migrated: true
   - scope:
       path: "microsoft-teams/1.1"
     values:
@@ -1107,7 +1115,7 @@ defaults:
     values:
       version: 1.1
 
-# Alfresco Content Connector for SAP Applications
+# Alfresco Content Connector for SAP Applications - Migrated
   - scope:
       path: "sap"
     values:
@@ -1127,6 +1135,7 @@ defaults:
     values:
       version: 6.0
       latest: true
+      migrated: true
   - scope:
       path: "sap/5.3"
     values:
@@ -1144,7 +1153,7 @@ defaults:
     values:
       version: 5.0
 
-# Alfresco Content Connector for SAP Cloud
+# Alfresco Content Connector for SAP Cloud - Migrated
   - scope:
       path: "sap-cloud"
     values:
@@ -1163,6 +1172,7 @@ defaults:
     values:
       version: 2.0
       latest: true
+      migrated: true
   - scope:
       path: "sap-cloud/1.2"
     values:
@@ -1352,7 +1362,7 @@ defaults:
     values:
       version: 1.0
 
-# Alfresco Sync Service
+# Alfresco Sync Service - Migrated
   - scope:
       path: "sync-service"
     values:
@@ -1381,6 +1391,7 @@ defaults:
     values:
       version: 5.0
       latest: true
+      migrated: true
   - scope:
       path: "sync-service/4.0"
     values:
@@ -1434,7 +1445,7 @@ defaults:
     values:
       version: 3.0
 
-# Alfresco Intelligence Services (AIS)
+# Alfresco Intelligence Services (AIS) - Migrated
   - scope:
       path: "intelligence-services"
     values:
@@ -1456,6 +1467,7 @@ defaults:
     values:
       version: 3.1
       latest: true
+      migrated: true
   - scope:
       path: "intelligence-services/1.5"
     values:
@@ -1481,7 +1493,7 @@ defaults:
     values:
       version: 1.0
 
-# Alfresco Support Handbook
+# Alfresco Support Handbook - Migrated
   - scope:
       path: "support"
     values:
@@ -1494,8 +1506,9 @@ defaults:
     values:
       version: 1.0
       latest: true
+      migrated-sp: true
 
-# Alfresco Outlook Integration
+# Alfresco Outlook Integration - Migrated
   - scope:
       path: "microsoft-outlook"
     values:
@@ -1518,6 +1531,7 @@ defaults:
     values:
       version: 3.0
       latest: true
+      migrated: true
   - scope:
       path: "microsoft-outlook/2.10"
     values:
