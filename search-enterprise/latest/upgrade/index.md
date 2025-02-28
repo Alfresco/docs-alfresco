@@ -6,7 +6,7 @@ Use this information to upgrade from Search Services 2.x to Search Enterprise 4.
 
 > **Note:** A full re-index is required when you upgrade from Search Services 2.x to Search Enterprise 4.x because the search engine is switching from Solr to Elasticsearch. If it is necessary for you to have a backup of the old SOLR index, then it must be copied elsewhere before you re-index.
 
-Search Enterprise 4.x is compatible with Alfresco Content Services 7.1 and above, which means you need to upgrade to this version before applying the following steps.
+Before upgrading, please check that you have the supported Alfresco Content Services version installed (see [Supported platforms]({% link search-enterprise/latest/support/index.md %})).
 
 ## Configure Subsystem in Repository
 
