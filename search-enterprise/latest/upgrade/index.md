@@ -10,7 +10,7 @@ Before upgrading, please check that you have the supported Alfresco Content Serv
 
 ## Configure Subsystem in Repository
 
-Before upgrading you must activate and configure the Search Services subsystem in Content Services, for more see [Subsystem]({% link search-enterprise/latest/support/index.md %}#configure-subsystem-in-repository).
+Before upgrading you must activate and configure the Search Services subsystem in Content Services, for more see [Subsystem]({% link search-enterprise/latest/install/index.md %}#configure-subsystem-in-repository).
 
 ## Install Elasticsearch connector
 
