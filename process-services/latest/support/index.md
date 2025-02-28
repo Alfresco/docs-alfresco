@@ -25,6 +25,10 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Ubuntu 22.04 | |
 | Amazon Linux 2 | |
 | | |
+| **Container Orchestration** | |
+| Kubernetes 1.29 | Tested with [APS Helm chart](https://github.com/Alfresco/alfresco-process-services-deployment) |
+| Amazon EKS 1.28 | Tested with [APS Helm chart](https://github.com/Alfresco/alfresco-process-services-deployment) |
+|  |  |
 | **Databases** | |
 | MariaDB 10.6 | 3.1.4 |
 | MySQL 8.0 | `mysql-connector-java-8.0.33.jar` |
