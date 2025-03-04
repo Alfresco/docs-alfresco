@@ -1218,7 +1218,7 @@ defaults:
       latest: true
       migrated: true
 
-# Alfresco Federation Services (AFS)
+# Alfresco Federation Services (AFS) - Migrated
   - scope:
       path: "federation-services"
     values:
@@ -1240,6 +1240,7 @@ defaults:
     values:
       version: 3.2
       latest: true
+      migrated: true
   - scope:
       path: "federation-services/3.1"
     values:
