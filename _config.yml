@@ -985,7 +985,7 @@ defaults:
     values:
       version: 1.1
 
-# Alfresco Transform Service (ATS)
+# Alfresco Transform Service (ATS) - Migrated
   - scope:
       path: "transform-service"
     values:
@@ -1012,6 +1012,7 @@ defaults:
     values:
       version: 4.1
       latest: true
+      migrated: true
   - scope:
       path: "transform-service/4.0"
     values:
@@ -1304,7 +1305,7 @@ defaults:
     values:
       version: 3.0
 
-# Alfresco Search Services
+# Alfresco Search Services - Migrated
   - scope:
       path: "search-services"
     values:
@@ -1322,6 +1323,7 @@ defaults:
     values:
       version: 2.0
       latest: true
+      migrated: true
   - scope:
       path: "search-services/1.4"
     values:
@@ -1331,7 +1333,7 @@ defaults:
     values:
       version: 1.3
 
-# Alfresco Search and Insight Engine
+# Alfresco Search and Insight Engine - Migrated
   - scope:
       path: "insight-engine"
     values:
@@ -1350,6 +1352,7 @@ defaults:
     values:
       version: 2.0
       latest: true
+      migrated: true
   - scope:
       path: "insight-engine/1.4"
     values:
