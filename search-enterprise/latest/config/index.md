@@ -294,7 +294,7 @@ To increase the consumer number you must check the property name in the `applica
     live-indexing-metadata:
         image: quay.io/alfresco/alfresco-elasticsearch-live-indexing-metadata:${LIVE_INDEXING_METADATA_TAG}
         environment:
-            INPUT_ALFRESCO_METADATA_BATCH_EVENT_CHANNEL: sjms-batch:metadata.event?completionTimeout=1000&completionSize=10&aggregationStrategy=#eventAggregator&?consumerCount=20
+            INPUT_ALFRESCO_METADATA_BATCH_EVENT_CHANNEL: sjms:org.alfresco.search.metadata.event?concurrentConsumers=20
 ```
 ## Bulk deletion and ingestion
 
