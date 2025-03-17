@@ -143,10 +143,10 @@ nav.navbar .navbar-lang {
   display: block;
   width: 345px;
   height: auto;
-  padding: 0;
+  padding: 36px;
 }
 
-@media (max-width: 345px) {
+@media (max-width: 361.58px) {
   .icon-logo img {
     transform: scale(0.8); 
   }
@@ -282,7 +282,7 @@ nav.navbar .navbar-lang {
 /* Footer settings to match corporate web site */
 
 .footer-corporate {
-  background: #181b19;
+  background: #191F5E;
   padding-bottom: 1em;
   width: 100%;
   margin: 0px;
@@ -369,12 +369,12 @@ body > .section {
 /* landing */
 
 .landing-mainimage {
-  height: 40vw;
+  height: 20vw;
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
-  background-image: url(/assets/img/il_books_600px.svg);
+  /* background-image: url(/assets/img/il_books_600px.svg); */
   border: 0px;
 }
 
@@ -877,7 +877,7 @@ body > .section.section-landing {
   background: rgba(42, 125, 225, 0.04);
   border: 1px solid rgba(42, 125, 225, 0.12);
   padding: 0.15em 0.25em 0.15em;
-  font-family: "Roboto Mono", monospace;
+  font-family: "Source Sans 3", Arial, Meiryo, system-ui;
   font-weight: 400;
   /* line-height: 1.9em; */
 }
@@ -2183,7 +2183,7 @@ footer .copyright img {
   /* light yellow #FFF8C5; light grey #888888, dark red border #880000;
   dark green #419346, light green #83BC59, orange #F0963B, yellow #FBE94E */
   margin-top: 4px;
-  margin-bottom: 4px;
+  margin-bottom: 36px;
   padding: 10px 10px 10px 10px;
   border-width: 2px 2px;
   border-radius: 4px;
