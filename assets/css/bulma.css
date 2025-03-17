@@ -286,7 +286,7 @@ button,
 input,
 select,
 textarea {
-  font-family: "Inter", sans-serif; }
+  font-family: "Source Sans 3", Arial, Meiryo, system-ui }
 
 code,
 pre {
@@ -5828,7 +5828,7 @@ a.has-text-light:hover, a.has-text-light:focus {
   color: #dbdbdb !important; }
 
 .has-background-light {
-  background-color: whitesmoke !important; }
+  background-color: #F4F6FE !important; }
 
 .has-text-dark {
   color: #363636 !important; }
