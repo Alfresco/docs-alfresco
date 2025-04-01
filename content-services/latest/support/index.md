@@ -28,8 +28,9 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | MS SQL Server 2022 | `mssql-jdbc-11.2.0.jre17.jar` |
 | MS SQL Server 2019 | `mssql-jdbc-9.2.1.jre11.jar` |
 | Oracle 19c | `Ojdbc11.jar` – 19.3 |
-| PostgreSQL 15.x | `Postgresql-42.6.0.jar` |
-| PostgreSQL 14.x | `Postgresql-42.3.2.jar` |
+| PostgreSQL 16.x | `Postgresql-42.7.5.jar` |
+| PostgreSQL 15.x | `Postgresql-42.7.5.jar` |
+| PostgreSQL 14.x | `Postgresql-42.7.5.jar` |
 | PostgreSQL 13.x | `Postgresql-42.3.2.jar` |
 | MariaDB 10.6 | `MariaDB Connector/J 2.7.2` |
 | Amazon Aurora | Use of Amazon Aurora is supported only if it is configured to emulate one of the supported versions of PostgreSQL or MySQL listed above, and the listed JDBC driver is used. |
