@@ -51,7 +51,26 @@ repo.event2.filter.users=System, null
 #
 # Topic name
 repo.event2.topic.endpoint=amqp:topic:alfresco.repo.event2
-```                                                 
+```       
+The following table describes the configuration properties for protecting users' sensitive data:
+
+>**Note**: The following properties for protecting users' sensitive data have been introduced in Content Services 7.4.2.5. Upgrade Content Services to version 7.4.2.5, to take advantage of these properties and for a more secure and reliable environment.
+
+| Property | Description |
+|----------|-------------|
+| `repo.event2.filter.nodeProperties` | Allows to specify properties that should be filtered out. Filtering always happens before mapping.<br><br>Default value: `` |
+| `repo.event2.mapper.enabled` | Allows to disable property mapping entirely.<br><br>Default value: `true` |
+| `repo.event2.mapper.overrideReplacementText` | Allows to change the text displayed in events instead of default: `SENSITIVE_DATA_REMOVED`.<br><br>**Note**: By default, the values of properties `usr:salt`, `usr:passwordHash`, `usr:password`, and `trx:password` are replaced with the `SENSITIVE_DATA_REMOVED` text.<br><br>Default value: ``
+| `repo.event2.mapper.overrideDefaultProperties` | Allows to override the default list of properties whose values are replaced, instead of using the default: `usr:salt`, `usr:passwordHash`, `usr:password`, and `trx:password`.<br><br>Default value: `` |
+
+The following table lists example configurations of these properties and their corresponding results:
+
+| Example Configuration | Result |
+|-----------------------|--------|
+| `-Drepo.event2.mapper.enabled=false` | No property mapping is performed. |
+| `-Drepo.event2.mapper.overrideDefaultProperties=usr:* -Drepo.event2.mapper.overrideReplacementText=HIDDEN_BY_SECURITY_MEASURES` | All the values of properties from user model are replaced with the `HIDDEN_BY_SECURITY_MEASURES` text.<br><br>The value of property `trx:password` is not replaced as the default configuration has been overriden to only map `usr:*`. |
+| `-Drepo.event2.filter.nodeProperties=usr:salt,usr:passwordHash,usr:password,trx:password` | The properties `usr:salt`, `usr:passwordHash`, `usr:password`, and `trx:password` are filtered out completely before any mapping occurs and are not present in ActiveMQ. |
+| `-Drepo.event2.filter.nodeProperties=trx:*` | The properties `trx:*` are filtered out.<br><br>The properties `usr:salt`, `usr:passwordHash`, and `usr:password` are mapped due to default configuration. |
 
 Any custom configuration, to for example the default event filtering, can be done in `alfresco-global.properties`.
 
