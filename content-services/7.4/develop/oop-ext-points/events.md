@@ -60,7 +60,7 @@ The following table describes the configuration properties for protecting users'
 |----------|-------------|
 | `repo.event2.filter.nodeProperties` | Allows to specify properties that should be filtered out. Filtering always happens before mapping.<br><br>Default value: `` |
 | `repo.event2.mapper.enabled` | Allows to disable property mapping entirely.<br><br>Default value: `true` |
-| `repo.event2.mapper.overrideReplacementText` | Allows to change the text displayed in events instead of default: `SENSITIVE_DATA_REMOVED`.<br><br> >**Note**: By default, the values of properties `usr:salt`, `usr:passwordHash`, `usr:password`, and `trx:password` are replaced with the `SENSITIVE_DATA_REMOVED` text.<br><br>Default value: ``
+| `repo.event2.mapper.overrideReplacementText` | Allows to change the text displayed in events instead of default: `SENSITIVE_DATA_REMOVED`.<br><br>**Note**: By default, the values of properties `usr:salt`, `usr:passwordHash`, `usr:password`, and `trx:password` are replaced with the `SENSITIVE_DATA_REMOVED` text.<br><br>Default value: ``
 | `repo.event2.mapper.overrideDefaultProperties` | Allows to override the default list of properties whose values are replaced, instead of using the default: `usr:salt`, `usr:passwordHash`, `usr:password`, and `trx:password`.<br><br>Default value: `` |
 
 The following table lists example configurations of these properties and their corresponding results:
