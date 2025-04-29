@@ -45,9 +45,11 @@ The following table shows the authentication subsystem types supplied and the op
 | external | Authentication using an external SSO mechanism | Yes | No |
 | identity-service | Authentication using the Identity Service | Yes | No |
 
+> **Important:** Single Sign On (SSO) can be used for Content Services and Alfresco Office Services. However, SSO is not fully implemented when mapping a PC network drive over WebDAV, that is to either `<alfresco_host>/alfresco/webdav` or `<alfresco_host>/alfresco/aos` endpoint. As a workaround, a PC user should log on to Content Services using SSO before mapping the drive; otherwise, the mapping request may fail. A user using the Identity Service as an authentication subsystem can also use basic authentication to log on via WebDAV, provided the `identity-service.enable-basic-auth property` is set to `true`.
+
 > **Important:** Support for Microsoft Office depends on the authentication mechanism provided by the `external` subsystem. See [External authentication and SSO](#extauthsso) for more information.
 
-> **Note:** If you're using a proxy (load balancer) with Kerberos authentication, either:
+If you're using a proxy (load balancer) with Kerberos authentication, either:
 
 * Use the `external` authentication subsystem and set up the proxy to implement `kerberos`
 * Set up the `kerberos` authentication subsystem and create the Service Principal Name (SPN) in Active Directory to include the proxy DNS name
