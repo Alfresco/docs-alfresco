@@ -22,6 +22,7 @@ Current possible app names: `{ analytics | kickstart }`
 |app.analytics.default.capabilities.group|`analytics-users`|
 |app.kickstart.default.enabled|`true`|
 |app.kickstart.default.capabilities.group|`kickstart-users`|
+|idm.user.groups.include.parents|When set to `true`, groups user and all the groups up in the hierarchy are considered as the user groups.<br/>When set to `false`, only groups user are considered as user groups.<br/>Default: `true`|
 
 The following setting, if set to `true`, will create a default example app with some simple review and approve 
 processes for every newly created user.
