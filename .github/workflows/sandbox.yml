@@ -4,8 +4,6 @@ on:
   push:
     branches-ignore:
       - master
-    paths-ignore:
-      - '.github/**'
 
 env:
   AWS_DEFAULT_REGION: us-east-1
@@ -17,7 +15,7 @@ env:
 jobs:
   Publish:
     
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     if: ${{ github.repository }} == 'Alfresco/docs-alfresco'
 
@@ -25,6 +23,12 @@ jobs:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0
+
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+      with:
+        # provide access to SSH user that triggered the build
+        limit-access-to-actor: true
 
     - name: AWS Assume Role
       uses: ./.github/actions/assume_role
