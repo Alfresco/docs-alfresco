@@ -20,7 +20,7 @@ To deploy Community Edition using Docker Compose, download and install [Docker](
 2. Deploy Community Edition, including the repository, Share, Postgres database, Search Services, etc.:
 
     ```bash
-    docker-compose -f community-docker-compose.yml up
+    docker-compose -f community-compose.yaml up
     ```
 
     This downloads the images, fetches all the dependencies, creates each container, and then starts the system:
