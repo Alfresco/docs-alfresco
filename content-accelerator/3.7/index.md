@@ -6,7 +6,7 @@ Alfresco Content Accelerator (ACA) provides a **no-code**, **streamlined interfa
 
 ACA enables customers to view, search, and manage their content from a friendly and simple modern front-end interface.
 
-There are pre-configured “accelerators” on top of ACA that act as default configurations, or a starting point that the customer, or our services team can tweak to the customer’s unique needs through the no-code configurable administration interface.
+There are pre-configured “accelerators” on top of ACA that act as default configurations, or a starting point that the customer, or our services team can tweak to the customer’s unique needs through the no-code configurable administration interface. This is a new sentence I'm adding.
 
 These accelerators are:
 
