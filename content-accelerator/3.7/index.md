@@ -6,7 +6,7 @@ Alfresco Content Accelerator (ACA) provides a **no-code**, **streamlined interfa
 
 ACA enables customers to view, search, and manage their content from a friendly and simple modern front-end interface.
 
-There are pre-configured “accelerators” on top of ACA that act as default configurations, or a starting point that the customer, or our services team can tweak to the customer’s unique needs through the no-code configurable administration interface. This is a new sentence I'm adding.
+There are pre-configured “accelerators” on top of ACA that act as default configurations, or a starting point that the customer, or our services team can tweak to the customer’s unique needs through the no-code configurable administration interface. This is a new sentence I'm adding. And now I'm adding this sentence.
 
 These accelerators are:
 
@@ -148,3 +148,4 @@ Dashboards provide faster and easier access to employee information and visual r
 View all pending **Required Documents** in the employee folder. Fields highlighted with a red border need attention, i.e. employee documents that are yet to be uploaded.
 
 ![ACA HREFM Required Documents]({% link content-accelerator/images/hrefm-required-documents.png %})
+
