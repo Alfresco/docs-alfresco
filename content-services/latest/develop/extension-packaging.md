@@ -577,3 +577,4 @@ Working with JARs would have the following benefits for developers:
 * When controlling the project template we can also promote best practices for how to structure JAR Module extensions.
 * Customizations (JARs) can depend on other customizations (JARs)
 * Build is faster than with AMPs
+
