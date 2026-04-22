@@ -17,7 +17,7 @@ The following are the supported platforms for Alfresco Sync Service 3.8:
 | OpenJDK 17 (64-bit) | |
 | OpenJDK 11 (64-bit) | |
 | | |
-| **Message brokers** |
+| **Message brokers** | |
 | Apache ActiveMQ | |
 | Amazon MQ | |
 | | |
@@ -25,7 +25,7 @@ The following are the supported platforms for Alfresco Sync Service 3.8:
 | Windows Server | |
 | Linux | |
 | | |
-| **Databases** |
+| **Databases** | |
 | PostgreSQL | |
 | MySQL | |
 | Oracle | |
