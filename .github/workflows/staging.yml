@@ -22,7 +22,7 @@ jobs:
     if: ${{ github.repository }} == 'Alfresco/docs-alfresco'
 
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 0
 
